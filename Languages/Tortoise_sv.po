@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-10 08:03+0100\n"
+"PO-Revision-Date: 2006-05-15 09:39+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -764,7 +764,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>OBS:</b>\n"
 "Omlokalisera kommandot ska endast användas om URL:en till\n"
@@ -780,7 +782,9 @@ msgstr ""
 "\n"
 "Felaktig använding av Omlokalisera kommandot <b>korrumperar din arbetskopia!</b>\n"
 "Om du är osäker på om det är Omlokalisera du ska använda så är det förmodligen\n"
-"inte rätt och du borde konsultera <b>Hjälpen</b>."
+"inte rätt och du borde konsultera <b>Hjälpen</b>.\n"
+"\n"
+"Nu när du läst ovanstående och förhoppningsvis förstått det: vill du fortfarande omlokalisera?"
 
 # ID:145,
 # Hur översätter man bäst "shell extension"?
@@ -2385,11 +2389,15 @@ msgstr "Skaffa &lås..."
 # ID:89,
 #: ID:89
 msgid ""
-"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
-"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
-"Att hämta låset för filer som inte behöver lås förhindrar <b>inte</b> andra användare från att ändra dem i deras arbetskopior.\n"
-"För att aktivera strikt låsning applicera 'svn:needs-lock' egenskapen med värdet '*' på filer som behöver låsas. "
+"Att hämta ett lås för filer utan 'svn:needs-lock' egenskapen hindrar <b>inte</b> andra från att editera dem i sina arbetskopior.\n"
+"För att arbeta med strikt låsning lägg till 'svn:needs-lock' egenskapen till alla filer som behöver låsas innan editering, och arkivera dem.\n"
+"Filer med 'svn:needs-lock' egenskapen markeras som skrivskyddade i filsystemet, och man hämtar låset för att göra dem skrivbara.\n"
+"Användare måste uppdatera sina arbetskopior för att filerna ska bli skrivskyddade. "
 
 #: ID:119
 #, c-format
@@ -4582,6 +4590,16 @@ msgstr ""
 "Filen\n"
 "%s\n"
 "finns redan! Vill du skriva över den?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Mappen %s\n"
+"innehåller filer som inte är versionshanterade och/eller modifierade filer. Vill du ta bort den ändå? "
 
 #: ID:88
 #, c-format
