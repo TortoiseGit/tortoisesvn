@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-26 21:46+0100\n"
+"PO-Revision-Date: 2006-05-17 22:39+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -188,9 +188,8 @@ msgid "&About TortoiseMerge..."
 msgstr "&Over TortoiseMerge..."
 
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Toevoegen..."
 
@@ -318,8 +317,8 @@ msgstr "Wijzig&en"
 msgid "&Edit conflicts"
 msgstr "&Bewerk conflicten"
 
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Wijzigen..."
 
@@ -430,6 +429,10 @@ msgstr "&Taal:"
 msgid "&List View"
 msgstr "&Lijstweergave"
 
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Laden..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Markeer als opgelost"
@@ -504,7 +507,6 @@ msgstr "&Recente boodschappen"
 msgid "&Redo"
 msgstr "&Opnieuw"
 
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -540,9 +542,9 @@ msgstr "Schema &Opslaan als..."
 msgid "&Save authentication"
 msgstr "Authenticatie &opslaan"
 
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Instellen"
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Opslaan..."
 
 #: ID:9
 msgid "&Settings"
@@ -659,6 +661,11 @@ msgstr "&Spaties en lege regels"
 msgid "&Working copy"
 msgstr "&Werkkopie"
 
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(binaire waarde)"
+
 #: ID:219
 msgid "(dry run)"
 msgstr "(proefrun)"
@@ -725,7 +732,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>LET OP:</b>\n"
 "Het Verhuis-commando wordt alleen gebruikt als de URL van het\n"
@@ -742,7 +751,9 @@ msgstr ""
 "\n"
 "Het onjuist gebruiken van het Verhuis-commando <b>zal uw werkkopie corrupt maken!</b>\n"
 "Als u niet zeker weet of het Verhuis-commando correct is, dan is het dat waarschijnlijk\n"
-"niet en dient u eerst de <b>Help</b>-informatie te raadplegen."
+"niet en dient u eerst de <b>Help</b>-informatie te raadplegen.\n"
+"\n"
+"Wilt u nog steeds deze Verhuis-opdracht uitvoeren?"
 
 #: ID:145
 msgid ""
@@ -870,6 +881,10 @@ msgstr "Voeg '%s' toe aan woordenboek"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Toevoegen (ter vervanging)..."
+
+#: ID:563
+msgid "Add Properties"
+msgstr "Eigenschappen toevoegen"
 
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1493,8 +1508,8 @@ msgid "Compare &HEAD revisions"
 msgstr "Vergelijk &HEAD revisies"
 
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Vergelijk en &verklaar met werkkopie"
+msgid "Compare and &blame with working BASE"
+msgstr "Vergelijk en &verklaar met werkkopie (BASE)"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -1969,7 +1984,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Wijzigen"
 
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Eigenschappen wijzigen"
@@ -2268,6 +2283,18 @@ msgstr "Patchfile maken..."
 msgid "Get loc&k..."
 msgstr "Plaats &blokkade..."
 
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Een blokkade plaatsen op een bestand zonder de 'svn:needs-lock' eigenschap voorkomt <b>niet</b> dat anderen\n"
+" het bestand wijzigen in hun werkkopieën. Om exclusief te werken met bestanden moet u de 'svn:needs-lock' eigenschap\n"
+"op deze bestanden plaatsen en dat vastleggen.Dergelijke bestanden worden gemarkeerd als 'alleen lezen' en het plaatsen van een blokkade maakt ze beschrijfbaar.\n"
+"Andere gebruikers moeten hun werkkopie verversen voordat de bestanden bij hen 'alleen lezen' worden."
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2345,6 +2372,14 @@ msgstr "&Verberg ongerelateerde wijzigingspaden"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Help"
+
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Toon/Verberg de lijst met patch-bestanden\n"
+"Toont of verbergt de lijst met patch-bestanden"
 
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3259,8 +3294,8 @@ msgid "Progress"
 msgstr "Voortgang"
 
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Eigenschappen"
 
@@ -3269,6 +3304,7 @@ msgid "Properties for"
 msgstr "Eigenschappen voor"
 
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Eigenschappen..."
 
@@ -3978,6 +4014,10 @@ msgstr "Toon &overlays alleen in verkenner"
 msgid "Show &unversioned files"
 msgstr "Toon bestanden &zonder versiebeheer"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Toon lijst met bestanden"
+
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Toon verschillen als &unified diff"
@@ -4079,6 +4119,10 @@ msgstr "Ontbrekend doel overgeslagen"
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "Sorteer onderdelen numeriek"
+
+#: ID:101
+msgid "Sort numerical"
+msgstr "Sorteer numeriek"
 
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -4338,6 +4382,16 @@ msgstr ""
 "Bestand\n"
 "%s\n"
 "bestaat al! Wilt u het overschrijven?"
+
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"De map %s\n"
+"bevat gewijzigde bestanden en/of bestanden die niet onder versiebeheer vallen.\n"
+"Wilt u de map toch verwijderen?"
 
 #: ID:88
 #, c-format
@@ -5427,10 +5481,6 @@ msgstr "pixels"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "mogelijk of echt conflict / geblokkeerd"
-
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "re&cursief"
 
 #: ID:195
 msgid "readonly"
