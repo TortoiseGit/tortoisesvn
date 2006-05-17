@@ -111,9 +111,8 @@ bool CPicture::Load(stdstring sFilePathName)
 	}
 	if (bResult == false)
 	{
-		TCHAR gdifindbuf[MAX_PATH];
-		_tcscpy_s(gdifindbuf, MAX_PATH, _T("gdiplus.dll"));
-		if (PathFindOnPath(gdifindbuf, NULL))
+		HMODULE hLib = LoadLibrary(_T("gdiplus.dll"));
+		if (hLib)
 		{
 			// we have gdiplus, so try loading the picture with that one
 			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
@@ -128,6 +127,7 @@ bool CPicture::Load(stdstring sFilePathName)
 			}
 			else
 				pBitmap = NULL;
+			FreeLibrary(hLib);
 		}
 		else
 		{
