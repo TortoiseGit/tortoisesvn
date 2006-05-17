@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-05 08:30+0100\n"
-"Last-Translator: Olivier Booklage <obooklage@free.fr>\n"
+"PO-Revision-Date: 2006-05-17 09:42+0100\n"
+"Last-Translator: Olivier Sannier <obones att altern dot org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,7 +98,7 @@ msgid ""
 "Please verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"Ne peut pas trouver ce fichier.\n"
+"Impossible de trouver ce fichier.\n"
 "Veuillez vérifier que le chemin correct et le nom du fichier sont spécifiés."
 
 # ID:357,
@@ -424,9 +424,8 @@ msgstr "&Ignorer %d éléments"
 
 # Control-ID:1067,
 #: Control-ID:1021
-#, fuzzy
 msgid "&Ignore whitespace changes"
-msgstr "Ignorer les &changements de casse"
+msgstr "&Ignorer les changements d'espaces"
 
 #: ID:9
 msgid "&Import..."
@@ -446,9 +445,8 @@ msgid "&List View"
 msgstr "Vue en &liste"
 
 #: Control-ID:1309
-#, fuzzy
 msgid "&Load..."
-msgstr "&Ajouter..."
+msgstr "&Charger..."
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -563,9 +561,8 @@ msgid "&Save authentication"
 msgstr "&Enregistrer l'authentification"
 
 #: Control-ID:1308
-#, fuzzy
 msgid "&Save..."
-msgstr "Enregistrer sous..."
+msgstr "&Enregistrer..."
 
 #: ID:9
 msgid "&Settings"
@@ -772,7 +769,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>ATTENTION :</b>\n"
 "La commande Relocaliser est seulement utilisée si l'URL de la \n"
@@ -780,16 +779,16 @@ msgstr ""
 "de protocole (ex. http:// vers https://) ou un changement du chemin de la racine du \n"
 "référentiel dans la configuration du serveur.\n"
 "<b>Cette opération est utilisée très peu fréquemment</b>et ne s'applique ni si vous\n"
-"voulez déplacer vers un autre référentiel Subversion ni si vous voulez déplacer\n"
+"voulez vous déplacer vers un autre référentiel Subversion ni si vous voulez déplacer\n"
 "vers une autre branche ou répertoire <b>à l'intérieur du même référentiel.</b>\n"
-"Pour déplacer vers un autre référentiel Subversion, effectuez une extraction propre depuis\n"
+"Pour vous déplacer vers un autre référentiel Subversion, effectuez une extraction propre depuis\n"
 "le nouvel emplacement du référentiel.\n"
 "Pour associer votre copie de travail avec une autre branche ou un autre répertoire\n"
 "à l'intérieur du même référentiel, utilisez la commande Déplacer du menu principal\n"
 "\n"
 "Une utilisation inadéquate de la commande Relocaliser <b>va corrompre votre copie de travail !</b>\n"
 "Si vous n'êtes pas sûr que Relocaliser soit l'opération correcte, c'est probablement\n"
-"que ca ne l'est pas et que vous devriez consulter <b>l'Aide</b>."
+"que ca ne l'est pas et que vous devriez consulter <b>l'Aide</b>.Mainteant que vous avez lu et, espérons-le, compris les avertissements ci-dessus, voulez vous toujours Relocaliser ?"
 
 # ID:145,
 #: ID:145
@@ -924,9 +923,8 @@ msgid "Add (as replacement)..."
 msgstr "Ajouter (en remplacement)..."
 
 #: ID:563
-#, fuzzy
 msgid "Add Properties"
-msgstr "Propriétés"
+msgstr "Ajouter les propriétés"
 
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1583,8 +1581,8 @@ msgid "Compare &HEAD revisions"
 msgstr "Comparer les révisions &HEAD"
 
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Comparer et &condamner avec la copie de travail"
+msgid "Compare and &blame with working BASE"
+msgstr "Comparer et &condamner avec la copie de travail BASE"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -1599,9 +1597,8 @@ msgid "Compares the file with the last committed revision to show you the change
 msgstr "Compare le fichier avec la dernière version mise à jour pour afficher les changements que vous avez fait"
 
 #: ID:17
-#, fuzzy
 msgid "Compares the selected file with a file in the repository"
-msgstr "Ajouter le(s) fichier(s) sélectionné(s) ou le filtre de fichier à la liste des 'ignorés'"
+msgstr "Compare le fichier sélectionné avec un fichier dans le référentiel"
 
 #: ID:120
 #, c-format
@@ -2385,6 +2382,18 @@ msgstr "Generation fichier patch..."
 msgid "Get loc&k..."
 msgstr "Obtenir un v&errou..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Obtenir un verrou pour des fichiers sans la propriété 'svn:needs-lock' <b>n'empêchera pas</b> d'autres personnes de les modifier dans leur copie de travail.\n"
+"Pour activer un verrouillage strict, ajoutez la propriété 'svn:needs-lock' à tous les fichiers nécessitant un verrouillage, et livrez ces fichiers.\n"
+"Chaque fichier aura l'attribut lecture seule sur le système de fichiers et l'obtention du verrour autorisera l'écriture.Notez que les autres utilisateurs devront mettre à jour leurs copies de travail avant de voir les fichiers en lecture seule."
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2466,6 +2475,13 @@ msgstr "Cacher les chem&ins changés sans relation"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Aide"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr "Afficher/Cacher la liste des fichiers patchAffiche ou cache la liste des fichiers patch"
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -3403,9 +3419,8 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Veuillez patienter pendant l'initialisation du navigateur de référentiel..."
 
 #: ID:319
-#, fuzzy
 msgid "Please wait while we get the differences..."
-msgstr "Attente de l'annulation..."
+msgstr "Veuillez patienter pendant la récupération des différences..."
 
 #: ID:119
 #: ID:211
@@ -3685,7 +3700,6 @@ msgid "Repository Browser"
 msgstr "Navigateur de référentiel"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Repository browser"
 msgstr "Navigateur de référentiel"
 
@@ -3780,9 +3794,9 @@ msgid "Revision %ld"
 msgstr "Révision %ld"
 
 #: ID:120
-#, fuzzy, c-format
+#, c-format
 msgid "Revision %s"
-msgstr "Révision %d"
+msgstr "Révision %s"
 
 #: ID:15
 msgid "Revision &graph"
@@ -4179,6 +4193,10 @@ msgstr "V&oir le recouvrement seulement dans l'explorateur"
 msgid "Show &unversioned files"
 msgstr "Voir les fichiers non &versionnés"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Afficher la liste des fichiers"
+
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Voir les différences en mode diff &unifié"
@@ -4286,6 +4304,11 @@ msgstr "Evité, cible absente "
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "Trier les éléments de manière numérique"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
+msgstr "Trier de manière numérique"
 
 # ID:196,
 #: ID:196
@@ -4458,9 +4481,8 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Déplacer la copie de travail sur une nouvelle branche / étiquette"
 
 #: ID:325
-#, fuzzy
 msgid "Switches the comparison left<->right"
-msgstr "Changer Gauche<->Droite"
+msgstr "Change la comparaison Gauche<->Droite"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4558,6 +4580,14 @@ msgstr ""
 "Le fichier\n"
 "%s\n"
 "existe déjà ! Voulez-vous l'écraser ?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr "Le répertoire %scontient des fichiers non versionnés et/ou modifiés. Voulez-vous le supprimer malgré tout ?"
 
 #: ID:88
 #, c-format
@@ -5123,9 +5153,9 @@ msgid "Updates the working copy to the current revision"
 msgstr "Met à jour la copie de travail dans le référentiel"
 
 #: ID:226
-#, fuzzy, c-format
+#, c-format
 msgid "Updating %s"
-msgstr "Copie de %s"
+msgstr "Mise à jour de %s"
 
 # ID:283,
 #: ID:283
@@ -5274,9 +5304,8 @@ msgid "Whitespace diff"
 msgstr "Différence d'espacements"
 
 #: ID:146
-#, fuzzy
 msgid "With URL:"
-msgstr "URL :"
+msgstr "Avec l'URL :"
 
 #: Dlg-ID:158
 msgid "Working Copy"
