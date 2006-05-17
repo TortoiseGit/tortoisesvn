@@ -410,7 +410,31 @@ stdstring SVNProperties::GetLastErrorMsg()
 			if (ErrPtr->message)
 			{
 				msg += _T("\n");
-				msg += UTF8ToString(ErrPtr->message);
+				if (ErrPtr->message)
+					msg += UTF8ToString(ErrPtr->message);
+				else
+				{
+					/* Is this a Subversion-specific error code? */
+					if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+						&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+						msg += UTF8ToString(svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)));
+					/* Otherwise, this must be an APR error code. */
+					else
+					{
+						svn_error_t *temp_err = NULL;
+						const char * err_string = NULL;
+						temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)-1), ErrPtr->pool);
+						if (temp_err)
+						{
+							svn_error_clear (temp_err);
+							msg += _T("Can't recode error string from APR");
+						}
+						else
+						{
+							msg += UTF8ToString(err_string);
+						}
+					}
+				}
 			}
 		} 
 		return msg;
