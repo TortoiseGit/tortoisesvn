@@ -219,8 +219,8 @@ CString MyGraphSeries::GetTipText(int nGroup) const
 	CString sTip;
 
 	sTip.Format(_T("%d (%d%%)"), m_dwaValues.GetAt(nGroup), 
-		(int) (100.0 * (double) m_dwaValues.GetAt(nGroup) / 
-		(double) GetDataTotal()));
+		GetDataTotal() ? (int) (100.0 * (double) m_dwaValues.GetAt(nGroup) / 
+		(double) GetDataTotal()) : 0);
 
 	return sTip;
 }
