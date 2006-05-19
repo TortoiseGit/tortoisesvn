@@ -61,18 +61,22 @@ bool CMainWindow::RegisterAndCreateWindow()
 
 void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 {
+	RECT tbRect;
 	if (clientrect == NULL)
 		return;
+	SendMessage(hwndTB, TB_AUTOSIZE, 0, 0);
+	GetWindowRect(hwndTB, &tbRect);
+	LONG tbHeight = tbRect.bottom-tbRect.top-1;
 	if (bOverlap)
 	{
-		SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT, SWP_SHOWWINDOW);
-		SetWindowPos(hTrackbar, NULL, clientrect->left, clientrect->top, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
+		SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT-tbHeight, SWP_SHOWWINDOW);
+		SetWindowPos(hTrackbar, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
 	}
 	else
 	{
 		RECT child;
 		child.left = clientrect->left;
-		child.top = clientrect->top;
+		child.top = clientrect->top+tbHeight;
 		child.right = nSplitterPos-(SPLITTER_BORDER/2);
 		child.bottom = clientrect->bottom;
 		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
@@ -101,6 +105,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			// create a slider control
 			hTrackbar = CreateTrackbar(*this, 0, 255);
 			ShowWindow(hTrackbar, SW_HIDE);
+			CreateToolbar();
 		}
 		break;
 	case WM_COMMAND:
@@ -160,11 +165,35 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 	case WM_MOUSEMOVE:
 		Splitter_OnMouseMove(hwnd, uMsg, wParam, lParam);
 		break;
+	case WM_NOTIFY:
+		{
+			LPNMHDR pNMHDR = (LPNMHDR)lParam;
+			if (pNMHDR->code == TTN_GETDISPINFO)
+			{
+				LPTOOLTIPTEXT lpttt; 
+
+				lpttt = (LPTOOLTIPTEXT) lParam; 
+				lpttt->hinst = hInstance; 
+
+				// Specify the resource identifier of the descriptive 
+				// text for the given button. 
+				TCHAR stringbuf[MAX_PATH] = {0};
+				MENUITEMINFO mii;
+				mii.cbSize = sizeof(MENUITEMINFO);
+				mii.fMask = MIIM_TYPE;
+				mii.dwTypeData = stringbuf;
+				mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
+				GetMenuItemInfo(GetMenu(*this), lpttt->hdr.idFrom, FALSE, &mii);
+				lpttt->lpszText = stringbuf;
+			}
+		}
+		break;
 	case WM_DESTROY:
 		bWindowClosed = TRUE;
 		PostQuitMessage(0);
 		break;
 	case WM_CLOSE:
+		ImageList_Destroy(hToolbarImgList);
 		::DestroyWindow(m_hwnd);
 		break;
 	default:
@@ -551,4 +580,87 @@ bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
 		return false;
 	}
 	return true;
+}
+
+bool CMainWindow::CreateToolbar()
+{
+	// Ensure that the common control DLL is loaded. 
+	INITCOMMONCONTROLSEX icex;
+	icex.dwSize = sizeof(INITCOMMONCONTROLSEX);
+	icex.dwICC  = ICC_BAR_CLASSES | ICC_WIN95_CLASSES;
+	InitCommonControlsEx(&icex);
+
+	hwndTB = CreateWindowEx(0, 
+							TOOLBARCLASSNAME, 
+							(LPCTSTR)NULL,
+							WS_CHILD | WS_BORDER | WS_VISIBLE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS, 
+							0, 0, 0, 0, 
+							*this,
+							(HMENU)IDC_TORTOISEIDIFF, 
+							hInstance, 
+							NULL);
+	if (hwndTB == INVALID_HANDLE_VALUE)
+		return false;
+
+	SendMessage(hwndTB, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
+
+	TBBUTTON tbb[6];
+	// create an imagelist containing the icons for the toolbar
+	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32, 5, 4);
+	if (hToolbarImgList == NULL)
+		return false;
+	int index = 0;
+	HICON hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_OVERLAP));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	tbb[index].iBitmap = 0; 
+	tbb[index].idCommand = 0; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_SEP; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_FITINWINDOW));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_FITIMAGESINWINDOW; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ORIGSIZE));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_ORININALSIZE; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ZOOMIN));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_ZOOMIN; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ZOOMOUT));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_ZOOMOUT; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	SendMessage(hwndTB, TB_SETIMAGELIST, 0, (LPARAM)hToolbarImgList);
+	SendMessage(hwndTB, TB_ADDBUTTONS, (WPARAM)index, (LPARAM) (LPTBBUTTON) &tbb); 
+	SendMessage(hwndTB, TB_AUTOSIZE, 0, 0); 
+	ShowWindow(hwndTB, SW_SHOW); 
+	return true; 
+
 }

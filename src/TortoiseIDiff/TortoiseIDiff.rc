@@ -10,7 +10,9 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "windows.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
+#ifndef APSTUDIO_INVOKED
 #include "TortoiseIDiff.rc2"
+#endif
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -31,6 +33,11 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_TORTOISEIDIFF       ICON                    "TortoiseIDiff.ico"
+IDI_OVERLAP             ICON                    "overlap.ico"
+IDI_FITINWINDOW         ICON                    "fitinwindow.ico"
+IDI_ORIGSIZE            ICON                    "origsize.ico"
+IDI_ZOOMIN              ICON                    "zoomin.ico"
+IDI_ZOOMOUT             ICON                    "zoomout.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -173,7 +180,9 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""TortoiseIDiff.rc2""\0"
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""TortoiseIDiff.rc2""\r\n"
+    "#endif\0"
 END
 
 3 TEXTINCLUDE 

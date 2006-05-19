@@ -14,6 +14,11 @@
 #define IDR_MAINFRAME                   128
 #define IDD_OPEN                        130
 #define IDR_TORTOISEIDIFF               131
+#define IDI_OVERLAP                     134
+#define IDI_FITINWINDOW                 135
+#define IDI_ORIGSIZE                    136
+#define IDI_ZOOMIN                      137
+#define IDI_ZOOMOUT                     138
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001
 #define IDC_LEFTBROWSE                  1002
@@ -24,6 +29,8 @@
 #define ID_VIEW_ORININALSIZE            32779
 #define ID_VIEW_ZOOMOUT                 32783
 #define ID_VIEW_ZOOMIN                  32784
+#define ID_Menu                         32788
+#define ID_Menu32789                    32789
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -31,8 +38,8 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        132
-#define _APS_NEXT_COMMAND_VALUE         32788
+#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_COMMAND_VALUE         32790
 #define _APS_NEXT_CONTROL_VALUE         1004
 #define _APS_NEXT_SYMED_VALUE           110
 #endif

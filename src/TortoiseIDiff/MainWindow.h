@@ -19,6 +19,7 @@
 #pragma once
 #include "BaseWindow.h"
 #include "PicWindow.h"
+#include "commctrl.h"
 #include "TortoiseIDiff.h"
 
 #define SLIDER_HEIGHT 30
@@ -78,6 +79,11 @@ protected:
 	LRESULT				Splitter_OnLButtonDown(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 	LRESULT				Splitter_OnLButtonUp(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 	LRESULT				Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+
+	// toolbar
+	bool				CreateToolbar();
+	HWND				hwndTB;
+	HIMAGELIST			hToolbarImgList;
 
 	// command line params
 	static stdstring	leftpicpath;
