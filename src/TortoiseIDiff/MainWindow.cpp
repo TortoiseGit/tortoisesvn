@@ -613,7 +613,7 @@ bool CMainWindow::CreateToolbar()
 
 	TBBUTTON tbb[6];
 	// create an imagelist containing the icons for the toolbar
-	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32, 5, 4);
+	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 5, 4);
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
