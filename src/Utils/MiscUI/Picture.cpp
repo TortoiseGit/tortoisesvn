@@ -67,73 +67,69 @@ bool CPicture::Load(stdstring sFilePathName)
 	if (m_IPicture != NULL) 
 		FreePictureData(); // Important - Avoid Leaks...
 
-	HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
-	if (hFile != INVALID_HANDLE_VALUE)
+	HMODULE hLib = LoadLibrary(_T("gdiplus.dll"));
+	if (hLib)
 	{
-		BY_HANDLE_FILE_INFORMATION fileinfo;
-		if (GetFileInformationByHandle(hFile, &fileinfo))
-		{
-			BYTE * buffer = new BYTE[fileinfo.nFileSizeLow];
-			DWORD readbytes;
-			if (ReadFile(hFile, buffer, fileinfo.nFileSizeLow, &readbytes, NULL))
+		// we have gdiplus, so try loading the picture with that one
+		if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
+		{   
 			{
-				if (LoadPictureData(buffer, readbytes))
-				{
-					TCHAR buf[100];
-					_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
-					m_FileSize = stdstring(buf);
-					bResult = true;
-				}
+				pBitmap = new Bitmap(sFilePathName.c_str(), FALSE);
+				m_Height = pBitmap->GetHeight();
+				m_Width = pBitmap->GetWidth();
+				bResult = true;
 			}
-			delete buffer;
-		}
-		CloseHandle(hFile);
-	}
-	else
-		return bResult;
-
-	m_Name = sFilePathName;
-	m_Weight = nSize; // Update Picture Size Info...
-
-	if(m_IPicture != NULL) // Do Not Try To Read From Memory That Does Not Exist...
-	{ 
-		m_IPicture->get_Height(&m_Height);
-		m_IPicture->get_Width(&m_Width);
-		// Calculate Its Size On a "Standard" (96 DPI) Device Context
-		m_Height = MulDiv(m_Height, 96, HIMETRIC_INCH);
-		m_Width  = MulDiv(m_Width,  96, HIMETRIC_INCH);
-	}
-	else // Picture Data Is Not a Known Picture Type
-	{
-		m_Height = 0;
-		m_Width = 0;
-		bResult = false;
-	}
-	if (bResult == false)
-	{
-		HMODULE hLib = LoadLibrary(_T("gdiplus.dll"));
-		if (hLib)
-		{
-			// we have gdiplus, so try loading the picture with that one
-			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
-			{   
-				{
-					pBitmap = new Bitmap(sFilePathName.c_str(), FALSE);
-					m_Height = pBitmap->GetHeight();
-					m_Width = pBitmap->GetWidth();
-					bResult = true;
-				}
-				bHaveGDIPlus = true;
-			}
-			else
-				pBitmap = NULL;
-			FreeLibrary(hLib);
+			bHaveGDIPlus = true;
 		}
 		else
-		{
 			pBitmap = NULL;
+		FreeLibrary(hLib);
+	}
+	else
+	{
+		pBitmap = NULL;
+		HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
+		if (hFile != INVALID_HANDLE_VALUE)
+		{
+			BY_HANDLE_FILE_INFORMATION fileinfo;
+			if (GetFileInformationByHandle(hFile, &fileinfo))
+			{
+				BYTE * buffer = new BYTE[fileinfo.nFileSizeLow];
+				DWORD readbytes;
+				if (ReadFile(hFile, buffer, fileinfo.nFileSizeLow, &readbytes, NULL))
+				{
+					if (LoadPictureData(buffer, readbytes))
+					{
+						TCHAR buf[100];
+						_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
+						m_FileSize = stdstring(buf);
+						bResult = true;
+					}
+				}
+				delete buffer;
+			}
+			CloseHandle(hFile);
 		}
+		else
+			return bResult;
 
+		m_Name = sFilePathName;
+		m_Weight = nSize; // Update Picture Size Info...
+
+		if(m_IPicture != NULL) // Do Not Try To Read From Memory That Does Not Exist...
+		{ 
+			m_IPicture->get_Height(&m_Height);
+			m_IPicture->get_Width(&m_Width);
+			// Calculate Its Size On a "Standard" (96 DPI) Device Context
+			m_Height = MulDiv(m_Height, 96, HIMETRIC_INCH);
+			m_Width  = MulDiv(m_Width,  96, HIMETRIC_INCH);
+		}
+		else // Picture Data Is Not a Known Picture Type
+		{
+			m_Height = 0;
+			m_Width = 0;
+			bResult = false;
+		}
 	}
 
 	return(bResult);
@@ -272,4 +268,34 @@ bool CPicture::UpdateSizeOnDC(HDC hDC)
 	m_Width  = MulDiv(m_Width,  CurrentDPI_X, HIMETRIC_INCH);
 
 	return(true);
+}
+
+UINT CPicture::GetColorDepth()
+{
+	switch (GetPixelFormat())
+	{
+	case PixelFormat1bppIndexed:
+		return 1;
+	case PixelFormat4bppIndexed:
+		return 4;
+	case PixelFormat8bppIndexed:
+		return 8;
+	case PixelFormat16bppARGB1555:
+	case PixelFormat16bppGrayScale:
+	case PixelFormat16bppRGB555:
+	case PixelFormat16bppRGB565:
+		return 16;
+	case PixelFormat24bppRGB:
+		return 24;
+	case PixelFormat32bppARGB:
+	case PixelFormat32bppPARGB:
+	case PixelFormat32bppRGB:
+		return 32;
+	case PixelFormat48bppRGB:
+		return 48;
+	case PixelFormat64bppARGB:
+	case PixelFormat64bppPARGB:
+		return 64;
+	}
+	return 0;
 }

@@ -119,6 +119,37 @@ public:
 	 */
 	bool UpdateSizeOnDC(HDC hDC);
 
+	/**
+	 * Return the horizontal resolutions in dpi of the loaded picture.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	float GetHorizontalResolution() {return pBitmap ? pBitmap->GetHorizontalResolution() : 0.0f;}
+	/**
+	 * Return the vertical resolution in dpi of the loaded picture.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	float GetVerticalResolution() {return pBitmap ? pBitmap->GetVerticalResolution() : 0.0f;}
+	/**
+	 * Returns the picture heigth in pixels.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	UINT GetHeight() {return pBitmap ? pBitmap->GetHeight() : 0;}
+	/**
+	 * Returns the picture width in pixels.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	UINT GetWidth() {return pBitmap ? pBitmap->GetWidth() : 0;}
+	/**
+	 * Returns the pixel format of the loaded picture.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	PixelFormat GetPixelFormat() {return pBitmap ? pBitmap->GetPixelFormat() : 0;}
+	/**
+	 * Returns the color depth in bits.
+	 * \remark this only works if gdi+ is installed.
+	 */
+	UINT GetColorDepth();
+
 	CPicture();
 	virtual ~CPicture();
 
@@ -128,8 +159,9 @@ public:
 	IPicture* m_IPicture;	///< Same As LPPICTURE (typedef IPicture __RPC_FAR *LPPICTURE)
 
 	LONG		m_Height;	///< Height (in pixels)
-	LONG		m_Weight;	///< Size Of The Image Object In Bytes (File OR Resource)
 	LONG		m_Width;	///< Width (in pixels)
+	BYTE		m_ColorDepth;///< the color depth
+	LONG		m_Weight;	///< Size Of The Image Object In Bytes (File OR Resource)
 	stdstring	m_Name;		///< The FileName of the Picture as used in Load()
 	stdstring	m_FileSize;	///< The file size of the picture as a string (as used in Load())
 
