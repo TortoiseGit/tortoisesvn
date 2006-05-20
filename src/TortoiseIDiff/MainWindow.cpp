@@ -242,6 +242,13 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.SetSecondPic();
 			}
 
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
+
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
