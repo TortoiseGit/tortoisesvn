@@ -221,6 +221,25 @@ LRESULT CMainWindow::DoCommand(int id)
 			}
 		}
 		break;
+	case ID_VIEW_IMAGEINFO:
+		{
+			bShowInfo = !bShowInfo;
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= bShowInfo ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_IMAGEINFO, uCheck);
+
+			picWindow1.ShowInfo(bShowInfo);
+			picWindow2.ShowInfo(bShowInfo);
+
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bShowInfo ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_IMAGEINFO, (LPARAM)&tbi);
+		}
+		break;
 	case ID_VIEW_OVERLAPIMAGES:
 		{
 			bOverlap = !bOverlap;
@@ -611,9 +630,9 @@ bool CMainWindow::CreateToolbar()
 
 	SendMessage(hwndTB, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-	TBBUTTON tbb[6];
+	TBBUTTON tbb[8];
 	// create an imagelist containing the icons for the toolbar
-	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 5, 4);
+	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 6, 4);
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
@@ -660,6 +679,21 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_ZOOMOUT; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	tbb[index].iBitmap = 0; 
+	tbb[index].idCommand = 0; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_SEP; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_IMGINFO));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_IMAGEINFO; 
+	tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 

@@ -41,6 +41,7 @@ public:
 		, bDragMode(false)
 		, nSplitterPos(100)
 		, bOverlap(false)
+		, bShowInfo(true)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
 	};
@@ -95,6 +96,7 @@ protected:
 	// image data
 	CPicWindow		picWindow1;
 	CPicWindow		picWindow2;
+	bool			bShowInfo;
 
 	// splitter data
 	int				oldx;

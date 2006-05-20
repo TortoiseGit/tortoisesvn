@@ -39,6 +39,7 @@ public:
 		, picscale(1.0)
 		, pSecondPic(NULL)
 		, alpha(255)
+		, bShowInfo(true)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -73,6 +74,8 @@ public:
 	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
 
+	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
+
 protected:
 	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -87,6 +90,8 @@ protected:
 	/// Returns the client rectangle, without the scrollbars and the view title.
 	/// Basically the rectangle the image can use.
 	void				GetClientRect(RECT * pRect);
+	/// the WM_PAINT function
+	void				Paint(HWND hwnd);
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
@@ -98,6 +103,7 @@ protected:
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
 	BYTE				alpha;				///< the alpha value for the transparency of the second picture
+	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	// scrollbar info
 	int					nVScrollPos;
 	int					nHScrollPos;

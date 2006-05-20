@@ -38,6 +38,7 @@ IDI_FITINWINDOW         ICON                    "fitinwindow.ico"
 IDI_ORIGSIZE            ICON                    "origsize.ico"
 IDI_ZOOMIN              ICON                    "zoomin.ico"
 IDI_ZOOMOUT             ICON                    "zoomout.ico"
+IDI_IMGINFO             ICON                    "imginfo.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -68,10 +69,12 @@ BEGIN
     BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
-        MENUITEM "Or&iginal size",              ID_VIEW_ORININALSIZE
+        MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM SEPARATOR
-        MENUITEM "Zoom out",                    ID_VIEW_ZOOMOUT
-        MENUITEM "Zoom in",                     ID_VIEW_ZOOMIN
+        MENUITEM "Zoo&m out",                   ID_VIEW_ZOOMOUT
+        MENUITEM "Zoom i&n",                    ID_VIEW_ZOOMIN
+        MENUITEM SEPARATOR
+        MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO, CHECKED
     END
 END
 
@@ -130,10 +133,11 @@ BEGIN
     "F",            ID_VIEW_FITIMAGESINWINDOW, VIRTKEY, NOINVERT
     "S",            ID_VIEW_ORININALSIZE,   VIRTKEY, NOINVERT
     "O",            ID_VIEW_OVERLAPIMAGES,  VIRTKEY, NOINVERT
-    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
     "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
     VK_OEM_MINUS,   ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
+    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    "i",            ID_VIEW_IMAGEINFO,      ASCII,  NOINVERT
 END
 
 
@@ -148,6 +152,8 @@ BEGIN
     IDS_COMMANDLINEHELP     "TortoiseIDiff: the image diff viewer for TortoiseSVN\n\nAvailable command line parameters are:\n/left:""path to left picture""\n/lefttitle:""title to show for the left picture""\n/right:""path to right picture""\n/righttitle:""title to show for the right picture"""
     IDS_OPENIMAGEFILE       "Open image file..."
     IDS_INVALIDIMAGEINFO    "The image can not be shown."
+    IDS_IMAGEINFO           "Width:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit"
+    IDS_DUALIMAGEINFO       "%s:\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\n\n%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit"
     IDC_TORTOISEIDIFF       "TORTOISEIDIFF"
 END
 

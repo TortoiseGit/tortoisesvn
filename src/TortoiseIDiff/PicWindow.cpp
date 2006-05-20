@@ -63,107 +63,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 	case WM_ERASEBKGND:
 		break;
 	case WM_PAINT:
-		{
-			PAINTSTRUCT ps;
-			HDC hdc;
-			RECT rect;
-
-			::GetClientRect(*this, &rect);
-			hdc = BeginPaint(hwnd, &ps);
-			{
-				CMemDC memDC(hdc);
-				DrawViewTitle(memDC, &rect);
-
-				GetClientRect(&rect);
-				if (bFirstpaint)
-				{
-					// make the image fit into the window: adjust the scale factor and scroll
-					// positions
-					if (rect.right-rect.left)
-					{
-						if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
-						{
-							// image is smaller than the window
-							picscale = 1.0;
-						}
-						else
-						{
-							// image is bigger than the window
-							double xscale = double(rect.right-rect.left)/double(picture.m_Width);
-							double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
-							picscale = min(yscale, xscale);
-						}
-						SetupScrollBars();
-						bFirstpaint = false;
-					}
-				}
-				if (bValid)
-				{
-					RECT picrect;
-					picrect.left =  rect.left-nHScrollPos;
-					picrect.right = (picrect.left + LONG(double(picture.m_Width)*picscale));
-					picrect.top = rect.top-nVScrollPos;
-					picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
-
-					SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-					::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-
-					picture.Show(memDC, picrect);
-					if (pSecondPic)
-					{
-						CMemDC memDC2(hdc);
-
-						RECT picrect2;
-						picrect2.left =  rect.left-nHScrollPos;
-						picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale));
-						picrect2.top = rect.top-nVScrollPos;
-						picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale));
-
-						SetBkColor(memDC2, ::GetSysColor(COLOR_WINDOW));
-						::ExtTextOut(memDC2, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-
-						pSecondPic->Show(memDC2, picrect2);
-						BLENDFUNCTION blender;
-						blender.AlphaFormat = 0;
-						blender.BlendFlags = 0;
-						blender.BlendOp = AC_SRC_OVER;
-						blender.SourceConstantAlpha = alpha;
-						AlphaBlend(memDC, 
-									rect.left,
-									rect.top,
-									rect.right-rect.left,
-									rect.bottom-rect.top,
-									memDC2,
-									rect.left,
-									rect.top,
-									rect.right-rect.left,
-									rect.bottom-rect.top,
-									blender);
-					}
-				}
-				else
-				{
-					SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-					::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-					SIZE stringsize;
-					ResString str = ResString(hInstance, IDS_INVALIDIMAGEINFO);
-					if (GetTextExtentPoint32(memDC, str, _tcslen(str), &stringsize))
-					{
-						int nStringLength = stringsize.cx;
-
-						ExtTextOut(memDC, 
-							max(rect.left + ((rect.right-rect.left)-nStringLength)/2, 1),
-							rect.top + ((rect.bottom-rect.top) - stringsize.cy)/2,
-							ETO_CLIPPED,
-							&rect,
-							str,
-							_tcslen(str),
-							NULL);
-					}
-				}
-			}
-			EndPaint(hwnd, &ps);
-		}
+		Paint(hwnd);
 		break;
 	case WM_SIZE:
 		SetupScrollBars();
@@ -479,4 +379,155 @@ void CPicWindow::FitImageInWindow()
 		SetupScrollBars();
 	}
 	InvalidateRect(*this, NULL, TRUE);
+}
+
+void CPicWindow::Paint(HWND hwnd)
+{
+	PAINTSTRUCT ps;
+	HDC hdc;
+	RECT rect;
+
+	::GetClientRect(*this, &rect);
+	hdc = BeginPaint(hwnd, &ps);
+	{
+		CMemDC memDC(hdc);
+		DrawViewTitle(memDC, &rect);
+
+		GetClientRect(&rect);
+		if (bFirstpaint)
+		{
+			// make the image fit into the window: adjust the scale factor and scroll
+			// positions
+			if (rect.right-rect.left)
+			{
+				if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
+				{
+					// image is smaller than the window
+					picscale = 1.0;
+				}
+				else
+				{
+					// image is bigger than the window
+					double xscale = double(rect.right-rect.left)/double(picture.m_Width);
+					double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
+					picscale = min(yscale, xscale);
+				}
+				SetupScrollBars();
+				bFirstpaint = false;
+			}
+		}
+		if (bValid)
+		{
+			RECT picrect;
+			picrect.left =  rect.left-nHScrollPos;
+			picrect.right = (picrect.left + LONG(double(picture.m_Width)*picscale));
+			picrect.top = rect.top-nVScrollPos;
+			picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
+
+			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+			picture.Show(memDC, picrect);
+			if (pSecondPic)
+			{
+				CMemDC memDC2(hdc);
+
+				RECT picrect2;
+				picrect2.left =  rect.left-nHScrollPos;
+				picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale));
+				picrect2.top = rect.top-nVScrollPos;
+				picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale));
+
+				SetBkColor(memDC2, ::GetSysColor(COLOR_WINDOW));
+				::ExtTextOut(memDC2, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+				pSecondPic->Show(memDC2, picrect2);
+				BLENDFUNCTION blender;
+				blender.AlphaFormat = 0;
+				blender.BlendFlags = 0;
+				blender.BlendOp = AC_SRC_OVER;
+				blender.SourceConstantAlpha = alpha;
+				AlphaBlend(memDC, 
+					rect.left,
+					rect.top,
+					rect.right-rect.left,
+					rect.bottom-rect.top,
+					memDC2,
+					rect.left,
+					rect.top,
+					rect.right-rect.left,
+					rect.bottom-rect.top,
+					blender);
+			}
+			if (bShowInfo)
+			{
+				RECT inforect;
+				inforect.left = rect.left+4;
+				inforect.top = rect.top;
+				inforect.right = rect.right;
+				inforect.bottom = rect.bottom;
+
+				TCHAR infostring[4096];
+				if (pSecondPic)
+				{
+					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+						(TCHAR const *)ResString(hInstance, IDS_DUALIMAGEINFO),
+						pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
+						picture.GetWidth(), picture.GetHeight(),
+						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+						picture.GetColorDepth(),
+						pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
+						pSecondPic->GetWidth(), pSecondPic->GetHeight(),
+						pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
+						pSecondPic->GetColorDepth());
+				}
+				else
+				{
+					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+						(TCHAR const *)ResString(hInstance, IDS_IMAGEINFO),
+						picture.GetWidth(), picture.GetHeight(),
+						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+						picture.GetColorDepth());
+				}
+				// find out how big the rectangle for the text has to be
+				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
+
+				// the text should be drawn with a four pixel offset to the window borders
+				inforect.top = rect.bottom - (inforect.bottom-inforect.top) - 4;
+				inforect.bottom = rect.bottom-4;
+
+				// first draw an edge rectangle
+				RECT edgerect;
+				edgerect.left = inforect.left-4;
+				edgerect.top = inforect.top-4;
+				edgerect.right = inforect.right+4;
+				edgerect.bottom = inforect.bottom+4;
+				DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
+
+				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
+				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
+			}
+		}
+		else
+		{
+			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+			SIZE stringsize;
+			ResString str = ResString(hInstance, IDS_INVALIDIMAGEINFO);
+			if (GetTextExtentPoint32(memDC, str, _tcslen(str), &stringsize))
+			{
+				int nStringLength = stringsize.cx;
+
+				ExtTextOut(memDC, 
+					max(rect.left + ((rect.right-rect.left)-nStringLength)/2, 1),
+					rect.top + ((rect.bottom-rect.top) - stringsize.cy)/2,
+					ETO_CLIPPED,
+					&rect,
+					str,
+					_tcslen(str),
+					NULL);
+			}
+		}
+	}
+	EndPaint(hwnd, &ps);
 }
