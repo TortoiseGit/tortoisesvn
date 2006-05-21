@@ -1390,12 +1390,20 @@ msgstr ""
 msgid "Copy URL to clipboard"
 msgstr ""
 
+#: ID:209,
+msgid "Copy all information to clipboard"
+msgstr ""
+
 #: ID:101,
 msgid "Copy error message to clipboard"
 msgstr ""
 
 #: ID:76,
 msgid "Copy from path"
+msgstr ""
+
+#: ID:209,
+msgid "Copy paths to clipboard"
 msgstr ""
 
 #: ID:3603,
@@ -4361,7 +4369,7 @@ msgid "bugtraq:label\nLabel text to show for the edit box where the user enters 
 msgstr ""
 
 #: ID:15,
-msgid "bugtraq:logregex\ntwo regular expressions separated by a newline\nThe first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgid "bugtraq:logregex\ntwo regular expressions separated by a newline.\nThe first expression is used to find a string referring to an issue,\nthe second expression is used to extract the bare bug ID from that string."
 msgstr ""
 
 #: ID:14,
@@ -4481,7 +4489,7 @@ msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 
 #: ID:14,
-msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory.\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 
 #: ID:14,
@@ -4497,7 +4505,7 @@ msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\
 msgstr ""
 
 #: ID:14,
-msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
 msgstr ""
 
 #: ID:16,

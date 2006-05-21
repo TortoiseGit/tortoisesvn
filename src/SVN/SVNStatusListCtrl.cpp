@@ -76,6 +76,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 #define IDSVNLC_REMOVE			21
 #define IDSVNLC_COMMIT			22
 #define IDSVNLC_PROPERTIES		23
+#define IDSVNLC_COPY			24
+#define IDSVNLC_COPYEXT			25
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1821,6 +1823,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_PROPERTIES, temp);
 					}
+					popup.AppendMenu(MF_SEPARATOR);
+					temp.LoadString(IDS_STATUSLIST_CONTEXT_COPY);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPY, temp);
+					temp.LoadString(IDS_STATUSLIST_CONTEXT_COPYEXT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPYEXT, temp);
+
 				}
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -1830,6 +1838,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				bool bForce = false;
 				switch (cmd)
 				{
+				case IDSVNLC_COPY:
+					CopySelectedEntriesToClipboard(0);
+					break;
+				case IDSVNLC_COPYEXT:
+					CopySelectedEntriesToClipboard(m_dwColumns);
+					break;
 				case IDSVNLC_PROPERTIES:
 					{
 						CTSVNPathList targetList;
@@ -3449,8 +3463,283 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
+		case 'C':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// copy all selected paths to the clipboard
+					if (GetAsyncKeyState(VK_SHIFT)&0x8000)
+						CopySelectedEntriesToClipboard(SVNSLC_COLSTATUS|SVNSLC_COLURL);
+					else
+						CopySelectedEntriesToClipboard(0);
+					return TRUE;
+				}
+			}
+			break;
 		}
 	}
 
 	return CListCtrl::PreTranslateMessage(pMsg);
+}
+
+bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
+{
+	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
+	static HINSTANCE hResourceHandle(AfxGetResourceHandle());
+	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+
+	CString sClipboard;
+	CString temp;
+	TCHAR buf[100];
+	if (GetSelectedCount() == 0)
+		return false;
+	// first add the column titles as the first line
+	temp.LoadString(IDS_STATUSLIST_COLFILE);
+	sClipboard = temp;
+	if (dwCols & SVNSLC_COLEXT)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLEXT);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLSTATUS)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLSTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLTEXTSTATUS)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLTEXTSTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLREMOTESTATUS)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLREMOTESTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLPROPSTATUS)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLPROPSTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLREMOTETEXT)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLREMOTETEXTSTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLREMOTEPROP)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLREMOTEPROPSTATUS);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLURL)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLURL);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLLOCK)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLLOCK);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLLOCKCOMMENT)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLAUTHOR)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLAUTHOR);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLREVISION)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLREVISION);
+		sClipboard += _T("\t")+temp;
+	}
+	if (dwCols & SVNSLC_COLDATE)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLDATE);
+		sClipboard += _T("\t")+temp;
+	}
+	sClipboard += _T("\r\n");
+
+	POSITION pos = GetFirstSelectedItemPosition();
+	int index;
+	while ((index = GetNextSelectedItem(pos)) >= 0)
+	{
+		FileEntry * entry = GetListEntry(index);
+		sClipboard += entry->path.GetFileOrDirectoryName();
+		if (dwCols & SVNSLC_COLEXT)
+		{
+			sClipboard += _T("\t")+entry->path.GetFileExtension();
+		}
+		if (dwCols & SVNSLC_COLSTATUS)
+		{
+			if (entry->isNested)
+			{
+				temp.LoadString(IDS_STATUSLIST_NESTED);
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				if ((entry->copied)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (+)"));
+				if ((entry->switched)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (s)"));
+				if ((entry->status == entry->propstatus)&&
+					(entry->status != svn_wc_status_normal)&&
+					(entry->status != svn_wc_status_unversioned)&&
+					(!SVNStatus::IsImportant(entry->textstatus)))
+					_tcscat_s(buf, 100, ponly);
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLTEXTSTATUS)
+		{
+			if (entry->isNested)
+			{
+				temp.LoadString(IDS_STATUSLIST_NESTED);
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				if ((entry->copied)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (+)"));
+				if ((entry->switched)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (s)"));
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLREMOTESTATUS)
+		{
+			if (entry->isNested)
+			{
+				temp.LoadString(IDS_STATUSLIST_NESTED);
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				if ((entry->copied)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (+)"));
+				if ((entry->switched)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (s)"));
+				if ((entry->remotestatus == entry->remotepropstatus)&&
+					(entry->remotestatus != svn_wc_status_none)&&
+					(entry->remotestatus != svn_wc_status_normal)&&
+					(entry->remotestatus != svn_wc_status_unversioned)&&
+					(!SVNStatus::IsImportant(entry->remotetextstatus)))
+					_tcscat_s(buf, 100, ponly);
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLPROPSTATUS)
+		{
+			if (entry->isNested)
+			{
+				temp.Empty();
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				if ((entry->copied)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (+)"));
+				if ((entry->switched)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (s)"));
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLREMOTETEXT)
+		{
+			if (entry->isNested)
+			{
+				temp.Empty();
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLREMOTEPROP)
+		{
+			// SVNSLC_COLREMOTEPROP
+			if (entry->isNested)
+			{
+				temp.Empty();
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLURL)
+			sClipboard += _T("\t")+entry->url;
+		if (dwCols & SVNSLC_COLLOCK)
+		{
+			if (!m_HeadRev.IsHead())
+			{
+				// we have contacted the repository
+
+				// decision-matrix
+				// wc		repository		text
+				// ""		""				""
+				// ""		UID1			owner
+				// UID1		UID1			owner
+				// UID1		""				lock has been broken
+				// UID1		UID2			lock has been stolen
+				if (entry->lock_token.IsEmpty() || (entry->lock_token.Compare(entry->lock_remotetoken)==0))
+				{
+					if (entry->lock_owner.IsEmpty())
+						temp = entry->lock_remoteowner;
+					else
+						temp = entry->lock_owner;
+				}
+				else if (entry->lock_remotetoken.IsEmpty())
+				{
+					// broken lock
+					temp.LoadString(IDS_STATUSLIST_LOCKBROKEN);
+				}
+				else
+				{
+					// stolen lock
+					temp.Format(IDS_STATUSLIST_LOCKSTOLEN, entry->lock_remoteowner);
+				}			
+			}
+			else
+				temp = entry->lock_owner;
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLLOCKCOMMENT)
+			sClipboard += _T("\t")+entry->lock_comment;
+		if (dwCols & SVNSLC_COLAUTHOR)
+			sClipboard += _T("\t")+entry->last_commit_author;
+		if (dwCols & SVNSLC_COLREVISION)
+		{
+			temp.Format(_T("%ld"), entry->last_commit_rev);
+			if (entry->last_commit_rev == 0)
+				temp.Empty();
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLDATE)
+		{
+			TCHAR datebuf[SVN_DATE_BUFFER];
+			apr_time_t date = entry->last_commit_date;
+			SVN::formatDate(datebuf, date, true);
+			if (date)
+				temp = datebuf;
+			else
+				temp.Empty();
+			sClipboard += _T("\t")+temp;
+		}
+		sClipboard += _T("\r\n");
+	}
+
+	return CUtils::WriteAsciiStringToClipboard(CStringA(sClipboard));
 }

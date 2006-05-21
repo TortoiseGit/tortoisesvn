@@ -260,6 +260,13 @@ public:
 	void Show(DWORD dwShow, DWORD dwCheck = 0, bool bShowFolders = true);
 
 	/**
+	 * Copies the selected entries in the control to the clipboard. The entries
+	 * are separated by newlines.
+	 * \param dwCols the columns to copy. Each column is separated by a tab.
+	 */
+	bool CopySelectedEntriesToClipboard(DWORD dwCols);
+
+	/**
 	 * If during the call to GetStatus() some svn:externals are found from different
 	 * repositories than the first one checked, then this method returns TRUE.
 	 */
