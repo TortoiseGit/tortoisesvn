@@ -128,17 +128,17 @@
                     </listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term>Compare and Blame with Working Copy</term>
+                    <term>Compare and Blame with Working BASE</term>
                     <listitem>
                         <para>
                             Show the log for a single file, and in the top pane, select
                             a single revision, then select
                             <menuchoice>
                                 <guimenu>Context menu</guimenu>
-                                <guimenuitem>Compare and Blame with Working Copy</guimenuitem>
+                                <guimenuitem>Compare and Blame with Working BASE</guimenuitem>
                             </menuchoice>.
                             This will fetch the blame data for the selected revision,
-                            and for the file in the working copy, then use the diff
+                            and for the file in the working BASE, then use the diff
                             viewer to compare the two blame files.
                         </para>
                     </listitem>

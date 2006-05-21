@@ -318,10 +318,10 @@ Rev Comments
 			you may need to merge files which are perhaps related, but not in
 			your repository. For example you may have imported versions 1 and 2 of
 			a third party library into two separate directories. Although they
-			are logically related, subversion has no knowledge of this because
+			are logically related, Subversion has no knowledge of this because
 			it only sees the tarballs you imported. If you attempt to merge the
 			difference between these two trees you would see a complete removal
-			followed by a complete add. To make subversion use only path-based
+			followed by a complete add. To make Subversion use only path-based
 			differences rather than history-based differences, check the
 			<guilabel>Ignore ancestry</guilabel> box. Read more about this 
 			topic in the Subversion book,

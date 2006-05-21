@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-05-19 23:27GMT Daylight Time\n"
+"POT-Creation-Date: 2006-05-21 17:43Westeuropäische Sommerzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2662,7 +2662,7 @@ msgid "Compare the selected revision with your working copy. The default Diff-To
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4660(para) 
-msgid "Blame the selected revision, and the file in your working copy and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
+msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4667(para) 
@@ -2714,7 +2714,7 @@ msgid "Compare the two selected revisions using a visual difference tool. The de
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4769(para) 
-msgid "Blame the two revisions and compare the results using a a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
+msgid "Blame the two revisions and compare the results using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4776(para) 
@@ -2994,7 +2994,7 @@ msgid "Difference between WC file and a URL"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5186(para) 
-msgid "If you want to see the differences between a file in your working copy, and a file in any subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>."
+msgid "If you want to see the differences between a file in your working copy, and a file in any Subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5200(term) 
@@ -3354,11 +3354,11 @@ msgid "cleanup"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5765(para) 
-msgid "If a subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
+msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5776(para) 
-msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
+msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5787(title) 
@@ -3798,7 +3798,7 @@ msgid "Ignoring Ancestry"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6606(para) 
-msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
+msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6626(title) 
@@ -4094,11 +4094,11 @@ msgid "Select one revision in the top pane, then pick one file in the bottom pan
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7111(term) 
-msgid "Compare and Blame with Working Copy"
+msgid "Compare and Blame with Working BASE"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7113(para) 
-msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working Copy</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working copy, then use the diff viewer to compare the two blame files."
+msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7077(para) 
@@ -5118,7 +5118,7 @@ msgid "Authentication data"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8705(para) 
-msgid "When you authenticate with a subversion server, the username and password are cached locally so you don't have to keep entering them. You may want to clear this for security reasons, or because you want to access the repository under a different username ... does John know you are using his PC?"
+msgid "When you authenticate with a Subversion server, the username and password are cached locally so you don't have to keep entering them. You may want to clear this for security reasons, or because you want to access the repository under a different username ... does John know you are using his PC?"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8712(para) 
@@ -6036,7 +6036,7 @@ msgid "CLI"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10160(para) 
-msgid "Sometimes this manual refers you to the main Subversion documentation, which describes subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
+msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10169(para) 

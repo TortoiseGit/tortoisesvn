@@ -6,7 +6,7 @@
 		<primary>cleanup</primary>
 	</indexterm>
 	<para>
-		If a subversion command cannot complete successfully, perhaps
+		If a Subversion command cannot complete successfully, perhaps
 		due to server problems, your working copy can be left in an
 		inconsistent state. In that case you need to use
 		<menuchoice>
@@ -18,7 +18,7 @@
 	</para>
 	<para>
 		Cleanup has another useful side effect. If a file date changes
-		but its content doesn't, subversion cannot tell whether it has
+		but its content doesn't, Subversion cannot tell whether it has
 		really changed except by doing a byte-by-byte comparison with
 		the pristine copy. If you have a lot of files in this state it
 		makes acquiring status very slow, which will make many dialogs
