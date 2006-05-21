@@ -489,6 +489,9 @@ void CPicWindow::Paint(HWND hwnd)
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 						picture.GetColorDepth());
 				}
+				// set the font
+				HFONT hFont = CreateFont(-MulDiv(8, GetDeviceCaps(memDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
+				HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
 				// find out how big the rectangle for the text has to be
 				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
 
@@ -506,6 +509,8 @@ void CPicWindow::Paint(HWND hwnd)
 
 				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
 				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
+				SelectObject(memDC, (HGDIOBJ)hFontOld);
+				DeleteObject(hFont);
 			}
 		}
 		else
