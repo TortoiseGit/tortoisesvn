@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-03 00:38+0100\n"
+"PO-Revision-Date: 2006-05-21 18:06+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,9 +189,8 @@ msgid "&About TortoiseMerge..."
 msgstr "&Acerca de TortoiseMerge..."
 
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Añadir..."
 
@@ -326,8 +325,8 @@ msgstr "&Editar"
 msgid "&Edit conflicts"
 msgstr "&Editar conflictos"
 
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Editar..."
 
@@ -524,7 +523,6 @@ msgstr "&Mensajes recientes"
 msgid "&Redo"
 msgstr "&Rehacer"
 
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -533,6 +531,10 @@ msgstr "&Eliminar"
 #: ID:101
 msgid "&Rename"
 msgstr "&Renombrar"
+
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Navegador de repositorios"
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -563,10 +565,6 @@ msgstr "&Guardar autenticación"
 #: Control-ID:1308
 msgid "&Save..."
 msgstr "&Guardar..."
-
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Asignar"
 
 #: ID:9
 msgid "&Settings"
@@ -774,7 +772,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>ATENCIÓN:</b>\n"
 "El comando Relocalizar sólo se utiliza si la URL de la raíz\n"
@@ -793,8 +793,10 @@ msgstr ""
 "el menú principal\n"
 "\n"
 "Un uso inadecuado del comando Relocalizar <b>¡corromperá su copia de trabajo!</b>\n"
-"Si no está seguro de que Relocalizar sea la operación correcta, probablemente debería\n"
-"consultar la <b>Ayuda</b>."
+"Si no está seguro de que Relocalizar sea la operación correcta, probablemente no lo es,\n"
+"y debería consultar la <b>Ayuda</b>.\n"
+"\n"
+"Ahora que ha leído y esperemos que entendido lo anterior: ¿aún desea relocalizar?"
 
 # ID:145,
 #: ID:145
@@ -928,6 +930,10 @@ msgstr "Añadir '%s' al diccionario"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Añadir (como reemplazo)..."
+
+#: ID:563
+msgid "Add Properties"
+msgstr "Añadir Propiedades"
 
 # ID:110,
 #: ID:110
@@ -1598,8 +1604,8 @@ msgid "Compare &HEAD revisions"
 msgstr "Comparar revisiones &HEAD"
 
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Comparar y ver autoría con la copia de trabajo"
+msgid "Compare and &blame with working BASE"
+msgstr "Comparar y ver &autoría con la BASE de trabajo"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -1681,6 +1687,11 @@ msgid "Copy URL to clipboard"
 msgstr "Copiar URL al portapapeles"
 
 # ID:257,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Copiar toda la información al portapapeles"
+
+# ID:257,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Copiar mensaje de error al portapapeles"
@@ -1689,6 +1700,11 @@ msgstr "Copiar mensaje de error al portapapeles"
 #: ID:76
 msgid "Copy from path"
 msgstr "Copiar desde la ruta"
+
+# ID:257,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Copiar rutas al portapapeles"
 
 #: ID:3603
 msgid ""
@@ -2091,7 +2107,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Editar"
 
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Editar Propiedades"
@@ -2410,6 +2426,19 @@ msgstr "Generando archivo de parche..."
 msgid "Get loc&k..."
 msgstr "Obtener blo&queo..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Obtener un bloqueo para ficheros que no tienen la propiedad 'svn:needs-lock' <b>no</b> evitará que otros puedan editarlos en sus copias de trabajo.\n"
+"Para habilitar un bloqueo estricto, por favor añada la propiedad 'svn:needs-lock' a todos los ficheros que necesiten bloqueo, y confirme esos ficheros.\n"
+"Cada fichero tendrá la bandera de sólo lectura del sistema de ficheros, y al obtener un bloqueo se convertirán en ficheros modificables.\n"
+"Tenga en cuenta que los demás usuarios tendrán que actualizar sus copias de trabajo antes de que vean estos ficheros como de sólo lectura."
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2491,6 +2520,15 @@ msgstr "&Ocultar rutas cambiadas no relacionadas"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Ayuda"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Ocultar/Mostrar la lista de ficheros de parche\n"
+"Ocutla o muestra la lsita de ficheros de parche"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -3478,8 +3516,8 @@ msgid "Progress"
 msgstr "Progreso"
 
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Propiedades"
 
@@ -3488,6 +3526,7 @@ msgid "Properties for"
 msgstr "Propiedades de"
 
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Propiedades..."
 
@@ -3713,10 +3752,6 @@ msgstr "Nodo reemplazado"
 #: ID:74
 msgid "Replacing"
 msgstr "Reemplazando"
-
-#: ID:13
-msgid "Repo-browser"
-msgstr "Navegador de repositorios"
 
 #: Control-ID:65535
 #: Control-ID:1055
@@ -4220,6 +4255,10 @@ msgstr "M&ostrar iconos sobreimpresos sólo en el explorador"
 msgid "Show &unversioned files"
 msgstr "Mostrar archivos &no versionados"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Mostrar Lista de Ficheros"
+
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Mostrar diferencias como 'diff &unificado'"
@@ -4328,6 +4367,11 @@ msgstr "Saltado objetivo no encontrado"
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "Ordenar los ítems numéricamente"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
+msgstr "Ordenación numérica"
 
 # ID:196,
 #: ID:196
@@ -4599,6 +4643,16 @@ msgstr ""
 "¡El archivo\n"
 "%s\n"
 "ya existe! ¿Desea sobreescribirlo?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"La carpeta %s\n"
+"contiene ficheros no versionados y/o modificados. ¿Desea eliminarlos de todas formas?"
 
 #: ID:88
 #, c-format
@@ -5607,12 +5661,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"dos expresiones regulares separadas por una nueva línea\n"
-"La primera expresión se usa para encontrar una cadena que se refiera a una incidencia, la segunda expresión se usa para extraer únicamente el ID de esa cadena."
+"dos expresiones regulares separadas por una nueva línea.\n"
+"La primera expresión se usa para encontrar una cadena que se refiera a una incidencia,\n"
+"la segunda expresión se usa para extraer únicamente el ID de la incidencia de esa cadena."
 
 # ID:14,
 #: ID:14
@@ -5759,10 +5815,6 @@ msgstr "píxeles"
 msgid "possible or real conflict / obstructed"
 msgstr "conflicto posible o real / obstruído"
 
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "re&cursivo"
-
 # ID:195,
 #: ID:195
 msgid "readonly"
@@ -5785,10 +5837,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Si está presente, hacer el fichero ejecutable. Esta propiedad no puede aplicarse a un directorio. Un intento no-recursivo fallará, y uno recursivo aplicará la propiedad sólo a los archivos hijos del directorios."
+"Si está presente, hacer el fichero ejecutable. Esta propiedad no puede aplicarse a un directorio.\n"
+"Un intento no-recursivo fallará, y uno recursivo aplicará la propiedad sólo a los archivos hijos del directorio."
 
 # ID:14,
 #: ID:14
@@ -5835,10 +5889,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"El tipo MIME del archivo. Usado para determinar si se podrá fusionar el archivo. y cómo servirlo desde Apache. Un tipo MIME que comience por 'text/' (o la ausencia de tipo MIME) es tratado como texto. Cualquier otra cosa se trata como binario."
+"El tipo MIME del archivo. Usado para determinar si se podrá fusionar el archivo, y cómo servirlo desde Apache.\n"
+"Un tipo MIME que comience por 'text/' (o la ausencia de tipo MIME) se trata como texto.\n"
+"Cualquier otra cosa se trata como binario."
 
 # ID:16,
 #: ID:16
