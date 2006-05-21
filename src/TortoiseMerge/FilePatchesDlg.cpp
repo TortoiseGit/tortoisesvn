@@ -382,11 +382,6 @@ void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
 	CDialog::OnMoving(fwSide, pRect);
 }
 
-void CFilePatchesDlg::OnCancel()
-{
-	return;
-}
-
 void CFilePatchesDlg::OnOK()
 {
 	return;
