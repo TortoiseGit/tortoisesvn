@@ -1572,7 +1572,10 @@ BOOL CTortoiseProcApp::InitInstance()
 					bPossibleSwitch = false;
 				if (components1.nPort != components2.nPort)
 					bPossibleSwitch = false;
-				if ((!bPossibleSwitch)||(CMessageBox::Show((EXPLORERHWND), IDS_WARN_RELOCATEREALLY, IDS_APPNAME, MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2)==IDYES))
+				CString sWarning, sWarningTitle;
+				sWarning.Format(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+				sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
+				if ((!bPossibleSwitch)||(CMessageBox::Show((EXPLORERHWND), sWarning, sWarningTitle, MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2)==IDYES))
 				{
 					SVN s;
 

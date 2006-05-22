@@ -657,10 +657,6 @@ msgstr ""
 msgid ": working copy"
 msgstr ""
 
-#: ID:88,
-msgid "<b>ATTENTION:</b>\nThe Relocate command is only used if the URL of the\nrepository root has changed due to a server IP address change, protocol\nchange (e.g. http:// to https://) or a change of the repository root\npath in the server setup.\n<b>This is a very infrequently used operation</b> and applies neither if you\nwant to move to another Subversion repository nor if you want to switch\nto another branch or directory <b>within the same repository.</b>\nTo move to another Subversion repository, perform a clean checkout from\nthe new repository location.\nTo associate your working copy with another branch or another directory\nwithin the same repository, use the Switch command from the main menu\n\nAn inadequately used Relocate command <b>will corrupt your working copy!</b>\nIf you are unsure whether Relocate is the correct operation, it probably\nis not and you should consult <b>Help</b>.\n\nNow that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-
 #: ID:145,
 msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
 msgstr ""
@@ -2187,6 +2183,11 @@ msgstr ""
 msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
 msgstr ""
 
+#: ID:88,
+#, c-format
+msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom: %s\nTo: %s\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgstr ""
+
 #: Control-ID:1203,
 msgid "Keep &locks"
 msgstr ""
@@ -2910,6 +2911,10 @@ msgstr ""
 
 #: Dlg-ID:157,
 msgid "Relocate"
+msgstr ""
+
+#: ID:89,
+msgid "Relocate Warning"
 msgstr ""
 
 #: ID:80,

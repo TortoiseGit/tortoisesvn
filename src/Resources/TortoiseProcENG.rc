@@ -1728,7 +1728,7 @@ BEGIN
     IDS_WARN_FOLDERNOTEXIST "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
     IDS_WARN_SHAREFILEACCESS 
                             "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
-    IDS_WARN_RELOCATEREALLY "<b>ATTENTION:</b>\nThe Relocate command is only used if the URL of the\nrepository root has changed due to a server IP address change, protocol\nchange (e.g. http:// to https://) or a change of the repository root\npath in the server setup.\n<b>This is a very infrequently used operation</b> and applies neither if you\nwant to move to another Subversion repository nor if you want to switch\nto another branch or directory <b>within the same repository.</b>\nTo move to another Subversion repository, perform a clean checkout from\nthe new repository location.\nTo associate your working copy with another branch or another directory\nwithin the same repository, use the Switch command from the main menu\n\nAn inadequately used Relocate command <b>will corrupt your working copy!</b>\nIf you are unsure whether Relocate is the correct operation, it probably\nis not and you should consult <b>Help</b>.\n\nNow that you've read and hopefully understood the above: do you still want to relocate?"
+    IDS_WARN_RELOCATEREALLY "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom: %s\nTo: %s\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
     IDS_WARN_UPDATETOREV_WITHMODS 
                             "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
     IDS_WARN_FOLDERNOTEMPTY "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
@@ -2422,6 +2422,7 @@ STRINGTABLE
 BEGIN
     IDS_WARN_LOCKOUTDATED   "Locking failed because a newer version exists!\nDo you want to update and try again?"
     IDS_WARN_SVNNEEDSLOCK   "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
+    IDS_WARN_RELOCATEREALLYTITLE "Relocate Warning"
 END
 
 STRINGTABLE 
