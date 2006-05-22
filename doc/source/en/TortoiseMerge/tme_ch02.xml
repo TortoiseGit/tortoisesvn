@@ -132,6 +132,14 @@
 				resolve possible conflicts manually.
 			</para>
 			<para>
+                The patchfile window has a context menu which allows you to
+                preview the effect of the patch on the current file
+                (apply without saving), to apply and save the changes
+                for the selected file, or to apply and save changes to
+                <emphasis>all</emphasis> files in the list.
+                The double-click action is to preview.
+			</para>
+			<para>
 				Depending on whether TortoiseMerge can apply the patch directly
 				or by fetching an older version of the file first, it shows you
 				a two pane view (patch can be applied directly) or a three pane
@@ -234,6 +242,14 @@
 						does not know which one should go in the left pane as
 						the <quote>original/base</quote> version. If it gets
 						this wrong, you can change it to make viewing easier.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Show/Hide Patch List</guibutton>
+						When TortoiseMerge has a patch list, this button allows
+						you to hide it (so you can see both windows), or show it
+						(so you can review the file list).
 					</para>
 				</listitem>
 				<listitem>
