@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-17 09:42+0100\n"
-"Last-Translator: Olivier Sannier <obones att altern dot org>\n"
+"PO-Revision-Date: 2006-05-22 21:28+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -534,6 +534,10 @@ msgstr "&Effacer"
 msgid "&Rename"
 msgstr "&Renommer"
 
+#: ID:13
+msgid "&Repo-browser"
+msgstr "Navigateur de &référentiel"
+
 #: ID:113
 msgid "&Revert changes from this revision"
 msgstr "Annule&r les modifications de cette révision"
@@ -750,45 +754,6 @@ msgstr ": Base de travail"
 #: ID:151
 msgid ": working copy"
 msgstr ": Copie de travail"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>ATTENTION :</b>\n"
-"La commande Relocaliser est seulement utilisée si l'URL de la \n"
-"racine du référentiel a changé à cause d'un changement d'adresse IP du serveur, changement\n"
-"de protocole (ex. http:// vers https://) ou un changement du chemin de la racine du \n"
-"référentiel dans la configuration du serveur.\n"
-"<b>Cette opération est utilisée très peu fréquemment</b>et ne s'applique ni si vous\n"
-"voulez vous déplacer vers un autre référentiel Subversion ni si vous voulez déplacer\n"
-"vers une autre branche ou répertoire <b>à l'intérieur du même référentiel.</b>\n"
-"Pour vous déplacer vers un autre référentiel Subversion, effectuez une extraction propre depuis\n"
-"le nouvel emplacement du référentiel.\n"
-"Pour associer votre copie de travail avec une autre branche ou un autre répertoire\n"
-"à l'intérieur du même référentiel, utilisez la commande Déplacer du menu principal\n"
-"\n"
-"Une utilisation inadéquate de la commande Relocaliser <b>va corrompre votre copie de travail !</b>\n"
-"Si vous n'êtes pas sûr que Relocaliser soit l'opération correcte, c'est probablement\n"
-"que ca ne l'est pas et que vous devriez consulter <b>l'Aide</b>.Mainteant que vous avez lu et, espérons-le, compris les avertissements ci-dessus, voulez vous toujours Relocaliser ?"
 
 # ID:145,
 #: ID:145
@@ -1663,6 +1628,11 @@ msgid "Copy URL to clipboard"
 msgstr "Copier l'URL dans le presse-papier"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Copier toutes les informations dans le presse-papier"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Copier le message d'erreur dans le presse-papier"
@@ -1671,6 +1641,11 @@ msgstr "Copier le message d'erreur dans le presse-papier"
 #: ID:76
 msgid "Copy from path"
 msgstr "Copier depuis le chemin"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Copier les chemins dans le presse-papier"
 
 #: ID:3603
 msgid ""
@@ -2751,6 +2726,34 @@ msgstr ""
 "Par exemple, vous ne pouvez pas faire que MonFichier.txt devienne MONFICHIER.txt.\n"
 "Veuillez consulter la documentation pour une façon de contourner cette limitation."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Il semble que vous essayez de <b>relocaliser</b> votre copie de travail vers un chemin différent à l'intérieur du même référentiel.\n"
+"\n"
+"De : %s\n"
+"Vers : %s\n"
+"\n"
+"Une relocalisation n'est seulement nécessaire si le chemin <b>vers</b> le référentiel a changé.\n"
+"Le changement vers un chemin différent <b>à l'intérieur</b>d'un référentiel est effectué avec l'opération Aller sur...\n"
+"\n"
+"Une utilisation incorrecte de la relocalisation <b>corromptera votre copie de travail !</b>\n"
+"Si vous n'êtes pas sûr de savoir que faire, veuillez vous référer à notre documentation sur la <i>relocalisation</i>.\n"
+"Voulez-vous vraiment relocaliser ?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3597,6 +3600,10 @@ msgstr ""
 msgid "Relocate"
 msgstr "Relocaliser"
 
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Avertissement de relocalisation"
+
 #: ID:80
 msgid "Relocating..."
 msgstr "Relocalisation..."
@@ -3685,10 +3692,6 @@ msgstr "Noeud remplacé"
 #: ID:74
 msgid "Replacing"
 msgstr "Remplace"
-
-#: ID:13
-msgid "Repo-browser"
-msgstr "Navigateur de référentiel"
 
 #: Control-ID:65535
 #: Control-ID:1055
@@ -5585,12 +5588,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"deux expressions régulières séparées par une nouvelle ligne\n"
-"La première expression est utilisée pour trouver une chaîne se reférant à un problème, la seconde expression est utilisée pour extraire l'ID de bug brut de cette chaîne."
+"deux expressions régulières séparées par une nouvelle ligne.\n"
+"La première expression est utilisée pour trouver une chaîne se reférant à un problème,\n"
+"la seconde expression est utilisée pour extraire l'ID de bug brut de cette chaîne."
 
 # ID:14,
 #: ID:14
@@ -5754,10 +5759,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Si présent, rend le fichier exécutable. Cette propriété ne peut pas être affectée sur un répertoire. Un essai non récursif échouera, et un essai récursif va mettre la propriété seulement sur les fichiers enfants du répertoire."
+"Si présent, rend le fichier exécutable. Cette propriété ne peut pas être affectée sur un répertoire.\n"
+"Un essai non récursif échouera, et un essai récursif va mettre la propriété seulement sur les fichiers enfants du répertoire."
 
 #: ID:14
 msgid ""
@@ -5800,10 +5807,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Le type mime du fichier. Utilisé pour déterminer comment fusionner les fichiers, et comment le distribuer avec Apache. Un type mime commençant avec 'text/' (ou sans type) est traité comme texte. Les autres types sont traités en tant que binaire."
+"Le type mime du fichier. Utilisé pour déterminer comment fusionner les fichiers, et comment le distribuer avec Apache.\n"
+"Un type mime commençant avec 'text/' (ou sans type) est traité comme texte.\n"
+"Les autres types sont traités en tant que binaire."
 
 # ID:16,
 #: ID:16
@@ -5912,5 +5923,4 @@ msgstr "semaine"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "qui pointe vers le référentiel à l'URL :"
-
 
