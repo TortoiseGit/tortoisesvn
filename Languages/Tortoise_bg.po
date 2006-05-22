@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-09 10:24+0200\n"
+"PO-Revision-Date: 2006-05-22 19:49+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -671,6 +671,11 @@ msgstr "&Премахване"
 msgid "&Rename"
 msgstr "&Преименуване"
 
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Браузър на хранилища"
+
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -933,43 +938,6 @@ msgstr ": работна база"
 #: ID:151
 msgid ": working copy"
 msgstr ": работно копие"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
-msgstr ""
-"<b>ВНИМАНИЕ:</b>\n"
-"Командата \"Преместване\" се използва само ако URL на\n"
-"корена на хранилището е бил променен поради смяна на IP адреса на сървъра, смяна на\n"
-"протокола за достъп (например от http:// на https://) или смяна на пътя на корена на хранилището\n"
-"в настройките на сървъра.\n"
-"<b>Това е много рядко използвана операция</b> и не се прилага нито когато искате\n"
-"да преминете към друго хранилище, нито когато искате да превключите\n"
-"към друго разклонение или директория <b>в същото хранилище.</b>\n"
-"За да преминете към друго хранилище, започнете с чисто изписване от\n"
-"новото хранилище.\n"
-"За да асоциирате работното си копие с друго разклонение или друга директория\n"
-"в същото хранилище, използвайте командата \"Превключване\" от главното меню.\n"
-"\n"
-"Неподходящото използване на командата \"Преместване\" <b>ще повреди работното Ви копие!</b>\n"
-"Ако не сте сигурни дали \"Преместване\" е правилната операция, тя най-вероятно\n"
-"не е и би трябвало да се консулитрате със <b>системната помощ</b>."
 
 # ID:145,
 #: ID:145
@@ -1913,8 +1881,8 @@ msgstr "Сравняване на &главните ревизии"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Сравняване и &показване на отговорните спрямо работното копие"
+msgid "Compare and &blame with working BASE"
+msgstr "Сравняване и &показване на отговорните спрямо работната база"
 
 # ID:76,
 #: ID:76
@@ -2011,6 +1979,11 @@ msgid "Copy URL to clipboard"
 msgstr "Копиране на URL в системния буфер"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Копиране на цялата информация в системния буфер"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Копиране на съобщението за грешка в системния буфер"
@@ -2019,6 +1992,11 @@ msgstr "Копиране на съобщението за грешка в сис
 #: ID:76
 msgid "Copy from path"
 msgstr "Копиране от път"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Копиране на пътищата в системния буфер"
 
 # ID:3603,
 #: ID:3603
@@ -2860,6 +2838,19 @@ msgstr "Създаване на файл с кръпка..."
 msgid "Get loc&k..."
 msgstr "&Заключване..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Заключването на файлове без установяване на свойството 'svn:needs-lock' <b>няма</b> да попречи на останалите да ги редактират в техните работни копия.\n"
+"За да усановите стриктно заключване, моля добавете свойството 'svn:needs-lock' на всички файлове, които изискват заключване, и поверете тези файлове.\n"
+"За всеки файл ще бъде установен системния флаг \"само за четене\" и само заключването му ще го направи редактируем.\n"
+"Зажележете, че останалите потребители ще трябва да обновят техните работни копия преди да видят файловете като белязани сани за четене."
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -3257,6 +3248,34 @@ msgstr ""
 "Невъзможно е да се преименува файл, като само се сменят някои букви от малки в главни или обратното.\n"
 "Например, не може да преименувате \"MyFile.txt\" в \"MYFILE.txt\".\n"
 "Моля, консултирайте се с документацията за начин да се заобиколи това ограничение."
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Изглежда, че се опитвате да <b>преместите</b> работното си копие на различен път в същото хранилище.\n"
+"\n"
+"От: %s\n"
+"Към: %s\n"
+"\n"
+"Преместване е нужно, само ако пътят <b>към</b> хранилището е променен.\n"
+"Промяна към различен път <b>в</b> същото хранилището се извършва чрез операцията \"превключване\".\n"
+"\n"
+"Неправилно използване на операцията \"преместване\" <b>може да повреди работното Ви копие!</b>\n"
+"Ако не сте сигурни какво Ви е нужно, моля прочетете нашата документация относно операцията <i>\"Преместване\"</i>.\n"
+"Наистина ли желаете да преместите?"
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -4271,6 +4290,11 @@ msgid "Relocate"
 msgstr "Преместване"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Предупреждение за преместване"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "Преместване..."
@@ -4376,11 +4400,6 @@ msgstr "Заменен възел"
 #: ID:74
 msgid "Replacing"
 msgstr "Замяна"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "Разглеждане на хранилища"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -5435,6 +5454,16 @@ msgstr ""
 "Файлът\n"
 "%s\n"
 "вече съществува! Желаете ли да го презапишете?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Папката %s\n"
+"съдържа неконтролирани и/или променени файлове. Желаете ли въпреки това да ги премахнете?"
 
 # ID:88,
 #: ID:88
@@ -6559,12 +6588,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "два регулярни израза, разделени с нов ред\n"
-"Първият израз се използва за намиране на низ, в който който се споменава за проблема, а вторият - за извличане на номера на проблема от този низ."
+"Първият израз се използва за намиране на низ, в който който се споменава за проблема,\n"
+"а вторият - за извличане на номера на проблема от този низ."
 
 # ID:14,
 #: ID:14
@@ -6752,10 +6783,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Ако е налично, прави файла изпълним. Това свойство не може да се приложи върху директория. Опит за нерекурсивно прилагане ще пропадне, опит за рекурсивно прилагане ще установи това свойство само на децата на директорията."
+"Ако е налично, прави файла изпълним. Това свойство не може да се приложи върху директория.\n"
+"Опит за нерекурсивно прилагане ще се провали, опит за рекурсивно прилагане ще установи това свойство само на децата на директорията."
 
 # ID:14,
 #: ID:14
@@ -6802,10 +6835,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"MIME типът на файл. По него се преценява приложимостта на автоматичното сливане за файла, а също и как да се покаже от Apache. Ако MIME типът започва с 'text/' (или при липсващ MIME тип), файлът се третира като текстов. Всичко друго се третира като двоична информация."
+"MIME типът на файл. Използва се за приложимост на автоматичното сливане за файла, а също и как да се покаже от Apache.\n"
+"Ако MIME типът започва с 'text/' (или при липсващ MIME тип), файлът се третира като текстов.\n"
+"Всичко друго се третира като двоична информация."
 
 # ID:16,
 #: ID:16
