@@ -177,8 +177,11 @@
 				<term>bugtraq:logregex</term>
 				<listitem>
 					<para>
-						This property contains one or two regular expressions, separated
-						by a newline.
+						<emphasis>
+							This property activates the Bugtracking System
+							in <literal>Regex</literal> mode.
+						</emphasis>
+						It contains one or two regular expressions, separated by a newline.
 					</para>
 					<para>
 						If only one expression is set, then the bare bug ID's must be matched
@@ -209,6 +212,10 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</para>
+	<para>
+        If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal>
+        properties are set, <literal>logregex</literal> takes precedence.
 	</para>
 	<tip>
 		<para>
