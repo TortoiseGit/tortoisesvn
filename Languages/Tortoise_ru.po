@@ -8,7 +8,7 @@
 # Shura Zam <tonal@promsoft.ru>
 # Dimitry Ivanov [dimitry@dimitry.ru]
 # Dimitry Mardiyan <dimitry.mardiyan@gmail.com>
-# Stanislav Petrakov <stannic@yandex.ru>
+# Stanislav Petrakov <stannic@gmail.com>
 #
 # blame -- авторство (было: авторы файла)
 # branch -- ответвление
@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6502: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6552: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-15 10:36+0300\n"
+"PO-Revision-Date: 2006-05-22 11:04+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -538,6 +538,10 @@ msgstr "&Удалить"
 #: ID:101
 msgid "&Rename"
 msgstr "&Переименовать"
+
+#: ID:13
+msgid "&Repo-browser"
+msgstr "Обозреватель &хранилища"
 
 # "с этой" или "начиная с этой"?
 #: ID:113
@@ -1624,6 +1628,10 @@ msgstr "Копирование (Ответвление / Метка)"
 msgid "Copy URL to clipboard"
 msgstr "Скопировать URL в буфер обмена"
 
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Скопировать всю информацию в буфер обмена"
+
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Скопировать сообщение об ошибке в буфер обмена"
@@ -1631,6 +1639,10 @@ msgstr "Скопировать сообщение об ошибке в буфе�
 #: ID:76
 msgid "Copy from path"
 msgstr "Копия из пути"
+
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Скопировать пути в буфер обмена"
 
 #: ID:3603
 msgid ""
@@ -3585,10 +3597,6 @@ msgstr "Заменённый узел"
 msgid "Replacing"
 msgstr "Замена"
 
-#: ID:13
-msgid "Repo-browser"
-msgstr "Обозреватель хранилища"
-
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
@@ -5418,12 +5426,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "Два регулярных выпажения, разделенных символом новой строки\n"
-"Первое выражение используется для поиска строки, ссылающейся на выпуск, второе выражение используется для извлечения только ID ошибки из этой строки."
+"Первое выражение используется для поиска строки, ссылающейся на выпуск,\n"
+"второе выражение используется для извлечения только ID ошибки из этой строки."
 
 #: ID:14
 #, c-format
@@ -5583,10 +5593,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"При наличии помечает файл как выполняемый. Это свойство не может быть установлено на папки. Нерекурсивная попытка закончится неудачей, а рекурсивная - установит свойство только на дочерние файлы."
+"При наличии помечает файл как выполняемый. Это свойство не может быть установлено на папки.\n"
+"Нерекурсивная попытка закончится неудачей, а рекурсивная - установит свойство только на дочерние файлы."
 
 #: ID:14
 msgid ""
@@ -5629,10 +5641,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Mime-тип файла. Используется для определения возможности слияния файла, и как его передавать из Apache. Файлы с mime-типом, начинающимся с 'text/', или с отсутствующим mime-типом, обрабатывается как текст. Всё остальное считается бинарным."
+"Mime-тип файла. Используется для определения, возможно ли слияние файла, и как его выдавать из Apache.\n"
+"Mime-тип, начинающийся с 'text/' (или файл с отсутствующим mime-типом) обрабатывается как текст.\n"
+"Все остальное считается бинарным."
 
 #: ID:16
 msgid ""
