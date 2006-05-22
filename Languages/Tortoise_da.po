@@ -7,7 +7,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6460
+# Based on Tortoise.pot r6552
 #
 msgid ""
 msgstr ""
@@ -520,6 +520,10 @@ msgstr "&Fjern"
 msgid "&Rename"
 msgstr "&Omdøb"
 
+#: ID:13,
+msgid "&Repo-browser"
+msgstr "&Versionsarkivsøger"
+
 #: ID:113,
 msgid "&Revert changes from this revision"
 msgstr "&Tilbagefør ændringer fra denne revision"
@@ -708,8 +712,8 @@ msgid ": working copy"
 msgstr ": arbejdskopi"
 
 #: ID:88,
-msgid "<b>ATTENTION:</b>\nThe Relocate command is only used if the URL of the\nrepository root has changed due to a server IP address change, protocol\nchange (e.g. http:// to https://) or a change of the repository root\npath in the server setup.\n<b>This is a very infrequently used operation</b> and applies neither if you\nwant to move to another Subversion repository nor if you want to switch\nto another branch or directory <b>within the same repository.</b>\nTo move to another Subversion repository, perform a clean checkout from\nthe new repository location.\nTo associate your working copy with another branch or another directory\nwithin the same repository, use the Switch command from the main menu\n\nAn inadequately used Relocate command <b>will corrupt your working copy!</b>\nIf you are unsure whether Relocate is the correct operation, it probably\nis not and you should consult <b>Help</b>."
-msgstr "<b>ADVARSEL:</b>\nKommandoen \"omlæg\" bruges kun, hvis versionsarkivets\nURL ændres som følge af ændring i serverens IP-adresse, ændring af protokol\n(fx http:// til https://) eller ændring af stien til versionsarkivets rod\ni serveropsætningen.\n<b>Funktionen benyttes kun meget sjældent</b> og er ikke relevant,\nhvis du enten vil flytte til et andet Subversion-versionsarkiv eller hvis du vil skifte\ntil en anden forgrening eller mappe <b>i det samme versionsarkiv.</b>\nFor at flytte et andet versionsarkiv skal du hente en ny arbejdskopi\nfra det nye versionsarkiv.\nFor at skifte din arbejdskopi til en anden forgrening eller en anden mappe\nfra samme versionsarkiv, skal du benytte kommandoen \"Skift\" fra hovedmenuen\n\nHvis du benytter \"Omlæg\" forkert <b>vil din arbejdskopi blive ødelagt!</b>\nHvis du er usikker på, om Omlæg er den korrekte ting at gøre, er det sikkert ikke,\nog du bør læse <b>Hjælp</b>."
+msgid "<b>ATTENTION:</b>\nThe Relocate command is only used if the URL of the\nrepository root has changed due to a server IP address change, protocol\nchange (e.g. http:// to https://) or a change of the repository root\npath in the server setup.\n<b>This is a very infrequently used operation</b> and applies neither if you\nwant to move to another Subversion repository nor if you want to switch\nto another branch or directory <b>within the same repository.</b>\nTo move to another Subversion repository, perform a clean checkout from\nthe new repository location.\nTo associate your working copy with another branch or another directory\nwithin the same repository, use the Switch command from the main menu\n\nAn inadequately used Relocate command <b>will corrupt your working copy!</b>\nIf you are unsure whether Relocate is the correct operation, it probably\nis not and you should consult <b>Help</b>.\n\nNow that you've read and hopefully understood the above: do you still want to relocate?"
+msgstr "<b>ADVARSEL:</b>\nKommandoen \"omlæg\" bruges kun, hvis versionsarkivets\nURL ændres som følge af ændring i serverens IP-adresse, ændring af protokol\n(fx http:// til https://) eller ændring af stien til versionsarkivets rod\ni serveropsætningen.\n<b>Funktionen benyttes kun meget sjældent</b> og er ikke relevant,\nhvis du enten vil flytte til et andet Subversion-versionsarkiv eller hvis du vil skifte\ntil en anden forgrening eller mappe <b>i det samme versionsarkiv.</b>\nFor at flytte et andet versionsarkiv skal du hente en ny arbejdskopi\nfra det nye versionsarkiv.\nFor at skifte din arbejdskopi til en anden forgrening eller en anden mappe\nfra samme versionsarkiv, skal du benytte kommandoen \"Skift\" fra hovedmenuen\n\nHvis du benytter \"Omlæg\" forkert <b>vil din arbejdskopi blive ødelagt!</b>\nHvis du er usikker på, om Omlæg er den korrekte ting at gøre, er det sikkert ikke,\nog du bør læse <b>Hjælp</b>.\n\nDa du nu har læst og forhåbentlig forstået det ovenstående, ønsker du stadig at omlægge?"
 
 #: ID:145,
 msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
@@ -1450,6 +1454,10 @@ msgstr "Kopier (forgrening/mærkat)"
 msgid "Copy URL to clipboard"
 msgstr "Kopier URL til udklipsholder"
 
+#: ID:209,
+msgid "Copy all information to clipboard"
+msgstr "Kopier al information til udklipsholder"
+
 #: ID:101,
 msgid "Copy error message to clipboard"
 msgstr "Kopier fejlbesked til udklipsholder"
@@ -1457,6 +1465,10 @@ msgstr "Kopier fejlbesked til udklipsholder"
 #: ID:76,
 msgid "Copy from path"
 msgstr "Kopi fra sti"
+
+#: ID:209,
+msgid "Copy paths to clipboard"
+msgstr "Kopier stier til udklipsholder"
 
 #: ID:3603,
 msgid "Copy the selection and put it on the Clipboard\nCopy"
@@ -2017,8 +2029,8 @@ msgid "Get loc&k..."
 msgstr "Ta&g lås..."
 
 #: ID:89,
-msgid "Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
-msgstr "Ved at tage en lås på filer, der ikke kræver låsning, forhindrer du <b>ikke</b> andre i at redigere dem i deres arbejdskopier.\nFor at gennemføre striks låsning, skal du sætte egenskaben 'svn:needs-lock' til '*' på alle filer, der kræver låsning."
+msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
+msgstr "Ved at tage en lås på filer uden egenskaben 'svn:needs-lock', forhindrer du <b>ikke</b> andre i at redigere dem i deres arbejdskopier.\nFor at gennemføre striks låsning, skal du sætte egenskaben 'svn:needs-lock' på alle filer, der kræver låsning og arkivere disse filer.\nHver fil vil blive skriveskyttet i filsystemet og ved at tage en lås, gøres de igen skrivbare.\nBemærk, at andre brugere skal opdatere deres arbejdskopier, før de vil se filerne som skrivebeskyttede."
 
 #: ID:119,
 #, c-format
@@ -3045,10 +3057,6 @@ msgstr "Erstattet knude"
 msgid "Replacing"
 msgstr "Erstatter"
 
-#: ID:13,
-msgid "Repo-browser"
-msgstr "Versionsarkivsøger"
-
 #: Control-ID:65535,#: Control-ID:1055,#: Control-ID:65535,
 msgid "Repository"
 msgstr "Versionsarkiv"
@@ -3782,6 +3790,11 @@ msgstr "Filen er for stor til at blive åbnet."
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
 msgstr "Filen\n%s\nfindes allerede. Vil du overskrive den?"
 
+#: ID:145,
+#, c-format
+msgid "The folder %s\ncontains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr "Mappen %s\nindeholder ikke-versionerede og/eller ændrede fil(er). Vil du fjerne den alligevel?"
+
 #: ID:88,
 #, c-format
 msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
@@ -4437,8 +4450,8 @@ msgid "bugtraq:label\nLabel text to show for the edit box where the user enters 
 msgstr "bugtraq:label\nMærkattekst der vises i redigeringsfeltet, hvor brugeren indtaster problemnummeret."
 
 #: ID:15,
-msgid "bugtraq:logregex\ntwo regular expressions separated by a newline\nThe first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
-msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linjeskift\nDet første udtryk benyttes til at finde en streng, der refererer til et problem, det andet udtryk benyttes til at udtrække fejl-ID'et fra denne streng."
+msgid "bugtraq:logregex\ntwo regular expressions separated by a newline.\nThe first expression is used to find a string referring to an issue,\nthe second expression is used to extract the bare bug ID from that string."
+msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linjeskift.\nDet første udtryk benyttes til at finde en streng, der refererer til et problem,\ndet andet udtryk benyttes til at udtrække fejl-ID'et fra denne streng."
 
 #: ID:14,
 #, c-format
@@ -4558,8 +4571,8 @@ msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr "svn:eol-style\nEn af følgende: \"native\", \"LF\", \"CR\", \"CRLF\"."
 
 #: ID:14,
-msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
-msgstr "svn:executable\nHvis denne er angivet, bliver filen eksekverbar. Denne egenskab kan ikke sættes på en mappe. Et ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på alle filerne i mappen."
+msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory.\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgstr "svn:executable\nHvis denne er angivet, bliver filen eksekverbar. Denne egenskab kan ikke sættes på en mappe.\nEt ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på alle filerne i mappen."
 
 #: ID:14,
 msgid "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
@@ -4574,8 +4587,8 @@ msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\
 msgstr "svn:keywords\nAngiv de nøgleord, som skal udfyldes. Følgende nøgleord er gyldige:\nURL, HeadURL\t\t\tURL'en for den nyeste revision af objektet.\nAuthor, LastChangedBy\t\tDen sidste person, som har ændret filen.\nDate, LastChangedDate\t\tDato/tidspunkt for hvornår sidste ændring fandt sted.\nRev, LastChangedRevision\tDen nyeste revision, hvor ændring fandt sted.\nId\t\t\t\tEn forkortelse for de 4 forrige nøgleord."
 
 #: ID:14,
-msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
-msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om filen skal flettes, og Apache benytter den til at sende filen korrekt. En mime-type, der begynder med \"text/\" (eller en manglende mime-type), opfattes som tekst. Alt andet opfattes som binært."
+msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
+msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om filen skal flettes, og Apache benytter den til at sende filen korrekt.\nEn mime-type, der begynder med \"text/\" (eller en manglende mime-type), opfattes som tekst.\nAlt andet opfattes som binært."
 
 #: ID:16,
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
