@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-15 09:21+0100\n"
+"PO-Revision-Date: 2006-05-22 09:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -512,6 +512,10 @@ msgstr "Ent&fernen"
 #: ID:101
 msgid "&Rename"
 msgstr "&Umbenennen"
+
+#: ID:13
+msgid "&Repo-browser"
+msgstr "P&rojektarchiv"
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -1611,6 +1615,10 @@ msgstr "Kopieren (Verzweigung / Markierung)"
 msgid "Copy URL to clipboard"
 msgstr "URL in Zwischenablage kopieren"
 
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Kopiere alle Informationen in die Zwischenablage"
+
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Fehlermeldung in die Zwischenablage kopieren"
@@ -1618,6 +1626,10 @@ msgstr "Fehlermeldung in die Zwischenablage kopieren"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopiert von"
+
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Kopiere Pfade in die Zwischenablage"
 
 #: ID:3603
 msgid ""
@@ -3586,10 +3598,6 @@ msgstr "Knoten ersetzt"
 msgid "Replacing"
 msgstr "Ersetze"
 
-#: ID:13
-msgid "Repo-browser"
-msgstr "&Projektarchiv"
-
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
@@ -5434,12 +5442,16 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "zwei durch eine Leerzeile getrennte reguläre Ausdrücke\n"
-"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich auf einen Bugtrackereintrag bezieht, zu identifizieren. Der zweite Ausdruck wird verwendet, um die Eintrags-ID aus der Zeichenkette zu extrahieren."
+"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich\n"
+"auf einen Bugtrackereintrag bezieht, zu identifizieren. Der\n"
+"zweite Ausdruck wird verwendet, um die Eintrags-ID aus der\n"
+"Zeichenkette zu extrahieren."
 
 #: ID:14
 #, c-format
@@ -5599,10 +5611,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Wenn vorhanden, mach die Datei ausführbar. Diese Eigenschaft kann keinem Ordner zugewiesen werden. Ein nicht-rekursiver Versuch wird fehlschlagen, und ein rekursives Setzen wird nur die Eigenschaften der Dateien direkt unterhalb verändern."
+"Wenn vorhanden, mache die Datei ausführbar. Diese Eigenschaft kann nicht auf Verzeichnisse gesetzt werden.\n"
+"Ein nicht-rekursiver Versuch wird fehlschlagen, und ein rekursives Setzen wird nur die Eigenschaften der Dateien direkt unterhalb des Ordners verändern."
 
 #: ID:14
 msgid ""
@@ -5645,10 +5659,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Der MIME-Typ der Datei. Wird verwendet, um festzustellen, ob die Datei zusammengeführt werden kann und wie sie von Apache übertragen werden soll. Ein leerer MIME-Typ ein mit 'text/' beginnender MIME-Typ werden als Text behandelt. Alles andere wird als Binärdatei behandelt."
+"Der MIME-Typ der Datei. Verwendet, um festzustellen, ob die Datei zusammengeführt werden kann und wie sie von Apache übertragen werden soll.\n"
+"Ein MIME-Typ, der mit 'text/' beginnt (oder kein MIME-Typ) werden als Text behandelt.\n"
+"Alles Andere wird als Binärdatei behandelt."
 
 #: ID:16
 msgid ""
