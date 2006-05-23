@@ -266,7 +266,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	switch (nSBCode)
 	{
 	case SB_BOTTOM:
-		nVScrollPos = picture.m_Height;
+		nVScrollPos = LONG(double(picture.GetHeight())*picscale);;
 		break;
 	case SB_TOP:
 		nVScrollPos = 0;
@@ -289,10 +289,10 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	default:
 		return;
 	}
-	LONG height = picture.m_Height;
+	LONG height = LONG(double(picture.GetHeight())*picscale);
 	if (pSecondPic)
 	{
-		height = max(height, pSecondPic->m_Height);
+		height = max(height, LONG(double(pSecondPic->GetHeight())*picscale));
 	}
 	if (nVScrollPos > (height-rect.bottom+rect.top))
 		nVScrollPos = height-rect.bottom+rect.top;
@@ -309,7 +309,7 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	switch (nSBCode)
 	{
 	case SB_RIGHT:
-		nHScrollPos = picture.m_Width;
+		nHScrollPos = LONG(double(picture.GetWidth())*picscale);
 		break;
 	case SB_LEFT:
 		nHScrollPos = 0;
@@ -332,10 +332,10 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	default:
 		return;
 	}
-	LONG width = picture.m_Width;
+	LONG width = LONG(double(picture.GetWidth())*picscale);
 	if (pSecondPic)
 	{
-		width = max(width, pSecondPic->m_Width);
+		width = max(width, LONG(double(pSecondPic->GetWidth())*picscale));
 	}
 	if (nHScrollPos > width-rect.right+rect.left)
 		nHScrollPos = width-rect.right+rect.left;
