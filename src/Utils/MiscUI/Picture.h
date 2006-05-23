@@ -150,6 +150,8 @@ public:
 	 */
 	UINT GetColorDepth();
 
+	void SetInterpolationMode(InterpolationMode ip) {m_ip = ip;} 
+
 	CPicture();
 	virtual ~CPicture();
 
@@ -170,5 +172,6 @@ private:
 	ULONG_PTR           gdiplusToken;
 	Bitmap *			pBitmap;
 	bool				bHaveGDIPlus;
+	InterpolationMode	m_ip;
 };
 

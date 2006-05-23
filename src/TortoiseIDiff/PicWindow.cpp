@@ -158,6 +158,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 void CPicWindow::SetPic(stdstring path, stdstring title)
 {
 	picpath=path;pictitle=title;
+	picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
 	bValid = picture.Load(picpath);
 	if (bValid)
 	{
