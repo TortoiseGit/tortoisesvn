@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-16 10:36+0800\n"
+"PO-Revision-Date: 2006-05-23 10:31+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -633,6 +633,11 @@ msgstr "移除(&R)"
 msgid "&Rename"
 msgstr "重新命名(&R)"
 
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "檔案庫瀏覽器(&R)"
+
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -895,46 +900,6 @@ msgstr ": 工作基礎版本"
 #: ID:151
 msgid ": working copy"
 msgstr " : 工作複本"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>特別注意:</b>\n"
-"重新定位的動作只用在檔案庫的最上層URL因為伺服器\n"
-"IP位址改變而隨著改變, 或是通訊協定改變的情況\n"
-" (例: http:// 改為 https://) 或是修改伺服器設定造成最上層路徑改變等情況.\n"
-"<b>這個功能非常少用</b> 而且不能用來「移動到」另一個\n"
-"Subversion 檔案庫, 也不能用來「切換」到<b>同一個檔案庫裡</b>\n"
-"別的分支或是目錄.\n"
-"要移動到另一個檔案庫, 請從新的檔案庫路徑做一次乾淨的取\n"
-"出動作.\n"
-"如果要把工作複本改指向同一個檔案庫的另一個分支或目錄,\n"
-"請使用選單裡的「切換」指令.\n"
-"\n"
-"錯誤地使用重新定位指令<b>會造成你的工作複本損毀!</b>\n"
-"如果你不確定是不是該進行重新定位, 那麼最好是不要,\n"
-"並建議您參考<b>說明文件</b>.\n"
-"\n"
-"在您仔細閱讀過以上內容並了解之後: 確定要進行重新定位嗎?"
 
 # ID:145,
 #: ID:145
@@ -1975,6 +1940,11 @@ msgid "Copy URL to clipboard"
 msgstr "複製URL至剪貼簿"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "複製所有訊息至剪貼簿"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "複製錯誤訊息至剪貼簿"
@@ -1983,6 +1953,11 @@ msgstr "複製錯誤訊息至剪貼簿"
 #: ID:76
 msgid "Copy from path"
 msgstr "從路徑複製"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "複製路徑至剪貼簿"
 
 # ID:3603,
 #: ID:3603
@@ -3235,6 +3210,34 @@ msgstr ""
 "例如, 不能把 MyFile.txt 改名為 MYFILE.txt.\n"
 "請查詢文件中關於此項限制的暫時解法."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"您正要進行的可能是在同一個檔案庫中不同路徑的<b>重新定位</b>動作.\n"
+"\n"
+"原始路徑:%s\n"
+"目的路徑:%s\n"
+"\n"
+"重新定位僅使用在檔案庫的<b>位置</b>發生改變時.\n"
+"在<b>同一個檔案庫內</b>的變更請使用切換功能.\n"
+"\n"
+"錯誤地使用重新定位功能會損壞您的<b>工作複本</b>\n"
+"如果您不確定該做什麼, 請參考線上文件中關於<i>重新定位</i>的部分.\n"
+"確定要進行重新定位嗎?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -4248,6 +4251,11 @@ msgid "Relocate"
 msgstr "重新定位"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "重新定位警告"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "正在重新定位..."
@@ -4353,11 +4361,6 @@ msgstr "被取代的節點"
 #: ID:74
 msgid "Replacing"
 msgstr "正在取代"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "檔案庫瀏覽器"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -6552,12 +6555,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "以換行分隔的兩組regular expression.\n"
-"第一組用於找出代表該問題的字串,第二組用於從該字串中取得bug編號."
+"第一組用於找出代表該問題的字串,\n"
+"第二組用於從該字串中取得bug編號."
 
 # ID:14,
 #: ID:14
@@ -6745,10 +6750,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"設定之後, 此檔案視為可執行. 這個性質不能設定在目錄上. 非遞迴的設定會失敗, 遞迴設定則會將此性質設定在此目錄的所有檔案上."
+"設定之後, 此檔案視為可執行. 這個性質不能設定在目錄上. \n"
+"非遞迴的設定會失敗, 遞迴設定則會將此性質設定在此目錄的所有檔案上."
 
 # ID:14,
 #: ID:14
@@ -6795,10 +6802,13 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"此檔案的 mime 類型. 用來決定檔案是否要合併, 以及由 Apache 傳送時要怎麼處理. 以 'text/' 開頭(或沒有設定)的 mime 類型視為文字. 其它則視為二進位檔."
+"此檔案的 mime 類型. 用來決定檔案是否要合併, 以及由 Apache 傳送時要怎麼處理.\n"
+" 以 'text/' 開頭(或沒有設定)的 mime 類型視為文字. 其它則視為二進位檔."
 
 # ID:16,
 #: ID:16
