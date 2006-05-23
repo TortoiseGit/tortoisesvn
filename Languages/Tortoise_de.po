@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-22 09:31+0100\n"
+"PO-Revision-Date: 2006-05-23 10:40+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -718,51 +718,6 @@ msgstr ": Basis"
 msgid ": working copy"
 msgstr ": Arbeitskopie"
 
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>ACHTUNG:</b>\n"
-"Der Umplatzieren Befehl wird nur verwendet, wenn sich die URL des\n"
-"Projektarchivs aus einem der folgenden Gründe geändert hat:\n"
-"1) Änderung der IP Adresse des Servers.\n"
-"2) Änderung im Zugriffsprotokoll (z.B. von http:// auf https://).\n"
-"3) Änderung der Projektarchivbasis in der Serverkonfiguration.\n"
-"<b>Dies ist eine sehr selten verwendete Aktion</b> und wird nicht\n"
-"angewendet, wenn Sie zu einem anderen Projektarchiv wechseln oder\n"
-"<b>innerhalb</b> ihres Projektarchivs zu einem anderen Zweig wechseln\n"
-"wollen.\n"
-"Um zu einem anderen Projektarchiv zu wechseln, checken Sie eine frische\n"
-"Arbeitskopie aus dem neuen Projektarchiv aus.\n"
-"Um Ihre Arbeitskopie an eine andere Stelle desselben Projektarchivs zu\n"
-"verlegen, verwenden Sie den \"Wechseln zu\" Befehl aus dem Kontextmenü.\n"
-"\n"
-"Ein falsch ausgeführtes Umplatzieren wird <b>Ihre Arbeitskopie ruinieren</b>!\n"
-"Wenn Sie sich nicht sicher ist, ob Umplatzieren die richtige Aktion\n"
-"ist, dann ist es wahrscheinlich nicht der Fall und sie sollten in der\n"
-"<b>Hilfe</b> nachschlagen.\n"
-"\n"
-"Nachdem Sie diese Meldung gelesen und hoffentlich auch verstanden haben :-)\n"
-"Wollen Sie wirklich umplatzieren?"
-
 #: ID:145
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -807,7 +762,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Symbole angezeigt werden.\n"
-"Wenn Sie ein \"*\" Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
+"Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -2474,7 +2429,7 @@ msgid ""
 msgstr ""
 "Deaktivieren Sie diese Option, damit das Kontextmenü schneller angezeigt wird.\n"
 "Es wird allerdings Einträge enthalten, die nicht sinnvoll anwendbar sind,\n"
-"zum Beispiel \"Zeige Log\" für einen gerade hinzugefügten Ordner."
+"zum Beispiel 'Zeige Log' für einen gerade hinzugefügten Ordner."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2490,7 +2445,7 @@ msgid ""
 msgstr ""
 "Aktivieren Sie diese Option, damit im Zusammenführen Dialog anstelle\n"
 "der zuletzt verwendeten URL die URL der Arbeitskopie als Vorgabe für\n"
-"die \"Von:\" URL eingestellt wird."
+"die 'Von:' URL eingestellt wird."
 
 # ID:195,
 #: ID:195
@@ -2500,7 +2455,7 @@ msgid ""
 msgstr ""
 "Aktivieren Sie diese Option, damit das Projektarchiv beim Start des Dialogs\n"
 "automatisch auf Änderungen geprüft wird.\n"
-"Sie müssen dann nicht mehr \"Projektarchiv prüfen\" wählen."
+"Sie müssen dann nicht mehr 'Projektarchiv prüfen' wählen."
 
 #: ID:195
 msgid ""
@@ -2535,7 +2490,7 @@ msgstr ""
 
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Sie können die Sperre im \"Auf Änderungen prüfen\" Dialog aufbrechen."
+msgstr "Sie können die Sperre im 'Auf Änderungen prüfen' Dialog aufbrechen."
 
 #: ID:73
 msgid "Ignore"
@@ -2694,9 +2649,38 @@ msgid ""
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
 "Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"\"Es ist mit Subversion unter Windows nicht gestattet beim Umbenennen nur die\n"
-"\"\"Groß-/Kleinschreibung zu ändern! Bitte lesen Sie unsere Dokumentation, wie\n"
-"\"\"sie diese Einschränkung umgehen können.\""
+"Es ist mit Subversion unter Windows nicht gestattet, beim Umbenennen nur die\n"
+"Groß-/Kleinschreibung (z.B. von datei.txt in DATEI.TXT) zu ändern!\n"
+"Bitte lesen Sie unsere Dokumentation, wie sie diese Einschränkung umgehen können."
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Es scheint, dass Sie Ihre Arbeitskopie innerhalb desselben Projektarchivs <b>umplatzieren</b> wollen.\n"
+"\n"
+"Von: %s\n"
+"Nach: %s\n"
+"\n"
+"Ein Umplatzieren ist nur erforderlich, wenn sich der <i>Pfad <b>zu</b> einem Projektarchiv</i> geändert hat.\n"
+"Wechseln zu einem anderen <i>Pfad <b>innerhalb</b> eines Projektarchivs</i> geschieht mit dem 'Wechseln zu' Befehl.\n"
+"\n"
+"Ein fehlerhaftes Umplatzieren <b>wird Ihre Arbeitskopie beschädigen!</b>\n"
+"Wenn Sie sich nicht sicher sind, was Sie tun wollen, lesen Sie zuerst unsere Dokumentation zum <i>Umplatzieren</i>.\n"
+"\n"
+"Wollen Sie wirklich umplatzieren?"
 
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3299,7 +3283,7 @@ msgstr "Bitte nicht mehr als %1 Zeichen eingeben."
 
 #: ID:251
 msgid "Please execute the \"Cleanup\" command."
-msgstr "Bitte führen Sie den \"Aufräumen\" Befehl aus."
+msgstr "Bitte führen Sie den 'Aufräumen' Befehl aus."
 
 #: ID:78
 msgid ""
@@ -3509,6 +3493,10 @@ msgstr ""
 msgid "Relocate"
 msgstr "Umplatzieren"
 
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Warnung: Umplatzieren"
+
 #: ID:80
 msgid "Relocating..."
 msgstr "Umplatzieren..."
@@ -3625,11 +3613,11 @@ msgstr "Konflikt lösen"
 
 #: ID:282
 msgid "Resolve conflict using \"mine\""
-msgstr "Löse Konflikt mit \"Eigener\" Datei"
+msgstr "Löse Konflikt mit 'Eigener' Datei"
 
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
-msgstr "Löse Konflikt mit \"Anderer\" Datei"
+msgstr "Löse Konflikt mit 'Anderer' Datei"
 
 #: ID:74
 #: ID:209
@@ -4011,7 +3999,7 @@ msgstr "&Server Adresse:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit &time\""
-msgstr "Dateidatum auf \"&Datum der letzten Übertragung\" setzen"
+msgstr "Dateidatum auf '&Datum der letzten Übertragung' setzen"
 
 #: ID:13
 msgid "Setting properties..."
@@ -4418,7 +4406,7 @@ msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschte
 #: ID:63
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "Die Start-Zeichen \"@@\" wurden in Zeile %d erwartet!"
+msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
 
 #: ID:68
 #, c-format
@@ -4493,14 +4481,14 @@ msgstr ""
 #: ID:63
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
-msgstr "Der Text \"====\" wurde in Zeile %d erwartet!"
+msgstr "Der Text '====' wurde in Zeile %d erwartet!"
 
 #: ID:63
 msgid ""
 "The line \"Index: \" was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
-"Die \"Index: \" Zeile wurde nicht gefunden!\n"
+"Die 'Index: ' Zeile wurde nicht gefunden!\n"
 "Entweder handelt es sich nicht un eine Standard-Diffdatei oder die Datei ist leer."
 
 #: ID:63
@@ -4903,7 +4891,7 @@ msgstr "Übertragung bei %s"
 
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Versuchen Sie ein \"Aufräumen\". Falls dies nicht hilft, müssen Sie von neuem Auschecken."
+msgstr "Versuchen Sie ein 'Aufräumen'. Falls dies nicht hilft, müssen Sie von neuem Auschecken."
 
 #: ID:73
 msgid "Try again"
@@ -5061,17 +5049,17 @@ msgstr ""
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Nutze die URL der &Arbeitskopie als \"Von:\" URL"
+msgstr "Nutze die URL der &Arbeitskopie als 'Von:' URL"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Verwende \"Von:\" URL (Der Revisionsbereich wird im oberen Log Dialog gewählt)"
+msgstr "Verwende 'Von:' URL (Der Revisionsbereich wird im oberen Log Dialog gewählt)"
 
 # Control-ID:1296,
 #: Control-ID:1296
 msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Verwende \"_svn\" anstatt \".svn\" Verzeichnissen"
+msgstr "Verwende '_svn' anstatt '.svn' Verzeichnissen"
 
 #: ID:251
 msgid "Use both text blocks (this one first)"
@@ -5087,19 +5075,19 @@ msgstr "Gelöschte Zeilen &durchstreichen"
 
 #: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "Verwende \"&Eigenen\" Textblock"
+msgstr "Verwende '&Eigenen' Textblock"
 
 #: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "Verwende \"&Anderen\" Textblock"
+msgstr "Verwende '&Anderen' Textblock"
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Verwende \"E&igenen\" Textblock vor \"Anderen\""
+msgstr "Verwende 'E&igenen' Textblock vor 'Anderen'"
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Verwende \"A&nderen\" Textblock vor \"Eigenen\""
+msgstr "Verwende 'A&nderen' Textblock vor 'Eigenen'"
 
 #: ID:251
 msgid "Use th&is text block"
@@ -5462,7 +5450,7 @@ msgid ""
 msgstr ""
 "bugtraq:message\n"
 "Zeichenkette, die an eine Logmeldung angefügt wird, wenn eine ID angegeben wird\n"
-"Die Zeichenkette muß \"%BUGID%\" enthalten, welches dann durch die eingegebene ID ersetzt wird."
+"Die Zeichenkette muß '%BUGID%' enthalten, welches dann durch die eingegebene ID ersetzt wird."
 
 #: ID:14
 msgid ""
@@ -5470,7 +5458,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Auf \"false\" setzen, falls Ihr Bugtracker die Einträge nicht über Nummern referenziert."
+"Auf 'false' setzen, falls Ihr Bugtracker die Einträge nicht über Nummern referenziert."
 
 #: ID:14
 #, c-format
@@ -5480,7 +5468,7 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"URL, die zum Bugtracker zeigt. Muß \"%BUGID%\" enthalten,\n"
+"URL, die zum Bugtracker zeigt. Muß '%BUGID%' enthalten,\n"
 "welches dann durch die eingegebene ID ersetzt wird."
 
 #: ID:145
