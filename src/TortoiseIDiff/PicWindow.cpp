@@ -505,6 +505,7 @@ void CPicWindow::Paint(HWND hwnd)
 				edgerect.top = inforect.top-4;
 				edgerect.right = inforect.right+4;
 				edgerect.bottom = inforect.bottom+4;
+				::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &edgerect, NULL, 0, NULL);
 				DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
 
 				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
