@@ -385,13 +385,12 @@ void CPicWindow::Paint(HWND hwnd)
 {
 	PAINTSTRUCT ps;
 	HDC hdc;
-	RECT rect;
+	RECT rect, fullrect;
 
-	::GetClientRect(*this, &rect);
+	::GetClientRect(*this, &fullrect);
 	hdc = BeginPaint(hwnd, &ps);
 	{
 		CMemDC memDC(hdc);
-		DrawViewTitle(memDC, &rect);
 
 		GetClientRect(&rect);
 		if (bFirstpaint)
@@ -533,6 +532,7 @@ void CPicWindow::Paint(HWND hwnd)
 					NULL);
 			}
 		}
+		DrawViewTitle(memDC, &fullrect);
 	}
 	EndPaint(hwnd, &ps);
 }
