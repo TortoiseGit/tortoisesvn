@@ -427,6 +427,15 @@ void CPicWindow::Paint(HWND hwnd)
 			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
 			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 
+			if ((rect.left < picrect.left)&&(rect.top < picrect.top)&&(rect.right > picrect.right)&&(rect.bottom > picrect.bottom))
+			{
+				RECT border;
+				border.left = picrect.left-1;
+				border.top = picrect.top-1;
+				border.right = picrect.right+1;
+				border.bottom = picrect.bottom+1;
+				FillRect(memDC, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+			}
 			picture.Show(memDC, picrect);
 			if (pSecondPic)
 			{
@@ -440,6 +449,16 @@ void CPicWindow::Paint(HWND hwnd)
 
 				SetBkColor(memDC2, ::GetSysColor(COLOR_WINDOW));
 				::ExtTextOut(memDC2, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+				if ((rect.left < picrect2.left)&&(rect.top < picrect2.top)&&(rect.right > picrect2.right)&&(rect.bottom > picrect2.bottom))
+				{
+					RECT border;
+					border.left = picrect2.left-1;
+					border.top = picrect2.top-1;
+					border.right = picrect2.right+1;
+					border.bottom = picrect2.bottom+1;
+					FillRect(memDC2, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+				}
 
 				pSecondPic->Show(memDC2, picrect2);
 				BLENDFUNCTION blender;
