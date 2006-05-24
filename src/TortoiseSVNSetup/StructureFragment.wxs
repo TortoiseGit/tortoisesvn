@@ -493,11 +493,11 @@
           <Directory Id="D__DiffScripts" Name="Diff" LongName="Diff-Scripts" >
 
             <Component Id="C__DiffScripts" Guid="$(var.GuidDiffScripts)" Win64="$(var.Win64YesNo)">
-              <File Id="F__diffdoc" Name="diff-doc.js" LongName="diff-doc.js" src="..\..\contrib\other\diff-scripts\diff-doc.js" DiskId="1" KeyPath="yes" />
+              <File Id="F__diffppt" Name="diff-ppt.js" LongName="diff-ppt.js" src="..\..\contrib\other\diff-scripts\diff-ppt.js" DiskId="1" KeyPath="yes" />
+              <File Id="F__diffdoc" Name="diff-doc.js" LongName="diff-doc.js" src="..\..\contrib\other\diff-scripts\diff-doc.js" DiskId="1" />
               <File Id="F__mergedoc" Name="mergedoc.js" LongName="merge-doc.js" src="..\..\contrib\other\diff-scripts\merge-doc.js" DiskId="1" />
               <File Id="F__diffsxw" Name="diff-sxw.vbs" LongName="diff-sxw.vbs" src="..\..\contrib\other\diff-scripts\diff-sxw.vbs" DiskId="1" />
               <File Id="F__mergesxw" Name="mergesxw.vbs" LongName="merge-sxw.vbs" src="..\..\contrib\other\diff-scripts\merge-sxw.vbs" DiskId="1" />
-              <File Id="F__diffppt" Name="diff-ppt.js" LongName="diff-ppt.js" src="..\..\contrib\other\diff-scripts\diff-ppt.js" DiskId="1" KeyPath="yes" />
             </Component>
 
           </Directory>
