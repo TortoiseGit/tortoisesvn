@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-15 09:39+0100\n"
+"PO-Revision-Date: 2006-05-23 09:40+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -534,6 +534,10 @@ msgstr "&Ta bort"
 msgid "&Rename"
 msgstr "&Byt namn"
 
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Arkivutforskaren"
+
 #: ID:113
 msgid "&Revert changes from this revision"
 msgstr "&Återställ till denna revisionen"
@@ -745,46 +749,6 @@ msgstr ": Arbetsbas"
 #: ID:151
 msgid ": working copy"
 msgstr ": arbetskopia"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>OBS:</b>\n"
-"Omlokalisera kommandot ska endast användas om URL:en till\n"
-"arkivets rot har ändrats pga att serverns IP adress har ändrats,\n"
-"protokollbyte (http:// till https:// tex), eller sökvägen till arkivets\n"
-"rot har ändrats på servern.\n"
-"<b>Den används mycket sällan</b> och kan inte användas om du vill\n"
-"byta till ett annat Subversion arkiv eller om du vill växla till en annan\n"
-"gren eller mapp <b>inom samma arkiv.</b>\n"
-"Använd \"Växla till gren / märke\" kommandot från huvudmenyn\n"
-"för att växla din arbetskopia till en annan gren eller mapp inom\n"
-"samma arkiv.\n"
-"\n"
-"Felaktig använding av Omlokalisera kommandot <b>korrumperar din arbetskopia!</b>\n"
-"Om du är osäker på om det är Omlokalisera du ska använda så är det förmodligen\n"
-"inte rätt och du borde konsultera <b>Hjälpen</b>.\n"
-"\n"
-"Nu när du läst ovanstående och förhoppningsvis förstått det: vill du fortfarande omlokalisera?"
 
 # ID:145,
 # Hur översätter man bäst "shell extension"?
@@ -1663,6 +1627,11 @@ msgid "Copy URL to clipboard"
 msgstr "Kopiera URL till urklipp"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Kopiera all information till urklipp"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Kopiera felmeddelande till urklipp"
@@ -1671,6 +1640,11 @@ msgstr "Kopiera felmeddelande till urklipp"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopierad från"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Kopiera sökvägar till urklipp"
 
 #: ID:3603
 msgid ""
@@ -2759,6 +2733,34 @@ msgstr ""
 "Till exempel, det går inte att byta namn på MyFile.txt till MYFILE.txt.\n"
 "För instruktioner om hur man kan komma runt denna begränsning konsultera dokumentationen."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Det verkar som att du försöker <b>omlokalisera</b> din arbetskopia till en annan sökväg i samma arkiv.\n"
+"\n"
+"Från: %s\n"
+"Till: %s\n"
+"\n"
+"Omlokalisering behövs endast om sökvägen <b>till</b> ett arkiv har ändrats.\n"
+"För att byta sökväg <b>inom</b> samma arkiv så används växla alternativet.\n"
+"\n"
+"Används omlokalisera felaktigt så <b>korrumperas din arbetskopia!</b>\n"
+"Om du är osäker så konsultera dokumentationen om <i>omlokalisera</i>.\n"
+"Vill du verkligen omlokalisera?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3604,6 +3606,10 @@ msgstr ""
 msgid "Relocate"
 msgstr "Omlokalisera"
 
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Omlokaliseringsvarning"
+
 #: ID:80
 msgid "Relocating..."
 msgstr "Omlokaliserar..."
@@ -3692,10 +3698,6 @@ msgstr "Ersatt nod"
 #: ID:74
 msgid "Replacing"
 msgstr "Ersätter"
-
-#: ID:13
-msgid "Repo-browser"
-msgstr "Arkivutforskaren"
 
 #: Control-ID:65535
 #: Control-ID:1055
@@ -5594,12 +5596,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "två reguljära uttryck åtskiljda av en nyrad\n"
-"Det första uttrycket används för att hitta strängar som refererar till ett ärende, det andra uttrycket används för att extrahera bug ID från den strängen."
+"Det första uttrycket används för att hitta strängar som refererar till ett ärende,\n"
+"det andra uttrycket används för att extrahera bug ID från den strängen."
 
 #: ID:14
 #, c-format
@@ -5760,10 +5764,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Markerar en fil som körbar. Den här egenskapen kan inte sättas på en mapp. Den går inte att sätta som icke-rekursiv, och rekursivt sätts egenskapen endast på filer."
+"Markerar en fil som körbar. Den här egenskapen kan inte sättas på en mapp.\n"
+"Den går inte att sätta som icke-rekursiv, och rekursivt sätts egenskapen endast på filer."
 
 #: ID:14
 msgid ""
@@ -5806,10 +5812,13 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Mime typ för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache. En mime typ som börjar med 'text/' (eller om ingen mime typ anges) hanteras som text. Allt annat hanteras som binärdata."
+"Mime typ för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache.\n"
+"En mime typ som börjar med 'text/' (eller om ingen mime typ anges) hanteras som text. Allt annat hanteras som binärdata."
 
 # ID:16,
 #: ID:16
