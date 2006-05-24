@@ -1,8 +1,8 @@
-msgid ""
+﻿msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-05-22 22:23+0100\n"
+"PO-Revision-Date: 2006-05-24 23:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "Avez-vous jamais trouvé un bug dans votre projet et voulu savoir quand 
 #: source/TortoiseSVN_en.xml:61
 #: (para)
 msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr "Si vous avez répondu <quote>oui</quote> à l'une de ces questions, alors TortoiseSVN est pour vous ! Continuez seulement de lire pour découvrir comment TortoiseSVN peut vous aider dans votre travail. Ce n'est pas si difficile."
+msgstr "Si vous avez répondu <quote>oui</quote> à l'une de ces questions, alors TortoiseSVN est pour vous ! Continuez seulement cette lecture pour découvrir comment TortoiseSVN peut vous aider dans votre travail. Ce n'est pas si difficile."
 
 #: source/TortoiseSVN_en.xml:71
 #: (title)
@@ -95,7 +95,7 @@ msgstr "Public"
 #: source/TortoiseSVN_en.xml:72
 #: (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Ce manuel est écrit pour les gens initiés à l'informatique qui veulent utiliser Subversion pour gérer leurs données, mais qui ne sont pas à l'aise pour utiliser le client en ligne de commande pour faire cela. Puisque TortoiseSVN est une extension du shell Windows, il est sous-entendu que l'utilisateur est familiarisé à l'explorateur Windows et sait comment l'utiliser."
+msgstr "Ce manuel est écrit pour les gens initiés à l'informatique qui veulent utiliser Subversion pour gérer leurs données, mais qui ne sont pas à l'aise pour utiliser le client en ligne de commande pour ce faire. Puisque TortoiseSVN est une extension du shell Windows, il est sous-entendu que l'utilisateur est familiarisé à l'explorateur Windows et sait comment l'utiliser."
 
 #: source/TortoiseSVN_en.xml:84
 #: (title)
@@ -125,7 +125,7 @@ msgstr "Même la plupart des utilisateurs de Subversion n'auront jamais à confi
 #: source/TortoiseSVN_en.xml:107
 #: (para)
 msgid "The chapter on <emphasis>The Repository</emphasis> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr "Le chapitre sur le <emphasis>Référentiel</emphasis> explique comment mettre en place un référentiel local, ce qui est utile pour tester Subversion et TortoiseSVN en utilisant un seul PC. Il explique aussi un peu l'administration d'un référentiel ce qui est aussi appropriée aux référentiels placés sur un serveur."
+msgstr "Le chapitre sur le <emphasis>Référentiel</emphasis> explique comment mettre en place un référentiel local, ce qui est utile pour tester Subversion et TortoiseSVN en utilisant un seul PC. Il explique aussi un peu l'administration d'un référentiel ce qui est aussi approprié aux référentiels placés sur un serveur."
 
 #: source/TortoiseSVN_en.xml:113
 #: (para)
@@ -220,7 +220,7 @@ msgstr "Le manuel de Subversion"
 #: source/TortoiseSVN_en.xml:210
 #: (para)
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr "pour la introduction à Subversion grandiose et son chapitre 2 que nous avons copié ici"
+msgstr "pour l'introduction grandiose à Subversion et son chapitre 2 que nous avons copié ici"
 
 #: source/TortoiseSVN_en.xml:217
 #: (term)
@@ -260,7 +260,7 @@ msgstr "Terminologie utilisée dans ce document"
 #: source/TortoiseSVN_en.xml:248
 #: (para)
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr "Pour rendre la lecture des documents plus facile, les noms de tous les écrans et des Menus de TortoiseSVN sont marqués dans une police différente. La <guilabel>boîte de dialogue Journal</guilabel> par exemple."
+msgstr "Pour rendre la lecture des documents plus facile, les noms de tous les écrans et des menus de TortoiseSVN sont marqués dans une police différente. La <guilabel>boîte de dialogue Journal</guilabel> par exemple."
 
 #: source/TortoiseSVN_en.xml:253
 #: (para)
@@ -1366,7 +1366,7 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:1677
-#: (title) source/TortoiseSVN_en.xml:8732
+#: (title) source/TortoiseSVN_en.xml:8739
 #: (term)
 msgid "Configuration"
 msgstr "Configuration"
@@ -2858,7 +2858,7 @@ msgid "import"
 msgstr "importer"
 
 #: source/TortoiseSVN_en.xml:3235
-#: (primary) source/TortoiseSVN_en.xml:10682
+#: (primary) source/TortoiseSVN_en.xml:10689
 #: (glossterm)
 msgid "Repository"
 msgstr "Référentiel"
@@ -3016,7 +3016,7 @@ msgid "You can also use the repository browser to create new folders directly in
 msgstr "Vous pouvez aussi utiliser le navigateur de référentiel pour créer de nouveaux dossiers directement dans le référentiel."
 
 #: source/TortoiseSVN_en.xml:3375
-#: (title) source/TortoiseSVN_en.xml:10589
+#: (title) source/TortoiseSVN_en.xml:10596
 msgid "Import"
 msgstr "Importation"
 
@@ -3136,12 +3136,12 @@ msgstr ""
 "</screen> Cliquez maintenant sur <guibutton>Définir</guibutton> et livrez vos changements. Quand vous (ou un autre utilisateur) mettez à jour votre copie de travail, Subversion créera un sous-dossier <filename>D:\\dev\\project1\\sounds</filename> et extraira le projet de sons, un autre sous-dossier <filename>D:\\dev\\project1\\quick graphs</filename> contenant le projet de graphiques et finalement un sous-dossier emboîté <filename>D:\\dev\\project1\\skins\\toolkit</filename> contenant la révision 21 du projet de fabricant de skins."
 
 #: source/TortoiseSVN_en.xml:3536
-#: (para) source/TortoiseSVN_en.xml:9456
+#: (para) source/TortoiseSVN_en.xml:9463
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
 msgstr "Si le projet externe est dans le même référentiel, les changements vous faites là seront inclus dans la liste de livraisons quand vous livrerez votre projet principal."
 
 #: source/TortoiseSVN_en.xml:3541
-#: (para) source/TortoiseSVN_en.xml:9461
+#: (para) source/TortoiseSVN_en.xml:9468
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
 msgstr "Si le projet externe est dans un référentiel différent, les changements que vous faites au projet externe seront signalées quand vous livrerez le projet principal, mais vous devez livrer ces changements externes séparément."
 
@@ -3435,7 +3435,7 @@ msgid "Update Your Working Copy With Changes From Others"
 msgstr "Mettre à jour votre copie de travail avec les changements des autres"
 
 #: source/TortoiseSVN_en.xml:3943
-#: (primary) source/TortoiseSVN_en.xml:9201
+#: (primary) source/TortoiseSVN_en.xml:9208
 msgid "update"
 msgstr "mise à jour"
 
@@ -3754,7 +3754,7 @@ msgid "modifications"
 msgstr "modifications"
 
 #: source/TortoiseSVN_en.xml:4391
-#: (title) source/TortoiseSVN_en.xml:10353
+#: (title) source/TortoiseSVN_en.xml:10360
 msgid "Check for Modifications"
 msgstr "Vérifier les modifications"
 
@@ -3836,257 +3836,257 @@ msgstr "différencier"
 #: source/TortoiseSVN_en.xml:4537
 #: (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr ""
+msgstr "Souvent vous voulez regarder à l'intérieur de vos fichiers, pour regarder ce que vous avez changé. Vous pouvez accomplir cela en sélectionnant un fichier qui a changé et en choisissant <guimenuitem>Voir les différences</guimenuitem> à partir du menu contextuel de TortoiseSVN. Cela démarre le visualisateur externe de différence , qui comparera alors le fichier actuel avec la copie primitive (la révision <literal>BASE</literal>), qui a été stockée après la dernière extraction ou la dernière mise à jour."
 
 #: source/TortoiseSVN_en.xml:4547
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr ""
+msgstr "Même lorsque vous ne vous trouvez pas dans une copie de travail ou quand vous avez de multiples versions du fichier ici et là, vous pouvez toujours afficher les différences :"
 
 #: source/TortoiseSVN_en.xml:4551
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr ""
+msgstr "Sélectionnez les deux fichiers vous voulez comparer dans l'explorateur (en utilisant par exemple <keycap>Ctrl</keycap> et la souris) et sélectionnez <guimenuitem>Voir les différences</guimenuitem> à partir du menu de contextuel de TortoiseSVN. Le fichier cliqué en dernier (celui avec le focus, c'est-à-dire le rectangle pointillé) sera considéré comme le plus récent."
 
 #: source/TortoiseSVN_en.xml:4563
 #: (title)
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "La boîte de dialogue de Journal de révision"
 
 #: source/TortoiseSVN_en.xml:4565
 #: (primary)
 msgid "log"
-msgstr ""
+msgstr "journal"
 
 #: source/TortoiseSVN_en.xml:4568
 #: (primary)
 msgid "history"
-msgstr ""
+msgstr "historique"
 
 #: source/TortoiseSVN_en.xml:4571
 #: (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr ""
+msgstr "Pour chaque changement vous faites et que vous livrez, vous devriez fournir un message de journal pour ce changement. De cette façon, vous pouvez plus tard découvrir quels changements vous avez fait et pourquoi et vous avez un journal détaillé pour votre processus de développement."
 
 #: source/TortoiseSVN_en.xml:4583
 #: (para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr ""
+msgstr "Le panneau supérieur montre une liste de révisions où des changements au fichier/dossier ont été livrés. Ce résumé inclut la date et l'heur, la personne qui a livré la révision et le début du message de journal."
 
 #: source/TortoiseSVN_en.xml:4589
 #: (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr ""
+msgstr "Les lignes affichées en bleu indiquent que quelque chose a été copié de cette ligne de développement (peut-être d'une branche)."
 
 #: source/TortoiseSVN_en.xml:4595
 #: (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Le panneau du milieu montre le message de journal en entier pour la révision choisie."
 
 #: source/TortoiseSVN_en.xml:4601
 #: (para)
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
-msgstr ""
+msgstr "Le panneau du bas montre une liste de tous les fichiers et de tous les dossiers qui ont été changés lors de la révision sélectionnée."
 
 #: source/TortoiseSVN_en.xml:4577
 #: (para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr ""
+msgstr "La boîte de dialogue du Journal de révision récupère tous ces messages de journal et vous les montre. L'affichage est divisé en 3 panneaux. <placeholder-1/> Mais elle fait beaucoup plus que cela - elle fournit des commandes de menu contextuel que vous pouvez utiliser pour obtenir encore plus d'informations sur l'historique du projet."
 
 #: source/TortoiseSVN_en.xml:4612
 #: (title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Appeler la boîte de dialogue du Journal de révision"
 
 #: source/TortoiseSVN_en.xml:4615
 #: (title)
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "La boîte de dialogue de Journal de révision"
 
 #: source/TortoiseSVN_en.xml:4621
 #: (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "À partir du sous-menu contextuel de TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:4626
 #: (para)
 msgid "From the property page"
-msgstr ""
+msgstr "À partir de la page de propriété"
 
 #: source/TortoiseSVN_en.xml:4631
 #: (para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr ""
+msgstr "À partir de la boîte de dialogue de progression après qu'une mise à jour a fini. Alors la boîte de dialogue de Journal ne montre que les révisions qui ont été changées depuis votre dernière mise à jour"
 
 #: source/TortoiseSVN_en.xml:4613
 #: (para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Il existe plusieurs endroits à partir desquels vous pouvez afficher la boîte de dialogue de Journal : <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:4641
 #: (title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Obtenir des informations supplémentaires"
 
 #: source/TortoiseSVN_en.xml:4644
 #: (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Le parreau supérieur de la boîte de dialogue du Journal de révision avec le menu contextuel"
 
 #: source/TortoiseSVN_en.xml:4650
 #: (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr ""
+msgstr "Comparer la révision sélectionnée avec votre copie de travail. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si la boîte de dialogue de journal concerne un dossier, elle vous montrera une liste de fichiers changés et vous permettra de passer en revue les changements faits à chaque fichier individuellement."
 
 #: source/TortoiseSVN_en.xml:4660
 #: (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Condamner la révision sélectionnée et le fichier dans votre BASE de travail et comparez les résultats en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #: source/TortoiseSVN_en.xml:4667
 #: (para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr ""
+msgstr "Voir les changements faits dans la révision sélectionnée en tant que fichier de différences unifié (format de patch GNU). Cela montre seulement les différences avec quelques lignes de contexte. Cela est plus difficile de lire qu'une comparaison de fichiers visuelle, mais cela vous montrera tous les changements ensemble dans un format compact."
 
 #: source/TortoiseSVN_en.xml:4676
 #: (para)
 msgid "Save the selected revision to a file so you have an older version of that file. This option is only available when you access the log for a file, and it saves a version of that one file only."
-msgstr ""
+msgstr "Sauvegarder la révision choisie dans un fichier pour que vous ayez une version précédente de ce fichier. Cette option est seulement disponible quand vous avez accès au journal pour un fichier et il n'enregistre qu' une version de ce fichier."
 
 #: source/TortoiseSVN_en.xml:4684
 #: (para)
 msgid "Open the repository browser to examine the selected folder. This option is only available when you access the log for a directory."
-msgstr ""
+msgstr "Ouvrir le navigateur de référentiel pour examiner le dossier sélectionné. Cette option n'est disponible que lorsque vous avez accès au journal pour un répertoire."
 
 #: source/TortoiseSVN_en.xml:4691
 #: (para)
 msgid "Create a branch/tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr ""
+msgstr "Créer une branche/étiquette à partir d'une révision choisie. C'est utile par exemple si vous avez oublié de créer une étiquette et avez déjà livré des changements qui n'étaient pas supposés être introduits dans cette sortie."
 
 #: source/TortoiseSVN_en.xml:4699
 #: (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy will be inconsistent and you will be unable to commit any changes."
-msgstr ""
+msgstr "Mettre à jour votre copie de travail à la révision sélectionnée. Utile si vous voulez que votre copie de travail reflète un temps passé. Il est préférable de mettre à jour un répertoire entier dans votre copie de travail, pas seulement un fichier, autrement votre copie de travail sera incohérente et vous serez incapables de livrer des modifications."
 
 #: source/TortoiseSVN_en.xml:4709
 #: (para)
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr ""
+msgstr "Annuler des changements effectués à la révision sélectionnée. Les changements sont annulés dans votre copie de travail donc cette opération n'affecte <emphasis>pas</emphasis> le référentiel du tout ! Notez que cela défera les changements de cette révision seulement. Il ne remplace pas votre copie de travail avec le fichier en entier de la révision précédente. C'est très utile pour défaire un changement précédent quand d'autres changements sans rapport ont été faits depuis."
 
 #: source/TortoiseSVN_en.xml:4721
 #: (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr ""
+msgstr "Revenir à une révision précédente. Si vous avez fait plusieurs changements et décidez ensuite que vous voulez vraiment remettre les choses telles qu'elles étaient à la révision N, c'est la commande dont vous avez besoin. De nouveau, les changements sont annulés dans votre copie de travail donc cette opération n'affecte <emphasis>pas</emphasis> le référentiel jusqu'à ce que vous livriez les changements. Notez que cela défera <emphasis>tous</emphasis> les changements faits après la révision sélectionnée, remplaçant le fichier/dossier avec la version précédente."
 
 #: source/TortoiseSVN_en.xml:4734
 #: (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr ""
+msgstr "Éditer le message de journal ou l'auteur attaché à une précédente livraison. Lisez <xref linkend=\"tsvn-dug-showlog-4\"/> pour découvrir comment cela fonctionne."
 
 #: source/TortoiseSVN_en.xml:4741
 #: (para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
-msgstr ""
+msgstr "Chercher les messages de journal correspondants au texte que vous entrez. Cela recherche dans les messages de journal que vous avez saisis et aussi les résumés d'action créés par Subversion (montré dans le panneau du bas). La recherche n'est pas sensible à la casse."
 
 #: source/TortoiseSVN_en.xml:4642
 #: (para)
 msgid "<placeholder-1/> The top pane of the Log dialog has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Le panneau supérieur de la boîte de dialogue du Journal a un menu contextuel qui vous permet de <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:4752
 #: (title)
 msgid "Top Pane Context Menu for 2 Selected Files"
-msgstr ""
+msgstr "Menu contextuel du panneau supérieur avec 2 fichiers sélectionnés"
 
 #: source/TortoiseSVN_en.xml:4760
 #: (para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If you select this option for a folder, a further dialog pops up listing the changed files and you can diff them one at a time."
-msgstr ""
+msgstr "Comparer les deux révisions choisies en utilisant un outil de différenciation visuel. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si vous choisissez cette option pour un dossier, un nouveau dialogue surgit en listant les fichiers changés et vous pouvez les comparer entre eux un par un."
 
 #: source/TortoiseSVN_en.xml:4769
 #: (para)
 msgid "Blame the two revisions and compare the results using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Condamner les deux révisions et comparez les résultats en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #: source/TortoiseSVN_en.xml:4776
 #: (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
-msgstr ""
+msgstr "Voir les différences entre les deux révisions sélectionnées en tant que fichier de différences unifié. Cela fonctionne pour les fichiers et les dossiers."
 
 #: source/TortoiseSVN_en.xml:4782
 #: (para)
 msgid "Edit the log message or author as described above."
-msgstr ""
+msgstr "Éditer le message de journal ou l'auteur comme décrit ci-dessus."
 
 #: source/TortoiseSVN_en.xml:4787
 #: (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Chercher les messages de journal comme décrit ci-dessus."
 
 #: source/TortoiseSVN_en.xml:4750
 #: (para)
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Si vous sélectionnez deux révisions en même temps (en utilisant le modificateur habituel <keycap>Ctrl</keycap>), le menu contextuel change et vous propose moins d'options : <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:4793
 #: (para)
 msgid "If you select multiple consecutive revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in that range of revisions. This is the easiest way to rollback a group of revisions in one go."
-msgstr ""
+msgstr "Si vous sélectionnez des révisions consécutives (en utilisant les modificateurs habituels <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), le menu contextuel incluront une entrée pour annuler tous les changements qui ont été faits dans cette plage de révisions. C'est la façon la plus facile d'annuler une groupe de révisions en une fois."
 
 #: source/TortoiseSVN_en.xml:4802
 #: (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "Le panneau inférieur de la boîte de dialogue du Journal avec le menu contextuel"
 
 #: source/TortoiseSVN_en.xml:4808
 #: (para)
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
-msgstr ""
+msgstr "Montrer les différences faites dans la révision sélectionnée pour le fichier choisi. Ce menu contextuel est seulement disponible pour des fichiers montrés comme <literal>Modifiés</literal>."
 
 #: source/TortoiseSVN_en.xml:4815
 #: (para)
 msgid "Blame the selected revision and the previous revision for the selected file, and show the differences using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Condamner la révision sélectionnée et la révision précédente pour le fichier choisi et afficher les différences en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #: source/TortoiseSVN_en.xml:4822
 #: (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr ""
+msgstr "Ouvrir le fichier sélectionné, avec le visualisateur par défaut pour ce type de fichier, ou avec le programme de votre choix."
 
 #: source/TortoiseSVN_en.xml:4828
 #: (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Annuler les changements effectués au fichier sélectionné dans cette révision."
 
 #: source/TortoiseSVN_en.xml:4833
 #: (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Voir les propriétés de Subversion pour l'élement sélectionné."
 
 #: source/TortoiseSVN_en.xml:4838
 #: (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Affciher le journal de révision pour le seul fichier choisi."
 
 #: source/TortoiseSVN_en.xml:4843
 #: (para)
 msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr ""
+msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version précédente de ce fichier."
 
 #: source/TortoiseSVN_en.xml:4800
 #: (para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Le panneau du bas de la boîte de dialogue Journal a aussi un menu contextuel qui vous permet de <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:4852
 #: (title)
 msgid "Getting more log messages"
-msgstr ""
+msgstr "Obtenir plus de messages de journal"
 
 #: source/TortoiseSVN_en.xml:4858
 #: (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
-msgstr ""
+msgstr "Pour un grand référentiel il peut y avoir des centaines ou même des milliers de changements et les parcourir tous pourraient prendre longtemps. Normalement vous n'êtes intéressés que par les changements les plus récents. Par défaut, le nombre de messages de journal parcourus est limité à 100, mais vous pouvez changer cette valeur dans <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configuration</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
 
 #: source/TortoiseSVN_en.xml:4873
 #: (para)
