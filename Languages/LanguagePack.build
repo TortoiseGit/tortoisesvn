@@ -40,8 +40,10 @@ NAnt build script for the TortoiseSVN language pack installers
 	</target>
 	
 	<target name="doit">
-		<property name="platformfolder" value="${configuration}" />
-		<property name="platformfolder" value="${configuration}64" if="${platform == 'x64'}" />
+		<property name="platformfolder" value="${configuration}${bindirextension}" />
+
+		<property name="ResTextFileName" value="..\bin\release${bindirextension}\bin\restext.exe" />
+		<property name="ResTextFileName" value="..\bin\release\bin\restext.exe" if="${crosscompile == 'yes'}" />
 
 		<regex 
 			pattern="^(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'langhelpfile'\d+);[ \t]+(?'langUI'.+);[ \t]+(?'langweb'.+);[ \t]+(?'langnative'.+)" 
@@ -49,13 +51,13 @@ NAnt build script for the TortoiseSVN language pack installers
 		/>
 		<echo message="Building ${langUI} dlls and installer" />
 		<!-- create the dlls -->
-		<exec program="..\bin\release${bindirextension}\bin\restext.exe">
+		<exec program="${ResTextFileName}">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseProcLang.dll" />
 			<arg value="..\bin\TortoiseProc${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<exec program="..\bin\release${bindirextension}\bin\restext.exe">
+		<exec program="${ResTextFileName}">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseMergeLang.dll" />
 			<arg value="..\bin\TortoiseMerge${langCC}.dll" />
