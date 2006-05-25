@@ -37,10 +37,14 @@
         <MergeRef Id="MFCLOC" />
         <MergeRef Id="MFCLOC Policy" />
       </Feature>
+
+      <!-- there seems to be no GDIPlus merge module for x64 -->
+      <?if $(env.Platform) = "win32" ?>
       <Feature Id="F_GDIPLUS" Level="1" Title="GdiPlus" Description="The Gdi+ dll" TypicalDefault="install" Display="hidden" >
         <Condition Level="0">(NOT Privileged)</Condition>
         <MergeRef Id="GDIPLUS" />
       </Feature>
+      <?endif ?>
 
       <Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
         <ComponentRef Id="C__iconscvsclassic" />
