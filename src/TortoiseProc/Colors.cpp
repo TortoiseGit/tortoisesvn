@@ -114,6 +114,18 @@ void CColors::SetColor(Colors col, COLORREF cr)
 	case Added:
 		m_regAdded = cr;
 		break;
+	case DeletedNode:
+		m_regDeletedNode = cr;
+		break;
+	case AddedNode:
+		m_regAddedNode = cr;
+		break;
+	case ReplacedNode:
+		m_regReplacedNode = cr;
+		break;
+	case RenamedNode:
+		m_regRenamedNode = cr;
+		break;
 	case LastCommit:
 		m_regLastCommit = cr;
 		break;
