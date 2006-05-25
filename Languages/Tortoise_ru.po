@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6552: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6582: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-22 11:04+0300\n"
+"PO-Revision-Date: 2006-05-25 19:09+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -746,44 +746,6 @@ msgstr ": Рабочая база."
 #: ID:151
 msgid ": working copy"
 msgstr ": Рабочая копия"
-
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>ВНИМАНИЕ:</b>\n"
-"Команда 'Переместить' используется только в случае, если URL корня хранилища изменился\n"
-"по причине изменения IP-адреса сервера, протокола (например, с http:// на https://) или из-за\n"
-"изменения пути корня хранилища в настройках сервера.\n"
-"<b>Это очень редко используемая операция</b> и не применяется в случаях, когда вы желаете\n"
-"перейти к другому хранилищу Subversion, или когда вы хотите переключиться на другое\n"
-"ответвление или папку <b>в рамках этого же хранилища</b>.\n"
-"Для перехода к другому хранилищу Subversion, выполните свежее извлечение из нового хранилища.\n"
-"Чтобы связать вашу рабочую копию с другим ответвлением или папкой в рамках того же хранилища,\n"
-"используйте команду 'Переключить' из контекстного меню.\n"
-"\n"
-"Неподходящее использование команды 'Переместить' <b>повредит вашу рабочую копию!</b>\n"
-"Если вы не уверены в том, что 'Переместить' - правильная операция, то, вероятно, это не то, что\n"
-"вам надо, и вам необходимо обратиться к <b>Справке</b>.\n"
-"\n"
-"Теперь, когда вы всё это прочитали и, будем надеятся, поняли, вы всё ещё желаете переместить?"
 
 #: ID:145
 msgid ""
@@ -2694,6 +2656,33 @@ msgstr ""
 "Например, вы не можете переименовать MyFile.txt в MYFILE.txt.\n"
 "Справтесь в документации, как обойти это ограничение."
 
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Похоже, что вы собираетесь <b>перебазировать</b> вашу рабочую копию на другой путь внутри того же хранилища.\n"
+"\n"
+"Из: %s\n"
+"На: %s\n"
+"\n"
+"Перебазирование необходимо, только если путь <b>к</b> хранилищу был изменён.\n"
+"Изменение на другой путь <b>внутри</b> хранилища выполняется операцией 'переключить'.\n"
+"\n"
+"Неправильное использование перебазирования <b>испортит вашу рабочую копию!</b>\n"
+"Если вы не уверены в том, что надо сделать, обратитесь к описанию <i>перебазирования</i> в нашей документации.\n"
+"Вы действительно желаете перебазировать?"
+
 #: Control-ID:1203
 msgid "Keep &locks"
 msgstr "Сохранить &блокировки"
@@ -2976,6 +2965,10 @@ msgstr "Следующий &конфликт"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+#: ID:208
+msgid "Needs lock"
+msgstr "Необходима блокировка"
 
 #: ID:210
 msgid "Nested"
@@ -3506,6 +3499,10 @@ msgstr ""
 #: Dlg-ID:157
 msgid "Relocate"
 msgstr "Перебазирование"
+
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Предупреждение перебазирования"
 
 #: ID:80
 msgid "Relocating..."
