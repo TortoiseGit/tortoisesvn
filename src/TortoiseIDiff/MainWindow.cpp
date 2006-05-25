@@ -545,6 +545,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
 			centeredrect.top = parentrect.top + ((parentrect.bottom-parentrect.top-childrect.bottom+childrect.top)/2);
 			centeredrect.bottom = centeredrect.top + (childrect.bottom-childrect.top);
 			SetWindowPos(hwndDlg, NULL, centeredrect.left, centeredrect.top, centeredrect.right-centeredrect.left, centeredrect.bottom-centeredrect.top, SWP_SHOWWINDOW);
+			SetFocus(hwndDlg);
 		}
 		break;
 	case WM_COMMAND: 
