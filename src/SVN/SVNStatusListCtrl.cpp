@@ -622,6 +622,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_token);
 		if (pSVNStatus->entry->lock_comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_comment);
+
+		if (pSVNStatus->entry->present_props)
+		{
+			entry->present_props = pSVNStatus->entry->present_props;
+		}
 	}
 	else
 	{
@@ -635,11 +640,6 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_remotetoken = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 		if (pSVNStatus->repos_lock->comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->comment);
-	}
-
-	if (pSVNStatus->entry->present_props)
-	{
-		entry->present_props = pSVNStatus->entry->present_props;
 	}
 
 	// Pass ownership of the entry to the array
