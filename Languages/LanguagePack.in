@@ -40,14 +40,8 @@ OutFile "..\bin\LanguagePack_${PRODUCT_VERSION}_${CountryCode}.exe"
 ShowInstDetails show
 
 Section "Hauptgruppe" SEC01
-  ReadRegStr $0 HKLM "software\TortoiseSVN" "Directory"
-  StrCmp $0 "" NotInstalled Installed
-Installed:
-  Goto Proceed
-NotInstalled:
-  MessageBox MB_OK "TortoiseSVN not installed!"
-  Abort
-Proceed:
+  !insertmacro FindTSVNPath
+  StrCpy $0 $TSVNPATH
 !ifdef LangHelp
   StrCpy $INSTDIR "$0bin"
   SetOutPath "$INSTDIR"

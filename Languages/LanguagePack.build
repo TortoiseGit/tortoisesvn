@@ -68,6 +68,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		<echo file="product.nsh" append="true">!define InstLang "${langUI}"</echo>
 		<echo file="product.nsh" append="true" if="${langhelpfile == '1'}">!define LangHelp</echo>
 		<echo file="product.nsh" append="true" if="${devrelease != '-dev'}">!define HelpFatal</echo>
+		<echo file="product.nsh" append="true">!include "FindTSVN${platform}.nsh"</echo>
 		<!-- create the mo files -->
 		<exec program="msgfmt" if="${file::exists('..\ext\Subversion\Subversion\po\${langISO}.po')}" failonerror="false" >
 			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
