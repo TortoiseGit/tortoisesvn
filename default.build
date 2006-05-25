@@ -12,6 +12,8 @@
 	<!-- default: don't add a platform specific extension 
 	     to the bin folders 'release' / 'debug'  -->
 	<property name="bindirextension" value="" />
+	<!-- default: we don't cross-compile -->
+	<property name="crosscompile" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -39,6 +41,14 @@
 		</description>
 		<property name="platform" value="x64" />
 		<property name="bindirextension" value="64" />
+	</target>
+
+	<target name="cross">
+		<description>
+			Cross-compiles on win32 for a different platform.
+		</description>
+		<property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
+		<echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
 	</target>
 
 <!-- ====================================================================== -->
@@ -156,7 +166,7 @@
 			Builds all the language pack installers.
 		</description>
 		<property name="processorarchitecture" value="x86" />
-		<property name="processorarchitecture" value="AMD64" if="${platform == 'x64'}" />
+		<property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
 
 		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') == processorarchitecture}">
 			<nant target="all">
@@ -165,7 +175,11 @@
 				</buildfiles>
 			</nant>
 		</if>
-		<echo message="skipping generating languagepacks" if="${environment::get-variable('PROCESSOR_ARCHITECTURE') != processorarchitecture}" />
+		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') != processorarchitecture}">
+			<echo message="environment processor architecture ${environment::get-variable('PROCESSOR_ARCHITECTURE')}"/>
+			<echo message="does not match the selected target architecture ${processorarchitecture}" />
+			<echo message="skipping generating languagepacks" />
+		</if>
 	</target>
 
 	<target name="msi" depends="env">
@@ -254,7 +268,9 @@
 		<echo message="release : call this if you want to create official releases." />
 		<echo message="          It removes the '-dev' string from some builds" />
 		<echo message="x64     : call this if you want to create native 64 bit builds." />
-		<echo message="          (AMD64/EMT64 only -- will not work on Itanium systems.)" />
+		<echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
+		<echo message="cross   : cross-compile on win32 for the given target platform." />
+		<echo message="          (currently only available with x64.)" />
 		<echo />
 		<echo message="Please specify the configuration targets BEFORE the main target." />
 		<echo message="Examples:" />

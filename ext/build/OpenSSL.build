@@ -29,6 +29,7 @@
 			</exec>
 		</if>
 		<if test="${platform == 'x64'}">
+			<copy file="..\build\VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" />
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
