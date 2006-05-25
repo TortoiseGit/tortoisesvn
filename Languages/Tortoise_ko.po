@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-15 21:33+0900\n"
+"PO-Revision-Date: 2006-05-25 16:18+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -627,6 +627,11 @@ msgstr "삭제(&R)"
 msgid "&Rename"
 msgstr "이름 바꾸기(&R)"
 
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "저장소 브라우저(&R)"
+
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -886,47 +891,6 @@ msgstr ": 작업 베이스"
 #: ID:151
 msgid ": working copy"
 msgstr ": 작업 사본"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>주의:</b>\n"
-"저장소 URL 변경은 저장소의 URL이 서버 IP가 바뀌거나\n"
-"접근 프로토콜이 바뀐 경우(예: http://에서 https:// 으로)\n"
-"또는 서버상의 루트 경로가 바뀌었을 때만 사용하여야 합니다\n"
-"\n"
-"<b>이 기능은 자주 사용되지 않습니다.</b> 따라서, 작업 사본을\n"
-"다른 저장소로 바꾸거나 <b>같은 저장소의</b> 다른 브랜치 또는\n"
-"디렉토리로 바꾸는 용도로 사용해서는 안됩니다.\n"
-"다른 저장소로 바꾸려면, 원하는 저장소에서 깨끗하게 다시 체크아웃하여\n"
-"작업하시기 바랍니다.\n"
-"같은 저장소의 다른 브랜치 또는 다른 디렉토리로 바꾸려면\n"
-"브랜치/태그 전환 명령을 이용하시기 바랍니다.\n"
-"\n"
-"위와 같은 URL 재배치의 잘못된 사용은 <b>작업사본을 망가뜨릴 수 있습니다</b>\n"
-"지금 하시려는 작업이 이 기능이라는 확신이 서지 않는다면, 아마 실제로도 아닐것입니다.\n"
-"<b>도움말</b>을 참고할 것을 권합니다.\n"
-"\n"
-"자, 위 내용을 읽으셨고 이해하셨습니까? 정말 저장소의 URL을 변경할까요?"
 
 # ID:145,
 #: ID:145
@@ -1969,6 +1933,11 @@ msgid "Copy URL to clipboard"
 msgstr "URL을 클립보드에 복사합니다"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "모든 정보를 클립보드에 복사"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "오류 메시지를 클립보드에 복사"
@@ -1977,6 +1946,11 @@ msgstr "오류 메시지를 클립보드에 복사"
 #: ID:76
 msgid "Copy from path"
 msgstr "복사된 원본 경로"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "경로를 클립보드에 복사"
 
 # ID:3603,
 #: ID:3603
@@ -2826,7 +2800,7 @@ msgid ""
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 "'svn:needs-lock' 속성이 없이 파일들을 잠그는 것은 다른 사람들의 작업까지 잠글 수 없습니다.\n"
-"모든 사람들이 잠그고 작업하길 원하면, 'svn:needs-lock' 속성을 추가한다음 커밋하면 됩니다.\n"
+"모든 사람들이 잠그고 작업하길 원하면, 'svn:needs-lock' 속성을 추가한 다음 커밋하면 됩니다.\n"
 "위 속성이 들어간 파일들은 파일 시스템에서 읽기 전용 속성이 설정이 되며, 파일을 잠그게 되면 쓰기 가능하게 됩니다.\n"
 "한 번 잠그도록 파일을 설정하면, 읽기 모드로 설정되기전에 체크아웃된 작업사본들은 업데이트를 먼저해야 합니다."
 
@@ -3225,6 +3199,34 @@ msgstr ""
 "파일이름의 대소문자를 변경하는 것만으로 이름을 바꾸는 것은 불가능합니다.\n"
 "예를 들어, MyFile.txt 를 MYFILE.txt로 변경할 수 없습니다.\n"
 "이런 제약점에 대해서는 문서를 참고하시기 바랍니다."
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"작업사본의 저장소 URL을 <b>같은 저장소의 다른 URL로 변경(relocate)</b>하고 있습니다.\n"
+"\n"
+"현재: %s\n"
+"이후: %s\n"
+"\n"
+"저장소 URL 변경은 <b>이후</b>에 사용되는 저장소가 바뀔 경우에 사용합니다.\n"
+"<b>한 저장소</b>내에서 변경하시려면 태그/브랜치 전환(switch)을 이용하시기 바랍니다.\n"
+"\n"
+"부적절한 저장소 URL 변경은 <b>작업 사본을 망가뜨릴 수 있습니다!</b>\n"
+"수행하고자 하는 명령에 대해 확실하지 않으면, <i>relocate</i>에 대한 문서를 참조하세요.\n"
+"정말 URL을 변경하시겠습니까?"
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -4238,6 +4240,11 @@ msgid "Relocate"
 msgstr "저장소 URL 변경"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "저장소 URL 변경 경고"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "저장소 URL 변경 중..."
@@ -4344,11 +4351,6 @@ msgstr "바뀐 노드"
 #: ID:74
 msgid "Replacing"
 msgstr "재배치"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "저장소 브라우저"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -6538,12 +6540,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"두 줄로 된 정규표현식\n"
-"첫째 줄은 참조하는 이슈를 찾는데 사용되고, 둘째 줄은 그 문자열로부터 버그 ID를 찾는데 사용됩니다."
+"두 줄로 된 정규표현식.\n"
+"첫째 줄은 참조하는 이슈를 찾는데 사용되고,\n"
+"둘째 줄은 그 문자열로부터 버그 ID를 찾는데 사용됩니다."
 
 # ID:14,
 #: ID:14
@@ -6731,10 +6735,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"존재하면, 이 파일을 실행가능한 형태로 만들어 줍니다. 이 속성은 디렉토리에는 지정할 수 없습니다. 파일에 대해서는 재귀적으로 설정할 수 없습니다. 디렉토리에는 재귀적으로 설정가능하며, 이 경우 파일들에만 설정됩니다."
+"존재하면, 이 파일을 실행가능한 형태로 만들어 줍니다. 이 속성은 디렉토리에는 지정할 수 없습니다.\n"
+"파일에 대해서는 재귀적으로 설정할 수 없습니다. 디렉토리에는 재귀적으로 설정가능하며, 이 경우 파일들에만 설정됩니다."
 
 # ID:14,
 #: ID:14
@@ -6781,10 +6787,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다. 'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고 나머지는 바이너리로 취급합니다."
+"파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다.\n"
+"'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고\n"
+"나머지는 바이너리로 취급합니다."
 
 # ID:16,
 #: ID:16
@@ -6808,7 +6818,7 @@ msgid ""
 "switched to\r\n"
 "%s"
 msgstr ""
-"스위치 됨:\r\n"
+"전환됨:\r\n"
 "%s 로"
 
 # ID:80,
