@@ -69,37 +69,12 @@ class CPicture
 {
 public:
 	/**
-	 * frees the allocated memory that holds the IPicture interface data and
-	 * clear picture information
-	 */
-	void FreePictureData();
-	/**
 	 * open a picture file and load it (BMP, DIB, EMF, GIF, ICO, JPG, WMF).
 	 *
 	 * \param sFilePathName the path of the picture file
 	 * \return TRUE if succeeded.
 	 */
 	bool Load(stdstring sFilePathName);
-	/**
-	 * reads the picture data from a source and loads it into the current IPicture object in use.
-	 * \param pBuffer buffer of data source
-	 * \param nSize the size of the buffer
-	 * \return TRUE if succeeded
-	 */
-	bool LoadPictureData(BYTE* pBuffer, int nSize);
-	/**
-	 * draws the loaded picture direct to the given device context.
-	 * \note
-	 * if the given size is not the actual picture size, then the picture will
-	 * be drawn stretched to the given dimensions.
-	 * \param pDC the device context to draw on
-	 * \param LeftTop where to start drawing, i.e. the left/top point of the picture
-	 * \param WidthHeight size of the picture to draw
-	 * \param MagnifyX magnify pixel width, 0 = default (No Magnify)
-	 * \param MagnifyY magnify pixel height, 0 = default (No Magnify)
-	 * \return TRUE if succeeded
-	 */
-	bool Show(HDC hDC, POINT LeftTop, POINT WidthHeight, int MagnifyX = 0, int MagnifyY = 0);
 	/**
 	 * draws the loaded picture directly to the given device context.
 	 * \note
@@ -133,24 +108,54 @@ public:
 	 * Returns the picture heigth in pixels.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	UINT GetHeight() {return pBitmap ? pBitmap->GetHeight() : 0;}
+	UINT GetHeight();
 	/**
 	 * Returns the picture width in pixels.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	UINT GetWidth() {return pBitmap ? pBitmap->GetWidth() : 0;}
+	UINT GetWidth();
 	/**
 	 * Returns the pixel format of the loaded picture.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	PixelFormat GetPixelFormat() {return pBitmap ? pBitmap->GetPixelFormat() : 0;}
+	PixelFormat GetPixelFormat();
 	/**
 	 * Returns the color depth in bits.
 	 * \remark this only works if gdi+ is installed.
 	 */
 	UINT GetColorDepth();
 
-	void SetInterpolationMode(InterpolationMode ip) {m_ip = ip;} 
+	/**
+	 * Sets the interpolation used for drawing the image.
+	 * The interpolation mode is one of the following:
+	 * InterpolationModeInvalid
+	 * InterpolationModeDefault
+	 * InterpolationModeLowQuality
+	 * InterpolationModeHighQuality
+	 * InterpolationModeBilinear
+	 * InterpolationModeBicubic
+	 * InterpolationModeNearestNeighbor
+	 * InterpolationModeHighQualityBilinear
+	 * InterpolationModeHighQualityBicubic
+	 */
+	void SetInterpolationMode(InterpolationMode ip) {m_ip = ip;}
+
+	/**
+	 * Returns the number of frames in the specified dimension of the image.
+	 */
+	UINT GetNumberOfFrames(int dimension);
+	/**
+	 * Returns the number of dimensions in the image.
+	 * For example, icons can have multiple dimensions (sizes).
+	 */
+	UINT GetNumberOfDimensions();
+
+	/**
+	 * Sets the active frame which is used when drawing the image.
+	 * \return the delay value for this frame, i.e. how long this frame
+	 * should be shown.
+	 */
+	long SetActiveFrame(UINT frame);
 
 	CPicture();
 	virtual ~CPicture();
@@ -167,11 +172,52 @@ public:
 	stdstring	m_Name;		///< The FileName of the Picture as used in Load()
 	stdstring	m_FileSize;	///< The file size of the picture as a string (as used in Load())
 
+protected:
+	/**
+	 * reads the picture data from a source and loads it into the current IPicture object in use.
+	 * \param pBuffer buffer of data source
+	 * \param nSize the size of the buffer
+	 * \return TRUE if succeeded
+	 */
+	bool LoadPictureData(BYTE* pBuffer, int nSize);
+
+	/**
+	 * frees the allocated memory that holds the IPicture interface data and
+	 * clear picture information
+	 */
+	void FreePictureData();
+
 private:
 	GdiplusStartupInput gdiplusStartupInput;
 	ULONG_PTR           gdiplusToken;
 	Bitmap *			pBitmap;
 	bool				bHaveGDIPlus;
 	InterpolationMode	m_ip;
+	bool				bIsIcon;
+	UINT				nCurrentIcon;
+	BYTE *				lpIcons;
+	HICON *				hIcons;
+
+	#pragma pack(push, r1, 2)   // n = 16, pushed to stack
+
+	typedef struct
+	{
+		BYTE	bWidth;               // Width of the image
+		BYTE	bHeight;              // Height of the image (times 2)
+		BYTE	bColorCount;          // Number of colors in image (0 if >=8bpp)
+		BYTE	bReserved;            // Reserved
+		WORD	wPlanes;              // Color Planes
+		WORD	wBitCount;            // Bits per pixel
+		DWORD	dwBytesInRes;         // how many bytes in this resource?
+		DWORD	dwImageOffset;        // where in the file is this image
+	} ICONDIRENTRY, *LPICONDIRENTRY;
+	typedef struct 
+	{
+		WORD			idReserved;   // Reserved
+		WORD			idType;       // resource type (1 for icons)
+		WORD			idCount;      // how many images?
+		ICONDIRENTRY	idEntries[1]; // the entries for each image
+	} ICONDIR, *LPICONDIR;
+	#pragma pack(pop, r1)
 };
 
