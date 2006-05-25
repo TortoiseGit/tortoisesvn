@@ -283,12 +283,6 @@ public:
 	BOOL HasUnversionedItems() {return m_bHasUnversionedItems;}
 
 	/**
-	 * If during the call to GetStatus() some files don't have the svn:needs-lock
-	 * property, then this method returns TRUE.
-	 */
-	BOOL HasFilesWithoutSVNNeedsLock() {return m_bHasFilesWithoutSVNNeedsLock;}
-
-	/**
 	 * Returns the file entry data for the list control index.
 	 */
 	CSVNStatusListCtrl::FileEntry * GetListEntry(int index);
@@ -489,7 +483,6 @@ private:
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
-	BOOL						m_bHasFilesWithoutSVNNeedsLock;
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;

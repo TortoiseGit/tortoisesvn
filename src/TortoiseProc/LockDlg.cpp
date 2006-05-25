@@ -20,6 +20,8 @@
 #include "TortoiseProc.h"
 #include "MessageBox.h"
 #include ".\lockdlg.h"
+#include "UnicodeStrings.h"
+#include "SVNProperties.h"
 
 
 // CLockDlg dialog
@@ -147,7 +149,37 @@ UINT CLockDlg::StatusThread()
 
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
 	m_cFileList.Show(dwShow, dwShow, false);
-	if (m_cFileList.HasFilesWithoutSVNNeedsLock())
+
+	// Check if any file doesn't have svn:needs-lock set in BASE. If at least
+	// one file is found then show the warning that this property should by set.
+	BOOL bShowWarning = FALSE;
+	const int nCount = m_cFileList.GetItemCount();
+	for (int i=0; i<nCount;i++)
+	{
+		CSVNStatusListCtrl::FileEntry* entry = m_cFileList.GetListEntry(i);
+
+		BOOL bFound = FALSE;
+		SVNProperties propsbase(entry->GetPath(),SVNRev::REV_BASE);
+		for (int i=0; i<propsbase.GetCount(); i++)
+		{
+			if (propsbase.GetItemName(i).compare(_T("svn:needs-lock"))==0)
+			{
+				stdstring szBASE = MultibyteToWide((char *)propsbase.GetItemValue(i).c_str());
+				if ( !szBASE.empty() )
+				{
+					bFound = TRUE;
+					break;
+				}
+			}
+		}
+		if ( !bFound )
+		{
+			bShowWarning = TRUE;
+			break;
+		}
+	}
+
+	if ( bShowWarning )
 	{
 		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_LOCKWARNING)->EnableWindow();
