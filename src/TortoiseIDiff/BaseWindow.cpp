@@ -53,7 +53,7 @@ LRESULT CALLBACK CWindow::stWinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, L
 	if (uMsg == WM_NCCREATE)
 	{
 		// get the pointer to the window from lpCreateParams which was set in CreateWindow
-		SetWindowLongPtr(hwnd, GWL_USERDATA, (long)((LPCREATESTRUCT(lParam))->lpCreateParams));
+		SetWindowLongPtr(hwnd, GWLP_USERDATA, (long)((LPCREATESTRUCT(lParam))->lpCreateParams));
 	}
 
 	// get the pointer to the window

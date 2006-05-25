@@ -75,7 +75,7 @@ protected:
 	// returns a pointer the window (stored as the WindowLong)
 	inline static CWindow * GetObjectFromWindow(HWND hWnd)
 	{
-		return (CWindow *)GetWindowLongPtr(hWnd, GWL_USERDATA);
+		return (CWindow *)GetWindowLongPtr(hWnd, GWLP_USERDATA);
 	}
 };
 
