@@ -166,7 +166,12 @@
 			Builds all the language pack installers.
 		</description>
 		<property name="processorarchitecture" value="x86" />
-		<property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
+		
+		<!-- The nant process seems to open a 32 bit shell. 
+		     Hence, we need to be clever about this check ... -->
+		<if test="${not environment::variable-exists('PROCESSOR_ARCHITEW6432')}">
+			<property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
+		</if>
 
 		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') == processorarchitecture}">
 			<nant target="all">
