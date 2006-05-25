@@ -215,6 +215,14 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.FitImageInWindow();
 				picWindow2.SetPic(rightpicpath, _T(""));
 				picWindow2.FitImageInWindow();
+				if (bOverlap)
+				{
+					picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
+				}
+				else
+				{
+					picWindow1.SetSecondPic();
+				}
 				RECT rect;
 				GetClientRect(*this, &rect);
 				PositionChildren(&rect);
