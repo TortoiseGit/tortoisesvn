@@ -16,6 +16,7 @@
 				<arg value="Configure" />
 				<arg value="VC-WIN32" />
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
+				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
 				<arg value="-D_USE_32BIT_TIME_T" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
@@ -32,6 +33,7 @@
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
+				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
