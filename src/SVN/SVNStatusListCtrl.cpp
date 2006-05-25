@@ -226,6 +226,10 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	temp.LoadString(IDS_STATUSLIST_COLDATE);
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLDATE;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
+	nCol++;
+	temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
+	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLSVNNEEDSLOCK;
+	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
 	SetRedraw(false);
 	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
@@ -631,6 +635,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_remotetoken = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 		if (pSVNStatus->repos_lock->comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->comment);
+	}
+
+	if (pSVNStatus->entry->present_props)
+	{
+		entry->present_props = pSVNStatus->entry->present_props;
 	}
 
 	// Pass ownership of the entry to the array
@@ -1117,6 +1126,11 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, datebuf);
 	else
 		SetItemText(index, nCol++, _T(""));
+	// SVNSLC_COLSVNNEEDSLOCK
+	BOOL bFoundSVNNeedsLock = (entry->present_props.Find(_T("svn:needs-lock"))!=-1);
+	CString strSVNNeedsLock = (bFoundSVNNeedsLock) ? _T("*") : _T("");
+	SetItemText(index, nCol++, strSVNNeedsLock);
+
 	SetCheck(index, entry->checked);
 	if (entry->checked)
 		m_nSelected++;
@@ -2199,6 +2213,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 											}
 										}
+										if (s->entry && s->entry->present_props)
+										{
+											entry->present_props = s->entry->present_props;
+										}
 										m_arStatusArray.push_back(entry);
 										m_arListArray.push_back(m_arStatusArray.size()-1);
 										AddEntry(entry, langID, GetItemCount());
@@ -2335,6 +2353,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 											CUtils::Unescape((char *)s->entry->url);
 											entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 										}
+									}
+									if (s->entry && s->entry->present_props)
+									{
+										entry->present_props = s->entry->present_props;
 									}
 									m_arStatusArray.push_back(entry);
 									m_arListArray.push_back(m_arStatusArray.size()-1);
@@ -2608,6 +2630,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			temp.LoadString(IDS_STATUSLIST_COLREVISION);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLDATE);
+			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
+			temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -3189,6 +3213,12 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 		if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
 			currentcol++;
 	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLSVNNEEDSLOCK)
+			currentcol++;
+	}
 
 	AFX_MODULE_THREAD_STATE* pModuleThreadState = AfxGetModuleThreadState();
 	CToolTipCtrl* pToolTip = pModuleThreadState->m_pToolTip;
@@ -3313,7 +3343,17 @@ bool CSVNStatusListCtrl::StringToOrderArray(const CString& OrderString, int Orde
 	TCHAR * endchar;
 	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
 	{
-		OrderArray[i] = _tcstol(OrderString.Mid(i*2, 2), &endchar, 16);
+		CString hex = OrderString.Mid(i*2, 2);
+		if ( hex.IsEmpty() )
+		{
+			// This case only occurs when upgrading from an older
+			// TSVN version in which there were fewer columns.
+			OrderArray[i] = i;
+		}
+		else
+		{
+			OrderArray[i] = _tcstol(hex, &endchar, 16);
+		}
 	}
 	return true;
 }
@@ -3335,7 +3375,17 @@ bool CSVNStatusListCtrl::StringToWidthArray(const CString& WidthString, int Widt
 	TCHAR * endchar;
 	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
 	{
-		WidthArray[i] = _tcstol(WidthString.Mid(i*8, 8), &endchar, 16);
+		CString hex = WidthString.Mid(i*8, 8);
+		if ( hex.IsEmpty() )
+		{
+			// This case only occurs when upgrading from an older
+			// TSVN version in which there were fewer columns.
+			WidthArray[i] = 0;
+		}
+		else
+		{
+			WidthArray[i] = _tcstol(hex, &endchar, 16);
+		}
 	}
 	return true;
 }

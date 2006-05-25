@@ -40,7 +40,8 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_COLAUTHOR		0x000000800
 #define	SVNSLC_COLREVISION		0x000001000
 #define	SVNSLC_COLDATE			0x000002000
-#define SVNSLC_NUMCOLUMNS		14
+#define SVNSLC_COLSVNNEEDSLOCK	0x000004000
+#define SVNSLC_NUMCOLUMNS		15
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
 #define SVNSLC_SHOWNORMAL		0x000000002
@@ -166,6 +167,7 @@ public:
 			, isNested(false)
 			, Revision(0)
 			, isConflicted(false)
+			, present_props(_T(""))
 		{
 		}
 		const CTSVNPath& GetPath() const					
@@ -225,6 +227,7 @@ public:
 		bool					isNested;				///< TRUE if the folder from a different repository and/or path
 		bool					isConflicted;			///> TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
 		svn_revnum_t			Revision;				///< the last committed revision
+		CString					present_props;			///< cacheable properties present in BASE
 		friend class CSVNStatusListCtrl;
 	};
 

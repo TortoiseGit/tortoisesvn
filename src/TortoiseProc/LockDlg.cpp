@@ -64,7 +64,7 @@ BOOL CLockDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK, _T("LockDlg"));
+	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK | SVNSLC_COLSVNNEEDSLOCK, _T("LockDlg"));
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
