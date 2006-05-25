@@ -39,6 +39,10 @@ IDI_ORIGSIZE            ICON                    "origsize.ico"
 IDI_ZOOMIN              ICON                    "zoomin.ico"
 IDI_ZOOMOUT             ICON                    "zoomout.ico"
 IDI_IMGINFO             ICON                    "imginfo.ico"
+IDI_FORWARD             ICON                    "player_fwd.ico"
+IDI_BACKWARD            ICON                    "player_rew.ico"
+IDI_START               ICON                    "player_start.ico"
+IDI_STOP                ICON                    "player_stop.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -155,6 +159,7 @@ BEGIN
     IDS_IMAGEINFO           "Width:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
     IDS_DUALIMAGEINFO       "%s:\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\n\n%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
     IDC_TORTOISEIDIFF       "TORTOISEIDIFF"
+    IDS_DIMENSIONSANDFRAMES "%ld of % ld"
 END
 
 #endif    // English (U.S.) resources

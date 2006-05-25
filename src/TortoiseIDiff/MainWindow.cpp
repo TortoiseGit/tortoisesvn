@@ -252,6 +252,8 @@ LRESULT CMainWindow::DoCommand(int id)
 			ShowWindow(hTrackbar, bOverlap ? SW_SHOW : SW_HIDE);
 			if (bOverlap)
 			{
+				picWindow1.StopTimer();
+				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
 				picWindow1.SetSecondPicAlpha(127);
 				SendMessage(hTrackbar, TBM_SETPOS, (WPARAM)1, (LPARAM)127);

@@ -23,6 +23,14 @@
 
 #define HEADER_HEIGHT 30
 
+#define ID_ANIMATIONTIMER 100
+
+#define LEFTBUTTON_ID	101
+#define RIGHTBUTTON_ID	102
+#define PLAYBUTTON_ID	103
+
+
+
 /**
  * The image view window.
  * Shows an image and provides methods to scale the image or alpha blend it
@@ -40,6 +48,11 @@ public:
 		, pSecondPic(NULL)
 		, alpha(255)
 		, bShowInfo(true)
+		, nDimensions(0)
+		, nCurrentDimension(1)
+		, nFrames(0)
+		, nCurrentFrame(1)
+		, bPlaying(false)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -59,6 +72,8 @@ public:
 		pictitle2 = sectit;
 		picpath2 = secpath;
 	}
+
+	void StopTimer() {KillTimer(*this, ID_ANIMATIONTIMER);}
 	/// Returns the currently used alpha blending value (0-255)
 	BYTE GetSecondPicAlpha() {return alpha;}
 	/// Sets the alpha blending value
@@ -76,11 +91,14 @@ public:
 
 	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
 
+	bool HasMultipleImages();
 protected:
 	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	/// Draws the view title bar
 	void				DrawViewTitle(HDC hDC, RECT * rect);
+	/// Creates the image buttons
+	bool				CreateButtons();
 	/// Sets up the scrollbars as needed
 	void				SetupScrollBars();
 	/// Handles vertical scrolling
@@ -92,6 +110,8 @@ protected:
 	void				GetClientRect(RECT * pRect);
 	/// the WM_PAINT function
 	void				Paint(HWND hwnd);
+	/// Positions the buttons
+	void				PositionChildren();
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
@@ -105,8 +125,20 @@ protected:
 	BYTE				alpha;				///< the alpha value for the transparency of the second picture
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	// scrollbar info
-	int					nVScrollPos;
-	int					nHScrollPos;
-
+	int					nVScrollPos;		///< vertical scroll position
+	int					nHScrollPos;		///< horizontal scroll position
+	// image frames/dimensions
+	UINT				nDimensions;
+	UINT				nCurrentDimension;
+	UINT				nFrames;
+	UINT				nCurrentFrame;
+	HWND				hwndLeftBtn;
+	HWND				hwndRightBtn;
+	HWND				hwndPlayBtn;
+	HICON				hLeft;
+	HICON				hRight;
+	HICON				hPlay;
+	HICON				hStop;
+	bool				bPlaying;
 };
 

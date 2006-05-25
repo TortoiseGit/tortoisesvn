@@ -13,6 +13,7 @@
 #define IDS_IMAGEINFO                   107
 #define IDS_DUALIMAGEINFO               108
 #define IDC_TORTOISEIDIFF               109
+#define IDS_DIMENSIONSANDFRAMES         110
 #define IDR_MAINFRAME                   128
 #define IDD_OPEN                        130
 #define IDR_TORTOISEIDIFF               131
@@ -21,8 +22,12 @@
 #define IDI_ORIGSIZE                    136
 #define IDI_ZOOMIN                      137
 #define IDI_ZOOMOUT                     138
-#define IDI_ICON1                       139
 #define IDI_IMGINFO                     139
+#define IDI_FORWARD                     140
+#define IDI_BACKWARD                    141
+#define IDI_START                       142
+#define IDI_ICON2                       143
+#define IDI_STOP                        143
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001
 #define IDC_LEFTBROWSE                  1002
@@ -43,7 +48,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        144
 #define _APS_NEXT_COMMAND_VALUE         32793
 #define _APS_NEXT_CONTROL_VALUE         1004
 #define _APS_NEXT_SYMED_VALUE           110

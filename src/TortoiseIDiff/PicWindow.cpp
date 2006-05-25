@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "shellapi.h"
+#include "commctrl.h"
 #include "PicWindow.h"
 
 #pragma comment(lib, "Msimg32.lib")
@@ -45,6 +46,7 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 	{
 		ShowWindow(m_hwnd, SW_SHOW);
 		UpdateWindow(m_hwnd);
+		CreateButtons();
 		return true;
 	}
 	return false;
@@ -97,6 +99,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					nHScrollPos = 0;
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, FALSE);
+				PositionChildren();
 			}
 			else if (fwKeys & MK_CONTROL)
 			{
@@ -113,6 +116,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, FALSE);
 				SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
+				PositionChildren();
 			}
 			else
 			{
@@ -123,6 +127,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					nVScrollPos = 0;
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, FALSE);
+				PositionChildren();
 			}
 		}
 		break;
@@ -141,11 +146,77 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_COMMAND:
 		{
+			switch (LOWORD(wParam))
+			{
+			case LEFTBUTTON_ID:
+				{
+					nCurrentDimension--;
+					if (nCurrentDimension < 1)
+						nCurrentDimension = 1;
+					nCurrentFrame--;
+					if (nCurrentFrame < 1)
+						nCurrentFrame = 1;
+					picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
+					InvalidateRect(*this, NULL, FALSE);
+					PositionChildren();
+					return 0;
+				}
+				break;
+			case RIGHTBUTTON_ID:
+				{
+					nCurrentDimension++;
+					if (nCurrentDimension > picture.GetNumberOfDimensions())
+						nCurrentDimension = picture.GetNumberOfDimensions();
+					nCurrentFrame++;
+					if (nCurrentFrame > picture.GetNumberOfFrames(0))
+						nCurrentFrame = picture.GetNumberOfFrames(0);
+					picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
+					InvalidateRect(*this, NULL, FALSE);
+					PositionChildren();
+					return 0;
+				}
+				break;
+			case PLAYBUTTON_ID:
+				{
+					if (bPlaying)
+					{
+						bPlaying = false;
+						SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
+						KillTimer(*this, ID_ANIMATIONTIMER);
+					}
+					else
+					{
+						bPlaying = true;
+						SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hStop);
+						SetTimer(*this, ID_ANIMATIONTIMER, 0, NULL);
+					}
+					return 0;
+				}
+				break;
+			}
 			// pass the message to our parent
 			SendMessage(GetParent(*this), WM_COMMAND, wParam, lParam);
 		}
 		break;
+	case WM_TIMER:
+		{
+			if (wParam == ID_ANIMATIONTIMER)
+			{
+				nCurrentFrame++;
+				if (nCurrentFrame > picture.GetNumberOfFrames(0))
+					nCurrentFrame = 1;
+				long delay = picture.SetActiveFrame(nCurrentFrame);
+				delay = max(100, delay);
+				SetTimer(*this, ID_ANIMATIONTIMER, delay, NULL);
+				InvalidateRect(*this, NULL, FALSE);
+			}
+		}
+		break;
 	case WM_DESTROY:
+		DestroyIcon(hLeft);
+		DestroyIcon(hRight);
+		DestroyIcon(hPlay);
+		DestroyIcon(hStop);
 		bWindowClosed = TRUE;
 		break;
 	default:
@@ -160,10 +231,14 @@ void CPicWindow::SetPic(stdstring path, stdstring title)
 	picpath=path;pictitle=title;
 	picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
 	bValid = picture.Load(picpath);
+	nDimensions = picture.GetNumberOfDimensions();
+	if (nDimensions)
+		nFrames = picture.GetNumberOfFrames(0);
 	if (bValid)
 	{
 		picscale = 1.0;
 		InvalidateRect(*this, NULL, FALSE);
+		PositionChildren();
 	}
 }
 
@@ -174,6 +249,8 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	textrect.top = rect->top;
 	textrect.right = rect->right;
 	textrect.bottom = rect->top + HEADER_HEIGHT;
+	if (HasMultipleImages())
+		textrect.bottom += HEADER_HEIGHT;
 
 	COLORREF crBk, crFg;
 	crBk = ::GetSysColor(COLOR_SCROLLBAR);
@@ -192,10 +269,21 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	stdstring * title = pictitle.empty() ? &picpath : &pictitle;
 
 	stdstring realtitle = *title;
+	stdstring imgnumstring;
 
 	if (pSecondPic)
 	{
 		realtitle = realtitle + _T(" - ") + (pictitle2.empty() ? picpath2 : pictitle2);
+	}
+
+	if (HasMultipleImages())
+	{
+		TCHAR buf[MAX_PATH];
+		if (nFrames > 1)
+			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hInstance, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
+		else
+			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hInstance, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
+		imgnumstring = buf;
 	}
 
 	SIZE stringsize;
@@ -211,6 +299,22 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 			realtitle.c_str(),
 			realtitle.size(),
 			NULL);
+	}
+	if (HasMultipleImages())
+	{
+		if (GetTextExtentPoint32(hDC, imgnumstring.c_str(), imgnumstring.size(), &stringsize))
+		{
+			int nStringLength = stringsize.cx;
+
+			ExtTextOut(hDC, 
+				max(textrect.left + ((textrect.right-textrect.left)-nStringLength)/2, 1),
+				textrect.top + HEADER_HEIGHT + (HEADER_HEIGHT/2) - stringsize.cy/2,
+				ETO_CLIPPED,
+				&textrect,
+				imgnumstring.c_str(),
+				imgnumstring.size(),
+				NULL);
+		}
 	}
 }
 
@@ -257,7 +361,7 @@ void CPicWindow::SetupScrollBars()
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
 	ShowScrollBar(*this, SB_VERT, bPicHeigthBigger);
-
+	PositionChildren();
 }
 
 void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
@@ -301,6 +405,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 		nVScrollPos = 0;
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
+	PositionChildren();
 }
 
 void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
@@ -344,12 +449,17 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 		nHScrollPos = 0;
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
+	PositionChildren();
 }
 
 void CPicWindow::GetClientRect(RECT * pRect)
 {
 	::GetClientRect(*this, pRect);
 	pRect->top += HEADER_HEIGHT;
+	if (HasMultipleImages())
+	{
+		pRect->top += HEADER_HEIGHT;
+	}
 }
 
 void CPicWindow::SetZoom(double dZoom)
@@ -357,6 +467,7 @@ void CPicWindow::SetZoom(double dZoom)
 	picscale = dZoom;
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
+	PositionChildren();
 }
 
 void CPicWindow::FitImageInWindow()
@@ -380,6 +491,7 @@ void CPicWindow::FitImageInWindow()
 		SetupScrollBars();
 	}
 	InvalidateRect(*this, NULL, TRUE);
+	PositionChildren();
 }
 
 void CPicWindow::Paint(HWND hwnd)
@@ -556,4 +668,81 @@ void CPicWindow::Paint(HWND hwnd)
 		DrawViewTitle(memDC, &fullrect);
 	}
 	EndPaint(hwnd, &ps);
+}
+
+bool CPicWindow::CreateButtons()
+{
+	// Ensure that the common control DLL is loaded. 
+	INITCOMMONCONTROLSEX icex;
+	icex.dwSize = sizeof(INITCOMMONCONTROLSEX);
+	icex.dwICC  = ICC_BAR_CLASSES | ICC_WIN95_CLASSES;
+	InitCommonControlsEx(&icex);
+
+	hwndLeftBtn = CreateWindowEx(0, 
+								_T("BUTTON"), 
+								(LPCTSTR)NULL,
+								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+								0, 0, 0, 0, 
+								*this,
+								(HMENU)LEFTBUTTON_ID,
+								hInstance, 
+								NULL);
+	if (hwndLeftBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hLeft = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndLeftBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hLeft);
+	hwndRightBtn = CreateWindowEx(0, 
+								_T("BUTTON"), 
+								(LPCTSTR)NULL,
+								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+								0, 0, 0, 0, 
+								*this,
+								(HMENU)RIGHTBUTTON_ID,
+								hInstance, 
+								NULL);
+	if (hwndRightBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hRight = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndRightBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hRight);
+	hwndPlayBtn = CreateWindowEx(0, 
+								_T("BUTTON"), 
+								(LPCTSTR)NULL,
+								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+								0, 0, 0, 0, 
+								*this,
+								(HMENU)PLAYBUTTON_ID,
+								hInstance, 
+								NULL);
+	if (hwndPlayBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hPlay = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_START), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	hStop = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_STOP), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
+	return true;
+}
+
+void CPicWindow::PositionChildren()
+{
+	RECT rect;
+	::GetClientRect(*this, &rect);
+	if (HasMultipleImages())
+	{
+		SetWindowPos(hwndLeftBtn, HWND_TOP, rect.left+3, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		SetWindowPos(hwndRightBtn, HWND_TOP, rect.left+23, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		if (nFrames > 1)
+			SetWindowPos(hwndPlayBtn, HWND_TOP, rect.left+43, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		else
+			ShowWindow(hwndPlayBtn, SW_HIDE);
+	}
+	else
+	{
+		ShowWindow(hwndLeftBtn, SW_HIDE);
+		ShowWindow(hwndRightBtn, SW_HIDE);
+		ShowWindow(hwndPlayBtn, SW_HIDE);
+	}
+}
+
+bool CPicWindow::HasMultipleImages()
+{
+	return (((nDimensions > 1)||(nFrames > 1))&&(pSecondPic == NULL));
 }
