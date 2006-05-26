@@ -27,6 +27,8 @@
 
 #define MAX_STRING_LENGTH		4096			//should be big enough
 
+extern void Unescape(char * psz);
+
 // Nonmember function prototypes
 BOOL CALLBACK PageProc (HWND, UINT, WPARAM, LPARAM);
 UINT CALLBACK PropPageCallbackProc ( HWND hwnd, UINT uMsg, LPPROPSHEETPAGE ppsp );
@@ -346,59 +348,4 @@ void CSVNPropertyPage::InitWorkfileView()
 	} 
 }
 
-void CSVNPropertyPage::Unescape(char * psz)
-{
-	char * pszSource = psz;
-	char * pszDest = psz;
-
-	// under VS.NET2k5 strchr() wants this to be a non-const array :/
-
-	static char szHex[] = "0123456789ABCDEF";
-
-	// Unescape special characters. The number of characters
-	// in the *pszDest is assumed to be <= the number of characters
-	// in pszSource (they are both the same string anyway)
-
-	while (*pszSource != '\0' && *pszDest != '\0')
-	{
-		if (*pszSource == '%')
-		{
-			// The next two chars following '%' should be digits
-			if ( *(pszSource + 1) == '\0' ||
-				 *(pszSource + 2) == '\0' )
-			{
-				// nothing left to do
-				break;
-			}
-
-			char nValue = '?';
-			char * pszLow = NULL;
-			char * pszHigh = NULL;
-			pszSource++;
-
-			*pszSource = (char) toupper(*pszSource);
-			pszHigh = strchr(szHex, *pszSource);
-
-			if (pszHigh != NULL)
-			{
-				pszSource++;
-				*pszSource = (char) toupper(*pszSource);
-				pszLow = strchr(szHex, *pszSource);
-
-				if (pszLow != NULL)
-				{
-					nValue = (char) (((pszHigh - szHex) << 4) +
-									(pszLow - szHex));
-				}
-			} // if (pszHigh != NULL) 
-			*pszDest++ = nValue;
-		} 
-		else
-			*pszDest++ = *pszSource;
-			
-		pszSource++;
-	}
-
-	*pszDest = '\0';
-}
 
