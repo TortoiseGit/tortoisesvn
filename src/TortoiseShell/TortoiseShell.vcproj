@@ -538,6 +538,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\SVN\SVNGlobal.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\Svn\SVNHelpers.cpp"
 				>
 			</File>
@@ -552,38 +556,6 @@
 			<File
 				RelativePath="..\SVN\SVNStatus.cpp"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)/$(InputName)1.obj"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="..\..\obj\TortoiseShell\Release64/"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)/$(InputName)1.obj"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="..\..\obj\TortoiseShell\Release64/"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\TortoiseSVN.cpp"
@@ -668,6 +640,10 @@
 			</File>
 			<File
 				RelativePath="..\SVN\SVNFolderStatus.h"
+				>
+			</File>
+			<File
+				RelativePath="..\SVN\SVNGlobal.h"
 				>
 			</File>
 			<File
