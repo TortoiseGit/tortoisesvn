@@ -20,9 +20,10 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "..\TortoiseShell\resource.h"
-
+#include "svn_config.h"
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
+#include "SVNGlobal.h"
 #ifdef _MFC_VER
 #	include "SVN.h"
 #	include "MessageBox.h"
@@ -76,6 +77,13 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
+#else
+	svn_config_ensure(NULL, m_pool);
+	svn_utf_initialize(m_pool);
+
+	// set up the configuration
+	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
+
 #endif
 }
 
