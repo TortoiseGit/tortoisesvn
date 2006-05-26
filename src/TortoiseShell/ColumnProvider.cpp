@@ -27,6 +27,7 @@
 
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
+extern void Unescape(char * psz);
 
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
@@ -397,6 +398,9 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	urlComponents.lpszUrlPath = urlpath;
 	if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
 	{
+		// since the short url is shown as an additional column where the
+		// file/foldername is shown too, we strip that name from the url
+		// to make the url even shorter.
 		TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
 		if (ptr == NULL)
 			ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
@@ -411,5 +415,19 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	else
 		itemshorturl = _T(" ");
 
+	if (status)
+	{
+		char url[INTERNET_MAX_URL_LENGTH];
+		strcpy_s(url, INTERNET_MAX_URL_LENGTH, status->url);
+		Unescape(url);
+		itemurl = UTF8ToWide(url);
+	}
+	else if (g_ShellCache.GetCacheType() == ShellCache::exe)
+	{
+		char url[INTERNET_MAX_URL_LENGTH];
+		strcpy_s(url, INTERNET_MAX_URL_LENGTH, itemStatus.m_url);
+		Unescape(url);
+		itemurl = UTF8ToWide(url);
+	}
 }
 
