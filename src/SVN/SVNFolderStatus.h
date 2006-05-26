@@ -102,7 +102,7 @@ typedef struct FileStatusCacheEntry
  * the cache is only fetched for versioned files and
  * not for folders.
  */
-class SVNFolderStatus :  public SVNStatus
+class SVNFolderStatus
 {
 public:
 	SVNFolderStatus(void);
@@ -116,6 +116,8 @@ private:
 	const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status2_t *status);
+	static void			findfolderstatus (void *baton, const char *path, svn_wc_status2_t *status);
+	static CTSVNPath	folderpath;
 	void				ClearCache();
 	
 	int					m_nCounter;
@@ -124,6 +126,7 @@ private:
 	DWORD					m_TimeStamp;
 	FileStatusCacheEntry	dirstat;
 	FileStatusCacheEntry	filestat;
+	svn_wc_status2_t *		dirstatus;
 	
 	// merging these pools won't save memory
 	// but access will become slower
