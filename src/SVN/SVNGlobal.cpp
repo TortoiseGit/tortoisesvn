@@ -25,11 +25,11 @@ SVNGlobal g_SVNGlobal;
 
 SVNGlobal::SVNGlobal()
 {
-	CRegString regConfigDir = CRegString(_T("Software\\TortoiseSVN\\ConfigDir"));
-	CString sConfigDir = regConfigDir;
-	if (!sConfigDir.IsEmpty())
+	CRegStdString regConfigDir = CRegStdString(_T("Software\\TortoiseSVN\\ConfigDir"));
+	stdstring sConfigDir = regConfigDir;
+	if (!sConfigDir.empty())
 	{
-		g_pConfigDir = StrDupA((LPCSTR)CUnicodeUtils::GetUTF8(sConfigDir));
+		g_pConfigDir = StrDupA(CUnicodeUtils::StdGetUTF8(sConfigDir).c_str());
 	}
 }
 
