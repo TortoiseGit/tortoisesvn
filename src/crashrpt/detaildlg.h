@@ -232,7 +232,7 @@ public:
 
          // Size
 		 if (GetFileAttributesEx(path, GetFileExInfoStandard, &infoData)) {
-			sSize.Format(TEXT("%d KB"), infoData.nFileSizeLow);
+			sSize.Format(TEXT("%d KB"), (infoData.nFileSizeLow + 1023) / 1024);
             list.SetItemText(i, 3, sSize);
 		 }
       }
