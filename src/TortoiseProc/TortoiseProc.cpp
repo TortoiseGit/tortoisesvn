@@ -760,8 +760,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CProgressDlg progress;
 			progress.SetTitle(IDS_PROC_CLEANUP);
-			progress.ShowModeless(PWND);
 			progress.SetAnimation(IDR_CLEANUPANI);
+			progress.SetShowProgressBar(false);
+			progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO1)));
+			progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
+			progress.ShowModeless(PWND);
 			SVN svn;
 			if (!svn.CleanUp(cmdLinePath))
 			{

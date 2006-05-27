@@ -671,6 +671,8 @@
 #define IDS_PROC_REMOVEFORCEFOLDER      2318
 #define IDS_PROC_DIFFTITLE              2330
 #define IDS_PROC_DIFFLABEL              2331
+#define IDS_PROC_CLEANUP_INFO1          2332
+#define IDS_PROC_CLEANUP_INFO2          2333
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
