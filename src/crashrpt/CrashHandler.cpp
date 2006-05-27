@@ -228,7 +228,7 @@ DWORD WINAPI CCrashHandler::DialogThreadExecute(LPVOID pParam)
 
    mainDlg.m_pUDFiles = &self->m_files;
    mainDlg.m_sendButton = !self->m_sTo.IsEmpty();
-   int status = mainDlg.DoModal();
+   INT_PTR status = mainDlg.DoModal();
    if (IDOK == status || IDC_SAVE == status)
    {
       if (IDC_SAVE == status || self->m_sTo.IsEmpty() || 

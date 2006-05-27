@@ -40,7 +40,7 @@ bool WriteRegistryTreeToFile(const char *key, const char *filename)
 	if (cp == NULL) {
 		return false;
 	}
-	int len = cp - key;
+	ptrdiff_t len = cp - key;
 	HKEY hKey = 0;
 
 #define IS_PATH(id, short_id) if (strncmp(key, #id, len) == 0 || strncmp(key, #short_id, len) == 0) hKey = id

@@ -267,8 +267,8 @@ CExceptionReport::CreateDOMNode(MSXML::IXMLDOMDocument* pDoc,
 //
 // Create attributes in the exception record with the symbolic info, if available
 //
-void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD /*address*/, const char * /*ImageName*/,
-									  const char *FunctionName, DWORD functionDisp,
+void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD_PTR /*address*/, const char * /*ImageName*/,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data)
 {
@@ -474,7 +474,7 @@ CExceptionReport::CreateExceptionRecordNode(MSXML::IXMLDOMDocument* pDoc,
 
    // Try to include symbolic information
    m_exception_element = pElement;
-   AddressToSymbol(reinterpret_cast<DWORD>(pExceptionRecord->ExceptionAddress)-1,
+   AddressToSymbol(reinterpret_cast<DWORD_PTR>(pExceptionRecord->ExceptionAddress)-1,
 	   CreateExceptionSymbolAttributes,
 	   reinterpret_cast<void *>(this));
 CleanUp:
@@ -857,8 +857,8 @@ CleanUp:
 // Create a single node in the stack walback
 //
 void
-CExceptionReport::CreateWalkbackEntryNode(DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
+CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageName,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data)
 {

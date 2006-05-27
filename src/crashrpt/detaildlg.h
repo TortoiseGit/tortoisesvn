@@ -188,7 +188,7 @@ public:
       CString           sSize;
       LVITEM            lvi            = {0};
       TStrStrVector::iterator p;
-	  int status;
+	  DWORD_PTR status;
 	  char path[_MAX_PATH];
       for (i = 0, p = m_pUDFiles->begin(); p != m_pUDFiles->end(); p++, i++)
       {

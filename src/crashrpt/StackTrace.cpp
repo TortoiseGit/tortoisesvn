@@ -59,7 +59,7 @@ static CSymbolEngine & GetSymbolEngine()
 	return iter->second;
 }
 
-static DWORD __stdcall GetModBase ( HANDLE hProcess , DWORD dwAddr )
+static DWORD_PTR __stdcall GetModBase ( HANDLE hProcess , DWORD_PTR dwAddr )
 {
     // Check in the symbol engine first.
     IMAGEHLP_MODULE stIHM ;
@@ -125,8 +125,8 @@ static DWORD __stdcall GetModBase ( HANDLE hProcess , DWORD dwAddr )
     return ( 0 ) ;
 }
 
-static void PrintAddress (DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
+static void PrintAddress (DWORD_PTR address, const char *ImageName,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void * /* data, unused */ )
 {
@@ -180,7 +180,7 @@ static void PrintAddress (DWORD address, const char *ImageName,
 }
 
 
-void AddressToSymbol(DWORD dwAddr, TraceCallbackFunction pFunction, LPVOID data)
+void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID data)
 {
     char szTemp [ MAX_PATH + sizeof ( IMAGEHLP_SYMBOL ) ] ;
 
@@ -210,7 +210,7 @@ void AddressToSymbol(DWORD dwAddr, TraceCallbackFunction pFunction, LPVOID data)
 	haveModule = (0 != cSym.SymGetModuleInfo ( dwAddr , &stIHM ));
 
     // Get the function.
-    DWORD dwFuncDisp=0 ;
+    DWORD_PTR dwFuncDisp=0 ;
 	DWORD dwLineDisp=0;
     if ( 0 != cSym.SymGetSymFromAddr ( dwAddr , &dwFuncDisp , pIHS ) )
       {
@@ -270,6 +270,14 @@ void DoStackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CON
         stFrame.AddrStack.Offset = pContext->Esp    ;
         stFrame.AddrStack.Mode   = AddrModeFlat ;
         stFrame.AddrFrame.Offset = pContext->Ebp    ;
+        stFrame.AddrFrame.Mode   = AddrModeFlat ;
+
+#elif defined (_M_AMD64)
+        dwMachine                = IMAGE_FILE_MACHINE_AMD64 ;
+        stFrame.AddrPC.Offset    = pContext->Rip    ;
+        stFrame.AddrStack.Offset = pContext->Rsp    ;
+        stFrame.AddrStack.Mode   = AddrModeFlat ;
+        stFrame.AddrFrame.Offset = pContext->Rbp    ;
         stFrame.AddrFrame.Mode   = AddrModeFlat ;
 
 #elif defined (_M_ALPHA)

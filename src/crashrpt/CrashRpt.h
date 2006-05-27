@@ -34,8 +34,8 @@
 // Client crash callback
 typedef BOOL (CALLBACK *LPGETLOGFILE) (LPVOID lpvState);
 // Stack trace callback
-typedef void (*TraceCallbackFunction)(DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
+typedef void (*TraceCallbackFunction)(DWORD_PTR address, const char *ImageName,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data);
 

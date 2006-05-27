@@ -89,8 +89,8 @@ private:
 
    MSXML::IXMLDOMNode* CreateExceptionRecordNode(MSXML::IXMLDOMDocument* pDoc, 
                                                         EXCEPTION_RECORD* pExceptionRecord);
-   static void CreateExceptionSymbolAttributes(DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
+   static void CreateExceptionSymbolAttributes(DWORD_PTR address, const char *ImageName,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data);
 
@@ -104,8 +104,8 @@ private:
 
    MSXML::IXMLDOMNode* CreateWalkbackNode(MSXML::IXMLDOMDocument* pDoc, CONTEXT *pContext);
 
-   static void CreateWalkbackEntryNode(DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
+   static void CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageName,
+									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data);
 

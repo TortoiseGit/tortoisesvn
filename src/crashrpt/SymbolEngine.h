@@ -233,7 +233,7 @@ public      :
     BOOL SymLoadModule ( IN  HANDLE hFile       ,
                          IN  PSTR   ImageName   ,
                          IN  PSTR   ModuleName  ,
-                         IN  DWORD  BaseOfDll   ,
+                         IN  DWORD_PTR  BaseOfDll   ,
                          IN  DWORD  SizeOfDll    )
     {
         return ( ::SymLoadModule ( m_hProcess   ,
@@ -241,7 +241,7 @@ public      :
                                    ImageName    ,
                                    ModuleName   ,
                                    BaseOfDll    ,
-                                   SizeOfDll     ) ) ;
+                                   SizeOfDll     ) != NULL) ;
     }
 
     BOOL EnumerateLoadedModules ( IN PENUMLOADED_MODULES_CALLBACK
@@ -253,12 +253,12 @@ public      :
                                             UserContext              ));
     }
 
-    BOOL SymUnloadModule ( IN  DWORD BaseOfDll )
+    BOOL SymUnloadModule ( IN  DWORD_PTR BaseOfDll )
     {
         return ( ::SymUnloadModule ( m_hProcess , BaseOfDll ) ) ;
     }
 
-    BOOL SymGetModuleInfo ( IN  DWORD            dwAddr     ,
+    BOOL SymGetModuleInfo ( IN  DWORD_PTR        dwAddr     ,
                             OUT PIMAGEHLP_MODULE ModuleInfo  )
     {
         return ( ::SymGetModuleInfo ( m_hProcess    ,
@@ -266,9 +266,9 @@ public      :
                                       ModuleInfo     ) ) ;
     }
 
-    DWORD SymGetModuleBase ( IN DWORD dwAddr )
+    DWORD SymGetModuleBase ( IN DWORD_PTR dwAddr )
     {
-        return ( ::SymGetModuleBase ( m_hProcess , dwAddr ) ) ;
+        return ( ::SymGetModuleBase ( m_hProcess , dwAddr )  != NULL ) ;
     }
 
 /*----------------------------------------------------------------------
@@ -276,7 +276,7 @@ public      :
 ----------------------------------------------------------------------*/
 public      :
 
-    BOOL SymEnumerateSymbols (IN DWORD                        BaseOfDll,
+    BOOL SymEnumerateSymbols (IN DWORD_PTR          BaseOfDll,
                               IN PSYM_ENUMSYMBOLS_CALLBACK
                                                     EnumSymbolsCallback,
                               IN PVOID                     UserContext )
@@ -287,8 +287,8 @@ public      :
                                          UserContext          ) ) ;
     }
 
-    BOOL SymGetSymFromAddr ( IN  DWORD               dwAddr          ,
-                             OUT PDWORD              pdwDisplacement ,
+    BOOL SymGetSymFromAddr ( IN  DWORD_PTR           dwAddr          ,
+                             OUT PDWORD_PTR          pdwDisplacement ,
                              OUT PIMAGEHLP_SYMBOL    Symbol           )
     {
         return ( ::SymGetSymFromAddr ( m_hProcess       ,
@@ -320,8 +320,8 @@ public      :
 ----------------------------------------------------------------------*/
 public      :
 
-    BOOL SymGetLineFromAddr ( IN  DWORD          dwAddr          ,
-                              OUT PDWORD         pdwDisplacement ,
+    BOOL SymGetLineFromAddr ( IN  DWORD_PTR       dwAddr          ,
+                              OUT PDWORD          pdwDisplacement ,
                               OUT PIMAGEHLP_LINE Line             )
     {
 
@@ -400,7 +400,7 @@ public      :
 ----------------------------------------------------------------------*/
 public      :
 
-    LPVOID SymFunctionTableAccess ( DWORD AddrBase )
+    LPVOID SymFunctionTableAccess ( DWORD_PTR AddrBase )
     {
         return ( ::SymFunctionTableAccess ( m_hProcess , AddrBase ) ) ;
     }
@@ -418,15 +418,15 @@ public      :
         return ( ::SymSetSearchPath ( m_hProcess , SearchPath ) ) ;
     }
 
-    BOOL SymRegisterCallback ( IN PSYMBOL_REGISTERED_CALLBACK
+/*    BOOL SymRegisterCallback ( IN PSYMBOL_REGISTERED_CALLBACK
                                                        CallbackFunction,
-                               IN PVOID                UserContext    )
+                               IN DWORD_PTR            UserContext    )
     {
         return ( ::SymRegisterCallback ( m_hProcess         ,
                                          CallbackFunction   ,
                                          UserContext         ) ) ;
     }
-
+*/
 
 /*----------------------------------------------------------------------
                          Protected Data Members

@@ -156,11 +156,11 @@ int CMailMsg::MAPISend()
 
    TStrStrVector::iterator p;
    int                  nIndex = 0;
-   int                  nRecipients = 0;
+   size_t               nRecipients = 0;
    MapiRecipDesc*       pRecipients = NULL;
    MapiRecipDesc*       pOriginator = NULL;
    MapiRecipDesc*       pFirstRecipient = NULL;
-   int                  nAttachments = 0;
+   size_t               nAttachments = 0;
    MapiFileDesc*        pAttachments = NULL;
    ULONG                status = 0;
    MapiMessage          message;

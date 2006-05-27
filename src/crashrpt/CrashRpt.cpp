@@ -128,61 +128,51 @@ CRASHRPTAPI void StackTrace ( int numSkip, int depth, TraceCallbackFunction pFun
 
 // DLL Entry Points usable from Visual Basic
 //  explicit export is required to export undecorated names.
-#pragma comment(linker, "/export:InstallExVB=_InstallExVB@16")
 extern "C" LPVOID  __stdcall InstallExVB(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
    return InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);
 }
 
-#pragma comment(linker, "/export:UninstallExVB=_UninstallExVB@4")
 extern "C" void __stdcall UninstallExVB(LPVOID lpState)
 {
    UninstallEx(lpState);
 }
 
-#pragma comment(linker, "/export:EnableUIVB=_EnableUIVB@0")
 extern "C" void __stdcall EnableUIVB(void)
 {
 	EnableUI();
 }
 
-#pragma comment(linker, "/export:DisableUIVB=_DisableUIVB@0")
 extern "C" void __stdcall DisableUIVB()
 {
 	DisableUI();
 }
 
-#pragma comment(linker, "/export:AddFileExVB=_AddFileExVB@12")
 extern "C" void __stdcall AddFileExVB(LPVOID lpState, LPCTSTR lpFile, LPCTSTR lpDesc)
 {
    AddFileEx(lpState, lpFile, lpDesc);
 }
 
-#pragma comment(linker, "/export:RemoveFileExVB=_RemoveFileExVB@8")
 extern "C" void __stdcall RemoveFileExVB(LPVOID lpState, LPCTSTR lpFile)
 {
    RemoveFileEx(lpState, lpFile);
 }
 
-#pragma comment(linker, "/export:AddRegistryHiveExVB=_AddRegistryHiveExVB@12")
 extern "C" void __stdcall AddRegistryHiveExVB(LPVOID lpState, LPCTSTR lpRegistryHive, LPCTSTR lpDesc)
 {
    AddRegistryHiveEx(lpState, lpRegistryHive, lpDesc);
 }
 
-#pragma comment(linker, "/export:RemoveRegistryHiveExVB=_RemoveRegistryHiveExVB@8")
 extern "C" void __stdcall RemoveRegistryHiveExVB(LPVOID lpState, LPCTSTR lpRegistryHive)
 {
    RemoveRegistryHiveEx(lpState, lpRegistryHive);
 }
 
-#pragma comment(linker, "/export:GenerateErrorReportExVB=_GenerateErrorReportExVB@12")
 extern "C" void __stdcall GenerateErrorReportExVB(LPVOID lpState, PEXCEPTION_POINTERS pExInfo, BSTR message)
 {
    GenerateErrorReportEx(lpState, pExInfo, message);
 }
 
-#pragma comment(linker, "/export:StackTraceVB=_StackTraceVB@20")
 extern "C" void  __stdcall StackTraceVB(int numSkip, int depth, TraceCallbackFunction pFunction, CONTEXT *pContext, void *data)
 {
 	StackTrace(numSkip, depth, pFunction, pContext, data);
@@ -243,55 +233,46 @@ CRASHRPTAPI void GenerateErrorReport(BSTR message)
    GenerateErrorReportEx(CCrashHandler::GetInstance(), NULL, message);
 }
 
-#pragma comment(linker, "/export:InstallVB=_InstallVB@16")
 extern "C" void __stdcall InstallVB(LPGETLOGFILE pfn, LPCTSTR lpTo, LPCTSTR lpSubject, BOOL bUseUI)
 {
 	Install(pfn, lpTo, lpSubject, bUseUI);
 }
 
-#pragma comment(linker, "/export:UninstallVB=_UninstallVB@0")
 extern "C" void __stdcall UninstallVB()
 {
 	Uninstall();
 }
 
-#pragma comment(linker, "/export:AddFileVB=_AddFileVB@8")
 extern "C" void __stdcall AddFileVB(LPCTSTR lpFile, LPCTSTR lpDesc)
 {
 	AddFile(lpFile, lpDesc);
 }
 
-#pragma comment(linker, "/export:RemoveFileVB=_RemoveFileVB@4")
 extern "C" void __stdcall RemoveFileVB(LPCTSTR lpFile)
 {
 	RemoveFile(lpFile);
 }
 
-#pragma comment(linker, "/export:AddRegistryHiveVB=_AddRegistryHiveVB@8")
 extern "C" void __stdcall AddRegistryHiveVB(LPCTSTR lpRegistryHive, LPCTSTR lpDesc)
 {
 	AddRegistryHive(lpRegistryHive, lpDesc);
 }
 
-#pragma comment(linker, "/export:RemoveRegistryHiveVB=_RemoveRegistryHiveVB@4")
 extern "C" void __stdcall RemoveRegistryHiveVB(LPCTSTR lpRegistryHive)
 {
 	RemoveRegistryHive(lpRegistryHive);
 }
 
-#pragma comment(linker, "/export:AddEventLogVB=_AddEventLogVB@8")
 extern "C" void __stdcall AddEventLogVB(LPCTSTR lpEventLog, LPCTSTR lpDesc)
 {
 	AddEventLog(lpEventLog, lpDesc);
 }
 
-#pragma comment(linker, "/export:RemoveEventLogVB=_RemoveEventLogVB@4")
 extern "C" void __stdcall RemoveEventLogVB(LPCTSTR lpEventLog)
 {
 	RemoveEventLog(lpEventLog);
 }
 
-#pragma comment(linker, "/export:GenerateErrorReportVB=_GenerateErrorReportVB@4")
 extern "C" void __stdcall GenerateErrorReportVB(BSTR message)
 {
 	GenerateErrorReport(message);
