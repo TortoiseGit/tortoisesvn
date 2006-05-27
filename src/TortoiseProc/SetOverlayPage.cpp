@@ -22,6 +22,7 @@
 #include "SetOverlayIcons.h"
 #include "Globals.h"
 #include "ShellUpdater.h"
+#include "..\TSVNCache\CacheInterface.h"
 #include ".\setoverlaypage.h"
 #include "MessageBox.h"
 
@@ -144,6 +145,15 @@ int CSetOverlayPage::SaveData()
 		m_regCacheType = m_dwCacheType;
 		if (m_regCacheType.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regCacheType.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		if (m_dwCacheType != 1)
+		{
+			// close the possible running cache process
+			HWND hWnd = ::FindWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME);
+			if (hWnd)
+			{
+				::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
+			}
+		}
 	}
 	return 0;
 }
