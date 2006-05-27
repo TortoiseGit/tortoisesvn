@@ -137,6 +137,8 @@ BOOL CSetDialogs::OnInitDialog()
 	m_cAutoClose.SetItemData(ind, CLOSE_NOCONFLICTS);
 	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOERROR)));
 	m_cAutoClose.SetItemData(ind, CLOSE_NOERRORS);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_LOCAL)));
+	m_cAutoClose.SetItemData(ind, CLOSE_LOCAL);
 
 	m_dwAutoClose = m_regAutoClose;
 	m_bShortDateFormat = m_regShortDateFormat;

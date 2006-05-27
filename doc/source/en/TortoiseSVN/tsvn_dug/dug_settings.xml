@@ -471,7 +471,16 @@
 							means that the progress dialog will close if there were
 							simple updates, but if changes from the repository were
 							merged with yours, or if any files were added or deleted,
-							the dialog will remain open.
+							the dialog will remain open. It will also stay open if
+							there were any conflicts or errors during the operation.
+						</para>
+						<para>
+							<guilabel>Auto-close if no merges, adds or deletes for
+							local operations</guilabel> means that the progress dialog
+							will close as for <guilabel>Auto-close if no merges, adds
+							or deletes</guilabel> but only for local operations like adding
+							files or reverting changes. For remote operations the
+							dialog will stay open.
 						</para>
 						<para>
 							<guilabel>Auto-close if no conflicts</guilabel>

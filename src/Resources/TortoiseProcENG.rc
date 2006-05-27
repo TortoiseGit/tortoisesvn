@@ -2016,7 +2016,17 @@ BEGIN
     IDS_STATUSLIST_COLLOCK  "Lock"
     IDS_STATUSLIST_COLLOCKCOMMENT "Lock comment"
     IDS_STATUSLIST_COLAUTHOR "Author"
-	IDS_STATUSLIST_COLSVNLOCK "Needs lock"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STATUSLIST_COLDATE  "Date"
+    IDS_STATUSLIST_COLREVISION "Revision"
+    IDS_STATUSLIST_COLSVNLOCK "Needs lock"
+    IDS_STATUSLIST_MULTIPLETARGETS "(multiple targets selected)"
+    IDS_STATUSLIST_PROPONLY "(property change only)"
+    IDS_STATUSLIST_COPYFROM "copied from\r\n%s - revision %ld"
+    IDS_STATUSLIST_SWITCHEDTO "switched to\r\n%s"
 END
 
 STRINGTABLE 
@@ -2059,16 +2069,6 @@ BEGIN
                             "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
     IDS_SETTINGS_REPOCHECK_TT 
                             "If enabled, the repository is contacted when the dialog starts up.\nYou don't have to click on ""Check Repository"" anymore."
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STATUSLIST_COLDATE  "Date"
-    IDS_STATUSLIST_COLREVISION "Revision"
-    IDS_STATUSLIST_MULTIPLETARGETS "(multiple targets selected)"
-    IDS_STATUSLIST_PROPONLY "(property change only)"
-    IDS_STATUSLIST_COPYFROM "copied from\r\n%s - revision %ld"
-    IDS_STATUSLIST_SWITCHEDTO "switched to\r\n%s"
 END
 
 STRINGTABLE 
@@ -2208,6 +2208,7 @@ BEGIN
     IDS_PROGRS_CLOSE_NOERROR "Auto-close if no errors"
     IDS_PROGRS_CLOSE_NOCONFLICTS "Auto-close if no conflicts"
     IDS_PROGRS_CLOSE_NOMERGES "Auto-close if no merges, adds or deletes"
+    IDS_PROGRS_CLOSE_LOCAL  "Auto-close if no merges, adds or deletes for local operations"
 END
 
 STRINGTABLE 

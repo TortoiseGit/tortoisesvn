@@ -77,11 +77,15 @@
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:2</option> auto close if no conflicts</para>
+						<option>/closeonend:2</option> auto close if no errors and conflicts</para>
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:3</option> auto close if no merges</para>
+						<option>/closeonend:3</option> auto close if no errors, conflicts and merges</para>
+				</listitem>
+				<listitem>
+					<para>
+						<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations</para>
 				</listitem>
 			</itemizedlist>
 		</para>

@@ -625,6 +625,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	CString temp;
 	CString sWindowTitle;
+	bool localoperation = false;
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -817,6 +818,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		}
 		break;
 	case Add:
+		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 		SetWindowText(sWindowTitle);
 		if (!m_pSvn->Add(m_targetPathList, false, FALSE, TRUE))
@@ -825,6 +827,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		}
 		break;
 	case Revert:
+		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
 		SetWindowText(sWindowTitle);
 		if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
@@ -835,6 +838,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		break;
 	case Resolve:
 		{
+			localoperation = true;
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
 			SetWindowText(sWindowTitle);
@@ -980,6 +984,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	case Rename:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
+			if ((!m_targetPathList[0].IsUrl())&&(!m_url.IsUrl()))
+				localoperation = true;
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
 			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Move(m_targetPathList[0], m_url, m_Revision, m_sMessage))
@@ -1066,6 +1072,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred))
+		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred)&&(localoperation))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 
 	//Don't do anything here which might cause messages to be sent to the window
