@@ -185,13 +185,13 @@
               <File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-$(var.PlatformPathExtension)-libintl\bin\intl3_svn.dll" KeyPath="yes" />
             </Component>
 
-            <?if $(env.Platform) = "win32" ?>
             <?if $(env.IncludeCrashReportDll) = 1 ?>
-            <Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
+            <Component Id="C__crash" Guid="$(var.GuidCrashRpt)" Win64="$(var.Win64YesNo)">
+              <?if $(env.Platform) = "win32" ?>
               <File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
+              <?endif ?>
               <File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\CrashRpt.dll" KeyPath="yes" />
             </Component>
-            <?endif ?>
             <?endif ?>
 
             <Component Id="C__help_en" Guid="$(var.GuidHelpEN)" Win64="$(var.Win64YesNo)">

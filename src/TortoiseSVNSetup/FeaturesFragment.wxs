@@ -70,13 +70,11 @@ DO NOT INSTALL THIS FEATURE if you don't use VS.NET with Web Projects!!!"
         <ComponentRef Id="C__ASPDOTNETHACK" />
       </Feature>
 
-      <?if $(env.Platform) = "win32" ?>
       <?if $(env.IncludeCrashReportDll) = 1 ?>
       <Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
         TypicalDefault="install" Display="hidden" InstallDefault="followParent">
         <ComponentRef Id="C__crash" />
       </Feature>
-      <?endif ?>
       <?endif ?>
 
     </Feature>
