@@ -127,7 +127,8 @@ private:
 	FileStatusCacheEntry	dirstat;
 	FileStatusCacheEntry	filestat;
 	svn_wc_status2_t *		dirstatus;
-	
+	apr_pool_t *			rootpool;
+
 	// merging these pools won't save memory
 	// but access will become slower
 	

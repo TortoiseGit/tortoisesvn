@@ -93,11 +93,19 @@ SVNFolderStatus::SVNFolderStatus(void)
 	m_nCounter = 0;
 	sCacheKey.reserve(MAX_PATH);
 
+	rootpool = svn_pool_create (NULL);
+	svn_utf_initialize(rootpool);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", rootpool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", rootpool);
+
 	m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
 {
+	svn_pool_destroy(rootpool);
 	CloseHandle(m_hInvalidationEvent);
 }
 
@@ -125,20 +133,11 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 		::CloseHandle(TSVNMutex);
 	}
 
-	pool = svn_pool_create (NULL);				// create the memory pool
-	svn_utf_initialize(pool);
-
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
-
-	svn_client_create_context(&localctx, pool);
-	svn_config_get_config (&(localctx->config), NULL, pool);
-
-	//svn_pool_clear(this->m_pool);
+	pool = svn_pool_create (rootpool);				// create the memory pool
 
 	ClearCache();
-	
+	svn_client_create_context(&localctx, pool);
+
 	// strings pools are unused, now -> we may clear them
 	
 	authors.clear();
@@ -159,7 +158,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 			dirstat.needslock = false;
 
-			localctx->auth_baton = NULL;
 			dirstatus = NULL;
 			statushash = apr_hash_make(pool);
 			svn_revnum_t youngest = SVN_INVALID_REVNUM;
