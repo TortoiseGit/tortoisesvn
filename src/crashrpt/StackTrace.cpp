@@ -1,14 +1,7 @@
 /*----------------------------------------------------------------------
    John Robbins - Microsoft Systems Journal Bugslayer Column - Feb 99
 ----------------------------------------------------------------------*/
-#include <windows.h>
-#include <stdlib.h>
-#include <tchar.h>
-#include <stdio.h>
-
-// Force imagehlp in.
-#include <imagehlp.h>
-
+#include <stdafx.h>
 
 #include "StackTrace.h"
 #include "SymbolEngine.h"
@@ -133,7 +126,7 @@ static void PrintAddress (DWORD_PTR address, const char *ImageName,
     static char buffer [ MAX_PATH*2 + 512 ];
    LPTSTR pCurrPos = buffer ;
     // Always stick the address in first.
-    pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), ( "0x%08X " ) , address ) ;
+    pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), addressFormat , address ) ;
 
 	if (ImageName != NULL) {
 		LPCTSTR szName = strchr ( ImageName ,  ( '\\' ) ) ;

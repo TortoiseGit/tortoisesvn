@@ -33,3 +33,12 @@ extern CAppModule _Module;
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
 #endif // !defined(AFX_STDAFX_H__465AD6C5_1ACE_47ED_AD54_7ED140DFF7CC__INCLUDED_)
+
+//////////////////////////////////////////////////////////////////////
+// how shall addresses be formatted?
+//////////////////////////////////////////////////////////////////////
+
+extern const LPCTSTR addressFormat;
+extern const LPCTSTR offsetFormat;
+extern const LPCTSTR sizeFormat;
+

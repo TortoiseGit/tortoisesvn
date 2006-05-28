@@ -15,7 +15,6 @@
 
 #include "StackTrace.h"
 
-
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -289,7 +288,7 @@ void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD_PTR /*address*/, c
 		self->m_exception_element->setAttribute(funcName, v);
 		// Recycle variant
 		SysFreeString(V_BSTR(&v));
-		sAddr.Format(_T("0x%x"), functionDisp);
+		sAddr.Format(offsetFormat, functionDisp);
 		V_VT(&v) = VT_BSTR;
 		V_BSTR(&v) = sAddr.AllocSysString();
 		self->m_exception_element->setAttribute(funcDispName, v);
@@ -311,7 +310,7 @@ void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD_PTR /*address*/, c
 		// Recycle variant
 		SysFreeString(V_BSTR(&v));
 
-		sAddr.Format(_T("0x%x"), lineDisp);
+		sAddr.Format(offsetFormat, lineDisp);
 		V_VT(&v) = VT_BSTR;
 		V_BSTR(&v) = sAddr.AllocSysString();
 		self->m_exception_element->setAttribute(lineDispName, v);
@@ -545,6 +544,12 @@ CExceptionReport::CreateProcessorNode(MSXML::IXMLDOMDocument* pDoc)
    case PROCESSOR_ARCHITECTURE_ALPHA64:
       V_BSTR(&v) = ::SysAllocString(L"PROCESSOR_ARCHITECTURE_ALPHA64");
       break;
+   case PROCESSOR_ARCHITECTURE_AMD64:
+      V_BSTR(&v) = ::SysAllocString(L"PROCESSOR_ARCHITECTURE_AMD64");
+      break;
+   case PROCESSOR_ARCHITECTURE_IA32_ON_WIN64:
+      V_BSTR(&v) = ::SysAllocString(L"PROCESSOR_ARCHITECTURE_IA32_ON_WIN64");
+      break;
    case PROCESSOR_ARCHITECTURE_UNKNOWN:
       V_BSTR(&v) = ::SysAllocString(L"PROCESSOR_ARCHITECTURE_UNKNOWN");
       break;
@@ -725,7 +730,7 @@ CExceptionReport::CreateModulesNode(MSXML::IXMLDOMDocument* pDoc)
       //
       // Set base address
       //
-      sAddr.Format(_T("0x%08x"), item.BaseOfImage);
+      sAddr.Format(addressFormat, item.BaseOfImage);
       V_VT(&v) = VT_BSTR;
       V_BSTR(&v) = sAddr.AllocSysString();
       pElement->setAttribute(baseAddrName, v);
@@ -735,7 +740,7 @@ CExceptionReport::CreateModulesNode(MSXML::IXMLDOMDocument* pDoc)
       //
       // Set module size
       //
-      sAddr.Format(_T("0x%08x"), item.SizeOfImage);
+      sAddr.Format(sizeFormat, item.SizeOfImage);
       V_VT(&v) = VT_BSTR;
       V_BSTR(&v) = sAddr.AllocSysString();
       pElement->setAttribute(sizeName, v);
@@ -894,7 +899,7 @@ CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageNa
    // Recycle variant
    SysFreeString(V_BSTR(&v));
 
-   sAddr.Format(_T("0x%x"), address);
+   sAddr.Format(offsetFormat, address);
    V_VT(&v) = VT_BSTR;
    V_BSTR(&v) = sAddr.AllocSysString();
    pElement->setAttribute(addrName, v);
@@ -915,7 +920,7 @@ CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageNa
 		pElement->setAttribute(funcName, v);
 		// Recycle variant
 		SysFreeString(V_BSTR(&v));
-		sAddr.Format(_T("0x%x"), functionDisp);
+		sAddr.Format(offsetFormat, functionDisp);
 		V_VT(&v) = VT_BSTR;
 		V_BSTR(&v) = sAddr.AllocSysString();
 		pElement->setAttribute(funcDispName, v);
@@ -937,7 +942,7 @@ CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageNa
 		// Recycle variant
 		SysFreeString(V_BSTR(&v));
 
-		sAddr.Format(_T("0x%x"), lineDisp);
+		sAddr.Format(offsetFormat, lineDisp);
 		V_VT(&v) = VT_BSTR;
 		V_BSTR(&v) = sAddr.AllocSysString();
 		pElement->setAttribute(lineDispName, v);
