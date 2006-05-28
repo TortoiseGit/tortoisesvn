@@ -109,7 +109,7 @@ public:
 
 private:
 	bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
-	bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, bool bIgnoreEOL, apr_pool_t * pool);
+	bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool);
 
 
 public:
@@ -151,6 +151,10 @@ public:
 	CStdCStringArray			m_arDiff3;
 	CStdDWORDArray				m_arStateDiff3;
 	CStdDWORDArray				m_arLinesDiff3;
+
+	CStdDWORDArray				m_arDiff3LinesBase;
+	CStdDWORDArray				m_arDiff3LinesYour;
+	CStdDWORDArray				m_arDiff3LinesTheir;
 
 	CString						m_sError;
 
