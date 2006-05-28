@@ -138,6 +138,9 @@
 - NEW: Conflicts are marked as such even if the ignore settings
        (e.g. ignore whitespace changes) would make TortoiseMerge to
        not show a conflict. See issue #88 for details. (Stefan)
+- NEW: The log message and file list controls in the commit dialog
+       have now a splitter between them so they can be resized
+       as the user wants. See issue #252 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

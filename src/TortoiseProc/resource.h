@@ -534,6 +534,7 @@
 #define IDC_LOCKWARNING                 1311
 #define IDS_ERR_NOCOMMONCOPYFROM        1311
 #define IDS_ERR_GDIPLUS_MISSING         1312
+#define IDC_SPLITTER                    1312
 #define IDS_ERR_NOTENOUGHMEMORY         1313
 #define IDS_ERR_MUSTBEURL               1314
 #define IDS_ERR_INVALIDREVNOWC          1315
@@ -897,7 +898,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        235
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1312
+#define _APS_NEXT_CONTROL_VALUE         1313
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

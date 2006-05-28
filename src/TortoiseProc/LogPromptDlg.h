@@ -25,6 +25,7 @@
 #include "HistoryDlg.h"
 #include "Registry.h"
 #include "SciEdit.h"
+#include "SplitterControl.h"
 
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101
@@ -33,25 +34,6 @@
 /**
  * \ingroup TortoiseProc
  * Dialog to enter log messages used in a commit.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 10-25-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CLogPromptDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface // CResizableStandAloneDialog
 {
@@ -80,6 +62,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
@@ -94,33 +77,36 @@ protected:
 	void Refresh();
 	void GetAutocompletionList();
 	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);
+	void DoSize(int delta);
+	void SetSplitterRange();
 
 	DECLARE_MESSAGE_MAP()
 
 
 public:
-	CTSVNPathList	m_pathList;
-	BOOL			m_bRecursive;
-	CSciEdit		m_cLogMessage;
-	CString			m_sLogMessage;
-	BOOL			m_bKeepLocks;
-	CString			m_sBugID;
+	CTSVNPathList		m_pathList;
+	BOOL				m_bRecursive;
+	CSciEdit			m_cLogMessage;
+	CString				m_sLogMessage;
+	BOOL				m_bKeepLocks;
+	CString				m_sBugID;
 
 private:
-	CWinThread*		m_pThread;
-	CAutoCompletionList		m_autolist;
-	CSVNStatusListCtrl		m_ListCtrl;
-	BOOL			m_bShowUnversioned;
-	volatile LONG	m_bBlock;
-	volatile LONG	m_bThreadRunning;
-	volatile LONG	m_bRunThread;
-	CBalloon		m_tooltips;
-	CRegDWORD		m_regAddBeforeCommit;
-	ProjectProperties		m_ProjectProperties;
-	CButton			m_SelectAll;
-	CString			m_sWindowTitle;
-	static UINT		WM_AUTOLISTREADY;
-	int				m_nPopupPasteListCmd;
-	CHistoryDlg		m_HistoryDlg;
-	bool			m_bCancelled;
+	CWinThread*			m_pThread;
+	CAutoCompletionList	m_autolist;
+	CSVNStatusListCtrl	m_ListCtrl;
+	BOOL				m_bShowUnversioned;
+	volatile LONG		m_bBlock;
+	volatile LONG		m_bThreadRunning;
+	volatile LONG		m_bRunThread;
+	CBalloon			m_tooltips;
+	CRegDWORD			m_regAddBeforeCommit;
+	ProjectProperties	m_ProjectProperties;
+	CButton				m_SelectAll;
+	CString				m_sWindowTitle;
+	static UINT			WM_AUTOLISTREADY;
+	int					m_nPopupPasteListCmd;
+	CHistoryDlg			m_HistoryDlg;
+	bool				m_bCancelled;
+	CSplitterControl	m_wndSplitter;
 };

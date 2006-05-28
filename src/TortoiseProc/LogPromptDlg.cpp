@@ -70,6 +70,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
+	DDX_Control(pDX, IDC_SPLITTER, m_wndSplitter);
 }
 
 
@@ -149,6 +150,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	
 	AddAnchor(IDC_LISTGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SPLITTER, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
@@ -941,3 +943,73 @@ void CLogPromptDlg::UpdateOKButton()
 	GetDlgItem(IDOK)->EnableWindow(bValidLogSize && nSelectedItems>0);
 }
 
+
+LRESULT CLogPromptDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message) {
+	case WM_NOTIFY:
+		if (wParam == IDC_SPLITTER)
+		{ 
+			SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
+			DoSize(pHdr->delta);
+		}
+		break;
+	case WM_WINDOWPOSCHANGED : 
+		{
+			CRect rcW;
+			GetWindowRect(rcW);
+			ScreenToClient(rcW);
+
+			SetSplitterRange();
+
+			if (m_wndSplitter && rcW.Height()>0) Invalidate();
+			break;
+		}
+	case WM_SIZE:
+		{
+			// first, let the resizing take place
+			LRESULT res = CResizableDialog::DefWindowProc(message, wParam, lParam);
+			//set range
+			SetSplitterRange();
+			return res;
+		}
+	}
+
+	return __super::DefWindowProc(message, wParam, lParam);
+}
+
+void CLogPromptDlg::SetSplitterRange()
+{
+	if ((m_ListCtrl)&&(m_cLogMessage))
+	{
+		CRect rcTop;
+		m_cLogMessage.GetWindowRect(rcTop);
+		ScreenToClient(rcTop);
+		CRect rcMiddle;
+		m_ListCtrl.GetWindowRect(rcMiddle);
+		ScreenToClient(rcMiddle);
+		m_wndSplitter.SetRange(rcTop.top+60, rcMiddle.bottom-80);
+	}
+}
+
+void CLogPromptDlg::DoSize(int delta)
+{
+	RemoveAnchor(IDC_MESSAGEGROUP);
+	RemoveAnchor(IDC_LOGMESSAGE);
+	RemoveAnchor(IDC_SPLITTER);
+	RemoveAnchor(IDC_LISTGROUP);
+	RemoveAnchor(IDC_FILELIST);
+	CSplitterControl::ChangeHeight(&m_cLogMessage, delta, CW_TOPALIGN);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MESSAGEGROUP), delta, CW_TOPALIGN);
+	CSplitterControl::ChangeHeight(&m_ListCtrl, -delta, CW_BOTTOMALIGN);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_LISTGROUP), -delta, CW_BOTTOMALIGN);
+	AddAnchor(IDC_MESSAGEGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SPLITTER, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_LISTGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	ArrangeLayout();
+	SetSplitterRange();
+	m_cLogMessage.Invalidate();
+	GetDlgItem(IDC_MSGVIEW)->Invalidate();
+}
