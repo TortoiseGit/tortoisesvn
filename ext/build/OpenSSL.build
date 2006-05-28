@@ -9,7 +9,7 @@
 			<arg value="clean" />
 		</exec>
 	</target>
-	<target name="OpenSSL">
+	<target name="OpenSSL" depends="clean">
 		<delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
 		<if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\..\common\openssl">
@@ -29,7 +29,6 @@
 			</exec>
 		</if>
 		<if test="${platform == 'x64'}">
-			<copy file="..\build\VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" />
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
