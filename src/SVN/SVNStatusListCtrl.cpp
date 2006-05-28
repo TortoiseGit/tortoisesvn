@@ -1794,7 +1794,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						&&(wcStatus!=svn_wc_status_added))
 					{
 						popup.AppendMenu(MF_SEPARATOR);
-						if (!entry->IsFolder())
+						if ((entry->lock_token.IsEmpty())&&(!entry->IsFolder()))
 						{
 							if (m_dwContextMenus & SVNSLC_POPLOCK)
 							{
