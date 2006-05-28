@@ -50,6 +50,7 @@ void CAddDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAddDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
 
@@ -183,8 +184,11 @@ BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
 	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
-
-
-
-
-
+LRESULT CAddDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
+{
+	if(AfxBeginThread(AddThreadEntry, this) == NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	return 0;
+}

@@ -42,6 +42,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
+	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()
 

@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_WM_SETCURSOR()
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
 
@@ -217,4 +218,13 @@ BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+}
+
+LRESULT CRevertDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
+{
+	if (AfxBeginThread(RevertThreadEntry, this)==0)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	return 0;
 }

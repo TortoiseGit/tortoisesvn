@@ -55,6 +55,7 @@ void CLockDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CLockDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_HELP, OnBnClickedHelp)
 	ON_EN_CHANGE(IDC_LOCKMESSAGE, OnEnChangeLockmessage)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
 

@@ -50,6 +50,7 @@ void CCreatePatch::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CCreatePatch, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
 
@@ -241,4 +242,13 @@ void CCreatePatch::OnOK()
 	m_PatchList.WriteCheckedNamesToPathList(m_pathList);
 
 	CResizableStandAloneDialog::OnOK();
+}
+
+LRESULT CCreatePatch::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
+{
+	if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	return 0;
 }
