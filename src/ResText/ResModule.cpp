@@ -131,7 +131,7 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 	if (!CopyFile(lpszSrcLangDllPath, lpszDestLangDllPath, FALSE))
 		MYERROR;
 
-	m_hResDll = LoadLibrary(lpszSrcLangDllPath);
+	m_hResDll = LoadLibraryEx (lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_DATAFILE);
 
 	sDestFile = std::wstring(lpszDestLangDllPath);
 
