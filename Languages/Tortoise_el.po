@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-28 00:36+0200\n"
+"PO-Revision-Date: 2006-05-29 00:03+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,7 +138,7 @@ msgid "%s : Remote file"
 msgstr "%s : Απομακρυσμένο αρχείο"
 
 #: ID:151,
-#, fuzzy, c-format
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s : Βασική έκδοση πάνω στην οποία δουλεύετε"
 
@@ -335,9 +335,8 @@ msgstr "&Επεξεργασία..."
 # Εξυπερετητή -> server
 # descriptive translation
 #: Control-ID:1023,
-#, fuzzy
 msgid "&Enable Proxy Server"
-msgstr "&Χρισιμοποίηση Μεσολαβιτή Εξυπερετητή"
+msgstr "&Χρησιμοποίηση Μεσολαβιτή Εξυπερετητή"
 
 # again, inflection
 #: Control-ID:1213,
@@ -366,43 +365,43 @@ msgstr "&Εύρεση"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
-msgstr ""
+msgstr "&Σταθεροί οδηγοί συσκευών"
 
 #: Control-ID:65535,
 msgid "&Font for log messages:"
-msgstr ""
+msgstr "&Γραμματοσειρά για τα μυνήματα ιστορικότητας"
 
 #: Control-ID:65535,
 msgid "&Font:"
-msgstr ""
+msgstr "&Γραμματοσειρά:"
 
 #: ID:501,#:
 #: Control-ID:65535,
 msgid "&From URL:"
-msgstr ""
+msgstr "&Από URL:"
 
 #: Control-ID:1259,
 msgid "&From WC at URL:"
-msgstr ""
+msgstr "&Από WC στο URL:"
 
 #: Control-ID:65535,
 msgid "&From revision"
-msgstr ""
+msgstr "&Από την έκδοση"
 
 #: Control-ID:1115,#:
 #: Control-ID:1032,
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "&HEAD Εκδοση"
 
 #: Control-ID:1032,#:
 #: Control-ID:1019,#:
 #: Control-ID:1034,
 msgid "&HEAD revision"
-msgstr ""
+msgstr "&HEAD έκδοση"
 
 #: Control-ID:1182,
 msgid "&HEAD revision in the repository"
-msgstr ""
+msgstr "&HEAD έκδοση μέσα στην Αποθήκη"
 
 #: MenuEntry#:
 #: Control-ID:57670,#:
@@ -421,24 +420,24 @@ msgstr "&Απόκρυψη"
 
 #: Control-ID:1170,
 msgid "&Icon Set:"
-msgstr ""
+msgstr "&Σύνολο εικονιδίων"
 
 #: ID:15,
 #, c-format
 msgid "&Ignore %d items"
-msgstr ""
+msgstr "&Παράβλεψη %d αντικειμένων"
 
 #: Control-ID:1021,
 msgid "&Ignore whitespace changes"
-msgstr ""
+msgstr "&Παράβλεψη αλλαγών σε κενά διαστήματα"
 
 #: ID:9,
 msgid "&Import..."
-msgstr ""
+msgstr "&Εισαγωγή..."
 
 #: Control-ID:1016,
 msgid "&Jump to first difference when loading"
-msgstr ""
+msgstr "&Εκκίνηση με την πρώτη διαφορά όταν γίνεται επιφόρτωση"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -447,36 +446,37 @@ msgstr "&Γλώσσα:"
 
 #: Control-ID:1172,
 msgid "&List View"
-msgstr ""
+msgstr "Επισκόπηση &καταλόγου"
 
 #: Control-ID:1309,
 msgid "&Load..."
 msgstr "&Επιφόρτωση..."
 
+# Χρησιμοποιώ δοτική για ελεύθερη απόδοση.
 #: MenuEntry
 msgid "&Mark as resolved"
-msgstr ""
+msgstr "&Σημάδευση ως επιλημένα"
 
 #: Control-ID:1,#:
 #: MenuEntry
 msgid "&Merge"
-msgstr ""
+msgstr "&Συγχώνευση"
 
 #: ID:9,
 msgid "&Merge..."
-msgstr ""
+msgstr "&Συγχώνευση..."
 
 #: Control-ID:1012,
 msgid "&Merging"
-msgstr ""
+msgstr "&Διαδικασία συγχώνευσης"
 
 #: Control-ID:1129,
 msgid "&Native filesystem (FSFS)"
-msgstr ""
+msgstr "&Γηγενή συστημα αρχείων (FSFS)"
 
 #: Control-ID:1049,
 msgid "&Network drives"
-msgstr ""
+msgstr "&Δυκτιακοί οδηγοί συσκευών"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -508,186 +508,188 @@ msgstr "&Άνοιγμα Ctrl-O"
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&Password:"
-msgstr ""
+msgstr "&Συνθηματικό:"
 
 #: ID:376,
 msgid "&Paste"
-msgstr ""
+msgstr "&Επικόληση"
 
 #: Control-ID:65535,
 msgid "&Port:"
-msgstr ""
+msgstr "&Θύρα:"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr ""
+msgstr "&Προηγούμενη διαφορά"
 
 #: Control-ID:1246,#:
 #: Control-ID:1246,
 msgid "&Recent messages"
-msgstr ""
+msgstr "&Πρόσφατα μυνήματα"
 
 #: ID:376,
 msgid "&Redo"
-msgstr ""
+msgstr "&Επανάληψη"
 
 #: Control-ID:1100,#:
 #: Control-ID:1285,
 msgid "&Remove"
-msgstr ""
+msgstr "&Διαγραφή"
 
 #: ID:101,
 msgid "&Rename"
-msgstr ""
+msgstr "&Μετονομασία"
 
 #: ID:13,
 msgid "&Repo-browser"
-msgstr ""
+msgstr "&Επισκόπηση-Αποθήκης"
 
 #: ID:113,
 msgid "&Revert changes from this revision"
-msgstr ""
+msgstr "&Επαναφορά αλλαγών από την παρούσα έκδοση"
 
 #: Control-ID:1033,#:
 #: Control-ID:1116,#:
 #: Control-ID:1035,
 msgid "&Revision"
-msgstr ""
+msgstr "&Έκδοση"
 
 #: Control-ID:65535,
 msgid "&SSH client:"
-msgstr ""
+msgstr "&SSH πελάτης:"
 
 #: MenuEntry
 msgid "&Save Ctrl-S"
-msgstr ""
+msgstr "&Αποθήκευση Ctrl-S"
 
 #: MenuEntry
 msgid "&Save Graph As..."
-msgstr ""
+msgstr "&Αποθήκευση Γραφήματως Ως..."
 
 #: Control-ID:1023,#:
 #: Control-ID:1023,
 msgid "&Save authentication"
-msgstr ""
+msgstr "&Αποθήκευση πιστοποίησης"
 
 #: Control-ID:1308,
 msgid "&Save..."
-msgstr ""
+msgstr "&Αποθήκευση..."
 
 #: ID:9,
 msgid "&Settings"
-msgstr ""
+msgstr "&Ρυθμίσεις"
 
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
-msgstr ""
+msgstr "&Συγκεκριμένη έκδοση στην αποθήκη"
 
 #: MenuEntry
 msgid "&Status Bar"
-msgstr ""
+msgstr "&Ράβδος κατάστασης"
 
 #: Control-ID:1211,
 msgid "&Steal the locks"
-msgstr ""
+msgstr "&Παρείσφρεση των κλειδωμένων αρχείων"
 
 #: Control-ID:1130,
 msgid "&Stop on copy/rename"
-msgstr ""
+msgstr "&Στάση κατά την απάντηση αντιγραφής/μετονομασίας"
 
 #: Control-ID:1173,
 msgid "&Symbol View"
-msgstr ""
+msgstr "Επισκόπηση &συμβόλων"
 
 #: Control-ID:65535,
 msgid "&Tab size:"
-msgstr ""
+msgstr "&Μέγεθος στηλογνώμονα."
 
 #: Control-ID:1222,
 msgid "&Timeout in seconds to stop the autocompletion parsing"
-msgstr ""
+msgstr "&Επιτρεπόμενος χρόνος, σε δευτερόλεπτα, μέχρη την στάση της γραμματικής ανάλησης της αυτόματης συμπλήρωσης"
 
 #: Control-ID:65535,
 msgid "&To Revision"
-msgstr ""
+msgstr "& Προς έκδοση"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&To URL:"
-msgstr ""
+msgstr "& Προς URL:"
 
 #: Control-ID:1305,
 msgid "&To URL: "
-msgstr ""
+msgstr "&Προς URL: "
 
 #: MenuEntry
 msgid "&Toolbar"
-msgstr ""
+msgstr "&Ράβδος Εργαλείων"
 
+# Main names, like Mr. Black, or Mrs Green, or Walmart or Axe (the deodorant, for you Slashdotters), are not translated in Greek, but they retain their original spelling
 #: Control-ID:1091,#:
 #: Control-ID:1094,
 msgid "&TortoiseMerge"
-msgstr ""
+msgstr "&TortoiseMerge"
 
+# again, main names and logos
 #: ID:9,
 msgid "&TortoiseSVN"
-msgstr ""
+msgstr "&TortoiseSVN"
 
 #: Control-ID:65535,#:
 #: Control-ID:1058,
 msgid "&URL of repository:"
-msgstr ""
+msgstr "&URL της Αποθήκης:"
 
 #: Control-ID:1076,
 msgid "&URL:"
-msgstr ""
+msgstr "&URL:"
 
 #: ID:376,
 msgid "&Undo"
-msgstr ""
+msgstr "&Επαναφορα"
 
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
-msgstr ""
+msgstr "&Επαναφορα\tCtrl+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
-msgstr ""
+msgstr "&Ενοποιημένες διαφορές"
 
 #: Control-ID:1061,
 msgid "&Unknown drives"
-msgstr ""
+msgstr "&Άγνωστοι οδηγοί συσκευών"
 
 #: ID:8,
 msgid "&Update"
-msgstr ""
+msgstr "&Ενημέρωση"
 
 #: ID:76,
 msgid "&Update item to revision"
-msgstr ""
+msgstr "&Ενημέρωση αντικειμένου στην έκδοση"
 
 #: ID:11,
 msgid "&Update to revision..."
-msgstr ""
+msgstr "&Ενημέρωση στην έκδοση..."
 
 #: Control-ID:1184,
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "&Χρησιμοποίηση αυτόματης συμπλήρωσης διαδρομών αρχείων και λεξηκλιδιών"
 
 #: Control-ID:65535,#:
 #: Control-ID:1005,#:
 #: Control-ID:65535,
 msgid "&Username:"
-msgstr ""
+msgstr "&Ονομα χρήστη:"
 
 #: MenuEntry#:
 #: MenuEntry
 msgid "&View"
-msgstr ""
+msgstr "&Επισκόπηση"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr ""
+msgstr "&Κενά"
 
 #: Control-ID:1183,
 msgid "&Working copy"
@@ -696,23 +698,23 @@ msgstr ""
 #: ID:17,#:
 #: ID:564,
 msgid "(binary value)"
-msgstr ""
+msgstr "(διαδική τιμή)"
 
 #: ID:219,
 msgid "(dry run)"
-msgstr ""
+msgstr "??????????"
 
 #: ID:208,
 msgid "(multiple targets selected)"
-msgstr ""
+msgstr "(διαλέχτηκαν πολλαπλοί στόχοι)"
 
 #: ID:314,
 msgid "(not found)"
-msgstr ""
+msgstr "(δεν βρέθηκε)"
 
 #: ID:208,
 msgid "(property change only)"
-msgstr ""
+msgstr "(αλλαγή ιδιότητας μόνο)"
 
 #: ID:188,
 #, c-format
@@ -737,15 +739,15 @@ msgstr "..."
 #: ID:151,
 #, c-format
 msgid ": Revision %d"
-msgstr ""
+msgstr ": Έκδωση %d"
 
 #: ID:151,
 msgid ": working base"
-msgstr ""
+msgstr ": βασική έκδοση πάνω στην οποία εργάζεστε"
 
 #: ID:151,
 msgid ": working copy"
-msgstr ""
+msgstr ": αντίγραφο πάνω στο οποίο εργάζεστε"
 
 #: ID:145,
 msgid ""
@@ -755,6 +757,11 @@ msgid ""
 "to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
 "And <u>read the manual!</u>"
 msgstr ""
+"Το <b>TortoiseSVN</b> είναι μια προέκταση του κέλυφους.\n"
+"Αυτό σημαίνει ότι είναι ένσωματομένο μέσα στον Windows explorer.\n"
+"Για να χρησιμοποιήσετε το<b>TortoiseSVN</b> παρακαλώ ανοίξτε τον Εxplorer και πατήστε το δεξί κλικ σε όποιον κατάλογο σας αρέσει\n"
+"για να προβάλετε το μενου με όλες τις εντολές του <b>TortoiseSVN</b>.\n"
+"Και <u>διαβάστε το εγχειρίδιο!</u>"
 
 #: ID:3867,#:
 #: ID:3867,
@@ -808,11 +815,11 @@ msgstr ""
 
 #: ID:101,
 msgid "A&dd folder..."
-msgstr ""
+msgstr "Π&ροσθήκη καταλόγου..."
 
 #: ID:73,
 msgid "Abort"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: Dlg-ID:136,
 msgid "About TortoiseMerge"
@@ -852,16 +859,16 @@ msgstr ""
 #: ID:209,#:
 #: Dlg-ID:155,
 msgid "Add"
-msgstr ""
+msgstr "Προσθήκη"
 
 #: ID:101,
 msgid "Add &file..."
-msgstr ""
+msgstr "Προσθήκη &αρχείου..."
 
 #: ID:376,
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr ""
+msgstr "Προσθήκη '%s' στο λεξικό"
 
 #: ID:16,
 msgid "Add (as replacement)..."
@@ -869,7 +876,7 @@ msgstr ""
 
 #: ID:563,
 msgid "Add Properties"
-msgstr ""
+msgstr "Ιδιότητες προσθήκης"
 
 #: ID:110,
 msgid "Add extension specific diff program"
@@ -891,7 +898,7 @@ msgstr ""
 #: ID:264,#:
 #: Control-ID:65535,
 msgid "Added"
-msgstr ""
+msgstr "Προσθέθηκε"
 
 #: ID:126,
 msgid "Added a file remotely"
@@ -941,11 +948,11 @@ msgstr ""
 
 #: ID:110,
 msgid "Advanced diff settings"
-msgstr ""
+msgstr "Ρύθμηση των διαφορών για προχωρημένους"
 
 #: ID:110,
 msgid "Advanced merge settings"
-msgstr ""
+msgstr "Ρυθμιση της συγχωνεύσης για προχωρημένους"
 
 #: ID:3841,#:
 #: ID:3841,
@@ -1061,15 +1068,15 @@ msgstr ""
 
 #: ID:13,
 msgid "Apply &patch..."
-msgstr ""
+msgstr "Εφαρμογή επιρράμματος..."
 
 #: Control-ID:1294,
 msgid "Apply property recursively"
-msgstr ""
+msgstr "Εφαρμογή της ιδιότητας αναδρομικά"
 
 #: Control-ID:65535,
 msgid "Apply unified diff"
-msgstr ""
+msgstr "Εφαρμογή ενοποιημένης διαφοράς"
 
 #: ID:145,
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1105,15 +1112,15 @@ msgstr ""
 #: ID:76,#:
 #: ID:207,
 msgid "Author"
-msgstr ""
+msgstr "Συγγραφέας"
 
 #: Control-ID:65535,
 msgid "Author:                        Stefan Kueng"
-msgstr ""
+msgstr "Συγγραφέας:                        Στέφαν Κουένγκ"
 
 #: ID:116,
 msgid "Authors"
-msgstr ""
+msgstr "Συγγραφείς"
 
 #: Control-ID:1265,
 msgid "Authors case insensitive"
@@ -1121,7 +1128,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Authors:"
-msgstr ""
+msgstr "Συγγραφείς:"
 
 #: ID:222,
 msgid "Auto-close if no conflicts"
@@ -1141,10 +1148,12 @@ msgid ""
 "from the files that you have changed as you type a log message."
 msgstr ""
 
+# again, inflection
 #: ID:438,#:
 #: ID:438,
+#, fuzzy
 msgid "Automatic"
-msgstr ""
+msgstr "Αυτόματα"
 
 #: Control-ID:1073,
 msgid "Automatically check for &newer versions every week"
@@ -1152,7 +1161,7 @@ msgstr ""
 
 #: Control-ID:1157,
 msgid "Average"
-msgstr ""
+msgstr "Μέσος όρος"
 
 #: Control-ID:1001,
 msgid "B&rowse..."
@@ -1160,11 +1169,13 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Base file:"
-msgstr ""
+msgstr "Βασικό αρχείο"
 
+# Alternatively: Απόδοση κατηγορίας
 #: Dlg-ID:162,
+#, fuzzy
 msgid "Blame"
-msgstr ""
+msgstr "Απόδοση ευθυνών"
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
@@ -2202,7 +2213,7 @@ msgstr ""
 #: Dlg-ID:107,#:
 #: Control-ID:65535,
 msgid "General"
-msgstr ""
+msgstr "Γενικά"
 
 #: ID:144,
 msgid "Generating patchfile..."
@@ -2288,7 +2299,7 @@ msgstr ""
 
 #: Control-ID:1004,
 msgid "Help"
-msgstr ""
+msgstr "Εισαγωγή"
 
 #: ID:2052,
 msgid ""
@@ -2376,7 +2387,7 @@ msgstr ""
 
 #: ID:73,
 msgid "Ignore"
-msgstr ""
+msgstr "Παράβλεψη"
 
 #: Control-ID:1020,
 msgid "Ignore &all whitespaces"
@@ -2421,7 +2432,7 @@ msgstr ""
 
 #: ID:76,
 msgid "Initial import"
-msgstr ""
+msgstr "Αρχική εισαγωγή"
 
 #: Control-ID:65535,
 msgid "Inline whitespace diff"
@@ -2454,7 +2465,7 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Invalid filename."
-msgstr ""
+msgstr "Άκυρο όνομα αρχείου"
 
 #: ID:82,
 msgid ""
@@ -2561,14 +2572,17 @@ msgid ""
 "repository URL will be saved to."
 msgstr ""
 
+# Lock as in door lock? the object door lock? or as in "lock the fsking door"?
+# verb or noun?
 #: ID:207,#:
 #: ID:221,
+#, fuzzy
 msgid "Lock"
-msgstr ""
+msgstr "Κλειδαρία"
 
 #: Dlg-ID:191,
 msgid "Lock Files"
-msgstr ""
+msgstr "Επισφάληση αρχείων"
 
 #: ID:209,
 msgid "Lock broken!"
@@ -2612,7 +2626,7 @@ msgstr ""
 
 #: ID:126,
 msgid "Log"
-msgstr ""
+msgstr "Αρχείο ιστορικότητας"
 
 #: Dlg-ID:211,
 msgid "Log History"
@@ -2680,9 +2694,10 @@ msgid ""
 "Mark as resolved"
 msgstr ""
 
+# again, inflection
 #: Control-ID:1159,
 msgid "Max"
-msgstr ""
+msgstr "Μέγιστο"
 
 #: Control-ID:65535,
 msgid "Max. items to keep in the log message history"
@@ -2691,12 +2706,12 @@ msgstr ""
 #: Dlg-ID:141,#:
 #: Control-ID:65535,
 msgid "Merge"
-msgstr ""
+msgstr "Συγχώνευση"
 
 #: ID:263,#:
 #: ID:263,
 msgid "Merged"
-msgstr ""
+msgstr "Επιτεύθηκε συγχώνευση"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -2712,19 +2727,19 @@ msgstr ""
 
 #: ID:76,
 msgid "Message"
-msgstr ""
+msgstr "Μύνημα"
 
 #: Control-ID:1241,
 msgid "Message:"
-msgstr ""
+msgstr "Μύνημα:"
 
 #: ID:116,
 msgid "Messages"
-msgstr ""
+msgstr "Μυνήματα"
 
 #: ID:116,
 msgid "Messages, authors and paths"
-msgstr ""
+msgstr "Μυνήματα, συγγραφείς και διαδρομές"
 
 #: ID:78,
 msgid "Mime type"
@@ -2732,64 +2747,64 @@ msgstr ""
 
 #: Control-ID:1158,
 msgid "Min"
-msgstr ""
+msgstr "Ελάχιστο"
 
 #: ID:263,
 msgid "Mine"
-msgstr ""
+msgstr "Δικό μου"
 
 #: Control-ID:1023,
 msgid "Misc"
-msgstr ""
+msgstr "Ετερόκλητα αντικείμενα"
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Mixed"
-msgstr ""
+msgstr "Αναμεμειγμένα"
 
 #: ID:74,#:
 #: ID:264,
 msgid "Modified"
-msgstr ""
+msgstr "Τροποποιημένα"
 
 #: ID:438,#:
 #: ID:438,
 msgid "More colors..."
-msgstr ""
+msgstr "Περισσότερα χρώματα"
 
 #: Control-ID:1136,
 msgid "Most active author:"
-msgstr ""
+msgstr "Πιο δραστήριος συγγραφέας"
 
 #: ID:98,
 #, c-format
 msgid "Move: New name for %s"
-msgstr ""
+msgstr "Μετακίνηση: Καινούργιο όνομα για το %s"
 
 #: ID:126,
 msgid "Moved remotely"
-msgstr ""
+msgstr "Μετακινήθηκε από απόμακρη τοποθεσία"
 
 #: ID:80,
 #, c-format
 msgid "Moving %s"
-msgstr ""
+msgstr "Μετακίνηση %s"
 
 #: ID:80,
 msgid "Moving..."
-msgstr ""
+msgstr "Μετακίνηση..."
 
 #: Control-ID:65535,
 msgid "My file:"
-msgstr ""
+msgstr "Το αρχείο μου:"
 
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr ""
+msgstr "Ε&πόμενη αντίφαση:"
 
 #: ID:3697,
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #: ID:208,
 msgid "Needs lock"
@@ -2806,24 +2821,24 @@ msgstr ""
 #: Dlg-ID:30721,#:
 #: Dlg-ID:30721,
 msgid "New"
-msgstr ""
+msgstr "Καινούργιο"
 
 #: Control-ID:1076,
 msgid "New &name:"
-msgstr ""
+msgstr "Καινούργιο &όνομα:"
 
 #: ID:97,
 #, c-format
 msgid "New name for %s"
-msgstr ""
+msgstr "Καινούργιο &όνομα για το %s"
 
 #: ID:98,
 msgid "New name:"
-msgstr ""
+msgstr "Καινούργιο όνομα:"
 
 #: ID:73,
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 #: ID:81,
 #, c-format
@@ -2894,12 +2909,14 @@ msgstr ""
 
 #: Control-ID:1271,
 msgid "None"
-msgstr ""
+msgstr "Κανένα."
 
+# again, inflection
 #: ID:264,#:
 #: Control-ID:65535,
+#, fuzzy
 msgid "Normal"
-msgstr ""
+msgstr "Φυσιολογικό"
 
 #: ID:3857,#:
 #: ID:3857,
@@ -2930,7 +2947,7 @@ msgstr ""
 #: Control-ID:1,#:
 #: Control-ID:1,
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ID:3697,
 msgid "OVR"
@@ -2970,7 +2987,7 @@ msgstr ""
 #: ID:3841,#:
 #: ID:3841,
 msgid "Open"
-msgstr ""
+msgstr "Άνοιγμα"
 
 #: ID:76,
 msgid "Open client certificate file"
@@ -2978,7 +2995,7 @@ msgstr ""
 
 #: ID:3601,
 msgid "Open file"
-msgstr ""
+msgstr "Άνοιγμα αρχείου"
 
 #: ID:282,
 msgid "Open parent folder"
@@ -2986,7 +3003,7 @@ msgstr ""
 
 #: ID:113,
 msgid "Open with..."
-msgstr ""
+msgstr "Άνοιγμα με..."
 
 #: ID:3605,
 msgid ""
@@ -3000,12 +3017,12 @@ msgstr ""
 
 #: ID:245,
 msgid "Others"
-msgstr ""
+msgstr "Άλλοι"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "Out of memory."
-msgstr ""
+msgstr "Δεν ειπάρχει άλλη μνήμη."
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -3013,15 +3030,15 @@ msgstr ""
 
 #: ID:76,
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 #: ID:76,
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69,
 msgid "Password:"
-msgstr ""
+msgstr "Συνθηματικό"
 
 #: ID:172,
 msgid "Paste filename list"
@@ -3042,15 +3059,15 @@ msgstr ""
 
 #: ID:77,
 msgid "Path"
-msgstr ""
+msgstr "Διαδρομή"
 
 #: ID:116,
 msgid "Paths"
-msgstr ""
+msgstr "Διαδρομές"
 
 #: ID:157,
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Εικόνες (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #: ID:3858,#:
 #: ID:3858,
@@ -3060,7 +3077,7 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a currency."
-msgstr ""
+msgstr "Παρακαλούμε εισάγετε ένα νόμισμα."
 
 #: ID:3858,#:
 #: ID:3858,
@@ -3650,7 +3667,7 @@ msgstr ""
 
 #: ID:313,
 msgid "Save as..."
-msgstr ""
+msgstr "Αποθήκευση ώς..."
 
 #: ID:3857,#:
 #: ID:3857,
