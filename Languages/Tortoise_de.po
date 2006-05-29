@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-23 10:40+0100\n"
+"PO-Revision-Date: 2006-05-29 11:21+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1129,6 +1129,10 @@ msgstr "Falls keine Fehler"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Falls kein Löschen, Hinzufügen oder Zusammenführen"
 
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Falls kein Löschen, Hinzufügen oder Zusammenführen für lokale Operationen"
+
 #: ID:195
 msgid ""
 "Autocomplete suggests words (usually class or member names)\n"
@@ -1372,6 +1376,10 @@ msgstr "Auschecken"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "&Zielordner:"
+
+#: ID:146
+msgid "Cleaning up."
+msgstr "Beim Aufräumen."
 
 #: ID:79
 msgid "Cleanup has finished"
@@ -2963,6 +2971,10 @@ msgstr "N&ächster Konflikt"
 msgid "NUM"
 msgstr "NUM"
 
+#: ID:208
+msgid "Needs lock"
+msgstr "Benötigt Sperre"
+
 #: ID:210
 msgid "Nested"
 msgstr "Verschachtelt"
@@ -3322,6 +3334,7 @@ msgid "Please wait while we get the differences..."
 msgstr "Bitte warten Sie während wir die Unterschiede holen..."
 
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Bitte warten..."
