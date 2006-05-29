@@ -1016,6 +1016,8 @@ void SurfaceImpl::RoundedRectangle(PRectangle rc, ColourAllocated fore, ColourAl
 	}
 }
 
+#if GTK_MAJOR_VERSION >= 2
+
 // Plot a point into a guint32 buffer symetrically to all 4 qudrants
 static void AllFour(guint32 *pixels, int stride, int width, int height, int x, int y, guint32 val) {
 	pixels[y*stride+x] = val;
@@ -1035,6 +1037,8 @@ static unsigned int GetGValue(unsigned int co) {
 static unsigned int GetBValue(unsigned int co) {
 	return co & 0xff;
 }
+
+#endif
 
 #if GTK_MAJOR_VERSION < 2
 void SurfaceImpl::AlphaRectangle(PRectangle rc, int , ColourAllocated , int , ColourAllocated outline, int , int ) {
@@ -1290,7 +1294,7 @@ void SurfaceImpl::DrawTextBase(PRectangle rc, Font &font_, int ybase, const char
 			int wclen;
 			if (et == UTF8) {
 				wclen = UCS2FromUTF8(s, len,
-					reinterpret_cast<wchar_t *>(wctext), maxLengthTextRun - 1);
+					static_cast<wchar_t *>(static_cast<void *>(wctext)), maxLengthTextRun - 1);
 			} else {	// dbcs, so convert using current locale
 				char sMeasure[maxLengthTextRun];
 				memcpy(sMeasure, s, len);
@@ -1465,7 +1469,7 @@ void SurfaceImpl::MeasureWidths(Font &font_, const char *s, int len, int *positi
 			int wclen;
 			if (et == UTF8) {
 				wclen = UCS2FromUTF8(s, len,
-					reinterpret_cast<wchar_t *>(wctext), maxLengthTextRun - 1);
+					static_cast<wchar_t *>(static_cast<void *>(wctext)), maxLengthTextRun - 1);
 			} else {	// dbcsMode, so convert using current locale
 				char sDraw[maxLengthTextRun];
 				memcpy(sDraw, s, len);
@@ -1550,7 +1554,8 @@ int SurfaceImpl::WidthText(Font &font_, const char *s, int len) {
 #endif
 		if (et == UTF8) {
 			GdkWChar wctext[maxLengthTextRun];
-			size_t wclen = UCS2FromUTF8(s, len, (wchar_t *)wctext, sizeof(wctext) / sizeof(GdkWChar) - 1);
+			size_t wclen = UCS2FromUTF8(s, len, static_cast<wchar_t *>(static_cast<void *>(wctext)),
+				sizeof(wctext) / sizeof(GdkWChar) - 1);
 			wctext[wclen] = L'\0';
 			return gdk_text_width_wc(PFont(font_)->pfont, wctext, wclen);
 		} else {
@@ -1967,6 +1972,31 @@ static gboolean ButtonPress(GtkWidget *, GdkEventButton* ev, gpointer p) {
 	return FALSE;
 }
 
+#if GTK_MAJOR_VERSION >= 2
+/* Change the active color to the selected color so the listbox uses the color
+scheme that it would use if it had the focus. */
+static void StyleSet(GtkWidget *w, GtkStyle*, void*) {
+	GtkStyle* style;
+
+	g_return_if_fail(w != NULL);
+
+	/* Copy the selected color to active.  Note that the modify calls will cause
+	recursive calls to this function after the value is updated and w->style to
+	be set to a new object */
+	style = gtk_widget_get_style(w);
+	if (style == NULL)
+		return;
+	if (!gdk_color_equal(&style->base[GTK_STATE_SELECTED], &style->base[GTK_STATE_ACTIVE]))
+		gtk_widget_modify_base(w, GTK_STATE_ACTIVE, &style->base[GTK_STATE_SELECTED]);
+
+	style = gtk_widget_get_style(w);
+	if (style == NULL)
+		return;
+	if (!gdk_color_equal(&style->text[GTK_STATE_SELECTED], &style->text[GTK_STATE_ACTIVE]))
+		gtk_widget_modify_text(w, GTK_STATE_ACTIVE, &style->text[GTK_STATE_SELECTED]);
+}
+#endif
+
 void ListBoxX::Create(Window &, int, Point, int, bool) {
 	id = gtk_window_new(GTK_WINDOW_POPUP);
 
@@ -1985,23 +2015,26 @@ void ListBoxX::Create(Window &, int, Point, int, bool) {
 
 #if GTK_MAJOR_VERSION < 2
 	list = gtk_clist_new(1);
-	gtk_widget_show(PWidget(list));
-	gtk_container_add(GTK_CONTAINER(PWidget(scroller)), PWidget(list));
-	gtk_clist_set_column_auto_resize(GTK_CLIST(PWidget(list)), 0, TRUE);
-	gtk_clist_set_selection_mode(GTK_CLIST(PWidget(list)), GTK_SELECTION_BROWSE);
-	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "unselect_row",
+	GtkWidget *wid = PWidget(list);	// No code inside the GTK_OBJECT macro
+	gtk_widget_show(wid);
+	gtk_container_add(GTK_CONTAINER(PWidget(scroller)), wid);
+	gtk_clist_set_column_auto_resize(GTK_CLIST(wid), 0, TRUE);
+	gtk_clist_set_selection_mode(GTK_CLIST(wid), GTK_SELECTION_BROWSE);
+	gtk_signal_connect(GTK_OBJECT(wid), "unselect_row",
 	                   GTK_SIGNAL_FUNC(UnselectionAC), &current);
-	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "select_row",
+	gtk_signal_connect(GTK_OBJECT(wid), "select_row",
 	                   GTK_SIGNAL_FUNC(SelectionAC), &current);
-	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "button_press_event",
+	gtk_signal_connect(GTK_OBJECT(wid), "button_press_event",
 	                   GTK_SIGNAL_FUNC(ButtonPress), this);
-	gtk_clist_set_shadow_type(GTK_CLIST(PWidget(list)), GTK_SHADOW_NONE);
+	gtk_clist_set_shadow_type(GTK_CLIST(wid), GTK_SHADOW_NONE);
 #else
 	/* Tree and its model */
 	GtkListStore *store =
 		gtk_list_store_new(N_COLUMNS, GDK_TYPE_PIXBUF, G_TYPE_STRING);
 
 	list = gtk_tree_view_new_with_model(GTK_TREE_MODEL(store));
+	g_signal_connect(G_OBJECT(list), "style-set", G_CALLBACK(StyleSet), NULL);
+
 	GtkTreeSelection *selection =
 		gtk_tree_view_get_selection(GTK_TREE_VIEW(list));
 	gtk_tree_selection_set_mode(selection, GTK_SELECTION_SINGLE);
@@ -2010,7 +2043,7 @@ void ListBoxX::Create(Window &, int, Point, int, bool) {
 
 	/* Columns */
 	GtkTreeViewColumn *column = gtk_tree_view_column_new();
-	gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
+	gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_FIXED);
 	gtk_tree_view_column_set_title(column, "Autocomplete");
 
 	GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
@@ -2019,16 +2052,20 @@ void ListBoxX::Create(Window &, int, Point, int, bool) {
 										"pixbuf", PIXBUF_COLUMN);
 
 	renderer = gtk_cell_renderer_text_new();
+	gtk_cell_renderer_text_set_fixed_height_from_font(GTK_CELL_RENDERER_TEXT(renderer), 1);
 	gtk_tree_view_column_pack_start(column, renderer, TRUE);
 	gtk_tree_view_column_add_attribute(column, renderer,
 										"text", TEXT_COLUMN);
 
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
-	gtk_container_add(GTK_CONTAINER(PWidget(scroller)), PWidget(list));
-	gtk_widget_show(PWidget(list));
+	if (g_object_class_find_property(G_OBJECT_GET_CLASS(list), "fixed-height-mode"))
+		g_object_set(G_OBJECT(list), "fixed-height-mode", TRUE, NULL);
 
-	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "button_press_event",
-	                   GTK_SIGNAL_FUNC(ButtonPress), this);
+	GtkWidget *wid = PWidget(list);	// No code inside the G_OBJECT macro
+	gtk_container_add(GTK_CONTAINER(PWidget(scroller)), wid);
+	gtk_widget_show(wid);
+	g_signal_connect(G_OBJECT(wid), "button_press_event",
+	                   G_CALLBACK(ButtonPress), this);
 #endif
 	gtk_widget_realize(PWidget(id));
 }
@@ -2046,7 +2083,7 @@ void ListBoxX::SetFont(Font &scint_font) {
 	}
 #else
 	// Only do for Pango font as there have been crashes for GDK fonts
-	if (PFont(scint_font)->pfd) {
+	if (Created() && PFont(scint_font)->pfd) {
 		// Current font is Pango font
 		gtk_widget_modify_font(PWidget(list), PFont(scint_font)->pfd);
 	}
@@ -2448,7 +2485,11 @@ void Menu::CreatePopUp() {
 
 void Menu::Destroy() {
 	if (id)
+#if GTK_MAJOR_VERSION < 2
 		gtk_object_unref(GTK_OBJECT(id));
+#else
+		g_object_unref(G_OBJECT(id));
+#endif
 	id = 0;
 }
 
@@ -2543,8 +2584,11 @@ const char *Platform::DefaultFont() {
 #ifdef G_OS_WIN32
 	return "Lucida Console";
 #else
-
+#ifdef USE_PANGO
+	return "!Sans";
+#else
 	return "lucidatypewriter";
+#endif
 #endif
 }
 
@@ -2552,7 +2596,6 @@ int Platform::DefaultFontSize() {
 #ifdef G_OS_WIN32
 	return 10;
 #else
-
 	return 12;
 #endif
 }

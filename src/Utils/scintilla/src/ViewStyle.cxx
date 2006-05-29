@@ -17,7 +17,7 @@
 #include "ViewStyle.h"
 
 MarginStyle::MarginStyle() :
-	symbol(false), width(16), mask(0xffffffff), sensitive(false) {
+	symbol(false), width(0), mask(0), sensitive(false) {
 }
 
 // A list of the fontnames - avoids wasting space in each style
@@ -73,6 +73,7 @@ ViewStyle::ViewStyle(const ViewStyle &source) {
 	selbackset = source.selbackset;
 	selbackground.desired = source.selbackground.desired;
 	selbackground2.desired = source.selbackground2.desired;
+	selAlpha = source.selAlpha;
 
 	foldmarginColourSet = source.foldmarginColourSet;
 	foldmarginColour.desired = source.foldmarginColour.desired;
@@ -141,6 +142,7 @@ void ViewStyle::Init() {
 	selbackset = true;
 	selbackground.desired = ColourDesired(0xc0, 0xc0, 0xc0);
 	selbackground2.desired = ColourDesired(0xb0, 0xb0, 0xb0);
+	selAlpha = SC_ALPHA_NOALPHA;
 
 	foldmarginColourSet = false;
 	foldmarginColour.desired = ColourDesired(0xff, 0, 0);

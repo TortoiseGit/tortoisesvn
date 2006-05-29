@@ -993,7 +993,7 @@ struct TextToFind {
 
     <p><b id="SCI_GETFIRSTVISIBLELINE">SCI_GETFIRSTVISIBLELINE</b><br />
      This returns the line number of the first visible line in the Scintilla view. The first line
-    in the document is numbered 0.</p>
+    in the document is numbered 0. The value is a visible line rather than a document line.</p>
 
     <p><b id="SCI_LINESONSCREEN">SCI_LINESONSCREEN</b><br />
      This returns the number of complete lines visible on the screen. With a constant line height,
@@ -2114,6 +2114,8 @@ struct TextToFind {
     colour)</a><br />
      <a class="message" href="#SCI_SETSELBACK">SCI_SETSELBACK(bool useSelectionBackColour, int
     colour)</a><br />
+     <a class="message" href="#SCI_SETSELALPHA">SCI_SETSELALPHA(int alpha)</a><br />
+     <a class="message" href="#SCI_GETSELALPHA">SCI_GETSELALPHA</a><br />
      <a class="message" href="#SCI_SETCARETFORE">SCI_SETCARETFORE(int colour)</a><br />
      <a class="message" href="#SCI_GETCARETFORE">SCI_GETCARETFORE</a><br />
      <a class="message" href="#SCI_SETCARETLINEVISIBLE">SCI_SETCARETLINEVISIBLE(bool
@@ -2147,6 +2149,10 @@ struct TextToFind {
     you provide is used if you set <code>useSelection*Colour</code> to <code>true</code>. If it is
     set to <code>false</code>, the default colour colouring is used and the <code>colour</code>
     argument has no effect.</p>
+     <p><b id="SCI_SETSELALPHA">SCI_SETSELALPHA(int <a class="jump" href="#alpha">alpha</a>)</b><br />
+     <b id="SCI_GETSELALPHA">SCI_GETSELALPHA</b><br />
+     The selection background can be drawn translucently in the selection background colour by
+     setting an alpha value.</p>
 
     <p><b id="SCI_SETCARETFORE">SCI_SETCARETFORE(int <a class="jump"
     href="#colour">colour</a>)</b><br />
@@ -2222,7 +2228,7 @@ struct TextToFind {
 
     <h2 id="Margins">Margins</h2>
 
-    <p>There may be up to three margins to the left of the text display, plus a gap either side of
+    <p>There may be up to five margins to the left of the text display, plus a gap either side of
     the text. Each margin can be set to display either symbols or line numbers with <a
     class="message" href="#SCI_SETMARGINTYPEN"><code>SCI_SETMARGINTYPEN</code></a>. The markers
     that can be displayed in each margin are set with <a class="message"
@@ -2233,7 +2239,7 @@ struct TextToFind {
     href="#SCN_MARGINCLICK"><code>SCN_MARGINCLICK</code></a> notification to the container or
     selects a line of text.</p>
 
-    <p>The margins are numbered 0 to 2. Using a margin number outside the valid range has no
+    <p>The margins are numbered 0 to 4. Using a margin number outside the valid range has no
     effect. By default, margin 0 is set to display line numbers, but is given a width of 0, so it
     is hidden. Margin 1 is set to display non-folding symbols and is given a width of 16 pixels, so
     it is visible. Margin 2 is set to display the folding symbols, but is given a width of 0, so it
@@ -2263,10 +2269,10 @@ struct TextToFind {
 
     <p><b id="SCI_SETMARGINTYPEN">SCI_SETMARGINTYPEN(int margin, int iType)</b><br />
      <b id="SCI_GETMARGINTYPEN">SCI_GETMARGINTYPEN(int margin)</b><br />
-     These two routines set and get the type of a margin. The margin argument should be 0, 1 or 2.
+     These two routines set and get the type of a margin. The margin argument should be 0, 1, 2, 3 or 4.
     You can use the predefined constants <code>SC_MARGIN_SYMBOL</code> (0) and
     <code>SC_MARGIN_NUMBER</code> (1) to set a margin as either a line number or a symbol margin.
-    By convention, margin 0 is used for line numbers and the other two are used for symbols.</p>
+    By convention, margin 0 is used for line numbers and the next two are used for symbols.</p>
 
     <p><b id="SCI_SETMARGINWIDTHN">SCI_SETMARGINWIDTHN(int margin, int pixelWidth)</b><br />
      <b id="SCI_GETMARGINWIDTHN">SCI_GETMARGINWIDTHN(int margin)</b><br />
@@ -2306,7 +2312,7 @@ struct TextToFind {
     <p><b id="SCI_SETMARGINSENSITIVEN">SCI_SETMARGINSENSITIVEN(int margin, bool
     sensitive)</b><br />
      <b id="SCI_GETMARGINSENSITIVEN">SCI_GETMARGINSENSITIVEN(int margin)</b><br />
-     Each of the three margins can be set sensitive or insensitive to mouse clicks. A click in a
+     Each of the five margins can be set sensitive or insensitive to mouse clicks. A click in a
     sensitive margin sends a <a class="message"
     href="#SCN_MARGINCLICK"><code>SCN_MARGINCLICK</code></a> <a class="jump"
     href="#Notifications">notification</a> to the container. Margins that are not sensitive act as
@@ -2617,6 +2623,8 @@ struct TextToFind {
     colour)</a><br />
      <a class="message" href="#SCI_MARKERSETBACK">SCI_MARKERSETBACK(int markerNumber, int
     colour)</a><br />
+     <a class="message" href="#SCI_MARKERSETALPHA">SCI_MARKERSETALPHA(int markerNumber, int
+    alpha)</a><br />
      <a class="message" href="#SCI_MARKERADD">SCI_MARKERADD(int line, int markerNumber)</a><br />
      <a class="message" href="#SCI_MARKERADDSET">SCI_MARKERADDSET(int line, int markerMask)</a><br />
      <a class="message" href="#SCI_MARKERDELETE">SCI_MARKERDELETE(int line, int
@@ -2790,6 +2798,11 @@ struct TextToFind {
      <b id="SCI_MARKERSETBACK">SCI_MARKERSETBACK(int markerNumber, int <a class="jump"
     href="#colour">colour</a>)</b><br />
      These two messages set the foreground and background colour of a marker number.</p>
+     <p><b id="SCI_MARKERSETALPHA">SCI_MARKERSETALPHA(int markerNumber, int <a class="jump"
+    href="#alpha">alpha</a>)</b><br />
+     When markers are drawn in the content area, either because there is no margin for them or
+     they are of SC_MARK_BACKGROUND type, they may be drawn translucently by
+     setting an alpha value.</p>
 
     <p><b id="SCI_MARKERADD">SCI_MARKERADD(int line, int markerNumber)</b><br />
      This message adds marker number <code>markerNumber</code> to a line. The message returns -1 if
@@ -3848,7 +3861,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      3. If the reference count reaches 0, the document is deleted.<br />
      4. <code>pDoc</code> is set as the new document for the window.<br />
      5. If <code>pDoc</code> was 0, a new, empty document is created and attached to the
-    window.</p>
+    window.<br />
      6. If <code>pDoc</code> was not 0, its reference count is increased by 1.</p>
 
     <p><b id="SCI_CREATEDOCUMENT">SCI_CREATEDOCUMENT</b><br />

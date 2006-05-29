@@ -92,6 +92,7 @@ SOBJS=\
 	$(DIR_O)\AutoComplete.obj \
 	$(DIR_O)\CallTip.obj \
 	$(DIR_O)\CellBuffer.obj \
+	$(DIR_O)\CharClassify.obj \
 	$(DIR_O)\ContractionState.obj \
 	$(DIR_O)\Document.obj \
 	$(DIR_O)\Editor.obj \
@@ -161,6 +162,7 @@ LEXOBJS=\
 	$(DIR_O)\LexScriptol.obj \
 	$(DIR_O)\LexSmalltalk.obj \
 	$(DIR_O)\LexSpecman.obj \
+	$(DIR_O)\LexSpice.obj \
 	$(DIR_O)\LexSQL.obj \
 	$(DIR_O)\LexTADS3.obj \
 	$(DIR_O)\LexTCL.obj \
@@ -176,6 +178,7 @@ LOBJS=\
 	$(DIR_O)\AutoComplete.obj \
 	$(DIR_O)\CallTip.obj \
 	$(DIR_O)\CellBuffer.obj \
+	$(DIR_O)\CharClassify.obj \
 	$(DIR_O)\ContractionState.obj \
 	$(DIR_O)\Document.obj \
 	$(DIR_O)\DocumentAccessor.obj \
@@ -249,6 +252,7 @@ $(DIR_O)\CallTip.obj: ../src/CallTip.cxx ../include/Platform.h \
  ../include/Scintilla.h ../src/CallTip.h
 $(DIR_O)\CellBuffer.obj: ../src/CellBuffer.cxx ../include/Platform.h \
  ../include/Scintilla.h ../src/SVector.h ../src/CellBuffer.h
+$(DIR_O)\CharClassify.obj: ../src/CharClassify.cxx ../src/CharClassify.h
 $(DIR_O)\ContractionState.obj: ../src/ContractionState.cxx ../include/Platform.h \
  ../src/ContractionState.h
 $(DIR_O)\Document.obj: ../src/Document.cxx ../include/Platform.h \
@@ -377,6 +381,8 @@ $(DIR_O)\LexScriptol.obj: ..\src\LexScriptol.cxx $(LEX_HEADERS)
 $(DIR_O)\LexSmalltalk.obj: ..\src\LexSmalltalk.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexSpecman.obj: ..\src\LexSpecman.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexSpice.obj: ..\src\LexSpice.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexSQL.obj: ..\src\LexSQL.cxx $(LEX_HEADERS)
 
