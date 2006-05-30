@@ -988,7 +988,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 	else
 	{
-		bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
+		bmp = IconToBitmap(IDI_APP, (COLORREF)GetSysColor(COLOR_MENU));
 		myIDMap[idCmd - idCmdFirst] = SubMenu;
 		myIDMap[idCmd] = SubMenu;
 	}
@@ -1865,7 +1865,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	{
 		case SubMenu:
 			MAKESTRING(IDS_MENUSUBMENU);
-			resource = MAKEINTRESOURCE(IDI_MENU);
+			resource = MAKEINTRESOURCE(IDI_APP);
 			space = 0;
 			break;
 		case SubMenuFile:

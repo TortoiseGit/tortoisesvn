@@ -2,7 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by resource.rc
 //
-#define IDI_MENU                        105
 #define IDD_PROPPAGE                    107
 #define IDI_APP                         108
 #define IDS_MENUCHECKOUT                120

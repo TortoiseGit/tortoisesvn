@@ -60,7 +60,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK;	
 	psp.hInstance = g_hResInst;
 	psp.pszTemplate = MAKEINTRESOURCE(IDD_PROPPAGE);
-    psp.pszIcon = MAKEINTRESOURCE(IDI_MENU);
+    psp.pszIcon = MAKEINTRESOURCE(IDI_APP);
     psp.pszTitle = _T("Subversion");
     psp.pfnDlgProc = (DLGPROC) PageProc;
     psp.lParam = (LPARAM) sheetpage;
