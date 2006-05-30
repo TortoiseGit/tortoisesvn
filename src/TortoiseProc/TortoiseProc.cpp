@@ -603,7 +603,29 @@ BOOL CTortoiseProcApp::InitInstance()
 				LONG lRev = parser.GetLongVal(_T("revision"));
 				dlg.Revision = lRev;
 			}
-			if (dlg.DoModal() == IDOK)
+			if (dlg.m_URL.Find('*')>=0)
+			{
+				// multiple URL's specified
+				// ask where to check them out to
+				CBrowseFolder foldbrowse;
+				foldbrowse.SetInfo(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTTO)));
+				foldbrowse.SetCheckBoxText(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTTOPONLY)));
+				foldbrowse.SetCheckBoxText2(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTNOEXTERNALS)));
+				foldbrowse.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS | BIF_USENEWUI | BIF_VALIDATE;
+				TCHAR checkoutpath[MAX_PATH];
+				if (foldbrowse.Show(EXPLORERHWND, checkoutpath, MAX_PATH)==CBrowseFolder::OK)
+				{
+					CSVNProgressDlg progDlg;
+					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+					m_pMainWnd = &progDlg;
+					int opts = foldbrowse.m_bCheck ? ProgOptNonRecursive : ProgOptRecursive;
+					if (foldbrowse.m_bCheck2)
+						opts |= ProgOptIgnoreExternals;
+					progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(CTSVNPath(CString(checkoutpath))), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.DoModal();
+				}
+			}
+			else if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_URL);
 				TRACE(_T("checkout dir = %s \n"), (LPCTSTR)dlg.m_strCheckoutDirectory);

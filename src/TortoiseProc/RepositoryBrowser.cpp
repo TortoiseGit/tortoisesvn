@@ -334,13 +334,21 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_MENUBLAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);		// "Blame..."
 				}
-
 				if (bFolder)
 				{
 					temp.LoadString(IDS_MENUEXPORT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPEXPORT, temp);		// "Export"
-					temp.LoadString(IDS_MENUCHECKOUT);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCHECKOUT, temp);		// "Checkout.."
+				}
+			}
+			if (bFolder)
+			{
+				temp.LoadString(IDS_MENUCHECKOUT);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCHECKOUT, temp);		// "Checkout.."
+			}
+			if (uSelCount == 1)
+			{
+				if (bFolder)
+				{
 					temp.LoadString(IDS_REPOBROWSE_REFRESH);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPREFRESH, temp);		// "Refresh"
 				}
@@ -616,21 +624,19 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPCHECKOUT:
 				{
-					CCheckoutDlg dlg;
-					dlg.m_URL = url;
-					dlg.Revision = GetRevision();
-					if (dlg.DoModal()==IDOK)
+					int selItem = m_treeRepository.GetFirstSelectedItem();
+					CString itemsToCheckout;
+					do
 					{
-						CTSVNPath checkoutDirectory;
-						checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
+						itemsToCheckout += m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem)) + _T("*");
+						selItem = m_treeRepository.GetNextSelectedItem(selItem);
+					} while (selItem != RVI_INVALID);
+					itemsToCheckout.TrimRight('*');
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revstart:%ld"), 
+						CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, (LONG)GetRevision());
 
-						CSVNProgressDlg progDlg;
-						int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
-						if (dlg.m_bNoExternals)
-							opts |= ProgOptIgnoreExternals;
-						progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
-						progDlg.DoModal();
-					}
+					CUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
 			case ID_POPEXPORT:

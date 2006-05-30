@@ -2468,6 +2468,13 @@ BEGIN
     IDS_EDITPROPS_BINVALUE  "(binary value)"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PROC_CHECKOUTTO     "Select directory to check out to"
+    IDS_PROC_CHECKOUTTOPONLY "Only check out the &top folder"
+    IDS_PROC_CHECKOUTNOEXTERNALS "Omit e&xternals"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

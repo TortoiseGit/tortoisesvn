@@ -636,21 +636,31 @@ UINT CSVNProgressDlg::ProgressThread()
 	switch (m_Command)
 	{
 	case Checkout:			//no tempfile!
-		ASSERT(m_targetPathList.GetCount() == 1);
-		sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-		sWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Checkout(m_url, m_targetPathList[0], m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
 		{
-			if (m_ProgList.GetItemCount()!=0)
+			ASSERT(m_targetPathList.GetCount() == 1);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
+			CTSVNPathList urls;
+			urls.LoadFromAsteriskSeparatedString(m_url.GetSVNPathString());
+			CTSVNPath checkoutdir = m_targetPathList[0];
+			for (int i=0; i<urls.GetCount(); ++i)
 			{
-				ReportSVNError();
-			}
-			// if the checkout fails with the peg revision set to the checkout revision,
-			// try again with HEAD as the peg revision.
-			else if (!m_pSvn->Checkout(m_url, m_targetPathList[0], SVNRev::REV_HEAD, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
-			{
-				ReportSVNError();
+				sWindowTitle = urls[i].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+				SetWindowText(sWindowTitle);
+				checkoutdir = m_targetPathList[0];
+				checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
+				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
+				{
+					if (m_ProgList.GetItemCount()!=0)
+					{
+						ReportSVNError();
+					}
+					// if the checkout fails with the peg revision set to the checkout revision,
+					// try again with HEAD as the peg revision.
+					else if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
+					{
+						ReportSVNError();
+					}
+				}
 			}
 		}
 		break;
