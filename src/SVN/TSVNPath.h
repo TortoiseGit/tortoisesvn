@@ -206,6 +206,8 @@ public:
 	 */
 	bool IsAdminDir() const;
 
+	void SetCustomData(LPARAM lp) {m_customData = lp;}
+	LPARAM GetCustomData() {return m_customData;}
 #if defined(_MFC_VER)
 	/**
 	 * Checks if the path or URL is valid on Windows.
@@ -261,6 +263,7 @@ private:
 	mutable bool m_bIsAdminDir;
 	mutable bool m_bExists;
 	mutable bool m_bExistsKnown;
+	mutable LPARAM m_customData;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
