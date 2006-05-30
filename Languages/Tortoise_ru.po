@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6582: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6615: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-25 19:09+0300\n"
+"PO-Revision-Date: 2006-05-30 11:39+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1144,15 +1144,19 @@ msgstr "Авторы:"
 
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "Автоматически закрывать при отстутствии конфликтов"
+msgstr "Автозакрытие: при отсутствии конфликтов"
 
 #: ID:222
 msgid "Auto-close if no errors"
-msgstr "Автоматически закрывать при отстутствии ошибок"
+msgstr "Автозакрытие: при отсутствии ошибок"
 
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Автоматически закрывать при отстутствии слияний, добавлений и удалений"
+msgstr "Автозакрытие: не было слияний, добавлений или удалений"
+
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Автозакрытие: не было локальных слияний, добавлений или удалений"
 
 #: ID:195
 msgid ""
@@ -1395,6 +1399,10 @@ msgstr "Извлечение"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "&Извлечь в папку:"
+
+#: ID:146
+msgid "Cleaning up."
+msgstr "Производится очистка."
 
 #: ID:79
 msgid "Cleanup has finished"
@@ -3329,6 +3337,7 @@ msgid "Please wait while we get the differences..."
 msgstr "Пожалуйста, подождите, пока мы получаем различия..."
 
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Подождите, пожалуйста..."
