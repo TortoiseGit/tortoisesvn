@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-23 10:31+0800\n"
+"PO-Revision-Date: 2006-05-30 10:59+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1405,6 +1405,11 @@ msgstr "無錯誤時自動關閉"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "無合併, 新增, 刪除時自動關閉"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "無本地端合併, 新增, 刪除時自動關閉"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1701,6 +1706,11 @@ msgstr "取出"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "取出目錄(&C):"
+
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "正在清除."
 
 # ID:79,
 #: ID:79
@@ -3584,6 +3594,11 @@ msgstr "下一個衝突(&E)"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "需要鎖定"
+
 # ID:73,
 #: ID:210
 msgid "Nested"
@@ -4042,6 +4057,7 @@ msgstr "正在比對差異, 請稍候..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "請稍候..."
