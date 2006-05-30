@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-18 23:27+0100\n"
+"PO-Revision-Date: 2006-05-30 23:43+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -218,9 +218,8 @@ msgstr "&A TortoiseMerge névjegye..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Hozzáad..."
 
@@ -356,6 +355,11 @@ msgstr "&Törlés..."
 msgid "&Diff"
 msgstr "&Folt"
 
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Különbség URL-től"
+
 # Control-ID:1179,
 #: Control-ID:1179
 msgid "&Dry run"
@@ -373,8 +377,8 @@ msgid "&Edit conflicts"
 msgstr "&Ellentmondások szerkesztése"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Szerkeszt..."
 
@@ -517,6 +521,11 @@ msgstr "&Nyelv:"
 msgid "&List View"
 msgstr "&Lista Nézet"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Betölt..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Megoldottnak jelöl"
@@ -612,7 +621,6 @@ msgstr "&Újravégez"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -622,6 +630,11 @@ msgstr "&Töröl"
 #: ID:101
 msgid "&Rename"
 msgstr "&Átnevez"
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "Tárház-&böngésző"
 
 # ID:113,
 #: ID:113
@@ -655,10 +668,10 @@ msgstr "&Grafikon mentése mint..."
 msgid "&Save authentication"
 msgstr "&Azonosítás mentése"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Beállít"
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Mentés..."
 
 # ID:9,#:
 # ID:107,
@@ -712,7 +725,7 @@ msgid "&To URL:"
 msgstr "&Címre:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Címre:"
 
@@ -809,6 +822,13 @@ msgstr "&Láthatatlan karakterek"
 msgid "&Working copy"
 msgstr "&Munkamásolat"
 
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(bináris adat)"
+
 # ID:219,
 #: ID:219
 msgid "(dry run)"
@@ -873,41 +893,6 @@ msgstr ": munka alap"
 #: ID:151
 msgid ": working copy"
 msgstr ": munka másolat"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
-msgstr ""
-"<b>FIGYELMEZTETÉS:</b>\n"
-"Az Áthelyezés parancsot csak akkor használd, ha a tárház\n"
-"URL-je vagy protokollja megváltozott (pl. http:// -ról https:// -re)\n"
-"vagy a tárház gyökérkönyvtára a szerveren.\n"
-"<b>Ezt a paracson nagyon ritkán kell használni</b> és nem fog használni\n"
-"ha egy Subversion tárházat egy másik ágra akarsz áthelyezni.\n"
-"Ha egy másik tárházra akarsz átállni, akkor hajts végre egy teljes\n"
-"letöltést az új címről egy új könyvtárba.\n"
-"Hogy hozzárendeld a munkapéldányod egy másik ághoz vagy\n"
-"könyvtárhoz az azonos tárházban, akkor használd a Váltás parancsot.\n"
-"\n"
-"Egy rosszul használt Áthelyezés parancs <b>tönkreteheti a munkapéldányod!</b>\n"
-"Ha nem tudod, hogy ez-e a megfelelő parancs, akkor inkább\n"
-"ne használd, és olvasd el a <b>Súgót!</b>."
 
 # ID:145,
 #: ID:145
@@ -1065,6 +1050,12 @@ msgstr "'%s' hozzáadása a szótárhoz"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Hozzáad (csereként)..."
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "Tulajdonságok hozzáadása"
 
 # ID:110,
 #: ID:110
@@ -1406,6 +1397,11 @@ msgstr "Egyből bezárja, ha nincs hiba"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Egyből bezárja, ha nincs összegyúrás, hozzáadás, törlés"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Egyből bezárja, ha nincs összegyúrás, hozzáadás, törlés helyi funkciókhoz"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1703,6 +1699,11 @@ msgstr "Frissítés"
 msgid "Checkout &directory:"
 msgstr "&Mappa frissítése"
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Takarítás."
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1842,8 +1843,8 @@ msgstr "A &FŐ verziók összehasonlítása"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Összehasonlít és &szemrehány a munkamásolattal"
+msgid "Compare and &blame with working BASE"
+msgstr "Összehasonlít és &szemrehány az ALAPpal"
 
 # ID:76,
 #: ID:76
@@ -1859,6 +1860,11 @@ msgstr "Összehasonlítás az &alappal"
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Összehasonlítja a fájlt a legutolsó beküldött verzióval és mutatja a változtatásaidat"
+
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "A fájlokat összehasonlítja a tárházban lévővel"
 
 # ID:80,
 #: ID:120
@@ -1936,6 +1942,11 @@ msgid "Copy URL to clipboard"
 msgstr "A cím másolása a vágólapra"
 
 # ID:114,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Minden információ másolása a vágólapra"
+
+# ID:114,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Hibaüzenet másolása a vágólapra"
@@ -1944,6 +1955,11 @@ msgstr "Hibaüzenet másolása a vágólapra"
 #: ID:76
 msgid "Copy from path"
 msgstr "Útvonalból másol"
+
+# ID:114,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Útvonalak másolása a vágólapra"
 
 # ID:3603,
 #: ID:3603
@@ -2226,6 +2242,11 @@ msgstr "A célmeghajtó tele van."
 msgid "Dialog sizes and positions"
 msgstr "Az ablakok helye és mérete"
 
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Különbség URL-től"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2404,7 +2425,7 @@ msgstr "Szerkeszt"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Szerkesztési Tulajdonságok"
@@ -2778,6 +2799,19 @@ msgstr "Foltfájl készítése..."
 msgid "Get loc&k..."
 msgstr "&Kulcs szerzése..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Fájlok zárolása az  'svn:needs-lock' tulajdnoság nélküll <b>nem</b> fogja meggátolni, hogy a többiek szerkeszthessék a fájlt a munkapéldányukban..\n"
+"A teljes zároláshoz az 'svn:needs-lock' érték megadása és beküldése is szükséges.\n"
+"Minden fájl csak olvasható attribútumot fog kapni a többiek gépén.\n"
+"A többieknek viszont frissíteniük kell, addig nem lesz írásvédett a fájl."
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2871,6 +2905,15 @@ msgstr "Nem kapcsolódó változó útvonalak el&rejtése"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Súgó"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Elrejti/Mutatja a foltok listáját\n"
+"Elrejti vagy megmutatja a foltfájlok listáját"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -3163,6 +3206,34 @@ msgstr ""
 "Nem lehet úgy átnevezni egy fájlt, hogy a kisbetű/nagybetűket átírod.\n"
 "Például VaLaMi.txt nem lehet VALAMI.txt.\n"
 "Nézz utánna a dokumentációban további információkért."
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Úgy tűnik, hogy <b>át akarod helyzeni</b> a munkapéldányod egy másik útvonalra azonos tárházon belül.\n"
+"\n"
+"Innen: %s\n"
+"Ide: %s\n"
+"\n"
+"Áthelyezés csak akkor szükséges ha a <b>tárház</b> címe változik.\n"
+"Az útvonál változtatását a tárházon <b>belül</b> a kapcsoló funkcióval lehet megtenni.\n"
+"\n"
+"Az áthelyezés rossz használata <b>a munkapéldány sérülését okozza!</b>\n"
+"Ha nem vagy biztos a dolgodban, nézd meg a súgónak az <i>áthelyezésre</i> vonatkozó részét.\n"
+"Biztos hogy áthelyezed?"
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -3510,6 +3581,11 @@ msgstr "&Következő ellentmondás"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "Zár szükséges"
+
 # ID:73,
 #: ID:210
 msgid "Nested"
@@ -3695,6 +3771,7 @@ msgstr "OVE"
 # ID:145,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Külsőket &kihagy"
@@ -3712,6 +3789,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "Egy vagy több fájl ellentmondó"
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Csak a leg&fölső mappát ellenőrizze"
@@ -3967,6 +4045,7 @@ msgstr "Várj, különbségeket keresek..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Kérlek várj..."
@@ -4001,8 +4080,8 @@ msgstr "Haladás"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Tulajdonságok"
 
@@ -4015,6 +4094,7 @@ msgstr "Tulajdonságai ennek:"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Tulajdonságok..."
 
@@ -4178,6 +4258,11 @@ msgid "Relocate"
 msgstr "Áthelyezés"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Figyelmeztetés áthelyezése"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "Áthelyezés..."
@@ -4284,11 +4369,6 @@ msgstr "Lecserélt csomópont"
 #: ID:74
 msgid "Replacing"
 msgstr "Cserélés"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "Tárház-böngésző"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4404,6 +4484,7 @@ msgstr "Minden módosítást visszaállít az utolsó frissítés óta"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Verzió"
 
@@ -4422,6 +4503,12 @@ msgstr "%d verzió"
 #, c-format
 msgid "Revision %ld"
 msgstr "%ld verzió"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "%s verzió"
 
 # ID:15,#:
 # ID:269,#:
@@ -4737,6 +4824,11 @@ msgstr "Válssz foltkezelő programot"
 msgid "Select diff file..."
 msgstr "Válassz foltfájlt..."
 
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Válassz egy mappát, ahova letöltöd a munkapéldányt"
+
 # Dlg-ID:173,
 #: ID:276
 msgid "Select end revision"
@@ -4904,6 +4996,11 @@ msgstr "&Feliratok csak az Intézőben"
 msgid "Show &unversioned files"
 msgstr "&Nem verziókezelt fájlok mutatása"
 
+# Control-ID:1209,
+#: MenuEntry
+msgid "Show File List"
+msgstr "Fájllista mutatása"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5027,6 +5124,11 @@ msgstr "Hiányzó cél kihagyva"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "Szám szerint rendez"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
 msgstr "Szám szerint rendez"
 
 # ID:196,
@@ -5222,6 +5324,10 @@ msgstr "Az előző dokumentumablakra ugrk"
 msgid "Switch working copy to another branch / tag"
 msgstr "Munkapéldány átállítása mellékágra"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Balra <-> Jobbra cseréli az össszehasonlítást"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -5330,6 +5436,16 @@ msgid ""
 msgstr ""
 "A %s\n"
 "fájl már létezik! Felülírod?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"A %s mappa\n"
+"verziókezelés alatt nem álló fájl(oka)t és/vagy mappá(ka)t tartalmaz. Biztosan törlöd?"
 
 # ID:88,
 #: ID:88
@@ -5975,6 +6091,12 @@ msgstr "Frissíti a munkapéldányt egy megadott verzióra"
 msgid "Updates the working copy to the current revision"
 msgstr "Frissíti a munkapéldányt a jelenlegi verzióra"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "%s frissítése"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6141,6 +6263,12 @@ msgstr "Figyelem!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Láthatatlan karakter különbség"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "URL-el:"
 
 # Control-ID:1183,
 #: Dlg-ID:158
@@ -6435,12 +6563,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "2 állandó kifejezsés külön sorba választva\n"
-"Az első kifejezés egy szöveg kereséséhez kell, a második az ID kiszedése a szövegből"
+"Az első kifejezés egy szöveg kereséséhez kell,\n"
+"a második az ID kiszedése a szövegből."
 
 # ID:14,
 #: ID:14
@@ -6605,11 +6735,6 @@ msgstr "képpontok"
 msgid "possible or real conflict / obstructed"
 msgstr "lehetséges vagy valós ellentmondás / elrekesztve"
 
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "re&krúzív"
-
 # ID:195,
 #: ID:195
 msgid "readonly"
@@ -6633,10 +6758,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Ha jelen van, a fájlt futtathatóvá teszi. Ezt nem állíthatod egy mappára. Egy nem-rekrúzív kísérlet nem fog működni, és a szűlőkönyvtárakra hat csak."
+"Ha jelen van, a fájlt futtathatóvá teszi. Ezt nem állíthatod egy mappára.\n"
+"Egy nem-rekrúzív kísérlet nem fog működni, és a szűlőkönyvtárakra hat csak."
 
 # ID:14,
 #: ID:14
@@ -6683,10 +6810,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"A fájl mime típusa. Összegyúrásnál és webkiszolgálásnál (Apache) fontos. Egy mime típus ami 'text/'-el kezdődik szövegként lesz kezelve, a többi binárisként."
+"A fájl mime típusa. Összegyúrásnál és webkiszolgálásnál (Apache) fontos.\n"
+"Egy mime típus ami 'text/'-el kezdődik szövegként lesz kezelve,\n"
+"a többi binárisként."
 
 # ID:16,
 #: ID:16
