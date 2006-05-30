@@ -7,7 +7,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6552
+# Based on Tortoise.pot r6615
 #
 msgid ""
 msgstr ""
@@ -711,10 +711,6 @@ msgstr ": arbejdsbasis"
 msgid ": working copy"
 msgstr ": arbejdskopi"
 
-#: ID:88,
-msgid "<b>ATTENTION:</b>\nThe Relocate command is only used if the URL of the\nrepository root has changed due to a server IP address change, protocol\nchange (e.g. http:// to https://) or a change of the repository root\npath in the server setup.\n<b>This is a very infrequently used operation</b> and applies neither if you\nwant to move to another Subversion repository nor if you want to switch\nto another branch or directory <b>within the same repository.</b>\nTo move to another Subversion repository, perform a clean checkout from\nthe new repository location.\nTo associate your working copy with another branch or another directory\nwithin the same repository, use the Switch command from the main menu\n\nAn inadequately used Relocate command <b>will corrupt your working copy!</b>\nIf you are unsure whether Relocate is the correct operation, it probably\nis not and you should consult <b>Help</b>.\n\nNow that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr "<b>ADVARSEL:</b>\nKommandoen \"omlæg\" bruges kun, hvis versionsarkivets\nURL ændres som følge af ændring i serverens IP-adresse, ændring af protokol\n(fx http:// til https://) eller ændring af stien til versionsarkivets rod\ni serveropsætningen.\n<b>Funktionen benyttes kun meget sjældent</b> og er ikke relevant,\nhvis du enten vil flytte til et andet Subversion-versionsarkiv eller hvis du vil skifte\ntil en anden forgrening eller mappe <b>i det samme versionsarkiv.</b>\nFor at flytte et andet versionsarkiv skal du hente en ny arbejdskopi\nfra det nye versionsarkiv.\nFor at skifte din arbejdskopi til en anden forgrening eller en anden mappe\nfra samme versionsarkiv, skal du benytte kommandoen \"Skift\" fra hovedmenuen\n\nHvis du benytter \"Omlæg\" forkert <b>vil din arbejdskopi blive ødelagt!</b>\nHvis du er usikker på, om Omlæg er den korrekte ting at gøre, er det sikkert ikke,\nog du bør læse <b>Hjælp</b>.\n\nDa du nu har læst og forhåbentlig forstået det ovenstående, ønsker du stadig at omlægge?"
-
 #: ID:145,
 msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
 msgstr "<b>TortoiseSVN</b> er en såkaldt shell-udvidelse.\nDet betyder, at det er integreret i Windows Stifinder.\nFor at bruge <b>TortoiseSVN</b> skal du åbne Windows Stifinder og højreklikke på en mappe\nfor at vise kontekstmenuen, hvor du finder alle kommandoerne i <b>TortoiseSVN</b>.\nHusk at <u>læse manualen!</u>"
@@ -1046,6 +1042,10 @@ msgstr "Luk automatisk, hvis ingen fejl"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet"
 
+#: ID:222,
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet for lokale handlinger"
+
 #: ID:195,
 msgid "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
 msgstr "Forslå automatisk ord (normalt klasse- og element-navne)\nfra filerne, som du har ændret, når du skriver en logbesked."
@@ -1267,6 +1267,10 @@ msgstr "Hent arbejdskopi"
 #: Control-ID:1074,
 msgid "Checkout &directory:"
 msgstr "&Mappe til arbejdskopi:"
+
+#: ID:146,
+msgid "Cleaning up."
+msgstr "Rydder op."
 
 #: ID:79,
 msgid "Cleanup has finished"
@@ -2250,6 +2254,11 @@ msgstr "Revisionsnummeret er ugyldigt! Gyldige revisioner er:\nHEAD\npositive he
 msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
 msgstr "Du kan ikke omdøbe en fil ved blot at ændre mellem store og små bogstaver.\nFor eksempel kan du ikke omdøbe MyFile.txt til MYFILE.txt.\nLæs venligst i vores dokumentation, hvordan man omgår denne begrænsning."
 
+#: ID:88,
+#, c-format
+msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom: %s\nTo: %s\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgstr "Det lader til, at du forsøger at <b>omlægge</b> din arbejdskopi til en anden sti inden for det samme versionsarkiv.\n\nFra: %s\nTil: %s\n\nOmlægning behøves kun, hvis stien <b>til</b> et versionsarkiv er ændret.\nÆndring til en anden sti <b>inden for</b> samme versionsarkiv gøres ved handlingen <b>skift</b>.\n\nForkert anvendelse af omlægning <b>vil ødelægge din arbejdskopi!</b>\nHvis du ikke er sikker på, hvad du skal gøre, læs da dokumentationen for <i>relocate</i> (omlæg).\nØnsker du virkelig at omlægge?"
+
 #: Control-ID:1203,
 msgid "Keep &locks"
 msgstr "Bevar &låse"
@@ -2509,6 +2518,10 @@ msgstr "N&æste konflikt"
 #: ID:3697,
 msgid "NUM"
 msgstr "NUM"
+
+#: ID:208,
+msgid "Needs lock"
+msgstr "Kræver lås"
 
 #: ID:210,
 msgid "Nested"
@@ -2826,7 +2839,7 @@ msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 msgid "Please wait while we get the differences..."
 msgstr "Vent venligst mens forskellene findes..."
 
-#: ID:119,#: ID:211,
+#: ID:119,#: ID:146,#: ID:211,
 msgid "Please wait..."
 msgstr "Vent venligst..."
 
@@ -2981,6 +2994,10 @@ msgstr "Genindlæser åbne filer og tilbagefører alle ændringer.\nGenindlæs"
 #: Dlg-ID:157,
 msgid "Relocate"
 msgstr "Omlæg"
+
+#: ID:89,
+msgid "Relocate Warning"
+msgstr "Advarsel ved omlægning"
 
 #: ID:80,
 msgid "Relocating..."
