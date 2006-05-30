@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-17 22:39+0100\n"
+"PO-Revision-Date: 2006-05-30 21:36+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -516,6 +516,10 @@ msgstr "&Verwijderen"
 msgid "&Rename"
 msgstr "&Hernoemen"
 
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Archief-verkenner"
+
 #: ID:113
 msgid "&Revert changes from this revision"
 msgstr "&Revisie wijzigingen ongedaan maken"
@@ -714,46 +718,6 @@ msgstr ": Werkbasis"
 #: ID:151
 msgid ": working copy"
 msgstr ": Werkkopie"
-
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>LET OP:</b>\n"
-"Het Verhuis-commando wordt alleen gebruikt als de URL van het\n"
-"archief is veranderd door een wijziging van server IP adres, protocol-\n"
-"wijziging (b.v. van http:// naar https://) of een wijziging in het root-pad\n"
-"in de serverinstellingen.\n"
-"<b>Dit is een zeer zeldzaam gebruikt commando<b> en is niet bedoeld voor\n"
-"het wisselen naar een ander Subversion archief en ook niet voor het\n"
-"wisselen naar een andere tak of map <b>in hetzelfde archief.</b>\n"
-"Om naar een ander Subversion archief te gaan moet u vanuit die nieuwe\n"
-"locatie een initiële Ophaal-actie uitvoeren.\n"
-"Om naar een andere tak of map in hetzelfde archief te wisselen moet u het\n"
-"Wissel-commando uit het TSVN-menu gebruiken.\n"
-"\n"
-"Het onjuist gebruiken van het Verhuis-commando <b>zal uw werkkopie corrupt maken!</b>\n"
-"Als u niet zeker weet of het Verhuis-commando correct is, dan is het dat waarschijnlijk\n"
-"niet en dient u eerst de <b>Help</b>-informatie te raadplegen.\n"
-"\n"
-"Wilt u nog steeds deze Verhuis-opdracht uitvoeren?"
 
 #: ID:145
 msgid ""
@@ -1158,6 +1122,10 @@ msgstr "Behalve na fouten"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Behalve na samenvoegen, verwijderen of toevoegen"
 
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Automatisch sluiten behalve na samenvoegen, verwijderen of toevoegen van lokale operaties"
+
 #: ID:195
 msgid ""
 "Autocomplete suggests words (usually class or member names)\n"
@@ -1395,6 +1363,10 @@ msgstr "Ophalen"
 msgid "Checkout &directory:"
 msgstr "&Ophalen naar map:"
 
+#: ID:146
+msgid "Cleaning up."
+msgstr "Schonen bezig."
+
 #: ID:79
 msgid "Cleanup has finished"
 msgstr "Schonen gereed"
@@ -1587,6 +1559,10 @@ msgstr "Kopiëren (Tak / Label)"
 msgid "Copy URL to clipboard"
 msgstr "URL naar klembord kopiëren"
 
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Kopiëer alle informatie naar klembord"
+
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Kopiëer foutmelding naar klembord"
@@ -1594,6 +1570,10 @@ msgstr "Kopiëer foutmelding naar klembord"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopiëer van pad"
+
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Kopiëer paden naar klembord"
 
 #: ID:3603
 msgid ""
@@ -2635,6 +2615,33 @@ msgstr ""
 "MyFile.txt kan bijvoorbeeld niet hernoemd worden in MYFILE.TXT.\n"
 "Raadpleeg de documentatie voor een oplossing om deze beperking heen."
 
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Het lijkt er op dat u de werkkopie probeert te <b>verhuizen</b> naar een ander pad binnen hetzelfde archief.\n"
+"\n"
+"Van: %s\n"
+"Naar: %s\n"
+"\n"
+"Verhuizen is alleen nodig als het pad <b>naar</b> een archief is gewijzigd.\n"
+"Wisselen naar een ander pad <b>binnen</b> een archief wordt gedaan met een wissel actie.\n"
+"\n"
+"Onjuist gebruik van verhuizen <b>zal de werkkopie beschadigen!<b>\n"
+"Als u niet zeker weet wat u moet doen, raadpleeg dan de documentatie over <i>verhuizen</i>.\n"
+"Wilt u echt verhuizen?"
+
 #: Control-ID:1203
 msgid "Keep &locks"
 msgstr "&Blokkades handhaven"
@@ -2913,6 +2920,10 @@ msgstr "&Volgend conflict"
 msgid "NUM"
 msgstr "NUM"
 
+#: ID:208
+msgid "Needs lock"
+msgstr "Heeft blokkade nodig"
+
 #: ID:210
 msgid "Nested"
 msgstr "Genest"
@@ -3059,6 +3070,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "&Externen uitsluiten"
@@ -3071,6 +3083,7 @@ msgstr "Externen uitsluiten"
 msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Alleen de &bovenste map ophalen"
@@ -3267,6 +3280,7 @@ msgid "Please wait while we get the differences..."
 msgstr "Even geduld terwijl de verschillen worden opgehaald..."
 
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Even geduld..."
@@ -3437,6 +3451,10 @@ msgstr ""
 msgid "Relocate"
 msgstr "Verhuizen"
 
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Waarschuwing Verhuizen"
+
 #: ID:80
 msgid "Relocating..."
 msgstr "Verhuizen bezig..."
@@ -3525,10 +3543,6 @@ msgstr "Knoop vervangen"
 #: ID:74
 msgid "Replacing"
 msgstr "Vervangen"
-
-#: ID:13
-msgid "Repo-browser"
-msgstr "Archief-verkenner"
 
 #: Control-ID:65535
 #: Control-ID:1055
@@ -3878,6 +3892,10 @@ msgstr "Selecteer diff-applicatie"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Selecteer Diff-bestand..."
+
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Kies map om naartoe op te halen"
 
 #: ID:276
 msgid "Select end revision"
@@ -5341,12 +5359,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"twee reguliere expressies gescheiden met een regelovergang\n"
-"De eerste expressie wordt gebruikt om een tekenreeks te vinden die naar een issue refereert, de tweede expressie wordt gebruikt om het bigID uit die tekenreeks te extraheren."
+"twee reguliere expressies gescheiden met een regelovergang.\n"
+"De eerste expressie wordt gebruikt om een tekenreeks te vinden die naar een issue refereert,\n"
+"de tweede expressie wordt gebruikt om het bugID uit die tekenreeks te extraheren."
 
 #: ID:14
 #, c-format
@@ -5501,10 +5521,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Indien beschikbaar, maak het bestand uitvoerbaar. Deze eigenschap kan niet aan een map worden gegeven. Een niet-recursieve poging gaat fout; een recursieve poging zet de eigenschap alleen voor bestanden in de map."
+"Indien beschikbaar, maak het bestand uitvoerbaar. Deze eigenschap kan niet aan een map worden gegeven.\n"
+"Een niet-recursieve poging gaat fout; een recursieve poging zet de eigenschap alleen voor bestanden in de map."
 
 #: ID:14
 msgid ""
@@ -5547,10 +5569,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Het mime-type van het bestand. Wordt gebruikt om te bepalen of het bestand samengevoegd kan worden en hoe Apache het moet aanbieden. Een mime-type dat begint met 'text/' (of een ontbrekend mime-type) wordt als tekst behandeld. Alle andere mime-types worden als binair behandeld."
+"Het mime-type van het bestand. Wordt gebruikt om te bepalen of het bestand samengevoegd kan worden en\n"
+"hoe Apache het moet aanbieden. Een mime-type dat begint met 'text/' (of een ontbrekend mime-type)\n"
+"wordt als tekst behandeld. Alle andere mime-types worden als binair behandeld."
 
 #: ID:16
 msgid ""
