@@ -79,6 +79,7 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 	{
 		AutoLocker lock(m_critSec);
 		m_foldersToUpdate.push_back(path);
+		m_foldersToUpdate.back().SetCustomData(GetTickCount()+10);
 		ATLASSERT(path.IsDirectory() || !path.Exists());
 		// set this flag while we are sync'ed 
 		// with the worker thread
@@ -95,6 +96,7 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 	{
 		AutoLocker lock(m_critSec);
 		m_pathsToUpdate.push_back(path);
+		m_pathsToUpdate.back().SetCustomData(GetTickCount()+1000);
 		m_bPathsAddedSinceLastCrawl = true;
 	}
 	if (SetHoldoff())
@@ -114,6 +116,7 @@ void CFolderCrawler::WorkerThread()
 	hWaitHandles[1] = m_hWakeEvent;
 	CTSVNPath workingPath;
 	bool bFirstRunAfterWakeup = false;
+	DWORD currentTicks = 0;
 
 	for(;;)
 	{
@@ -163,7 +166,7 @@ void CFolderCrawler::WorkerThread()
 				// Nothing left to do 
 				break;
 			}
-			
+			currentTicks = GetTickCount();
 			if (!m_pathsToUpdate.empty())
 			{
 				{
@@ -177,9 +180,14 @@ void CFolderCrawler::WorkerThread()
 						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftSameWCPathAsRight), m_pathsToUpdate.end());
 						m_bPathsAddedSinceLastCrawl = false;
 					}
-
 					workingPath = m_pathsToUpdate.front();
-					m_pathsToUpdate.pop_front();
+					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+						m_pathsToUpdate.pop_front();
+				}
+				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
+				{
+					Sleep(50);
+					continue;
 				}
 				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
 					continue;
@@ -339,7 +347,13 @@ void CFolderCrawler::WorkerThread()
 					}
 
 					workingPath = m_foldersToUpdate.front();
-					m_foldersToUpdate.pop_front();
+					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+						m_foldersToUpdate.pop_front();
+				}
+				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
+				{
+					Sleep(50);
+					continue;
 				}
 				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
 					continue;
