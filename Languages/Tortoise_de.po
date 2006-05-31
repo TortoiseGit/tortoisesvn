@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-29 11:21+0100\n"
+"PO-Revision-Date: 2006-05-31 08:36+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3126,6 +3126,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "ÜB"
 
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "E&xternals auslassen"
@@ -3138,6 +3139,7 @@ msgstr "Externals auslassen"
 msgid "One or more files are in a conflicted state."
 msgstr "Eine oder mehrere Dateien befinden sich in einem Konfliktzustand."
 
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Nur den &obersten Ordner auschecken"
@@ -3949,6 +3951,11 @@ msgstr "Vergleichsprogramm auswählen"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Wähle Diffdatei..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Wähle Verzeichnis zum Auschecken"
 
 #: ID:276
 msgid "Select end revision"
