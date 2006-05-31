@@ -304,8 +304,8 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_ZOOMIN:
 		{
-			picWindow1.SetZoom(picWindow1.GetZoom()*1.1);
-			picWindow2.SetZoom(picWindow2.GetZoom()*1.1);
+			picWindow1.Zoom(true);
+			picWindow2.Zoom(true);
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
@@ -313,8 +313,8 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_ZOOMOUT:
 		{
-			picWindow1.SetZoom(picWindow1.GetZoom()/1.1);
-			picWindow2.SetZoom(picWindow2.GetZoom()/1.1);
+			picWindow1.Zoom(false);
+			picWindow2.Zoom(false);
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);

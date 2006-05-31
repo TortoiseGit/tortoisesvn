@@ -20,6 +20,7 @@
 #include "shellapi.h"
 #include "commctrl.h"
 #include "PicWindow.h"
+#include "math.h"
 
 #pragma comment(lib, "Msimg32.lib")
 #pragma comment(lib, "shell32.lib")
@@ -104,15 +105,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			else if (fwKeys & MK_CONTROL)
 			{
 				// control means adjusting the scale factor
-				double factor = 1;
-				for ( short z=abs(zDelta); z>0; z-=120)
-				{
-					factor *= 1.1;
-				}
-				if ( zDelta>0 )
-					picscale *= factor;
-				else
-					picscale /= factor;
+				Zoom(zDelta>0);
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, FALSE);
 				SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
@@ -142,6 +135,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			DragQueryFile(hDrop, 0, szFileName, sizeof(szFileName));
 			SetPic(szFileName, _T(""));
 			FitImageInWindow();
+			InvalidateRect(*this, NULL, TRUE);
 		}
 		break;
 	case WM_COMMAND:
@@ -229,7 +223,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 void CPicWindow::SetPic(stdstring path, stdstring title)
 {
 	picpath=path;pictitle=title;
-	picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
+	picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
 	bValid = picture.Load(picpath);
 	nDimensions = picture.GetNumberOfDimensions();
 	if (nDimensions)
@@ -464,12 +458,73 @@ void CPicWindow::GetClientRect(RECT * pRect)
 
 void CPicWindow::SetZoom(double dZoom)
 {
+	// Set the interpolation mode depending on zoom
+	if(dZoom < 1.0){	// Zoomed out, use high quality bicubic
+		picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
+	}
+	else if(!((int)(dZoom*100.0)%100)){	// "Even" zoom sizes should be shown w-o any interpolation
+		picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
+	}
+	else{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
+		picture.SetInterpolationMode(InterpolationModeBilinear);
+	}
+
 	picscale = dZoom;
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
 }
 
+void CPicWindow::Zoom(bool in)
+{
+	double zoomFactor;
+
+	// Find correct zoom factor	and quantize picscale
+	if(!in && picscale <= 0.2){
+		picscale = 0.1;
+		zoomFactor = 0;
+	}
+	else if((in && picscale < 1.0) || (!in && picscale <= 1.0)){
+		picscale = 0.1 * RoundDouble(picscale/0.1, 0);	// Quantize to 0.1
+		zoomFactor = 0.1;
+	}
+	else if((in && picscale < 2.0) || (!in && picscale <= 2.0)){
+		picscale = 0.25 * RoundDouble(picscale/0.25, 0);	// Quantize to 0.25
+		zoomFactor = 0.25;
+	}
+	else{
+		picscale = RoundDouble(picscale,0);
+		zoomFactor = 1;
+	}
+
+	// Set zoom
+	if(in){
+		SetZoom(picscale+zoomFactor);
+	}
+	else{
+		SetZoom(picscale-zoomFactor);
+	}
+}
+
+double CPicWindow::RoundDouble(double doValue, int nPrecision)
+{
+	static const double doBase = 10.0;
+	double doComplete5, doComplete5i;
+
+	doComplete5 = doValue * pow(doBase, (double) (nPrecision + 1));
+
+	if(doValue < 0.0){
+		doComplete5 -= 5.0;
+	}
+	else{
+		doComplete5 += 5.0;
+	}
+
+	doComplete5 /= doBase;
+	modf(doComplete5, &doComplete5i);
+
+	return doComplete5i / pow(doBase, (double) nPrecision);
+}
 void CPicWindow::FitImageInWindow()
 {
 	RECT rect;
@@ -479,18 +534,17 @@ void CPicWindow::FitImageInWindow()
 		if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
 		{
 			// image is smaller than the window
-			picscale = 1.0;
+			SetZoom(1.0);
 		}
 		else
 		{
 			// image is bigger than the window
 			double xscale = double(rect.right-rect.left)/double(picture.m_Width);
 			double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
-			picscale = min(yscale, xscale);
+			SetZoom(min(yscale, xscale));
 		}
 		SetupScrollBars();
 	}
-	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
 }
 
@@ -508,25 +562,8 @@ void CPicWindow::Paint(HWND hwnd)
 		GetClientRect(&rect);
 		if (bFirstpaint)
 		{
-			// make the image fit into the window: adjust the scale factor and scroll
-			// positions
-			if (rect.right-rect.left)
-			{
-				if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
-				{
-					// image is smaller than the window
-					picscale = 1.0;
-				}
-				else
-				{
-					// image is bigger than the window
-					double xscale = double(rect.right-rect.left)/double(picture.m_Width);
-					double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
-					picscale = min(yscale, xscale);
-				}
-				SetupScrollBars();
-				bFirstpaint = false;
-			}
+			FitImageInWindow();
+			bFirstpaint = false;
 		}
 		if (bValid)
 		{
@@ -607,6 +644,7 @@ void CPicWindow::Paint(HWND hwnd)
 						picture.GetWidth(), picture.GetHeight(),
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 						picture.GetColorDepth(),
+						(UINT)(GetZoom()*100.0),
 						pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
 						pSecondPic->GetWidth(), pSecondPic->GetHeight(),
 						pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
@@ -618,7 +656,8 @@ void CPicWindow::Paint(HWND hwnd)
 						(TCHAR const *)ResString(hInstance, IDS_IMAGEINFO),
 						picture.GetWidth(), picture.GetHeight(),
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-						picture.GetColorDepth());
+						picture.GetColorDepth(),
+						(UINT)(GetZoom()*100.0));
 				}
 				// set the font
 				HFONT hFont = CreateFont(-MulDiv(8, GetDeviceCaps(memDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));

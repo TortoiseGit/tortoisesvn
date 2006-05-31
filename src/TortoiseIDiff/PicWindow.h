@@ -88,6 +88,8 @@ public:
 	void SetZoom(double dZoom);
 	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
+	/// Zooms in (true) or out (false) in nice steps
+	void Zoom(bool in);
 
 	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
 
@@ -112,6 +114,8 @@ protected:
 	void				Paint(HWND hwnd);
 	/// Positions the buttons
 	void				PositionChildren();
+	// Rounds a double to a given precision
+	double RoundDouble(double doValue, int nPrecision);
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
