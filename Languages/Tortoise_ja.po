@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-15 14:01+0900\n"
+"PO-Revision-Date: 2006-05-31 12:04+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -359,7 +359,7 @@ msgstr "削除(&D)"
 # ID:101,
 #: ID:101
 msgid "&Delete..."
-msgstr "削除 ...(&D)"
+msgstr "削除(&D) ..."
 
 # ID:12,
 #: ID:12
@@ -640,6 +640,11 @@ msgstr "削除(&R)"
 msgid "&Rename"
 msgstr "名前の変更(&R)"
 
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "リポジトリブラウザ(&R)"
+
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -902,42 +907,6 @@ msgstr ": 作業ベース"
 #: ID:151
 msgid ": working copy"
 msgstr ": 作業コピー"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>注意:</b>\n"
-"再配置コマンドは、サーバのIPアドレスの変更やプロトコルの変更（例: http:// から https://）、\n"
-"もしくはサーバの設定でリポジトリのルートパスが変更された場合にのみ利用してください。\n"
-"<b>これは頻繁には利用しない操作</b> であり、他の Subversion リポジトリへ移動する場合や、\n"
-"<b>同じリポジトリ内の</b> 他の分岐やディレクトリに切り替えるためには適用できません。\n"
-"他の Subversion リポジトリへ移動するためには、新しいリポジトリのパスから新規にチェックアウト\n"
-"を行ってください。作業コピーを同じリポジトリ内の他の分岐やディレクトリに関連付けるためには、\n"
-"メインメニューから切り替えコマンドを利用してください。\n"
-"\n"
-"正しく再配置コマンドを利用しないと、<b>作業コピーを壊してしまう可能性があります！</b>\n"
-"再配置が正しい操作であるかどうかが分からない場合は、再配置コマンドを利用する前に\n"
-"しっかりと <b>ヘルプ</b> を読んでください。\n"
-"上記を読んで理解したと期待します: 再配置を実行してもよろしいですか？"
 
 # ID:145,
 #: ID:145
@@ -1444,6 +1413,11 @@ msgstr "エラーが無い場合は自動的に閉じる"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "マージ、追加、削除が無い場合は自動的に閉じる"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "ローカルの操作において、マージ、追加、削除が無い場合は自動的に閉じる"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1739,6 +1713,11 @@ msgstr "チェックアウト"
 msgid "Checkout &directory:"
 msgstr "チェックアウトディレクトリ(&D):"
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "クリーンアップ。"
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1977,6 +1956,11 @@ msgid "Copy URL to clipboard"
 msgstr "URLをクリップボードにコピー"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "クリップボードにすべての情報をコピーする"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "クリップボードにエラーメッセージをコピーする"
@@ -1985,6 +1969,11 @@ msgstr "クリップボードにエラーメッセージをコピーする"
 #: ID:76
 msgid "Copy from path"
 msgstr "パスからコピー"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "クリップボードにパスをコピー"
 
 # ID:3603,
 #: ID:3603
@@ -3237,6 +3226,34 @@ msgstr ""
 "例えば、MyFile.txt を MYFILE.txt にすることはできません。\n"
 "この制限に関してはドキュメントを調べてください。"
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"同じリポジトリ内の異なるパスに作業コピーを <b>再配置</b> しようとしています。\n"
+"\n"
+"元: %s\n"
+"先: %s\n"
+"\n"
+"再配置は、<b>リポジトリのパス</b>が変更された時にのみ必要となります。\n"
+"<b>リポジトリ内</b>の異なるパスへの変更は、切り替え操作で行うことができます。\n"
+"\n"
+"正しく再配置コマンドを利用しないと、<b>作業コピーを壊してしまうかもしれません！</b>\n"
+"どうしていいか分からない時は、ドキュメントの<i>再配置</i>を参照してください。\n"
+"本当に再配置を実行してもよろしいですか？"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3582,6 +3599,11 @@ msgstr "次の衝突点へ(&E)"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "ロックが必要"
+
 # ID:73,
 #: ID:210
 msgid "Nested"
@@ -3768,6 +3790,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "外部参照を除外する(&X)"
@@ -3783,6 +3806,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "１つ以上のファイルが衝突の状態にあります。"
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "トップフォルダのみチェックアウトする(&T)"
@@ -4038,6 +4062,7 @@ msgstr "差分を取得する間、しばらくお待ちください ..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
@@ -4247,6 +4272,11 @@ msgid "Relocate"
 msgstr "再配置"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "再配置に関する注意"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "再配置中 ..."
@@ -4352,11 +4382,6 @@ msgstr "ノードを置換"
 #: ID:74
 msgid "Replacing"
 msgstr "置換中"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "リポジトリブラウザ"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4803,6 +4828,11 @@ msgstr "差分用アプリケーションを選択"
 #: ID:313
 msgid "Select diff file..."
 msgstr "差分ファイルを選択 ..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "チェックアウトするディレクトリを選択"
 
 # Dlg-ID:173,
 #: ID:276
@@ -6548,12 +6578,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"２つの改行で分けられた正規表現\n"
-"１つ目の正規表現は issue を参照する文字列を探すために利用し、２つ目はその文字列からバグIDを抽出するために用いる。"
+"２つの改行で分けられた正規表現。\n"
+"１つ目の正規表現は issue を参照する文字列を探すために利用し、\n"
+"２つ目はその文字列からバグIDを抽出するために用いる。"
 
 # ID:14,
 #: ID:14
@@ -6741,10 +6773,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"この属性が設定されている場合、ファイルを実行可能形式にする。この属性はディレクトリに対して設定することはできない。フォルダに対する再帰的でない設定は失敗し、再帰的な設定の場合は子階層上のファイルに対してのみ設定される。"
+"この属性が設定されている場合、ファイルを実行可能形式にします。この属性はディレクトリに対して設定することはできません。\n"
+"フォルダに対する再帰的でない設定は失敗し、再帰的な設定の場合は子階層上のファイルに対してのみ設定さます。"
 
 # ID:14,
 #: ID:14
@@ -6791,10 +6825,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"ファイルのMIMEタイプ。どのようにファイルをマージするかを決定する際に用い、Apache からどのように送り出すかを決める。'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。その他は全てバイナリとして扱われる。"
+"ファイルのMIMEタイプ。どのようにファイルをマージするかを決定する際に用い、Apache からどのように送り出すかを決める。\n"
+"'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。\n"
+"その他は全てバイナリとして扱われる。"
 
 # ID:16,
 #: ID:16
