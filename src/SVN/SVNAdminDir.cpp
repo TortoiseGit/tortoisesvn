@@ -61,7 +61,7 @@ bool SVNAdminDir::Close()
 
 bool SVNAdminDir::IsAdminDirName(const CString& name)
 {
-	CStringA nameA = CUnicodeUtils::GetUTF8(name);
+	CStringA nameA = CUnicodeUtils::GetUTF8(name).MakeLower();
 	return !!svn_wc_is_adm_dir(nameA, m_pool);
 }
 
@@ -91,33 +91,35 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path)
 	if (path.IsEmpty())
 		return false;
 	bool bIsAdminDir = false;
-	int ind = path.Find(_T(".svn"));
+	CString lowerpath = path;
+	lowerpath.MakeLower();
+	int ind = lowerpath.Find(_T(".svn"));
 	if (ind >= 0)
 	{
-		if (ind == (path.GetLength() - 4))
+		if (ind == (lowerpath.GetLength() - 4))
 		{
-			if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+			if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
 				bIsAdminDir = true;
 		}
-		else if (path.Find(_T(".svn\\"))>=0)
+		else if (lowerpath.Find(_T(".svn\\"))>=0)
 		{
-			if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+			if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
 				bIsAdminDir = true;
 		}
 	}
 	if (!bIsAdminDir && m_bVSNETHack)
 	{
-		ind = path.Find(_T("_svn"));
+		ind = lowerpath.Find(_T("_svn"));
 		if (ind >= 0)
 		{
-			if (ind == (path.GetLength() - 4))
+			if (ind == (lowerpath.GetLength() - 4))
 			{
-				if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+				if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
 					bIsAdminDir = true;
 			}
-			else if (path.Find(_T("_svn\\"))>=0)
+			else if (lowerpath.Find(_T("_svn\\"))>=0)
 			{
-				if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+				if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
 					bIsAdminDir = true;
 			}
 		}
