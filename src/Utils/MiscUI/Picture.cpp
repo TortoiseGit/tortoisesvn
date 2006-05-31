@@ -66,11 +66,15 @@ void CPicture::FreePictureData()
 	if (hIcons)
 	{
 		LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-		for (int i=0; i<lpIconDir->idCount; ++i)
+		if (lpIconDir)
 		{
-			DestroyIcon(hIcons[i]);
+			for (int i=0; i<lpIconDir->idCount; ++i)
+			{
+				DestroyIcon(hIcons[i]);
+			}
 		}
 		delete hIcons;
+		hIcons = NULL;
 	}
 	if (lpIcons)
 		delete lpIcons;
