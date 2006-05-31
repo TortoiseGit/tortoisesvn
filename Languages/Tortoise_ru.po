@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6615: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6650: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-30 11:39+0300\n"
+"PO-Revision-Date: 2006-05-31 10:58+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3127,6 +3127,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # Род?
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Пропустить в&нешние"
@@ -3140,6 +3141,7 @@ msgstr "Пропустить внешние"
 msgid "One or more files are in a conflicted state."
 msgstr "Один или более файлов имеют конфликты."
 
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Извлечь только папку &верхнего уровня"
@@ -3960,6 +3962,10 @@ msgstr "Выбрать приложение просмотра различий"
 msgid "Select diff file..."
 msgstr "Выбрать файл различий..."
 
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Выберите папку для извлечения"
+
 #: ID:276
 msgid "Select end revision"
 msgstr "Выберите конечную ревизию"
@@ -3990,7 +3996,7 @@ msgstr "Выбрать текстовый редактор"
 
 #: ID:79
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Выберите поведение диалога прогресса при окончании операции."
+msgstr "Выберите поведение диалога прогресса по окончанию операции."
 
 #: ID:3603
 msgid ""
