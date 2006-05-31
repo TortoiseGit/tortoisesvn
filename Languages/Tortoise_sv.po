@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-23 09:40+0100\n"
+"PO-Revision-Date: 2006-05-31 08:08+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1171,6 +1171,11 @@ msgstr "Automatiskt om inga fel uppstod"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Automatiskt om inga föreningar, tillläggningar eller borttagningar"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Stäng automatiskt om inga föreningar, tillläggningar eller borttagningar för lokala åtgärder"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1415,6 +1420,10 @@ msgstr "Hämta"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "&Mapp för uthämtning:"
+
+#: ID:146
+msgid "Cleaning up."
+msgstr "Rensar. "
 
 #: ID:79
 msgid "Cleanup has finished"
@@ -3067,6 +3076,12 @@ msgstr "N&ästa konflikt"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+#, fuzzy
+msgid "Needs lock"
+msgstr "Släpp &lås"
+
 #: ID:210
 msgid "Nested"
 msgstr "Nestad"
@@ -3218,6 +3233,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Hoppa över e&xterna"
@@ -3230,6 +3246,7 @@ msgstr "Hoppa över externa"
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flera filer innehåller konflikter."
 
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Häm&ta endast översta mappen"
@@ -3432,6 +3449,7 @@ msgid "Please wait while we get the differences..."
 msgstr "Vänta medan skillnader tas fram..."
 
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Vänta..."
@@ -4061,6 +4079,11 @@ msgstr "Välj applikation för att visa skillnader"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Välj skillnadsfil..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Välj mapp att hämta ut till"
 
 #: ID:276
 msgid "Select end revision"
