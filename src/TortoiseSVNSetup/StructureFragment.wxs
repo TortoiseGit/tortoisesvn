@@ -172,7 +172,7 @@
             <?endif ?>
 
             <Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
-              <File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-$(var.PlatformPathExtension)\bin\libdb43.dll" KeyPath="yes" />
+              <File Id="F__libdb44" Name="LIBDB44.DLL" LongName="libdb44.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.4-$(var.PlatformPathExtension)\bin\libdb44.dll" KeyPath="yes" />
             </Component>
 
             <Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">

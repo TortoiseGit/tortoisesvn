@@ -50,8 +50,8 @@
 			<fileset>
 				<include name="TortoiseSVNSetup\include\autolist.txt" />
 				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
-				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
-				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />
+				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44.dll" />
+				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll" />
 				<include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll" />
 				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
 				<include name="..\ext\apr-iconv\${configuration}_${platform}\libapriconv_tsvn.dll" />
