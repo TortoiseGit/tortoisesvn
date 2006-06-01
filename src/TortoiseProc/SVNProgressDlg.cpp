@@ -647,7 +647,8 @@ UINT CSVNProgressDlg::ProgressThread()
 				sWindowTitle = urls[i].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 				SetWindowText(sWindowTitle);
 				checkoutdir = m_targetPathList[0];
-				checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
+				if (urls.GetCount() > 1)
+					checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
 				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
 				{
 					if (m_ProgList.GetItemCount()!=0)
