@@ -51,13 +51,13 @@ public:
 	BOOL GetDefaultIgnores(apr_array_header_t** ppPatterns);
 
 	/**
-	 * Checks if the \c sFilepath matches a pattern in the array of
+	 * Checks if the \c name matches a pattern in the array of
 	 * ignore patterns.
-	 * \param sFilepath the path to check 
+	 * \param name the name to check 
 	 * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
-	 * \return TRUE if the filename matches a pattern, FALSE if it doesn't.
+	 * \return TRUE if the name matches a pattern, FALSE if it doesn't.
 	 */
-	static BOOL MatchIgnorePattern(const CString& sFilepath, apr_array_header_t *patterns);
+	static BOOL MatchIgnorePattern(const CString& name, apr_array_header_t *patterns);
 private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
