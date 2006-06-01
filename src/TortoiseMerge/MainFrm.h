@@ -26,6 +26,7 @@
 #include "XSplitter.h"
 #include "NewToolBar.h"
 #include "Patch.h"
+#include "FindDlg.h"
 
 class CLeftView;
 class CRightView;
@@ -111,8 +112,9 @@ protected:
 	int				m_nSearchIndex;
 	CString			m_sFindText;
 	BOOL			m_bMatchCase;
+	bool			m_bLimitToDiff;
 	static const UINT m_FindDialogMessage;
-	CFindReplaceDialog *m_pFindDialog;
+	CFindDlg *		m_pFindDialog;
 	bool			m_bHasConflicts;
 
 public:

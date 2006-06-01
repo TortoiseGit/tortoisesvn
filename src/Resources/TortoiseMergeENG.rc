@@ -687,6 +687,49 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
 
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FIND DIALOGEX 0, 0, 311, 58
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Find",IDOK,248,7,56,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,248,28,56,14
+    LTEXT           "Search for:",IDC_STATIC,7,10,79,8
+    EDITTEXT        IDC_SEARCHTEXT,90,7,154,14,ES_AUTOHSCROLL
+    CONTROL         "Match &case",IDC_MATCHCASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,26,83,10
+    CONTROL         "&Limit search to modified lines",IDC_LIMITTODIFFS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,41,144,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_FIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        VERTGUIDE, 86
+        VERTGUIDE, 90
+        VERTGUIDE, 244
+        VERTGUIDE, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //

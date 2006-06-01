@@ -85,7 +85,11 @@ BOOL CSwitchDlg::OnInitDialog()
 		m_URL = m_path;
 	}
 
+	if (m_sTitle.IsEmpty())
+		GetWindowText(m_sTitle);
 	SetWindowText(m_sTitle);
+	if (m_sLabel.IsEmpty())
+		GetDlgItem(IDC_URLLABEL)->GetWindowText(m_sLabel);
 	GetDlgItem(IDC_URLLABEL)->SetWindowText(m_sLabel);
 
 	// set head revision as default revision

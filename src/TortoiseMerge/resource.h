@@ -18,6 +18,7 @@
 #define IDB_BITMAP1                     137
 #define IDB_TTF_BMP                     137
 #define IDD_SETCOLORPAGE                138
+#define IDD_FIND                        139
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -103,8 +104,10 @@
 #define IDC_LINENUMBERS                 1063
 #define IDC_CHECK1                      1064
 #define IDC_MAGNIFIER                   1064
+#define IDC_MATCHCASE                   1064
 #define IDC_CHECK2                      1065
 #define IDC_DIFFBAR                     1065
+#define IDC_LIMITTODIFFS                1065
 #define IDC_STRIKEOUT                   1066
 #define IDC_CHECK3                      1067
 #define IDC_RESOLVE                     1067
@@ -112,6 +115,8 @@
 #define ID_RESOLVE                      1067
 #define IDC_CHECK4                      1068
 #define IDC_USEBDIFF                    1068
+#define IDC_EDIT1                       1070
+#define IDC_SEARCHTEXT                  1070
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDS_ERR_DIFF_NEWLINES           1081
@@ -192,9 +197,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         32818
-#define _APS_NEXT_CONTROL_VALUE         1070
+#define _APS_NEXT_CONTROL_VALUE         1071
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
