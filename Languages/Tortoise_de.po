@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-01 09:28+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-06-02 00:11+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -424,6 +424,11 @@ msgstr "&Springe zum ersten Unterschied beim Laden"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Sprache:"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "Suche auf geänderte Zeilen &einschränken"
 
 #: Control-ID:1172
 msgid "&List View"
@@ -2236,6 +2241,10 @@ msgstr "Dateiunterschiede"
 msgid "File patches"
 msgstr "Datei Patches"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Suchen"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -2862,6 +2871,11 @@ msgid ""
 msgstr ""
 "Markiert einen Dateikonflikt in Subversion als aufgelöst\n"
 "Als aufgelöst markieren"
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Groß- / Kleinschreibung &beachten"
 
 #: Control-ID:1159
 msgid "Max"
@@ -3918,6 +3932,11 @@ msgstr "Scintilla"
 #: ID:113
 msgid "Search &log messages..."
 msgstr "Durchsuche &Logmeldungen..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Suche nach:"
 
 #: ID:3867
 #, c-format
