@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-21 18:06+0100\n"
+"PO-Revision-Date: 2006-06-01 18:01+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -754,50 +754,6 @@ msgstr ": base de trabajo"
 msgid ": working copy"
 msgstr ": copia de trabajo"
 
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>ATENCIÓN:</b>\n"
-"El comando Relocalizar sólo se utiliza si la URL de la raíz\n"
-"del repositorio ha cambiado por culpa de un cambio en la\n"
-"dirección IP del servidor, un cambio de protocolo (p.ej.: \n"
-"de http:// a https://) o un cambio en la ruta de la raíz del\n"
-"repositorio en la configuración del servidor.\n"
-"<b>Esta operación rara vez se utiliza</b> y no se aplica\n"
-"ni cuando desea moverse a otro repositorio de Subversion\n"
-"ni cuando desea cambiar a otra rama o directorio\n"
-"<b>dentro del mismo repositorio.</b>\n"
-"Para moverse a otro repositorio de Subversion, realice una\n"
-"obtención limpia desde el nuevo repositorio.\n"
-"Para asociar su copia de trabajo con otra rama u otro directorio\n"
-"dentro del mismo repositorio, utilice el comando Cambiar desde\n"
-"el menú principal\n"
-"\n"
-"Un uso inadecuado del comando Relocalizar <b>¡corromperá su copia de trabajo!</b>\n"
-"Si no está seguro de que Relocalizar sea la operación correcta, probablemente no lo es,\n"
-"y debería consultar la <b>Ayuda</b>.\n"
-"\n"
-"Ahora que ha leído y esperemos que entendido lo anterior: ¿aún desea relocalizar?"
-
 # ID:145,
 #: ID:145
 msgid ""
@@ -1221,6 +1177,11 @@ msgstr "Auto-cerrar si no hay errores"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Auto-cerrar si no hay fusiones, adiciones o eliminaciones"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Auto-cerrar si no hay fusiones, adiciones o eliminaciones para operaciones locales"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1476,6 +1437,10 @@ msgstr "Obtener"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "&Directorio donde obtener:"
+
+#: ID:146
+msgid "Cleaning up."
+msgstr "Limpiando."
 
 #: ID:79
 msgid "Cleanup has finished"
@@ -2377,9 +2342,10 @@ msgstr ""
 msgid "Finished!"
 msgstr "¡Terminado!"
 
+# ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Pulse F1 para obtener Ayuda"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Para Ayuda, pulse F1. Haga scroll horizontalmente con Ctrl+rueda del ratón"
 
 #: Control-ID:1200
 msgid "From:"
@@ -2801,6 +2767,34 @@ msgstr ""
 "Por ejemplo, no puede cambiar MiFichero.txt a MIFICHERO.txt\n"
 "Por favor consulte la documentación sobre una forma de evitar esta limitación."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Parece que está intentando <b>relocalizar</b> su copia de trabajo a una ruta diferente dentro del mismo repositorio.\n"
+"\n"
+"De: %s\n"
+"A: %s\n"
+"\n"
+"Sólo se necesita relocalizar si la ruta de acceso <b>al</b> repositorio ha cambiado.\n"
+"El cambio a una ruta diferentes <b>dentro</b> del mismo repositorio se hace con una operación de cambio.\n"
+"\n"
+"¡El uso inapropiado de relocalizar <b>corromperá su copia de trabajo!</b>\n"
+"Si no está seguro de lo que hacer, por favor lea en nuestra documentación sobre <i>relocalizar</i>.\n"
+"¿Desea realmente relocalizar?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3110,6 +3104,11 @@ msgstr "Sigui&ente conflicto"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "Necesita bloqueo"
+
 #: ID:210
 msgid "Nested"
 msgstr "Anidado"
@@ -3265,6 +3264,7 @@ msgstr "Aceptar"
 msgid "OVR"
 msgstr "SOB"
 
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Omitir e&xternos"
@@ -3279,6 +3279,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "Unos o más archivos están en estado en conflicto."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Sólo obtener la carpeta &superior"
@@ -3487,6 +3488,7 @@ msgid "Please wait while we get the differences..."
 msgstr "Por favor, espere mientras se obtienen las diferencias..."
 
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Por favor, espere..."
@@ -3663,6 +3665,10 @@ msgstr ""
 #: Dlg-ID:157
 msgid "Relocate"
 msgstr "Relocalizar"
+
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Advertencia de relocalizar"
 
 #: ID:80
 msgid "Relocating..."
@@ -4114,6 +4120,11 @@ msgstr "Seleccionar aplicación de diferencias"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Seleccionar archivo de diferencias..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Seleccione el directorio en donde obtener"
 
 #: ID:276
 msgid "Select end revision"
