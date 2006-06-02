@@ -1,3 +1,39 @@
+Version 1.3.4
+- BUG: When committing added files only, the log message wasn't saved
+       in the history. (Stefan)
+- BUG: In TortoiseMerge, if the left and right views were switched,
+       the changes were still saved to the file which was shown
+       on the right side before the switch. (Stefan)
+- BUG: Applying a patch in UTF8 could fail in certain locales. (Stefan)
+- BUG: TortoiseMerge could report an error when applying a patch which
+       had files with too similar names in it. The error was 
+       "The file X was found twice!?! ...". (Stefan)
+- BUG: In dialogs where an URL is requested and that URL changed by
+       using the "..." button and the repository browser, that URL
+       wasn't used correctly. (Stefan)
+- BUG: The cache could crash when starting up, or sometimes later due
+       to invalid paths loaded from the disk on startup. (Stefan)
+- BUG: The tsvn:logtemplate wasn't used for operations in the repository
+       browser. A defautl message was used instead. (Stefan)
+- BUG: SubWCRev didn't treat added files/folders correctly. (Stefan)
+- BUG: The context menu items "Rename..." and "Delete" have been removed
+       from the working copy root folder. See issue #243 for details.
+       (Tobias Schäfer)
+- BUG: Hiding unrelated changed paths did not work in the log dialog if
+       the path contained characters which needed escaping.
+       (Tobias Schäfer)
+- BUG: If the system option "hide keyboard cues" was disabled, the explorer
+       context menu items didn't show the keyboard accelerators. (Stefan)
+- BUG: an .svn directory could get exported if it was manually selected for
+       a right-drag export operation. (Stefan)
+- BUG: A wrong path was used when reverting changes from the changed file
+       list in the log dialog if the selected file path was longer than
+       the one used to show the log for. (Stefan)
+- BUG: The menu "edit conflicts" was shown for property conflicts too, even
+       though the merge editor wasn't started. (Stefan)
+- BUG: In case of an error, the error message wasn't always shown
+       completely. (Stefan)
+
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
        items could be painted black instead of the usual colors. (Stefan)
