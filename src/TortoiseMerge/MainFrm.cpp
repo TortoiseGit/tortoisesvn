@@ -24,6 +24,7 @@
 #include "Settings.h"
 #include "MessageBox.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "MainFrm.h"
 #include "LeftView.h"
 #include "RightView.h"
@@ -302,16 +303,16 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 			return FALSE;
 		} // if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile)) 
 		CString temp;
-		temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sFilePath), sVersion);
+		temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sFilePath), sVersion);
 		this->m_Data.m_baseFile.SetFileName(sBaseFile);
 		this->m_Data.m_baseFile.SetDescriptiveName(temp);
-		temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
+		temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
 		this->m_Data.m_theirFile.SetFileName(sTempFile);
 		this->m_Data.m_theirFile.SetDescriptiveName(temp);
 		this->m_Data.m_yourFile.SetFileName(sFilePath);
-		this->m_Data.m_yourFile.SetDescriptiveName(CUtils::GetFileNameFromPath(sFilePath));
+		this->m_Data.m_yourFile.SetDescriptiveName(CPathUtils::GetFileNameFromPath(sFilePath));
 		this->m_Data.m_mergedFile.SetFileName(sFilePath);
-		this->m_Data.m_mergedFile.SetDescriptiveName(CUtils::GetFileNameFromPath(sFilePath));
+		this->m_Data.m_mergedFile.SetDescriptiveName(CPathUtils::GetFileNameFromPath(sFilePath));
 		TRACE(_T("comparing %s and %s\nagainst the base file %s\n"), (LPCTSTR)sTempFile, (LPCTSTR)sFilePath, (LPCTSTR)sBaseFile);
 	} // if (!m_Patch.PatchFile(sFilePath)) 
 	else
@@ -327,10 +328,10 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		{
 			this->m_Data.m_baseFile.SetFileName(sTempFile);
 			CString temp;
-			temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
+			temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
 			this->m_Data.m_baseFile.SetDescriptiveName(temp);
 			this->m_Data.m_yourFile.SetFileName(sFilePath);
-			temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
+			temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
 			this->m_Data.m_yourFile.SetDescriptiveName(temp);
 			this->m_Data.m_theirFile.SetOutOfUse();
 			this->m_Data.m_mergedFile.SetOutOfUse();
@@ -347,11 +348,11 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 				this->m_Data.m_baseFile.SetFileName(sFilePath);
 			}
 			CString sDescription;
-			sDescription.Format(_T("%s %s"), (LPCTSTR)CUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
+			sDescription.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
 			this->m_Data.m_baseFile.SetDescriptiveName(sDescription);
 			this->m_Data.m_yourFile.SetFileName(sTempFile);
 			CString temp;
-			temp.Format(_T("%s %s"), (LPCTSTR)CUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
+			temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
 			this->m_Data.m_yourFile.SetDescriptiveName(temp);
 			this->m_Data.m_theirFile.SetOutOfUse();
 			this->m_Data.m_mergedFile.SetFileName(sFilePath);
@@ -409,10 +410,10 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	progDlg.SetProgress(100,100);
 	progDlg.Stop();
 	CString temp;
-	temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sURL1), sRev1);
+	temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sURL1), sRev1);
 	this->m_Data.m_baseFile.SetFileName(tempfile1);
 	this->m_Data.m_baseFile.SetDescriptiveName(temp);
-	temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sURL2), sRev2);
+	temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sURL2), sRev2);
 	this->m_Data.m_yourFile.SetFileName(tempfile2);
 	this->m_Data.m_yourFile.SetDescriptiveName(temp);
 

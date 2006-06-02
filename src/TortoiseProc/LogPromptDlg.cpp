@@ -24,6 +24,7 @@
 #include "SVNProperties.h"
 #include "MessageBox.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "SVN.h"
 #include "Registry.h"
 #include "SVNStatus.h"
@@ -637,7 +638,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
 	CMapStringToString mapRegex;
-	CString sRegexFile = CUtils::GetAppDirectory();
+	CString sRegexFile = CPathUtils::GetAppDirectory();
 	CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	DWORD timeoutvalue = regtimeout*1000;
 	sRegexFile += _T("autolist.txt");

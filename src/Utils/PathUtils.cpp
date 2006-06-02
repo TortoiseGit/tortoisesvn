@@ -51,6 +51,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	return bRet;
 }
 
+#ifdef _MFC_VER
 void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 {
 	_tcscpy_s(dest, len, src);
@@ -60,3 +61,105 @@ void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 			*p = '\\';
 }
 
+CString CPathUtils::GetFileNameFromPath(CString sPath)
+{
+	CString ret;
+	sPath.Replace(_T("/"), _T("\\"));
+	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
+	return ret;
+}
+
+CString CPathUtils::GetFileExtFromPath(const CString& sPath)
+{
+	int dotPos = sPath.ReverseFind('.');
+	int slashPos = sPath.ReverseFind('\\');
+	if (slashPos < 0)
+		slashPos = sPath.ReverseFind('/');
+	if (dotPos > slashPos)
+		return sPath.Mid(dotPos);
+	return CString();
+}
+
+CString CPathUtils::GetLongPathname(const CString& path)
+{
+	if (path.IsEmpty())
+		return path;
+	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
+	DWORD ret = 0;
+	CString sRet;
+	if (PathCanonicalize(pathbufcanonicalized, path))
+	{
+		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];	
+		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
+	}
+	else
+	{
+		ret = ::GetLongPathName(path, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];
+		ret = ::GetLongPathName(path, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
+	}
+	if (ret == 0)
+		return path;
+	return sRet;
+}
+
+BOOL CPathUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
+{
+	srcPath.Replace('/', '\\');
+	destPath.Replace('/', '\\');
+	CString destFolder = destPath.Left(destPath.ReverseFind('\\'));
+	MakeSureDirectoryPathExists(destFolder);
+	return (CopyFile(srcPath, destPath, !force));
+}
+
+CString CPathUtils::ParsePathInString(const CString& Str)
+{
+	CString sToken;
+	int curPos = 0;
+	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	while (!sToken.IsEmpty())
+	{
+		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
+		{
+			sToken.Trim(_T("'\""));
+			return sToken;
+		}
+		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	}
+	sToken.Empty();
+	return sToken;
+}
+
+CString CPathUtils::GetAppDirectory()
+{
+	CString path;
+	DWORD len = 0;
+	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
+	path.GetBuffer(bufferlen);
+	do 
+	{
+		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
+		path.ReleaseBuffer(0);
+		len = GetModuleFileName(NULL, path.GetBuffer(bufferlen+1), bufferlen);				
+	} while(len == bufferlen);
+	path.ReleaseBuffer();
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
+}
+
+CString CPathUtils::GetAppParentDirectory()
+{
+	CString path = GetAppDirectory();
+	path = path.Left(path.ReverseFind('\\'));
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
+}
+
+
+
+#endif

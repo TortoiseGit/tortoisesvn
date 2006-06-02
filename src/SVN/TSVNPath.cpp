@@ -24,6 +24,7 @@
 #include "regexpr2.h"
 #include "MessageBox.h"
 #include "Utils.h"
+#include "PathUtils.h"
 
 using namespace std;
 using namespace regex;
@@ -768,7 +769,7 @@ void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
 		{
 			break;
 		}
-		AddPath(CTSVNPath(CUtils::GetLongPathname(temp)));
+		AddPath(CTSVNPath(CPathUtils::GetLongPathname(temp)));
 	} 
 }
 

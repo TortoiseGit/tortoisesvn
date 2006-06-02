@@ -31,6 +31,7 @@
 #include "MessageBox.h"
 #include "Registry.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "InsertControl.h"
 #include "SVNInfo.h"
@@ -1309,7 +1310,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString url = m_path.GetSVNPathString();
 						CString sCmd;
 						sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%ld /notempfile"),
-									CUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
+									CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 									url, rev);
 						
 						CUtils::LaunchApplication(sCmd, NULL, false);
@@ -1342,7 +1343,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					url = _T("tsvn:")+url;
 					sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld /notempfile"),
-						CUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
+						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 						url, rev);
 					CUtils::LaunchApplication(sCmd, NULL, false);
 				}
@@ -1571,7 +1572,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						TCHAR szFile[MAX_PATH];  // buffer for file name
 						ZeroMemory(szFile, sizeof(szFile));
 						CString revFilename;
-						temp = CUtils::GetFileNameFromPath(filepath);
+						temp = CPathUtils::GetFileNameFromPath(filepath);
 						int rfind = filepath.ReverseFind('.');
 						if (rfind > 0)
 							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev, temp.Mid(rfind));
@@ -1735,7 +1736,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath += changedpath->sPath;
 						
 						CString sCmd;
-						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
 						
 						CUtils::LaunchApplication(sCmd, NULL, false);
 						EnableOKButton();

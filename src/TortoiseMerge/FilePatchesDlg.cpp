@@ -21,6 +21,7 @@
 #include "FilePatchesDlg.h"
 #include "Patch.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include ".\filepatchesdlg.h"
 
 
@@ -113,7 +114,7 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 
 	for(int i=0; i<m_pPatch->GetNumberOfFiles(); i++)
 	{
-		CString sFile = CUtils::GetFileNameFromPath(m_pPatch->GetFilename(i));
+		CString sFile = CPathUtils::GetFileNameFromPath(m_pPatch->GetFilename(i));
 		DWORD state;
 		if (m_sPath.IsEmpty())
 			state = FPDLG_FILESTATE_GOOD;

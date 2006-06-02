@@ -33,6 +33,7 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "BrowseFolder.h"
@@ -593,7 +594,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						}
 						CString sCmd;
 						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld /revend:%ld"),
-							CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sCopyFrom1, (LONG)rev1, (LONG)rev2);
+							CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sCopyFrom1, (LONG)rev1, (LONG)rev2);
 
 						ATLTRACE(sCmd);
 						if (!m_path.IsUrl())
@@ -609,7 +610,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					{
 						CString sCmd;
 						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
-							CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, (LONG)GetRevision());
+							CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, (LONG)GetRevision());
 
 						if (!m_path.IsUrl())
 						{
@@ -634,7 +635,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					itemsToCheckout.TrimRight('*');
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revstart:%ld"), 
-						CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, (LONG)GetRevision());
+						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, (LONG)GetRevision());
 
 					CUtils::LaunchApplication(sCmd, NULL, false);
 				}
@@ -1060,7 +1061,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							}
 							else
 							{
-								if(!CUtils::LaunchTortoiseBlame(tempfile, logfile, CUtils::GetFileNameFromPath(url)))
+								if(!CUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(url)))
 								{
 									break;
 								}

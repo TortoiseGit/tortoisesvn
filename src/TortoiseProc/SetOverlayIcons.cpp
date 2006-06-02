@@ -23,6 +23,7 @@
 #include ".\setoverlayicons.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "ShellUpdater.h"
 
 // CSetOverlayIcons dialog
@@ -64,7 +65,7 @@ BOOL CSetOverlayIcons::OnInitDialog()
 
 	m_cIconList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES);
 	//get the path to our icon sets
-	m_sIconPath = CUtils::GetAppParentDirectory();
+	m_sIconPath = CPathUtils::GetAppParentDirectory();
 	m_sIconPath += _T("Icons");
 	//list all the icon sets
 	CDirFileEnum filefinder(m_sIconPath);
@@ -74,7 +75,7 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	{
 		if (!isDir)
 			continue;
-		m_cIconSet.AddString(CUtils::GetFileNameFromPath(item));
+		m_cIconSet.AddString(CPathUtils::GetFileNameFromPath(item));
 	}
 	CheckRadioButton(IDC_LISTRADIO, IDC_SYMBOLRADIO, IDC_LISTRADIO);
 	CString sModifiedIcon = m_regModified;

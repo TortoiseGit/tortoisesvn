@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "SetMainPage.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
 #include "..\version.h"
@@ -147,7 +148,7 @@ BOOL CSetMainPage::OnInitDialog()
 	GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 	m_LanguageCombo.AddString(buf);
 	m_LanguageCombo.SetItemData(0, 1033);
-	CString path = CUtils::GetAppParentDirectory();
+	CString path = CPathUtils::GetAppParentDirectory();
 	path = path + _T("Languages\\");
 	CSimpleFileFind finder(path, _T("*.dll"));
 	int langcount = 1;

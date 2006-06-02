@@ -58,6 +58,7 @@
 #include "SVNStatus.h"
 #include "SVNInfo.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "SoundUtils.h"
 #include "libintl.h"
@@ -234,7 +235,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 	CString langDll;
-	CStringA langpath = CStringA(CUtils::GetAppParentDirectory());
+	CStringA langpath = CStringA(CPathUtils::GetAppParentDirectory());
 	langpath += "Languages";
 	bindtextdomain("subversion", (LPCSTR)langpath);
 	bind_textdomain_codeset("subversion", "UTF-8");
@@ -383,7 +384,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			bPathIsTempfile = !parser.HasKey(_T("notempfile"));
 		}
 
-		CString sPathArgument = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+		CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
 		CTSVNPath cmdLinePath(sPathArgument);
 
 		CTSVNPathList pathList;
@@ -1242,7 +1243,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region diff
 		if (command == cmdDiff)
 		{
-			CString path2 = CUtils::GetLongPathname(parser.GetVal(_T("path2")));
+			CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
 			if (path2.IsEmpty())
 			{
 				if (cmdLinePath.IsDirectory())
@@ -1862,7 +1863,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region cat
 		if (command == cmdCat)
 		{
-			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+			CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
 			CString revision = parser.GetVal(_T("revision"));
 			CString pegrevision = parser.GetVal(_T("pegrevision"));
 			LONG rev = _ttol(revision);
@@ -1882,7 +1883,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region createpatch
 		if (command == cmdCreatePatch)
 		{
-			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+			CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
 			CCreatePatch dlg;
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal()==IDOK)
@@ -2252,18 +2253,18 @@ void CTortoiseProcApp::CheckUpgrade()
 		// so remove the diff/merge scripts if they're the defaults
 		CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.doc"));
 		CString sDiff = diffreg;
-		CString sCL = _T("wscript.exe \"") + CUtils::GetAppParentDirectory()+_T("Diff-Scripts\\diff-doc.vbs\"");
+		CString sCL = _T("wscript.exe \"") + CPathUtils::GetAppParentDirectory()+_T("Diff-Scripts\\diff-doc.vbs\"");
 		if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
 			diffreg = _T("");
 		CRegString mergereg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\.doc"));
 		sDiff = mergereg;
-		sCL = _T("wscript.exe \"") + CUtils::GetAppParentDirectory()+_T("Diff-Scripts\\merge-doc.vbs\"");
+		sCL = _T("wscript.exe \"") + CPathUtils::GetAppParentDirectory()+_T("Diff-Scripts\\merge-doc.vbs\"");
 		if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
 			mergereg = _T("");
 	}
 	
 	// set the custom diff scripts for every user
-	CString scriptsdir = CUtils::GetAppParentDirectory();
+	CString scriptsdir = CPathUtils::GetAppParentDirectory();
 	scriptsdir += _T("Diff-Scripts");
 	CSimpleFileFind files(scriptsdir);
 	while (files.FindNextFileNoDirectories())

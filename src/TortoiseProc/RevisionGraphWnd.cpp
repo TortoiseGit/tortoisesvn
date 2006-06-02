@@ -24,6 +24,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
@@ -504,7 +505,7 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 
 void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 {
-	CString extension = CUtils::GetFileExtFromPath(sSavePath);
+	CString extension = CPathUtils::GetFileExtFromPath(sSavePath);
 	if (extension.CompareNoCase(_T(".wmf"))==0)
 	{
 		// save the graph as an enhanced metafile
@@ -604,15 +605,15 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 					{
 						// Get the CLSID of the encoder.
 						int ret = 0;
-						if (CUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".png"))==0)
+						if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".png"))==0)
 							ret = GetEncoderClsid(L"image/png", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpg"))==0)
+						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpg"))==0)
 							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpeg"))==0)
+						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpeg"))==0)
 							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".bmp"))==0)
+						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".bmp"))==0)
 							ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".gif"))==0)
+						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".gif"))==0)
 							ret = GetEncoderClsid(L"image/gif", &encoderClsid);
 						else
 						{
@@ -626,7 +627,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 						}
 						else
 						{
-							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(sSavePath));
+							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CPathUtils::GetFileExtFromPath(sSavePath));
 						}
 					}
 					else
@@ -754,7 +755,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				CString sCmd;
 				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode(m_SelectedEntry1->url);
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
-					CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
+					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,
 					m_SelectedEntry1->revision);
 

@@ -29,7 +29,7 @@
 #	include "MessageBox.h"
 #	include "registry.h"
 #	include "TSVNPath.h"
-#	include "Utils.h"
+#	include "PathUtils.h"
 #endif
 
 SVNStatus::SVNStatus(bool * pbCanceled)
@@ -69,7 +69,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	if (tsvn_ssh.IsEmpty())
-		tsvn_ssh = CUtils::GetAppDirectory() + _T("TortoisePlink.exe");
+		tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{

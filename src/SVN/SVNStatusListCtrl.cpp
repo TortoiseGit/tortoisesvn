@@ -24,6 +24,7 @@
 #include "MemDC.h"
 #include "UnicodeUtils.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "StringUtils.h"
 #include "DirFileEnum.h"
@@ -1874,7 +1875,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						FillListOfSelectedItemPaths(targetList);
 						CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
 						VERIFY(targetList.WriteToTemporaryFile(tempFile.GetWinPathString()));
-						CString commandline = CUtils::GetAppDirectory();
+						CString commandline = CPathUtils::GetAppDirectory();
 						commandline += _T("TortoiseProc.exe /command:commit /path:\"");
 						commandline += tempFile.GetWinPathString();
 						commandline += _T("\"");

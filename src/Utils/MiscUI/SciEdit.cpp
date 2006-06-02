@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "UnicodeUtils.h"
 #include <string>
 #include "regexpr2.h"
@@ -181,8 +182,8 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
 	//Setup the spell checker and thesaurus
 	TCHAR buf[6];
-	CString sFolder = CUtils::GetAppDirectory();
-	CString sFolderUp = CUtils::GetAppParentDirectory();
+	CString sFolder = CPathUtils::GetAppDirectory();
+	CString sFolderUp = CPathUtils::GetAppParentDirectory();
 	CString sFile;
 
 	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));

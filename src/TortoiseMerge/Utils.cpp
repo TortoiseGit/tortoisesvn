@@ -143,13 +143,6 @@ CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
 	return strReturn;
 }
 
-CString CUtils::GetFileNameFromPath(CString sPath)
-{
-	CString ret;
-	sPath.Replace(_T("/"), _T("\\"));
-	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
-	return ret;
-}
 
 
 

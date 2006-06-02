@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "resource.h"
+#include "PathUtils.h"
 #include "utils.h"
 #include "MessageBox.h"
 #include "Registry.h"
@@ -58,7 +59,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 		com = tortoiseMergePath;
 		if (com.IsEmpty())
 		{
-			com = CUtils::GetAppDirectory();
+			com = CPathUtils::GetAppDirectory();
 			com += _T("TortoiseMerge.exe");
 		}
 		com = _T("\"") + com + _T("\"");
@@ -173,7 +174,7 @@ BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, con
 {
 	CString viewer;
 	// use TortoiseMerge
-	viewer = CUtils::GetAppDirectory();
+	viewer = CPathUtils::GetAppDirectory();
 	viewer += _T("TortoiseMerge.exe");
 
 	viewer = _T("\"") + viewer + _T("\"");
@@ -220,7 +221,7 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 				(sExtension.CompareNoCase(_T(".dib"))==0)||
 				(sExtension.CompareNoCase(_T(".emf"))==0))
 			{
-				viewer = CUtils::GetAppDirectory();
+				viewer = CPathUtils::GetAppDirectory();
 				viewer += _T("TortoiseIDiff.exe");
 				viewer = _T("\"") + viewer + _T("\"");
 				viewer = viewer + _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
@@ -231,7 +232,7 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 	{
 		//no registry entry (or commented out) for a diff program
 		//use TortoiseMerge
-		viewer = CUtils::GetAppDirectory();
+		viewer = CPathUtils::GetAppDirectory();
 		viewer += _T("TortoiseMerge.exe");
 		viewer = _T("\"") + viewer + _T("\"");
 		viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
@@ -625,76 +626,6 @@ CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
 	return strReturn;
 }
 
-CString CUtils::GetFileNameFromPath(CString sPath)
-{
-	CString ret;
-	sPath.Replace(_T("/"), _T("\\"));
-	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
-	return ret;
-}
-
-CString CUtils::GetFileExtFromPath(const CString& sPath)
-{
-	int dotPos = sPath.ReverseFind('.');
-	int slashPos = sPath.ReverseFind('\\');
-	if (slashPos < 0)
-		slashPos = sPath.ReverseFind('/');
-	if (dotPos > slashPos)
-		return sPath.Mid(dotPos);
-	return CString();
-}
-
-CString CUtils::GetLongPathname(const CString& path)
-{
-	if (path.IsEmpty())
-		return path;
-	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
-	DWORD ret = 0;
-	CString sRet;
-	if (PathCanonicalize(pathbufcanonicalized, path))
-	{
-		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];	
-		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
-		sRet = CString(pathbuf, ret);
-		delete pathbuf;
-	}
-	else
-	{
-		ret = ::GetLongPathName(path, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];
-		ret = ::GetLongPathName(path, pathbuf, ret+1);
-		sRet = CString(pathbuf, ret);
-		delete pathbuf;
-	}
-	if (ret == 0)
-		return path;
-	return sRet;
-}
-
-BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
-{
-	srcPath.Replace('/', '\\');
-	destPath.Replace('/', '\\');
-	// now make sure that the destination directory exists
-	int ind = 0;
-	while (destPath.Find('\\', ind)>=0)
-	{
-		if (!PathIsDirectory(destPath.Left(destPath.Find('\\', ind))))
-		{
-			if (!CreateDirectory(destPath.Left(destPath.Find('\\', ind)), NULL))
-				return FALSE;
-		}
-		ind = destPath.Find('\\', ind)+1;
-	}
-	if (PathIsDirectory(srcPath))
-	{
-		if (!PathIsDirectory(destPath))
-			return CreateDirectory(destPath, NULL);
-		return TRUE;
-	}
-	return (CopyFile(srcPath, destPath, !force));
-}
 
 BOOL CUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 {
@@ -840,38 +771,13 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 */
 bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile)
 {
-	CString viewer = CUtils::GetAppDirectory();
+	CString viewer = CPathUtils::GetAppDirectory();
 	viewer += _T("TortoiseBlame.exe");
 	viewer += _T(" \"") + sBlameFile + _T("\"");
 	viewer += _T(" \"") + sLogFile + _T("\"");
 	viewer += _T(" \"") + sOriginalFile + _T("\"");
 	
 	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
-}
-
-CString CUtils::GetAppDirectory()
-{
-	CString path;
-	DWORD len = 0;
-	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
-	path.GetBuffer(bufferlen);
-	do 
-	{
-		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
-		path.ReleaseBuffer(0);
-		len = GetModuleFileName(NULL, path.GetBuffer(bufferlen+1), bufferlen);				
-	} while(len == bufferlen);
-	path.ReleaseBuffer();
-	path = path.Left(path.ReverseFind('\\')+1);
-	return path;
-}
-
-CString CUtils::GetAppParentDirectory()
-{
-	CString path = GetAppDirectory();
-	path = path.Left(path.ReverseFind('\\'));
-	path = path.Left(path.ReverseFind('\\')+1);
-	return path;
 }
 
 void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
@@ -908,24 +814,6 @@ void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 		}
 		pListCtrl->SetColumnWidth(col, cx);
 	}
-}
-
-CString CUtils::ParsePathInString(const CString& Str)
-{
-	CString sToken;
-	int curPos = 0;
-	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
-	while (!sToken.IsEmpty())
-	{
-		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
-		{
-			sToken.Trim(_T("'\""));
-			return sToken;
-		}
-		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
-	}
-	sToken.Empty();
-	return sToken;
 }
 
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))

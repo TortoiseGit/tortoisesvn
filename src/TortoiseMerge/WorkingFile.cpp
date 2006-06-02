@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "Workingfile.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "resource.h"
 
 CWorkingFile::CWorkingFile(void)
@@ -80,7 +81,7 @@ CWorkingFile::GetWindowName() const
 	{
 		// We don't have a proper name - use the filename part of the path
 		// return the filename part of the path.
-		return CUtils::GetFileNameFromPath(m_sFilename) + _T(" ") + sErrMsg;
+		return CPathUtils::GetFileNameFromPath(m_sFilename) + _T(" ") + sErrMsg;
 	}
 	else if (sErrMsg.IsEmpty())
 	{

@@ -25,6 +25,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
@@ -1487,7 +1488,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					} // if ((data)&&(!data->path.IsDirectory()))
 					if ((data) && (data->bAuxItem))
 					{
-						CString sPath = CUtils::ParsePathInString(data->sPathColumnText);
+						CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
 						if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(sPath)))
 						{
 							CTSVNPath path = CTSVNPath(sPath);
@@ -1510,7 +1511,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 						case ID_EXPLORE:
 							{
-								CString sPath = CUtils::ParsePathInString(data->sPathColumnText);
+								CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
 								CTSVNPath path = CTSVNPath(sPath);
 								ShellExecute(m_hWnd, _T("explore"), path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
 							}

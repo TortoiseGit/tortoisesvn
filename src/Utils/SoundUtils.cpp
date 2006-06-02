@@ -20,6 +20,7 @@
 #include "registry.h"
 #include "resource.h"
 #include "Utils.h"
+#include "PathUtils.h"
 #include ".\soundutils.h"
 
 #pragma comment(lib, "Winmm")
@@ -45,7 +46,7 @@ void CSoundUtils::RegisterTSVNSounds()
 	CRegString appscheme = CRegString(_T("AppEvents\\Schemes\\Apps\\TortoiseProc\\"));
 	appscheme = _T("TortoiseSVN");
 
-	CString apppath = CUtils::GetAppDirectory();
+	CString apppath = CPathUtils::GetAppDirectory();
 	
 	CRegistryKey schemenamekey = CRegistryKey(_T("AppEvents\\Schemes\\Names"));
 	CStringList schemenames;
