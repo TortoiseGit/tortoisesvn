@@ -36,7 +36,7 @@ function tortoisesvn_settings() {
 	   t('The date on which the above version of TortoiseSVN was released.'));
   $group.= form_textfield(t('Build number (w32)'), 'tsvn_build', variable_get('tsvn_build', '') , 20, 5,
 	   t('The TortoiseSVN build number for 32 bit processors.'));
-  $group.= form_textfield(t('Build number (x64)'), 'tsvn_build', variable_get('tsvn_build_x64', '') , 20, 5,
+  $group.= form_textfield(t('Build number (x64)'), 'tsvn_build_x64', variable_get('tsvn_build_x64', '') , 20, 5,
 	   t('The TortoiseSVN build number for 64 bit processors.'));
   $group.= form_textfield(t('Subversion library version'), 'tsvn_svnlib', variable_get('tsvn_svnlib', ''), 20, 5,
 	   t('The version number of the Subversion libraries against which TortoiseSVN is linked.'));
