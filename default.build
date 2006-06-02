@@ -161,7 +161,7 @@
 		</nant>
 	</target>
 
-	<target name="LanguagePacks" depends="env">
+	<target name="LanguagePacks" depends="VersionInfo">
 		<description>
 			Builds all the language pack installers.
 		</description>
