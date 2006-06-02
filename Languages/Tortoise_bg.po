@@ -40,13 +40,14 @@
 # clipboard - системен буфер
 # log, show log - дневник
 # versioned (file, folder) - контролиран/а
+# download - изтеглям, изтегляне
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-22 19:49+0200\n"
+"PO-Revision-Date: 2006-06-02 12:25+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -171,7 +172,7 @@ msgstr "%I64d килобайта прехвърлени"
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "%d файлове маркирани, %d файлове общо"
+msgstr "%d файла маркирани, %d файла общо"
 
 # Control-ID:65535,
 #: ID:563
@@ -555,6 +556,11 @@ msgstr "&Преход до първата разлика при зареждан
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Език:"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Ограничаване на търсенето до променените редове"
 
 # ID:188,
 #: Control-ID:1172
@@ -971,7 +977,7 @@ msgstr "Грешка при блокиране на достъпа до %1."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Налична е по-нова версия. Моля, посетете http://tortoisesvn.tigris.org/ и я свалете!"
+msgstr "Налична е по-нова версия. Моля, посетете http://tortoisesvn.tigris.org/ и я изтеглете!"
 
 # ID:195,
 #: ID:195
@@ -1444,6 +1450,11 @@ msgstr "Автоматично затваряне, ако няма грешки"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Автоматично затваряне, ако няма сливане, добавяне или изтриване"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Автоматично затваряне, ако няма сливане, добавяне или изтриване за местни операции"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1740,6 +1751,11 @@ msgstr "Изписване"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "Изписване на &директория:"
+
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Почистване."
 
 # ID:79,
 #: ID:79
@@ -2771,6 +2787,10 @@ msgstr "Файлове с разлики"
 msgid "File patches"
 msgstr "Файлове с кръпки"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Търсене"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2787,8 +2807,8 @@ msgstr "Завършено!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "За Помощ, натисни F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "За Помощ, натиснете F1. За хоризонтално превъртане превъртане ползвайте клавиша \"Ctrl\" и колелцето за превъртане на мишката"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -3487,6 +3507,11 @@ msgstr ""
 "Отбелязва файл като разрешен в Subversion\n"
 "Отбелязване като разрешен"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Чувствителност към &регистъра"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3623,6 +3648,11 @@ msgstr "&Следващ конфликт"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# Control-ID:1203,
+#: ID:208
+msgid "Needs lock"
+msgstr "Изисква заключване"
 
 # ID:73,
 #: ID:210
@@ -3810,6 +3840,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Пропускане на в&ъншните"
@@ -3825,6 +3856,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "Един или повече файлове са в конфликтно състояние."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Изписване само на най-&горната папка"
@@ -4081,6 +4113,7 @@ msgstr "Моля, изчакайте докато се получават раз
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
@@ -4798,6 +4831,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "&Търсене в дневника..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Търсене за:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4846,6 +4884,11 @@ msgstr "Избор на програма за сравняване"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Избор на файл с разлики..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Изберете директория, в която да изпишете"
 
 # Dlg-ID:173,
 #: ID:276
