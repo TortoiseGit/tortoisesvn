@@ -195,6 +195,12 @@ BOOL CDiffData::Load()
 	DWORD dwIgnoreWS = regIgnoreWS;
 	bool bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
 	BOOL bIgnoreCase = ((DWORD)regIgnoreCase)!=0;
+
+	// The Subversion diff API only can ignore whitespaces and eol styles.
+	// It also can only handle one-byte charsets.
+	// To ignore case changes or to handle UTF-16 files, we have to
+	// save the original file in UTF-8 and/or the letters changed to lowercase
+	// so the Subversion diff can handle those.
 	sConvertedBaseFilename = m_baseFile.GetFilename();
 	sConvertedYourFilename = m_yourFile.GetFilename();
 	sConvertedTheirFilename = m_theirFile.GetFilename();
@@ -205,11 +211,11 @@ BOOL CDiffData::Load()
 			m_sError = m_arBaseFile.GetErrorString();
 			return FALSE;
 		}
-		if (bIgnoreCase)
+		if ((bIgnoreCase)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
 		{
 			CFileTextLines converted(m_arBaseFile);
 			sConvertedBaseFilename = tempfiles.GetTempFilePath();
-			converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
+			converted.Save(sConvertedBaseFilename, m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
 		}
 	}
 
@@ -222,11 +228,11 @@ BOOL CDiffData::Load()
 			m_sError = m_arTheirFile.GetErrorString();
 			return FALSE;
 		}
-		if (bIgnoreCase)
+		if ((bIgnoreCase)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
 		{
 			CFileTextLines converted(m_arTheirFile);
 			sConvertedTheirFilename = tempfiles.GetTempFilePath();
-			converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
+			converted.Save(sConvertedTheirFilename, m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
 		}
 	}
 
@@ -239,11 +245,11 @@ BOOL CDiffData::Load()
 			m_sError = m_arYourFile.GetErrorString();
 			return FALSE;
 		}
-		if (bIgnoreCase)
+		if ((bIgnoreCase)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
 		{
 			CFileTextLines converted(m_arYourFile);
 			sConvertedYourFilename = tempfiles.GetTempFilePath();
-			converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
+			converted.Save(sConvertedYourFilename, m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
 		}
 	}
 

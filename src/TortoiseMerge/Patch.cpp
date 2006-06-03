@@ -549,7 +549,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 	} // for (int i=0; i<chunks->chunks.GetCount(); i++) 
 	if (!sSavePath.IsEmpty())
 	{
-		PatchLines.Save(sSavePath);
+		PatchLines.Save(sSavePath, false);
 	} // if (!sSavePath.IsEmpty())
 	return TRUE;
 }

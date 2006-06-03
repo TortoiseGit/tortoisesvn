@@ -284,12 +284,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		return FALSE;
 	}
 
-	if (m_UnicodeType == CFileTextLines::UNICODE_LE)
-	{
-		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
-		return FALSE;
-	}
-	
 	BOOL bRetval = TRUE;
 	CStringA sLine;
 	try
@@ -308,26 +302,35 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		default:
 			break;
 		} // switch (m_UnicodeType) 
-		while (file.ReadString(sLine))
+		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
 		{
-			switch (m_UnicodeType)
+			CString sLineU;
+			while (file.ReadString(sLineU))
 			{
-			case CFileTextLines::ASCII:
-				Add(CString(sLine));
-				break;
-			case CFileTextLines::UNICODE_LE:
-				Add(CString(sLine));
-				break;
-			case CFileTextLines::UTF8BOM:
-			case CFileTextLines::UTF8:
+				sLineU.TrimRight(_T("\r\n"));
+				Add(sLineU);
+			}
+		}
+		else
+		{
+			while (file.ReadString(sLine))
+			{
+				switch (m_UnicodeType)
 				{
-					Add(CUnicodeUtils::GetUnicode(CUnicodeUtils::ConvertWCHARStringToUTF8(CString(sLine))));
+				case CFileTextLines::ASCII:
+					Add(CString(sLine));
+					break;
+				case CFileTextLines::UTF8BOM:
+				case CFileTextLines::UTF8:
+					{
+						Add(CUnicodeUtils::GetUnicode(CUnicodeUtils::ConvertWCHARStringToUTF8(CString(sLine))));
+					}
+					break;
+				default:
+					Add(CString(sLine));
 				}
-				break;
-			default:
-				Add(CString(sLine));
-			} // switch (m_UnicodeType) 
-		} // while (file.ReadString(sLine)) 
+			}
+		}
 		file.Close();
 	}
 	catch (CException * e)
@@ -417,7 +420,7 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
 	sLine.ReleaseBuffer(outputLen);
 }
 
-BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
 	try
 	{
@@ -440,7 +443,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
 			return FALSE;
 		}
-		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
+		if ((!bSaveAsUTF8)&&(m_UnicodeType == CFileTextLines::UNICODE_LE))
 		{
 			//first write the BOM
 			UINT16 wBOM = 0xFEFF;
@@ -471,7 +474,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		} // if (CUtils::IsFileUnicode(sPath)) 
-		else if ((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE))
+		else if ((!bSaveAsUTF8)&&((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE)))
 		{
 			for (int i=0; i< GetCount(); i++)
 			{
@@ -501,7 +504,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 				file.Write((LPCSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		}
-		else if ((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8))
+		else if ((bSaveAsUTF8)||((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8)))
 		{
 			if (m_UnicodeType == CFileTextLines::UTF8BOM)
 			{

@@ -793,7 +793,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 				break;
 			} // switch (state) 
 		} // for (int i=0; i<arText->GetCount(); i++) 
-		if (!file.Save(sFilePath))
+		if (!file.Save(sFilePath, false))
 		{
 			CMessageBox::Show(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
 			return;

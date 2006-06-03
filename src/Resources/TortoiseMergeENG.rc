@@ -597,7 +597,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ERR_FILE_OPEN       "Could not open the file\n%s"
-    IDS_ERR_FILE_BINARY     "The File\n%s\nis not a valid text file!\nNote that UTF16 and UTF32 files are treated as binary too."
+    IDS_ERR_FILE_BINARY     "The File\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
     IDS_ERR_FILE_NOTAFILE   "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
 END
 
