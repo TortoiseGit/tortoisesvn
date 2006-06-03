@@ -422,8 +422,21 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
 				//   happens between our checks and the svn_client_status() call.
 				// - reverting a move/copy --> results in "not a working copy" (as above)
-				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-				return CStatusCacheEntry();
+				if (!m_directoryPath.HasAdminDir())
+				{
+					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+					return CStatusCacheEntry();
+				}
+				else
+				{
+					ATLTRACE("svn_cli_stat error, assume normal status\n");
+					svn_wc_status2_t st;
+					ZeroMemory(&st, sizeof(st));
+					st.text_status = svn_wc_status_normal;
+					// Since we only assume a normal status here due to svn_client_status()
+					// returning an error, make sure that this status times out soon.
+					AddEntry(path, &st, GetTickCount()+4000);
+				}
 			}
 		}
 		else
@@ -466,7 +479,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 }
 
 void 
-CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus)
+CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus, DWORD validuntil /* = 0*/)
 {
 	AutoLocker lock(m_critSec);
 	if(path.IsDirectory())
@@ -495,7 +508,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 		{
 			entry_it = m_entryCache.insert(entry_it, std::make_pair(cachekey, CStatusCacheEntry()));
 		}
-		entry_it->second = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
+		entry_it->second = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly(), validuntil);
 	}
 }
 

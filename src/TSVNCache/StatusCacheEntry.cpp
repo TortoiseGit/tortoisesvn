@@ -33,11 +33,14 @@ CStatusCacheEntry::CStatusCacheEntry()
 	m_bReadOnly = false;
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly)
+CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly, DWORD validuntil /* = 0*/)
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
-	m_discardAtTime = GetTickCount()+cachetimeout;
+	if (validuntil)
+		m_discardAtTime = validuntil;
+	else
+		m_discardAtTime = GetTickCount()+cachetimeout;
 	m_bReadOnly = bReadOnly;
 }
 

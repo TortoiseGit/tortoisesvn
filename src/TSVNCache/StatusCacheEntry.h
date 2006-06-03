@@ -30,7 +30,7 @@ class CStatusCacheEntry
 {
 public:
 	CStatusCacheEntry();
-	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly);
+	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly, DWORD validuntil = 0);
 	bool HasExpired(long now) const;
 	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
 	bool IsVersioned() const;

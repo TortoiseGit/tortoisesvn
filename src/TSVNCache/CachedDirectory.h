@@ -48,7 +48,7 @@ public:
 	svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
 private:
 	static void GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status);
-	void AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus);
+	void AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus, DWORD validuntil = 0);
 	CString GetCacheKey(const CTSVNPath& path);
 	CString GetFullPathString(const CString& cacheKey);
 	CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
