@@ -20,7 +20,8 @@
 #include "TortoiseMerge.h"
 #include "DirFileEnum.h"
 #include "version.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "PathUtils.h"
 #include "SetMainPage.h"
 #include ".\setmainpage.h"
 
@@ -195,7 +196,7 @@ BOOL CSetMainPage::OnInitDialog()
 		{
 			CString sVer = _T(STRPRODUCTVER);
 			sVer = sVer.Left(sVer.ReverseFind(','));
-			CString sFileVer = CUtils::GetVersionFromFile(file);
+			CString sFileVer = CPathUtils::GetVersionFromFile(file);
 			sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
 			if (sFileVer.Compare(sVer)!=0)
 				continue;

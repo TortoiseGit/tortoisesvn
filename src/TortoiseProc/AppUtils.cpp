@@ -19,21 +19,22 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "PathUtils.h"
-#include "utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include "MessageBox.h"
 #include "Registry.h"
 #include "TSVNPath.h"
 
 
-CUtils::CUtils(void)
+CAppUtils::CAppUtils(void)
 {
 }
 
-CUtils::~CUtils(void)
+CAppUtils::~CAppUtils(void)
 {
 }
 
-BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
+BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname, bool bReadOnly)
 {
 
@@ -170,7 +171,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	return TRUE;
 }
 
-BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, const CString& sOriginalDescription, const CString& sPatchedDescription, BOOL bReversed, BOOL bWait)
+BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, const CString& sOriginalDescription, const CString& sPatchedDescription, BOOL bReversed, BOOL bWait)
 {
 	CString viewer;
 	// use TortoiseMerge
@@ -193,7 +194,7 @@ BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, con
 	return TRUE;
 }
 
-BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame)
+BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame)
 {
 	CString viewer;
 	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
@@ -271,7 +272,7 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 	return TRUE;
 }
 
-BOOL CUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
+BOOL CAppUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
 {
 	CString viewer;
 	CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
@@ -315,7 +316,7 @@ BOOL CUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
 	return TRUE;
 }
 
-BOOL CUtils::StartTextViewer(CString file)
+BOOL CAppUtils::StartTextViewer(CString file)
 {
 	CString viewer;
 	CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
@@ -366,7 +367,7 @@ BOOL CUtils::StartTextViewer(CString file)
 		ofn.lpstrInitialDir = NULL;
 		CString temp;
 		temp.LoadString(IDS_UTILS_SELECTTEXTVIEWER);
-		CUtils::RemoveAccelerators(temp);
+		CStringUtils::RemoveAccelerators(temp);
 		ofn.lpstrTitle = temp;
 		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
@@ -404,230 +405,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	return TRUE;
 }
 
-void CUtils::Unescape(char * psz)
-{
-	char * pszSource = psz;
-	char * pszDest = psz;
-
-	static const char szHex[] = "0123456789ABCDEF";
-
-	// Unescape special characters. The number of characters
-	// in the *pszDest is assumed to be <= the number of characters
-	// in pszSource (they are both the same string anyway)
-
-	while (*pszSource != '\0' && *pszDest != '\0')
-	{
-		if (*pszSource == '%')
-		{
-			// The next two chars following '%' should be digits
-			if ( *(pszSource + 1) == '\0' ||
-				 *(pszSource + 2) == '\0' )
-			{
-				// nothing left to do
-				break;
-			}
-
-			char nValue = '?';
-			const char * pszLow = NULL;
-			const char * pszHigh = NULL;
-			pszSource++;
-
-			*pszSource = (char) toupper(*pszSource);
-			pszHigh = strchr(szHex, *pszSource);
-
-			if (pszHigh != NULL)
-			{
-				pszSource++;
-				*pszSource = (char) toupper(*pszSource);
-				pszLow = strchr(szHex, *pszSource);
-
-				if (pszLow != NULL)
-				{
-					nValue = (char) (((pszHigh - szHex) << 4) +
-									(pszLow - szHex));
-				}
-			} // if (pszHigh != NULL) 
-			*pszDest++ = nValue;
-		} 
-		else
-			*pszDest++ = *pszSource;
-			
-		pszSource++;
-	}
-
-	*pszDest = '\0';
-}
-
-static const char iri_escape_chars[256] = {
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
-
-		/* 128 */
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0
-};
-
-const char uri_autoescape_chars[256] = {
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 1, 0, 0, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
-
-		/* 64 */
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 0, 1,
-		0, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 1, 0,
-
-		/* 128 */
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-
-		/* 192 */
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-};
-
-static const char uri_char_validity[256] = {
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 1, 0, 0, 1, 0, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
-
-		/* 64 */
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 0, 1,
-		0, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 1, 0,
-
-		/* 128 */
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-
-		/* 192 */
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-};
-
-CStringA CUtils::PathEscape(const CStringA& path)
-{
-	CStringA ret2;
-	int c;
-	int i;
-	for (i=0; path[i]; ++i)
-	{
-		c = (unsigned char)path[i];
-		if (iri_escape_chars[c])
-		{
-			// no escaping needed for that char
-			ret2 += (unsigned char)path[i];
-		}
-		else
-		{
-			// char needs escaping
-			CStringA temp;
-			temp.Format("%%%02X", (unsigned char)c);
-			ret2 += temp;
-		}
-	}
-	CStringA ret;
-	for (i=0; ret2[i]; ++i)
-	{
-		c = (unsigned char)ret2[i];
-		if (uri_autoescape_chars[c])
-		{
-			// no escaping needed for that char
-			ret += (unsigned char)ret2[i];
-		}
-		else
-		{
-			// char needs escaping
-			CStringA temp;
-			temp.Format("%%%02X", (unsigned char)c);
-			ret += temp;
-		}
-	}
-
-	ret.Replace(("file:///%5C"), ("file:///\\"));
-	ret.Replace(("file:////%5C"), ("file:////\\"));
-
-	return ret;
-}
-
-CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
-{
-	struct TRANSARRAY
-	{
-		WORD wLanguageID;
-		WORD wCharacterSet;
-	};
-
-	CString strReturn;
-	DWORD dwReserved,dwBufferSize;
-	dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
-
-	if (dwBufferSize > 0)
-	{
-		LPVOID pBuffer = (void*) malloc(dwBufferSize);
-
-		if (pBuffer != (void*) NULL)
-		{
-			UINT        nInfoSize = 0,
-			nFixedLength = 0;
-			LPSTR       lpVersion = NULL;
-			VOID*       lpFixedPointer;
-			TRANSARRAY* lpTransArray;
-			CString     strLangProduktVersion;
-
-			GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strDateiname,
-			dwReserved,
-			dwBufferSize,
-			pBuffer);
-
-			// Abfragen der aktuellen Sprache
-			VerQueryValue(	pBuffer,
-							_T("\\VarFileInfo\\Translation"),
-							&lpFixedPointer,
-							&nFixedLength);
-			lpTransArray = (TRANSARRAY*) lpFixedPointer;
-
-			strLangProduktVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
-			lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
-
-			VerQueryValue(pBuffer,
-			(LPTSTR)(LPCTSTR)strLangProduktVersion,
-			(LPVOID *)&lpVersion,
-			&nInfoSize);
-			strReturn = (LPCTSTR)lpVersion;
-			free(pBuffer);
-		}
-	} 
-
-	return strReturn;
-}
-
-
-BOOL CUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
+BOOL CAppUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 {
 	DWORD length = 0;
 	HANDLE hFile = ::CreateFile(sDiffPath.GetWinPath(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
@@ -641,67 +419,7 @@ BOOL CUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 
 }
 
-void CUtils::RemoveAccelerators(CString& text)
-{
-	int pos = 0;
-	while ((pos=text.Find('&',pos))>=0)
-	{
-		if (text.GetLength() > (pos-1))
-		{
-			if (text.GetAt(pos+1)!=' ')
-				text.Delete(pos);
-		}
-		pos++;
-	}
-}
-
-
-bool CUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd)
-{
-	if (OpenClipboard(hOwningWnd))
-	{
-		EmptyClipboard();
-		HGLOBAL hClipboardData;
-		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
-		if (hClipboardData)
-		{
-			char * pchData;
-			pchData = (char*)GlobalLock(hClipboardData);
-			if (pchData)
-			{
-				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
-				if (GlobalUnlock(hClipboardData))
-				{
-					if (SetClipboardData(CF_TEXT,hClipboardData)==NULL)
-					{
-						CloseClipboard();
-						return false;
-					}
-				}
-				else
-				{
-					CloseClipboard();
-					return false;
-				}
-			}
-			else
-			{
-				CloseClipboard();
-				return false;
-			}
-		}
-		else
-		{
-			CloseClipboard();
-			return false;
-		}
-		CloseClipboard();
-		return true;
-	}
-	return false;
-}
-
-void CUtils::CreateFontForLogs(CFont& fontToCreate)
+void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 {
 	LOGFONT logFont;
 	HDC hScreenDC = ::GetDC(NULL);
@@ -723,7 +441,7 @@ void CUtils::CreateFontForLogs(CFont& fontToCreate)
 	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
 }
 
-bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
+bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
 {
 	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
@@ -769,7 +487,7 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 /**
 * Launch the external blame viewer
 */
-bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile)
+bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile)
 {
 	CString viewer = CPathUtils::GetAppDirectory();
 	viewer += _T("TortoiseBlame.exe");
@@ -780,7 +498,7 @@ bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogF
 	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
 }
 
-void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
+void CAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 {
 	int maxcol = ((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItemCount()-1;
 	int nItemCount = pListCtrl->GetItemCount();
@@ -816,90 +534,3 @@ void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 	}
 }
 
-#define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
-
-int CUtils::CompareNumerical(LPCTSTR x_str, LPCTSTR y_str)
-{
-  LPCTSTR num_x_begin = x_str, num_y_begin = y_str;
-  DWORD num_x_cnt = 0, num_y_cnt = 0;
-  int cs_cmp_result = 2;
-
-  // skip same chars and remember last numeric part of strings
-  while ((*x_str || *y_str) && CompareString(LOCALE_USER_DEFAULT, NORM_IGNORECASE | NORM_IGNOREWIDTH, x_str, 1, y_str, 1) == 2 /* equal */ )
-  {
-    if (IsCharNumeric(*x_str))
-    {
-      ++num_x_cnt;
-      ++num_y_cnt;
-    }
-    else
-    {
-      num_x_begin = CharNext(x_str);
-      num_y_begin = CharNext(y_str);
-      num_x_cnt = 0;
-      num_y_cnt = 0;
-	  if (cs_cmp_result == 2)
-		  cs_cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, 1, y_str, 1);
-    }
-    x_str = CharNext(x_str);
-    y_str = CharNext(y_str);
-  }
-
-  // parse numeric part of first arg
-  if (num_x_cnt || IsCharNumeric(*x_str))
-  {
-    LPCTSTR x_str_tmp = x_str;
-    while (IsCharNumeric(*x_str_tmp))
-    {
-      ++num_x_cnt;
-      x_str_tmp = CharNext(x_str_tmp);
-    }
-
-    // parse numeric part of second arg
-    if (num_y_cnt || IsCharNumeric(*y_str))
-    {
-      LPCTSTR y_str_tmp = y_str;
-      while (IsCharNumeric(*y_str_tmp))
-      {
-        ++num_y_cnt;
-        y_str_tmp = CharNext(y_str_tmp);
-      }
-
-      DWORD num_x_cnt_with_zeros = num_x_cnt, num_y_cnt_with_zeros = num_y_cnt;
-
-      while (num_x_cnt < num_y_cnt)
-      {
-        if (CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, num_y_begin, 1, TEXT("0"), 1) != 2 /* not equal to '0' */ )
-          return -1;
-        num_y_begin = CharNext(num_y_begin);
-        --num_y_cnt;
-      }
-
-      while (num_x_cnt > num_y_cnt)
-      {
-        if (CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, num_x_begin, 1, TEXT("0"), 1) != 2 /* not equal to '0' */ )
-          return 1;
-        num_x_begin = CharNext(num_x_begin);
-        --num_x_cnt;
-      }
-
-      // here num_x_cnt == num_y_cnt
-      int cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, num_x_begin, num_x_cnt, num_y_begin, num_y_cnt);
-
-      if (cmp_result != 2)
-        return cmp_result - 2;
-      if (num_x_cnt_with_zeros != num_y_cnt_with_zeros)
-        return num_x_cnt_with_zeros < num_y_cnt_with_zeros ? -1 : 1;
-	  if (cs_cmp_result != 2)
-        return cs_cmp_result - 2;
-    }
-  }
-
-  // otherwise, compare literally
-  int cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNORECASE | NORM_IGNOREWIDTH, x_str, -1, y_str, -1);
-  if (cmp_result != 2)
-	  return cmp_result - 2;
-  if (cs_cmp_result == 2)
-	  cs_cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, -1, y_str, -1);
-  return cs_cmp_result - 2;
-}

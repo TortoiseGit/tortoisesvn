@@ -18,7 +18,7 @@
 //
 #include "StdAfx.h"
 #include "Workingfile.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "resource.h"
 

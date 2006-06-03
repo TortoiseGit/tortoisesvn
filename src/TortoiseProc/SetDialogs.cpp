@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetMainPage.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
 #include "..\version.h"

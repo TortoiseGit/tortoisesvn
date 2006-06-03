@@ -19,7 +19,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetProxyPage.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include "SVN.h"
 #include ".\setproxypage.h"
 #include "MessageBox.h"
@@ -312,7 +313,7 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTSSH);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
@@ -335,5 +336,5 @@ void CSetProxyPage::OnBnClickedEditservers()
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
 	CString path = buf;
 	path += _T("\\Subversion\\servers");
-	CUtils::StartTextViewer(path);
+	CAppUtils::StartTextViewer(path);
 }

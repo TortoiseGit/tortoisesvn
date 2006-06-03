@@ -22,7 +22,8 @@
 #include "AboutDlg.h"
 #include "CmdLineParser.h"
 #include "version.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "PathUtils.h"
 #include "BrowseFolder.h"
 
 #ifdef _DEBUG
@@ -65,7 +66,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		hInst = LoadLibrary(langDll);
 		CString sVer = _T(STRPRODUCTVER);
 		sVer = sVer.Left(sVer.ReverseFind(','));
-		CString sFileVer = CUtils::GetVersionFromFile(langDll);
+		CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
 		sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
 		if (sFileVer.Compare(sVer)!=0)
 		{

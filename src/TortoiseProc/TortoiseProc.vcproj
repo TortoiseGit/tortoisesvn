@@ -400,6 +400,14 @@
 				Name="General"
 				>
 				<File
+					RelativePath=".\AppUtils.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\AppUtils.h"
+					>
+				</File>
+				<File
 					RelativePath="..\Utils\BDBVersion.cpp"
 					>
 					<FileConfiguration
@@ -617,14 +625,6 @@
 				</File>
 				<File
 					RelativePath="..\Utils\UnicodeUtils.h"
-					>
-				</File>
-				<File
-					RelativePath="Utils.cpp"
-					>
-				</File>
-				<File
-					RelativePath="Utils.h"
 					>
 				</File>
 			</Filter>

@@ -24,11 +24,11 @@ class CTSVNPath;
  * \ingroup TortoiseProc
  * An Utility class with static classes.
  */
-class CUtils
+class CAppUtils
 {
 public:
-	CUtils(void);
-	~CUtils(void);
+	CAppUtils(void);
+	~CAppUtils(void);
 
 	/**
 	 * Launches the external merge program if there is one.
@@ -64,37 +64,10 @@ public:
 	static BOOL StartTextViewer(CString file);
 
 	/**
-	 * Replaces escaped sequences with the corresponding characters in a string.
-	 */
-	static void Unescape(char * psz);
-
-	/**
-	 * Replaces non-URI chars with the corresponding escape sequences.
-	 */
-	static CStringA PathEscape(const CStringA& path);
-
-	/**
-	 * Returns the version string from the VERSION resource of a dll or exe.
-	 * \param p_strDateiname path to the dll or exe
-	 * \return the version string
-	 */
-	static CString GetVersionFromFile(const CString & p_strDateiname);
-
-	/**
 	 * Checks if the given file has a size of less than four, which means
 	 * an 'empty' file or just newlines, i.e. an emtpy diff.
 	 */
 	static BOOL CheckForEmptyDiff(const CTSVNPath& sDiffPath);
-
-	/**
-	 * Removes all '&' chars from a string.
-	 */
-	static void RemoveAccelerators(CString& text);
-
-	/**
-	 * Writes an ASCII CString to the clipboard in CF_TEXT format
-	 */
-	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
 
 	/**
 	 * Create a font which can is used for log messages, etc
@@ -117,15 +90,4 @@ public:
 	 */
 	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
-	/**
-	 * Compares strings while trying to parse numbers in it too.
-	 * This function can be used to sort numerically.
-	 * For example, strings would be sorted like this:
-	 * Version_1.0.3
-	 * Version_2.0.4
-	 * Version_10.0.2
-	 * If a normal text like comparison is used for sorting, the Version_10.0.2
-	 * would not be the last in the above example.
-	 */
-	static int CompareNumerical(LPCTSTR str1, LPCTSTR str2);
 };

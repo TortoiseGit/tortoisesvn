@@ -23,7 +23,7 @@
 #include "svn_version.h"
 #include "..\version.h"
 #include "BDBVersion.h"
-#include "Utils.h"
+#include "AppUtils.h"
 
 // CAboutDlg dialog
 
@@ -142,5 +142,5 @@ void CAboutDlg::OnBnClickedUpdate()
 	GetModuleFileName(NULL, com, MAX_PATH);
 	_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck /visible"));
 
-	CUtils::LaunchApplication(com, 0, false);
+	CAppUtils::LaunchApplication(com, 0, false);
 }

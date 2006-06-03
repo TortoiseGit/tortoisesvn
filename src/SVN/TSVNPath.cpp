@@ -23,7 +23,7 @@
 #if defined(_MFC_VER)
 #include "regexpr2.h"
 #include "MessageBox.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 
 using namespace std;
@@ -174,10 +174,10 @@ const char* CTSVNPath::GetSVNApiPath() const
 		SetUTF8FwdslashPath(m_sFwdslashPath);
 	}
 #if defined(_MFC_VER)
-//BUGBUG HORRIBLE!!! - CUtils::PathEscape doesn't need to be MFC-only
+//BUGBUG HORRIBLE!!! - CPathUtils::PathEscape doesn't need to be MFC-only
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
-		m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
+		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
 		return m_sUTF8FwdslashPathEscaped;
 	}
 #endif // _MFC_VER
@@ -189,11 +189,11 @@ const CString& CTSVNPath::GetUIPathString() const
 	if (m_sUIPath.IsEmpty())
 	{
 #if defined(_MFC_VER)
-		//BUGBUG HORRIBLE!!! - CUtils::IsEscaped doesn't need to be MFC-only
+		//BUGBUG HORRIBLE!!! - CPathUtils::IsEscaped doesn't need to be MFC-only
 		if (IsUrl())
 		{
 			CStringA sUIPathA = GetSVNApiPath();
-			CUtils::Unescape(sUIPathA.GetBuffer());
+			CPathUtils::Unescape(sUIPathA.GetBuffer());
 			sUIPathA.ReleaseBuffer();
 			m_sUIPath = CUnicodeUtils::GetUnicode(sUIPathA);
 		}

@@ -23,7 +23,7 @@
 #include "MessageBox.h"
 #include "MemDC.h"
 #include "UnicodeUtils.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "TempFile.h"
 #include "StringUtils.h"
@@ -598,12 +598,12 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
 		if (pSVNStatus->entry->url)
 		{
-			CUtils::Unescape((char *)pSVNStatus->entry->url);
+			CPathUtils::Unescape((char *)pSVNStatus->entry->url);
 			entry->url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->url);
 		}
 		if (pSVNStatus->entry->copyfrom_url)
 		{
-			CUtils::Unescape((char *)pSVNStatus->entry->copyfrom_url);
+			CPathUtils::Unescape((char *)pSVNStatus->entry->copyfrom_url);
 			entry->copyfrom_url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->copyfrom_url);
 			entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
 		}
@@ -1879,7 +1879,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						commandline += _T("TortoiseProc.exe /command:commit /path:\"");
 						commandline += tempFile.GetWinPathString();
 						commandline += _T("\"");
-						CUtils::LaunchApplication(commandline, NULL, false);
+						CAppUtils::LaunchApplication(commandline, NULL, false);
 					}
 					break;
 				case IDSVNLC_REVERT:
@@ -1987,7 +1987,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 							cmd += filepath.GetWinPathString();
-							CUtils::LaunchApplication(cmd, NULL, false);
+							CAppUtils::LaunchApplication(cmd, NULL, false);
 						}
 					}
 					break;
@@ -1995,7 +1995,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 						cmd += filepath.GetWinPathString();
-						CUtils::LaunchApplication(cmd, NULL, false);
+						CAppUtils::LaunchApplication(cmd, NULL, false);
 					}
 					break;
 				case IDSVNLC_EXPLORE:
@@ -2210,7 +2210,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										{
 											if (s->entry->url)
 											{
-												CUtils::Unescape((char *)s->entry->url);
+												CPathUtils::Unescape((char *)s->entry->url);
 												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 											}
 										}
@@ -2351,7 +2351,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									{
 										if (s->entry->url)
 										{
-											CUtils::Unescape((char *)s->entry->url);
+											CPathUtils::Unescape((char *)s->entry->url);
 											entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 										}
 									}
@@ -2533,7 +2533,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					FillListOfSelectedItemPaths(itemsToLock);
 					CInputDlg inpDlg;
 					inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
-					CUtils::RemoveAccelerators(inpDlg.m_sTitle);
+					CStringUtils::RemoveAccelerators(inpDlg.m_sTitle);
 					inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
 					inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
 					ProjectProperties props;
@@ -3235,7 +3235,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 			{
 				CStringA url;
 				url.Format(IDS_STATUSLIST_COPYFROM, CUnicodeUtils::GetUTF8(fentry->copyfrom_url), fentry->copyfrom_rev);
-				CUtils::Unescape(url.GetBuffer());
+				CPathUtils::Unescape(url.GetBuffer());
 				url.ReleaseBuffer();
 				CString urlW = CUnicodeUtils::GetUnicode(url);
 				lstrcpyn(pTTTW->szText, urlW, 80);
@@ -3245,7 +3245,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 			{
 				CStringA url;
 				url.Format(IDS_STATUSLIST_SWITCHEDTO, CUnicodeUtils::GetUTF8(fentry->url));
-				CUtils::Unescape(url.GetBuffer());
+				CPathUtils::Unescape(url.GetBuffer());
 				url.ReleaseBuffer();
 				CString urlW = CUnicodeUtils::GetUnicode(url);
 				lstrcpyn(pTTTW->szText, urlW, 80);
@@ -3781,5 +3781,5 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		sClipboard += _T("\r\n");
 	}
 
-	return CUtils::WriteAsciiStringToClipboard(CStringA(sClipboard));
+	return CStringUtils::WriteAsciiStringToClipboard(CStringA(sClipboard));
 }

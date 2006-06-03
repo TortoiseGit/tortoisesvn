@@ -25,11 +25,11 @@ class CProgressDlg;
  *
  * Helper functions
  */
-class CUtils
+class CAppUtils
 {
 public:
-	CUtils(void);
-	~CUtils(void);
+	CAppUtils(void);
+	~CAppUtils(void);
 
 	/**
 	 * Starts an external program to get a file with a specific revision. 
@@ -40,5 +40,4 @@ public:
 	 * \return TRUE if successful
 	 */
 	static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd = NULL);
-	static CString GetVersionFromFile(const CString & p_strDateiname);
 };

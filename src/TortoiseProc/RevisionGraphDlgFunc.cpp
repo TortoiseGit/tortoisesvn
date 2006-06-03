@@ -23,7 +23,6 @@
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"
 #include "SVN.h"
-#include "Utils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"

@@ -57,8 +57,9 @@
 #include "BrowseFolder.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 #include "SoundUtils.h"
 #include "libintl.h"
@@ -249,7 +250,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 		CString sVer = _T(STRPRODUCTVER);
 		sVer = sVer.Left(sVer.ReverseFind(','));
-		CString sFileVer = CUtils::GetVersionFromFile(langDll);
+		CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
 		int commaIndex = sFileVer.ReverseFind(',');
 		if (commaIndex==-1 || sFileVer.Left(commaIndex).Compare(sVer)!=0)
 		{
@@ -472,7 +473,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
 
 //BUGBUG - Should this really have an error message string resource ID?
-						CUtils::LaunchApplication(com, 0, false);
+						CAppUtils::LaunchApplication(com, 0, false);
 					}
 				}
 			}
@@ -1022,11 +1023,11 @@ BOOL CTortoiseProcApp::InitInstance()
 				svn.SetPromptApp(&theApp);
 				CInputDlg dlg;
 				dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-				CUtils::RemoveAccelerators(dlg.m_sHintText);
+				CStringUtils::RemoveAccelerators(dlg.m_sHintText);
 				dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-				CUtils::RemoveAccelerators(dlg.m_sTitle);
+				CStringUtils::RemoveAccelerators(dlg.m_sTitle);
 				dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
-				CUtils::RemoveAccelerators(dlg.m_sInputText);
+				CStringUtils::RemoveAccelerators(dlg.m_sInputText);
 				if (dlg.DoModal()==IDOK)
 				{
 					if (!svn.Remove(pathList, TRUE, dlg.m_sInputText))
@@ -1111,9 +1112,9 @@ BOOL CTortoiseProcApp::InitInstance()
 						// the repository
 						CInputDlg input;
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
+						CStringUtils::RemoveAccelerators(input.m_sHintText);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
+						CStringUtils::RemoveAccelerators(input.m_sTitle);
 						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
 						if (input.DoModal() == IDOK)
 						{
@@ -1260,7 +1261,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 			} 
 			else
-				CUtils::StartExtDiff(CTSVNPath(path2), cmdLinePath);
+				CAppUtils::StartExtDiff(CTSVNPath(path2), cmdLinePath);
 		}
 		//#endregion
 		//#region urldiff
@@ -1846,11 +1847,11 @@ BOOL CTortoiseProcApp::InitInstance()
 					if (logfile.IsEmpty())
 					{
 						//open the default text editor for the result file
-						CUtils::StartTextViewer(tempfile);
+						CAppUtils::StartTextViewer(tempfile);
 					}
 					else
 					{
-						CUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName());
+						CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName());
 					}
 				} // if (!tempfile.IsEmpty()) 
 				else
@@ -2082,7 +2083,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 		ofn.lpstrFile = szFile;
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-		CUtils::RemoveAccelerators(temp);
+		CStringUtils::RemoveAccelerators(temp);
 		if (temp.IsEmpty())
 			ofn.lpstrTitle = NULL;
 		else
@@ -2201,7 +2202,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 			}
 			fclose(inFile);
 
-			CUtils::WriteAsciiStringToClipboard(sClipdata);
+			CStringUtils::WriteAsciiStringToClipboard(sClipdata);
 
 		}
 	}

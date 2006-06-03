@@ -160,6 +160,227 @@ CString CPathUtils::GetAppParentDirectory()
 	return path;
 }
 
+void CPathUtils::Unescape(char * psz)
+{
+	char * pszSource = psz;
+	char * pszDest = psz;
+
+	static const char szHex[] = "0123456789ABCDEF";
+
+	// Unescape special characters. The number of characters
+	// in the *pszDest is assumed to be <= the number of characters
+	// in pszSource (they are both the same string anyway)
+
+	while (*pszSource != '\0' && *pszDest != '\0')
+	{
+		if (*pszSource == '%')
+		{
+			// The next two chars following '%' should be digits
+			if ( *(pszSource + 1) == '\0' ||
+				*(pszSource + 2) == '\0' )
+			{
+				// nothing left to do
+				break;
+			}
+
+			char nValue = '?';
+			const char * pszLow = NULL;
+			const char * pszHigh = NULL;
+			pszSource++;
+
+			*pszSource = (char) toupper(*pszSource);
+			pszHigh = strchr(szHex, *pszSource);
+
+			if (pszHigh != NULL)
+			{
+				pszSource++;
+				*pszSource = (char) toupper(*pszSource);
+				pszLow = strchr(szHex, *pszSource);
+
+				if (pszLow != NULL)
+				{
+					nValue = (char) (((pszHigh - szHex) << 4) +
+						(pszLow - szHex));
+				}
+			} // if (pszHigh != NULL) 
+			*pszDest++ = nValue;
+		} 
+		else
+			*pszDest++ = *pszSource;
+
+		pszSource++;
+	}
+
+	*pszDest = '\0';
+}
+
+static const char iri_escape_chars[256] = {
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+
+	/* 128 */
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0
+};
+
+const char uri_autoescape_chars[256] = {
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 1, 0, 0, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
+
+	/* 64 */
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 0, 1,
+	0, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 1, 0,
+
+	/* 128 */
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+
+	/* 192 */
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+};
+
+static const char uri_char_validity[256] = {
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 1, 0, 0, 1, 0, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
+
+	/* 64 */
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 0, 1,
+	0, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 1, 0,
+
+	/* 128 */
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+
+	/* 192 */
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+};
+
+CStringA CPathUtils::PathEscape(const CStringA& path)
+{
+	CStringA ret2;
+	int c;
+	int i;
+	for (i=0; path[i]; ++i)
+	{
+		c = (unsigned char)path[i];
+		if (iri_escape_chars[c])
+		{
+			// no escaping needed for that char
+			ret2 += (unsigned char)path[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret2 += temp;
+		}
+	}
+	CStringA ret;
+	for (i=0; ret2[i]; ++i)
+	{
+		c = (unsigned char)ret2[i];
+		if (uri_autoescape_chars[c])
+		{
+			// no escaping needed for that char
+			ret += (unsigned char)ret2[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret += temp;
+		}
+	}
+
+	ret.Replace(("file:///%5C"), ("file:///\\"));
+	ret.Replace(("file:////%5C"), ("file:////\\"));
+
+	return ret;
+}
+
+CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
+{
+	struct TRANSARRAY
+	{
+		WORD wLanguageID;
+		WORD wCharacterSet;
+	};
+
+	CString strReturn;
+	DWORD dwReserved,dwBufferSize;
+	dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
+
+	if (dwBufferSize > 0)
+	{
+		LPVOID pBuffer = (void*) malloc(dwBufferSize);
+
+		if (pBuffer != (void*) NULL)
+		{
+			UINT        nInfoSize = 0,
+				nFixedLength = 0;
+			LPSTR       lpVersion = NULL;
+			VOID*       lpFixedPointer;
+			TRANSARRAY* lpTransArray;
+			CString     strLangProduktVersion;
+
+			GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strDateiname,
+				dwReserved,
+				dwBufferSize,
+				pBuffer);
+
+			// Abfragen der aktuellen Sprache
+			VerQueryValue(	pBuffer,
+				_T("\\VarFileInfo\\Translation"),
+				&lpFixedPointer,
+				&nFixedLength);
+			lpTransArray = (TRANSARRAY*) lpFixedPointer;
+
+			strLangProduktVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+				lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
+
+			VerQueryValue(pBuffer,
+				(LPTSTR)(LPCTSTR)strLangProduktVersion,
+				(LPVOID *)&lpVersion,
+				&nInfoSize);
+			strReturn = (LPCTSTR)lpVersion;
+			free(pBuffer);
+		}
+	} 
+
+	return strReturn;
+}
 
 
 #endif

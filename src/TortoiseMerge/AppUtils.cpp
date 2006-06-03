@@ -18,18 +18,18 @@
 //
 #include "StdAfx.h"
 #include "Registry.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "ProgressDlg.h"
 
-CUtils::CUtils(void)
+CAppUtils::CAppUtils(void)
 {
 }
 
-CUtils::~CUtils(void)
+CAppUtils::~CAppUtils(void)
 {
 }
 
-BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=NULL*/)
+BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=NULL*/)
 {
 	CString sSCMPath = CRegString(_T("Software\\TortoiseMerge\\SCMPath"), _T(""));
 	if (sSCMPath.IsEmpty())
@@ -90,59 +90,6 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 		return FALSE;
 	return TRUE;
 }
-
-CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
-{
-	struct TRANSARRAY
-	{
-		WORD wLanguageID;
-		WORD wCharacterSet;
-	};
-
-	CString strReturn;
-	DWORD dwReserved,dwBufferSize;
-	dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
-
-	if (dwBufferSize > 0)
-	{
-		LPVOID pBuffer = (void*) malloc(dwBufferSize);
-
-		if (pBuffer != (void*) NULL)
-		{
-			UINT        nInfoSize = 0,
-			nFixedLength = 0;
-			LPSTR       lpVersion = NULL;
-			VOID*       lpFixedPointer;
-			TRANSARRAY* lpTransArray;
-			CString     strLangProduktVersion;
-
-			GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strDateiname,
-			dwReserved,
-			dwBufferSize,
-			pBuffer);
-
-			VerQueryValue(	pBuffer,
-							_T("\\VarFileInfo\\Translation"),
-							&lpFixedPointer,
-							&nFixedLength);
-			lpTransArray = (TRANSARRAY*) lpFixedPointer;
-
-			strLangProduktVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
-			lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
-
-			VerQueryValue(pBuffer,
-			(LPTSTR)(LPCTSTR)strLangProduktVersion,
-			(LPVOID *)&lpVersion,
-			&nInfoSize);
-			strReturn = (LPCTSTR)lpVersion;
-
-			free(pBuffer);
-		}
-	} 
-
-	return strReturn;
-}
-
 
 
 

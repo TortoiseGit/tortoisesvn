@@ -25,7 +25,8 @@
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 
 SVNPrompt::SVNPrompt()
 {
@@ -315,7 +316,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
 	ofn.lpfnHook = SVNPrompt::OFNHookProc;

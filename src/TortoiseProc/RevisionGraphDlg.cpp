@@ -23,7 +23,8 @@
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"
 #include "SVN.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
@@ -483,7 +484,7 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	temp.LoadString(IDS_REVGRAPH_SAVEPIC);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	if (temp.IsEmpty())
 		ofn.lpstrTitle = NULL;
 	else

@@ -23,7 +23,7 @@
 #include "SVNConfig.h"
 #include "SVNProperties.h"
 #include "MessageBox.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "SVN.h"
 #include "Registry.h"

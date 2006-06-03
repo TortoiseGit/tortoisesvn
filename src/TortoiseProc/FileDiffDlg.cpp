@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
 #include "SysImageList.h"
@@ -290,7 +290,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 		rev1name = m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 		rev2name = m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 	}
-	CUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name, FALSE, blame);
+	CAppUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name, FALSE, blame);
 }
 
 void CFileDiffDlg::DiffProps(int selIndex)
@@ -383,7 +383,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 					n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}
 			}
-			CUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+			CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
 		}
 	}
 }

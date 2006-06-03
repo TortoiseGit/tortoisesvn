@@ -23,7 +23,8 @@
 #include "EditPropertiesDlg.h"
 #include "EditPropertyValueDlg.h"
 #include "UnicodeStrings.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include "ProgressDlg.h"
 
 
@@ -475,7 +476,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 			ofn.lpstrFile = szFile;
 			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-			CUtils::RemoveAccelerators(temp);
+			CStringUtils::RemoveAccelerators(temp);
 			if (temp.IsEmpty())
 				ofn.lpstrTitle = NULL;
 			else

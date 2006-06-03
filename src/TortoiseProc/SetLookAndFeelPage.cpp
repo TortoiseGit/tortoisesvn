@@ -20,7 +20,8 @@
 #include "TortoiseProc.h"
 #include "Globals.h"
 #include "ShellUpdater.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include ".\setlookandfeelpage.h"
 #include "MessageBox.h"
 
@@ -189,7 +190,7 @@ void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
 	int nImage = m_imgList.Add(hIcon);
 	CString temp;
 	temp.LoadString(nTextID);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	int nIndex = m_cMenuList.GetItemCount();
 	m_cMenuList.InsertItem(nIndex, temp, nImage);
 	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);

@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "..\TortoiseShell\resource.h"
-#include "utils.h"
+#include "AppUtils.h"
 #include "TempFile.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
@@ -107,7 +107,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal))
 	{
 		// Hasn't changed locally - diff remote against WC
-		return !!CUtils::StartExtDiff(filePath, remotePath, n1, n3);
+		return !!CAppUtils::StartExtDiff(filePath, remotePath, n1, n3);
 	}
 	else if (remotePath.IsEmpty())
 	{
@@ -116,7 +116,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	else
 	{
 		// Three-way diff
-		return !!CUtils::StartExtMerge(basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1, CString(), true);
+		return !!CAppUtils::StartExtMerge(basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1, CString(), true);
 	}
 }
 
@@ -156,7 +156,7 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 		mine = merge;
 	}
 	if (bConflictData)
-		return !!CUtils::StartExtMerge(base,theirs,mine,merge);
+		return !!CAppUtils::StartExtMerge(base,theirs,mine,merge);
 	return false;
 }
 
@@ -199,7 +199,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 		CString n1, n2;
 		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-		retvalue = !!CUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
+		retvalue = !!CAppUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
 	}
 	return retvalue;
 }
@@ -238,7 +238,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 			}
 		}
 	}
-	if (CUtils::CheckForEmptyDiff(tempfile))
+	if (CAppUtils::CheckForEmptyDiff(tempfile))
 	{
 		progDlg.Stop();
 		m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -254,7 +254,7 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const C
 {
 	CTSVNPath tempfile;
 	if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg))
-		return !!CUtils::StartUnifiedDiffViewer(tempfile);
+		return !!CAppUtils::StartUnifiedDiffViewer(tempfile);
 
 	return false;
 }
@@ -465,7 +465,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetSVNPathString(), rev2.ToString());
 				}
 			}
-			return !!CUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, FALSE, blame);
+			return !!CAppUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, FALSE, blame);
 		}
 	}
 	else
@@ -478,7 +478,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				CString sWC, sRev;
 				sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 				sRev.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
-				return !!CUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
+				return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
 			}
 		}
 		else
@@ -529,7 +529,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					CString revname, wcname;
 					revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
 					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-					return !!CUtils::StartExtDiff(tempfile, tempfile2, revname, wcname);
+					return !!CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname);
 				}
 			}
 			else
@@ -562,7 +562,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					CString revname, wcname;
 					revname.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFilename(), rev2.ToString());
 					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-					return !!CUtils::StartExtDiff(tempfile, url1, revname, wcname);
+					return !!CAppUtils::StartExtDiff(tempfile, url1, revname, wcname);
 				}
 			}
 		}
@@ -634,7 +634,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 				n2.Format(IDS_DIFF_BASENAME, wcname.c_str());
 			if (rev2.IsHead())
 				n2.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
-			retvalue = !!CUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+			retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
 		}
 	}
 	return retvalue;

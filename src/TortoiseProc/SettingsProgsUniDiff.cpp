@@ -18,7 +18,8 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include ".\settingsprogsunidiff.h"
 
 
@@ -127,7 +128,7 @@ void CSettingsProgsUniDiff::OnBnClickedDiffviewerbrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFFVIEWER);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 

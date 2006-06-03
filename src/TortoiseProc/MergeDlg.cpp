@@ -24,7 +24,6 @@
 #include "BrowseFolder.h"
 #include "MessageBox.h"
 #include "registry.h"
-#include "Utils.h"
 #include "SVNDiff.h"
 #include ".\mergedlg.h"
 

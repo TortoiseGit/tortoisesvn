@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetMainPage.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
@@ -160,7 +160,7 @@ BOOL CSetMainPage::OnInitDialog()
 		{
 			CString sVer = _T(STRPRODUCTVER);
 			sVer = sVer.Left(sVer.ReverseFind(','));
-			CString sFileVer = CUtils::GetVersionFromFile(file);
+			CString sFileVer = CPathUtils::GetVersionFromFile(file);
 			sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
 			if (sFileVer.Compare(sVer)!=0)
 				continue;
@@ -222,7 +222,7 @@ void CSetMainPage::OnBnClickedEditconfig()
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
 	CString path = buf;
 	path += _T("\\Subversion\\config");
-	CUtils::StartTextViewer(path);
+	CAppUtils::StartTextViewer(path);
 }
 
 void CSetMainPage::OnBnClickedChecknewerbutton()
@@ -231,12 +231,12 @@ void CSetMainPage::OnBnClickedChecknewerbutton()
 	GetModuleFileName(NULL, com, MAX_PATH);
 	_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck /visible"));
 
-	CUtils::LaunchApplication(com, 0, false);
+	CAppUtils::LaunchApplication(com, 0, false);
 }
 
 void CSetMainPage::OnBnClickedSounds()
 {
-	CUtils::LaunchApplication(_T("RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,1"), NULL, false);
+	CAppUtils::LaunchApplication(_T("RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,1"), NULL, false);
 }
 
 

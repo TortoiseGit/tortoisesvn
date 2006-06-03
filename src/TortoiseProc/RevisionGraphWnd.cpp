@@ -23,7 +23,7 @@
 #include "Revisiongraphwnd.h"
 #include "MessageBox.h"
 #include "SVN.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
@@ -766,7 +766,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					sCmd += _T("\"");
 				}	
 
-				CUtils::LaunchApplication(sCmd, NULL, false);
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
 		}

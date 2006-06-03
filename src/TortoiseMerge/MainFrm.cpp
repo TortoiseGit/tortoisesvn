@@ -23,7 +23,7 @@
 #include "ProgressDlg.h"
 #include "Settings.h"
 #include "MessageBox.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "MainFrm.h"
 #include "LeftView.h"
@@ -287,7 +287,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		progDlg.SetTime(FALSE);
 		progDlg.ShowModeless(this);
 		CString sBaseFile = m_TempFiles.GetTempFilePath();
-		if (!CUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, &progDlg, this->m_hWnd))
+		if (!CAppUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, &progDlg, this->m_hWnd))
 		{
 			progDlg.Stop();
 			CString sErrMsg;
@@ -387,7 +387,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	progDlg.SetTime(FALSE);
 	progDlg.SetProgress(1,100);
 	progDlg.ShowModeless(this);
-	if (!CUtils::GetVersionedFile(sURL1, sRev1, tempfile1, &progDlg, this->m_hWnd))
+	if (!CAppUtils::GetVersionedFile(sURL1, sRev1, tempfile1, &progDlg, this->m_hWnd))
 	{
 		progDlg.Stop();
 		CString sErrMsg;
@@ -399,7 +399,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	progDlg.SetLine(1, sTemp, true);
 	progDlg.SetLine(2, sURL2, true);
 	progDlg.SetProgress(50, 100);
-	if (!CUtils::GetVersionedFile(sURL2, sRev2, tempfile2, &progDlg, this->m_hWnd))
+	if (!CAppUtils::GetVersionedFile(sURL2, sRev2, tempfile2, &progDlg, this->m_hWnd))
 	{
 		progDlg.Stop();
 		CString sErrMsg;

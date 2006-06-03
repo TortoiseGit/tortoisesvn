@@ -22,7 +22,7 @@
 #include "MessageBox.h"
 #include ".\setoverlayicons.h"
 #include "SVNStatus.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "ShellUpdater.h"
 

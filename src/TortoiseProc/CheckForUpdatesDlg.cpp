@@ -22,7 +22,7 @@
 #include "MessageBox.h"
 #include ".\checkforupdatesdlg.h"
 #include "Registry.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "TempFile.h"
 
 

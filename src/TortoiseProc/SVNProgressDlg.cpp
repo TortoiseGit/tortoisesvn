@@ -24,8 +24,9 @@
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
@@ -500,7 +501,7 @@ void CSVNProgressDlg::ResizeColumns()
 {
 	m_ProgList.SetRedraw(FALSE);
 
-	CUtils::ResizeAllListCtrlCols(&m_ProgList);
+	CAppUtils::ResizeAllListCtrlCols(&m_ProgList);
 
 	m_ProgList.SetRedraw(TRUE);	
 }
@@ -1408,7 +1409,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 								(LPCTSTR)sAction, (LPCTSTR)sPath, (LPCTSTR)sMime);
 							sClipdata +=  CStringA(sLogCopyText);
 						}
-						CUtils::WriteAsciiStringToClipboard(sClipdata);
+						CStringUtils::WriteAsciiStringToClipboard(sClipdata);
 					}
 				} // if (GetKeyState(VK_CONTROL)&0x8000)
 			} // if (selIndex >= 0)
@@ -1559,7 +1560,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
 									basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
-									CUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
+									CAppUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
 								}
 								else
 								{
@@ -1577,7 +1578,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 										CString revname, wcname;
 										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
 										wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
-										CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
+										CAppUtils::StartExtDiff(tempfile, data->path, revname, wcname);
 									}
 								}
 							}
@@ -1676,7 +1677,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								{
 									CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 									cmd += data->path.GetWinPathString();
-									CUtils::LaunchApplication(cmd, NULL, false);
+									CAppUtils::LaunchApplication(cmd, NULL, false);
 								}
 							}
 						}

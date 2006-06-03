@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include "registry.h"
 #include "resource.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include ".\soundutils.h"
 

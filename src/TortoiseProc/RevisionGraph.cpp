@@ -21,7 +21,7 @@
 #include "client.h"
 #include "UnicodeUtils.h"
 #include "registry.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "SVN.h"
 #include "TSVNPath.h"
@@ -214,7 +214,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 			url = entry ? entry->url : "";
 	}
-	url = CUtils::PathEscape(url);
+	url = CPathUtils::PathEscape(url);
 
 	// we have to get the log from the repository root
 	CTSVNPath urlpath;
@@ -297,11 +297,11 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 		url = entry ? entry->url : "";
 	}
 
-	CUtils::Unescape(url.GetBuffer(url.GetLength()+1));
+	CPathUtils::Unescape(url.GetBuffer(url.GetLength()+1));
 	url.ReleaseBuffer();
 
 	CStringA sRepoRoot = m_sRepoRoot;
-	CUtils::Unescape(sRepoRoot.GetBuffer(sRepoRoot.GetLength()+1));
+	CPathUtils::Unescape(sRepoRoot.GetBuffer(sRepoRoot.GetLength()+1));
 	sRepoRoot.ReleaseBuffer();
 	url = url.Mid(sRepoRoot.GetLength());
 	m_nRecurseLevel = 0;

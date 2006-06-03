@@ -20,7 +20,8 @@
 #include "TortoiseProc.h"
 #include "SVNProperties.h"
 #include "UnicodeStrings.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
 #include "EditPropertyValueDlg.h"
 
 
@@ -294,7 +295,7 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	temp.LoadString(IDS_REPOBROWSE_OPEN);
-	CUtils::RemoveAccelerators(temp);
+	CStringUtils::RemoveAccelerators(temp);
 	if (temp.IsEmpty())
 		ofn.lpstrTitle = NULL;
 	else

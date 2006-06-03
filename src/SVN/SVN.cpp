@@ -30,7 +30,7 @@
 #include "Registry.h"
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "TempFile.h"
@@ -1391,10 +1391,10 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray&
 		if (escaped)
 		{
 			sKey = key;
-			// the '%' char isn't automatically escaped by CUtils::PathEscape(),
+			// the '%' char isn't automatically escaped by CPathUtils::PathEscape(),
 			// so we have to do that here manually.
 			sKey.Replace("%", "%25");
-			temp = temp + CUnicodeUtils::GetUnicode(CUtils::PathEscape(sKey));
+			temp = temp + CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(sKey));
 		}
 		else
 		{
@@ -1745,7 +1745,7 @@ CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
 	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
 	if (svn_path_is_url(url))
 	{
-		url = CUtils::PathEscape(url);
+		url = CPathUtils::PathEscape(url);
 	}
 	return url;
 }
@@ -1754,7 +1754,7 @@ CString SVN::MakeUIUrlOrPath(CStringA UrlOrPath)
 {
 	if (svn_path_is_url(UrlOrPath))
 	{
-		CUtils::Unescape(UrlOrPath.GetBuffer());
+		CPathUtils::Unescape(UrlOrPath.GetBuffer());
 		UrlOrPath.ReleaseBuffer();
 	}
 	CString url = CUnicodeUtils::GetUnicode(UrlOrPath);

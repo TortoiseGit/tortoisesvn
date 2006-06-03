@@ -20,7 +20,7 @@
 #include "TortoiseMerge.h"
 #include "FilePatchesDlg.h"
 #include "Patch.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
 #include ".\filepatchesdlg.h"
 

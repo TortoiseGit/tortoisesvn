@@ -30,8 +30,9 @@
 #include "Logdlg.h"
 #include "MessageBox.h"
 #include "Registry.h"
-#include "Utils.h"
+#include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 #include "InsertControl.h"
 #include "SVNInfo.h"
@@ -149,7 +150,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	m_bStrict = m_regLastStrict;
 	
-	CUtils::CreateFontForLogs(m_logFont);
+	CAppUtils::CreateFontForLogs(m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
@@ -216,7 +217,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogMsgCtrl.InsertColumn(3, temp);
 	m_LogMsgCtrl.SetRedraw(false);
-	CUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
+	CAppUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
 	m_LogMsgCtrl.SetRedraw(true);
 
 
@@ -404,7 +405,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_LogMsgCtrl.SetItemCountEx(0);
 		m_LogMsgCtrl.Invalidate();
 	}
-	CUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
+	CAppUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
 	SetSortArrow(&m_LogMsgCtrl, -1, false);
 	m_LogMsgCtrl.SetRedraw(TRUE);
 }
@@ -803,7 +804,7 @@ void CLogDlg::CopySelectionToClipBoard()
 				(LPCTSTR)sPaths);
 			sClipdata +=  CStringA(sLogCopyText);
 		}
-		CUtils::WriteAsciiStringToClipboard(sClipdata);
+		CStringUtils::WriteAsciiStringToClipboard(sClipdata);
 	}
 }
 
@@ -1173,7 +1174,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString temp;
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
 						//ofn.lpstrTitle = "Save revision to...\0";
-						CUtils::RemoveAccelerators(temp);
+						CStringUtils::RemoveAccelerators(temp);
 						if (temp.IsEmpty())
 							ofn.lpstrTitle = NULL;
 						else
@@ -1258,7 +1259,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 								cmd += tempfile.GetWinPathString();
-								CUtils::LaunchApplication(cmd, NULL, false);
+								CAppUtils::LaunchApplication(cmd, NULL, false);
 							}
 						}
 					}
@@ -1313,7 +1314,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 									url, rev);
 						
-						CUtils::LaunchApplication(sCmd, NULL, false);
+						CAppUtils::LaunchApplication(sCmd, NULL, false);
 					}
 					break;
 				case ID_EDITLOG:
@@ -1345,7 +1346,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld /notempfile"),
 						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 						url, rev);
-					CUtils::LaunchApplication(sCmd, NULL, false);
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
 				default:
@@ -1471,7 +1472,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
 						// sUrl = http://mydomain.com/repos/trunk/folder
 						CStringA sTempA = CStringA(sUrl);
-						CUtils::Unescape(sTempA.GetBuffer());
+						CPathUtils::Unescape(sTempA.GetBuffer());
 						sTempA.ReleaseBuffer();
 						CString sUnescapedUrl = CString(sTempA);
 						// find out until which char the urls are identical
@@ -1587,7 +1588,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						ofn.lpstrFile = szFile;
 						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
-						CUtils::RemoveAccelerators(temp);
+						CStringUtils::RemoveAccelerators(temp);
 						if (temp.IsEmpty())
 							ofn.lpstrTitle = NULL;
 						else
@@ -1702,7 +1703,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 							cmd += tempfile.GetWinPathString();
-							CUtils::LaunchApplication(cmd, NULL, false);
+							CAppUtils::LaunchApplication(cmd, NULL, false);
 						}
 						EnableOKButton();
 						theApp.DoWaitCursor(-1);
@@ -1738,7 +1739,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString sCmd;
 						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
 						
-						CUtils::LaunchApplication(sCmd, NULL, false);
+						CAppUtils::LaunchApplication(sCmd, NULL, false);
 						EnableOKButton();
 						theApp.DoWaitCursor(-1);
 					}
@@ -3307,7 +3308,7 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 
 void CLogDlg::ResizeAllListCtrlCols(CListCtrl& list)
 {
-	CUtils::ResizeAllListCtrlCols(&list);
+	CAppUtils::ResizeAllListCtrlCols(&list);
 
 	// Adjust columns "Actions" containing icons
 	int nWidth = list.GetColumnWidth(1);

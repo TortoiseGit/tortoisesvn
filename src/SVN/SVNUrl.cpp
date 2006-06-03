@@ -21,7 +21,8 @@
 #include "SVNUrl.h"
 
 #include "SVN.h"
-#include "Utils.h"
+#include "AppUtils.h"
+#include "PathUtils.h"
 #include "UnicodeUtils.h"
 #include "SVNRev.h"
 
@@ -193,7 +194,7 @@ CString SVNUrl::Unescape(const CString& url)
 	SVN::preparePath(new_url);
 
 	CStringA temp = CUnicodeUtils::GetUTF8(new_url);
-	CUtils::Unescape(temp.GetBuffer());
+	CPathUtils::Unescape(temp.GetBuffer());
 	temp.ReleaseBuffer();
 	return CUnicodeUtils::GetUnicode(temp);
 }
