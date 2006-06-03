@@ -125,6 +125,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										if ((stat.status->entry)&&(stat.status->entry->lock_token))
 											isLocked = (stat.status->entry->lock_token[0] != 0);
 									}
+									else
+									{
+										// sometimes, svn_client_status() returns with an error.
+										// in that case, we have to check if the working copy is versioned
+										// anyway to show the 'correct' context menu
+										if (askedpath.HasAdminDir())
+											status = svn_wc_status_normal;
+									}
 								}
 								catch ( ... )
 								{
@@ -199,6 +207,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
 											isConflicted = true;
 									}	
+									else
+									{
+										// sometimes, svn_client_status() returns with an error.
+										// in that case, we have to check if the working copy is versioned
+										// anyway to show the 'correct' context menu
+										if (CTSVNPath(strpath).HasAdminDir())
+											status = svn_wc_status_normal;
+									}
 									statfetched = TRUE;
 								}
 								catch ( ... )
@@ -277,6 +293,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
 						if ((stat.status->entry)&&(stat.status->entry->lock_token))
 							isLocked = (stat.status->entry->lock_token[0] != 0);
+					}
+					else
+					{
+						// sometimes, svn_client_status() returns with an error.
+						// in that case, we have to check if the working copy is versioned
+						// anyway to show the 'correct' context menu
+						if (askedpath.HasAdminDir())
+							status = svn_wc_status_normal;
 					}
 				}
 				catch ( ... )
