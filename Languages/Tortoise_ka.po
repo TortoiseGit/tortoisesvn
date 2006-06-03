@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-17 12:02+0400\n"
+"PO-Revision-Date: 2006-06-04 02:52+0400\n"
 "Last-Translator: Giasher <giasher@telenet.ge>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -516,6 +516,11 @@ msgstr "ჩატვირთვისას &პირველ განსხ
 msgid "&Language:"
 msgstr "&ენა:"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "ძიების &შეზღუდვა შეცვლილი სტრიქონებით"
+
 # Control-ID:1172,
 #: Control-ID:1172
 msgid "&List View"
@@ -630,6 +635,11 @@ msgstr "&ამოშლა"
 #: ID:101
 msgid "&Rename"
 msgstr "გადარქმევა"
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&საცავის ნუსხა"
 
 # ID:113,
 #: ID:113
@@ -886,47 +896,6 @@ msgstr ": სამუშაო ბაზა."
 #: ID:151
 msgid ": working copy"
 msgstr ": სამუშაო ასლი"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>ყურადღება:</b>\n"
-"გადანაცვლების ბრძანება გამოიყენება მხოლოდ მაშინ თუ საცავის\n"
-"ძირეული მისამართი შეიცვალა სერვერის IP მისამართის, ოქმის\n"
-"(მაგ. http:// to https://), ან სერვერზე საცავის ძირეული გეზის\n"
-"ცვლილების გამო.\n"
-"<b>ეს ქმედება ძალიან იშვიათად გამოიყენება</b> და არ გამოიყენება\n"
-"თუ გსურთ სხვა ქვევერსიაში გადატანა ან თუ გსურთ გადაერთოთ სხვა\n"
-"განტოტებაში <b>იმავე საცავის ფარგლებში.</b>\n"
-"სხვა ქვევერსიის საცავში გადასატანად შეასრულეთ სუფთა გადმოტანა\n"
-"ახალი საცავის მისამართიდან.\n"
-"თქვენი სამუშაო ასლის იმავე საცავის სხვა განტოტებასა ანდასტასთან\n"
-" გასაიგივებლად გამოიყენეთ გადართვის ბრძანება მთავარი მენიუდან\n"
-"\n"
-"უმართებლოდ გამოყენებული გადანაცლების ბრძანება თქვენს სამუშაოს\n"
-"<b>დააზიანებს!</b>  თუ დარწმუნებული არ ხართ გადანაცვლების\n"
-"აუცილებლობაში, სჯობს <b>დახმარებას</b> მიმართოთ.\n"
-"\n"
-"იმედია გააცნობიერეთ წაკითხული: კვლავ გსურთ გადანაცვლება?"
 
 # ID:145,
 #: ID:145
@@ -1431,6 +1400,11 @@ msgstr "თვითდახურვა შეცდომების არ�
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "თვითდახურვა შერწყმების, დამატებებისა და ამოშლების არარსებობისას"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "თვითდახურვა შერწყმის, დამატების და ამოშლის ქმედების არარსებობისას"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1727,6 +1701,11 @@ msgstr "გადმოტანა"
 msgid "Checkout &directory:"
 msgstr "&გადმოსატანი დასტა:"
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "გასუფთავება."
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1966,6 +1945,11 @@ msgid "Copy URL to clipboard"
 msgstr "URL-ს ბუფერში კოპირება"
 
 # ID:114,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "სრული ინფორმაიის ბუფერში კოპირება"
+
+# ID:114,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "შეცდომის შეტყობინების ბუფერში კოპირება"
@@ -1974,6 +1958,11 @@ msgstr "შეცდომის შეტყობინების ბუფ�
 #: ID:76
 msgid "Copy from path"
 msgstr "კოპირება გეზიდან"
+
+# ID:114,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "გეზების ბუფერში კოპირება"
 
 # ID:3603,
 #: ID:3603
@@ -2745,6 +2734,10 @@ msgstr "ფაილების შედარება"
 msgid "File patches"
 msgstr "ფაილის ბებკები"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "პოვნა"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2761,8 +2754,8 @@ msgstr "დასრულდა!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "დახმარებისთვის დააჭირეთ F1–ს"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "დახმარებისთვის დააჭირეთ F1-ს. განივი გადაფურცვლა Ctrl-ბზრიალათი"
 
 # Control-ID:1200,
 #: Control-ID:1200
@@ -2822,6 +2815,10 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
+"ფაილების დაბლოკვა 'svn:needs-lock' პარამეტრის გარეშე <b>არ</b> იცავს მათ სხვების მიერ მათივე სამუშაო ასლებში რედაქტირებისგან.\n"
+"მკაცრი დაბლოკვისთვის გთხოვთ დაამატოთ 'svn:needs-lock' ყველა ფაილს, რომელთა დაბლოკვაც გსურთ და ისე გაგზავნოთ.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"გაითვალისწინეთ, რომ სხვა მომხმარებლებმა თავიანთი სამუშაო ასლები უნდა განაახლონ ვიდრე ფაილების, როგორც კითხვადად აღქმას შეძლებენ."
 
 # ID:119,
 #: ID:119
@@ -3219,6 +3216,34 @@ msgstr ""
 "მაგალითად არ შეიძლება ფაილს MyFile.txt გადაერქვას MYFILE.txt.\n"
 "ამ შეზღუდვის გვერდის ასავლელად გაეცანით დოკუმენტაციას."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"როგორც ჩანს ცდილობთ თქვენი სამუშაო ასლის <b>გადანაცვლებას</b> იგივე საცავის სხვა გეზზე.\n"
+"\n"
+"აქედან: %s\n"
+"აქ: %s\n"
+"\n"
+"გადანაცვლება საჭიროა მხოლოდ მაშინ თუ შეიცვალა საცავის გეზი <b>აქ</b>.\n"
+"გეზის შეცვლა საცავის <b>შიგნით</b> შესაძლებელია გადართვის ქმედებით.\n"
+"\n"
+"გადანაცვლების უმართებლო გამოყენება <b>თქვენს სამუშაო ასლს დააზიანებს!</b>\n"
+"თუ დარწმუნებული არ ხართ ქმედებაში ჩვენს დოკუმენტაციაში გაეცანით <i>გადანაცვლებას</i>.\n"
+"ნამდვილად გსურთ გადანაცვლება?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3428,6 +3453,11 @@ msgstr ""
 "ფაილის ქვევერსიაში მოგვარებულად მონიშვნა\n"
 "მოგვარებულად მონიშვნა"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "&მთავრულის გათვალისწინება"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3563,6 +3593,11 @@ msgstr "&შემდეგი კონფლიქტი"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "საჭიროებს დაბლოკვას"
 
 # ID:210,
 #: ID:210
@@ -3749,6 +3784,7 @@ msgstr "OVR"
 
 # Control-ID:1202,#:
 # Control-ID:1202,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "&გარეს გამოტოვება"
@@ -3764,6 +3800,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "კონფლიქტი ერთ ან რამოდენიმე ფაილში."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "მხოლოდ &სათაო დასტის გადმოტანა"
@@ -4019,6 +4056,7 @@ msgstr "გთხოვთ დაიცადოთ განსხვავე�
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "გთხოვთ შეიცადოთ..."
@@ -4227,6 +4265,11 @@ msgid "Relocate"
 msgstr "გადაადგილება..."
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "გართხილების გადანაცვლება..."
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "გადაადგილება..."
@@ -4333,11 +4376,6 @@ msgstr "ჩანაცლებული კვანძი"
 #: ID:74
 msgid "Replacing"
 msgstr "შეცვლა"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "საცავის გზამკვლევი"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4731,6 +4769,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "ძიება &ჟურნალის ჩანაწერებში..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "ძიება:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4778,6 +4821,11 @@ msgstr "შედარების პროგრამის არჩევ�
 #: ID:313
 msgid "Select diff file..."
 msgstr "შედარების ფაილის არჩევა"
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "დასტის არჩევა გადმოსატანად"
 
 # ID:276,
 #: ID:276
@@ -5315,12 +5363,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "ფაილი\n"
 "%s\n"
 "უმართებლო ტექსტური ფაილია!\n"
-"შენიშვნა: UTF16 და UTF32 ფაილები განიხილება როგორც ორობითი."
+"შენიშვნა: UTF32 ფაილები ასევე განიხილება როგორც ორობითი."
 
 # ID:80,
 #: ID:80
@@ -6515,12 +6563,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "ორი რეგულარული გამოსახულება თითოეული ახალ სტრიქონზე\n"
-"პირველი გამოსახულება პრობლემასთან დაკავშირებული კონტექსტის მოსაძებნად გამოიყენება, მეორე კი - შესაბამისი პრობლემის კოდის მისაღებად."
+"პირველი გამოსახულება პრობლემასთან დაკავშირებული კონტექსტის\n"
+"მოსაძებნად გამოიყენება, მეორე კი - შესაბამისი პრობლემის კოდის მისაღებად."
 
 # ID:14,
 #: ID:14
@@ -6710,10 +6760,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"თუ მითითებულია, პროგრამა გამოყენებადად მოინიშნება, ამ პარამეტრს დასტას ვერ მიუსადაგებთ. არარეკურსიული მცდელობა უშედეგოდ დამთავრდება, ხოლო რეკურსიულით - მსგავსი თვისება მხოლოდ დასტის ფაილებს მიენიჭებათ."
+"თუ მითითებულია, პროგრამა გამოყენებადად მოინიშნება, ამ პარამეტრს დასტას ვერ მიუსადაგებთ.\n"
+"არარეკურსიული მცდელობა უშედეგოდ დამთავრდება, ხოლო რეკურსიული მსგავსი თვისებას მხოლოდ ქვედასტის ფაილებს მიანიჭებს."
 
 # ID:14,
 #: ID:14
@@ -6760,10 +6812,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"ფაილის Mime ტიპი. გამოიყენება იმის განსასაზღვრად, საჭიროა თუ არა ფაილის შერწყმა და როგორ გამოიყენება იგი Apache-დან.  Mime ტიპი, რომელიც იწყება 'text'-ით (ან არარსებული mime ტიპით) დამუშავდება როგორც ტექსტი.  ყველა დანარჩენი ჩაითვლება როგორც ორობითი."
+"ფაილის Mime ტიპი. გამოიყენება იმის განსასაზღვრად, საჭიროა თუ არა ფაილის შერწყმა და როგორ გამოიყენება იგი Apache-დან.\n"
+"Mime ტიპი, რომელიც იწყება 'text'-ით (ან არარსებული mime ტიპით) დამუშავდება როგორც ტექსტი.\n"
+"ყველა დანარჩენი ჩაითვლება როგორც ორობითი."
 
 # ID:16,
 #: ID:16
