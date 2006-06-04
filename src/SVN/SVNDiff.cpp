@@ -187,7 +187,6 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 			if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
 			{
 				temporaryFile.Reset();
-				return FALSE;
 			}
 			else
 			{
@@ -195,11 +194,24 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 				SetFileAttributes(basePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			}
 		}
+		// for added/deleted files, we don't have a BASE file.
+		// create an empty temp file to be used.
+		if (!basePath.Exists())
+		{
+			basePath = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
+			SetFileAttributes(basePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+		}
 		CString name = filePath.GetFilename();
+		CTSVNPath wcFilePath = filePath;
+		if (!wcFilePath.Exists())
+		{
+			wcFilePath = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
+			SetFileAttributes(wcFilePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+		}
 		CString n1, n2;
 		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-		retvalue = !!CAppUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
+		retvalue = !!CAppUtils::StartExtDiff(basePath, wcFilePath, n2, n1, TRUE);
 	}
 	return retvalue;
 }
