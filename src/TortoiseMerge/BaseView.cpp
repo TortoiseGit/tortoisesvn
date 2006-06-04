@@ -82,6 +82,8 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hAddedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hWhitespaceBlockIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_WHITESPACELINE),
+									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	EnableToolTips();
 	m_ToolTips.Create(this, TTS_ALWAYSTIP);
 	                     // TTS_ALWAYSTIP - show tip even when parent is not active
@@ -118,6 +120,10 @@ CBaseView::~CBaseView()
 		} // if (m_apFonts[i] != NULL) 
 		m_apFonts[i] = NULL;
 	} // for (int i=0; i<MAXFONTS; i++)
+	DestroyIcon(m_hAddedIcon);
+	DestroyIcon(m_hRemovedIcon);
+	DestroyIcon(m_hConflictedIcon);
+	DestroyIcon(m_hWhitespaceBlockIcon);
 }
 
 BEGIN_MESSAGE_MAP(CBaseView, CView)
@@ -468,11 +474,13 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 	{
 		// find out what the 'other' file is
 		m_arDiffDiffLines = NULL;
+		m_arDiffDiffStates = NULL;
 		if (this == m_pwndLeft)
 		{
 			if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
 			{
 				m_arDiffDiffLines = m_pwndRight->m_arDiffLines;
+				m_arDiffDiffStates = m_pwndRight->m_arLineStates;
 			}
 		}
 		if (this == m_pwndRight)
@@ -480,6 +488,7 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 			if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
 			{
 				m_arDiffDiffLines = m_pwndLeft->m_arDiffLines;
+				m_arDiffDiffStates = m_pwndLeft->m_arLineStates;
 			}
 		}
 		m_bOtherDiffChecked = true;
@@ -489,6 +498,102 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 		return m_arDiffDiffLines->GetAt(index);
 	}
 	return 0;
+}
+
+bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
+{
+	CDiffData::DiffStates origstateThis = (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex);
+	if (origstateThis == CDiffData::DIFFSTATE_NORMAL)
+		return false;
+	if (!m_bOtherDiffChecked)
+	{
+		// find out what the 'other' file is
+		m_arDiffDiffLines = NULL;
+		m_arDiffDiffStates = NULL;
+		if (this == m_pwndLeft)
+		{
+			if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+			{
+				m_arDiffDiffLines = m_pwndRight->m_arDiffLines;
+				m_arDiffDiffStates = m_pwndRight->m_arLineStates;
+			}
+		}
+		if (this == m_pwndRight)
+		{
+			if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+			{
+				m_arDiffDiffLines = m_pwndLeft->m_arDiffLines;
+				m_arDiffDiffStates = m_pwndLeft->m_arLineStates;
+			}
+		}
+		m_bOtherDiffChecked = true;
+	}
+	if (m_arDiffDiffLines)
+	{
+		// Go back at most 4 lines to see where this block ends
+		int nStartBlockThis = nLineIndex;
+		int nEndBlockThis = nLineIndex;
+		while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-4)))
+		{
+			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nStartBlockThis-1);
+			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+				origstateThis = state;
+			if ((origstateThis == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+				nStartBlockThis--;
+			else
+				break;
+		}
+		while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+4)))
+		{
+			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nEndBlockThis+1);
+			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+				origstateThis = state;
+			if ((origstateThis == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+				nEndBlockThis++;
+			else
+				break;
+		}
+		int nStartBlockOther = nLineIndex;
+		int nEndBlockOther = nLineIndex;
+		CDiffData::DiffStates origstateOther = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nLineIndex);
+		while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-4)))
+		{
+			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nStartBlockOther-1);
+			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+				origstateOther = state;
+			if ((origstateOther == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+				nStartBlockOther--;
+			else
+				break;
+		}
+		while ((nEndBlockOther < (GetLineCount()-1))&&(nEndBlockOther < (nLineIndex+4)))
+		{
+			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nEndBlockOther+1);
+			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+				origstateOther = state;
+			if ((origstateOther == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+				nEndBlockOther++;
+			else
+				break;
+		}
+		CString mine;
+		for (int i=nStartBlockThis; i<=nEndBlockThis; ++i)
+			mine += m_arDiffLines->GetAt(i);
+		CString other;
+		for (int i=nStartBlockOther; i<=nEndBlockOther; ++i)
+			other += m_arDiffDiffLines->GetAt(i);
+		mine.Replace(_T(" "), _T(""));
+		mine.Replace(_T("\t"), _T(""));
+		mine.Replace(_T("\r"), _T(""));
+		mine.Replace(_T("\n"), _T(""));
+		other.Replace(_T(" "), _T(""));
+		other.Replace(_T("\t"), _T(""));
+		other.Replace(_T("\r"), _T(""));
+		other.Replace(_T("\n"), _T(""));
+		if (mine.Compare(other)==0)
+			return true;
+	}
+	return false;
 }
 
 int CBaseView::GetLineNumber(int index) const
@@ -806,7 +911,13 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 			break;
 		default:
 			break;
-		} // switch (state)
+		}
+
+		if (IsBlockWhitespaceOnly(nLineIndex))
+		{
+			icon = m_hWhitespaceBlockIcon;
+		}
+
 		if (icon)
 		{
 			::DrawIconEx(pdc->m_hDC, rect.left + 2, rect.top + (rect.Height()-16)/2, icon, 16, 16, NULL, NULL, DI_NORMAL);

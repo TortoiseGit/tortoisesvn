@@ -67,7 +67,8 @@ public:
 
 	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
 	CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
-	CStdDWORDArray*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
+	CStdDWORDArray* m_arDiffDiffStates;///< Array containing the diff states for each line of the 'other' text file
+	CStdDWORDArray*	m_arLineStates;		///< Array containing the diff states for each line
 	CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
@@ -116,6 +117,7 @@ protected:
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
 
 	BOOL			IsLineRemoved(int nLineIndex);
+	bool			IsBlockWhitespaceOnly(int nLineIndex);
 
 	void			RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
 	void			RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
@@ -188,6 +190,7 @@ protected:
 	HICON			m_hAddedIcon;
 	HICON			m_hRemovedIcon;
 	HICON			m_hConflictedIcon;
+	HICON			m_hWhitespaceBlockIcon;
 
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[8];
