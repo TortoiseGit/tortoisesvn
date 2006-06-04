@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-14 22:00+0800\n"
-"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2006-06-04 11:44+0800\n"
+"Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -250,18 +250,18 @@ msgstr "Berkeley 数据库(BDB)(&B)"
 
 #: ID:114
 msgid "&Blame differences"
-msgstr "谴责差异(&B)"
+msgstr "追溯差异(&B)"
 
 # ID:76,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
-msgstr "谴责版本(&B)"
+msgstr "追溯版本(&B)"
 
 # ID:13,
 #: ID:13
 msgid "&Blame..."
-msgstr "谴责(&B)..."
+msgstr "追溯(&B)..."
 
 # ID:138,
 #: ID:138
@@ -516,6 +516,11 @@ msgstr "加载时跳转到第一个差异处(&J)"
 msgid "&Language:"
 msgstr "语言(&L)"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "仅在已修改的行中搜索(&L)"
+
 # ID:188,
 #: Control-ID:1172
 msgid "&List View"
@@ -629,6 +634,11 @@ msgstr "删除(&R)"
 #: ID:101
 msgid "&Rename"
 msgstr "重命名(&R)"
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "版本库浏览器(&R)"
 
 # ID:113,
 #: ID:113
@@ -889,43 +899,6 @@ msgstr "：基础版本"
 #: ID:151
 msgid ": working copy"
 msgstr "：工作拷贝"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>.\n"
-"\n"
-"Now that you've read and hopefully understood the above: do you still want to relocate?"
-msgstr ""
-"<b>注意：</b>\n"
-"重定位(Relocate)命令只用于当版本库的根目录由于服务器的 IP 地址发生改变、\n"
-"协议发生改变(例如由http://改为https://)，或者版本库的根目录在服务器端的设\n"
-"置中发生改变的情况。\n"
-"不论你是要转移到另一个 Subversion 版本库，或者你是要切换到当前<b>同一个\n"
-"版本库</b>的不同分支或者目录， <b>这是一个很不常用的操作。</b>\n"
-"如果你是要转移到另一个 Subversion 版本库，请从新的版本库中执行一个“干净\n"
-"的”检出操作。\n"
-"如果你是要切换到当前同一个版本库的不同分支或者目录， 请使用主菜单中的切\n"
-"换(Switch)命令。\n"
-"\n"
-"不适当地使用重定位命令将会<b>破坏你的工作拷贝！</b>\n"
-"如果你仍然不确定重定位命令是否正是你要执行的命令，那么就很可能不是，并且你\n"
-"需要查看<b>帮助</b>。看完上述说明后，希望你已经完全理解了：你是否仍然要进行重定位？"
 
 # ID:145,
 #: ID:145
@@ -1432,6 +1405,11 @@ msgstr "如无错误，自动关闭"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "如无合并、添加、删除操作，自动关闭"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "如对本地操作无合并、添加、删除操作，则自动关闭"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1470,7 +1448,7 @@ msgstr "基础文件："
 # ID:13,
 #: Dlg-ID:162
 msgid "Blame"
-msgstr "谴责"
+msgstr "追溯"
 
 # ID:13,
 #: ID:13
@@ -1581,7 +1559,7 @@ msgstr "取消"
 # ID:132,
 #: ID:132
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "正在取消 SVN 谴责..."
+msgstr "正在取消 SVN 追溯..."
 
 # ID:132,
 #: ID:270
@@ -1731,6 +1709,11 @@ msgstr "检出"
 msgid "Checkout &directory:"
 msgstr "检出至目录(&D)："
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "正在清除。"
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1872,7 +1855,7 @@ msgstr "与最新版本比较(&H)"
 # ID:76,
 #: ID:114
 msgid "Compare and &blame with working BASE"
-msgstr "将谴责与工作拷贝比较"
+msgstr "与工作拷贝比较并追溯"
 
 # ID:76,
 #: ID:76
@@ -1969,6 +1952,11 @@ msgid "Copy URL to clipboard"
 msgstr "复制 URL"
 
 # ID:257,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "复制所有信息到剪贴板"
+
+# ID:257,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "复制错误信息到剪贴板"
@@ -1977,6 +1965,11 @@ msgstr "复制错误信息到剪贴板"
 #: ID:76
 msgid "Copy from path"
 msgstr "从路径复制"
+
+# ID:257,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "将路径复制到剪贴板"
 
 # ID:3603,
 #: ID:3603
@@ -2743,6 +2736,10 @@ msgstr "文件差异比较"
 msgid "File patches"
 msgstr "文件补丁"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "查找"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2759,8 +2756,8 @@ msgstr "完成！"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "要获取帮助，请按 F1 键"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "按 F1 键寻求帮助；用 Ctrl+鼠标滚轮横向滚动"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -3222,6 +3219,34 @@ msgstr ""
 "示例：不能将 MyFile.txt 修改为 MYFILE.txt 。\n"
 "请阅读文档中关于如何在此限制下工作的部分。"
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"似乎你要将你的工作复本<b>重定位(relocate)到</b>同一个版本库中的不同路径：\n"
+"\n"
+"从：%s\n"
+"到：%s\n"
+"\n"
+"重定位操作只有改变路径到<b>不同版本库</b>时是才需要，\n"
+"改变到<b>同一版本库</b>内的不同路径应该使用切换(switch)操作。\n"
+"\n"
+"不正确地使用重定位操作将<b>损坏你的工作复本！</b>\n"
+"如果你不确定要进行什么操作，请在文档中查阅<i>重定位(relocate)</i>的相关内容。\n"
+"确定要进行重定位吗？"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3431,6 +3456,11 @@ msgstr ""
 "把一个文件在 Subversion 中标记为已解决\n"
 "标记为已解决"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "区分大小写(&C)"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3566,6 +3596,11 @@ msgstr "下一个冲突(&E)"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "需要锁定"
 
 # ID:73,
 #: ID:210
@@ -3751,6 +3786,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "省略外部(&X)"
@@ -3766,6 +3802,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "至少还有一个的文件处于冲突状态。"
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "仅检出最上层目录(&T)"
@@ -4021,6 +4058,7 @@ msgstr "正在获取差异， 请稍候..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "请稍候..."
@@ -4232,6 +4270,11 @@ msgid "Relocate"
 msgstr "重新定位"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "重定位警告"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "正在重新定位..."
@@ -4338,11 +4381,6 @@ msgstr "替换的节点"
 #: ID:74
 msgid "Replacing"
 msgstr "替换"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "版本库浏览器"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4738,6 +4776,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "查找日志信息(&L)..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "查找内容："
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4786,6 +4829,11 @@ msgstr "选择比较差异工具"
 #: ID:313
 msgid "Select diff file..."
 msgstr "选择补丁文件..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "选择要取出到的目录"
 
 # Dlg-ID:173,
 #: ID:276
@@ -5319,12 +5367,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "文件\n"
 "%s\n"
-"不是正确的文本文件！\n"
-"注：UTF16，UTF32文件视为二进制文件。"
+"不是有效的文本文件！\n"
+"注：UTF32文件作为二进制文件处理。"
 
 # ID:80,
 #: ID:80
@@ -5798,7 +5846,7 @@ msgstr "TortoiseSVN 添加..."
 # ID:80,
 #: ID:132
 msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN 谴责"
+msgstr "TortoiseSVN 追溯"
 
 # ID:77,
 #: ID:77
@@ -6082,7 +6130,7 @@ msgstr "使用其它文字区块(&O)"
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Use &text viewer to view blames"
-msgstr "使用文字编辑器查看谴责(&T)"
+msgstr "使用文字编辑器查看追溯信息(&T)"
 
 # ID:195,
 #: ID:195
@@ -6528,11 +6576,12 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"两个正则表达式，用换行分隔\n"
+"用换行分隔的两个正则表达式，\n"
 "第一个正则表达式用于查找问题标题中的字符串，第二个正则表达式用于从字符串取得问题编号。"
 
 # ID:14,
@@ -6722,10 +6771,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"设置之后，此文件视为可执行。该属性不能设置在目录上；非递归的设置会失败，递归设置则会将此属性设置在此文件夹的所有文件上。"
+"设置之后，此文件视为可执行。该属性不能设置在目录上；\n
+非递归的设置会失败，递归设置则会将此属性设置在此文件夹的所有文件上。"
 
 # ID:14,
 #: ID:14
@@ -6772,10 +6823,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"此文件的 mime 类型。用来决定文件是否要合并，以及由 Apache 传输时要怎么处理. 以“text/”开头(或没有设置)的 mime 类型视为文本文件，其它则视为二进制文件。"
+"此文件的 mime 类型。用来决定文件是否要合并，以及由 Apache 传输时要怎么处理。\n"
+"以“text/”开头(或没有设置)的 mime 类型视为文本文件，\n"
+"其它则视为二进制文件。"
 
 # ID:16,
 #: ID:16
