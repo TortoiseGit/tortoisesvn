@@ -23,11 +23,15 @@
 
 
 // CSetColorPage dialog
+#define INLINEADDED_COLOR			RGB(255, 255, 150)
+#define INLINEREMOVED_COLOR			RGB(200, 100, 100)
 
 IMPLEMENT_DYNAMIC(CSetColorPage, CPropertyPage)
 CSetColorPage::CSetColorPage()
 	: CPropertyPage(CSetColorPage::IDD)
 	, m_bReloadNeeded(FALSE)
+	, m_regInlineAdded(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR)
+	, m_regInlineRemoved(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR)
 {
 }
 
@@ -62,13 +66,12 @@ void CSetColorPage::SaveData()
 		diffdata.SetColors(CDiffData::DIFFSTATE_THEIRSADDED, cBk, cFg);
 		diffdata.SetColors(CDiffData::DIFFSTATE_YOURSADDED, cBk, cFg);
 
-		cBk = m_cBkWhitespaceDiff.GetColor(TRUE);
-		diffdata.SetColors(CDiffData::DIFFSTATE_WHITESPACE_DIFF, cBk, cFg);
-
-		cBk = m_cBkWhitespaces.GetColor(TRUE);
-		diffdata.SetColors(CDiffData::DIFFSTATE_REMOVEDWHITESPACE, cBk, cFg);
-		diffdata.SetColors(CDiffData::DIFFSTATE_ADDEDWHITESPACE, cBk, cFg);
-		diffdata.SetColors(CDiffData::DIFFSTATE_WHITESPACE, cBk, cFg);
+		if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor(TRUE))
+			m_bReloadNeeded = true;
+		m_regInlineAdded = m_cBkInlineAdded.GetColor(TRUE);
+		if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor(TRUE))
+			m_bReloadNeeded = true;
+		m_regInlineRemoved = m_cBkInlineRemoved. GetColor(TRUE);
 
 		cBk = m_cBkEmpty.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
@@ -97,8 +100,8 @@ void CSetColorPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BKNORMAL, m_cBkNormal);
 	DDX_Control(pDX, IDC_BKREMOVED, m_cBkRemoved);
 	DDX_Control(pDX, IDC_BKADDED, m_cBkAdded);
-	DDX_Control(pDX, IDC_BKWHITESPACES, m_cBkWhitespaces);
-	DDX_Control(pDX, IDC_BKWHITESPACEDIFF, m_cBkWhitespaceDiff);
+	DDX_Control(pDX, IDC_BKWHITESPACES, m_cBkInlineAdded);
+	DDX_Control(pDX, IDC_BKWHITESPACEDIFF, m_cBkInlineRemoved);
 	DDX_Control(pDX, IDC_BKEMPTY, m_cBkEmpty);
 	DDX_Control(pDX, IDC_BKCONFLICTED, m_cBkConflict);
 }
@@ -148,17 +151,15 @@ BOOL CSetColorPage::OnInitDialog()
 	m_cBkAdded.SetDefaultText(sDefaultText);
 	m_cBkAdded.SetCustomText(sCustomText);
 
-	diffdata.GetColors(CDiffData::DIFFSTATE_WHITESPACE, cBk, cFg);
-	m_cBkWhitespaces.SetDefaultColor(DIFFSTATE_WHITESPACE_DEFAULT_BG);
-	m_cBkWhitespaces.SetColor(cBk);
-	m_cBkWhitespaces.SetDefaultText(sDefaultText);
-	m_cBkWhitespaces.SetCustomText(sCustomText);
+	m_cBkInlineAdded.SetDefaultColor(INLINEADDED_COLOR);
+	m_cBkInlineAdded.SetColor((DWORD)m_regInlineAdded);
+	m_cBkInlineAdded.SetDefaultText(sDefaultText);
+	m_cBkInlineAdded.SetCustomText(sCustomText);
 
-	diffdata.GetColors(CDiffData::DIFFSTATE_WHITESPACE_DIFF, cBk, cFg);
-	m_cBkWhitespaceDiff.SetDefaultColor(DIFFSTATE_WHITESPACE_DIFF_DEFAULT_BG);
-	m_cBkWhitespaceDiff.SetColor(cBk);
-	m_cBkWhitespaceDiff.SetDefaultText(sDefaultText);
-	m_cBkWhitespaceDiff.SetCustomText(sCustomText);
+	m_cBkInlineRemoved.SetDefaultColor(INLINEREMOVED_COLOR);
+	m_cBkInlineRemoved.SetColor((DWORD)m_regInlineRemoved);
+	m_cBkInlineRemoved.SetDefaultText(sDefaultText);
+	m_cBkInlineRemoved.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
 	m_cBkEmpty.SetDefaultColor(DIFFSTATE_EMPTY_DEFAULT_BG);

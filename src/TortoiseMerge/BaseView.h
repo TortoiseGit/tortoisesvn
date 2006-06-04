@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "DiffData.h"
+#include "SVNLineDiff.h"
 
 class CMainFrame;
 class CLocatorBar;
@@ -64,7 +65,8 @@ public:
 	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
 	BOOL			HasSelection() {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
 
-	CStdCStringArray* m_arDiffLines;		///< Array of Strings containing all lines of the text file
+	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
+	CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
 	CStdDWORDArray*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
 	CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
@@ -137,12 +139,14 @@ protected:
 	int				GetCharWidth();
 	int				GetMaxLineLength();
 	int				GetLineLength(int index) const;
+	int				GetDiffLineLength(int index) const;
 	int				GetScreenChars();
 	int				GetAllMinScreenChars() const;
 	int				GetAllMaxLineLength() const;
 	int				GetAllLineCount() const;
 	int				GetAllMinScreenLines() const;
 	LPCTSTR			GetLineChars(int index) const;
+	LPCTSTR			GetDiffLineChars(int index);
 	int				GetLineNumber(int index) const;
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
@@ -155,8 +159,12 @@ protected:
 	 */
 	void			UpdateStatusBar();
 protected:
+	COLORREF		m_InlineRemovedBk;
+	COLORREF		m_InlineAddedBk;
 	UINT			m_nStatusBarID;		///< The ID of the status bar pane used by this view. Must be set by the parent class.
 
+	SVNLineDiff		m_svnlinediff;
+	BOOL			m_bOtherDiffChecked;
 	BOOL			m_bModified;
 	BOOL			m_bFocused;
 	BOOL			m_bViewLinenumbers;

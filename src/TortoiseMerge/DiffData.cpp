@@ -340,11 +340,11 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			svnerr = svnerr->child;
 			sMsg += _T("\n");
 			sMsg += CString(svnerr->message);
-		} // while (m_err->child)
+		}
 		apr_pool_destroy (pool);					// free the allocated memory
 		m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 		return false;
-	} // if (m_svnerr)
+	}
 	svn_diff_t * tempdiff = diffYourBase;
 	LONG baseline = 0;
 	LONG yourline = 0;

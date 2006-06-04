@@ -43,7 +43,6 @@ BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/
 	//The right view is always "Yours" in both two and three-way diff
 	switch (state)
 	{
-	case CDiffData::DIFFSTATE_WHITESPACE:
 	case CDiffData::DIFFSTATE_ADDED:
 	case CDiffData::DIFFSTATE_REMOVED:
 	case CDiffData::DIFFSTATE_CONFLICTED:
