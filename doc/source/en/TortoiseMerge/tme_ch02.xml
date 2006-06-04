@@ -54,6 +54,36 @@
 				<graphic fileref="images/MergeTwoPane.png"/>
 			</figure>
 			<para>
+				The two pane view has some features which are not available
+				in the one pane view:
+				<itemizedlist>
+					<listitem>
+						<para>
+						Changes inside the modified lines are shown in different
+						colors. Added string parts are shown with a ligher color,
+						but you can of course configure the colors used here.
+						Removed parts are indicated with a dark brown vertical
+						line in the string. Check out the screenshot above to
+						see how this works.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+						Code reorganization usually means a lot of changes in whitespaces
+						(space, tab, newlines) but no actual code change. For example,
+						you split up a very long line into several lines, or you sometimes
+						compact several lines together into one.
+						</para>
+						Such changes are marked with a white circle symbol on the left side
+						of the views. If you see such a white circle, you know immediately
+						that no real code change is there and you don't have to check the
+						changed block further.
+						<para>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
 				If you want to compare/merge three files, TortoiseMerge 
 				will show you the differences in a three pane view. This view 
 				is also used if you need to resolve conflicted files.
