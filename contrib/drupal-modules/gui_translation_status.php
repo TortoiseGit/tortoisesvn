@@ -10,6 +10,7 @@ include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_data.inc");
 include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_countries.inc");
 
 $vars['release']=variable_get('tsvn_version', '');
+$vars['build']=variable_get('tsvn_build', '');
 $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
 $vars['downloadurl2']=variable_get('tsvn_sf_append', '');
 $vars['reposurl']="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/";
@@ -33,7 +34,7 @@ The language pack installers can be downloaded from this page as well. The insta
 </p>
 
 <p>
-If you want to download the po file from the repository, either use <strong>guest/guest</strong> or your tigris.org user ID. 
+If you want to download the po file from the repository, either use <strong>guest (no password)</strong> or your tigris.org user ID. 
 </p>
 
 <?php
@@ -103,6 +104,7 @@ function print_content_stat($i, $postat, $vars)
   $wc=150;
 
   $release=$vars['release'];
+  $build=$vars['build'];
 
   $total=$postat[1];
   $tra=$postat[2];
@@ -114,7 +116,7 @@ function print_content_stat($i, $postat, $vars)
   $reposurl=$vars['reposurl'].$reposfile;
   $fdate=date("Y-m-d",$postat[7]);
 
-$dlfile=$vars['downloadurl1']."LanguagePack_".$release."_".$postat[9].".exe".$vars['downloadurl2'];
+$dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$postat[9].".exe".$vars['downloadurl2'];
   $flagimg=$vars['flagpath']."$postat[9].png";
 
 
