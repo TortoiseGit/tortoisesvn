@@ -335,6 +335,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			
 			SelectObject(hdc,oldbrush);
 			EndPaint(hWnd, &ps); 
+			DeleteObject(background);
 			return 0L; 
 		}
 		break;
