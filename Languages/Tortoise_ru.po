@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6650: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6712: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-31 10:58+0300\n"
+"PO-Revision-Date: 2006-06-05 12:50+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -447,6 +447,10 @@ msgstr "&Перейти к первому различию при загрузк
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Язык:"
+
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "Поиск только в &изменённых строках"
 
 #: Control-ID:1172
 msgid "&List View"
@@ -2250,6 +2254,10 @@ msgstr "Файловые различия"
 msgid "File patches"
 msgstr "Заплатки файла"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Найти"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -2263,8 +2271,8 @@ msgid "Finished!"
 msgstr "Закончено!"
 
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Для справки нажмите F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Для справки нажмите F1. Для горизонтальной прокрутки используйте Ctrl+колёсико прокрутки"
 
 #: Control-ID:1200
 msgid "From:"
@@ -2554,8 +2562,8 @@ msgid "Initial import"
 msgstr "Первоначальный импорт"
 
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Внутристрочные различия в непечатаемых знаках"
+msgid "Inline diff"
+msgstr "Внутристрочные различия"
 
 # Заголовок окна
 #: Dlg-ID:161
@@ -2715,10 +2723,6 @@ msgstr "Наименее активный автор:"
 msgid "Left View: "
 msgstr "Вид слева:"
 
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Строки с различ. в непеч.знаках"
-
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -2865,6 +2869,10 @@ msgid ""
 msgstr ""
 "Отмечает файл как улаженный в Subversion\n"
 "Отметить как улаженный"
+
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "С учетом &регистра"
 
 #: Control-ID:1159
 msgid "Max"
@@ -3922,6 +3930,10 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Найти в &лог-сообщениях..."
 
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Что искать:"
+
 # Может, "Поиск по %1 не удался"?
 #: ID:3867
 #, c-format
@@ -4407,12 +4419,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Файл\n"
 "%s\n"
 "не является корректым текстовым файлом!\n"
-"Примечание: файлы UTF16 и UTF32 рассматриваются как двоичные."
+"Примечание: файлы UTF32 рассматриваются как двоичные."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -5166,10 +5178,6 @@ msgstr "Предупреждение"
 #: ID:219
 msgid "Warning!"
 msgstr "Предупреждение!"
-
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Различия в непеч. знаках"
 
 #: ID:146
 msgid "With URL:"
