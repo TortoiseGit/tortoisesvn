@@ -64,3 +64,9 @@ thing you need to do is:
 
 To debug the TortoiseProc part of TortoiseSVN
 proceed as with any normal application.
+
+To debug the TSVNCache kill the TSVNCache.exe
+process and proceed as with any normal
+application. Killing TSVNCache.exe is necessary
+because only one instance of TSVNCache may run
+at a time.
