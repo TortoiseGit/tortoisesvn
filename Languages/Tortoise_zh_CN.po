@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-04 11:44+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"PO-Revision-Date: 2006-06-05 15:58+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -3096,10 +3096,10 @@ msgstr "包含路径："
 msgid "Initial import"
 msgstr "初始化导入"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "行内空白字符差异"
+msgid "Inline diff"
+msgstr "行内差异"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3276,11 +3276,6 @@ msgstr "最不活跃作者："
 #: ID:188
 msgid "Left View: "
 msgstr "左侧查看："
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "有空白字符差异的行"
 
 # ID:3605,
 #: ID:3605
@@ -6269,11 +6264,6 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告！"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "空白字符差异"
-
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: ID:146
@@ -6773,10 +6763,7 @@ msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
-msgstr ""
-"svn:executable\r\n"
-"设置之后，此文件视为可执行。该属性不能设置在目录上；\n
-非递归的设置会失败，递归设置则会将此属性设置在此文件夹的所有文件上。"
+msgstr "svn:executable\r\n"
 
 # ID:14,
 #: ID:14
