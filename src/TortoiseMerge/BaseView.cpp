@@ -1219,8 +1219,9 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 										VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line.Mid(lineoffset), (UINT)tempdiff->original_length, NULL));
 										origin.x += ((int)tempdiff->original_length * nCharWidth);
 										lineoffset += (int)tempdiff->original_length;
-										// now draw a vertical removed line
-										pDC->FillSolidRect(origin.x-2, origin.y, 2, m_nLineHeight, m_InlineRemovedBk);
+										// now draw a removed line
+										pDC->FillSolidRect(origin.x-nCharWidth/2, origin.y+m_nLineHeight-2, nCharWidth, 2, m_InlineRemovedBk);
+										pDC->FillSolidRect(origin.x-1, origin.y, 1, m_nLineHeight, m_InlineRemovedBk);
 									}
 									if (tempdiff->original_length > tempdiff->modified_length)
 									{
@@ -1230,7 +1231,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 										origin.x += ((int)tempdiff->modified_length * nCharWidth);
 										lineoffset += (int)tempdiff->modified_length;
 										// now draw a vertical insertion line
-										pDC->FillSolidRect(origin.x-2, origin.y, 2, m_nLineHeight, m_InlineAddedBk);
+										pDC->FillSolidRect(origin.x-nCharWidth/2, origin.y+m_nLineHeight-2, nCharWidth, 2, m_InlineAddedBk);
 										pDC->SetBkColor(m_InlineAddedBk);
 										pDC->SetTextColor(crText);
 										UINT len = (UINT)(tempdiff->original_length-tempdiff->modified_length);

@@ -26,6 +26,7 @@ CSysImageList::~CSysImageList()
 	Detach();
 }
 
+// pointer to function returning int 
 
 // Singleton specific operations
 
@@ -42,6 +43,10 @@ void CSysImageList::Cleanup()
 	instance = 0;
 }
 
+void CSysImageList::Test()
+{
+	return;
+}
 
 // Operations
 

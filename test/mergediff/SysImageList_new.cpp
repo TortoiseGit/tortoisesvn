@@ -26,6 +26,7 @@ CSysImageList::~CSysImageList()
 	Detach();
 }
 
+// pointer to function returning pointer to int 
 
 // Singleton specific operations
 
@@ -40,6 +41,11 @@ void CSysImageList::Cleanup()
 {
 	delete instance;
 	instance = NULL;
+}
+
+void CSysImageList::Test()
+{
+	return true;
 }
 
 int CSysImageList::GetDirIconIndex() const
