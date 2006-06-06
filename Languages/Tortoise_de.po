@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-02 00:11+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2006-06-06 09:38+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2563,8 +2563,8 @@ msgid "Initial import"
 msgstr "Erster Import"
 
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Leerzeichen innerhalb von Zeilen"
+msgid "Inline diff"
+msgstr "Diff innerhalb Zeile"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -2726,10 +2726,6 @@ msgstr "Die wenigsten Übertragungen:"
 #: ID:188
 msgid "Left View: "
 msgstr "Linke Ansicht:"
-
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Zeile mit Unterschieden in Leerzeichen"
 
 #: ID:3605
 msgid ""
@@ -4431,12 +4427,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Die Datei\n"
 "%s\n"
 "ist keine gültige Textdatei!\n"
-"Beachten Sie, dass UTF16 und UTF32 Dateien auch als Binärdateien behandelt werden"
+"Beachten Sie, dass UTF32 Dateien auch als Binärdateien behandelt werden."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -5193,10 +5189,6 @@ msgstr "Warnung"
 #: ID:219
 msgid "Warning!"
 msgstr "Warnung!"
-
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Leerzeichenvergleich"
 
 #: ID:146
 msgid "With URL:"
