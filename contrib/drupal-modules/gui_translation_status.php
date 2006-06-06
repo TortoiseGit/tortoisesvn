@@ -94,7 +94,11 @@ function print_blank_stat($i, $postat, $vars)
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
+if ($postat[0] > 0) {
+  echo "<td class=\"graph\">Error in po file</td>";
+} else {
   echo "<td class=\"graph\">&nbsp;</td>";
+}
   echo "<td class=\"download\"><a href=\"$reposurl\">$postat[6]</a></td>";
   echo "<td class=\"lang\">$fdate</td>";
 }
