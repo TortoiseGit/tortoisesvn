@@ -29,8 +29,6 @@ If Err.Number <> 0 Then
    Wscript.Quit 1
 End If
 
-On Error Goto 0
-
 'Open base excel sheet
 objExcelApp.Workbooks.Open sBaseDoc
 'Open new excel sheet
@@ -39,5 +37,9 @@ objExcelApp.Workbooks.Open sNewDoc
 objExcelApp.Visible = True
 'Create a compare side by side view
 objExcelApp.Windows.CompareSideBySideWith(objExcelApp.Windows(2).Caption)
-
-
+If Err.Number <> 0 Then
+   objExcelApp.DisplayAlerts = False
+   objExcelApp.Quit()
+   Wscript.Echo "You must have Excel 2003 or later installed to use compare side-by-side feature."
+   Wscript.Quit 1
+End If
