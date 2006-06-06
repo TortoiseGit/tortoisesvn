@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-30 10:59+0800\n"
+"PO-Revision-Date: 2006-06-06 10:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -517,6 +517,11 @@ msgstr "載入時跳至第一個差異處(&J)"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "語系(&L)"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "僅搜尋修改過的行(&L)"
 
 # ID:188,
 #: Control-ID:1172
@@ -2742,6 +2747,10 @@ msgstr "檔案差異"
 msgid "File patches"
 msgstr "檔案補綴"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "搜尋"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2758,8 +2767,8 @@ msgstr "完成!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "按下 F1 可取得說明"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "請按 F1 以取得說明. 使用 Ctrl-捲動可進行橫向捲動."
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -3097,10 +3106,10 @@ msgstr "包含路徑:"
 msgid "Initial import"
 msgstr "初次匯入"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "行內空白字元差異"
+msgid "Inline diff"
+msgstr "行內差異"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3278,11 +3287,6 @@ msgstr "最不活躍作者:"
 msgid "Left View: "
 msgstr "左側檢視:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "單行空白字元差異"
-
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3457,6 +3461,11 @@ msgid ""
 msgstr ""
 "將檔案標記為已解決衝突狀態\n"
 "標記為已解決"
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "符合大小寫(&C)"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -3785,6 +3794,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "忽略外部設定(&X)"
@@ -3800,6 +3810,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "尚有一個以上的檔案處於衝突狀態."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "僅取出最上層目錄(&T)"
@@ -4775,6 +4786,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "搜尋記錄訊息(&L)..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "搜尋:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4823,6 +4839,11 @@ msgstr "選擇比對差異工具"
 #: ID:313
 msgid "Select diff file..."
 msgstr "選擇差異檔..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "選擇取出的目的目錄"
 
 # Dlg-ID:173,
 #: ID:276
@@ -5355,7 +5376,7 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "檔案\n"
 "%s\n"
@@ -6263,11 +6284,6 @@ msgstr "警告"
 #: ID:219
 msgid "Warning!"
 msgstr "警告!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "空白字元差異"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
