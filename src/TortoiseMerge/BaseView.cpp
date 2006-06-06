@@ -1096,7 +1096,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
 	{
 		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
-		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd)&&m_bFocused)
+		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
 			crBkgnd = (~crBkgnd)&0x00FFFFFF;
 			crText = (~crText)&0x00FFFFFF;
@@ -1264,17 +1264,15 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	{
 		if (frect.right > frect.left)
 			pDC->FillSolidRect(frect, crBkgnd);
-	} // if (frect.right > frect.left) 
-	if (m_bFocused)
+	}
+	COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
+	if (nLineIndex == m_nDiffBlockStart)
 	{
-		if (nLineIndex == m_nDiffBlockStart)
-		{
-			pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, RGB(0,0,0));
-		}		
-		if (nLineIndex == m_nDiffBlockEnd)
-		{
-			pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, RGB(0,0,0));
-		}
+		pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
+	}		
+	if (nLineIndex == m_nDiffBlockEnd)
+	{
+		pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
 	}
 }
 
@@ -1604,6 +1602,28 @@ void CBaseView::GoToFirstDifference()
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
+void CBaseView::SetupDiffBars(int start, int end)
+{
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	{
+		m_pwndBottom->m_nDiffBlockStart = start;
+		m_pwndBottom->m_nDiffBlockEnd = end;
+		m_pwndBottom->Invalidate();
+	}
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	{
+		m_pwndLeft->m_nDiffBlockStart = start;
+		m_pwndLeft->m_nDiffBlockEnd = end;
+		m_pwndLeft->Invalidate();
+	}
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	{
+		m_pwndRight->m_nDiffBlockStart = start;
+		m_pwndRight->m_nDiffBlockEnd = end;
+		m_pwndRight->Invalidate();
+	}
+}
+
 void CBaseView::OnMergePreviousconflict()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
@@ -1627,7 +1647,7 @@ void CBaseView::OnMergePreviousconflict()
 				(linestate == CDiffData::DIFFSTATE_CONFLICTEMPTY))
 				break;
 			nCenterPos--;
-		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		}
 		if (nCenterPos < 0)
 			nCenterPos = 0;
 		m_nSelBlockStart = nCenterPos;
@@ -1637,7 +1657,7 @@ void CBaseView::OnMergePreviousconflict()
 		{
 			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(--m_nSelBlockStart))
 				break;
-		} // while (nIndex < m_arLineStates->GetCount())
+		}
 		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
 			m_nSelBlockStart = m_nSelBlockStart;
 		else
@@ -1647,8 +1667,9 @@ void CBaseView::OnMergePreviousconflict()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
-		Invalidate();
-	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
+		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		ShowDiffLines(m_nDiffBlockStart);
+	}
 }
 
 void CBaseView::OnMergeNextconflict()
@@ -1694,7 +1715,8 @@ void CBaseView::OnMergeNextconflict()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
-		Invalidate();
+		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
@@ -1720,7 +1742,7 @@ void CBaseView::OnMergeNextdifference()
 				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
 				break;
 			nCenterPos++;
-		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		}
 		if (nCenterPos > (m_arLineStates->GetCount()-1))
 			nCenterPos = m_arLineStates->GetCount()-1;
 		m_nDiffBlockStart = nCenterPos;
@@ -1730,7 +1752,7 @@ void CBaseView::OnMergeNextdifference()
 		{
 			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(++m_nDiffBlockEnd))
 				break;
-		} // while (nIndex < m_arLineStates->GetCount())
+		}
 		if ((m_nDiffBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nDiffBlockEnd)))
 			m_nDiffBlockEnd = m_nDiffBlockEnd;
 		else
@@ -1740,7 +1762,7 @@ void CBaseView::OnMergeNextdifference()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
-		Invalidate();
+		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
@@ -1787,7 +1809,7 @@ void CBaseView::OnMergePreviousdifference()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
-		Invalidate();
+		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }

@@ -130,6 +130,7 @@ protected:
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
+	void			SetupDiffBars(int start, int end);
 	void			ShowDiffLines(int nLine);
 	
 	int				GetTabSize() const {return m_nTabSize;}
