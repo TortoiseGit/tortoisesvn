@@ -199,7 +199,7 @@
 					<para>
 						If you want to catch every pattern "issue #XXX" and "issue #890, #789"
 						inside a log message you could use the following regex strings:
-						<literal>[Ii]ssue #?(\d+)(,? ?#(\d+))+</literal> and the second expression as
+						<literal>[Ii]ssue #?(\d+)(,? ?#(\d+))*</literal> and the second expression as
 						<literal>(\d+)</literal>
 					</para>
 					<para>
