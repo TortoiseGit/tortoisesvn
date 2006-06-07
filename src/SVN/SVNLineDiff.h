@@ -27,7 +27,7 @@ public:
 	SVNLineDiff();
 	~SVNLineDiff();
 
-	bool Diff(svn_diff_t** diff, LPCTSTR line1, int len1, LPCTSTR line2, int len2);
+	bool Diff(svn_diff_t** diff, LPCTSTR line1, int len1, LPCTSTR line2, int len2, bool bWordDiff);
 
 public:
 	static svn_error_t * datasource_open(void *baton, svn_diff_datasource_e datasource);
@@ -36,6 +36,10 @@ public:
 	static svn_error_t * compare_token(void * baton, void * token1, void * token2, int * compare);
 	static void discard_token(void * baton, void * token);
 	static void discard_all_token(void *baton);
+
+	apr_uint32_t Adler32(apr_uint32_t checksum, const WCHAR *data, apr_size_t len);
+	std::vector<std::wstring>	m_line1tokens;
+	std::vector<std::wstring>	m_line2tokens;
 private:
 	apr_pool_t *		m_pool;
 	apr_pool_t *		m_subpool;
@@ -46,6 +50,8 @@ private:
 	TCHAR				m_token;
 	unsigned long		m_line1pos;
 	unsigned long		m_line2pos;
+
+	bool				m_bWordDiff;
 
 
 	static const svn_diff_fns_t SVNLineDiff_vtable;
