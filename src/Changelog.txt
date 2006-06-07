@@ -208,6 +208,10 @@
        in once step, the context menu's in the progress dialog only worked
        for the last updated working copy. (Stefan)
 
+Version 1.3.5
+- BUG: When committing a newly added directory the file names were
+       mixed up. (Stefan, Tobias)
+
 Version 1.3.4
 - BUG: When committing added files only, the log message wasn't saved
        in the history. (Stefan)
