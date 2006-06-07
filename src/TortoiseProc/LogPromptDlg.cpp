@@ -215,6 +215,7 @@ void CLogPromptDlg::OnOK()
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
 		return;
 	}
+	m_sLogMessage = m_cLogMessage.GetText();
 	if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
 	{
 		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
@@ -336,7 +337,6 @@ void CLogPromptDlg::OnOK()
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
-	m_sLogMessage = m_cLogMessage.GetText();
 	if (!m_sBugID.IsEmpty())
 	{
 		m_sBugID.Replace(_T(", "), _T(","));
