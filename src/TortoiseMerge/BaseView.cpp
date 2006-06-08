@@ -1254,21 +1254,16 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 									}
 									if (tempdiff->original_length > tempdiff->modified_length)
 									{
-										pDC->SetBkColor(crBkgnd);
+										if (IsLineRemoved(nLineIndex))
+											pDC->SetBkColor(m_InlineRemovedBk);
+										else
+											pDC->SetBkColor(m_InlineAddedBk);
 										pDC->SetTextColor(crText);
 										for (int i=0; i<tempdiff->modified_length; ++i)
 										{
 											sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
 											lineoffset++;
 										}
-										VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-										origin.x += (sDispTemp.GetLength() * nCharWidth);
-										sDispTemp.Empty();
-										// now draw a vertical insertion line
-										graphrects r = {origin.x-1, origin.y, 1, m_nLineHeight, m_InlineAddedBk};
-										rects.push_back(r);
-										pDC->SetBkColor(m_InlineAddedBk);
-										pDC->SetTextColor(crText);
 										UINT len = (UINT)(tempdiff->original_length-tempdiff->modified_length);
 										for (UINT i=0; i<len; ++i)
 										{
