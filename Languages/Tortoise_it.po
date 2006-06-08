@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-11 00:52+0100\n"
+"PO-Revision-Date: 2006-06-07 01:11+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -517,6 +517,11 @@ msgstr "Durante il caricamento &vai derettamente alla prima differenza"
 msgid "&Language:"
 msgstr "&Lingua:"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Limita la ricerca alle linee modificate"
+
 # ID:188,
 #: Control-ID:1172
 msgid "&List View"
@@ -631,6 +636,11 @@ msgstr "&Elimina"
 #: ID:101
 msgid "&Rename"
 msgstr "&Rinomina"
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Repo-browser"
 
 # ID:113,
 #: ID:113
@@ -894,41 +904,6 @@ msgstr ": Copia di lavoro"
 #: ID:151
 msgid ": working copy"
 msgstr ": copia di lavoro"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
-msgstr ""
-"<b>ATTENZIONE:</b>\n"
-"Il comando Sposta viene utilizzato esclusivamente quando l'URL della\n"
-"radice del repository è cambiata a causa di una modifica dell'indirizzo\n"
-"IP del server, di un cambiamento del protocollo (ad esempio https:// invece di http://) \n"
-" o di una modifica del percorso della radice del repository nelle impostazioni del server.\n"
-"<b>Si tratta di un'operazione utilizzata molto raramente</b> e non deve essere usata nè per spostarsi su un repository differente nè per cambiare\n"
-"ramo o directory <b>all'interno dello stesso repository.</b>\n"
-"Per spostarsi su un'antro repository, effettuare un ritiro dalla nuova posizione del repository.\n"
-"Per associare la copia di lavoro ad un'altro ramo o ad un'altra directory\n"
-"all'interno dello stesso repository, utilizzare il comando Cambia dal menu principale\n"
-"\n"
-"Un uso inadeguato del comando Sposta <b>renderà inutilizzabile la vostra copia di lavoro!</b>\n"
-"Se non si è sicuri che questa sia l'operazione corretta allora probabilmente \n"
-"non lo è e vi conviene consultare <b>la guida</b>."
 
 # ID:145,
 #: ID:145
@@ -1437,6 +1412,11 @@ msgstr "Chiudi automaticamente in assenza di errori"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes for local operations"
+msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni per le operazioni locali"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -1734,6 +1714,11 @@ msgstr "Ritira"
 msgid "Checkout &directory:"
 msgstr "Ritira &directory:"
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Pulizia in corso."
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1972,6 +1957,11 @@ msgid "Copy URL to clipboard"
 msgstr "Copia l'URL negli appunti"
 
 # ID:101,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Copia tutte le informazioni negli appunti"
+
+# ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Copia messaggio d'errore negli appunti"
@@ -1980,6 +1970,11 @@ msgstr "Copia messaggio d'errore negli appunti"
 #: ID:76
 msgid "Copy from path"
 msgstr "Copia dal percorso"
+
+# ID:101,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Copia percorsi negli appunti"
 
 # ID:3603,
 #: ID:3603
@@ -2754,6 +2749,10 @@ msgstr "Confronto di file"
 msgid "File patches"
 msgstr "Patch"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Trova"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2770,8 +2769,8 @@ msgstr "Terminato!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Per ottenere aiuto premere F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Per ottenere aiuto premere F1. Per far scorrere il testo orizzontalmente utilizzare la rotella del mouse tenendo premuto il tasto Ctrl"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -2824,11 +2823,15 @@ msgstr "&Blocca..."
 # ID:89,
 #: ID:89
 msgid ""
-"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
-"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
-"Bloccare file che non necessitano di essere bloccati <b>non</b> impedirà ad altri di modificarli nella propria copia di lavoro.\n"
-"Per abilitare il blocco restrittivo applicare permanentemente la proprietà 'svn:need-lock' a '*' sui file che necessitano di essere bloccati."
+"Bloccare file su cui non è impostata la proprietà 'svn:needs-lock' non impedirà ad altri utenti di modificali nelle loro copie di lavoro.\n"
+"Per abilitare un blocco rigoroso, aggiungere la proprietà 'svn:needs-lock' a tutti i file che necessitano di un blocco e poi procedere al loro invio al repository.\n"
+"Ogni file avrà attivato l'opzione sola lettura del file system, e bloccare un file lo renderà scrivibile.\n"
+"Nota bene: gli altri utenti dovranno procedere ad un aggiornamento delle proprie copie di lavoro prima di vedere i file come di sola lettura."
 
 # ID:119,
 #: ID:119
@@ -3107,8 +3110,8 @@ msgstr "Import iniziale"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Confronta spazi all'interno delle linee"
+msgid "Inline diff"
+msgstr "Confronto in linea"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3228,6 +3231,34 @@ msgstr ""
 "Per esempio, non si può rinominare MyFile.txt come MYFILE.txt.\n"
 "Si consiglia di consultare la documentazione per ottenere informazioni su come aggirare il problema."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Sembra che si stia cercando di <b>ricollocare</b> la copia di lavoro su di un percorso differente all'interno dello stesso repository.\n"
+"\n"
+"Da: %s\n"
+"A: %s\n"
+"\n"
+"Un ricollocamento è necessario solamente se il percorso <b>di destinazione</b> in un repository è cambiato.\n"
+"Spostarsi su un percorso differente <b>all'interno</b> di un repository è di norma eseguito attraverso l'operazione \"sposta\".\n"
+"\n"
+"Un uso improprio del comando \"ricolloca\" <b>corromperà la vostra copia di lavoro!</b>\n"
+"Se non si è sicuri di come procedere, si consiglia di consultare la documentazione a proposito del comando <i>ricolloca</i> (<i>relocate</i>).\n"
+"Si desidera davvero ricollocare la copia di lavoro?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3257,11 +3288,6 @@ msgstr "Ultimo autore attivo:"
 #: ID:188
 msgid "Left View: "
 msgstr "Vista sinistra:"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Confronta linee con spazi bianchi"
 
 # ID:3605,
 #: ID:3605
@@ -3438,6 +3464,11 @@ msgstr ""
 "Segna un file come risolto in Subversion\n"
 "Segna come risolto"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "&Considera maiuscole"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3574,6 +3605,11 @@ msgstr "&Prossimo conflitto"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# Control-ID:1203,
+#: ID:208
+msgid "Needs lock"
+msgstr "Richiede blocco"
 
 # ID:73,
 #: ID:210
@@ -3761,6 +3797,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Tralascia &esterni"
@@ -3776,6 +3813,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "Uno o più file sono in conflitto."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Controlla solo la cartella &principale"
@@ -4032,6 +4070,7 @@ msgstr "Attendere, reperimento delle differenze..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Attendere prego..."
@@ -4244,6 +4283,11 @@ msgid "Relocate"
 msgstr "Ricolloca"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Ricolloca avvertimento"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "Spostamento..."
@@ -4350,11 +4394,6 @@ msgstr "Nodo sostituito"
 #: ID:74
 msgid "Replacing"
 msgstr "Sostituzione"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "Repo-browser"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4754,6 +4793,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Cerca commenti nel &log..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Cerca:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4802,6 +4846,11 @@ msgstr "Seleziona applicazione per il confronto"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Seleziona file di confronto..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Selezionare la directory dove effettuare il ritiro"
 
 # Dlg-ID:173,
 #: ID:276
@@ -5336,12 +5385,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Il file\n"
 "%s\n"
 "non è un file di testo valido!\n"
-"File di tipo UTF16 e UTF32 sono trattati come file binari."
+"I file di tipo UTF32 sono trattati come file binari."
 
 # ID:80,
 #: ID:80
@@ -5412,6 +5461,16 @@ msgstr ""
 "Il file\n"
 "%s\n"
 "esiste già. Lo si vuole sovrascrivere?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"La cartella %s\n"
+"contiene file senza versione e/o modificati. Rimuoverla comunque?"
 
 # ID:88,
 #: ID:88
@@ -6236,11 +6295,6 @@ msgstr "Attenzione"
 msgid "Warning!"
 msgstr "Attenzione!"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Confronta spaziature"
-
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: ID:146
@@ -6541,12 +6595,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"due espressioni regolari separate da un carattere di a capo\n"
-"La prima espressione viene usata per identificare una stringa che si rifersca alla 'issue', la seconda indica come estrarre il bug ID dalla stringa."
+"due espressioni regolari separate da un carattere di a capo.\n"
+"La prima espressione viene usata per identificare una stringa che si rifersca alla 'issue',\n"
+" la seconda indica come estrarre il bug ID dalla stringa."
 
 # ID:14,
 #: ID:14
@@ -6734,10 +6790,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Se presente, rende il file eseguibile. Questa proprietà non può essere utilizzata su una directory. Un tentativo non ricorsivo fallirà, mentre un tentativo ricorsivo imposterà le proprietà solo per i file figli della directory."
+"Se presente, rende il file eseguibile. Questa proprietà non può essere utilizzata su una directory.\n"
+"Un tentativo non ricorsivo fallirà, mentre un tentativo ricorsivo imposterà le proprietà solo per i file figli della directory."
 
 # ID:14,
 #: ID:14
@@ -6784,10 +6842,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Il mime-type del file. Viene usato per determinare se fondere il file e come distribuirlo con Apache. Un mime-type iniziate per 'text/' (o in caso di assenza del mime-type) viene trattato come testo. Tutto  il resto è trattato come codice binario."
+"Il tipo mime del file. Viene usato per determinare se fondere il file e come distribuirlo con Apache.\n"
+"Un tipo mime iniziante per 'text/' (o se l'indicazione è assente) viene trattato come testo.\n"
+"Tutto  il resto è trattato come codice binario."
 
 # ID:16,
 #: ID:16
@@ -6897,4 +6959,5 @@ msgstr "settimana"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "che punta al repository all'indirizzo:"
+
 
