@@ -2121,16 +2121,6 @@ void CBaseView::ShowDiffLines(int nLine)
 
 			if (nLine >= 0)
 			{
-				CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nLine);
-				CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nLine);
-
-				if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
-					(state1 == CDiffData::DIFFSTATE_NORMAL) ||
-					(state2 == CDiffData::DIFFSTATE_EMPTY) ||
-					(state2 == CDiffData::DIFFSTATE_NORMAL))
-				{
-					nLine = -1;
-				}
 				if (nLine != m_nMouseLine)
 				{
 					m_nMouseLine = nLine;
