@@ -63,7 +63,7 @@ function print_table_header($name, $summary, $postat, $vars)
 <table class="translations" summary="<?php echo $summary ?>">
 <tr>
 <th class="lang">Nr.</th>
-<th class="lang">Download Installer (<?php echo $vars['release'] ?>)</th>
+<th class="lang">Download Win32 Installer (<?php echo $vars['release'] ?>)</th>
 <th class="lang">ISO code</th>
 <th colspan="2" class="trans">(<?php echo $postat[1] ?>) Complete</th>
 <th class="graph">Graph</th>
@@ -121,7 +121,7 @@ function print_content_stat($i, $postat, $vars)
   $fdate=date("Y-m-d",$postat[7]);
 
 $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$postat[9].".exe".$vars['downloadurl2'];
-  $flagimg=$vars['flagpath']."$postat[9].png";
+  $flagimg=$vars['flagpath']."$postat[10].png";
 
 
   // Calculate width of bars
@@ -159,8 +159,8 @@ $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$pos
   $tra=$tra+$fuz;
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[10]</a></td>";
-  echo "<td class=\"lang\">$postat[9]</td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</a></td>";
+  echo "<td class=\"lang\">$postat[10]</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
@@ -220,7 +220,7 @@ foreach ($TortoiseGUI as $key => $row) {
    $name[$key] = $row[6];
    $fdate[$key] = $row[7];
    $potfile[$key] = $row[8];
-   $country[$key] = $row[10];
+   $country[$key] = $row[11];
 }
 
 // Add $TortoiseGUI as the last parameter, to sort by the common key

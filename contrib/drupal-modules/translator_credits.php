@@ -67,11 +67,11 @@ function print_content_stat($i, $postat, $poinfo, $vars)
   $dlfile=$vars['downloadurl1']."LanguagePack_".$vars['release']."_".$poinfo[1].".exe".$vars['downloadurl2'];
 
   if ($poinfo[0] != '') {
-    $flagimg=$vars['flagpath']."$poinfo[1].png";
+    $flagimg=$vars['flagpath']."$poinfo[2].png";
 
     echo "<td>$i</td>";
-    echo "<td class=\"lang\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;<a href=\"$dlfile\">$poinfo[2]</a></td>";
-    echo "<td class=\"lang\">$poinfo[3]</td>";
+    echo "<td class=\"lang\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;<a href=\"$dlfile\">$poinfo[3]</a></td>";
+    echo "<td class=\"lang\">$poinfo[4]</td>";
   }
 }
 

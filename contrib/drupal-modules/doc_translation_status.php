@@ -94,11 +94,11 @@ function print_d_blank_stat($i, $postat, $poinfo, $vars)
   if ($poinfo[0] == '') {
     $flagimg=$vars['flagpath']."gb.png";
   } else {
-    $flagimg=$vars['flagpath']."$poinfo[1].png";
+    $flagimg=$vars['flagpath']."$poinfo[2].png";
   }
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$poinfo[2]</a></td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$poinfo[3]</a></td>";
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
@@ -122,7 +122,6 @@ function print_d_content_stat($i, $postat, $poinfo, $vars)
   $reposfile=$postat[6].'.po';
   $fdate=date("Y-m-d",$postat[7]);
   $dlfile=$vars['downloadurl1']."LanguagePack_".$release."_".$poinfo[1].".exe".$vars['downloadurl2'];
-
 
   // Calculate width of bars
   $wf=round($wc*$fuz/$total);
@@ -150,14 +149,14 @@ function print_d_content_stat($i, $postat, $poinfo, $vars)
   } else {
     $title="tr:$tra&nbsp;fu:$fuz&nbsp;ut:$unt;";
   }
-  $flagimg=$vars['flagpath']."$poinfo[1].png";
+  $flagimg=$vars['flagpath']."$poinfo[2].png";
 
   // count fuzzies as translated, only for the display
   $tra=$tra+$fuz;
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$poinfo[2]</a></td>";
-  echo "<td class=\"lang\">$poinfo[1]</td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$poinfo[3]</a></td>";
+  echo "<td class=\"lang\">$poinfo[2]</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
