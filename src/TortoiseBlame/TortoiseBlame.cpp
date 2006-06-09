@@ -403,7 +403,7 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 		std::string msg;
 		msg += m_selectedauthor;
 		msg += "  ";
-		msg += app.dates[m_SelectedLine];
+		msg += app.m_selecteddate;
 		msg += '\n';
 		msg += iter->second;
 		msg += _T("\n");
