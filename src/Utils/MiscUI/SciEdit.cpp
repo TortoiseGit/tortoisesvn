@@ -35,8 +35,11 @@ bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return 
 
 
 
-#define STYLE_BOLD			11
-#define STYLE_BOLDITALIC	12
+#define STYLE_ISSUEBOLD			11
+#define STYLE_ISSUEBOLDITALIC	12
+#define STYLE_BOLD				14
+#define STYLE_ITALIC			15
+#define STYLE_UNDERLINED		16
 
 #define SCI_ADDWORD			2000
 
@@ -364,11 +367,15 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 	Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
 	Call(SCI_STYLECLEARALL);
 	// set the styles for the bug ID strings
-	Call(SCI_STYLESETBOLD, STYLE_BOLD, TRUE);
-	Call(SCI_STYLESETFORE, STYLE_BOLD, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
-	Call(SCI_STYLESETBOLD, STYLE_BOLDITALIC, (LPARAM)TRUE);
-	Call(SCI_STYLESETITALIC, STYLE_BOLDITALIC, (LPARAM)TRUE);
-	Call(SCI_STYLESETFORE, STYLE_BOLDITALIC, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_STYLESETBOLD, STYLE_ISSUEBOLD, (LPARAM)TRUE);
+	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLD, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_STYLESETBOLD, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
+	Call(SCI_STYLESETITALIC, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
+	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLDITALIC, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	// set the formatted text styles
+	Call(SCI_STYLESETBOLD, STYLE_BOLD, (LPARAM)TRUE);
+	Call(SCI_STYLESETITALIC, STYLE_ITALIC, (LPARAM)TRUE);
+	Call(SCI_STYLESETUNDERLINE, STYLE_UNDERLINED, (LPARAM)TRUE);
 }
 
 void CSciEdit::SetAutoCompletionList(const CAutoCompletionList& list, const TCHAR separator)
@@ -539,7 +546,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 			break;
 		case SCN_STYLENEEDED:
 			CheckSpelling();
-			MarkEnteredBugID(lpnmhdr);
+			int startstylepos = Call(SCI_GETENDSTYLED);
+			int endstylepos = ((SCNotification *)lpnmhdr)->position;
+			MarkEnteredBugID(startstylepos, endstylepos);
+			StyleEnteredText(startstylepos, endstylepos);
 			return TRUE;
 			break;
 		}
@@ -831,15 +841,98 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	Call(SCI_SETANCHOR, anchor);
 }
 
-BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
+bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
+{
+	bool bStyled = false;
+	const int line = Call(SCI_LINEFROMPOSITION, startstylepos);
+	const int line_number_end = Call(SCI_LINEFROMPOSITION, endstylepos);
+	for (int line_number = line; line_number <= line_number_end; ++line_number)
+	{
+		int offset = Call(SCI_POSITIONFROMLINE, line_number);
+		int line_len = Call(SCI_LINELENGTH, line_number);
+		char * linebuffer = new char[line_len+1];
+		Call(SCI_GETLINE, line_number, (LPARAM)linebuffer);
+		linebuffer[line_len] = 0;
+		int start = 0;
+		int end = 0;
+		while (FindStyleChars(linebuffer, '*', start, end))
+		{
+			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_SETSTYLING, end-start, STYLE_BOLD);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(linebuffer, '^', start, end))
+		{
+			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_SETSTYLING, end-start, STYLE_ITALIC);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(linebuffer, '_', start, end))
+		{
+			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_SETSTYLING, end-start, STYLE_UNDERLINED);
+			bStyled = true;
+			start = end;
+		}
+		delete linebuffer;
+	}
+	return bStyled;
+}
+
+bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& end)
+{
+	int i=start;
+	bool bFoundMarker = false;
+	// find a starting marker
+	while (line[i] != 0)
+	{
+		if (line[i] == styler)
+		{
+			if ((line[i+1]!=0)&&(IsCharAlphaNumericA(line[i+1])))
+			{
+				start = i+1;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	if (!bFoundMarker)
+		return false;
+	// find ending marker
+	bFoundMarker = false;
+	while (line[i] != 0)
+	{
+		if (line[i] == styler)
+		{
+			if (IsCharAlphaNumericA(line[i-1]))
+			{
+				end = i;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	return bFoundMarker;
+}
+
+BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 {
 	if (m_sCommand.IsEmpty())
 		return FALSE;
-	SCNotification* notify = (SCNotification*)nmhdr;
 	// get the text between the start and end position we have to style
-	const int line_number = Call(SCI_LINEFROMPOSITION, Call(SCI_GETENDSTYLED));
+	const int line_number = Call(SCI_LINEFROMPOSITION, startstylepos);
 	int start_pos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
-	int end_pos = notify->position;
+	int end_pos = endstylepos;
 
 	if (start_pos == end_pos)
 		return FALSE;
@@ -895,20 +988,20 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 							{
 								// bold style up to the id match
 								if (idresults.rstart(0) > 0)
-									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
+									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_ISSUEBOLD);
 								idoffset1 += idresults.rstart(0);
 								idoffset2 = idoffset1 + idresults.rlength(0);
 								ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
 								// bold and recursive style for the bug ID itself
 								if (idoffset2-idoffset1 > 0)
-									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
+									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_ISSUEBOLDITALIC);
 								idoffset1 = idoffset2;
 							}
 							else
 							{
 								// bold style for the rest of the string which isn't matched
 								if (offset2-idoffset1 > 0)
-									Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
+									Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_ISSUEBOLD);
 							}
 						} while(idbr.matched);
 					}
@@ -958,15 +1051,15 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 						if (results.cbackrefs() > 2)
 						{
 							if (results.backref(2).str().empty())
-								Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLD);
+								Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLD);
 							else
-								Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_BOLD);
-							Call(SCI_SETSTYLING, results.rlength(2), STYLE_BOLDITALIC);
+								Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_ISSUEBOLD);
+							Call(SCI_SETSTYLING, results.rlength(2), STYLE_ISSUEBOLDITALIC);
 						}
 						else
 						{
-							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1), STYLE_BOLD);
-							Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLDITALIC);
+							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1), STYLE_ISSUEBOLD);
+							Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLDITALIC);
 						}
 						offset1 += results.rlength(0);
 					}

@@ -534,3 +534,112 @@ void CAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 	}
 }
 
+bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
+{
+	CString sText;
+	if (pWnd == NULL)
+		return false;
+	bool bStyled = false;
+	pWnd->GetWindowText(sText);
+	// the rich edit control doesn't count the CR char!
+	// to be exact: CRLF is treated as one char.
+	sText.Replace(_T("\r"), _T(""));
+
+	// style each line separately
+	int offset = 0;
+	int nNewlinePos;
+	do 
+	{
+		nNewlinePos = sText.Find('\n', offset);
+		CString sLine = sText.Mid(offset);
+		if (nNewlinePos>=0)
+			sLine = sLine.Left(nNewlinePos-offset);
+		int start = 0;
+		int end = 0;
+		while (FindStyleChars(sLine, '*', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_BOLD;
+			format.dwEffects = CFE_BOLD;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(sLine, '^', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_ITALIC;
+			format.dwEffects = CFE_ITALIC;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(sLine, '_', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_UNDERLINE;
+			format.dwEffects = CFE_UNDERLINE;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		offset = nNewlinePos+1;
+	} while(nNewlinePos>=0);
+	return bStyled;	
+}
+
+bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end)
+{
+	int i=start;
+	bool bFoundMarker = false;
+	// find a starting marker
+	while (sText[i] != 0)
+	{
+		if (sText[i] == stylechar)
+		{
+			if ((((i+1)<sText.GetLength()))&&(IsCharAlphaNumeric(sText[i+1])))
+			{
+				start = i+1;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	if (!bFoundMarker)
+		return false;
+	// find ending marker
+	bFoundMarker = false;
+	while (sText[i] != 0)
+	{
+		if (sText[i] == stylechar)
+		{
+			if (IsCharAlphaNumeric(sText[i-1]))
+			{
+				end = i;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	return bFoundMarker;
+}

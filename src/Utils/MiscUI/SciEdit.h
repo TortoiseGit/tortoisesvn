@@ -46,17 +46,6 @@ public:
  * on other objects which implement this interface.
  * Classes implementing this interface must call RegisterContextMenuHandler()
  * in CSciEdit to register themselves.
- *
- * \par requirements
- * MFC or ATL
- *
- * \version 1.0
- * first version
- *
- * \date MAR-2005
- *
- * \author Stefan Kueng
- *
  */
 class CSciEditContextMenuInterface
 {
@@ -84,20 +73,6 @@ public:
  * Encapsulates the Scintilla edit control. Useable as a replacement for the
  * MFC CEdit control, but not a drop-in replacement!
  * Also provides additional features like spell checking, autocompletion, ...
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- * Scintilla edit control (http://www.scintilla.org)
- *
- * \version 1.0
- * first version
- *
- * \date JAN-2005
- *
- * \author Stefan Kueng
- *
  */
 class CSciEdit : public CWnd
 {
@@ -168,7 +143,9 @@ protected:
 	void		SuggestSpellingAlternatives(void);
 	void		DoAutoCompletion(void);
 	BOOL		LoadDictionaries(LONG lLanguageID);
-	BOOL		MarkEnteredBugID(NMHDR* nmhdr);
+	BOOL		MarkEnteredBugID(int startstylepos, int endstylepos);
+	bool		StyleEnteredText(int startstylepos, int endstylepos);
+	bool		FindStyleChars(const char * line, char styler, int& start, int& end);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	DECLARE_MESSAGE_MAP()

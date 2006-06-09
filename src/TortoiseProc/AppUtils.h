@@ -90,4 +90,12 @@ public:
 	 */
 	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
+	/**
+	 * Formats text in a rich edit control (version 2).
+	 * text in between * chars is formatted bold
+	 * text in between ^ chars is formatted italic
+	 * text in between _ chars is underlined
+	 */
+	static bool FormatTextInRichEditControl(CWnd * pWnd);
+	static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
 };

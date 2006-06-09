@@ -361,6 +361,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 
 		pMsgView->SetWindowText(pLogEntry->sMessage);
 		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
+		CAppUtils::FormatTextInRichEditControl(pMsgView);
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
 		if (m_currentChangedArray == NULL)
 		{
