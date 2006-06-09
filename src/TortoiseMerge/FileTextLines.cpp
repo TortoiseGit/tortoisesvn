@@ -323,7 +323,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 				case CFileTextLines::UTF8BOM:
 				case CFileTextLines::UTF8:
 					{
-						Add(CUnicodeUtils::GetUnicode(CUnicodeUtils::ConvertWCHARStringToUTF8(CString(sLine))));
+						Add(CUnicodeUtils::GetUnicode(sLine));
 					}
 					break;
 				default:
