@@ -87,10 +87,10 @@ function print_blank_stat($i, $postat, $vars)
   $tl = $postat[1];
   $reposurl = $vars['reposurl'].$postat[6];
   $fdate=date("Y-m-d",$postat[7]);
-  $flagimg=$vars['flagpath']."$postat[9].png";
+  $flagimg=$vars['flagpath']."$postat[10].png";
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[10]</a></td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</a></td>";
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
