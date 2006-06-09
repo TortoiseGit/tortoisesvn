@@ -70,38 +70,11 @@
 	</para>
 	<tip>
 		<title>Exporting</title>
-		<indexterm>
-			<primary>export</primary>
-		</indexterm>
 		<para>
-			Sometimes you may want a copy without any of those
+			Sometimes you may want to create a local copy without any of those
 			<filename>.svn</filename> directories, e.g. to create a zipped
-			tarball of your source. Instead of making a copy and then delete
-			all those <filename>.svn</filename> directories manually,
-			TortoiseSVN offers the command
-			<menuchoice>
-				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Export...</guimenuitem>
-			</menuchoice>.
-			If you execute this command
-			on your working copy you'll be asked for a place to save the
-			<literal>clean</literal> working copy without the
-			<filename>.svn</filename>
-			folders. Also, you can specify if you want to export 
-			<emphasis>all</emphasis> files or just the versioned files.
-		</para>
-		<para>
-			Another way to do an export is by right-dragging a working copy
-			folder to another location and choose
-			<menuchoice>
-				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Subversion export here</guimenuitem>
-			</menuchoice>
-			or 
-			<menuchoice>
-				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Subversion export all here</guimenuitem>
-			</menuchoice>
+			tarball of your source.
+			Read <xref linkend="tsvn-dug-export"/> to find out how to do that.
 		</para>
 	</tip>
 </sect1>

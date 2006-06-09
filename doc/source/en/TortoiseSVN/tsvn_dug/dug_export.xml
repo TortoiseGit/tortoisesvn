@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
+<sect1 id="tsvn-dug-export">
+	<title>Exporting a Subversion Working Copy</title>
+	<indexterm>
+		<primary>export</primary>
+	</indexterm>
+    <para>
+        Sometimes you may want a copy of your working tree without any of
+        those <filename>.svn</filename> directories, e.g. to create a zipped
+        tarball of your source, or to export to a web server. Instead of
+        making a copy and then deleting all those <filename>.svn</filename>
+        directories manually, TortoiseSVN offers the command
+        <menuchoice>
+            <guimenu>TortoiseSVN</guimenu>
+            <guimenuitem>Export...</guimenuitem>
+        </menuchoice>.
+        If you execute this command on your working copy you'll be asked for
+        a place to save the <literal>clean</literal> working copy without the
+        <filename>.svn</filename> folders.
+        By default, only the versioned files are exported, but you can use the
+        <guilabel>Export unversioned files too</guilabel> to include any other
+        unversioned files which exist in your WC and not in the repository.
+        External references using <literal>svn:externals</literal> can be
+        omitted if required.
+    </para>
+    <para>
+        Another way to export is to <action>right drag</action> a working copy
+        folder to another location and choose
+        <menuchoice>
+            <guimenu>Context Menu</guimenu>
+            <guimenuitem>Subversion export here</guimenuitem>
+        </menuchoice>
+        or 
+        <menuchoice>
+            <guimenu>Context Menu</guimenu>
+            <guimenuitem>Subversion export all here</guimenuitem>
+        </menuchoice>.
+        The second option includes the unversioned files as well.
+    </para>
+    <para>
+        And of course you can export directly from the repository too.
+        Use the Repository Browser to navigate to the relevant subtree
+        in your repository, then use
+        <menuchoice>
+            <guimenu>Context Menu</guimenu>
+            <guimenuitem>Export</guimenuitem>
+        </menuchoice>.
+    </para>
+</sect1>
