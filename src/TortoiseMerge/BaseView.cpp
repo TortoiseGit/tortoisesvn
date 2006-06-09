@@ -1081,7 +1081,9 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
-	ASSERT(nLineIndex >= -1 && nLineIndex < GetLineCount());
+	if (nLineIndex >= GetLineCount())
+		nLineIndex = -1;
+	ASSERT(nLineIndex >= -1);
 
 	if (nLineIndex == -1)
 	{
@@ -2124,6 +2126,8 @@ void CBaseView::ShowDiffLines(int nLine)
 				if (nLine != m_nMouseLine)
 				{
 					m_nMouseLine = nLine;
+					if (nLine >= GetLineCount())
+						nLine = -1;
 					m_pwndLineDiffBar->ShowLines(nLine);
 				}
 			}
