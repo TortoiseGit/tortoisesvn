@@ -198,9 +198,6 @@
        switch. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
-- BUG: When setting properties, an error message isn't hidden anymore by
-       the progress dialog. And the 'Set' button is not disabled anymore
-       when an error occurred. See issue #230 for details. (Stefan)
 - BUG: When reverting files and folders the child items are now reverted
        before the parent items to avoid an error message. (Tobias Schäfer)
 - BUG: When a setting change couldn't be saved in the registry, no error
