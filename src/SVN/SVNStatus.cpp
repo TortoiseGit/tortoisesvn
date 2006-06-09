@@ -387,7 +387,7 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 {
 	const sort_item*			item;
 
-	if ((m_statushashindex+1) == apr_hash_count(m_statushash))
+	if ((m_statushashindex+1) >= apr_hash_count(m_statushash))
 		return NULL;
 	m_statushashindex++;
 
