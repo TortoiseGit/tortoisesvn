@@ -613,7 +613,8 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	{
 		if (sText[i] == stylechar)
 		{
-			if ((((i+1)<sText.GetLength()))&&(IsCharAlphaNumeric(sText[i+1])))
+			if (((i+1)<sText.GetLength())&&(IsCharAlphaNumeric(sText[i+1])) &&
+				(((i>0)&&(!IsCharAlphaNumeric(sText[i-1]))||(i==0))))
 			{
 				start = i+1;
 				i++;
@@ -631,7 +632,8 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	{
 		if (sText[i] == stylechar)
 		{
-			if (IsCharAlphaNumeric(sText[i-1]))
+			if ((IsCharAlphaNumeric(sText[i-1])) &&
+				((i+1)<sText.GetLength())&&(!IsCharAlphaNumeric(sText[i+1])))
 			{
 				end = i;
 				i++;
