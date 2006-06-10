@@ -717,7 +717,7 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 				CSVNStatusCache::Instance().WaitToWrite();
 				CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
 				CSVNStatusCache::Instance().Done();
-				CSVNStatusCache::Instance().AddFolderForCrawling(changedpath);
+				CSVNStatusCache::Instance().AddFolderForCrawling(changedpath.GetDirectory());
 				break;
 		}
 	} 
