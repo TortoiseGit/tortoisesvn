@@ -885,16 +885,45 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 	return bStyled;
 }
 
+void CSciEdit::AdvanceUTF8(const char * str, int& pos)
+{
+	if ((str[pos] & 0xE0)==0xC0)
+	{
+		// utf8 2-byte sequence
+		pos += 2;
+	}
+	else if ((str[pos] & 0xF0)==0xE0)
+	{
+		// utf8 3-byte sequence
+		pos += 3;
+	}
+	else if ((str[pos] & 0xF8)==0xF0)
+	{
+		// utf8 4-byte sequence
+		pos += 4;
+	}
+	else
+		pos++;
+}
+
 bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& end)
 {
-	int i=start;
+	int i=0;
+	int u=0;
+	while (i < start)
+	{
+		AdvanceUTF8(line, i);
+		u++;
+	}
+
 	bool bFoundMarker = false;
+	CString sULine = CUnicodeUtils::GetUnicode(line);
 	// find a starting marker
 	while (line[i] != 0)
 	{
 		if (line[i] == styler)
 		{
-			if ((line[i+1]!=0)&&(IsCharAlphaNumericA(line[i+1])))
+			if ((line[i+1]!=0)&&(IsCharAlphaNumeric(sULine[u+1])))
 			{
 				start = i+1;
 				i++;
@@ -902,7 +931,8 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
 				break;
 			}
 		}
-		i++;
+		AdvanceUTF8(line, i);
+		u++;
 	}
 	if (!bFoundMarker)
 		return false;
@@ -912,7 +942,7 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
 	{
 		if (line[i] == styler)
 		{
-			if (IsCharAlphaNumericA(line[i-1]))
+			if (IsCharAlphaNumeric(sULine[u-1]))
 			{
 				end = i;
 				i++;
@@ -920,7 +950,8 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
 				break;
 			}
 		}
-		i++;
+		AdvanceUTF8(line, i);
+		u++;
 	}
 	return bFoundMarker;
 }

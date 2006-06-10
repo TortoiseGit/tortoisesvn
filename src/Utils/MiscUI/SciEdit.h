@@ -146,6 +146,7 @@ protected:
 	BOOL		MarkEnteredBugID(int startstylepos, int endstylepos);
 	bool		StyleEnteredText(int startstylepos, int endstylepos);
 	bool		FindStyleChars(const char * line, char styler, int& start, int& end);
+	void		AdvanceUTF8(const char * str, int& pos);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	DECLARE_MESSAGE_MAP()
