@@ -49,35 +49,35 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
-	svn_client_get_windows_simple_provider (&provider, pool);
+	svn_auth_get_windows_simple_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_simple_provider (&provider, pool);
+	svn_auth_get_simple_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_provider (&provider, pool);
+	svn_auth_get_username_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* The server-cert, client-cert, and client-cert-password providers. */
-	svn_client_get_ssl_server_trust_file_provider (&provider, pool);
+	svn_auth_get_ssl_server_trust_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_file_provider (&provider, pool);
+	svn_auth_get_ssl_client_cert_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_file_provider (&provider, pool);
+	svn_auth_get_ssl_client_cert_pw_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Two prompting providers, one for username/password, one for
 	just username. */
-	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 3, /* retry limit */ pool);
+	svn_auth_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 3, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 3, /* retry limit */ pool);
+	svn_auth_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 3, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Three prompting providers for server-certs, client-certs,
 	and client-cert-passphrases.  */
-	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, pool);
+	svn_auth_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, pool);
+	svn_auth_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, pool);
+	svn_auth_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Build an authentication baton to give to libsvn_client. */
@@ -118,7 +118,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
 		// Free the buffer.
 		LocalFree( lpMsgBuf );
-	} // if (nResponse == IDABORT)
+	}
 	return FALSE;
 }
 
@@ -155,7 +155,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
 		// Free the buffer.
 		LocalFree( lpMsgBuf );
-	} // if (nResponse == IDABORT)
+	}
 	return FALSE;
 }
 
@@ -171,7 +171,7 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
 		ret->may_save = may_save;
 		*cred = ret;
-	} // if (svn->UserPrompt(infostring, CString(realm))
+	}
 	else
 		*cred = NULL;
 	if (svn->m_app)
@@ -192,7 +192,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
 		ret->may_save = may_save;
 		*cred = ret;
-	} // if (svn->userprompt(username, password))
+	}
 	else
 		*cred = NULL;
 	if (svn->m_app)
@@ -215,7 +215,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		temp.Format(IDS_ERR_SSL_UNKNOWNCA, CUnicodeUtils::GetUnicode(cert_info->fingerprint), CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
 		msg += temp;
 		prev = TRUE;
-	} // if (failures_in & SVN_AUTH_SSL_UNKNOWNCA)
+	}
 	if (failures & SVN_AUTH_SSL_CNMISMATCH)
 	{
 		if (prev)
@@ -223,7 +223,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		temp.Format(IDS_ERR_SSL_CNMISMATCH, CUnicodeUtils::GetUnicode(cert_info->hostname));
 		msg += temp;
 		prev = TRUE;
-	} // if (failures_in & SVN_AUTH_SSL_CNMISMATCH)
+	}
 	if (failures & SVN_AUTH_SSL_NOTYETVALID)
 	{
 		if (prev)
@@ -231,7 +231,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		temp.Format(IDS_ERR_SSL_NOTYETVALID, CUnicodeUtils::GetUnicode(cert_info->valid_from));
 		msg += temp;
 		prev = TRUE;
-	} // if (failures_in & (SVN_AUTH_SSL_EXPIRED | SVN_AUTH_SSL_NOTYETVALID))
+	}
 	if (failures & SVN_AUTH_SSL_EXPIRED)
 	{
 		if (prev)
@@ -272,7 +272,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->may_save = FALSE;
-		} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
+		}
 		else
 			*cred_p = NULL;
 	}
@@ -293,7 +293,6 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
-	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = svn->m_hParentWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
@@ -308,7 +307,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		if (*ptr == '|')
 			*ptr = '\0';
 		ptr--;
-	} // while (ptr != pszFilters) 
+	}
 	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
@@ -350,7 +349,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 			CRegString client_cert_filepath_reg = CRegString(regpath);
 			client_cert_filepath_reg = filename;
 		}
-	} // if (GetOpenFileName(&ofn)==TRUE) 
+	}
 	else
 		*cred = NULL;
 	delete [] pszFilters;
@@ -411,7 +410,7 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 				client_cert_password_reg = CString(ret->password);
 			}
 		}
-	} // if (svn->UserPrompt(infostring, CString(realm))
+	}
 	else
 		*cred = NULL;
 	if (svn->m_app)
