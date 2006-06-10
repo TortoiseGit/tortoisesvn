@@ -259,6 +259,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 	m_directoryCache.erase(cdir->m_directoryPath);
 	ATLTRACE("removed path %ws from cache\n", cdir->m_directoryPath);
 	delete cdir;
+	cdir = NULL;
 	return true;
 }
 
@@ -302,6 +303,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
 		ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
+		ATLASSERT(path.IsDirectory());
 		CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
 		if (!path.IsEmpty())
 			watcher.AddPath(path);
