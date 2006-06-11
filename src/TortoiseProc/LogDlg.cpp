@@ -127,6 +127,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickLogmsg)
 	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
 	ON_NOTIFY(LVN_ODFINDITEM, IDC_LOGLIST, OnLvnOdfinditemLoglist)
+	ON_BN_CLICKED(IDC_CHECK_STOPONCOPY, &CLogDlg::OnBnClickedCheckStoponcopy)
 END_MESSAGE_MAP()
 
 
@@ -3389,4 +3390,11 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	*pResult = -1;
+}
+
+void CLogDlg::OnBnClickedCheckStoponcopy()
+{
+	if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
+		return;
+	Refresh();
 }

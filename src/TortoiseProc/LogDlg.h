@@ -119,6 +119,7 @@ protected:
 	afx_msg void OnLvnColumnclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedNexthundred();
 	afx_msg void OnBnClickedHidepaths();
+	afx_msg void OnBnClickedCheckStoponcopy();
 	afx_msg void OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void OnCancel();
 	virtual void OnOK();
