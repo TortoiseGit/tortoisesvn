@@ -207,6 +207,7 @@
               <File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
               <File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
+              <File Id="F__DefaultCAs" Name="DEFAULT.PEM" LongName="Default-ca.pem" DiskId="1" src="include\default-ca.pem" />
               <File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
             </Component>
 
