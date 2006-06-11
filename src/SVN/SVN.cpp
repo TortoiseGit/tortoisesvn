@@ -967,7 +967,7 @@ BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pe
 {
 	svn_diff_file_options_t * options = svn_diff_file_options_create(pool);
 	options->ignore_space = svn_diff_file_ignore_space_none;
-	options->ignore_eol_style = false;
+	options->ignore_eol_style = true;
 	// Subversion < 1.4 silently changed a revision WC to BASE. Due to a bug
 	// report this was changed: now Subversion returns an error 'not implemented'
 	// since it actually blamed the BASE file and not the working copy file.
