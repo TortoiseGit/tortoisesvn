@@ -924,7 +924,7 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
 		if (line[i] == styler)
 		{
 			if ((line[i+1]!=0)&&(IsCharAlphaNumeric(sULine[u+1]))&&
-				((u>0)&&(!IsCharAlphaNumeric(sULine[u-1]) || (u==0))))
+				(((u>0)&&(!IsCharAlphaNumeric(sULine[u-1]))) || (u==0)))
 			{
 				start = i+1;
 				AdvanceUTF8(line, i);
@@ -945,7 +945,8 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
 		if (line[i] == styler)
 		{
 			if ((IsCharAlphaNumeric(sULine[u-1]))&&
-				((u+1)<sULine.GetLength())&&(!IsCharAlphaNumeric(sULine[u+1])))
+				((((u+1)<sULine.GetLength())&&(!IsCharAlphaNumeric(sULine[u+1]))) || ((u+1) == sULine.GetLength()))
+				)
 			{
 				end = i;
 				i++;
