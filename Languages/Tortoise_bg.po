@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-02 12:25+0200\n"
+"PO-Revision-Date: 2006-06-09 11:23+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3146,10 +3146,10 @@ msgstr "Пътища за включване:"
 msgid "Initial import"
 msgstr "Първоначален внос"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Редово показване на разлики в празните символи"
+msgid "Inline diff"
+msgstr "Редово показване на разлики"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3326,11 +3326,6 @@ msgstr "Най-малко активен автор:"
 #: ID:188
 msgid "Left View: "
 msgstr "Изглед вляво:"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Ред с разлика само в празните символи"
 
 # ID:3605,
 #: ID:3605
@@ -5421,12 +5416,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Файлът\n"
 "%s\n"
 "не е валиден текстов файл!\n"
-"Забележете, че файлове във формат UTF-16 или UTF-32 се третират като двоични."
+"Забележете, че файлове във кодиращ формат UTF-32 се третират като двоични."
 
 # ID:80,
 #: ID:80
@@ -6326,11 +6321,6 @@ msgstr "Предупреждение"
 #: ID:219
 msgid "Warning!"
 msgstr "Внимание!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Сравняване на празни символи"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
