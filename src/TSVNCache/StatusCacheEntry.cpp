@@ -217,7 +217,6 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		if (m_sPresentProps.Find("svn:needs-lock")>=0)
 		{
 			response.m_needslock = true;
-			ATLTRACE("found svn:needs-lock on file %s\n", m_sUrl);
 		}
 		else
 			response.m_needslock = false;
