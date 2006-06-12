@@ -102,7 +102,7 @@ linked with Subversion 1.4.</p>
     <li><p>Revision graph</p>
         <p>
         The Revision graph got some major improvements. It has been rewritten
-        almost completely to address some issues users reported.
+        almost completely to address some issues users reported in the past.
         <ul>
         <li>
         Analyzing the data is much faster.
@@ -155,6 +155,12 @@ linked with Subversion 1.4.</p>
         circle. Such changes usually happen due to code cleanups and have no functional
         changes. Now those blocks are clearly marked so you can easily go over them.
         </li>
+        <li>
+        Files in UTF-8 format are recognized automatically.
+        </li>
+        <li>
+        Files in UTF-16 format can be diffed.
+        </li>
         </ul>
         </p>
     </li>
@@ -170,10 +176,11 @@ linked with Subversion 1.4.</p>
         </ul>
         </p>
     </li>
-    <li><p></p>
+    <li><p>Comparing two branches/tags</p>
         <p>
-        <ul>
-        </ul>
+        Due to a new function available in the Subversion 1.4 library, comparing
+        two branches/tags is now much faster and reliable. Also it's now immediately clear
+        if the file or property contents were changed.
         </p>
     </li>
     <li><p></p>
