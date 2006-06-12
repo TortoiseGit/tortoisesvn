@@ -42,6 +42,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bOnlyExplorer(FALSE)
 	, m_sExcludePaths(_T(""))
 	, m_sIncludePaths(_T(""))
+	, m_bUnversionedAsModified(FALSE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -53,6 +54,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regExcludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 	m_regCacheType = CRegDWORD(_T("Software\\TortoiseSVN\\CacheType"), 1);
+	m_regUnversionedAsModified = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
@@ -61,6 +63,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bCDROM = m_regDriveMaskCDROM;
 	m_bRAM = m_regDriveMaskRAM;
 	m_bUnknown = m_regDriveMaskUnknown;
+	m_bUnversionedAsModified = m_regUnversionedAsModified;
 	m_sExcludePaths = m_regExcludePaths;
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 	m_sIncludePaths = m_regIncludePaths;
@@ -84,6 +87,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
+	DDX_Check(pDX, IDC_UNVERSIONEDASMODIFIED, m_bUnversionedAsModified);
 }
 
 
@@ -100,6 +104,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CACHEDEFAULT, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHESHELL, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHENONE, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_UNVERSIONEDASMODIFIED, &CSetOverlayPage::OnChange)
 END_MESSAGE_MAP()
 
 
@@ -154,6 +159,77 @@ int CSetOverlayPage::SaveData()
 				::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 			}
 		}
+		if ((m_dwCacheType==1)&&((DWORD)m_regUnversionedAsModified != (DWORD)m_bUnversionedAsModified))
+		{
+			// tell the cache to refresh everything
+			HANDLE hPipe = CreateFile( 
+										TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+										GENERIC_READ |					// read and write access 
+										GENERIC_WRITE, 
+										0,								// no sharing 
+										NULL,							// default security attributes
+										OPEN_EXISTING,					// opens existing pipe 
+										FILE_FLAG_OVERLAPPED,			// default attributes 
+										NULL);							// no template file 
+
+
+			if (hPipe != INVALID_HANDLE_VALUE) 
+			{
+				// The pipe connected; change to message-read mode. 
+				DWORD dwMode; 
+
+				dwMode = PIPE_READMODE_MESSAGE; 
+				if (SetNamedPipeHandleState( 
+											hPipe,    // pipe handle 
+											&dwMode,  // new pipe mode 
+											NULL,     // don't set maximum bytes 
+											NULL))    // don't set maximum time 
+				{
+					DWORD cbWritten; 
+					TSVNCacheCommand cmd;
+					ZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+					cmd.command = TSVNCACHECOMMAND_REFRESHALL;
+					BOOL fSuccess = WriteFile( 
+												hPipe,			// handle to pipe 
+												&cmd,			// buffer to write from 
+												sizeof(cmd),	// number of bytes to write 
+												&cbWritten,		// number of bytes written 
+												NULL);			// not overlapped I/O 
+
+					if (! fSuccess || sizeof(cmd) != cbWritten)
+					{
+						DisconnectNamedPipe(hPipe); 
+						CloseHandle(hPipe); 
+						hPipe = INVALID_HANDLE_VALUE;
+					}
+					if (hPipe != INVALID_HANDLE_VALUE)
+					{
+						// now tell the cache we don't need it's command thread anymore
+						DWORD cbWritten; 
+						TSVNCacheCommand cmd;
+						ZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+						cmd.command = TSVNCACHECOMMAND_END;
+						WriteFile( 
+									hPipe,			// handle to pipe 
+									&cmd,			// buffer to write from 
+									sizeof(cmd),	// number of bytes to write 
+									&cbWritten,		// number of bytes written 
+									NULL);			// not overlapped I/O 
+						DisconnectNamedPipe(hPipe); 
+						CloseHandle(hPipe); 
+						hPipe = INVALID_HANDLE_VALUE;
+					}
+				}
+				else
+				{
+					ATLTRACE("SetNamedPipeHandleState failed"); 
+					CloseHandle(hPipe);
+				}
+			}
+		}
+		m_regUnversionedAsModified = m_bUnversionedAsModified;
+		if (m_regUnversionedAsModified.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regUnversionedAsModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	return 0;
 }
@@ -175,6 +251,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 		CheckRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE, IDC_CACHESHELL);
 		break;
 	}
+	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
@@ -183,12 +260,12 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CACHEDEFAULT, IDS_SETTINGS_CACHEDEFAULT_TT);
 	m_tooltips.AddTool(IDC_CACHESHELL, IDS_SETTINGS_CACHESHELL_TT);
 	m_tooltips.AddTool(IDC_CACHENONE, IDS_SETTINGS_CACHENONE_TT);
+	m_tooltips.AddTool(IDC_UNVERSIONEDASMODIFIED, IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT);
 	m_bInitialized = TRUE;
 
 	UpdateData(FALSE);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 BOOL CSetOverlayPage::PreTranslateMessage(MSG* pMsg)
@@ -213,6 +290,7 @@ void CSetOverlayPage::OnChange()
 		m_dwCacheType = 0;
 		break;
 	}
+	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
 	SetModified();
 }
 
@@ -223,5 +301,6 @@ BOOL CSetOverlayPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 

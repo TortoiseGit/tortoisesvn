@@ -49,8 +49,8 @@ public:
 	static bool SaveCache();
 
 public:
-	/// Clear the entire cache
-	void Clear();
+	/// Refreshes the cache.
+	void Refresh();
 
 	/// Get the status for a single path (main entry point, called from named-pipe code
 	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags,  bool bFetch = true);
@@ -87,6 +87,7 @@ public:
 	void Done() {m_rwSection.Done();}
 
 	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
+	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
 	bool IsPathGood(CTSVNPath path);
 private:
 	bool RemoveCacheForDirectory(CCachedDirectory * cdir);

@@ -54,6 +54,7 @@ public:
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
+		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		cachetypeticker = GetTickCount();
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
@@ -63,6 +64,8 @@ public:
 		columnrevformatticker = cachetypeticker;
 		excludelistticker = cachetypeticker;
 		includelistticker = cachetypeticker;
+		simplecontextticker = cachetypeticker;
+		unversionedasmodifiedticker = cachetypeticker;
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
@@ -86,6 +89,26 @@ public:
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
 		m_critSec.Init();
+	}
+	void ForceRefresh()
+	{
+		cachetype.read();
+		showrecursive.read();
+		folderoverlay.read();
+		driveremote.read();
+		drivefixed.read();
+		drivecdrom.read();
+		driveremove.read();
+		driveram.read();
+		driveunknown.read();
+		excludelist.read();
+		includelist.read();
+		simplecontext.read();
+		unversionedasmodified.read();
+		menulayout.read();
+		langid.read();
+		blockstatus.read();
+		columnseverywhere.read();
 	}
 	CacheType GetCacheType()
 	{
@@ -140,6 +163,15 @@ public:
 			simplecontext.read();
 		}
 		return (simplecontext==0);
+	}
+	BOOL IsUnversionedAsModified()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>unversionedasmodifiedticker)
+		{
+			unversionedasmodifiedticker = GetTickCount();
+			unversionedasmodified.read();
+		}
+		return (unversionedasmodified);
 	}
 	BOOL IsRemote()
 	{
@@ -400,6 +432,7 @@ private:
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;
 	CRegStdWORD simplecontext;
+	CRegStdWORD unversionedasmodified;
 	CRegStdString excludelist;
 	CRegStdWORD columnseverywhere;
 	stdstring excludeliststr;
@@ -419,6 +452,7 @@ private:
 	DWORD excludelistticker;
 	DWORD includelistticker;
 	DWORD simplecontextticker;
+	DWORD unversionedasmodifiedticker;
 	DWORD columnseverywhereticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.

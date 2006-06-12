@@ -42,6 +42,7 @@ public:
 	bool IsOwnStatusValid() const;
 	void Invalidate();
 	void RefreshStatus(bool bRecursive);
+	void RefreshMostImportant();
 	BOOL SaveToDisk(FILE * pFile);
 	BOOL LoadFromDisk(FILE * pFile);
 	/// Get the current full status of this folder

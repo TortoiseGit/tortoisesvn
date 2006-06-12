@@ -63,6 +63,7 @@ private:
 	BOOL			m_bCDROM;
 	BOOL			m_bRAM;
 	BOOL			m_bUnknown;
+	BOOL			m_bUnversionedAsModified;
 	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskRemote;
@@ -70,6 +71,7 @@ private:
 	CRegDWORD		m_regDriveMaskCDROM;
 	CRegDWORD		m_regDriveMaskRAM;
 	CRegDWORD		m_regDriveMaskUnknown;
+	CRegDWORD		m_regUnversionedAsModified;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
 	CRegString		m_regExcludePaths;

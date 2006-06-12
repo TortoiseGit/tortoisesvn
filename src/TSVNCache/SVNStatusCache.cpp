@@ -220,9 +220,13 @@ CSVNStatusCache::~CSVNStatusCache(void)
 	}
 }
 
-void CSVNStatusCache::Clear()
+void CSVNStatusCache::Refresh()
 {
-
+	m_shellCache.ForceRefresh();
+	for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
+	{
+		I->second->RefreshMostImportant();
+	}
 }
 
 bool CSVNStatusCache::IsPathGood(CTSVNPath path)

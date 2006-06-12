@@ -66,6 +66,7 @@ struct TSVNCacheCommand
 
 #define		TSVNCACHECOMMAND_END		0		///< ends the thread handling the pipe communication
 #define		TSVNCACHECOMMAND_CRAWL		1		///< start crawling the specified path for changes
+#define		TSVNCACHECOMMAND_REFRESHALL	2		///< Refreshes the whole cache, usually necessary after the "treat unversiond files as modified" option changed.
 
 
 /// Set this flag if you already know whether or not the item is a folder

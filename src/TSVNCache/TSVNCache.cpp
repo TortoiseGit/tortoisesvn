@@ -711,13 +711,20 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 				ATLTRACE("Command thread exited\n");
 				return 0;
 			case TSVNCACHECOMMAND_CRAWL:
-				CTSVNPath changedpath;
-				changedpath.SetFromWin(CString(command.path), true);
-				// remove the path from our cache - that will 'invalidate' it.
+				{
+					CTSVNPath changedpath;
+					changedpath.SetFromWin(CString(command.path), true);
+					// remove the path from our cache - that will 'invalidate' it.
+					CSVNStatusCache::Instance().WaitToWrite();
+					CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
+					CSVNStatusCache::Instance().Done();
+					CSVNStatusCache::Instance().AddFolderForCrawling(changedpath.GetDirectory());
+				}
+				break;
+			case TSVNCACHECOMMAND_REFRESHALL:
 				CSVNStatusCache::Instance().WaitToWrite();
-				CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
+				CSVNStatusCache::Instance().Refresh();
 				CSVNStatusCache::Instance().Done();
-				CSVNStatusCache::Instance().AddFolderForCrawling(changedpath.GetDirectory());
 				break;
 		}
 	} 

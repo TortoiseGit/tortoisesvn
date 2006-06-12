@@ -428,21 +428,23 @@ BEGIN
     GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,12,7,274,31
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,266,10
-    GROUPBOX        "Status cache",IDC_STATIC,12,41,274,32
+    GROUPBOX        "Status cache",IDC_STATIC,12,41,274,43
     CONTROL         "&Default",IDC_CACHEDEFAULT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,56,60,10
     CONTROL         "Shell",IDC_CACHESHELL,"Button",BS_AUTORADIOBUTTON,114,56,63,10
     CONTROL         "None",IDC_CACHENONE,"Button",BS_AUTORADIOBUTTON,213,56,70,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,78,274,61
-    CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,90,130,10
-    CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,104,130,10
-    CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,119,127,10
-    CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,90,118,10
-    CONTROL         "R&AM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,104,112,10
-    CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,118,118,10
-    LTEXT           "Exclude paths:",IDC_STATIC,18,153,95,8
-    EDITTEXT        IDC_EXCLUDEPATHS,117,146,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
-    LTEXT           "Include paths:",IDC_STATIC,18,184,95,8
-    EDITTEXT        IDC_INCLUDEPATHS,117,176,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,86,274,61
+    CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,98,130,10
+    CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,112,130,10
+    CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,127,127,10
+    CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,98,118,10
+    CONTROL         "R&AM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,112,112,10
+    CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,126,118,10
+    LTEXT           "Exclude paths:",IDC_STATIC,18,162,95,8
+    EDITTEXT        IDC_EXCLUDEPATHS,117,155,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Include paths:",IDC_STATIC,18,190,95,8
+    EDITTEXT        IDC_INCLUDEPATHS,117,182,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "Unversioned files mark parent folder as modified",IDC_UNVERSIONEDASMODIFIED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,70,268,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -2354,6 +2356,8 @@ BEGIN
                             "You must restart your system for the changes to take effect."
     IDS_SETTINGS_ASPHACKWARNING 
                             "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
+    IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT 
+                            "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
 END
 
 STRINGTABLE 
