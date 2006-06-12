@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-30 21:36+0100\n"
+"PO-Revision-Date: 2006-06-07 21:49+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -424,6 +424,10 @@ msgstr "&Spring naar eerste verschil bij het laden"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Taal:"
+
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Alleen zoeken in gewijzigde regels"
 
 #: Control-ID:1172
 msgid "&List View"
@@ -2207,6 +2211,10 @@ msgstr "Diff van twee bestanden"
 msgid "File patches"
 msgstr "Bestand-patches"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Zoeken"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -2220,8 +2228,8 @@ msgid "Finished!"
 msgstr "Gereed!"
 
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Druk op F1 voor help"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Druk op F1 voor hulp. Horizontaal scrollen gaat met Ctrl-Scrollwiel"
 
 #: Control-ID:1200
 msgid "From:"
@@ -2506,8 +2514,8 @@ msgid "Initial import"
 msgstr "Initiële import"
 
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Verschil in spaties in een regel"
+msgid "Inline diff"
+msgstr "Diff binnen een regel"
 
 #: Dlg-ID:161
 msgid "Input"
@@ -2666,10 +2674,6 @@ msgstr "Minst actieve auteur:"
 msgid "Left View: "
 msgstr "Linker beeld:"
 
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Regel met verschillen in spaties en tabs"
-
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -2811,6 +2815,10 @@ msgid ""
 msgstr ""
 "Markeert een bestand als opgelost in Subversion\n"
 "Markeer als opgelost"
+
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Gelijke &hoofd-/kleine letters"
 
 #: Control-ID:1159
 msgid "Max"
@@ -3856,6 +3864,10 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Doorzoek &logboekberichten..."
 
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Zoeken naar:"
+
 #: ID:3867
 #, c-format
 msgid "Seek failed on %1"
@@ -4334,12 +4346,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Het bestand\n"
 "%s\n"
 "is geen geldig tekstbestand!\n"
-"N.B.: UTF16 en UTF32-bestanden worden ook als binair beschouwd."
+"N.B.: UTF32-bestanden worden ook als binair beschouwd."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -5089,10 +5101,6 @@ msgstr "Waarschuwing"
 #: ID:219
 msgid "Warning!"
 msgstr "Waarschuwing!"
-
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Diff van spaties en witregels"
 
 #: ID:146
 msgid "With URL:"
