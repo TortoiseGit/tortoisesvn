@@ -74,7 +74,7 @@ function print_langpack($i, $postat, $v, $w)
 For detailed info on what's new, read the <?php echo get_changelog($v); ?>.
 </p>
 <p>
-This page points to installers for 32 bit and 64 bit processors. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
+This page points to installers for 32 bit and 64 bit operating systems. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
 </p>
 <p>
 <div class="table">
