@@ -335,6 +335,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = m_statushash;
 	hashbaton.pThis = this;
+	m_statushashindex = 0;
 	m_err = svn_client_status2 (&headrev,
 							path.GetSVNApiPath(),
 							&rev,
