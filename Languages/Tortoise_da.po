@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6712
+# Based on Tortoise.pot r6769
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-07 10:42+0100\n"
+"PO-Revision-Date: 2006-06-13 14:46+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2165,6 +2165,10 @@ msgid "If set, files inside unversioned folders can be shown in the status contr
 msgstr "Hvis valgt, så kan filer i ikke-versionerede mapper vises i status-kontrollen.\nStatus-kontrollen benyttes til eksempel i \"Arkivér\"-dialogen."
 
 #: ID:196,
+msgid "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
+msgstr "Hvis valgt, så vil en overordnet mappe, der indeholder ikke-versionerede filer, bliver vist som værende ændret,\ndvs. blive vist med ikonoverdæningen hørende til ændrede emner."
+
+#: ID:196,
 msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
 msgstr "Hvis du ændrer denne værdi, vil du ikke længere kunne arbejde med dine eksisterende arbejdskopier!\nDu skal derfor hente alle dine arbejdskopier igen.\nHvis du ikke er sikker på, hvad du gør, bør du læse dokumentationen.\nEr du helt sikker på, at du vil fortsætte?"
 
@@ -4186,6 +4190,10 @@ msgstr "Låst op"
 #: ID:3841,#: ID:3841,
 msgid "Untitled"
 msgstr "Ikke-navngivet"
+
+#: Control-ID:1313,
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Ikke-versionerede filer viser overordnet mappe som ændret"
 
 #: Dlg-ID:152,
 msgid "Update"
