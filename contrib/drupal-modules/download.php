@@ -14,6 +14,7 @@ $v['url2']=variable_get('tsvn_sf_append', '');
 $v['flagpath']="/flags/world.small/";
 
 $w['w32']=$v['release'].".".$v['build']."-win32"; 
+$w['w32wrong']=$v['release'].".".$v['build'].""; 
 $w['x64']=$v['release'].".".$v['build_x64']."-x64"; 
 
 function get_changelog($v)
@@ -73,6 +74,9 @@ function print_langpack($i, $postat, $v, $w)
 For detailed info on what's new, read the <?php echo get_changelog($v); ?>.
 </p>
 <p>
+This page points to installers for 32 bit and 64 bit processors. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
+</p>
+<p>
 <div class="table">
 <table>
 <tr>
@@ -81,12 +85,12 @@ For detailed info on what's new, read the <?php echo get_changelog($v); ?>.
 </tr>
 <tr>
 <th>32 Bit</th>
-<td><?php echo get_installer($v,$w['w32']) ?></td>
+<td><?php echo get_installer($v,$w['w32wrong']) ?></td>
 <td>Installer</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td><?php echo get_checksum($v,$w['w32']) ?></td>
+<td><?php echo get_checksum($v,$w['w32wrong']) ?></td>
 <td>MD5 checksum</td>
 </tr>
 <tr>
