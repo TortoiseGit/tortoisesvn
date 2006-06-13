@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-06 10:13+0800\n"
+"PO-Revision-Date: 2006-06-13 09:08+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -521,7 +521,7 @@ msgstr "語系(&L)"
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
-msgstr "僅搜尋修改過的行(&L)"
+msgstr "僅搜尋異動過的行(&L)"
 
 # ID:188,
 #: Control-ID:1172
@@ -3030,6 +3030,15 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"啟用此選項時, 含有無版本控制的檔案會使上層的資料夾顯示為異動\n"
+"也就是會顯示異動的圖示."
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -3684,7 +3693,7 @@ msgstr "沒有發生錯誤."
 # ID:77,
 #: ID:82
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr "沒有修改過檔案或目錄, 不需要 TortoiseSVN 復原!"
+msgstr "沒有異動的檔案或目錄, 不需要 TortoiseSVN 復原!"
 
 # ID:77,
 #: ID:77
@@ -4742,7 +4751,7 @@ msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
-"儲存變更過的檔案\n"
+"儲存異動的檔案\n"
 "儲存檔案"
 
 # Control-ID:1132,
@@ -5067,7 +5076,7 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1209
 msgid "Show unmodified files"
-msgstr "顯示未修改的檔案"
+msgstr "顯示無異動的檔案"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5461,7 +5470,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "目錄 %s\n"
-"裡有未做版本控制以及可能有已修改過的檔案. 確定要刪除嗎?"
+"裡有未做版本控制以及可能有異動過的檔案. 確定要刪除嗎?"
 
 # ID:88,
 #: ID:88
@@ -6092,6 +6101,11 @@ msgstr "未鎖定"
 #: ID:3841
 msgid "Untitled"
 msgstr "未命名"
+
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
 
 # ID:8,#:
 # ID:74,#:
