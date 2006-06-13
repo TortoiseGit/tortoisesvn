@@ -615,14 +615,11 @@ trevor = rw
 		</indexterm>
 		<para>
 			The original SSPI module was offered by Syneapps including
-			sourcecode. But the development for it has been stopped. You can
-			still find that module on the internet - just do a
-			google search for it. We also have a compiled version of it
-			on our website, supplied by Norbert Unterberg.
-			This one is mod_auth_sspi 1.0.3 which supports a
-			<literal>SSPIUsernameCase [upper|lower]</literal> directive.
-			<ulink url="http://tortoisesvn.tigris.org/mod_auth_sspi.zip">
-				<citetitle>Get the mod_auth_sspi module</citetitle>
+			sourcecode. But the development for it has been stopped. 
+			But don't despair, the community has picked it up and improved
+			it. It has a new home on 
+			<ulink url="http://sourceforge.net/projects/mod-auth-sspi/">
+				<citetitle>SourceForge</citetitle>
 			</ulink>.
 		</para>
 		<itemizedlist>
