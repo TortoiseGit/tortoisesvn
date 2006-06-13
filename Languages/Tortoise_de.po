@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-06 09:38+0100\n"
+"PO-Revision-Date: 2006-06-13 10:01+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2495,6 +2495,16 @@ msgid ""
 msgstr ""
 "Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\n"
 "im Statusfenster - zum Beispiel des Übertragen Dialogs - angezeigt werden."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Aktivieren Sie diese Option, damit das übergeordnete Verzeichnis als\n"
+"modifiziert markiert (erhält das 'modifiziert' Symbol) wird, wenn es\n"
+"nicht versionierte Dateien enthält."
 
 # ID:196,
 #: ID:196
@@ -5032,6 +5042,11 @@ msgstr "Entsperrt"
 #: ID:3841
 msgid "Untitled"
 msgstr "Unbenannt"
+
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
 
 #: Dlg-ID:152
 msgid "Update"
