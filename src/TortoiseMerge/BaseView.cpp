@@ -503,6 +503,7 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 
 bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 {
+#define MAX_WHITESPACEBLOCK_SIZE	8
 	CDiffData::DiffStates origstateThis = (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex);
 	if (origstateThis == CDiffData::DIFFSTATE_NORMAL)
 		return false;
@@ -531,10 +532,10 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 	}
 	if (m_arDiffDiffLines)
 	{
-		// Go back at most 4 lines to see where this block ends
+		// Go back at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
 		int nStartBlockThis = nLineIndex;
 		int nEndBlockThis = nLineIndex;
-		while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-4)))
+		while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
 		{
 			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nStartBlockThis-1);
 			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
@@ -544,7 +545,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 			else
 				break;
 		}
-		while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+4)))
+		while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
 		{
 			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nEndBlockThis+1);
 			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
@@ -557,7 +558,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 		int nStartBlockOther = nLineIndex;
 		int nEndBlockOther = nLineIndex;
 		CDiffData::DiffStates origstateOther = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nLineIndex);
-		while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-4)))
+		while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
 		{
 			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nStartBlockOther-1);
 			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
@@ -567,7 +568,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 			else
 				break;
 		}
-		while ((nEndBlockOther < (GetLineCount()-1))&&(nEndBlockOther < (nLineIndex+4)))
+		while ((nEndBlockOther < (GetLineCount()-1))&&(nEndBlockOther < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
 		{
 			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nEndBlockOther+1);
 			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
