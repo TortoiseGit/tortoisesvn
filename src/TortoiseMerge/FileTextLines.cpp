@@ -305,16 +305,24 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
 		{
 			CString sLineU;
+			bool bEmpty = false;
 			while (file.ReadString(sLineU))
 			{
-				sLineU.TrimRight(_T("\r\n"));
+				bEmpty = sLineU.IsEmpty();
 				Add(sLineU);
+			}
+			if (bEmpty)
+			{
+				// newline at end of file
+				Add(_T(""));
 			}
 		}
 		else
 		{
+			bool bEmpty = false;
 			while (file.ReadString(sLine))
 			{
+				bEmpty = sLine.IsEmpty();
 				switch (m_UnicodeType)
 				{
 				case CFileTextLines::ASCII:
@@ -329,6 +337,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 				default:
 					Add(CString(sLine));
 				}
+			}
+			if (bEmpty)
+			{
+				// newline at end of file
+				Add(_T(""));
 			}
 		}
 		file.Close();
