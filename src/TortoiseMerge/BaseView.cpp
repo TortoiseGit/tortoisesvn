@@ -1167,8 +1167,6 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				if (diff)
 				{
 					svn_diff_t * tempdiff = diff;
-					apr_off_t common = 0;
-					apr_off_t modified = 0;
 					int diffcounts = 0;
 					apr_off_t maxcommon = 0;
 					// First check if we really should show inline diffs
@@ -1176,17 +1174,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					// completely different but at least a little bit similar
 					while (tempdiff)
 					{
-						if (tempdiff->type == svn_diff__type_common)
-						{
-							common += tempdiff->original_length;
-							maxcommon = max(maxcommon, tempdiff->original_length);
-						}
-						if (tempdiff->type == svn_diff__type_diff_modified)
-							modified += tempdiff->modified_length;
+						maxcommon = max(maxcommon, tempdiff->original_length);
 						diffcounts++;
 						tempdiff = tempdiff->next;
 					}
-					if ((common > modified)||(diffcounts < maxcommon))
+					if (diffcounts < maxcommon)
 					{
 						tempdiff = diff;
 						int lineoffset = 0;
