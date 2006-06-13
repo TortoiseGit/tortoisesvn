@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6712: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6769: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-05 12:50+0300\n"
+"PO-Revision-Date: 2006-06-13 12:11+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2493,6 +2493,14 @@ msgid ""
 msgstr ""
 "Если отмечено, файлы из неверсионных папок будут показаны в списке состояния.\n"
 "Список состояния используется, например, в диалоге фиксации."
+
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Если отмечено, то наличие неверсированных файлов отмечает родительскую папку как изменённую\n"
+"т.е. у неё на значке будет пометка 'изменена'."
 
 #: ID:196
 msgid ""
@@ -5023,6 +5031,10 @@ msgstr "Разблокирован"
 #: ID:3841
 msgid "Untitled"
 msgstr "Неназванный"
+
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Неверсированные файлы отмечают родительскую папку как изменённую"
 
 # Заголовок окна
 #: Dlg-ID:152
