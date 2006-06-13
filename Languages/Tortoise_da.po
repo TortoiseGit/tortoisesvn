@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6665
+# Based on Tortoise.pot r6712
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-01 12:57+0100\n"
+"PO-Revision-Date: 2006-06-07 10:42+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -431,6 +431,10 @@ msgstr "&Gå direkte til første forskel"
 msgid "&Language:"
 msgstr "&Sprog:"
 
+#: Control-ID:1065,
+msgid "&Limit search to modified lines"
+msgstr "&Begræns søgning til ændrede linjer"
+
 #: Control-ID:1172,
 msgid "&List View"
 msgstr "Vis som &liste"
@@ -832,7 +836,7 @@ msgstr "Tilføj \"&ignorer\"-listen"
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Tilføj/rediger filendelse-specifikt sammenlignings/flet-program"
 
-#: ID:73,#: ID:264,#: Control-ID:65535,
+#: ID:73,#: ID:264,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Added"
 msgstr "Tilføjet"
 
@@ -1143,7 +1147,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1988,6 +1992,10 @@ msgstr "Filforskelle"
 msgid "File patches"
 msgstr "Korrekturark"
 
+#: Dlg-ID:139,
+msgid "Find"
+msgstr "Søg"
+
 #: ID:3603,
 msgid "Find the specified text\nFind"
 msgstr "Find den angivne tekst\nFind"
@@ -2216,8 +2224,8 @@ msgstr "Oprindelig import"
 
 #: Control-ID:65535,
 #, fuzzy
-msgid "Inline whitespace diff"
-msgstr "Sammenligning af blanktegn"
+msgid "Inline diff"
+msgstr "Vis sammenligning"
 
 #: Dlg-ID:161,
 msgid "Input"
@@ -2283,11 +2291,6 @@ msgstr "Mindst aktive forfatter:"
 #: ID:188,
 msgid "Left View: "
 msgstr "Venstre visning: "
-
-#: Control-ID:65535,
-#, fuzzy
-msgid "Line with whitespace diff"
-msgstr "Linje med forskel i blanktegn"
 
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
@@ -2412,6 +2415,10 @@ msgstr "Rediger Subversion-egenskaber"
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
+
+#: Control-ID:1064,
+msgid "Match &case"
+msgstr "Forskel på store/små &bogstaver"
 
 #: Control-ID:1159,
 msgid "Max"
@@ -3020,7 +3027,7 @@ msgstr "Tekststatus på server"
 msgid "Remove from &ignore list"
 msgstr "Fjern fra \"&ignorer\"-listen"
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "Removed"
 msgstr "Fjernet"
 
@@ -3355,6 +3362,10 @@ msgstr "Scintilla"
 #: ID:113,
 msgid "Search &log messages..."
 msgstr "Søg i &logbeskeder..."
+
+#: Control-ID:65535,
+msgid "Search for:"
+msgstr "Søg efter:"
 
 #: ID:3867,#: ID:3867,
 #, c-format
@@ -3767,8 +3778,8 @@ msgstr "Tekststatus"
 
 #: ID:69,
 #, c-format
-msgid "The File\n%s\nis not a valid text file!\nNote that UTF16 and UTF32 files are treated as binary too."
-msgstr "Filen\n%s\ner ikke en gyldig tekstfil!\nBemærk, at UTF16- og UTF32-filer også opfattes som binære."
+msgid "The File\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
+msgstr "Filen\n%s\ner ikke en gyldig tekstfil!\nBemærk, at UTF32-filer også opfattes som binære."
 
 #: ID:80,
 msgid "The Repository was successfully created."
@@ -4309,10 +4320,6 @@ msgstr "Advarsel"
 #: ID:219,
 msgid "Warning!"
 msgstr "Advarsel!"
-
-#: Control-ID:65535,
-msgid "Whitespace diff"
-msgstr "Forskel i blanktegn"
 
 #: ID:146,
 msgid "With URL:"
