@@ -957,13 +957,18 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				LONG lineyour = m_arDiff3LinesYour.GetAt(i);
 				LONG linetheir = m_arDiff3LinesTheir.GetAt(i);
 				LONG linebase = m_arDiff3LinesBase.GetAt(i);
-				if ((m_arYourFile.GetAt(lineyour).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
-					(m_arTheirFile.GetAt(linetheir).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
-					(m_arYourFile.GetAt(lineyour).Compare(m_arTheirFile.GetAt(linetheir))!=0))
+				if ((lineyour < m_arYourFile.GetCount()) &&
+					(linetheir < m_arTheirFile.GetCount()) &&
+					(linebase < m_arBaseFile.GetCount()))
 				{
-					m_arStateDiff3.SetAt(i, DIFFSTATE_CONFLICTED);
-					m_arStateTheirBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
-					m_arStateYourBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
+					if ((m_arYourFile.GetAt(lineyour).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
+						(m_arTheirFile.GetAt(linetheir).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
+						(m_arYourFile.GetAt(lineyour).Compare(m_arTheirFile.GetAt(linetheir))!=0))
+					{
+						m_arStateDiff3.SetAt(i, DIFFSTATE_CONFLICTED);
+						m_arStateTheirBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
+						m_arStateYourBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
+					}
 				}
 			}
 		}
