@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-09 14:37+0800\n"
+"PO-Revision-Date: 2006-06-14 11:41+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3015,6 +3015,15 @@ msgid ""
 msgstr ""
 "设置后，未进行版本控制的文件夹中的文件将出现在“状态控制”中。\n"
 "“状态控制”用于类似提交对话框等地方。"
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"设置后，包含无版本控制的文件的文件夹将标志为修改后。\n"
+"例如，图标显示为修改状态。"
 
 # ID:196,
 #: ID:196
@@ -6070,6 +6079,11 @@ msgstr "已解除锁定"
 #: ID:3841
 msgid "Untitled"
 msgstr "未命名"
+
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "包含无版本控制的文件的文件夹标志为修改后"
 
 # ID:8,#:
 # ID:74,#:
