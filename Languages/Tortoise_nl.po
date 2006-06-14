@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-07 21:49+0100\n"
+"PO-Revision-Date: 2006-06-14 21:43+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2447,6 +2447,14 @@ msgid ""
 msgstr ""
 "Hiermee kunnen bestanden uit mappen zonder versiebeheer getoond worden in\n"
 "statusoverzichten. De vastleggen-dialoog bevat bijvoorbeeld zo'n statusoverzicht."
+
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Activeer deze optie om mappen als gewijzigd te markeren als er bestanden in staan\n"
+"die niet onder versiebeheer vallen. De map krijgt dan het 'gewijzigd' overlay pictogram."
 
 #: ID:196
 msgid ""
@@ -4946,6 +4954,10 @@ msgstr "Blokkade opgeheven"
 #: ID:3841
 msgid "Untitled"
 msgstr "Naamloos"
+
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Bestanden zonder versiebeheer markeren map als gewijzigd"
 
 #: Dlg-ID:152
 msgid "Update"
