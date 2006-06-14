@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-01 18:01+0100\n"
+"PO-Revision-Date: 2006-06-14 17:32+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -436,6 +436,11 @@ msgstr "&Saltar a la primera diferencia al cargar"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Idioma:"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Limitar la búsqueda a las líneas modificadas"
 
 # ID:188,
 #: Control-ID:1172
@@ -2330,6 +2335,10 @@ msgstr "Diferencias de ficheros"
 msgid "File patches"
 msgstr "Archivos de parche"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Buscar"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -2584,6 +2593,15 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Si se establece, los ficheros sin versionar marcarán el estado de su directorio padre como modificado\n"
+"es decir, esos directorios obtendrán el icono sobreimpresionado de estar modificados."
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -2652,8 +2670,8 @@ msgid "Initial import"
 msgstr "Importación inicial"
 
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Diferencia de espacios en blanco en la línea"
+msgid "Inline diff"
+msgstr "Diff dentro de la línea"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -2822,10 +2840,6 @@ msgstr "Autor menos activo:"
 msgid "Left View: "
 msgstr "Panel izquierdo:"
 
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Línea con diferencia en los espacios"
-
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -2985,6 +2999,11 @@ msgid ""
 msgstr ""
 "Marca un fichero como resuelto en Subversion\n"
 "Marcar como resuelto"
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Coincidir &mayúsculas y minúsculas"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -4084,6 +4103,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Buscar mensajes de &registro..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Buscar:"
+
 #: ID:3867
 #, c-format
 msgid "Seek failed on %1"
@@ -4587,12 +4611,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
-"El Fichero\n"
+"¡El fichero\n"
 "%s\n"
 "no es un fichero de texto válido!\n"
-"Tenga en cuenta que los ficheros UTF16 y UTF32 se tratan también como binarios."
+"Tenga en cuenta que los ficheros UTF32 se tratan también como binarios."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -5219,6 +5243,11 @@ msgstr "Desbloqueado"
 msgid "Untitled"
 msgstr "SinTitulo"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Ficheros sin versionar marcan la carpeta padre como modificada"
+
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Actualizar"
@@ -5381,10 +5410,6 @@ msgstr "Atención"
 #: ID:219
 msgid "Warning!"
 msgstr "¡ Atención !"
-
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Diferencia de Espacios"
 
 #: ID:146
 msgid "With URL:"
