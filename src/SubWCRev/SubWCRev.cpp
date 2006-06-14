@@ -386,6 +386,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (!PathFileExists(wc))
 	{
 		_tprintf(_T("Directory or file '%s' does not exist\n"), wc);
+		if (_tcschr(wc, '\"') != NULL) // dir contains a quoation mark
+		{
+			_tprintf(_T("The WorkingCopyPath contains a quotation mark.\n"));
+			_tprintf(_T("This indicates a problem when calling SubWCRev from an interpreter which treats\n"));
+			_tprintf(_T("a backslash char specially.\n"));
+			_tprintf(_T("Try using double backslashes or insert a dot after the last backslash when\n"));
+			_tprintf(_T("calling SubWCRev\n"));
+			_tprintf(_T("Examples:\n"));
+			_tprintf(_T("SubWCRev \"path to wc\\\\\"\n"));
+			_tprintf(_T("SubWCRev \"path to wc\\.\"\n"));
+		}
 		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
