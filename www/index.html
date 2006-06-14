@@ -1,25 +1,72 @@
 	<p>Please <a href="/donate.html">support</a> this project!</p>
-    <img alt="TortoiseSVN Logo with SVeN, our little turtle" src="tortoisesvn_logo_hor468x64.PNG">
 		<p>	TortoiseSVN is a <a href="http://subversion.tigris.org" target="top_">Subversion</a> client, implemented as a windows shell extension.
 		The coolest Interface to (Sub)Version Control.</p>
-    <img alt="TortoiseMerge Logo with SVeN, our little turtle" src="tortoisemerge_logo_hor468x64.png">
-		<p> TortoiseMerge is a diff viewer / patch program and part of TortoiseSVN.</p>
 
 		<p> TortoiseSVN is a really easy-to-use version control / source control client under a GPL license, i.e it's free! <br />
 		    Since it's not an integration for a <em>specific</em> IDE you can use it with whatever development tools you like. </p>
-		<p> If you're not sure if TortoiseSVN is the best SCM solution for you, check out the 
-		    <a href="http://better-scm.berlios.de/comparison/comparison.html">SCM comparison</a>.</p>
 		<h3>Features of TortoiseSVN/Subversion</h3>
         <ul>
-            <li> Windows Shell (Explorer) integration. Can be used without any IDE.</li>
-            <li> Icon overlays show immediately which files/folders need to be uploaded (committed) to the database.</li>
-            <li> Easy to use dialogs for version control operations.</li>
-            <li> The UI is available in different languages. </li>
-            <li> Global revision numbers. You can get old versions of your <em>project</em> and not just single files.</li>
-            <li> Atomic transactions. Interrupted operations don't affect the repository at all.</li>
+            <li>Easy to use</li>
+				<ul>
+					<li> all commands are available directly from the windows explorer. </li>
+					<li> only commands that make sense for the selected file/folder are shown. You won't
+						 see any commands that you can't use in your situation.</li>
+					<li> descriptive dialogs, constantly improved due to user feedback</li>
+					<li> allows moving files by right-dragging them in the windows explorer </li>
+				</ul>
+            <li>All Subversion protocols are supported</li>
+				<ul>
+					<li>http://</li>
+					<li>https://</li>
+					<li>svn://</li>
+					<li>svn+ssh://</li>
+					<li>file:///</li>
+					<li>svn+XXX://<li>
+				</ul>
+            <li>Powerful commit dialog</li>
+				<ul>
+					<li>integrated spell checker for log messages</li>
+					<li>auto completion of paths and keywords of the modified files</li>
+					<li>text formatting with special chars [<a href="#version14">*</a>]</li>
+				</ul>
+            <li>The big picture</li>
+				<ul>
+					<li>Can create a graph of all revisions/commits. You can then easily see where
+					    you created a tag/branch or modified a file/folder</li>
+					<li>Graphs of commit statistics of the project</li>
+					<li>Easy comparing of two branches or tags [<a href="#version14">*</a>]</li>
+				</ul>
+            <li>Per project settings</li>
+				<ul>
+					<li>minimum log message length to avoid accidentally committing with an empty log message</li>
+					<li>langague to use for the spell checker</li>
+				</ul>
+            <li>Integration with issuetrackers</li>
+				<ul>
+					<li>A separate input box to enter the issue number assigned to the commit, or coloring of
+					    the issue number directly in the log message itself</li>
+					<li>When showing all log messages, an extra column is added with the issue number. You can
+					    immediately see to which issue the commit belongs to.</li>
+					<li>Issue numbers are converted into links which open the webbrowser directly on the
+					    corresponding issue</li>
+					<li>Optional warning if a commit isn't assigned to an issue number</li>
+				</ul>
+			<li>Helpful Tools</li>
+				<ul>
+					<li>TortoiseMerge</li>
+						<ul>
+							<li>Shows changes you made to your files</li>
+							<li>Helps resolving conflicts</li>
+							<li>Can apply patchfiles you got from users without commit access to your repository</li>
+						</ul>
+					<li>TortoiseBlame: to show blames of files. Shows also log messages for each line in a file.</li>
+					<li>TortoiseIDiff: to see the changes you made to your image files [<a href="#version14">*</a>]</li>
+					<li>SubWCRev: to include the revision numbers/dates/... into your source files</li>
+				</ul>
+			<li>Available in many languages</li>
         </ul>
-		<IMG alt="Explorer Integration" src="images/ExplorerView1.png">
-		<br />A sample of the explorer view integration.
+		<a name="version14">
+		[*] These features are available in the upcoming 1.4.0 release.
 		<h3>System Requirements</h3>
 		<ul>
 			<li>
