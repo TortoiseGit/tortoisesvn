@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-07 01:11+0100\n"
+"PO-Revision-Date: 2006-06-15 19:05+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3028,6 +3028,15 @@ msgid ""
 msgstr ""
 "Se impostato, i file all'interno delle cartelle non versionate possono essere mostrate nel controllo dello stato.\n"
 "Il controllo dello stato è usato, per esempio, nella finestra di invio."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Se selezionato i file senza versione marcheranno lo stato delle cartelle che li contengono come modificate\n"
+"Ad esse verrà associata l'icona di stato \"modificato\"."
 
 # ID:196,
 #: ID:196
@@ -6103,6 +6112,11 @@ msgstr "Sbloccato"
 msgid "Untitled"
 msgstr "Senza titolo"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "I file senza versione marcano le cartelle che li contengono come modificate "
+
 # ID:8,#:
 # ID:74,#:
 # Dlg-ID:152,
@@ -6959,5 +6973,4 @@ msgstr "settimana"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "che punta al repository all'indirizzo:"
-
 
