@@ -1,0 +1,47 @@
+<a name="contextmenus">
+<h2>Context menus in Windows Explorer</h2>
+<p>
+All commands are available through the context menu in the Windows
+Explorer. You can choose which entries TortoiseSVN should show in the
+top context menu and which it should put in the submenu.
+</p>
+<p>
+The context menu for versioned folders show the commands you can use on such folders.
+</p>
+<p><img alt="Context menu for versioned folders" src="images/ContextMenuDirControl.png"></p>
+<p>
+The context menu for unversioned folders shows commands where you can either create
+working copies, or commands you can use with URLs.
+</p>
+<p><img alt="Context menu for unversioned folders" src="images/ContextMenuDirNoControl.png"></p>
+<p>
+Not all commands which are available for versioned folders are also available for
+versioned files. Remember that Subversion is folder oriented unlike CVS which is more
+file oriented.
+</p>
+<p><img alt="Context menu for versioned files" src="images/ContextMenuFileControl.png"></p>
+<p>
+The menu for unversioned files has very few entries.
+</p>
+<img alt="Context menu for unversioned files" src="images/ContextMenuFileNoControl.png">
+
+<p>
+Since moving and copying files/folders always has to be done via the Subversion commands,
+TortoiseSVN helps here too by adding entries to the right-drag context menu (select a file/folder, 
+right-drag it to another location and release the right mouse button):
+</p>
+<img alt="Right-drag context menu" src="images/RightDragMenu.png">
+
+<a name="overlays">
+<h2>Icon overlays</h2>
+<p>
+Inside the Windows Explorer, TortoiseSVN shows you the state of the files with
+overlay icons. The following screenshot shows all available overlays, but usually you
+will only see a few of them.
+</p>
+<img alt="The overlay icons" src="images/Overlays.png">
+<p>
+If you use the Windows Explorer in details view, TortoiseSVN can add additional
+columns so you have all the information available:
+</p>
+<img alt="The revision graph" src="images/ExplorerDetailView.png">
