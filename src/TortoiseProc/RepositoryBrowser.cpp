@@ -183,14 +183,14 @@ UINT CRepositoryBrowser::InitThread()
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
+	DialogEnableWindow(IDCANCEL, FALSE);
 	SVN svn;
 	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
 	PostMessage(WM_AFTERINIT);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
-	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+	DialogEnableWindow(IDOK, TRUE);
+	DialogEnableWindow(IDCANCEL, TRUE);
 	
 	m_bThreadRunning = false;
 
@@ -451,7 +451,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				}
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
+			DialogEnableWindow(IDOK, FALSE);
 			bool bOpenWith = false;
 			switch (cmd)
 			{
@@ -1078,7 +1078,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			default:
 				break;
 			}
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			DialogEnableWindow(IDOK, TRUE);
 		} // if (popup.CreatePopupMenu()) 
 	} // if (hSelItem) 
 }

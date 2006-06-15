@@ -279,9 +279,9 @@ BOOL CLogDlg::OnInitDialog()
 	{
 		// the dialog is used to select revisions
 		if (m_bSelectionMustBeContinuous)
-			GetDlgItem(IDOK)->EnableWindow((m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
+			DialogEnableWindow(IDOK, (m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
 		else
-			GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+			DialogEnableWindow(IDOK, m_LogList.GetSelectedCount()!=0);
 	}
 	else
 	{
@@ -319,12 +319,12 @@ void CLogDlg::EnableOKButton()
 	{
 		// the dialog is used to select revisions
 		if (m_bSelectionMustBeContinuous)
-			GetDlgItem(IDOK)->EnableWindow((m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
+			DialogEnableWindow(IDOK, (m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
 		else
-			GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+			DialogEnableWindow(IDOK, m_LogList.GetSelectedCount()!=0);
 	}
 	else
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+		DialogEnableWindow(IDOK, TRUE);
 }
 
 void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
@@ -663,9 +663,9 @@ UINT CLogDlg::LogThread()
 
 	//disable the "Get All" button while we're receiving
 	//log messages.
-	GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
-	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(FALSE);
-	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_GETALL, FALSE);
+	DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
+	DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
 	
 	CString temp;
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
@@ -721,11 +721,11 @@ UINT CLogDlg::LogThread()
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
-	GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_GETALL, TRUE);
 	
 	if (!m_bShowedAll)
-		GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(TRUE);
-	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
+		DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
+	DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
@@ -952,7 +952,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				GetDlgItem(IDOK)->EnableWindow(FALSE);
+				DialogEnableWindow(IDOK, FALSE);
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				bool bOpenWith = false;
@@ -1512,7 +1512,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_POPPROPS:
 					{
-						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						DialogEnableWindow(IDOK, FALSE);
 						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
@@ -1546,7 +1546,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_SAVEAS:
 					{
-						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						DialogEnableWindow(IDOK, FALSE);
 						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
@@ -1649,7 +1649,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					bOpenWith = true;
 				case ID_OPEN:
 					{
-						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						DialogEnableWindow(IDOK, FALSE);
 						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
@@ -1713,7 +1713,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_LOG:
 					{
-						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						DialogEnableWindow(IDOK, FALSE);
 						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
@@ -2009,7 +2009,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
 {
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	//get the filename
@@ -2065,7 +2065,7 @@ void CLogDlg::EditAuthor(int index)
 {
 	CString url;
 	CString name;
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	if (SVN::PathIsURL(m_path.GetSVNPathString()))
@@ -2106,7 +2106,7 @@ void CLogDlg::EditLogMessage(int index)
 {
 	CString url;
 	CString name;
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	if (SVN::PathIsURL(m_path.GetSVNPathString()))
@@ -2881,7 +2881,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-		GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+		DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 		return;
 	}
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
@@ -2899,7 +2899,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		}
 		if (m_sFilterText.IsEmpty())
 		{
-			GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+			DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 			// do not return here!
 			// we also need to run the filter if the filtertext is empty:
 			// 1. to clear an existing filter
@@ -3075,7 +3075,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 	} // if (nIDEvent == LOGFILTER_TIMER)
-	GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+	DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 	__super::OnTimer(nIDEvent);
 }
 

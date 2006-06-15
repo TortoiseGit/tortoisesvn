@@ -61,7 +61,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 	temp.Format(IDS_CHECKNEWER_YOURVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 	GetDlgItem(IDC_YOURVERSION)->SetWindowText(temp);
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
 
 	if (AfxBeginThread(CheckThreadEntry, this)==NULL)
 	{
@@ -183,7 +183,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 	}
 	DeleteFile(tempfile);
 	m_bThreadRunning = FALSE;
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	DialogEnableWindow(IDOK, TRUE);
 	return 0;
 }
 

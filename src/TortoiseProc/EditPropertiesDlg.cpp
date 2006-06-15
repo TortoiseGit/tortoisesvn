@@ -270,21 +270,21 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 	int selIndex = m_propList.GetSelectionMark();
 	if (selIndex < 0)
 	{
-		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
-		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
-		GetDlgItem(IDC_EDITPROPS)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
+		DialogEnableWindow(IDC_SAVEPROP, FALSE);
+		DialogEnableWindow(IDC_EDITPROPS, FALSE);
 		return;
 	}
 	else if (m_propList.GetSelectedCount()==0)
 	{
-		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
-		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
-		GetDlgItem(IDC_EDITPROPS)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
+		DialogEnableWindow(IDC_SAVEPROP, FALSE);
+		DialogEnableWindow(IDC_EDITPROPS, FALSE);
 		return;
 	}
-	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(TRUE);
-	GetDlgItem(IDC_SAVEPROP)->EnableWindow(TRUE);
-	GetDlgItem(IDC_EDITPROPS)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_REMOVEPROPS, TRUE);
+	DialogEnableWindow(IDC_SAVEPROP, TRUE);
+	DialogEnableWindow(IDC_EDITPROPS, TRUE);
 	*pResult = 0;
 }
 
@@ -336,8 +336,8 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 		}
 		prog.Stop();
 	}
-	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
-	GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
+	DialogEnableWindow(IDC_SAVEPROP, FALSE);
 	Refresh();
 }
 

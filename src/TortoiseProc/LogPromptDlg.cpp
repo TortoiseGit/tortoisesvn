@@ -368,10 +368,10 @@ UINT CLogPromptDlg::StatusThread()
 	InterlockedExchange(&m_bRunThread, TRUE);	// if this is set to FALSE, the thread should stop
 	m_bCancelled = false;
 
-	GetDlgItem(IDOK)->EnableWindow(false);
-	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
 	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
-	GetDlgItem(IDC_EXTERNALWARNING)->EnableWindow(false);
+	DialogEnableWindow(IDC_EXTERNALWARNING, false);
 
 	// Initialise the list control with the status of the files/folders below us
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
@@ -383,7 +383,7 @@ UINT CLogPromptDlg::StatusThread()
 	if (m_ListCtrl.HasExternalsFromDifferentRepos())
 	{
 		GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
-		GetDlgItem(IDC_EXTERNALWARNING)->EnableWindow();
+		DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
 	}
 	GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
 	m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
@@ -392,14 +392,7 @@ UINT CLogPromptDlg::StatusThread()
 	SetCursorPos(pt.x, pt.y);
 	CString logmsg;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	if (m_ProjectProperties.nMinLogSize > logmsg.GetLength())
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
+	DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= logmsg.GetLength());
 	if (!success)
 	{
 		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
@@ -437,7 +430,7 @@ UINT CLogPromptDlg::StatusThread()
 		GetAutocompletionList();
 		m_ListCtrl.Block(FALSE);
 	}
-	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(true);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
 	// we have the list, now signal the main thread about it
 	if (m_bRunThread)
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
@@ -561,7 +554,7 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
 	{
 		CMessageBox::Show(*this, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		DialogEnableWindow(IDCANCEL, true);
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
 	}
 	else
@@ -577,7 +570,7 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 			}
 			else
 			{
-				GetDlgItem(IDCANCEL)->EnableWindow(true);
+				DialogEnableWindow(IDCANCEL, true);
 				SetTimer(ENDDIALOGTIMER, 100, NULL);
 			}
 		}
@@ -941,7 +934,7 @@ void CLogPromptDlg::UpdateOKButton()
 
 	LONG nSelectedItems = m_ListCtrl.GetSelected();
 
-	GetDlgItem(IDOK)->EnableWindow(bValidLogSize && nSelectedItems>0);
+	DialogEnableWindow(IDOK, bValidLogSize && nSelectedItems>0);
 }
 
 

@@ -95,7 +95,7 @@ UINT CCreatePatch::PatchThread()
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	GetDlgItem(IDOK)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 
 	if (!m_PatchList.GetStatus(m_pathList))
@@ -106,7 +106,7 @@ UINT CCreatePatch::PatchThread()
 	m_PatchList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS, 
 						SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS);
 
-	GetDlgItem(IDOK)->EnableWindow(true);
+	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }

@@ -147,10 +147,10 @@ void CInputDlg::OnEnChangeLogmessage()
 	GetDlgItem(IDC_INPUTTEXT)->GetWindowText(sTemp);
 	if ((!m_bUseLogWidth)||((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
 	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+		DialogEnableWindow(IDOK, TRUE);
 	}
 	else
 	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		DialogEnableWindow(IDOK, FALSE);
 	}
 }

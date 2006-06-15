@@ -111,10 +111,10 @@ UINT CChangedDlg::ChangedStatusThread()
 	InterlockedExchange(&m_bBlock, TRUE);
 	m_bCanceled = false;
 	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
-	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
-	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
-	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(FALSE);
-	GetDlgItem(IDC_SHOWIGNORED)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_CHECKREPO, FALSE);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, FALSE);
+	DialogEnableWindow(IDC_SHOWUNMODIFIED, FALSE);
+	DialogEnableWindow(IDC_SHOWIGNORED, FALSE);
 	CString temp;
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, !!m_bShowIgnored))
 	{
@@ -143,10 +143,10 @@ UINT CChangedDlg::ChangedStatusThread()
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
-	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
-	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(TRUE);
-	GetDlgItem(IDC_SHOWIGNORED)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_CHECKREPO, TRUE);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, TRUE);
+	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
+	DialogEnableWindow(IDC_SHOWIGNORED, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
 	return 0;
 }

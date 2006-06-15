@@ -98,7 +98,7 @@ UINT CRevertDlg::RevertThread()
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	GetDlgItem(IDOK)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 
 	if (!m_RevertList.GetStatus(m_pathList))
@@ -108,7 +108,7 @@ UINT CRevertDlg::RevertThread()
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWDIRECTFILES, 
 						SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWDIRECTFILES);
 
-	GetDlgItem(IDOK)->EnableWindow(true);
+	DialogEnableWindow(IDOK, true);
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;

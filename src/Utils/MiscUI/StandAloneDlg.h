@@ -74,6 +74,21 @@ protected:
 			BaseType::OnPaint();
 		}
 	}
+	/**
+	 * Wrapper around the CWnd::EnableWindow() method, but
+	 * makes sure that a control that has the focus is not disabled
+	 * before the focus is passed on to the next control.
+	 */
+	BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
+	{
+		if (bEnable)
+			return GetDlgItem(nID)->EnableWindow(bEnable);
+		if (GetFocus() == GetDlgItem(nID))
+		{
+			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+		}
+		return GetDlgItem(nID)->EnableWindow(bEnable);
+	}
 private:
 	HCURSOR OnQueryDragIcon()
 	{

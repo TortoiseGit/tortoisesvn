@@ -136,16 +136,16 @@ BOOL CMergeDlg::OnInitDialog()
 		else
 			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 		if (m_bUseFromURL)
-			GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
+			DialogEnableWindow(IDC_URLCOMBO2, FALSE);
 		else
 		{
-			GetDlgItem(IDC_URLCOMBO2)->EnableWindow(TRUE);
+			DialogEnableWindow(IDC_URLCOMBO2, TRUE);
 			GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLTo);
 		}
 	}
 	else
 	{
-		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_URLCOMBO2, FALSE);
 		// set head revision as default revision
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
@@ -462,14 +462,14 @@ LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_START)->SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
-		GetDlgItem(IDC_REVISION_START)->EnableWindow(TRUE);
+		DialogEnableWindow(IDC_REVISION_START, TRUE);
 	}
 	if (wParam & MERGE_REVSELECTEND)
 	{
 		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_END)->SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
+		DialogEnableWindow(IDC_REVISION_END, TRUE);
 	}
 	return 0;
 }
@@ -487,15 +487,15 @@ void CMergeDlg::OnBnClickedUsefromurl()
 		CString str;
 		m_URLCombo.GetWindowText(str);
 		m_URLCombo2.SetWindowText(str);
-		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
-		GetDlgItem(IDC_BROWSE2)->EnableWindow(FALSE);
-		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_URLCOMBO2, FALSE);
+		DialogEnableWindow(IDC_BROWSE2, FALSE);
+		DialogEnableWindow(IDC_FINDBRANCHEND, FALSE);
 	}
 	else
 	{
-		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(TRUE);
-		GetDlgItem(IDC_BROWSE2)->EnableWindow(TRUE);
-		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(TRUE);
+		DialogEnableWindow(IDC_URLCOMBO2, TRUE);
+		DialogEnableWindow(IDC_BROWSE2, TRUE);
+		DialogEnableWindow(IDC_FINDBRANCHEND, TRUE);
 	}
 	UpdateData(FALSE);
 }

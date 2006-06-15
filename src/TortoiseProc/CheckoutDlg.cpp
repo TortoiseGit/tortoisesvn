@@ -289,14 +289,7 @@ BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()
 {
 	UpdateData(TRUE);
-	if (m_strCheckoutDirectory.IsEmpty())
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
+	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 }
 
 void CCheckoutDlg::OnBnClickedHelp()

@@ -83,12 +83,12 @@ BOOL CCopyDlg::OnInitDialog()
 	if (m_CopyRev.IsHead())
 	{
 		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
-		GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 	}
 	else
 	{
 		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-		GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+		DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 		CString temp;
 		temp.Format(_T("%ld"), (LONG)m_CopyRev);
 		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
@@ -99,8 +99,8 @@ BOOL CCopyDlg::OnInitDialog()
 	
 	if (SVN::PathIsURL(path.GetSVNPathString()))
 	{
-		GetDlgItem(IDC_COPYWC)->EnableWindow(FALSE);
-		GetDlgItem(IDC_DOSWITCH)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_COPYWC, FALSE);
+		DialogEnableWindow(IDC_DOSWITCH, FALSE);
 		GetDlgItem(IDC_COPYSTARTLABEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
 	}
 	
@@ -317,14 +317,7 @@ void CCopyDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
+	DialogEnableWindow(IDOK, sTemp.GetLength() >= m_ProjectProperties.nMinLogSize);
 }
 
 LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
@@ -333,23 +326,23 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 	temp.Format(_T("%ld"), lParam);
 	GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
 	CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 	return 0;
 }
 
 void CCopyDlg::OnBnClickedCopyhead()
 {
-	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedCopyrev()
 {
-	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 }
 
 void CCopyDlg::OnBnClickedCopywc()
 {
-	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedHistory()
@@ -362,14 +355,7 @@ void CCopyDlg::OnBnClickedHistory()
 	{
 		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
 			m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
-		if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
-		{
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-		}
-		else
-		{
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-		}
+		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
 	}
 
 }

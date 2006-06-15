@@ -264,12 +264,16 @@ void CSVNPropertyPage::InitWorkfileView()
 				{
 					//disable the 'recursive' checkbox for files
 					HWND recursivewnd = GetDlgItem(m_hwnd, IDC_RECURSIVE);
+					if (GetFocus() == recursivewnd)
+						::SendMessage(m_hwnd, WM_NEXTDLGCTL, 0, FALSE);
 					::EnableWindow(recursivewnd, FALSE);					
 				}
 				if (svn.status->text_status == svn_wc_status_added)
 				{
 					// disable the "show log" button for added files
 					HWND showloghwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);
+					if (GetFocus() == showloghwnd)
+						::SendMessage(m_hwnd, WM_NEXTDLGCTL, 0, FALSE);
 					::EnableWindow(showloghwnd, FALSE);
 				}
 				else
@@ -324,6 +328,8 @@ void CSVNPropertyPage::InitWorkfileView()
 	{
 		//deactivate the show log button
 		HWND logwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);
+		if (GetFocus() == logwnd)
+			::SendMessage(m_hwnd, WM_NEXTDLGCTL, 0, FALSE);
 		::EnableWindow(logwnd, FALSE);
 		//get the handle of the listview
 		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))

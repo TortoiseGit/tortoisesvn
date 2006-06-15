@@ -629,8 +629,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString sWindowTitle;
 	bool localoperation = false;
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+	DialogEnableWindow(IDOK, FALSE);
+	DialogEnableWindow(IDCANCEL, TRUE);
 	SetAndClearProgressInfo(m_hWnd);
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	iFirstResized = 0;
@@ -779,8 +779,8 @@ UINT CSVNProgressDlg::ProgressThread()
 				SetWindowText(sWindowTitle);
 				temp.LoadString(IDS_MSGBOX_OK);
 
-				GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-				GetDlgItem(IDOK)->EnableWindow(TRUE);
+				DialogEnableWindow(IDCANCEL, FALSE);
+				DialogEnableWindow(IDOK, TRUE);
 
 				InterlockedExchange(&m_bThreadRunning, FALSE);
 				break;
@@ -1053,8 +1053,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	SetWindowText(sWindowTitle);
 
-	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);	
+	DialogEnableWindow(IDCANCEL, FALSE);
+	DialogEnableWindow(IDOK, TRUE);
 
 	CString info = BuildInfoString();
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
@@ -1118,7 +1118,7 @@ void CSVNProgressDlg::OnClose()
 		m_bCancelled = TRUE;
 		return;
 	}
-	GetDlgItem(IDCANCEL)->EnableWindow();
+	DialogEnableWindow(IDCANCEL, TRUE);
 	__super::OnClose();
 }
 
@@ -1504,7 +1504,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (bAdded)
 					{
 						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						DialogEnableWindow(IDOK, FALSE);
 						this->SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						bool bOpenWith = false;
@@ -1536,7 +1536,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
 									{
 										ReportSVNError();
-										GetDlgItem(IDOK)->EnableWindow(TRUE);
+										DialogEnableWindow(IDOK, TRUE);
 										break;
 									}
 									// If necessary, convert the line-endings on the file before diffing
@@ -1569,7 +1569,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
 									{
 										ReportSVNError();
-										GetDlgItem(IDOK)->EnableWindow(TRUE);
+										DialogEnableWindow(IDOK, TRUE);
 										break;
 									}
 									else
@@ -1608,7 +1608,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (!svn.Resolve(data->path, FALSE))
 								{
 									ReportSVNError();
-									GetDlgItem(IDOK)->EnableWindow(TRUE);
+									DialogEnableWindow(IDOK, TRUE);
 									break;
 								}
 								else
@@ -1639,7 +1639,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (!svn.Resolve(data->path, FALSE))
 								{
 									ReportSVNError();
-									GetDlgItem(IDOK)->EnableWindow(TRUE);
+									DialogEnableWindow(IDOK, TRUE);
 									break;
 								}
 								else
@@ -1681,7 +1681,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 							}
 						}
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						DialogEnableWindow(IDOK, TRUE);
 						theApp.DoWaitCursor(-1);
 					} // if (bAdded)
 				} // if (m_ProgList.GetSelectedCount() == 1)

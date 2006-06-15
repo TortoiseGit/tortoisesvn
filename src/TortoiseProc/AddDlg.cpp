@@ -131,7 +131,7 @@ UINT CAddDlg::AddThread()
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	GetDlgItem(IDOK)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 	if (!m_addListCtrl.GetStatus(m_pathList))
 	{
@@ -140,7 +140,7 @@ UINT CAddDlg::AddThread()
 	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, 
 						SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT);
 
-	GetDlgItem(IDOK)->EnableWindow(true);
+	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }

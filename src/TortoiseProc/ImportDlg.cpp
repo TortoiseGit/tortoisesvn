@@ -72,6 +72,8 @@ BOOL CImportDlg::OnInitDialog()
 	else
 	{
 		m_URLCombo.SetWindowText(m_url);
+		if (GetFocus() == &m_URLCombo)
+			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
 		m_URLCombo.EnableWindow(FALSE);
 	}
 
@@ -222,14 +224,7 @@ void CImportDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_MESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
+	DialogEnableWindow(IDOK, sTemp.GetLength() >= m_ProjectProperties.nMinLogSize);
 }
 
 void CImportDlg::OnCancel()
@@ -250,14 +245,7 @@ void CImportDlg::OnBnClickedHistory()
 	{
 		if (m_HistoryDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
 			m_cMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
-		if (m_ProjectProperties.nMinLogSize > m_cMessage.GetText().GetLength())
-		{
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-		}
-		else
-		{
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-		}
+		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cMessage.GetText().GetLength());
 	}
 
 }

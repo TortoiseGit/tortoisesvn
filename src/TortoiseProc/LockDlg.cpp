@@ -140,7 +140,7 @@ UINT CLockDlg::StatusThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	m_bBlock = TRUE;
-	GetDlgItem(IDOK)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 	// Initialise the list control with the status of the files/folders below us
 	if (!m_cFileList.GetStatus(m_pathList))
@@ -183,12 +183,12 @@ UINT CLockDlg::StatusThread()
 	if ( bShowWarning )
 	{
 		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_SHOW);
-		GetDlgItem(IDC_LOCKWARNING)->EnableWindow();
+		DialogEnableWindow(IDC_LOCKWARNING, TRUE);
 	}
 	else
 	{
 		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_LOCKWARNING)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_LOCKWARNING, FALSE);
 	}
 
 	POINT pt;
@@ -196,14 +196,7 @@ UINT CLockDlg::StatusThread()
 	SetCursorPos(pt.x, pt.y);
 	CString logmsg;
 	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(logmsg);
-	if (m_ProjectProperties.nMinLockMsgSize > logmsg.GetLength())
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
+	DialogEnableWindow(IDOK, m_ProjectProperties.nMinLockMsgSize <= logmsg.GetLength());
 	m_bBlock = FALSE;
 	return 0;
 }
@@ -260,11 +253,11 @@ void CLockDlg::OnEnChangeLockmessage()
 	if (sTemp.GetLength() >= m_ProjectProperties.nMinLockMsgSize)
 	{
 		if (!m_bBlock)
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			DialogEnableWindow(IDOK, TRUE);
 	}
 	else
 	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		DialogEnableWindow(IDOK, FALSE);
 	}
 }
 

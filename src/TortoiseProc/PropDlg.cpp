@@ -77,7 +77,7 @@ BOOL CPropDlg::OnInitDialog()
 	}
 	m_proplist.SetRedraw(false);
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	DialogEnableWindow(IDOK, FALSE);
 	if (AfxBeginThread(PropThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -140,7 +140,7 @@ UINT CPropDlg::PropThread()
 	}
 
 	m_proplist.SetRedraw(true);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	DialogEnableWindow(IDOK, TRUE);
 	return 0;
 }
 

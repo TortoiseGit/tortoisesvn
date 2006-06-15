@@ -127,7 +127,7 @@ UINT CResolveDlg::ResolveThread()
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	GetDlgItem(IDOK)->EnableWindow(false);
+	DialogEnableWindow(IDOK, false);
 
 	m_bCancelled = false;
 
@@ -137,7 +137,7 @@ UINT CResolveDlg::ResolveThread()
 	}
 	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED, SVNSLC_SHOWCONFLICTED);
 
-	GetDlgItem(IDOK)->EnableWindow(true);
+	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
