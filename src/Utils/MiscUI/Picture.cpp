@@ -240,7 +240,7 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
 
 	IStream* pStream = NULL;
 
-	if(CreateStreamOnHGlobal(hGlobal, true, &pStream) == S_OK)
+	if ((CreateStreamOnHGlobal(hGlobal, true, &pStream) == S_OK)&&(pStream))
 	{
 		HRESULT hr;
 		if((hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture)) == S_OK)
