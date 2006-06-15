@@ -16,10 +16,10 @@
             <guimenuitem>Export...</guimenuitem>
         </menuchoice>.
         If you execute this command on your working copy you'll be asked for
-        a place to save the <literal>clean</literal> working copy without the
+        a place to save the <emphasis>clean</emphasis> working copy without the
         <filename>.svn</filename> folders.
         By default, only the versioned files are exported, but you can use the
-        <guilabel>Export unversioned files too</guilabel> to include any other
+        <guilabel>Export unversioned files too</guilabel> checkbox to include any other
         unversioned files which exist in your WC and not in the repository.
         External references using <literal>svn:externals</literal> can be
         omitted if required.
