@@ -1,14 +1,26 @@
 Installing the Nightly Build
 ----------------------------
 
-These files are built daily from the HEAD revision of TSVN trunk code,
-and are useful for testing the latest changes. These are not official
-released files, so any new features may not have been extensively
-tested.
+The nightly build site now contains several builds.
+
+The 'Latest/' folder contains files which are built daily from the HEAD
+revision of TSVN trunk code, which is useful for testing the latest changes.
+These are not official released files, so any new features may not have
+been extensively tested.
+
+As of version 1.4.x we support both win32 and x64 versions of Windows.
+Be sure to select the correct one for your operating system.
 
 All interaction with the repository is handled by subversion itself,
-and only official subversion releases, or release candidates are used.
-This greatly reduces your risk exposure when using this Beta code.
+and usually only official subversion releases, or release candidates are used.
+This greatly reduces your risk exposure when using this Beta code. However,
+we do sometimes build from Subversion trunk just before a major release,
+so check on the mailing list if this is a concern.
+
+We also have a stable branch, eg. 1.3.x which contains the latest release
+plus any recent bugfixes. This build is not updated very often,
+only when the developers have added some bugfixes which need testing
+before a new bugfix release.
 
 To install the latest version, you need to download the .msi file,
 and use the Windows Installer to load it. Normally you can just
