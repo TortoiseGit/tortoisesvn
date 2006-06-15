@@ -67,10 +67,11 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 	SendMessage(hwndTB, TB_AUTOSIZE, 0, 0);
 	GetWindowRect(hwndTB, &tbRect);
 	LONG tbHeight = tbRect.bottom-tbRect.top-1;
+	HDWP hdwp = BeginDeferWindowPos(2);
 	if (bOverlap)
 	{
-		SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT-tbHeight, SWP_SHOWWINDOW);
-		SetWindowPos(hTrackbar, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
+		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT-tbHeight, SWP_SHOWWINDOW);
+		if (hdwp) hdwp = DeferWindowPos(hdwp, hTrackbar, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
 	}
 	else
 	{
@@ -79,11 +80,12 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 		child.top = clientrect->top+tbHeight;
 		child.right = nSplitterPos-(SPLITTER_BORDER/2);
 		child.bottom = clientrect->bottom;
-		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 		child.left = nSplitterPos+(SPLITTER_BORDER/2);
 		child.right = clientrect->right;
-		SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 	}
+	if (hdwp) EndDeferWindowPos(hdwp);
 	InvalidateRect(*this, NULL, FALSE);
 }
 
