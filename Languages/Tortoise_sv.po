@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-31 08:08+0100\n"
+"PO-Revision-Date: 2006-06-15 13:49+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -438,6 +438,11 @@ msgstr "&Gå till första skillnaden när programmet startas"
 msgid "&Language:"
 msgstr "&Språk:"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Begränsa sökningar till ändrade rader"
+
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&List vy"
@@ -660,6 +665,7 @@ msgid "&Update"
 msgstr "&Uppdatera"
 
 #: ID:76
+#, fuzzy
 msgid "&Update item to revision"
 msgstr "&Uppdatera till revision"
 
@@ -743,7 +749,7 @@ msgstr ": Revision %d"
 # Osäker på var denna visas
 #: ID:151
 msgid ": working base"
-msgstr ": Arbetsbas"
+msgstr ": arbetsbas"
 
 # Osäker på var denna visas
 #: ID:151
@@ -1013,7 +1019,7 @@ msgstr ""
 "<hr=100%>\n"
 "Du kan specifiera följande parametrar i sökvägen:\n"
 "%base\tden ursprungliga filen\n"
-"%mine\ttden modifierade filen"
+"%mine\ttden ändrade filen"
 
 #: ID:79
 #, c-format
@@ -2308,6 +2314,10 @@ msgstr "Filskillnader"
 msgid "File patches"
 msgstr "Filpatchar"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Sök"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -2320,9 +2330,10 @@ msgstr ""
 msgid "Finished!"
 msgstr "Klar!"
 
+# ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Tryck F1 för hjälp"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Tryck F1 för hjälp. Rulla horisontellt med Ctrl+mushjul"
 
 #: Control-ID:1200
 msgid "From:"
@@ -2562,6 +2573,13 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr "Om valt så visas mappar med filer som inte är versionshanterade som ändrade. "
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -2628,10 +2646,9 @@ msgstr "Inkludera sökvägar:"
 msgid "Initial import"
 msgstr "Första importen"
 
-# Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Radvis whitespace skillnader"
+msgid "Inline diff"
+msgstr "Radvisa skillnader"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -2796,11 +2813,6 @@ msgstr "Minst aktiv:"
 msgid "Left View: "
 msgstr "Vänster vy:"
 
-# Hur översätta "diff" och "whitespace"
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Rad med whitespace skillnader"
-
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -2961,6 +2973,12 @@ msgstr ""
 "Markerar filen som löst i Subversion\n"
 "Markera som löst"
 
+# Control-ID:1064,
+#: Control-ID:1064
+#, fuzzy
+msgid "Match &case"
+msgstr "&Matcha gemener/versaler"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3078,9 +3096,8 @@ msgstr "NUM"
 
 # ID:16,
 #: ID:208
-#, fuzzy
 msgid "Needs lock"
-msgstr "Släpp &lås"
+msgstr "Behöver lås"
 
 #: ID:210
 msgid "Nested"
@@ -4041,6 +4058,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Sök &loggmeddelanden..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Sök:"
+
 #: ID:3867
 #, c-format
 msgid "Seek failed on %1"
@@ -4274,7 +4296,7 @@ msgstr ""
 
 #: Control-ID:1209
 msgid "Show unmodified files"
-msgstr "Visa omodifierade filer"
+msgstr "Visa filer utan ändringar"
 
 #: Control-ID:1073
 msgid "Show unversioned files"
@@ -4548,12 +4570,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Filen\n"
 "%s\n"
-"är inte en giltig fil!\n"
-"Observerar att UTF16 och UTF32 filer behandlas som binärer också."
+"är inte en giltig textfil!\n"
+"OBS! UTF32 filer behandlas som binärer också."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -4624,7 +4646,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "Mappen %s\n"
-"innehåller filer som inte är versionshanterade och/eller modifierade filer. Vill du ta bort den ändå? "
+"innehåller filer som inte är versionshanterade och/eller ändrade filer. Vill du ta bort den ändå? "
 
 #: ID:88
 #, c-format
@@ -5173,6 +5195,11 @@ msgstr "Upplåst"
 msgid "Untitled"
 msgstr "Namnlös"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Mappar med filer som inte är versionshanterade visas som ändrade"
+
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Uppdatera"
@@ -5333,11 +5360,6 @@ msgstr "Varning"
 #: ID:219
 msgid "Warning!"
 msgstr "Varning!"
-
-# Hur översätta "diff" och "whitespace"
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Whitespace skillnader"
 
 #: ID:146
 msgid "With URL:"
@@ -5740,7 +5762,7 @@ msgstr "ändrad"
 
 #: Control-ID:65535
 msgid "modified / copied"
-msgstr "Modifierade / kopierade"
+msgstr "ändrade / kopierade"
 
 #: ID:10
 msgid "no description for this command is available"
