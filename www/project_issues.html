@@ -1,60 +1,87 @@
-<h1>TortoiseSVN Issue Tracker</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-<h2>Issue Tracker Guidelines</h2>
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>Issue Tracker</title>
 
-<p>As TortoiseSVN continues to mature, and as it gains attention from
-   new users, folks will inevitably find bugs in, or come up with
-   enhancements that they would like to see made to, the software.
-   The TortoiseSVN community welcomes such requests for enhancements
-   and reports of bugs.  However, we ask that you follow a few
-   guidelines with respect to the issue filing process.</p>
+</head>
 
-<div class="alert" style="color: red; font-weight: bold">
-<p>Before filing an issue in the Issue Tracker, please:</p>
+<body>
 
-<ul>
-  <li>Make sure that you've read the <a href="http://tortoisesvn.sourceforge.net/?q=support">TortoiseSVN documentation</a>,
-      and the <a href="http://svnbook.red-bean.com/">Subversion book</a> to verify 
-			that you are using the software appropriately, and to determine if any 
-			problems you are seeing are perhaps not bugs, but "pilot errors".</li>
-  <li>Search the <a href="/list_etiquette.html">mailing list</a>
-      if your problem has been discussed before</li> 
-  <li>Check out our <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/Changelog.txt">changelog</a>
-      - maybe we have already fixed the bug you want to report or added the feature you're requesting.</li>     
-  <li>Send email to the <a href="/list_etiquette.html">development list</a>
-      fully describing the enhancement or bug that brought you here today.
-      That will give the community a chance to ask questions of you, so that
-      we can fully understand your concern.</li>
-  <li>Do you have permission from the developers to file an issue?</li>
-</ul>
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<h1>TortoiseSVN Issue Tracker</h1>
+	
+	<h2>Issue Tracker Guidelines</h2>
+	
+	<p>As TortoiseSVN continues to mature, and as it gains attention from
+	   new users, folks will inevitably find bugs in, or come up with
+	   enhancements that they would like to see made to, the software.
+	   The TortoiseSVN community welcomes such requests for enhancements
+	   and reports of bugs.  However, we ask that you follow a few
+	   guidelines with respect to the issue filing process.</p>
+	
+	<div class="alert" style="color: red; font-weight: bold">
+	<p>Before filing an issue in the Issue Tracker, please:</p>
+	
+	<ul>
+	  <li>Make sure that you've read the <a href="http://tortoisesvn.sourceforge.net/?q=support">TortoiseSVN documentation</a>,
+		  and the <a href="http://svnbook.red-bean.com/">Subversion book</a> to verify 
+				that you are using the software appropriately, and to determine if any 
+				problems you are seeing are perhaps not bugs, but "pilot errors".</li>
+	  <li>Search the <a href="/list_etiquette.html">mailing list</a>
+		  if your problem has been discussed before</li> 
+	  <li>Check out our <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/Changelog.txt">changelog</a>
+		  - maybe we have already fixed the bug you want to report or added the feature you're requesting.</li>     
+	  <li>Send email to the <a href="/list_etiquette.html">development list</a>
+		  fully describing the enhancement or bug that brought you here today.
+		  That will give the community a chance to ask questions of you, so that
+		  we can fully understand your concern.</li>
+	  <li>Do you have permission from the developers to file an issue?</li>
+	</ul>
+	</div>
+	
+	<p>When mailing the <a href="/list_etiquette.html">development list</a>
+	   with a concern, make sure that
+	   your e-mail describes your bug or enhancement fully.  Provide
+	   details about the versions of the relevant software (TortoiseSVN,
+	   Apache, neon, etc.) that you are using, about your windows version
+	   , and about any other thing that might seem pertinent to the
+	   issue.  If you can provide a script which consistently reproduces a
+	   problem, that can be incredibly helpful to those evaluating and/or
+	   working on your issue.</p>
+	
+	<p>After mailing the development list, you should expect your concern
+	   to be addressed with relative immediacy.  That is, within a few
+	   days, you should get feedback on your mail.  If indeed you have
+	   found a new bug in TortoiseSVN, or if your enhancement request is
+	   feasible, you will likely be asked to return here and file a new
+	   issue in the Issue Tracker.</p>
+	
+	<h2>Enter the Issue Tracker</h2>
+	
+	<p>Before you proceed any further: do you have the permission of
+	   at least one of the developers to file an issue?<br>
+	   If you don't have the permission and you file an issue don't be
+	   surprised if we get cranky!<br>
+	   And so, with further ado, we give you the
+	   TortoiseSVN <a 
+	   href="/servlets/ProjectIssues">Issue
+	   Tracker</a>, to seach for an issue or you can jump to the List of <a
+		 href="/issues/buglist.cgi?component=tortoisesvn&issue_status=UNCONFIRMED&issue_status=NEW&issue_status=STARTED&issue_status=REOPENED">
+		 Open Issues</a> immediately.</p>
 </div>
-
-<p>When mailing the <a href="/list_etiquette.html">development list</a>
-   with a concern, make sure that
-   your e-mail describes your bug or enhancement fully.  Provide
-   details about the versions of the relevant software (TortoiseSVN,
-   Apache, neon, etc.) that you are using, about your windows version
-   , and about any other thing that might seem pertinent to the
-   issue.  If you can provide a script which consistently reproduces a
-   problem, that can be incredibly helpful to those evaluating and/or
-   working on your issue.</p>
-
-<p>After mailing the development list, you should expect your concern
-   to be addressed with relative immediacy.  That is, within a few
-   days, you should get feedback on your mail.  If indeed you have
-   found a new bug in TortoiseSVN, or if your enhancement request is
-   feasible, you will likely be asked to return here and file a new
-   issue in the Issue Tracker.</p>
-
-<h2>Enter the Issue Tracker</h2>
-
-<p>Before you proceed any further: do you have the permission of
-   at least one of the developers to file an issue?<br>
-   If you don't have the permission and you file an issue don't be
-   surprised if we get cranky!<br>
-   And so, with further ado, we give you the
-   TortoiseSVN <a 
-   href="/servlets/ProjectIssues">Issue
-   Tracker</a>, to seach for an issue or you can jump to the List of <a
-	 href="/issues/buglist.cgi?component=tortoisesvn&issue_status=UNCONFIRMED&issue_status=NEW&issue_status=STARTED&issue_status=REOPENED">
-	 Open Issues</a> immediately.</p>
+</body>
+</html>

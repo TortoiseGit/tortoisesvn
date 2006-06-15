@@ -1,98 +1,125 @@
-<h1>Reporting Bugs</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-<h2>Preparations</h2>
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>How To Report Bugs</title>
 
-<p>
-Before you report a bug, please make sure you have completed the following steps:
-</p>
-<ul>
-	<li>Update to the current version. Reports for older versions will be ignored.</li>
-	<li>Check the <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/Changelog.txt">Changelog.txt</a>
-	file from /trunk/ and see if your bug has already been fixed. (use 'guest' as username and '' as password)</li>
-	<li>If possible, update to the latest nightly build and see if the bug is
-	still there. You can find the link to the nightly builds on our 
-	<a href="/download.html">download</a> page.</li>
-	<li>Check the mailing list archive. Maybe someone else already reported the
-	same bug you're seeing, and if so that bug might be already fixed.</li>
-	<li>Take a look in our 
-	<a href="http://tortoisesvn.berlios.de/issues/index.php?order=id&sort=desc&status=all">issue tracker</a>
-	to see if the bug has already been reported.</li>
-	<li>If you've got a zip file from our crashreporting tool, send it to
-	<i>crashreports</i>_at_<i>tortoisesvn.tigris.org</i>. Note that we don't 
-	answer mails there. Other kinds of bugreports on that list will be
-	deleted without being read.</li>
-</ul>
-</p>
+</head>
 
-<h2>How to report a bug</h2>
-<p>
-There is a large number of TortoiseSVN users. There is a much small number of 
-people who actually develop TortoiseSVN. There is an even smaller number of 
-people who actively fix bugs reported by users.
-</p>
-<p>
-What does this mean for you, an aspiring bug reporter? In order to catch the 
-eye of one of these few <b>volunteers</b>, you'll need to take to heart a 
-few tips on how to report a bug so that they can and will help you.
-</p>
-<p>
-Take special note of that word in bold above. The people who are going to help 
-you with a bug you report are <b>volunteers</b>. Not only are you not paying 
-them to help you, but nobody else is either. So, be nice to them.
-</p>
-<p>
-Beyond that golden rule, what follows are some additional tips on ways to make 
-your bug report better so that someone will be able to help you.
-</p>
+<body>
 
-<h2>The basics: what you did, what you wanted to happen, and what actually happened.</h2>
-<p>
-Those are the three basic elements of a bug report. You need to tell us exactly 
-what you did (for example, "I right-clicked on "make happy meal"), what you 
-expected to have happened (to continue the example, "I expected TortoiseSVN to 
-serve me a happy meal with a hamburger and onion rings"), 
-and what actually happened ("It gave me a happy meal with french fries.").
-</p>
-<p>
-Yes, the example is silly. But if your bug report simply said "The make_happy_meal 
-function doesn't work," you will very likely get a reply saying "It works fine for me",
-because we can't guess what you were expecting to happen. By giving all the information
-you might get a reply like "That's because you can't 
-have onion rings in a happy meal, you can only have french fries or curly fries." 
-By telling us what you asked for, what you expected to get, and what you 
-actually got, we don't have to guess what you mean.
-</p>
-
-<h2>Only report one problem in each bug report</h2>
-<p>
-If you have encountered two bugs that don't appear to be related, create a 
-new bug report for each one. This makes it easier for different people to help 
-with the different bugs.
-</p>
-
-<h2>Where to send the report to?</h2>
-<p>
-Bug reports must be mailed to our mailing list. You don't have to subscribe to
-the mailing list if you don't want to. You can read the mailing list from
-<a href="http://news.gmane.org/gmane.comp.version-control.subversion.tortoisesvn.devel">gmane</a>
-or <a href="http://svn.haxx.se/tsvn">haxx</a>
-too.
-</p>
-<p>
-Just make sure that if you're not subscribed to the mailing list that you ask
-in your bugreport to reply also directly to you, otherwise you won't get any
-answers to your report.
-</p>
-<p>
-Note: if you're not subscribed to the list, it may take up to a day until your
-mail appears on the mailing list. This is because we have to review mails from
-non-subscribers first and have to 'accept' them - we have to do this to prevent 
-SPAM from going to the list.
-So don't worry if you're not getting an answer right away, your mail <b>will</b>
-appear on the list, just give us some time.
-</p>
-<p>
-Now you're almost ready to send your bugreport. But before you do, please read
-our <a href="/list_etiquette.html">mailing list etiquette</a>. You will find
-the mail address of the mailing list on that page.
-</p>
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<h1>Reporting Bugs</h1>
+	
+	<h2>Preparations</h2>
+	
+	<p>
+	Before you report a bug, please make sure you have completed the following steps:
+	</p>
+	<ul>
+		<li>Update to the current version. Reports for older versions will be ignored.</li>
+		<li>Check the <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/Changelog.txt">Changelog.txt</a>
+		file from /trunk/ and see if your bug has already been fixed. (use 'guest' as username and '' as password)</li>
+		<li>If possible, update to the latest nightly build and see if the bug is
+		still there. You can find the link to the nightly builds on our 
+		<a href="/download.html">download</a> page.</li>
+		<li>Check the mailing list archive. Maybe someone else already reported the
+		same bug you're seeing, and if so that bug might be already fixed.</li>
+		<li>Take a look in our 
+		<a href="http://tortoisesvn.berlios.de/issues/index.php?order=id&sort=desc&status=all">issue tracker</a>
+		to see if the bug has already been reported.</li>
+		<li>If you've got a zip file from our crashreporting tool, send it to
+		<i>crashreports</i>_at_<i>tortoisesvn.tigris.org</i>. Note that we don't 
+		answer mails there. Other kinds of bugreports on that list will be
+		deleted without being read.</li>
+	</ul>
+	</p>
+	
+	<h2>How to report a bug</h2>
+	<p>
+	There is a large number of TortoiseSVN users. There is a much small number of 
+	people who actually develop TortoiseSVN. There is an even smaller number of 
+	people who actively fix bugs reported by users.
+	</p>
+	<p>
+	What does this mean for you, an aspiring bug reporter? In order to catch the 
+	eye of one of these few <b>volunteers</b>, you'll need to take to heart a 
+	few tips on how to report a bug so that they can and will help you.
+	</p>
+	<p>
+	Take special note of that word in bold above. The people who are going to help 
+	you with a bug you report are <b>volunteers</b>. Not only are you not paying 
+	them to help you, but nobody else is either. So, be nice to them.
+	</p>
+	<p>
+	Beyond that golden rule, what follows are some additional tips on ways to make 
+	your bug report better so that someone will be able to help you.
+	</p>
+	
+	<h2>The basics: what you did, what you wanted to happen, and what actually happened.</h2>
+	<p>
+	Those are the three basic elements of a bug report. You need to tell us exactly 
+	what you did (for example, "I right-clicked on "make happy meal"), what you 
+	expected to have happened (to continue the example, "I expected TortoiseSVN to 
+	serve me a happy meal with a hamburger and onion rings"), 
+	and what actually happened ("It gave me a happy meal with french fries.").
+	</p>
+	<p>
+	Yes, the example is silly. But if your bug report simply said "The make_happy_meal 
+	function doesn't work," you will very likely get a reply saying "It works fine for me",
+	because we can't guess what you were expecting to happen. By giving all the information
+	you might get a reply like "That's because you can't 
+	have onion rings in a happy meal, you can only have french fries or curly fries." 
+	By telling us what you asked for, what you expected to get, and what you 
+	actually got, we don't have to guess what you mean.
+	</p>
+	
+	<h2>Only report one problem in each bug report</h2>
+	<p>
+	If you have encountered two bugs that don't appear to be related, create a 
+	new bug report for each one. This makes it easier for different people to help 
+	with the different bugs.
+	</p>
+	
+	<h2>Where to send the report to?</h2>
+	<p>
+	Bug reports must be mailed to our mailing list. You don't have to subscribe to
+	the mailing list if you don't want to. You can read the mailing list from
+	<a href="http://news.gmane.org/gmane.comp.version-control.subversion.tortoisesvn.devel">gmane</a>
+	or <a href="http://svn.haxx.se/tsvn">haxx</a>
+	too.
+	</p>
+	<p>
+	Just make sure that if you're not subscribed to the mailing list that you ask
+	in your bugreport to reply also directly to you, otherwise you won't get any
+	answers to your report.
+	</p>
+	<p>
+	Note: if you're not subscribed to the list, it may take up to a day until your
+	mail appears on the mailing list. This is because we have to review mails from
+	non-subscribers first and have to 'accept' them - we have to do this to prevent 
+	SPAM from going to the list.
+	So don't worry if you're not getting an answer right away, your mail <b>will</b>
+	appear on the list, just give us some time.
+	</p>
+	<p>
+	Now you're almost ready to send your bugreport. But before you do, please read
+	our <a href="/list_etiquette.html">mailing list etiquette</a>. You will find
+	the mail address of the mailing list on that page.
+	</p>
+</div>
+</body>
+</html>

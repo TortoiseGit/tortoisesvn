@@ -1,144 +1,187 @@
-	<p>Please <a href="/donate.html">support</a> this project!</p>
-		<p>	TortoiseSVN is a <a href="http://subversion.tigris.org" target="top_">Subversion</a> client, implemented as a windows shell extension.
-		The coolest Interface to (Sub)Version Control.</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-		<p> TortoiseSVN is a really easy-to-use version control / source control client under a GPL license, i.e. it's free! <br />
-		    Since it's not an integration for a <em>specific</em> IDE you can use it with whatever development tools you like. </p>
-		<h2>Features of TortoiseSVN/Subversion</h2>
-        <ul>
-            <li>Easy to use</li>
-				<ul>
-					<li>all commands are available directly from the
-						<a href="/ExplorerIntegration.html#contextmenus">windows explorer</a>.</li>
-					<li>only commands that make sense for the selected file/folder are shown. You won't
-						see any commands that you can't use in your situation.</li>
-					<li>See the <a href="/ExplorerIntegration.html#overlays">status of your files</a> directly in the Windows explorer</li>
-					<li>descriptive dialogs, constantly improved due to user feedback</li>
-					<li>allows moving files by right-dragging them in the windows explorer</li>
-				</ul>
-            <li>All Subversion protocols are supported</li>
-				<ul>
-					<li>http://</li>
-					<li>https://</li>
-					<li>svn://</li>
-					<li>svn+ssh://</li>
-					<li>file:///</li>
-					<li>svn+XXX://</li>
-				</ul>
-            <li>Powerful commit dialog</li>
-				<ul>
-					<li><a href="/commitdialog.html#spellchecker">integrated spell checker</a> for log messages</li>
-					<li><a href="/commitdialog.html#autocompletion">auto completion</a> of paths and keywords of the modified files</li>
-					<li><a href="/commitdialog.html#textformatting">text formatting</a> with special chars [<a href="#version14">*</a>]</li>
-				</ul>
-            <li>The big picture</li>
-				<ul>
-					<li>Can create a <a href="/bigpicture.html#revisiongraph">graph</a> of all revisions/commits. You can then easily see where
-					    you created a tag/branch or modified a file/folder</li>
-					<li>Graphs of <a href="/bigpicture.html#statistics">commit statistics</a> of the project</li>
-					<li>Easy <a href="/bigpicture.html#dirdiff">comparing of two branches or tags</a> [<a href="#version14">*</a>]</li>
-				</ul>
-            <li>Per project settings</li>
-				<ul>
-					<li>minimum log message length to avoid accidentally committing with an empty log message</li>
-					<li>language to use for the spell checker</li>
-				</ul>
-            <li>Integration with issuetrackers</li>
-				<ul>
-					<li>A separate input box to enter the issue number assigned to the commit, or coloring of
-					    the issue number directly in the log message itself</li>
-					<li>When showing all log messages, an extra column is added with the issue number. You can
-					    immediately see to which issue the commit belongs to.</li>
-					<li>Issue numbers are converted into links which open the webbrowser directly on the
-					    corresponding issue</li>
-					<li>Optional warning if a commit isn't assigned to an issue number</li>
-				</ul>
-			<li>Helpful Tools</li>
-				<ul>
-					<li>TortoiseMerge</li>
-						<ul>
-							<li>Shows changes you made to your files</li>
-							<li>Helps resolving conflicts</li>
-							<li>Can apply patchfiles you got from users without commit access to your repository</li>
-						</ul>
-					<li>TortoiseBlame: to show blames of files. Shows also log messages for each line in a file.</li>
-					<li>TortoiseIDiff: to see the changes you made to your image files [<a href="#version14">*</a>]</li>
-					<li>SubWCRev: to include the revision numbers/dates/... into your source files</li>
-				</ul>
-			<li>Available in many languages</li>
-			<li>TortoiseSVN is stable</li>
-				<ul>
-					<li>Before every release, we create one or more 'release candidates' for adventurous people to test first.</li>
-					<li>During development cycles, many people test intermediate builds. These are built every night automatically
-					    and made available to all our users. This helps finding bugs very early so they won't even get into an
-					    official release.</li>
-					<li>A big user community helps out with testing each build before we release it.</li>
-					<li>A custom crash report tool is included in every TortoiseSVN release which helps us fix the bugs
-					    much faster, even if you can't remember exactly what you did to trigger it.</li>
-				</ul>
-			<li>Support</li>
-				<ul>
-					<li>Extensive and descriptive <a href="http://tortoisesvn.sourceforge.net/doc_release">documentation</a>
-					   is available in several formats and languages</li>
-					<li>A big list of <a href="http://tortoisesvn.sourceforge.net/faq">frequently asked questions</a>
-					   and problems with all the answers is also available</li>
-					<li>For your specific problems, we have a <a href="/list_etiquette.html">mailing list</a> where many 
-					    users can help you. Usually you get an answer for your problem within a few hours.</li>
-				</ul>
-        </ul>
-		<a name="version14">
-		[*] These features are available in the upcoming 1.4.0 release.
-		<h2>System Requirements</h2>
-		<ul>
-			<li>
-			Win2k SP2 or WinXP or later, IE5.5 or later
-			</li>
-		</ul>
-		<h2>Latest Version</h2>
-		<ul>
-			<li>
-				<p><b>TortoiseSVN 1.3.5</b>, built against Subversion 1.3.2. Released 15 June 2006. <br>
-				Grab it from the <a href="/download.html">download page.</a></p>
-			</li>
-		</ul>
-		<h2>Source code</h2>
-			The whole source code is available zipped from our <a href="/download.html">download page.</a>
-			Just follow the link to download the binaries, the zipped source is there too.
-			<br />
-			TortoiseSVN is hosted on a subversion repository. You can:
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>TortoiseSVN</title>
+
+<!-- Custom stylations to hide the obnoxious project info -->
+<style type="text/css">
+#projecthome .axial { display: none; }
+#apphead h1 { display: none; }
+#longdescription { border: none; }
+#longdescription h2 { display: none; }
+#customcontent h2 { display: block; }
+</style>
+<!-- End custom stylations -->
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+
+	<div style="text-align: center;">
+	  <img src="./tortoisesvn_logo_hor468x64.PNG" alt="TortoiseSVN" />
+	  <img src="./tortoisemerge_logo_hor468x64.png" alt="TortoiseMerge" />
+	</div>
+
+
+	<p>	TortoiseSVN is a <a href="http://subversion.tigris.org" target="top_">Subversion</a> client, implemented as a windows shell extension.
+	The coolest Interface to (Sub)Version Control.</p>
+
+	<p> TortoiseSVN is a really easy-to-use version control / source control client under a GPL license, i.e. it's free! <br />
+		Since it's not an integration for a <em>specific</em> IDE you can use it with whatever development tools you like. </p>
+	<h2>Latest Version</h2>
+	<ul>
+		<li>
+			<p><b>TortoiseSVN 1.3.5</b>, built against Subversion 1.3.2. Released 15 June 2006. <br>
+			Grab it from the <a href="/download.html">download page.</a></p>
+		</li>
+		<li><p>Don't forget to <a href="/donate.html">support</a> this project!</p>
+		</li>
+	</ul>
+	<h2>Features of TortoiseSVN/Subversion</h2>
+	<ul>
+		<li>Easy to use</li>
 			<ul>
-				<li>
-					<p>View the HEAD revision directly at
-					http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk
-					</p>
-				</li>
-				<li>
-					<p>Check out a working copy using TortoiseSVN - just click on the Tortoise!</p>
-					<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk">
-					<img src="images/TortoiseCheckout.png"></a>
-				</li>
+				<li>all commands are available directly from the
+					<a href="/ExplorerIntegration.html#contextmenus">windows explorer</a>.</li>
+				<li>only commands that make sense for the selected file/folder are shown. You won't
+					see any commands that you can't use in your situation.</li>
+				<li>See the <a href="/ExplorerIntegration.html#overlays">status of your files</a> directly in the Windows explorer</li>
+				<li>descriptive dialogs, constantly improved due to user feedback</li>
+				<li>allows moving files by right-dragging them in the windows explorer</li>
 			</ul>
-			Note: we don't provide direct links to our repository to reduce the load a little.
-			If you really need the source, copy the links into your browser manually.
-			The last two options require authentication with the server.
-			You can use the guest account if you don't already have access there.
-			<br />
-			username : guest<br />
-			password : ""
-		<h2>Contributors</h2>
-			If you would like to know how many people are working on TortoiseSVN or just
-			helping the developers then have a look at the list of
-			<a href=http://tortoisesvn.tigris.org/contributors.html>contributors</a>
-			or check out our <a href=/donate.html>Donate</a> page.
-		<h2>Related resources</h2>
+		<li>All Subversion protocols are supported</li>
+			<ul>
+				<li>http://</li>
+				<li>https://</li>
+				<li>svn://</li>
+				<li>svn+ssh://</li>
+				<li>file:///</li>
+				<li>svn+XXX://</li>
+			</ul>
+		<li>Powerful commit dialog</li>
+			<ul>
+				<li><a href="/commitdialog.html#spellchecker">integrated spell checker</a> for log messages</li>
+				<li><a href="/commitdialog.html#autocompletion">auto completion</a> of paths and keywords of the modified files</li>
+				<li><a href="/commitdialog.html#textformatting">text formatting</a> with special chars [<a href="#version14">*</a>]</li>
+			</ul>
+		<li>The big picture</li>
+			<ul>
+				<li>Can create a <a href="/bigpicture.html#revisiongraph">graph</a> of all revisions/commits. You can then easily see where
+					you created a tag/branch or modified a file/folder</li>
+				<li>Graphs of <a href="/bigpicture.html#statistics">commit statistics</a> of the project</li>
+				<li>Easy <a href="/bigpicture.html#dirdiff">comparing of two branches or tags</a> [<a href="#version14">*</a>]</li>
+			</ul>
+		<li>Per project settings</li>
+			<ul>
+				<li>minimum log message length to avoid accidentally committing with an empty log message</li>
+				<li>language to use for the spell checker</li>
+			</ul>
+		<li>Integration with issuetrackers</li>
+			<ul>
+				<li>A separate input box to enter the issue number assigned to the commit, or coloring of
+					the issue number directly in the log message itself</li>
+				<li>When showing all log messages, an extra column is added with the issue number. You can
+					immediately see to which issue the commit belongs to.</li>
+				<li>Issue numbers are converted into links which open the webbrowser directly on the
+					corresponding issue</li>
+				<li>Optional warning if a commit isn't assigned to an issue number</li>
+			</ul>
+		<li>Helpful Tools</li>
+			<ul>
+				<li>TortoiseMerge</li>
+					<ul>
+						<li>Shows changes you made to your files</li>
+						<li>Helps resolving conflicts</li>
+						<li>Can apply patchfiles you got from users without commit access to your repository</li>
+					</ul>
+				<li>TortoiseBlame: to show blames of files. Shows also log messages for each line in a file.</li>
+				<li>TortoiseIDiff: to see the changes you made to your image files [<a href="#version14">*</a>]</li>
+				<li>SubWCRev: to include the revision numbers/dates/... into your source files</li>
+			</ul>
+		<li>Available in many languages</li>
+		<li>TortoiseSVN is stable</li>
+			<ul>
+				<li>Before every release, we create one or more 'release candidates' for adventurous people to test first.</li>
+				<li>During development cycles, many people test intermediate builds. These are built every night automatically
+					and made available to all our users. This helps finding bugs very early so they won't even get into an
+					official release.</li>
+				<li>A big user community helps out with testing each build before we release it.</li>
+				<li>A custom crash report tool is included in every TortoiseSVN release which helps us fix the bugs
+					much faster, even if you can't remember exactly what you did to trigger it.</li>
+			</ul>
+		<li>Support</li>
+			<ul>
+				<li>Extensive and descriptive <a href="http://tortoisesvn.sourceforge.net/doc_release">documentation</a>
+				   is available in several formats and languages</li>
+				<li>A big list of <a href="http://tortoisesvn.sourceforge.net/faq">frequently asked questions</a>
+				   and problems with all the answers is also available</li>
+				<li>For your specific problems, we have a <a href="/list_etiquette.html">mailing list</a> where many 
+					users can help you. Usually you get an answer for your problem within a few hours.</li>
+			</ul>
+	</ul>
+	<a name="version14">
+	[*] These features are available in the upcoming 1.4.0 release.
+	<h2>System Requirements</h2>
+	<ul>
+		<li>
+		Win2k SP2 or WinXP or later, IE5.5 or later
+		</li>
+	</ul>
+	<h2>Source code</h2>
+		The whole source code is available zipped from our <a href="/download.html">download page.</a>
+		Just follow the link to download the binaries, the zipped source is there too.
+		<br />
+		TortoiseSVN is hosted on a subversion repository. You can:
 		<ul>
 			<li>
-				All hail the mighty
-				<a href="http://subversion.tigris.org">Subversion version control system</a>
+				<p>View the HEAD revision directly at
+				http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk
+				</p>
 			</li>
 			<li>
-				Don't forget to check out <a href="http://www.tortoisecvs.org">TortoiseCVS</a>,
-				the inspiration and base for this project, thanks guys!
+				<p>Check out a working copy using TortoiseSVN - just click on the Tortoise!</p>
+				<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk">
+				<img src="images/TortoiseCheckout.png"></a>
 			</li>
 		</ul>
-		<hr noshade>
+		Note: we don't provide direct links to our repository to reduce the load a little.
+		If you really need the source, copy the links into your browser manually.
+		The last two options require authentication with the server.
+		You can use the guest account if you don't already have access there.
+		<br />
+		username : guest<br />
+		password : ""
+	<h2>Contributors</h2>
+		If you would like to know how many people are working on TortoiseSVN or just
+		helping the developers then have a look at the list of
+		<a href=http://tortoisesvn.tigris.org/contributors.html>contributors</a>
+		or check out our <a href=/donate.html>Donate</a> page.
+	<h2>Related resources</h2>
+	<ul>
+		<li>
+			All hail the mighty
+			<a href="http://subversion.tigris.org">Subversion version control system</a>
+		</li>
+		<li>
+			Don't forget to check out <a href="http://www.tortoisecvs.org">TortoiseCVS</a>,
+			the inspiration and base for this project, thanks guys!
+		</li>
+	</ul>
+	<hr noshade>
+</div>
+</body>

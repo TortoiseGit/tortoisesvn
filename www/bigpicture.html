@@ -1,51 +1,78 @@
-<a name="revisiongraph">
-<h3>Revision graph</h3>
-<p>
-To see the complete history of a file or folder, you can either
-use the log dialog or you can have TortoiseSVN generate a graph
-for you. This graph shows all important (or all, if you really want)
-commits of the selected file/folder.
-</p>
-<img alt="The revision graph" src="images/RevisionGraph.png">
-<p>
-You can export that graph into many different image formats like jpeg/png/bmp/...
-or even the vector format wmf.
-</p>
-<p>
-You can also select two entries and compare them. If the item is a folder, you
-can then see all the files which have changed in between the selected revisions.
-If the selected item is a file, you will see both versions of that file side-by-side.
-</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-<a name="statistics">
-<h3>Statistics</h3>
-<p>
-When you check the log messages of a file or a folder, TortoiseSVN can
-use the information of those commits to create some statistics and graphs
-for you:
-</p>
-<img alt="Statistics by author" src="images/StatsByAuthor.png">
-<img alt="Statistics by author" src="images/StatsByAuthPie.png">
-<img alt="Statistics by week" src="images/StatsByWeek.png">
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>The Big Picture</title>
 
-<a name="dirdiff">
-<h3>Comparing tags/branches</h3>
-<p>
-Sometimes you want to see what has changed in between two releases, or what the
-difference is between your branch and the main developing line.
-</p>
-<p>
-There are several places where you can check those differences. One is mentioned
-above in the revision graph. Another is from the repository browser:
-</p>
-<img alt="repository browser" src="images/RepoBrowserCompare.png">
-<p>
-Simply select the two tags or branches you want to compare, and then choose "Compare revisions"
-from the context menu. This will bring up the directory diff dialog:
-</p>
-<img alt="directory differences" src="images/DirectoryDiff.png">
-<p>
-This dialog lists all the files and folders that have changed. Doubleclicking on a file
-will start TortoiseMerge (or whatever diff application you have configured TortoiseSVN 
-to use instead) so you can see <b>exactly</b> what has changed.
-</p>
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<a name="revisiongraph">
+	<h3>Revision graph</h3>
+	<p>
+	To see the complete history of a file or folder, you can either
+	use the log dialog or you can have TortoiseSVN generate a graph
+	for you. This graph shows all important (or all, if you really want)
+	commits of the selected file/folder.
+	</p>
+	<img alt="The revision graph" src="images/RevisionGraph.png">
+	<p>
+	You can export that graph into many different image formats like jpeg/png/bmp/...
+	or even the vector format wmf.
+	</p>
+	<p>
+	You can also select two entries and compare them. If the item is a folder, you
+	can then see all the files which have changed in between the selected revisions.
+	If the selected item is a file, you will see both versions of that file side-by-side.
+	</p>
+	
+	<a name="statistics">
+	<h3>Statistics</h3>
+	<p>
+	When you check the log messages of a file or a folder, TortoiseSVN can
+	use the information of those commits to create some statistics and graphs
+	for you:
+	</p>
+	<img alt="Statistics by author" src="images/StatsByAuthor.png">
+	<img alt="Statistics by author" src="images/StatsByAuthPie.png">
+	<img alt="Statistics by week" src="images/StatsByWeek.png">
+	
+	<a name="dirdiff">
+	<h3>Comparing tags/branches</h3>
+	<p>
+	Sometimes you want to see what has changed in between two releases, or what the
+	difference is between your branch and the main developing line.
+	</p>
+	<p>
+	There are several places where you can check those differences. One is mentioned
+	above in the revision graph. Another is from the repository browser:
+	</p>
+	<img alt="repository browser" src="images/RepoBrowserCompare.png">
+	<p>
+	Simply select the two tags or branches you want to compare, and then choose "Compare revisions"
+	from the context menu. This will bring up the directory diff dialog:
+	</p>
+	<img alt="directory differences" src="images/DirectoryDiff.png">
+	<p>
+	This dialog lists all the files and folders that have changed. Doubleclicking on a file
+	will start TortoiseMerge (or whatever diff application you have configured TortoiseSVN 
+	to use instead) so you can see <b>exactly</b> what has changed.
+	</p>
+</div>
+</body>
+</html>

@@ -1,218 +1,236 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TortoiseSVN</title>
-<link rel="stylesheet" href="styles_html.css" type="text/css">
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>Release Notes for version 1.2.x</title>
+
 </head>
-<center>
-	<h2>TortoiseSVN 1.2 Release Notes</h2>
-</center>
-<h2>What's New in TortoiseSVN 1.2</h2>
 
-<ul>
-   <li>Optional locking ("reserved checkouts")</li>
-   <li>New, much improved overlay cache</li>
-   <li>Better use of overlays when co-existing with TortoiseCVS</li>
-   <li>Many improved dialogs</li>
-   <li>Many bugfixes</li>
-   <li>Implemented all new <a href="http://subversion.tigris.org/svn_1.2_releasenotes.html">Subversion 1.2</a> features</li>
-   <li>Linked against SVN 1.2</li>
-</ul>
+<body>
 
-<h2>Compatibility Concerns</h2>
-
-<p>TortoiseSVN 1.2 is compatible with 1.0 and 1.1 servers. Of course,
-some of the new 1.2 features may not be available unless the server is
-upgraded to the latest version.</p>
-
-<p>If you access a BDB repository using <tt>file://</tt> access
-you will need to update that repository to BDB 4.3 format.
-Instructions on how to do that can be found on the
-<a href="http://subversion.tigris.org/faq.html#bdb43-upgrade">
-Subversion FAQ page</a></p>
-
-<p>Subversion 1.2 introduces an alternative history storage mechanism
-known as xdelta differencing. Reconstructing older data from repositories
-stored in the new format is much faster, resulting in a noticeable speedup
-for operations such as blame, checkout, diff and merge. Although converting
-repositories is not required, you may wish to do so in order to gain faster
-access. To do that you need to perform a dump/load cycle using the command
-line svnadmin tool. Look at the
-<a href="http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.5">
-Subversion Manual</a> for instructions on how to do that.</p>
-
-<p>The Windows 98/Me and Windows NT 4.0 operating systems are no longer
-supported in TortoiseSVN 1.2. That's not because we want to be unfriendly,
-but because there are just too many incompatibilities in these older OS versions
-which we have to work around, and as none of the developers use these systems
-it is impossible to test and debug properly. If you want to use TortoiseSVN
-with these systems, you should use the 1.1.x line which is still available
-from our download page.</p>
-
-<h2>New Features</h2>
-
-<h3>File Locking (<em>also requires updated server</em>)</h3>
-
-<p>"Locking" is a long-requested feature, often known in other systems
-as "reserved checkouts".  While Subversion is still primarily a <a
-href="http://svnbook.red-bean.com/en/1.1/ch02s02.html#svn-ch-2-sect-2.3">copy-modify-merge</a>
-system focused on parallel development, there is widespread
-acknowledgement that not all files are easily mergeable &mdash;
-binary files in particular, such as artwork, compressed files,
-proprietary binary formats, or any other non-line-based data.</p>
-
-<p>The goal of the new locking feature is twofold.  First, provide a
-means to force serialized write-access to a file.  Second, provide a
-communication mechanism to prevent users from wasting time on
-unmergable changes.</p>
-
-<p>The first goal is accomplished using file locks. TortoiseSVN has new
-context menu entries to <tt>Get Lock</tt> and <tt>Release Lock</tt>.
-When a user locks a file, no other user may commit a change to the file
-or delete it from the repository.</p>
-
-<p>Locks can also be stolen or broken, say if the person who locked a
-file goes on holiday and forgets to unlock. New lock hooks are available
-to system administrators to set their own locking policy. Refer to
-the Subversion documentation for details on repository administration.</p>
-
-<p>The second goal &mdash; preventing a user from wasting time on an
-unmergable change &mdash; is accomplished via a new property,
-<tt>svn:needs-lock</tt>.  Users (or administrators) are encouraged to
-set this property on any file that is unmergeable.  When present, this
-property causes the file to be read-only <em>unless</em> the working
-copy holds a lock-token for the file, in which case the file is
-read-write.  TortoiseSVN uses a new status overlay to indicate when
-a file is in the read-only state, which warns you that you need to
-acquire a lock before editing.</p>
-
-<p><strong>Warning</strong>: if you have a team of users all accessing
-a repository via <tt>file://</tt>, then <strong>all</strong> users
-must use 1.2 clients. Pre-1.2 clients will unknowingly ignore locks.
-
-<h3>New External Status Cache</h3>
-
-<p>TortoiseSVN has always had a recursive overlay feature whereby overlay
-changes in lower level folders are propagated up through the folder hierarchy
-so that you don't forget about changes you made deep in the tree. However,
-in previous releases this feature was only useable with very small working
-copies due to the delay in getting the status information.</p>
-
-<p>In release 1.2, a new <tt>TSVNCache</tt> program is used to maintain
-a cache of your working copy status, providing much faster access to this
-information. Not only does this prevent explorer from blocking while
-acquiring status, but it also makes recursive overlays workable.</p>
-
-<p>Note: Explorer is much more responsive with the new cache because it
-displays pages before the full information is available and refreshes as
-required. This means that the status you see immediately may not be recursive
-but the non-recursive status.
-Depending on the size of your working copy it may take a second or two for
-the recursive status to filter through.</p>
-
-<p>Subversion has always suffered from a speed problem if the timestamp
-on a file changes and the content doesn't. This forces subversion to
-do a byte-by-byte compare of the file with BASE to check whether it has
-really changed. In this new release, you can fix such timestamp mismatches
-using the <tt>Cleanup</tt> menu entry. If your WC has become slow to
-check, try doing a cleanup.</p>
-
-<h3>Better Use of Overlays</h3>
-
-<p>Windows supports only 15 icon overlays, and uses 3 of these itself.
-If both TortoiseSVN and TortoiseCVS are installed there are simply not
-enough overlays for both applications.</p>
-
-<p>In this release, TortoiseSVN checks to see how many overlays are
-required by other apps, and only installs essential ones if there
-are not enough for everyone. It also displays an alternative overlay
-if the preferred one is not available. For example if the <tt>Added</tt>
-overlay is not available, the <tt>Modified</tt> overlay will be used
-instead.</p>
-
-<h2>Enhancements and Bugfixes</h2>
-
-<p>This is a major new release, and almost all the main dialogs have
-been improved in some way, either to add new features or to make
-them easier to use. Some of the main ones are mentioned below,
-and there have also been many minor bugfixes. To see the full list
-of changes check the
-<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0/src/Changelog.txt">
-ChangeLog (user 'guest' as username and '' as password)</a></p>
-
-<h3>Merge Dialog</h3>
-<p>This has been changed considerably to make the difficult subject
-of merging easier to understand and use. You can now select revisions
-to merge using the revision log dialog, without trying to work out
-the correct numbers to insert in the revision boxes.</p>
-
-<h3>Log Dialog</h3>
-<p>New filters allow you to search within the log messages, or restrict
-to a date range.</p>
-
-<p>The new Subversion 1.2 API allows you to fetch a given number of
-log messages rather than the log messages for a given number of
-repository revisions. This makes it much easier to display a useful
-number of messages, and to get more messages as required.</p>
-
-<p>Note - this feature works best with Subversion 1.2 servers.
-It will work with earlier servers, but will be slow. The server
-does not understand the new parameter and returns all log messages,
-which the Subversion client then filters. This results in very slow
-response. TortoiseSVN has a setting which allows you to use the old
-API in case you need to work with an older server.</p>
-
-<p>You can now compare two revisions of a folder. TortoiseSVN will
-list the files which have changed, allowing you to diff each one
-individually.</p>
-
-<p>You can now resize the 3 panes of the log dialog individually.</p>
-
-<p>The log dialog has a number of other new context menus, allowing
-you to do more.</p>
-
-<h3>Commit Dialog</h3>
-<p>Autocompletion now picks up some language-dependent keywords
-(usually class/method/variable name) using regular expressions.</p>
-
-<p>Bugtracking integration has been extended using regular expressions,
-making it easier to pick out your issue IDs. Read about this in the
-<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0/doc/issuetrackers.txt">
-Issue Tracker Integration Spec</a>.</p>
-
-<p>Comment history is now inserted at the current cursor position,
-rather than always at the beginning of any existing message.</p>
-
-<h3>Repository Browser</h3>
-<p>Several new context menu entries, allowing you to export or
-checkout directly from the browser.</p>
-
-<p>Open files using the Windows file association, or a program
-of your choice.</p>
-
-<h3>Cleanup</h3>
-<p>Subversion 1.2 adds extra functionality to the Cleanup command so that
-it now makes more repairs. If the timestamp of a working copy file does
-not match Subversion's recorded timestamp, but the file length does match,
-Subversion does a byte-by-byte check to see if the files really are
-different, and that can slow down status checks.</p>
-
-<p><tt>Cleanup</tt> now checks these files and if the content matches,
-it resets its record of the timestamp so that future checks will run
-faster. If your working copy is very slow to produce the list of files
-in the <tt>Check for Modifications</tt> and <tt>Commit</tt> dialogs,
-try running <tt>Cleanup</tt> on your working copy. If you used the
-<tt>Use commit timestamps</tt> option, you should definitely do this.</p>
-
-<h3>Settings Dialog</h3>
-<p>The settings dialog now has an updated interface which is less
-crowded and easier to use. The options are also grouped in a more
-logical manner, so you know where to look for things.</p>
-
-<h3>Tortoise Merge</h3>
-<p>You can opt to ignore case differences when viewing file difference.
-This is useful for VB source, which sometimes gets changed by the
-IDE.</p>
-
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<center>
+		<h2>TortoiseSVN 1.2 Release Notes</h2>
+	</center>
+	<h2>What's New in TortoiseSVN 1.2</h2>
+	
+	<ul>
+	   <li>Optional locking ("reserved checkouts")</li>
+	   <li>New, much improved overlay cache</li>
+	   <li>Better use of overlays when co-existing with TortoiseCVS</li>
+	   <li>Many improved dialogs</li>
+	   <li>Many bugfixes</li>
+	   <li>Implemented all new <a href="http://subversion.tigris.org/svn_1.2_releasenotes.html">Subversion 1.2</a> features</li>
+	   <li>Linked against SVN 1.2</li>
+	</ul>
+	
+	<h2>Compatibility Concerns</h2>
+	
+	<p>TortoiseSVN 1.2 is compatible with 1.0 and 1.1 servers. Of course,
+	some of the new 1.2 features may not be available unless the server is
+	upgraded to the latest version.</p>
+	
+	<p>If you access a BDB repository using <tt>file://</tt> access
+	you will need to update that repository to BDB 4.3 format.
+	Instructions on how to do that can be found on the
+	<a href="http://subversion.tigris.org/faq.html#bdb43-upgrade">
+	Subversion FAQ page</a></p>
+	
+	<p>Subversion 1.2 introduces an alternative history storage mechanism
+	known as xdelta differencing. Reconstructing older data from repositories
+	stored in the new format is much faster, resulting in a noticeable speedup
+	for operations such as blame, checkout, diff and merge. Although converting
+	repositories is not required, you may wish to do so in order to gain faster
+	access. To do that you need to perform a dump/load cycle using the command
+	line svnadmin tool. Look at the
+	<a href="http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.5">
+	Subversion Manual</a> for instructions on how to do that.</p>
+	
+	<p>The Windows 98/Me and Windows NT 4.0 operating systems are no longer
+	supported in TortoiseSVN 1.2. That's not because we want to be unfriendly,
+	but because there are just too many incompatibilities in these older OS versions
+	which we have to work around, and as none of the developers use these systems
+	it is impossible to test and debug properly. If you want to use TortoiseSVN
+	with these systems, you should use the 1.1.x line which is still available
+	from our download page.</p>
+	
+	<h2>New Features</h2>
+	
+	<h3>File Locking (<em>also requires updated server</em>)</h3>
+	
+	<p>"Locking" is a long-requested feature, often known in other systems
+	as "reserved checkouts".  While Subversion is still primarily a <a
+	href="http://svnbook.red-bean.com/en/1.1/ch02s02.html#svn-ch-2-sect-2.3">copy-modify-merge</a>
+	system focused on parallel development, there is widespread
+	acknowledgement that not all files are easily mergeable &mdash;
+	binary files in particular, such as artwork, compressed files,
+	proprietary binary formats, or any other non-line-based data.</p>
+	
+	<p>The goal of the new locking feature is twofold.  First, provide a
+	means to force serialized write-access to a file.  Second, provide a
+	communication mechanism to prevent users from wasting time on
+	unmergable changes.</p>
+	
+	<p>The first goal is accomplished using file locks. TortoiseSVN has new
+	context menu entries to <tt>Get Lock</tt> and <tt>Release Lock</tt>.
+	When a user locks a file, no other user may commit a change to the file
+	or delete it from the repository.</p>
+	
+	<p>Locks can also be stolen or broken, say if the person who locked a
+	file goes on holiday and forgets to unlock. New lock hooks are available
+	to system administrators to set their own locking policy. Refer to
+	the Subversion documentation for details on repository administration.</p>
+	
+	<p>The second goal &mdash; preventing a user from wasting time on an
+	unmergable change &mdash; is accomplished via a new property,
+	<tt>svn:needs-lock</tt>.  Users (or administrators) are encouraged to
+	set this property on any file that is unmergeable.  When present, this
+	property causes the file to be read-only <em>unless</em> the working
+	copy holds a lock-token for the file, in which case the file is
+	read-write.  TortoiseSVN uses a new status overlay to indicate when
+	a file is in the read-only state, which warns you that you need to
+	acquire a lock before editing.</p>
+	
+	<p><strong>Warning</strong>: if you have a team of users all accessing
+	a repository via <tt>file://</tt>, then <strong>all</strong> users
+	must use 1.2 clients. Pre-1.2 clients will unknowingly ignore locks.
+	
+	<h3>New External Status Cache</h3>
+	
+	<p>TortoiseSVN has always had a recursive overlay feature whereby overlay
+	changes in lower level folders are propagated up through the folder hierarchy
+	so that you don't forget about changes you made deep in the tree. However,
+	in previous releases this feature was only useable with very small working
+	copies due to the delay in getting the status information.</p>
+	
+	<p>In release 1.2, a new <tt>TSVNCache</tt> program is used to maintain
+	a cache of your working copy status, providing much faster access to this
+	information. Not only does this prevent explorer from blocking while
+	acquiring status, but it also makes recursive overlays workable.</p>
+	
+	<p>Note: Explorer is much more responsive with the new cache because it
+	displays pages before the full information is available and refreshes as
+	required. This means that the status you see immediately may not be recursive
+	but the non-recursive status.
+	Depending on the size of your working copy it may take a second or two for
+	the recursive status to filter through.</p>
+	
+	<p>Subversion has always suffered from a speed problem if the timestamp
+	on a file changes and the content doesn't. This forces subversion to
+	do a byte-by-byte compare of the file with BASE to check whether it has
+	really changed. In this new release, you can fix such timestamp mismatches
+	using the <tt>Cleanup</tt> menu entry. If your WC has become slow to
+	check, try doing a cleanup.</p>
+	
+	<h3>Better Use of Overlays</h3>
+	
+	<p>Windows supports only 15 icon overlays, and uses 3 of these itself.
+	If both TortoiseSVN and TortoiseCVS are installed there are simply not
+	enough overlays for both applications.</p>
+	
+	<p>In this release, TortoiseSVN checks to see how many overlays are
+	required by other apps, and only installs essential ones if there
+	are not enough for everyone. It also displays an alternative overlay
+	if the preferred one is not available. For example if the <tt>Added</tt>
+	overlay is not available, the <tt>Modified</tt> overlay will be used
+	instead.</p>
+	
+	<h2>Enhancements and Bugfixes</h2>
+	
+	<p>This is a major new release, and almost all the main dialogs have
+	been improved in some way, either to add new features or to make
+	them easier to use. Some of the main ones are mentioned below,
+	and there have also been many minor bugfixes. To see the full list
+	of changes check the
+	<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0/src/Changelog.txt">
+	ChangeLog (user 'guest' as username and '' as password)</a></p>
+	
+	<h3>Merge Dialog</h3>
+	<p>This has been changed considerably to make the difficult subject
+	of merging easier to understand and use. You can now select revisions
+	to merge using the revision log dialog, without trying to work out
+	the correct numbers to insert in the revision boxes.</p>
+	
+	<h3>Log Dialog</h3>
+	<p>New filters allow you to search within the log messages, or restrict
+	to a date range.</p>
+	
+	<p>The new Subversion 1.2 API allows you to fetch a given number of
+	log messages rather than the log messages for a given number of
+	repository revisions. This makes it much easier to display a useful
+	number of messages, and to get more messages as required.</p>
+	
+	<p>Note - this feature works best with Subversion 1.2 servers.
+	It will work with earlier servers, but will be slow. The server
+	does not understand the new parameter and returns all log messages,
+	which the Subversion client then filters. This results in very slow
+	response. TortoiseSVN has a setting which allows you to use the old
+	API in case you need to work with an older server.</p>
+	
+	<p>You can now compare two revisions of a folder. TortoiseSVN will
+	list the files which have changed, allowing you to diff each one
+	individually.</p>
+	
+	<p>You can now resize the 3 panes of the log dialog individually.</p>
+	
+	<p>The log dialog has a number of other new context menus, allowing
+	you to do more.</p>
+	
+	<h3>Commit Dialog</h3>
+	<p>Autocompletion now picks up some language-dependent keywords
+	(usually class/method/variable name) using regular expressions.</p>
+	
+	<p>Bugtracking integration has been extended using regular expressions,
+	making it easier to pick out your issue IDs. Read about this in the
+	<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0/doc/issuetrackers.txt">
+	Issue Tracker Integration Spec</a>.</p>
+	
+	<p>Comment history is now inserted at the current cursor position,
+	rather than always at the beginning of any existing message.</p>
+	
+	<h3>Repository Browser</h3>
+	<p>Several new context menu entries, allowing you to export or
+	checkout directly from the browser.</p>
+	
+	<p>Open files using the Windows file association, or a program
+	of your choice.</p>
+	
+	<h3>Cleanup</h3>
+	<p>Subversion 1.2 adds extra functionality to the Cleanup command so that
+	it now makes more repairs. If the timestamp of a working copy file does
+	not match Subversion's recorded timestamp, but the file length does match,
+	Subversion does a byte-by-byte check to see if the files really are
+	different, and that can slow down status checks.</p>
+	
+	<p><tt>Cleanup</tt> now checks these files and if the content matches,
+	it resets its record of the timestamp so that future checks will run
+	faster. If your working copy is very slow to produce the list of files
+	in the <tt>Check for Modifications</tt> and <tt>Commit</tt> dialogs,
+	try running <tt>Cleanup</tt> on your working copy. If you used the
+	<tt>Use commit timestamps</tt> option, you should definitely do this.</p>
+	
+	<h3>Settings Dialog</h3>
+	<p>The settings dialog now has an updated interface which is less
+	crowded and easier to use. The options are also grouped in a more
+	logical manner, so you know where to look for things.</p>
+	
+	<h3>Tortoise Merge</h3>
+	<p>You can opt to ignore case differences when viewing file difference.
+	This is useful for VB source, which sometimes gets changed by the
+	IDE.</p>
+</div>
+</body>	
 </html>

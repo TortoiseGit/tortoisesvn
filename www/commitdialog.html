@@ -1,33 +1,60 @@
-<a name="spellchecker">
-<h3>Spell checker</h3>
-<p>
-If a spell checker dictionary is installed, TortoiseSVN will use it
-to check your log messages while you type:
-</p>
-<img alt="Commit dialog, spell checker" src="images/CommitDlgSpellCheck.png">
-<p>
-You can download the spell checker for different languages <a href="http://sourceforge.net/project/showfiles.php?group_id=138498&package_id=166583">here</a>.
-</p>
-<a name="autocompletion">
-<h3>Auto completion</h3>
-<p>
-While you are typing your log message for the commit, TortoiseSVN shows you choices
-for keywords or paths you might want to enter:
-</p>
-<img alt="Commit dialog, autocompletion" src="images/CommitDlgAutoCompletion.png">
-<p>
-The paths are taken from the list of modified files. The keywords are extracted
-from the same files.
-</p>
-<a name="textformatting">
-<h3>Message formatting</h3>
-<p>
-Log messages in Subversion are pure, simple text. But sometimes you want
-to emphasize some words in your log messages. This is where the text formatting
-feature of TortoiseSVN helps out:
-</p>
-<img alt="Commit dialog, text formatting" src="images/CommitDlgTextFormatting.png">
-<p>
-Text in between '*' chars is made bold, in between '_' chars underlined and in between '^' chars made italic.
-Of course, the same formatting happens later in the log dialog.
-</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>Commit Dialog</title>
+
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<a name="spellchecker">
+	<h3>Spell checker</h3>
+	<p>
+	If a spell checker dictionary is installed, TortoiseSVN will use it
+	to check your log messages while you type:
+	</p>
+	<img alt="Commit dialog, spell checker" src="images/CommitDlgSpellCheck.png">
+	<p>
+	You can download the spell checker for different languages <a href="http://sourceforge.net/project/showfiles.php?group_id=138498&package_id=166583">here</a>.
+	</p>
+	<a name="autocompletion">
+	<h3>Auto completion</h3>
+	<p>
+	While you are typing your log message for the commit, TortoiseSVN shows you choices
+	for keywords or paths you might want to enter:
+	</p>
+	<img alt="Commit dialog, autocompletion" src="images/CommitDlgAutoCompletion.png">
+	<p>
+	The paths are taken from the list of modified files. The keywords are extracted
+	from the same files.
+	</p>
+	<a name="textformatting">
+	<h3>Message formatting</h3>
+	<p>
+	Log messages in Subversion are pure, simple text. But sometimes you want
+	to emphasize some words in your log messages. This is where the text formatting
+	feature of TortoiseSVN helps out:
+	</p>
+	<img alt="Commit dialog, text formatting" src="images/CommitDlgTextFormatting.png">
+	<p>
+	Text in between '*' chars is made bold, in between '_' chars underlined and in between '^' chars made italic.
+	Of course, the same formatting happens later in the log dialog.
+	</p>
+</div>
+</body>
+</html>
