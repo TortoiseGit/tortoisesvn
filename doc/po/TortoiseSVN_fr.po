@@ -1,4 +1,3 @@
-#
 # French translation for TortoiseSVN
 # Copyright (C) 2004-2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -3234,21 +3233,11 @@ msgid "Exporting"
 msgstr "Exporter"
 
 #: source/TortoiseSVN_en.xml:3666
-#: (primary)
-msgid "export"
-msgstr "exportation"
-
-#: source/TortoiseSVN_en.xml:3668
 #: (para)
 msgid "Sometimes you may want a copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Instead of making a copy and then delete all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command on your working copy you'll be asked for a place to save the <literal>clean</literal> working copy without the <filename>.svn</filename> folders. Also, you can specify if you want to export <emphasis>all</emphasis> files or just the versioned files."
 msgstr "Parfois vous pouvez vouloir une copie sans ces répertoires <filename>.svn</filename>, par exemple pour créer un paquet zippé de votre source. Au lieu de faire une copie puis de supprimer tous ces répertoires <filename>.svn</filename> manuellement, TortoiseSVN propose la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Si vous exécutez cette commande sur votre copie de travail on vous demandera un emplacement pour sauvegarder la copie de travail <literal>propre</literal> sans les répertoires <filename>.svn</filename>. Vous pouvez aussi spécifier si vous voulez exporter <emphasis>tous<emphasis> les fichiers ou seulement les fichiers versionnés."
 
 #: source/TortoiseSVN_en.xml:3685
-#: (para)
-msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr "Une autre façon de faire une exportation consiste à glisser avec le bouton droit un dossier de la copie de travail vers un autre emplacement et choisir <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter ici</guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter tout ici</guimenuitem></menuchoice>"
-
-#: source/TortoiseSVN_en.xml:3701
 #: (title)
 msgid "Sending Your Changes To The Repository"
 msgstr "Envoyer vos changements au référentiel"
