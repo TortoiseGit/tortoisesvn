@@ -86,7 +86,7 @@ void CSplitterControl::OnPaint()
 
 		rcClient.DeflateRect(1,1,1,1);
 
-		pen.CreatePen(0, 1, GetSysColor(COLOR_HOTLIGHT));
+		pen.CreatePen(0, 1, GetSysColor(COLOR_3DSHADOW));
 		pOP = dc.SelectObject(&pen);
 
 		dc.MoveTo(rcClient.left, rcClient.top);
