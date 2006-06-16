@@ -27,6 +27,9 @@
 #define TRACKBAR_ID 101
 #define TIMER_ALPHASLIDER 100
 
+#define WINDOW_MINHEIGTH 200
+#define WINDOW_MINWIDTH 200
+
 /**
  * The main window of TortoiseIDiff.
  * Hosts the two image views, the menu, toolbar, slider, ...
