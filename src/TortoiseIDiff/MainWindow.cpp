@@ -121,13 +121,18 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			{
 				if (LOWORD(wParam) == TB_THUMBTRACK)
 				{
-					// while tracking, only redraw every ten ticks
-					if ((HIWORD(wParam)%10) == 0)
-						picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
+					// while tracking, only redraw after 50 milliseconds
+					::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
 				}
 				else
 					picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
 			}
+		}
+		break;
+	case WM_TIMER:
+		{
+			if ((wParam == TIMER_ALPHASLIDER)&&(bOverlap))
+				picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
 		}
 		break;
 	case WM_PAINT:

@@ -25,6 +25,7 @@
 #define SLIDER_HEIGHT 30
 #define SPLITTER_BORDER 2
 #define TRACKBAR_ID 101
+#define TIMER_ALPHASLIDER 100
 
 /**
  * The main window of TortoiseIDiff.
