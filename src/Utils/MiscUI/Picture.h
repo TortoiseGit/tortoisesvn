@@ -157,6 +157,8 @@ public:
 	 */
 	long SetActiveFrame(UINT frame);
 
+	DWORD GetFileSize() {return m_nSize;}
+	stdstring GetFileSizeAsText() {return m_FileSize;}
 	CPicture();
 	virtual ~CPicture();
 
@@ -197,6 +199,7 @@ private:
 	UINT				nCurrentIcon;
 	BYTE *				lpIcons;
 	HICON *				hIcons;
+	DWORD				m_nSize;
 
 	#pragma pack(push, r1, 2)   // n = 16, pushed to stack
 

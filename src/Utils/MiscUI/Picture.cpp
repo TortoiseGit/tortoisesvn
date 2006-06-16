@@ -41,6 +41,7 @@ CPicture::CPicture()
 	lpIcons = NULL;
 	nCurrentIcon = 0;
 	bIsIcon = false;
+	m_nSize = 0;
 }
 
 CPicture::~CPicture()
@@ -62,6 +63,7 @@ void CPicture::FreePictureData()
 		m_Height = 0;
 		m_Weight = 0;
 		m_Width = 0;
+		m_nSize = 0;
 	}
 	if (hIcons)
 	{
@@ -189,6 +191,7 @@ bool CPicture::Load(stdstring sFilePathName)
 						TCHAR buf[100];
 						_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
 						m_FileSize = stdstring(buf);
+						m_nSize = fileinfo.nFileSizeLow;
 						bResult = true;
 					}
 				}
@@ -215,6 +218,23 @@ bool CPicture::Load(stdstring sFilePathName)
 			m_Height = 0;
 			m_Width = 0;
 			bResult = false;
+		}
+	}
+
+	if ((bResult)&&(m_nSize == 0))
+	{
+		HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
+		if (hFile != INVALID_HANDLE_VALUE)
+		{
+			BY_HANDLE_FILE_INFORMATION fileinfo;
+			if (GetFileInformationByHandle(hFile, &fileinfo))
+			{
+				TCHAR buf[100];
+				_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
+				m_FileSize = stdstring(buf);
+				m_nSize = fileinfo.nFileSizeLow;
+			}
+			CloseHandle(hFile);
 		}
 	}
 

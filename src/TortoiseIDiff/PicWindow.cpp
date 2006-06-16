@@ -641,11 +641,13 @@ void CPicWindow::Paint(HWND hwnd)
 					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
 						(TCHAR const *)ResString(hInstance, IDS_DUALIMAGEINFO),
 						pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
+						picture.GetFileSizeAsText().c_str(),
 						picture.GetWidth(), picture.GetHeight(),
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 						picture.GetColorDepth(),
 						(UINT)(GetZoom()*100.0),
 						pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
+						pSecondPic->GetFileSizeAsText().c_str(),
 						pSecondPic->GetWidth(), pSecondPic->GetHeight(),
 						pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
 						pSecondPic->GetColorDepth());
@@ -654,6 +656,7 @@ void CPicWindow::Paint(HWND hwnd)
 				{
 					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
 						(TCHAR const *)ResString(hInstance, IDS_IMAGEINFO),
+						picture.GetFileSizeAsText().c_str(), 
 						picture.GetWidth(), picture.GetHeight(),
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 						picture.GetColorDepth(),
