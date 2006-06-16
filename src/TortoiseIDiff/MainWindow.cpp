@@ -172,21 +172,37 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			LPNMHDR pNMHDR = (LPNMHDR)lParam;
 			if (pNMHDR->code == TTN_GETDISPINFO)
 			{
-				LPTOOLTIPTEXT lpttt; 
+				if ((HWND)wParam == hTrackbar)
+				{
+					LPTOOLTIPTEXT lpttt; 
 
-				lpttt = (LPTOOLTIPTEXT) lParam; 
-				lpttt->hinst = hInstance; 
+					lpttt = (LPTOOLTIPTEXT) lParam; 
+					lpttt->hinst = hInstance; 
 
-				// Specify the resource identifier of the descriptive 
-				// text for the given button. 
-				TCHAR stringbuf[MAX_PATH] = {0};
-				MENUITEMINFO mii;
-				mii.cbSize = sizeof(MENUITEMINFO);
-				mii.fMask = MIIM_TYPE;
-				mii.dwTypeData = stringbuf;
-				mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
-				GetMenuItemInfo(GetMenu(*this), lpttt->hdr.idFrom, FALSE, &mii);
-				lpttt->lpszText = stringbuf;
+					// Specify the resource identifier of the descriptive 
+					// text for the given button. 
+					TCHAR stringbuf[MAX_PATH] = {0};
+					_stprintf_s(stringbuf, MAX_PATH, _T("%ld alpha"), (BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
+					lpttt->lpszText = stringbuf;
+				}
+				else
+				{
+					LPTOOLTIPTEXT lpttt; 
+
+					lpttt = (LPTOOLTIPTEXT) lParam; 
+					lpttt->hinst = hInstance; 
+
+					// Specify the resource identifier of the descriptive 
+					// text for the given button. 
+					TCHAR stringbuf[MAX_PATH] = {0};
+					MENUITEMINFO mii;
+					mii.cbSize = sizeof(MENUITEMINFO);
+					mii.fMask = MIIM_TYPE;
+					mii.dwTypeData = stringbuf;
+					mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
+					GetMenuItemInfo(GetMenu(*this), lpttt->hdr.idFrom, FALSE, &mii);
+					lpttt->lpszText = stringbuf;
+				}
 			}
 		}
 		break;
@@ -512,13 +528,11 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, L
 
 HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 { 
-	InitCommonControls();
-
 	HWND hwndTrack = CreateWindowEx( 
 		0,									// no extended styles 
 		TRACKBAR_CLASS,						// class name 
 		_T("Trackbar Control"),				// title (caption) 
-		WS_CHILD | WS_VISIBLE | TBS_HORZ,	// style 
+		WS_CHILD | WS_VISIBLE | TBS_HORZ | TBS_TOOLTIPS,	// style 
 		10, 10,								// position 
 		200, 30,							// size 
 		hwndParent,							// parent window 
@@ -530,6 +544,9 @@ HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 	SendMessage(hwndTrack, TBM_SETRANGE, 
 		(WPARAM) TRUE,						// redraw flag 
 		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
+	SendMessage(hwndTrack, TBM_SETTIPSIDE, 
+		(WPARAM) TBTS_TOP,						// redraw flag 
+		(LPARAM) 0);		// min. & max. positions 
 
 	return hwndTrack; 
 }
