@@ -588,7 +588,7 @@ void CPicWindow::Paint(HWND hwnd)
 			picture.Show(memDC, picrect);
 			if (pSecondPic)
 			{
-				CMemDC memDC2(hdc);
+				CMemDC memDC2(hdc, true);
 
 				RECT picrect2;
 				picrect2.left =  rect.left-nHScrollPos;

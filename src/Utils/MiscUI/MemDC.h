@@ -21,13 +21,14 @@ class CMemDC : public CDC
 {
 public:
 	// constructor sets up the memory DC
-	CMemDC(CDC* pDC, int nOffset = 0) : CDC()
+	CMemDC(CDC* pDC, bool bTempOnly = false, int nOffset = 0) : CDC()
     {
 		ASSERT(pDC != NULL);
 		
 		m_pDC = pDC;
 		m_pOldBitmap = NULL;
         m_bMemDC = ((!pDC->IsPrinting()) && (!GetSystemMetrics(SM_REMOTESESSION)));
+		m_bTempOnly = bTempOnly;
 		
         if (m_bMemDC)	// Create a Memory DC
 		{
@@ -55,6 +56,7 @@ public:
 		m_pDC = pDC;
 		m_pOldBitmap = NULL;
 		m_bMemDC = !pDC->IsPrinting();
+		m_bTempOnly = false;
 
 		// Get the rectangle to draw
 		if (pRect == NULL) {
@@ -94,8 +96,9 @@ public:
     {
 		if (m_bMemDC) {	
 			// Copy the offscreen bitmap onto the screen.
-			m_pDC->BitBlt(m_rect.left, m_rect.top, m_rect.Width(), m_rect.Height(),
-				this, m_rect.left, m_rect.top, SRCCOPY);
+			if (!m_bTempOnly)
+				m_pDC->BitBlt(m_rect.left, m_rect.top, m_rect.Width(), m_rect.Height(),
+								this, m_rect.left, m_rect.top, SRCCOPY);
 			
             //Swap back the original bitmap.
             SelectObject(m_pOldBitmap);
@@ -119,6 +122,7 @@ private:
     CDC*     m_pDC;			// Saves CDC passed in constructor
     CRect    m_rect;		// Rectangle of drawing area.
     BOOL     m_bMemDC;		// TRUE if CDC really is a Memory DC.
+	BOOL	 m_bTempOnly;	// Whether to copy the contents on the real DC on destroy
 };
 #else
 class CMemDC
@@ -126,10 +130,11 @@ class CMemDC
 public:
 
 	// constructor sets up the memory DC
-	CMemDC(HDC hDC, int nOffset = 0) 
+	CMemDC(HDC hDC, bool bTempOnly = false, int nOffset = 0) 
 	{	
 		m_hDC = hDC;
 		m_hOldBitmap = NULL;
+		m_bTempOnly = bTempOnly;
 
 		::GetClipBox(m_hDC, &m_rect);
 		m_hMemDC = ::CreateCompatibleDC(m_hDC);
@@ -143,7 +148,8 @@ public:
 	{
 		if (m_hMemDC) {	
 			// Copy the offscreen bitmap onto the screen.
-			BitBlt(m_hDC, m_rect.left, m_rect.top, m_rect.right-m_rect.left, m_rect.bottom-m_rect.top, m_hMemDC, m_rect.left, m_rect.top, SRCCOPY);
+			if (!m_bTempOnly)
+				BitBlt(m_hDC, m_rect.left, m_rect.top, m_rect.right-m_rect.left, m_rect.bottom-m_rect.top, m_hMemDC, m_rect.left, m_rect.top, SRCCOPY);
 
 			//Swap back the original bitmap.
 			SelectObject(m_hMemDC, m_hOldBitmap);
@@ -168,6 +174,7 @@ private:
 	HDC      m_hDC;			// Saves CDC passed in constructor
 	HDC		 m_hMemDC;		// our own memory DC
 	RECT	 m_rect;		// Rectangle of drawing area.
+	bool	 m_bTempOnly;	// Whether to copy the contents on the real DC on destroy
 };
 
 #endif
