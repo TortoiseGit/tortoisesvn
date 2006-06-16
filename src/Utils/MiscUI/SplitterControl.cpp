@@ -40,6 +40,7 @@ CSplitterControl::CSplitterControl()
 
 	// Min and Max range of the splitter.
 	m_nMin = m_nMax = -1;
+	m_bMouseOverControl = false;
 }
 
 CSplitterControl::~CSplitterControl()
@@ -54,6 +55,7 @@ BEGIN_MESSAGE_MAP(CSplitterControl, CStatic)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
 	ON_WM_ERASEBKGND()
+	ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -78,23 +80,28 @@ void CSplitterControl::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	CRect rcClient;
 	GetClientRect(rcClient);
-	
-	CBrush br, *pOB;
-	CPen pen, *pOP;
+	if (m_bMouseOverControl)
+	{
+		CPen pen, *pOP;
 
-	dc.Draw3dRect(rcClient, GetSysColor(COLOR_BTNHIGHLIGHT), GetSysColor(COLOR_BTNSHADOW));	
-	rcClient.DeflateRect(1,1,1,1);
-	
-	pen.CreatePen(0, 1, GetSysColor(COLOR_3DFACE));
-	br.CreateSolidBrush(GetSysColor(COLOR_3DLIGHT));
-	pOB = dc.SelectObject(&br);
-	pOP = dc.SelectObject(&pen);
-	
-	dc.Rectangle(rcClient);
+		rcClient.DeflateRect(1,1,1,1);
 
-	// Restore pen and brush
-	dc.SelectObject(pOB);
-	dc.SelectObject(pOP);
+		pen.CreatePen(0, 1, GetSysColor(COLOR_HOTLIGHT));
+		pOP = dc.SelectObject(&pen);
+
+		dc.MoveTo(rcClient.left, rcClient.top);
+		dc.LineTo(rcClient.right, rcClient.top);
+		dc.MoveTo(rcClient.left, rcClient.bottom);
+		dc.LineTo(rcClient.right, rcClient.bottom);
+
+		// Restore pen
+		dc.SelectObject(pOP);	
+	}
+	else
+	{
+		dc.SetBkColor(GetSysColor(COLOR_3DFACE));
+		dc.ExtTextOut(0, 0, ETO_OPAQUE, &rcClient, NULL, 0, NULL);
+	}
 }
 
 void CSplitterControl::OnMouseMove(UINT nFlags, CPoint point) 
@@ -123,7 +130,25 @@ void CSplitterControl::OnMouseMove(UINT nFlags, CPoint point)
 		m_nY = pt.y;
 		DrawLine(&dc);
 	}
+	if (!m_bMouseOverControl)
+	{
+		TRACKMOUSEEVENT Tme;
+		Tme.cbSize = sizeof(TRACKMOUSEEVENT);
+		Tme.dwFlags = TME_LEAVE;
+		Tme.hwndTrack = m_hWnd;
+		TrackMouseEvent(&Tme);
+
+		m_bMouseOverControl = true;
+		Invalidate();
+	}
 	CStatic::OnMouseMove(nFlags, point);
+}
+
+LRESULT CSplitterControl::OnMouseLeave(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+	m_bMouseOverControl = false;
+	Invalidate();
+	return 0;
 }
 
 BOOL CSplitterControl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 

@@ -48,8 +48,9 @@ protected:
 	int			m_nType;
 	int			m_nX, m_nY;
 	int			m_nMin, m_nMax;
-	int			m_nSavePos;		// Save point on the lbutton down 
-								// message
+	int			m_nSavePos;		// Save point on the lbutton down message
+	bool		m_bMouseOverControl;
+
 // Implementation
 public:
 	static void ChangePos(CWnd* pWnd, int dx, int dy);
@@ -72,8 +73,8 @@ protected:
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
-
+	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
+	afx_msg LRESULT OnMouseLeave(WPARAM wParam, LPARAM lParam); 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
