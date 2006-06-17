@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>TortoiseIDiff - See changes in image files</title>
+
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+
+	<h2>TortoiseIDiff</h2>
+	<p>
+		Depending on your project, not all files which are under version
+		control are text files. Most likely you will have images too, for
+		example screenshots and diagrams for the documentation/helpfile.
+	</p>
+	<p>
+		For those files it's not possible to use a common file diff tool,
+		because they only work with text files and diff line-by-line.
+		Here is where the Tortoise Image Diff tool (TortoiseIDiff) comes
+		to the rescue. It can show two images side-by-side, or even
+		show the images over each other alpha blended.
+	</p>
+	<img alt="TortoiseIDiff with images side-by-side" src="images/TortoiseIDiffTwo.png">
+	<img alt="TortoiseIDiff with images alpha-blended" src="images/TortoiseIDiffOne.png">
+	
+</div>
+</body>

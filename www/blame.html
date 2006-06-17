@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>TortoiseBlame - who changed which line, when and why?</title>
+
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<a name="intro">
+	<h2>TortoiseBlame</h2>
+	<p>
+		Sometimes you need to know why a part of your files is the way it
+		is, who made that particular change and why. Or in other words:
+		"Who the h*** put that command there?".
+	</p>
+	<p>
+		Subversion has a command for this, and it is called <em>blame</em> 
+		(guess why). Subversion creates a blame of a file by adding information
+		about the author who committed a line, the revision the line was last
+		changed and the date.
+	</p>
+	<p>
+		TortoiseSVN has its own tool to show you those blames. In addition to
+		the information other Subversion clients show, it also shows you
+		the log message of the commit for each line inside a little tooltip
+		window when you hover the mousepointer over a line.
+	</p>
+	<img alt="TortoiseBlame" src="images/Blame.png">
+	<p>
+		To make it easier to follow a specific revision (which lines exactly
+		were changed in a commit), it colors lines from the same revision
+		differently. Also a separate color is used for the author of the
+		currently selected line. 
+	</p>
+
+</div>
+</body>

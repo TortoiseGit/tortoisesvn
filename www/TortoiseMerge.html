@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>TortoiseMerge - a text diff tool</title>
+
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+
+	<a name="intro">
+	<h2>TortoiseMerge</h2>
+	<p>
+		Version control is all about having the history of your working progress.
+		But to really see and check the history, you must be able to see and check
+		what has changed between two points in time, for example what has changed
+		between two releases of your product, or what was changed to fix a bug, or ...
+	</p>
+	
+	<a name="diff">
+	<h3>Diffing files</h3>
+	<p>
+		At least for files which consist of text, TortoiseMerge can help you here.
+		It shows you the two versions of a file side-by-side, coloring every
+		modified line in that file.
+	</p>
+	<img alt="TortoiseMerge showing two file diff" src="images/TMerge2Diff.png">
+	<p>
+		You can see in that screenshot that TortoiseMerge also colors the changes
+		<em>inside</em> modified lines so you can see immediately what exactly
+		has changed.
+	</p>
+	<p>
+		When you reformat your code or text, sometimes you don't really change
+		anything but only split a long line into multiple ones, or you merge
+		multiple lines into one. TortoiseMerge marks such changes with a white
+		circle on the left gray bar of each view. If you see such a white
+		circle, you know that no real changes were made, only changes in
+		<em>whitespaces</em>.
+	</p>
+	<p>
+		At the bottom of the window, there is a view showing the two lines your
+		mouse pointer is currently hovering over. It always shows whitespace characters
+		with special chars, and of course it's very handy if you have long lines
+		because that view has the double width than the normal views.
+	</p>
+	
+	<a name="merge">
+	<h3>Resolving conflicts</h3>
+	<p>
+		But that's not all TortoiseMerge is able to do for you. It can also help
+		you resolve a conflict by showing you <em>your</em> file, the file which
+		has been modified by <em>someone else</em> and the file as it was before
+		any of you have modified it, in its <em>original</em> state. Then you can
+		easily see where the changes made conflict, and you can choose how to
+		resolve that conflict.
+	</p>
+	<img alt="TortoiseMerge showing two file diff" src="images/TMerge3Diff.png">
+	
+	<a name="patch">
+	<h3>Applying patch files</h3>
+	<p>
+		When you're working on a project and other people have access to your
+		sourcecode, but not necessarily have the rights to commit changes to
+		the repository, you sometimes get a patch file with a bug fix or an
+		enhancement. TortoiseMerge helps here too, because it can apply those
+		patchfiles for you.
+	</p>
+	<img alt="Context menu to apply a patch" src="images/ApplyPatchMenu.png">
+	<br />
+	<img alt="TortoiseMerge in Apply-Patch mode" src="images/ApplyPatch.png">
+	<p>
+		On the left is a small window containing all files which the patchfile
+		wants to modify. A doubleclick on those file entries opens the file
+		to be patched on the left, and the file how it looks like after the
+		patch is applied on the right side.
+	</p>
+	<p>
+		To approve the patch, saving the file is enough.
+	</p>
+
+</div>
+</body>
