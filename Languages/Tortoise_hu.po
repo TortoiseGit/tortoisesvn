@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-30 23:43+0100\n"
+"PO-Revision-Date: 2006-06-17 19:45+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -515,6 +515,11 @@ msgstr "Az &első eltéréshez ugrik betöltéskor"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Nyelv:"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "Keresés &korlátozása a módosított sorokra"
 
 # Control-ID:1172,
 #: Control-ID:1172
@@ -2731,6 +2736,10 @@ msgstr "Fájlfoltok"
 msgid "File patches"
 msgstr "Fájlfoltok"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Keres"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2747,8 +2756,8 @@ msgstr "Befejezve!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "A súgóhoz nyomj F1-t"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "A Súgóért nyomj F1-et. Vízszintesen a Ctrl-egérgörgővel mozoghatsz"
 
 # Control-ID:1200,
 #: Control-ID:1200
@@ -3008,6 +3017,15 @@ msgstr "Ha be van kapcsolva, akkor a verziókezelés alatt nem lévő mappákban
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Ha be van kapcsolva, a verziókezelés alatt nem lévő fájlok a szülőkönyvtárat módosított\n"
+"tulajdonságúra állítják, a szülőkönyvtárak a módosított állapot ikont kapják."
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -3084,10 +3102,9 @@ msgstr "Útvonalak belevétele:"
 msgid "Initial import"
 msgstr "Első import"
 
-# Control-ID:65535,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Sorközi láthatatlan karakter különbség"
+msgid "Inline diff"
+msgstr "Soron belüli különbség"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3265,11 +3282,6 @@ msgstr "Leglustább fejlesztő:"
 msgid "Left View: "
 msgstr "Bal oldali nézet:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Láthatatlan karakter különbség a sorban"
-
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3445,6 +3457,11 @@ msgid ""
 msgstr ""
 "Megoldottnak jelöl egy fájlt a Subversion-ben\n"
 "Megoldottnak jelöl"
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Kisbetű-&Nagybetű összeegyeztetése"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -4776,6 +4793,11 @@ msgstr "Szikra"
 msgid "Search &log messages..."
 msgstr "&Naplóüzenetek keresése..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Erre keressen:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -5362,11 +5384,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
-"A %s\n"
-"nem egy valódi szövegfájl!\n"
-"Az UTF16 és UTF32 kódolású szövegek is binárisnak számítanak."
+"A\n"
+"%s\n"
+"fájl nem valódi szövegfájl!\n"
+"Megjegyzés: Az UTF32 kódolású szövegek is binárisnak számítanak."
 
 # ID:80,
 #: ID:80
@@ -6070,6 +6093,11 @@ msgstr "Feloldva"
 msgid "Untitled"
 msgstr "Névtelen"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Nem verziókezelt fájlok a szülőkönyvtárt módosítottnak jelzik"
+
 # ID:8,#:
 # Dlg-ID:152,
 #: Dlg-ID:152
@@ -6258,11 +6286,6 @@ msgstr "Figyelem"
 #: ID:219
 msgid "Warning!"
 msgstr "Figyelem!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Láthatatlan karakter különbség"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
