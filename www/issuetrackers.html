@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style type="text/css"> /* <![CDATA[ */
+  @import "/branding/css/tigris.css";
+  @import "/branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="/branding/css/print.css"/>
+<script type="text/javascript" src="/branding/scripts/tigris.js"></script>
+<title>The Big Picture</title>
+
+</head>
+
+<body>
+
+<!-- The class h2 is included on the main div, because the HTML which the
+     server will wrap around the page includes a <div class="h2">.
+     Thus, we include one here so that the page looks right when previewed
+     locally, *but* we override the border which the CSS assigns to that
+     style, so that we do not get two borders on the live page. -->
+<div class="h2 app" id="customcontent">
+	<h2>Integration with issue trackers</h2>
+	<p>
+	It is very common in Software Development for changes to be related to a 
+	specific bug or issue ID. Users of bug tracking systems (issue trackers) 
+	would like to associate the changes they make in Subversion with a specific 
+	ID in their issue tracker. Most issue trackers therefore provide a pre-commit 
+	hook script which parses the log message to find the bug ID with which the 
+	commit is associated. This is somewhat error prone since it relies on the 
+	user to write the log message properly so that the pre-commit hook script 
+	can parse it correctly. 
+	</p>
+	<p>
+	TortoiseSVN can help the user in two ways: 
+	<ul>
+		<li>
+		When the user enters a log message, a well defined line including the issue 
+		number associated with the commit can be added automatically. This reduces 
+		the risk that the user enters the issue number in a way the bug tracking 
+		tools can't parse correctly.
+		</li>
+		<li>
+		Or TortoiseSVN can highlight the part of the entered log message which is 
+		recognized by the issue tracker. That way the user knows that the log message 
+		can be parsed correctly. 
+		</li>
+	</ul>
+	When the user browses the log messages, TortoiseSVN creates a link out of each 
+	bug ID in the log message which fires up the browser to the issue mentioned. 
+	</p>
+	
+	<a name="commit">
+	<h3>Entering log messages</h3>
+	<p>
+	When you enter your log message for a commit, the issue number is either
+	marked with a different color so you can see and check that you have entered
+	it correctly and it will be recognized as such. Or you can enter the issue
+	number directly in the box in the right top corner of the dialog.
+	</p>
+	<p>
+	Of course, you can also combine those two input forms and have both the coloring
+	and the input box.
+	</p>
+	<img alt="Commit dialog with issuetracker integration" src="images/IssuetrackerCommit.png">
+
+	<a name="log">
+	<h3>Checking log messages</h3>
+	<p>
+	The log dialog also recognizes the issue numbers as such and converts them into a link
+	pointing to the issue in your issuetracker.
+	</p>
+	<p>
+	In a separate column, which is only visible if you assigned your project with an issuetracker,
+	the issue number is shown. You can that way immediately see which commit corresponds to which
+	issue.
+	</p>
+	<img alt="Log dialog with issuetracker integration" src="images/IssuetrackerLog.png">
+	<p>
+	More on how to assign your project with an issuetracker and how to configure it can be found
+	in our own <a href="http://tortoisesvn.sourceforge.net/docs/release/TortoiseSVN_en/ch05s24.html">docs</a>.
+	</p>
+	<p>
+	If you rather have someone else telling you about this, <a href="http://fogcreek.com/">Fog Creek</a> have
+	also a <a href="http://citydesknews.com/FogBugz/docs/40/Articles/SourceControl/TortoiseSVN.html">detailed 
+	page</a> describing this.
+	</p>
+</div>
+</body>
