@@ -40,24 +40,6 @@ typedef std::basic_string<wchar_t> wide_string;
  * \ingroup SVN
  * Provides Subversion commands, some of them as static methods for easier and
  * faster use.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \date 10-10-2002
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class SVNStatus
 {
@@ -135,6 +117,13 @@ public:
 	 * See GetFirstFileStatus() for details.
 	 */
 	svn_wc_status2_t * GetNextFileStatus(CTSVNPath& retPath);
+	/**
+	 * Checks if a path is an external folder.
+	 * This is necessary since Subversion returns two entries for external folders: one with the status svn_wc_status_external
+	 * and one with the 'real' status of that folder. GetFirstFileStatus() and GetNextFileStatus() only return the 'real'
+	 * status, so with this method it's possible to check if the status also is svn_wc_status_external.
+	 */
+	bool IsExternal(const CTSVNPath& path);
 
 	/**
 	 * Clears the memory pool.
@@ -185,6 +174,7 @@ private:
 	{
 		SVNStatus*		pThis;
 		apr_hash_t *	hash;
+		apr_hash_t *	exthash;
 	} hash_baton_t;
 
 	svn_client_ctx_t * 			ctx;
@@ -227,6 +217,7 @@ private:
 	apr_hash_t *				m_statushash;
 	apr_array_header_t *		m_statusarray;
 	unsigned int				m_statushashindex;
+	apr_hash_t *				m_externalhash;
 
 #pragma warning(push)
 #pragma warning(disable: 4200)

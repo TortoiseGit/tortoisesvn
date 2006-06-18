@@ -329,11 +329,13 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	const sort_item*			item;
 
 	m_statushash = apr_hash_make(m_pool);
+	m_externalhash = apr_hash_make(m_pool);
 	headrev = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = m_statushash;
+	hashbaton.exthash = m_externalhash;
 	hashbaton.pThis = this;
 	m_statushashindex = 0;
 	m_err = svn_client_status2 (&headrev,
@@ -395,6 +397,13 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 	retPath.SetFromSVN((const char*)item->key);
 	return (svn_wc_status2_t *) item->value;
+}
+
+bool SVNStatus::IsExternal(const CTSVNPath& path)
+{
+	if (apr_hash_get(m_externalhash, path.GetSVNApiPath(), APR_HASH_KEY_STRING))
+		return true;
+	return false;
 }
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string)
@@ -566,6 +575,11 @@ void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status2_t 
 {
 	hashbaton_t * hash = (hashbaton_t *)baton;
 	const StdStrAVector& filterList = hash->pThis->m_filterFileList;
+	if (status->text_status == svn_wc_status_external)
+	{
+		apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
+		return;
+	}
 	if(filterList.size() > 0)
 	{
 		// We have a filter active - we're only interested in files which are in 

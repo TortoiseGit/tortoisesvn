@@ -446,6 +446,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			}
 		}
 
+		bool bEntryFromDifferentRepo = false;
 		// Is this a versioned item with an associated repos UUID?
 		if ((s->entry)&&(s->entry->uuid))
 		{
@@ -462,6 +463,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 				{
 					// This item comes from a different repository than our main one
 					m_bHasExternalsFromDifferentRepos = TRUE;
+					bEntryFromDifferentRepo = true;
 					if (s->entry->kind == svn_node_dir)
 						arExtPaths.AddPath(workingTarget);
 				} 
@@ -492,12 +494,12 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 				return true;	//ignore nested layouts
 			}
 		}
-		if (s->text_status == svn_wc_status_external)
+		if (status.IsExternal(svnPath))
 		{
 			m_bHasExternals = TRUE;
 		}
 
-		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals);
+		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
 
 		if ((wcFileStatus == svn_wc_status_unversioned) && svnPath.IsDirectory())
 		{
@@ -527,7 +529,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			const CTSVNPath& path,				// The path of the item we're adding
 			const CTSVNPath& basePath,			// The base directory for this status build
 			bool bDirectItem,					// Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
-			bool bInExternal					// Are we in an 'external' folder
+			bool bInExternal,					// Are we in an 'external' folder
+			bool bEntryfromDifferentRepo		// if the entry is from a different repository
 			)
 {
 	FileEntry * entry = new FileEntry();
@@ -540,6 +543,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->remotetextstatus = pSVNStatus->repos_text_status;
 	entry->remotepropstatus = pSVNStatus->repos_prop_status;
 	entry->inexternal = bInExternal;
+	entry->differentrepo = bEntryfromDifferentRepo;
 	entry->direct = bDirectItem;
 	entry->copied = !!pSVNStatus->copied;
 	entry->switched = !!pSVNStatus->switched;
@@ -709,6 +713,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			}
 		}
 		bool bDirectoryIsExternal = false;
+		bool bEntryfromDifferentRepo = false;
 		if (s->entry)
 		{
 			if (s->entry->uuid)
@@ -719,6 +724,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				{
 					if (strCurrentRepositoryUUID.Compare(s->entry->uuid)!=0)
 					{
+						bEntryfromDifferentRepo = true;
 						if (SVNStatus::IsImportant(wcFileStatus))
 							m_bHasExternalsFromDifferentRepos = TRUE;
 						if (s->entry->kind == svn_node_dir)
@@ -741,12 +747,17 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 						(s->entry->kind == svn_node_dir)&&
 						(lastexternalpath.IsAncestorOf(svnPath)))
 					{
+						bEntryfromDifferentRepo = true;
 						m_bHasExternalsFromDifferentRepos = TRUE;
 					}
 				}
 			} 
 		} // if (s->entry)
-
+		if (status.IsExternal(svnPath))
+		{
+			arExtPaths.AddPath(svnPath);
+			m_bHasExternals = TRUE;
+		}
 		// Do we have any external paths?
 		if(arExtPaths.GetCount() > 0)
 		{
@@ -762,12 +773,10 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			}
 		}
 
-		if (s->text_status == svn_wc_status_external)
-			m_bHasExternals = TRUE;
 		if ((wcFileStatus == svn_wc_status_unversioned)&&(!bDirectoryIsExternal))
 			m_bHasUnversionedItems = TRUE;
 
-		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal);
+		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
 
 		if ((wcFileStatus == svn_wc_status_unversioned)&&(!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns)))
 		{
@@ -849,7 +858,9 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	for (size_t i=0; i < m_arStatusArray.size(); ++i)
 	{
 		FileEntry * entry = m_arStatusArray[i];
-		if ((entry->inexternal || entry->isNested) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+		if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+			continue;
+		if ((entry->differentrepo || entry->isNested) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
 			continue;
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.

@@ -58,25 +58,25 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_SHOWINCOMPLETE	0x000001000
 #define SVNSLC_SHOWINEXTERNALS	0x000002000
 #define SVNSLC_SHOWREMOVEDANDPRESENT 0x000004000
-
 #define SVNSLC_SHOWLOCKS		0x000008000
 #define SVNSLC_SHOWDIRECTFILES	0x000010000
 #define SVNSLC_SHOWDIRECTFOLDER 0x000020000
+#define SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO 0x000040000
 
 #define SVNSLC_SHOWDIRECTS		(SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWDIRECTFOLDER)
 
 
 #define SVNSLC_SHOWVERSIONED (SVNSLC_SHOWNORMAL|SVNSLC_SHOWMODIFIED|\
 SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
-SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS)
+SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS|SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)
 
 #define SVNSLC_SHOWVERSIONEDBUTNORMAL (SVNSLC_SHOWMODIFIED|\
 	SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
-	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS)
+	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS|SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)
 
-#define SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS (SVNSLC_SHOWMODIFIED|\
+#define SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS (SVNSLC_SHOWMODIFIED|\
 	SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
-	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWINCOMPLETE)
+	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 
 #define SVNSLC_SHOWALL (SVNSLC_SHOWVERSIONED|SVNSLC_SHOWUNVERSIONED)
 
@@ -162,6 +162,7 @@ public:
 			, checked(false)
 			, inunversionedfolder(false)
 			, inexternal(false)
+			, differentrepo(false)
 			, direct(false)
 			, isfolder(false)
 			, isNested(false)
@@ -196,6 +197,10 @@ public:
 		{
 			return inexternal;
 		}
+		const bool IsFromDifferentRepository() const
+		{
+			return differentrepo;
+		}
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
@@ -222,6 +227,7 @@ public:
 		bool					checked;				///< if the file is checked in the list control
 		bool					inunversionedfolder;	///< if the file is inside an unversioned folder
 		bool					inexternal;				///< if the item is in an external folder
+		bool					differentrepo;			///< if the item is from a different repository than the rest
 		bool					direct;					///< directly included (TRUE) or just a child of a folder
 		bool					isfolder;				///< TRUE if entry refers to a folder
 		bool					isNested;				///< TRUE if the folder from a different repository and/or path
@@ -440,7 +446,8 @@ private:
 		const CTSVNPath& path,				// The path of the item we're adding
 		const CTSVNPath& basePath,			// The base directory for this status build
 		bool bDirectItem,					// Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
-		bool bInExternal					// Are we in an 'external' folder
+		bool bInExternal,					// Are we in an 'external' folder
+		bool bEntryfromDifferentRepo		// if the entry is from a different repository
 		);
 
 	/// Adjust the checkbox-state on all descendents of a specific item
