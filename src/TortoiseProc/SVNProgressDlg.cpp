@@ -1086,7 +1086,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred)&&(localoperation))
+	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(localoperation))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 
 	//Don't do anything here which might cause messages to be sent to the window
