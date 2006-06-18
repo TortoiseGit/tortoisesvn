@@ -341,7 +341,6 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			sMsg += _T("\n");
 			sMsg += CString(svnerr->message);
 		}
-		apr_pool_destroy (pool);					// free the allocated memory
 		m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 		return false;
 	}
@@ -582,8 +581,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			svnerr = svnerr->child;
 			sMsg += _T("\n");
 			sMsg += CString(svnerr->message);
-		} // while (m_err->child)
-		apr_pool_destroy (pool);					// free the allocated memory
+		}
 		m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 		return false;
 	}
