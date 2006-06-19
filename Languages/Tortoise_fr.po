@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-17 20:16+0100\n"
+"PO-Revision-Date: 2006-06-18 19:13+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -468,7 +468,7 @@ msgstr "F&usionner..."
 
 #: Control-ID:1012
 msgid "&Merging"
-msgstr "&Fusionnement"
+msgstr "&Fusion"
 
 # Control-ID:1129,
 #: Control-ID:1129
@@ -795,7 +795,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Une liste séparée par saut de ligne de chemins pour lequels les recouvrements d'icônes seront affichés.\n"
+"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes sera affiché.\n"
 "Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront inclus aussi."
 
 # ID:194,
@@ -805,7 +805,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Une liste séparée par saut de ligne de chemins pour lequels les recouvrements d'icônes ne seront pas  affichés.\n"
+"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes ne sera pas  affiché.\n"
 "Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\n"
 "Une liste vide autorise le recouvrement sur tous les chemins."
 
@@ -1495,7 +1495,7 @@ msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de différence par 
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de fusionnement par extension de fichiers"
+msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de fusion par extension de fichiers"
 
 # ID:257,
 #: ID:257
@@ -2386,7 +2386,8 @@ msgid ""
 msgstr ""
 "Obtenir un verrou pour des fichiers sans la propriété 'svn:needs-lock' <b>n'empêchera pas</b> d'autres personnes de les modifier dans leur copie de travail.\n"
 "Pour activer un verrouillage strict, ajoutez la propriété 'svn:needs-lock' à tous les fichiers nécessitant un verrouillage, et livrez ces fichiers.\n"
-"Chaque fichier aura l'attribut lecture seule sur le système de fichiers et l'obtention du verrour autorisera l'écriture.Notez que les autres utilisateurs devront mettre à jour leurs copies de travail avant de voir les fichiers en lecture seule."
+"Chaque fichier aura l'attribut lecture seule sur le système de fichiers et l'obtention du verrou autorisera l'écriture.\n"
+"Notez que les autres utilisateurs devront mettre à jour leurs copies de travail avant de voir les fichiers en lecture seule."
 
 #: ID:119
 #, c-format
@@ -2489,7 +2490,7 @@ msgstr "Nom de la machine en désaccords (%s)"
 
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
-msgstr "Icônes de recouvrement / Colonnes de statut"
+msgstr "Recouvrement d'icônes / Colonnes de statut"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -2497,7 +2498,7 @@ msgstr "Icônes/Design/Code :    Luebbe Onken"
 
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Si activé, prévient le recouvrement d'icône dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
+msgstr "Si activé, prévient le recouvrement dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
 
 #: ID:95
 msgid ""
@@ -2569,7 +2570,7 @@ msgid ""
 "i.e. they get the modified overlay icon."
 msgstr ""
 "Si sélectionné, alors les fichiers non versionnés marqueront le status du dossier parent comme modifié\n"
-"c'est-à-dire qu'il aura l'icône de recouvrement modifié."
+"c'est-à-dire qu'il aura l'icône de recouvrement modifiée."
 
 # ID:196,
 #: ID:196
@@ -2999,7 +3000,7 @@ msgstr "Fusionner une branche dans le tronc principal"
 
 #: Control-ID:65535
 msgid "Merging"
-msgstr "Fusionnement"
+msgstr "Fusion"
 
 # ID:83,
 #: ID:83
@@ -3194,7 +3195,7 @@ msgstr "Pas de corrections orthographiques"
 # ID:196,
 #: ID:196
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouvert, les fichiers ne sont pas recouverts "
+msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouverts, les fichiers ne sont pas recouverts "
 
 # ID:188,
 #: ID:188
@@ -4411,7 +4412,7 @@ msgstr "Cache du statut"
 # ID:196,
 #: ID:196
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Cache du statut conservé dans un processus externe, peut afficher les icônes récursivement"
+msgstr "Cache du statut conservé dans un processus externe, peut afficher le recouvrement récursivement"
 
 # ID:196,
 #: ID:196
