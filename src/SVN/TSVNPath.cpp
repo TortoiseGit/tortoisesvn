@@ -974,6 +974,11 @@ private:
 		ATLASSERT(testPath.GetDirectory().GetWinPathString() == sWinDir);
 		ATLASSERT(testPath.GetContainingDirectory().GetWinPathString() != sWinDir);
 		ATLASSERT(testPath.GetContainingDirectory().GetWinPathString().GetLength() < sWinDir.GetLength());
+
+		// Try a root path
+		testPath.SetFromUnknown(_T("C:\\"));
+		ATLASSERT(testPath.IsDirectory());
+		ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(_T("C:\\"))==0);
 	}
 
 	void AdminDirTest()

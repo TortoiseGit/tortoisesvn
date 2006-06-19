@@ -27,19 +27,6 @@
 * \ingroup Utils
 * This class represents a path and the corresponding methods to convert the path
 * from/to Subversion/Windows format.
-*
-* \par requirements
-* win95 or later
-* winNT4 or later
-* MFC
-*
-* \version 1.0
-* first version
-*
-* \date DEC-2004
-*
-* \author Will Dean
-*
 */
 class CTSVNPath
 {
