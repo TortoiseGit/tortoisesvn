@@ -666,7 +666,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 	while (filefinder.FindNextFileNoDots())
 	{
 		filename.SetFromWin(filefinder.GetFilePath(), filefinder.IsDirectory());
-		if (!SVNConfig::MatchIgnorePattern(filename.GetFileOrDirectoryName(),pIgnorePatterns))
+		if ((!SVNConfig::MatchIgnorePattern(filename.GetFileOrDirectoryName(),pIgnorePatterns))&&
+			(!SVNConfig::MatchIgnorePattern(filename.GetSVNPathString(),pIgnorePatterns)))
 		{
 			FileEntry * entry = new FileEntry();
 			entry->path = filename;
@@ -778,7 +779,9 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 
 		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
 
-		if ((wcFileStatus == svn_wc_status_unversioned)&&(!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns)))
+		if ((wcFileStatus == svn_wc_status_unversioned)&&
+			(!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns))&&
+			(!SVNConfig::MatchIgnorePattern(entry->path.GetSVNPathString(),pIgnorePatterns)))
 		{
 			if (entry->isfolder)
 			{
