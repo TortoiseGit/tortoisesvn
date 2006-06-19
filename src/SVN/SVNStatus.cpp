@@ -281,15 +281,18 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false */, bool noignore /* = false */, bool noexternals /* = false */)
 {
 	apr_hash_t *				statushash;
+	apr_hash_t *				exthash;
 	apr_array_header_t *		statusarray;
 	const sort_item*			item;
 	
 	statushash = apr_hash_make(m_pool);
+	exthash = apr_hash_make(m_pool);
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = statushash;
+	hashbaton.exthash = exthash;
 	hashbaton.pThis = this;
 	m_err = svn_client_status2 (&youngest,
 							path.GetSVNApiPath(),
