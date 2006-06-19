@@ -353,7 +353,10 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 		// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 		CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
+		CTSVNPath dirpath = path.GetContainingDirectory();
+		if (dirpath.IsEmpty())
+			dirpath = path;
+		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
 		if (cachedDir != NULL)
 		{
 			m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
