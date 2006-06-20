@@ -3619,10 +3619,14 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 
 	POSITION pos = GetFirstSelectedItemPosition();
 	int index;
+	CString entryname;
 	while ((index = GetNextSelectedItem(pos)) >= 0)
 	{
 		FileEntry * entry = GetListEntry(index);
-		sClipboard += entry->path.GetFileOrDirectoryName();
+		entryname = entry->path.GetDisplayString(&entry->basepath);
+		if (entryname.IsEmpty())
+			entryname = entry->path.GetFileOrDirectoryName();
+		sClipboard += entryname;
 		if (dwCols & SVNSLC_COLEXT)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileExtension();
