@@ -333,7 +333,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	case ShellCache::exe:
 		{
 			ZeroMemory(&itemStatus, sizeof(itemStatus));
-			if(g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, !!g_ShellCache.IsRecursive()))
+			if(g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
 			{
 				filestatus = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 			}
