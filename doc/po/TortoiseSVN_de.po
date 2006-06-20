@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-19 20:48+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2006-06-20 15:45+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3948,7 +3948,7 @@ msgstr "Ein Diff-Programm zu starten, um Ihnen die Änderungen zu zeigen welche 
 #: source/TortoiseSVN_en.xml:4630
 #: (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Annotiere die gewählte Revision sowie die BASE Version Ihrer Arbeitskopie und vergleiche die Ergebnisse mit einem Diffprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:4637
 #: (para)
@@ -4016,7 +4016,7 @@ msgstr "Vergleiche die gewählten Revisionen in einem Diff-Programm. Das Standar
 #: source/TortoiseSVN_en.xml:4739
 #: (para)
 msgid "Blame the two revisions and compare the results using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Annotiere die gewählten Revisionen und vergleiche die Ergebnisse mit einem Diffprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:4746
 #: (para)
@@ -4056,7 +4056,7 @@ msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. 
 #: source/TortoiseSVN_en.xml:4785
 #: (para)
 msgid "Blame the selected revision and the previous revision for the selected file, and show the differences using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Annotiere die markierte sowie die vorherige Revision der gewählten Datei und vergleiche die Ergebnisse mit einem Diffprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:4792
 #: (para)
@@ -4221,7 +4221,7 @@ msgstr "Statistik Seite"
 #: source/TortoiseSVN_en.xml:4977
 #: (para)
 msgid "This page gives you all the numbers you can think of, in particular the period and number of revisions covered, and some min/max/average values."
-msgstr ""
+msgstr "Diese Seite zeigt Ihnen sämtliche vorstellbaren Zahlen an. Insbesondere der Datumsbereich und die zugehörigen Revisionen sowie einige Min-/Max-/Mittelwerte."
 
 #: source/TortoiseSVN_en.xml:4984
 #: (title)
@@ -4246,27 +4246,27 @@ msgstr "<placeholder-1/> Dieser Graph zeigt welche Autoren aktive am Projekt gea
 #: source/TortoiseSVN_en.xml:4998
 #: (para)
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a per centage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
-msgstr ""
+msgstr "Wenn es einige wenige Hauptautoren und viele Autoren mit wenigen Beiträgen gibt, kann die Anzahl der kleinen Segmente den Graphen unleserlich machen. Der Schieber am unteren Rand erlaubt es Ihnen, einen Schwellwert festzulegen (Prozentwert der gesamten Übertragungen) unterhalb dessen die Übertragungen in der Gruppe <emphasis>Andere</emphasis> zusammengefasst."
 
 #: source/TortoiseSVN_en.xml:5007
 #: (title)
 msgid "Commits by Week Page"
-msgstr ""
+msgstr "Die Seite Übertragungen pro Woche"
 
 #: source/TortoiseSVN_en.xml:5010
 #: (title)
 msgid "Commits-by-Week Graph"
-msgstr ""
+msgstr "Die Übertragungen pro Woche Grafik"
 
 #: source/TortoiseSVN_en.xml:5008
 #: (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr ""
+msgstr "<placeholder-1/> Diese Seite zeigt Ihnen eine Zusammenfassung der Projektaktivität in Hinblick auf Übertragungen <emphasis>und</emphasis> Autoren an. Damit können Sie auf einen Blick erkennen, wann und durch wen am Projekt gearbeitet wurde."
 
 #: source/TortoiseSVN_en.xml:5018
 #: (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr ""
+msgstr "Sobaldt es mehrere Autoren gibt, werden Sie entsprechend viele Linien im Diagramm sehen. Es gibt zwei verschiedene Ansichten: <emphasis>normal</emphasis>, in der die Aktivität eines Autors relativ zur Grundlinie angezeigt wird und <emphasis>gestapelt</emphasis>, bei der die Aktivität eines Autors relativ zur vorherigen Linie angezeigt wird. Die zweite Option vermeidet sich kreuzende Linien, erschwert es aber auch, die Aktivität eines einzelnen Autors zu bewerten."
 
 #: source/TortoiseSVN_en.xml:5028
 #: (para)
@@ -4376,7 +4376,7 @@ msgstr "Unterschied mit Annotierungsinformation"
 #: source/TortoiseSVN_en.xml:5172
 #: (para)
 msgid "If you want to see not only the differences but also the author, revision and date that changes were made, you can combine the diff and blame reports from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Wenn Sie nicht nur die Unterschiede, sondern auch Autor, Revision und Datum der Änderung sehen wollen, können Sie Diff und Annotieren über den Logdialog miteinander kombinieren. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:5183
 #: (title)
