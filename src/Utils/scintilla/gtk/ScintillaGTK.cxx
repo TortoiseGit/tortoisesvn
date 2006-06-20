@@ -113,6 +113,7 @@ class ScintillaGTK : public ScintillaBase {
 	static GdkAtom atomUTF8;
 	static GdkAtom atomString;
 	static GdkAtom atomUriList;
+	static GdkAtom atomDROPFILES_DND;
 	GdkAtom atomSought;
 
 #if PLAT_GTK_WIN32
@@ -154,6 +155,7 @@ private:
 	virtual void StartDrag();
 	int TargetAsUTF8(char *text);
 	int EncodedFromUTF8(char *utf8, char *encoded);
+	virtual bool ValidCodePage(int codePage) const;
 public: 	// Public for scintilla_send_message
 	virtual sptr_t WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam);
 private:
@@ -176,7 +178,6 @@ private:
 	virtual void NotifyParent(SCNotification scn);
 	void NotifyKey(int key, int modifiers);
 	void NotifyURIDropped(const char *list);
-	bool UseInputMethod() const;
 	const char *CharacterSetID() const;
 	virtual int KeyDefault(int key, int modifiers);
 	virtual void CopyToClipboard(const SelectionText &selectedText);
@@ -302,6 +303,7 @@ GdkAtom ScintillaGTK::atomClipboard = 0;
 GdkAtom ScintillaGTK::atomUTF8 = 0;
 GdkAtom ScintillaGTK::atomString = 0;
 GdkAtom ScintillaGTK::atomUriList = 0;
+GdkAtom ScintillaGTK::atomDROPFILES_DND = 0;
 
 static const GtkTargetEntry clipboardTargets[] = {
 	{ "text/uri-list", 0, TARGET_URI },
@@ -798,10 +800,11 @@ void ScintillaGTK::StartDrag() {
 }
 
 #ifdef USE_CONVERTER
-static char *ConvertText(int *lenResult, char *s, size_t len, const char *charSetDest, const char *charSetSource) {
+static char *ConvertText(int *lenResult, char *s, size_t len, const char *charSetDest, 
+	const char *charSetSource, bool transliterations) {
 	*lenResult = 0;
 	char *destForm = 0;
-	Converter conv(charSetDest, charSetSource);
+	Converter conv(charSetDest, charSetSource, transliterations);
 	if (conv) {
 		destForm = new char[len*3+1];
 		char *pin = s;
@@ -849,7 +852,7 @@ int ScintillaGTK::TargetAsUTF8(char *text) {
 				pdoc->GetCharRange(s, targetStart, targetLength);
 //~ fprintf(stderr, "    \"%s\"\n", s);
 				if (text) {
-					char *tmputf = ConvertText(&targetLength, s, targetLength, "UTF-8", charSetBuffer);
+					char *tmputf = ConvertText(&targetLength, s, targetLength, "UTF-8", charSetBuffer, false);
 					memcpy(text, tmputf, targetLength);
 					delete []tmputf;
 //~ fprintf(stderr, "    \"%s\"\n", text);
@@ -886,7 +889,7 @@ int ScintillaGTK::EncodedFromUTF8(char *utf8, char *encoded) {
 		if (*charSetBuffer) {
 //~ fprintf(stderr, "Encode %s %d\n", charSetBuffer, inputLength);
 			int outLength = 0;
-			char *tmpEncoded = ConvertText(&outLength, utf8, inputLength, charSetBuffer, "UTF-8");
+			char *tmpEncoded = ConvertText(&outLength, utf8, inputLength, charSetBuffer, "UTF-8", true);
 			if (tmpEncoded) {
 //~ fprintf(stderr, "    \"%s\"\n", tmpEncoded);
 				if (encoded) {
@@ -905,6 +908,10 @@ int ScintillaGTK::EncodedFromUTF8(char *utf8, char *encoded) {
 	}
 	// Fail
 	return 0;
+}
+
+bool ScintillaGTK::ValidCodePage(int codePage) const {
+	return codePage == 0 || codePage == SC_CP_UTF8 || codePage == SC_CP_DBCS;
 }
 
 sptr_t ScintillaGTK::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
@@ -1209,117 +1216,19 @@ void ScintillaGTK::NotifyURIDropped(const char *list) {
 	NotifyParent(scn);
 }
 
-bool ScintillaGTK::UseInputMethod() const {
-	switch (vs.styles[STYLE_DEFAULT].characterSet) {
-	case SC_CHARSET_CHINESEBIG5:
-	case SC_CHARSET_GB2312:
-	case SC_CHARSET_HANGUL:
-	case SC_CHARSET_SHIFTJIS:
-	case SC_CHARSET_JOHAB:
-	case SC_CHARSET_HEBREW:
-	case SC_CHARSET_ARABIC:
-	case SC_CHARSET_VIETNAMESE:
-	case SC_CHARSET_THAI:
-		return true;
-	default:
-		return false;
-	}
-}
-
 const char *CharacterSetID(int characterSet);
 
 const char *ScintillaGTK::CharacterSetID() const {
 	return ::CharacterSetID(vs.styles[STYLE_DEFAULT].characterSet);
 }
 
-#if GTK_MAJOR_VERSION >= 2
-#define IS_ACC(x) \
-	((x) >= 65103 && (x) <= 65111)
-#define IS_CHAR(x) \
-	((x) >= 0 && (x) <= 128)
-
-#define IS_ACC_OR_CHAR(x) \
-	(IS_CHAR(x)) || (IS_ACC(x))
-
-static int MakeAccent(int key, int acc) {
-	const char *conv[] = {
-		"aeiounc AEIOUNC",
-		"ãeiõuñc~ÃEIÕUÑC",
-		"áéíóúnç'ÁÉÍÓÚNÇ",
-		"àèìòùnc`ÀÈÌÒÙNC",
-		"âêîôûnc^ÂÊÎÔÛNC",
-		"äëïöünc¨ÄËÏÖÜNC"
-	};
-	int idx;
-	for (idx = 0; idx < 15; ++idx) {
-		if (char(key) == conv[0][idx]) {
-			break;
-		}
-	}
-	if (idx == 15) {
-		return key;
-	}
-	if (acc == GDK_dead_tilde) { // ~
-		return int((unsigned char)(conv[1][idx]));
-	} else if (acc == GDK_dead_acute) { // '
-		return int((unsigned char)(conv[2][idx]));
-	} else if (acc == GDK_dead_grave) { // `
-		return int((unsigned char)(conv[3][idx]));
-	} else if (acc == GDK_dead_circumflex) { // ^
-		return int((unsigned char)(conv[4][idx]));
-	} else if (acc == GDK_dead_diaeresis) { // "
-		return int((unsigned char)(conv[5][idx]));
-	}
-	return key;
-}
-#endif
-
 int ScintillaGTK::KeyDefault(int key, int modifiers) {
 	if (!(modifiers & SCI_CTRL) && !(modifiers & SCI_ALT)) {
-#if GTK_MAJOR_VERSION >= 2
-		if (!UseInputMethod()) {
-			char utfVal[4]="\0\0\0";
-			wchar_t wcs[2];
-			if (IS_CHAR(key) && IS_ACC(lastKey)) {
-				lastKey = key = MakeAccent(key, lastKey);
-			}
-			if (IS_ACC_OR_CHAR(key)) {
-				lastKey = key;
-			}
-			wcs[0] = gdk_keyval_to_unicode(key);
-			wcs[1] = 0;
-			UTF8FromUCS2(wcs, 1, utfVal, 3);
-			if (key <= 0xFE00) {
-				if (IsUnicodeMode()) {
-					AddCharUTF(utfVal,strlen(utfVal));
-					return 1;
-				} else {
-					const char *source = CharacterSetID();
-					if (*source) {
-						Converter conv(source, "UTF-8");
-						if (conv) {
-							char localeVal[4]="\0\0\0";
-							char *pin = utfVal;
-							size_t inLeft = strlen(utfVal);
-							char *pout = localeVal;
-							size_t outLeft = sizeof(localeVal);
-							size_t conversions = conv.Convert(&pin, &inLeft, &pout, &outLeft);
-							if (conversions != ((size_t)(-1))) {
-								*pout = '\0';
-								for (int i=0; localeVal[i]; i++) {
-									AddChar(localeVal[i]);
-								}
-								return 1;
-							}
-						}
-					}
-				}
-			}
-		}
-#endif
 		if (key < 256) {
-			AddChar(key);
-			return 1;
+			NotifyKey(key, modifiers);
+			return 0;
+			//~ AddChar(key);
+			//~ return 1;
 		} else {
 			// Pass up to container in case it is an accelerator
 			NotifyKey(key, modifiers);
@@ -1510,7 +1419,7 @@ void ScintillaGTK::GetGtkSelectionText(GtkSelectionData *selectionData, Selectio
 		if (!IsUnicodeMode() && *charSetBuffer) {
 //fprintf(stderr, "Convert to locale %s\n", CharacterSetID());
 				// Convert to locale
-				dest = ConvertText(&len, selText.s, selText.len, charSetBuffer, "UTF-8");
+				dest = ConvertText(&len, selText.s, selText.len, charSetBuffer, "UTF-8", true);
 				selText.Set(dest, len, pdoc->dbcsCodePage,
 					vs.styles[STYLE_DEFAULT].characterSet, selText.rectangular);
 		}
@@ -1553,7 +1462,7 @@ void ScintillaGTK::ReceivedSelection(GtkSelectionData *selection_data) {
 
 void ScintillaGTK::ReceivedDrop(GtkSelectionData *selection_data) {
 	dragWasDropped = true;
-	if (selection_data->type == atomUriList) {
+	if (selection_data->type == atomUriList || selection_data->type == atomDROPFILES_DND) {
 		char *ptr = new char[selection_data->length + 1];
 		ptr[selection_data->length] = '\0';
 		memcpy(ptr, selection_data->data, selection_data->length);
@@ -1595,7 +1504,7 @@ void ScintillaGTK::GetSelection(GtkSelectionData *selection_data, guint info, Se
 		const char *charSet = ::CharacterSetID(text->characterSet);
 		if (*charSet) {
 			int new_len;
-			char* tmputf = ConvertText(&new_len, text->s, text->len, "UTF-8", charSet);
+			char* tmputf = ConvertText(&new_len, text->s, text->len, "UTF-8", charSet, false);
 			converted = new SelectionText();
 			converted->Set(tmputf, new_len, SC_CP_UTF8, 0, text->rectangular);
 			text = converted;
@@ -1638,14 +1547,14 @@ void ScintillaGTK::GetSelection(GtkSelectionData *selection_data, guint info, Se
 			if (text->codePage != SC_CP_UTF8) {
 				// Convert to UTF-8
 	//fprintf(stderr, "Convert to UTF-8 from %s\n", charSetBuffer);
-				tmputf = ConvertText(&len, selBuffer, len, "UTF-8", charSetBuffer);
+				tmputf = ConvertText(&len, selBuffer, len, "UTF-8", charSetBuffer, false);
 				selBuffer = tmputf;
 			}
 		} else if (info == TARGET_STRING) {
 			if (text->codePage == SC_CP_UTF8) {
 	//fprintf(stderr, "Convert to locale %s\n", charSetBuffer);
 				// Convert to locale
-				tmputf = ConvertText(&len, selBuffer, len, charSetBuffer, "UTF-8");
+				tmputf = ConvertText(&len, selBuffer, len, charSetBuffer, "UTF-8", true);
 				selBuffer = tmputf;
 			}
 		}
@@ -2036,13 +1945,11 @@ static int KeyTranslate(int keyIn) {
 }
 
 gboolean ScintillaGTK::KeyThis(GdkEventKey *event) {
-	//Platform::DebugPrintf("SC-key: %d %x [%s]\n",
+	//fprintf(stderr, "SC-key: %d %x [%s]\n",
 	//	event->keyval, event->state, (event->length > 0) ? event->string : "empty");
 #if GTK_MAJOR_VERSION >= 2
-	if (UseInputMethod()) {
-		if (gtk_im_context_filter_keypress(im_context, event)) {
-			return 1;
-		}
+	if (gtk_im_context_filter_keypress(im_context, event)) {
+		return 1;
 	}
 #endif
 	if (!event->keyval) {
@@ -2072,7 +1979,7 @@ gboolean ScintillaGTK::KeyThis(GdkEventKey *event) {
 	bool added = KeyDown(key, shift, ctrl, alt, &consumed) != 0;
 	if (!consumed)
 		consumed = added;
-	//Platform::DebugPrintf("SK-key: %d %x %x\n",event->keyval, event->state, consumed);
+	//fprintf(stderr, "SK-key: %d %x %x\n",event->keyval, event->state, consumed);
 	if (event->keyval == 0xffffff && event->length > 0) {
 		ClearSelection();
 		if (pdoc->InsertString(CurrentPosition(), event->string)) {
@@ -2131,8 +2038,32 @@ void ScintillaGTK::Commit(GtkIMContext *, char  *str, ScintillaGTK *sciThis) {
 	sciThis->CommitThis(str);
 }
 
-void ScintillaGTK::CommitThis(char *str) {
-	AddCharUTF(str, strlen(str));
+void ScintillaGTK::CommitThis(char *utfVal) {
+	//~ fprintf(stderr, "Commit '%s'\n", utfVal);
+	if (IsUnicodeMode()) {
+		AddCharUTF(utfVal,strlen(utfVal));
+	} else {
+		const char *source = CharacterSetID();
+		if (*source) {
+			Converter conv(source, "UTF-8", true);
+			if (conv) {
+				char localeVal[4]="\0\0\0";
+				char *pin = utfVal;
+				size_t inLeft = strlen(utfVal);
+				char *pout = localeVal;
+				size_t outLeft = sizeof(localeVal);
+				size_t conversions = conv.Convert(&pin, &inLeft, &pout, &outLeft);
+				if (conversions != ((size_t)(-1))) {
+					*pout = '\0';
+					for (int i=0; localeVal[i]; i++) {
+						AddChar(localeVal[i]);
+					}
+				} else {
+					fprintf(stderr, "Conversion failed '%s'\n", utfVal);
+				}
+			}
+		}
+	}
 }
 
 void ScintillaGTK::PreeditChanged(GtkIMContext *, ScintillaGTK *sciThis) {
@@ -2578,6 +2509,7 @@ void ScintillaGTK::ClassInit(OBJECT_CLASS* object_class, GtkWidgetClass *widget_
 	atomUTF8 = gdk_atom_intern("UTF8_STRING", FALSE);
 	atomString = GDK_SELECTION_TYPE_STRING;
 	atomUriList = gdk_atom_intern("text/uri-list", FALSE);
+	atomDROPFILES_DND = gdk_atom_intern("DROPFILES_DND", FALSE);
 
 	// Define default signal handlers for the class:  Could move more
 	// of the signal handlers here (those that currently attached to wDraw

@@ -2022,7 +2022,8 @@ struct TextToFind {
     only the first 32 characters of the name are used and the name is not case sensitive. For
     internal caching, Scintilla tracks fonts by name and does care about the casing of font names,
     so please be consistent. On GTK+ 2.x, either GDK or Pango can be used to display text.
-    Pango antialiases text and works well with Unicode but GDK is faster.
+    Pango antialiases text, works well with Unicode and is better supported in recent versions of GTK+
+    but GDK is faster.
     Prepend a '!' character to the font name to use Pango.</p>
 
     <p><b id="SCI_STYLESETUNDERLINE">SCI_STYLESETUNDERLINE(int styleNumber, bool
@@ -2151,7 +2152,7 @@ struct TextToFind {
     argument has no effect.</p>
      <p><b id="SCI_SETSELALPHA">SCI_SETSELALPHA(int <a class="jump" href="#alpha">alpha</a>)</b><br />
      <b id="SCI_GETSELALPHA">SCI_GETSELALPHA</b><br />
-     The selection background can be drawn translucently in the selection background colour by
+     The selection can be drawn translucently in the selection background colour by
      setting an alpha value.</p>
 
     <p><b id="SCI_SETCARETFORE">SCI_SETCARETFORE(int <a class="jump"
@@ -2272,7 +2273,10 @@ struct TextToFind {
      These two routines set and get the type of a margin. The margin argument should be 0, 1, 2, 3 or 4.
     You can use the predefined constants <code>SC_MARGIN_SYMBOL</code> (0) and
     <code>SC_MARGIN_NUMBER</code> (1) to set a margin as either a line number or a symbol margin.
-    By convention, margin 0 is used for line numbers and the next two are used for symbols.</p>
+    By convention, margin 0 is used for line numbers and the next two are used for symbols. You can
+    also use the constants <code>SC_MARGIN_BACK</code> (2) and <code>SC_MARGIN_FORE</code> (3) for
+    symbol margins that set their background colour to match the STYLE_DEFAULT background and
+    foreground colours.</p>
 
     <p><b id="SCI_SETMARGINWIDTHN">SCI_SETMARGINWIDTHN(int margin, int pixelWidth)</b><br />
      <b id="SCI_GETMARGINWIDTHN">SCI_GETMARGINWIDTHN(int margin)</b><br />
@@ -2404,7 +2408,9 @@ struct TextToFind {
      Scintilla has some support for Japanese, Chinese and Korean DBCS. Use this message with
     <code>codePage</code> set to the code page number to set Scintilla to use code page information
     to ensure double byte characters are treated as one character rather than two. This also stops
-    the caret from moving between the two bytes in a double byte character. Call with
+    the caret from moving between the two bytes in a double byte character.
+    Do not use this message to choose between different single byte character sets: it doesn't do that.
+    Call with
     <code>codePage</code> set to zero to disable DBCS support. The default is
     <code>SCI_SETCODEPAGE(0)</code>.</p>
 
@@ -2413,23 +2419,25 @@ struct TextToFind {
     normal Unicode encoding before being drawn by the OS and thus can display Hebrew, Arabic,
     Cyrillic, and Han characters. Languages which can use two characters stacked vertically in one
     horizontal space, such as Thai, will mostly work but there are some issues where the characters
-    are drawn separately leading to visual glitches. Bi-directional text is not supported.</p>
+    are drawn separately leading to visual glitches. Bi-directional text is not supported. Characters outside the 
+    Basic Multilingual Plane are unlikely to work.</p>
 
     <p>On Windows, code page can be set to 932 (Japanese Shift-JIS), 936 (Simplified Chinese GBK),
-    949 (Korean), and 950 (Traditional Chinese Big5) although these may require installation of language
-    specific support.</p>
+    949 (Korean Unified Hangul Code), 950 (Traditional Chinese Big5), or 1361 (Korean Johab)
+    although these may require installation of language specific support.</p>
 
     <p>On GTK+, code page <code>SC_CP_DBCS</code> (1) sets Scintilla into
     multi byte character mode as is required for Japanese language processing with
     the EUC encoding.</p>
 
-    <p>For GTK+, the locale should be set to a Unicode locale with a call similar to
+    <p>For GTK+ 1.x, the locale should be set to a Unicode locale with a call similar to
     <code>setlocale(LC_CTYPE, "en_US.UTF-8")</code>. Fonts with an <code>"iso10646"</code> registry
     should be used in a font set. Font sets are a comma separated list of partial font
     specifications where each partial font specification can be in the form:
     <code>foundry-fontface-charsetregistry-encoding</code> or
     <code>fontface-charsetregistry-encoding</code> or <code>foundry-fontface</code> or
-    <code>fontface</code>. An example is <code>"misc-fixed-iso10646-1,*"</code>.</p>
+    <code>fontface</code>. An example is <code>"misc-fixed-iso10646-1,*"</code>.
+    On GTK+ 2.x, Pango fonts should be used rather than font sets.</p>
 
     <p>Setting <code>codePage</code> to a non-zero value that is not <code>SC_CP_UTF8</code> is
     operating system dependent.</p>
