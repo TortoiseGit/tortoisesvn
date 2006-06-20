@@ -2211,7 +2211,7 @@ BEGIN
     IDS_PROGRS_CLOSE_NOERROR "Auto-close if no errors"
     IDS_PROGRS_CLOSE_NOCONFLICTS "Auto-close if no conflicts"
     IDS_PROGRS_CLOSE_NOMERGES "Auto-close if no merges, adds or deletes"
-    IDS_PROGRS_CLOSE_LOCAL  "Auto-close if no merges, adds or deletes for local operations"
+    IDS_PROGRS_CLOSE_LOCAL  "Auto-close for local operations"
 END
 
 STRINGTABLE 
