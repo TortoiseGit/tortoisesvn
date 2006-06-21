@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "stdafx.h"
+#include "CmdLineParser.h"
 #include "TortoiseBlame.h"
 #include "registry.h"
 #define MAX_LOADSTRING 100
@@ -729,7 +730,7 @@ UINT				uFindReplaceMsg;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE /*hPrevInstance*/,
-                     LPTSTR    /*lpCmdLine*/,
+                     LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
 	app.hInstance = hInstance;
@@ -757,6 +758,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
 
+	CCmdLineParser parser(lpCmdLine);
+
+
 	if (__argc > 1)
 	{
 		_tcscpy_s(blamefile, MAX_PATH, __argv[1]);
@@ -770,9 +774,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		_tcscpy_s(szOrigFilename, MAX_PATH, __argv[3]);
 	}
 
-	if (_tcslen(blamefile)==0)
+	if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
 	{
-		MessageBox(NULL, _T("TortoiseBlame can't be started directly!"), _T("TortoiseBlame"), MB_ICONERROR);
+		MessageBox(NULL, _T("TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"), _T("TortoiseBlame"), MB_ICONERROR);
 		return 0;
 	}
 
@@ -780,6 +784,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	app.OpenLogFile(logfile);
 	if (_tcslen(logfile)>0)
 		app.OpenFile(blamefile);
+
+	if (parser.HasKey(_T("line")))
+	{
+		app.GotoLine(parser.GetLongVal(_T("line")));
+	}
+
 
 	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_TORTOISEBLAME);
 
