@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-25 16:18+0900\n"
+"PO-Revision-Date: 2006-06-21 13:48+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -513,6 +513,11 @@ msgstr "모두 읽었으면 처음 차이점으로 이동(&J)"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "언어(&L):"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "수정된 행에 대해서만 찾습니다(&L)"
 
 # ID:188,
 #: Control-ID:1172
@@ -1381,6 +1386,11 @@ msgstr "작성자 대소문자 구별 안함"
 msgid "Authors:"
 msgstr "작성자:"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "작업사본에 대한 명령 수행후 자동으로 닫습니다."
+
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
@@ -1694,6 +1704,11 @@ msgstr "체크아웃"
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "체크아웃 받을 디렉토리(&D):"
+
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "정리"
 
 # ID:79,
 #: ID:79
@@ -2724,6 +2739,10 @@ msgstr "파일 비교"
 msgid "File patches"
 msgstr "파일 패치"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "찾기"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2740,8 +2759,8 @@ msgstr "완료!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "도움말 F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "도움말은 F1을 누르시고, 좌우 스크롤은 Ctrl을 누른 상태에서 휠을 움직이면 됩니다."
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -3001,6 +3020,15 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"체크하면, 추가 대상 파일이 있는 경우 상위 디렉토리를 수정된 것으로 표시합니다.\n"
+"즉, 수정됨을 뜻하는 아이콘이 겹쳐서 나타나게 됩니다."
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -3077,10 +3105,10 @@ msgstr "포함 경로:"
 msgid "Initial import"
 msgstr "최초 임포트"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "라인내의 공백 비교"
+msgid "Inline diff"
+msgstr "문자단위 차이보기"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3258,11 +3286,6 @@ msgstr "활동이 적은 작성자:"
 msgid "Left View: "
 msgstr "왼쪽:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "공백 비교되는 행"
-
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3436,6 +3459,11 @@ msgstr ""
 "Subversion에서 파일들을 충돌해결상태로 표시합니다.\n"
 "충돌해결 상태로 표시합니다."
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "대소문자 구별(&C)"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -3573,6 +3601,11 @@ msgstr "다음 충돌(&E)"
 msgid "NUM"
 msgstr "NUM"
 
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "잠금이 요구됨"
+
 # ID:73,
 #: ID:210
 msgid "Nested"
@@ -3659,7 +3692,7 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr ""
 "마지막 커밋 이후로 추가되거나 변경된 것이 없습니다.\n"
-"이곳에 TortoseSVN이 할 수 있는 것이 없습니다."
+"이곳에 TortoiseSVN이 할 수 있는 것이 없습니다."
 
 # ID:77,
 #: ID:170
@@ -3670,7 +3703,7 @@ msgid ""
 "Do you want to see the unversioned files?"
 msgstr ""
 "마지막 커밋 이후로 추가되거나 변경된 것이\n"
-"없습니다. 이곳에 TortoseSVN이 할 수 있는\n"
+"없습니다. 이곳에 TortoiseSVN이 할 수 있는\n"
 "것이 없습니다.\n"
 "버전관리 대상이 아닌 것들을 보시겠습니까?"
 
@@ -3758,6 +3791,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "외부 경로는 누락시킴(&X)"
@@ -3773,6 +3807,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "한 개 이상의 파일이 충돌 상태입니다."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "최상위 폴더만 체크아웃(&T)"
@@ -4029,6 +4064,7 @@ msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
@@ -4747,6 +4783,11 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "로그 메시지 검색(&l)..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "찾을 대상:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4795,6 +4836,11 @@ msgstr "Diff 프로그램 선택"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Diff 파일 선택..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "체크아웃할 디렉토리를 선택합니다"
 
 # Dlg-ID:173,
 #: ID:276
@@ -5330,12 +5376,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "파일\n"
 "%s\n"
 "은/는 올바른 텍스트 파일이 아닙니다.\n"
-"UTF16과 UTF32 파일은 바이너리로 취급됩니다."
+"UTF32 파일은 바이너리로 취급됩니다."
 
 # ID:80,
 #: ID:80
@@ -6041,6 +6087,11 @@ msgstr "잠금 풀림"
 msgid "Untitled"
 msgstr "제목 없음"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "추가 대기중인 파일들이 있으면 상위 폴더를 수정된 것으로 표시합니다."
+
 # ID:8,#:
 # ID:74,#:
 # Dlg-ID:152,
@@ -6232,11 +6283,6 @@ msgstr "경고"
 #: ID:219
 msgid "Warning!"
 msgstr "TODO: Warning!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "공백 비교"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
