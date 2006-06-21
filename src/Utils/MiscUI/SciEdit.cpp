@@ -545,9 +545,9 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 			return TRUE;
 			break;
 		case SCN_STYLENEEDED:
-			CheckSpelling();
 			int startstylepos = Call(SCI_GETENDSTYLED);
 			int endstylepos = ((SCNotification *)lpnmhdr)->position;
+			CheckSpelling();
 			MarkEnteredBugID(startstylepos, endstylepos);
 			StyleEnteredText(startstylepos, endstylepos);
 			return TRUE;
