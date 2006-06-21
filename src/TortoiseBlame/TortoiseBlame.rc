@@ -37,7 +37,8 @@ BEGIN
     END
     POPUP "&Edit"
     BEGIN
-        MENUITEM "&Find",                       ID_EDIT_FIND
+        MENUITEM "&Find...",                    ID_EDIT_FIND
+        MENUITEM "&Goto Line...",               ID_EDIT_GOTOLINE
     END
 END
 
@@ -47,6 +48,72 @@ BEGIN
     BEGIN
         MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
     END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_TORTOISEBLAME ACCELERATORS 
+BEGIN
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "G",            ID_EDIT_GOTOLINE,       VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_GOTODLG DIALOGEX 0, 0, 127, 52
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Go to line"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Line:",IDC_STATIC,7,10,57,8
+    EDITTEXT        IDC_LINENUMBER,70,7,50,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,7,31,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,70,31,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_GOTODLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 120
+        VERTGUIDE, 64
+        VERTGUIDE, 70
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 45
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           "TortoiseBlame"
+    IDS_SEARCHNOTFOUND      "Search string not found!"
+    IDC_TORTOISEBLAME       "TORTOISEBLAME"
 END
 
 #endif    // English (U.S.) resources
@@ -71,20 +138,6 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 // remains consistent on all systems.
 IDI_TORTOISEBLAME       ICON                    "TortoiseBlame.ico"
 IDI_SMALL               ICON                    "small.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Accelerator
-//
-
-IDC_TORTOISEBLAME ACCELERATORS 
-BEGIN
-    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
-    VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
-    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
-    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
-END
-
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -111,19 +164,6 @@ BEGIN
 END
 
 #endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE 
-BEGIN
-    IDS_APP_TITLE           "TortoiseBlame"
-    IDS_SEARCHNOTFOUND      "Search string not found!"
-    IDC_TORTOISEBLAME       "TORTOISEBLAME"
-END
 
 #endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////

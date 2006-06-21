@@ -39,6 +39,7 @@ const bool ShowAuthor = true;
 const bool ShowLine = true;
 
 static TortoiseBlame app;
+long TortoiseBlame::m_gotoline = 0;
 
 TortoiseBlame::TortoiseBlame()
 {
@@ -378,18 +379,30 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	}
 	if (bFound)
 	{
-		--i;
-		SendEditor(SCI_GOTOLINE, i);
+		GotoLine(i);
 		int selstart = SendEditor(SCI_GETCURRENTPOS);
-		int selend = SendEditor(SCI_POSITIONFROMLINE, i+1);
+		int selend = SendEditor(SCI_POSITIONFROMLINE, i);
 		SendEditor(SCI_SETSELECTIONSTART, selstart);
 		SendEditor(SCI_SETSELECTIONEND, selend);
-		m_SelectedLine = i;
+		m_SelectedLine = i-1;
 	}
 	else
 	{
 		::MessageBox(wMain, searchstringnotfound, "TortoiseBlame", MB_ICONINFORMATION);
 	}
+	return true;
+}
+
+bool TortoiseBlame::GotoLine(long line)
+{
+	--line;
+	if (line < 0)
+		return false;
+	if ((unsigned long)line >= authors.size())
+	{
+		line = authors.size()-1;
+	}
+	SendEditor(SCI_GOTOLINE, line);
 	return true;
 }
 
@@ -450,9 +463,52 @@ void TortoiseBlame::Command(int id)
 	case ID_COPYTOCLIPBOARD:
 		CopySelectedLogToClipboard();
 		break;
+	case ID_EDIT_GOTOLINE:
+		GotoLineDlg();
+		break;
 	default:
 		break;
 	};
+}
+
+void TortoiseBlame::GotoLineDlg()
+{
+	if (DialogBox(hInstance, MAKEINTRESOURCE(IDD_GOTODLG), wMain, GotoDlgProc)==IDOK)
+	{
+		GotoLine(m_gotoline);
+	}
+}
+
+INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM /*lParam*/)
+{
+	switch (uMsg)
+	{
+	case WM_COMMAND:
+		{
+			switch (LOWORD(wParam))
+			{
+			case IDOK:
+				{
+					HWND hEditCtrl = GetDlgItem(hwndDlg, IDC_LINENUMBER);
+					if (hEditCtrl)
+					{
+						TCHAR buf[MAX_PATH];
+						if (::GetWindowText(hEditCtrl, buf, MAX_PATH))
+						{
+							m_gotoline = _ttol(buf);
+						}
+
+					}
+				}
+			// fall through
+			case IDCANCEL:
+				EndDialog(hwndDlg, wParam);
+				break;
+			}
+		}
+		break;
+	}
+	return FALSE;
 }
 
 LONG TortoiseBlame::GetBlameWidth()

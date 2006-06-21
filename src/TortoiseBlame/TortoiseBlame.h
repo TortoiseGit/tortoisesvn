@@ -78,12 +78,16 @@ public:
 	void StartSearch();
 	void CopySelectedLogToClipboard();
 	bool DoSearch(LPSTR what, DWORD flags);
+	bool GotoLine(long line);
+	void GotoLineDlg();
+	static INT_PTR CALLBACK GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	LONG						m_mouserev;
 	std::string					m_mouseauthor;
 	LONG						m_selectedrev;
 	std::string					m_selectedauthor;
 	std::string					m_selecteddate;
+	static long					m_gotoline;
 
 	std::vector<LONG>			revs;
 	std::vector<std::string>	dates;
