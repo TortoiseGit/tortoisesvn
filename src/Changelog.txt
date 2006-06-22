@@ -201,6 +201,8 @@
 - CHG: The relocate warning is only shown if the path part of the URL
        changed and nothing else, because that indicates a possible
        switch. (Stefan)
+- CHG: The authors graph is now sorted by number of commits.
+       See issue #256 for details. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When reverting files and folders the child items are now reverted

@@ -258,22 +258,30 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 	int nGroup(-1);
 
-	std::map<stdstring, LONG>::iterator iter;
-	iter = authorcommits.begin();
+	// since maps are sorted by key, create a new map
+	// with the number of commits as the key, and the author as the value
+	std::map<LONG, stdstring> authorcommitssorted;
+	for (std::map<stdstring, LONG>::iterator it = authorcommits.begin(); it != authorcommits.end(); ++it)
+	{
+		authorcommitssorted[it->second] = it->first;
+	}
+
+	std::map<LONG, stdstring>::reverse_iterator iter;
+	iter = authorcommitssorted.rbegin();
 	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
 	int nOthers = 0;
 	int nOthersCount = 0;
-	while (iter != authorcommits.end())
+	while (iter != authorcommitssorted.rend())
 	{
-		if (iter->second < (nTotalCommits * m_Skipper.GetPos() / 200))
+		if (iter->first < (nTotalCommits * m_Skipper.GetPos() / 200))
 		{
-			nOthers += iter->second;
+			nOthers += iter->first;
 			nOthersCount++;
 		}
 		else
 		{
-			nGroup = m_graph.AppendGroup(iter->first.c_str());
-			graphData->SetData(nGroup, iter->second);
+			nGroup = m_graph.AppendGroup(iter->second.c_str());
+			graphData->SetData(nGroup, iter->first);
 		}
 		iter++;
 	}
