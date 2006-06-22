@@ -250,7 +250,13 @@ public:
 	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry.
 	 */
 	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = (SVNSLC_POPALL ^ SVNSLC_POPCOMMIT), bool bHasCheckboxes = true);
-
+	/**
+	 * Makes the 'ignore' context menu only ignore the files and not add the
+	 * folder which gets the svn:ignore property changed to the list.
+	 * This is needed e.g. for the Add-dialog, where the modified folder
+	 * showing up would break the resulting "add" command.
+	 */
+	void SetIgnoreRemoveOnly(bool bRemoveOnly = true) {m_bIgnoreRemoveOnly = bRemoveOnly;}
 	/**
 	 * Fetches the Subversion status of all files and stores the information
 	 * about them in an internal array.
@@ -517,6 +523,7 @@ private:
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
 	bool						m_bBusy;
+	bool						m_bIgnoreRemoveOnly;
 
 	int							m_nIconFolder;
 

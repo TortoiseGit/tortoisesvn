@@ -118,6 +118,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bUnversionedRecurse(true)
 	, m_bShowIgnores(false)
 	, m_pDropTarget(NULL)
+	, m_bIgnoreRemoveOnly(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 }
@@ -2185,56 +2186,59 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										}
 									}
 								}
-								SVNStatus status;
-								svn_wc_status2_t * s;
-								CTSVNPath svnPath;
-								s = status.GetFirstFileStatus(parentFolder, svnPath, false, false);
-								if (s!=0)
+								if (!m_bIgnoreRemoveOnly)
 								{
-									// first check if the folder isn't already present in the list
-									bool bFound = false;
-									for (int i=0; i<nListboxEntries; ++i)
+									SVNStatus status;
+									svn_wc_status2_t * s;
+									CTSVNPath svnPath;
+									s = status.GetFirstFileStatus(parentFolder, svnPath, false, false);
+									if (s!=0)
 									{
-										FileEntry * entry = GetListEntry(i);
-										if (entry->path.IsEquivalentTo(svnPath))
+										// first check if the folder isn't already present in the list
+										bool bFound = false;
+										for (int i=0; i<nListboxEntries; ++i)
 										{
-											bFound = true;
-											break;
-										}
-									}
-									if (!bFound)
-									{
-										FileEntry * entry = new FileEntry();
-										entry->path = svnPath;
-										entry->basepath = basepath;
-										entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-										entry->textstatus = s->text_status;
-										entry->propstatus = s->prop_status;
-										entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-										entry->remotetextstatus = s->repos_text_status;
-										entry->remotepropstatus = s->repos_prop_status;
-										entry->inunversionedfolder = false;
-										entry->checked = true;
-										entry->inexternal = false;
-										entry->direct = false;
-										entry->isfolder = true;
-										entry->last_commit_date = 0;
-										entry->last_commit_rev = 0;
-										if (s->entry)
-										{
-											if (s->entry->url)
+											FileEntry * entry = GetListEntry(i);
+											if (entry->path.IsEquivalentTo(svnPath))
 											{
-												CPathUtils::Unescape((char *)s->entry->url);
-												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+												bFound = true;
+												break;
 											}
 										}
-										if (s->entry && s->entry->present_props)
+										if (!bFound)
 										{
-											entry->present_props = s->entry->present_props;
+											FileEntry * entry = new FileEntry();
+											entry->path = svnPath;
+											entry->basepath = basepath;
+											entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+											entry->textstatus = s->text_status;
+											entry->propstatus = s->prop_status;
+											entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+											entry->remotetextstatus = s->repos_text_status;
+											entry->remotepropstatus = s->repos_prop_status;
+											entry->inunversionedfolder = false;
+											entry->checked = true;
+											entry->inexternal = false;
+											entry->direct = false;
+											entry->isfolder = true;
+											entry->last_commit_date = 0;
+											entry->last_commit_rev = 0;
+											if (s->entry)
+											{
+												if (s->entry->url)
+												{
+													CPathUtils::Unescape((char *)s->entry->url);
+													entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+												}
+											}
+											if (s->entry && s->entry->present_props)
+											{
+												entry->present_props = s->entry->present_props;
+											}
+											m_arStatusArray.push_back(entry);
+											m_arListArray.push_back(m_arStatusArray.size()-1);
+											AddEntry(entry, langID, GetItemCount());
 										}
-										m_arStatusArray.push_back(entry);
-										m_arListArray.push_back(m_arStatusArray.size()-1);
-										AddEntry(entry, langID, GetItemCount());
 									}
 								}
 							}
@@ -2325,57 +2329,60 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
 							toremove.push_back(m_arStatusArray[m_arListArray[selIndex]]->GetPath().GetSVNPathString());
-							SVNStatus status;
-							svn_wc_status2_t * s;
-							CTSVNPath svnPath;
-							s = status.GetFirstFileStatus(parentfolder, svnPath, false, false);
-							// first check if the folder isn't already present in the list
-							bool bFound = false;
-							nListboxEntries = GetItemCount();
-							for (int i=0; i<nListboxEntries; ++i)
+							if (!m_bIgnoreRemoveOnly)
 							{
-								FileEntry * entry = GetListEntry(i);
-								if (entry->path.IsEquivalentTo(svnPath))
+								SVNStatus status;
+								svn_wc_status2_t * s;
+								CTSVNPath svnPath;
+								s = status.GetFirstFileStatus(parentfolder, svnPath, false, false);
+								// first check if the folder isn't already present in the list
+								bool bFound = false;
+								nListboxEntries = GetItemCount();
+								for (int i=0; i<nListboxEntries; ++i)
 								{
-									bFound = true;
-									break;
+									FileEntry * entry = GetListEntry(i);
+									if (entry->path.IsEquivalentTo(svnPath))
+									{
+										bFound = true;
+										break;
+									}
 								}
-							}
-							if (!bFound)
-							{
-								if (s!=0)
+								if (!bFound)
 								{
-									FileEntry * entry = new FileEntry();
-									entry->path = svnPath;
-									entry->basepath = basepath;
-									entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-									entry->textstatus = s->text_status;
-									entry->propstatus = s->prop_status;
-									entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-									entry->remotetextstatus = s->repos_text_status;
-									entry->remotepropstatus = s->repos_prop_status;
-									entry->inunversionedfolder = FALSE;
-									entry->checked = true;
-									entry->inexternal = false;
-									entry->direct = false;
-									entry->isfolder = true;
-									entry->last_commit_date = 0;
-									entry->last_commit_rev = 0;
-									if (s->entry)
+									if (s!=0)
 									{
-										if (s->entry->url)
+										FileEntry * entry = new FileEntry();
+										entry->path = svnPath;
+										entry->basepath = basepath;
+										entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+										entry->textstatus = s->text_status;
+										entry->propstatus = s->prop_status;
+										entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+										entry->remotetextstatus = s->repos_text_status;
+										entry->remotepropstatus = s->repos_prop_status;
+										entry->inunversionedfolder = FALSE;
+										entry->checked = true;
+										entry->inexternal = false;
+										entry->direct = false;
+										entry->isfolder = true;
+										entry->last_commit_date = 0;
+										entry->last_commit_rev = 0;
+										if (s->entry)
 										{
-											CPathUtils::Unescape((char *)s->entry->url);
-											entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+											if (s->entry->url)
+											{
+												CPathUtils::Unescape((char *)s->entry->url);
+												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+											}
 										}
+										if (s->entry && s->entry->present_props)
+										{
+											entry->present_props = s->entry->present_props;
+										}
+										m_arStatusArray.push_back(entry);
+										m_arListArray.push_back(m_arStatusArray.size()-1);
+										AddEntry(entry, langID, GetItemCount());
 									}
-									if (s->entry && s->entry->present_props)
-									{
-										entry->present_props = s->entry->present_props;
-									}
-									m_arStatusArray.push_back(entry);
-									m_arListArray.push_back(m_arStatusArray.size()-1);
-									AddEntry(entry, langID, GetItemCount());
 								}
 							}
 						}
