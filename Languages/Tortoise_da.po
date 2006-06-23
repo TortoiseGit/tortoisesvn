@@ -7,7 +7,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6769
+# Based on Tortoise.pot r6860
 #
 msgid ""
 msgstr ""
@@ -1035,6 +1035,10 @@ msgid "Authors:"
 msgstr "Forfattere:"
 
 #: ID:222,
+msgid "Auto-close for local operations"
+msgstr "Luk automatisk for lokale handlinger"
+
+#: ID:222,
 msgid "Auto-close if no conflicts"
 msgstr "Luk automatisk, hvis ingen konflikter"
 
@@ -1045,10 +1049,6 @@ msgstr "Luk automatisk, hvis ingen fejl"
 #: ID:222,
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet"
-
-#: ID:222,
-msgid "Auto-close if no merges, adds or deletes for local operations"
-msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet for lokale handlinger"
 
 #: ID:195,
 msgid "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
