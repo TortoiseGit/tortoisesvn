@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-01 18:18+0900\n"
+"PO-Revision-Date: 2006-06-23 12:12+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -524,6 +524,11 @@ msgstr "ロード時に最初の相違点へ移動する(&J)"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "言語(&L):"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "変更された行内でのみ検索する(&L)"
 
 # ID:188,
 #: Control-ID:1172
@@ -1398,6 +1403,11 @@ msgstr "作者名の大文字／小文字を区別しない"
 msgid "Authors:"
 msgstr "作者:"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "ローカル操作の場合は自動的に閉じる"
+
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
@@ -1412,11 +1422,6 @@ msgstr "エラーが無い場合は自動的に閉じる"
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "マージ、追加、削除が無い場合は自動的に閉じる"
-
-# ID:222,
-#: ID:222
-msgid "Auto-close if no merges, adds or deletes for local operations"
-msgstr "ローカルの操作において、マージ、追加、削除が無い場合は自動的に閉じる"
 
 # ID:195,
 #: ID:195
@@ -2748,6 +2753,10 @@ msgstr "ファイルの差分"
 msgid "File patches"
 msgstr "ファイルパッチ"
 
+#: Dlg-ID:139
+msgid "Find"
+msgstr "検索"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2775,7 +2784,7 @@ msgstr "元:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "元: （マージ元のURLと開始リビジョン）"
+msgstr "元: （マージする範囲の始点を指すURLとリビジョン）"
 
 # ID:273,
 #: ID:273
@@ -3027,6 +3036,13 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr "設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。例えば、変更のオーバーレイアイコンが付きます。"
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -3091,7 +3107,7 @@ msgstr "ディレクトリをリポジトリにインポート"
 # Control-ID:1073,
 #: Control-ID:1266
 msgid "Include ignored files"
-msgstr "未変更ファイルを含める"
+msgstr "無視ファイルを含める"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3103,10 +3119,10 @@ msgstr "含めるパス:"
 msgid "Initial import"
 msgstr "初期インポート"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "行内での空白の相違"
+msgid "Inline diff"
+msgstr "行内の差分"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3284,11 +3300,6 @@ msgstr "活発でない作者:"
 msgid "Left View: "
 msgstr "左ビュー: "
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "空白の相違を含む行"
-
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3461,6 +3472,11 @@ msgid ""
 msgstr ""
 "バージョン管理下のファイルに解消マークを付ける\n"
 "解消マークを付ける"
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "大文字と小文字を区別する(&C)"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -4780,6 +4796,11 @@ msgstr "痕跡"
 msgid "Search &log messages..."
 msgstr "ログメッセージを検索(&L) ..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "検索する文字列:"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -5366,12 +5387,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "ファイル\n"
 "%s\n"
 "は有効なテキストファイルではありません！\n"
-"注意：UTF16 と UTF32 のファイルはバイナリ扱いになります。"
+"注意：UTF32 のファイルもバイナリ扱いになります。"
 
 # ID:80,
 #: ID:80
@@ -5767,7 +5788,7 @@ msgstr "先:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "先: （マージ先のURLと終了リビジョン）"
+msgstr "先: （マージする範囲の終点を指すURLとリビジョン）"
 
 # ID:7,#:
 # ID:3585,#:
@@ -6082,6 +6103,11 @@ msgstr "ロック解除"
 msgid "Untitled"
 msgstr "未タイトル"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "バージョン管理外のファイルを含むフォルダに変更マークを付ける"
+
 # ID:8,#:
 # ID:74,#:
 # Dlg-ID:152,
@@ -6273,11 +6299,6 @@ msgstr "警告"
 #: ID:219
 msgid "Warning!"
 msgstr "警告！"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "空白の相違"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
