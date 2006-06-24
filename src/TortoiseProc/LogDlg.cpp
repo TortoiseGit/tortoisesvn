@@ -1376,10 +1376,16 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int s = m_LogList.GetSelectionMark();
 		if (s < 0)
 			return;
-		if (m_currentChangedArray == NULL)
-			return;		// no commands for multiple revisions selected!
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
-		long rev = pLogEntry->dwRev;
+		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		long rev1 = pLogEntry->dwRev;
+		long rev2 = rev1-1;
+		if (pos)
+		{
+			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			if (pLogEntry)
+				rev2 = pLogEntry->dwRev;
+		}
 		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
 		
 		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
@@ -1404,43 +1410,52 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		if (popup.CreatePopupMenu())
 		{
 			CString temp;
+			bool bEntryAdded = false;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
-				if (DiffPossible(changedpath, rev))
+				if ((rev2 != rev1-1)||(DiffPossible(changedpath, rev1)))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 					temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEDIFF, temp);
 					popup.SetDefaultItem(ID_DIFF, FALSE);
-					popup.AppendMenu(MF_SEPARATOR, NULL);
+					bEntryAdded = true;
 				}
-				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
-				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
-				popup.AppendMenu(MF_SEPARATOR, NULL);
-				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
-				if (m_hasWC)
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
-				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
-				temp.LoadString(IDS_MENULOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				if (rev2 == rev1-1)
+				{
+					if (bEntryAdded)
+						popup.AppendMenu(MF_SEPARATOR, NULL);
+					temp.LoadString(IDS_LOG_POPUP_OPEN);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+					temp.LoadString(IDS_LOG_POPUP_OPENWITH);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
+					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
+					if (m_hasWC)
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+					temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
+					temp.LoadString(IDS_MENULOG);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
+					temp.LoadString(IDS_LOG_POPUP_SAVE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+					bEntryAdded = true;
+				}
+				if (!bEntryAdded)
+					return;
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				bool bOpenWith = false;
 				switch (cmd)
 				{
 				case ID_DIFF:
 					{
-						DoDiffFromLog(selIndex, rev, false);
+						DoDiffFromLog(selIndex, rev1, rev2, false);
 					}
 					break;
 				case ID_BLAMEDIFF:
 					{
-						DoDiffFromLog(selIndex, rev, true);
+						DoDiffFromLog(selIndex, rev1, rev2, true);
 					}
 					break;
 				case ID_REVERTREV:
@@ -1496,14 +1511,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								// a deleted path! Since the path isn't there anymore, merge
 								// won't work. So just do a copy url->wc
 								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev-1);
+								dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
 								dlg.DoModal();
 							}
 							else
 							{
 								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev);		//use the message as the second url
-								dlg.m_RevisionEnd = rev-1;
+								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
+								dlg.m_RevisionEnd = rev2;
 								dlg.DoModal();
 							}
 						}
@@ -1537,7 +1552,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						filepath += changedpath->sPath;
 						CPropDlg dlg;
-						dlg.m_rev = rev;
+						dlg.m_rev = rev1;
 						dlg.m_Path = CTSVNPath(filepath);
 						dlg.DoModal();
 						EnableOKButton();
@@ -1578,9 +1593,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp = CPathUtils::GetFileNameFromPath(filepath);
 						int rfind = filepath.ReverseFind('.');
 						if (rfind > 0)
-							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev, temp.Mid(rfind));
+							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
 						else
-							revFilename.Format(_T("%s-%ld"), temp, rev);
+							revFilename.Format(_T("%s-%ld"), temp, rev1);
 						_tcscpy_s(szFile, MAX_PATH, revFilename);
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
@@ -1617,7 +1632,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile.SetFromWin(ofn.lpstrFile);
 							CString sAction(MAKEINTRESOURCE(IDS_SVNACTION_DELETE));
-							SVNRev getrev = (sAction.Compare(changedpath->sAction)==0) ? rev-1 : rev;
+							SVNRev getrev = (sAction.Compare(changedpath->sAction)==0) ? rev2 : rev1;
 
 							CProgressDlg progDlg;
 							progDlg.SetTitle(IDS_APPNAME);
@@ -1677,13 +1692,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev);
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev1);
 						progDlg.SetLine(1, sInfoLine);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
 
-						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev);
-						if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev1);
+						if (!Cat(CTSVNPath(filepath), SVNRev(rev1), rev1, tempfile))
 						{
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);
@@ -1739,7 +1754,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath += changedpath->sPath;
 						
 						CString sCmd;
-						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev1);
 						
 						CAppUtils::LaunchApplication(sCmd, NULL, false);
 						EnableOKButton();
@@ -1974,13 +1989,20 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	int s = m_LogList.GetSelectionMark();
-	if (s < 0)
+	int selCount = m_LogList.GetSelectedCount();
+	if ((selCount != 1)&&(selCount != 2))
 		return;
-	if (m_currentChangedArray == NULL)
-		return;
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
-	long rev = pLogEntry->dwRev;
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	long rev1 = pLogEntry->dwRev;
+	long rev2 = rev1-1;
+	if (pos)
+	{
+		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		if (pLogEntry)
+			rev2 = pLogEntry->dwRev;
+	}
+
 	LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
 
 	if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
@@ -2000,14 +2022,13 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		}
 	}
 
-
-	if (DiffPossible(changedpath, rev))
+	if ((selCount > 1)||(DiffPossible(changedpath, rev1)))
 	{
-		DoDiffFromLog(selIndex, rev, false);
+		DoDiffFromLog(selIndex, rev1, rev2, false);
 	}
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
+void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame)
 {
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
@@ -2042,12 +2063,11 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
 
 	CString firstfile = changedpath->sPath;
 	CString secondfile = firstfile;
-	svn_revnum_t fromrev = rev - 1;
 
-	if (changedpath->lCopyFromRev > 0) // is it an added file with history?
+	if ((rev2 == rev1-1)&&(changedpath->lCopyFromRev > 0)) // is it an added file with history?
 	{
 		secondfile = changedpath->sCopyFromPath;
-		fromrev = changedpath->lCopyFromRev;
+		rev2 = changedpath->lCopyFromRev;
 	}
 
 	firstfile = filepath + firstfile.Trim();
@@ -2055,7 +2075,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetHEADPeg(m_LogRevision);
-	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, SVNRev(), false, blame);
+	diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame);
 
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();

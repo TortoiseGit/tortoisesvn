@@ -156,6 +156,8 @@
 - NEW: Goto Line in TortoiseBlame. See issue #255 for details. (Stefan)
 - NEW: command line param for TortoiseBlame to jump directly to
        a specific line. See issue #214 for details. (Stefan)
+- NEW: When two revisions are selected in the log dialog, allow
+       diffing a file in the modified files list. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
