@@ -28,7 +28,11 @@ public:
 	void WaitToRead();
 	void WaitToWrite();
 	void Done();
-
+#if defined (DEBUG) || defined (_DEBUG)
+	void AssertWriting() {ATLASSERT((m_nWaitingWriters || (m_nActive < 0)));}
+#else
+	void AssertWriting() {;}
+#endif
 private:
 	int					m_nWaitingReaders;	// Number of readers waiting for access
 	int					m_nWaitingWriters;	// Number of writers waiting for access

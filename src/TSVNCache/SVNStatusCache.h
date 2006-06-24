@@ -86,6 +86,11 @@ public:
 	void WaitToWrite() {m_rwSection.WaitToWrite();}
 	void Done() {m_rwSection.Done();}
 
+#if defined (DEBUG) || defined (_DEBUG)
+	void AssertWriting() {m_rwSection.AssertWriting();}
+#else
+	void AssertWriting() {;}
+#endif
 	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
 	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
 	bool IsPathGood(CTSVNPath path);
