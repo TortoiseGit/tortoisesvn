@@ -191,9 +191,7 @@ C:\Temp\New\tags
 			which you want to import your project.
 		</para>
 		<para>
-			The import message is used as a log message. Since you
-			usually just started your project a default <literal>initial import</literal>
-			is filled in by TortoiseSVN.
+			The import message is used as a log message.
 		</para>
 		<para>
 			By default, files and folders which match the global-ignore patterns
@@ -249,7 +247,7 @@ C:\Temp\New\tags
 			So as not to disturb the users, we also added the file
 			<filename>TortoiseVars.bat</filename> to the ignore list of its
 			parent folder, i.e. we've set the Subversion property
-			<literal>svn:ignored</literal> to include that filename.
+			<literal>svn:ignore</literal> to include that filename.
 			That way it won't show up as unversioned on every commit.
 		</para>
 	</sect2>
