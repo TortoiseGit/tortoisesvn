@@ -387,7 +387,7 @@ void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
 }
 
 //////////////////////////////////////////////////////////////////////////
-
+#ifdef _DEBUG
 static class StatusCacheTests
 {
 public:
@@ -408,4 +408,4 @@ public:
 
 } StatusCacheTests;
 
-
+#endif

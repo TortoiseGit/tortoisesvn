@@ -63,18 +63,3 @@ SVNHelper::~SVNHelper(void)
 	svn_pool_destroy (m_pool);
 }
 
-
-static class SVNHelperTests
-{
-public:
-	SVNHelperTests()
-	{
-		apr_initialize();
-		{
-			SVNHelper base;
-		}
-		apr_terminate();
-	}
-
-} SVNHelperTestsInstance;
-
