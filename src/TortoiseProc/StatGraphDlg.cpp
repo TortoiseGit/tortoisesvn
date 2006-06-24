@@ -355,9 +355,6 @@ void CStatGraphDlg::ShowCommitsByDate()
 		authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
 	}
 
-	// how many weeks do we cover here?
-	int numunits = GetUnitCount();
-
 	m_graph.SetXAxisLabel(GetUnitString());
 
 	int unit = 0;
