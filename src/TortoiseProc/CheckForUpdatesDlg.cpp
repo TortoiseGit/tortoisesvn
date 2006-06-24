@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CCheckForUpdatesDlg, CStandAloneDialog)
 	ON_STN_CLICKED(IDC_CHECKRESULT, OnStnClickedCheckresult)
 	ON_WM_TIMER()
 	ON_WM_WINDOWPOSCHANGING()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 BOOL CCheckForUpdatesDlg::OnInitDialog()
@@ -222,4 +223,18 @@ void CCheckForUpdatesDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 	CStandAloneDialog::OnWindowPosChanging(lpwndpos);
 	if (m_bVisible == FALSE)
 		lpwndpos->flags &= ~SWP_SHOWWINDOW;
+}
+
+BOOL CCheckForUpdatesDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if ((!m_sUpdateDownloadLink.IsEmpty())&&(pWnd)&&(pWnd == GetDlgItem(IDC_CHECKRESULT)))
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND));
+		SetCursor(hCur);
+		return TRUE;
+	}
+
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+	SetCursor(hCur);
+	return CStandAloneDialogTmpl<CDialog>::OnSetCursor(pWnd, nHitTest, message);
 }

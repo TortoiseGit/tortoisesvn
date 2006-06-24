@@ -36,6 +36,7 @@ protected:
 	afx_msg void OnStnClickedCheckresult();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
