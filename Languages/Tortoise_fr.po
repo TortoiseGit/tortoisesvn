@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-21 21:42+0100\n"
+"PO-Revision-Date: 2006-06-24 16:09+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -330,7 +330,7 @@ msgstr "&Editer les conflits"
 #: Control-ID:1099
 #: Control-ID:1282
 msgid "&Edit..."
-msgstr "&Edition..."
+msgstr "&Editer..."
 
 # Control-ID:1023,
 #: Control-ID:1023
@@ -1541,10 +1541,9 @@ msgstr "Livrer vers :"
 msgid "Commits by author"
 msgstr "Livraisons par auteur"
 
-# ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "Livraisons par semaine"
+msgid "Commits by date"
+msgstr "Livraisons par date"
 
 # ID:244,
 #: Control-ID:1135
@@ -2606,7 +2605,7 @@ msgstr "Ignorer les &changements de casse"
 # Control-ID:1067,
 #: Control-ID:1267
 msgid "Ignore ancestry"
-msgstr "Ignorer les &changements de casse"
+msgstr "Ignorer l'ascendance"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3916,7 +3915,7 @@ msgstr "SSH"
 # ID:12,
 #: ID:12
 msgid "SVN Add files to this WC"
-msgstr "SVN Ajouter des fichiers à cette CT"
+msgstr "SVN Ajouter les fichiers à cette CT"
 
 #: ID:16
 msgid "SVN Author"
@@ -5758,6 +5757,11 @@ msgstr "modifié"
 msgid "modified / copied"
 msgstr "modifié / copié"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "mois"
+
 #: ID:10
 msgid "no description for this command is available"
 msgstr "pas de description disponible pour cette commande"
@@ -5782,6 +5786,11 @@ msgstr "points"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "conflit posible ou réel / bloquant"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "trimestre"
 
 # ID:195,
 #: ID:195
@@ -5959,7 +5968,7 @@ msgid "values are different"
 msgstr "les valeurs sont différentes"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "semaine"
 
@@ -5967,4 +5976,9 @@ msgstr "semaine"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "qui pointe vers le référentiel à l'URL :"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "année"
 
