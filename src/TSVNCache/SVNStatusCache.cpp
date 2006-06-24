@@ -248,6 +248,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
 	if (cdir == NULL)
 		return false;
+	AssertWriting();
 	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
 	if (cdir->m_childDirectories.size())
 	{
@@ -274,7 +275,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 	CCachedDirectory::ItDir itMap;
 	CCachedDirectory * dirtoremove = NULL;
 
-	AutoLocker lock(m_critSec);
+	AssertWriting();
 	itMap = m_directoryCache.find(path);
 	if ((itMap != m_directoryCache.end())&&(itMap->second))
 		dirtoremove = itMap->second;
@@ -288,7 +289,6 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
 
-	AutoLocker lock(m_critSec);
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
@@ -303,6 +303,15 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// that means that path got invalidated and needs to be treated
 		// as if it never was in our cache. So we remove the last remains
 		// from the cache and start from scratch.
+		if (!IsWriter())
+		{
+			// upgrading our state to writer
+			ATLTRACE("trying to upgrade the state to \"Writer\"\n");
+			Done();
+			ATLTRACE("Returned \"Reader\" state\n");
+			WaitToWrite();
+			ATLTRACE("Got \"Writer\" state now\n");
+		}
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
@@ -318,8 +327,6 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntryNoCreate(const CTSVNPath& path)
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
-
-	AutoLocker lock(m_critSec);
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);

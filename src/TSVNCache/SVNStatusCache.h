@@ -85,7 +85,7 @@ public:
 	void WaitToRead() {m_rwSection.WaitToRead();}
 	void WaitToWrite() {m_rwSection.WaitToWrite();}
 	void Done() {m_rwSection.Done();}
-
+	bool IsWriter() {return m_rwSection.IsWriter();}
 #if defined (DEBUG) || defined (_DEBUG)
 	void AssertWriting() {m_rwSection.AssertWriting();}
 #else
@@ -100,7 +100,6 @@ private:
 	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache;
 	std::set<CTSVNPath> m_NoWatchPaths;
-	CComAutoCriticalSection m_critSec;
 	SVNHelper m_svnHelp;
 	ShellCache	m_shellCache;
 
