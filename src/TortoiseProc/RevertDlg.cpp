@@ -52,7 +52,6 @@ void CRevertDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
-	ON_WM_SETCURSOR()
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
@@ -152,23 +151,6 @@ void CRevertDlg::OnCancel()
 void CRevertDlg::OnBnClickedHelp()
 {
 	OnHelp();
-}
-
-
-BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
-{
-	if (m_bThreadRunning)
-	{
-		if ((pWnd)&&(pWnd == GetDlgItem(IDC_REVERTLIST)))
-		{
-			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
-			SetCursor(hCur);
-			return TRUE;
-		}
-	}
-	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
-	SetCursor(hCur);
-	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CRevertDlg::OnBnClickedSelectall()

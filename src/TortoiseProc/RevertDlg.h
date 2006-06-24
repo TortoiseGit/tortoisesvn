@@ -43,7 +43,6 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedSelectall();
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()
