@@ -442,6 +442,14 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 				Refresh();
 			}
 			break;
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+				}
+			}
+			break;
 		default:
 			break;
 		}
