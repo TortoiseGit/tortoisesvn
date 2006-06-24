@@ -316,8 +316,6 @@ void CStatGraphDlg::ShowCommitsByDate()
 	m_graph.SetGraphType(m_GraphType, m_bStacked);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEY);
 	m_graph.SetYAxisLabel(temp);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEX);
-	m_graph.SetXAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
 	m_graph.SetGraphTitle(temp);
 
@@ -358,25 +356,27 @@ void CStatGraphDlg::ShowCommitsByDate()
 	}
 
 	// how many weeks do we cover here?
-	int numweeks = GetWeeksCount();
+	int numunits = GetUnitCount();
 
-	int week = 0;
-	int weekcount = 0;
+	m_graph.SetXAxisLabel(GetUnitString());
+
+	int unit = 0;
+	int unitcount = 0;
 
 	std::map<stdstring, LONG> authorcommits;
 
 	if (m_parDates->GetCount()>0)
 	{
-		week = GetWeek(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
+		unit = GetUnit(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
 	}
 	CTime lasttime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1));
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
 		CTime time((__time64_t)m_parDates->GetAt(i));
-		int timeweek = GetWeek(time);
-		if (week != timeweek)
+		int timeunit = GetUnit(time);
+		if (unit != timeunit)
 		{
-			weekcount++;
+			unitcount++;
 			std::map<stdstring, LONG>::iterator iter;
 			MyGraphSeries * graphData = new MyGraphSeries();
 			iter = authors.begin();
@@ -389,21 +389,18 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 				iter++;
 			}
-			// If there are too many weeks, only show labels for some of them
-			if ((numweeks < 10)||((numweeks%10) == (weekcount % (numweeks/10))))
-			{
-				temp.Format(_T("%d"), week);
-				graphData->SetLabel(temp);
-			}
+			temp.Format(_T("%d"), unit);
+			graphData->SetLabel(temp);
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
 
 			CTimeSpan oneweek = CTimeSpan(7,0,0,0);
-			while (abs(timeweek - week) > 1)
+			while (abs(timeunit - unit) > 1)
 			{
-				lasttime += oneweek;
-				week = GetWeek(lasttime);
-				if (week == timeweek)
+				while (unit == GetUnit(lasttime))
+					lasttime += oneweek;
+				unit = GetUnit(lasttime);
+				if (unit == timeunit)
 					break;		//year lap
 				std::map<stdstring, LONG>::iterator iter;
 				MyGraphSeries * graphData = new MyGraphSeries();
@@ -413,12 +410,12 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 					iter++;
 				}
-				temp.Format(_T("%d"), week);
+				temp.Format(_T("%d"), unit);
 				graphData->SetLabel(temp);
 				m_graph.AddSeries(*graphData);
 				m_graphDataArray.Add(graphData);
 			}
-			week = timeweek;
+			unit = timeunit;
 			authorcommits.clear();
 		}
 		lasttime = time;
@@ -446,7 +443,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		iter++;
 	}
 
-	temp.Format(_T("%d"), week);
+	temp.Format(_T("%d"), unit);
 	graphData->SetLabel(temp);
 	m_graph.AddSeries(*graphData);
 	m_graphDataArray.Add(graphData);
@@ -856,6 +853,44 @@ int	CStatGraphDlg::GetWeeksCount()
 	}
 	m_weekcount = numweeks;
 	return numweeks;
+}
+
+void CStatGraphDlg::InitUnits()
+{
+	GetWeeksCount();
+}
+
+int CStatGraphDlg::GetUnitCount()
+{
+	if (m_weekcount < 20)
+		return m_weekcount;
+	if (m_weekcount < 80)
+		return (m_weekcount/4)+1;
+	if (m_weekcount < 320)
+		return (m_weekcount/13)+1; // quarters
+	return (m_weekcount/52)+1;
+}
+
+int CStatGraphDlg::GetUnit(const CTime& time)
+{
+	if (m_weekcount < 20)
+		return GetWeek(time);
+	if (m_weekcount < 80)
+		return time.GetMonth();
+	if (m_weekcount < 320)
+		return (time.GetMonth()/4)+1; // quarters
+	return time.GetYear();
+}
+
+CString CStatGraphDlg::GetUnitString()
+{
+	if (m_weekcount < 20)
+		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXWEEK));
+	if (m_weekcount < 80)
+		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXMONTH));
+	if (m_weekcount < 320)
+		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXQUARTER));
+	return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXYEAR));
 }
 
 void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)

@@ -81,6 +81,11 @@ protected:
 
 	void		ShowLabels(BOOL bShow);
 	void		RedrawGraph();
+
+	void		InitUnits();
+	int			GetUnitCount();
+	int			GetUnit(const CTime& time);
+	CString		GetUnitString();
 public:
 	CDWordArray	*	m_parDates;
 	CDWordArray	*	m_parFileChanges;

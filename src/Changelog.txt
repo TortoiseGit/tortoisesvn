@@ -203,6 +203,8 @@
        switch. (Stefan)
 - CHG: The authors graph is now sorted by number of commits.
        See issue #256 for details. (Stefan)
+- CHG: The by-date graph isn't 'crowded' anymore for big repositories.
+       See issue #259 for details. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When reverting files and folders the child items are now reverted
