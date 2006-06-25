@@ -43,6 +43,7 @@ IDI_FORWARD             ICON                    "player_fwd.ico"
 IDI_BACKWARD            ICON                    "player_rew.ico"
 IDI_START               ICON                    "player_start.ico"
 IDI_STOP                ICON                    "player_stop.ico"
+IDI_VERTICAL            ICON                    "vertical.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -79,6 +80,7 @@ BEGIN
         MENUITEM "Zoom i&n",                    ID_VIEW_ZOOMIN
         MENUITEM SEPARATOR
         MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO, CHECKED
+        MENUITEM "Arrange &Vertical",           ID_VIEW_ARRANGEVERTICAL
     END
 END
 
@@ -135,13 +137,14 @@ IDR_TORTOISEIDIFF ACCELERATORS
 BEGIN
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "F",            ID_VIEW_FITIMAGESINWINDOW, VIRTKEY, NOINVERT
+    "i",            ID_VIEW_IMAGEINFO,      ASCII,  NOINVERT
     "S",            ID_VIEW_ORININALSIZE,   VIRTKEY, NOINVERT
     "O",            ID_VIEW_OVERLAPIMAGES,  VIRTKEY, NOINVERT
     "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
     VK_OEM_MINUS,   ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
     VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
-    "i",            ID_VIEW_IMAGEINFO,      ASCII,  NOINVERT
+    "V",            ID_VIEW_ARRANGEVERTICAL, VIRTKEY, CONTROL, NOINVERT
 END
 
 

@@ -75,15 +75,30 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 	}
 	else
 	{
-		RECT child;
-		child.left = clientrect->left;
-		child.top = clientrect->top+tbHeight;
-		child.right = nSplitterPos-(SPLITTER_BORDER/2);
-		child.bottom = clientrect->bottom;
-		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-		child.left = nSplitterPos+(SPLITTER_BORDER/2);
-		child.right = clientrect->right;
-		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		if (bVertical)
+		{
+			RECT child;
+			child.left = clientrect->left;
+			child.top = clientrect->top+tbHeight;
+			child.right = clientrect->right;
+			child.bottom = nSplitterPos-(SPLITTER_BORDER/2);
+			if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+			child.top = nSplitterPos+(SPLITTER_BORDER/2);
+			child.bottom = clientrect->bottom;
+			if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		}
+		else
+		{
+			RECT child;
+			child.left = clientrect->left;
+			child.top = clientrect->top+tbHeight;
+			child.right = nSplitterPos-(SPLITTER_BORDER/2);
+			child.bottom = clientrect->bottom;
+			if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+			child.left = nSplitterPos+(SPLITTER_BORDER/2);
+			child.right = clientrect->right;
+			if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		}
 	}
 	if (hdwp) EndDeferWindowPos(hdwp);
 	InvalidateRect(*this, NULL, FALSE);
@@ -209,6 +224,32 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			RECT rect;
 			GetClientRect(hwnd, &rect);
 			PositionChildren(&rect);
+		}
+		break;
+	case WM_SETCURSOR:
+		{
+			if ((HWND)wParam == *this)
+			{
+				RECT rect;
+				POINT pt;
+				GetClientRect(*this, &rect);
+				GetCursorPos(&pt);
+				ScreenToClient(*this, &pt);
+				if (PtInRect(&rect, pt))
+				{
+					if (bVertical)
+					{
+						HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_SIZENS));
+						SetCursor(hCur);
+					}
+					else
+					{
+						HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_SIZEWE));
+						SetCursor(hCur);
+					}
+					return TRUE;
+				}
+			}
 		}
 		break;
 	case WM_LBUTTONDOWN:
@@ -391,6 +432,33 @@ LRESULT CMainWindow::DoCommand(int id)
 			PositionChildren(&rect);
 		}
 		break;
+	case ID_VIEW_ARRANGEVERTICAL:
+		{
+			bVertical = !bVertical;
+			RECT rect;
+			GetClientRect(*this, &rect);
+			if (bVertical)
+			{
+				nSplitterPos = (rect.bottom-rect.top)/2;
+			}
+			else
+			{
+				nSplitterPos = (rect.right-rect.left)/2;
+			}
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= bVertical ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_ARRANGEVERTICAL, uCheck);
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bVertical ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_ARRANGEVERTICAL, (LPARAM)&tbi);
+
+			PositionChildren(&rect);
+		}
+		break;
 	case IDM_EXIT:
 		::PostQuitMessage(0);
 		return 0;
@@ -452,24 +520,28 @@ LRESULT CMainWindow::Splitter_OnLButtonDown(HWND hwnd, UINT iMsg, WPARAM wParam,
 	//same for the window coordinates - make them relative to 0,0
 	OffsetRect(&rect, -rect.left, -rect.top);
 
-	if (pt.x < 0) 
-	{
+	if (pt.x < 0)
 		pt.x = 0;
-	}
 	if (pt.x > rect.right-4) 
-	{
 		pt.x = rect.right-4;
-	}
+	if (pt.y < 0)
+		pt.y = 0;
+	if (pt.y > rect.bottom-4)
+		pt.y = rect.bottom-4;
 
 	bDragMode = true;
 
 	SetCapture(hwnd);
 
 	hdc = GetWindowDC(hwnd);
-	DrawXorBar(hdc, pt.x+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
+	if (bVertical)
+		DrawXorBar(hdc, clientrect.left, pt.y+2, clientrect.right-clientrect.left-2, 4);
+	else
+		DrawXorBar(hdc, pt.x+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
 	ReleaseDC(hwnd, hdc);
 
 	oldx = pt.x;
+	oldy = pt.y;
 
 	return 0;
 }
@@ -501,19 +573,23 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT iMsg, WPARAM wParam, L
 	OffsetRect(&rect, -rect.left, -rect.top);
 
 	if (pt.x < 0)
-	{
 		pt.x = 0;
-	}
 	if (pt.x > rect.right-4) 
-	{
 		pt.x = rect.right-4;
-	}
+	if (pt.y < 0)
+		pt.y = 0;
+	if (pt.y > rect.bottom-4)
+		pt.y = rect.bottom-4;
 
 	hdc = GetWindowDC(hwnd);
-	DrawXorBar(hdc, oldx+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);			
+	if (bVertical)
+		DrawXorBar(hdc, clientrect.left, oldy+2, clientrect.right-clientrect.left-2, 4);			
+	else
+		DrawXorBar(hdc, oldx+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);			
 	ReleaseDC(hwnd, hdc);
 
 	oldx = pt.x;
+	oldy = pt.y;
 
 	bDragMode = false;
 
@@ -525,7 +601,10 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT iMsg, WPARAM wParam, L
 	//now convert into CLIENT coordinates
 	ScreenToClient(hwnd, &pt);
 	GetClientRect(hwnd, &rect);
-	nSplitterPos = pt.x;
+	if (bVertical)
+		nSplitterPos = pt.y;
+	else
+		nSplitterPos = pt.x;
 
 	//position the child controls
 	PositionChildren(&rect);
@@ -555,25 +634,43 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, L
 	ClientToScreen(hwnd, &zero);
 	OffsetRect(&clientrect, zero.x-rect.left, zero.y-rect.top);
 
-	if (pt.x < 0)
-	{
-		pt.x = 0;
-	}
-	if (pt.x > rect.right-4) 
-	{
-		pt.x = rect.right-4;
-	}
+	//convert the mouse coordinates relative to the top-left of
+	//the window
+	ClientToScreen(hwnd, &pt);
+	pt.x -= rect.left;
+	pt.y -= rect.top;
 
-	if (pt.x != oldx && wParam & MK_LBUTTON)
+	//same for the window coordinates - make them relative to 0,0
+	OffsetRect(&rect, -rect.left, -rect.top);
+
+	if (pt.x < 0)
+		pt.x = 0;
+	if (pt.x > rect.right-4) 
+		pt.x = rect.right-4;
+	if (pt.y < 0)
+		pt.y = 0;
+	if (pt.y > rect.bottom-4)
+		pt.y = rect.bottom-4;
+
+	if ((wParam & MK_LBUTTON) && ((bVertical && (pt.y != oldy)) || (!bVertical && (pt.x != oldx))))
 	{
 		hdc = GetWindowDC(hwnd);
 
-		DrawXorBar(hdc, oldx+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
-		DrawXorBar(hdc, pt.x+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
+		if (bVertical)
+		{
+			DrawXorBar(hdc, clientrect.left, oldy+2, clientrect.right-clientrect.left-2, 4);
+			DrawXorBar(hdc, clientrect.left, pt.y+2, clientrect.right-clientrect.left-2, 4);
+		}
+		else
+		{
+			DrawXorBar(hdc, oldx+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
+			DrawXorBar(hdc, pt.x+2, clientrect.top, 4, clientrect.bottom-clientrect.top-2);
+		}
 
 		ReleaseDC(hwnd, hdc);
 
 		oldx = pt.x;
+		oldy = pt.y;
 	}
 
 	return 0;
@@ -713,9 +810,9 @@ bool CMainWindow::CreateToolbar()
 
 	SendMessage(hwndTB, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-	TBBUTTON tbb[8];
+	TBBUTTON tbb[9];
 	// create an imagelist containing the icons for the toolbar
-	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 6, 4);
+	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 9, 4);
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
@@ -731,6 +828,14 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].idCommand = 0; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
 	tbb[index].fsStyle = BTNS_SEP; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_VERTICAL));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_ARRANGEVERTICAL; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 

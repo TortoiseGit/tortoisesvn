@@ -41,11 +41,13 @@ public:
 		, picWindow1(hInst)
 		, picWindow2(hInst)
 		, oldx(-4)
+		, oldy(-4)
 		, bMoved(false)
 		, bDragMode(false)
 		, nSplitterPos(100)
 		, bOverlap(false)
 		, bShowInfo(true)
+		, bVertical(false)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
 	};
@@ -104,6 +106,7 @@ protected:
 
 	// splitter data
 	int				oldx;
+	int				oldy;
 	bool			bMoved;
 	bool			bDragMode;
 	int				nSplitterPos;
@@ -111,6 +114,7 @@ protected:
 	// one/two pane view
 	bool			bOverlap;
 	HWND			hTrackbar;
+	bool			bVertical;
 
 };
 
