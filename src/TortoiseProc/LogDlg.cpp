@@ -813,6 +813,8 @@ void CLogDlg::CopySelectionToClipBoard()
 BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)
 {
 	CString added, deleted;
+	if (changedpath == NULL)
+		return false;
 	added.LoadString(IDS_SVNACTION_ADD);
 	deleted.LoadString(IDS_SVNACTION_DELETE);
 
@@ -1376,6 +1378,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int s = m_LogList.GetSelectionMark();
 		if (s < 0)
 			return;
+		CString changedpath;
+		LogChangedPath * changedlogpath = NULL;
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		long rev1 = pLogEntry->dwRev;
@@ -1385,24 +1389,29 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			if (pLogEntry)
 				rev2 = pLogEntry->dwRev;
+			changedpath = m_currentChangedPathList[selIndex].GetSVNPathString();
 		}
-		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-		
-		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+		else
 		{
-			// some items are hidden! So find out which item the user really clicked on
-			INT_PTR selRealIndex = -1;
-			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
+			changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+
+			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 			{
-				if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
-					selRealIndex++;
-				if (selRealIndex == selIndex)
+				// some items are hidden! So find out which item the user really clicked on
+				INT_PTR selRealIndex = -1;
+				for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
 				{
-					selIndex = hiddenindex;
-					changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-					break;
+					if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+						selRealIndex++;
+					if (selRealIndex == selIndex)
+					{
+						selIndex = hiddenindex;
+						changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+						break;
+					}
 				}
 			}
+			changedpath = changedlogpath->sPath;
 		}
 		
 		//entry is selected, now show the popup menu
@@ -1413,7 +1422,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			bool bEntryAdded = false;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
-				if ((rev2 != rev1-1)||(DiffPossible(changedpath, rev1)))
+				if ((rev2 != rev1-1)||(DiffPossible(changedlogpath, rev1)))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
@@ -1484,7 +1493,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						// find the working copy path of the selected item from the URL
 						CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
 
-						CString fileURL = changedpath->sPath;
+						CString fileURL = changedpath;
 						fileURL = sUrlRoot + fileURL.Trim();
 						// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
 						// sUrl = http://mydomain.com/repos/trunk/folder
@@ -1506,7 +1515,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CString sAction;
 							sAction.LoadString(IDS_SVNACTION_DELETE);
-							if (changedpath->sAction.Compare(sAction)==0)
+							if (changedlogpath->sAction.Compare(sAction)==0)
 							{
 								// a deleted path! Since the path isn't there anymore, merge
 								// won't work. So just do a copy url->wc
@@ -1550,7 +1559,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath->sPath;
+						filepath += changedpath;
 						CPropDlg dlg;
 						dlg.m_rev = rev1;
 						dlg.m_Path = CTSVNPath(filepath);
@@ -1584,7 +1593,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath->sPath;
+						filepath += changedpath;
 
 						OPENFILENAME ofn;		// common dialog box structure
 						TCHAR szFile[MAX_PATH];  // buffer for file name
@@ -1632,7 +1641,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile.SetFromWin(ofn.lpstrFile);
 							CString sAction(MAKEINTRESOURCE(IDS_SVNACTION_DELETE));
-							SVNRev getrev = (sAction.Compare(changedpath->sAction)==0) ? rev2 : rev1;
+							SVNRev getrev = (sAction.Compare(changedlogpath->sAction)==0) ? rev2 : rev1;
 
 							CProgressDlg progDlg;
 							progDlg.SetTitle(IDS_APPNAME);
@@ -1687,7 +1696,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath->sPath;
+						filepath += changedpath;
 
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
@@ -1751,7 +1760,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath->sPath;
+						filepath += changedpath;
 						
 						CString sCmd;
 						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev1);
@@ -2001,30 +2010,33 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		if (pLogEntry)
 			rev2 = pLogEntry->dwRev;
+		DoDiffFromLog(selIndex, rev1, rev2, false);
 	}
-
-	LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-
-	if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+	else
 	{
-		// some items are hidden! So find out which item the user really clicked on
-		int selRealIndex = -1;
-		for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
+		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+
+		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 		{
-			if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
-				selRealIndex++;
-			if (selRealIndex == selIndex)
+			// some items are hidden! So find out which item the user really clicked on
+			int selRealIndex = -1;
+			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
 			{
-				selIndex = hiddenindex;
-				changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-				break;
+				if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+					selRealIndex++;
+				if (selRealIndex == selIndex)
+				{
+					selIndex = hiddenindex;
+					changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+					break;
+				}
 			}
 		}
-	}
 
-	if ((selCount > 1)||(DiffPossible(changedpath, rev1)))
-	{
-		DoDiffFromLog(selIndex, rev1, rev2, false);
+		if (DiffPossible(changedpath, rev1))
+		{
+			DoDiffFromLog(selIndex, rev1, rev2, false);
+		}
 	}
 }
 
@@ -2057,17 +2069,24 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
 
-	int s = m_LogList.GetSelectionMark();
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
-	LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-
-	CString firstfile = changedpath->sPath;
-	CString secondfile = firstfile;
-
-	if ((rev2 == rev1-1)&&(changedpath->lCopyFromRev > 0)) // is it an added file with history?
+	CString firstfile, secondfile;
+	if (m_LogList.GetSelectedCount()==1)
 	{
-		secondfile = changedpath->sCopyFromPath;
-		rev2 = changedpath->lCopyFromRev;
+		int s = m_LogList.GetSelectionMark();
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
+		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+		firstfile = changedpath->sPath;
+		secondfile = firstfile;
+		if ((rev2 == rev1-1)&&(changedpath->lCopyFromRev > 0)) // is it an added file with history?
+		{
+			secondfile = changedpath->sCopyFromPath;
+			rev2 = changedpath->lCopyFromRev;
+		}
+	}
+	else
+	{
+		firstfile = m_currentChangedPathList[selIndex].GetSVNPathString();
+		secondfile = firstfile;
 	}
 
 	firstfile = filepath + firstfile.Trim();
