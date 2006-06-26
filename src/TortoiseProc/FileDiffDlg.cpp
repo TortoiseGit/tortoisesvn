@@ -68,6 +68,7 @@ void CFileDiffDlg::SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 {
 	m_bDoPegDiff = true;
 	m_path1 = path;
+	m_path2 = path;
 	m_peg = peg;
 	m_rev1 = rev1;
 	m_rev2 = rev2;
