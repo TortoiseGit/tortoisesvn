@@ -716,10 +716,10 @@ UINT CLogDlg::LogThread()
 
 	m_timFrom = (__time64_t(m_tFrom));
 	m_timTo = (__time64_t(m_tTo));
-	m_DateFrom.SetTime(&m_timFrom);
-	m_DateTo.SetTime(&m_timTo);
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
+	m_DateFrom.SetTime(&m_timFrom);
+	m_DateTo.SetTime(&m_timTo);
 
 	DialogEnableWindow(IDC_GETALL, TRUE);
 	
