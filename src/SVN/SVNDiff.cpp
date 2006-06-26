@@ -479,6 +479,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetSVNPathString(), rev2.ToString());
 				}
 			}
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 			return !!CAppUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, FALSE, blame);
 		}
 	}
@@ -492,6 +493,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				CString sWC, sRev;
 				sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 				sRev.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
 			}
 		}
@@ -543,6 +545,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					CString revname, wcname;
 					revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
 					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					return !!CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname);
 				}
 			}
@@ -576,11 +579,13 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					CString revname, wcname;
 					revname.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFilename(), rev2.ToString());
 					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					return !!CAppUtils::StartExtDiff(tempfile, url1, revname, wcname);
 				}
 			}
 		}
 	}
+	m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 	return false;
 }
 
