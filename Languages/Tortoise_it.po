@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-20 18:12+0100\n"
+"PO-Revision-Date: 2006-06-27 01:15+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1837,10 +1837,10 @@ msgstr "Invia a:"
 msgid "Commits by author"
 msgstr "Invii per autore"
 
-# ID:244,
+# Control-ID:1110,
 #: ID:244
-msgid "Commits by week"
-msgstr "Invii per settimana"
+msgid "Commits by date"
+msgstr "Invii per data"
 
 # ID:244,
 #: Control-ID:1135
@@ -6750,6 +6750,11 @@ msgstr "modificato"
 msgid "modified / copied"
 msgstr "modificato / copiato"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "mese"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6780,6 +6785,11 @@ msgstr "pixel"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "conflitto possibile o reale / ostruito"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "trimestre"
 
 # ID:195,
 #: ID:195
@@ -6965,7 +6975,7 @@ msgid "values are different"
 msgstr "valori sono differenti"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "settimana"
 
@@ -6973,4 +6983,9 @@ msgstr "settimana"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "che punta al repository all'indirizzo:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "anno"
 
