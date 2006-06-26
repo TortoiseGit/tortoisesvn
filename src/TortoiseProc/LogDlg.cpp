@@ -490,10 +490,13 @@ void CLogDlg::Refresh()
 {
 	UpdateData();
 
-	m_limit = 0;
-	if (m_logEntries.size() != 0)
+	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
 	{
-		m_endrev = m_logEntries[m_logEntries.size()-1]->dwRev;
+		m_limit = 0;
+		if (m_logEntries.size() != 0)
+		{
+			m_endrev = m_logEntries[m_logEntries.size()-1]->dwRev;
+		}
 	}
 	m_startrev = -1;
 	m_bCancelled = FALSE;
