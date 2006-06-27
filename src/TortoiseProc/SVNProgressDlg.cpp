@@ -1467,8 +1467,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							else if ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command))
 								popup.SetDefaultItem(ID_COMPARE, FALSE);
 
-							temp.LoadString(IDS_MENULOG);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
 						}
 						if ((data->action == svn_wc_notify_add)||
 							(data->action == svn_wc_notify_update_add)||
@@ -1477,8 +1475,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							(data->action == svn_wc_notify_restore)||
 							(data->action == svn_wc_notify_revert)||
 							(data->action == svn_wc_notify_resolved)||
-							(data->action == svn_wc_notify_commit_replaced))
+							(data->action == svn_wc_notify_commit_replaced)||
+							(data->action == svn_wc_notify_update_update))
 						{
+							temp.LoadString(IDS_MENULOG);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
 							if (data->action == svn_wc_notify_update_update)
 								popup.AppendMenu(MF_SEPARATOR, NULL);
 							temp.LoadString(IDS_LOG_POPUP_OPEN);
