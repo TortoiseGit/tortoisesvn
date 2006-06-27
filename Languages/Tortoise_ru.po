@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6860: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6892: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-22 09:54+0300\n"
+"PO-Revision-Date: 2006-06-27 17:53+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1506,8 +1506,8 @@ msgid "Commits by author"
 msgstr "Фиксации по автору"
 
 #: ID:244
-msgid "Commits by week"
-msgstr "Фиксации по неделям"
+msgid "Commits by date"
+msgstr "Фиксации по дате"
 
 #: Control-ID:1135
 msgid "Commits each week:"
@@ -5579,6 +5579,11 @@ msgstr "изменен"
 msgid "modified / copied"
 msgstr "изменен / скопирован"
 
+# статистика: месяцы
+#: ID:245
+msgid "month"
+msgstr "месяц"
+
 #: ID:10
 msgid "no description for this command is available"
 msgstr "нет описания для этой команды"
@@ -5605,6 +5610,11 @@ msgstr "пикселы"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "конфликтующий / мешающий"
+
+# статистика: кварталы
+#: ID:245
+msgid "quarter of year"
+msgstr "квартал"
 
 #: ID:195
 msgid "readonly"
@@ -5770,12 +5780,17 @@ msgid "values are different"
 msgstr "значения различны"
 
 # статистика: номера недель
-#: ID:244
+#: ID:245
 msgid "week"
-msgstr "недели"
+msgstr "неделя"
 
 # (рабочая папка)
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "которая указывает на следующий URL в хранилище:"
+
+# статистика: годы
+#: ID:245
+msgid "year"
+msgstr "год"
 
