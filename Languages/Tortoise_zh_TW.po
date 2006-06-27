@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-22 11:08+0800\n"
+"PO-Revision-Date: 2006-06-27 10:02+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1835,10 +1835,10 @@ msgstr "送交至:"
 msgid "Commits by author"
 msgstr "依作者排序的送交紀錄"
 
-# ID:244,
+# Control-ID:1110,
 #: ID:244
-msgid "Commits by week"
-msgstr "依週次排序的送交紀錄"
+msgid "Commits by date"
+msgstr "依日期排序的送交紀錄"
 
 # ID:244,
 #: Control-ID:1135
@@ -6742,6 +6742,11 @@ msgstr "異動"
 msgid "modified / copied"
 msgstr "已異動/複製"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "月"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6772,6 +6777,11 @@ msgstr "圖素"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "可能衝突/阻塞"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "季"
 
 # ID:195,
 #: ID:195
@@ -6956,7 +6966,7 @@ msgid "values are different"
 msgstr "不同的值"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "週"
 
@@ -6964,4 +6974,9 @@ msgstr "週"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "指向檔案庫URL:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "年"
 
