@@ -1662,7 +1662,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 										rev = it->second;
 								}
 								CLogDlg dlg;
-								dlg.SetParams(data->path, SVNRev(), rev, 1, limit, TRUE);
+								// fetch the log from HEAD, not the revision we updated to:
+								// the path might be inside an external folder which has its own
+								// revisions.
+								dlg.SetParams(data->path, SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
 								dlg.DoModal();
 							}
 							break;
