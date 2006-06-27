@@ -1488,7 +1488,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							bAdded = true;
 						}
 					} // if ((data)&&(!data->path.IsDirectory()))
-					if ((data) && (data->bAuxItem))
+					if (data)
 					{
 						CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
 						if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(sPath)))
