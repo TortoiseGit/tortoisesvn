@@ -732,7 +732,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			} // for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
 			if (m_targetPathList.GetCount() > 1)
 			{
-				sWindowTitle = m_targetPathList.GetCommonDirectory().GetWinPathString()+_T(" - ")+sWindowTitle;
+				sWindowTitle = m_targetPathList.GetCommonRoot().GetWinPathString()+_T(" - ")+sWindowTitle;
 				SetWindowText(sWindowTitle);
 			}
 			else if (m_targetPathList.GetCount() == 1)
