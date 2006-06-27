@@ -235,6 +235,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		// For some reason we build a list of externals...
 		m_ExtStack.AddHead(path.GetUIPathString());
 		data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
+		data->bAuxItem = true;
 		break;
 
 	case svn_wc_notify_update_completed:
