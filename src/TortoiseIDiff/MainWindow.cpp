@@ -223,13 +223,6 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			PositionChildren(&rect);
 		}
 		break;
-	case WM_MOVE:
-		{
-			RECT rect;
-			GetClientRect(hwnd, &rect);
-			PositionChildren(&rect);
-		}
-		break;
 	case WM_SETCURSOR:
 		{
 			if ((HWND)wParam == *this)
@@ -405,36 +398,24 @@ LRESULT CMainWindow::DoCommand(int id)
 		{
 			picWindow1.FitImageInWindow();
 			picWindow2.FitImageInWindow();
-			RECT rect;
-			GetClientRect(*this, &rect);
-			PositionChildren(&rect);
 		}
 		break;
 	case ID_VIEW_ORININALSIZE:
 		{
 			picWindow1.SetZoom(1.0);
 			picWindow2.SetZoom(1.0);
-			RECT rect;
-			GetClientRect(*this, &rect);
-			PositionChildren(&rect);
 		}
 		break;
 	case ID_VIEW_ZOOMIN:
 		{
 			picWindow1.Zoom(true);
 			picWindow2.Zoom(true);
-			RECT rect;
-			GetClientRect(*this, &rect);
-			PositionChildren(&rect);
 		}
 		break;
 	case ID_VIEW_ZOOMOUT:
 		{
 			picWindow1.Zoom(false);
 			picWindow2.Zoom(false);
-			RECT rect;
-			GetClientRect(*this, &rect);
-			PositionChildren(&rect);
 		}
 		break;
 	case ID_VIEW_ARRANGEVERTICAL:
@@ -611,11 +592,10 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT iMsg, WPARAM wParam, L
 	else
 		nSplitterPos = pt.x;
 
-	//position the child controls
-	PositionChildren(&rect);
-
 	ReleaseCapture();
 
+	//position the child controls
+	PositionChildren(&rect);
 	return 0;
 }
 
