@@ -588,7 +588,10 @@ void CPicWindow::Paint(HWND hwnd)
 			picture.Show(memDC, picrect);
 			if (pSecondPic)
 			{
-				CMemDC memDC2(hdc, true);
+				HDC secondhdc = CreateCompatibleDC(hdc);
+				HBITMAP hBitmap = CreateCompatibleBitmap(hdc, rect.right - rect.left, rect.bottom - rect.top);
+				HBITMAP hOldBitmap = (HBITMAP)SelectObject(secondhdc, hBitmap);
+				SetWindowOrgEx(secondhdc, rect.left, rect.top, NULL);
 
 				RECT picrect2;
 				picrect2.left =  rect.left-nHScrollPos;
@@ -596,8 +599,8 @@ void CPicWindow::Paint(HWND hwnd)
 				picrect2.top = rect.top-nVScrollPos;
 				picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale));
 
-				SetBkColor(memDC2, ::GetSysColor(COLOR_WINDOW));
-				::ExtTextOut(memDC2, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+				SetBkColor(secondhdc, ::GetSysColor(COLOR_WINDOW));
+				::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 
 				if ((rect.left < picrect2.left)&&(rect.top < picrect2.top)&&(rect.right > picrect2.right)&&(rect.bottom > picrect2.bottom))
 				{
@@ -606,10 +609,10 @@ void CPicWindow::Paint(HWND hwnd)
 					border.top = picrect2.top-1;
 					border.right = picrect2.right+1;
 					border.bottom = picrect2.bottom+1;
-					FillRect(memDC2, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+					FillRect(secondhdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
 				}
 
-				pSecondPic->Show(memDC2, picrect2);
+				pSecondPic->Show(secondhdc, picrect2);
 				BLENDFUNCTION blender;
 				blender.AlphaFormat = 0;
 				blender.BlendFlags = 0;
@@ -620,12 +623,16 @@ void CPicWindow::Paint(HWND hwnd)
 					rect.top,
 					rect.right-rect.left,
 					rect.bottom-rect.top,
-					memDC2,
+					secondhdc,
 					rect.left,
 					rect.top,
 					rect.right-rect.left,
 					rect.bottom-rect.top,
 					blender);
+				SelectObject(secondhdc, hOldBitmap);
+				DeleteObject(hBitmap);
+				DeleteDC(secondhdc);
+
 			}
 			if (bShowInfo)
 			{
