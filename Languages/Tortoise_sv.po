@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-15 13:49+0100\n"
+"PO-Revision-Date: 2006-06-28 10:17+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -665,9 +665,8 @@ msgid "&Update"
 msgstr "&Uppdatera"
 
 #: ID:76
-#, fuzzy
 msgid "&Update item to revision"
-msgstr "&Uppdatera till revision"
+msgstr "&Uppdatera objekt till revision"
 
 #: ID:11
 msgid "&Update to revision..."
@@ -1163,6 +1162,11 @@ msgstr "Hantera användarnamn skiftlägesokänsligt"
 msgid "Authors:"
 msgstr "Skrivet av:"
 
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "Automatiskt för lokala åtgärder"
+
 #: ID:222
 msgid "Auto-close if no conflicts"
 msgstr "Automatiskt om inga konflikter"
@@ -1176,11 +1180,6 @@ msgstr "Automatiskt om inga fel uppstod"
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Automatiskt om inga föreningar, tillläggningar eller borttagningar"
-
-# ID:222,
-#: ID:222
-msgid "Auto-close if no merges, adds or deletes for local operations"
-msgstr "Stäng automatiskt om inga föreningar, tillläggningar eller borttagningar för lokala åtgärder"
 
 # ID:195,
 #: ID:195
@@ -1539,10 +1538,9 @@ msgstr "Arkivera i:"
 msgid "Commits by author"
 msgstr "Arkiveringar per användarnamn"
 
-# ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "Arkiveringar veckovis"
+msgid "Commits by date"
+msgstr "Arkiveringar per datum"
 
 # Control-ID:1135,
 #: Control-ID:1135
@@ -5764,6 +5762,11 @@ msgstr "ändrad"
 msgid "modified / copied"
 msgstr "ändrade / kopierade"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "månad"
+
 #: ID:10
 msgid "no description for this command is available"
 msgstr "beskrivning för detta kommando saknas"
@@ -5788,6 +5791,11 @@ msgstr "pixlar"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "Möjlig eller faktisk konflikt / blockerad"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "kvartal"
 
 # ID:195,
 #: ID:195
@@ -5961,11 +5969,16 @@ msgid "values are different"
 msgstr "värden är olika"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "vecka"
 
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "som pekar till arkivet på URL:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "år"
 
