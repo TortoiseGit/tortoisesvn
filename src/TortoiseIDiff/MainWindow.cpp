@@ -148,6 +148,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		{
 			if ((wParam == TIMER_ALPHASLIDER)&&(bOverlap))
 				picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
+			KillTimer(*this, TIMER_ALPHASLIDER);
 		}
 		break;
 	case WM_PAINT:
