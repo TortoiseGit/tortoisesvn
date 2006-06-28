@@ -253,6 +253,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 					return TRUE;
 				}
 			}
+			return DefWindowProc(hwnd, uMsg, wParam, lParam);
 		}
 		break;
 	case WM_LBUTTONDOWN:
