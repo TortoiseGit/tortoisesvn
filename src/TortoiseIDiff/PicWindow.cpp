@@ -328,17 +328,6 @@ void CPicWindow::SetupScrollBars()
 		width = max(width, pSecondPic->m_Width);
 		height = max(height, pSecondPic->m_Height);
 	}
-	si.nPos  = nVScrollPos;
-	si.nPage = rect.bottom-rect.top;
-	si.nMin  = 0;
-	si.nMax  = int(double(height)*picscale);
-	SetScrollInfo(*this, SB_VERT, &si, TRUE);
-
-	si.nPos  = nHScrollPos;
-	si.nPage = rect.right-rect.left;
-	si.nMin  = 0;
-	si.nMax  = int(double(width)*picscale);
-	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
 
 	bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
 	bool bPicHeigthBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
@@ -355,6 +344,19 @@ void CPicWindow::SetupScrollBars()
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
 	ShowScrollBar(*this, SB_VERT, bPicHeigthBigger);
+
+	si.nPos  = nVScrollPos;
+	si.nPage = rect.bottom-rect.top;
+	si.nMin  = 0;
+	si.nMax  = int(double(height)*picscale);
+	SetScrollInfo(*this, SB_VERT, &si, TRUE);
+
+	si.nPos  = nHScrollPos;
+	si.nPage = rect.right-rect.left;
+	si.nMin  = 0;
+	si.nMax  = int(double(width)*picscale);
+	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
+
 	PositionChildren();
 }
 
@@ -471,8 +473,8 @@ void CPicWindow::SetZoom(double dZoom)
 
 	picscale = dZoom;
 	SetupScrollBars();
-	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
+	InvalidateRect(*this, NULL, TRUE);
 }
 
 void CPicWindow::Zoom(bool in)
