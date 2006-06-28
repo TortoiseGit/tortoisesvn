@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "StatGraphDlg.h"
 #include "UnicodeUtils.h"
+#include <math.h>
 #include <locale>
 
 
@@ -309,6 +310,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
 		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
 	m_graphDataArray.RemoveAll();
+
+	InitUnits();
 
 	//Set up the graph.
 	CString temp;
@@ -838,18 +841,19 @@ int	CStatGraphDlg::GetWeeksCount()
 		return m_weekcount;
 
 	// How many weeks does the time period cover?
-	int week = 0;
-	int numweeks = 0;
-	for (int weekindex = 0; weekindex<m_parDates->GetCount(); ++weekindex)
+	__time64_t date1 = (__time64_t)m_parDates->GetAt(0);
+	__time64_t date2 = (__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1);
+
+	if (date1 > date2)
 	{
-		if (week != GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex))))
-		{
-			week = GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex)));
-			numweeks++;
-		}
+		__time64_t date = date1;
+		date1 = date2;
+		date2 = date;
 	}
-	m_weekcount = numweeks;
-	return numweeks;
+	double secs = _difftime64(date2, date1);
+	// a week has 604800 seconds
+	m_weekcount = (int)ceil(secs / 604800.0);
+	return m_weekcount;
 }
 
 void CStatGraphDlg::InitUnits()
