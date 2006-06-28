@@ -215,7 +215,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		{
 			RECT rect;
 			GetClientRect(hwnd, &rect);
-			nSplitterPos = (rect.right-rect.left)/2;
+			if (bVertical)
+				nSplitterPos = (rect.bottom-rect.top)/2;
+			else
+				nSplitterPos = (rect.right-rect.left)/2;
 			PositionChildren(&rect);
 		}
 		break;
