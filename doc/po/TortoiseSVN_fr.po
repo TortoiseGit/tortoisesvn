@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-06-24 16:15+0100\n"
+"PO-Revision-Date: 2006-06-28 22:03+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3728,17 +3728,17 @@ msgstr "Colonnes de l'explorateur"
 #: source/TortoiseSVN_en.xml:4326
 #: (para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
-msgstr "Les mêmes informations, disponibles avec les recouvrements d'icônes (et plus encore) peuvent être affichées avec des colonnes supplémentaires dans l'affichage en détail de l'explorateur Windows."
+msgstr "Les mêmes informations, disponibles avec le recouvrement d'icônes, (et plus encore) peuvent être affichées avec des colonnes supplémentaires dans l'affichage en détail de l'explorateur Windows."
 
 #: source/TortoiseSVN_en.xml:4331
 #: (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Faites simplement un clic droit sur un des titres d'une colonne, choisissez <guimenuitem>Autres...</guimenuitem> à partir du menu contextuel affiché. Une boîte de dialogue apparaîtra où vous pourrez spécifier les colonnes et leur ordre, qui seront affichés dans la \"Vue détaillée\". Faites défiler jusqu'au moment où les entrées commençant par SVN apparaissent. Cochez celles vous voudriez afficher et fermez la boîte de dialogue en appuyant sur <guibutton>OK</guibutton>. Les colonnes seront ajoutées à droite de celles actuellement affichées. Vous pouvez les réordonner par glisser-déposer, ou les redimensionner, pour qu'ellels correspondent à vos besoins."
+msgstr "Faites simplement un clic droit sur un des titres d'une colonne, choisissez <guimenuitem>Autres...</guimenuitem> à partir du menu contextuel affiché. Une boîte de dialogue apparaîtra où vous pourrez spécifier les colonnes et leur ordre, qui seront affichées dans la \"Vue détaillée\". Faites défiler jusqu'au moment où les entrées commençant par SVN apparaissent. Cochez celles vous voudriez afficher et fermez la boîte de dialogue en appuyant sur <guibutton>OK</guibutton>. Les colonnes seront ajoutées à droite de celles actuellement affichées. Vous pouvez les réordonner par glisser-déposer, ou les redimensionner, pour qu'elles correspondent à vos besoins."
 
 #: source/TortoiseSVN_en.xml:4343
 #: (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr "Si vous voulez que la disposition actuelle soit affichée dans toutes vos copies de travail, vous pouvez vouloir en faire la vue de défaut."
+msgstr "Si vous voulez que la disposition actuelle soit affichée dans toutes vos copies de travail, vous pouvez vouloir en faire la vue par défaut."
 
 #: source/TortoiseSVN_en.xml:4351
 #: (title)
@@ -3758,7 +3758,7 @@ msgstr "Vérifier les modifications"
 #: source/TortoiseSVN_en.xml:4358
 #: (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr "<placeholder-1/> Il est souvent très utile de savoir quels fichiers vous avez changé et aussi quels fichiers ont été changés et livrés par d'autres. C'est là où la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice> devient pratique. Cette boîte de dialogue vous montrera chaque fichier changé de n'importe quelle façon dans votre copie de travail, aussi bien que les fichiers non versionnés que vous pouvez avoir."
+msgstr "<placeholder-1/> Il est souvent très utile de savoir quels fichiers vous avez changé et aussi quels fichiers ont été changés et livrés par les autres. C'est là où la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice> devient pratique. Cette boîte de dialogue vous montrera chaque fichier changé de n'importe quelle façon dans votre copie de travail, aussi bien que les fichiers non versionnés que vous pouvez avoir."
 
 #: source/TortoiseSVN_en.xml:4375
 #: (para)
@@ -3768,42 +3768,42 @@ msgstr "Si vous cliquez sur <guibutton>Vérifier le référentiel</guibutton> al
 #: source/TortoiseSVN_en.xml:4389
 #: (para)
 msgid "Locally modified items."
-msgstr "Eléments modifiés localement"
+msgstr "Éléments modifiés localement"
 
 #: source/TortoiseSVN_en.xml:4397
 #: (para)
 msgid "Added items. Items which have been added with history have a <literal>+</literal> sign in the <guilabel>Text status</guilabel> column, and a tooltip shows where the item was copied from."
-msgstr "0lements ajoutés. Les éléments qui ont été ajoutés avec un historique ont un signe <literal>+</literal> dans la colonne <guilabel>Statut du texte</guilabel> et une info-bulle montre d'où l'article a été copié."
+msgstr "Éléments ajoutés. Les éléments qui ont été ajoutés avec un historique ont un signe <literal>+</literal> dans la colonne <guilabel>Statut du texte</guilabel> et une info-bulle montre d'où l'article a été copié."
 
 #: source/TortoiseSVN_en.xml:4409
 #: (para)
 msgid "Deleted or missing items."
-msgstr "0léments supprimés ou manquants."
+msgstr "Éléments supprimés ou manquants."
 
 #: source/TortoiseSVN_en.xml:4417
 #: (para)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <emphasis>may</emphasis> produce conflicts on update."
-msgstr "0léments modifiés localement et dans le référentiel. Les changements seront fusionnés lors de la mise à jour. Cela <emphasis>peut</emphasis> produire des conflits à la mise à jour."
+msgstr "Éléments modifiés localement et dans le référentiel. Les changements seront fusionnés lors de la mise à jour. Cela <emphasis>peut</emphasis> produire des conflits à la mise à jour."
 
 #: source/TortoiseSVN_en.xml:4427
 #: (para)
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <emphasis>will</emphasis> produce conflicts on update."
-msgstr "0léments modifiés localement et supprimés dans le référentiel, ou modifiés dans le référentiel et supprimés localement. Cela <emphasis>va</emphasis> produire des conflits à la mise à jour."
+msgstr "Éléments modifiés localement et supprimés dans le référentiel, ou modifiés dans le référentiel et supprimés localement. Cela <emphasis>va</emphasis> produire des conflits à la mise à jour."
 
 #: source/TortoiseSVN_en.xml:4437
 #: (para)
 msgid "Unchanged and unversioned items."
-msgstr "0léments inchangés et non versionnés."
+msgstr "Éléments inchangés et non versionnés."
 
 #: source/TortoiseSVN_en.xml:4383
 #: (para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr "La boîte de dialogue utilise un codage de couleur pour mettre en évidence le statut. <placeholder-1/>"
+msgstr "La boîte de dialogue utilise un code couleur pour mettre le statut en évidence . <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:4455
 #: (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr "ì partir du menu contextuel de la boîte de dialogue vous pouvez afficher une comparaison des changements. Vérifiez les changements locaux que <emphasis>vous <emphasis> avez fait en utilisant <menuchoice><guimenu> Menu contextuel</guimenu><guimenuitem>Comparaison avec la Base</guimenuitem></menuchoice>. Vérifiez les changements du référentiel faits par les autres en utilisant <menuchoice><guimenu> Menu contextuel</guimenu><guimenuitem>Voir les différences en mode diff unifié</guimenuitem></menuchoice>."
+msgstr "À partir du menu contextuel de la boîte de dialogue vous pouvez afficher une comparaison des changements. Vérifiez les changements locaux que <emphasis>vous </emphasis> avez fait en utilisant <menuchoice><guimenu> Menu contextuel</guimenu><guimenuitem>Comparer avec la Base</guimenuitem></menuchoice>. Vérifiez les changements du référentiel faits par les autres en utilisant <menuchoice><guimenu> Menu contextuel</guimenu><guimenuitem>Voir les différences en mode diff unifié</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:4468
 #: (para)
@@ -3818,7 +3818,7 @@ msgstr "Si vous voulez examiner un fichier en détail, vous pouvez le glisser d'
 #: source/TortoiseSVN_en.xml:4491
 #: (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr "Si vous voulez une vue plate de votre copie de travail, c'est-à-dire qui montre tous les fichiers et des dossiers à chaque niveau de la hiérarchie des dossiers, alors la boîte de dialogue <guilabel>Vérifier les modifications</guilabel> est la façon la plus facile d'y arriver. Cochez seulement la case <guilabel>Afficher les fichiers non modifiés</guilabel> pour afficher tous les fichiers dans votre copie de travail."
+msgstr "Si vous voulez une vue plate de votre copie de travail, c'est-à-dire qui montre tous les fichiers et des dossiers à chaque niveau de la hiérarchie des dossiers, alors la boîte de dialogue <guilabel>Vérifier les modifications</guilabel> est la façon la plus facile d'y arriver. Cochez seulement la case <guilabel>Afficher les fichiers non modifiés</guilabel> pour afficher tous les fichiers de votre copie de travail."
 
 #: source/TortoiseSVN_en.xml:4502
 #: (title)
@@ -3863,22 +3863,22 @@ msgstr "historique"
 #: source/TortoiseSVN_en.xml:4540
 #: (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr "Pour chaque changement vous faites et que vous livrez, vous devriez fournir un message de journal pour ce changement. De cette façon, vous pouvez plus tard découvrir quels changements vous avez fait et pourquoi et vous avez un journal détaillé pour votre processus de développement."
+msgstr "Pour chaque changement que vous faites et que vous livrez, vous devriez fournir un commentaire pour ce changement. De cette façon, vous pouvez plus tard découvrir quels changements vous avez fait et pourquoi et vous avez un journal détaillé pour votre processus de développement."
 
 #: source/TortoiseSVN_en.xml:4552
 #: (para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr "Le panneau supérieur montre une liste de révisions où des changements au fichier/dossier ont été livrés. Ce résumé inclut la date et l'heur, la personne qui a livré la révision et le début du message de journal."
+msgstr "Le panneau supérieur montre une liste de révisions où des changements au fichier/dossier ont été livrés. Ce résumé inclut la date et l'heure, la personne qui a livré la révision et le début du commentaire."
 
 #: source/TortoiseSVN_en.xml:4558
 #: (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr "Les lignes affichées en bleu indiquent que quelque chose a été copié de cette ligne de développement (peut-être d'une branche)."
+msgstr "Les lignes affichées en bleu indiquent que quelque chose a été copié vers cette ligne de développement (peut-être d'une branche)."
 
 #: source/TortoiseSVN_en.xml:4564
 #: (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr "Le panneau du milieu montre le message de journal en entier pour la révision choisie."
+msgstr "Le panneau du milieu montre le commentaire en entier pour la révision choisie."
 
 #: source/TortoiseSVN_en.xml:4570
 #: (para)
@@ -3888,7 +3888,7 @@ msgstr "Le panneau du bas montre une liste de tous les fichiers et de tous les d
 #: source/TortoiseSVN_en.xml:4546
 #: (para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr "La boîte de dialogue du Journal de révision récupère tous ces messages de journal et vous les montre. L'affichage est divisé en 3 panneaux. <placeholder-1/> Mais elle fait beaucoup plus que cela - elle fournit des commandes de menu contextuel que vous pouvez utiliser pour obtenir encore plus d'informations sur l'historique du projet."
+msgstr "La boîte de dialogue du Journal de révision récupère tous ces commentaires et vous les montre. L'affichage est divisé en 3 panneaux. <placeholder-1/> Mais elle fait beaucoup plus que cela - elle fournit des commandes de menu contextuel que vous pouvez utiliser pour obtenir encore plus d'informations sur l'historique du projet."
 
 #: source/TortoiseSVN_en.xml:4581
 #: (title)
@@ -3903,17 +3903,17 @@ msgstr "La boîte de dialogue de Journal de révision"
 #: source/TortoiseSVN_en.xml:4590
 #: (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr "ì partir du sous-menu contextuel de TortoiseSVN"
+msgstr "À partir du sous-menu contextuel de TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:4595
 #: (para)
 msgid "From the property page"
-msgstr "ì partir de la page de propriété"
+msgstr "À partir de la page de propriété"
 
 #: source/TortoiseSVN_en.xml:4600
 #: (para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr "ì partir de la boîte de dialogue de progression après qu'une mise à jour a fini. Alors la boîte de dialogue de Journal ne montre que les révisions qui ont été changées depuis votre dernière mise à jour"
+msgstr "À partir de la boîte de dialogue de progression après qu'une mise à jour a fini. Alors la boîte de dialogue de Journal ne montre que les révisions qui ont été changées depuis votre dernière mise à jour"
 
 #: source/TortoiseSVN_en.xml:4582
 #: (para)
@@ -3933,12 +3933,12 @@ msgstr "Le parreau supérieur de la boîte de dialogue du Journal de révision a
 #: source/TortoiseSVN_en.xml:4619
 #: (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr "Comparer la révision sélectionnée avec votre copie de travail. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si la boîte de dialogue de journal concerne un dossier, elle vous montrera une liste de fichiers changés et vous permettra de passer en revue les changements faits à chaque fichier individuellement."
+msgstr "Comparer la révision sélectionnée avec votre copie de travail. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si la boîte de dialogue de journal concerne un dossier, cela vous montrera une liste de fichiers changés et vous permettra de passer en revue les changements faits à chaque fichier individuellement."
 
 #: source/TortoiseSVN_en.xml:4629
 #: (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Condamner la révision sélectionnée et le fichier dans votre BASE de travail et comparez les résultats en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
+msgstr "Condamner la révision sélectionnée et le fichier dans votre BASE de travail et comparer les résultats en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #: source/TortoiseSVN_en.xml:4636
 #: (para)
@@ -3948,7 +3948,7 @@ msgstr "Voir les changements faits dans la révision sélectionnée en tant que 
 #: source/TortoiseSVN_en.xml:4645
 #: (para)
 msgid "Save the selected revision to a file so you have an older version of that file. This option is only available when you access the log for a file, and it saves a version of that one file only."
-msgstr "Sauvegarder la révision choisie dans un fichier pour que vous ayez une version précédente de ce fichier. Cette option est seulement disponible quand vous avez accès au journal pour un fichier et il n'enregistre qu' une version de ce fichier."
+msgstr "Sauvegarder la révision choisie dans un fichier pour que vous ayez une version précédente de ce fichier. Cette option est seulement disponible quand vous avez accès au journal pour un fichier et il n'enregistre qu'une version de ce seul fichier."
 
 #: source/TortoiseSVN_en.xml:4653
 #: (para)
@@ -3978,12 +3978,12 @@ msgstr "Revenir à une révision précédente. Si vous avez fait plusieurs chang
 #: source/TortoiseSVN_en.xml:4703
 #: (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr "0diter le message de journal ou l'auteur attaché à une précédente livraison. Lisez <xref linkend=\"tsvn-dug-showlog-4\"/> pour découvrir comment cela fonctionne."
+msgstr "Éditer le commentaire ou l'auteur attaché à une précédente livraison. Lisez <xref linkend=\"tsvn-dug-showlog-4\"/> pour découvrir comment cela fonctionne."
 
 #: source/TortoiseSVN_en.xml:4710
 #: (para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
-msgstr "Chercher les messages de journal correspondants au texte que vous entrez. Cela recherche dans les messages de journal que vous avez saisis et aussi les résumés d'action créés par Subversion (montré dans le panneau du bas). La recherche n'est pas sensible à la casse."
+msgstr "Chercher les commentaires correspondants au texte que vous entrez. Cela recherche dans les commentaires que vous avez saisis et aussi les résumés d'action créés par Subversion (montré dans le panneau du bas). La recherche n'est pas sensible à la casse."
 
 #: source/TortoiseSVN_en.xml:4611
 #: (para)
@@ -4013,12 +4013,12 @@ msgstr "Voir les différences entre les deux révisions sélectionnées en tant 
 #: source/TortoiseSVN_en.xml:4751
 #: (para)
 msgid "Edit the log message or author as described above."
-msgstr "0diter le message de journal ou l'auteur comme décrit ci-dessus."
+msgstr "Éditer le commentaire ou l'auteur comme décrit ci-dessus."
 
 #: source/TortoiseSVN_en.xml:4756
 #: (para)
 msgid "Search log messages as described above."
-msgstr "Chercher les messages de journal comme décrit ci-dessus."
+msgstr "Chercher les commentaires comme décrit ci-dessus."
 
 #: source/TortoiseSVN_en.xml:4719
 #: (para)
@@ -4028,7 +4028,7 @@ msgstr "<placeholder-1/> Si vous sélectionnez deux révisions en même temps (e
 #: source/TortoiseSVN_en.xml:4762
 #: (para)
 msgid "If you select multiple consecutive revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in that range of revisions. This is the easiest way to rollback a group of revisions in one go."
-msgstr "Si vous sélectionnez des révisions consécutives (en utilisant les modificateurs habituels <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), le menu contextuel incluront une entrée pour annuler tous les changements qui ont été faits dans cette plage de révisions. C'est la façon la plus facile d'annuler une groupe de révisions en une fois."
+msgstr "Si vous sélectionnez des révisions consécutives (en utilisant les modificateurs habituels <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), le menu contextuel inclurera une entrée pour annuler tous les changements qui ont été faits dans cette plage de révisions. C'est la façon la plus facile d'annuler une groupe de révisions en une fois."
 
 #: source/TortoiseSVN_en.xml:4771
 #: (title)
@@ -4038,7 +4038,7 @@ msgstr "Le panneau inférieur de la boîte de dialogue du Journal avec le menu c
 #: source/TortoiseSVN_en.xml:4777
 #: (para)
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
-msgstr "Montrer les différences faites dans la révision sélectionnée pour le fichier choisi. Ce menu contextuel est seulement disponible pour des fichiers montrés comme <literal>Modifiés</literal>."
+msgstr "Montrer les différences faites dans la révision sélectionnée pour le fichier choisi. Ce menu contextuel est seulement disponible pour les fichiers montrés comme <literal>Modifiés</literal>."
 
 #: source/TortoiseSVN_en.xml:4784
 #: (para)
@@ -4058,12 +4058,12 @@ msgstr "Annuler les changements effectués au fichier sélectionné dans cette r
 #: source/TortoiseSVN_en.xml:4802
 #: (para)
 msgid "View the Subversion properties for the selected item."
-msgstr "Voir les propriétés de Subversion pour l'élement sélectionné."
+msgstr "Voir les propriétés Subversion pour l'élément sélectionné."
 
 #: source/TortoiseSVN_en.xml:4807
 #: (para)
 msgid "Show the revision log for the selected single file."
-msgstr "Affciher le journal de révision pour le seul fichier choisi."
+msgstr "Afficher le journal de révision pour le seul fichier choisi."
 
 #: source/TortoiseSVN_en.xml:4812
 #: (para)
@@ -4078,17 +4078,17 @@ msgstr "<placeholder-1/> Le panneau du bas de la boîte de dialogue Journal a au
 #: source/TortoiseSVN_en.xml:4821
 #: (title)
 msgid "Getting more log messages"
-msgstr "Obtenir plus de messages de journal"
+msgstr "Obtenir plus de commentaires"
 
 #: source/TortoiseSVN_en.xml:4827
 #: (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
-msgstr "Pour un grand référentiel il peut y avoir des centaines ou même des milliers de changements et les parcourir tous pourraient prendre longtemps. Normalement vous n'êtes intéressés que par les changements les plus récents. Par défaut, le nombre de messages de journal parcourus est limité à 100, mais vous pouvez changer cette valeur dans <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configuration</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
+msgstr "Pour un grand référentiel, il peut y avoir des centaines ou même des milliers de changements et les parcourir tous pourrait prendre longtemps. Normalement vous n'êtes intéressé que par les changements les plus récents. Par défaut, le nombre de commentaires parcourus est limité à 100, mais vous pouvez changer cette valeur dans <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configuration</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
 
 #: source/TortoiseSVN_en.xml:4842
 #: (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Quand la case <guilabel>Arrêt à la copie/renommage</guilabel> est cochée, Voir le journal s'arrêtera au point où le fichier ou le dossier sélectionné ont été copiés d'ailleurs du dépôt. Cela peut être utile en regardant les branches (ou les étiquettes) puisque cela s'arrête à la racine de cette branch et donne une indication rapide des changements faits dans cette branche seulement."
+msgstr "Quand la case <guilabel>Arrêt à la copie/renommage</guilabel> est cochée, Voir le journal s'arrêtera au moment où le fichier ou le dossier sélectionné ont été copiés d'ailleurs du référentiel. Cela peut être utile en regardant les branches (ou les étiquettes) puisque cela s'arrête à la racine de cette branche et donne une indication rapide des changements faits dans cette branche seulement."
 
 #: source/TortoiseSVN_en.xml:4851
 #: (para)
@@ -4103,7 +4103,7 @@ msgstr "Quand la boîte de dialogue Voir le journal est appelée depuis la boît
 #: source/TortoiseSVN_en.xml:4863
 #: (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr "Notez que Subversion met actuellement en oeuvre le renommage comme une paire copie/suppression, donc renommer un fichier ou un dossier causera aussi que l'affichage du journal s'arrête si cette option est cochée."
+msgstr "Notez que Subversion met actuellement en oeuvre le renommage comme une paire copie/suppression, donc renommer un fichier ou un dossier causera aussi l'arrêt de l'affichage du journal si cette option est cochée."
 
 #: source/TortoiseSVN_en.xml:4822
 #: (para)
@@ -4113,7 +4113,7 @@ msgstr "Le boîte de dialogue du Journal ne montre pas toujours tous les changem
 #: source/TortoiseSVN_en.xml:4872
 #: (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr "Si vous voulez voir plus de messages de journal, cliquez sur le <guibutton>100 suivants</guibutton> pour récupérer les 100 messages de journal suivants. Vous pouvez répéter cela autant de fois que nécessaire."
+msgstr "Si vous voulez voir plus de commentaires, cliquez sur le bouton <guibutton>100 suivants</guibutton> pour récupérer les 100 commentaires suivants. Vous pouvez répéter cela autant de fois que nécessaire."
 
 #: source/TortoiseSVN_en.xml:4877
 #: (para)
@@ -4123,17 +4123,17 @@ msgstr "À côté de ce bouton il y a un bouton multi-fonctions qui se souvient 
 #: source/TortoiseSVN_en.xml:4882
 #: (para)
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
-msgstr "Utilisez <guibutton>Afficher la plage ... </guibutton> si vous voulez voir une plage spécifique de révisions. Une boîte de dialogue vous demandera alors d'entrer les révisions de début et de fin."
+msgstr "Utilisez <guibutton>Afficher la plage ...</guibutton> si vous voulez voir une plage spécifique de révisions. Une boîte de dialogue vous demandera alors d'entrer les révisions de début et de fin."
 
 #: source/TortoiseSVN_en.xml:4887
 #: (para)
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr "Utilisez <guibutton>Afficher tout</guibutton> si vous voulez voir <emphasis>tous</emphasis> les messages de journal depuis HEADjusqu'à la révision 1."
+msgstr "Utilisez <guibutton>Afficher tout</guibutton> si vous voulez voir <emphasis>tous</emphasis> les commentaires depuis HEAD jusqu'à la révision 1."
 
 #: source/TortoiseSVN_en.xml:4893
 #: (title)
 msgid "Changing the Log Message and Author"
-msgstr "Changer le message du journal et l'auteur"
+msgstr "Changer le commentaire et l'auteur"
 
 #: source/TortoiseSVN_en.xml:4895
 #: (primary)
@@ -4143,17 +4143,17 @@ msgstr "éditer le journal/l'auteur"
 #: source/TortoiseSVN_en.xml:4897
 #: (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr "Parfois vous pourriez vouloir changer un message de journal que vous avez saisi, peut-être parce qu'il y a une faute d'orthographe dedans ou parce que vous voulez améliorer le message ou le changer pour d'autres raisons. Ou vous voulez changer l'auteur de la livraison parce que vous avez oublié de mettre en place l'authentification ou..."
+msgstr "Parfois vous pourriez vouloir changer un commentaire que vous avez saisi, peut-être parce qu'il y a une faute d'orthographe dedans ou parce que vous voulez améliorer le message ou le changer pour d'autres raisons. Ou vous voulez changer l'auteur de la livraison parce que vous avez oublié de mettre en place l'authentification ou..."
 
 #: source/TortoiseSVN_en.xml:4904
 #: (para)
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr "La subversion vous laisse changer tant le message de journal que l'auteur de révisions quand vous le souhaitez. Mais puisque de tels changements ne peuvent pas être défaits (ces changements ne sont pas versionnés) cette fonctionnalité est désactivée par défaut. Pour faire ce travail, vous devez mettre en place un hook pre-revprop-change. Veuillez vous référer au chapitre sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> dans le manuel de Subversion pour plus de détails sur la façon de le faire. Lisez <xref linkend=\"tsvn-repository-hooks\"/> pour trouver plus de notes sur l'implémentation de hooks sur une machine Windows."
+msgstr "Subversion vous laisse changer tant le commentaire que l'auteur des révisions quand vous le souhaitez. Mais puisque de tels changements ne peuvent pas être annulés (ces changements ne sont pas versionnés) cette fonctionnalité est désactivée par défaut. Pour faire que cela fonctionne, vous devez mettre en place un hook pre-revprop-change. Veuillez vous référer au chapitre sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> dans le manuel de Subversion pour plus de détails sur la façon de le faire. Lisez <xref linkend=\"tsvn-repository-hooks\"/> pour trouver plus de notes sur l'implémentation de hooks sur une machine Windows."
 
 #: source/TortoiseSVN_en.xml:4917
 #: (para)
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
-msgstr "Une fois que vous avez mis en place votre serveur avec les hooks requis, vous pouvez changer et l'auteur et le message de journal de n'importe quelle révision, en utilisant le menu contextuel du panneau supérieur de la boîte de dialogue du Journal."
+msgstr "Une fois que vous avez mis en place votre serveur avec les hooks requis, vous pouvez changer et l'auteur et le commentaire de n'importe quelle révision, en utilisant le menu contextuel du panneau supérieur de la boîte de dialogue du Journal."
 
 #: source/TortoiseSVN_en.xml:4923
 #: (para)
@@ -4163,7 +4163,7 @@ msgstr "Parce que les propriétés de révision de Subversion ne sont pas versio
 #: source/TortoiseSVN_en.xml:4933
 #: (title)
 msgid "Filtering Log Messages"
-msgstr "Filtrer les messages du journal"
+msgstr "Filtrer les commentaires"
 
 #: source/TortoiseSVN_en.xml:4935
 #: (primary)
@@ -4173,7 +4173,7 @@ msgstr "filtrer"
 #: source/TortoiseSVN_en.xml:4937
 #: (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr "Si vous voulez limiter les messages de journal pour montrer seulement ceux qui vous intéressent, plutôt que de défiler une liste de centaines, vous pouvez utiliser les commandes de filtre en haut de la boîte de dialogue de Journal. Les dates de début et de fin vous permettent de limiter les résultats à une plage de date connue. La boîte de recherche vous permet de montrer seulement les messages qui contiennent une expression particulière."
+msgstr "Si vous voulez limiter les commentaires pour afficher seulement ceux qui vous intéressent, plutôt que de défiler une liste de centaines de commentaires, vous pouvez utiliser les commandes de filtre en haut de la boîte de dialogue de Journal. Les dates de début et de fin vous permettent de limiter les résultats à une plage de dates connue. La boîte de recherche vous permet de montrer seulement les messages qui contiennent une expression particulière."
 
 #: source/TortoiseSVN_en.xml:4946
 #: (para)
@@ -4183,7 +4183,7 @@ msgstr "Notez que ces filtres agissent sur les messages déjà récupérés. Ils
 #: source/TortoiseSVN_en.xml:4950
 #: (para)
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tri-state: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
-msgstr "Vous pouvez aussi le filtre les noms de chemin dans le panneau du bas en utilisant la case à cocher <guilabel>Cacher les chemins changés sans relation</guilabel>. Les chemins liés sont ceux qui contiennent le chemin utilisé pour montrer le journal. Si vous parcourez le journal pour un dossier, cela signifie tout dans ce dossier ou en dessous. Pour un fichier cela signifie juste ce fichier. La case à cocher a trois états : vous pouvez montrer tous les chemins, griser ceux sans rapports, ou cacher complètement les chemins sans rapport."
+msgstr "Vous pouvez aussi filtrer les noms de chemin dans le panneau du bas en utilisant la case à cocher <guilabel>Cacher les chemins changés sans relation</guilabel>. Les chemins liés sont ceux qui contiennent le chemin utilisé pour montrer le journal. Si vous parcourez le journal pour un dossier, cela signifie tout dans ce dossier ou en dessous. Pour un fichier cela signifie juste ce fichier. La case à cocher a trois états : vous pouvez montrer tous les chemins, griser ceux sans rapports, ou cacher complètement les chemins sans rapport."
 
 #: source/TortoiseSVN_en.xml:4962
 #: (title)
@@ -4198,7 +4198,7 @@ msgstr "statistiques"
 #: source/TortoiseSVN_en.xml:4966
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr "Le bouton <guibutton>Statistiques</guibutton> fait apparaître une boîte montrant des informations intéressantes sur les révisions affichées dans la boîte de dialogue de Journal. Elle montre combien d'auteurs ont travaillé, combien de livraisons ils ont fait, la progression par semaine et beaucoup plus. Maintenant vous pouvez voir d'un coup d'oeil qui a travaillé le plus dur et qui se relâche;-)"
+msgstr "Le bouton <guibutton>Statistiques</guibutton> fait apparaître une boîte montrant des informations intéressantes sur les révisions affichées dans la boîte de dialogue de Journal. Elle montre combien d'auteurs ont travaillé, combien de livraisons ils ont fait, la progression par semaine et beaucoup plus. Maintenant vous pouvez voir d'un coup d'oeil qui a travaillé le plus dur et qui se relâche ;-)"
 
 #: source/TortoiseSVN_en.xml:4975
 #: (title)
@@ -4248,22 +4248,22 @@ msgstr "Graphique de livraisons par semaine"
 #: source/TortoiseSVN_en.xml:5007
 #: (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr "<placeholder-1/> Cette page vous donne une représentation graphique de l'activité du projet en termes de nombre de livraisons <emphasis>et</emphasis> et d'auteur. Cela donne une certaine idée quand un projet est travaillé et qui travaillait à quel moment."
+msgstr "<placeholder-1/> Cette page vous donne une représentation graphique de l'activité du projet en termes de nombre de livraisons <emphasis>et</emphasis> d'auteurs. Cela donne une certaine idée quand un projet est travaillé et qui travaillait à quel moment."
 
 #: source/TortoiseSVN_en.xml:5017
 #: (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr "Quand il y a plusieurs auteurs, vous obtiendrez beaucoup de lignes sur le graphique. Il y a deux vues disponibles ici : <emphasis>normale</emphasis>, où l'activité de chaque auteur est relative à la ligne de base et <emphasis>empilée</emphasis>, où l'activité de chaque auteur est relative à la ligne d'en dessous. La dernière option évite les lignes qui se traversent, qui peut rendre le graphique plus facile à lire, mais moins facile pour voir la production d'un auteur."
+msgstr "Quand il y a plusieurs auteurs, vous obtiendrez beaucoup de lignes sur le graphique. Il y a deux vues disponibles ici : <emphasis>normale</emphasis>, où l'activité de chaque auteur est relative à la ligne de base et <emphasis>empilée</emphasis>, où l'activité de chaque auteur est relative à la ligne d'en dessous. La dernière option évite les lignes qui se traversent, ce qui peut rendre le graphique plus facile à lire, mais moins facile pour voir la production d'un auteur."
 
 #: source/TortoiseSVN_en.xml:5027
 #: (para)
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases usernames are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
-msgstr "Par défaut l'analyse est sensible à la casse donc les utilisateurs <literal>PeterEgan</literal> et <literal> PeteRegan</literal> sont considérés comme des auteurs différents. Cependant, dans des nombreux cas les noms utilisateur ne sont pas sensible à la casse et sont parfois entré sans conséquence, donc vous pouvez vouloir que <literal>DavidMorgan</literal> et <literal>davidmorgan</literal> soient considérés comme la même personne. Utilisez la case à cocher <guilabel>Auteurs non sensibles à la casse</guilabel> pour contrôler la manière dont cela est traité."
+msgstr "Par défaut l'analyse est sensible à la casse donc les utilisateurs <literal>PeterEgan</literal> et <literal> PeteRegan</literal> sont considérés comme des auteurs différents. Cependant, dans des nombreux cas les noms utilisateur ne sont pas sensibles à la casse et sont parfois entrés sans conséquence, donc vous pouvez vouloir que <literal>DavidMorgan</literal> et <literal>davidmorgan</literal> soient considérés comme la même personne. Utilisez la case à cocher <guilabel>Auteurs non sensibles à la casse</guilabel> pour contrôler la manière dont cela est traité."
 
 #: source/TortoiseSVN_en.xml:5037
 #: (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
-msgstr "Notez que les statistiques couvre la même période que la boîte de dialogue de Journal. Si cela ne montre qu'une révision alors les statistiques ne vous diront pas grand chose."
+msgstr "Notez que les statistiques couvre la même période que la boîte de dialogue de Journal. Si elle ne montre qu'une révision alors les statistiques ne vous diront pas grand chose."
 
 #: source/TortoiseSVN_en.xml:5045
 #: (title)
@@ -4623,7 +4623,7 @@ msgstr "Correspond à n'importe lequel des caractères inclus dans les crochets.
 #: source/TortoiseSVN_en.xml:5460
 #: (para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
-msgstr "Les modélès à ignorer de Subversion se servent de l'expansion des jokers dans les noms de fichier, une technique à l'origine utilisée à Unix pour spécifier des fichiers utilisant des meta-caractères comme des caractères de remplacement. Les caractères suivants ont une signification spéciale : <placeholder-1/>"
+msgstr "Les modélès à ignorer de Subversion se servent de l'expansion des jokers (globbing) dans les noms de fichier, une technique à l'origine utilisée à Unix pour spécifier des fichiers utilisant des meta-caractères comme des caractères de remplacement. Les caractères suivants ont une signification spéciale : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5500
 #: (para)
@@ -4643,382 +4643,382 @@ msgstr "Si les noms de répertoire sont présents dans un chemin, ils sont inclu
 #: source/TortoiseSVN_en.xml:5519
 #: (para)
 msgid "To ignore all <literal>CVS</literal> folders you should either specify a pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */CVS</literal>. The first option works, but would also exclude something called <literal>ThisIsNotCVS</literal>. Using <literal>*/CVS</literal> alone will not work on an immediate child <literal>CVS</literal> folder, and <literal>CVS</literal> alone will not work on subfolders."
-msgstr ""
+msgstr "Pour ignorer tous les dossiers <literal>CVS</literal> vous devriez ou spécifier un modèle tel que <literal>*CVS</literal> ou mieux, la paire <literal>CVS */CVS</literal>. La première option fonctionne, mais exclurait aussi quelque chose appelé <literal>ThisIsNotCVS</literal>. Utiliser <literal>*/CVS</literal> tout seul ne fonctionnerait pas sur un premier dossier enfant <literal>CVS</literal> et <literal>CVS</literal> ne marcherait pas sur les sous-dossiers."
 
 #: source/TortoiseSVN_en.xml:5528
 #: (para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
-msgstr ""
+msgstr "Si vous voulez une définition officielle pour l'expansion de jokers (globbing), vous pouvez la trouver dans les spécifications IEEE pour le langage de commande d'interpréteur de commandes <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:5538
 #: (title)
 msgid "Deleting, Renaming And Moving"
-msgstr ""
+msgstr "Supprimer, renommer et déplacer"
 
 #: source/TortoiseSVN_en.xml:5540
 #: (primary)
 msgid "delete"
-msgstr ""
+msgstr "supprimer"
 
 #: source/TortoiseSVN_en.xml:5543
 #: (primary)
 msgid "remove"
-msgstr ""
+msgstr "enlever"
 
 #: source/TortoiseSVN_en.xml:5546
 #: (primary)
 msgid "rename"
-msgstr ""
+msgstr "renommer"
 
 #: source/TortoiseSVN_en.xml:5549
 #: (primary)
 msgid "move"
-msgstr ""
+msgstr "déplacer"
 
 #: source/TortoiseSVN_en.xml:5557
 #: (title)
 msgid "Explorer context menu for versioned files"
-msgstr ""
+msgstr "Menu contextuel de l'explorateur pour les fichiers non versionnés"
 
 #: source/TortoiseSVN_en.xml:5552
 #: (para)
 msgid "Unlike CVS, Subversion allows renaming and moving of files and folders. So there are menu entries for delete and rename in the TortoiseSVN submenu. <placeholder-1/>"
-msgstr ""
+msgstr "À la différence de CVS, Subversion permet de renommer et de déplacer des fichiers et des dossiers. Ainsi il y a des entrées de menu pour supprimer et renommer dans le sous-menu de TortoiseSVN. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5561
 #: (para)
 msgid "If you delete a file/directory using TSVN, the file is removed from your working copy and marked for deletion. The file's parent folder shows a \"deleted\" icon overlay. You can always get the file back, if you call <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr ""
+msgstr "Si vous supprimez un fichier/répertoire en utilisant TSVN, le fichier est supprimé de votre copie de travail et marqué à supprimer. Le dossier parent du fichier affiche un recouvrement d'icône \"supprimé \". Vous pouvez toujours récupérer le fichier, si vous appelez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> sur le dossier parent."
 
 #: source/TortoiseSVN_en.xml:5577
 #: (para)
 msgid "select the files or directories you want to move"
-msgstr ""
+msgstr "sélectionnez les fichiers ou les répertoires que vous voulez déplacer"
 
 #: source/TortoiseSVN_en.xml:5593
 #: (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move files in Subversion to here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Dans le menu contextuel <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Déplacer les fichiers dans Subversion ici</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:5572
 #: (para)
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/>"
-msgstr ""
+msgstr "Si vous voulez déplacer des fichiers à l'intérieur d'une copie de travail, utilisez une nouvelle fois le glisser-déplacer : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5604
 #: (title)
 msgid "Do Not SVN Move Externals"
-msgstr ""
+msgstr "Ne faites pas SVN Déplacer sur les externes"
 
 #: source/TortoiseSVN_en.xml:5605
 #: (para)
 msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
-msgstr ""
+msgstr "Vous ne devriez <emphasis>pas</emphasis> utiliser les commandes  <guilabel>Déplacer</guilabel> ou <guilabel>Renommer</guilabel> de TortoiseSVN sur un dossier qui a été créé en utilisant <literal>svn:externals</literal>. Cette action causerait la supprrssion de l'élément externe de son référentiel parent, en dérangeant probablement beaucoup d'autres personnes. Si vous devez déplacer un dossier externe, vous devez utiliser un déplacement ordinaire, ajuster ensuite les propriétés <literal>svn:externals</literal> des répertoires parents de la source et de destination."
 
 #: source/TortoiseSVN_en.xml:5618
 #: (para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
-msgstr ""
+msgstr "Si un <emphasis>fichier</emphasis> est supprimé via l'explorateur au lieu d'utiliser le menu contextuel TortoiseSVN, la boîte de dialogue Livrer affiche ces fichiers et vous laisse aussi les supprimer du contrôle de version avant la livraison. Cependant, si vous mettez à jour votre copie de travail, Subversion découvrira le fichier manquant et le remplacera par la dernière version du référentiel. Si vous devez supprimer un fichier sous contrôle de version, utilisez toujours <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice> pour que Subversion n'ait pas à deviner ce que vous voulez vraiment faire."
 
 #: source/TortoiseSVN_en.xml:5632
 #: (para)
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Si un <emphasis>dossier</emphasis> est supprimé via l'explorateur au lieu d'utiliser le menu contextuel TortoiseSVN, votre copie de travail sera cassée et vous serez incapables de livrer. Si vous mettez à jour votre copie de travail, Subversion remplacera le dossier manquant avec la dernière version du référentiel et vous pourrez alors le supprimer correctement en utilisant <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:5645
 #: (title)
 msgid "Commit the parent folder"
-msgstr ""
+msgstr "Livrez le répertoire parent"
 
 #: source/TortoiseSVN_en.xml:5646
 #: (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr ""
+msgstr "Puisque les renommages et les déplacements sont gérés comme une suppression suivie d'un ajout vous devez livrer le dossier parent du fichier renommé/déplacé pour que la partie supprimée du renommage/déplacement apparaisse dans la boîte de dialogue Livrer. Si vous ne livrez pas la partie supprimée du renommage/déplacement, il restera dans le référentiel et une mise à jour de vos collègues ne supprimera pas le vieux fichier. C'est-à-dire qu'ils auront <emphasis>tant</emphasis> les vielles que les nouvelles copies."
 
 #: source/TortoiseSVN_en.xml:5656
 #: (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
-msgstr ""
+msgstr "Vous <emphasis>devez</emphasis> livrer un renommage de dossier avant de changer un fichiers dans le dossier, autrement votre copie de travail peut être vraiment salie."
 
 #: source/TortoiseSVN_en.xml:5663
 #: (title)
 msgid "Getting a deleted file or folder back"
-msgstr ""
+msgstr "Récupérer un fichier ou un répertoire supprimé"
 
 #: source/TortoiseSVN_en.xml:5664
 #: (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr ""
+msgstr "Si vous avez supprimé un fichier ou un dossier et avez déjà livré qui l'opération de suppression au référentiel, donc une opération normale <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> ne peut plus le ramener. Mais le fichier ou le dossier n'est pas perdu pour autant. Si vous connaissez la révision où le fichier ou le dossier a été supprimé (sinon, utilisez la boîte de dialogue Journal pour le savoir) ouvrez le navigateur de référentiel et allez à cette révision. Choisissez alors le fichier ou le dossier que vous avez supprimé, faites un clic-droit et choisissez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Copier vers...</guimenuitem></menuchoice> et comme cible pour cette opération de copie, choisissez le chemin de votre copie de travail."
 
 #: source/TortoiseSVN_en.xml:5687
 #: (title)
 msgid "Undo Changes"
-msgstr ""
+msgstr "Annuler des changements"
 
 #: source/TortoiseSVN_en.xml:5689
 #: (primary)
 msgid "revert"
-msgstr ""
+msgstr "revenir en arrière"
 
 #: source/TortoiseSVN_en.xml:5692
 #: (primary)
 msgid "undo"
-msgstr ""
+msgstr "annuler"
 
 #: source/TortoiseSVN_en.xml:5707
 #: (title)
 msgid "Revert dialog"
-msgstr ""
+msgstr "La boîte de dialogue Revenir en arrière"
 
 #: source/TortoiseSVN_en.xml:5694
 #: (para)
 msgid "If you want to undo all changes you made in a file since the last update you need to select the file, <action>right click</action> to pop up the context menu and then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> A dialog will pop up showing you the files that you've changed and can revert. Select those you want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Si vous voulez défaire tous les changements que vous avez fait dans un fichier depuis la dernière mise à jour, vous devez sélectionner le fichier, faites <action>clic droit</action> pour faire surgir le menu contextuel et sélectionner ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> Une boîte de dialogue apparaîtra vous montrant les fichiers que vous avez changés et que vous pouvez restaurer. Choisissez ceux que vous voulez restaurer et cliquez sur <guibutton>OK</guibutton>. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5711
 #: (para) source/TortoiseSVN_en.xml:6871
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr ""
+msgstr "Les colonnes dans ce dialogue peuvent être personnalisées de la même manière que les colonnes dans la boîte de dialogue <guilabel>Vérifier les modifications</guilabel>. Lisez <xref linkend=\"tsvn-dug-wcstatus-2\"/> pour plus de détails."
 
 #: source/TortoiseSVN_en.xml:5717
 #: (title)
 msgid "Undoing Changes which have been Committed"
-msgstr ""
+msgstr "Annuler les changements qui ont été livrés"
 
 #: source/TortoiseSVN_en.xml:5718
 #: (para)
 msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo your local changes. It does <emphasis>not</emphasis> undo any changes which have already been committed. If you want to undo all the changes which were committed in a particular revision, read <xref linkend=\"tsvn-dug-showlog\"/> for further information."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> n'annulera que vos changements locaux. Cela n'annulera <emphasis>pas</emphasis> les changements déjà livrés. Si vous voulez annuler tous les changements livrés dans une révision spécifique, lisez<xref linkend=\"tsvn-DUG-showlog\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:5730
 #: (title) source/TortoiseSVN_en.xml:10496
 msgid "Cleanup"
-msgstr ""
+msgstr "Nettoyer"
 
 #: source/TortoiseSVN_en.xml:5732
 #: (primary)
 msgid "cleanup"
-msgstr ""
+msgstr "nettoyer"
 
 #: source/TortoiseSVN_en.xml:5734
 #: (para)
 msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
-msgstr ""
+msgstr "Si une commande Subversion ne peut pas s'achever avec succès, peut-être en raison de problèmes serveur, votre copie de travail peut être laissée dans un état incohérent. Dans ce cas, vous devez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Nettoyer</guimenuitem></menuchoice> sur le dossier. C'est une bonne idée de le faire au niveau supérieur de la copie de travail."
 
 #: source/TortoiseSVN_en.xml:5745
 #: (para)
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
-msgstr ""
+msgstr "Le nettoyage a un autre effet secondaire utile. Si une date de fichier change mais pas son contenu, Subversion ne peut dire s'il a vraiment changé qu'en faisant une comparaison d'octet-par-octet avec la copie primitive. Si vous avez beaucoup de fichiers dans cet état, cela rend la récupération du statut très lente, ce qui rendra beaucoup de dialogues lents à répondre. Exécuter un nettoyage sur votre copie de travail réparera ces horodatages <quote>cassés</quote> et rendra les contrôles de statut à pleine vitesse."
 
 #: source/TortoiseSVN_en.xml:5756
 #: (title)
 msgid "Use Commit Timestamps"
-msgstr ""
+msgstr "Utiliser les horodatages de livraison"
 
 #: source/TortoiseSVN_en.xml:5757
 #: (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr ""
+msgstr "Des sorties précédentes de Subversion ont été affectées par un bug qui a causé des incohérences dans l'horodatage quand vous extrayez avec l'option <guilabel>Utiliser les horodatages de livraison</guilabel> cochée. Utilisez la commande Nettoyer pour accélérer ces copies de travail."
 
 #: source/TortoiseSVN_en.xml:5767
 #: (title)
 msgid "Project Settings"
-msgstr ""
+msgstr "Réglages de projet"
 
 #: source/TortoiseSVN_en.xml:5769
 #: (primary)
 msgid "properties"
-msgstr ""
+msgstr "propriétés"
 
 #: source/TortoiseSVN_en.xml:5773
 #: (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Page de propriétés de l'explorateur, onglet Subversion"
 
 #: source/TortoiseSVN_en.xml:5771
 #: (para)
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> Parfois vous voulez avoir des informations plus détaillées sur un fichier/répertoire qu'un recouvrement d'icône. Vous pouvez obtenir toute les informations que Subversion fournit dans la boîte de dialogue de propriétés de l'explorateur. Sélectionnez seulement le fichier ou le répertoire et choisissez <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> dans le menu contextuel (note : c'est l'entrée de menu de propriétés normale que l'explorateur fournit, pas celle du sous-menu TortoiseSVN !). Dans la boîte de dialogue de propriétés TortoiseSVN a ajouté une nouvelle page de propriété pour les fichiers/dossiers dans sous le contrôle de Subversion où vous verrez toutes les informations pertinentes concernant le fichier/répertoire sélectionné."
 
 #: source/TortoiseSVN_en.xml:5793
 #: (title)
 msgid "Subversion Properties"
-msgstr ""
+msgstr "Propriétés de Subversion"
 
 #: source/TortoiseSVN_en.xml:5798
 #: (title)
 msgid "Subversion property page"
-msgstr ""
+msgstr "Page de propriété de subversion"
 
 #: source/TortoiseSVN_en.xml:5796
 #: (para)
 msgid "<placeholder-1/> You can read and set the Subversion properties from the Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and within TSVN's status lists, from <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Vous pouvez lire et définir les propriétés Subversion à partir de la boîte de dialogue de propriétés de Windows, mais aussi depuis <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> et au sein de la liste de statut de TSVN, de <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:5813
 #: (para)
 msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>. For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Subversion Manual</citetitle></ulink>."
-msgstr ""
+msgstr "Vous pouvez ajouter vos  propres propriétés, ou des propriétés avec une signification spéciale pour Subversion. Celles-ci commencent par <literal>svn:</literal>. <literal>svn:externals</literal> est une telle propriété; voyez comment manipuler les externes dans <xref linkend=\"tsvn-dug-import-4\"/>. Pour plus d'informations sur les propriétés dans Subversion, regardez le <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Manuel de Subversion</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:5823
 #: (para)
 msgid "To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr ""
+msgstr "Pour ajouter une nouvelle propriété, cliquez d'abord sur <guilabel>Ajouter...</guilabel>. Choisissez le nom de propriété requis depuis la zone de liste, ou tapez le nom de votre choix, entrez ensuite une valeur dans le champ en dessous. Les propriétés qui prennent des valeurs multiples, comme la liste des ignorés, peuvent être saisies sur plusieurs lignes. Cliquez sur <guibutton>OK</guibutton> pour ajouter la propriété à la liste."
 
 #: source/TortoiseSVN_en.xml:5831
 #: (para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Si vous voulez appliquer une propriété à plusieurs éléments en une fois, sélectionnez les fichiers/dossiers dans l'explorateur, puis choisissez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:5839
 #: (para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
-msgstr ""
+msgstr "Si vous voulez appliquer la propriété à <emphasis>tous</emphasis> les fichiers et les dossiers dans la hiérarchie au-dessous du dossier actuel, cochez la case <guilabel>Récursive</guilabel>."
 
 #: source/TortoiseSVN_en.xml:5844
 #: (para)
 msgid "Some properties, for example <literal>svn:needs-lock</literal>, can only be applied to files, so the property name doesn't appear in the drop down list for folders. You can still apply such a property recursively to all files in a hierarchy, but you have to type in the property name yourself."
-msgstr ""
+msgstr "Certaines propriétés, par exemple <literal>svn:needs-lock</literal>, peuvent seulement être appliquées aux fichiers, donc le nom de la propriété n'apparaît pas dans la liste déroulante pour les dossiers. Vous pouvez toujours appliquer une telle propriété récursivement à tous les fichiers d'une hiérarchie, mais vous devez taper le nom de la propriété vous même."
 
 #: source/TortoiseSVN_en.xml:5851
 #: (para)
 msgid "If you wish to edit an existing property, select that property from the list of existing properties, then click on <guibutton>Edit...</guibutton>."
-msgstr ""
+msgstr "Si vous voulez éditer une propriété existante, sélectionnez cette propriété dans la liste de propriétés existantes, puis cliquez sur <guibutton>Editer...</guibutton>."
 
 #: source/TortoiseSVN_en.xml:5855
 #: (para)
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, then click on <guibutton>Remove</guibutton>."
-msgstr ""
+msgstr "Si vous voulez supprimer une propriété existante, sélectionnez cette propriété dans la liste des propriétés existantes, puis cliquez sur <guibutton>Effacer</guibutton>."
 
 #: source/TortoiseSVN_en.xml:5859
 #: (para)
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr ""
+msgstr "La propriété <literal>svn:externals</literal> peut être utilisée pour intégrer d'autres projets du même référentiel ou d'un référentiel complètement différent. Pour plus d'informations, lisez <xref linkend=\"tsvn-dug-import-4\"/>."
 
 #: source/TortoiseSVN_en.xml:5865
 #: (para)
 msgid "TortoiseSVN can handle binary property values using files. To read a binary property value, <guibutton>Save...</guibutton> to a file. To set a binary value, use a hex editor or other appropriate tool to create a file with the content you require, then <guibutton>Load...</guibutton> from that file."
-msgstr ""
+msgstr "TortoiseSVN peut manipuler des valeurs de propriété binaires en utilisant des fichiers. Pour lire une valeur de propriété binaire, <guibutton>Enregistrer...</guibutton> vers un fichier. Pour mettre une valeur binaire, utilisez un éditeur hexadécimal ou un autre outil approprié pour créer un fichier avec le contenu dont on vous avez besoin, puis <guibutton>Charger...</guibutton> ce fichier."
 
 #: source/TortoiseSVN_en.xml:5873
 #: (title)
 msgid "Commit properties"
-msgstr ""
+msgstr "Livrer les propriétés"
 
 #: source/TortoiseSVN_en.xml:5874
 #: (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
-msgstr ""
+msgstr "Les propriétés de Subversion sont versionnées. Après avoir changé ou ajouté une propriété vous devez livrer vos changements."
 
 #: source/TortoiseSVN_en.xml:5880
 #: (title)
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "Conflits sur les propriétés"
 
 #: source/TortoiseSVN_en.xml:5881
 #: (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
-msgstr ""
+msgstr "S'il y a un conflit en livrant les changements, parce qu'un autre utilisateur a changé la même propriété, Subversion génére un fichier <filename>.prej</filename>. Supprimez ce fichier après avoir résolu le conflit."
 
 #: source/TortoiseSVN_en.xml:5889
 #: (title)
 msgid "Automatic property setting"
-msgstr ""
+msgstr "Configuration automatique des propriétés"
 
 #: source/TortoiseSVN_en.xml:5890
 #: (para)
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
-msgstr ""
+msgstr "Vous pouvez configurer Subversion pour définir automatiquement des propriétés sur les fichiers et sur les dossiers lorsqu'ils sont ajoutés au référentiel. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:5898
 #: (title)
 msgid "TortoiseSVN Properties"
-msgstr ""
+msgstr "Propriétés TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:5904
 #: (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:logminsize</literal> définit la longueur minimale d'un commentaire pour une livraison. Si vous entrez un message plus court qu'indiqué ici, la livraison est mise hors service. Cette fonctionnalité est très utile pour vous rappeler de fournir un message descriptif approprié à chaque livraison. Si cette propriété n'est pas définie, ou si la valeur à zéro, les commentaires vides sont autorisés."
 
 #: source/TortoiseSVN_en.xml:5913
 #: (para)
 msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:lockmsgminsize</literal> définit la longueur minimale d'un commentaire pour un commentaire de verrou. Si vous entrez un message plus court qu'indiqué ici, le verrouillage est mise hors service. Cette fonctionnalité est très utile pour vous rappeler de fournir un message descriptif approprié à chaque verrou. Si cette propriété n'est pas définie, ou si la valeur à zéro, les commentaires de verrou vides sont autorisés."
 
 #: source/TortoiseSVN_en.xml:5924
 #: (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
-msgstr ""
+msgstr "<literal>tsvn:logwidthmarker</literal> est utilisé avec les projets qui exigent que les commentairesl soient formatés avec une certaine largeur maximale (typiquement 80 caractères) avant un saut de ligne. Définir cette propriété à une valeur non nulle fera 2 choses dans la boîte de dialogue d'entrée de commentaire : cela place un marqueur pour indiquer la largeur maximale et cela désactive le retour à la ligne automatique dans l'affichage, pour que vous puissiez voir si le texte que vous avez entré est trop long. Note : cette fonction ne fonctionnera correctement que si vous avez choisi une police à largeur de caractères fixe pour les commentaires."
 
 #: source/TortoiseSVN_en.xml:5937
 #: (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr ""
+msgstr "<literal>tsvn:logtemplate</literal> est utilisé avec les projets qui ont des règles de formatage des commentaires. La propriété contient une chaîne de caractères multi-ligne qui sera insérée dans le champ de message de la livraions quand vous commencez une livraison. Vous pouvez alors l'éditer pour inclure les informations requises. Note : si vous utilisez aussi <literal>tsvn:logminsize</literal>, assurez-vous de définir une longueur plus longue que le modèle ou vous perdrez le mécanisme de protection."
 
 #: source/TortoiseSVN_en.xml:5948
 #: (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr ""
+msgstr "Dans la boîte de dialogue Livrer, vous avez une option pour coller dans la liste des fichiers changés, en incluant le statut de chaque fichier (ajouté, modifié, etc). <literal>tsvn:logfilelistenglish</literal> définit si le statut de fichier est inséré en anglais ou dans la langue nationale. Si la propriété n'est pas définie, la valeur par défaut est <literal>true</literal>."
 
 #: source/TortoiseSVN_en.xml:5959
 #: (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN peut utiliser des modules de correction orthographique qui sont aussi utilisés par OpenOffice et Mozilla. Si vous avez ceux-ci d'installé cette propriété déterminera quel vérificateur d'orthographe utiliser, c'est-à-dire dans quelle langue les commentaire de votre projet devraient être écrits. <literal>tsvn:projectlanguage</literal> définit le module de langue que le moteur de vérification orthographique devrait utiliser quand vous entrez un commentaire. Vous pouvez trouver les valeurs pour votre langue à cette page : <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN : Language Identifiers</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:5973
 #: (para)
 msgid "You can enter this value in decimal, or in hexadecimal if prefixed with <literal>0x</literal>. For example English (US) can be entered as <literal>0x0409</literal> or <literal>1033</literal>."
-msgstr ""
+msgstr "Vous pouvez entrer cette valeur en décimal, ou en hexadécimal si préfixée avec <literal>0x</literal>. Par exemple l'Anglais (US) peut être entré comme <literal>0x0409</literal> ou <literal>1033</literal>."
 
 #: source/TortoiseSVN_en.xml:5899
 #: (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN a quelques propriétés spéciales de son cru et elles commencent par <literal>tsvn:</literal>. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5982
 #: (para) source/TortoiseSVN_en.xml:7658
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr ""
+msgstr "Certaines propriétés <literal>tsvn:</literal> exigent une valeur <literal>true/false</literal>. TSVN comprend aussi <literal>yes</literal> comme synonyme de <literal>true</literal> et <literal>no</literal> comme synonyme de <literal>false</literal>."
 
 #: source/TortoiseSVN_en.xml:5989
 #: (title)
 msgid "Set the tsvn: properties on folders"
-msgstr ""
+msgstr "Mettre les propriétés tsvn: sur les dossiers"
 
 #: source/TortoiseSVN_en.xml:5990
 #: (para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Ces propriétés <literal>tsvn:</literal> doivent être mises sur les <emphasis>dossiers</emphasis> pour que le système fonctionne. Quand vous livrez un fichier ou un dossier, les propriétés sont lues à partir de ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arbre de dossier pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arbre (eg. <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur extraie seulement du <filename>trunk/</filename> par exemple  et non d'un sous-dossier, il est alors suffisant de mettre les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Une propriété définit plus profondemment dans la hiérarchie de projet ignore les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
 #: source/TortoiseSVN_en.xml:6004
 #: (para) source/TortoiseSVN_en.xml:7680
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
-msgstr ""
+msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
 
 #: source/TortoiseSVN_en.xml:6011
 #: (para)
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-dug-bugtracker\"/> for further information."
-msgstr ""
+msgstr "TortoiseSVN peut s'intégrer à quelques outils de bugtracking. Cela utilise des propriétés, qui commencent par <literal>bugtraq:</literal>. Lisez <xref linkend=\"tsvn-dug-bugtracker\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:6019
 #: (title)
 msgid "Branching / Tagging"
-msgstr ""
+msgstr "Brancher / Étiqueter"
 
 #: source/TortoiseSVN_en.xml:6021
 #: (primary)
 msgid "branch"
-msgstr ""
+msgstr "branche"
 
 #: source/TortoiseSVN_en.xml:6024
 #: (primary)
 msgid "tag"
-msgstr ""
+msgstr "étiquette"
 
 #: source/TortoiseSVN_en.xml:6027
 #: (primary)
 msgid "copy"
-msgstr ""
+msgstr "copie"
 
 #: source/TortoiseSVN_en.xml:6030
 #: (para)
