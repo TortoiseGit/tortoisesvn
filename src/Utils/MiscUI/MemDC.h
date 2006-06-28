@@ -38,7 +38,7 @@ public:
 			m_pOldBitmap = SelectObject(&m_bitmap);
             SetWindowOrg(m_rect.left, m_rect.top);
         }
-		else		// Make a copy of the relevent parts of the current DC for printing
+		else		// Make a copy of the relevant parts of the current DC for printing
 		{
             m_bPrinting = pDC->m_bPrinting;
             m_hDC		= pDC->m_hDC;
@@ -81,7 +81,7 @@ public:
 			pDC->DPtoLP(&m_rect);
 			SetWindowOrg(m_rect.left, m_rect.top);
 		} else {
-			// Make a copy of the relevent parts of the current DC for printing
+			// Make a copy of the relevant parts of the current DC for printing
 			m_bPrinting = pDC->m_bPrinting;
 			m_hDC       = pDC->m_hDC;
 			m_hAttribDC = pDC->m_hAttribDC;
@@ -95,7 +95,7 @@ public:
 	~CMemDC()
     {
 		if (m_bMemDC) {	
-			// Copy the offscreen bitmap onto the screen.
+			// Copy the off screen bitmap onto the screen.
 			if (!m_bTempOnly)
 				m_pDC->BitBlt(m_rect.left, m_rect.top, m_rect.Width(), m_rect.Height(),
 								this, m_rect.left, m_rect.top, SRCCOPY);
@@ -104,7 +104,7 @@ public:
             SelectObject(m_pOldBitmap);
 		} else {
 			// All we need to do is replace the DC with an illegal value,
-			// this keeps us from accidently deleting the handles associated with
+			// this keeps us from accidentally deleting the handles associated with
 			// the CDC that was passed to the constructor.
             m_hDC = m_hAttribDC = NULL;
 		}
@@ -117,7 +117,7 @@ public:
     operator CMemDC*() {return this;}
 
 private:
-	CBitmap  m_bitmap;		// Offscreen bitmap
+	CBitmap  m_bitmap;		// Off screen bitmap
     CBitmap* m_pOldBitmap;	// bitmap originally found in CMemDC
     CDC*     m_pDC;			// Saves CDC passed in constructor
     CRect    m_rect;		// Rectangle of drawing area.
@@ -136,7 +136,7 @@ public:
 		m_hOldBitmap = NULL;
 		m_bTempOnly = bTempOnly;
 
-		::GetClipBox(m_hDC, &m_rect);
+		GetClipBox(m_hDC, &m_rect);
 		m_hMemDC = ::CreateCompatibleDC(m_hDC);
 		m_hBitmap = CreateCompatibleBitmap(m_hDC, m_rect.right - m_rect.left, m_rect.bottom - m_rect.top);
 		m_hOldBitmap = (HBITMAP)SelectObject(m_hMemDC, m_hBitmap);
@@ -147,7 +147,7 @@ public:
 	~CMemDC()
 	{
 		if (m_hMemDC) {	
-			// Copy the offscreen bitmap onto the screen.
+			// Copy the off screen bitmap onto the screen.
 			if (!m_bTempOnly)
 				BitBlt(m_hDC, m_rect.left, m_rect.top, m_rect.right-m_rect.left, m_rect.bottom-m_rect.top, m_hMemDC, m_rect.left, m_rect.top, SRCCOPY);
 
@@ -157,7 +157,7 @@ public:
 			DeleteDC(m_hMemDC);
 		} else {
 			// All we need to do is replace the DC with an illegal value,
-			// this keeps us from accidently deleting the handles associated with
+			// this keeps us from accidentally deleting the handles associated with
 			// the CDC that was passed to the constructor.
 			DeleteObject(m_hBitmap);
 			DeleteDC(m_hMemDC);
@@ -167,9 +167,8 @@ public:
 
 	// Allow usage as a pointer
 	operator HDC() {return m_hMemDC;}
-
 private:
-	HBITMAP  m_hBitmap;		// Offscreen bitmap
+	HBITMAP  m_hBitmap;		// Off screen bitmap
 	HBITMAP	 m_hOldBitmap;	// bitmap originally found in CMemDC
 	HDC      m_hDC;			// Saves CDC passed in constructor
 	HDC		 m_hMemDC;		// our own memory DC
