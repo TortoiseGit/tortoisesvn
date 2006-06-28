@@ -389,7 +389,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 				iter++;
 			}
-			temp.Format(_T("%d"), unit);
+			temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
 			graphData->SetLabel(temp);
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
@@ -410,7 +410,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 					iter++;
 				}
-				temp.Format(_T("%d"), unit);
+				temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
 				graphData->SetLabel(temp);
 				m_graph.AddSeries(*graphData);
 				m_graphDataArray.Add(graphData);
@@ -863,7 +863,7 @@ void CStatGraphDlg::InitUnits()
 
 int CStatGraphDlg::GetUnitCount()
 {
-	if (m_weekcount < 20)
+	if (m_weekcount < 15)
 		return m_weekcount;
 	if (m_weekcount < 80)
 		return (m_weekcount/4)+1;
@@ -874,7 +874,7 @@ int CStatGraphDlg::GetUnitCount()
 
 int CStatGraphDlg::GetUnit(const CTime& time)
 {
-	if (m_weekcount < 20)
+	if (m_weekcount < 15)
 		return GetWeek(time);
 	if (m_weekcount < 80)
 		return time.GetMonth();
@@ -885,7 +885,7 @@ int CStatGraphDlg::GetUnit(const CTime& time)
 
 CString CStatGraphDlg::GetUnitString()
 {
-	if (m_weekcount < 20)
+	if (m_weekcount < 15)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXWEEK));
 	if (m_weekcount < 80)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXMONTH));
