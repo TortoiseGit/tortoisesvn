@@ -961,8 +961,6 @@ UINT CSVNProgressDlg::ProgressThread()
 					{
 						ReportSVNError();
 					}
-					else
-						ReportSVNError();
 				}
 			}
 			else
