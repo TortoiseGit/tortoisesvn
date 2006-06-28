@@ -321,6 +321,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
 		graphics.SetInterpolationMode(m_ip);
 		Rect rect(DrawRect.left, DrawRect.top, DrawRect.right-DrawRect.left, DrawRect.bottom-DrawRect.top);
 		graphics.DrawImage(pBitmap, rect);
+		return true;
 	}
 
 	return(false);
