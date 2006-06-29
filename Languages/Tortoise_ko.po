@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-23 14:15+0900\n"
+"PO-Revision-Date: 2006-06-29 10:37+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1828,10 +1828,10 @@ msgstr "커밋되는 곳:"
 msgid "Commits by author"
 msgstr "작성자에 따라 커밋"
 
-# ID:244,
+# Control-ID:1110,
 #: ID:244
-msgid "Commits by week"
-msgstr "주단위로 커밋"
+msgid "Commits by date"
+msgstr "날짜별 커밋수"
 
 # ID:244,
 #: Control-ID:1135
@@ -6727,6 +6727,11 @@ msgstr "수정됨"
 msgid "modified / copied"
 msgstr "수정된 것 / 복사된 것"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "월"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6757,6 +6762,11 @@ msgstr "픽셀"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "충돌이 발생한 것 / 차단된 것"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "분기"
 
 # ID:195,
 #: ID:195
@@ -6942,7 +6952,7 @@ msgid "values are different"
 msgstr "값들이 다릅니다"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "주"
 
@@ -6950,4 +6960,9 @@ msgstr "주"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "작업사본의 저장소 URL:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "년"
 
