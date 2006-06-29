@@ -64,6 +64,15 @@
 			<xref linkend="tsvn-dug-settings-main"/> for more information. 
 		</para>
 	</tip>
+	<tip>
+		<title>Ignoring Versioned Items</title>
+		<para>
+			Versioned files and folders can never be ignored - that's a feature
+			of Subversion. If you versioned a file by mistake, read
+			<xref linkend="tsvn-howto-unversion"/> for instructions on how to
+			<quote>unversion</quote> it.
+		</para>
+	</tip>
 	<sect2 id="tsvn-dug-ignore-glob">
 		<title>Filename Globbing in Ignore Lists</title>
 		<indexterm>
