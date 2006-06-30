@@ -457,7 +457,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		iter++;
 	}
 
-	temp.Format(_T("%d"), unit);
+	temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
 	graphData->SetLabel(temp);
 	m_graph.AddSeries(*graphData);
 	m_graphDataArray.Add(graphData);
