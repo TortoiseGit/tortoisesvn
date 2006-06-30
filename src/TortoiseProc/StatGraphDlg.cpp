@@ -37,6 +37,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	m_parDates = NULL;
 	m_parFileChanges = NULL;
 	m_parAuthors = NULL;
+	m_pToolTip = NULL;
 }
 
 CStatGraphDlg::~CStatGraphDlg()
@@ -49,6 +50,7 @@ CStatGraphDlg::~CStatGraphDlg()
 	DestroyIcon(m_hGraphLineIcon);
 	DestroyIcon(m_hGraphLineStackedIcon);
 	DestroyIcon(m_hGraphPieIcon);
+	delete m_pToolTip;
 }
 
 void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
@@ -84,6 +86,19 @@ END_MESSAGE_MAP()
 BOOL CStatGraphDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	m_pToolTip = new CToolTipCtrl;
+	if (m_pToolTip->Create(this))
+	{
+		m_pToolTip->AddTool(&m_btnGraphPie, IDS_STATGRAPH_PIEBUTTON_TT);
+		m_pToolTip->AddTool(&m_btnGraphLineStacked, IDS_STATGRAPH_LINESTACKEDBUTTON_TT);
+		m_pToolTip->AddTool(&m_btnGraphLine, IDS_STATGRAPH_LINEBUTTON_TT);
+		m_pToolTip->AddTool(&m_btnGraphBarStacked, IDS_STATGRAPH_BARSTACKEDBUTTON_TT);
+		m_pToolTip->AddTool(&m_btnGraphBar, IDS_STATGRAPH_BARBUTTON_TT);
+
+		m_pToolTip->Activate(TRUE);
+	}
+
 
 	CString temp;
 	int sel = 0;
@@ -1064,4 +1079,12 @@ void CStatGraphDlg::OnBnClickedGraphpiebutton()
 	m_GraphType = MyGraph::PieChart;
 	m_bStacked = false;
 	RedrawGraph();
+}
+
+BOOL CStatGraphDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (NULL != m_pToolTip)
+		m_pToolTip->RelayEvent(pMsg);
+
+	return CStandAloneDialogTmpl<CResizableDialog>::PreTranslateMessage(pMsg);
 }

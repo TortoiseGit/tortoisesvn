@@ -38,6 +38,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelchangeGraphcombo();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedStacked();
@@ -94,6 +95,8 @@ protected:
 	int			GetUnit(const CTime& time);
 	CStatGraphDlg::UnitType	GetUnitType();
 	CString		GetUnitString();
+
+	CToolTipCtrl* m_pToolTip;
 public:
 	CDWordArray	*	m_parDates;
 	CDWordArray	*	m_parFileChanges;
