@@ -403,7 +403,19 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 				iter++;
 			}
-			temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
+			switch(GetUnitType())
+			{
+			case Weeks:
+			case Months:
+				temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
+				break;
+			case Quarters:
+				temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, time.GetYear()%100);
+				break;
+			case Years:
+				temp.Format(_T("%d"), unit);
+				break;
+			}
 			graphData->SetLabel(temp);
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
@@ -424,7 +436,19 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 					iter++;
 				}
-				temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
+				switch(GetUnitType())
+				{
+				case Weeks:
+				case Months:
+					temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
+					break;
+				case Quarters:
+					temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, time.GetYear()%100);
+					break;
+				case Years:
+					temp.Format(_T("%d"), unit);
+					break;
+				}
 				graphData->SetLabel(temp);
 				m_graph.AddSeries(*graphData);
 				m_graphDataArray.Add(graphData);
@@ -457,7 +481,19 @@ void CStatGraphDlg::ShowCommitsByDate()
 		iter++;
 	}
 
-	temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+	switch(GetUnitType())
+	{
+	case Weeks:
+	case Months:
+		temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+		break;
+	case Quarters:
+		temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, lasttime.GetYear()%100);
+		break;
+	case Years:
+		temp.Format(_T("%d"), unit);
+		break;
+	}
 	graphData->SetLabel(temp);
 	m_graph.AddSeries(*graphData);
 	m_graphDataArray.Add(graphData);
@@ -895,6 +931,17 @@ int CStatGraphDlg::GetUnit(const CTime& time)
 	if (m_weekcount < 320)
 		return (time.GetMonth()/4)+1; // quarters
 	return time.GetYear();
+}
+
+CStatGraphDlg::UnitType CStatGraphDlg::GetUnitType()
+{
+	if (m_weekcount < 15)
+		return Weeks;
+	if (m_weekcount < 80)
+		return Months;
+	if (m_weekcount < 320)
+		return Quarters;
+	return Years;
 }
 
 CString CStatGraphDlg::GetUnitString()

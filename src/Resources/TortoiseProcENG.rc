@@ -2482,6 +2482,11 @@ BEGIN
     IDS_PROC_CHECKOUTNOEXTERNALS "Omit e&xternals"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_STATGRAPH_QUARTERLABEL "Q%d/%.2d"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

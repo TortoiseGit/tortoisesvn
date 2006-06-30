@@ -82,9 +82,17 @@ protected:
 	void		ShowLabels(BOOL bShow);
 	void		RedrawGraph();
 
+	enum UnitType
+	{
+		Weeks,
+		Months,
+		Quarters,
+		Years
+	};
 	void		InitUnits();
 	int			GetUnitCount();
 	int			GetUnit(const CTime& time);
+	CStatGraphDlg::UnitType	GetUnitType();
 	CString		GetUnitString();
 public:
 	CDWordArray	*	m_parDates;
