@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-28 10:27+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-06-30 21:03+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1166,6 +1166,11 @@ msgstr "Mittelwert"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "S&uchen..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Balkendiagramm"
 
 #: Control-ID:65535
 msgid "Base file:"
@@ -2737,6 +2742,10 @@ msgstr "Die wenigsten Übertragungen:"
 msgid "Left View: "
 msgstr "Linke Ansicht:"
 
+#: ID:246
+msgid "Line Graph"
+msgstr "Liniendiagramm"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3268,6 +3277,10 @@ msgstr "Pfade"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Bilder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
 
+#: ID:246
+msgid "Pie Graph"
+msgstr "Tortendiagramm"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Bitte geben Sie eine GUID ein."
@@ -3434,6 +3447,12 @@ msgstr "Proxy &Wartezeit in Sekunden:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy Einstellungen"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 #: ID:3605
 msgid ""
@@ -4265,6 +4284,16 @@ msgid ""
 msgstr ""
 "Teile aktives Fenster auf\n"
 "Aufteilen"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Gestapelte Balken"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Gestapelte Linien"
 
 #: Control-ID:65535
 msgid "Start Revision"
