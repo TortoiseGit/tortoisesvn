@@ -272,12 +272,16 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
 	int nOthers = 0;
 	int nOthersCount = 0;
+	int nLastOthersValue = 0;
+	stdstring sLastOthersAuthor;
 	while (iter != authorcommitssorted.rend())
 	{
 		if (iter->first < (nTotalCommits * m_Skipper.GetPos() / 200))
 		{
 			nOthers += iter->first;
 			nOthersCount++;
+			sLastOthersAuthor = iter->second;
+			nLastOthersValue = iter->first;
 		}
 		else
 		{
@@ -288,11 +292,21 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	}
 	if (nOthers)
 	{
-		CString temp;
-		temp.Format(_T(" (%ld)"), nOthersCount);
-		sOthers += temp;
-		nGroup = m_graph.AppendGroup(sOthers);
-		graphData->SetData(nGroup, nOthers);
+		if (nOthers == 1)
+		{
+			// since there's only one author in the "others" group,
+			// just show that authors info instead of "others"
+			nGroup = m_graph.AppendGroup(sLastOthersAuthor.c_str());
+			graphData->SetData(nGroup, nLastOthersValue);
+		}
+		else
+		{
+			CString temp;
+			temp.Format(_T(" (%ld)"), nOthersCount);
+			sOthers += temp;
+			nGroup = m_graph.AppendGroup(sOthers);
+			graphData->SetData(nGroup, nOthers);
+		}
 	}
 
 	// Paint the graph now that we're through.
