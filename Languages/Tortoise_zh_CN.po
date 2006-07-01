@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-14 11:41+0800\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2006-07-01 21:21+0800\n"
+"Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -204,7 +204,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "是个文件夹，不是文件！\n"
-"TortoiseMerge无法比较目录差异。"
+"TortoiseMerge无法比较文件夹的差异。"
 
 #: MenuEntry
 msgid "&?"
@@ -563,7 +563,7 @@ msgstr "网络磁盘(&N)"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&New "
-msgstr "新健(&N)"
+msgstr "新建(&N)"
 
 # Control-ID:1208,
 #: Control-ID:1208
@@ -1389,6 +1389,11 @@ msgstr "作者区分大小写"
 msgid "Authors:"
 msgstr "作者："
 
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "对本地操作自动关闭"
+
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
@@ -1403,11 +1408,6 @@ msgstr "如无错误，自动关闭"
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "如无合并、添加、删除操作，自动关闭"
-
-# ID:222,
-#: ID:222
-msgid "Auto-close if no merges, adds or deletes for local operations"
-msgstr "如对本地操作无合并、添加、删除操作，则自动关闭"
 
 # ID:195,
 #: ID:195
@@ -1438,6 +1438,11 @@ msgstr "平均"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "浏览(&R)..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "柱状图"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1833,8 +1838,8 @@ msgstr "按作者提交次数"
 
 # ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "按周提交次数"
+msgid "Commits by date"
+msgstr "按日提交次数"
 
 # ID:244,
 #: Control-ID:1135
@@ -2020,7 +2025,7 @@ msgstr "修正"
 #: ID:81
 #, c-format
 msgid "Could not add %s to the ignore list!"
-msgstr "无法加入 %s 至忽略列表！"
+msgstr "无法向忽略列表中加入 %s ！"
 
 # ID:201,
 #: ID:201
@@ -3285,6 +3290,11 @@ msgstr "最不活跃作者："
 msgid "Left View: "
 msgstr "左侧查看："
 
+# ID:75,
+#: ID:246
+msgid "Line Graph"
+msgstr "折线图"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3935,6 +3945,11 @@ msgstr "路径"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "图像文件 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*||"
 
+# ID:75,
+#: ID:246
+msgid "Pie Graph"
+msgstr "饼图"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -4153,6 +4168,12 @@ msgstr "超时设置(&T)："
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "代理服务器设置"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -5168,6 +5189,16 @@ msgid ""
 msgstr ""
 "将当前窗口分割区块\n"
 "分割"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "叠加柱状图"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "叠加折线图"
 
 # ID:11,
 #: Control-ID:65535
@@ -6720,6 +6751,11 @@ msgstr "修改"
 msgid "modified / copied"
 msgstr "已修改/已复制"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "月"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6750,6 +6786,11 @@ msgstr "像素"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "可能或确实有冲突/有问题(obstructed)"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "季度"
 
 # ID:195,
 #: ID:195
@@ -6934,7 +6975,7 @@ msgid "values are different"
 msgstr "所取值是不同的"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "周"
 
@@ -6942,4 +6983,9 @@ msgstr "周"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "对应版本库URL："
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "年"
 
