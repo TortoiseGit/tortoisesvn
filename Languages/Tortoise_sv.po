@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-28 10:17+0100\n"
+"PO-Revision-Date: 2006-07-03 07:47+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1207,6 +1207,11 @@ msgstr "Medel"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "B&läddra..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Stapeldiagram"
 
 #: Control-ID:65535
 msgid "Base file:"
@@ -2811,6 +2816,10 @@ msgstr "Minst aktiv:"
 msgid "Left View: "
 msgstr "Vänster vy:"
 
+#: ID:246
+msgid "Line Graph"
+msgstr "Linjediagram"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3370,6 +3379,10 @@ msgstr "Sökvägar"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Bilder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alla (*.*)|*.*||"
 
+#: ID:246
+msgid "Pie Graph"
+msgstr "Cirkeldiagram"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Ange en GUID."
@@ -3538,6 +3551,12 @@ msgstr "&Timeout för proxy i sekunder:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Inställningar för proxy"
+
+# ID:246,
+#: ID:246
+#, fuzzy, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 #: ID:3605
 msgid ""
@@ -4392,6 +4411,16 @@ msgid ""
 msgstr ""
 "Dela det aktiva fönstret\n"
 "Dela"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Staplat stapeldiagram"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Staplat linjediagram"
 
 #: Control-ID:65535
 msgid "Start Revision"
