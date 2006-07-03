@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-29 10:37+0900\n"
+"PO-Revision-Date: 2006-07-03 17:42+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1435,6 +1435,11 @@ msgstr "평균"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "찾아보기(&R)"
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "막대 그래프"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3286,6 +3291,11 @@ msgstr "활동이 적은 작성자:"
 msgid "Left View: "
 msgstr "왼쪽:"
 
+# ID:75,
+#: ID:246
+msgid "Line Graph"
+msgstr "꺽은선 그래프"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3938,6 +3948,11 @@ msgstr "경로"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "그림 파일 (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
 
+# ID:75,
+#: ID:246
+msgid "Pie Graph"
+msgstr "파이 그래프"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -4156,6 +4171,12 @@ msgstr "프록시 만료시간(단위: 초)(&T)"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "프록시 설정"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -5173,6 +5194,16 @@ msgid ""
 msgstr ""
 "활성화된 창을 두개로 나누기\n"
 "분리"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "누적 막대 그래프"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "누적 꺽은선 그래프"
 
 # ID:11,
 #: Control-ID:65535
@@ -6282,7 +6313,7 @@ msgstr "경고"
 # ID:219,
 #: ID:219
 msgid "Warning!"
-msgstr "TODO: Warning!"
+msgstr "경고!"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
