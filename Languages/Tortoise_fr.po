@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-24 16:09+0100\n"
+"PO-Revision-Date: 2006-07-03 23:41+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1207,6 +1207,11 @@ msgstr "Moyenne"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "Parcou&rir..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Graphique en barre"
 
 #: Control-ID:65535
 msgid "Base file:"
@@ -2809,6 +2814,10 @@ msgstr "Auteur le moins actif :"
 msgid "Left View: "
 msgstr "Vue de gauche :"
 
+#: ID:246
+msgid "Line Graph"
+msgstr "Gaphique en ligne"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3368,6 +3377,10 @@ msgstr "Chemins"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Images (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tous (*.*)|*.*||"
 
+#: ID:246
+msgid "Pie Graph"
+msgstr "Graphique en camembert"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Veuillez entrer un GUID."
@@ -3536,6 +3549,12 @@ msgstr "&Timeout proxy en secondes :"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Configuration du Proxy"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "T%d/%.2d"
 
 #: ID:3605
 msgid ""
@@ -4382,6 +4401,16 @@ msgid ""
 msgstr ""
 "Séparer la fenêtre activée\n"
 "Séparer"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Graphique en barre empilé"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Graphique en ligne empilé"
 
 #: Control-ID:65535
 msgid "Start Revision"
