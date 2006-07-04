@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6892
+# Based on Tortoise.pot r6960
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-27 11:28+0100\n"
+"PO-Revision-Date: 2006-07-04 16:48+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1069,6 +1069,10 @@ msgstr "Gennemsnit"
 #: Control-ID:1001,
 msgid "B&rowse..."
 msgstr "&Gennemse..."
+
+#: ID:246,
+msgid "Bar Graph"
+msgstr "Søjlediagram"
 
 #: Control-ID:65535,
 msgid "Base file:"
@@ -2297,6 +2301,10 @@ msgstr "Mindst aktive forfatter:"
 msgid "Left View: "
 msgstr "Venstre visning: "
 
+#: ID:246,
+msgid "Line Graph"
+msgstr "Kurvediagram"
+
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
 msgstr "Oversigt over hjælpeemner\nHjælpeemner"
@@ -2769,6 +2777,10 @@ msgstr "Stier"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Billeder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
 
+#: ID:246,
+msgid "Pie Graph"
+msgstr "Lagkagediagram"
+
 #: ID:3858,#: ID:3858,
 msgid "Please enter a GUID."
 msgstr "Indtast venligst et GUID."
@@ -2921,6 +2933,12 @@ msgstr "Proxy-&timeout i sekunder:"
 #: Control-ID:1080,
 msgid "Proxy Settings"
 msgstr "Proxy-indstillinger"
+
+#: ID:246,
+#, c-format
+#, fuzzy
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 #: ID:3605,
 msgid "Quit the application; prompts to save documents\nExit"
@@ -3649,6 +3667,16 @@ msgstr "Angiv revisions-intervallet, som skal flettes:"
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
 msgstr "Opdel det aktive vindue i paneler\nOpdel"
+
+#: ID:246,
+#, fuzzy
+msgid "Stacked Bar Graph"
+msgstr "Stablet søjlediagram"
+
+#: ID:246,
+#, fuzzy
+msgid "Stacked Line Graph"
+msgstr "Stablet kurvediagram"
 
 #: Control-ID:65535,
 msgid "Start Revision"
