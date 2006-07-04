@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-27 10:02+0800\n"
+"PO-Revision-Date: 2006-07-04 16:28+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1444,6 +1444,11 @@ msgstr "平均"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "瀏覽(&R)..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "長條圖"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3296,6 +3301,11 @@ msgstr "最不活躍作者:"
 msgid "Left View: "
 msgstr "左側檢視:"
 
+# ID:75,
+#: ID:246
+msgid "Line Graph"
+msgstr "直線圖"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3951,6 +3961,11 @@ msgstr "路徑"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "圖片 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案 (*.*)|*.*||"
 
+# ID:75,
+#: ID:246
+msgid "Pie Graph"
+msgstr "圓餅圖"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -4166,6 +4181,12 @@ msgstr "Proxy 逾時設定(秒)(&T):"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy 設定"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -5184,6 +5205,16 @@ msgid ""
 msgstr ""
 "將目前視窗分割區塊\n"
 "分割"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "堆疊長條圖"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "堆疊直線圖"
 
 # ID:11,
 #: Control-ID:65535
