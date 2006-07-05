@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6892: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6960: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-27 17:53+0300\n"
+"PO-Revision-Date: 2006-07-05 19:41+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1185,6 +1185,10 @@ msgstr "В среднем"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "О&бзор..."
+
+#: ID:246
+msgid "Bar Graph"
+msgstr "Гистограмма"
 
 #: Control-ID:65535
 msgid "Base file:"
@@ -2731,6 +2735,10 @@ msgstr "Наименее активный автор:"
 msgid "Left View: "
 msgstr "Вид слева:"
 
+#: ID:246
+msgid "Line Graph"
+msgstr "График"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3262,6 +3270,10 @@ msgstr "Пути"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Рисунки (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Все файлы (*.*)|*.*||"
 
+#: ID:246
+msgid "Pie Graph"
+msgstr "Круговая диаграмма"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Пожалуйста, введите GUID."
@@ -3428,6 +3440,11 @@ msgstr "&Таймаут прокси в секундах:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Настройки прокси"
+
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "%d Кв./%.2d"
 
 #: ID:3605
 msgid ""
@@ -4258,6 +4275,14 @@ msgid ""
 msgstr ""
 "Разделить активное окно на панели\n"
 "Разделить"
+
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Гистограмма стопкой"
+
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "График стопкой"
 
 #: Control-ID:65535
 msgid "Start Revision"
