@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-29 13:58+0100\n"
+"PO-Revision-Date: 2006-07-06 17:52+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1446,6 +1446,11 @@ msgstr "Media"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "S&foglia..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Barre"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3296,6 +3301,11 @@ msgstr "Ultimo autore attivo:"
 msgid "Left View: "
 msgstr "Vista sinistra:"
 
+# ID:75,
+#: ID:246
+msgid "Line Graph"
+msgstr "Linee"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3952,6 +3962,11 @@ msgstr "Percorsi"
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Immagini (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tutte (*.*)|*.*||"
 
+# ID:75,
+#: ID:246
+msgid "Pie Graph"
+msgstr "Torta"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -4169,6 +4184,12 @@ msgstr "&Timeout proxy in secondi:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Configurazione proxy"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -5189,6 +5210,16 @@ msgid ""
 msgstr ""
 "Separa la finestra\n"
 "Separa"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Barre in pila"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Linee in pila"
 
 # ID:11,
 #: Control-ID:65535
@@ -6254,7 +6285,7 @@ msgstr "Utilizza l'intero altro &file"
 # ID:74,
 #: ID:74
 msgid "User cancelled"
-msgstr "Utente cancellato"
+msgstr "Annullato dall'utente"
 
 # ID:69,
 #: ID:69
