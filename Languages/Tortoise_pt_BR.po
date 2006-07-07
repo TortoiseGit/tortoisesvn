@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-26 23:08-0300\n"
-"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
+"PO-Revision-Date: 2006-07-06 21:03-0300\n"
+"Last-Translator: Victor Westmann <victor.westmann@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -250,16 +250,14 @@ msgid "&Berkeley database (BDB)"
 msgstr "&Banco de Dados Berkeley (BDB)"
 
 #: ID:114
-#, fuzzy
 msgid "&Blame differences"
-msgstr "&Próxima Diferença"
+msgstr "&Acusar diferenças"
 
 # ID:76,
 #: ID:114
 #: ID:322
-#, fuzzy
 msgid "&Blame revisions"
-msgstr "&Comparar Revisões"
+msgstr "&Acusar revisões"
 
 # ID:13,
 #: ID:13
@@ -505,9 +503,8 @@ msgstr "&Ignorar %d itens"
 
 # Control-ID:1067,
 #: Control-ID:1021
-#, fuzzy
 msgid "&Ignore whitespace changes"
-msgstr "Ignora alterações de &caixa"
+msgstr "&Ignore whitespace changes"
 
 # ID:9,
 #: ID:9
@@ -527,7 +524,7 @@ msgstr "&Idioma:"
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
-msgstr ""
+msgstr "&Limitar busca para linhas modificadas"
 
 # ID:188,
 #: Control-ID:1172
@@ -1583,7 +1580,7 @@ msgstr "Cancelando operação..."
 # ID:68,
 #: ID:68
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr ""
+msgstr "Não pode mostrar o diff por causa de novas linhas inconsistentes no fim do arquivo."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1750,15 +1747,15 @@ msgstr "Limpar"
 
 # ID:196,
 #: ID:196
-#, fuzzy, c-format
+#, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "Limpar %ld URLs armazenadas para %ld cópias de trabalho"
+msgstr "Limpar %ld URLs armazenadas para cópias funcionando de %ld"
 
 # ID:196,
 #: ID:196
-#, fuzzy, c-format
+#, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "Limpar %ld mensagens de log armazenadas para %ld cópias de trabalho"
+msgstr "Limpar %ld mensagens de log armazenadas para %ld de cópias funcionando"
 
 # ID:196,
 #: ID:196
@@ -1870,9 +1867,8 @@ msgstr "Comparar as &Revisões mais recentes"
 
 # ID:76,
 #: ID:114
-#, fuzzy
 msgid "Compare and &blame with working BASE"
-msgstr "Comparar com cópia de &trabalho"
+msgstr "Comparar e &culpar com BASE funcionando"
 
 # ID:76,
 #: ID:76
@@ -1891,9 +1887,8 @@ msgstr "Compara o arquivo com a última revisão submetida para mostrar-lhe as a
 
 # ID:13,
 #: ID:17
-#, fuzzy
 msgid "Compares the selected file with a file in the repository"
-msgstr "Adiciona os arquivo(s) selecionado(s) ou a máscara de arquivos à lista de 'ignorados'"
+msgstr "Comparar o arquivo selecionado com um arquivo do repositório"
 
 # ID:80,
 #: ID:120
@@ -1971,9 +1966,8 @@ msgstr "Copiar URL para a área de transferência"
 
 # ID:257,
 #: ID:209
-#, fuzzy
 msgid "Copy all information to clipboard"
-msgstr "Copiar mensagem de erro para a área de transferência"
+msgstr "Copiar todas as informações para a área de transferência"
 
 # ID:257,
 #: ID:101
@@ -1987,9 +1981,8 @@ msgstr "Copiar a partir do caminho"
 
 # ID:257,
 #: ID:209
-#, fuzzy
 msgid "Copy paths to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Copiar caminhos para a área de transferência"
 
 # ID:3603,
 #: ID:3603
@@ -2291,7 +2284,7 @@ msgstr "Arquivo de comparação:"
 # Control-ID:1302,
 #: Control-ID:1302
 msgid "Difference between"
-msgstr ""
+msgstr "Diferença entre"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -2502,19 +2495,17 @@ msgstr "Vazio"
 
 # Control-ID:1240,
 #: Control-ID:1240
-#, fuzzy
 msgid "Enable &accelerators on the top level menu"
-msgstr "Habilitar &aceleradores no menu "
+msgstr "Habilitar &aceleradores no topo do nível do menu"
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "Enable this if you want keyboard accelerators on the top level context menu too.\n"
 "Note that the context menu icons look nicer with this disabled."
 msgstr ""
-"Habilitar se você também quer aceleradores de teclas no menu de contexto mais alto.\n"
-"Note que os ícones do  menu de contexto terão um visual melhor com esta opção desabilitada."
+"Habilite isto se você também quer aceleradores de teclado no topo de nível do menu de contexto.\n"
+"Note que os ícones do menu de contexto terão um visual melhor com esta opção desabilitada."
 
 # ID:196,
 #: ID:196
@@ -2522,6 +2513,8 @@ msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
+"Habilite isto apenas se você está trabalhando com objetos web no VS.NET2003!\n"
+"Você deve reiniciar o sistema para esta configuração fazer efeito."
 
 # Control-ID:1224,
 #: ID:195
@@ -2536,9 +2529,8 @@ msgstr ""
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "End Revision"
-msgstr "Revisão final"
+msgstr "Acaba Revisão"
 
 # ID:3825,
 #: ID:3825
@@ -2615,6 +2607,8 @@ msgid ""
 "Error while reading/writing the registry key %s\n"
 "%s"
 msgstr ""
+"Erro durante leitura/escrita da chave de registro %s\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2785,7 +2779,7 @@ msgstr "Concluído!"
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr ""
+msgstr "Para ajuda, pressione F1. Role a barra de rolamento horizontalmente com CTRL-roda do mouse"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -2843,6 +2837,10 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
+"Pegar uma trava para arquivos sem a propriedade 'svn:needs-lock' <b>não</b> irá prevenir prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
 
 # ID:119,
 #: ID:119
@@ -2944,6 +2942,8 @@ msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
+"Ocultar/Mostrar a lista de arquivos corrigidos\n"
+"Oculta ou mostra a lista de arquivos corrigidos"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -3046,6 +3046,8 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
+"Se marcado, arquivos sem controle de versão irão marcar o status do diretório pai como modificado\n"
+"i.e. eles pegam os ícones sobrescritos modificados."
 
 # ID:196,
 #: ID:196
@@ -3055,6 +3057,10 @@ msgid ""
 "If you're not sure about this, then please read the docs.\n"
 "Are you absolutely sure you want to do this?"
 msgstr ""
+"Se você mudar este valor, your existing working copies não serão mais reconhecidas!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
 
 # ID:251,
 #: ID:251
@@ -3263,6 +3269,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Parece que você está tentando <b>realocar</b> suas cópias que funcionam para um caminho diferente dentro do mesmo repositório.\n"
+"\n"
+"De: %s\n"
+"Para: %s\n"
+"\n"
+"Uma realocação só é necessária se o caminho <b>para</b> o repositório mudou.\n"
+"Mudar para um caminho diferente <b>dentro</b> do seu repositório é feito por uma operação de troca.\n"
+"\n"
+"Uso impróprio da realocação <b>irá corromper suas cópias que funcionam!</b>\n"
+"Se você não está certo do que quer fazer, por favor leia nossos docs sobre <i>realocação</i>.\n"
+"Você realmente quer realocar?"
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -3374,6 +3391,8 @@ msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
 msgstr ""
+"Trava falhou porquê uma nova versão existe!\n"
+"Você quer atualizar e tentar de novo?"
 
 # ID:16,
 #: ID:16
@@ -3471,7 +3490,7 @@ msgstr ""
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Match &case"
-msgstr ""
+msgstr "Coincidir &caso"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -3506,9 +3525,8 @@ msgstr "Combinando"
 
 # ID:83,
 #: ID:83
-#, fuzzy
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Para combinar, as revisões ou URLs em 'De:' e 'Para:' devem ser diferentes "
+msgstr "Mesclar requer diferentes revisões ou diferentes URLs em 'De:' e 'Para:'"
 
 # ID:76,
 #: ID:76
@@ -3613,9 +3631,8 @@ msgstr "NUM"
 
 # ID:16,
 #: ID:208
-#, fuzzy
 msgid "Needs lock"
-msgstr "Liberar tra&va"
+msgstr "Requer trava"
 
 # ID:73,
 #: ID:210
@@ -3738,9 +3755,8 @@ msgstr "Não há correções de ortografia"
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Sem cache de status. Apenas as pastas com controle de versão são sobrepostas, os arquivos não são"
+msgstr "Sem status de cache. Apenas as pastas com controle de versão são sobrepostas, os arquivos não são"
 
 # ID:188,
 #: ID:188
@@ -3749,9 +3765,8 @@ msgstr "Não há sugestões de sinônimos"
 
 # ID:73,
 #: Control-ID:1271
-#, fuzzy
 msgid "None"
-msgstr "Não"
+msgstr "Nenhum"
 
 # Control-ID:65535,
 #: ID:264
@@ -3929,9 +3944,8 @@ msgstr "Corrigir tudo"
 
 # ID:376,
 #: ID:376
-#, fuzzy
 msgid "Patch selected"
-msgstr "Correção selecionada"
+msgstr "Caminho selecionado"
 
 # ID:157,#:
 # ID:157,
@@ -4075,9 +4089,8 @@ msgstr "Por favor, espere enquanto o navegador de repositório é inicializado..
 
 # ID:13,
 #: ID:319
-#, fuzzy
 msgid "Please wait while we get the differences..."
-msgstr "Por favor, aguarde, cancelando..."
+msgstr "Por favor aguarde enquanto pegamos as diferenças..."
 
 # ID:119,
 #: ID:119
@@ -4089,7 +4102,7 @@ msgstr "Por favor, aguarde..."
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
-msgstr ""
+msgstr "Pré visualizar arquivo corrigido"
 
 # ID:132,
 #: ID:132
@@ -4292,9 +4305,8 @@ msgstr "Reposicionar..."
 
 # ID:80,
 #: ID:89
-#, fuzzy
 msgid "Relocate Warning"
-msgstr "Reposicionando..."
+msgstr "Mudar Aviso"
 
 # ID:80,
 #: ID:80
@@ -4335,13 +4347,13 @@ msgstr "Arquivo/diretório removido"
 
 # ID:13,
 #: ID:145
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the ignore list."
 msgstr ""
-"Removido(s) o(s) arquivo(s)\n"
+"Removido(s) o(s) arquivo(s )modelo\n"
 "%s\n"
 "da lista de ignorados."
 
@@ -4373,9 +4385,8 @@ msgstr "Renomeado remotamente"
 
 # ID:11,
 #: ID:11
-#, fuzzy
 msgid "Renames files / folders inside version control"
-msgstr "Renomeia arquivos / pastas no controle de versão"
+msgstr "Renomeia arquivos / pastas dentro do controle de versão"
 
 # ID:3603,
 #: ID:3603
@@ -4420,9 +4431,8 @@ msgstr "Navegador de Repositório"
 
 # Dlg-ID:153,
 #: Control-ID:65535
-#, fuzzy
 msgid "Repository browser"
-msgstr "Navegador de Repositório"
+msgstr "Navegador do repositório"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4561,9 +4571,8 @@ msgstr "Gráfico de Revisões"
 
 # ID:75,
 #: Dlg-ID:228
-#, fuzzy
 msgid "Revision Range"
-msgstr "Revisão:"
+msgstr "Intervalo da Revisão"
 
 # ID:75,
 #: ID:269
@@ -4695,9 +4704,8 @@ msgstr "SVN URL"
 
 # ID:14,
 #: ID:17
-#, fuzzy
 msgid "SVN eol-style"
-msgstr "SVN tipo mime"
+msgstr "Estilo fdl SVN"
 
 # ID:14,
 #: ID:14
@@ -4962,7 +4970,6 @@ msgstr "Exibir históric&o"
 
 # Control-ID:1270,
 #: Control-ID:1270
-#, fuzzy
 msgid "Shell"
 msgstr "Shell"
 
@@ -4983,9 +4990,8 @@ msgstr "Formato curto de &data/hora no histórico"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Short URL of Subversion items"
-msgstr "URL Curta de itens do Subversion"
+msgstr "URL curta dos ítens do Subversion"
 
 # Control-ID:1016,
 #: ID:115
@@ -4995,9 +5001,8 @@ msgstr "Mostr&ar Tudo"
 
 # Control-ID:1031,
 #: ID:115
-#, fuzzy
 msgid "Show &Range..."
-msgstr "Exibir mensagens de &log..."
+msgstr "Mostrar &Intervalo..."
 
 # ID:76,
 #: MenuEntry
@@ -5037,9 +5042,8 @@ msgstr "Exibir arq&uivos sem controle de versão"
 
 # Control-ID:1073,
 #: MenuEntry
-#, fuzzy
 msgid "Show File List"
-msgstr "Mostrar arquivos ignorados"
+msgstr "Mostrar Lista de Arquivos"
 
 # ID:113,
 #: ID:113
@@ -5122,9 +5126,8 @@ msgstr "Mostrar todos os arquivos que foram alterados deste a última atualizaç
 
 # ID:2050,
 #: ID:2050
-#, fuzzy
 msgid "Shows all revisions where changes were made to this item"
-msgstr "Mostrar todas as revisões em que esse ítem foi alterado"
+msgstr "Mostrar todas as revisões aonde mudanças foram feitas a este ítem"
 
 # ID:10,
 #: ID:10
@@ -5134,7 +5137,7 @@ msgstr "Visualizar informações sobre o TortoiseSVN"
 # ID:17,
 #: ID:17
 msgid "Shows the eol-style property value"
-msgstr ""
+msgstr "Mostra o valor da propriedade de estilo eol"
 
 # ID:12,
 #: ID:12
@@ -5169,7 +5172,7 @@ msgstr "Ordenar ítens numericamente"
 # ID:101,
 #: ID:101
 msgid "Sort numerical"
-msgstr ""
+msgstr "Orgnizar numericamente"
 
 # ID:196,
 #: ID:196
@@ -5203,9 +5206,8 @@ msgstr ""
 
 # ID:11,
 #: Control-ID:65535
-#, fuzzy
 msgid "Start Revision"
-msgstr "SVN Revisão"
+msgstr "Começar Revisão"
 
 # ID:74,#:
 # ID:77,
@@ -5229,14 +5231,14 @@ msgid "Status and action colors"
 msgstr "Status e cores de ações"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Status cache"
-msgstr "Cache de status"
+msgstr "Status do Cache"
 
 # ID:196,
 #: ID:196
+#, fuzzy
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr ""
+msgstr "Status do cache mantido em um processo externo, pode mostrar a sobrescrição recursivamente"
 
 # ID:196,
 #: ID:196
@@ -5366,9 +5368,8 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Alternar a cópia de trabalho para outra uma ramificação / rótulo"
 
 #: ID:325
-#, fuzzy
 msgid "Switches the comparison left<->right"
-msgstr "Alternar Esquerda<->Direita"
+msgstr "Alternar comparação esquerda<->direita"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5399,7 +5400,7 @@ msgstr "Status do texto"
 
 # ID:69,
 #: ID:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -5409,7 +5410,7 @@ msgstr ""
 "O arquivo\n"
 "%s\n"
 "não é um arquivo de texto válido!\n"
-"Note que arquivos UTF16 e UTF32 também são tratados como binários."
+"Note que arquivos UTF32 também são tratados como binários."
 
 # ID:80,
 #: ID:80
@@ -5458,6 +5459,10 @@ msgid ""
 "This usually happens if you applied a patchfile to the\n"
 "wrong folder!"
 msgstr ""
+"O arquivo %s\n"
+"foi achado duas vezes!?!\n"
+"Isto usualmente acontece se você aplicar um patch de arquivo à\n"
+"pasta errada!"
 
 # ID:3857,#:
 # ID:3857,
@@ -5484,6 +5489,8 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"A pasta %s\n"
+"contém arquivo(s) sem controle de versão e/ou arquivo(s) modificado(s). Você quer remover mesmo assim?"
 
 # ID:88,
 #: ID:88
@@ -5558,7 +5565,6 @@ msgstr ""
 
 # ID:88,
 #: ID:88
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -5566,8 +5572,8 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"O caminho/url que você digitou parece ser ilegal no Windows!\n"
-"Você pode tentar dessa forma, mas poderá obter um erro depois.\n"
+"O caminho/URL que você digitou parece ser ilegal no Windows!\n"
+"Você pode tentar mesmo assim, mas poderá obter um erro depois.\n"
 "\n"
 "Um caminho válido no windows não pode conter '<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
@@ -5788,6 +5794,11 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
+"Para submeter recursivamente e trabalhar ao redor deste erro,\n"
+"tenha certeza de que todos os ítens filho de uma pasta checada\n"
+"também estejam marcados na caixa de diálogo de submissão.\n"
+"Caso contrário, TortoiseSVN deve fazer uma submissão não recursiva\n"
+"que não permite apagar diretórios."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -5949,6 +5960,8 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
+"TortoiseSVN detectou nomes de arquivos similares. Você quer que os arquivos:%s\n"
+"sejam renomeados também?"
 
 # Control-ID:1162,
 #: Control-ID:1162
@@ -6110,7 +6123,7 @@ msgstr "Sem Título"
 # Control-ID:1313,
 #: Control-ID:1313
 msgid "Unversioned files mark parent folder as modified"
-msgstr ""
+msgstr "Arquivos sem controle de versão marcam o diretório pai como modificado"
 
 # ID:8,#:
 # ID:74,#:
@@ -6145,7 +6158,7 @@ msgstr "Atualizando %s"
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
-msgstr ""
+msgstr "Atualizando e reaplicando a trava..."
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6191,19 +6204,17 @@ msgstr "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de
 # Control-ID:1296,
 #: Control-ID:1296
 msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr ""
+msgstr "Use \"_svn\" ao invés de diretórios \".svn\""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use both text blocks (this one first)"
-msgstr "Usar bloco de texto do arquivo \"&deles\""
+msgstr "Use ambos blocos de texto (este aqui primeiro)"
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use both text blocks (this one last)"
-msgstr "Usar &outro bloco de texto"
+msgstr "Use ambos blocos de texto (este aqui último)"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -6309,7 +6320,6 @@ msgstr "Aviso!"
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: ID:146
-#, fuzzy
 msgid "With URL:"
 msgstr "Com URL:"
 
@@ -6552,9 +6562,8 @@ msgstr "Menos zoom"
 
 # ID:2051,
 #: ID:2051
-#, fuzzy
 msgid "Zoom to fit"
-msgstr "Zoom para ajustar"
+msgstr "Zoom para caber"
 
 # ID:10,
 #: ID:10
@@ -6612,7 +6621,6 @@ msgstr ""
 
 # ID:15,
 #: ID:15
-#, fuzzy
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -6620,8 +6628,9 @@ msgid ""
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"duas expressões regulares separadas por uma quebra de linha\n"
-"A primeira expressão é usada para encontrar uma cadeia de caracteres se referindo a uma ocorrência, a segunda expressão é usada para extrair o identificador do bug daquela cadeia de caracteres."
+"duas expressões regulares separadas por uma quebra de linha.\n"
+"A primeira expressão é usada para encontrar uma string se referindo a uma ocorrência,\n"
+"a segunda expressão é usada para extrair o identificador do bug daquela string."
 
 # ID:14,
 #: ID:14
@@ -6817,13 +6826,12 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\n"
+"svn:executável\n"
 "Se presente, torna o arquivo excutável. Esta propriedade não pode set ajustada em um diretório. Tentar ajustá-la não recursivamente irá falhar, e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
 
 # ID:14,
@@ -6870,7 +6878,6 @@ msgstr ""
 # XXX: This is no longer truth, application/xml and others are also treated as text. -- jr
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -6878,7 +6885,9 @@ msgid ""
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser combinado, e como servi-lo a partir do Apache. Um tipo MIME iniciando com 'text/' (ou sem tipo mime) é tratado como texto. Qualquer outro é tratado como binário."
+"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser mesclado, e como servi-lo a partir do Apache.\n"
+"Um tipo mime iniciando com 'text/' (ou sem tipo mime) é tratado como texto.\n"
+"Qualquer outra coisa é tratada como binário."
 
 # ID:16,
 #: ID:16
@@ -6991,7 +7000,6 @@ msgstr "que aponta para o repositório na URL:"
 
 # Control-ID:1059,
 #: ID:245
-#, fuzzy
 msgid "year"
-msgstr "Limpar"
+msgstr "ano"
 
