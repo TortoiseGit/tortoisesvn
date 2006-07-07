@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-26 02:44+0200\n"
+"PO-Revision-Date: 2006-07-03 00:53+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -696,7 +696,7 @@ msgstr "&Κενά"
 
 #: Control-ID:1183,
 msgid "&Working copy"
-msgstr ""
+msgstr "Τρέχον Αντίγραφο Εργασίας"
 
 #: ID:17,#:
 #: ID:564,
@@ -770,13 +770,13 @@ msgstr ""
 #: ID:3867,
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
-msgstr ""
+msgstr "Αναφέρθηκε λάθος του I/O από το Υλικό καθώς γινόταν προσπαθεια προσπέλασης του %1."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "A locking violation occurred while accessing %1."
-msgstr ""
+msgstr "Υπήρξε μια παραβίαση "
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
@@ -905,15 +905,15 @@ msgstr "Προσθέθηκε"
 
 #: ID:126,
 msgid "Added a file remotely"
-msgstr ""
+msgstr "Προστέθηκε ένα απομακρυσμένο αρχείο"
 
 #: ID:126,
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "Προστέθηκε ένας απομακρυσμένος φάκελος"
 
 #: ID:126,
 msgid "Added items remotely"
-msgstr ""
+msgstr "Προστέθηκαν απομακρυσμένα αντικείμενα"
 
 #: Control-ID:65535,
 msgid "Added node"
@@ -933,7 +933,7 @@ msgstr "Γίνεται προσθήκη"
 
 #: ID:9,
 msgid "Adds file(s) to Subversion control"
-msgstr ""
+msgstr "Προστέθηκαν αρχεία στον έλεγχο του Subversion"
 
 #: ID:13,
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
@@ -2176,7 +2176,7 @@ msgstr "Διαφορές του αρχείου"
 #: ID:376,#:
 #: Dlg-ID:135,
 msgid "File patches"
-msgstr ""
+msgstr "Μπαλόματα Αρχείων"
 
 #: ID:3603,
 msgid ""
@@ -4677,11 +4677,11 @@ msgstr ""
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unexpected file format."
-msgstr ""
+msgstr "Απροσδόκητη διαμόρφωση αρχείου"
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
-msgstr ""
+msgstr "Ενοποιημένη &διαφορά ΚΕΦΑΛΙΔΑΣ εκδόσεων"
 
 #: ID:81,
 #, c-format
@@ -4693,11 +4693,11 @@ msgstr ""
 
 #: ID:221,
 msgid "Unlock"
-msgstr ""
+msgstr "Απασφάληση"
 
 #: ID:264,
 msgid "Unlock failed"
-msgstr ""
+msgstr "Η απασφάληση απέτυχε"
 
 # again, inflection
 #: ID:263,
@@ -4860,11 +4860,11 @@ msgstr ""
 
 #: ID:146,
 msgid "With URL:"
-msgstr ""
+msgstr "Με URL:"
 
 #: Dlg-ID:158,
 msgid "Working Copy"
-msgstr ""
+msgstr "Τρέχον Αντίγραφο Εργασίας"
 
 #: ID:80,
 #, c-format
@@ -4872,6 +4872,8 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
+"Το Τρέχον Αντίγραφο Εργασίας μετακινήθηκε στην τοποθεσία\n"
+"%s"
 
 #: ID:73,
 msgid "Yes"
@@ -4883,7 +4885,7 @@ msgstr "Ναι σε όλα"
 
 #: ID:201,
 msgid "You already have the latest version installed."
-msgstr ""
+msgstr "Έχετε ήδη εγκατεστημένη την τελευταία έκδοση"
 
 #: ID:144,
 msgid ""
@@ -4982,12 +4984,12 @@ msgstr ""
 
 #: Control-ID:1112,
 msgid "Your version is:"
-msgstr ""
+msgstr "Η εκδοσή σας είναι:"
 
 #: ID:201,
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
-msgstr ""
+msgstr "Η εκδοσή σας είναι: %d.%d.%d.%d"
 
 #: ID:78,
 msgid ""
@@ -5101,7 +5103,7 @@ msgstr ""
 
 #: ID:145,
 msgid "cleaning up"
-msgstr ""
+msgstr "Καθαρισμός"
 
 #: ID:244,#:
 #: ID:245,
