@@ -135,16 +135,60 @@
 					</para>
 				</listitem>
 			</varlistentry>
+			<varlistentry>
+				<term>Difference between folders</term>
+				<listitem>
+					<para>
+						The builtin tools supplied with TortoiseSVN do not support
+						viewing differences between directory hierarchies. But if you
+						have an external tool which does support that feature, you can
+						use that instead. In <xref linkend="tsvn-dug-diff-tools"/>
+						we tell you about some tools which we have used.
+					</para>
+				</listitem>
+			</varlistentry>
 		</variablelist>
 	</sect2>
-	<sect2 id="tsvn-dug-diff-dir">
-		<title>Folder Differences</title>
+	<sect2 id="tsvn-dug-idiff">
+		<title>Diffing Images Using TortoiseIDiff</title>
+		<indexterm>
+			<primary>image diff</primary>
+		</indexterm>
+		<indexterm>
+			<primary>TortoiseIDiff</primary>
+		</indexterm>
 		<para>
-		The builtin tools supplied with TortoiseSVN do not support viewing
-		differences between directory hierarchies. But if you have an external
-		tool which does support that feature, you can use that instead.
-		In the next section we tell you about some tools which we have used.
-	</para>
+			There are many tools available for diffing text files, including our
+			own TortoiseMerge, but we often find ourselves wanting to see how
+			an image file has changed too. That's why we created TortoiseIDiff.
+		</para>
+		<para>
+			<figure id="tsvn-dug-idiff-dia-1">
+				<title>The image difference viewer</title>
+				<graphic fileref="../images/TortoiseIDiff.png"/>
+			</figure>
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Diff</guimenuitem>
+			</menuchoice>
+			for any of the common image file formats will start TortoiseIDiff
+			to show image differences. By default the images are displayed side-by-side
+			but you can use the View menu or toolbar to switch to a top-bottom
+			view instead, or if you prefer, you can overlay the images and pretend
+			you are using a lightbox. A slider at the top controls the relative
+			intensity of the images. Naturally you can also zoom in and out and pan
+			around the image.
+		</para>
+		<para>
+			In image info box shows details about the image file, such as the
+			size in pixels, resolution and colour depth. If this box gets in the
+			way, use
+			<menuchoice>
+				<guimenu>View</guimenu>
+				<guimenuitem>Image Info</guimenuitem>
+			</menuchoice>
+			to hide it.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-diff-tools">
 		<title>External Diff/Merge Tools</title>
