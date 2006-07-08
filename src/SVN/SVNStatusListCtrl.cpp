@@ -1165,6 +1165,28 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
+	case 13:
+		{
+			if (result == 0)
+			{
+				#define SGN(x) ((x)==0?0:((x)>0?1:-1))
+				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
+			}
+		}
+	case 12:
+		{
+			if (result == 0)
+			{
+				result = entry1->last_commit_rev - entry2->last_commit_rev;
+			}
+		}
+	case 11:
+		{
+			if (result == 0)
+			{
+				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
+			}
+		}
 	case 10:
 		{
 			if (result == 0)
