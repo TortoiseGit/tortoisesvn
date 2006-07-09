@@ -20,7 +20,8 @@
 #include "CmdLineParser.h"
 #include "TortoiseBlame.h"
 #include "registry.h"
-#define MAX_LOADSTRING 100
+#include "LangDll.h"
+#define MAX_LOADSTRING 1000
 
 #ifndef WIN64
 #	pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'\"")
@@ -47,6 +48,7 @@ long TortoiseBlame::m_gotoline = 0;
 TortoiseBlame::TortoiseBlame()
 {
 	hInstance = 0;
+	hResource = 0;
 	currentDialog = 0;
 	wMain = 0;
 	wEditor = 0;
@@ -476,7 +478,7 @@ void TortoiseBlame::Command(int id)
 
 void TortoiseBlame::GotoLineDlg()
 {
-	if (DialogBox(hInstance, MAKEINTRESOURCE(IDD_GOTODLG), wMain, GotoDlgProc)==IDOK)
+	if (DialogBox(hResource, MAKEINTRESOURCE(IDD_GOTODLG), wMain, GotoDlgProc)==IDOK)
 	{
 		GotoLine(m_gotoline);
 	}
@@ -672,19 +674,24 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 
 	::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
 
-	::ExtTextOut(hDC, 0, 0, ETO_CLIPPED, &rc, _T("Revision"), 8, 0);
+	TCHAR szText[MAX_LOADSTRING];
+	LoadString(app.hResource, IDS_HEADER_REVISION, szText, MAX_LOADSTRING);
+	::ExtTextOut(hDC, 0, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 	int Left = m_revwidth;
 	if (ShowDate)
 	{
-		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Date"), 4, 0);
+		LoadString(app.hResource, IDS_HEADER_DATE, szText, MAX_LOADSTRING);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 		Left += m_datewidth;
 	}
 	if (ShowAuthor)
 	{
-		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Author"), 6, 0);
+		LoadString(app.hResource, IDS_HEADER_AUTHOR, szText, MAX_LOADSTRING);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 		Left += m_authorwidth;
 	}
-	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Line"), 4, 0);
+	LoadString(app.hResource, IDS_HEADER_LINE, szText, MAX_LOADSTRING);
+	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 
 	::SelectObject(hDC, oldfont);
 }
@@ -721,9 +728,9 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 }
 
 // Forward declarations of functions included in this code module:
-ATOM				MyRegisterClass(HINSTANCE hInstance);
-ATOM				MyRegisterBlameClass(HINSTANCE hInstance);
-ATOM				MyRegisterHeaderClass(HINSTANCE hInstance);
+ATOM				MyRegisterClass(HINSTANCE hResource);
+ATOM				MyRegisterBlameClass(HINSTANCE hResource);
+ATOM				MyRegisterHeaderClass(HINSTANCE hResource);
 BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
@@ -742,17 +749,26 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	if (::LoadLibrary("SciLexer.DLL") == NULL)
 		return FALSE;
 
+	CRegStdWORD loc = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+	long langId = loc;
+
+	CLangDll langDLL;
+	app.hResource = langDLL.Init(_T("TortoiseBlame"), langId);
+	if (app.hResource == NULL)
+		app.hResource = app.hInstance;
+
 	// Initialize global strings
-	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-	LoadString(hInstance, IDC_TORTOISEBLAME, szWindowClass, MAX_LOADSTRING);
-	LoadString(hInstance, IDS_SEARCHNOTFOUND, searchstringnotfound, MAX_LOADSTRING);
-	MyRegisterClass(hInstance);
-	MyRegisterBlameClass(hInstance);
-	MyRegisterHeaderClass(hInstance);
+	LoadString(app.hResource, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+	LoadString(app.hResource, IDC_TORTOISEBLAME, szWindowClass, MAX_LOADSTRING);
+	LoadString(app.hResource, IDS_SEARCHNOTFOUND, searchstringnotfound, MAX_LOADSTRING);
+	MyRegisterClass(app.hResource);
+	MyRegisterBlameClass(app.hResource);
+	MyRegisterHeaderClass(app.hResource);
 
 	// Perform application initialization:
-	if (!InitInstance (hInstance, nCmdShow)) 
+	if (!InitInstance (app.hResource, nCmdShow)) 
 	{
+		langDLL.Close();
 		return FALSE;
 	}
 
@@ -778,7 +794,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
 	{
-		MessageBox(NULL, _T("TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"), _T("TortoiseBlame"), MB_ICONERROR);
+		TCHAR szInfo[MAX_LOADSTRING];
+		LoadString(app.hResource, IDS_COMMANDLINE_INFO, szInfo, MAX_LOADSTRING);
+		MessageBox(NULL, szInfo, _T("TortoiseBlame"), MB_ICONERROR);
+		langDLL.Close();
 		return 0;
 	}
 
@@ -793,7 +812,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 
-	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_TORTOISEBLAME);
+	hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);
 
 	BOOL going = TRUE;
 	msg.wParam = 0;
@@ -820,11 +839,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 			}
 		}
 	}
-
+	langDLL.Close();
 	return msg.wParam;
 }
 
-ATOM MyRegisterClass(HINSTANCE hInstance)
+ATOM MyRegisterClass(HINSTANCE hResource)
 {
 	WNDCLASSEX wcex;
 
@@ -834,8 +853,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	wcex.lpfnWndProc	= (WNDPROC)WndProc;
 	wcex.cbClsExtra		= 0;
 	wcex.cbWndExtra		= 0;
-	wcex.hInstance		= hInstance;
-	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hInstance		= hResource;
+	wcex.hIcon			= LoadIcon(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
 	wcex.lpszMenuName	= (LPCTSTR)IDC_TORTOISEBLAME;
@@ -845,7 +864,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
-ATOM MyRegisterBlameClass(HINSTANCE hInstance)
+ATOM MyRegisterBlameClass(HINSTANCE hResource)
 {
 	WNDCLASSEX wcex;
 
@@ -855,8 +874,8 @@ ATOM MyRegisterBlameClass(HINSTANCE hInstance)
 	wcex.lpfnWndProc	= (WNDPROC)WndBlameProc;
 	wcex.cbClsExtra		= 0;
 	wcex.cbWndExtra		= 0;
-	wcex.hInstance		= hInstance;
-	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hInstance		= hResource;
+	wcex.hIcon			= LoadIcon(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
 	wcex.lpszMenuName	= 0;
@@ -866,7 +885,7 @@ ATOM MyRegisterBlameClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
-ATOM MyRegisterHeaderClass(HINSTANCE hInstance)
+ATOM MyRegisterHeaderClass(HINSTANCE hResource)
 {
 	WNDCLASSEX wcex;
 
@@ -876,8 +895,8 @@ ATOM MyRegisterHeaderClass(HINSTANCE hInstance)
 	wcex.lpfnWndProc	= (WNDPROC)WndHeaderProc;
 	wcex.cbClsExtra		= 0;
 	wcex.cbWndExtra		= 0;
-	wcex.hInstance		= hInstance;
-	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hInstance		= hResource;
+	wcex.hIcon			= LoadIcon(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_BTNFACE+1);
 	wcex.lpszMenuName	= 0;
@@ -887,10 +906,10 @@ ATOM MyRegisterHeaderClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
-BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
+BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
 {
    app.wMain = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);   
+      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hResource, NULL);   
 
    if (!app.wMain)
    {
@@ -921,7 +940,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	   CW_USEDEFAULT,
 	   app.wBlame,
 	   NULL,
-	   app.hInstance,
+	   app.hResource,
 	   NULL
 	   );
 
@@ -940,7 +959,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ti.cbSize = sizeof(TOOLINFO);
    ti.uFlags = TTF_TRACK | TTF_ABSOLUTE;//TTF_SUBCLASS | TTF_PARSELINKS;
    ti.hwnd = app.wBlame;
-   ti.hinst = app.hInstance;
+   ti.hinst = app.hResource;
    ti.uId = 0;
    ti.lpszText = LPSTR_TEXTCALLBACK;
    // ToolTip control will cover the whole window
@@ -990,7 +1009,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			100, 100,
 			hWnd,
 			0,
-			app.hInstance,
+			app.hResource,
 			0);
 		app.InitialiseEditor();
 		::ShowWindow(app.wEditor, SW_SHOW);
@@ -1003,7 +1022,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			CW_USEDEFAULT, 0, 
 			hWnd, 
 			NULL, 
-			app.hInstance, 
+			app.hResource, 
 			NULL);
 		::ShowWindow(app.wBlame, SW_SHOW);
 		app.wHeader = ::CreateWindow(
@@ -1014,7 +1033,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			CW_USEDEFAULT, 0, 
 			hWnd, 
 			NULL, 
-			app.hInstance, 
+			app.hResource, 
 			NULL);
 		::ShowWindow(app.wHeader, SW_SHOW);
 		return 0;
@@ -1239,7 +1258,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				xPos = rect.right-rect.left;
 				yPos = rect.bottom-rect.top;
 			}
-			HMENU hMenu = LoadMenu(app.hInstance, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
+			HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
 			HMENU hPopMenu = GetSubMenu(hMenu, 0);
 			TrackPopupMenu(hPopMenu, TPM_LEFTALIGN | TPM_RIGHTBUTTON, xPos, yPos, 0, app.wBlame, NULL); 
 			DestroyMenu(hMenu);

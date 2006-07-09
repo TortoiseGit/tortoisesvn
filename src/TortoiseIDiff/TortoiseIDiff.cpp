@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "MainWindow.h"
 #include "CmdLineParser.h"
+#include "registry.h"
+#include "LangDll.h"
 #include "TortoiseIDiff.h"
 
 #ifndef WIN64
@@ -29,7 +31,7 @@
 
 // Global Variables:
 HINSTANCE hInst;								// current instance
-
+HINSTANCE hResource;							// the resource dll
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -38,13 +40,22 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 
+	CRegStdWORD loc = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+	long langId = loc;
+
+	CLangDll langDLL;
+	hResource = langDLL.Init(_T("TortoiseIDiff"), langId);
+	if (hResource == NULL)
+		hResource = hInstance;
+
 	CCmdLineParser parser(lpCmdLine);
 
 	if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
 	{
 		TCHAR buf[1024];
-		LoadString(hInstance, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
+		LoadString(hResource, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
 		MessageBox(NULL, buf, _T("TortoiseIDiff"), MB_ICONINFORMATION);
+		langDLL.Close();
 		return 0;
 	}
 
@@ -60,7 +71,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	};
 	InitCommonControlsEx(&used);
 
-	CMainWindow mainWindow(hInstance);
+	CMainWindow mainWindow(hResource);
 
 
 	mainWindow.SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
@@ -68,7 +79,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	if (mainWindow.RegisterAndCreateWindow())
 	{
-		hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
+		hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
 		if (!parser.HasVal(_T("left")))
 		{
 			PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
@@ -84,6 +95,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		}
 		return (int) msg.wParam;
 	}
+	langDLL.Close();
 	return 1;
 }
 

@@ -23,7 +23,7 @@ bool CWindow::RegisterWindow(UINT style, HICON hIcon, HCURSOR hCursor, HBRUSH hb
 	wcx.lpfnWndProc = CWindow::stWinMsgHandler;		// points to window procedure 
 	wcx.cbClsExtra = 0;								// no extra class memory 
 	wcx.cbWndExtra = 0;								// no extra window memory 
-	wcx.hInstance = hInstance;						// handle to instance 
+	wcx.hInstance = hResource;						// handle to instance 
 	wcx.hIcon = hIcon;								// predefined app. icon 
 	wcx.hCursor = hCursor;							// predefined arrow 
 	wcx.hbrBackground = hbrBackground;				// white background brush 
@@ -89,11 +89,11 @@ bool CWindow::CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent /* = NULL 
 {
 	// send the this pointer as the window creation parameter
 	if (rect == NULL)
-		m_hwnd = CreateWindowEx(dwExStyles, sClassName.c_str(), sWindowTitle.c_str(), dwStyles, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, hParent, NULL, hInstance, (void *)this);
+		m_hwnd = CreateWindowEx(dwExStyles, sClassName.c_str(), sWindowTitle.c_str(), dwStyles, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, hParent, NULL, hResource, (void *)this);
 	else
 	{
 		m_hwnd = CreateWindowEx(dwExStyles, sClassName.c_str(), sWindowTitle.c_str(), dwStyles, rect->left, rect->top, 
-			rect->right - rect->left, rect->bottom - rect->top, hParent, NULL, hInstance, 
+			rect->right - rect->left, rect->bottom - rect->top, hParent, NULL, hResource, 
 			(void *)this);
 	}
 	return (m_hwnd != NULL);

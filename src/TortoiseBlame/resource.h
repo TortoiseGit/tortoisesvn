@@ -14,6 +14,11 @@
 #define IDR_MAINFRAME                   128
 #define IDR_BLAMEPOPUP                  129
 #define IDD_GOTODLG                     130
+#define IDS_COMMANDLINE_INFO            200
+#define IDS_HEADER_REVISION             300
+#define IDS_HEADER_DATE                 301
+#define IDS_HEADER_AUTHOR               302
+#define IDS_HEADER_LINE                 303
 #define IDC_LINENUMBER                  1000
 #define ID_EDIT_FIND                    32771
 #define ID_COPYTOCLIPBOARD_COPYTOCLIPBOARD 32775

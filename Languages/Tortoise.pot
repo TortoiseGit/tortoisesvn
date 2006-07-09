@@ -95,6 +95,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr ""
 
+#: ID:7,
+#, c-format
+msgid "%ld of % ld"
+msgstr ""
+
 #: ID:563,
 #, c-format
 msgid "%ld paths"
@@ -138,6 +143,11 @@ msgstr ""
 #: ID:145,
 #, c-format
 msgid "%s\nDo you want to remove it anyway?"
+msgstr ""
+
+#: ID:7,
+#, c-format
+msgid "%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\n%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
 msgstr ""
 
 #: ID:69,
@@ -237,6 +247,10 @@ msgstr ""
 msgid "&Copy"
 msgstr ""
 
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr ""
+
 #: ID:101,
 msgid "&Copy to..."
 msgstr ""
@@ -269,7 +283,7 @@ msgstr ""
 msgid "&Dry run"
 msgstr ""
 
-#: Control-ID:1031,#: MenuEntry
+#: Control-ID:1031,#: MenuEntry#: MenuEntry
 msgid "&Edit"
 msgstr ""
 
@@ -297,12 +311,20 @@ msgstr ""
 msgid "&External"
 msgstr ""
 
-#: MenuEntry#: MenuEntry
+#: MenuEntry#: MenuEntry#: MenuEntry#: MenuEntry
 msgid "&File"
 msgstr ""
 
 #: MenuEntry
 msgid "&Find"
+msgstr ""
+
+#: MenuEntry
+msgid "&Find..."
+msgstr ""
+
+#: MenuEntry
+msgid "&Fit Images in window"
 msgstr ""
 
 #: Control-ID:1050,
@@ -327,6 +349,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "&From revision"
+msgstr ""
+
+#: MenuEntry
+msgid "&Goto Line..."
 msgstr ""
 
 #: Control-ID:1115,#: Control-ID:1032,
@@ -364,6 +390,10 @@ msgstr ""
 
 #: Control-ID:1021,
 msgid "&Ignore whitespace changes"
+msgstr ""
+
+#: MenuEntry
+msgid "&Image Info"
 msgstr ""
 
 #: ID:9,
@@ -430,12 +460,16 @@ msgstr ""
 msgid "&OK"
 msgstr ""
 
-#: ID:101,#: ID:113,
+#: MenuEntry
 msgid "&Open"
 msgstr ""
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
+msgstr ""
+
+#: MenuEntry
+msgid "&Overlap images"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:65535,
@@ -602,7 +636,7 @@ msgstr ""
 msgid "&Username:"
 msgstr ""
 
-#: MenuEntry#: MenuEntry
+#: MenuEntry#: MenuEntry#: MenuEntry
 msgid "&View"
 msgstr ""
 
@@ -644,7 +678,7 @@ msgstr ""
 msgid "- %d"
 msgstr ""
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr ""
 
@@ -939,6 +973,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr ""
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr ""
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr ""
 
@@ -959,7 +997,7 @@ msgstr ""
 msgid "Authentication data"
 msgstr ""
 
-#: ID:76,#: ID:207,
+#: ID:76,#: ID:207,#: ID:19,
 msgid "Author"
 msgstr ""
 
@@ -1096,7 +1134,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -1579,7 +1617,7 @@ msgstr ""
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
 
-#: ID:76,#: ID:208,
+#: ID:76,#: ID:208,#: ID:19,
 msgid "Date"
 msgstr ""
 
@@ -1935,6 +1973,11 @@ msgstr ""
 msgid "File patches"
 msgstr ""
 
+#: ID:7,
+#, c-format
+msgid "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+msgstr ""
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr ""
@@ -2019,6 +2062,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Global ignore &pattern:"
+msgstr ""
+
+#: Dlg-ID:130,
+msgid "Go to line"
 msgstr ""
 
 #: ID:2051,
@@ -2236,12 +2283,28 @@ msgstr ""
 msgid "Left View: "
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Left image"
+msgstr ""
+
+#: ID:19,
+msgid "Line"
+msgstr ""
+
 #: ID:246,
 msgid "Line Graph"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Line:"
+msgstr ""
+
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
+msgstr ""
+
+#: Dlg-ID:130,
+msgid "Load Images"
 msgstr ""
 
 #: ID:63,
@@ -2593,7 +2656,7 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -2641,6 +2704,10 @@ msgstr ""
 msgid "Open file"
 msgstr ""
 
+#: ID:7,
+msgid "Open image file..."
+msgstr ""
+
 #: ID:282,
 msgid "Open parent folder"
 msgstr ""
@@ -2655,6 +2722,10 @@ msgstr ""
 
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
+msgstr ""
+
+#: MenuEntry
+msgid "Ori&ginal size"
 msgstr ""
 
 #: ID:245,
@@ -3109,7 +3180,7 @@ msgstr ""
 msgid "Reverts all changes you made since the last update"
 msgstr ""
 
-#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,#: ID:19,
 msgid "Revision"
 msgstr ""
 
@@ -3163,6 +3234,10 @@ msgstr ""
 
 #: ID:188,
 msgid "Right View: "
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Right image"
 msgstr ""
 
 #: MenuEntry
@@ -3313,6 +3388,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Search for:"
+msgstr ""
+
+#: ID:7,
+msgid "Search string not found!"
 msgstr ""
 
 #: ID:3867,#: ID:3867,
@@ -3715,6 +3794,14 @@ msgstr ""
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr ""
 
+#: ID:7,
+msgid "TORTOISEBLAME"
+msgstr ""
+
+#: ID:7,
+msgid "TORTOISEIDIFF"
+msgstr ""
+
 #: ID:79,
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -3783,6 +3870,10 @@ msgstr ""
 #: ID:88,
 #, c-format
 msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
+msgstr ""
+
+#: ID:7,
+msgid "The image can not be shown."
 msgstr ""
 
 #: ID:63,
@@ -3938,6 +4029,22 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "To: (end URL and revision of the range to merge)"
+msgstr ""
+
+#: ID:7,
+msgid "TortoiseBlame"
+msgstr ""
+
+#: ID:13,
+msgid "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+
+#: ID:7,
+msgid "TortoiseIDiff"
+msgstr ""
+
+#: ID:7,
+msgid "TortoiseIDiff: the image diff viewer for TortoiseSVN\n\nAvailable command line parameters are:\n/left:\"path to left picture\"\n/lefttitle:\"title to show for the left picture\"\n/right:\"path to right picture\"\n/righttitle:\"title to show for the right picture\""
 msgstr ""
 
 #: ID:7,#: ID:3585,#: Dlg-ID:130,
@@ -4374,6 +4481,10 @@ msgid "Your working copy has local modifications!\nNote: updating to another rev
 msgstr ""
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr ""
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr ""
 
@@ -4384,6 +4495,10 @@ msgstr ""
 #: ID:2051,
 #, c-format
 msgid "Zoom 100%"
+msgstr ""
+
+#: MenuEntry
+msgid "Zoom i&n"
 msgstr ""
 
 #: ID:2049,

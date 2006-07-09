@@ -116,6 +116,19 @@ BEGIN
     IDC_TORTOISEBLAME       "TORTOISEBLAME"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_COMMANDLINE_INFO    "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HEADER_REVISION     "Revision"
+    IDS_HEADER_DATE         "Date"
+    IDS_HEADER_AUTHOR       "Author"
+    IDS_HEADER_LINE         "Line"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

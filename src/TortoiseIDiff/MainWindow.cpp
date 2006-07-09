@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "commctrl.h"
 #include "Commdlg.h"
+#include "TortoiseIDiff.h"
 #include "MainWindow.h"
 
 #pragma comment(lib, "comctl32.lib")
@@ -40,10 +41,10 @@ bool CMainWindow::RegisterAndCreateWindow()
 	wcx.lpfnWndProc = CWindow::stWinMsgHandler;
 	wcx.cbClsExtra = 0;
 	wcx.cbWndExtra = 0;
-	wcx.hInstance = hInstance;
+	wcx.hInstance = hResource;
 	wcx.hCursor = LoadCursor(NULL, IDC_SIZEWE);
-	wcx.lpszClassName = ResString(hInstance, IDS_APP_TITLE);
-	wcx.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
+	wcx.lpszClassName = ResString(hResource, IDS_APP_TITLE);
+	wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
 	wcx.hbrBackground = (HBRUSH)(COLOR_3DFACE+1);
 	wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
 	wcx.hIconSm	= LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
@@ -269,7 +270,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 					LPTOOLTIPTEXT lpttt; 
 
 					lpttt = (LPTOOLTIPTEXT) lParam; 
-					lpttt->hinst = hInstance; 
+					lpttt->hinst = hResource; 
 
 					// Specify the resource identifier of the descriptive 
 					// text for the given button. 
@@ -282,7 +283,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 					LPTOOLTIPTEXT lpttt; 
 
 					lpttt = (LPTOOLTIPTEXT) lParam; 
-					lpttt->hinst = hInstance; 
+					lpttt->hinst = hResource; 
 
 					// Specify the resource identifier of the descriptive 
 					// text for the given button. 
@@ -672,7 +673,7 @@ HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 		200, 30,							// size 
 		hwndParent,							// parent window 
 		(HMENU)TRACKBAR_ID,					// control identifier 
-		hInstance,							// instance 
+		hResource,							// instance 
 		NULL								// no WM_CREATE parameter 
 		); 
 
@@ -688,7 +689,7 @@ HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 
 bool CMainWindow::OpenDialog()
 {
-	return (DialogBox(hInstance, MAKEINTRESOURCE(IDD_OPEN), *this, (DLGPROC)OpenDlgProc)==IDOK);
+	return (DialogBox(hResource, MAKEINTRESOURCE(IDD_OPEN), *this, (DLGPROC)OpenDlgProc)==IDOK);
 }
 
 BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -759,9 +760,9 @@ bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
 	ofn.hwndOwner = owner;
 	ofn.lpstrFile = path;
 	ofn.nMaxFile = MAX_PATH;
-	ofn.lpstrTitle = ResString(hInst, IDS_OPENIMAGEFILE);
+	ofn.lpstrTitle = ResString(::hResource, IDS_OPENIMAGEFILE);
 	ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
-	ofn.hInstance = hInst;
+	ofn.hInstance = ::hResource;
 	TCHAR filters[] = _T("Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf\0All (*.*)\0*.*\0\0");
 	ofn.lpstrFilter = filters;
 	ofn.nFilterIndex = 1;
@@ -788,7 +789,7 @@ bool CMainWindow::CreateToolbar()
 							0, 0, 0, 0, 
 							*this,
 							(HMENU)IDC_TORTOISEIDIFF, 
-							hInstance, 
+							hResource, 
 							NULL);
 	if (hwndTB == INVALID_HANDLE_VALUE)
 		return false;
@@ -801,7 +802,7 @@ bool CMainWindow::CreateToolbar()
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
-	HICON hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_OVERLAP));
+	HICON hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -816,7 +817,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_VERTICAL));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_VERTICAL));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_ARRANGEVERTICAL; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -824,7 +825,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_FITINWINDOW));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITINWINDOW));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_FITIMAGESINWINDOW; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -832,7 +833,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ORIGSIZE));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ORIGSIZE));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_ORININALSIZE; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -840,7 +841,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ZOOMIN));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ZOOMIN));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_ZOOMIN; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -848,7 +849,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ZOOMOUT));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ZOOMOUT));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_ZOOMOUT; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -863,7 +864,7 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
-	hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_IMGINFO));
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_IMGINFO));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_IMAGEINFO; 
 	tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED; 

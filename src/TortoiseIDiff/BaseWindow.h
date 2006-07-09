@@ -7,7 +7,7 @@
  */
 class ResString
 {
-	enum { MAX_RESSTRING = 255 };
+	enum { MAX_RESSTRING = 1024 };
 public:
 	ResString (HINSTANCE hInst, int resId);
 	operator TCHAR const * () const { return _buf; }
@@ -53,7 +53,7 @@ public:
 
 	operator HWND() {return m_hwnd;}
 protected:
-	HINSTANCE hInstance;
+	HINSTANCE hResource;
 	HWND m_hwnd;
 	bool bWindowClosed;
 	std::wstring sClassName;
@@ -61,10 +61,10 @@ protected:
 
 	//constructor 
 	CWindow(HINSTANCE hInst, CONST WNDCLASSEX* wcx = NULL) : m_hwnd(NULL)
-		, hInstance(NULL)
+		, hResource(NULL)
 		, bWindowClosed(FALSE)
 	{
-		hInstance = hInst; 
+		hResource = hInst; 
 		if (wcx != NULL)
 			RegisterWindow(wcx);
 	};

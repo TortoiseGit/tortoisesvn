@@ -35,10 +35,10 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 	wcx.lpfnWndProc = CWindow::stWinMsgHandler;
 	wcx.cbClsExtra = 0;
 	wcx.cbWndExtra = 0;
-	wcx.hInstance = hInstance;
+	wcx.hInstance = hResource;
 	wcx.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wcx.lpszClassName = _T("TortoiseIDiffPicWindow");
-	wcx.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
+	wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
 	wcx.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
 	wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
 	wcx.hIconSm	= LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
@@ -274,9 +274,9 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	{
 		TCHAR buf[MAX_PATH];
 		if (nFrames > 1)
-			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hInstance, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
+			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
 		else
-			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hInstance, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
+			_stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
 		imgnumstring = buf;
 	}
 
@@ -644,11 +644,11 @@ void CPicWindow::Paint(HWND hwnd)
 				inforect.right = rect.right;
 				inforect.bottom = rect.bottom;
 
-				TCHAR infostring[4096];
+				TCHAR infostring[8192];
 				if (pSecondPic)
 				{
 					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-						(TCHAR const *)ResString(hInstance, IDS_DUALIMAGEINFO),
+						(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFO),
 						pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
 						picture.GetFileSizeAsText().c_str(),
 						picture.GetWidth(), picture.GetHeight(),
@@ -664,7 +664,7 @@ void CPicWindow::Paint(HWND hwnd)
 				else
 				{
 					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-						(TCHAR const *)ResString(hInstance, IDS_IMAGEINFO),
+						(TCHAR const *)ResString(hResource, IDS_IMAGEINFO),
 						picture.GetFileSizeAsText().c_str(), 
 						picture.GetWidth(), picture.GetHeight(),
 						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
@@ -701,7 +701,7 @@ void CPicWindow::Paint(HWND hwnd)
 			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
 			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 			SIZE stringsize;
-			ResString str = ResString(hInstance, IDS_INVALIDIMAGEINFO);
+			ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
 			if (GetTextExtentPoint32(memDC, str, _tcslen(str), &stringsize))
 			{
 				int nStringLength = stringsize.cx;
@@ -736,11 +736,11 @@ bool CPicWindow::CreateButtons()
 								0, 0, 0, 0, 
 								*this,
 								(HMENU)LEFTBUTTON_ID,
-								hInstance, 
+								hResource, 
 								NULL);
 	if (hwndLeftBtn == INVALID_HANDLE_VALUE)
 		return false;
-	hLeft = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	hLeft = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndLeftBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hLeft);
 	hwndRightBtn = CreateWindowEx(0, 
 								_T("BUTTON"), 
@@ -749,11 +749,11 @@ bool CPicWindow::CreateButtons()
 								0, 0, 0, 0, 
 								*this,
 								(HMENU)RIGHTBUTTON_ID,
-								hInstance, 
+								hResource, 
 								NULL);
 	if (hwndRightBtn == INVALID_HANDLE_VALUE)
 		return false;
-	hRight = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	hRight = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndRightBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hRight);
 	hwndPlayBtn = CreateWindowEx(0, 
 								_T("BUTTON"), 
@@ -762,12 +762,12 @@ bool CPicWindow::CreateButtons()
 								0, 0, 0, 0, 
 								*this,
 								(HMENU)PLAYBUTTON_ID,
-								hInstance, 
+								hResource, 
 								NULL);
 	if (hwndPlayBtn == INVALID_HANDLE_VALUE)
 		return false;
-	hPlay = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_START), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
-	hStop = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDI_STOP), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	hPlay = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_START), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	hStop = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_STOP), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
 	return true;
 }

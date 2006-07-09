@@ -52,6 +52,7 @@ public:
 	~TortoiseBlame();
 
 	HINSTANCE hInstance;
+	HINSTANCE hResource;
 	HWND currentDialog;
 	HWND wMain;
 	HWND wEditor;

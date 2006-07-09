@@ -63,6 +63,18 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="..\bin\TortoiseMerge${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
+		<exec program="${ResTextFileName}">
+			<arg value="apply" />
+			<arg value="..\bin\${platformfolder}\bin\TortoiseBlameLang.dll" />
+			<arg value="..\bin\TortoiseBlame${langCC}.dll" />
+			<arg value="Tortoise_${langISO}.po" />
+		</exec>
+		<exec program="${ResTextFileName}">
+			<arg value="apply" />
+			<arg value="..\bin\${platformfolder}\bin\TortoiseIDiffLang.dll" />
+			<arg value="..\bin\TortoiseIDiff${langCC}.dll" />
+			<arg value="Tortoise_${langISO}.po" />
+		</exec>
 		<!-- create the files for the installer -->
 		<echo file="product.nsh">!define PRODUCT_NAME "TortoiseSVN ${langnative}"</echo>
 		<echo file="product.nsh" append="true">!define CountryCode "${langISO}"</echo>
@@ -102,6 +114,8 @@ NAnt build script for the TortoiseSVN language pack installers
 		</exec>
 		<delete file="..\bin\TortoiseProc${langCC}.dll" failonerror="false" />
 		<delete file="..\bin\TortoiseMerge${langCC}.dll" failonerror="false" />
+		<delete file="..\bin\TortoiseBlame${langCC}.dll" failonerror="false" />
+		<delete file="..\bin\TortoiseIDiff${langCC}.dll" failonerror="false" />
 		<delete file="subversion.mo" failonerror="false" />
 	</target>
 </project>

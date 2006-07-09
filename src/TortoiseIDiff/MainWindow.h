@@ -49,7 +49,7 @@ public:
 		, bShowInfo(true)
 		, bVertical(false)
 	{ 
-		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
+		SetWindowTitle((LPCTSTR)ResString(hResource, IDS_APP_TITLE));
 	};
 
 	/**

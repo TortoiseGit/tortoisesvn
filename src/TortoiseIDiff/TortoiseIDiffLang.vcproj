@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="TortoiseProcLang"
-	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
+	Name="TortoiseIDiffLang"
+	ProjectGUID="{56016512-D578-46FD-85E0-9EDCD37433AC}"
 	RootNamespace="TortoiseProcLang"
 	Keyword="Win32Proj"
 	>
@@ -199,7 +199,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\TortoiseProc\resource.h"
+				RelativePath=".\resource.h"
 				>
 			</File>
 		</Filter>
@@ -209,138 +209,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath="..\Resources\cancel-normal.bmp"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\cancel-pressed.bmp"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\dialogs.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\Drives.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\extwarning.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\general.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\iconset.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\logfilter.bmp"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\logfilter.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\lookandfeel.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\misc.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\Overlays.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\proxy.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\ssh.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\Tortoise.ico"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\TortoiseProcENG.rc"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\tortoisesvn_logoflipped.bmp"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\ttf_glyph.bmp"
+				RelativePath=".\TortoiseIDiff.rc"
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath="..\Resources\bin167.avi"
-			>
-		</File>
-		<File
-			RelativePath="..\Languages\res\bin167.avi"
-			>
-		</File>
-		<File
-			RelativePath="..\Resources\bin168.avi"
-			>
-		</File>
-		<File
-			RelativePath="..\Languages\res\bin168.avi"
-			>
-		</File>
-		<File
-			RelativePath="..\Resources\search.avi"
-			>
-		</File>
-		<File
-			RelativePath="..\Resources\TortoiseProc.manifest"
-			>
-			<FileConfiguration
-				Name="Release|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release|x64"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-		</File>
-		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest"
-			>
-			<FileConfiguration
-				Name="Release|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release|x64"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-		</File>
 	</Files>
 	<Globals>
 		<Global

@@ -60,6 +60,8 @@ Section "Hauptgruppe" SEC01
   File /nonfatal "..\..\Common\Spell_Thes\th_${CountryCode}*.*"
   !insertmacro UpgradeDLL "..\bin\TortoiseProc${CountryID}.dll" "$INSTDIR\TortoiseProc${CountryID}.dll" "$INSTDIR"
   !insertmacro UpgradeDLL "..\bin\TortoiseMerge${CountryID}.dll" "$INSTDIR\TortoiseMerge${CountryID}.dll" "$INSTDIR"
+  !insertmacro UpgradeDLL "..\bin\TortoiseBlame${CountryID}.dll" "$INSTDIR\TortoiseBlame${CountryID}.dll" "$INSTDIR"
+  !insertmacro UpgradeDLL "..\bin\TortoiseIDiff${CountryID}.dll" "$INSTDIR\TortoiseIDiff${CountryID}.dll" "$INSTDIR"
 !ifdef MoFile
   StrCpy $INSTDIR "$0Languages\${CountryCode}\LC_MESSAGES"
   SetOutPath "$INSTDIR"
