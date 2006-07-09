@@ -783,9 +783,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	app.SendEditor(SCI_SETCODEPAGE, GetACP());
-	app.OpenLogFile(logfile);
+	app.OpenFile(blamefile);
 	if (_tcslen(logfile)>0)
-		app.OpenFile(blamefile);
+		app.OpenLogFile(logfile);
 
 	if (parser.HasKey(_T("line")))
 	{
