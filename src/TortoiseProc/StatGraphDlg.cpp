@@ -422,10 +422,10 @@ void CStatGraphDlg::ShowCommitsByDate()
 			{
 			case Weeks:
 			case Months:
-				temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
+				temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
 				break;
 			case Quarters:
-				temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, time.GetYear()%100);
+				temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, lasttime.GetYear()%100);
 				break;
 			case Years:
 				temp.Format(_T("%d"), unit);
