@@ -889,6 +889,8 @@ void CLogPromptDlg::OnTimer(UINT_PTR nIDEvent)
 
 void CLogPromptDlg::OnBnClickedHistory()
 {
+	if (m_pathList.GetCount() == 0)
+		return;
 	SVN svn;
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_pathList[0]));
