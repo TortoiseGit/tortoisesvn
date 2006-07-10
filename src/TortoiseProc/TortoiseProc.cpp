@@ -2289,13 +2289,15 @@ void CTortoiseProcApp::CheckUpgrade()
 		if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
 		{
 			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
-			if (((CString)diffreg).IsEmpty())
+			CString diffregstring = diffreg;
+			if ((diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
 				diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
 		}
 		if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
 		{
 			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+ext);
-			if (((CString)diffreg).IsEmpty())
+			CString diffregstring = diffreg;
+			if ((diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
 				diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
 		}
 	}
