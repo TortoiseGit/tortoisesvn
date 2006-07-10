@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6960: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 6986: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-05 19:41+0300\n"
+"PO-Revision-Date: 2006-07-10 16:07+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,11 @@ msgstr "%I64d кБайт передано"
 msgid "%d files selected, %d files total"
 msgstr "%d файлов выбрано, %d файлов всего"
 
+#: ID:7
+#, c-format
+msgid "%ld of % ld"
+msgstr "%ld из % ld"
+
 #: ID:563
 #, c-format
 msgid "%ld paths"
@@ -187,6 +192,43 @@ msgid ""
 msgstr ""
 "%s\n"
 "Вы действительно хотите это удалить?"
+
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Размер файла:\t\t\t%s\n"
+"Ширина:\t\t\t\t\t%ld пиксел(ов)\n"
+"Высота:\t\t\t\t\t%ld пиксел(ов)\n"
+"Разреш. по горизонтали:\t%.1f dpi\n"
+"Разреш. по вертикали:\t%.1f dpi\n"
+"Глубина цвета:\t\t\t%d бит\n"
+"Увеличение:\t\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Размер файла:\t\t\t%s\n"
+"Ширина:\t\t\t\t\t%ld пиксел(ов)\n"
+"Высота:\t\t\t\t\t%ld пиксел(ов)\n"
+"Разреш. по горизонтали:\t%.1f dpi\n"
+"Разреш. по вертикали:\t%.1f dpi\n"
+"Глубина цвета:\t\t\t%d бит"
 
 #: ID:69
 #, c-format
@@ -295,6 +337,10 @@ msgstr "&Преобразовывать файлы при сравнении с 
 msgid "&Copy"
 msgstr "Копи&ровать"
 
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Копировать в буфер обмена"
+
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Копировать в..."
@@ -369,6 +415,14 @@ msgstr "&Файл"
 msgid "&Find"
 msgstr "&Найти"
 
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Найти..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "Вписать картинки в &окно"
+
 #: Control-ID:1050
 msgid "&Fixed drives"
 msgstr "&Жесткие диски"
@@ -393,6 +447,10 @@ msgstr "&Из рабочей копии со следующим URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Начиная с ревизии"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "Перейти к &строке..."
 
 #: Control-ID:1115
 #: Control-ID:1032
@@ -435,6 +493,10 @@ msgstr "Игнорировать %d &элементов"
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
 msgstr "Игнорировать изменения &непечатаемых знаков"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "Информация о &картинке"
 
 #: ID:9
 msgid "&Import..."
@@ -501,14 +563,17 @@ msgstr "&Следующее различие"
 msgid "&OK"
 msgstr "O&K"
 
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Открыть"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Открыть\tCtrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "Разместить с &перекрытием "
 
 #: Control-ID:65535
 msgid "&Password:"
@@ -735,6 +800,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1102,6 +1169,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Вы действительно хотите убрать изменения в %d элементе(ах)? Вы потеряете <b>все</b> изменения с момента последнего обновления!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "Выстроить по &вертикали"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Выстраивать по &пути"
 
@@ -1127,6 +1198,7 @@ msgstr "Данные аутентификации"
 
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Автор"
 
@@ -1827,6 +1899,7 @@ msgstr ""
 
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Дата"
 
@@ -2258,6 +2331,25 @@ msgstr "Файловые различия"
 msgid "File patches"
 msgstr "Заплатки файла"
 
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Размер файла:\t\t\t%s\n"
+"Ширина:\t\t\t\t\t%ld пиксел(ов)\n"
+"Высота:\t\t\t\t\t%ld пиксел(ов)\n"
+"Разреш. по горизонтали:\t%.1f dpi\n"
+"Разреш. по вертикали:\t%.1f dpi\n"
+"Глубина цвета:\t\t\t%d бит\n"
+"Увеличение:\t\t\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Найти"
@@ -2365,6 +2457,10 @@ msgstr "Получение объединённого файла различи�
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "Шаблоны &исключений:"
+
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Перейти к строке"
 
 #: ID:2051
 msgid ""
@@ -2735,9 +2831,21 @@ msgstr "Наименее активный автор:"
 msgid "Left View: "
 msgstr "Вид слева:"
 
+#: Control-ID:65535
+msgid "Left image"
+msgstr "Левая картинка"
+
+#: ID:19
+msgid "Line"
+msgstr "Строка"
+
 #: ID:246
 msgid "Line Graph"
 msgstr "График"
+
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Строка:"
 
 #: ID:3605
 msgid ""
@@ -2746,6 +2854,10 @@ msgid ""
 msgstr ""
 "Показать разделы справки\n"
 "Разделы справки"
+
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Загрузить картинки"
 
 #: ID:63
 msgid "Local status"
@@ -3040,7 +3152,7 @@ msgid ""
 msgstr ""
 "Не задана команда!\n"
 "<hr=100%>\n"
-"TortoiseProc.exe используется Shell-расширением и не должна вызываться напрямую!"
+"TortoiseProc.exe используется расширением оболочки и не должна вызываться напрямую!"
 
 #: ID:81
 msgid "No command value specified!"
@@ -3198,6 +3310,10 @@ msgstr "Открыть файл клиентского сертификата"
 msgid "Open file"
 msgstr "Открыть файл"
 
+#: ID:7
+msgid "Open image file..."
+msgstr "Открыть файл картинки..."
+
 #: ID:282
 msgid "Open parent folder"
 msgstr "Открыть родительскую папку"
@@ -3217,6 +3333,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Открывает обозреватель хранилища для оперативной работы с хранилищем"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Исходный &размер"
 
 #: ID:245
 msgid "Others"
@@ -3729,6 +3849,7 @@ msgstr "Убирает все изменения, которые вы сдела
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Ревизия"
 
@@ -3801,6 +3922,10 @@ msgstr "Ревизии"
 #: ID:188
 msgid "Right View: "
 msgstr "Вид справа:"
+
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Правая картинка"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -3958,6 +4083,10 @@ msgstr "Найти в &лог-сообщениях..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "Что искать:"
+
+#: ID:7
+msgid "Search string not found!"
+msgstr "Искомая строка не найдена!"
 
 # Может, "Поиск по %1 не удался"?
 #: ID:3867
@@ -4433,6 +4562,14 @@ msgstr "Системные &звуки"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Все компоненты реестра и INI-файлы (если были) удалены."
 
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -4540,6 +4677,10 @@ msgstr ""
 "%s\n"
 "не существует.\n"
 "Вы хотите сначала создать ее?"
+
+#: ID:7
+msgid "The image can not be shown."
+msgstr "Не могу показать картинку."
 
 #: ID:63
 #, c-format
@@ -4805,6 +4946,40 @@ msgstr "По:"
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "До: (конечные URL и ревизия в ряду для слияния)"
+
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame не может быть запущена без параметров!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: программа для просмотра различий в картинках для TortoiseSVN\n"
+"\n"
+"Доступные параметры команндной строки:\n"
+"/left:\"путь до левой картинки\"\n"
+"/lefttitle:\"заголовок для левой картинки\"\n"
+"/right:\"путь до правой картинки\"\n"
+"/righttitle:\"заголовок для правой картинки\""
 
 #: ID:7
 #: ID:3585
@@ -5412,6 +5587,10 @@ msgstr ""
 "соотвествовать той ревизии до которой вы обновляетесь!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "У&меньшить"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Уве&личить\tCtrl-+"
 
@@ -5423,6 +5602,10 @@ msgstr "Уме&ньшить\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Реальный размер"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "У&величить"
 
 #: ID:2049
 msgid "Zoom in"
