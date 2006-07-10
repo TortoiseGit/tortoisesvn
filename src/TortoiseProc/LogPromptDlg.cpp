@@ -198,6 +198,7 @@ void CLogPromptDlg::OnOK()
 		return;
 	if (m_bThreadRunning)
 	{
+		m_bCancelled = true;
 		InterlockedExchange(&m_bRunThread, FALSE);
 		WaitForSingleObject(m_pThread->m_hThread, 1000);
 		if (m_bThreadRunning)
