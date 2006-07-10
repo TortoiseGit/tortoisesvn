@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-07-09 12:55+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2006-07-10 09:50+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,7 +194,7 @@ msgid ""
 "Depth:\t\t\t%d bit"
 msgstr ""
 "%s\n"
-"Dateigrösse:\t\t%s\n"
+"Dateigröße:\t\t%s\n"
 "Breite:\t\t\t%ld pixel\n"
 "Höhe:\t\t\t%ld pixel\n"
 "Horizontale Auflösung:\t%.1f dpi\n"
@@ -203,7 +203,7 @@ msgstr ""
 "Zoom:\t\t\t%d%%\n"
 "\n"
 "%s\n"
-"Dateigrösse:\t\t%s\n"
+"Dateigröße:\t\t%s\n"
 "Breite:\t\t\t%ld pixel\n"
 "Höhe:\t\t\t%ld pixel\n"
 "Horizontale Auflösung:\t%.1f dpi\n"
@@ -396,13 +396,12 @@ msgid "&Find"
 msgstr "&Suchen"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Find..."
-msgstr "&Suchen"
+msgstr "&Suchen..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr "&Passe Bilder ins Fenster"
+msgstr "In &Fenster einpassen"
 
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -431,7 +430,7 @@ msgstr "&Von Revision:"
 
 #: MenuEntry
 msgid "&Goto Line..."
-msgstr "&Gehe zu Linie..."
+msgstr "&Gehe zu Zeile..."
 
 #: Control-ID:1115
 #: Control-ID:1032
@@ -554,7 +553,7 @@ msgstr "&Öffnen Strg-O"
 
 #: MenuEntry
 msgid "&Overlap images"
-msgstr "&Ueberlagere Bilder"
+msgstr "&Überlagere Bilder"
 
 #: Control-ID:65535
 msgid "&Password:"
@@ -1153,7 +1152,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "Arrange &Vertical"
-msgstr "&Vertikale Ausrichtung"
+msgstr "&Vertikal ausrichten"
 
 #: MenuEntry
 msgid "Arranged by &path"
@@ -2334,7 +2333,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Dateigrösse:\t\t%s\n"
+"Dateigröße:\t\t%s\n"
 "Breite:\t\t\t%ld pixel\n"
 "Höhe:\t\t\t%ld pixel\n"
 "Horizontale Auflösung:\t%.1f dpi\n"
@@ -2361,7 +2360,7 @@ msgstr "Fertig!"
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "Drücken Sie F1 für Hilfe. Horizontal verschieben mit Strg+Mausrad."
+msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 
 #: Control-ID:1200
 msgid "From:"
@@ -2454,7 +2453,7 @@ msgstr "Globale &Ignoriermuster:"
 # Dlg-ID:130,
 #: Dlg-ID:130
 msgid "Go to line"
-msgstr "Gehe zu Linie"
+msgstr "Gehe zu Zeile"
 
 #: ID:2051
 msgid ""
@@ -2849,7 +2848,7 @@ msgstr "Linkes Bild"
 
 #: ID:19
 msgid "Line"
-msgstr "Linie"
+msgstr "Zeile"
 
 #: ID:246
 msgid "Line Graph"
@@ -2857,7 +2856,7 @@ msgstr "Liniendiagramm"
 
 #: Control-ID:65535
 msgid "Line:"
-msgstr "Linie:"
+msgstr "Zeile:"
 
 #: ID:3605
 msgid ""
@@ -3348,7 +3347,7 @@ msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr "Ori&ginale Grösse"
+msgstr "Ori&ginalgröße"
 
 #: ID:245
 msgid "Others"
@@ -4096,7 +4095,7 @@ msgstr "Suche nach:"
 # ID:7,
 #: ID:7
 msgid "Search string not found!"
-msgstr "Such-String nicht gefunden!"
+msgstr "Suchtext nicht gefunden!"
 
 #: ID:3867
 #, c-format
@@ -4979,7 +4978,6 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "Bis: (End-URL und Revision des zusammenzuführenden Bereichs)"
 
 #: ID:7
-#, fuzzy
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
@@ -4990,7 +4988,7 @@ msgid ""
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
 msgstr ""
 "TortoiseBlame kann nicht direkt gestartet werden!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe Blamedatei [[Logdatei] [Titel]] [/line:Zeilennummer]"
 
 #: ID:7
 msgid "TortoiseIDiff"
@@ -5623,7 +5621,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "Zoo&m out"
-msgstr "Zoo&m out"
+msgstr "Ver&kleinern"
 
 #: MenuEntry
 msgid "Zoom &in\tCtrl-+"
@@ -5637,11 +5635,11 @@ msgstr "Ver&kleinern\tCtrl--"
 #: ID:2051
 #, c-format
 msgid "Zoom 100%"
-msgstr "Zoom 100%"
+msgstr "Ansicht 100%"
 
 #: MenuEntry
 msgid "Zoom i&n"
-msgstr "Zoom i&n"
+msgstr "Ver&größern"
 
 #: ID:2049
 msgid "Zoom in"
