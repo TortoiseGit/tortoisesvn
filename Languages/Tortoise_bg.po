@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-06-24 16:41+0200\n"
+"PO-Revision-Date: 2006-07-10 19:12+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -174,6 +174,12 @@ msgstr "%I64d килобайта прехвърлени"
 msgid "%d files selected, %d files total"
 msgstr "%d файла маркирани, %d файла общо"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of % ld"
+msgstr "%ld от % ld"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -231,6 +237,44 @@ msgid ""
 msgstr ""
 "%s\n"
 "Желаете ли да го премахнете все пак?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Размер на файла:\t\t\t%s\n"
+"Ширина:\t\t\t%ld пиксела\n"
+"Височина:\t\t\t%ld пиксела\n"
+"Хоризонтална разделителна способност:\t%.1f точки на инч\n"
+"Вертикална разделителна способност:\t\t%.1f точки на инч\n"
+"Дълбочина:\t\t\t%d бита\n"
+"Мащаб:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Размер на файла:\t\t\t%s\n"
+"Ширина:\t\t\t%ld пиксела\n"
+"Височина:\t\t\t%ld пиксела\n"
+"Хоризонтална разделителна способност:\t%.1f точки на инч\n"
+"Вертикална разделителна способност:\t\t%.1f точки на инч\n"
+"Дълбочина:\t\t\t%d бита"
 
 # ID:69,
 #: ID:69
@@ -362,6 +406,11 @@ msgid "&Copy"
 msgstr "&Копиране"
 
 # ID:101,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Копиране в системния буфер"
+
+# ID:101,
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Копиране в..."
@@ -454,6 +503,14 @@ msgstr "&Файл"
 msgid "&Find"
 msgstr "&Търсене"
 
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Търсене..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Напасване на картинката в прозореца"
+
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -484,6 +541,10 @@ msgstr "&От работното копие към URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&От ревизия"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "&Преход до ред"
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -541,6 +602,10 @@ msgstr "&Добавяне в списъка за игнориране на %d о
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
 msgstr "&Игнориране на промените в празните символи"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "&Информация за картинката"
 
 # ID:9,
 #: ID:9
@@ -625,14 +690,17 @@ msgstr "&OK"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Отваряне"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Отваряне Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "&Припокриване на картинките"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -709,7 +777,7 @@ msgstr "&Запис Ctrl-S"
 # ID:101,
 #: MenuEntry
 msgid "&Save Graph As..."
-msgstr "&Запис на графиката като..."
+msgstr "&Запис на диаграмата като..."
 
 # Control-ID:1023,#:
 # Control-ID:1023,
@@ -926,6 +994,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1383,6 +1453,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Сигурни ли сте, че желаете да отмените промените в %d обект(а)? Ще загубите <b>всички</b> промени от последното обновяване насам!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "&Вертикално подреждане"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Подреждане според &пътя"
 
@@ -1412,6 +1486,7 @@ msgstr "Удостоверения"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Автор"
 
@@ -1482,6 +1557,11 @@ msgstr "Средно"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "И&збор..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Лентова ревизиите"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2257,6 +2337,7 @@ msgstr ""
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Дата"
 
@@ -2787,6 +2868,26 @@ msgstr "Файлове с разлики"
 msgid "File patches"
 msgstr "Файлове с кръпки"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Размер на файла:\t\t\t%s\n"
+"Ширина:\t\t\t%ld пиксела\n"
+"Височина:\t\t\t%ld пиксела\n"
+"Хоризонтална разделителна способност:\t%.1f точки на инч\n"
+"Вертикална разделителна способност:\t\t%.1f точки на инч\n"
+"Дълбочина:\t\t\t%d бита\n"
+"Мащаб:\t\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Търсене"
@@ -2837,7 +2938,7 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
-"За запис на графика на ревизиите като изображение, е нужен GDI+.\n"
+"За запис на диаграмата на ревизиите като изображение, е нужен GDI+.\n"
 "GDI+ може да изтеглите от\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
@@ -2913,6 +3014,11 @@ msgstr "Получаване на Unified Diff"
 msgid "Global ignore &pattern:"
 msgstr "Глобален &шаблон за игнориране:"
 
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Преход до ред"
+
 # ID:2049,
 #: ID:2051
 msgid ""
@@ -2952,7 +3058,7 @@ msgstr ""
 # Control-ID:1134,
 #: Control-ID:1134
 msgid "Graph type:"
-msgstr "Тип на графиката:"
+msgstr "Тип на диаграмата:"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -3336,6 +3442,26 @@ msgstr "Най-малко активен автор:"
 msgid "Left View: "
 msgstr "Изглед вляво:"
 
+# ID:188,
+#: Control-ID:65535
+msgid "Left image"
+msgstr "Лява картинка"
+
+# Dlg-ID:143,
+#: ID:19
+msgid "Line"
+msgstr "Ред"
+
+# ID:75,
+#: ID:246
+msgid "Line Graph"
+msgstr "Линейна диаграма"
+
+# Dlg-ID:143,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Ред:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3344,6 +3470,11 @@ msgid ""
 msgstr ""
 "Изброява темите в системната помощ\n"
 "Помощни теми"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Зареждане на картинките"
 
 # ID:63,
 #: ID:63
@@ -3764,7 +3895,7 @@ msgstr ""
 # ID:3843,
 #: ID:273
 msgid "No graph available"
-msgstr "Не бе получена графика"
+msgstr "Няма налична диаграма"
 
 # ID:273,
 #: ID:273
@@ -3901,6 +4032,11 @@ msgstr "Отваряне на файл с клиентски сертифика�
 msgid "Open file"
 msgstr "Отваряне на файл"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "Отваряне на файл с картинка..."
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3924,6 +4060,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Отваря програмата за разглеждане на хранилища, за да се донастрои хранилището в движение"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "&Оригинален размер"
 
 # ID:188,
 #: ID:245
@@ -3991,6 +4131,11 @@ msgstr "Пътища"
 #: ID:157
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Изображения (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Всички (*.*)|*.*||"
+
+# ID:75,
+#: ID:246
+msgid "Pie Graph"
+msgstr "Кръгова диаграма"
 
 # ID:3858,#:
 # ID:3858,
@@ -4206,6 +4351,12 @@ msgstr "&Изчакване в секунди:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Настройки на proxy сървъра"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Т%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -4553,6 +4704,7 @@ msgstr "Отменя всички промени, които сте направ
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Ревизия"
 
@@ -4579,7 +4731,7 @@ msgstr "Ревизия %s"
 # ID:75,
 #: ID:15
 msgid "Revision &graph"
-msgstr "&Графика на ревизиите"
+msgstr "&Диаграма на ревизиите"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4589,7 +4741,7 @@ msgstr "Ревизия / Автор:"
 # ID:75,
 #: Dlg-ID:182
 msgid "Revision Graph"
-msgstr "Графика на ревизиите"
+msgstr "Диаграма на ревизиите"
 
 # ID:75,
 #: Dlg-ID:228
@@ -4600,7 +4752,7 @@ msgstr "Обхват от ревизии"
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
-msgstr "Графика на ревизиите"
+msgstr "Диаграма на ревизиите"
 
 # ID:75,
 #: ID:75
@@ -4638,6 +4790,11 @@ msgstr "Ревизии"
 #: ID:188
 msgid "Right View: "
 msgstr "Изглед вдясно:"
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Дясна картинка"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4777,7 +4934,7 @@ msgstr "Запис на пътя до клиентски сертификат"
 # ID:101,
 #: ID:272
 msgid "Save graph as..."
-msgstr "Запис на графика като..."
+msgstr "Запис на диаграмата като..."
 
 # ID:76,
 #: ID:76
@@ -4839,6 +4996,11 @@ msgstr "&Търсене в дневника..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "Търсене за:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "Търсеният низ не е намерен!"
 
 # ID:3867,#:
 # ID:3867,
@@ -5133,12 +5295,12 @@ msgstr "Показване на %ld възела"
 #: ID:272
 #, c-format
 msgid "Showing graph for %s"
-msgstr "Графика за %s"
+msgstr "Диаграма за %s"
 
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
-msgstr "Показване на графично представяне на копията/етикетите/разклоненията"
+msgstr "Графично представяне на копията/етикетите/разклоненията"
 
 # ID:13,
 #: ID:13
@@ -5224,6 +5386,16 @@ msgid ""
 msgstr ""
 "Разделяне на активния прозорец на пана\n"
 "Разделяне"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Диаграма с насложени ленти"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Диаграма с насложени линии"
 
 # ID:11,
 #: Control-ID:65535
@@ -5402,6 +5574,16 @@ msgstr "Системни &звуци"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Записи в системният регистър са били премахнати и INI файлът (ако е съществувал) е бил изтрит."
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5525,6 +5707,11 @@ msgstr ""
 "%s\n"
 "не съществува.\n"
 "Бихте ли желали първо да бъде създадена?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "Картинката не може да бъде показана."
 
 # ID:63,
 #: ID:63
@@ -5828,6 +6015,46 @@ msgstr "До:"
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "До: (краен URL и ревизия на обхвата за сливане)"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame не може да бъде стартирана директно!\n"
+"TortoiseBlame.exe файл_с_отговорните [[файл–дневник] [заглавие]] [/line:номер_на_ред]"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: програма за сравняване на картинки за TortoiseSVN\n"
+"\n"
+"Наличните параметри на командния ред са:\n"
+"/left:\"път до лявата картинка\"\n"
+"/lefttitle:\"заглавие за лявата картинка\"\n"
+"/right:\"път до дясната картинка\"\n"
+"/righttitle:\"заглавие за дясната картинка\""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6551,6 +6778,10 @@ msgstr ""
 "ето защо то няма да изглежда точно като е било в ревизията, до която го обновявате!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "С&маляване"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "&Увеличаване\tCtrl-+"
 
@@ -6563,6 +6794,10 @@ msgstr "С&маляване\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Мащаб 100%"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "&Увеличаване"
 
 #: ID:2049
 msgid "Zoom in"
