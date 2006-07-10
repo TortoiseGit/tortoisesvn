@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-01 16:37+0100\n"
+"PO-Revision-Date: 2006-07-10 23:56+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -155,6 +155,12 @@ msgstr "%I64d kB preneseno"
 msgid "%d files selected, %d files total"
 msgstr "%d datoteka označeno, %d datoteka ukupno"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of % ld"
+msgstr "%ld od % ld"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -213,6 +219,44 @@ msgstr ""
 "%s\n"
 "Da li to ipak želite ukloniti?"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita"
+
 # ID:69,
 #: ID:69
 #, c-format
@@ -235,9 +279,8 @@ msgstr "&O programu TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Dodaj..."
 
@@ -345,6 +388,11 @@ msgstr "&Pretvorite datoteke dok uspoređujete s BASE (osnovom)"
 msgid "&Copy"
 msgstr "&Kopiraj"
 
+# ID:257,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Kopiraj u međuspremnik"
+
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
@@ -398,8 +446,8 @@ msgid "&Edit conflicts"
 msgstr "&Uredi sporne razlike"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Izmijeni..."
 
@@ -433,6 +481,14 @@ msgstr "&Datoteka"
 msgid "&Find"
 msgstr "&Pronađi"
 
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Pronađi..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Uklopi sliku u okvir"
+
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -463,6 +519,10 @@ msgstr "&Iz RK prema URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Od revizije"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "&Nađi liniju..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -521,6 +581,10 @@ msgstr "&Zanemari %d stavke(aka)"
 msgid "&Ignore whitespace changes"
 msgstr "&Zanemari promjene praznina"
 
+#: MenuEntry
+msgid "&Image Info"
+msgstr "&O slici"
+
 # ID:9,
 #: ID:9
 msgid "&Import..."
@@ -536,10 +600,20 @@ msgstr "&Skoči na prvu razliku prilikom učitavanja"
 msgid "&Language:"
 msgstr "&Jezik:"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Traži samo u izmijenjenim linijama"
+
 # Control-ID:1172,
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&Pogled popisa"
+
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Učitaj..."
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -593,14 +667,17 @@ msgstr "&U redu"
 
 # ID:101,#:
 # ID:113,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Otvori"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Otvori Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "&Preklopi slike"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -635,7 +712,6 @@ msgstr "&Ponovi"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -645,6 +721,11 @@ msgstr "&Ukloni"
 #: ID:101
 msgid "&Rename"
 msgstr "&Promijeni ime"
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "&Preglednik skladišta"
 
 # ID:113,
 #: ID:113
@@ -678,10 +759,10 @@ msgstr "&Snimi graf kao..."
 msgid "&Save authentication"
 msgstr "&Snimi autentikaciju"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Postavi"
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Snimi..."
 
 # ID:9,#:
 # ID:107,
@@ -833,6 +914,13 @@ msgstr "&Razmaci"
 msgid "&Working copy"
 msgstr "&Radna kopija"
 
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(binarna vrijednost)"
+
 # Control-ID:1061,
 #: ID:219
 msgid "(dry run)"
@@ -878,6 +966,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -896,37 +986,6 @@ msgstr ": radna osnova"
 #: ID:151
 msgid ": working copy"
 msgstr ": radna kopija"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
-msgstr ""
-"<b>PAŽNJA:</b>\n"
-"Naredba \"Premjesti\" se koristi samo ako je osnovni URL skladišta promijenjen radi izmjene IP adrese poslužitelja ili protokola (npr. http:// u https://) ili promjene osnovne staze skladišta na poslužitelju.\n"
-"<b>Ovo je rijetko korištena operacija</b> i ne koristi se niti kada želite promijeniti Subversion skladište niti prilikom promjene grana ili direktorija <b>unutar istog skladišta</b>.\n"
-"Ako želite promijeniti Subversion skladište napravite novo preuzimanje s novog mjesta skladišta.\n"
-"Za povezati radnu kopiju s drugom granom ili drugim direktorijem\n"
-"unutar istog skladišta, koristite naredbu \"Prebaci\" iz glavnog izbornika\n"
-"\n"
-"Neodgovarajuće korištena naredba Premjesti <b>će oštetiti Vašu radnu kopiju!</b>\n"
-"Ako niste sigurni da li je naredba Premjesti odgovarajuća, vjerojatno nije.\n"
-"Trebali biste detaljnije pročitati <b>Pomoć</b>."
 
 # kontekstni? postoji li što bolje za context menu?
 # ID:145,
@@ -1087,6 +1146,12 @@ msgstr "Dodaj '%s' u rječnik"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Dodaj (kao zamjenu)..."
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "Dodaj svojstva"
 
 # ID:110,
 #: ID:110
@@ -1367,6 +1432,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Jeste li sigurni da želite vratiti na staro %d stavki? Izgubiti ćete <b>sve</b> izmjene!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "Posloži &okomito"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Razvrstano po &stazi"
 
@@ -1394,6 +1463,7 @@ msgstr "Podaci o autentikaciji"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Autor"
 
@@ -1416,6 +1486,11 @@ msgstr "Autori bez obzira na veličinu slova"
 #: Control-ID:65535
 msgid "Authors:"
 msgstr "Autori:"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "Automatski zatvori za lokalne operacije"
 
 # Control-ID:1123,
 #: ID:222
@@ -1461,6 +1536,11 @@ msgstr "Prosjek"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "P&retraži..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Stupčasti dijagram"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1733,6 +1813,11 @@ msgstr "Preuzmi"
 msgid "Checkout &directory:"
 msgstr "Preuzmi &direktorij:"
 
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Čišćenje."
+
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
@@ -1853,8 +1938,8 @@ msgstr "Pohranjivanja prema autorima"
 
 # ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "Pohranjivanja po tjednima"
+msgid "Commits by date"
+msgstr "Pohranjivanja prema datumu"
 
 # Control-ID:1135,
 #: Control-ID:1135
@@ -1873,8 +1958,9 @@ msgstr "Usporedi &glavne (HEAD) revizije"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Usporedi s radnom kopijom i &okrivi"
+#, fuzzy
+msgid "Compare and &blame with working BASE"
+msgstr "Usporedi s radnom osnovom (<i>base</i>) i &okrivi"
 
 # ID:76,
 #: ID:76
@@ -1972,6 +2058,11 @@ msgid "Copy URL to clipboard"
 msgstr "Kopiraj URL u međuspremnik"
 
 # ID:257,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Kopiraj sve informacije u međuspremnik"
+
+# ID:257,
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Kopiraj poruku greške u međuspremnik"
@@ -1980,6 +2071,11 @@ msgstr "Kopiraj poruku greške u međuspremnik"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopija sa staze"
+
+# ID:257,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Kopiraj staze u međuspremnik"
 
 # ID:3603,
 #: ID:3603
@@ -2222,6 +2318,7 @@ msgstr ""
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Datum"
 
@@ -2446,7 +2543,7 @@ msgstr "Izmijeni"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Uredi svojstva"
@@ -2754,6 +2851,30 @@ msgstr "Razlike datoteka"
 msgid "File patches"
 msgstr "Zakrpe datoteke"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita\n"
+"Zoom:\t\t\t%d%%"
+
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Pronađi"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2770,8 +2891,8 @@ msgstr "Gotov!"
 
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Za pomoć, pritisni F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Za pomoć pritisni F1. Pomiči vodoravno pomoću kotačića miša uz tipku Ctrl"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -2821,6 +2942,19 @@ msgstr "Izrađujem datoteku zakrpa..."
 msgid "Get loc&k..."
 msgstr "Pribavi lo&kot..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Zaključavanje datoteka bez 'svn:needs-lock' svojstva  <b>neće</b> spriječiti ostale da ih mijenjaju u svojim radnim kopijama.\n"
+"Ako želite omogućiti strogo zaključavanje dodajte 'svn:needs-lock' svojstvo na sve takve datoteke i pohranite izmjene.\n"
+"Takve datoteke će imati oznake 'samo za čitanje', a tek zaključavanje će omogućiti izmjene.\n"
+"Primjetite da će ostali korisnici imati datoteke 'samo za čitanje' nakon obnavljanja svojih radnih kopija."
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2862,6 +2996,11 @@ msgstr "Dohvaćanje popisa objedinjenih razlika"
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "Glob. &uzorak izostavljanja:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Idi na liniju"
 
 # ID:2051,
 #: ID:2051
@@ -2914,6 +3053,15 @@ msgstr "S&akrij nepovezane promijenjene staze"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Pomoć"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Sakrij/pokaži popis zakrpa\n"
+"Sakriva ili pokazuje popis datoteka zakrpa"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -3012,6 +3160,15 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Ako je postavljeno, datoteke izvan sustava verzija će označiti mapu izmjenjenom\n"
+"tj. mape će dobiti odgovarajuću prekrivnu ikonu (izmijenjena mapa)."
+
+# ID:196,
+#: ID:196
+msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
 "If you're not sure about this, then please read the docs.\n"
@@ -3088,10 +3245,10 @@ msgstr "Uključi staze:"
 msgid "Initial import"
 msgstr "Početni uvoz"
 
-# Control-ID:65535,
+# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Linija razlika s prazninama"
+msgid "Inline diff"
+msgstr "&Objedinjena razlika"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3213,6 +3370,34 @@ msgstr ""
 "Na primjer, ne možete promijeniti MojaDatoteka.txt u MOJADATOTEKA.txt.\n"
 "Molim, pregledajte dokumentaciju kako biste našli način da zaobiđete ovo ograničenje."
 
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Čini se da ste pokušali izmjestiti (<b>Premjesti</b>) radnu kopiju na različitu stazu unutar istog skladišta.\n"
+"\n"
+"Od: %s\n"
+"Na: %s\n"
+"\n"
+"Ovo je potrebno samo ako je staza do skladišta promijenjena.\n"
+"Za promijenu staze unutar istog skladišta koristite naredbu Zamijeni.\n"
+"\n"
+"Neodgovarajuća upotreba naredbe Premjesti <b>može razdesiti radnu kopiju!</b>\n"
+"Ako niste sigurni što učiniti, molim pogledajte dokumentaciju za naredbu Premjesti (engl. <i>relocate</i>).\n"
+"Da li stvarno želite izmjesiti radnu kopiju?"
+
 # Control-ID:1203,
 #: Control-ID:1203
 msgid "Keep &locks"
@@ -3243,10 +3428,30 @@ msgstr "Najmanje aktivan autor:"
 msgid "Left View: "
 msgstr "Lijevi pogled:"
 
-# Control-ID:65535,
+# ID:188,
 #: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Linija s razlikama u prazninama"
+msgid "Left image"
+msgstr "Lijeva slika"
+
+# Ovdje je Min umjesto Najmanje zato što na formi sa statistikama "Najmanje" ne stane.
+# Control-ID:1158,
+#: ID:19
+msgid "Line"
+msgstr "Linija"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: ID:246
+#, fuzzy
+msgid "Line Graph"
+msgstr "Graf revizija"
+
+# Ovdje je Min umjesto Najmanje zato što na formi sa statistikama "Najmanje" ne stane.
+# Control-ID:1158,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Linija:"
 
 # ID:3605,
 #: ID:3605
@@ -3256,6 +3461,11 @@ msgid ""
 msgstr ""
 "Prikaži sadržaj pomoći\n"
 "Sadržaj pomoći"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Učitaj slike"
 
 # ID:63,
 #: ID:63
@@ -3425,6 +3635,11 @@ msgstr ""
 "Označava datoteku kao razriješenu u Subversionu\n"
 "Označi kao razriješeno"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr "Pazi na &velika/mala slova"
+
 # Ovdje je Maksimum a ne Najviše zato što se Min prevodi s Minimum (nema mjesta za Najmanje)
 # Control-ID:1159,
 #: Control-ID:1159
@@ -3564,6 +3779,11 @@ msgstr "&Sljedeći sukob"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr "Zahtijeva lokot"
 
 # ID:73,
 #: ID:210
@@ -3753,6 +3973,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Izostavi va&njske"
@@ -3768,6 +3989,7 @@ msgid "One or more files are in a conflicted state."
 msgstr "Jedna ili više datoteka su u stanju sukoba."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Preuzmi samo &početnu mapu"
@@ -3807,6 +4029,11 @@ msgstr "Otvori datoteku s certifikatom klijenta"
 msgid "Open file"
 msgstr "Otvori datoteku"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "Otvori datoteku..."
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3830,6 +4057,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Otvara preglednik skladišta kako bi podesio skladište dok je na vezi"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "&Osnovna veličina"
 
 # ID:76,
 #: ID:245
@@ -3898,6 +4129,14 @@ msgstr "Staze"
 #: ID:157
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Slike (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: ID:246
+#, fuzzy
+msgid "Pie Graph"
+msgstr "Dijagram (pita)"
 
 # ID:3858,#:
 # ID:3858,
@@ -4025,6 +4264,7 @@ msgstr "Molim pričekajte dok napravim razlike..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Molim pričekajte..."
@@ -4059,8 +4299,8 @@ msgstr "Napredak"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Svojstva"
 
@@ -4073,6 +4313,7 @@ msgstr "Svojstva za"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Svojstva..."
 
@@ -4115,6 +4356,12 @@ msgstr "&Vrem. ograničenje posredničkog poslužitelja u sek:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Postavke zamjenskog poslužitelja"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -4236,6 +4483,11 @@ msgid "Relocate"
 msgstr "Premjesti"
 
 # ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Upozorenje za <b>Premjesti</b>"
+
+# ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "Premještanje"
@@ -4342,11 +4594,6 @@ msgstr "Zamijenjeni čvor"
 #: ID:74
 msgid "Replacing"
 msgstr "Mijenjam"
-
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "Preglednik skladišta"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4463,6 +4710,7 @@ msgstr "Poništava sve izmjene koje su učinjene nakon zadnje obnove"
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Revizija"
 
@@ -4556,6 +4804,11 @@ msgstr "Revizije"
 #: ID:188
 msgid "Right View: "
 msgstr "Desni pogled:"
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Desna slika"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4753,6 +5006,16 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Pretraži &dnevnik poruka..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Potraži:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "Traženi tekst nije pronađen!"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4800,6 +5063,11 @@ msgstr "Izaberite aplikaciju za pregled razlika"
 #: ID:313
 msgid "Select diff file..."
 msgstr "Izaberi datoteku s razlikama..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr "Odaberi odredišnu mapu za preuzimanje"
 
 # Dlg-ID:173,
 #: ID:276
@@ -4969,6 +5237,13 @@ msgstr "Prikaži p&reklapanja samo u exploreru"
 msgid "Show &unversioned files"
 msgstr "Prikaži datoteke bez &verzija"
 
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: MenuEntry
+#, fuzzy
+msgid "Show File List"
+msgstr "Prikaži popis datoteka"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5097,6 +5372,12 @@ msgstr "Preskočena je meta koji nedostaje"
 msgid "Sort items numerically"
 msgstr "Razvrstaj stavke po brojevima"
 
+# Control-ID:1300,
+#: ID:101
+#, fuzzy
+msgid "Sort numerical"
+msgstr "Razvrstaj stavke po brojevima"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5126,6 +5407,16 @@ msgid ""
 msgstr ""
 "Rastavi aktivni prozor na plohe\n"
 "Rastavi"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Naslagani stupčasti dijagram"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Naslagani linijski dijagram"
 
 # ID:11,
 #: Control-ID:65535
@@ -5306,6 +5597,18 @@ msgstr "Sistemski &zvukovi"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Stavke iz sistemskog registra su uklonjene i INI datoteka (ako je postojala) obrisana."
 
+# ID:7,
+#: ID:7
+#, fuzzy
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+#, fuzzy
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5329,12 +5632,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Datoteka\n"
 "%s\n"
 "nije ispravna tekstualna datoteka!\n"
-"Primijetite da se UTF16 i UTF32 datoteke također obrađuju kao binarne."
+"Primijetite da se UTF32 datoteke također obrađuju kao binarne."
 
 # ID:80,
 #: ID:80
@@ -5406,6 +5709,16 @@ msgstr ""
 "%s\n"
 "već postoji! Želite li ju pregaziti?"
 
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Mapa %s\n"
+"sadrži izmijenjene datoteke ili datoteke izvan sustav. Da li je svejedno želite ukloniti?"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5419,6 +5732,11 @@ msgstr ""
 "%s\n"
 "ne postoji.\n"
 "Želite li ju prvo napraviti?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "Slika ne može biti prikazana."
 
 # ID:63,
 #: ID:63
@@ -5723,6 +6041,48 @@ msgstr "Prema:"
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Do: (krajnji URL i revizija raspona spajanja)"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+#, fuzzy
+msgid "TortoiseBlame"
+msgstr "TortoiseSVN Okrivi"
+
+# ID:13,
+#: ID:13
+#, fuzzy
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame se ne može direktno pokrenuti!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: preglednik razlika na slikama za TortoiseSVN\n"
+"\n"
+"Dostupni parametri komandne linije su:\n"
+"/left:\"staza do lijeve slike\"\n"
+"/lefttitle:\"naslov za lijevu sliku\"\n"
+"/right:\"staza do desne slike\"\n"
+"/righttitle:\"naslov za desnu sliku\""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6034,6 +6394,11 @@ msgstr "Odključano"
 msgid "Untitled"
 msgstr "Bez naslova"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Datoteke izvan sustava verzija označavaju mapu kao izmijenjenu"
+
 # ID:8,#:
 # Dlg-ID:152,
 #: Dlg-ID:152
@@ -6222,11 +6587,6 @@ msgstr "Upozorenje"
 #: ID:219
 msgid "Warning!"
 msgstr "Upozorenje!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Razlika u razmacima"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -6446,6 +6806,10 @@ msgstr ""
 "radna kopija neće izgledati točno kao što izgleda u reviziji prema kojoj se obnavlja."
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "Uda&lji"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "&Približi\tCtrl-+"
 
@@ -6458,6 +6822,10 @@ msgstr "&Udalji\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Zumiraj 100%"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Pri&bliži"
 
 #: ID:2049
 msgid "Zoom in"
@@ -6532,12 +6900,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "dva regularna izraza odvojena znakom nove linije\n"
-"Prvi izraz se koristi za pronalazak stringa koji se odnosi na sporno pitanje, drugi izraz se koristi kako bi izvukao osnovni ID buga iz tog stringa."
+"Prvi izraz se koristi za pronalazak stringa koji se odnosi na sporno pitanje,\n"
+"drugi izraz se koristi kako bi izvukao osnovni ID buga iz tog stringa."
 
 # ID:14,
 #: ID:14
@@ -6672,6 +7042,11 @@ msgstr "izmijenjeno"
 msgid "modified / copied"
 msgstr "promijenjeno / kopirano"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "mjesec"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6703,10 +7078,10 @@ msgstr "pikseli"
 msgid "possible or real conflict / obstructed"
 msgstr "moguć ili stvarni sukob / spriječeno"
 
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "po&nirući"
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "tromjesečje"
 
 # ID:195,
 #: ID:195
@@ -6731,10 +7106,11 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Ukoliko je prisutno, označava datoteku kao izvršnu. Ovo svojstvo se ne može postaviti za direktorij. Ne-rekurzivni pokušaj biti će neuspješan, rekurzivni pokušaj će postaviti svojstvo samo na datoteke koja su djeca tog direktorija."
+"Ukoliko je prisutno, označava datoteku kao izvršnu. Ovo svojstvo se ne može postaviti za mapu. Ne-rekurzivni pokušaj bit će neuspješan, rekurzivni pokušaj će postaviti svojstvo samo na datoteke unutar mape."
 
 # ID:14,
 #: ID:14
@@ -6781,10 +7157,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Mime tip datoteke. Koristi se za određivanje da li datoteku spajati i kako ju poslužiti preko Apachea. Mime tip koji počinje s 'text/' (ili ako mime tip nije postavljen) obrađuje se kao tekst. Sve drugo se obrađuje kao binarna datoteka."
+"Mime tip datoteke. Koristi se za određivanje da li datoteku spajati i kako ju poslužiti preko Apachea.\n"
+"Mime tip koji počinje s 'text/' (ili ako mime tip nije postavljen) obrađuje se kao tekst.\n"
+"Sve drugo se obrađuje kao binarna datoteka."
 
 # ID:16,
 #: ID:16
@@ -6887,7 +7267,7 @@ msgid "values are different"
 msgstr "vrijednosti su različite"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "tjedan"
 
@@ -6895,4 +7275,9 @@ msgstr "tjedan"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "koji pokazuje na skladište s URL-om:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "godina"
 
