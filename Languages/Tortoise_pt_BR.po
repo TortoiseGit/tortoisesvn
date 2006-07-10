@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-10 09:36+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-07-10 16:16-0300\n"
+"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,6 +139,12 @@ msgstr "%I64d kBytes transferidos"
 msgid "%d files selected, %d files total"
 msgstr "%d arquivos selecionados, %d arquivos no total"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of % ld"
+msgstr "%ld de % ld"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -196,6 +202,28 @@ msgid ""
 msgstr ""
 "%s\n"
 "Você gostaria de removê-lo mesmo assim?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
 
 # ID:69,
 #: ID:69
@@ -326,6 +354,12 @@ msgstr "&Converter arquivos ao comparar com a BASE"
 msgid "&Copy"
 msgstr "&Copiar"
 
+# ID:257,
+#: MenuEntry
+#, fuzzy
+msgid "&Copy to clipboard"
+msgstr "Copiar para a área de transferência"
+
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
@@ -419,6 +453,15 @@ msgstr "&Arquivo"
 msgid "&Find"
 msgstr "&Localizar"
 
+#: MenuEntry
+#, fuzzy
+msgid "&Find..."
+msgstr "&Localizar"
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr ""
+
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -449,6 +492,10 @@ msgstr "&Da Cópia de Trabalho na URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Da revisão"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr ""
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -506,6 +553,10 @@ msgstr "&Ignorar %d itens"
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
 msgstr "&Ignore whitespace changes"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "Informação da &Imagem"
 
 # ID:9,
 #: ID:9
@@ -590,14 +641,17 @@ msgstr "&OK"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Abrir"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Abrir Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr ""
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -891,6 +945,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1350,6 +1406,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Você tem certeza de que quer reverter %d item(s)? Você irá perder <b>todas</b> as alterações desde a última atualização!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr ""
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Ordenado por &caminho"
 
@@ -1379,6 +1439,7 @@ msgstr "Dados de Autenticação"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Autor"
 
@@ -2231,6 +2292,7 @@ msgstr ""
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Data"
 
@@ -2764,6 +2826,19 @@ msgstr "Diferenças entre arquivos"
 msgid "File patches"
 msgstr "Correções de arquivo"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Localizar"
@@ -2889,6 +2964,12 @@ msgstr "Obtendo  comparação unificada"
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "&Padrão de ignorar global:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+#, fuzzy
+msgid "Go to line"
+msgstr "Ir para linha"
 
 # ID:2049,
 #: ID:2051
@@ -3317,10 +3398,28 @@ msgstr "Autor menos ativo:"
 msgid "Left View: "
 msgstr "Visão da Esquerda:"
 
+# ID:188,
+#: Control-ID:65535
+#, fuzzy
+msgid "Left image"
+msgstr "Visão da Esquerda:"
+
+# Dlg-ID:143,
+#: ID:19
+#, fuzzy
+msgid "Line"
+msgstr "Meu"
+
 # ID:75,
 #: ID:246
 msgid "Line Graph"
 msgstr "Gráfico em Linha"
+
+# Dlg-ID:143,
+#: Control-ID:65535
+#, fuzzy
+msgid "Line:"
+msgstr "Meu"
 
 # ID:3605,
 #: ID:3605
@@ -3330,6 +3429,12 @@ msgid ""
 msgstr ""
 "Listar Tópicos de Ajuda \n"
 "Tópicos de Ajuda"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+#, fuzzy
+msgid "Load Images"
+msgstr "Mensagens de log"
 
 # ID:63,
 #: ID:63
@@ -3888,6 +3993,12 @@ msgstr "Abrir arquivo de certificado do cliente"
 msgid "Open file"
 msgstr "Abrir arquivo"
 
+# ID:3601,
+#: ID:7
+#, fuzzy
+msgid "Open image file..."
+msgstr "Abrir arquivo"
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3911,6 +4022,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Abre o navegador de repositório para visualizar o repositório online"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Tamanho ori&ginal"
 
 # ID:188,
 #: ID:245
@@ -4553,6 +4668,7 @@ msgstr "Reverter todas as alterações que você fez desde a última atualizaç�
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Revisão"
 
@@ -4637,6 +4753,12 @@ msgstr "Revisões"
 # ID:188,
 #: ID:188
 msgid "Right View: "
+msgstr "Visão da Direita:"
+
+# ID:188,
+#: Control-ID:65535
+#, fuzzy
+msgid "Right image"
 msgstr "Visão da Direita:"
 
 #: MenuEntry
@@ -4839,6 +4961,11 @@ msgstr "Pesquisar &histórico..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "Localizar:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr ""
 
 # ID:3867,#:
 # ID:3867,
@@ -5414,6 +5541,16 @@ msgstr "&Sons do sistema"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "As entradas no registro do sistema foram removidas e o arquivo INI (se existia) foi apagado."
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr ""
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr ""
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5537,6 +5674,11 @@ msgstr ""
 "%s\n"
 "não existe.\n"
 "Gostaria de criá-la antes?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "A imagem não pode ser exibida."
 
 # ID:63,
 #: ID:63
@@ -5841,6 +5983,39 @@ msgstr "Para:"
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Para: (revisão e URL finais do intervalo para combinar)"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+#, fuzzy
+msgid "TortoiseBlame"
+msgstr "TortoiseSVN Responsabilidade"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+#, fuzzy
+msgid "TortoiseIDiff"
+msgstr "TortoiseSVN"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6571,6 +6746,11 @@ msgstr ""
 "trabalho não vai se parecer exatamente como era na revisão para a qual você está atualizando!"
 
 #: MenuEntry
+#, fuzzy
+msgid "Zoo&m out"
+msgstr "Menos zoom"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Ma&is Zoom\tCtrl-+"
 
@@ -6583,6 +6763,11 @@ msgstr "Men&os Zoom\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Zoom 100%"
+
+#: MenuEntry
+#, fuzzy
+msgid "Zoom i&n"
+msgstr "Mais zoom"
 
 #: ID:2049
 msgid "Zoom in"
