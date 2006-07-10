@@ -305,9 +305,11 @@ BOOL CLogDlg::OnInitDialog()
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
 	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		InterlockedExchange(&m_bThreadRunning, FALSE);
+		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
@@ -2744,13 +2746,13 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			break;
 		case 2: //author
 			if (itemid < m_logEntries.size())
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sAuthor);
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 3: //date
 			if (itemid < m_logEntries.size())
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sDate);
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
@@ -2771,8 +2773,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		case 5:
 			if (itemid < m_logEntries.size())
 			{
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sShortMessage);
-				pItem->cchTextMax = pLogEntry->sShortMessage.GetLength();
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
 			}
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2819,19 +2820,19 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 		case 0:	//Action
 			if (lcpath)
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sAction);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sAction, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);				
 			break;
 		case 1: //path
 			if (lcpath)
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sPath);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sPath, pItem->cchTextMax);
 			else
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_currentChangedPathList[pItem->iItem].GetSVNPathString());
+				lstrcpyn(pItem->pszText, (LPCTSTR)m_currentChangedPathList[pItem->iItem].GetSVNPathString(), pItem->cchTextMax);
 			break;
 		case 2: //copyfrom path
 			if (lcpath)
-				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sCopyFromPath);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sCopyFromPath, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
