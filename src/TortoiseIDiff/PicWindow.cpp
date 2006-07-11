@@ -83,12 +83,12 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			short zDelta = GET_WHEEL_DELTA_WPARAM(wParam);
 			RECT rect;
 			GetClientRect(&rect);
-			LONG width = picture.m_Width;
-			LONG height = picture.m_Height;
+			LONG width = long(double(picture.m_Width)*picscale);
+			LONG height = long(double(picture.m_Height)*picscale);
 			if (pSecondPic)
 			{
-				width = max(width, pSecondPic->m_Width);
-				height = max(height, pSecondPic->m_Height);
+				width = max(width, long(double(pSecondPic->m_Width)*picscale));
+				height = max(height, long(double(pSecondPic->m_Height)*picscale));
 			}
 			if (fwKeys & MK_SHIFT)
 			{
