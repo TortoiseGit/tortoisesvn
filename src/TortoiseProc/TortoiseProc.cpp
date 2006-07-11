@@ -1148,9 +1148,9 @@ BOOL CTortoiseProcApp::InitInstance()
 						else
 							sFilemask.Empty();
 						CString sNewMask = destinationPath.GetFilename();
-						if (sNewMask.Find('.'>=0))
+						if (sNewMask.ReverseFind('.'>=0))
 						{
-							sNewMask = sNewMask.Left(sNewMask.Find('.'));
+							sNewMask = sNewMask.Left(sNewMask.ReverseFind('.'));
 						}
 						else
 							sNewMask.Empty();
