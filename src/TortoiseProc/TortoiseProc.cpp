@@ -1217,8 +1217,15 @@ BOOL CTortoiseProcApp::InitInstance()
 										progress.SetProgress(count, renmap.size());
 										if (!svn.Move(CTSVNPath(it->first), CTSVNPath(it->second), TRUE, sMsg))
 										{
-											TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-											CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+											if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
+											{
+												MoveFile(it->first, it->second);
+											}
+											else
+											{
+												TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+												CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+											}
 										}
 									}
 									progress.Stop();
