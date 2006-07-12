@@ -361,6 +361,11 @@
 				</variablelist>
 			</para>
 			<para>
+				If you select the default option, you can also choose to mark folders as
+				modified if they contain unversioned items. This could be useful for
+				reminding you that you have created new files which are not yet versioned.
+			</para>
+			<para>
 				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN
 				those paths for which it should <emphasis>not</emphasis> show icon
 				overlays and status columns.
