@@ -2,6 +2,20 @@
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-dug-general">
 	<title>Getting Started</title>
+	<sect2 id="tsvn-dug-general-icons">
+		<title>Icon Overlays</title>
+		<para>
+			<figure id="tsvn-dug-general-dia-icons">
+				<title>Explorer showing icon overlays</title>
+				<graphic fileref="../images/Overlays.png"/>
+			</figure>
+			One of the most visible features of TortoiseSVN are the icon
+			overlays which appear on files in your working copy. These
+			show you at a glance which of your files have been modified.
+			Refer to <xref linkend="tsvn-dug-wcstatus-1"/> to find out
+			what the different overlays represent.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-general-menu">
 		<title>Context Menus</title>
 		<indexterm>
