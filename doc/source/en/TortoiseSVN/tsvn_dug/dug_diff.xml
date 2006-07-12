@@ -109,7 +109,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Difference between WC file and a URL</term>
+				<term>Difference between WC file/folder and a URL</term>
 				<listitem>
 					<para>
 						If you want to see the differences between a file in your
@@ -121,6 +121,10 @@
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Diff with URL</guimenuitem>
 						</menuchoice>.
+						You can do the same thing for a working copy folder.
+						TortoiseMerge shows these differences in the same way
+						as it shows a patchfile - a list of changed files which
+						you can view one at a time.
 					</para>
 				</listitem>
 			</varlistentry>
