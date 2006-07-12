@@ -329,18 +329,31 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		}
 		if (data->kind == svn_node_dir)
 		{
-			progDlg.Stop();
-			CFileDiffDlg fdlg;
-			fdlg.DoBlame(blame);
-			if (url1.IsEquivalentTo(url2))
+			if (rev1.IsWorking())
 			{
-				fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, true, ignoreancestry);
-				fdlg.DoModal();
+				if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC)))
+				{
+					CString sWC;
+					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+					return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, url2.GetSVNPathString(), TRUE);
+				}
 			}
 			else
 			{
-				fdlg.SetDiff(url1, rev1, url2, rev2, TRUE, ignoreancestry);
-				fdlg.DoModal();
+				progDlg.Stop();
+				CFileDiffDlg fdlg;
+				fdlg.DoBlame(blame);
+				if (url1.IsEquivalentTo(url2))
+				{
+					fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, true, ignoreancestry);
+					fdlg.DoModal();
+				}
+				else
+				{
+					fdlg.SetDiff(url1, rev1, url2, rev2, TRUE, ignoreancestry);
+					fdlg.DoModal();
+				}
 			}
 		}
 		else

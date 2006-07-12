@@ -714,7 +714,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!extended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
-	if ((isInSVN)&&(isOnlyOneItemSelected)&&(!isFolder)&&(extended))
+	if ((isInSVN)&&(isOnlyOneItemSelected)&&(extended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUURLDIFF, IDI_DIFF, idCmdFirst, UrlDiff);
 
 	if (files_.size() == 2)	//compares the two selected files
