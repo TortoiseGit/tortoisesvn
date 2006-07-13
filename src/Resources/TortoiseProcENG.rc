@@ -1795,6 +1795,7 @@ STRINGTABLE
 BEGIN
     IDS_LOG_REVERTTOREV_CONFIRM 
                             "Do you really want to revert all changes in %s\nand go back to this revision?"
+    IDS_LOG_REVERTREV_ERROR "Unable to reconstruct working copy path!\nThis can happen if the file has been renamed.\nPlease start the log dialog on this specific file alone and then revert the changes\nfrom the top pane in the log dialog."
     IDS_PROGRESSGETFILE     "Getting file %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."

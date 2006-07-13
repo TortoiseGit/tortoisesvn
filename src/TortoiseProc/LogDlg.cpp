@@ -1491,7 +1491,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								EnableOKButton();
-								theApp.DoWaitCursor(-11);
+								theApp.DoWaitCursor(-1);
 								break;		//exit
 							}
 						}
@@ -1514,6 +1514,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString wcPath = m_path.GetWinPathString().Left(leftcount);
 						wcPath += fileURL.Mid(i);
 						wcPath.Replace('/', '\\');
+						if (!PathFileExists(wcPath))
+						{
+							// seems the path got renamed
+							// tell the user how to work around this.
+							CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+							EnableOKButton();
+							theApp.DoWaitCursor(-1);
+							break;		//exit
+						}
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
