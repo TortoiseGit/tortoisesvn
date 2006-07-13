@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-10 16:16-0300\n"
-"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
+"PO-Revision-Date: 2006-07-12 10:50-0300\n"
+"Last-Translator: Victor Westmann <victor.westmann@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,6 +224,22 @@ msgid ""
 "Vertical Resolution:\t\t%.1f dpi\n"
 "Depth:\t\t\t%d bit"
 msgstr ""
+"%s\n"
+"Tamanho do arquivo:\t\t\t%s\n"
+"Largura:\t\t\t%ld pixel\n"
+"Altura:\t\t\t%ld pixel\n"
+"Resolução Horizontal:\t%.1f dpi\n"
+"Resolução Vertical:\t\t%.1f dpi\n"
+"Profundidade:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Tamanho do arquivo:\t\t\t%s\n"
+"Largura:\t\t\t%ld pixel\n"
+"Altura:\t\t\t%ld pixel\n"
+"Resolução Horizontal:\t%.1f dpi\n"
+"Resolução Vertical:\t\t%.1f dpi\n"
+"Profundidade:\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -356,9 +372,8 @@ msgstr "&Copiar"
 
 # ID:257,
 #: MenuEntry
-#, fuzzy
 msgid "&Copy to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "&Copiar para área de transferência"
 
 # ID:101,
 #: ID:101
@@ -454,13 +469,12 @@ msgid "&Find"
 msgstr "&Localizar"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Find..."
-msgstr "&Localizar"
+msgstr "&Encontrar..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr ""
+msgstr "&Ajustar imagens na janela"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -495,7 +509,7 @@ msgstr "&Da revisão"
 
 #: MenuEntry
 msgid "&Goto Line..."
-msgstr ""
+msgstr "&Ir para linha..."
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -651,7 +665,7 @@ msgstr "&Abrir Ctrl-O"
 
 #: MenuEntry
 msgid "&Overlap images"
-msgstr ""
+msgstr "&Sobrepor imagens"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -1407,7 +1421,7 @@ msgstr "Você tem certeza de que quer reverter %d item(s)? Você irá perder <b>
 
 #: MenuEntry
 msgid "Arrange &Vertical"
-msgstr ""
+msgstr "Ordenar &Verticalmente"
 
 #: MenuEntry
 msgid "Arranged by &path"
@@ -2838,6 +2852,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Tamanho do arquivo:\t\t\t%s\n"
+"Largura:\t\t\t%ld pixel\n"
+"Altura:\t\t\t%ld pixel\n"
+"Resolução Horizontal:\t%.1f dpi\n"
+"REsolução Vertical:\t\t%.1f dpi\n"
+"Profundidade:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 #: Dlg-ID:139
 msgid "Find"
@@ -2967,7 +2988,6 @@ msgstr "&Padrão de ignorar global:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
-#, fuzzy
 msgid "Go to line"
 msgstr "Ir para linha"
 
@@ -3219,7 +3239,7 @@ msgstr "Importação inicial"
 #: Control-ID:65535
 #, fuzzy
 msgid "Inline diff"
-msgstr "Comparação &Unificada"
+msgstr "Comparação Unificada"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3400,15 +3420,13 @@ msgstr "Visão da Esquerda:"
 
 # ID:188,
 #: Control-ID:65535
-#, fuzzy
 msgid "Left image"
-msgstr "Visão da Esquerda:"
+msgstr "Imagem esquerda:"
 
 # Dlg-ID:143,
 #: ID:19
-#, fuzzy
 msgid "Line"
-msgstr "Meu"
+msgstr "Linha"
 
 # ID:75,
 #: ID:246
@@ -3417,9 +3435,8 @@ msgstr "Gráfico em Linha"
 
 # Dlg-ID:143,
 #: Control-ID:65535
-#, fuzzy
 msgid "Line:"
-msgstr "Meu"
+msgstr "Linha:"
 
 # ID:3605,
 #: ID:3605
@@ -3432,9 +3449,8 @@ msgstr ""
 
 # Dlg-ID:130,
 #: Dlg-ID:130
-#, fuzzy
 msgid "Load Images"
-msgstr "Mensagens de log"
+msgstr "Carregar Imagens"
 
 # ID:63,
 #: ID:63
@@ -3995,9 +4011,8 @@ msgstr "Abrir arquivo"
 
 # ID:3601,
 #: ID:7
-#, fuzzy
 msgid "Open image file..."
-msgstr "Abrir arquivo"
+msgstr "Abrir arquivo de imagem..."
 
 # Control-ID:1073,
 #: ID:282
@@ -4317,7 +4332,7 @@ msgstr "Configurações de Proxy"
 
 # ID:246,
 #: ID:246
-#, fuzzy, c-format
+#, c-format
 msgid "Q%d/%.2d"
 msgstr "Q%d/%.2d"
 
@@ -4757,9 +4772,8 @@ msgstr "Visão da Direita:"
 
 # ID:188,
 #: Control-ID:65535
-#, fuzzy
 msgid "Right image"
-msgstr "Visão da Direita:"
+msgstr "Imagem direita"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4965,7 +4979,7 @@ msgstr "Localizar:"
 # ID:7,
 #: ID:7
 msgid "Search string not found!"
-msgstr ""
+msgstr "String procurada não encontrada!"
 
 # ID:3867,#:
 # ID:3867,
@@ -5356,12 +5370,12 @@ msgstr ""
 # ID:246,
 #: ID:246
 msgid "Stacked Bar Graph"
-msgstr ""
+msgstr "Barra de Gráfico em Pilha"
 
 # ID:246,
 #: ID:246
 msgid "Stacked Line Graph"
-msgstr ""
+msgstr "Barra de Gráfico em Linha"
 
 # ID:11,
 #: Control-ID:65535
@@ -5395,9 +5409,8 @@ msgstr "Status do Cache"
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Status do cache mantido em um processo externo, pode mostrar a sobrescrição recursivamente"
+msgstr "Status do cache mantido em um processo externo, poderá mostrar a sobrescrição recursivamente"
 
 # ID:196,
 #: ID:196
@@ -5544,12 +5557,12 @@ msgstr "As entradas no registro do sistema foram removidas e o arquivo INI (se e
 # ID:7,
 #: ID:7
 msgid "TORTOISEBLAME"
-msgstr ""
+msgstr "TORTOISEBLAME"
 
 # ID:7,
 #: ID:7
 msgid "TORTOISEIDIFF"
-msgstr ""
+msgstr "TORTOISEIDIFF"
 
 # ID:79,
 #: ID:79
@@ -5987,9 +6000,8 @@ msgstr "Para: (revisão e URL finais do intervalo para combinar)"
 # ID:9,#:
 # ID:80,
 #: ID:7
-#, fuzzy
 msgid "TortoiseBlame"
-msgstr "TortoiseSVN Responsabilidade"
+msgstr "TortoiseBlame"
 
 # ID:13,
 #: ID:13
@@ -5997,13 +6009,14 @@ msgid ""
 "TortoiseBlame can't be started directly!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
 msgstr ""
+"TortoiseBlame não pode ser inicializado diretamente!\n"
+"TortoiseBlame.exe blamefile [[arquivodelog] [vertítulo]] [/linha:númerodalinha]"
 
 # ID:9,#:
 # ID:80,
 #: ID:7
-#, fuzzy
 msgid "TortoiseIDiff"
-msgstr "TortoiseSVN"
+msgstr "TortoiseIDiff"
 
 # ID:7,
 #: ID:7
@@ -6016,6 +6029,13 @@ msgid ""
 "/right:\"path to right picture\"\n"
 "/righttitle:\"title to show for the right picture\""
 msgstr ""
+"TortoiseIDiff: o visualizador de diferença de imagem para o TortoiseSVN\n"
+"\n"
+"Parâmetros disponíveis por linha de comando são:\n"
+"/esquerda:\"caminho para a figura da esquerda\"\n"
+"/títuloesquerdo:\"título para mostrar para a figura da esquerda\"\n"
+"/direita:\"caminho para a figura da direita\"\n"
+"/títulodireito:\"título para mostrar para a figura da direita\""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6746,9 +6766,8 @@ msgstr ""
 "trabalho não vai se parecer exatamente como era na revisão para a qual você está atualizando!"
 
 #: MenuEntry
-#, fuzzy
 msgid "Zoo&m out"
-msgstr "Menos zoom"
+msgstr "Menos zoo&m"
 
 #: MenuEntry
 msgid "Zoom &in\tCtrl-+"
@@ -6765,9 +6784,8 @@ msgid "Zoom 100%"
 msgstr "Zoom 100%"
 
 #: MenuEntry
-#, fuzzy
 msgid "Zoom i&n"
-msgstr "Mais zoom"
+msgstr "M&ais zoom"
 
 #: ID:2049
 msgid "Zoom in"
