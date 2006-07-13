@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-01 21:21+0800\n"
+"PO-Revision-Date: 2006-07-13 23:20+0800\n"
 "Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,12 @@ msgstr "已传输 %I64d KB"
 msgid "%d files selected, %d files total"
 msgstr "选择了 %d 个文件，共有 %d 个文件"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld / %ld"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -193,6 +199,44 @@ msgid ""
 msgstr ""
 "%s\n"
 "确定要删除吗？"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"文件大小：\t\t%s\n"
+"宽度：\t\t\t%ld pixel\n"
+"高度：\t\t\t%ld pixel\n"
+"水平分辨率：\t\t%.1f dpi\n"
+"垂直分辨率：\t\t%.1f dpi\n"
+"色深：\t\t\t%d bit\n"
+"缩放比例：\t\t%d%%\n"
+"\n"
+"%s\n"
+"文件大小：\t\t%s\n"
+"宽度：\t\t\t%ld pixel\n"
+"高度：\t\t\t%ld pixel\n"
+"水平分辨率：\t\t%.1f dpi\n"
+"垂直分辨率：\t\t%.1f dpi\n"
+"色深：\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -323,6 +367,11 @@ msgstr "与 基础版本比较时转换文件(&C)"
 msgid "&Copy"
 msgstr "复制(&C)"
 
+# ID:257,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "复制到剪贴板(&C)"
+
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
@@ -412,6 +461,14 @@ msgstr "文件(&F)"
 msgid "&Find"
 msgstr "查找(&F)"
 
+#: MenuEntry
+msgid "&Find..."
+msgstr "查找(&F)..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "自动缩放图片以适应窗口(&F)"
+
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -442,6 +499,10 @@ msgstr "从工作拷贝 URL(&F)："
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "从版本(&F)"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "跳转到指定行(&G)..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -499,6 +560,10 @@ msgstr "忽略(&I) %d 项"
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
 msgstr "忽略空白的变化(&I)"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "图像信息(&I)"
 
 # ID:9,
 #: ID:9
@@ -582,14 +647,17 @@ msgstr "确定(&O)"
 
 # ID:101,#:
 # ID:113,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "打开(&O)"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "打开(&O) Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "叠加图像(&O)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -880,6 +948,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1337,6 +1407,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "是否确定要复原 %d 个项目? 从上次更新之后的<b>所有</b>变更都会消失！"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "垂直排布"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "按照路径排序(&P)"
 
@@ -1366,6 +1440,7 @@ msgstr "认证数据"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "作者"
 
@@ -2216,6 +2291,7 @@ msgstr ""
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "日期"
 
@@ -2740,6 +2816,26 @@ msgstr "文件差异比较"
 msgid "File patches"
 msgstr "文件补丁"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"文件大小：\t\t%s\n"
+"宽度：\t\t\t%ld pixel\n"
+"高度：\t\t\t%ld pixel\n"
+"水平分辨率：\t\t%.1f dpi\n"
+"垂直分辨率：\t\t%.1f dpi\n"
+"色深：\t\t\t%d bit\n"
+"缩放比例：\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "查找"
@@ -2864,7 +2960,12 @@ msgstr "正在取得单一比较"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
-msgstr "全局忽略模式(&P)："
+msgstr "全局忽略样式(&P)："
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "跳转到行号"
 
 # ID:2051,
 #: ID:2051
@@ -3290,10 +3391,25 @@ msgstr "最不活跃作者："
 msgid "Left View: "
 msgstr "左侧查看："
 
+# ID:188,
+#: Control-ID:65535
+msgid "Left image"
+msgstr "左侧图片"
+
+# Dlg-ID:143,
+#: ID:19
+msgid "Line"
+msgstr "行号"
+
 # ID:75,
 #: ID:246
 msgid "Line Graph"
 msgstr "折线图"
+
+# Dlg-ID:143,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "行号："
 
 # ID:3605,
 #: ID:3605
@@ -3303,6 +3419,11 @@ msgid ""
 msgstr ""
 "列出帮助主题\n"
 "帮助主题"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "载入图片"
 
 # ID:63,
 #: ID:63
@@ -3855,6 +3976,11 @@ msgstr "打开用户端凭证文件"
 msgid "Open file"
 msgstr "打开文件"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "打开图像文件..."
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3878,6 +4004,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "打开版本库浏览器，在线进行版本库调整"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "原始大小(&G)"
 
 # ID:188,
 #: ID:245
@@ -4521,6 +4651,7 @@ msgstr "复原从上次更新之后全部的变动"
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "版本"
 
@@ -4606,6 +4737,11 @@ msgstr "版本"
 #: ID:188
 msgid "Right View: "
 msgstr "右侧查看："
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "右侧图片"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4804,6 +4940,11 @@ msgstr "查找日志信息(&L)..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "查找内容："
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "没有找到要查找的字符串！"
 
 # ID:3867,#:
 # ID:3867,
@@ -5378,6 +5519,16 @@ msgstr "系统声音(&S)"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "系统注册表及 INI 文件(如果有) 删除完成。"
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5501,6 +5652,11 @@ msgstr ""
 "%s\n"
 "不存在。\n"
 "是否要先创建？"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "无法显示图片。"
 
 # ID:63,
 #: ID:63
@@ -5801,6 +5957,46 @@ msgstr "结束："
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "结束： （合并范围的结束URL和版本）"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame 不能直接启动！\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff:  TortoiseSVN 的图片差异查看器\n"
+"\n"
+"可用的命令行参数：\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6527,6 +6723,10 @@ msgstr ""
 "可能看上去和你要更新到的那个分支不是完全一致！"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "缩小(&M)"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "放大(&I）\tCtrl-+"
 
@@ -6539,6 +6739,10 @@ msgstr "缩小(&O)\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "缩放到实际大小"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "放大(&N)"
 
 #: ID:2049
 msgid "Zoom in"
@@ -6861,7 +7065,7 @@ msgstr ""
 "Author，LastChangedBy\t\t最后一个修改此文件的人。\r\n"
 "Date，LastChangedDate\t\t此文件最后修改日期。\r\n"
 "Rev，LastChangedRevision\t此对象有变更的最新版本。\r\n"
-"Id\t\t\t\\上述四个关键词的组合。"
+"Id\t\t\t\t\\上述四个关键词的组合。"
 
 # ID:14,
 #: ID:14
