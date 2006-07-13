@@ -281,7 +281,8 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 
 BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL recurse, BOOL bIgnoreExternals)
 {
-	Err = svn_client_checkout2 (	NULL,			// we don't need the resulting revision
+	SVNPool subpool(pool);
+	Err = svn_client_checkout2 (NULL,			// we don't need the resulting revision
 								moduleName.GetSVNApiPath(),
 								destPath.GetSVNApiPath(),
 								pegrev,
@@ -289,7 +290,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 								recurse,
 								bIgnoreExternals,
 								m_pctx,
-								pool );
+								subpool );
 
 	if(Err != NULL)
 	{
@@ -337,8 +338,9 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 {
 	TRACE("Reverting list of %d files\n", pathlist.GetCount());
+	SVNPool subpool(pool);
 
-	Err = svn_client_revert (MakePathArray(pathlist), recurse, m_pctx, pool);
+	Err = svn_client_revert (MakePathArray(pathlist), recurse, m_pctx, subpool);
 
 	if(Err != NULL)
 	{
@@ -497,10 +499,11 @@ BOOL SVN::CleanUp(const CTSVNPath& path)
 
 BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
 {
+	SVNPool subpool(pool);
 	Err = svn_client_resolved (path.GetSVNApiPath(),
 								recurse,
 								m_pctx,
-								pool);
+								subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -633,13 +636,14 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 
 BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse)
 {
+	SVNPool subpool(pool);
 	Err = svn_client_switch(NULL,
 							path.GetSVNApiPath(),
 							url.GetSVNApiPath(),
 							revision,
 							recurse,
 							m_pctx,
-							pool);
+							subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -672,6 +676,8 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 
 BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
 {
+	SVNPool subpool(pool);
+
 	Err = svn_client_merge2(path1.GetSVNApiPath(),
 							revision1,
 							path2.GetSVNApiPath(),
@@ -683,7 +689,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 							dryrun,
 							NULL,
 							m_pctx,
-							pool);
+							subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -694,6 +700,8 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 
 BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
 {
+	SVNPool subpool(pool);
+
 	Err = svn_client_merge_peg2 (source.GetSVNApiPath(),
 		revision1,
 		revision2,
@@ -705,7 +713,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 		dryrun,
 		NULL,
 		m_pctx,
-		pool);
+		subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
