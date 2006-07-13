@@ -843,22 +843,12 @@ BOOL CTreePropSheet::OnInitDialog()
 	}
 	
 	// MFC7-support here (Thanks to Rainer Wollgarten)
-	#if _MFC_VER >= 0x0700
-	{
-		m_pwndPageTree->CreateEx(
-			WS_EX_CLIENTEDGE|WS_EX_NOPARENTNOTIFY, 
-			WS_TABSTOP|WS_CHILD|WS_VISIBLE|dwTreeStyle, 
-			rectTree, this, s_unPageTreeId);
-	}
-	#else
-	{
-		m_pwndPageTree->CreateEx(
-			WS_EX_CLIENTEDGE|WS_EX_NOPARENTNOTIFY, 
-			_T("SysTreeView32"), _T("PageTree"), 
-			WS_TABSTOP|WS_CHILD|WS_VISIBLE|dwTreeStyle, 
-			rectTree, this, s_unPageTreeId);
-	}
-	#endif
+	// YT: Cast tree control to CWnd and calls CWnd::CreateEx in all cases (VC 6 and7).
+	((CWnd*)m_pwndPageTree)->CreateEx(
+		WS_EX_CLIENTEDGE|WS_EX_NOPARENTNOTIFY,
+		_T("SysTreeView32"), _T("PageTree"),
+		WS_TABSTOP|WS_CHILD|WS_VISIBLE|dwTreeStyle,
+		rectTree, this, s_unPageTreeId);
 	
 	if (m_bTreeImages)
 	{
