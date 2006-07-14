@@ -435,11 +435,11 @@ void CStatGraphDlg::ShowCommitsByDate()
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
 
-			CTimeSpan oneweek = CTimeSpan(7,0,0,0);
+			CTimeSpan oneday = CTimeSpan(1,0,0,0);
 			while (abs(timeunit - unit) > 1)
 			{
 				while (unit == GetUnit(lasttime))
-					lasttime += oneweek;
+					lasttime += oneday;
 				unit = GetUnit(lasttime);
 				if (unit == timeunit)
 					break;		//year lap
@@ -944,7 +944,7 @@ int CStatGraphDlg::GetUnit(const CTime& time)
 	if (m_weekcount < 80)
 		return time.GetMonth();
 	if (m_weekcount < 320)
-		return (time.GetMonth()/4)+1; // quarters
+		return ((time.GetMonth()-1)/3)+1; // quarters
 	return time.GetYear();
 }
 
