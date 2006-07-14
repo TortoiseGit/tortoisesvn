@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-06-17 19:45+0100\n"
+"PO-Revision-Date: 2006-07-14 14:54+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,12 @@ msgstr "%I64d KB forgalom"
 msgid "%d files selected, %d files total"
 msgstr "%d fájl kiválasztva, %d összesen"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld / %ld"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -195,6 +201,44 @@ msgid ""
 msgstr ""
 "%s\n"
 "Le szeretnéd törölni?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Fájlméret:\t\t\t%s\n"
+"Szélesség:\t\t\t%ld pixel\n"
+"Magasság:\t\t\t%ld pixel\n"
+"Vízszintes Felbontás:\t%.1f dpi\n"
+"Függőleges Felbontás:\t\t%.1f dpi\n"
+"Mélység:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Fájlméret:\t\t\t%s\n"
+"Szélesség:\t\t\t%ld pixel\n"
+"Magasság:\t\t\t%ld pixel\n"
+"Vízszintes Felbontás:\t%.1f dpi\n"
+"Függőleges Felbontás:\t\t%.1f dpi\n"
+"Mélység:\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -324,6 +368,11 @@ msgstr "&Fájlok konvertálása az alaphoz való különbségek keresésekor"
 msgid "&Copy"
 msgstr "&Másol"
 
+# ID:114,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Másolás a vágólapra"
+
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
@@ -413,6 +462,14 @@ msgstr "&Fájl"
 msgid "&Find"
 msgstr "&Keres"
 
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Keres..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "Képek &igazítása az ablakhoz"
+
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -443,6 +500,10 @@ msgstr "&WC-ből az alábbi címen:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Verziótól"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "Sorhoz &ugrás..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -500,6 +561,10 @@ msgstr "%d elem el&utasítása"
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
 msgstr "&Láthatatlan karakter különbségek (pl. szóköz) figyelmen kívül hagyása"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "&Kép info"
 
 # ID:9,
 #: ID:9
@@ -584,14 +649,17 @@ msgstr "&OK"
 
 # ID:101,#:
 # ID:113,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Megnyit"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Megnyit Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "Képek &átfedése"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -880,6 +948,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1337,6 +1407,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Biztos,hogy visszaállítasz %d elemet? Az <b>összes</b> módosításod elveszik!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "&Függőlegesre rendez"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "&Útvonal szerint rendezve"
 
@@ -1364,6 +1438,7 @@ msgstr "Azonosítási adat"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Fejlesztő"
 
@@ -1389,6 +1464,11 @@ msgstr "Fejlesztők:"
 
 # ID:222,
 #: ID:222
+msgid "Auto-close for local operations"
+msgstr "Egyből bezárja helyi műveleteknél"
+
+# ID:222,
+#: ID:222
 msgid "Auto-close if no conflicts"
 msgstr "Egyből bezárja, ha nincs ellentmondás"
 
@@ -1401,11 +1481,6 @@ msgstr "Egyből bezárja, ha nincs hiba"
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Egyből bezárja, ha nincs összegyúrás, hozzáadás, törlés"
-
-# ID:222,
-#: ID:222
-msgid "Auto-close if no merges, adds or deletes for local operations"
-msgstr "Egyből bezárja, ha nincs összegyúrás, hozzáadás, törlés helyi funkciókhoz"
 
 # ID:195,
 #: ID:195
@@ -1436,6 +1511,11 @@ msgstr "Átlagos"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "&Tallózás..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Oszlop-grafikon"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1829,8 +1909,8 @@ msgstr "Beküldések fejlesztőnként"
 
 # ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "A hét beküldései"
+msgid "Commits by date"
+msgstr "Beküldések időrendben"
 
 # Control-ID:1135,
 #: Control-ID:1135
@@ -2207,6 +2287,7 @@ msgstr ""
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Dátum"
 
@@ -2736,6 +2817,26 @@ msgstr "Fájlfoltok"
 msgid "File patches"
 msgstr "Fájlfoltok"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Fájlméret:\t\t\t%s\n"
+"Szélesség:\t\t\t%ld pixel\n"
+"Magasság:\t\t\t%ld pixel\n"
+"Vízszintes Felbontás:\t%.1f dpi\n"
+"Függőleges Felbontás:\t\t%.1f dpi\n"
+"Mélység:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Keres"
@@ -2862,6 +2963,11 @@ msgstr "Egyesített folt megszerzése"
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "Globális elutasítási &minta:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Sorhoz ugrás"
 
 # ID:2051,
 #: ID:2051
@@ -3282,6 +3388,28 @@ msgstr "Leglustább fejlesztő:"
 msgid "Left View: "
 msgstr "Bal oldali nézet:"
 
+# ID:188,
+#: Control-ID:65535
+msgid "Left image"
+msgstr "Bal oldali kép"
+
+# Control-ID:1158,
+#: ID:19
+msgid "Line"
+msgstr "Vonal"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: ID:246
+msgid "Line Graph"
+msgstr "Vonal-grafikon"
+
+# Control-ID:1158,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Vonal:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3290,6 +3418,12 @@ msgid ""
 msgstr ""
 "Kilistázza a súgótémákat\n"
 "Súgótémák"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Képek betöltése"
 
 # ID:63,
 #: ID:63
@@ -3846,6 +3980,11 @@ msgstr "Kliens tanusítványfájl megnyitása"
 msgid "Open file"
 msgstr "Fájl megnyitása"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "Képfájl megnyitása..."
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3869,6 +4008,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Megnyitja a Tárház böngészőt a tárház online finomhangolásra"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "&Eredeti méret"
 
 # ID:188,
 #: ID:245
@@ -3935,6 +4078,13 @@ msgstr "Útvonalak"
 #: ID:157
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Képek (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Minden fájl (*.*)|*.*||"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: ID:246
+msgid "Pie Graph"
+msgstr "Tészta-grafikon"
 
 # ID:3858,#:
 # ID:3858,
@@ -4154,6 +4304,12 @@ msgstr "Proxy &max várakozási idő:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy Beállítások"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
 
 # ID:3605,
 #: ID:3605
@@ -4502,6 +4658,7 @@ msgstr "Minden módosítást visszaállít az utolsó frissítés óta"
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Verzió"
 
@@ -4595,6 +4752,11 @@ msgstr "Verziók"
 #: ID:188
 msgid "Right View: "
 msgstr "Jobb oldali nézet:"
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Jobb oldali kép"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4797,6 +4959,11 @@ msgstr "&Naplóüzenetek keresése..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "Erre keressen:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "A keresett szöveg nem található!"
 
 # ID:3867,#:
 # ID:3867,
@@ -5183,6 +5350,16 @@ msgstr ""
 "Aktív ablak felosztása panelekre\n"
 "Felosztás"
 
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Telioszlop-grafikon"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Telivonal-grafikon"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
@@ -5361,6 +5538,16 @@ msgstr "Rendszer&hangok"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "A regisztációs adatbázis bejegyzések és az INI fájl törölve lett."
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5482,6 +5669,11 @@ msgstr ""
 "A %s\n"
 "mappa nem létezik.\n"
 "Létre akarsz hozni egy ilyet?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "A képet nem tudom megmutatni."
 
 # ID:63,
 #: ID:63
@@ -5784,6 +5976,48 @@ msgstr "Ide:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Ide: (URL cím és verzió az összegyúrni kívánt tartománynak)"
 
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"A TortoiseBlame közvetlenül nem indítható!\n"
+"TortoiseBlame.exe blamefájl [[naplófájl] [címmutatás]] [/line:sorszám]"
+
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: a TortoiseSVN kép-eltérés mutatója\n"
+"\n"
+"A parancssori kapcsolók lehetnek:\n"
+"/left:\"a bal képhez viszonyítás\"\n"
+"/lefttitle:\"a bal képhez tartozó cím mutatása\"\n"
+"/right:\"a jobb képhez viszonyítás\"\n"
+"/righttitle:\"a jobb képhez tartozó cím mutatása\""
+
 # ID:7,#:
 # ID:3585,#:
 # Dlg-ID:130,
@@ -6021,6 +6255,18 @@ msgstr "Nem olvasható a %1 fájl, már más megnyitotta."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Nem lehet olvasni az írásvédettséget"
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"A munkapéldányt nem sikerült újraépíteni!\n"
+"Ez fájlok átnevezésekor szokott előfordulni.\n"
+"Nézd meg a fájl naplóját, majd állítsd vissza az eredeti állapotra."
 
 # ID:3865,#:
 # ID:3865,
@@ -6504,6 +6750,10 @@ msgstr ""
 "a Tárház verziójával!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "Zoom k&i"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Zoom &be\tCtrl-+"
 
@@ -6516,6 +6766,10 @@ msgstr "Zoom &ki\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Nagytás 100%-ra"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Z&oom be"
 
 #: ID:2049
 msgid "Zoom in"
@@ -6727,6 +6981,11 @@ msgstr "módosított"
 msgid "modified / copied"
 msgstr "módosított / másolt"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "hónap"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6757,6 +7016,11 @@ msgstr "képpontok"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "lehetséges vagy valós ellentmondás / elrekesztve"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "negyedév"
 
 # ID:195,
 #: ID:195
@@ -6943,7 +7207,7 @@ msgid "values are different"
 msgstr "az értékek különböznek"
 
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "hét"
 
@@ -6951,4 +7215,9 @@ msgstr "hét"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "ami a Tárházra mutat ezen az URL-en:"
+
+# Control-ID:1059,
+#: ID:245
+msgid "year"
+msgstr "év"
 
