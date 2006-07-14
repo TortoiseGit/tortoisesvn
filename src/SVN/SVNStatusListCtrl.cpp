@@ -1873,6 +1873,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+				bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
 				int iItemCountBeforeMenuCmd = GetItemCount();
@@ -2095,7 +2096,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						fileop.wFunc = FO_DELETE;
 						fileop.pFrom = buf;
 						fileop.pTo = NULL;
-						fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
+						fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | (bShift ? 0 : FOF_ALLOWUNDO);
 						fileop.lpszProgressTitle = _T("deleting file");
 						SHFileOperation(&fileop);
 						delete [] buf;

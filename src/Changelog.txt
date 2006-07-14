@@ -158,6 +158,8 @@
        a specific line. See issue #214 for details. (Stefan)
 - NEW: When two revisions are selected in the log dialog, allow
        diffing a file in the modified files list. (Stefan)
+- NEW: In the various dialogs it is now possible to delete unversioned
+       files and folders permanently by pressing SHIFT (Ivan Gerasimov)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
