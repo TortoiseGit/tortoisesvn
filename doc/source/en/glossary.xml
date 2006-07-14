@@ -16,6 +16,24 @@
 		</glossdef>
 	</glossentry>
 	<glossentry>
+		<glossterm>BASE revision</glossterm>
+		<glossdef>
+			<para>
+				The current base revision of a file or folder in your <emphasis>working copy</emphasis>. 
+				This is the revision the file or folder was in, when the last checkout,
+				update or commit was run. The BASE revision is normally not equal to the
+				HEAD revision.
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Blame</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
 		<glossterm>BDB</glossterm>
 		<glossdef>
 			<para>
@@ -25,11 +43,139 @@
 		</glossdef>
 	</glossentry>
 	<glossentry>
+		<glossterm>Branch</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Checkout</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Cleanup</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Commit</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Copy</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Delete</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Diff</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Export</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
 		<glossterm>FSFS</glossterm>
 		<glossdef>
 			<para>
 				FS Filesystem. A proprietary Subversion filesystem backend for repositories.
 				Can be used on network shares. Default for 1.2 and newer repositories.
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>GPO</glossterm>
+		<glossdef>
+			<para>
+				Group policy object
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>HEAD revision</glossterm>
+		<glossdef>
+			<para>
+				The latest revision of a file or folder in the <emphasis>repository</emphasis>.
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Import</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Lock</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Log</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>History</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Merge</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Patch</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Property</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Relocate</glossterm>
+		<glossdef>
+			<para>
 			</para>
 		</glossdef>
 	</glossentry>
@@ -45,34 +191,35 @@
 		</glossdef>
 	</glossentry>
 	<glossentry>
-		<glossterm>BASE revision</glossterm>
+		<glossterm>Resolve</glossterm>
 		<glossdef>
 			<para>
-				The current base revision of a file or folder in your <emphasis>working copy</emphasis>. 
-				This is the revision the file or folder was in, when the last checkout,
-				update or commit was run. The BASE revision is normally not equal to the
-				HEAD revision.
 			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
-		<glossterm>HEAD revision</glossterm>
+		<glossterm>Revert</glossterm>
 		<glossdef>
 			<para>
-				The latest revision of a file or folder in the <emphasis>repository</emphasis>.
 			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
-		<glossterm>GPO</glossterm>
+		<glossterm>SVN</glossterm>
 		<glossdef>
 			<para>
-			Group policy object
 			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
-		<glossterm> </glossterm>
+		<glossterm>Switch</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Update</glossterm>
 		<glossdef>
 			<para>
 			</para>

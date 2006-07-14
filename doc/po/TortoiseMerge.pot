@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-06-30 00:11GMT Daylight Time\n"
+"POT-Creation-Date: 2006-07-14 22:48GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -762,51 +762,139 @@ msgid "A Subversion command that is used to add a file or directory to a reposit
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1093(glossterm) 
-msgid "BDB"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1095(para) 
-msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1102(glossterm) 
-msgid "FSFS"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1104(para) 
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1111(glossterm) 
-msgid "Repository"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1113(para) 
-msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1122(glossterm) 
 msgid "BASE revision"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1124(para) 
+#: source/TortoiseMerge_en.xml:1095(para) 
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1133(glossterm) 
-msgid "HEAD revision"
+#: source/TortoiseMerge_en.xml:1104(glossterm) 
+msgid "Blame"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1135(para) 
-msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
+#: source/TortoiseMerge_en.xml:1111(glossterm) 
+msgid "BDB"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1113(para) 
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1120(glossterm) 
+msgid "Branch"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1127(glossterm) 
+msgid "Checkout"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1134(glossterm) 
+msgid "Cleanup"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1141(glossterm) 
+msgid "Commit"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1148(glossterm) 
+msgid "Copy"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1155(glossterm) 
+msgid "Delete"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1162(glossterm) 
+msgid "Diff"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1169(glossterm) 
+msgid "Export"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1176(glossterm) 
+msgid "FSFS"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1178(para) 
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1185(glossterm) 
 msgid "GPO"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1143(para) 
+#: source/TortoiseMerge_en.xml:1187(para) 
 msgid "Group policy object"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1193(glossterm) 
+msgid "HEAD revision"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1195(para) 
+msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1201(glossterm) 
+msgid "Import"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1208(glossterm) 
+msgid "Lock"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1215(glossterm) 
+msgid "Log"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1222(glossterm) 
+msgid "History"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1229(glossterm) 
+msgid "Merge"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1236(glossterm) 
+msgid "Patch"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1243(glossterm) 
+msgid "Property"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1250(glossterm) 
+msgid "Relocate"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1257(glossterm) 
+msgid "Repository"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1259(para) 
+msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1268(glossterm) 
+msgid "Resolve"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1275(glossterm) 
+msgid "Revert"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1282(glossterm) 
+msgid "SVN"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1289(glossterm) 
+msgid "Switch"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1296(glossterm) 
+msgid "Update"
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
