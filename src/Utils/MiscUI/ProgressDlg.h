@@ -165,6 +165,7 @@ public:
     bool IsValid() const { return m_bValid; }
 
 protected:
+	bool EnsureValid();
     IProgressDialog* m_pIDlg;
     bool      m_bValid;
     bool      m_isVisible;

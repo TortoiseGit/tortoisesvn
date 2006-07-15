@@ -25,13 +25,7 @@ CProgressDlg::CProgressDlg() :
             m_isVisible(false),
 		    m_dwDlgFlags(PROGDLG_NORMAL)
 {
-	HRESULT hr;
-
-    hr = CoCreateInstance (CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER,
-                            IID_IProgressDialog, (void**)&m_pIDlg);
-
-    if (SUCCEEDED(hr))
-        m_bValid = true;				//instance successfully created
+	EnsureValid();
 }
 
 CProgressDlg::~CProgressDlg()
@@ -45,6 +39,20 @@ CProgressDlg::~CProgressDlg()
     }
 }
 
+bool CProgressDlg::EnsureValid()
+{
+	if (!m_bValid)
+	{
+		HRESULT hr;
+
+		hr = CoCreateInstance (CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER,
+			IID_IProgressDialog, (void**)&m_pIDlg);
+
+		if (SUCCEEDED(hr))
+			m_bValid = true;				//instance successfully created
+	}
+	return m_bValid;
+}
 void CProgressDlg::SetTitle(LPCTSTR szTitle)
 {
     USES_CONVERSION;
@@ -119,11 +127,13 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
 #ifdef _MFC_VER
 HRESULT CProgressDlg::ShowModal (CWnd* pwndParent)
 {
+	EnsureValid();
 	return ShowModal(pwndParent->GetSafeHwnd());
 }
 
 HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent)
 {
+	EnsureValid();
 	return ShowModeless(pwndParent->GetSafeHwnd());
 }
 
@@ -154,6 +164,7 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 #endif
 HRESULT CProgressDlg::ShowModal (HWND hWndParent)
 {
+	EnsureValid();
 	HRESULT hr;
 	if (m_bValid)
 	{
@@ -174,6 +185,7 @@ HRESULT CProgressDlg::ShowModal (HWND hWndParent)
 
 HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 {
+	EnsureValid();
 	HRESULT hr = E_FAIL;
 
 	if (m_bValid)
@@ -255,6 +267,8 @@ void CProgressDlg::Stop()
 			pOleWindow->Release();
 		}
         m_isVisible = false;
+		m_pIDlg->Release();
+		m_bValid = false;
     }
 }
 
