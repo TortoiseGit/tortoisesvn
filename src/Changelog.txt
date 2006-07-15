@@ -161,7 +161,9 @@
 - NEW: In the various dialogs it is now possible to delete unversioned
        files and folders permanently by pressing SHIFT (Ivan Gerasimov)
 - NEW: The list of changed files between two urls/revision can be
-       saved to a file. See issue #263 for details. (Stefan)
+       saved to a text file. See issue #263 for details. (Stefan)
+- NEW: The changed files between two urls/revision can be
+       exported to a folder. See issue #263 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

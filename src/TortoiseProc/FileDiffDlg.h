@@ -55,6 +55,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void OnCancel();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -80,6 +81,10 @@ protected:
 private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();
+	static UINT			ExportThreadEntry(LPVOID pVoid);
+	UINT				ExportThread();
+
+	virtual BOOL		Cancel() {return m_bCancelled;}
 
 	CBalloon			m_tooltips;
 
@@ -90,6 +95,10 @@ private:
 	bool				m_bBlame;
 	CBlame				m_blamer;
 	CArray<FileDiff, FileDiff> m_arFileList;
+	CArray<FileDiff, FileDiff> m_arSelectedFileList;
+
+	CString				m_strExportDir;
+	CProgressDlg *		m_pProgDlg;
 
 	int					m_nIconFolder;
 
@@ -102,4 +111,7 @@ private:
 	bool				m_bIgnoreancestry;
 	bool				m_bDoPegDiff;
 	volatile LONG		m_bThreadRunning;
+
+	bool				m_bCancelled;
+protected:
 };

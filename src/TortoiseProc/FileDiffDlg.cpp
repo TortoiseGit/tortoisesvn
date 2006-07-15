@@ -26,18 +26,23 @@
 #include "SysImageList.h"
 #include "SVNProperties.h"
 #include "StringUtils.h"
+#include "PathUtils.h"
+#include "BrowseFolder.h"
 #include ".\filediffdlg.h"
 
 #define ID_COMPARE 1
 #define ID_BLAME 2
 #define ID_SAVEAS 3
+#define ID_EXPORT 4
 
 // CFileDiffDlg dialog
 
 IMPLEMENT_DYNAMIC(CFileDiffDlg, CResizableStandAloneDialog)
 CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CFileDiffDlg::IDD, pParent),
-	m_bBlame(false)
+	m_bBlame(false),
+	m_pProgDlg(NULL),
+	m_bCancelled(false)
 {
 }
 
@@ -468,7 +473,10 @@ void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		popup.AppendMenu(MF_SEPARATOR, NULL);
 		temp.LoadString(IDS_FILEDIFF_POPSAVELIST);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+		temp.LoadString(IDS_FILEDIFF_POPEXPORT);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		m_bCancelled = false;
 		switch (cmd)
 		{
 		case ID_COMPARE:
@@ -561,12 +569,90 @@ void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					{
 						pE->ReportError();
 					}
-
+				}
+			}
+			break;
+		case ID_EXPORT:
+			{
+				// export all changed files to a folder
+				CBrowseFolder browseFolder;
+				browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+				if (browseFolder.Show(GetSafeHwnd(), m_strExportDir) == CBrowseFolder::OK) 
+				{
+					m_arSelectedFileList.RemoveAll();
+					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+					while (pos)
+					{
+						int index = m_cFileList.GetNextSelectedItem(pos);
+						CFileDiffDlg::FileDiff fd = m_arFileList.GetAt(index);
+						m_arSelectedFileList.Add(fd);
+					}
+					m_pProgDlg = new CProgressDlg();
+					InterlockedExchange(&m_bThreadRunning, TRUE);
+					if (AfxBeginThread(ExportThreadEntry, this)==NULL)
+					{
+						InterlockedExchange(&m_bThreadRunning, FALSE);
+						CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+					}
 				}
 			}
 			break;
 		}
 	}
+}
+
+UINT CFileDiffDlg::ExportThreadEntry(LPVOID pVoid)
+{
+	return ((CFileDiffDlg*)pVoid)->ExportThread();
+}
+
+UINT CFileDiffDlg::ExportThread()
+{
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
+	if (m_pProgDlg == NULL)
+		return 1;
+	long count = 0;
+	SetAndClearProgressInfo(m_pProgDlg, false);
+	m_pProgDlg->SetTitle(IDS_PROGRESSWAIT);
+	m_pProgDlg->SetAnimation(AfxGetResourceHandle(), IDR_ANIMATION);
+	m_pProgDlg->ShowModeless(this);
+	for (INT_PTR i=0; (i<m_arSelectedFileList.GetCount())&&(!m_pProgDlg->HasUserCancelled()); ++i)
+	{
+		CFileDiffDlg::FileDiff fd = m_arFileList.GetAt(i);
+		CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+		CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+		if (fd.node == svn_node_dir)
+		{
+			// just create the directory
+			CreateDirectoryEx(NULL, m_strExportDir+_T("\\")+fd.path.GetWinPathString(), NULL);
+			continue;
+		}
+
+		CString sTemp;
+		m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
+
+		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + fd.path.GetWinPathString());
+		CPathUtils::MakeSureDirectoryPathExists(savepath.GetDirectory().GetWinPath());
+		if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
+		{
+			CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			delete m_pProgDlg;
+			m_pProgDlg = NULL;
+			return 1;
+		}
+		count++;
+		m_pProgDlg->SetProgress(count,m_arSelectedFileList.GetCount());
+	}					
+	m_pProgDlg->Stop();
+	SetAndClearProgressInfo(NULL, false);
+	delete m_pProgDlg;
+	m_pProgDlg = NULL;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
+	return 0;
 }
 
 BOOL CFileDiffDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
@@ -632,4 +718,14 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CFileDiffDlg::OnCancel()
+{
+	if (m_bThreadRunning)
+	{
+		m_bCancelled = true;
+		return;
+	}
+	__super::OnCancel();
 }
