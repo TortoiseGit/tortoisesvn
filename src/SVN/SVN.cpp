@@ -1980,8 +1980,6 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 		{
 			if ((pSVN->m_bShowProgressBar && (progress > 1000) && (total > 0)))
 				pSVN->m_pProgressDlg->SetProgress64(progress, total);
-			else
-				pSVN->m_pProgressDlg->SetProgress64(0, 0);
 
 			CString sTotal;
 			CString temp;
