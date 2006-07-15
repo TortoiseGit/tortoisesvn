@@ -25,10 +25,12 @@
 #include "ProgressDlg.h"
 #include "SysImageList.h"
 #include "SVNProperties.h"
+#include "StringUtils.h"
 #include ".\filediffdlg.h"
 
 #define ID_COMPARE 1
 #define ID_BLAME 2
+#define ID_SAVEAS 3
 
 // CFileDiffDlg dialog
 
@@ -463,6 +465,9 @@ void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 		temp.LoadString(IDS_FILEDIFF_POPBLAME);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+		temp.LoadString(IDS_FILEDIFF_POPSAVELIST);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
 		{
@@ -484,6 +489,80 @@ void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					int index = m_cFileList.GetNextSelectedItem(pos);
 					DoDiff(index, true);
 				}					
+			}
+			break;
+		case ID_SAVEAS:
+			{
+				if (m_cFileList.GetSelectedCount() > 0)
+				{
+					// ask where to save the list
+					OPENFILENAME ofn;		// common dialog box structure
+					CString temp;
+					CTSVNPath savePath;
+
+					TCHAR szFile[MAX_PATH];  // buffer for file name
+					ZeroMemory(szFile, sizeof(szFile));
+					// Initialize OPENFILENAME
+					ZeroMemory(&ofn, sizeof(OPENFILENAME));
+					ofn.lStructSize = sizeof(OPENFILENAME);
+					ofn.hwndOwner = m_hWnd;
+					ofn.lpstrFile = szFile;
+					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+					CStringUtils::RemoveAccelerators(temp);
+					if (temp.IsEmpty())
+						ofn.lpstrTitle = NULL;
+					else
+						ofn.lpstrTitle = temp;
+					ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
+
+					ofn.hInstance = AfxGetResourceHandle();
+
+					CString sFilter;
+					sFilter.LoadString(IDS_COMMONFILEFILTER);
+					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+					// Replace '|' delimeters with '\0's
+					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+					while (ptr != pszFilters)
+					{
+						if (*ptr == '|')
+							*ptr = '\0';
+						ptr--;
+					}
+					ofn.lpstrFilter = pszFilters;
+					ofn.nFilterIndex = 1;
+					// Display the Open dialog box. 
+					if (GetSaveFileName(&ofn)==FALSE)
+					{
+						delete [] pszFilters;
+						break;
+					}
+					delete [] pszFilters;
+					savePath = CTSVNPath(ofn.lpstrFile);
+
+					// now open the selected file for writing
+					try
+					{
+						CStdioFile file(savePath.GetWinPathString(), CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+						temp.Format(IDS_FILEDIFF_CHANGEDLISTINTRO, m_path1.GetSVNPathString(), m_rev1.ToString(), m_path2.GetSVNPathString(), m_rev2.ToString());
+						file.WriteString(temp + _T("\n"));
+						POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+						while (pos)
+						{
+							int index = m_cFileList.GetNextSelectedItem(pos);
+							FileDiff fd = m_arFileList.GetAt(index);
+							file.WriteString(fd.path.GetSVNPathString());
+							file.WriteString(_T("\n"));
+						}
+						file.Close();
+					} 
+					catch (CFileException* pE)
+					{
+						pE->ReportError();
+					}
+
+				}
 			}
 			break;
 		}
