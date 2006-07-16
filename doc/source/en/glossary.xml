@@ -11,7 +11,8 @@
 		<glossdef>
 			<para>
 				A Subversion command that is used to add a
-				file or directory to a repository.
+				file or directory to your working copy.
+				The new items are added to the repository when you commit.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -30,6 +31,11 @@
 		<glossterm>Blame</glossterm>
 		<glossdef>
 			<para>
+				This command is for text files only, and it annotates every line to
+				show the repository revision in which it was last changed, and the
+				author who made that change. Our GUI implementation is called
+				TortoiseBlame and it also shows the commit date/time and the
+				log message when you hover the mouse of the revision number.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -46,6 +52,14 @@
 		<glossterm>Branch</glossterm>
 		<glossdef>
 			<para>
+				A term frequently used in revision control systems to describe
+				what happens when development forks at a particular point and
+				follows 2 separate paths. You can create a branch off the main
+				development line so as to develop a new feature without rendering
+				the main line unstable. Or you can branch a stable release to which
+				you make only bugfixes, while new developments take place on the
+				unstable trunk. In Subversion a branch is implemented as a
+				<quote>cheap copy</quote>.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -53,6 +67,8 @@
 		<glossterm>Checkout</glossterm>
 		<glossdef>
 			<para>
+				A Subversion command which creates a local working copy in an empty
+				directory by downloading versioned files from the repository.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -60,6 +76,16 @@
 		<glossterm>Cleanup</glossterm>
 		<glossdef>
 			<para>
+				To quote from the Subversion book:
+				<quote>
+					Recursively clean up the working copy, removing locks and resuming
+					unfinished operations. If you ever get a
+					<literal>working copy locked</literal> error,
+					run this command to remove stale locks and get your working copy
+					into a usable state again.
+				</quote>
+				Note that in this context <quote>lock</quote> refers to local filesystem
+				locking, not repository locking.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -67,6 +93,9 @@
 		<glossterm>Commit</glossterm>
 		<glossdef>
 			<para>
+				This Subversion command is used to pass the changes in your local
+				working copy back into the repository, creating a new repository
+				revision.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -74,6 +103,11 @@
 		<glossterm>Copy</glossterm>
 		<glossdef>
 			<para>
+				In a Subversion repository you can create a copy of a single file
+				or an entire tree. These are implemented as <quote>cheap copies</quote>
+				which act a bit like a link to the original in that they take up
+				almost no space. Making a copy preserves the history of the item
+				in the copy, so you can trace changes made before the copy was made.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -81,6 +115,11 @@
 		<glossterm>Delete</glossterm>
 		<glossdef>
 			<para>
+				When you delete a versioned item (and commit the change) the item
+				no longer exists in the repository after the commited revision.
+				But of course it still exists in earlier repository revisions,
+				so you can still access it. If necessary, you can copy a deleted
+				item and <quote>resurrect</quote> it complete with history.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -88,6 +127,8 @@
 		<glossterm>Diff</glossterm>
 		<glossdef>
 			<para>
+				Shorthand for <quote>Show Differences</quote>. Very useful when
+				you want to see exactly what changes have been made.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -95,6 +136,9 @@
 		<glossterm>Export</glossterm>
 		<glossdef>
 			<para>
+				This command produces a copy of a versioned folder,
+				just like a working copy, but without the local
+				<literal>.svn</literal> folders.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -127,6 +171,8 @@
 		<glossterm>Import</glossterm>
 		<glossdef>
 			<para>
+				Subversion command to import an entire folder hierarchy into the repository
+				in a single revision.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -134,6 +180,9 @@
 		<glossterm>Lock</glossterm>
 		<glossdef>
 			<para>
+				When you take out a lock on a versioned item, you mark it in
+				the repository as uncommittable, except from the working copy
+				where the lock was taken out.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -141,6 +190,8 @@
 		<glossterm>Log</glossterm>
 		<glossdef>
 			<para>
+				Show the revision history of a file or folder.
+				Also known as <quote>History</quote>.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -148,6 +199,8 @@
 		<glossterm>History</glossterm>
 		<glossdef>
 			<para>
+				Show the revision history of a file or folder.
+				Also known as <quote>Log</quote>.
 			</para>
 		</glossdef>
 	</glossentry>
