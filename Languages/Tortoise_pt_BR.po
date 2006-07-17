@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-13 13:33-0300\n"
+"PO-Revision-Date: 2006-07-17 17:51-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,6 +454,11 @@ msgstr "&Digite uma mensagem descrevendo por que você está travando o(s) arqui
 msgid "&Exit"
 msgstr "Sai&r"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "&Exportar para..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -738,17 +743,22 @@ msgstr "Client &SSH:"
 msgid "&Save Ctrl-S"
 msgstr "&Salvar Ctrl-S"
 
-# ID:313,#:
-# ID:101,
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Salvar Gráfico Como..."
-
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Salvar autenticação"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Salvar gráfico como..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Salvar lista em arquivo"
 
 # ID:313,#:
 # ID:101,
@@ -1704,6 +1714,12 @@ msgstr "Alterar o tamanho da janela"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Arquivos Alterados"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Arquivos alterados entre %s, %s e %s, %s"
 
 # ID:163,
 #: ID:163
@@ -4909,12 +4925,6 @@ msgstr "Salvar alterações para %1?"
 msgid "Save client certificate path"
 msgstr "Salvar caminho do certificado do cliente"
 
-# ID:313,#:
-# ID:101,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Salvar gráfico como..."
-
 # ID:76,
 #: ID:76
 msgid "Save revision &to..."
@@ -6272,6 +6282,15 @@ msgstr "Impossível ler de %1, está aberto por outra pessoa."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Impossível ler propriedade somente-escrita."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
 
 # ID:3865,#:
 # ID:3865,
