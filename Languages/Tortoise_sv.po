@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-03 07:47+0100\n"
+"PO-Revision-Date: 2006-07-17 07:25+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,6 +110,12 @@ msgstr "%I64d kBytes överförda"
 msgid "%d files selected, %d files total"
 msgstr "%d filer markerade, %d filer totalt"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld av %ld"
+
 #: ID:563
 #, c-format
 msgid "%ld paths"
@@ -164,6 +170,43 @@ msgid ""
 msgstr ""
 "%s\n"
 "Vill du ta bort den i alla fall?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Filstorlek:\t\t\t%s\n"
+"Bredd:\t\t\t%ld pixlar\n"
+"Höjd:\t\t\t%ld pixlar\n"
+"Horizontell upplösning:\t%.1f dpi\n"
+"Vertikal upplösning:\t%.1f dpi\n"
+"Djup:\t\t\t%d bitar\n"
+"Zoom:\t\t\t%d%%\n"
+"%s\n"
+"Filstorlek:\t\t\t%s\n"
+"Bredd:\t\t\t%ld pixlar\n"
+"Höjd:\t\t\t%ld pixlar\n"
+"Horizontell upplösning:\t%.1f dpi\n"
+"Vertikal upplösning:\t%.1f dpi\n"
+"Djup:\t\t\t%d bitar"
 
 # ID:69,
 #: ID:69
@@ -279,6 +322,11 @@ msgstr "&Konvertera filer vid jämförelser mot basrevision"
 msgid "&Copy"
 msgstr "K&opiera"
 
+# ID:101,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Kopiera till urklipp"
+
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Kopiera till..."
@@ -343,6 +391,10 @@ msgstr "&Skriv ett meddelande som beskriver varför du låser filen/filerna. "
 msgid "&Exit"
 msgstr "&Avsluta"
 
+#: ID:323
+msgid "&Export to..."
+msgstr "&Exportera till..."
+
 #: Control-ID:1092
 #: Control-ID:1095
 msgid "&External"
@@ -355,6 +407,14 @@ msgstr "&Fil"
 #: MenuEntry
 msgid "&Find"
 msgstr "&Sök"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Sök..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Anpassa bild till fönstret"
 
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -380,6 +440,10 @@ msgstr "&Från arbetskopia på URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Från revision"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "&Gå till rad..."
 
 #: Control-ID:1115
 #: Control-ID:1032
@@ -424,6 +488,10 @@ msgstr "&Ignorera %d objekt"
 #, fuzzy
 msgid "&Ignore whitespace changes"
 msgstr "&Ignorera ändringar mellan gemener/versaler"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "&Bild information"
 
 #: ID:9
 msgid "&Import..."
@@ -495,14 +563,18 @@ msgstr "&Nästa skillnad"
 msgid "&OK"
 msgstr "&OK"
 
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "&Öppna"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Öppna Ctrl-O"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Overlap images"
+msgstr "&Överlappa bilderna"
 
 #: Control-ID:65535
 msgid "&Password:"
@@ -568,6 +640,11 @@ msgstr "&Spara graf som..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Spara autentisering"
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Spara listan till fil"
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -737,6 +814,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1119,6 +1198,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Vill du verkligen återställa %d objekt? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "Ordna &vertikalt"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Sorterat efter &sökväg"
 
@@ -1142,6 +1225,7 @@ msgstr "Autentiserings data"
 
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Användarnamn"
 
@@ -1353,6 +1437,12 @@ msgstr "Ändra storlek på fönstret"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Ändrade filer"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Ändrade filer mellan %s, %s och %s, %s"
 
 #: ID:163
 #, c-format
@@ -1872,6 +1962,7 @@ msgstr ""
 
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Datum"
 
@@ -2317,6 +2408,26 @@ msgstr "Filskillnader"
 msgid "File patches"
 msgstr "Filpatchar"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Filstorlek:\t\t\t%s\n"
+"Bredd:\t\t\t%ld pixlar\n"
+"Höjd:\t\t\t%ld pixlar\n"
+"Horizontell upplösning:\t%.1f dpi\n"
+"Vertikal upplösning:\t%.1f dpi\n"
+"Djup:\t\t\t%d bitar\n"
+"Zoom:\t\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Sök"
@@ -2431,6 +2542,11 @@ msgstr "Hämtar \"Unified Diff\""
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "&Uteslutningsfilter:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Gå till rad"
 
 # Hur översätta "diff"
 #: ID:2051
@@ -2816,9 +2932,21 @@ msgstr "Minst aktiv:"
 msgid "Left View: "
 msgstr "Vänster vy:"
 
+#: Control-ID:65535
+msgid "Left image"
+msgstr "Vänsger bild"
+
+#: ID:19
+msgid "Line"
+msgstr "Rad"
+
 #: ID:246
 msgid "Line Graph"
 msgstr "Linjediagram"
+
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Rad:"
 
 #: ID:3605
 msgid ""
@@ -2827,6 +2955,10 @@ msgid ""
 msgstr ""
 "Lista hjälpavsnitt\n"
 "Hjälpavsnitt"
+
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Ladda bilder"
 
 #: ID:63
 msgid "Local status"
@@ -3304,6 +3436,10 @@ msgstr "Öppna fil med klientcertifikat"
 msgid "Open file"
 msgstr "Öppna fil"
 
+#: ID:7
+msgid "Open image file..."
+msgstr "Öppna bild fil..."
+
 #: ID:282
 #, fuzzy
 msgid "Open parent folder"
@@ -3324,6 +3460,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Visar utforskaren för arkivet"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Ursprungli&g storlek"
 
 # ID:188,
 #: ID:245
@@ -3839,6 +3979,7 @@ msgstr "Återställer alla ändringar sedan senaste uppdateringen"
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Revision"
 
@@ -3911,6 +4052,10 @@ msgstr "Revisioner"
 #: ID:188
 msgid "Right View: "
 msgstr "Höger vy:"
+
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Höger bild"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4079,6 +4224,11 @@ msgstr "Sök &loggmeddelanden..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "Sök:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "Söksträngen hittades inte!"
 
 #: ID:3867
 #, c-format
@@ -4577,6 +4727,16 @@ msgstr "System &ljud"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Registryinställningar och eventuell .ini-fil har tagits bort."
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -4687,6 +4847,11 @@ msgstr ""
 "%s\n"
 "finns inte.\n"
 "Vill du skapa den först?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "Bilden kan inte visas. "
 
 #: ID:63
 #, c-format
@@ -4974,6 +5139,42 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "Till: (URL och revision att förena till)"
 
 #: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame kan inte startas direkt\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:radnummer]"
+
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: visar skillnader mellan bilder för TortoiseSVN\n"
+"\n"
+"Följande kommandorads parametrar är tillgängliga:\n"
+"/left:\"sökväg till den vänstra bilden\"\n"
+"/lefttitle:\"titel för den vänstra bilden\"\n"
+"/right:\"sökväg till den högra bilden\"\n"
+"/righttitle:\"titel för den högra bilden\""
+
+#: ID:7
 #: ID:3585
 #: Dlg-ID:130
 msgid "TortoiseMerge"
@@ -5165,6 +5366,19 @@ msgstr "Kan inte läsa från %1, filen är öppnad av någon annan."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Kan inte läsa egenskap som är markerad för endast skrivning."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Det gick inte att rekonstruera arbetskopians sökväg!\n"
+"Det kan förekomma om man bytt namn på filen.\n"
+"Starta om loggdialogen för den här filen och återställ ändringarna\n"
+"från det översta fönstret i loggdialogen. "
 
 #: ID:3865
 msgid "Unable to write read-only property."
@@ -5592,6 +5806,10 @@ msgstr ""
 "arbetskopian kommer inte att bli identisk med revisionen du uppdaterar till!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "Zoo&ma ut"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Zooma &in\tCtrl-+"
 
@@ -5604,6 +5822,10 @@ msgstr "Zooma &ut\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Zooma 100%"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Zooma i&n"
 
 #: ID:2049
 msgid "Zoom in"
