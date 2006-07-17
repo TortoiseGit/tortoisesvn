@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-10 16:22+0800\n"
+"PO-Revision-Date: 2006-07-17 15:49+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,8 +138,8 @@ msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
 # ID:7,
 #: ID:7
 #, c-format
-msgid "%ld of % ld"
-msgstr ""
+msgid "%ld of %ld"
+msgstr "%ld / %ld"
 
 # Control-ID:65535,
 #: ID:563
@@ -220,6 +220,22 @@ msgid ""
 "Vertical Resolution:\t\t%.1f dpi\n"
 "Depth:\t\t\t%d bit"
 msgstr ""
+"%s\n"
+"檔案大小:\t\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"檔案大小:\t\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -352,9 +368,8 @@ msgstr "複製(&C)"
 
 # ID:101,
 #: MenuEntry
-#, fuzzy
 msgid "&Copy to clipboard"
-msgstr "複製至剪貼簿"
+msgstr "複製至剪貼簿(&C)"
 
 # ID:101,
 #: ID:101
@@ -435,6 +450,11 @@ msgstr "請輸入鎖定檔案的原因(&E)."
 msgid "&Exit"
 msgstr "離開(&E)"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "匯出至(&X)..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -455,7 +475,7 @@ msgstr "搜尋(&F)..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr ""
+msgstr "調整影像至視窗大小(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -490,7 +510,7 @@ msgstr "從版本(&F)"
 
 #: MenuEntry
 msgid "&Goto Line..."
-msgstr ""
+msgstr "前往行數(&G)..."
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -551,7 +571,7 @@ msgstr "無視空白字元變更(&I)"
 
 #: MenuEntry
 msgid "&Image Info"
-msgstr ""
+msgstr "影像資訊(&I)"
 
 # ID:9,
 #: ID:9
@@ -646,7 +666,7 @@ msgstr "開啟(&O) Ctrl-O"
 
 #: MenuEntry
 msgid "&Overlap images"
-msgstr ""
+msgstr "重疊影像(&O)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -730,6 +750,11 @@ msgstr "另存新檔(&S)..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "儲存認證(&S)"
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "儲存清單至檔案(&S)"
 
 # ID:313,#:
 # ID:101,
@@ -1399,7 +1424,7 @@ msgstr "確定要復原 %d 項目嗎? 從上一版本之後的<b>所有</b>變�
 
 #: MenuEntry
 msgid "Arrange &Vertical"
-msgstr ""
+msgstr "垂直調整(&V)"
 
 #: MenuEntry
 msgid "Arranged by &path"
@@ -1680,6 +1705,12 @@ msgstr "更改視窗大小"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "變動檔案"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "%s, %s 至 %s, %s 間變更的檔案"
 
 # ID:163,
 #: ID:163
@@ -2825,6 +2856,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"檔案大小:\t\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%"
 
 #: Dlg-ID:139
 msgid "Find"
@@ -2955,7 +2993,7 @@ msgstr "除外/忽略樣式(&P):"
 # Dlg-ID:130,
 #: Dlg-ID:130
 msgid "Go to line"
-msgstr ""
+msgstr "前往行數"
 
 # ID:2049,
 #: ID:2051
@@ -4000,7 +4038,7 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr ""
+msgstr "原始大小(G)"
 
 # ID:188,
 #: ID:245
@@ -4938,7 +4976,7 @@ msgstr "搜尋:"
 # ID:7,
 #: ID:7
 msgid "Search string not found!"
-msgstr ""
+msgstr "找不到指定的字串!"
 
 # ID:3867,#:
 # ID:3867,
@@ -5515,12 +5553,12 @@ msgstr "系統登錄紀錄及 INI 檔案(如果有) 移除完成."
 # ID:7,
 #: ID:7
 msgid "TORTOISEBLAME"
-msgstr ""
+msgstr "TORTOISEBLAME"
 
 # ID:7,
 #: ID:7
 msgid "TORTOISEIDIFF"
-msgstr ""
+msgstr "TORTOISEIDIFF"
 
 # ID:79,
 #: ID:79
@@ -5649,7 +5687,7 @@ msgstr ""
 # ID:7,
 #: ID:7
 msgid "The image can not be shown."
-msgstr ""
+msgstr "無法顯示圖片"
 
 # ID:63,
 #: ID:63
@@ -5965,7 +6003,7 @@ msgstr "TortoiseBlame"
 msgid ""
 "TortoiseBlame can't be started directly!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
-msgstr ""
+msgstr "不能直接使用 TortoiseBlame.exe!TortoiseBlame.exe blame檔名 [[紀錄檔] [視窗標題]] [/line:行號]"
 
 # ID:9,#:
 # ID:80,
@@ -5984,6 +6022,13 @@ msgid ""
 "/right:\"path to right picture\"\n"
 "/righttitle:\"title to show for the right picture\""
 msgstr ""
+"TortoiseIDiff: TortoiseSVN 的檔案差異比對工具\n"
+"\n"
+"以下是可用的命令列參數:\n"
+"/left:\"左方檔案的路徑\"\n"
+"/lefttitle:\"左方視窗的標題\"\n"
+"/right:\"右方檔案的路徑\"\n"
+"/righttitle:\"右方視窗的標題\""
 
 # ID:7,#:
 # ID:3585,#:
@@ -6220,6 +6265,19 @@ msgstr "無法讀取 %1, 因為另外有人開啟."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "無法讀取唯寫性質."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"無法重建工作複本路徑!\n"
+"如果檔案名稱有變動, 可能造成這個問題.\n"
+"請對特定檔案查詢紀錄, 並從紀錄視窗上方將變更\n"
+"復原."
 
 # ID:3865,#:
 # ID:3865,
