@@ -78,10 +78,10 @@ public:
 	void	SetGraphType(GraphType eType, bool bStackedGraph);
 	void	SetGraphTitle(const CString& sTitle);
 	int		LookupLabel(const CString& sLabel) const;
+	void	DrawGraph(CDC& dc);
 
 // Implementation.
 private:
-	void	DrawGraph(CDC& dc);
 	void	DrawTitle(CDC& dc);
 	void	SetupAxes(CDC& dc);
 	void	DrawAxes(CDC& dc) const;
