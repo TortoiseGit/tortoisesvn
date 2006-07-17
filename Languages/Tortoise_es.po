@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-13 10:24+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-07-17 14:09+0100\n"
+"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -393,6 +393,10 @@ msgstr "&Introduzca un mensaje que describa por qué bloquea el/los fichero(s)."
 msgid "&Exit"
 msgstr "&Salir"
 
+#: ID:323
+msgid "&Export to..."
+msgstr "E&xportar a..."
+
 #: Control-ID:1092
 #: Control-ID:1095
 msgid "&External"
@@ -634,6 +638,11 @@ msgstr "&Guardar Gráfico como..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Guardar autenticación"
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Grabar lista a fichero"
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1440,6 +1449,12 @@ msgstr "Cambiar el tamaño de la ventana"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Archivos Cambiados"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Ficheros cambiados entre %s, %s y %s, %s"
 
 #: ID:163
 #, c-format
@@ -5402,6 +5417,19 @@ msgstr "No se puede leer desde %1, está abierto por otra aplicación."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "No se puede leer una propiedad de sólo escritura."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"¡No se pudo reconstruir la ruta de la copia de trabajo!\n"
+"Esto puede ocurrir si el fichero ha sido renombrado.\n"
+"Por favor, inicie el diálogo de registro sobre este único fichero en concreto\n"
+"y luego revierta los cambios desde el panel superior del diálogo de registro."
 
 #: ID:3865
 msgid "Unable to write read-only property."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-06-14 18:10+0100\n"
+"PO-Revision-Date: 2006-07-17 14:16+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -967,63 +967,173 @@ msgstr "Un comando de Subversion que se utiliza para añadir un fichero o un dir
 
 #: source/TortoiseMerge_en.xml:1093
 #: (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#: source/TortoiseMerge_en.xml:1095
-#: (para)
-msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr "Base de datos Berkeley. Un soporte de base de datos muy probado para los repositorios, que no puede utilizarse en unidades compartidas de red. Por defecto para repositorios anteriores a la versión 1.2."
-
-#: source/TortoiseMerge_en.xml:1102
-#: (glossterm)
-msgid "FSFS"
-msgstr "FSFS"
-
-#: source/TortoiseMerge_en.xml:1104
-#: (para)
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Sistema de ficheros FS. Un sistema de ficheros propietario de Subversion que se utiliza como soporte de los repositorios. Se puede utilizar en unidades compartidas de red. Por defecto para los repositorios a partir de la versión 1.2."
-
-#: source/TortoiseMerge_en.xml:1111
-#: (glossterm)
-msgid "Repository"
-msgstr "repositorio"
-
-#: source/TortoiseMerge_en.xml:1113
-#: (para)
-msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr "Un repositorio es un lugar central donde se almacenan y mantienen los datos. Un repositorio puede ser un lugar donde se encuentran múltiples bases de datos o ficheros para distribuirlos en una red, o un repositorio puede ser un lugar directamente accesible por el usuario sin tener que viajar por una red."
-
-#: source/TortoiseMerge_en.xml:1122
-#: (glossterm)
 msgid "BASE revision"
 msgstr "revisión BASE"
 
-#: source/TortoiseMerge_en.xml:1124
+#: source/TortoiseMerge_en.xml:1095
 #: (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "La revisión base actual de un fichero o una carpeta en su <emphasis>copia de trabajo</emphasis>. Esta es la revisión en la que estaba el fichero o la carpeta, cuando se realizó la última operación de obtener, actualizar o confirmar. La revisión BASE normalmente no es la misma que la revisión HEAD."
 
-#: source/TortoiseMerge_en.xml:1133
+#: source/TortoiseMerge_en.xml:1104
 #: (glossterm)
-msgid "HEAD revision"
-msgstr "revisión HEAD"
+msgid "Blame"
+msgstr "Autoría"
 
-#: source/TortoiseMerge_en.xml:1135
+#: source/TortoiseMerge_en.xml:1111
+#: (glossterm)
+msgid "BDB"
+msgstr "BDB"
+
+#: source/TortoiseMerge_en.xml:1113
 #: (para)
-msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr "La última revisión de un fichero o una carpeta en el <emphasis>repositorio</emphasis>."
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr "Base de datos Berkeley. Un soporte de base de datos muy probado para los repositorios, que no puede utilizarse en unidades compartidas de red. Por defecto para repositorios anteriores a la versión 1.2."
+
+#: source/TortoiseMerge_en.xml:1120
+#: (glossterm)
+msgid "Branch"
+msgstr "Rama"
+
+#: source/TortoiseMerge_en.xml:1127
+#: (glossterm)
+msgid "Checkout"
+msgstr "Obtener"
+
+#: source/TortoiseMerge_en.xml:1134
+#: (glossterm)
+msgid "Cleanup"
+msgstr "Limpiar"
 
 #: source/TortoiseMerge_en.xml:1141
+#: (glossterm)
+msgid "Commit"
+msgstr "Confirmar"
+
+#: source/TortoiseMerge_en.xml:1148
+#: (glossterm)
+msgid "Copy"
+msgstr "Copiar"
+
+#: source/TortoiseMerge_en.xml:1155
+#: (glossterm)
+msgid "Delete"
+msgstr "Eliminar"
+
+#: source/TortoiseMerge_en.xml:1162
+#: (glossterm)
+msgid "Diff"
+msgstr "Diferenciar"
+
+#: source/TortoiseMerge_en.xml:1169
+#: (glossterm)
+msgid "Export"
+msgstr "Exportar"
+
+#: source/TortoiseMerge_en.xml:1176
+#: (glossterm)
+msgid "FSFS"
+msgstr "FSFS"
+
+#: source/TortoiseMerge_en.xml:1178
+#: (para)
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "Sistema de ficheros FS. Un sistema de ficheros propietario de Subversion que se utiliza como soporte de los repositorios. Se puede utilizar en unidades compartidas de red. Por defecto para los repositorios a partir de la versión 1.2."
+
+#: source/TortoiseMerge_en.xml:1185
 #: (glossterm)
 msgid "GPO"
 msgstr "GPO"
 
-#: source/TortoiseMerge_en.xml:1143
+#: source/TortoiseMerge_en.xml:1187
 #: (para)
 msgid "Group policy object"
 msgstr "Objeto de política de grupo"
+
+#: source/TortoiseMerge_en.xml:1193
+#: (glossterm)
+msgid "HEAD revision"
+msgstr "revisión HEAD"
+
+#: source/TortoiseMerge_en.xml:1195
+#: (para)
+msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
+msgstr "La última revisión de un fichero o una carpeta en el <emphasis>repositorio</emphasis>."
+
+#: source/TortoiseMerge_en.xml:1201
+#: (glossterm)
+msgid "Import"
+msgstr "Importar"
+
+#: source/TortoiseMerge_en.xml:1208
+#: (glossterm)
+msgid "Lock"
+msgstr "Bloquear"
+
+#: source/TortoiseMerge_en.xml:1215
+#: (glossterm)
+msgid "Log"
+msgstr "Registro"
+
+#: source/TortoiseMerge_en.xml:1222
+#: (glossterm)
+msgid "History"
+msgstr "Historial"
+
+#: source/TortoiseMerge_en.xml:1229
+#: (glossterm)
+msgid "Merge"
+msgstr "Fusionar"
+
+#: source/TortoiseMerge_en.xml:1236
+#: (glossterm)
+msgid "Patch"
+msgstr "Parche"
+
+#: source/TortoiseMerge_en.xml:1243
+#: (glossterm)
+msgid "Property"
+msgstr "Propiedad"
+
+#: source/TortoiseMerge_en.xml:1250
+#: (glossterm)
+msgid "Relocate"
+msgstr "Relocalizar"
+
+#: source/TortoiseMerge_en.xml:1257
+#: (glossterm)
+msgid "Repository"
+msgstr "repositorio"
+
+#: source/TortoiseMerge_en.xml:1259
+#: (para)
+msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
+msgstr "Un repositorio es un lugar central donde se almacenan y mantienen los datos. Un repositorio puede ser un lugar donde se encuentran múltiples bases de datos o ficheros para distribuirlos en una red, o un repositorio puede ser un lugar directamente accesible por el usuario sin tener que viajar por una red."
+
+#: source/TortoiseMerge_en.xml:1268
+#: (glossterm)
+msgid "Resolve"
+msgstr "Resolver"
+
+#: source/TortoiseMerge_en.xml:1275
+#: (glossterm)
+msgid "Revert"
+msgstr "Revertir"
+
+#: source/TortoiseMerge_en.xml:1282
+#: (glossterm)
+msgid "SVN"
+msgstr "SVN"
+
+#: source/TortoiseMerge_en.xml:1289
+#: (glossterm)
+msgid "Switch"
+msgstr "Cambiar"
+
+#: source/TortoiseMerge_en.xml:1296
+#: (glossterm)
+msgid "Update"
+msgstr "Actualizar"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseMerge_en.xml:0
