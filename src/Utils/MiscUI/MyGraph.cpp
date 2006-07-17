@@ -814,7 +814,7 @@ void MyGraph::DrawLegend(CDC& dc)
 		CBrush* pBrushOld = dc.SelectObject(&br);
 		ASSERT_VALID(pBrushOld);
 
-		dc.SelectObject(&pBrushOld);
+		dc.SelectObject(pBrushOld);
 		rcBar.DeflateRect(LEGEND_COLOR_BAR_GAP_PIXELS, LEGEND_COLOR_BAR_GAP_PIXELS);
 		dc.FillRect(rcBar, &br);
 	}
@@ -1021,7 +1021,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 					ASSERT_VALID(pBrushOld);
 
 					VERIFY(dc.Rectangle(rcBar));
-					dc.SelectObject(&pBrushOld);
+					dc.SelectObject(pBrushOld);
 
 					if(!m_bStackedGraph){
 						nRunningLeft += nBarWidth;
@@ -1126,7 +1126,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			dataLastLoc = pSeries->GetData(nGroup);
 		}
 		VERIFY(dc.SelectObject(pPenOld));
-		dc.SelectObject(&pBrushOld);
+		dc.SelectObject(pBrushOld);
 		penLine.DeleteObject();
 		br.DeleteObject();
 	}
