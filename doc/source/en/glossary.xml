@@ -100,6 +100,18 @@
 		</glossdef>
 	</glossentry>
 	<glossentry>
+		<glossterm>Conflict</glossterm>
+		<glossdef>
+			<para>
+				When changes from the repository are merged with local changes, 
+				sometimes those changes occur on the same lines. In this case
+				Subversion cannot automatically decide which version to use and
+				the file is said to be in conflict. You have to edit the file manually
+				and resolve the conflict before you can commit any further changes.
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
 		<glossterm>Copy</glossterm>
 		<glossdef>
 			<para>
@@ -208,6 +220,15 @@
 		<glossterm>Merge</glossterm>
 		<glossdef>
 			<para>
+				The process by which changes from the repository are added to your
+				working copy without disrupting any changes you have already made
+				locally. Sometimes these changes cannot be reconciled automatically
+				and the working copy is said to be in conflict.
+			</para>
+			<para>
+				Merging happens automatically when you update your working copy.
+				You can also merge specific changes from another branch using
+				TortoiseSVN's Merge command.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -215,6 +236,14 @@
 		<glossterm>Patch</glossterm>
 		<glossdef>
 			<para>
+				If a working copy has changes to text files only, it is possible
+				to use Subversion's Diff command to generate a single file summary
+				of those changes in Unified Diff format. A file of this type is often
+				referred to as a <quote>Patch</quote>, and it can be emailed to someone
+				else (or to a mailing list) and applied to another working copy.
+				Someone without commit access can make changes and submit a patch
+				file for an authorized committer to apply. Or if you are unsure about
+				a change you can submit a patch for others to review.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -247,11 +276,30 @@
 		<glossterm>Resolve</glossterm>
 		<glossdef>
 			<para>
+				When files in a working copy are left in a conflicted state following
+				a merge, those conflicts must be sorted out by a human using an editor
+				(or perhaps TortoiseMerge). This process is referred to as
+				<quote>Resolving Conflicts</quote>. When this is complete you can mark
+				the conflicted files as being resolved, which allows them to be committed.
 			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm>Revert</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Revision</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Revision Property (revprop)</glossterm>
 		<glossdef>
 			<para>
 			</para>
@@ -273,6 +321,13 @@
 	</glossentry>
 	<glossentry>
 		<glossterm>Update</glossterm>
+		<glossdef>
+			<para>
+			</para>
+		</glossdef>
+	</glossentry>
+	<glossentry>
+		<glossterm>Working Copy</glossterm>
 		<glossdef>
 			<para>
 			</para>
