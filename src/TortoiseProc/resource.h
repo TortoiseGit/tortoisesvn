@@ -95,6 +95,7 @@
 #define IDI_GRAPHLINESTACKED            232
 #define IDI_GRAPHPIE                    233
 #define IDI_SWITCHLEFTRIGHT             234
+#define IDR_STATGRAPH                   235
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -909,13 +910,15 @@
 #define ID_REVGRAPH_ZOOMCOMBO           32800
 #define ID_VIEW_ZOOM100                 32803
 #define ID_VIEW_ZOOMALL                 32804
+#define ID_FILE_SAVEGRAPHAS32805        32805
+#define ID_FILE_SAVESTATGRAPHAS         32806
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        235
-#define _APS_NEXT_COMMAND_VALUE         32805
+#define _APS_NEXT_RESOURCE_VALUE        236
+#define _APS_NEXT_COMMAND_VALUE         32807
 #define _APS_NEXT_CONTROL_VALUE         1314
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

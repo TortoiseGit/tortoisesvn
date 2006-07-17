@@ -19,10 +19,16 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "StatGraphDlg.h"
+#include "gdiplus.h"
 #include "UnicodeUtils.h"
+#include "StringUtils.h"
+#include "PathUtils.h"
+#include "MemDC.h"
+#include "MessageBox.h"
 #include <math.h>
 #include <locale>
 
+using namespace Gdiplus;
 
 // CStatGraphDlg dialog
 
@@ -78,6 +84,7 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_GRAPHLINEBUTTON, &CStatGraphDlg::OnBnClickedGraphlinebutton)
 	ON_BN_CLICKED(IDC_GRAPHLINESTACKEDBUTTON, &CStatGraphDlg::OnBnClickedGraphlinestackedbutton)
 	ON_BN_CLICKED(IDC_GRAPHPIEBUTTON, &CStatGraphDlg::OnBnClickedGraphpiebutton)
+	ON_COMMAND(ID_FILE_SAVESTATGRAPHAS, &CStatGraphDlg::OnFileSavestatgraphas)
 END_MESSAGE_MAP()
 
 
@@ -739,7 +746,8 @@ void CStatGraphDlg::ShowStats()
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
 	UpdateData();
-	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
+	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+	switch (graphtype)
 	{
 	case 1:
 		// labels
@@ -1004,6 +1012,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 
 void CStatGraphDlg::RedrawGraph()
 {
+	EnableDisableMenu();
 	m_btnGraphBar.SetState(BST_UNCHECKED);
 	m_btnGraphBarStacked.SetState(BST_UNCHECKED);
 	m_btnGraphLine.SetState(BST_UNCHECKED);
@@ -1087,4 +1096,255 @@ BOOL CStatGraphDlg::PreTranslateMessage(MSG* pMsg)
 		m_pToolTip->RelayEvent(pMsg);
 
 	return CStandAloneDialogTmpl<CResizableDialog>::PreTranslateMessage(pMsg);
+}
+
+void CStatGraphDlg::EnableDisableMenu()
+{
+	UINT nEnable = MF_BYCOMMAND;
+	if (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()) == 1)
+		nEnable |= (MF_DISABLED | MF_GRAYED);
+	else
+		nEnable |= MF_ENABLED;
+	GetMenu()->EnableMenuItem(ID_FILE_SAVESTATGRAPHAS, nEnable);
+}
+
+void CStatGraphDlg::OnFileSavestatgraphas()
+{
+	CString temp;
+	// ask for the filename to save the picture
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = this->m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	temp.LoadString(IDS_REVGRAPH_SAVEPIC);
+	CStringUtils::RemoveAccelerators(temp);
+	if (temp.IsEmpty())
+		ofn.lpstrTitle = NULL;
+	else
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_OVERWRITEPROMPT;
+
+	CString sFilter;
+	sFilter.LoadString(IDS_PICTUREFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	}
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+	// Display the Open dialog box. 
+	CString tempfile;
+	if (GetSaveFileName(&ofn)==TRUE)
+	{
+		tempfile = CString(ofn.lpstrFile);
+		// if the user doesn't specify a file extension, default to
+		// wmf and add that extension to the filename. But only if the
+		// user chose the 'pictures' filter. The filename isn't changed
+		// if the 'All files' filter was chosen.
+		CString extension;
+		int dotPos = tempfile.ReverseFind('.');
+		int slashPos = tempfile.ReverseFind('\\');
+		if (dotPos > slashPos)
+			extension = tempfile.Mid(dotPos);
+		if ((ofn.nFilterIndex == 1)&&(extension.IsEmpty()))
+		{
+			extension = _T(".wmf");
+			tempfile += extension;
+		}
+		SaveGraph(tempfile);
+	}
+	delete [] pszFilters;
+}
+
+void CStatGraphDlg::SaveGraph(CString sFilename)
+{
+	CString extension = CPathUtils::GetFileExtFromPath(sFilename);
+	if (extension.CompareNoCase(_T(".wmf"))==0)
+	{
+		// save the graph as an enhanced metafile
+		CMyMetaFileDC wmfDC;
+		wmfDC.CreateEnhanced(NULL, sFilename, NULL, _T("TortoiseSVN\0Statistics\0\0"));
+		wmfDC.SetAttribDC(GetDC()->GetSafeHdc());
+		RedrawGraph();
+		m_graph.DrawGraph(wmfDC);
+		HENHMETAFILE hemf = wmfDC.CloseEnhanced();
+		DeleteEnhMetaFile(hemf);
+	}
+	else
+	{
+		// to save the graph as a pixel picture (e.g. gif, png, jpeg, ...)
+		// the user needs to have GDI+ installed. So check if GDI+ is 
+		// available before we start using it.
+		TCHAR gdifindbuf[MAX_PATH];
+		_tcscpy_s(gdifindbuf, MAX_PATH, _T("gdiplus.dll"));
+		if (PathFindOnPath(gdifindbuf, NULL))
+		{
+			ATLTRACE("gdi plus found!");
+		}
+		else
+		{
+			ATLTRACE("gdi plus not found!");
+			CMessageBox::Show(m_hWnd, IDS_ERR_GDIPLUS_MISSING, IDS_APPNAME, MB_ICONERROR);
+			return;
+		}
+
+		// save the graph as a pixel picture instead of a vector picture
+		// create dc to paint on
+		try
+		{
+			CWindowDC ddc(this);
+			CDC dc;
+			if (!dc.CreateCompatibleDC(&ddc))
+			{
+				LPVOID lpMsgBuf;
+				if (!FormatMessage( 
+					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+					FORMAT_MESSAGE_FROM_SYSTEM | 
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					NULL,
+					GetLastError(),
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+					(LPTSTR) &lpMsgBuf,
+					0,
+					NULL ))
+				{
+					return;
+				}
+				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				LocalFree( lpMsgBuf );
+				return;
+			}
+			CRect rect;
+			GetDlgItem(IDC_GRAPH)->GetClientRect(&rect);
+			HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
+			if (hbm==0)
+			{
+				LPVOID lpMsgBuf;
+				if (!FormatMessage( 
+					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+					FORMAT_MESSAGE_FROM_SYSTEM | 
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					NULL,
+					GetLastError(),
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+					(LPTSTR) &lpMsgBuf,
+					0,
+					NULL ))
+				{
+					return;
+				}
+				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				LocalFree( lpMsgBuf );
+				return;
+			}
+			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+			//paint the whole graph
+			RedrawGraph();
+			m_graph.DrawGraph(dc);
+			//now use GDI+ to save the picture
+			CLSID   encoderClsid;
+			GdiplusStartupInput gdiplusStartupInput;
+			ULONG_PTR           gdiplusToken;
+			CString sErrormessage;
+			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
+			{   
+				{
+					Bitmap bitmap(hbm, NULL);
+					if (bitmap.GetLastStatus()==Ok)
+					{
+						// Get the CLSID of the encoder.
+						int ret = 0;
+						if (CPathUtils::GetFileExtFromPath(sFilename).CompareNoCase(_T(".png"))==0)
+							ret = GetEncoderClsid(L"image/png", &encoderClsid);
+						else if (CPathUtils::GetFileExtFromPath(sFilename).CompareNoCase(_T(".jpg"))==0)
+							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+						else if (CPathUtils::GetFileExtFromPath(sFilename).CompareNoCase(_T(".jpeg"))==0)
+							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+						else if (CPathUtils::GetFileExtFromPath(sFilename).CompareNoCase(_T(".bmp"))==0)
+							ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
+						else if (CPathUtils::GetFileExtFromPath(sFilename).CompareNoCase(_T(".gif"))==0)
+							ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+						else
+						{
+							sFilename += _T(".jpg");
+							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+						}
+						if (ret >= 0)
+						{
+							CStringW tfile = CStringW(sFilename);
+							bitmap.Save(tfile, &encoderClsid, NULL);
+						}
+						else
+						{
+							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CPathUtils::GetFileExtFromPath(sFilename));
+						}
+					}
+					else
+					{
+						sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
+					}
+				}
+				GdiplusShutdown(gdiplusToken);
+			}
+			else
+			{
+				sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
+			}
+			dc.SelectObject(oldbm);
+			dc.DeleteDC();
+			if (!sErrormessage.IsEmpty())
+			{
+				CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+			}
+		}
+		catch (CException * pE)
+		{
+			TCHAR szErrorMsg[2048];
+			pE->GetErrorMessage(szErrorMsg, 2048);
+			CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
+		}
+	}
+}
+
+int CStatGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
+{
+	UINT  num = 0;          // number of image encoders
+	UINT  size = 0;         // size of the image encoder array in bytes
+
+	ImageCodecInfo* pImageCodecInfo = NULL;
+
+	if (GetImageEncodersSize(&num, &size)!=Ok)
+		return -1;
+	if (size == 0)
+		return -1;  // Failure
+
+	pImageCodecInfo = (ImageCodecInfo*)(malloc(size));
+	if (pImageCodecInfo == NULL)
+		return -1;  // Failure
+
+	if (GetImageEncoders(num, size, pImageCodecInfo)==Ok)
+	{
+		for (UINT j = 0; j < num; ++j)
+		{
+			if (wcscmp(pImageCodecInfo[j].MimeType, format) == 0)
+			{
+				*pClsid = pImageCodecInfo[j].Clsid;
+				free(pImageCodecInfo);
+				return j;  // Success
+			}
+		}
+	}
+	free (pImageCodecInfo);
+	return -1;  // Failure
 }

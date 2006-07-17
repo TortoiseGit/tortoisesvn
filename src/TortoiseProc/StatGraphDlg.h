@@ -22,6 +22,14 @@
 #include "MyGraph.h"
 #include "XPImageButton.h"
 
+class CMyMetaFileDC : public CMetaFileDC
+{
+public:
+	HGDIOBJ CMyMetaFileDC::SelectObject(HGDIOBJ hObject) 
+	{
+		return (hObject != NULL) ? ::SelectObject(m_hDC, hObject) : NULL; 
+	}
+};
 // CStatGraphDlg dialog
 
 class CStatGraphDlg : public CResizableStandAloneDialog//CResizableStandAloneDialog
@@ -48,6 +56,7 @@ protected:
 	afx_msg void OnBnClickedGraphlinebutton();
 	afx_msg void OnBnClickedGraphlinestackedbutton();
 	afx_msg void OnBnClickedGraphpiebutton();
+	afx_msg void OnFileSavestatgraphas();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -95,6 +104,11 @@ protected:
 	int			GetUnit(const CTime& time);
 	CStatGraphDlg::UnitType	GetUnitType();
 	CString		GetUnitString();
+
+	void		EnableDisableMenu();
+
+	void		SaveGraph(CString sFilename);
+	int			GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 	CToolTipCtrl* m_pToolTip;
 public:
