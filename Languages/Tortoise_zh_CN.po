@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-13 23:20+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"PO-Revision-Date: 2006-07-17 09:42+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -447,6 +447,11 @@ msgstr "注明对文件加锁原因(&E)"
 msgid "&Exit"
 msgstr "退出(&E)"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "导出(&E)..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -740,6 +745,11 @@ msgstr "保存图片为(&S)..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "保存认证(&S)"
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "保存列表(&S)"
 
 # ID:313,
 #: Control-ID:1308
@@ -1691,6 +1701,12 @@ msgstr "更改窗口大小"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "已改变的文件"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "从 %s，%s 到 %s，%s 所改变的文件"
 
 # ID:163,
 #: ID:163
@@ -6232,6 +6248,19 @@ msgstr "无法读取 %1，该文件已经被其他人打开。"
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "无法读取只写属性。"
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"不能重构工作拷贝路径！\n"
+"如果文件被改名后可能发生这种情况。\n"
+"请打开该文件的日志对话框并从对话框上部的\n"
+"面板取消改名操作。"
 
 # ID:3865,#:
 # ID:3865,
