@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-17 15:49+0800\n"
+"PO-Revision-Date: 2006-07-18 15:53+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -739,17 +739,17 @@ msgstr "SSH 用戶端(&S):"
 msgid "&Save Ctrl-S"
 msgstr "儲存(&S) Ctrl-S"
 
-# ID:313,#:
-# ID:101,
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "另存新檔(&S)..."
-
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "儲存認證(&S)"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "圖型另存新檔(&S)..."
 
 # ID:322,
 #: ID:322
@@ -4905,12 +4905,6 @@ msgstr "是否儲存 %1 的變動?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "儲存用戶端憑證路徑"
-
-# ID:313,#:
-# ID:101,
-#: ID:272
-msgid "Save graph as..."
-msgstr "圖型另存新檔..."
 
 # ID:76,
 #: ID:76
