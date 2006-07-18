@@ -767,7 +767,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 			// after an update, show the user the log button, but only if only one single item was updated
 			// (either a file or a directory)
-			if (m_targetPathList.GetCount() == 1)
+			if ((m_targetPathList.GetCount() == 1)&&(m_UpdateStartRevMap.size()>0))
 				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 		} 
 		break;
@@ -1103,13 +1103,16 @@ UINT CSVNProgressDlg::ProgressThread()
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
-	if (m_targetPathList.GetCount() != 1)
+	if ((m_targetPathList.GetCount() != 1)||(m_UpdateStartRevMap.size()))
 		return;
 	StringRevMap::iterator it = m_UpdateStartRevMap.begin();
-	svn_revnum_t rev = it->second;
-	CLogDlg dlg;
-	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
-	dlg.DoModal();
+	if (it != m_UpdateStartRevMap.end())
+	{
+		svn_revnum_t rev = it->second;
+		CLogDlg dlg;
+		dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
+		dlg.DoModal();
+	}
 }
 
 
