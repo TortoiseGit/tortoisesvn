@@ -38,7 +38,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Find...",                    ID_EDIT_FIND
-        MENUITEM "&Goto Line...",               ID_EDIT_GOTOLINE
+        MENUITEM "&Go To Line...",              ID_EDIT_GOTOLINE
     END
 END
 
