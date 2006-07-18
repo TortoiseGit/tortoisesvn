@@ -190,20 +190,47 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 					}
 					if (LOWORD(wParam) == IDC_EDITPROPERTIES)
 					{
-						STARTUPINFO startup;
-						PROCESS_INFORMATION process;
-						memset(&startup, 0, sizeof(startup));
-						startup.cb = sizeof(startup);
-						memset(&process, 0, sizeof(process));
-						CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
-						stdstring svnCmd = _T(" /command:");
-						svnCmd += _T("properties /path:\"");
-						svnCmd += filenames.front().c_str();
-						svnCmd += _T("\" /notempfile");
-						if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+						DWORD pathlength = GetTempPath(0, NULL);
+						TCHAR * path = new TCHAR[pathlength+1];
+						TCHAR * tempFile = new TCHAR[pathlength + 100];
+						GetTempPath (pathlength+1, path);
+						GetTempFileName (path, _T("svn"), 0, tempFile);
+						stdstring retFilePath = stdstring(tempFile);
+
+						HANDLE file = ::CreateFile (tempFile,
+							GENERIC_WRITE, 
+							FILE_SHARE_READ, 
+							0, 
+							CREATE_ALWAYS, 
+							FILE_ATTRIBUTE_TEMPORARY,
+							0);
+
+						delete path;
+						delete tempFile;
+						if (file != INVALID_HANDLE_VALUE)
 						{
-							CloseHandle(process.hThread);
-							CloseHandle(process.hProcess);
+							DWORD written = 0;
+							for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
+							{
+								::WriteFile (file, I->c_str(), I->size()*sizeof(TCHAR), &written, 0);
+								::WriteFile (file, _T("\n"), 2, &written, 0);
+							}
+							::CloseHandle(file);
+
+							STARTUPINFO startup;
+							PROCESS_INFORMATION process;
+							memset(&startup, 0, sizeof(startup));
+							startup.cb = sizeof(startup);
+							memset(&process, 0, sizeof(process));
+							CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
+							stdstring svnCmd = _T(" /command:");
+							svnCmd += _T("properties /path:\"");
+							svnCmd += retFilePath.c_str();
+							if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+							{
+								CloseHandle(process.hThread);
+								CloseHandle(process.hProcess);
+							}
 						}
 					}
 					break;
