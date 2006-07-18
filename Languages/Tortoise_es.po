@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-17 14:09+0100\n"
+"PO-Revision-Date: 2006-07-18 13:30+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -444,7 +444,7 @@ msgid "&From revision"
 msgstr "&Desde la revisión"
 
 #: MenuEntry
-msgid "&Goto Line..."
+msgid "&Go To Line..."
 msgstr "&Ir a la línea..."
 
 #: Control-ID:1115
@@ -631,13 +631,13 @@ msgstr "Cliente &SSH: "
 msgid "&Save Ctrl-S"
 msgstr "&Guardar"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Guardar Gráfico como..."
-
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Guardar autenticación"
+
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Guardar gráfico como..."
 
 # ID:322,
 #: ID:322
@@ -4214,10 +4214,6 @@ msgstr "¿Guardar cambios a %1?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "Guardar certificado de cliente en"
-
-#: ID:272
-msgid "Save graph as..."
-msgstr "Guardar gráfico como..."
 
 #: ID:76
 msgid "Save revision &to..."
