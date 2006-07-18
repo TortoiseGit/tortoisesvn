@@ -1,0 +1,6906 @@
+#
+# Turkish translation for TortoiseSVN
+# Copyright (C) 2004-2006 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Initial Author:
+# (v7039)(80%)Aydogan T. Yolacan <id@yolatech.com>
+# Authors:
+#
+# Notlar:
+#  - Hizli bir sekilde tercume edildi ve daha denenmedi o yuzden bazi tercumeler komik olabilir.
+#  - katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz. 
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-07-17 22:21+0300\n"
+"Last-Translator: Aydogan Tolga Yolacan <id@yolatech.com>\n"
+"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Bookmarks: 357,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+
+# ID:10,#:
+# ID:126,#:
+# ID:126,
+#: ID:10
+#: ID:126
+msgid " "
+msgstr " "
+
+# ID:188,
+#: ID:188
+#, c-format
+msgid "! %d"
+msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes transfer edildi"
+
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
+#, c-format
+msgid "%1 contained an unexpected object."
+msgstr "%1 beklenmeyen bir nesne içermekte."
+
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
+#, c-format
+msgid "%1 contains an incorrect schema."
+msgstr "%1 hatalı bir şema içermekte."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "%1 contains an invalid path."
+msgstr "%1 geçersiz dizin içermekte."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "%1 could not be created because the directory is full."
+msgstr "%1 yaratılamadı çünkü klasör dolu."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "%1 could not be opened because there are too many open files."
+msgstr "%1 açılamadı çünkü çok fazla açık dosya bulunmakta."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "%1 could not be removed because it is the current directory."
+msgstr "%1 silinemedi çünkü şu anki klasörün içinde."
+
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
+#, c-format
+msgid "%1 has a bad format."
+msgstr "%1 has a bad format."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "%1 was not found."
+msgstr "%1 bullunamadı."
+
+# ID:3860,#:
+# ID:3860,
+#: ID:3860
+#, fuzzy, c-format
+msgid ""
+"%1: %2\n"
+"Continue running script?"
+msgstr ""
+"%1: %2\n"
+"Kodu isletmeye devam?"
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+#, c-format
+msgid ""
+"%1\n"
+"Cannot find this file.\n"
+"Please verify that the correct path and file name are given."
+msgstr ""
+"%1\n"
+"Dosya bulunamadı.\n"
+"Lütfen doğru dosya ismi ve dizini verildiğinden emin olun."
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bayt transfer edildi"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBayt transfer edildi"
+
+# ID:169,
+#: ID:169
+#, c-format
+msgid "%d files selected, %d files total"
+msgstr "%d dosya seçili, %d toplam dosya"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld / %ld"
+
+# ID:563,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld dizinleri"
+
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%s - at revision: %d"
+msgstr "%s - revizyon: %d"
+
+# ID:151,
+#: ID:151
+#, c-format
+msgid "%s : Remote file"
+msgstr "%s : Uzak dosya"
+
+# ID:151,
+#: ID:151
+#, c-format
+msgid "%s : Working Base"
+msgstr "%s : Çalışan taban"
+
+# ID:151,
+#: ID:151
+#, c-format
+msgid "%s : Working Copy"
+msgstr "%s : Çalışan kopya"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, %s de"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Export (%d) / %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Export / %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove it anyway?"
+msgstr ""
+"%s\n"
+"Yine de kaldırmak istediginizden eminmisiniz?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Dosya boyutu:\t\t\t%s\n"
+"Genişliği:\t\t\t%ld pixel\n"
+"Yüksekliği:\t\t\t%ld pixel\n"
+"Yatay Çözünürlüğü:\t%.1f dpi\n"
+"Dikey Çözünürlüğü:\t\t%.1f dpi\n"
+"Derinliği:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+
+# ID:69,
+#: ID:69
+#, c-format
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"dosya değil, bir klasör!\n"
+"TortoiseMerge klasörleri diff edemez (farklılıklarını bulamaz)."
+
+#: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
+msgid "&About TortoiseMerge..."
+msgstr "&TortoiseMerge Hakkında.."
+
+# ID:8,#:
+# Control-ID:1098,#:
+# Control-ID:1310,
+#: ID:8
+#: Control-ID:1098
+#: Control-ID:1310
+msgid "&Add..."
+msgstr "&Ekle..."
+
+# Control-ID:1090,#:
+# Control-ID:1093,
+#: Control-ID:1090
+#: Control-ID:1093
+msgid "&Advanced..."
+msgstr "&Gelişmiş..."
+
+# Control-ID:1013,
+#: Control-ID:1013
+msgid "&Apply unified diff"
+msgstr "&Birleşmiş diff i uygula"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Autoclose:"
+msgstr "&Otomatik kapama:"
+
+# Control-ID:1015,
+#: Control-ID:1015
+msgid "&Backup original file"
+msgstr "&Orijinal dosyayı yedekle"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "&Berkeley database (BDB)"
+msgstr "&Berkeley veritabanı (BDB)"
+
+# ID:114,
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Blame farklılıkları"
+
+# ID:114,#:
+# ID:322,
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Blame revizyonları"
+
+# ID:13,
+#: ID:13
+msgid "&Blame..."
+msgstr "&Blame..."
+
+# ID:138,
+#: ID:138
+msgid "&Browse repository"
+msgstr "&Depoyu incele"
+
+# Control-ID:1011,
+#: Control-ID:1011
+msgid "&Browse..."
+msgstr "&İncele..."
+
+# Control-ID:1051,
+#: Control-ID:1051
+msgid "&CD-ROM"
+msgstr "&CD-ROM"
+
+# Control-ID:2,#:
+# Control-ID:2,
+#: Control-ID:2
+msgid "&Cancel"
+msgstr "&İptal"
+
+# ID:8,
+#: ID:8
+msgid "&Clean up"
+msgstr "&Temizle"
+
+# ID:8,
+#: ID:8
+msgid "&Commit..."
+msgstr "&Teslim et..."
+
+#: MenuEntry
+msgid "&Compare revisions"
+msgstr "&Revizyonları karşılaştır"
+
+# Control-ID:1019,
+#: Control-ID:1019
+msgid "&Compare whitespaces"
+msgstr "&Boşlukları karşılaştır"
+
+# Control-ID:1239,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Ayarla"
+
+# Control-ID:1227,
+#: Control-ID:1227
+msgid "&Contact the repository on startup"
+msgstr "&Başlangıçta depo ile bağlantı kur"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "&Convert files when diffing against BASE"
+msgstr "&Tabana karşı diff yapar iken dosyaları dönüştürün"
+
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Kopyala"
+
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Panoya kopyala"
+
+# ID:101,
+#: ID:101
+msgid "&Copy to..."
+msgstr "&Kopyala..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Özel"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:1269
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Varsayılan(Default)"
+
+# ID:11,
+#: ID:11
+msgid "&Delete"
+msgstr "&Sil"
+
+# ID:101,
+#: ID:101
+msgid "&Delete..."
+msgstr "&Sil..."
+
+# ID:12,
+#: ID:12
+msgid "&Diff"
+msgstr "&Diff"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&URL'li diff"
+
+# Control-ID:1179,
+#: Control-ID:1179
+#, fuzzy
+msgid "&Dry run"
+msgstr "&Deneme"
+
+# Control-ID:1031,#:
+# MenuEntry#:
+#: Control-ID:1031
+#: MenuEntry
+msgid "&Edit"
+msgstr "&Düzenle"
+
+# ID:12,
+#: ID:12
+msgid "&Edit conflicts"
+msgstr "&Çakişmaları düzenle"
+
+# Control-ID:1099,#:
+# Control-ID:1282,
+#: Control-ID:1099
+#: Control-ID:1282
+msgid "&Edit..."
+msgstr "&Düzenle..."
+
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Enable Proxy Server"
+msgstr "&Proxy Sunucusunu kullan"
+
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "&Enter a message describing why you lock the file(s)."
+msgstr "&Dosyayı(ları) neden kitlediğinize dair bir açiklama mesajı giriniz."
+
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Çıkış"
+
+# Control-ID:1092,#:
+# Control-ID:1095,
+#: Control-ID:1092
+#: Control-ID:1095
+msgid "&External"
+msgstr "&Harici"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&File"
+msgstr "&Dosya"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Bul"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Bul..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Resimleri pencereye sığdır"
+
+# Control-ID:1050,
+#: Control-ID:1050
+msgid "&Fixed drives"
+msgstr "&Sabit sürücüler"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Font for log messages:"
+msgstr "&Kayıt(Log) mesajları için Font:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Font:"
+msgstr "&Font:"
+
+# ID:501,#:
+# Control-ID:65535,
+#: ID:501
+#: Control-ID:65535
+msgid "&From URL:"
+msgstr "&URL den:"
+
+# Control-ID:1259,
+#: Control-ID:1259
+msgid "&From WC at URL:"
+msgstr "&WC'den bu URL'de:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&From revision"
+msgstr "&Revizyondan"
+
+#: MenuEntry
+msgid "&Goto Line..."
+msgstr "&Satıra git..."
+
+# Control-ID:1115,#:
+# Control-ID:1032,
+#: Control-ID:1115
+#: Control-ID:1032
+msgid "&HEAD Revision"
+msgstr "&Baş Revizyon"
+
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1034,
+#: Control-ID:1032
+#: Control-ID:1019
+#: Control-ID:1034
+msgid "&HEAD revision"
+msgstr "&Baş revizyon"
+
+# Control-ID:1182,
+#: Control-ID:1182
+msgid "&HEAD revision in the repository"
+msgstr "Depodaki &Baş revizyon"
+
+# MenuEntry#:
+# Control-ID:57670,#:
+#: Control-ID:57670
+#: MenuEntry
+msgid "&Help"
+msgstr "&Yardım"
+
+#: MenuEntry
+msgid "&Help Topics"
+msgstr "&Yardım Başlıkları"
+
+# ID:3842,#:
+# ID:3842,
+#: ID:3842
+msgid "&Hide"
+msgstr "&Sakla"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "&Icon Set:"
+msgstr "&Ikon takımı:"
+
+# ID:15,
+#: ID:15
+#, c-format
+msgid "&Ignore %d items"
+msgstr "%d elemana aldırma"
+
+# Control-ID:1021,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "Boşluk değişikliklerine aldırma"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "Resim hakkında"
+
+# ID:9,
+#: ID:9
+msgid "&Import..."
+msgstr "/Import et..."
+
+# Control-ID:1016,
+#: Control-ID:1016
+msgid "&Jump to first difference when loading"
+msgstr "&Yüklerken ilk farklılığa atla"
+
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Language:"
+msgstr "&Dil:"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr "&Aramayı modifiye edilmiş satırlara kısıtla"
+
+# Control-ID:1172,
+#: Control-ID:1172
+msgid "&List View"
+msgstr "&Liste görünümü"
+
+# Control-ID:1309,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Yükle..."
+
+#: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Çözümlendi olarak işaretle"
+
+# Control-ID:1,#:
+#: Control-ID:1
+#: MenuEntry
+msgid "&Merge"
+msgstr "&Birleştir"
+
+# ID:9,
+#: ID:9
+msgid "&Merge..."
+msgstr "&Birleştir..."
+
+# Control-ID:1012,
+#: Control-ID:1012
+msgid "&Merging"
+msgstr "&Birleştiriliyor"
+
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "&Native filesystem (FSFS)"
+msgstr "&Yerel dosya sistemi (FSFS)"
+
+# Control-ID:1049,
+#: Control-ID:1049
+msgid "&Network drives"
+msgstr "&Ağ sürücüleri"
+
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&New "
+msgstr "&Yeni"
+
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "&Sonraki 100"
+
+#: MenuEntry
+msgid "&Next Difference"
+msgstr "&Sonraki Farklılık"
+
+# Control-ID:1,#:
+# Control-ID:1,
+#: Control-ID:1
+msgid "&OK"
+msgstr "&Tamam"
+
+#: MenuEntry
+msgid "&Open"
+msgstr "&Aç"
+
+#: MenuEntry
+msgid "&Open Ctrl-O"
+msgstr "&Aç Ctrl-O"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Overlap images"
+msgstr "&Kaplama resimleri"
+
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Password:"
+msgstr "&Şifre:"
+
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "&Yapıştır"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Port:"
+msgstr "&Port:"
+
+#: MenuEntry
+msgid "&Previous Difference"
+msgstr "&Önceki Farklılık"
+
+# Control-ID:1246,#:
+# Control-ID:1246,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Son Mesajlar"
+
+# ID:376,
+#: ID:376
+msgid "&Redo"
+msgstr "&Tekrarla"
+
+# Control-ID:1100,#:
+# Control-ID:1285,
+#: Control-ID:1100
+#: Control-ID:1285
+msgid "&Remove"
+msgstr "&Sil"
+
+# ID:101,
+#: ID:101
+msgid "&Rename"
+msgstr "&Yeniden adlandır"
+
+# ID:13,
+#: ID:13
+#, fuzzy
+msgid "&Repo-browser"
+msgstr "&Rapor tarayıcısı"
+
+# ID:113,
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "&Bu revizyondan kaynaklanan değişiklikleri iptal eder"
+
+# Control-ID:1033,#:
+# Control-ID:1116,#:
+# Control-ID:1035,
+#: Control-ID:1033
+#: Control-ID:1116
+#: Control-ID:1035
+msgid "&Revision"
+msgstr "&Revizyon"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&SSH client:"
+msgstr "&SSH client'ı:"
+
+#: MenuEntry
+msgid "&Save Ctrl-S"
+msgstr "&Kaydet Ctrl-S"
+
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Grafiği Farklı Kaydet..."
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "&Kimliği Kaydet..."
+
+# Control-ID:1308,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Kaydet..."
+
+# ID:9,
+#: ID:9
+msgid "&Settings"
+msgstr "&Ayarlar"
+
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "&Specific revision in repository"
+msgstr "&Depodaki belirli bir revizyon"
+
+#: MenuEntry
+msgid "&Status Bar"
+msgstr "Durum çubuğu"
+
+# Control-ID:1211,
+#: Control-ID:1211
+msgid "&Steal the locks"
+msgstr "&Kilitleri çal"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "&Stop on copy/rename"
+msgstr "&Kopyalama / yeniden adlandırma da dur"
+
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "&Symbol View"
+msgstr "&Sembol görünümü"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Tab size:"
+msgstr "&Tab boyutu:"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&To Revision"
+msgstr "&Revizyona git"
+
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&To URL:"
+msgstr "&URL ye gıt:"
+
+# Control-ID:1305,
+#: Control-ID:1305
+msgid "&To URL: "
+msgstr "&URL ye gıt:"
+
+#: MenuEntry
+msgid "&Toolbar"
+msgstr "&Araç çubuğu"
+
+# Control-ID:1091,#:
+# Control-ID:1094,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
+
+# ID:9,
+#: ID:9
+msgid "&TortoiseSVN"
+msgstr "&TortoiseSVN"
+
+# Control-ID:65535,#:
+# Control-ID:1058,
+#: Control-ID:65535
+#: Control-ID:1058
+msgid "&URL of repository:"
+msgstr "&Deponun URL'si:"
+
+# Control-ID:1076,
+#: Control-ID:1076
+msgid "&URL:"
+msgstr "&URL:"
+
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "&Geri al"
+
+#: MenuEntry
+msgid "&Undo\tCtrl+Z"
+msgstr "&Geri al\tCtrl+Z"
+
+#: MenuEntry
+msgid "&Unified diff"
+msgstr "&Birleşmiş diff"
+
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "&Bilinmeyen sürücüler"
+
+# ID:8,
+#: ID:8
+msgid "&Update"
+msgstr "&Güncelle"
+
+# ID:76,
+#: ID:76
+msgid "&Update item to revision"
+msgstr "Elemanı revizyona göre güncelle"
+
+# ID:11,
+#: ID:11
+msgid "&Update to revision..."
+msgstr "&Revizyona göre güncelle..."
+
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "&Use autocompletion of filepaths and keywords"
+msgstr ""
+
+# Control-ID:65535,#:
+# Control-ID:1005,#:
+# Control-ID:65535,
+#: Control-ID:65535
+#: Control-ID:1005
+msgid "&Username:"
+msgstr "&Kullanıcı Adı:"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&View"
+msgstr "&Görünüm"
+
+#: MenuEntry
+msgid "&Whitespaces"
+msgstr "&Boşluklar"
+
+# Control-ID:1183,
+#: Control-ID:1183
+msgid "&Working copy"
+msgstr "&Çalışan kopya"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(çift sayı değeri)"
+
+# ID:219,
+#: ID:219
+#, fuzzy
+msgid "(dry run)"
+msgstr "(deneme)"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(çoklu hedef seçili)"
+
+# ID:314,
+#: ID:314
+msgid "(not found)"
+msgstr "(bulunamadı)"
+
+# ID:208,
+#: ID:208
+msgid "(property change only)"
+msgstr "(sadece özellik değişikliği)"
+
+# ID:188,
+#: ID:188
+#, c-format
+msgid "+ %d"
+msgstr "+ %d"
+
+# ID:188,
+#: ID:188
+#, c-format
+msgid "- %d"
+msgstr "- %d"
+
+# Control-ID:1035,#:
+# Control-ID:1036,#:
+# Control-ID:1187,#:
+# Control-ID:1104,#:
+# Control-ID:1021,#:
+# Control-ID:1022,#:
+# Control-ID:1089,#:
+# Control-ID:1002,#:
+# Control-ID:1003,
+#: Control-ID:1035
+#: Control-ID:1036
+#: Control-ID:1187
+#: Control-ID:1104
+#: Control-ID:1021
+#: Control-ID:1022
+#: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
+msgid "..."
+msgstr "..."
+
+# ID:151,
+#: ID:151
+#, c-format
+msgid ": Revision %d"
+msgstr ": Revizyon %d"
+
+# ID:151,
+#: ID:151
+msgid ": working base"
+msgstr ": çalışan taban"
+
+# ID:151,
+#: ID:151
+msgid ": working copy"
+msgstr ": çalışan kopya"
+
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "A hardware I/O error was reported while accessing %1."
+msgstr "%1 'e erişilirken bir donanım I/O hattası oluştuğu belirtildi "
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "A locking violation occurred while accessing %1."
+msgstr "%1 'e erişilirken bir kilit ihlali oluştu! "
+
+# ID:201,
+#: ID:201
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+msgstr "Yeni bir versiyon mevcut. Lütfen http://tortoisesvn.tigris.org sitesinden yeni versiyonu indiriniz!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+#, fuzzy
+msgid "A required resource was unavailable."
+msgstr "Gerekli bir kaynak bulunamadı / meşgul ."
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "A sharing violation occurred while accessing %1."
+msgstr "%1 'e erişilirken bir paylaşım ihlali oluştu! "
+
+# ID:79,
+#: ID:79
+msgid ""
+"A viewer program for GNU diff files (patch files).\n"
+"If you don't have one use NotePad."
+msgstr ""
+
+# ID:9,
+#: ID:9
+msgid "A&bout"
+msgstr "H&akkında"
+
+# ID:101,
+#: ID:101
+msgid "A&dd folder..."
+msgstr "K&lasör Ekle..."
+
+# ID:73,
+#: ID:73
+msgid "Abort"
+msgstr "İptal"
+
+# Dlg-ID:136,
+#: Dlg-ID:136
+msgid "About TortoiseMerge"
+msgstr "TortoiseMerge Hakkında"
+
+# Dlg-ID:129,
+#: Dlg-ID:129
+msgid "About TortoiseSVN"
+msgstr "TortoiseSVN Hakkında"
+
+# ID:82,
+#: ID:82
+msgid "Accept once"
+msgstr "Bir kere kabul et"
+
+# ID:82,
+#: ID:82
+msgid "Accept permanently"
+msgstr "Temelli  kabul et"
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "Access to %1 was denied."
+msgstr "%1 'e erişim reddedildi. "
+
+# ID:77,#:
+# ID:319,
+#: ID:77
+#: ID:319
+msgid "Action"
+msgstr "İşlem"
+
+# ID:117,
+#: ID:117
+msgid "Actions"
+msgstr "İşlemler"
+
+# ID:3826,
+#: ID:3826
+msgid "Activate Task List"
+msgstr "Aktif Görev Listesi"
+
+# ID:209,#:
+# Dlg-ID:155,
+#: ID:209
+#: Dlg-ID:155
+msgid "Add"
+msgstr "Ekle"
+
+# ID:101,
+#: ID:101
+msgid "Add &file..."
+msgstr "Dosya &ekle..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "'%s' yı sözlüğe ekle"
+
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Ekle (yerine koyma)..."
+
+# ID:563,
+#: ID:563
+msgid "Add Properties"
+msgstr "Özellik ekle"
+
+# ID:110,
+#: ID:110
+msgid "Add extension specific diff program"
+msgstr ""
+
+# ID:110,
+#: ID:110
+msgid "Add extension specific merge program"
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "Add to &ignore list"
+msgstr "Aldırmama listesine ekle"
+
+# Dlg-ID:171,
+#: Dlg-ID:171
+msgid "Add/Edit Extension Specific Diff/Merge Program"
+msgstr ""
+
+# ID:73,#:
+# ID:264,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:73
+#: ID:264
+#: Control-ID:65535
+msgid "Added"
+msgstr "Eklendi"
+
+# ID:126,
+#: ID:126
+msgid "Added a file remotely"
+msgstr "Uzaktan dosya eklendi"
+
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Uzaktan klasör eklendi"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "Uzaktan elemanlar eklendi"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Düğüm eklendi"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the ignore list."
+msgstr ""
+
+# ID:263,
+#: ID:263
+msgid "Adding"
+msgstr "Ekleniyor"
+
+# ID:9,
+#: ID:9
+msgid "Adds file(s) to Subversion control"
+msgstr "Subversion kontrolüne dosya(lar) ekler"
+
+# ID:13,
+#: ID:13
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr ""
+
+# ID:2049,
+#: ID:2049
+msgid ""
+"Adjust the settings\n"
+"Settings"
+msgstr ""
+"Ayarları ayarla\n"
+"Ayarlar"
+
+# Dlg-ID:170,
+#: Dlg-ID:170
+msgid "Advanced Diff/Merge Settings"
+msgstr "Gelişmiş Diff/Birleştirme Ayarları"
+
+# ID:110,
+#: ID:110
+msgid "Advanced diff settings"
+msgstr "Gelişmiş diff ayarları"
+
+# ID:110,
+#: ID:110
+msgid "Advanced merge settings"
+msgstr "Gelişmiş birleştirme ayarları"
+
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
+msgid "All Files (*.*)"
+msgstr "Tüm Dosyalar (*.*)"
+
+# ID:157,#:
+# ID:157,
+#: ID:157
+msgid "All Files (*.*)|*.*||"
+msgstr "Tüm Dosyalar (*.*)|*.*||"
+
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
+#, c-format
+msgid "An attempt was made to access %1 past its end."
+msgstr ""
+
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
+#, c-format
+msgid "An attempt was made to read from the writing %1."
+msgstr ""
+
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
+#, c-format
+msgid "An attempt was made to write to the reading %1."
+msgstr ""
+
+# ID:78,
+#: ID:78
+#, c-format
+msgid ""
+"An external diff program used\n"
+"for comparing different revisions of files\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%base\tthe base file\n"
+"%mine\tthe modified file"
+msgstr ""
+
+# ID:79,
+#: ID:79
+#, c-format
+msgid ""
+"An external merge program used\n"
+"to resolve conflicted files.\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%merged\tthe conflicted file, where to save\n"
+"%theirs\t\tthe file as it is in the repository\n"
+"%mine\t\tyour own file, with your changes\n"
+"%base\t\tthe original file without your changes"
+msgstr ""
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+msgid "An invalid argument was encountered."
+msgstr ""
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "An invalid file handle was associated with %1."
+msgstr ""
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+#, c-format
+msgid "An unexpected error occurred while reading %1."
+msgstr "%1 'i okurken bilinmeyen bir hata oluştu."
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+#, c-format
+msgid "An unexpected error occurred while writing %1."
+msgstr "%1 'e yazarken bilinmeyen bir hata oluştu."
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+msgid "An unknown error has occurred."
+msgstr "Bilinmeyen bir hata oluştu."
+
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
+#, c-format
+msgid "An unknown error occurred while accessing %1."
+msgstr "%1 'e erişirken bilinmeyen bir hata oluştu."
+
+# ID:63,
+#: ID:63
+#, c-format
+msgid "An unknown line type was found in line %d !"
+msgstr ""
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+msgid "An unsupported operation was attempted."
+msgstr ""
+
+# ID:269,
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Revizyon verilerini analiz et..."
+
+# ID:14,
+#: ID:14
+msgid "Applies a unified diff file to the working copy"
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "Apply &patch..."
+msgstr "Yamayı uygula..."
+
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Özelliği tekrarlayarak uygula"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Apply unified diff"
+msgstr "Birleşmiş diff i uygula"
+
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr ""
+
+# ID:79,
+#: ID:79
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr ""
+
+#: MenuEntry
+#, fuzzy
+msgid "Arrange &Vertical"
+msgstr "Dikey sıralama"
+
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "&Dizine göre sıralandı"
+
+# ID:2050,
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr ""
+
+# ID:77,
+#: ID:77
+#, c-format
+msgid "At revision: %d"
+msgstr "Şu anki revizyon: %d"
+
+# Dlg-ID:131,#:
+# Dlg-ID:160,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "Kimlik belirleme"
+
+# Control-ID:1278,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Kimlik verileri"
+
+# ID:76,#:
+# ID:207,#:
+# ID:19,
+#: ID:76
+#: ID:207
+#: ID:19
+msgid "Author"
+msgstr "Yaratıcı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Author:                        Stefan Kueng"
+msgstr "Yaratıcı:                        Stefan Kueng"
+
+# ID:116,
+#: ID:116
+msgid "Authors"
+msgstr "Yaratıcılar"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Yaratıcılar büyük-küçük harfe duyarlı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Authors:"
+msgstr "Yaratıcılar:"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "Otomatik kapatma (Yerel operasyonlar için)"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Otomatik kapatma (Çakışma yok ise)"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Otomatik kapatma (Hatta yok ise)"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Otomatik kapatma (birleşme, ekleme ve silme yok ise)"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "Automatic"
+msgstr "Otomatik"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Automatically check for &newer versions every week"
+msgstr "Otomatik olarak her hafta yeni versiyon kontrolü yap"
+
+# Control-ID:1157,
+#: Control-ID:1157
+msgid "Average"
+msgstr "Ortalama"
+
+# Control-ID:1001,
+#: Control-ID:1001
+msgid "B&rowse..."
+msgstr "İ&ncele..."
+
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr "Diyagram"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Base file:"
+msgstr "Taban dosyası:"
+
+# Dlg-ID:162,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Blame"
+
+# ID:13,
+#: ID:13
+msgid "Blames each line of a file on an author"
+msgstr ""
+
+# Control-ID:1003,
+#: Control-ID:1003
+msgid "Br&owse..."
+msgstr "İn&cele..."
+
+# ID:115,
+#: ID:115
+msgid "Branch / tag created successfully!"
+msgstr "Dal/&etiket başarılı bir şekilde oluşturuldu"
+
+# ID:9,
+#: ID:9
+msgid "Branch/&tag..."
+msgstr "Dal/&etiket..."
+
+# ID:16,
+#: ID:16
+msgid "Break loc&k"
+msgstr "Kilidi Kır"
+
+# Control-ID:1009,
+#: Control-ID:1009
+msgid "Bro&wse..."
+msgstr "İnc&ele..."
+
+# Control-ID:1007,
+#: Control-ID:1007
+msgid "Brows&e..."
+msgstr "İnce&le..."
+
+# ID:78,
+#: ID:78
+msgid "Browse for the external diff program"
+msgstr "Harici diff uygulamasını ara"
+
+# Control-ID:1069,
+#: Control-ID:1069
+msgid "Browse..."
+msgstr "İncele..."
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-&ID / Issue-Nr:"
+msgstr "Bug-&ID / Issue-Nr:"
+
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
+
+# Control-ID:1215,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr ""
+
+# ID:101,
+#: ID:101
+msgid "C&reate folder..."
+msgstr "K&lasör yarat..."
+
+# ID:77,
+#: ID:77
+msgid "C&reate tag from revision"
+msgstr "&Revizyondan etiket oluştur"
+
+# ID:3697,
+#: ID:3697
+msgid "CAP"
+msgstr "CAP"
+
+# ID:82,
+#: ID:82
+#, c-format
+msgid ""
+"Can't copy \n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"%s\n"
+"a\n"
+"%s\n"
+"Kopyalanamıyor"
+
+# ID:73,#:
+# ID:563,#:
+# Control-ID:2,#:
+# Control-ID:2,
+#: ID:73
+#: ID:563
+#: Control-ID:2
+msgid "Cancel"
+msgstr "İptal"
+
+# ID:132,
+#: ID:132
+msgid "Cancelling TortoiseSVN Blame..."
+msgstr "TortoiseSVN Blame İptal ediliyor..."
+
+# ID:270,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "İşlem iptal ediliyor..."
+
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded context menu"
+msgstr "Basamaklaştırılmış içerik menüsü"
+
+# ID:82,
+#: ID:82
+msgid "Certificate expired or not yet valid"
+msgstr "Sertifika ya daha geçerli değil yada geçerlilik süresi dolmuş"
+
+# ID:82,
+#: ID:82
+#, c-format
+msgid "Certificate expired. Valid until: %s"
+msgstr "Sertifika geçersiz. Bu tarihe kadar geçerli: %s"
+
+# ID:82,
+#: ID:82
+#, c-format
+msgid "Certificate not yet valid. Valid from: %s"
+msgstr "Sertifika daha geçerli değil. Bu tarihten itibaren geçerli: %s"
+
+# ID:157,
+#: ID:157
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgstr "Sertifikalar|*.p12;*.pkcs12;*.pfx|All|*.*||"
+
+# ID:3825,
+#: ID:3825
+msgid "Change the window position"
+msgstr "Pencerenin konumunu değiştir"
+
+# ID:3825,
+#: ID:3825
+msgid "Change the window size"
+msgstr "Pencerenin boyutunu değiştir"
+
+# Dlg-ID:199,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Değiştirilmiş Dosyalar"
+
+# ID:163,
+#: ID:163
+#, c-format
+msgid "Changed files: %d"
+msgstr "Değiştirilmiş Dosyalar: %d"
+
+# Control-ID:1242,
+#: Control-ID:1242
+msgid "Changes made (double-click for details):"
+msgstr ""
+
+# ID:8,
+#: ID:8
+#, fuzzy
+msgid "Chec&kout..."
+msgstr "Çıkar..."
+
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
+msgid "Check"
+msgstr "Denetim"
+
+# Dlg-ID:174,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "Güncelleme ara"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Check For Updates..."
+msgstr "Güncelleme ara..."
+
+# ID:13,
+#: ID:13
+msgid "Check for modi&fications"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Check for modifications"
+msgstr "Modıfikasyon ara"
+
+# ID:9,
+#: ID:9
+msgid "Check out a working copy from a repository"
+msgstr "Depodan çalışan kopya dosyasını al"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Check repository"
+msgstr "Depoyu kontrol et"
+
+# ID:95,
+#: ID:95
+msgid ""
+"Check the files which you want to\n"
+"delete before importing."
+msgstr ""
+
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr ""
+
+# ID:194,
+#: ID:194
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr ""
+
+# ID:80,
+#: ID:80
+msgid "Check to use a less verbose date and time format in log messages"
+msgstr ""
+
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Checking if a newer version of TortoiseSVN is available..."
+msgstr ""
+
+# Dlg-ID:133,
+#: Dlg-ID:133
+#, fuzzy
+msgid "Checkout"
+msgstr "Çıkar"
+
+# Control-ID:1074,
+#: Control-ID:1074
+#, fuzzy
+msgid "Checkout &directory:"
+msgstr "Çıkış &Klasörü:"
+
+# ID:146,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Temizleniyor."
+
+# ID:79,
+#: ID:79
+msgid "Cleanup has finished"
+msgstr "Temizlik bitmiştir"
+
+# ID:9,
+#: ID:9
+msgid "Cleanup interrupted operations, locked files, ..."
+msgstr "Temizlik tarafından engellenen operasyonlar, kiliti dosyalar, ..."
+
+# Control-ID:1273,#:
+# Control-ID:1275,#:
+# Control-ID:1276,#:
+# Control-ID:1279,
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Temizle"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr ""
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
+msgstr ""
+
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "Pano"
+
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Kapat"
+
+# ID:3825,
+#: ID:3825
+msgid "Close the active window and prompts to save the documents"
+msgstr ""
+
+# Control-ID:1068,
+#: Control-ID:1068
+msgid "Color co&de in-line changes"
+msgstr ""
+
+# Dlg-ID:138,
+#: Dlg-ID:138
+msgid "Colors"
+msgstr "Renk"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Command failed."
+msgstr "Komut başarısız."
+
+# ID:209,#:
+# Control-ID:1083,
+#: ID:209
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Teslim et"
+
+# Control-ID:1262,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Teslim eşiği:"
+
+# Control-ID:1110,
+#: Control-ID:1110
+msgid "Commit to:"
+msgstr "Teslim et:"
+
+# ID:244,
+#: ID:244
+msgid "Commits by author"
+msgstr "Yaratıcıya göre teslim eder"
+
+# ID:244,
+#: ID:244
+msgid "Commits by date"
+msgstr "Tarihe göre teslim eder"
+
+# Control-ID:1135,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "Her hafta teslim eder"
+
+# ID:9,
+#: ID:9
+msgid "Commits your changes to the repository"
+msgstr "Değişikliklerinizi depoya teslim eder"
+
+#: MenuEntry
+msgid "Compare &HEAD revisions"
+msgstr "&Baş revizyonları karşılaştır"
+
+# ID:114,
+#: ID:114
+msgid "Compare and &blame with working BASE"
+msgstr ""
+
+# ID:76,
+#: ID:76
+msgid "Compare with &working copy"
+msgstr "Çalışan kopya ile karşılaştır"
+
+# ID:138,
+#: ID:138
+msgid "Compare with b&ase"
+msgstr "Taban ile karşılaştır"
+
+# ID:12,
+#: ID:12
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr ""
+
+# ID:17,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr ""
+
+# ID:120,
+#: ID:120
+#, c-format
+msgid "Comparing %s to %s"
+msgstr "%s ile %s karşılaştırılıyor"
+
+# ID:74,
+#: ID:74
+msgid "Completed"
+msgstr "Tamamlandı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr ""
+
+# ID:263,#:
+# Control-ID:65535,
+#: ID:263
+#: Control-ID:65535
+msgid "Conflicted"
+msgstr "Çakıştı"
+
+# ID:188,
+#: ID:188
+#, c-format
+msgid "Conflicts: %d"
+msgstr "Çakışmalar: %d"
+
+# ID:73,
+#: ID:73
+msgid "Continue"
+msgstr "Devam"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "Kopyalamak"
+
+# ID:73,
+#: ID:73
+msgid "Copied"
+msgstr "Kopyalandı"
+
+# ID:126,
+#: ID:126
+msgid "Copied remotely"
+msgstr "Uzaktan kopyalandı"
+
+# ID:103,
+#: ID:103
+#, c-format
+msgid "Copy %s"
+msgstr "Kopyala %s"
+
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Kopyala (Dal / Etiket) "
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "URL'yi panoya kopyala"
+
+# ID:209,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Bütün bilgileri panoya kopyala"
+
+# ID:101,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Hata mesajlarını panoya kopyala"
+
+# ID:76,
+#: ID:76
+msgid "Copy from path"
+msgstr "Dizinden kopyala"
+
+# ID:209,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Dizinleri panoya kopyala"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Copy the selection and put it on the Clipboard\n"
+"Copy"
+msgstr ""
+"Seçileni kopyala ve Panoya koy\n"
+"Kopyala"
+
+# ID:114,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Panoya kopyala"
+
+# ID:103,
+#: ID:103
+msgid "Copy to working copy"
+msgstr "Çalışan kopyaya kopyala"
+
+# ID:101,
+#: ID:101
+msgid "Copy to working copy..."
+msgstr "Çalışan kopyaya kopyala..."
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr ""
+
+# ID:80,
+#: ID:80
+#, c-format
+msgid "Copying %s"
+msgstr "%s Kopyalanıyor "
+
+# ID:80,
+#: ID:80
+msgid "Copying..."
+msgstr "Kopyalanıyor"
+
+# ID:188,
+#: ID:188
+msgid "Corrections"
+msgstr "Düzeltmeler"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid "Could not add %s to the ignore list!"
+msgstr ""
+
+# ID:201,
+#: ID:201
+msgid "Could not check for a newer version!"
+msgstr "Yeni versiyon kontrolü yapılamadı!"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Could not copy the files!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"<hr=100%%>\n"
+"%s\n"
+"Dosyalar kopyalanamadı!"
+
+# ID:81,
+#: ID:81
+msgid "Could not get the status!"
+msgstr ""
+
+# ID:69,
+#: ID:69
+#, c-format
+msgid ""
+"Could not open the file\n"
+"%s"
+msgstr "%s dosyası Açılamadı!"
+
+# ID:82,
+#: ID:82
+#, c-format
+msgid "Could not remove %s from the ignore list"
+msgstr ""
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Could not retrieve URL of the file!\n"
+"%s"
+msgstr ""
+
+# ID:66,
+#: ID:66
+#, c-format
+msgid ""
+"Could not retrieve revision %s of the file %s.\n"
+"Patching is not possible!"
+msgstr ""
+
+# ID:64,
+#: ID:64
+#, c-format
+msgid "Could not save the file %s!"
+msgstr "%s dosyası kopyalanamadı!"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Could not start external diff program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Could not start external merge program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Could not start print job."
+msgstr ""
+
+# ID:81,
+#: ID:81
+msgid "Could not start thread!"
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "Create &patch..."
+msgstr "Yama &yarat..."
+
+# Dlg-ID:208,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Yama Yarat"
+
+# Dlg-ID:178,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Depo oluştur"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr ""
+
+# ID:8,
+#: ID:8
+msgid "Create repositor&y here..."
+msgstr "Burada depo oluştur... "
+
+# ID:126,
+#: ID:126
+msgid "Created folder remotely"
+msgstr "Uzaktan dosya yaratıldı"
+
+# ID:10,
+#: ID:10
+msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
+msgstr ""
+
+# ID:10,
+#: ID:10
+msgid "Creates a repository database at the current location"
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid "Creates a unified diff file with all changes you made"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr ""
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "Ke&s"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "Şu anki versiyon:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "Şu anki versiyon: %s"
+
+# ID:3603,
+#: ID:3603
+#, fuzzy
+msgid ""
+"Cut the selection and put it on the Clipboard\n"
+"Cut"
+msgstr ""
+"Seçileni kes ve Panoya koy\n"
+"Kes"
+
+# ID:76,#:
+# ID:208,#:
+# ID:19,
+#: ID:76
+#: ID:208
+#: ID:19
+msgid "Date"
+msgstr "Tarih"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Default &number of log messages"
+msgstr "Varsayılan kayıt mesajları &sayısı"
+
+# ID:73,#:
+# ID:264,
+#: ID:73
+#: ID:264
+msgid "Deleted"
+msgstr "Silindi"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Silinmiş düğüm"
+
+# ID:11,
+#: ID:11
+msgid "Deletes files / folders from version control"
+msgstr "Dosya / klasörleri versiyon kontrolünden siler"
+
+# ID:263,
+#: ID:263
+msgid "Deleting"
+msgstr "Siliniyor"
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+msgid "Destination disk drive is full."
+msgstr "Hedef disk sürücüsü dolu."
+
+# Control-ID:1277,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Diyalog boyutları ve yerleri"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "URL'li diff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Diff file:"
+msgstr "Diff dosyası"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Arasındaki farklılık"
+
+# Control-ID:1022,
+#: Control-ID:1022
+msgid "Diffing"
+msgstr "Diff'leme"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Directory:"
+msgstr "Klasör:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, fuzzy, c-format
+msgid "Disk full while accessing %1."
+msgstr "%1 'e erişilirken disk dolu."
+
+# ID:3860,#:
+# ID:3860,
+#: ID:3860
+#, c-format
+msgid "Dispatch exception: %1"
+msgstr "Gönderme hatası: %1"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Display help for clicked on buttons, menus and windows\n"
+"Help"
+msgstr ""
+"Seçili butonlar, menüler ve pencereler için yardım dosyasını göster\n"
+"Yardım"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Display help for current task or command\n"
+"Help"
+msgstr ""
+"Şu anki işlem yada komutla ilgili yardım dosyasını göster\n"
+"Yardım"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Display instructions about how to use help\n"
+"Help"
+msgstr ""
+"Yardımın nasıl kullanılıcağını gösteren metni göster\n"
+"Yardım"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Display program information, version number and copyright\n"
+"About"
+msgstr ""
+"Program bilgisi, versiyon numarası ve kullanım telif hakklarını göster\n"
+"Hakkında"
+
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Bu dosyayı gerçekten de bu klasöre taşımak istiyormusunuz?"
+
+# ID:119,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+
+# ID:76,
+#: ID:76
+#, c-format
+msgid ""
+"Do you really want to revert all changes to\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+
+# ID:76,
+#: ID:76
+msgid "Do you want to proceed?"
+msgstr "Devam etmek istiyormusunuz?"
+
+# ID:313,
+#: ID:313
+msgid ""
+"Do you want to reload the documents to reflect the settings changes?\n"
+"Note: you will lose all changes you've made!"
+msgstr ""
+
+# ID:313,
+#: ID:313
+msgid ""
+"Do you want to reload the documents?\n"
+"You will lose all changes you've made!"
+msgstr ""
+
+# ID:563,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr ""
+
+# ID:313,
+#: ID:313
+msgid "Do you want to save your changes?"
+msgstr "Değişikliklerinizi kayit etmek istermisiniz?"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "Dökümantasyon - Simon Large"
+
+# ID:73,#:
+# ID:80,
+#: ID:73
+#: ID:80
+msgid "Don't show this message again"
+msgstr "Bu mesajı tekrar gösterme"
+
+# Control-ID:1079,
+#: Control-ID:1079
+msgid "Drive Types"
+msgstr "Sürücü Türleri"
+
+#: MenuEntry
+msgid "E&xit"
+msgstr "Çıkış"
+
+# ID:9,
+#: ID:9
+msgid "E&xport..."
+msgstr "E&xport..."
+
+# ID:3697,
+#: ID:3697
+msgid "EXT"
+msgstr "EXT"
+
+# Control-ID:1237,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Düzenle"
+
+# ID:564,#:
+# Dlg-ID:227,
+#: ID:564
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Ayarları düzenle"
+
+# ID:113,
+#: ID:113
+msgid "Edit author"
+msgstr "Yaratıcıyı düzenle"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr "Yaratıcı ismini düzenle"
+
+# ID:110,
+#: ID:110
+msgid "Edit extension specific diff program"
+msgstr ""
+
+# ID:110,
+#: ID:110
+msgid "Edit extension specific merge program"
+msgstr ""
+
+# ID:113,#:
+# ID:115,
+#: ID:113
+#: ID:115
+msgid "Edit log message"
+msgstr "Kayıt mesajını düzenle"
+
+# ID:79,
+#: ID:79
+msgid "Either the name or IP of the proxy server"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Empty"
+msgstr "Boş"
+
+# Control-ID:1240,
+#: Control-ID:1240
+msgid "Enable &accelerators on the top level menu"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this if you want keyboard accelerators on the top level context menu too.\n"
+"Note that the context menu icons look nicer with this disabled."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Revizyonu sonlandır"
+
+# ID:3825,
+#: ID:3825
+msgid "Enlarge the window to full size"
+msgstr "Pencereyi tam ekran boyutuna büyüt"
+
+# Dlg-ID:135,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Kayıt Mesajı Giriniz"
+
+# ID:80,
+#: ID:80
+msgid "Enter URL"
+msgstr "URL giriniz"
+
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "Kilit mesajı gir (isteğe bağlı):"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Enter log &message:"
+msgstr "Kayıt mesajı &giriniz:"
+
+# ID:126,
+#: ID:126
+msgid "Enter log message:"
+msgstr "Kayıt mesajı giriniz:"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Erase everything\n"
+"Erase All"
+msgstr ""
+"Herşeyi Sil\n"
+"Hepsini Sil"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Erase the selection\n"
+"Erase"
+msgstr ""
+"Seçileni Sil\n"
+"Sil"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Hata"
+
+# ID:145,
+#: ID:145
+msgid "Error rebuilding Shell Icon Cache!"
+msgstr "Shell İkon önbelleğini tekrar oluşturiken hata oluştu!"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid "Error validating server certificate for %s:"
+msgstr "%s için sunucu sertifikasini geçerliliği kontrol edilirken hata oluştu:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Exceptions:"
+msgstr "İstisnalar:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Exclude paths:"
+msgstr "Dizinleri haricinde:"
+
+# ID:209,
+#: ID:209
+msgid "Explore to"
+msgstr "İncele"
+
+# ID:94,
+#: ID:94
+msgid "Export directory:"
+msgstr "Export klasörü:"
+
+# ID:79,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr ""
+
+# ID:79,
+#: ID:79
+msgid "Exporting..."
+msgstr "Export ediliyor..."
+
+# ID:10,
+#: ID:10
+msgid "Exports a repository to a clean working copy without the svn administrative folders"
+msgstr ""
+
+# ID:74,#:
+# ID:207,
+#: ID:74
+#: ID:207
+msgid "Extension"
+msgstr "Uzantı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Extension specific programs"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Extension:"
+msgstr "Uzantı:"
+
+# ID:74,
+#: ID:74
+msgid "External"
+msgstr "Harici"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "External Program:"
+msgstr "Harici Uygulama:"
+
+# Dlg-ID:192,
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Harici Uygulamalar::Diff görüntüleyicisi"
+
+# Dlg-ID:193,
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Harici Uygulamalar::Birleştirme aracı"
+
+# Dlg-ID:194,
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Harici Uygulamalar::Birleştirilmiş Diff görüntüleyicisi"
+
+# ID:74,
+#: ID:74
+msgid "Failed revert"
+msgstr "Geridönülemedi"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Failed to create empty document."
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Failed to launch help."
+msgstr "Yardım dosyası açılamadı."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Failed to open document."
+msgstr "Döküman açılamadı."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Failed to save document."
+msgstr "Döküman kaydedilemedi."
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch &status for context menu"
+msgstr ""
+
+# ID:313,
+#: ID:313
+msgid "Fetching file..."
+msgstr "Dosyaya ulaşılıyor..."
+
+# ID:313,
+#: ID:313
+#, c-format
+msgid "Fetching revision %s of file:"
+msgstr "Dosyanın %s revizyonuna ulaşılıyor:"
+
+# ID:63,#:
+# ID:74,#:
+# ID:77,#:
+# ID:207,#:
+# ID:319,
+#: ID:63
+#: ID:74
+#: ID:77
+#: ID:207
+#: ID:319
+msgid "File"
+msgstr "Dosya"
+
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "Dosya her hafta değişmekte"
+
+# ID:376,
+#: ID:376
+msgid "File diffs"
+msgstr "Dosya diff'leri"
+
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:376
+#: Dlg-ID:135
+msgid "File patches"
+msgstr "Dosya yamaları"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+
+# Dlg-ID:139,
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Bul"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Find the specified text\n"
+"Find"
+msgstr ""
+"Belirtilen metni bul\n"
+"Bul"
+
+# ID:77,
+#: ID:77
+msgid "Finished!"
+msgstr "Tamamlandı!"
+
+# ID:3585,
+#: ID:3585
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr ""
+
+# Control-ID:1200,
+#: Control-ID:1200
+msgid "From:"
+msgstr "From:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "From: (Birleştirme aralığının başlangıç URL ve revisyonundan başla)"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr ""
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr ""
+
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+
+# Dlg-ID:143,#:
+# Dlg-ID:107,#:
+# Control-ID:65535,
+#: Dlg-ID:143
+#: Dlg-ID:107
+#: Control-ID:65535
+msgid "General"
+msgstr "Genel"
+
+# ID:144,
+#: ID:144
+msgid "Generating patchfile..."
+msgstr "Yama dosyası oluşturuluyor..."
+
+# ID:16,
+#: ID:16
+msgid "Get loc&k..."
+msgstr "Kilidi elde et..."
+
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+
+# ID:119,
+#: ID:119
+#, c-format
+msgid "Getting file %s"
+msgstr "%s dosyası getiriliyor"
+
+# ID:120,
+#: ID:120
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr "%s dosyasının, %ld revizyonu getirilmekte"
+
+# ID:132,
+#: ID:132
+msgid "Getting file info..."
+msgstr "Dosya bilgileri getiriliyor..."
+
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Bilgi depodan getirilmekte..."
+
+# ID:120,
+#: ID:120
+msgid "Getting information..."
+msgstr "%s Bilgi getiriliyor"
+
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "Dosya kayıtları (log) getiriliyor..."
+
+# ID:119,
+#: ID:119
+msgid "Getting unified diff"
+msgstr "&Birleşmiş diff getiriliyor"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Global aldırmama &şablonu:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "Satıra git"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Bir sonraki çakışmaya geç\n"
+"Sonraki çakışma"
+
+# ID:2049,
+#: ID:2049
+msgid ""
+"Go to the next difference\n"
+"next difference"
+msgstr ""
+"Bir sonraki farklılığa geç\n"
+"Sonraki farklılık"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Bir önceki çakışmaya geç\n"
+"Önceki çakışma"
+
+# ID:2049,
+#: ID:2049
+msgid ""
+"Go to the previous difference\n"
+"previous difference"
+msgstr ""
+"Bir önceki farklılığa geç\n"
+"Önceki farklılık"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Grafik tipi:"
+
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "H&ide unrelated changed paths"
+msgstr ""
+
+# Control-ID:1004,
+#: Control-ID:1004
+msgid "Help"
+msgstr "Yardım"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+
+# Control-ID:1127,
+#: Control-ID:1127
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr ""
+
+# ID:82,
+#: ID:82
+#, c-format
+msgid "Hostname mismatch (%s)"
+msgstr "Host adı uyuşmadı (%s)"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "İkon kaplamaları / Durum Sütunları"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Icons/Design/Code:     Luebbe Onken"
+msgstr "Ikonlar/Dızayn/Kod:     Luebbe Onken"
+
+# ID:194,
+#: ID:194
+msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgstr ""
+
+# ID:95,
+#: ID:95
+msgid ""
+"If checked then a new folder is created in the repository.\n"
+"If not checked then the import goes directly to the specified URL."
+msgstr ""
+
+# ID:79,
+#: ID:79
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+
+# ID:194,
+#: ID:194
+msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr ""
+
+# ID:73,
+#: ID:73
+msgid "Ignore"
+msgstr "Aldırma"
+
+# Control-ID:1020,
+#: Control-ID:1020
+msgid "Ignore &all whitespaces"
+msgstr "Tüm boşluklara aldırma"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore &case changes"
+msgstr "Büyük-küçük harf değişikliklerine aldırma"
+
+# Control-ID:1267,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "Nesile aldırma"
+
+# Control-ID:1018,
+#: Control-ID:1018
+msgid "Ignore line &endings (recommended)"
+msgstr "Satir sonlarına aldırma (Tavsiye edilir)"
+
+# Dlg-ID:139,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Import"
+
+# Control-ID:1056,
+#: Control-ID:1056
+msgid "Import &message"
+msgstr "Import &mesajı"
+
+# ID:120,
+#: ID:120
+#, c-format
+msgid "Importing file %s"
+msgstr "%s dosyası Import ediliyor"
+
+# ID:10,
+#: ID:10
+msgid "Imports the directory to a repository"
+msgstr "Klasörü depoya Import eder."
+
+# Control-ID:1266,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Aldırılmayan dosyaları dahil et"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "Dizinleri dahil et:"
+
+# ID:76,
+#: ID:76
+msgid "Initial import"
+msgstr "İlk Import"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline diff"
+msgstr "Sıralı diff"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr ""
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Insert Clipboard contents\n"
+"Paste"
+msgstr ""
+"Pano içeriğini ekle\n"
+"Yapıştır"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Insufficient memory to perform operation."
+msgstr "İşlemi yapabilmek için yeterli hafıza yok."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Internal application error."
+msgstr "Dahili uygulama hattası."
+
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Invalid filename."
+msgstr "Geçersiz dosya ismi."
+
+# ID:82,
+#: ID:82
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+
+# ID:83,
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+
+# ID:145,
+#: ID:145
+msgid ""
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
+msgstr ""
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep &locks"
+msgstr "Kilitleri muhafaza et"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Last commit revision:"
+msgstr "Son teslimin revizyonu"
+
+# ID:11,
+#: ID:11
+msgid "Last saved revision of item"
+msgstr "Elemanın son kayıtlı revizyonu"
+
+# ID:12,
+#: ID:12
+msgid "Launches the external diff / merge program to solve the conflicts"
+msgstr ""
+
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "En az aktif yaratıcı:"
+
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "Sol Görünüş:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Left image"
+msgstr "Sol Resim"
+
+# ID:19,
+#: ID:19
+msgid "Line"
+msgstr "Satır"
+
+# ID:246,
+#: ID:246
+msgid "Line Graph"
+msgstr "Grafik(Çizgi)"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Satır:"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"List Help topics\n"
+"Help Topics"
+msgstr ""
+"Yardımı Konuları Listesi\n"
+"Yardım Konuları"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Resimleri yükle"
+
+# ID:63,
+#: ID:63
+msgid "Local status"
+msgstr "Kilidin durumu"
+
+# ID:94,
+#: ID:94
+msgid ""
+"Location where the contents of the\n"
+"repository URL will be saved to."
+msgstr ""
+
+# ID:207,#:
+# ID:221,
+#: ID:207
+#: ID:221
+msgid "Lock"
+msgstr "Kilitle"
+
+# Dlg-ID:191,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Dosyaları Kilitle"
+
+# ID:209,
+#: ID:209
+msgid "Lock broken!"
+msgstr "Kilit kırık!"
+
+# ID:207,
+#: ID:207
+msgid "Lock comment"
+msgstr "Kilidin yorumu"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Kilidin oluşturulduğu tarih:"
+
+# ID:263,
+#: ID:263
+msgid "Lock failed"
+msgstr "Kilitlenemedi"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Kilit sahibi"
+
+# ID:209,
+#: ID:209
+#, c-format
+msgid "Lock stolen by %s"
+msgstr "Kilit %s tarafından çalındı"
+
+# ID:263,
+#: ID:263
+#, c-format
+msgid "Locked by %s"
+msgstr "%s tarafından kilitlendi"
+
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid "Locks a file for other users and makes it editable by you."
+msgstr ""
+
+# ID:126,
+#: ID:126
+msgid "Log"
+msgstr "Kayıt"
+
+# Dlg-ID:211,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "Kayıt(log) geçmişi "
+
+# Control-ID:1274,#:
+# Dlg-ID:130,
+#: Control-ID:1274
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Kayıt Mesajları"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Log message"
+msgstr "Kayıt mesajı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Log messages"
+msgstr "Kayıt mesajları"
+
+# Dlg-ID:195,
+#: Dlg-ID:195
+msgid "Look and Feel"
+msgstr "Görünüş"
+
+# Dlg-ID:212,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Görünüş::Renkler"
+
+# Dlg-ID:196,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs 1"
+msgstr "Görünüş::Diyaloglar 1"
+
+# Dlg-ID:213,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Görünüş::Diyaloglar 2"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Görünüş::İkon kaplamaları"
+
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Look and Feel::Icon Set"
+msgstr "Görünüş::İkon takımları"
+
+# ID:238,
+#: ID:238
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld"
+msgstr ""
+
+# ID:238,
+#: ID:238
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+msgstr ""
+
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
+msgid "Mail system DLL is invalid."
+msgstr "Posta sistemi DLL'si geçersiz."
+
+# ID:17,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Subversion ayarlarını yönetı:"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr ""
+
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "Maks"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr ""
+
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: Dlg-ID:141
+#: Control-ID:65535
+msgid "Merge"
+msgstr "Birleştirmek"
+
+# ID:263,#:
+# ID:263,
+#: ID:263
+msgid "Merged"
+msgstr "Birleştirildi"
+
+# ID:10,
+#: ID:10
+msgid "Merges a branch into the main trunk"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Merging"
+msgstr "Birleştiriliyor"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr ""
+
+# ID:76,
+#: ID:76
+msgid "Message"
+msgstr "Mesaj"
+
+# Control-ID:1241,
+#: Control-ID:1241
+msgid "Message:"
+msgstr "Masaj:"
+
+# ID:116,
+#: ID:116
+msgid "Messages"
+msgstr "Mesajlar"
+
+# ID:116,
+#: ID:116
+msgid "Messages, authors and paths"
+msgstr "Mesajlar, yaratıcılar ve dizinler"
+
+# ID:78,
+#: ID:78
+msgid "Mime type"
+msgstr "Mime tipi"
+
+# Control-ID:1158,
+#: Control-ID:1158
+msgid "Min"
+msgstr "Min"
+
+# ID:263,
+#: ID:263
+msgid "Mine"
+msgstr "Benim"
+
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "Misc"
+msgstr "Çeşitli"
+
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
+msgid "Mixed"
+msgstr "Karışık"
+
+# ID:74,#:
+# ID:264,
+#: ID:74
+#: ID:264
+msgid "Modified"
+msgstr "Modifiye edilmiş"
+
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "More colors..."
+msgstr "Daha fazla renk..."
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "En aktif yaratıcı:"
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr ""
+
+# ID:126,
+#: ID:126
+msgid "Moved remotely"
+msgstr "Uzaktan taşındı"
+
+# ID:80,
+#: ID:80
+#, c-format
+msgid "Moving %s"
+msgstr "%s Taşınıyor"
+
+# ID:80,
+#: ID:80
+msgid "Moving..."
+msgstr "Taşınıyor..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My file:"
+msgstr "Benim dosyam:"
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "Sonraki çakişma"
+
+# ID:3697,
+#: ID:3697
+msgid "NUM"
+msgstr "NUM"
+
+# ID:208,
+#: ID:208
+msgid "Needs lock"
+msgstr "Kilide ihtiyacı var"
+
+# ID:210,
+#: ID:210
+msgid "Nested"
+msgstr ""
+
+# Dlg-ID:102,
+#: Dlg-ID:102
+msgid "Network"
+msgstr "Ağ"
+
+# Dlg-ID:30721,#:
+# Dlg-ID:30721,
+#: Dlg-ID:30721
+msgid "New"
+msgstr "Yeni"
+
+# Control-ID:1076,
+#: Control-ID:1076
+msgid "New &name:"
+msgstr "Yeni &ad:"
+
+# ID:97,
+#: ID:97
+#, c-format
+msgid "New name for %s"
+msgstr "%s için yeni ad."
+
+# ID:98,
+#: ID:98
+msgid "New name:"
+msgstr "Yeni ad:"
+
+# ID:73,
+#: ID:73
+msgid "No"
+msgstr "Hayır"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"No command specified!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgstr ""
+
+# ID:81,
+#: ID:81
+msgid "No command value specified!"
+msgstr ""
+
+# ID:82,
+#: ID:82
+msgid "No differences found!"
+msgstr "Farklılık bulunamadı!"
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+msgid "No error message is available."
+msgstr "Hata mesajı mevcut değil"
+
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
+msgid "No error occurred."
+msgstr "Hata oluşmadı."
+
+# ID:82,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Modifiye edilmiş klasör yada dosya bulunamadı. TortoiseSVN'in geri dönebileceği bir şey yok!"
+
+# ID:77,
+#: ID:77
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here..."
+msgstr ""
+"Bir önceki teslimden beri değiştirilmiş yada\n"
+"eklenmiş dosya bulunamadı. TortoiseSVN'in\n"
+"burada yapabileceği bir şey yok..."
+
+# ID:170,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Bir önceki teslimden beri değiştirilmiş yada\n"
+"eklenmiş dosya bulunamadı. TortoiseSVN'in\n"
+"burada yapabileceği bir şey yok...\n"
+"Versiyonsuz dosyaları görmek istiyormusunuz?"
+
+# ID:273,
+#: ID:273
+msgid "No graph available"
+msgstr "Mevcut bir grafik yok"
+
+# ID:273,
+#: ID:273
+#, c-format
+msgid "No image encoder found for %s."
+msgstr "%s için resim kodlayıcısı bulunamadı."
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "İmla düzeltmeleri yok"
+
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr ""
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Eşanlamlı önerisi bulunmamakta"
+
+# Control-ID:1271,
+#: Control-ID:1271
+msgid "None"
+msgstr ""
+
+# ID:264,#:
+# Control-ID:65535,
+#: ID:264
+#: Control-ID:65535
+msgid "Normal"
+msgstr "Normal"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr ""
+
+# ID:83,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "İşlemi bitirebilmek için yeterli hafıza yok."
+
+# ID:563,
+#: ID:563
+msgid "Not recursive"
+msgstr "Tekrarlanan değil"
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Duyuru"
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "Yaratıcı sayısı:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "Hafta sayısı:"
+
+# ID:73,#:
+# Control-ID:1,#:
+# Control-ID:1,
+#: ID:73
+#: Control-ID:1
+msgid "OK"
+msgstr "Tamam"
+
+# ID:3697,
+#: ID:3697
+msgid "OVR"
+msgstr "OVR"
+
+# ID:99,#:
+# Control-ID:1202,#:
+# Control-ID:1202,
+#: ID:99
+#: Control-ID:1202
+msgid "Omit e&xternals"
+msgstr "Haricileri atla"
+
+# ID:145,
+#: ID:145
+msgid "Omit externals"
+msgstr "Haricileri atla"
+
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "Bir yada daha fazla dosya(lar) çakişır durumunda."
+
+# ID:99,#:
+# Control-ID:1073,
+#: ID:99
+#: Control-ID:1073
+msgid "Only check out the &top folder"
+msgstr "Sadece üst dosyayı çıkar (al)"
+
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr "Sadece numara girebilirsiniz (isterseniz virgül ile ayırabilirsiniz)"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Only update the &top folder"
+msgstr "Sadece &üst klasörü güncelle"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
+msgstr ""
+
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
+msgid "Open"
+msgstr "Aç"
+
+# ID:76,
+#: ID:76
+msgid "Open client certificate file"
+msgstr "Müşteri sertifika dosyasını aç"
+
+# ID:3601,
+#: ID:3601
+msgid "Open file"
+msgstr "Dosyayı aç"
+
+# ID:7,
+#: ID:7
+msgid "Open image file..."
+msgstr "Resim dosyasını aç..."
+
+# ID:282,
+#: ID:282
+msgid "Open parent folder"
+msgstr "Bir üst klasörü Aç"
+
+# ID:113,
+#: ID:113
+msgid "Open with..."
+msgstr "Farklı Aç..."
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Opens Help\n"
+"Help Topics"
+msgstr ""
+"Yardımı Açar\n"
+"Yardım Konuları"
+
+# ID:13,
+#: ID:13
+msgid "Opens the repository browser to tweak the repository online"
+msgstr "Depoda online değişiklik yapmak için depo tarayıcısını başlatır"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Ori&jinal boyutu"
+
+# ID:245,
+#: ID:245
+msgid "Others"
+msgstr "Diğerleri"
+
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
+msgid "Out of memory."
+msgstr "Yetersiz hafıza."
+
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "Önceki çakişma"
+
+# ID:76,
+#: ID:76
+msgid "PEM"
+msgstr "PEM"
+
+# ID:76,
+#: ID:76
+msgid "PKCS12"
+msgstr "PKCS12"
+
+# ID:69,
+#: ID:69
+msgid "Password:"
+msgstr "Şifre:"
+
+# ID:172,
+#: ID:172
+msgid "Paste filename list"
+msgstr "Dosya adı listesi yapıştır"
+
+# ID:376,
+#: ID:376
+msgid "Patch all"
+msgstr "Hepsini Yamala"
+
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "Seçiliyi yamala"
+
+# ID:157,#:
+# ID:157,
+#: ID:157
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Yama dosyaları (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+
+# ID:77,
+#: ID:77
+msgid "Path"
+msgstr "Dizin"
+
+# ID:116,
+#: ID:116
+msgid "Paths"
+msgstr "Dizinler"
+
+# ID:157,
+#: ID:157
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Resimler (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+
+# ID:246,
+#: ID:246
+msgid "Pie Graph"
+msgstr "yuvarlak &diyagram"
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a GUID."
+msgstr "Lütfen bir GUID giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a currency."
+msgstr "Lütfen para birimini giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a date and/or time."
+msgstr "Lütfen bir tarih ve/yada saati giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a date."
+msgstr "Lütfen bir tarih giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+#, c-format
+msgid "Please enter a number between %1 and %2."
+msgstr "Lütfen  %1 ve  %2 arasında bir numara giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a number."
+msgstr "Lütfen bir numara giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a positive integer."
+msgstr "Lütfen pozitif bir tam sayı giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter a time."
+msgstr "Lütfen saati giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+#, c-format
+msgid "Please enter an integer between %1 and %2."
+msgstr "Lütfen %1 ve %2 arasında bir tam sayı giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter an integer between 0 and 255."
+msgstr "Lütfen 0 ve 255 arasında bir tam sayı giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please enter an integer."
+msgstr "Lütfen tam sayı giriniz."
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+#, c-format
+msgid "Please enter no more than %1 characters."
+msgstr "Lütfen %1 den fazla karakter girmeyiniz."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "Lütfen \"Cleanup\" komutunu çalıştırınız."
+
+# ID:78,
+#: ID:78
+msgid ""
+"Please note:\n"
+"your working copy remains on the previous path. If you want your next changes\n"
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
+msgstr ""
+
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
+msgid "Please select a button."
+msgstr "Lütfen bir düğme seçiniz."
+
+# ID:76,
+#: ID:76
+msgid "Please specify the certificate type"
+msgstr "Lütfen sertifika türünü belirtiniz"
+
+# ID:132,
+#: ID:132
+msgid "Please wait - this can take several minutes. Seriously!"
+msgstr "Bu işlem birkaç dakkika sürebilir - Lütfen bekleyiniz!"
+
+# ID:13,
+#: ID:13
+msgid "Please wait while cancelling..."
+msgstr "Iptal işlemi yapılırken lütfen bekleyiniz..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Depo tarayıcısı başlayana kadar lütfen bekleyiniz..."
+
+# ID:319,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Biz farklılıkları alana kadar lütfen bekleyiniz..."
+
+# ID:119,#:
+# ID:146,#:
+# ID:211,
+#: ID:119
+#: ID:146
+#: ID:211
+msgid "Please wait..."
+msgstr "Lütfen bekleyiniz..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Yamalanmış dosyayı önizle"
+
+# ID:132,
+#: ID:132
+#, c-format
+msgid "Processing revision %d of %d..."
+msgstr "%d 'ün %d revizyonu işlemden geçiriliyor..."
+
+# ID:74,
+#: ID:74
+msgid "Program"
+msgstr "Program"
+
+# ID:157,
+#: ID:157
+msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
+msgstr "Programlar (*.exe)|*.exe|Tüm dosyalar (*.*)|*.*||"
+
+# Dlg-ID:134,#:
+# Control-ID:65535,
+#: Dlg-ID:134
+#: Control-ID:65535
+msgid "Progress"
+msgstr "Durum"
+
+# ID:17,#:
+# Dlg-ID:177,#:
+# Dlg-ID:226,
+#: ID:17
+#: Dlg-ID:177
+#: Dlg-ID:226
+msgid "Properties"
+msgstr "Ayarlar"
+
+# Control-ID:1287,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Seçenekler "
+
+# ID:209,#:
+# Control-ID:11021,
+#: ID:209
+#: Control-ID:11021
+msgid "Properties..."
+msgstr "Ayarlar..."
+
+# ID:11,
+#: ID:11
+msgid "Property"
+msgstr "Ayarı"
+
+# Dlg-ID:107,
+#: Dlg-ID:107
+msgid "Property Page"
+msgstr "Ayarlar Sayfası"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Property Status:"
+msgstr "Ayar durumu:"
+
+# Control-ID:1292,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Ayar adı"
+
+# ID:207,
+#: ID:207
+msgid "Property status"
+msgstr "Ayar durumu"
+
+# Control-ID:1293,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Ayar değeri"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Proxy &timeout in seconds:"
+msgstr ""
+
+# Control-ID:1080,
+#: Control-ID:1080
+msgid "Proxy Settings"
+msgstr "Proxy Ayarları"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
+
+# ID:3605,
+#: ID:3605
+msgid ""
+"Quit the application; prompts to save documents\n"
+"Exit"
+msgstr ""
+"Uygulamadan çıkış; dökümanlarınızı kayıt etmenizi hatırlatır\n"
+"Çıkış"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "R&AM drives"
+msgstr "R&AM sürücüleri"
+
+# ID:114,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "Bu revizyona geridön"
+
+# ID:3697,
+#: ID:3697
+msgid "REC"
+msgstr "REC"
+
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "Taşınabilir sürücüler"
+
+# ID:11,
+#: ID:11
+msgid "Re&name..."
+msgstr "Tekrar adlandır..."
+
+# ID:8,
+#: ID:8
+msgid "Re&vert..."
+msgstr "Geridön..."
+
+# ID:12,
+#: ID:12
+msgid "Read the 'Daily Use Guide' before you are stuck..."
+msgstr "Takılmadan önce günlük kullanım kılavuzunu okuyunuz..."
+
+# Control-ID:1260,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Versiyonsuz klasörlerin içinde tekrarla"
+
+# ID:563,
+#: ID:563
+msgid "Recursive"
+msgstr "Tekrarlanan"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Redo the previously undone action\n"
+"Redo"
+msgstr ""
+"Bir onceki iptal edilen işlemi terarla\n"
+"Tekrarla"
+
+# ID:3825,
+#: ID:3825
+msgid "Reduce the window to an icon"
+msgstr "Pencereyi küçült"
+
+# ID:101,#:
+# ID:135,
+#: ID:101
+#: ID:135
+msgid "Refresh"
+msgstr "Tazele"
+
+# ID:82,
+#: ID:82
+msgid "Reject"
+msgstr "Reddet"
+
+# ID:16,
+#: ID:16
+msgid "Release loc&k"
+msgstr "Kilidi birak"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Kilitlerin sahibi olmasanız da dosyaların kilitlerinı bırakır/açar (onları kırar)."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Başka kullanıcıların dosyaları tekrar düzenleyebilmesi için dosyalardaki kilitleri bırakır."
+
+# ID:12,
+#: ID:12
+msgid "Relo&cate..."
+msgstr "Taşı..."
+
+#: MenuEntry
+msgid "Reload"
+msgstr "Tekrar yükle"
+
+# ID:2050,
+#: ID:2050
+msgid ""
+"Reloads the opened files and reverts all changes.\n"
+"Reload"
+msgstr ""
+"Açık olan dosyaları tekrar yükler ve yapılan tüm değişikleri geri alır.\n"
+"Tekrar yükle"
+
+# Dlg-ID:157,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Taşı"
+
+# ID:89,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Taşıma Uyarısı"
+
+# ID:80,
+#: ID:80
+msgid "Relocating..."
+msgstr "Taşınıyor..."
+
+# ID:207,
+#: ID:207
+msgid "Remote property status"
+msgstr "Uzaktan erişim özelliği durumu"
+
+# ID:63,#:
+# ID:207,
+#: ID:63
+#: ID:207
+msgid "Remote status"
+msgstr "Uzaktan erişim durumu"
+
+# ID:207,
+#: ID:207
+msgid "Remote text status"
+msgstr "Uzaktan erişim metin durumu"
+
+# ID:15,
+#: ID:15
+msgid "Remove from &ignore list"
+msgstr "Aldırmama listesinden çıkar"
+
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Removed"
+msgstr "Kaldırıldı"
+
+# ID:126,
+#: ID:126
+msgid "Removed file/folder"
+msgstr "Dosya/Klasör kaldırıldı"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the ignore list."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr ""
+
+# Dlg-ID:151,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Tekrar adlandır"
+
+# ID:97,
+#: ID:97
+#, c-format
+msgid "Rename %s"
+msgstr "%s 'ı Tekrar adlandır"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Tekrar adlandırılmış düğüm"
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Uzaktan tekrar adlandırıldı"
+
+# ID:11,
+#: ID:11
+msgid "Renames files / folders inside version control"
+msgstr ""
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Repeat the last action\n"
+"Repeat"
+msgstr ""
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Replace specific text with different text\n"
+"Replace"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Değiştirilmiş düğüm"
+
+# ID:74,
+#: ID:74
+msgid "Replacing"
+msgstr "Değiştiriliyor"
+
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535
+#: Control-ID:1055
+msgid "Repository"
+msgstr "Depo"
+
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Depo Tarayıcısı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "Depo tarayıcısı"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr ""
+
+# ID:8,
+#: ID:8
+msgid "Res&olved..."
+msgstr "Çözümlendi..."
+
+# Dlg-ID:207,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Çözümle"
+
+# ID:282,
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "\"mine\" 'ı kullanarak çakışmayı çözümle"
+
+# ID:282,
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "\"theirs\" 'i kullanarak çakışmayı çözümle"
+
+# ID:74,#:
+# ID:209,
+#: ID:74
+#: ID:209
+msgid "Resolved"
+msgstr "Çözümlendi"
+
+# ID:282,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Çözümlenen:\n"
+"%s"
+
+# ID:9,
+#: ID:9
+msgid "Resolves conflicted files"
+msgstr "Çakışan dosyaları çözümler"
+
+# Control-ID:1254,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr ""
+
+# ID:3826,
+#: ID:3826
+msgid "Restore the window to normal size"
+msgstr "Pencereyi normal boyutuna döndür"
+
+# ID:73,
+#: ID:73
+msgid "Restored"
+msgstr "Geridönüldü"
+
+# ID:73,
+#: ID:73
+msgid "Retry"
+msgstr "Tekrar"
+
+# Dlg-ID:175,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Geridön"
+
+# ID:114,
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Bu revizyondan kaynaklanan değişiklikleri iptal eder"
+
+# ID:73,
+#: ID:73
+msgid "Reverted"
+msgstr "Geridönüldü"
+
+# ID:9,
+#: ID:9
+msgid "Reverts all changes you made since the last update"
+msgstr "Son güncellemeden itibaren yaptığınız tum değişiklikleri iptal eder"
+
+# ID:76,#:
+# ID:208,#:
+# Control-ID:65535,#:
+# Control-ID:1306,#:
+# ID:19,
+#: ID:76
+#: ID:208
+#: Control-ID:65535
+#: Control-ID:1306
+#: ID:19
+msgid "Revision"
+msgstr "Revizyon"
+
+# ID:119,
+#: ID:119
+#, c-format
+msgid "Revision %d"
+msgstr "Revizyon %d"
+
+# ID:269,#:
+# ID:270,#:
+# ID:272,
+#: ID:269
+#: ID:270
+#: ID:272
+#, c-format
+msgid "Revision %ld"
+msgstr "Revizyon %ld"
+
+# ID:120,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revizyon %s"
+
+# ID:15,
+#: ID:15
+msgid "Revision &graph"
+msgstr "Revizyon &grafiği"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Revision / Author:"
+msgstr "Revizyon / Yaratan:"
+
+# Dlg-ID:182,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Revizyon Grafiği"
+
+# Dlg-ID:228,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Revizyon Aralığı"
+
+# ID:269,#:
+# Control-ID:65535,
+#: ID:269
+#: Control-ID:65535
+msgid "Revision graph"
+msgstr "Revizyon grafiği"
+
+# ID:75,
+#: ID:75
+msgid "Revision: "
+msgstr "Revizyon:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revizyon: %ld\n"
+"URL: %s\r\n"
+"Yaratan: %s\r\n"
+"Tarih: %s\r\n"
+"\r\n"
+"Kayıtmesajı:\r\n"
+"%s"
+
+# ID:116,
+#: ID:116
+msgid "Revisions"
+msgstr "Revizyonlar:"
+
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "Sağ Görünüş:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Sağ Resim"
+
+#: MenuEntry
+msgid "S&ettings"
+msgstr "A&yarlar"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "S&tatistics"
+msgstr "İ&statistikler"
+
+# ID:9,
+#: ID:9
+msgid "S&witch..."
+msgstr "D&eğiştir..."
+
+# ID:3697,
+#: ID:3697
+msgid "SCRL"
+msgstr "SCRL"
+
+# Control-ID:1081,
+#: Control-ID:1081
+msgid "SSH"
+msgstr "SSH"
+
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Bu WC'ye dosya ekle"
+
+# ID:16,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Yaratıcısı"
+
+# ID:16,
+#: ID:16
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN revize edilmiş dosyayı buraya kopyala ve tekrar adlandır"
+
+# ID:13,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN revize edilmiş dosyaları buraya kopyala"
+
+# ID:14,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Tümünü Buraya Export et"
+
+# ID:14,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Buraya Export et"
+
+# ID:16,
+#: ID:16
+msgid "SVN Lock owner"
+msgstr "SVN kilit sahibi"
+
+# ID:17,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN revize edilmiş dosyaları buraya taşı ve tekrar adlandır"
+
+# ID:12,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN revize edilmiş dosyaları buraya taşı"
+
+# ID:11,
+#: ID:11
+msgid "SVN Revision"
+msgstr "SVN Revizyonu"
+
+# ID:11,
+#: ID:11
+msgid "SVN Status"
+msgstr "SVN Durumu"
+
+# ID:12,
+#: ID:12
+msgid "SVN URL"
+msgstr "SVN URL"
+
+# ID:17,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-stili"
+
+# ID:14,
+#: ID:14
+msgid "SVN mime-type"
+msgstr "SVN mime-type"
+
+# ID:12,
+#: ID:12
+msgid "SVN short URL"
+msgstr "SVN kısa URL"
+
+#: MenuEntry
+msgid "Save &As..."
+msgstr "Farklı &Kaydet..."
+
+# ID:101,
+#: ID:101
+msgid "Save &as..."
+msgstr "Farklı &kaydet..."
+
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
+msgid "Save As"
+msgstr "Farklı Kaydet"
+
+# ID:313,
+#: ID:313
+msgid "Save as..."
+msgstr "Farklı kaydet..."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+#, c-format
+msgid "Save changes to %1?"
+msgstr "%1 'e yapılan değişiklikler kaydedilsin mi?"
+
+# ID:232,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Müşteri sertifikasinin dizinini kaydet"
+
+# ID:272,
+#: ID:272
+msgid "Save graph as..."
+msgstr "Grafiği farklı kaydet..."
+
+# ID:76,
+#: ID:76
+msgid "Save revision &to..."
+msgstr "Revizyonu kaydet &..."
+
+# ID:3601,#:
+# ID:3601,
+#: ID:3601
+msgid ""
+"Save the modified file\n"
+"Save file"
+msgstr ""
+"Modifiye edilmiş dosyayı kaydet\n"
+"Dosyayı kaydet"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save to clipboard"
+msgstr "Panoya kaydet"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Kaydedimiş Veri"
+
+# ID:103,
+#: ID:103
+#, c-format
+msgid "Saving file %s"
+msgstr "%s dosyası kaydediliyor"
+
+# ID:103,
+#: ID:103
+msgid "Saving files"
+msgstr "Dosyalar kaydediliyor"
+
+# ID:144,
+#: ID:144
+msgid "Saving patchfile to:"
+msgstr "Yama dosyasını buraya kopyalıyor."
+
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,#:
+# Control-ID:1212,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+#: Control-ID:1212
+msgid "Scintilla"
+msgstr "Scintilla (Kıvılcım)"
+
+# ID:113,
+#: ID:113
+msgid "Search &log messages..."
+msgstr "&Kayıt mesajlarında ara..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr "Bunu ara:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr ""
+
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
+#, c-format
+msgid "Seek failed on %1"
+msgstr "%1 arama başarılı olamadı"
+
+# ID:376,
+#: ID:376
+msgid "Select &All"
+msgstr "Hepsini seç"
+
+# Control-ID:1067,#:
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Select / deselect &all"
+msgstr "Hepsini Seç / Seçimi iptal et"
+
+# ID:13,
+#: ID:13
+msgid "Select File..."
+msgstr "Dosya seç..."
+
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "Revizyon seç"
+
+# ID:78,
+#: ID:78
+msgid "Select SSH client"
+msgstr "SSH client'ını seç"
+
+# ID:3585,
+#: ID:3585
+msgid "Select an object on which to get Help"
+msgstr ""
+
+# ID:78,
+#: ID:78
+msgid "Select diff application"
+msgstr "Diff uygulaması seç"
+
+# ID:313,
+#: ID:313
+msgid "Select diff file..."
+msgstr "Diff dosyası seç..."
+
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr ""
+
+# ID:276,
+#: ID:276
+msgid "Select end revision"
+msgstr "Bitiş revizyonunu seç"
+
+# ID:79,
+#: ID:79
+msgid ""
+"Select folder to export to.\n"
+"You might need to create a new folder before performing this export."
+msgstr ""
+"Export edilecek klasörü seç.\n"
+"Bu exportu yapmadan önce yeni klasör oluşturmanız gerekebilir."
+
+# ID:78,
+#: ID:78
+msgid "Select merge application"
+msgstr "Birleştirme uygulaması seç"
+
+# ID:276,
+#: ID:276
+msgid "Select revision range"
+msgstr "Revizyon aralığı seç"
+
+# ID:276,
+#: ID:276
+msgid "Select start revision"
+msgstr "Başlangıç revizyonunu seç"
+
+# ID:79,
+#: ID:79
+msgid "Select text editor application"
+msgstr "Metin editörü seç"
+
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr ""
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Select the entire document\n"
+"Select All"
+msgstr ""
+"Tüm dokümanı seç\n"
+"Hepsini Seç"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr ""
+
+# ID:78,
+#: ID:78
+msgid "Select viewer for diff-files"
+msgstr ""
+
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
+msgid "Send Mail failed to send message."
+msgstr ""
+
+# ID:74,
+#: ID:74
+msgid "Sending content"
+msgstr "İçerik gönderiliyor"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Server &address:"
+msgstr "Server &adresi:"
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Set filedates to the \"last commit &time\""
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "Setting properties..."
+msgstr "Seçenekler ayarlanıyor..."
+
+# ID:107,
+#: ID:107
+msgid "Settings"
+msgstr "Ayarlar"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Sh&ow log"
+msgstr "Kayıdı(log) göster"
+
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Shell"
+
+# ID:145,
+#: ID:145
+msgid "Shell Icon Cache was rebuilt!"
+msgstr "Shell İkon önbelleği tekrar oluşturuldu!"
+
+# ID:101,
+#: ID:101
+msgid "Sho&w properties"
+msgstr "Seçenekleri göster"
+
+# Control-ID:1105,
+#: Control-ID:1105
+msgid "Short &date/time format in log messages"
+msgstr ""
+
+# ID:12,
+#: ID:12
+msgid "Short URL of Subversion items"
+msgstr ""
+
+# ID:115,#:
+# Control-ID:1031,
+#: ID:115
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Hepsini göster"
+
+# ID:115,
+#: ID:115
+msgid "Show &Range..."
+msgstr "Aralığı göster..."
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Tüm revizyonları göster"
+
+# ID:113,
+#: ID:113
+msgid "Show &differences"
+msgstr "Tüm değişiklikleri göster"
+
+# ID:12,#:
+# ID:101,#:
+# Control-ID:1016,#:
+# Control-ID:1228,#:
+# Control-ID:1031,#:
+# Control-ID:1034,#:
+# Control-ID:1132,
+#: ID:12
+#: ID:101
+#: Control-ID:1016
+#: Control-ID:1228
+#: Control-ID:1031
+#: Control-ID:1034
+#: Control-ID:1132
+msgid "Show &log"
+msgstr "Kayıdı(log) göster"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Show &log..."
+msgstr "Kayıdı(log) göster..."
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr ""
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Show &unversioned files"
+msgstr "Versiyonusuz dosyaları göster"
+
+#: MenuEntry
+msgid "Show File List"
+msgstr "Dosya listesini göster"
+
+# ID:113,
+#: ID:113
+msgid "Show differences as &unified diff"
+msgstr ""
+
+# Control-ID:1264,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Aldırılmayan dosyaların listesini göster"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show li&ne diff bar"
+msgstr ""
+
+# Control-ID:1063,
+#: Control-ID:1063
+msgid "Show linenumber&s"
+msgstr "Satır numaralarasını/larını &s goster"
+
+# ID:3713,
+#: ID:3713
+msgid ""
+"Show or hide the status bar\n"
+"Toggle StatusBar"
+msgstr ""
+
+# ID:3713,
+#: ID:3713
+msgid ""
+"Show or hide the toolbar\n"
+"Toggle ToolBar"
+msgstr ""
+
+# ID:2049,
+#: ID:2049
+msgid ""
+"Show special characters for whitespaces\n"
+"Show Whitespaces"
+msgstr ""
+
+# Control-ID:1209,
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "Modifiye edilmemiş dosyaları göster"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Show unversioned files"
+msgstr "Versiyonusuz dosyaları göster"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "%ld düğümleri gösterilmekte"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "%s için grafik gösterilmekte."
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "Shows all files which were changed since the last update, locally and in the repository"
+msgstr ""
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr ""
+
+# ID:10,
+#: ID:10
+msgid "Shows information about TortoiseSVN"
+msgstr ""
+
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr ""
+
+# ID:12,
+#: ID:12
+msgid "Shows the log for the selected file / folder"
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid "Shows the mime type of the versioned file"
+msgstr ""
+
+# ID:74,
+#: ID:74
+msgid "Size"
+msgstr "Boyut"
+
+# ID:74,
+#: ID:74
+msgid "Skipped"
+msgstr "Atlanıldı"
+
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr ""
+
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Elemanları nümerik olarak sırala"
+
+# ID:101,
+#: ID:101
+msgid "Sort numerical"
+msgstr "Nümerik sıralama"
+
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr ""
+
+# ID:79,
+#: ID:79
+msgid ""
+"Specify the files or folders which TortoiseSVN\n"
+"should ignore in <b>all</b> working copies.\n"
+"Separate the patterns with a space."
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr ""
+
+# ID:3604,
+#: ID:3604
+msgid ""
+"Split the active window into panes\n"
+"Split"
+msgstr ""
+
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr "Kümelenmiş Grafik (Bar)"
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr "Kümelenmiş Grafik (Çizgi)"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Revizyonu Başlat"
+
+# ID:245,#:
+# Dlg-ID:179,
+#: ID:245
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "İstatistik"
+
+# ID:74,#:
+# ID:77,#:
+# ID:207,#:
+# Control-ID:65535,
+#: ID:74
+#: ID:77
+#: ID:207
+#: Control-ID:65535
+msgid "Status"
+msgstr "Durum"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Durum ve işlem renkleri"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Durum önbelleği"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr ""
+
+# ID:11,
+#: ID:11
+msgid "Status of item in SVN"
+msgstr "SVN'deki elemanin durumu"
+
+# ID:16,
+#: ID:16
+msgid "Steal loc&k"
+msgstr "Kilidi çal"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "Kilidi çal"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion configuration &file:"
+msgstr "Subversion ayar &dosyası:"
+
+# ID:79,
+#: ID:79
+msgid ""
+"Subversion reported an error while creating a repository!\n"
+"Make sure the folder is empty and not write protected."
+msgstr ""
+"Subversion depoyu oluşturken bir hata oluşturduğunu bildirdi!\n"
+"Klasörün boş olduğundan ve salt-okunur olmadığından emin olunuz. "
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Subversion reported an error while doing a cleanup!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Subversion temizlik yaparken bir hata oluşturduğunu bildirdi!\n"
+"<hr=100%%>\n"
+"%s"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Subversion sunucu dosyası:"
+
+# Control-ID:1232,
+#: Control-ID:1232
+msgid "Sw&itch working copy to new branch/tag"
+msgstr "Çalışan kopyayı yeni bir dal'a / etilet'e geçir"
+
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Değiştir Sol<->Sağ"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Dal / Etikete geç"
+
+# ID:3606,
+#: ID:3606
+msgid ""
+"Switch back to the previous window pane\n"
+"Previous Pane"
+msgstr ""
+
+# ID:2049,
+#: ID:2049
+msgid ""
+"Switch between single and double pane view\n"
+"Switch between single and double pane view"
+msgstr ""
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+
+# ID:3825,
+#: ID:3825
+msgid "Switch to the next document window"
+msgstr "Bir sonraki doküman penceresine geç"
+
+# ID:3606,
+#: ID:3606
+msgid ""
+"Switch to the next window pane\n"
+"Next Pane"
+msgstr ""
+"Bir sonraki pencereye geç\n"
+"Sonraki pencere"
+
+# ID:3825,
+#: ID:3825
+msgid "Switch to the previous document window"
+msgstr "Bir önceki doküman penceresine geç"
+
+# ID:9,
+#: ID:9
+msgid "Switch working copy to another branch / tag"
+msgstr "Çalışan kopyayı bir sonraki dal'la / etiletle değiştir"
+
+# ID:325,
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Karşılaştırmayı değiştirir Sol<->Sağ"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System &sounds"
+msgstr "Sistem &sesleri"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "System registry entries have been removed and the INI file (if any) was deleted."
+msgstr ""
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
+# ID:79,
+#: ID:79
+#, c-format
+msgid "Tagged the working copy to %s"
+msgstr "Çalışan kopya %s a etiketlendi"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Text Status:"
+msgstr "Metin Durumu:"
+
+# ID:207,
+#: ID:207
+msgid "Text status"
+msgstr "Metin durumu"
+
+# ID:69,
+#: ID:69
+#, c-format
+msgid ""
+"The File\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+
+# ID:80,
+#: ID:80
+msgid "The Repository was successfully created."
+msgstr "Depo başarılı bir şekilde oluşturuldu"
+
+# ID:63,
+#: ID:63
+msgid "The chunk size did not match the number of added/removed lines!"
+msgstr ""
+
+# ID:63,
+#: ID:63
+#, c-format
+msgid "The chunk start \"@@\" was expected in line %d !"
+msgstr ""
+
+# ID:68,
+#: ID:68
+#, c-format
+msgid ""
+"The diffing engine aborted because of an error:\n"
+"%s"
+msgstr ""
+"diffleme motoru bu hatadan dolayı durduruldu:\n"
+"%s"
+
+# ID:64,
+#: ID:64
+#, c-format
+msgid "The file %s does not exist!"
+msgstr "%s Dosyası bulunamadı!"
+
+# ID:64,
+#: ID:64
+#, c-format
+msgid "The file %s was not found in the patch file!"
+msgstr "%s Dosyası yama dosyasında bulunamadı!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"%s dosyasının\n"
+"iki kopyası bulundu!?!\n"
+"Genelde bunun nedeni yama dosyasının yanlış klasöre\n"
+"uygulamasıdır! "
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "The file is too large to open."
+msgstr "Dosya açmak için çok büyük."
+
+# ID:80,
+#: ID:80
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"already exists! Do you want to overwrite it?"
+msgstr ""
+"%s\n"
+"Dosya adı mevcut! Üstüne yazmak istiyormusunuz?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"%s klasörü \n"
+"versiyonsuz ve/veya değiştirilmiş dosya(lar) içermekte. Yine de silmek istiyormusunuz?"
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"The folder \n"
+"%s\n"
+"does not exist.\n"
+"Would you like to create it first?"
+msgstr ""
+"%s\n"
+"Klasörü mevcut değil.\n"
+"Yaratmak istermisiniz?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "Resim gösterilemiyor."
+
+# ID:63,
+#: ID:63
+#, c-format
+msgid "The line \"====\" was expected in line %d !"
+msgstr "%d satırında \"====\" satırı bulunamadı!"
+
+# ID:63,
+#: ID:63
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"\"Index: \" satırı bulunamadı!\n"
+"Ya bu bir diff dosyası değil yada diff dosyası boş."
+
+# ID:63,
+#: ID:63
+#, c-format
+msgid "The line indicating the new file was expected in line %d !"
+msgstr "Yeni dosya ile ilgili satır %d satırında bulunamadı!"
+
+# ID:63,
+#: ID:63
+#, c-format
+msgid "The line indicating the old file was expected in line %d !"
+msgstr "Eski dosya ile ilgili satır %d satırında bulunamadı!"
+
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr ""
+
+# ID:63,
+#: ID:63
+msgid ""
+"The old file does not match the new file.\n"
+"Renaming of files is not (yet) supported!"
+msgstr ""
+
+# ID:64,
+#: ID:64
+#, c-format
+msgid ""
+"The patch seems outdated! The file line\n"
+"%s\n"
+"and the patchline\n"
+"%s\n"
+"do not match!"
+msgstr ""
+
+# ID:88,
+#: ID:88
+msgid ""
+"The path/URL you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr ""
+
+# ID:78,
+#: ID:78
+msgid ""
+"The selected file appears to still have one or more conflict markers in it.\n"
+"Are you sure you want to mark the file resolved?"
+msgstr ""
+
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Hedef URL\n"
+"%s\n"
+"zaten mevcut!"
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
+"Are you sure you want to checkout/export into that folder?"
+msgstr ""
+
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "Son teslimi yapan kullanıcı"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "Dosyanın kilidinin sahibi olan kullanıcı"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"The working copy has changed!\n"
+"<hr=100%>\n"
+"Please commit your changes first or revert."
+msgstr ""
+"Çalışan kopya değiştirildi!\n"
+"<hr=100%>\n"
+"Lütfen ilk olarak değişikliklerinizi teslim ediniz yada Geridönünüz. "
+
+# ID:81,
+#: ID:81
+msgid ""
+"The working copy is not up to date!\n"
+"Please Update first."
+msgstr ""
+"Çalışan kopya güncel değil!\n"
+"Lütfen ilk olarak güncelleme yapınız."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Their file:"
+msgstr "Onların dosyası:"
+
+# ID:263,
+#: ID:263
+msgid "Theirs"
+msgstr "Onların"
+
+# ID:169,
+#: ID:169
+msgid ""
+"There are changes inside one or more directories which you have included with svn:externals.\n"
+"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr ""
+
+# ID:66,
+#: ID:66
+#, c-format
+msgid ""
+"There are still unresolved conflicts in line %d!\n"
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
+msgstr ""
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr ""
+
+# ID:188,
+#: ID:188
+msgid "Thesaurus"
+msgstr "Eşanlamlılar sözlüğü"
+
+# ID:83,
+#: ID:83
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"Bu geçerli bir URL değildir.\n"
+"Lütfen buraya geçerli bir URL giriniz."
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Bu geçerli bir dizin değil!\n"
+"Geçerli bir dizin '<>|\"?*:'  yada :\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$ içermemeli"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
+msgstr "Bu ürün CollabNet (http://www.Collab.Net/) tarafından geliştirilmiş bir yazılımı içermekte."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Bu ürün OpenSSL Project (http://www.openssl.org/) tarafından  OpenSSL Toolkit'i için geliştirilmiş bir yazılımı içermekte."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+#, c-format
+msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+#, c-format
+msgid "This program requires the file %s, which was not found on this system."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr ""
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "To:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "To: (Birleştirme aralığının URL ve revisyonunun sonu)"
+
+# ID:7,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame direkt olarak başlatılamaz!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+# ID:7,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: TortoiseSVN'nin diff resmi tarayıcısı\n"
+"\n"
+"Geçerli komutlar:\n"
+"/left:\"Sol resimlerin dizini\"\n"
+"/lefttitle:\"Solda gösterilecek resimin başlığı\"\n"
+"/right:\"Sağ resimlerin dizini\"\n"
+"/righttitle:\"Sağda gösterilecek resimin başlığı\""
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: ID:7
+#: ID:3585
+#: Dlg-ID:130
+msgid "TortoiseMerge"
+msgstr "TortoiseMerge"
+
+# ID:107,
+#: ID:107
+#, c-format
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Yapım %d - %s"
+
+# ID:107,
+#: ID:107
+#, c-format
+msgid ""
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+msgstr ""
+"TortoiseMerge %d.%d.%d, Yapım %d - %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:80
+#: Control-ID:65535
+msgid "TortoiseSVN"
+msgstr "TortoiseSVN"
+
+# ID:107,
+#: ID:107
+#, c-format
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+
+# ID:107,
+#: ID:107
+#, c-format
+msgid ""
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Add..."
+msgstr "TortoiseSVN Ekle..."
+
+# ID:132,
+#: ID:132
+msgid "TortoiseSVN Blame"
+msgstr "TortoiseSVN Blame"
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Checkout..."
+msgstr "TortoiseSVN Çıktısı..."
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Commit..."
+msgstr "TortoiseSVN Teslimler..."
+
+# ID:78,
+#: ID:78
+msgid "TortoiseSVN Copy..."
+msgstr "TortoiseSVN Kopyala..."
+
+# ID:78,
+#: ID:78
+msgid "TortoiseSVN Export..."
+msgstr "TortoiseSVN Export..."
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Import..."
+msgstr "TortoiseSVN Import..."
+
+# ID:78,
+#: ID:78
+msgid "TortoiseSVN Merge..."
+msgstr "TortoiseSVN Birleştir..."
+
+# ID:221,
+#: ID:221
+msgid "TortoiseSVN Rename/move"
+msgstr "TortoiseSVN Tekrar Adlandır/taşı"
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Resolve..."
+msgstr "TortoiseSVN Çözümle..."
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Revert..."
+msgstr "TortoiseSVN Geridön..."
+
+# ID:80,
+#: ID:80
+msgid "TortoiseSVN Settings"
+msgstr "TortoiseSVN Ayarlar"
+
+# ID:78,
+#: ID:78
+msgid "TortoiseSVN Switch..."
+msgstr "TortoiseSVN Değiştir..."
+
+# ID:77,
+#: ID:77
+msgid "TortoiseSVN Update..."
+msgstr "TortoiseSVN Güncelle..."
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN benzer dosya isimleri algıladı. %s\n"
+" Bu dosya isimlerinin tekrar adlandırılmasınını da istiyormusunuz?"
+
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "Analiz edilen teslimler:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "Toplam dosya değişiklikleri:"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "Transferring at %s"
+msgstr "%s de transfer edilmekte"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "Bir \"Cleanup\" deneyiniz. Eğer bu işe yaramaz ise yeniden checkout yapınız."
+
+# ID:73,
+#: ID:73
+msgid "Try again"
+msgstr "Tekrar deneyin"
+
+# ID:10,
+#: ID:10
+msgid "Tweak TortoiseSVN"
+msgstr "TortoiseSVN'i ayarlayın"
+
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "İki-yönlü &Diff"
+
+# ID:207,#:
+# Dlg-ID:164,
+#: ID:207
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
+
+# Control-ID:1272,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL geçmişi "
+
+# ID:12,
+#: ID:12
+msgid "URL of Subversion items"
+msgstr "Subversion elemanlarının URL'si"
+
+# ID:144,#:
+# Control-ID:65535,
+#: ID:144
+#: Control-ID:65535
+msgid "URL:"
+msgstr "URL:"
+
+# ID:75,
+#: ID:75
+msgid "URL: "
+msgstr "URL: "
+
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
+msgid "Unable to load mail system support."
+msgstr "Posta sistemi desteği yüklenemedi."
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+#, c-format
+msgid "Unable to read from %1, it is opened by someone else."
+msgstr "%1'den okunamadı, başkası tarafından kullanılmakta"
+
+# ID:3865,#:
+# ID:3865,
+#: ID:3865
+msgid "Unable to read write-only property."
+msgstr "Salt-okunur özelliği okunamadı."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+
+# ID:3865,#:
+# ID:3865,
+#: ID:3865
+msgid "Unable to write read-only property."
+msgstr "Salt-okunur özelliği yazılamadı."
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+#, c-format
+msgid "Unable to write to %1, it is read-only or opened by someone else."
+msgstr "%1 'e yazılamadı, ya salt-okunur bir dosya yada bir başkası tarafından açılmış durumda."
+
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
+msgid "Uncheck"
+msgstr "Boşalt"
+
+# ID:3603,
+#: ID:3603
+msgid ""
+"Undo the last action\n"
+"Undo"
+msgstr ""
+"Son islemi iptal et\n"
+"Geri al"
+
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
+msgid "Unexpected file format."
+msgstr "Beklenmedik dosya formatı"
+
+#: MenuEntry
+msgid "Unified &diff of HEAD revisions"
+msgstr "Baş revizyonlarının birleştirilmiş &diff'i"
+
+# ID:81,
+#: ID:81
+#, c-format
+msgid ""
+"Unknown certificate issuer.\n"
+"  Fingerprint: %s\n"
+"  Distinguished name: %s"
+msgstr ""
+
+# ID:221,
+#: ID:221
+msgid "Unlock"
+msgstr "Kilidi aç"
+
+# ID:264,
+#: ID:264
+msgid "Unlock failed"
+msgstr "Kilit açılamadı"
+
+# ID:263,
+#: ID:263
+msgid "Unlocked"
+msgstr "Kilit açıldı"
+
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
+msgid "Untitled"
+msgstr "Başlıksız"
+
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr "Versiyonsuz dosyalar içinde bulundukları klasörü modifiye edildi diye işaretlerler"
+
+# Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Güncelleme"
+
+# ID:74,
+#: ID:74
+msgid "Updated"
+msgstr "Güncellendi"
+
+# ID:11,
+#: ID:11
+msgid "Updates the working copy to a specific revision"
+msgstr "Çalışan dosyayı belirli bir revizyonla günceller"
+
+# ID:9,
+#: ID:9
+msgid "Updates the working copy to the current revision"
+msgstr "Çalışan dosyayı şu anki revizyonla günceller"
+
+# ID:226,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "%s Güncelleniyor"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Güncelleniyor ve kilit tekrar deneniyor..."
+
+# Control-ID:1064,
+#: Control-ID:1064
+#, fuzzy
+msgid "Use &magnifier on locatorbar"
+msgstr "Yerbulucu çubuğundaki &büyüteci kullan"
+
+# Control-ID:1024,
+#: Control-ID:1024
+msgid "Use &one-pane view as default for 2-file diff"
+msgstr "2-dosyalı diff dosyası için tek pencereli görünümü kullan"
+
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "Başka metin bloğunu kullan"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use &text viewer to view blames"
+msgstr "Blame (kınamaları) görüntülemek için bir metin okuyucusu kullanın"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception.\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of &WC as the default \"From:\" URL"
+msgstr "&WC den gelen URL'yi \"From:\" URL'si olarak kullan"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "URL için \"From:\" 'ı kullanınız (revizyon aralığı yukarıdaki kayıt diyaloğundan seçilebilir)"
+
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Klasörler için \".svn\" yerine \"_svn\" kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Metin bloklarının ikisini de kullan (ilk olarak bunu)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Metin bloklarının ikisini de kullan (son olarak bunu)"
+
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "Use stri&keout for deleted lines"
+msgstr ""
+
+# ID:251,
+#: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "\"&mine\" 'den itibaren metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use text block from \"&theirs\""
+msgstr "\"&theirs\" 'den itibaren metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "\"m&ine\" 'den sonra ve \"theirs\" 'den önce metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "\"t&heirs\" 'den sonra ve \"mine\" 'den önce metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "Bu metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Bu dosyanın &tümünü kullan"
+
+# ID:12,
+#: ID:12
+msgid "Use this if the URL of the repository has changed"
+msgstr "Eğer deponun URL si değiştiyse bunu kullan"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Başka dosyanın &tümünü kullan"
+
+# ID:74,
+#: ID:74
+msgid "User cancelled"
+msgstr "Kullanıcı tarafından iptal edildi"
+
+# ID:69,
+#: ID:69
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+# ID:313,
+#: ID:313
+msgid ""
+"Valid command line options are:\n"
+"/base:<path to base file>\n"
+"/theirs:<path to their file>\n"
+"/mine:<path to your file>\n"
+"/merged:<path to resulting merged file>\n"
+"/diff:<path to unified diff file>\n"
+"/patchpath:<path to folder>"
+msgstr ""
+"Geçerli komuta satırları :\n"
+"/base:< taban dosyasının dizini>\n"
+"/theirs:<their(onların) dosyasının dizini>\n"
+"/mine:<kendi dosyanızın dizini>\n"
+"/merged:<birleşim sonuçu oluşan dosyanın dizini>\n"
+"/diff:<birleştirilmiş diff dosyasının dizini>\n"
+"/patchpath:<klasörün dizini>"
+
+# ID:11,
+#: ID:11
+msgid "Value"
+msgstr "Değer"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: Control-ID:1075
+msgid "Version"
+msgstr "Versiyon"
+
+# Control-ID:1084,#:
+# Control-ID:1084,
+#: Control-ID:1084
+msgid "Visit our website"
+msgstr "web sitemizi ziyaret edin"
+
+# ID:88,
+#: ID:88
+msgid "Warning"
+msgstr "Uyarı"
+
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "Uyarı!"
+
+# ID:146,
+#: ID:146
+msgid "With URL:"
+msgstr "URL ile:"
+
+# Dlg-ID:158,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Çalışan Kopya"
+
+# ID:80,
+#: ID:80
+#, c-format
+msgid ""
+"Working copy relocated to\n"
+"%s"
+msgstr ""
+"Çalışan kopyanın taşınıldığı yer\n"
+"%s"
+
+# ID:73,
+#: ID:73
+msgid "Yes"
+msgstr "Evet"
+
+# ID:145,
+#: ID:145
+msgid "Yes to all"
+msgstr "Tümünü evet"
+
+# ID:201,
+#: ID:201
+msgid "You already have the latest version installed."
+msgstr "Sizde zaten en son versiyon yüklenmiş durumda."
+
+# ID:144,
+#: ID:144
+msgid ""
+"You are creating a repository on a network share.\n"
+"This is safe, but once the repository is created you must access it by some other means.\n"
+"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Create the repository anyway?"
+msgstr ""
+
+# ID:88,
+#: ID:88
+msgid ""
+"You are trying to access a repository via file:/// on\n"
+"a shared network drive.\n"
+"This could lead to severe repository corruption!\n"
+"Do you really want to do that?"
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "İlk olarak çalışan kopyanızı güncellemelisiniz."
+
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Değişikliklerin çalişması içim sisteminizi tekrar başlatınız."
+
+# ID:77,
+#: ID:77
+msgid ""
+"You selected an unversioned file.\n"
+"The file will be added to version control when you commit."
+msgstr ""
+"Versiyonsuz bir dosya seçtiniz.\n"
+"Dosyayı teslim ettiğinizde versiyon kontrolüne eklenecektir."
+
+# ID:195,
+#: ID:195
+#, c-format
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+
+# ID:338,
+#: ID:338
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr ""
+"Eklenmiş klasörler seçtiniz.\n"
+" Yama bu klasörlerin içindeki dosyaları içermeyecektir\n"
+"Yine de devam etmek istiyormusunuz?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "Versiyonunuz:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Versiyonunuz: %d.%d.%d.%d"
+
+# ID:78,
+#: ID:78
+msgid ""
+"Your working copy appears to be on a tag path!\n"
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+
+#: MenuEntry
+msgid "Zoo&m out"
+msgstr "dışarı Zoo&m"
+
+#: MenuEntry
+msgid "Zoom &in\tCtrl-+"
+msgstr "&içeri\tCtrl-+ Zoom"
+
+#: MenuEntry
+msgid "Zoom &out\tCtrl--"
+msgstr "&dışarı\tCtrl-- Zoom"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "100% Zoom "
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "İ&çeri Zoom"
+
+# ID:2049,
+#: ID:2049
+msgid "Zoom in"
+msgstr "İçeri Zoom"
+
+# ID:2049,
+#: ID:2049
+msgid "Zoom out"
+msgstr "Dışarı Zoom"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Tamamını Zoom"
+
+# ID:10,
+#: ID:10
+msgid "added"
+msgstr "eklendi"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "eklenen dosyalar"
+
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
+msgid "an unnamed file"
+msgstr "isimsiz dosya"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "ve"
+
+# Control-ID:1085,#:
+# Control-ID:1085,
+#: Control-ID:1085
+msgid "and support the developers"
+msgstr "ve geliştiricileri destekleyin"
+
+# ID:245,
+#: ID:245
+msgid "author"
+msgstr "yaratan"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+
+# ID:14,
+#: ID:14
+#, c-format
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+
+# ID:14,
+#: ID:14
+#, c-format
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+
+# ID:145,
+#: ID:145
+msgid "cleaning up"
+msgstr "Temizleniyor"
+
+# ID:244,#:
+# ID:245,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "teslimler"
+
+# ID:11,
+#: ID:11
+msgid "conflicted"
+msgstr "çakıştı"
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr "%s - revision %ld den kopyalandı\r"
+
+# ID:10,
+#: ID:10
+msgid "deleted"
+msgstr "silindi"
+
+# ID:79,
+#: ID:79
+#, c-format
+msgid ""
+"exported\n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"%s\n"
+"e\n"
+"%s\n"
+"ne export edildi"
+
+# ID:13,
+#: ID:13
+msgid "external"
+msgstr "harici"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "Dosya listesi boş"
+
+# ID:13,
+#: ID:13
+msgid "ignored"
+msgstr "aldırılmadı"
+
+# ID:13,
+#: ID:13
+msgid "incomplete"
+msgstr "eksik"
+
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: ID:11
+#: ID:195
+#: Control-ID:1002
+msgid "locked"
+msgstr "kilitli"
+
+# ID:11,#:
+# Control-ID:65535,
+#: ID:11
+#: Control-ID:65535
+msgid "merged"
+msgstr "birleştirilmiş"
+
+# ID:10,
+#: ID:10
+msgid "missing"
+msgstr "eksik"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "kayıp / silinmiş / değiştirilmiş"
+
+# ID:10,
+#: ID:10
+msgid "modified"
+msgstr "değiştirilmiş"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "değiştirilmiş / kopyalanmış"
+
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "ay"
+
+# ID:10,
+#: ID:10
+msgid "no description for this command is available"
+msgstr "bu komut için açıklama bulunmamakta"
+
+# ID:10,
+#: ID:10
+msgid "non-versioned"
+msgstr "versiyonsuz"
+
+# ID:10,
+#: ID:10
+msgid "normal"
+msgstr "normal"
+
+# ID:11,
+#: ID:11
+msgid "obstructed"
+msgstr "engellendi"
+
+# ID:3869,#:
+# ID:3869,
+#: ID:3869
+msgid "pixels"
+msgstr "piksel"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "olası yada gerçek çakışma / tıkanma"
+
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr "çeyrek yıl"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "salt okunur"
+
+# ID:10,
+#: ID:10
+msgid "replaced"
+msgstr "değiştirildi"
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:eol-style\n"
+"One of 'native', 'LF', 'CR', 'CRLF'."
+msgstr ""
+"svn:eol-style\n"
+"'native', 'LF', 'CR', 'CRLF' dan biri."
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:executable\n"
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:externals\n"
+"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:ignore\n"
+"A newline separated list of file patterns to ignore."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:keywords\n"
+"Keywords to be expanded. Valid keywords are:\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
+"Author, LastChangedBy\t\tThe last person to modify the file.\n"
+"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
+"Rev, LastChangedRevision\tThe last revision the object changed.\n"
+"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:mime-type\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"%s\n"
+"'e değiştirildi\r"
+
+# ID:80,#:
+# ID:103,#:
+# ID:103,
+#: ID:80
+#: ID:103
+#, c-format
+msgid "to %s"
+msgstr "%s a"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "değerler farklı"
+
+# ID:245,
+#: ID:245
+msgid "week"
+msgstr "hafta"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "URL: 'sindeki depoyu gösterir"
+
+# ID:245,
+#: ID:245
+msgid "year"
+msgstr "yıl"
+
+
