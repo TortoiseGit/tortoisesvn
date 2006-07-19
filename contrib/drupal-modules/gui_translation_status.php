@@ -105,7 +105,7 @@ if ($postat[0] > 0) {
 
 function print_content_stat($i, $postat, $vars)
 {
-  $wc=150;
+  $wc=120;
 
   $release=$vars['release'];
   $build=$vars['build'];
@@ -119,6 +119,7 @@ function print_content_stat($i, $postat, $vars)
   $reposfile=$postat[6].'.po';
   $reposurl=$vars['reposurl'].$reposfile;
   $fdate=date("Y-m-d",$postat[7]);
+  $age=(strtotime(date()) - $postat[7]) / 86400;
 
 $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$postat[9].".exe".$vars['downloadurl2'];
   $flagimg=$vars['flagpath']."$postat[10].png";
@@ -170,7 +171,13 @@ $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$pos
   echo "<img src=\"siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
   echo "</td>";
   echo "<td class=\"download\"><a href=\"$reposurl\">$reposfile</a></td>";
-  echo "<td class=\"lang\">$fdate</td>";
+
+  $title = "Old translation. Last update on: ".$fdate." We need a maintainer!!";
+  if ($age>90) {
+    echo "<td class=\"lang\" align=\"center\"><b><img src=\"siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></b></td>";
+  } else {
+    echo "<td class=\"lang\">$fdate</td>";
+  }
 }
 
 function print_single_stat($i, $postat, $vars)
