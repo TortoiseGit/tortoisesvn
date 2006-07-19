@@ -1103,16 +1103,17 @@ UINT CSVNProgressDlg::ProgressThread()
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
-	if ((m_targetPathList.GetCount() != 1)||(m_UpdateStartRevMap.size()))
+	if (m_targetPathList.GetCount() != 1)
 		return;
 	StringRevMap::iterator it = m_UpdateStartRevMap.begin();
+	svn_revnum_t rev = -1;
 	if (it != m_UpdateStartRevMap.end())
 	{
-		svn_revnum_t rev = it->second;
-		CLogDlg dlg;
-		dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
-		dlg.DoModal();
+		rev = it->second;
 	}
+	CLogDlg dlg;
+	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
+	dlg.DoModal();
 }
 
 
