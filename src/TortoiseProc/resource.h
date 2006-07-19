@@ -628,6 +628,7 @@
 #define IDS_LOG_ACTIONS                 1870
 #define IDS_LOG_REVERTTOREV_CONFIRM     1890
 #define IDS_LOG_REVERTREV_ERROR         1891
+#define IDS_LOG_STOPONCOPY_HINT         1892
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902

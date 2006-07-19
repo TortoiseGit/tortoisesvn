@@ -166,6 +166,9 @@
        exported to a folder. See issue #263 for details. (Stefan)
 - NEW: The statistics graph can be saved as image files.
        See issue #262 for details. (Stefan)
+- NEW: A grayed out hint text is shown in the log dialog if
+       "Stop on copy/rename" is active and not all log messages could
+       be fetched. See issue #265 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

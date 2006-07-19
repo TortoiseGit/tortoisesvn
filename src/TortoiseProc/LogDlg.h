@@ -185,6 +185,8 @@ private:
 	bool				m_bCancelled;
 	volatile LONG 		m_bThreadRunning;
 	BOOL				m_bStrict;
+	bool				m_bStrictStopped;
+	svn_revnum_t		m_lowestRev;
 	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
 	LogChangedPathArray m_CurrentFilteredChangedArray;

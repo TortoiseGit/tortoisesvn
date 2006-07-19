@@ -58,7 +58,9 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bSelect(false),
 	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
 	m_bSelectionMustBeContinuous(false),
-	m_bShowBugtraqColumn(false)
+	m_bShowBugtraqColumn(false),
+	m_lowestRev(-1),
+	m_bStrictStopped(false)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -360,6 +362,12 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	{
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		int selIndex = m_LogList.GetNextSelectedItem(pos);
+		if (selIndex >= m_arShownList.GetCount())
+		{
+			InterlockedExchange(&m_bNoDispUpdates, FALSE);
+			m_LogMsgCtrl.SetRedraw(TRUE);
+			return;
+		}
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
 
 		pMsgView->SetWindowText(pLogEntry->sMessage);
@@ -598,6 +606,8 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		m_tTo = (DWORD)ttime;
 	if (m_tFrom > (DWORD)ttime)
 		m_tFrom = (DWORD)ttime;
+	if ((m_lowestRev > rev)||(m_lowestRev < 0))
+		m_lowestRev = rev;
 	// Add as many characters from the log message to the list control
 	// so it has a fixed width. If the log message is longer than
 	// this predefined fixed with, add "..." as an indication.
@@ -713,11 +723,17 @@ UINT CLogDlg::LogThread()
 	
 	if (!m_pegrev.IsValid())
 		m_pegrev = m_startrev;
+	size_t startcount = m_logEntries.size();
+	m_lowestRev = -1;
 	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
-	m_LogList.SetItemCountEx(m_arShownList.GetCount());
+	if (((m_bStrict && m_limit)&&((startcount + m_limit)>m_logEntries.size()))||((m_bStrict && (m_limit==0))&&(m_endrev<m_lowestRev)))
+		m_bStrictStopped = true;
+	else
+		m_bStrictStopped = false;
+	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 
 	m_timFrom = (__time64_t(m_tFrom));
 	m_timTo = (__time64_t(m_tTo));
@@ -842,6 +858,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	{
 		int selIndex = m_LogList.GetSelectionMark();
 		if (selIndex < 0)
+			return;
+		if ((m_bStrictStopped)&&(selIndex == m_arShownList.GetCount()))
 			return;
 		if ((point.x == -1) && (point.y == -1))
 		{
@@ -2407,6 +2425,11 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (((PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec))->bCopies)
 					crText = m_Colors.GetColor(CColors::Modified);
 			}
+			if (m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			{
+				if (m_bStrictStopped)
+					crText = GetSysColor(COLOR_GRAYTEXT);
+			}
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
 			return;
@@ -2414,6 +2437,10 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		break;
 	case CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM:
 		{
+			if ((m_bStrictStopped)&&(m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec))
+			{
+				pLVCD->nmcd.uItemState &= ~(CDIS_SELECTED|CDIS_FOCUS);
+			}
 			if (pLVCD->iSubItem == 1)
 			{
 				*pResult = CDRF_DODEFAULT;
@@ -2726,7 +2753,8 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	//Create a pointer to the item
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem >= m_arShownList.GetCount()))
+	bool bOutOfRange = m_bStrictStopped ? pItem->iItem > m_arShownList.GetCount() : pItem->iItem >= m_arShownList.GetCount();
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(bOutOfRange))
 	{
 		if (pItem->mask & LVIF_TEXT)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2735,8 +2763,10 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	//Which item number?
-	DWORD itemid = pItem->iItem;
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pItem->iItem));
+	int itemid = pItem->iItem;
+	PLOGENTRYDATA pLogEntry = NULL;
+	if (itemid < m_arShownList.GetCount())
+		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pItem->iItem));
     
 	//Do the list need text information?
 	if (pItem->mask & LVIF_TEXT)
@@ -2745,7 +2775,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		switch (pItem->iSubItem)
 		{
 		case 0:	//revision
-			if (itemid < m_logEntries.size())
+			if (itemid < m_arShownList.GetCount())
 				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->dwRev);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2754,13 +2784,13 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 2: //author
-			if (itemid < m_logEntries.size())
+			if (itemid < m_arShownList.GetCount())
 				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 3: //date
-			if (itemid < m_logEntries.size())
+			if (itemid < m_arShownList.GetCount())
 				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2768,7 +2798,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		case 4: //message or bug id
 			if (m_bShowBugtraqColumn)
 			{
-				if (itemid < m_logEntries.size())
+				if (itemid < m_arShownList.GetCount())
 				{
 					CString sTemp = m_ProjectProperties.FindBugID(pLogEntry->sMessage);
 					sTemp.Trim();
@@ -2780,9 +2810,15 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			}
 			// fall through here!
 		case 5:
-			if (itemid < m_logEntries.size())
+			if (itemid < m_arShownList.GetCount())
 			{
 				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
+			}
+			else if ((itemid == m_arShownList.GetCount())&&(m_bStrict)&&(m_bStrictStopped))
+			{
+				CString sTemp;
+				sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
+				lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
 			}
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2883,8 +2919,8 @@ void CLogDlg::OnBnClickedFiltercancel()
 	}
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	m_LogList.DeleteAllItems();
-	m_LogList.SetItemCountEx(m_arShownList.GetCount());
-	m_LogList.RedrawItems(0, m_arShownList.GetCount());
+	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+	m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(m_LogList);
 	
@@ -2923,8 +2959,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		}
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();
-		m_LogList.SetItemCountEx(m_arShownList.GetCount());
-		m_LogList.RedrawItems(0, m_arShownList.GetCount());
+		m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+		m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
@@ -3115,8 +3151,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();
-		m_LogList.SetItemCountEx(m_arShownList.GetCount());
-		m_LogList.RedrawItems(0, m_arShownList.GetCount());
+		m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+		m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
@@ -3183,7 +3219,10 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	{
 		while (pos)
 		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			int nextpos = m_LogList.GetNextSelectedItem(pos);
+			if (nextpos >= m_arShownList.GetCount())
+				continue;
+			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(nextpos));
 			LogChangedPathArray * cpatharray = pLogEntry->pArChangedPaths;
 			for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 			{
@@ -3450,3 +3489,4 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 		return;
 	Refresh();
 }
+
