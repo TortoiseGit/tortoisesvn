@@ -251,6 +251,14 @@
 		<glossterm>Property</glossterm>
 		<glossdef>
 			<para>
+				In addition to versioning your directories and files, Subversion allows
+				you to add versioned metadata - referred to as <quote>properties</quote>
+				to each of your versioned directories and files. Each property has a
+				name and a value, rather like a registry key. Subversion has some
+				special properties which it uses internally, such as
+				<literal>svn:eol-style</literal>. TortoiseSVN has some too, such as
+				<literal>tsvn:logminsize</literal>. You can add your own properties
+				with any name and value you choose.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -258,6 +266,16 @@
 		<glossterm>Relocate</glossterm>
 		<glossdef>
 			<para>
+				If your repository moves, perhaps because you have moved it to
+				a different directory on your server, or the server domain name
+				has changed, you need to <quote>relocate</quote> your working copy
+				so that its repository URLs point to the new location.
+			</para>
+			<para>
+				Note: you should only use this command if your working copy is
+				referring to the same location in the same repository, but the
+				repository itself has moved. In any other circumstance you
+				probably need the <quote>Switch</quote> command instead.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -288,6 +306,10 @@
 		<glossterm>Revert</glossterm>
 		<glossdef>
 			<para>
+				Subversion keeps a local <quote>pristine</quote> copy of each file as
+				it was when you last updated your working copy. If you have made changes
+				and decide you want to undo them, you can use the <quote>revert</quote>
+				command to go back to the pristine copy.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -295,6 +317,15 @@
 		<glossterm>Revision</glossterm>
 		<glossdef>
 			<para>
+				Every time you commit a set of changes, you create one new
+				<quote>revision</quote> in the repository. Each revision represents
+				the state of the repository tree at a certain point in its history.
+				If you want to go back in time you can examine the repository as
+				it was at revision N.
+			</para>
+			<para>
+				In another sense, a revision can refer to the set of changes that
+				were made when that revision was created.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -302,6 +333,13 @@
 		<glossterm>Revision Property (revprop)</glossterm>
 		<glossdef>
 			<para>
+				Just as files can have properties, so can each revision in the
+				repository. Some special revprops are added automatically
+				when the revision is created, namely:
+				<literal>svn:date svn:author svn:log</literal> which represent
+				the commit date/time, the committer and the log message
+				respectively. These properties can be edited, but they are not
+				versioned, so any change is permanent and cannot be undone.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -309,6 +347,11 @@
 		<glossterm>SVN</glossterm>
 		<glossdef>
 			<para>
+				A frequently-used abbreviation for Subversion.
+			</para>
+			<para>
+				The name of the Subversion custom protocol used by the
+				<quote>svnserve</quote> repository server.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -316,6 +359,13 @@
 		<glossterm>Switch</glossterm>
 		<glossdef>
 			<para>
+				Just as <quote>Update-to-revision</quote> changes the time
+				window of a working copy to look at a different point in history,
+				so <quote>Switch</quote> changes the space window of a working copy
+				so that it points to a different part of the repository.
+				It is particularly useful when working on trunk and branches where
+				only a few files differ. You can switch your working copy between
+				the two and only the changed files will be transferred.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -323,6 +373,9 @@
 		<glossterm>Update</glossterm>
 		<glossdef>
 			<para>
+				This Subversion command pulls down the latest changes from the
+				repository into your working copy, merging any changes made by
+				others with local changes in the working copy.
 			</para>
 		</glossdef>
 	</glossentry>
@@ -330,6 +383,11 @@
 		<glossterm>Working Copy</glossterm>
 		<glossdef>
 			<para>
+				This is your local <quote>sandbox</quote>, the area where you
+				work on the versioned files, and it normally resides on your
+				local hard disk. You create a working copy by doing a
+				<quote>Checkout</quote> from a repository, and you feed your
+				changes back into the repository using <quote>Commit</quote>.
 			</para>
 		</glossdef>
 	</glossentry>

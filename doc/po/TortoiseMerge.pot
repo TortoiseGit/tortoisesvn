@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-07-14 22:48GMT Daylight Time\n"
+"POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -758,143 +758,279 @@ msgid "Add"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1086(para) 
-msgid "A Subversion command that is used to add a file or directory to a repository."
+msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1093(glossterm) 
+#: source/TortoiseMerge_en.xml:1094(glossterm) 
 msgid "BASE revision"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1095(para) 
+#: source/TortoiseMerge_en.xml:1096(para) 
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1104(glossterm) 
+#: source/TortoiseMerge_en.xml:1105(glossterm) 
 msgid "Blame"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1111(glossterm) 
+#: source/TortoiseMerge_en.xml:1107(para) 
+msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1117(glossterm) 
 msgid "BDB"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1113(para) 
+#: source/TortoiseMerge_en.xml:1119(para) 
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1120(glossterm) 
+#: source/TortoiseMerge_en.xml:1126(glossterm) 
 msgid "Branch"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1127(glossterm) 
-msgid "Checkout"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1134(glossterm) 
-msgid "Cleanup"
+#: source/TortoiseMerge_en.xml:1128(para) 
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1141(glossterm) 
+msgid "Checkout"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1143(para) 
+msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1150(glossterm) 
+msgid "Cleanup"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1152(para) 
+msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1167(glossterm) 
 msgid "Commit"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1148(glossterm) 
+#: source/TortoiseMerge_en.xml:1169(para) 
+msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1177(glossterm) 
+msgid "Conflict"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1179(para) 
+msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1189(glossterm) 
 msgid "Copy"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1155(glossterm) 
-msgid "Delete"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1162(glossterm) 
-msgid "Diff"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1169(glossterm) 
-msgid "Export"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1176(glossterm) 
-msgid "FSFS"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1178(para) 
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1185(glossterm) 
-msgid "GPO"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1187(para) 
-msgid "Group policy object"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1193(glossterm) 
-msgid "HEAD revision"
-msgstr ""
-
-#: source/TortoiseMerge_en.xml:1195(para) 
-msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
+#: source/TortoiseMerge_en.xml:1191(para) 
+msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1201(glossterm) 
-msgid "Import"
+msgid "Delete"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1208(glossterm) 
-msgid "Lock"
+#: source/TortoiseMerge_en.xml:1203(para) 
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1215(glossterm) 
-msgid "Log"
+#: source/TortoiseMerge_en.xml:1213(glossterm) 
+msgid "Diff"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1215(para) 
+msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1222(glossterm) 
-msgid "History"
+msgid "Export"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1229(glossterm) 
-msgid "Merge"
+#: source/TortoiseMerge_en.xml:1224(para) 
+msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1236(glossterm) 
-msgid "Patch"
+#: source/TortoiseMerge_en.xml:1232(glossterm) 
+msgid "FSFS"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1243(glossterm) 
-msgid "Property"
+#: source/TortoiseMerge_en.xml:1234(para) 
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1250(glossterm) 
-msgid "Relocate"
+#: source/TortoiseMerge_en.xml:1241(glossterm) 
+msgid "GPO"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1243(para) 
+msgid "Group policy object"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1249(glossterm) 
+msgid "HEAD revision"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1251(para) 
+msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1257(glossterm) 
-msgid "Repository"
+msgid "Import"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1259(para) 
+msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1266(glossterm) 
+msgid "Lock"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1268(para) 
+msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1276(glossterm) 
+msgid "Log"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1278(para) 
+msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1285(glossterm) 
+msgid "History"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1287(para) 
+msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1294(glossterm) 
+msgid "Merge"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1296(para) 
+msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1302(para) 
+msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1310(glossterm) 
+msgid "Patch"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1312(para) 
+msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1325(glossterm) 
+msgid "Property"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1327(para) 
+msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1340(glossterm) 
+msgid "Relocate"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1342(para) 
+msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1348(para) 
+msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1357(glossterm) 
+msgid "Repository"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1359(para) 
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1268(glossterm) 
+#: source/TortoiseMerge_en.xml:1368(glossterm) 
 msgid "Resolve"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1275(glossterm) 
+#: source/TortoiseMerge_en.xml:1370(para) 
+msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1380(glossterm) 
 msgid "Revert"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1282(glossterm) 
+#: source/TortoiseMerge_en.xml:1382(para) 
+msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1391(glossterm) 
+msgid "Revision"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1393(para) 
+msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1400(para) 
+msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1407(glossterm) 
+msgid "Revision Property (revprop)"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1409(para) 
+msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1421(glossterm) 
 msgid "SVN"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1289(glossterm) 
+#: source/TortoiseMerge_en.xml:1423(para) 
+msgid "A frequently-used abbreviation for Subversion."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1426(para) 
+msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1433(glossterm) 
 msgid "Switch"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1296(glossterm) 
+#: source/TortoiseMerge_en.xml:1435(para) 
+msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1447(glossterm) 
 msgid "Update"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1449(para) 
+msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1457(glossterm) 
+msgid "Working Copy"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:1459(para) 
+msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
