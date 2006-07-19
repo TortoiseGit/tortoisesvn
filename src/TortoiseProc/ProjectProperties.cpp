@@ -559,10 +559,14 @@ CString ProjectProperties::FindBugID(const CString& msg)
 									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
 								range.cpMax =  (LONG)(offset1 + results.rlength(1));
 							}
-							else
+							else if (results.cbackrefs() > 1)
 							{
 								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
 								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
+							}
+							else
+							{
+								range.cpMin = range.cpMax = 0;
 							}
 							if (range.cpMin != range.cpMax)
 							{
@@ -780,7 +784,25 @@ public:
 		}
 		catch (bad_alloc) {}
 		catch (bad_regexpr) {}
-
+		ProjectProperties props;
+		props.sCheckRe = _T("PAF-[0-9]+");
+		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
+		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+		CString sRet = props.FindBugID(_T("This is a test for PAF-88"));
+		ATLASSERT(sRet.IsEmpty());
+		props.sCheckRe = _T("[Ii]ssue #?(\\d+)");
+		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
+		sRet = props.FindBugID(_T("Testing issue #99"));
+		sRet.Trim();
+		ATLASSERT(sRet.Compare(_T("99"))==0);
+		props.sCheckRe = _T("[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+");
+		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
+		props.sBugIDRe = _T("(\\d+)");
+		props.patBugIDRe.init((LPCTSTR)props.sBugIDRe, MULTILINE);
+		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+		sRet = props.FindBugID(_T("This is a test for Issue #7463"));
+		sRet.Trim();
+		ATLASSERT(sRet.Compare(_T("7463"))==0);
 	}
 } PropTest;
 #endif
