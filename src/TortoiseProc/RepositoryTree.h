@@ -138,7 +138,6 @@ private:
 	CRepositoryBar	*m_pRepositoryBar;
 
 	CString		m_strUrl;
-	SVN			m_svn;
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
@@ -146,6 +145,7 @@ private:
 	bool		m_bRightDrag;
 	CDWordArray m_arDraggedIndexes;
 public:
+	SVN			m_svn;
 	bool		m_bSortNumerical;
 	int			m_nIconFolder;
 	CTSVNPathList m_DroppedPaths;	

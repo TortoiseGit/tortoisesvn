@@ -185,8 +185,7 @@ UINT CRepositoryBrowser::InitThread()
 
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, FALSE);
-	SVN svn;
-	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
+	m_treeRepository.m_strReposRoot = m_treeRepository.m_svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
 	PostMessage(WM_AFTERINIT);
 	DialogEnableWindow(IDOK, TRUE);
