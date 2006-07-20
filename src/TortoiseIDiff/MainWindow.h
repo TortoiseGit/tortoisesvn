@@ -48,6 +48,7 @@ public:
 		, bOverlap(false)
 		, bShowInfo(true)
 		, bVertical(false)
+		, bLinked(false)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hResource, IDS_APP_TITLE));
 	};
@@ -115,6 +116,7 @@ protected:
 	bool			bOverlap;
 	HWND			hTrackbar;
 	bool			bVertical;
+	bool			bLinked;
 
 };
 

@@ -73,55 +73,19 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_VSCROLL:
 		OnVScroll(LOWORD(wParam), HIWORD(wParam));
+		if (bLinked)
+			pTheOtherPic->OnVScroll(LOWORD(wParam), HIWORD(wParam));
 		break;
 	case WM_HSCROLL:
 		OnHScroll(LOWORD(wParam), HIWORD(wParam));
+		if (bLinked)
+			pTheOtherPic->OnHScroll(LOWORD(wParam), HIWORD(wParam));
 		break;
 	case WM_MOUSEWHEEL:
 		{
-			short fwKeys = GET_KEYSTATE_WPARAM(wParam);
-			short zDelta = GET_WHEEL_DELTA_WPARAM(wParam);
-			RECT rect;
-			GetClientRect(&rect);
-			LONG width = long(double(picture.m_Width)*picscale);
-			LONG height = long(double(picture.m_Height)*picscale);
-			if (pSecondPic)
-			{
-				width = max(width, long(double(pSecondPic->m_Width)*picscale));
-				height = max(height, long(double(pSecondPic->m_Height)*picscale));
-			}
-			if (fwKeys & MK_SHIFT)
-			{
-				// shift means scrolling sideways
-				nHScrollPos -= zDelta;
-				if (nHScrollPos > width-rect.right+rect.left)
-					nHScrollPos = width-rect.right+rect.left;
-				if (nHScrollPos < 0)
-					nHScrollPos = 0;
-				SetupScrollBars();
-				InvalidateRect(*this, NULL, FALSE);
-				PositionChildren();
-			}
-			else if (fwKeys & MK_CONTROL)
-			{
-				// control means adjusting the scale factor
-				Zoom(zDelta>0);
-				SetupScrollBars();
-				InvalidateRect(*this, NULL, FALSE);
-				SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
-				PositionChildren();
-			}
-			else
-			{
-				nVScrollPos -= zDelta;
-				if (nVScrollPos > (height-rect.bottom+rect.top))
-					nVScrollPos = height-rect.bottom+rect.top;
-				if (nVScrollPos < 0)
-					nVScrollPos = 0;
-				SetupScrollBars();
-				InvalidateRect(*this, NULL, FALSE);
-				PositionChildren();
-			}
+			OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+			if (bLinked)
+				pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
 		}
 		break;
 	case WM_LBUTTONDOWN:
@@ -144,46 +108,26 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			{
 			case LEFTBUTTON_ID:
 				{
-					nCurrentDimension--;
-					if (nCurrentDimension < 1)
-						nCurrentDimension = 1;
-					nCurrentFrame--;
-					if (nCurrentFrame < 1)
-						nCurrentFrame = 1;
-					picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
-					InvalidateRect(*this, NULL, FALSE);
-					PositionChildren();
+					PrevImage();
+					if (bLinked)
+						pTheOtherPic->PrevImage();
 					return 0;
 				}
 				break;
 			case RIGHTBUTTON_ID:
 				{
-					nCurrentDimension++;
-					if (nCurrentDimension > picture.GetNumberOfDimensions())
-						nCurrentDimension = picture.GetNumberOfDimensions();
-					nCurrentFrame++;
-					if (nCurrentFrame > picture.GetNumberOfFrames(0))
-						nCurrentFrame = picture.GetNumberOfFrames(0);
-					picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
-					InvalidateRect(*this, NULL, FALSE);
-					PositionChildren();
+					NextImage();
+					if (bLinked)
+						pTheOtherPic->NextImage();
 					return 0;
 				}
 				break;
 			case PLAYBUTTON_ID:
 				{
-					if (bPlaying)
-					{
-						bPlaying = false;
-						SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
-						KillTimer(*this, ID_ANIMATIONTIMER);
-					}
-					else
-					{
-						bPlaying = true;
-						SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hStop);
-						SetTimer(*this, ID_ANIMATIONTIMER, 0, NULL);
-					}
+					bPlaying = !bPlaying;
+					Animate(bPlaying);
+					if (bLinked)
+						pTheOtherPic->Animate(bPlaying);
 					return 0;
 				}
 				break;
@@ -219,6 +163,46 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 
 	return 0;
 };
+
+void CPicWindow::NextImage()
+{
+	nCurrentDimension++;
+	if (nCurrentDimension > picture.GetNumberOfDimensions())
+		nCurrentDimension = picture.GetNumberOfDimensions();
+	nCurrentFrame++;
+	if (nCurrentFrame > picture.GetNumberOfFrames(0))
+		nCurrentFrame = picture.GetNumberOfFrames(0);
+	picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
+	InvalidateRect(*this, NULL, FALSE);
+	PositionChildren();
+}
+
+void CPicWindow::PrevImage()
+{
+	nCurrentDimension--;
+	if (nCurrentDimension < 1)
+		nCurrentDimension = 1;
+	nCurrentFrame--;
+	if (nCurrentFrame < 1)
+		nCurrentFrame = 1;
+	picture.SetActiveFrame(nCurrentFrame >= nCurrentDimension ? nCurrentFrame : nCurrentDimension);
+	InvalidateRect(*this, NULL, FALSE);
+	PositionChildren();
+}
+
+void CPicWindow::Animate(bool bStart)
+{
+	if (bStart)
+	{
+		SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hStop);
+		SetTimer(*this, ID_ANIMATIONTIMER, 0, NULL);
+	}
+	else
+	{
+		SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
+		KillTimer(*this, ID_ANIMATIONTIMER);
+	}
+}
 
 void CPicWindow::SetPic(stdstring path, stdstring title)
 {
@@ -446,6 +430,51 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
+}
+
+void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
+{
+	RECT rect;
+	GetClientRect(&rect);
+	LONG width = long(double(picture.m_Width)*picscale);
+	LONG height = long(double(picture.m_Height)*picscale);
+	if (pSecondPic)
+	{
+		width = max(width, long(double(pSecondPic->m_Width)*picscale));
+		height = max(height, long(double(pSecondPic->m_Height)*picscale));
+	}
+	if (fwKeys & MK_SHIFT)
+	{
+		// shift means scrolling sideways
+		nHScrollPos -= zDelta;
+		if (nHScrollPos > width-rect.right+rect.left)
+			nHScrollPos = width-rect.right+rect.left;
+		if (nHScrollPos < 0)
+			nHScrollPos = 0;
+		SetupScrollBars();
+		InvalidateRect(*this, NULL, FALSE);
+		PositionChildren();
+	}
+	else if (fwKeys & MK_CONTROL)
+	{
+		// control means adjusting the scale factor
+		Zoom(zDelta>0);
+		SetupScrollBars();
+		InvalidateRect(*this, NULL, FALSE);
+		SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
+		PositionChildren();
+	}
+	else
+	{
+		nVScrollPos -= zDelta;
+		if (nVScrollPos > (height-rect.bottom+rect.top))
+			nVScrollPos = height-rect.bottom+rect.top;
+		if (nVScrollPos < 0)
+			nVScrollPos = 0;
+		SetupScrollBars();
+		InvalidateRect(*this, NULL, FALSE);
+		PositionChildren();
+	}
 }
 
 void CPicWindow::GetClientRect(RECT * pRect)

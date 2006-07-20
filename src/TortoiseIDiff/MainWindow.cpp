@@ -116,6 +116,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			picWindow1.SetPic(leftpicpath, leftpictitle);
 			picWindow2.RegisterAndCreateWindow(hwnd);
 			picWindow2.SetPic(rightpicpath, rightpictitle);
+
+			picWindow1.SetOtherPicWindow(&picWindow2);
+			picWindow2.SetOtherPicWindow(&picWindow1);
 			// center the splitter
 			RECT rect;
 			GetClientRect(hwnd, &rect);
@@ -393,6 +396,25 @@ LRESULT CMainWindow::DoCommand(int id)
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
 			return 0;
+		}
+		break;
+	case ID_VIEW_LINKIMAGESTOGETHER:
+		{
+			bLinked = !bLinked;
+			picWindow1.LinkWindows(bLinked);
+			picWindow2.LinkWindows(bLinked);
+
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= bLinked ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_LINKIMAGESTOGETHER, uCheck);
+
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bLinked ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_LINKIMAGESTOGETHER, (LPARAM)&tbi);
 		}
 		break;
 	case ID_VIEW_FITIMAGESINWINDOW:
@@ -796,15 +818,23 @@ bool CMainWindow::CreateToolbar()
 
 	SendMessage(hwndTB, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-	TBBUTTON tbb[9];
+	TBBUTTON tbb[10];
 	// create an imagelist containing the icons for the toolbar
-	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 9, 4);
+	hToolbarImgList = ImageList_Create(16, 16, ILC_COLOR32 | ILC_MASK, 10, 4);
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
 	HICON hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_LINK));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_LINKIMAGESTOGETHER; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 

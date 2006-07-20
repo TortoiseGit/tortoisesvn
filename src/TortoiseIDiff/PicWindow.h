@@ -53,6 +53,8 @@ public:
 		, nFrames(0)
 		, nCurrentFrame(1)
 		, bPlaying(false)
+		, pTheOtherPic(NULL)
+		, bLinked(false)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -90,6 +92,10 @@ public:
 	double GetZoom() {return picscale;}
 	/// Zooms in (true) or out (false) in nice steps
 	void Zoom(bool in);
+	/// Sets the 'Other' pic window
+	void SetOtherPicWindow(CPicWindow * pWnd) {pTheOtherPic = pWnd;}
+	/// Links/Unlinks the two pic windows
+	void LinkWindows(bool bLink) {bLinked = bLink;}
 
 	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
 
@@ -107,6 +113,8 @@ protected:
 	void				OnVScroll(UINT nSBCode, UINT nPos);
 	/// Handles horizontal scrolling
 	void				OnHScroll(UINT nSBCode, UINT nPos);
+	/// Handles the mouse wheel
+	void				OnMouseWheel(short fwKeys, short zDelta);
 	/// Returns the client rectangle, without the scrollbars and the view title.
 	/// Basically the rectangle the image can use.
 	void				GetClientRect(RECT * pRect);
@@ -114,8 +122,14 @@ protected:
 	void				Paint(HWND hwnd);
 	/// Positions the buttons
 	void				PositionChildren();
-	// Rounds a double to a given precision
+	/// Rounds a double to a given precision
 	double RoundDouble(double doValue, int nPrecision);
+	/// advance to the next image in the file
+	void NextImage();
+	/// go back to the previous image in the file
+	void PrevImage();
+	/// starts/stops the animation
+	void Animate(bool bStart);
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
@@ -124,6 +138,8 @@ protected:
 	double				picscale;			///< the scale factor of the image
 	bool				bFirstpaint;		///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
 	CPicture *			pSecondPic;			///< if set, this is the picture to draw transparently above the original
+	CPicWindow *		pTheOtherPic;		///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...
+	bool				bLinked;			///< if true, the two pic windows are linked together for scrolling/zooming/...
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
 	BYTE				alpha;				///< the alpha value for the transparency of the second picture

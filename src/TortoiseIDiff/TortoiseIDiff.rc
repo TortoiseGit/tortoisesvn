@@ -44,6 +44,7 @@ IDI_BACKWARD            ICON                    "player_rew.ico"
 IDI_START               ICON                    "player_start.ico"
 IDI_STOP                ICON                    "player_stop.ico"
 IDI_VERTICAL            ICON                    "vertical.ico"
+IDI_LINK                ICON                    "link.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -73,6 +74,7 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
+        MENUITEM "&Link images together",       ID_VIEW_LINKIMAGESTOGETHER
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
         MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM SEPARATOR
