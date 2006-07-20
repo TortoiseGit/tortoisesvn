@@ -34,7 +34,7 @@ The language pack installers can be downloaded from this page as well. The insta
 </p>
 
 <p>
-If you want to download the po file from the repository, either use <strong>guest/guest</strong> or your tigris.org user ID. 
+If you want to download the po file from the repository, either use <strong>guest (no password)</strong> or your tigris.org user ID. 
 </p>
 
 <p>The manuals can be downloaded directly for the latest <a href="doc_release">release</a> or for the <a href="doc_nightly">developer builds</a> The developer builds are updated at irregular intervals.</p>
