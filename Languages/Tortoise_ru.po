@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7043: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7065: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-18 12:59+0300\n"
+"PO-Revision-Date: 2006-07-20 11:44+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -453,8 +453,8 @@ msgid "&From revision"
 msgstr "&Начиная с ревизии"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "Перейти к &строке..."
+msgid "&Go To Line..."
+msgstr "&Перейти к строке..."
 
 #: Control-ID:1115
 #: Control-ID:1032
@@ -2382,6 +2382,11 @@ msgstr "Закончено!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Для справки нажмите F1. Для горизонтальной прокрутки используйте Ctrl+колёсико прокрутки"
+
+# !!! посмотреть, как помещается
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Для получения полного списка разотметьте \"Остановиться на копировании/переименовании\""
 
 #: Control-ID:1200
 msgid "From:"
