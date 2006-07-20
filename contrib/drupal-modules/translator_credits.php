@@ -10,6 +10,7 @@ include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_data.inc");
 include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_countries.inc");
 
 $vars['release']=variable_get('tsvn_version', '');
+$vars['build']=variable_get('tsvn_build', '');
 $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
 $vars['downloadurl2']=variable_get('tsvn_sf_append', '');
 $vars['reposurl']="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/";
@@ -18,7 +19,7 @@ $vars['flagpath']="/flags/world.small/";
 $basename="Tortoise";
 $template=$basename.".pot";
 
-function print_header($vars)
+function t_print_header($vars)
 {
 ?>
 
@@ -30,7 +31,7 @@ On this page we want to give credit to everyone who has contributed to the many 
 <?php
 }
 
-function print_footer($vars)
+function t_print_footer($vars)
 {
 ?>
 
@@ -39,7 +40,7 @@ function print_footer($vars)
 <?php
 }
 
-function print_table_header($name, $summary, $vars)
+function t_print_table_header($name, $summary, $vars)
 {
 ?>
 <h2><?php echo $summary ?></h2>
@@ -53,7 +54,7 @@ function print_table_header($name, $summary, $vars)
 <?php
 }
 
-function print_table_footer()
+function t_print_table_footer()
 {
 ?>
 </table>
@@ -62,9 +63,11 @@ function print_table_footer()
 <?php
 }
 
-function print_content_stat($i, $postat, $poinfo, $vars)
+function t_print_content_stat($i, $postat, $poinfo, $vars)
 {
-  $dlfile=$vars['downloadurl1']."LanguagePack_".$vars['release']."_".$poinfo[1].".exe".$vars['downloadurl2'];
+  $release=$vars['release'];
+  $build=$vars['build'];
+  $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$poinfo[2].".exe".$vars['downloadurl2'];
 
   if ($poinfo[0] != '') {
     $flagimg=$vars['flagpath']."$poinfo[2].png";
@@ -75,14 +78,14 @@ function print_content_stat($i, $postat, $poinfo, $vars)
   }
 }
 
-function print_all_stats($data, $countries, $vars)
+function t_print_all_stats($data, $countries, $vars)
 {
   $i=0;
   foreach ($data as $key => $postat)
   {
       $i++;
       echo "<tr>";
-      print_content_stat($i, $postat, $countries[$key], $vars);
+      t_print_content_stat($i, $postat, $countries[$key], $vars);
       echo "</tr>";
   }
 }
@@ -92,12 +95,12 @@ function print_all_stats($data, $countries, $vars)
 // The program starts here
 //
 
-print_header($vars);
+t_print_header($vars);
 
 // Print Alphabetical statistics
-print_table_header('alpha', 'Translator credits', $vars);
-print_all_stats($TortoiseGUI, $countries, $vars);
-print_table_footer();
+t_print_table_header('alpha', 'Translator credits', $vars);
+t_print_all_stats($TortoiseGUI, $countries, $vars);
+t_print_table_footer();
 
-print_footer($vars);
+t_print_footer($vars);
 ?>
