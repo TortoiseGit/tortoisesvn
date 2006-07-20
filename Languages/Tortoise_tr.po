@@ -4,7 +4,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06
+# (100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039,v7074)
 #
 # Authors:
 #
@@ -12,6 +12,9 @@
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
 #  - Kisaltma tuslari komik olabilir cunku kontrol edilmediler.
+#
+# Su anki versiyon:
+# (v7074)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -43,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-07-20 14:18+0300\n"
+"PO-Revision-Date: 2006-07-20 14:50+0300\n"
 "Last-Translator: Aydogan Tolga Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +55,6 @@ msgstr ""
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Bookmarks: 357,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -485,6 +487,11 @@ msgstr "&Dosyayı(ları) neden kitlediğinize dair bir açiklama mesajı giriniz
 msgid "&Exit"
 msgstr "&Çıkış"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "E&xport...  "
+
 # Control-ID:1092,#:
 # Control-ID:1095,
 #: Control-ID:1092
@@ -542,8 +549,8 @@ msgid "&From revision"
 msgstr "&Revizyondan"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "&Satıra git..."
+msgid "&Go To Line..."
+msgstr "Satıra &git..."
 
 # Control-ID:1115,#:
 # Control-ID:1032,
@@ -768,15 +775,21 @@ msgstr "&SSH client'ı:"
 msgid "&Save Ctrl-S"
 msgstr "&Kaydet Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Diyagramı Farklı Kaydet..."
-
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Kimliği Kaydet..."
+
+# ID:272,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "Diyagramı farklı &kaydet..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Listeyi doyaya kaydet"
 
 # Control-ID:1308,
 #: Control-ID:1308
@@ -1725,6 +1738,12 @@ msgstr "Pencerenin boyutunu değiştir"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Değiştirilmiş Dosyalar"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Dosyalar %s, %s ile %s, %s arasında değiştirildi"
 
 # ID:163,
 #: ID:163
@@ -2897,6 +2916,11 @@ msgstr "Tamamlandı!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Yardım için F1 tuşuna basınız. Yatay olarak ilerlemek için Ctrl-Scrollwheel'ini kullanınız"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Önceki tüm işlemleri görmek için \"Kopyalamada/Tekrar adlandırmada dur\" seçeneğini işaretlemeyiniz"
 
 # Control-ID:1200,
 #: Control-ID:1200
@@ -4916,11 +4940,6 @@ msgstr "%1 'e yapılan değişiklikler kaydedilsin mi?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "Müşteri sertifikasinin dizinini kaydet"
-
-# ID:272,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Diyagramı farklı kaydet..."
 
 # ID:76,
 #: ID:76
