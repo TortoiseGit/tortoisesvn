@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-10 19:12+0200\n"
+"PO-Revision-Date: 2006-07-20 14:40+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -177,7 +177,7 @@ msgstr "%d файла маркирани, %d файла общо"
 # ID:7,
 #: ID:7
 #, c-format
-msgid "%ld of % ld"
+msgid "%ld of %ld"
 msgstr "%ld от % ld"
 
 # Control-ID:65535,
@@ -489,6 +489,11 @@ msgstr "&Въведете съобщение, обясняващо причин�
 msgid "&Exit"
 msgstr "&Изход"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "&Износ до..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -543,8 +548,8 @@ msgid "&From revision"
 msgstr "&От ревизия"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "&Преход до ред"
+msgid "&Go To Line..."
+msgstr "&Преход до ред..."
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -773,17 +778,22 @@ msgstr "&SSH клиент:"
 msgid "&Save Ctrl-S"
 msgstr "&Запис Ctrl-S"
 
-# ID:313,#:
-# ID:101,
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Запис на диаграмата като..."
-
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Запис на удостоверението"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Запис на графиката като..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Запис на списъка във файл"
 
 # ID:313,#:
 # ID:101,
@@ -1735,6 +1745,12 @@ msgstr "Промяна на размера на прозореца"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Променени файлове"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Променени файлове между %s, %s и %s, %s"
 
 # ID:163,
 #: ID:163
@@ -2799,7 +2815,7 @@ msgstr "Външна програма::Програма за разглежда�
 # ID:74,
 #: ID:74
 msgid "Failed revert"
-msgstr "Пропаднало връщане"
+msgstr "Пропаднало отменяне"
 
 # ID:3857,#:
 # ID:3857,
@@ -2910,6 +2926,11 @@ msgstr "Завършено!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "За Помощ, натиснете F1. За хоризонтално превъртане превъртане ползвайте клавиша \"Ctrl\" и колелцето за превъртане на мишката"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "За пълна история изключете \"Спиране при копиране/преименуване\""
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -4678,12 +4699,12 @@ msgstr "Нов опит"
 # Dlg-ID:175,
 #: Dlg-ID:175
 msgid "Revert"
-msgstr "Връщане"
+msgstr "Отменяне"
 
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
-msgstr "Връщане на промените от тези ревизии"
+msgstr "Отменяне на промените от тези ревизии"
 
 # ID:8,#:
 # ID:73,#:
@@ -4929,12 +4950,6 @@ msgstr "Да се запишат ли промените в %1?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "Запис на пътя до клиентски сертификат"
-
-# ID:313,#:
-# ID:101,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Запис на диаграмата като..."
 
 # ID:76,
 #: ID:76
@@ -6291,6 +6306,19 @@ msgstr "Грешка при при четене от %1 - отворен е от
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Невъзможно е да се чете свойство само за установяване."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Грешка при пресъздаване на път в работното копие!\n"
+"Това би могло да се случи, ако файлът е бил преименуван.\n"
+"Моля, отворете дневника само за този файл и отменете промените\n"
+"от най-горния панел на диалоговия прозорец на дневника."
 
 # ID:3865,#:
 # ID:3865,
