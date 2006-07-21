@@ -218,7 +218,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 	return retvalue;
 }
 
-bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */)
+bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */, bool bIgnoreAncestry /* = false */)
 {
 	tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
 	bool bIsUrl = !!SVN::PathIsURL(url1.GetSVNPathString());
@@ -231,7 +231,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	progDlg.ShowModeless(m_hWnd);
 	if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
 	{
-		if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), false, tempfile))
+		if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), bIgnoreAncestry, tempfile))
 		{
 			progDlg.Stop();
 			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -264,10 +264,10 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	return true;
 }
 
-bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */)
+bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */, bool bIgnoreAncestry /* = false */)
 {
 	CTSVNPath tempfile;
-	if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg))
+	if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, bIgnoreAncestry))
 		return !!CAppUtils::StartUnifiedDiffViewer(tempfile);
 
 	return false;
