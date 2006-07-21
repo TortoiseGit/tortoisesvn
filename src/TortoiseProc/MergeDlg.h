@@ -62,6 +62,7 @@ protected:
 	afx_msg void OnBnClickedWCLog();
 	afx_msg void OnBnClickedDryrunbutton();
 	afx_msg void OnBnClickedDiffbutton();
+	afx_msg void OnBnClickedUidiffbutton();
 	afx_msg void OnCbnEditchangeUrlcombo();
 	afx_msg void OnEnChangeRevisionEnd();
 	afx_msg void OnEnChangeRevisionStart();

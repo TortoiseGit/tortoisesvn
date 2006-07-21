@@ -77,6 +77,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_CBN_EDITCHANGE(IDC_URLCOMBO, OnCbnEditchangeUrlcombo)
 	ON_EN_CHANGE(IDC_REVISION_END, &CMergeDlg::OnEnChangeRevisionEnd)
 	ON_EN_CHANGE(IDC_REVISION_START, &CMergeDlg::OnEnChangeRevisionStart)
+	ON_BN_CLICKED(IDC_UIDIFFBUTTON, &CMergeDlg::OnBnClickedUidiffbutton)
 END_MESSAGE_MAP()
 
 
@@ -239,8 +240,20 @@ void CMergeDlg::OnBnClickedDiffbutton()
 	AfxGetApp()->DoWaitCursor(1);
 	// create a unified diff of the merge
 	SVNDiff diff(NULL, this->m_hWnd);
-	diff.ShowUnifiedDiff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, EndRev);
+	diff.ShowUnifiedDiff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, EndRev, !!m_bIgnoreAncestry);
 	
+	AfxGetApp()->DoWaitCursor(-1);
+}
+
+void CMergeDlg::OnBnClickedUidiffbutton()
+{
+	if (!CheckData())
+		return;
+	AfxGetApp()->DoWaitCursor(1);
+	// create a unified diff of the merge
+	SVNDiff diff(NULL, this->m_hWnd);
+	diff.ShowCompare(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, EndRev, !!m_bIgnoreAncestry);
+
 	AfxGetApp()->DoWaitCursor(-1);
 }
 
@@ -552,3 +565,4 @@ BOOL CMergeDlg::PreTranslateMessage(MSG* pMsg)
 	m_tooltips.RelayEvent(pMsg);
 	return CStandAloneDialogTmpl<CDialog>::PreTranslateMessage(pMsg);
 }
+
