@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-10 23:56+0100\n"
+"PO-Revision-Date: 2006-07-21 08:25+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,8 +157,8 @@ msgstr "%d datoteka označeno, %d datoteka ukupno"
 
 # ID:7,
 #: ID:7
-#, c-format
-msgid "%ld of % ld"
+#, fuzzy, c-format
+msgid "%ld of %ld"
 msgstr "%ld od % ld"
 
 # Control-ID:65535,
@@ -466,6 +466,12 @@ msgstr "&Upišite poruku koja opisuje zašto ste zaključali datoteku(e)."
 msgid "&Exit"
 msgstr "&Izlaz"
 
+# ID:9,
+#: ID:323
+#, fuzzy
+msgid "&Export to..."
+msgstr "I&zvezi..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -521,8 +527,8 @@ msgid "&From revision"
 msgstr "&Od revizije"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "&Nađi liniju..."
+msgid "&Go To Line..."
+msgstr "&Skoči na redak..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -604,6 +610,10 @@ msgstr "&Jezik:"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "&Traži samo u izmijenjenim linijama"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Poveži slike zajedno"
 
 # Control-ID:1172,
 #: Control-ID:1172
@@ -750,14 +760,20 @@ msgstr "&SSH klijent:"
 msgid "&Save Ctrl-S"
 msgstr "&Snimi Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Snimi graf kao..."
-
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Snimi autentikaciju"
+
+# ID:272,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Snimi graf kao..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Snimi popis u datoteku"
 
 # ID:313,
 #: Control-ID:1308
@@ -1716,6 +1732,12 @@ msgstr "Promijeni veličinu prozora"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Izmijenjene datoteke"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Promjenjene datoteke između %s, %s and %s, %s"
 
 # ID:163,
 #: ID:163
@@ -2893,6 +2915,11 @@ msgstr "Gotov!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Za pomoć pritisni F1. Pomiči vodoravno pomoću kotačića miša uz tipku Ctrl"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Za cjelokupni dnevnik maknite oznaku \"Zaustavi se na kopiranom/preimenovanom\""
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -4945,11 +4972,6 @@ msgstr "Snimi izmjene u %1?"
 msgid "Save client certificate path"
 msgstr "Snimi stazu certifikata klijenta"
 
-# ID:272,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Snimi graf kao..."
-
 # ID:76,
 #: ID:76
 msgid "Save revision &to..."
@@ -5599,13 +5621,11 @@ msgstr "Stavke iz sistemskog registra su uklonjene i INI datoteka (ako je postoj
 
 # ID:7,
 #: ID:7
-#, fuzzy
 msgid "TORTOISEBLAME"
 msgstr "TORTOISEBLAME"
 
 # ID:7,
 #: ID:7
-#, fuzzy
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
@@ -6318,6 +6338,20 @@ msgstr "Nisam u mogućnosti pročitati %1, netko drugi to drži otvorenim."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Ne mogu pročitati svojstvo u koje je dozvoljeno samo zapisivati."
+
+# ID:119,
+#: ID:119
+#, fuzzy
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Nije moguće rekonstruirati stazu radne kopije!\n"
+"Ovo se može dogoditi ako ste datotkeci mijenjali ime.\n"
+"Molim pogledajte dnevnik za ovu datoteku i poništite izmjene\n"
+"iz gornjeg dijela prozora dnevnika."
 
 # ID:3865,#:
 # ID:3865,
