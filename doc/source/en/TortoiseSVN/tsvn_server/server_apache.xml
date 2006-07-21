@@ -774,6 +774,64 @@ SetEnvIf User-Agent ".*MSIE.*" \
 		</important>
 	</sect2>
 	<sect2 id="tsvn-serversetup-apache-6">
+		<title>Multiple Authentication Sources</title>
+		<indexterm>
+			<primary>Multiple authentication</primary>
+		</indexterm>
+		<para>
+			It is also possible to have more than one authentication source for
+			your Subversion repository. To do this, you need to make each 
+			authentication type non-authoritative, so that Apache will check
+			multiple sources for a matching username/password.
+		</para>
+		<para>
+			A common scenario is to use both Windows domain authentication and 
+			a <literal>passwd</literal> file, so that you can provide SVN access
+			to users who don't have a Windows domain login.
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					To enable both Windows domain and passwd file authentication,
+					add the following entries within the 
+					<literal>&lt;Location&gt;</literal> block of your Apache config file:
+<screen>
+AuthAthoritative Off
+SSPIAuthoritative Off
+</screen>
+				</para>
+			</listitem>
+		</itemizedlist>
+		<para>
+			Here is an example of the full Apache configuration for combined Windows 
+			domain &amp; <literal>passwd</literal> file authentication:
+<screen>
+&lt;Location /svn&gt;
+DAV svn
+SVNListParentPath on
+SVNParentPath D:\SVN
+
+AuthName "Subversion repositories"
+AuthzSVNAccessFile svnaccessfile.txt
+
+# NT Domain Logins.
+AuthType SSPI
+SSPIAuth On
+SSPIAuthoritative On
+SSPIDomain &lt;domaincontroller&gt;
+SSPIOfferBasic On
+
+# Htpasswd Logins.
+AuthType Basic
+AuthAuthoritative Off
+AuthUserFile passwd
+
+Require valid-user
+&lt;/Location&gt;
+</screen>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-serversetup-apache-7">
 		<title>Securing the server with SSL</title>
 		<indexterm>
 			<primary>SSL</primary>
