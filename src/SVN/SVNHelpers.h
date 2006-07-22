@@ -68,9 +68,12 @@ public:
 public:
 	apr_pool_t*			Pool() const { return m_pool; }
 	svn_client_ctx_t*	ClientContext() const { return m_ctx; }
-
+	void				Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
 protected:
 	apr_pool_t *		m_pool;	
 	svn_client_ctx_t *	m_ctx;
+	bool				m_bCancelled;
+
+	static svn_error_t * cancelfunc(void * cancelbaton);
 };
 
