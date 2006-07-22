@@ -92,7 +92,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	{
 		if (value > INTERNET_MAX_URL_LENGTH)
 			return false;		// invalid length for an url
-		if (fread(m_sUrl.GetBuffer(value), sizeof(char), value, pFile)!=value)
+		if (fread(m_sUrl.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
 		{
 			m_sUrl.ReleaseBuffer(0);
 			return false;
@@ -102,7 +102,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (fread(m_sOwner.GetBuffer(value), sizeof(char), value, pFile)!=value)
+		if (fread(m_sOwner.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
 		{
 			m_sOwner.ReleaseBuffer(0);
 			return false;
@@ -112,7 +112,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (fread(m_sAuthor.GetBuffer(value), sizeof(char), value, pFile)!=value)
+		if (fread(m_sAuthor.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
 		{
 			m_sAuthor.ReleaseBuffer(0);
 			return false;
@@ -124,13 +124,14 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (fread(m_sPresentProps.GetBuffer(value), sizeof(char), value, pFile)!=value)
+		if (fread(m_sPresentProps.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
 		{
 			m_sPresentProps.ReleaseBuffer(0);
 			return false;
 		}
 		m_sPresentProps.ReleaseBuffer(value);
 	}
+	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
 	LOADVALUEFROMFILE(m_svnStatus.copied);
 	LOADVALUEFROMFILE(m_svnStatus.locked);
 	LOADVALUEFROMFILE(m_svnStatus.prop_status);

@@ -72,7 +72,7 @@ void CSVNStatusCache::Create()
 				if (value)
 				{
 					CString sKey;
-					if (fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+					if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
 					{
 						sKey.ReleaseBuffer(0);
 						goto error;
@@ -169,6 +169,7 @@ error:
 	}
 	delete m_pInstance;
 	m_pInstance = NULL;
+	DeleteFile(path);
 	return false;
 }
 
@@ -185,6 +186,7 @@ void CSVNStatusCache::Destroy()
 
 void CSVNStatusCache::Stop()
 {
+	m_svnHelp.Cancel(true);
 	watcher.Stop();
 	m_folderCrawler.Stop();
 	m_shellUpdater.Stop();

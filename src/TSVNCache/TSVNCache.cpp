@@ -394,6 +394,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					}
 				}
 				break;
+			case DBT_DEVICEREMOVEPENDING:
+				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVEPENDING\n");
+				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
+				{
+					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+					CSVNStatusCache::Instance().WaitToWrite();
+					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+					CSVNStatusCache::Instance().Done();
+				}
+				else
+				{
+					CSVNStatusCache::Instance().WaitToWrite();
+					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+					CSVNStatusCache::Instance().Done();
+				}
+				break;
 			case DBT_DEVICEQUERYREMOVE:
 				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEQUERYREMOVE\n");
 				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)

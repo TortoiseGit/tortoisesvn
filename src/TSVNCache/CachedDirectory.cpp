@@ -117,7 +117,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 		if (value)
 		{
 			CString sKey;
-			if (fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+			if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
 			{
 				sKey.ReleaseBuffer(0);
 				return false;
@@ -157,7 +157,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	if (value)
 	{
 		CString sPath;
-		if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+		if (fread(sPath.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
 		{
 			sPath.ReleaseBuffer(0);
 			return false;
@@ -372,8 +372,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			}
 		}
 		AutoLocker lock(m_critSec);
-		CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
-		SVNPool subPool(mainCache.m_svnHelp.Pool());
+		SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
 		m_mostImportantFileStatus = svn_wc_status_none;
 		m_childDirectories.clear();
 		m_entryCache.clear();
@@ -398,7 +397,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				FALSE,
 				TRUE,									//noignore
 				FALSE,									//ignore externals
-				mainCache.m_svnHelp.ClientContext(),
+				CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
 				subPool
 				);
 			{

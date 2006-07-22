@@ -42,7 +42,7 @@ CDirectoryWatcher::CDirectoryWatcher(void) :
 		{        
 			TOKEN_PRIVILEGES tp = { 1 };        
 
-			if ( LookupPrivilegeValue(NULL, arPrivelegeNames[i],  &tp.Privileges[0].Luid))
+			if (LookupPrivilegeValue(NULL, arPrivelegeNames[i],  &tp.Privileges[0].Luid))
 			{
 				tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
 
@@ -300,7 +300,7 @@ void CDirectoryWatcher::WorkerThread()
 					return;
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
-				// changes in the filesystem! 
+				// changes in the file system! 
 				if (pdi)
 				{
 					if (numBytes == 0)
@@ -412,6 +412,7 @@ void CDirectoryWatcher::ClearInfoMap()
 		{
 			CDirectoryWatcher::CDirWatchInfo * info = I->second;
 			delete info;
+			info = NULL;
 		}
 	}
 	watchInfoMap.clear();
