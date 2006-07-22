@@ -116,8 +116,8 @@ BOOL CCopyDlg::OnInitDialog()
 	}
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-	m_URLCombo.AddString(m_wcURL, 0);
-	m_URLCombo.SelectString(-1, m_wcURL);
+	m_URLCombo.AddString(CTSVNPath(m_wcURL).GetUIPathString(), 0);
+	m_URLCombo.SelectString(-1, CTSVNPath(m_wcURL).GetUIPathString());
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 
 	CString reg;

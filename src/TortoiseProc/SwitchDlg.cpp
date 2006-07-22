@@ -80,8 +80,8 @@ BOOL CSwitchDlg::OnInitDialog()
 	if (!url.IsEmpty())
 	{
 		m_path = url;
-		m_URLCombo.AddString(m_path, 0);
-		m_URLCombo.SelectString(-1, m_path);
+		m_URLCombo.AddString(CTSVNPath(url).GetUIPathString(), 0);
+		m_URLCombo.SelectString(-1, CTSVNPath(url).GetUIPathString());
 		m_URL = m_path;
 	}
 
