@@ -294,14 +294,23 @@ Rev Comments
 		<para>
 			If you are uncertain about the merge operation, you may want to
 			preview what will happen do before you allow it to change your
-			working copy. There are two additional buttons to help you.
+			working copy. There are three additional buttons to help you.
 		</para>
 		<para>
 			<guibutton>Unified Diff</guibutton> creates the diff file (remember
 			that merge is based on diff) and shows you which lines will be changed
 			in your working copy files. As this is a unified diff (patch) file it is
 			not always easy to read out of context, but for small scale changes it
-			is often helpful.
+			can be helpful as it shows all the changes in one hit.
+		</para>
+		<para>
+			<guibutton>Diff</guibutton> shows you a list of changed files.
+			<action>Double click</action> on any of the listed files to start
+			the diff viewer. Unlike the unified diff, this shows you the changes
+			in their full contextual detail. As with the unified diff, the changes
+			you see here are the changes between the <guilabel>From:</guilabel> and
+			<guilabel>To:</guilabel> revisions. It does not show how your working
+			copy will be affected by applying that change.
 		</para>
 		<para>
 			<guibutton>Dry Run</guibutton> performs the merge operation, but does
