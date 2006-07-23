@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-12 15:44+0100\n"
+"PO-Revision-Date: 2006-07-23 22:57+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -380,6 +380,10 @@ msgstr "&Geef een reden voor het blokkeren van het bestand of de bestanden."
 msgid "&Exit"
 msgstr "&Afsluiten"
 
+#: ID:323
+msgid "&Export to..."
+msgstr "E&xporteer naar..."
+
 #: Control-ID:1092
 #: Control-ID:1095
 msgid "&External"
@@ -427,7 +431,7 @@ msgid "&From revision"
 msgstr "&Van revisie"
 
 #: MenuEntry
-msgid "&Goto Line..."
+msgid "&Go To Line..."
 msgstr "&Ga naar regel..."
 
 #: Control-ID:1115
@@ -490,6 +494,10 @@ msgstr "&Taal:"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "&Alleen zoeken in gewijzigde regels"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Koppel afbeeldingen"
 
 #: Control-ID:1172
 msgid "&List View"
@@ -607,13 +615,17 @@ msgstr "&SSH client:"
 msgid "&Save Ctrl-S"
 msgstr "Op&slaan\tCtrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "Schema &Opslaan als..."
-
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "Authenticatie &opslaan"
+
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Schema opslaan als..."
+
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Sla lijst op in bestand"
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1366,6 +1378,11 @@ msgstr "Wijzig afmetingen van het venster"
 msgid "Changed Files"
 msgstr "Gewijzigde bestanden"
 
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Gewijzigde bestanden tussen %s, %s en %s, %s"
+
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1856,6 +1873,10 @@ msgstr ""
 "Knip de selectie en plaats op het klembord\n"
 "Knippen"
 
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "&Verschil"
+
 #: ID:76
 #: ID:208
 #: ID:19
@@ -2326,6 +2347,10 @@ msgstr "Gereed!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Druk op F1 voor hulp. Horizontaal scrollen gaat met Ctrl-Scrollwiel"
+
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Deactiveer \"Stoppen bij kopie/hernoemd bestand\" voor de volledige historie"
 
 #: Control-ID:1200
 msgid "From:"
@@ -3966,10 +3991,6 @@ msgstr "Wijzigingen in %1 opslaan?"
 msgid "Save client certificate path"
 msgstr "Bewaar pad naar client certificaat"
 
-#: ID:272
-msgid "Save graph as..."
-msgstr "Schema opslaan als..."
-
 #: ID:76
 msgid "Save revision &to..."
 msgstr "Bewaar revisie &in..."
@@ -5098,6 +5119,18 @@ msgstr "Kan niet lezen uit %1, het is geopend door iemand anders."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Alleen-schrijven eigenschap kan niet gelezen worden."
+
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Het pad naar de werkkopie kan niet afgeleid worden!\n"
+"Dit kan gebeuren als het bestand hernoemd is.\n"
+"Start het logboodschap venster op enkel dit specifieke bestand en maak dan de\n"
+"wijzigingen ongedaan via het bovenste deel van het venster."
 
 #: ID:3865
 msgid "Unable to write read-only property."
