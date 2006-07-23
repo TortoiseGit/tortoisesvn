@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-18 13:30+0100\n"
+"PO-Revision-Date: 2006-07-23 23:09+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -511,6 +511,10 @@ msgstr "&Idioma:"
 msgid "&Limit search to modified lines"
 msgstr "&Limitar la búsqueda a las líneas modificadas"
 
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Unir las imágenes"
+
 # ID:188,
 #: Control-ID:1172
 msgid "&List View"
@@ -668,7 +672,7 @@ msgstr "&Robar los bloqueos"
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "&Stop on copy/rename"
-msgstr "&Parar en copia/cambio de Nombre"
+msgstr "&Parar en copia/cambio de nombre"
 
 # Control-ID:1173,
 #: Control-ID:1173
@@ -1977,6 +1981,10 @@ msgstr ""
 "Cortar la selección y colocarla en el Portapapeles\n"
 "Cortar"
 
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "D&iff"
+
 #: ID:76
 #: ID:208
 #: ID:19
@@ -2470,6 +2478,11 @@ msgstr "¡Terminado!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Para Ayuda, pulse F1. Haga scroll horizontalmente con Ctrl+rueda del ratón"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Para obtener la historia completa desmarque \"Parar en copia/cambio de nombre\""
 
 #: Control-ID:1200
 msgid "From:"
