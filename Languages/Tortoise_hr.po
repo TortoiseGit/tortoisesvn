@@ -1,10 +1,11 @@
-#
+﻿#
 # Croatian translation for TortoiseSVN
 # Copyright (C) 2004-2005 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
 # Dinko Srkoč <dinko.srkoc@helix.hr>, 2005.
+# Mario Šarić <mario.saric@helix.hr>, 2005.
 #
 # Working Copy, WC      Radna Kopija, RK
 # Base                  Osnova
@@ -12,8 +13,8 @@
 # Checkout              Preuzimanje
 # Revision              Revizija
 # Diff                  Razlika
-# Unified Diff          Ujedinjena razlika
-# Merge                 Spajanje
+# Unified Diff          Objedinjena razlika
+# Merge                 Stapanje
 # Branch                Grana
 # Tag                   Oznaka
 # Issue                 Sporno pitanje
@@ -28,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-21 08:25+0100\n"
+"PO-Revision-Date: 2006-07-24 07:59+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +158,7 @@ msgstr "%d datoteka označeno, %d datoteka ukupno"
 
 # ID:7,
 #: ID:7
-#, fuzzy, c-format
+#, c-format
 msgid "%ld of %ld"
 msgstr "%ld od % ld"
 
@@ -468,7 +469,6 @@ msgstr "&Izlaz"
 
 # ID:9,
 #: ID:323
-#, fuzzy
 msgid "&Export to..."
 msgstr "I&zvezi..."
 
@@ -632,17 +632,17 @@ msgstr "&Označi kao riješeno"
 #: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
-msgstr "&Spoji"
+msgstr "&Stopi"
 
 # ID:9,
 #: ID:9
 msgid "&Merge..."
-msgstr "&Spoji..."
+msgstr "&Stopi..."
 
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Merging"
-msgstr "&Spajanje"
+msgstr "&Stapanje"
 
 # Control-ID:1129,
 #: Control-ID:1129
@@ -1177,7 +1177,7 @@ msgstr "Dodajte program za upravljanje razlikama za određenu vrstu datoteka"
 # ID:110,
 #: ID:110
 msgid "Add extension specific merge program"
-msgstr "Dodaj program za spajanje datoteka određene vrste"
+msgstr "Dodaj program za stapanje datoteka određene vrste"
 
 # ID:13,
 #: ID:13
@@ -1187,7 +1187,7 @@ msgstr "Dodaj na popis &zanemarenih"
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Dodaj program za izradu razlika/spajanje datoteka određene vrste"
+msgstr "Dodaj program za izradu razlika/stapanje datoteka određene vrste"
 
 # ID:73,#:
 # Control-ID:65535,
@@ -1337,7 +1337,7 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"Vanjski program za spajanje datoteka koji se\n"
+"Vanjski program za stapanje datoteka koji se\n"
 "koristi za razrješavanje sukobljenih datoteka.\n"
 "<hr=100%>\n"
 "Možete odrediti sljedeće parametre u stazi:\n"
@@ -1904,7 +1904,7 @@ msgstr "Kliknite na \"Napredno\" za određivanje dopunskih razlikovnih programa 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Kliknite na \"Napredno\" za određivanje dopunskih programa za spajanje s obzirom na tip datoteke"
+msgstr "Kliknite na \"Napredno\" za određivanje dopunskih programa za stapanje s obzirom na tip datoteke"
 
 # ID:257,
 #: ID:257
@@ -2247,7 +2247,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Nisam mogao pokrenuti vanjski program za spajanje!\n"
+"Nisam mogao pokrenuti vanjski program za stapanje!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -2336,6 +2336,11 @@ msgid ""
 msgstr ""
 "Izreži označeno i stavi u međuspremnik\n"
 "Izreži"
+
+# ID:12,
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "&Razlike"
 
 # ID:76,
 #: ID:76
@@ -2584,12 +2589,12 @@ msgstr "Upiši ime autora"
 # ID:110,
 #: ID:110
 msgid "Edit extension specific diff program"
-msgstr "Izmijenite program za izradu razlika/spajanje datoteka određene vrste"
+msgstr "Izmijenite program za izradu razlika/stapanje datoteka određene vrste"
 
 # ID:110,
 #: ID:110
 msgid "Edit extension specific merge program"
-msgstr "Izmijeni program za spajanje određene vrste datoteka"
+msgstr "Izmijeni program za stapanje određene vrste datoteka"
 
 # Dlg-ID:135,
 #: ID:113
@@ -2792,7 +2797,7 @@ msgstr "Vanjski programi::Preglednik razlika"
 # Control-ID:65535,
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
-msgstr "Vanjski programi::Alat za spajanje"
+msgstr "Vanjski programi::Alat za stapanje"
 
 # Control-ID:65535,
 #: Dlg-ID:194
@@ -3153,7 +3158,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Ako je omogućeno, dijalog za spajanje postavlja \"Iz:\" URL na URL izabrane radne kopije\n"
+"Ako je omogućeno, dijalog za stapanje postavlja \"Iz:\" URL na URL izabrane radne kopije\n"
 "umjesto zadnjeg korištenog URL-a."
 
 # ID:195,
@@ -3682,12 +3687,12 @@ msgstr "Dopušteni broj poruka za pregled dnevnika"
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
-msgstr "Spoji"
+msgstr "Stopi"
 
 # ID:263,
 #: ID:263
 msgid "Merged"
-msgstr "Spojeno"
+msgstr "Stopljeno"
 
 # ID:10,
 #: ID:10
@@ -3697,7 +3702,7 @@ msgstr "Spaja granu s glavnim deblom"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Merging"
-msgstr "Spajanje"
+msgstr "Stapanje"
 
 # ID:83,
 #: ID:83
@@ -5262,7 +5267,6 @@ msgstr "Prikaži datoteke bez &verzija"
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: MenuEntry
-#, fuzzy
 msgid "Show File List"
 msgstr "Prikaži popis datoteka"
 
@@ -5396,7 +5400,6 @@ msgstr "Razvrstaj stavke po brojevima"
 
 # Control-ID:1300,
 #: ID:101
-#, fuzzy
 msgid "Sort numerical"
 msgstr "Razvrstaj stavke po brojevima"
 
@@ -5419,7 +5422,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
-msgstr "Odredite raspon revizija koje želite spojiti:"
+msgstr "Odredite raspon revizija koje želite stopiti:"
 
 # ID:3604,
 #: ID:3604
@@ -6065,19 +6068,17 @@ msgstr "Do: (krajnji URL i revizija raspona spajanja)"
 # ID:9,#:
 # ID:80,
 #: ID:7
-#, fuzzy
 msgid "TortoiseBlame"
-msgstr "TortoiseSVN Okrivi"
+msgstr "TortoiseBlame"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid ""
 "TortoiseBlame can't be started directly!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
 msgstr ""
-"TortoiseBlame se ne može direktno pokrenuti!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame se ne može direktno pokrenuti, samo s parametrima!\n"
+"TortoiseBlame.exe datoteka  [[log_datoteka] [naslov]] [/line:broj_redka]"
 
 # ID:9,#:
 # ID:80,
@@ -6214,7 +6215,7 @@ msgstr "TortoiseSVN Uvezi..."
 # Dlg-ID:130,
 #: ID:78
 msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Spoji..."
+msgstr "TortoiseSVN Stopi..."
 
 # ID:101,
 #: ID:221
@@ -6341,7 +6342,6 @@ msgstr "Ne mogu pročitati svojstvo u koje je dozvoljeno samo zapisivati."
 
 # ID:119,
 #: ID:119
-#, fuzzy
 msgid ""
 "Unable to reconstruct working copy path!\n"
 "This can happen if the file has been renamed.\n"
@@ -6349,7 +6349,7 @@ msgid ""
 "from the top pane in the log dialog."
 msgstr ""
 "Nije moguće rekonstruirati stazu radne kopije!\n"
-"Ovo se može dogoditi ako ste datotkeci mijenjali ime.\n"
+"Ovo se može dogoditi ako ste datoteci mijenjali ime.\n"
 "Molim pogledajte dnevnik za ovu datoteku i poništite izmjene\n"
 "iz gornjeg dijela prozora dnevnika."
 
@@ -6591,7 +6591,7 @@ msgstr ""
 "/base:<staza do osnovne datoteke>\n"
 "/theirs:<staza do njihove datoteke>\n"
 "/mine:<staza do Vaše datoteke>\n"
-"/merged:<staza do dobivene spojene datoteke>\n"
+"/merged:<staza do dobivene stopljene datoteke>\n"
 "/diff:<staza do objedinjene datoteke razlika>\n"
 "/patchpath:<staza do mape>"
 
@@ -7054,7 +7054,7 @@ msgstr "zaključano"
 #: ID:11
 #: Control-ID:65535
 msgid "merged"
-msgstr "spojeno"
+msgstr "stopljeno"
 
 # ID:10,
 #: ID:10
