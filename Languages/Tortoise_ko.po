@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-03 17:42+0900\n"
+"PO-Revision-Date: 2006-07-24 15:23+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -135,6 +135,12 @@ msgstr "%I64d kB 전송됨"
 msgid "%d files selected, %d files total"
 msgstr "%d개 선택, 전체 %d"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld (%ld 중)"
+
 # Control-ID:65535,
 #: ID:563
 #, c-format
@@ -192,6 +198,44 @@ msgid ""
 msgstr ""
 "%s\n"
 "삭제하시겠습니까?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"파일 크기:\t\t\t%s\n"
+"가로:\t\t\t%ld 픽셀\n"
+"세로:\t\t\t%ld 픽셀\n"
+"수평 해상도:\t%.1f dpi\n"
+"수직 해상도:\t\t%.1f dpi\n"
+"깊이:\t\t\t%d bit\n"
+"확대:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"파일 크기:\t\t\t%s\n"
+"가로:\t\t\t%ld 픽셀\n"
+"세로:\t\t\t%ld 픽셀\n"
+"수평 해상도:\t%.1f dpi\n"
+"수직 해상도:\t\t%.1f dpi\n"
+"깊이:\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -323,6 +367,11 @@ msgid "&Copy"
 msgstr "복사(&C)"
 
 # ID:101,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "클립보드에 복사(&C)"
+
+# ID:101,
 #: ID:101
 msgid "&Copy to..."
 msgstr "복사(&C)..."
@@ -397,6 +446,11 @@ msgstr "파일을 잠그는 이유를 기술하십시오.(&E)"
 msgid "&Exit"
 msgstr "종료(&E)"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "익스포트(&E)..."
+
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
@@ -410,6 +464,14 @@ msgstr "파일(&F)"
 #: MenuEntry
 msgid "&Find"
 msgstr "찾기(&F)"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "찾기(&F)..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "그림을 윈도우 사이즈에 맞춤(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -441,6 +503,10 @@ msgstr "현재 작업 중인 URL(&F):"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "시작 리비전(&F)"
+
+#: MenuEntry
+msgid "&Go To Line..."
+msgstr "행으로 이동(&G)..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -499,6 +565,10 @@ msgstr "%d 개 무시(&I)"
 msgid "&Ignore whitespace changes"
 msgstr "공백의 차이는 무시함(&I)"
 
+#: MenuEntry
+msgid "&Image Info"
+msgstr "그림 정보(&I)"
+
 # ID:9,
 #: ID:9
 msgid "&Import..."
@@ -518,6 +588,10 @@ msgstr "언어(&L):"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "수정된 행에 대해서만 찾습니다(&L)"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "그림을 서로 연결하기(&L)"
 
 # ID:188,
 #: Control-ID:1172
@@ -580,14 +654,17 @@ msgid "&OK"
 msgstr "확인(&O)"
 
 # ID:101,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "열기(&O)"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "열기(&O)"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "그림 겹치기(&O)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -660,16 +737,21 @@ msgstr "SSH 클라이언트(&S):"
 msgid "&Save Ctrl-S"
 msgstr "저장(&S)"
 
-# ID:313,
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "그래프를 다른 이름으로 저장(&S)..."
-
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "인증 정보 저장(&S)"
+
+# ID:313,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "그래프를 다른 이름으로 저장(&S)..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "리스트를 파일로 저장(&S)"
 
 # ID:313,
 #: Control-ID:1308
@@ -878,6 +960,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -1334,6 +1418,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "정말 %d개의 아이템을 되돌리시겠습니까? 마지막 업데이트로부터 작업한 내용이 <B>모두</B> 사라지게 됩니다."
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "수직으로 정렬(&V)"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "경로별 정리(&P)"
 
@@ -1363,6 +1451,7 @@ msgstr "인증 정보"
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "작성자"
 
@@ -1613,6 +1702,12 @@ msgstr "윈도우 크기 조정"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "바뀐 파일"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "바뀐 파일들 (%s, %s ~ %s, %s)"
 
 # ID:163,
 #: ID:163
@@ -2210,9 +2305,15 @@ msgstr ""
 "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n"
 "자르기"
 
+# ID:12,
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "비교(&I)"
+
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "날짜"
 
@@ -2744,6 +2845,26 @@ msgstr "파일 비교"
 msgid "File patches"
 msgstr "파일 패치"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"파일 크기:\t\t\t%s\n"
+"가로:\t\t\t%ld 픽셀\n"
+"세로:\t\t\t%ld 픽셀\n"
+"수평 해상도:\t%.1f dpi\n"
+"수직 해상도:\t\t%.1f dpi\n"
+"깊이:\t\t\t%d bit\n"
+"확대:\t\t\t%d%%"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "찾기"
@@ -2766,6 +2887,11 @@ msgstr "완료!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "도움말은 F1을 누르시고, 좌우 스크롤은 Ctrl을 누른 상태에서 휠을 움직이면 됩니다."
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "모든 로그를 보려면 \"복사/이름변경 시점에서 중지\"을 끄면 됩니다."
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -2869,6 +2995,11 @@ msgstr "unified diff 만드는 중..."
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "제외/무시 패턴(&P):"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr "행으로 바로 이동"
 
 # ID:2049,
 #: ID:2051
@@ -3291,10 +3422,25 @@ msgstr "활동이 적은 작성자:"
 msgid "Left View: "
 msgstr "왼쪽:"
 
+# ID:188,
+#: Control-ID:65535
+msgid "Left image"
+msgstr "왼쪽 그림"
+
+# Dlg-ID:143,
+#: ID:19
+msgid "Line"
+msgstr "행"
+
 # ID:75,
 #: ID:246
 msgid "Line Graph"
 msgstr "꺽은선 그래프"
+
+# Dlg-ID:143,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "행:"
 
 # ID:3605,
 #: ID:3605
@@ -3304,6 +3450,11 @@ msgid ""
 msgstr ""
 "도움말 주제 목록\n"
 "도움말 주제"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "그림 파일 열기"
 
 # ID:63,
 #: ID:63
@@ -3857,6 +4008,11 @@ msgstr "클라이언트 인증서 파일 열기"
 msgid "Open file"
 msgstr "파일 열기"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "그림 파일 열기..."
+
 # Control-ID:1073,
 #: ID:282
 msgid "Open parent folder"
@@ -3880,6 +4036,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하십시오."
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "원본 크기(&G)"
 
 # ID:188,
 #: ID:245
@@ -4524,6 +4684,7 @@ msgstr "마지막 업데이이트 이후에 만들어진 모든 변경사항 되
 #: ID:208
 #: Control-ID:65535
 #: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "리비전"
 
@@ -4609,6 +4770,11 @@ msgstr "리비전"
 #: ID:188
 msgid "Right View: "
 msgstr "오른쪽:"
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "오른쪽 그림"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4743,11 +4909,6 @@ msgstr "변경된 것을 %1에 저장하시겠습니까?"
 msgid "Save client certificate path"
 msgstr "클라이언트 인증서 저장 경로"
 
-# ID:313,
-#: ID:272
-msgid "Save graph as..."
-msgstr "그래프를 다른 이름으로 저장..."
-
 # ID:76,
 #: ID:76
 msgid "Save revision &to..."
@@ -4808,6 +4969,11 @@ msgstr "로그 메시지 검색(&l)..."
 #: Control-ID:65535
 msgid "Search for:"
 msgstr "찾을 대상:"
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr "찾는 문자열 없음"
 
 # ID:3867,#:
 # ID:3867,
@@ -5384,6 +5550,16 @@ msgstr "시스템 소리(&S)"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "레지스트리 영역을 모두 삭제하였으며, INI 파일을 제거했습니다."
 
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -5505,6 +5681,11 @@ msgid ""
 msgstr ""
 "존재하지 않는 폴더:\n"
 "%s 만드시겠습니까?"
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr "그림을 보일 수 없습니다."
 
 # ID:63,
 #: ID:63
@@ -5809,6 +5990,46 @@ msgstr "끝:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "종료: (병합할 범위의 종료 URL과 리비전)"
 
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame은 직접 실행할 수 없습니다.\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+# ID:9,#:
+# ID:80,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: 그림 파일 비교 프로그램\n"
+"\n"
+"가능한 명령행 인자는 다음과 같습니다:\n"
+"/left:\"왼쪽 그림 경로\"\n"
+"/lefttitle:\"왼쪽 그림의 제목\"\n"
+"/right:\"오른쪽 그림의 경로\"\n"
+"/righttitle:\"오른쪽 그림의 제목\""
+
 # ID:7,#:
 # ID:3585,#:
 # Dlg-ID:130,
@@ -6043,6 +6264,19 @@ msgstr "다른 사람이 열고 있어서 파일을 열 수 없습니다. : %1"
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "쓰기전용 속성이라 읽을 수 없습니다."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"작업사본의 경로를 완성할 수 없습니다.\n"
+"파일이름이 바뀔 경우에 나타날 수 있으며,\n"
+"파일을 선택한 뒤 로그 창을 띄위 창의 맨 윗 부분에 있는 것으로\n"
+"되돌리십시오"
 
 # ID:3865,#:
 # ID:3865,
@@ -6533,6 +6767,10 @@ msgstr ""
 "업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "작게 보기(&M)"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "크게 보기(&I)\tCtrl-+"
 
@@ -6545,6 +6783,10 @@ msgstr "작게 보기(&O)\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "100%로 보기"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "크게 보기(&N)"
 
 #: ID:2049
 msgid "Zoom in"
