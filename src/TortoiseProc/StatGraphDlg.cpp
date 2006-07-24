@@ -283,13 +283,13 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 	// since maps are sorted by key, create a new map
 	// with the number of commits as the key, and the author as the value
-	std::map<LONG, stdstring> authorcommitssorted;
+	std::multimap<LONG, stdstring> authorcommitssorted;
 	for (std::map<stdstring, LONG>::iterator it = authorcommits.begin(); it != authorcommits.end(); ++it)
 	{
-		authorcommitssorted[it->second] = it->first;
+		authorcommitssorted.insert(std::pair<LONG, stdstring>(it->second, it->first));
 	}
 
-	std::map<LONG, stdstring>::reverse_iterator iter;
+	std::multimap<LONG, stdstring>::reverse_iterator iter;
 	iter = authorcommitssorted.rbegin();
 	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
 	int nOthers = 0;
@@ -378,20 +378,31 @@ void CStatGraphDlg::ShowCommitsByDate()
 	std::map<stdstring, LONG> authors;
 	std::map<stdstring, LONG>::iterator iter;
 	int nOthersCount = 0;
+	stdstring sLastOthersAuthor;
 	iter = author_commits.begin();
 	while (iter != author_commits.end())
 	{
 		if (author_commits[iter->first] < (nTotalCommits * m_Skipper.GetPos() / 200))
+		{
 			nOthersCount++;
+			sLastOthersAuthor = iter->first;
+		}
 		else
 			authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
 		iter++;
 	}
-	if(nOthersCount)
+	if (nOthersCount)
 	{
-		temp.Format(_T(" (%ld)"), nOthersCount);
-		sOthers += temp;
-		authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
+		if (nOthersCount == 1)
+		{
+			authors[sLastOthersAuthor] = m_graph.AppendGroup(sLastOthersAuthor.c_str());
+		}
+		else
+		{
+			temp.Format(_T(" (%ld)"), nOthersCount);
+			sOthers += temp;
+			authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
+		}
 	}
 
 	m_graph.SetXAxisLabel(GetUnitString());
