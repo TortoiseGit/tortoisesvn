@@ -145,7 +145,8 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
 	m_bStrict = bStrict;
 	m_bSaveStrict = bSaveStrict;
 	m_limit = limit;
-	UpdateData(FALSE);
+	if (::IsWindow(m_hWnd))
+		UpdateData(FALSE);
 }
 
 BOOL CLogDlg::OnInitDialog()
