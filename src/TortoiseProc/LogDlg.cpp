@@ -145,6 +145,7 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
 	m_bStrict = bStrict;
 	m_bSaveStrict = bSaveStrict;
 	m_limit = limit;
+	UpdateData(FALSE);
 }
 
 BOOL CLogDlg::OnInitDialog()
@@ -152,6 +153,7 @@ BOOL CLogDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	m_bStrict = m_regLastStrict;
+	UpdateData(FALSE);
 	
 	CAppUtils::CreateFontForLogs(m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
@@ -2335,11 +2337,12 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bThreadRunning)
 		return;
-	EnableOKButton();
 	if (pNMLV->iItem >= 0)
 	{
 		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
+			return;
+		if ((pNMLV->iItem == m_arShownList.GetCount())&&(m_bStrict)&&(m_bStrictStopped))
 			return;
 		if (pNMLV->uChanged & LVIF_STATE)
 		{
@@ -2347,6 +2350,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			UpdateData(FALSE);
 		}
 	}
+	EnableOKButton();
 }
 
 void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
