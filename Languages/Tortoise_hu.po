@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-14 14:54+0100\n"
+"PO-Revision-Date: 2006-07-25 18:50+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -445,6 +445,11 @@ msgstr "&Részletezd, hogy miért zárolsz fájlokat:"
 msgid "&Exit"
 msgstr "&Kilépés"
 
+# ID:9,
+#: ID:323
+msgid "&Export to..."
+msgstr "&Exportál ide..."
+
 # Control-ID:1092,#:
 # Control-ID:1095,#:
 # Control-ID:1097,
@@ -502,8 +507,8 @@ msgid "&From revision"
 msgstr "&Verziótól"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "Sorhoz &ugrás..."
+msgid "&Go To Line..."
+msgstr "Sorhoz &Ugrás..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -585,6 +590,10 @@ msgstr "&Nyelv:"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "Keresés &korlátozása a módosított sorokra"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "Képek össze&kapcsolása"
 
 # Control-ID:1172,
 #: Control-ID:1172
@@ -732,14 +741,20 @@ msgstr "&SSH kliens:"
 msgid "&Save Ctrl-S"
 msgstr "&Mentés Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Grafikon mentése mint..."
-
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Azonosítás mentése"
+
+# ID:272,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "Grafikon &mentése mint..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "Lista &mentése fájlba"
 
 # ID:313,
 #: Control-ID:1308
@@ -1688,6 +1703,12 @@ msgstr "Az ablak méretének megváltoztatása"
 msgid "Changed Files"
 msgstr "Megváltozott Fájlok"
 
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Cserélt fájlok %s, %s és %s, %s között"
+
 # ID:163,
 #: ID:163
 #, c-format
@@ -2284,6 +2305,11 @@ msgstr ""
 "Kivágja a kijelölt részt, és a vágólapra teszi\n"
 "Kivágás"
 
+# ID:12,
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "F&olt"
+
 # ID:76,
 #: ID:76
 #: ID:208
@@ -2859,6 +2885,11 @@ msgstr "Befejezve!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "A Súgóért nyomj F1-et. Vízszintesen a Ctrl-egérgörgővel mozoghatsz"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "A teljes előzményhez vedd ki a pipát a \"Másolásnál / Átnevezésnél &megáll\" mezőből"
 
 # Control-ID:1200,
 #: Control-ID:1200
@@ -4892,11 +4923,6 @@ msgstr "Mentés ide: %1?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "Kliens tanusítvány útvonal mentése"
-
-# ID:272,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Grafikon mentése mint..."
 
 # ID:76,
 #: ID:76
