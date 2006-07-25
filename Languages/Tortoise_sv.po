@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-19 13:46+0100\n"
+"PO-Revision-Date: 2006-07-25 09:47+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -510,6 +510,10 @@ msgstr "&Språk:"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "&Begränsa sökningar till ändrade rader"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Länka ihop bilderna"
 
 #: Control-ID:1172
 msgid "&List View"
@@ -1960,6 +1964,11 @@ msgstr ""
 "Klipp ut markeringen och lägg i urklipp\n"
 "Klipp ut"
 
+# Hur översätta "diff"
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "&Jämför"
+
 #: ID:76
 #: ID:208
 #: ID:19
@@ -2448,6 +2457,11 @@ msgstr "Klar!"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Tryck F1 för hjälp. Rulla horisontellt med Ctrl+mushjul"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Avmarkera \"Följ inte kopieringshistorik\" för att se all historik"
 
 #: Control-ID:1200
 msgid "From:"
