@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6960
+# Based on Tortoise.pot r7085
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-04 16:48+0100\n"
+"PO-Revision-Date: 2006-07-25 13:56+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,7 @@ msgstr ""
 # Item = emne
 # Viewer = visningsprogram
 # Nested = indlejret
+# Pixels = pixel
 #
 # Bemærkninger:
 # ! skal kun bruges ved meget vigtige beskeder og fejl.
@@ -145,6 +146,11 @@ msgstr "%I64d kBytes overført"
 msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
 
+#: ID:7,
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld af %ld"
+
 #: ID:563,
 #, c-format
 msgid "%ld paths"
@@ -189,6 +195,11 @@ msgstr "%s\\Eksport af %s"
 #, c-format
 msgid "%s\nDo you want to remove it anyway?"
 msgstr "%s\nVil du fjerne alligevel?"
+
+#: ID:7,
+#, c-format
+msgid "%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\n%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
+msgstr "%s\nFilstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\n%s\nFilstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit"
 
 #: ID:69,
 #, c-format
@@ -289,6 +300,10 @@ msgstr "&Konverter filer, når der sammenlignes med basisfilen"
 msgid "&Copy"
 msgstr "&Kopier"
 
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Kopier til udklipsholder"
+
 #: ID:101,
 msgid "&Copy to..."
 msgstr "&Kopier til..."
@@ -322,7 +337,7 @@ msgstr "&Sammenlign med URL"
 msgid "&Dry run"
 msgstr "&Testkørsel"
 
-#: Control-ID:1031,#: MenuEntry
+#: Control-ID:1031,#: MenuEntry#: MenuEntry
 msgid "&Edit"
 msgstr "&Rediger"
 
@@ -346,17 +361,29 @@ msgstr "&Indtast en besked som beskriver, hvorfor du låser filen/filerne."
 msgid "&Exit"
 msgstr "&Afslut"
 
+#: ID:323,
+msgid "&Export to..."
+msgstr "&Eksporter til..."
+
 #: Control-ID:1092,#: Control-ID:1095,
 msgid "&External"
 msgstr "&Ekstern"
 
-#: MenuEntry#: MenuEntry
+#: MenuEntry#: MenuEntry#: MenuEntry#: MenuEntry#: MenuEntry
 msgid "&File"
 msgstr "&Fil"
 
 #: MenuEntry
 msgid "&Find"
 msgstr "&Find"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Find..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Tilpas billeder i vinduet"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
@@ -381,6 +408,10 @@ msgstr "&Fra arbejdskopi med URL:"
 #: Control-ID:65535,
 msgid "&From revision"
 msgstr "&Fra revision"
+
+#: MenuEntry
+msgid "&Go To Line..."
+msgstr "&Gå til linje..."
 
 #: Control-ID:1115,#: Control-ID:1032,
 msgid "&HEAD Revision"
@@ -419,6 +450,10 @@ msgstr "&Ignorer %d emner"
 msgid "&Ignore whitespace changes"
 msgstr "&Ignorer forskelle i blanktegn"
 
+#: MenuEntry
+msgid "&Image Info"
+msgstr "B&illedinfo"
+
 #: ID:9,
 msgid "&Import..."
 msgstr "&Importer..."
@@ -434,6 +469,10 @@ msgstr "&Sprog:"
 #: Control-ID:1065,
 msgid "&Limit search to modified lines"
 msgstr "&Begræns søgning til ændrede linjer"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "Kæd bi&lleder sammer"
 
 #: Control-ID:1172,
 msgid "&List View"
@@ -484,13 +523,17 @@ msgstr "&Næste forskel"
 msgid "&OK"
 msgstr "&Ok"
 
-#: ID:101,#: ID:113,
+#: MenuEntry
 msgid "&Open"
 msgstr "&Åbn"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Åbn Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "&Overlap billeder"
 
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&Password:"
@@ -544,13 +587,17 @@ msgstr "&SSH-klient:"
 msgid "&Save Ctrl-S"
 msgstr "&Gem Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "Gem graf &som..."
-
 #: Control-ID:1023,#: Control-ID:1023,
 msgid "&Save authentication"
-msgstr "&Gem adgangskoder"
+msgstr "&Gem adgangskode"
+
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "Gem graf &som..."
+
+#: ID:322,
+msgid "&Save list to file"
+msgstr "&Gem liste i fil"
 
 #: Control-ID:1308,
 msgid "&Save..."
@@ -656,7 +703,7 @@ msgstr "&Brug automatisk udfyldning af stier og nøgleord"
 msgid "&Username:"
 msgstr "&Brugernavn:"
 
-#: MenuEntry#: MenuEntry
+#: MenuEntry#: MenuEntry#: MenuEntry
 msgid "&View"
 msgstr "&Vis"
 
@@ -698,7 +745,7 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -993,6 +1040,10 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Er du sikker på at du vil tilbageføre %d emne(r)? Du mister <b>alle</b> ændringer siden sidste opdatering!"
 
 #: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "Arranger &lodret"
+
+#: MenuEntry
 msgid "Arranged by &path"
 msgstr "Arrangeret efter &sti"
 
@@ -1014,7 +1065,7 @@ msgstr "Adgangskoder"
 msgid "Authentication data"
 msgstr "Adgangskoder"
 
-#: ID:76,#: ID:207,
+#: ID:76,#: ID:207,#: ID:19,
 msgid "Author"
 msgstr "Forfatter"
 
@@ -1151,7 +1202,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1200,6 +1251,11 @@ msgstr "Ret vinduesstørrelsen"
 #: Dlg-ID:199,
 msgid "Changed Files"
 msgstr "Ændrede filer"
+
+#: ID:324,
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Ændrede filer mellem %s, %s og %s, %s"
 
 #: ID:163,
 #, c-format
@@ -1640,7 +1696,11 @@ msgstr "Aktuelle version er: %s"
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr "Klip det valgte og læg det i udklipsholderen\nKlip"
 
-#: ID:76,#: ID:208,
+#: Control-ID:1314,
+msgid "D&iff"
+msgstr "Sammenl&ign"
+
+#: ID:76,#: ID:208,#: ID:19,
 msgid "Date"
 msgstr "Dato"
 
@@ -1997,6 +2057,11 @@ msgstr "Filforskelle"
 msgid "File patches"
 msgstr "Korrekturark"
 
+#: ID:7,
+#, c-format
+msgid "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+msgstr "Filstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr "Søg"
@@ -2013,6 +2078,10 @@ msgstr "Færdig!"
 #, fuzzy
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Tryk F1 for hjælp. Rul vandret med Ctrl+rullehjulet"
+
+#: ID:119,
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "For at vise komplet historik, skal du fravælge \"Stop ved kopiering/omdøbning\""
 
 #: Control-ID:1200,
 msgid "From:"
@@ -2083,6 +2152,10 @@ msgstr "Henter unified diff"
 #: Control-ID:65535,
 msgid "Global ignore &pattern:"
 msgstr "Globalt ignorer-&mønster:"
+
+#: Dlg-ID:130,
+msgid "Go to line"
+msgstr "Gå til linje"
 
 #: ID:2051,
 msgid "Go to the next conflict\nnext conflict"
@@ -2301,13 +2374,29 @@ msgstr "Mindst aktive forfatter:"
 msgid "Left View: "
 msgstr "Venstre visning: "
 
+#: Control-ID:65535,
+msgid "Left image"
+msgstr "Venstre billede"
+
+#: ID:19,
+msgid "Line"
+msgstr "Linje"
+
 #: ID:246,
 msgid "Line Graph"
 msgstr "Kurvediagram"
 
+#: Control-ID:65535,
+msgid "Line:"
+msgstr "Linje:"
+
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
 msgstr "Oversigt over hjælpeemner\nHjælpeemner"
+
+#: Dlg-ID:130,
+msgid "Load Images"
+msgstr "Hent billeder"
 
 #: ID:63,
 msgid "Local status"
@@ -2660,7 +2749,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -2708,6 +2797,10 @@ msgstr "Åbn klient-certifikatfil"
 msgid "Open file"
 msgstr "Åbn fil"
 
+#: ID:7,
+msgid "Open image file..."
+msgstr "Åbn billedfil..."
+
 #: ID:282,
 msgid "Open parent folder"
 msgstr "Åbn overordnet mappe"
@@ -2723,6 +2816,10 @@ msgstr "Åbner hjælpen\nHjælpeemner"
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Åbner versionsarkivsøgeren til at styre versionsarkivet online"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Ori&ginal størrelse"
 
 #: ID:245,
 msgid "Others"
@@ -3182,7 +3279,7 @@ msgstr "Tilbageført"
 msgid "Reverts all changes you made since the last update"
 msgstr "Tilbagefører alle ændringer, du har foretaget siden sidste opdatering"
 
-#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,#: ID:19,
 msgid "Revision"
 msgstr "Revision"
 
@@ -3237,6 +3334,10 @@ msgstr "Revisioner"
 #: ID:188,
 msgid "Right View: "
 msgstr "Højre visning: "
+
+#: Control-ID:65535,
+msgid "Right image"
+msgstr "Højre billede"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -3344,10 +3445,6 @@ msgstr "Gem ændringer som %1?"
 msgid "Save client certificate path"
 msgstr "Sti til gemte klientcertifikater"
 
-#: ID:272,
-msgid "Save graph as..."
-msgstr "Gem graf som..."
-
 #: ID:76,
 msgid "Save revision &to..."
 msgstr "Gem revision &som..."
@@ -3389,6 +3486,10 @@ msgstr "Søg i &logbeskeder..."
 #: Control-ID:65535,
 msgid "Search for:"
 msgstr "Søg efter:"
+
+#: ID:7,
+msgid "Search string not found!"
+msgstr "Søgestrengen blev ikke fundet."
 
 #: ID:3867,#: ID:3867,
 #, c-format
@@ -3796,6 +3897,14 @@ msgstr "&System-lyde"
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Elementer i registreringsdatabasen er blevet fjernet og en evt. INI-fil blev slettet."
 
+#: ID:7,
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+#: ID:7,
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
 #: ID:79,
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -3865,6 +3974,10 @@ msgstr "Mappen %s\nindeholder ikke-versionerede og/eller ændrede fil(er). Vil d
 #, c-format
 msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
 msgstr "Mappen \n%s\nfindes ikke.\nVil du oprette den først?"
+
+#: ID:7,
+msgid "The image can not be shown."
+msgstr "Billedet kan ikke vises."
 
 #: ID:63,
 #, c-format
@@ -4021,6 +4134,22 @@ msgstr "Til:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Til: (slut-URL og -revision for intervallet, der skal flettes)"
 
+#: ID:7,
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+#: ID:13,
+msgid "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr "TortoiseBlame kan ikke startes direkte.\nTortoiseBlame.exe ansvarsfil [[logfil] [titel]] [/line:linjenummer]"
+
+#: ID:7,
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+#: ID:7,
+msgid "TortoiseIDiff: the image diff viewer for TortoiseSVN\n\nAvailable command line parameters are:\n/left:\"path to left picture\"\n/lefttitle:\"title to show for the left picture\"\n/right:\"path to right picture\"\n/righttitle:\"title to show for the right picture\""
+msgstr "TortoiseIDiff: Billeddifferens-viseren for TortoiseSVN\n\nTilgængelige kommandolinjeparametre::\n/left:\"sti til venstre billede\"\n/lefttitle:\"titel til venstre billede\"\n/right:\"sti til højre billede\"\n/righttitle:\"titel til højre billede\""
+
 #: ID:7,#: ID:3585,#: Dlg-ID:130,
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -4171,6 +4300,10 @@ msgstr "Der kan ikke læses fra %1. Filen er åbnet af en anden kilde."
 #: ID:3865,#: ID:3865,
 msgid "Unable to read write-only property."
 msgstr "Der kan ikke læses fra en kun-skrivebar egenskab."
+
+#: ID:119,
+msgid "Unable to reconstruct working copy path!\nThis can happen if the file has been renamed.\nPlease start the log dialog on this specific file alone and then revert the changes\nfrom the top pane in the log dialog."
+msgstr "Stien til arbejdskopien kunne ikke genskabes.\nDette kan ske, hvis filen er blevet omdøbt.\nÅbn log-dialogen på denne fil alene og tilbagefør så ændringerne\nvia det øverste panel."
 
 #: ID:3865,#: ID:3865,
 msgid "Unable to write read-only property."
@@ -4458,6 +4591,10 @@ msgid "Your working copy has local modifications!\nNote: updating to another rev
 msgstr "Din arbejdskopi har lokale ændringer!\nBemærk: Ved opdatering til en anden revision vil du ikke miste ændringerne, så din arbejdskopi\nvil ikke være helt magen til den revision, du opdaterer til!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "Zoo&m ud"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Zoom &ind\tCtrl-+"
 
@@ -4469,6 +4606,10 @@ msgstr "Zoom &ud\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Zoom 100%"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Zoom i&nd"
 
 #: ID:2049,
 msgid "Zoom in"
@@ -4622,7 +4763,7 @@ msgstr "spærret"
 
 #: ID:3869,#: ID:3869,
 msgid "pixels"
-msgstr "pixels"
+msgstr "pixel"
 
 #: Control-ID:65535,
 msgid "possible or real conflict / obstructed"
