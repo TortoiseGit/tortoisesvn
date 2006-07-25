@@ -356,7 +356,11 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force /* = FALSE
 	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
 	{
 		TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
-
+		if (Cancel())
+		{
+			Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
+			return FALSE;
+		}
 		SVNPool subpool(pool);
 		Err = svn_client_add3 (pathList[nItem].GetSVNApiPath(), recurse, force, no_ignore, m_pctx, subpool);
 		if(Err != NULL)
