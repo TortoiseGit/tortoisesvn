@@ -26,11 +26,199 @@ NAnt build script for the TortoiseSVN language pack installers
 			</fileset>
 		</delete>
 	</target>
+
+	<target name="createecho2">
+		<script language="C#" prefix="tsvn">
+			<imports>
+				<import namespace="System.Globalization" />
+				<import namespace="System.Xml" />
+				<import namespace="NAnt.Core.Attributes" />
+				<import namespace="NAnt.Core.Util" />
+				<import namespace="NAnt.Core.Tasks" />
+			</imports>
+			<code>
+				<![CDATA[
+					/* Based on EchoTask.cs NAnt 0.85-rc4 */
+					/* Includes support for different Encoding, if none is set, it uses ANSI (Default) */
+
+					[TaskName("echo2")]
+					public class Echo2Task : Task 
+					{
+						#region Private Instance Fields
+
+						private string _message;
+						private string _contents;
+						private FileInfo _file;
+						private bool _append = false;
+						private Level _messageLevel = Level.Info;
+						private Encoding _encoding;
+
+						#endregion Private Instance Fields
+
+						#region Public Instance Properties
+
+						[TaskAttribute("message")]
+						public string Message 
+						{
+							get { return _message; }
+							set 
+							{
+								if (!StringUtils.IsNullOrEmpty(value)) 
+								{
+									if (!StringUtils.IsNullOrEmpty(Contents)) 
+									{
+										throw new ValidationException("Inline content and the message attribute are mutually exclusive in the <echo> task.", Location);
+									} 
+									else 
+									{
+										_message = value;
+									}
+								} 
+								else 
+								{
+									_message = null; 
+								}
+							}
+						}
+
+						public string Contents 
+						{
+							get { return _contents; }
+							set 
+							{ 
+								if (!StringUtils.IsNullOrEmpty(value)) 
+								{
+									if (!StringUtils.IsNullOrEmpty(Message)) 
+									{
+										throw new ValidationException("Inline content and the message attribute are mutually exclusive in the <echo> task.", Location);
+									} 
+									else 
+									{
+										_contents = value;
+									}
+								} 
+								else 
+								{
+									_contents = null;
+								}
+							}
+						}
+
+						[TaskAttribute("file")]
+						public FileInfo File 
+						{
+							get { return _file; }
+							set { _file = value; }
+						}
+
+						[TaskAttribute("append")]
+						public bool Append 
+						{
+							get { return _append; }
+							set { _append = value; }
+						}
+
+						[TaskAttribute("level")]
+						public Level MessageLevel 
+						{
+							get { return _messageLevel; }
+							set 
+							{
+								if (!Enum.IsDefined(typeof(Level), value)) 
+								{
+									throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "An invalid level {0} was specified.", value)); 
+								} 
+								else 
+								{
+									this._messageLevel = value;
+								}
+							}
+						}
+
+						[TaskAttribute("encoding")]
+						public Encoding Encoding 
+						{
+							get { return _encoding; }
+							set { _encoding = value; }
+						}
+
+						#endregion Public Instance Properties
+
+						#region Override implementation of Task
+
+						protected override void ExecuteTask() 
+						{
+							if (File != null) 
+							{ // output to file
+								try 
+								{
+									// ensure the output directory exists
+									if (!File.Directory.Exists) 
+									{
+										File.Directory.Create();
+										File.Directory.Refresh();
+									}
+
+									// determine character encoding to use
+									Encoding encoding = (Encoding != null) ? Encoding : Encoding.Default;
+									// write the message to the file
+									using (StreamWriter writer = new StreamWriter(File.FullName, Append, encoding)) 
+									{
+										if (!StringUtils.IsNullOrEmpty(Message)) 
+										{
+											writer.WriteLine(Message);
+										} 
+										else if (!StringUtils.IsNullOrEmpty(Contents)) 
+										{
+											writer.WriteLine(Contents);
+										} 
+										else 
+										{
+											writer.WriteLine();
+										}
+									}
+								} 
+								catch (Exception ex) 
+								{
+									throw new BuildException(string.Format(CultureInfo.InvariantCulture,
+										"Failed to write message to file '{0}'.", File.FullName), 
+										Location, ex);
+								}
+							} 
+							else 
+							{ // output to build log
+								if (!StringUtils.IsNullOrEmpty(Message)) 
+								{
+									Log(MessageLevel, Message);
+								} 
+								else if (!StringUtils.IsNullOrEmpty(Contents)) 
+								{
+									Log(MessageLevel, Contents);
+								} 
+								else 
+								{
+									Log(MessageLevel, string.Empty);
+								}
+							}
+						}
+
+						protected override void InitializeTask(XmlNode taskNode) 
+						{
+							Contents = Project.ExpandProperties(taskNode.InnerText, Location);
+						}
+
+						#endregion Override implementation of Task
+					}
+				]]>
+			</code>
+		</script>
+	</target>
 	
 	<target name="all">
 		<description>
 			Builds the installers.
 		</description>
+		<call target="createecho2" />
 		<loadfile file="Languages.txt" property="languagelines" />
 		<!-- the next line is split in two because we need the newline in the string -->
 		<foreach item="String" in="${languagelines}" delim="
@@ -76,13 +264,13 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
 		<!-- create the files for the installer -->
-		<echo file="product.nsh">!define PRODUCT_NAME "TortoiseSVN ${langnative}"</echo>
-		<echo file="product.nsh" append="true">!define CountryCode "${langISO}"</echo>
-		<echo file="product.nsh" append="true">!define CountryID "${langCC}"</echo>
-		<echo file="product.nsh" append="true">!define InstLang "${langUI}"</echo>
-		<echo file="product.nsh" append="true" if="${langhelpfile == '1'}">!define LangHelp</echo>
-		<echo file="product.nsh" append="true" if="${devrelease != '-dev'}">!define HelpFatal</echo>
-		<echo file="product.nsh" append="true">!include "FindTSVN${platform}.nsh"</echo>
+		<echo2 file="product.nsh">!define PRODUCT_NAME "TortoiseSVN ${langnative}"</echo2>
+		<echo2 file="product.nsh" append="true">!define CountryCode "${langISO}"</echo2>
+		<echo2 file="product.nsh" append="true">!define CountryID "${langCC}"</echo2>
+		<echo2 file="product.nsh" append="true">!define InstLang "${langUI}"</echo2>
+		<echo2 file="product.nsh" append="true" if="${langhelpfile == '1'}">!define LangHelp</echo2>
+		<echo2 file="product.nsh" append="true" if="${devrelease != '-dev'}">!define HelpFatal</echo2>
+		<echo2 file="product.nsh" append="true">!include "FindTSVN${platform}.nsh"</echo2>
 		<!-- create the mo files -->
 		<exec program="msgfmt" if="${file::exists('..\ext\Subversion\Subversion\po\${langISO}.po')}" failonerror="false" >
 			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
