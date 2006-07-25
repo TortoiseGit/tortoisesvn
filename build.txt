@@ -73,7 +73,8 @@ You may have to logoff/logon to make the new environment variables take effect!
   in that file.
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
   You can get that library from here: http://wtl.sourceforge.net/
-  Unzip it and then add the path to the VS.NET include path.
+  Unzip it and then add the path of the wtl 'include' folder 
+  to the VS.NET 2005 include path.
 
 
 Building 32 bit packages
