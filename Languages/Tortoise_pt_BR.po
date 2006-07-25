@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-18 15:24-0300\n"
+"PO-Revision-Date: 2006-07-25 11:28-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -596,6 +596,11 @@ msgstr "&Idioma:"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "&Limitar busca para linhas modificadas"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Link images together"
+msgstr "&Associar imagens"
 
 # ID:188,
 #: Control-ID:1172
@@ -2319,6 +2324,11 @@ msgstr ""
 "Recorta a seleção e a coloca na Área de Transferência\n"
 "Recorta"
 
+# ID:12,
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "C&omparar"
+
 # ID:76,
 #: ID:76
 #: ID:208
@@ -2899,6 +2909,11 @@ msgstr "Concluído!"
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Para ajuda, pressione F1. Role a barra de rolamento horizontalmente com CTRL-roda do mouse"
 
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Para um histórico completo desmarque \"Parar na cópia/mudança de nome\" "
+
 # Control-ID:65535,
 #: Control-ID:1200
 msgid "From:"
@@ -3253,7 +3268,6 @@ msgstr "Importação inicial"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline diff"
 msgstr "Comparação Unificada"
 
