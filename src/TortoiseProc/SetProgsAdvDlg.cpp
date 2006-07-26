@@ -122,8 +122,8 @@ BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CDialog)
 	ON_BN_CLICKED(IDC_ADDTOOL, OnBnClickedAddtool)
 	ON_BN_CLICKED(IDC_REMOVETOOL, OnBnClickedRemovetool)
 	ON_BN_CLICKED(IDC_EDITTOOL, OnBnClickedEdittool)
-	ON_NOTIFY(NM_CLICK, IDC_TOOLLISTCTRL, OnNMClickToollistctrl)
 	ON_NOTIFY(NM_DBLCLK, IDC_TOOLLISTCTRL, OnNMDblclkToollistctrl)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_TOOLLISTCTRL, &CSetProgsAdvDlg::OnLvnItemchangedToollistctrl)
 END_MESSAGE_MAP()
 
 
@@ -254,14 +254,17 @@ void CSetProgsAdvDlg::OnBnClickedRemovetool()
 	m_ToolListCtrl.SetFocus();
 }
 
-void CSetProgsAdvDlg::OnNMClickToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
-{
-	EnableBtns();
-	*pResult = 0;
-}
-
 void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
 	OnBnClickedEdittool();
+	*pResult = 0;
+}
+
+void CSetProgsAdvDlg::OnLvnItemchangedToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
+{
+	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	
+	EnableBtns();
+
 	*pResult = 0;
 }
