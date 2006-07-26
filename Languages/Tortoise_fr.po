@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-13 10:24+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-07-26 14:52+0100\n"
+"Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,7 +199,7 @@ msgid ""
 "Depth:\t\t\t%d bit"
 msgstr ""
 "%s\n"
-"Taille du fichie r:\t\t\t%s\n"
+"Taille du fichier:\t\t\t%s\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
@@ -208,7 +208,7 @@ msgstr ""
 "Zoom :\t\t\t%d%%\n"
 "\n"
 "%s\n"
-"Taille du fichie r:\t\t\t%s\n"
+"Taille du fichier:\t\t\t%s\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
@@ -395,6 +395,10 @@ msgstr "&Entrez un message décrivant pourquoi vous verrouillez le(s) fichier(s)
 msgid "&Exit"
 msgstr "&Quitter"
 
+#: ID:323
+msgid "&Export to..."
+msgstr "&Exporter vers..."
+
 #: Control-ID:1092
 #: Control-ID:1095
 msgid "&External"
@@ -442,8 +446,8 @@ msgid "&From revision"
 msgstr "&Depuis la révision"
 
 #: MenuEntry
-msgid "&Goto Line..."
-msgstr "&Aller à la ligne..."
+msgid "&Go To Line..."
+msgstr "Aller à la li&gne..."
 
 #: Control-ID:1115
 #: Control-ID:1032
@@ -508,6 +512,10 @@ msgstr "&Langue :"
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
 msgstr "&Limiter la recherche aux lignes modifiées"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Lier les images ensemble"
 
 # ID:188,
 #: Control-ID:1172
@@ -629,13 +637,18 @@ msgstr "Client &SSH :"
 msgid "&Save Ctrl-S"
 msgstr "&Enregistrer Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Enregistrer le graphique sous..."
-
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Enregistrer l'authentification"
+
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "Enregistrer le graphique &sous..."
+
+# ID:322,
+#: ID:322
+msgid "&Save list to file"
+msgstr "&Sauver la liste dans un fichier"
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1189,7 +1202,7 @@ msgstr "Etes-vous sûr de vouloir faire revenir à l'ancienne version %d éléme
 
 #: MenuEntry
 msgid "Arrange &Vertical"
-msgstr "Arranger &Verticalement"
+msgstr "Arranger &verticalement"
 
 #: MenuEntry
 msgid "Arranged by &path"
@@ -1430,6 +1443,12 @@ msgstr "Changer la taille de la fenêtre"
 #: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Fichiers modifiés"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Fichiers modifiés entre %s, %s et %s, %s"
 
 #: ID:163
 #, c-format
@@ -1944,6 +1963,10 @@ msgstr ""
 "Couper la sélection et la mettre dans le presse papier\n"
 "Couper"
 
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "Voir les d&ifférences"
+
 #: ID:76
 #: ID:208
 #: ID:19
@@ -2402,7 +2425,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Taille du fichie r:\t\t\t%s\n"
+"Taille du fichier:\t\t\t%s\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
@@ -2430,6 +2453,11 @@ msgstr "Fini !"
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Pour l'Aide, appuyer sur F1. Défilement horizontal avec Ctrl-Molette"
+
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Pour l'historique complet, déselectionnez \"Arrêt à la copie/renommage\""
 
 #: Control-ID:1200
 msgid "From:"
@@ -3448,7 +3476,7 @@ msgstr "Ouvre le navigateur de référentiel pour optimiser le référentiel en 
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr "Taille ori&ginal"
+msgstr "Taille ori&ginale"
 
 #: ID:245
 msgid "Others"
@@ -4149,10 +4177,6 @@ msgstr "Enregistrer les changements dans %1?"
 #: ID:232
 msgid "Save client certificate path"
 msgstr "Enregistrer le chemin du certificat client"
-
-#: ID:272
-msgid "Save graph as..."
-msgstr "Enregistrer le graphique sous..."
 
 #: ID:76
 msgid "Save revision &to..."
@@ -5341,6 +5365,19 @@ msgstr "Impossible de lire depuis %1, il est ouvert par quelqu'un d'autre."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Impossible de lire la propriété écriture-seule."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Impossible de reconstruire le chemin de la copie de travail !\n"
+"Cela peut se produire si le fichier a été renommé.\n"
+"Veuillez lancer la boîte de dialogue de Journal sur ce fichier spécifique et annuler alors les changements\n"
+"depuis la panneau supérieur de la boîte de dialogue de Journal."
 
 #: ID:3865
 msgid "Unable to write read-only property."
