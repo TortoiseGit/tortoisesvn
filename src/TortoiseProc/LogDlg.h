@@ -61,6 +61,7 @@
 #define ID_BLAMECOMPARE 29
 #define ID_BLAMETWO     30
 #define ID_BLAMEDIFF    31
+#define ID_CONFLICTRESOLVE 32
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2

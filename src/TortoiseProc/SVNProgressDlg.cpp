@@ -1456,7 +1456,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				bool bAdded = false;
 				if (m_ProgList.GetSelectedCount() == 1)
 				{
-					const NotificationData * data = m_arData[selIndex];
+					NotificationData * data = m_arData[selIndex];
 					if ((data)&&(!data->path.IsDirectory()))
 					{
 						if (data->action == svn_wc_notify_update_update)
@@ -1469,6 +1469,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.LoadString(IDS_MENUCONFLICT);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
 								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
+								temp.LoadString(IDS_SVNPROGRESS_MENUMARKASRESOLVED);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTRESOLVE, temp);
 								temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSETHEIRS, temp);
 								temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
@@ -1625,6 +1627,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								else
 								{
+									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
 									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
@@ -1656,6 +1660,27 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								else
 								{
+									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									m_ProgList.Invalidate();
+									CString msg;
+									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
+									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
+								}
+							}
+							break;
+						case ID_CONFLICTRESOLVE:
+							{
+								SVN svn;
+								if (!svn.Resolve(data->path, FALSE))
+								{
+									ReportSVNError();
+									DialogEnableWindow(IDOK, TRUE);
+									break;
+								}
+								else
+								{
+									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
 									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
