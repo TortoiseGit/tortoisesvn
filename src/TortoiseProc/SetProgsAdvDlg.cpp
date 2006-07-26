@@ -189,7 +189,7 @@ int CSetProgsAdvDlg::FindExtension(const CString& ext)
 
 void CSetProgsAdvDlg::EnableBtns()
 {
-	bool enable_btns = m_ToolListCtrl.GetSelectionMark() >= 0;
+	bool enable_btns = m_ToolListCtrl.GetSelectedCount() > 0;
 	GetDlgItem(IDC_EDITTOOL)->EnableWindow(enable_btns);
 	GetDlgItem(IDC_REMOVETOOL)->EnableWindow(enable_btns);
 }
