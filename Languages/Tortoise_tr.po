@@ -4,17 +4,16 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039,v7074,v7090)
+# (100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7140)
 #
 # Authors:
 #
 #
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
-#  - Kisaltma tuslari komik olabilir cunku kontrol edilmediler.
 #
 # Su anki versiyon:
-# (v7090)
+# (v7140)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -47,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-07-23 07:07+0300\n"
+"PO-Revision-Date: 2006-07-27 05:27+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3650,6 +3649,10 @@ msgstr "Posta sistemi DLL'si geçersiz."
 msgid "Manage Subversion properties"
 msgstr "Subversion ayarları yöneticisi:"
 
+#: ID:282
+msgid "Mark as resolved"
+msgstr "&Çözümlendi olarak işaretle"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -6086,20 +6089,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Yapım %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Yapım %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Yapım %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Yapım %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6115,14 +6118,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Yapım %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6132,7 +6135,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Yapım %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
