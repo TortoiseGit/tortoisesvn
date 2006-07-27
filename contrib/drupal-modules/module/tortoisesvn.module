@@ -143,9 +143,10 @@ function print_content_stat($i, $postat, $vars)
   $reposurl=$vars['reposurl'].$reposfile;
   $fdate=date("Y-m-d",$postat[7]);
   $age=(strtotime("now") - $postat[7]) / 86400;
+  $lang=$postat[10];
 
-  $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$postat[9].".exe".$vars['downloadurl2'];
-  $flagimg=$vars['flagpath']."$postat[10].png";
+  $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$lang.".exe".$vars['downloadurl2'];
+  $flagimg=$vars['flagpath']."$lang.png";
 
 
   // Calculate width of bars
@@ -184,7 +185,7 @@ function print_content_stat($i, $postat, $vars)
 
   echo "<td>$i</td>";
   echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</a></td>";
-  echo "<td class=\"lang\">$postat[10]</td>";
+  echo "<td class=\"lang\">$lang</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
