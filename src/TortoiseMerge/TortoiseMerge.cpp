@@ -270,6 +270,44 @@ BOOL CTortoiseMergeApp::InitInstance()
 		pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
 	} // if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff")))) 
 
+	if ( pFrame->m_Data.m_baseFile.GetFilename().IsEmpty() && pFrame->m_Data.m_yourFile.GetFilename().IsEmpty() )
+	{
+		LPWSTR *szArglist;
+		int nArgs;
+
+		szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
+		if( NULL == szArglist )
+		{
+			TRACE("CommandLineToArgvW failed\n");
+		}
+		else
+		{
+			if ( nArgs==3 || nArgs==4 )
+			{
+				// Four parameters:
+				// [0]: Program name
+				// [1]: BASE file
+				// [2]: my file
+				// [3]: THEIR file (optional)
+				// This is the same format CAppUtils::StartExtDiff
+				// uses if %base and %mine are not set and most
+				// other diff tools use it too.
+				if ( PathFileExists(szArglist[1]) && PathFileExists(szArglist[2]) )
+				{
+					pFrame->m_Data.m_baseFile.SetFileName(szArglist[1]);
+					pFrame->m_Data.m_yourFile.SetFileName(szArglist[2]);
+					if ( PathFileExists(szArglist[3]) )
+					{
+						pFrame->m_Data.m_theirFile.SetFileName(szArglist[3]);
+					}
+				}
+			}
+		}
+
+		// Free memory allocated for CommandLineToArgvW arguments.
+		LocalFree(szArglist);
+	}
+
 	pFrame->m_bReadOnly = !!parser.HasKey(_T("readonly"));
 	pFrame->m_bBlame = !!parser.HasKey(_T("blame"));
 	// diffing a blame means no editing!
