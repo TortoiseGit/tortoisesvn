@@ -63,10 +63,22 @@
 		they will be imported in separate commits.
 	</para>
 	<para>
+		If you want to move an item within the repository, just <action>left drag</action>
+		it to the new location. If you want to create a copy rather than moving the item,
+		<action>Ctrl left drag</action> instead. When copying, the cursor has a
+		<quote>plus</quote> symbol on it, just as it does in Explorer.
+	</para>
+	<para>
 		If you want to copy/move a file or folder to another location and also
-		give it a new name at the same time, you can <action>right-drag</action>
-		the item instead of just drag it. In that case, a rename dialog
+		give it a new name at the same time, you can <action>right drag</action>
+		or <action>ctrl right drag</action> the item instead of using
+		<action>left drag</action>. In that case, a rename dialog
 		is shown where you can enter a new name for the file or folder.
+	</para>
+	<para>
+		Whenever you make changes in the repository using one of these methods,
+		you will be presented with a log message entry dialog. If you dragged
+		something by mistake, this is also your chance to cancel the action.
 	</para>
 	<para>
 		Sometimes when you try to open a path you will get an error message
