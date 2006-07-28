@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-24 15:23+0900\n"
+"PO-Revision-Date: 2006-07-28 15:58+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,19 +221,19 @@ msgid ""
 "Depth:\t\t\t%d bit"
 msgstr ""
 "%s\n"
-"파일 크기:\t\t\t%s\n"
+"파일 크기:\t\t%s\n"
 "가로:\t\t\t%ld 픽셀\n"
 "세로:\t\t\t%ld 픽셀\n"
-"수평 해상도:\t%.1f dpi\n"
+"수평 해상도:\t\t%.1f dpi\n"
 "수직 해상도:\t\t%.1f dpi\n"
 "깊이:\t\t\t%d bit\n"
 "확대:\t\t\t%d%%\n"
 "\n"
 "%s\n"
-"파일 크기:\t\t\t%s\n"
+"파일 크기:\t\t%s\n"
 "가로:\t\t\t%ld 픽셀\n"
 "세로:\t\t\t%ld 픽셀\n"
-"수평 해상도:\t%.1f dpi\n"
+"수평 해상도:\t\t%.1f dpi\n"
 "수직 해상도:\t\t%.1f dpi\n"
 "깊이:\t\t\t%d bit"
 
@@ -2839,6 +2839,11 @@ msgstr "각 주마다 변경된 파일 수:"
 msgid "File diffs"
 msgstr "파일 비교"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "파일 목록이 비어 있습니다"
+
 # Dlg-ID:135,
 #: ID:376
 #: Dlg-ID:135
@@ -2857,10 +2862,10 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"파일 크기:\t\t\t%s\n"
+"파일 크기:\t\t%s\n"
 "가로:\t\t\t%ld 픽셀\n"
 "세로:\t\t\t%ld 픽셀\n"
-"수평 해상도:\t%.1f dpi\n"
+"수평 해상도:\t\t%.1f dpi\n"
 "수직 해상도:\t\t%.1f dpi\n"
 "깊이:\t\t\t%d bit\n"
 "확대:\t\t\t%d%%"
@@ -3610,6 +3615,10 @@ msgstr "메일 시스템 DLL이 유효하지 않습니다."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Subversion 속성 관리"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "충돌해결상태로 표시"
 
 # ID:2051,
 #: ID:2051
@@ -6042,20 +6051,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, 빌드번호 %d -%s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, 빌드번호 %d -%s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 빌드번호 %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, 빌드번호 %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6071,14 +6080,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, 빌드번호 %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, 빌드번호 %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6088,7 +6097,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 빌드번호 %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, 빌드번호 %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6108,7 +6117,7 @@ msgstr "TortoiseSVN 추가..."
 # ID:80,
 #: ID:132
 msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN 수정한사람 보기"
+msgstr "TortoiseSVN 수정한 사람 보기"
 
 # ID:77,
 #: ID:77
@@ -6950,11 +6959,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "외부"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "파일 목록이 비어 있습니다"
 
 # ID:13,
 #: ID:13
