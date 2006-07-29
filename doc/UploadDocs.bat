@@ -28,12 +28,12 @@ if "%1"=="" (
 
 %ZIP% a -r -tzip docs.zip *
 
-%PSCP% -r -l %USERNAME% -pw %PASSWORD% docs.zip shell.sourceforge.net:/home/groups/t/to/tortoisesvn/htdocs/docs
+%PSCP% -r -l %USERNAME% -pw %PASSWORD% docs.zip www.tortoisesvn.net:/var/www/vhosts/default/htdocs/docs
 
 if "%1"=="" (
-%PLINK% shell.sourceforge.net -l %USERNAME% -pw %PASSWORD% unzip -o /home/groups/t/to/tortoisesvn/htdocs/docs/docs.zip -d /home/groups/t/to/tortoisesvn/htdocs/docs/nightly;chgrp -R tortoisesvn /home/groups/t/to/tortoisesvn/htdocs/docs/nightly/*;chmod -R g+rw /home/groups/t/to/tortoisesvn/htdocs/docs/nightly;rm -f /home/groups/t/to/tortoisesvn/htdocs/docs/docs.zip
+%PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/nightly;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
 ) else (
-%PLINK% shell.sourceforge.net -l %USERNAME% -pw %PASSWORD% unzip -o /home/groups/t/to/tortoisesvn/htdocs/docs/docs.zip -d /home/groups/t/to/tortoisesvn/htdocs/docs/release;chgrp -R tortoisesvn /home/groups/t/to/tortoisesvn/htdocs/docs/release/*;chmod -R g+rw /home/groups/t/to/tortoisesvn/htdocs/docs/release;rm -f /home/groups/t/to/tortoisesvn/htdocs/docs/docs.zip
+%PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/release;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
 )
 del docs.zip
 
