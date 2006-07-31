@@ -307,7 +307,8 @@ All user/site specific configuration is stored in doc.build.user.
 						basedir="${path.bin}"
 						resultproperty="result.hhc"
 						failonerror="false"
-						verbose="false"/>
+						verbose="false"
+						timeout="600000" />
 
 			<copy file="${doc.target.work}/htmlhelp.chm" tofile="${file.target}"/>
 		</if>
