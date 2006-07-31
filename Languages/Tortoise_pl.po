@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-26 10:26+0100\n"
+"PO-Revision-Date: 2006-07-28 18:21+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,7 +364,7 @@ msgstr "&Połącz się z repozytorium przy starcie"
 # Tłumaczenie dosłowne.
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
-msgstr "&Konwertuj pliki w trakcie porównywania z BASE"
+msgstr "&Konwertuj pliki w trakcie porównywania z BAZĄ"
 
 # ID:376,
 #: MenuEntry
@@ -374,7 +374,7 @@ msgstr "&Kopiuj"
 # ID:101,
 #: MenuEntry
 msgid "&Copy to clipboard"
-msgstr "Kopiuj do schowka"
+msgstr "&Kopiuj do schowka"
 
 # ID:101,
 #: ID:101
@@ -416,7 +416,7 @@ msgstr "&Porównaj"
 # ID:17,
 #: ID:17
 msgid "&Diff with URL"
-msgstr "Porównaj z URL"
+msgstr "&Porównaj z URL"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -480,7 +480,7 @@ msgstr "&Znajdź..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr "Zmieść obrazki w oknie"
+msgstr "&Zmieść obrazki w oknie"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -515,7 +515,7 @@ msgstr "Od w&ersji"
 
 #: MenuEntry
 msgid "&Go To Line..."
-msgstr "Idź do linii..."
+msgstr "&Idź do linii..."
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -577,7 +577,7 @@ msgstr "Ignoruj &zmiany białych spacji"
 
 #: MenuEntry
 msgid "&Image Info"
-msgstr "Informacja o obrazie"
+msgstr "&Informacja o obrazie"
 
 # ID:9,
 #: ID:9
@@ -597,11 +597,11 @@ msgstr "&Język:"
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "&Limit search to modified lines"
-msgstr "Szukaj tylko w zmienionych liniach"
+msgstr "Szukaj tylko w &zmienionych liniach"
 
 #: MenuEntry
 msgid "&Link images together"
-msgstr "Połącz obrazy"
+msgstr "&Połącz obrazy"
 
 # ID:188,
 #: Control-ID:1172
@@ -676,7 +676,7 @@ msgstr "&Otwórz Ctrl-O"
 
 #: MenuEntry
 msgid "&Overlap images"
-msgstr "Nałóż obrazy"
+msgstr "&Nałóż obrazy"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -724,7 +724,7 @@ msgstr "&Zmień nazwę"
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
-msgstr "Przeglądarka repozytorium"
+msgstr "Przeglądarka &repozytorium"
 
 # ID:113,
 #: ID:113
@@ -759,18 +759,18 @@ msgstr "&Zapisz parametry uwierzytelnienia"
 # ID:313,
 #: MenuEntry
 msgid "&Save graph as..."
-msgstr "Zapisz wykres jako..."
+msgstr "&Zapisz wykres jako..."
 
 # ID:322,
 #: ID:322
 msgid "&Save list to file"
-msgstr "Zapisz listę do pliku"
+msgstr "&Zapisz listę do pliku"
 
 # ID:101,#:
 # ID:313,
 #: Control-ID:1308
 msgid "&Save..."
-msgstr "Zapisz..."
+msgstr "&Zapisz..."
 
 # ID:9,#:
 # ID:107,
@@ -1444,7 +1444,7 @@ msgstr "Na pewno chcesz wycofać zmiany %d elementów? Oznacza to utratę <b>wsz
 
 #: MenuEntry
 msgid "Arrange &Vertical"
-msgstr "Uporządkuj pionowo"
+msgstr "Uporządkuj &pionowo"
 
 #: MenuEntry
 msgid "Arranged by &path"
@@ -1568,7 +1568,7 @@ msgstr "Adnotuj"
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
-msgstr "Tworzy raport o autorach zmian w poszczególnych liniach pliku"
+msgstr "Adnotuje - tworzy raport o autorach zmian w poszczególnych liniach pliku"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -1973,9 +1973,8 @@ msgstr "Porównaj wersje &główne (HEAD)"
 
 # ID:76,
 #: ID:114
-#, fuzzy
 msgid "Compare and &blame with working BASE"
-msgstr "Porównaj i adnotuj z &kopią roboczą"
+msgstr "Porównaj i adnotuj z &BAZĄ roboczą"
 
 # ID:76,
 #: ID:76
@@ -2870,6 +2869,11 @@ msgstr "Zmiany w plikach w każdym tygodniu:"
 msgid "File diffs"
 msgstr "Różnice pliku"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "Lista plików jest pusta"
+
 # Dlg-ID:135,
 #: ID:376
 #: Dlg-ID:135
@@ -3279,9 +3283,8 @@ msgstr "Import inicjujący"
 
 # Control-ID:1013,
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline diff"
-msgstr "&Plik różnicowy"
+msgstr "Plik różnicowy"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3652,6 +3655,10 @@ msgstr "DLL systemu pocztowego jest niepoprawny."
 msgid "Manage Subversion properties"
 msgstr "Zarządzaj właściwościami Subversion"
 
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Oznacz jako rozwiązany"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3664,7 +3671,7 @@ msgstr ""
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Match &case"
-msgstr "Uwzględniaj wielkość liter"
+msgstr "Uwzględniaj &wielkość liter"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -4082,7 +4089,7 @@ msgstr "Otwiera przeglądarkę repozytorium aby móc zarządzać repozytorium on
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr "Wielkość oryginalna"
+msgstr "Wielkość ory&ginalna"
 
 # ID:188,
 #: ID:245
@@ -5209,7 +5216,7 @@ msgstr "&Wszystkie"
 # Control-ID:1031,
 #: ID:115
 msgid "Show &Range..."
-msgstr "Pokaż zakres..."
+msgstr "Pokaż &zakres..."
 
 # ID:76,
 #: MenuEntry
@@ -6095,20 +6102,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6124,14 +6131,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6141,7 +6148,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6468,7 +6475,7 @@ msgstr "Użyj innego &bloku tekstu"
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Use &text viewer to view blames"
-msgstr "Użyj edytora &tekstu do przeglądania raportu o autorach zmian"
+msgstr "Użyj edytora &tekstu do przeglądania adnotacji"
 
 # ID:195,
 #: ID:195
@@ -6829,7 +6836,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "Zoo&m out"
-msgstr "Pomniejsz"
+msgstr "Po&mniejsz"
 
 #: MenuEntry
 msgid "Zoom &in\tCtrl-+"
@@ -6847,7 +6854,7 @@ msgstr "Powiększenie 100%"
 
 #: MenuEntry
 msgid "Zoom i&n"
-msgstr "Powiększ"
+msgstr "Po&większ"
 
 #: ID:2049
 msgid "Zoom in"
@@ -7011,11 +7018,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "zewnętrzny"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "lista plików jest pusta"
 
 # ID:13,
 #: ID:13
