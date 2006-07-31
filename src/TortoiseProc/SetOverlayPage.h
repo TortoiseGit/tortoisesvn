@@ -58,6 +58,7 @@ protected:
 private:
 	BOOL			m_bOnlyExplorer;
 	BOOL			m_bRemovable;
+	BOOL			m_bFloppy;
 	BOOL			m_bNetwork;
 	BOOL			m_bFixed;
 	BOOL			m_bCDROM;
@@ -66,6 +67,7 @@ private:
 	BOOL			m_bUnversionedAsModified;
 	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
+	CRegDWORD		m_regDriveMaskFloppy;
 	CRegDWORD		m_regDriveMaskRemote;
 	CRegDWORD		m_regDriveMaskFixed;
 	CRegDWORD		m_regDriveMaskCDROM;

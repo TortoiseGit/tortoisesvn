@@ -541,6 +541,7 @@
 #define IDS_ERR_MUSTBEURL               1314
 #define IDC_UIDIFFBUTTON                1314
 #define IDS_ERR_INVALIDREVNOWC          1315
+#define IDC_FLOPPY                      1315
 #define IDS_ERR_MERGEIDENTICALREVISIONS 1316
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
@@ -922,7 +923,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        236
 #define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1315
+#define _APS_NEXT_CONTROL_VALUE         1316
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

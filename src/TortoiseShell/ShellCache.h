@@ -49,6 +49,7 @@ public:
 		drivefixed = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
 		drivecdrom = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
+		drivefloppy = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
 		driveram = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
@@ -99,6 +100,7 @@ public:
 		drivefixed.read();
 		drivecdrom.read();
 		driveremove.read();
+		drivefloppy.read();
 		driveram.read();
 		driveunknown.read();
 		excludelist.read();
@@ -260,6 +262,8 @@ public:
 		}
 		if ((drivetype == DRIVE_REMOVABLE)&&(!IsRemovable()))
 			return FALSE;
+		if ((drivetype == DRIVE_REMOVABLE)&&(drivefloppy == 0)&&((drivenumber==0)||(drivenumber==1)))
+			return FALSE;
 		if ((drivetype == DRIVE_FIXED)&&(!IsFixed()))
 			return FALSE;
 		if (((drivetype == DRIVE_REMOTE)||(drivetype == DRIVE_NO_ROOT_DIR))&&(!IsRemote()))
@@ -363,6 +367,7 @@ private:
 			drivefixed.read();
 			drivecdrom.read();
 			driveremove.read();
+			drivefloppy.read();
 		}
 	}
 	void ExcludeListValid()
@@ -428,6 +433,7 @@ private:
 	CRegStdWORD drivefixed;
 	CRegStdWORD drivecdrom;
 	CRegStdWORD driveremove;
+	CRegStdWORD drivefloppy;
 	CRegStdWORD driveram;
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;

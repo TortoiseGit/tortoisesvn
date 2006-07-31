@@ -43,9 +43,11 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_sExcludePaths(_T(""))
 	, m_sIncludePaths(_T(""))
 	, m_bUnversionedAsModified(FALSE)
+	, m_bFloppy(FALSE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
+	m_regDriveMaskFloppy = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 	m_regDriveMaskFixed = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
 	m_regDriveMaskCDROM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
@@ -58,6 +60,7 @@ CSetOverlayPage::CSetOverlayPage()
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
+	m_bFloppy = m_regDriveMaskFloppy;
 	m_bNetwork = m_regDriveMaskRemote;
 	m_bFixed = m_regDriveMaskFixed;
 	m_bCDROM = m_regDriveMaskCDROM;
@@ -88,11 +91,13 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
 	DDX_Check(pDX, IDC_UNVERSIONEDASMODIFIED, m_bUnversionedAsModified);
+	DDX_Check(pDX, IDC_FLOPPY, m_bFloppy);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_REMOVABLE, OnChange)
+	ON_BN_CLICKED(IDC_FLOPPY, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_NETWORK, OnChange)
 	ON_BN_CLICKED(IDC_FIXED, OnChange)
 	ON_BN_CLICKED(IDC_CDROM, OnChange)
@@ -118,6 +123,9 @@ int CSetOverlayPage::SaveData()
 		m_regDriveMaskRemovable = m_bRemovable;
 		if (m_regDriveMaskRemovable.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regDriveMaskRemovable.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regDriveMaskFloppy = m_bFloppy;
+		if (m_regDriveMaskFloppy.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskFloppy.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskRemote = m_bNetwork;
 		if (m_regDriveMaskRemote.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regDriveMaskRemote.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -276,6 +284,7 @@ BOOL CSetOverlayPage::PreTranslateMessage(MSG* pMsg)
 
 void CSetOverlayPage::OnChange()
 {
+	UpdateData();
 	int id = GetCheckedRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE);
 	switch (id)
 	{
@@ -291,6 +300,7 @@ void CSetOverlayPage::OnChange()
 		break;
 	}
 	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
+	GetDlgItem(IDC_FLOPPY)->EnableWindow(m_bRemovable);
 	SetModified();
 }
 
@@ -301,6 +311,7 @@ BOOL CSetOverlayPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 
 
