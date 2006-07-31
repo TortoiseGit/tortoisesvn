@@ -2130,7 +2130,8 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetHEADPeg(m_LogRevision);
 	diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame);
-
+	if (firstfile.Compare(secondfile)==0)
+		diff.DiffProps(CTSVNPath(firstfile), rev2, rev1);
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
 }
