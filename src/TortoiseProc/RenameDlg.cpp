@@ -74,6 +74,7 @@ BOOL CRenameDlg::OnInitDialog()
 void CRenameDlg::OnOK()
 {
 	UpdateData();
+	m_name.Trim();
 	CTSVNPath path(m_name);
 	if (!path.IsValidOnWindows())
 	{
