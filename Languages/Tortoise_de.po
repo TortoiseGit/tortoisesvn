@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-07-28 09:16+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-07-31 23:26+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -595,6 +595,11 @@ msgstr "Ent&fernen"
 #: ID:101
 msgid "&Rename"
 msgstr "&Umbenennen"
+
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "Übertragen Dialog nach Fehler e&rneut öffnen"
 
 #: ID:13
 msgid "&Repo-browser"
@@ -2385,6 +2390,11 @@ msgstr ""
 msgid "Finished!"
 msgstr "Fertig!"
 
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Diskettenlaufwerke (A: B:)"
+
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -2579,6 +2589,16 @@ msgstr ""
 "Aktivieren Sie diese Option, damit TortoiseSVN für den Vergleich\n"
 "eine temporäre BASE Datei erzeugt, in der die Schlüsselwörter\n"
 "expandiert und die Zeilenenden angepasst sind."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Aktivieren Sie diese Option, damit der Übertragen Dialog nach einem Fehler\n"
+"automatisch wieder geöffnet wird. Ihre letzte Auswahl sowie die Logmeldung\n"
+"werden beibehalten."
 
 #: ID:195
 msgid ""
