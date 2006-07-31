@@ -972,6 +972,138 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	}
 }
 
+void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bool bShowFolders /* = true */)
+{
+	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+
+	CWinApp * pApp = AfxGetApp();
+	if (pApp)
+		pApp->DoWaitCursor(1);
+	m_dwShow = dwShow;
+	m_bShowFolders = bShowFolders;
+	m_nSelected = 0;
+	int nTopIndex = GetTopIndex();
+	POSITION posSelectedEntry = GetFirstSelectedItemPosition();
+	int nSelectedEntry = 0;
+	if (posSelectedEntry)
+		nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
+	SetRedraw(FALSE);
+	DeleteAllItems();
+
+	m_arListArray.clear();
+
+	m_arListArray.reserve(m_arStatusArray.size());
+	SetItemCount(m_arStatusArray.size());
+
+	int listIndex = 0;
+	for (size_t i=0; i < m_arStatusArray.size(); ++i)
+	{
+		FileEntry * entry = m_arStatusArray[i];
+		if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+			continue;
+		if ((entry->differentrepo || entry->isNested) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+			continue;
+		if (entry->IsFolder() && (!bShowFolders))
+			continue;	// don't show folders if they're not wanted.
+		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
+		if (entry->IsLocked())
+			showFlags |= SVNSLC_SHOWLOCKS;
+
+		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
+		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
+		{
+			for (int npath = 0; npath < checkedList.GetCount(); ++npath)
+			{
+				if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
+				{
+					entry->checked = true;
+					break;
+				}
+			}
+			if ((!entry->IsFolder()) && (status == svn_wc_status_deleted) && (dwShow & SVNSLC_SHOWREMOVEDANDPRESENT))
+			{
+				if (PathFileExists(entry->GetPath().GetWinPath()))
+				{
+					m_arListArray.push_back(i);
+					AddEntry(entry, langID, listIndex++);
+				}
+			}
+			else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFILES)&&(entry->direct)&&(!entry->IsFolder())))
+			{
+				m_arListArray.push_back(i);
+				AddEntry(entry, langID, listIndex++);
+			}
+			else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFOLDER)&&(entry->direct)&&entry->IsFolder()))
+			{
+				m_arListArray.push_back(i);
+				AddEntry(entry, langID, listIndex++);
+			}
+			else if (entry->switched)
+			{
+				m_arListArray.push_back(i);
+				AddEntry(entry, langID, listIndex++);
+			}
+		}
+	}
+
+	SetItemCount(listIndex);
+
+	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = 0; col <= maxcol; col++)
+	{
+		if (m_arColumnWidths[col] == 0)
+			SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+		else
+			SetColumnWidth(col, m_arColumnWidths[col]);
+	}
+	SetRedraw(TRUE);
+	GetStatisticsString();
+
+	CHeaderCtrl * pHeader = GetHeaderCtrl();
+	HDITEM HeaderItem = {0};
+	HeaderItem.mask = HDI_FORMAT;
+	for (int i=0; i<pHeader->GetItemCount(); ++i)
+	{
+		pHeader->GetItem(i, &HeaderItem);
+		HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+		pHeader->SetItem(i, &HeaderItem);
+	}
+	if (m_nSortedColumn)
+	{
+		pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+		HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+		pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+	}
+
+	if (nSelectedEntry)
+	{
+		SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
+		EnsureVisible(nSelectedEntry, false);
+	}
+	else
+	{
+		// Restore the item at the top of the list.
+		for (int i=0;GetTopIndex() != nTopIndex;i++)
+		{
+			if ( !EnsureVisible(nTopIndex+i,false) )
+			{
+				break;
+			}
+		}
+	}
+
+	if (pApp)
+		pApp->DoWaitCursor(-1);
+
+	if(GetItemCount() == 0)
+	{
+		m_bEmpty = true;
+		Invalidate();
+	}
+}
+
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 {
 	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));

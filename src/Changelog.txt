@@ -175,6 +175,9 @@
        as arguments. (Tobias Schäfer)
 - NEW: The floppy drives can be excluded from showing the overlays
        separately. See issue #269 for details. (Stefan)
+- NEW: If a commit fails with an error, the commit dialog re-opens again
+       with the same files checked as before. 
+       See issue #97 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

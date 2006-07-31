@@ -85,6 +85,7 @@ protected:
 
 public:
 	CTSVNPathList		m_pathList;
+	CTSVNPathList		m_checkedPathList;
 	BOOL				m_bRecursive;
 	CSciEdit			m_cLogMessage;
 	CString				m_sLogMessage;

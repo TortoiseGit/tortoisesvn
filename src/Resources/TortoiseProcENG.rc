@@ -907,20 +907,22 @@ BEGIN
     GROUPBOX        "Status",IDC_STATIC,7,7,286,32
     CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,21,269,10
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,81
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,94
     CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,57,271,10
     LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,74,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,72,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,90,271,10
-    GROUPBOX        "Check for modifications",IDC_STATIC,7,132,286,32
+    GROUPBOX        "Check for modifications",IDC_STATIC,7,142,286,32
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,146,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,156,271,10
     LTEXT           "Max. items to keep in the log message history",IDC_STATIC,15,107,226,8
     EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
-    GROUPBOX        "Repository browser",IDC_STATIC,7,169,286,30
-    CONTROL         "Sort items numerically",IDC_SORTNUMERICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,182,237,10
+    GROUPBOX        "Repository browser",IDC_STATIC,7,179,286,30
+    CONTROL         "Sort items numerically",IDC_SORTNUMERICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,192,237,10
+    CONTROL         "&Reopen commit dialog after a commit failed",IDC_REOPENCOMMIT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,121,237,10
 END
 
 IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
@@ -2376,6 +2378,8 @@ BEGIN
                             "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
     IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT 
                             "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
+    IDS_SETTINGS_COMMITREOPEN_TT 
+                            "If checked, the commit dialog will be started again automatically after an error,\nwhile preserving your last selection and log message."
 END
 
 STRINGTABLE 

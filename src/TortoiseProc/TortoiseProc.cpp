@@ -698,51 +698,66 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region commit
 		if (command == cmdCommit)
 		{
-			CLogPromptDlg dlg;
-			if (parser.HasKey(_T("logmsg")))
+			bool bFailed = true;
+			CTSVNPathList selectedList;
+			CString sLogMsg;
+			while (bFailed)
 			{
-				dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
-			}
-			if (parser.HasKey(_T("logmsgfile")))
-			{
-				CString logmsgfile = parser.GetVal(_T("logmsgfile"));
-				if (PathFileExists(logmsgfile))
+				bFailed = false;
+				CLogPromptDlg dlg;
+				if (parser.HasKey(_T("logmsg")))
 				{
-					try
+					dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
+				}
+				if (parser.HasKey(_T("logmsgfile")))
+				{
+					CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+					if (PathFileExists(logmsgfile))
 					{
-						CStdioFile msgfile;
-						if (msgfile.Open(logmsgfile, CFile::modeRead))
+						try
 						{
-							CStringA filecontent;
-							int filelength = (int)msgfile.GetLength();
-							int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
-							filecontent.ReleaseBuffer(bytesread);
-							dlg.m_sLogMessage = CUnicodeUtils::GetUnicode(filecontent);
-							msgfile.Close();
+							CStdioFile msgfile;
+							if (msgfile.Open(logmsgfile, CFile::modeRead))
+							{
+								CStringA filecontent;
+								int filelength = (int)msgfile.GetLength();
+								int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
+								filecontent.ReleaseBuffer(bytesread);
+								dlg.m_sLogMessage = CUnicodeUtils::GetUnicode(filecontent);
+								msgfile.Close();
+							}
+						} 
+						catch (CFileException* /*pE*/)
+						{
+							dlg.m_sLogMessage.Empty();
 						}
-					} 
-					catch (CFileException* /*pE*/)
-					{
-						dlg.m_sLogMessage.Empty();
 					}
 				}
-			}
-			if (parser.HasKey(_T("bugid")))
-			{
-				dlg.m_sBugID = parser.GetVal(_T("bugid"));
-			}
-			dlg.m_pathList = pathList;
-			if (dlg.DoModal() == IDOK)
-			{
-				if (dlg.m_pathList.GetCount()==0)
-					return FALSE;
-				CSVNProgressDlg progDlg;
-				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
-				progDlg.DoModal();
-				CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
-				err = (DWORD)progDlg.DidErrorsOccur();
+				if (parser.HasKey(_T("bugid")))
+				{
+					dlg.m_sBugID = parser.GetVal(_T("bugid"));
+				}
+				if (!sLogMsg.IsEmpty())
+					dlg.m_sLogMessage = sLogMsg;
+				dlg.m_pathList = pathList;
+				dlg.m_checkedPathList = selectedList;
+				if (dlg.DoModal() == IDOK)
+				{
+					if (dlg.m_pathList.GetCount()==0)
+						return FALSE;
+					selectedList = dlg.m_pathList;
+					sLogMsg = dlg.m_sLogMessage;
+					CSVNProgressDlg progDlg;
+					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+					progDlg.SetParams(CSVNProgressDlg::Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
+					progDlg.DoModal();
+					CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+					err = (DWORD)progDlg.DidErrorsOccur();
+					bFailed = progDlg.DidErrorsOccur();
+					CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+					if (DWORD(bFailRepeat)==0)
+						bFailed = false;		// do not repeat if the user chose not to in the settings.
+				}
 			}
 		}
 		//#endregion

@@ -273,6 +273,7 @@ public:
 	 * \param dwCheck mask of file types to check. Use SVNLC_SHOWxxx defines. Default (0) means 'use the entry's stored check status'
 	 */
 	void Show(DWORD dwShow, DWORD dwCheck = 0, bool bShowFolders = true);
+	void Show(DWORD dwShow, const CTSVNPathList& checkedList, bool bShowFolders = true);
 
 	/**
 	 * Copies the selected entries in the control to the clipboard. The entries

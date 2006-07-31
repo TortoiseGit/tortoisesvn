@@ -81,13 +81,16 @@ protected:
 	 */
 	BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
 	{
+		CWnd * pwndDlgItem = GetDlgItem(nID);
+		if (pwndDlgItem == NULL)
+			return FALSE;
 		if (bEnable)
-			return GetDlgItem(nID)->EnableWindow(bEnable);
-		if (GetFocus() == GetDlgItem(nID))
+			return pwndDlgItem->EnableWindow(bEnable);
+		if (GetFocus() == pwndDlgItem)
 		{
 			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
 		}
-		return GetDlgItem(nID)->EnableWindow(bEnable);
+		return pwndDlgItem->EnableWindow(bEnable);
 	}
 private:
 	HCURSOR OnQueryDragIcon()

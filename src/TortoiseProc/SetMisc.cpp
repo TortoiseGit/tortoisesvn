@@ -35,6 +35,7 @@ CSetMisc::CSetMisc()
 	, m_bCheckRepo(FALSE)
 	, m_dwMaxHistory(25)
 	, m_bSortNumerical(FALSE)
+	, m_bCommitReopen(FALSE)
 {
 	m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
 	m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
@@ -50,6 +51,8 @@ CSetMisc::CSetMisc()
 	m_dwMaxHistory = (DWORD)m_regMaxHistory;
 	m_regSortNumerical = CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), TRUE);
 	m_bSortNumerical = (BOOL)(DWORD)m_regSortNumerical;
+	m_regCommitReopen = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+	m_bCommitReopen = (BOOL)(DWORD)m_regCommitReopen;
 }
 
 CSetMisc::~CSetMisc()
@@ -79,6 +82,9 @@ int CSetMisc::SaveData()
 	m_regSortNumerical = m_bSortNumerical;
 	if (m_regSortNumerical.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regSortNumerical.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regCommitReopen = m_bCommitReopen;
+	if (m_regCommitReopen.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regCommitReopen.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	return 0;
 }
 
@@ -94,6 +100,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MAXHISTORY, m_dwMaxHistory);
 	DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
 	DDX_Check(pDX, IDC_SORTNUMERICAL, m_bSortNumerical);
+	DDX_Check(pDX, IDC_REOPENCOMMIT, m_bCommitReopen);
 }
 
 
@@ -104,6 +111,7 @@ BEGIN_MESSAGE_MAP(CSetMisc, CPropertyPage)
 	ON_EN_CHANGE(IDC_MAXHISTORY, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_SPELL, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_REPOCHECK, &CSetMisc::OnChanged)
+	ON_BN_CLICKED(IDC_REOPENCOMMIT, &CSetMisc::OnChanged)
 END_MESSAGE_MAP()
 
 
@@ -123,6 +131,7 @@ BOOL CSetMisc::OnInitDialog()
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUT, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUTLABEL, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
 	m_tooltips.AddTool(IDC_SPELL, IDS_SETTINGS_SPELLCHECKER_TT);
+	m_tooltips.AddTool(IDC_REOPENCOMMIT, IDS_SETTINGS_COMMITREOPEN_TT);
 	m_tooltips.AddTool(IDC_REPOCHECK, IDS_SETTINGS_REPOCHECK_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
 
