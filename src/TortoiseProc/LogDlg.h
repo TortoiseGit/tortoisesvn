@@ -128,7 +128,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	void	FillLogMessageCtrl(bool bShow = true);
-	void	DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame);
+	void	DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified);
 
 	DECLARE_MESSAGE_MAP()
 public:

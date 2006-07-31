@@ -1455,6 +1455,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEDIFF, temp);
 					popup.SetDefaultItem(ID_DIFF, FALSE);
+					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 					bEntryAdded = true;
 				}
 				if (rev2 == rev1-1)
@@ -1485,12 +1487,17 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 				case ID_DIFF:
 					{
-						DoDiffFromLog(selIndex, rev1, rev2, false);
+						DoDiffFromLog(selIndex, rev1, rev2, false, false);
 					}
 					break;
 				case ID_BLAMEDIFF:
 					{
-						DoDiffFromLog(selIndex, rev1, rev2, true);
+						DoDiffFromLog(selIndex, rev1, rev2, true, false);
+					}
+					break;
+				case ID_GNUDIFF1:
+					{
+						DoDiffFromLog(selIndex, rev1, rev2, false, true);
 					}
 					break;
 				case ID_REVERTREV:
@@ -2045,7 +2052,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		if (pLogEntry)
 			rev2 = pLogEntry->dwRev;
-		DoDiffFromLog(selIndex, rev1, rev2, false);
+		DoDiffFromLog(selIndex, rev1, rev2, false, false);
 	}
 	else
 	{
@@ -2070,12 +2077,12 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 		if (DiffPossible(changedpath, rev1))
 		{
-			DoDiffFromLog(selIndex, rev1, rev2, false);
+			DoDiffFromLog(selIndex, rev1, rev2, false, false);
 		}
 	}
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame)
+void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified)
 {
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
@@ -2129,9 +2136,14 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetHEADPeg(m_LogRevision);
-	diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame);
-	if (firstfile.Compare(secondfile)==0)
-		diff.DiffProps(CTSVNPath(firstfile), rev2, rev1);
+	if (unified)
+		diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
+	else
+	{
+		diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame);
+		if (firstfile.Compare(secondfile)==0)
+			diff.DiffProps(CTSVNPath(firstfile), rev2, rev1);
+	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
 }
