@@ -615,6 +615,61 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 	SVNProperties propswc(filePath, rev1);
 	SVNProperties propsbase(filePath, rev2);
 
+	// check for properties that got removed
+	for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
+	{
+		stdstring basename = propsbase.GetItemName(baseindex);
+		stdstring basevalue = CUnicodeUtils::StdGetUnicode((char *)propsbase.GetItemValue(baseindex).c_str());
+		bool bFound = false;
+		for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
+		{
+			if (basename.compare(propswc.GetItemName(wcindex))==0)
+			{
+				bFound = true;
+				break;
+			}
+		}
+		if (!bFound)
+		{
+			// write the old property value to temporary file
+			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
+			FILE * pFile;
+			_tfopen_s(&pFile, wcpropfile.GetWinPath(), _T("wb"));
+			if (pFile)
+			{
+				fclose(pFile);
+				FILE * pFile;
+				_tfopen_s(&pFile, basepropfile.GetWinPath(), _T("wb"));
+				if (pFile)
+				{
+					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);
+					fclose(pFile);
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+			SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+			SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+			CString n1, n2;
+			if (rev1.IsWorking())
+				n1.Format(IDS_DIFF_WCNAME, basename.c_str());
+			if (rev1.IsBase())
+				n1.Format(IDS_DIFF_BASENAME, basename.c_str());
+			if (rev1.IsHead())
+				n1.Format(IDS_DIFF_REMOTENAME, basename.c_str());
+			if (rev2.IsWorking())
+				n2.Format(IDS_DIFF_WCNAME, basename.c_str());
+			if (rev2.IsBase())
+				n2.Format(IDS_DIFF_BASENAME, basename.c_str());
+			if (rev2.IsHead())
+				n2.Format(IDS_DIFF_REMOTENAME, basename.c_str());
+			retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+		}
+	}
+
 	for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
 	{
 		stdstring wcname = propswc.GetItemName(wcindex);
