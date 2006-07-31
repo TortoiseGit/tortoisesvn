@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2006-07-06 23:34+0900\n"
+"PO-Revision-Date: 2006-07-13 16:55+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgstr "表示・マージ"
 
 #: source/TortoiseMerge_en.xml:305(para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view. You can switch between those two views with the menu command <menuchoice><guimenu>View</guimenu><guimenuitem>Oneway Diff</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "比較・マージを行う際には、<literal>Base</literal>, <literal>Mine</literal>, <literal>Theirs</literal> の 3 つのうち、少なくとも 2 つ以上パスを設定しなければなりません。2 つだけファイルを指定すると、TortoiseMerge は、その 2 つのファイルの差分を 2 画面か 1 画面のどちらかで表示します。この表示は<menuchoice><guimenu>表示</guimenu><guimenuitem>Oneway Diff</guimenuitem></menuchoice> で切り換えられます。"
 
 #: source/TortoiseMerge_en.xml:319(title)
 msgid "One Pane View"
@@ -235,23 +235,23 @@ msgstr "2 画面表示"
 
 #: source/TortoiseMerge_en.xml:331(para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
-msgstr ""
+msgstr "変更があった行の変更点を、色を変えて表示します。文字列が追加された部分は明るい色になります (もちろんここで使用する色は設定できます)。削除された部分は暗い茶色で文字列に縦線が入ります。どのように動作するかは、上記のスクリーンショットを確認してください。"
 
 #: source/TortoiseMerge_en.xml:341(para)
 msgid "Code reorganization usually means a lot of changes in whitespaces (space, tab, newlines) but no actual code change. For example, you split up a very long line into several lines, or you sometimes compact several lines together into one."
-msgstr ""
+msgstr "コードの再編成をすると、ホワイトスペース (空白、タブ、改行) に大量に変更があっても、実際のコードには変更がないことがあります。例えば、非常に長い行を数行に分割したり、短い複数の行をひとつにまとめたり、といったことです。"
 
 #: source/TortoiseMerge_en.xml:340(listitem)
 msgid "<placeholder-1/> Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> そう言った変更は、表示の左側に白円で表します。そういった白円がある場合には、そこの実際のコードには変更がなく、変更箇所のチェックを行う必要がないことがすぐにわかります。<placeholder-2/>"
 
 #: source/TortoiseMerge_en.xml:326(para)
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
-msgstr ""
+msgstr "2 画面表示には、1画面表示にはない以下の特徴があります。<placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:356(para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
-msgstr ""
+msgstr "3 ファイルを比較・マージする場合、TortoiseMerge は 3 画面で差分を表示します。ファイルの衝突を解消する必要があるときにも便利です。"
 
 #: source/TortoiseMerge_en.xml:362(title)
 msgid "Three Pane View"
@@ -319,7 +319,7 @@ msgstr "<guibutton>保存</guibutton> 変更点を保存します。設定ダイ
 
 #: source/TortoiseMerge_en.xml:481(para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
-msgstr ""
+msgstr "<guibutton>再読み込み</guibutton> 変更を取り消し、元のファイルを読み込みます。"
 
 #: source/TortoiseMerge_en.xml:488(para)
 msgid "<guibutton>Undo</guibutton> This feature is not enabled yet."
