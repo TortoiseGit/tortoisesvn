@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-25 11:33+0800\n"
+"PO-Revision-Date: 2006-08-01 09:30+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -714,6 +714,11 @@ msgstr "移除(&R)"
 #: ID:101
 msgid "&Rename"
 msgstr "重新命名(&R)"
+
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "送交失敗後重新顯示送交視窗(&R)"
 
 # ID:13,
 #: ID:13
@@ -2847,6 +2852,11 @@ msgstr "每週檔案變更:"
 msgid "File diffs"
 msgstr "檔案差異"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "檔案列表是空的"
+
 # Dlg-ID:135,
 #: ID:376
 #: Dlg-ID:135
@@ -2890,6 +2900,11 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "完成!"
+
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "軟式磁碟機 (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -3110,6 +3125,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "勾選此選項時, TortoiseSVN 會建立工作基礎版本的暫存檔與展開關鍵字以及調整換行的版本進行差異比對."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\n"
+"並保留先前的選項與送交訊息."
 
 # ID:195,
 #: ID:195
@@ -3622,6 +3646,10 @@ msgstr "郵件系統 DLL 錯誤."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 性質"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "標記為已解決"
 
 # ID:2051,
 #: ID:2051
@@ -6050,20 +6078,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, 組建 %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, 組建 %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 組建 %d -%s\r\n"
+"TortoiseMerge %d.%d.%d, 組建 %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6079,14 +6107,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6096,7 +6124,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 組建 %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, 組建 %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6962,11 +6990,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "外部"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "檔案列表是空的"
 
 # ID:13,
 #: ID:13
