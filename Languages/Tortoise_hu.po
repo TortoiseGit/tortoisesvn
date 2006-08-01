@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-25 18:50+0100\n"
+"PO-Revision-Date: 2006-08-01 23:03+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -712,6 +712,11 @@ msgstr "&Töröl"
 #: ID:101
 msgid "&Rename"
 msgstr "&Átnevez"
+
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "Beküldő ablak &újra megnyitása sikertelen beküldés esetén"
 
 # ID:13,
 #: ID:13
@@ -2836,6 +2841,11 @@ msgstr "Minden héten változó fájl:"
 msgid "File diffs"
 msgstr "Fájlfoltok"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "A fájllista üres"
+
 # ID:376,#:
 # Dlg-ID:135,
 #: ID:376
@@ -2880,6 +2890,11 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "Befejezve!"
+
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Hajlékonylemez-meghajtók (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -3100,6 +3115,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Ha be van pipálva, a TortoiseSVN egy ideiglenes fájlt hoz létre az ALAP-ból a foltfájlnak a kulcsszavak kiterjesztésével és a sorvégek belefoglalásával."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Ha ba van kapcsolva, akkor a beküldő ablak hiba és/vagy sikertelen\n"
+"beküldés esetén újra megnyílik, megőrzive a beállításokat."
 
 # ID:195,
 #: ID:195
@@ -3613,6 +3637,10 @@ msgstr "A levelezőrendszer DLL-je rossz."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Subversion tulajdonságok változtatása"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Megoldottnak jelöl"
 
 # ID:2051,
 #: ID:2051
@@ -6056,20 +6084,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6086,14 +6114,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6103,7 +6131,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6957,11 +6985,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "külső"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "a fájllista üres"
 
 # ID:13,
 #: ID:13
