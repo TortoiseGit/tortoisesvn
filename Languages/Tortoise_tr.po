@@ -4,7 +4,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7161)
+# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7174)
 #
 # Authors:
 #
@@ -14,7 +14,7 @@
 #  - v7154'den itibaren, arabirim calisirken kontrol edildi, bazi hatali tercumeler duzeltildi ve yeni duzenlemeler oldu.
 #
 # Su anki versiyon:
-# (v7161)
+# (v7174)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -42,12 +42,13 @@
 # Issue - problem
 # Author - Yaratici
 # Link - Birbirine baglamak
+# ReOpen - tekrar ac
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-07-31 14:41+0300\n"
+"PO-Revision-Date: 2006-08-03 01:49+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -751,6 +752,11 @@ msgstr "&Sil"
 #: ID:101
 msgid "&Rename"
 msgstr "&Yeniden adlandır"
+
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "Teslim diyalogu başarısız olduğunda teslim diyalogunu &tekrar aç."
 
 # ID:13,
 #: ID:13
@@ -3151,6 +3157,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "İşaretlendiğinde, TortoiseSVN karşılaştırma için taban dosyasının anahtar kelimeleri anlamları ile değiştirilmiş ve satır sonları ayarlanmiş geçici bir kopyasını oluşturur."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"İşaretlendiğinde, hata oluştuğu zaman son seçimleriniz ve Günlük mesajınız \n"
+"kaybedilmeden teslim diyalogu tekrar başlatılır."
 
 # ID:195,
 #: ID:195
