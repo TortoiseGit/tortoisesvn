@@ -1768,9 +1768,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						bool bEntryAdded = false;
 						if (entry->remotestatus <= svn_wc_status_normal)
 						{
-							if ((wcStatus > svn_wc_status_normal)
-								&&(!((wcStatus == svn_wc_status_added)&&(!entry->copied)))
-								&&(wcStatus != svn_wc_status_missing))
+							if (wcStatus > svn_wc_status_normal)
 							{
 								if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 								{
