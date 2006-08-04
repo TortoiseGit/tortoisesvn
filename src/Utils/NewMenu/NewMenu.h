@@ -65,6 +65,8 @@
 #define MFT_ROUND       0x0020
 #define MFT_CENTER      0x0040
 
+#if _MSC_VER < 1400
+
 // Typedefinition for compatibility to MFC 7.0
 #ifndef DWORD_PTR
 typedef DWORD DWORD_PTR, *PDWORD_PTR;
@@ -76,6 +78,8 @@ typedef unsigned long ULONG_PTR, *PULONG_PTR;
 
 #ifndef LONG_PTR
 typedef long LONG_PTR, *PLONG_PTR;
+#endif
+
 #endif
 
 // Additional flagdefinition for highlighting
