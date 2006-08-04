@@ -92,7 +92,7 @@ function print_table_header($name, $summary, $postat, $vars)
 <th colspan="2" class="trans">(<?php echo $postat[1] ?>) Complete</th>
 <th class="graph">Graph</th>
 <th class="download">Download .po file</th>
-<th class="download">Last update</th>
+<th colspan="2" class="download">Last update</th>
 </tr>
 <?php
 }
@@ -195,12 +195,12 @@ function print_content_stat($i, $postat, $vars)
   echo "<img src=\"siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
   echo "</td>";
   echo "<td class=\"download\"><a href=\"$reposurl\">$reposfile</a></td>";
-
-  $title = "Old translation. Last update on: ".$fdate." We need a maintainer!!";
+  echo "<td class=\"lang\">$fdate</td>";
   if ($age>90) {
-    echo "<td class=\"lang\" align=\"center\"><b><img src=\"siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></b></td>";
+    $title = "Old translation. Last update on: ".$fdate." We need a maintainer!!";
+    echo "<td><img src=\"siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></td>";
   } else {
-    echo "<td class=\"lang\">$fdate</td>";
+    echo "<td>&nbsp;</td>";
   }
 }
 
