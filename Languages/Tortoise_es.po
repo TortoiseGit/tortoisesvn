@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-25 00:22+0100\n"
+"PO-Revision-Date: 2006-08-04 12:27+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -394,8 +394,8 @@ msgid "&Exit"
 msgstr "&Salir"
 
 #: ID:323
-msgid "&Export to..."
-msgstr "E&xportar a..."
+msgid "&Export selection to..."
+msgstr "E&xportar selección a..."
 
 #: Control-ID:1092
 #: Control-ID:1095
@@ -613,6 +613,11 @@ msgstr "&Eliminar"
 msgid "&Rename"
 msgstr "&Renombrar"
 
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Reabrir el diálogo de confirmación después de una confirmación fallida"
+
 #: ID:13
 msgid "&Repo-browser"
 msgstr "&Navegador de repositorios"
@@ -645,8 +650,8 @@ msgstr "&Guardar gráfico como..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Grabar lista a fichero"
+msgid "&Save list of selected files to..."
+msgstr "&Grabar lista de ficheros seleccionados a..."
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -2433,6 +2438,11 @@ msgstr "Cambios en ficheros cada semana:"
 msgid "File diffs"
 msgstr "Diferencias de ficheros"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "la lista de ficheros está vacía"
+
 #: ID:376
 #: Dlg-ID:135
 msgid "File patches"
@@ -2473,6 +2483,11 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "¡Terminado!"
+
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Unidades de disco flexible (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -2672,6 +2687,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Si está marcada, TortoiseSVN creará un fichero temporal del BASE para hacer las diferencias con las palabras clave expandidas y los finales de línea ajustados."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Si se marca, el diálogo de confirmación se iniciará de nuevo automáticamente después de un error,\n"
+"a la vez que preserva su última selección y el mensaje de registro."
 
 # ID:195,
 #: ID:195
@@ -3144,6 +3168,10 @@ msgstr "La DLL del sistema de correo no es válida."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Administrar las propiedades de Subversion"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Marcar como resuelto"
 
 # ID:2051,
 #: ID:2051
@@ -5239,20 +5267,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5266,14 +5294,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5283,7 +5311,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6042,11 +6070,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "externo"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "la lista de ficheros está vacía"
 
 #: ID:13
 msgid "ignored"
