@@ -24,7 +24,7 @@
 
 // CNewPropertyPage dialog
 
-class CNewPropertyPage : public CNewFrame<CPropertyPage>
+class GUILIBDLLEXPORT CNewPropertyPage : public CNewFrame<CPropertyPage>
 {
   DECLARE_DYNAMIC(CNewPropertyPage)
     
@@ -49,7 +49,7 @@ protected:
   DECLARE_MESSAGE_MAP()
 };
 
-class CNewPropertySheet : public CNewFrame<CPropertySheet>
+class GUILIBDLLEXPORT CNewPropertySheet : public CNewFrame<CPropertySheet>
 {
   DECLARE_DYNAMIC(CNewPropertySheet)
     
@@ -71,6 +71,11 @@ public:
 public:
     // Overridables (special message map entries)
   virtual BOOL OnInitDialog();
+
+  // Jan-18-2005 - Mark P. Peterson - mpp@rhinosoft.com - http://www.RhinoSoft.com/
+  // added these calls to return the correct pointer, assuming all pages are derived from CNewPropertyPage
+  CNewPropertyPage* GetActivePage() const				{ return ((CNewPropertyPage *) CPropertySheet::GetActivePage()); }
+  CNewPropertyPage* GetPage(int nPage) const			{ return ((CNewPropertyPage *) CPropertySheet::GetPage(nPage)); }
 
 protected:
   DECLARE_MESSAGE_MAP()

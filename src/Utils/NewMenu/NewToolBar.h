@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // File    : NewToolBar.h 
-// Version : 1.11
-// Date    : 6. February 2004
+// Version : 1.18
+// Date    : 25. June 2005
 // Author  : Bruno Podetti
 // Email   : Podetti@gmx.net
 // Web     : www.podetti.com/NewMenu 
@@ -22,7 +22,7 @@
 
 #pragma once 
 
-class CNewToolBar : public CToolBar
+class GUILIBDLLEXPORT CNewToolBar : public CToolBar
 {
   DECLARE_DYNAMIC(CNewToolBar)
 
@@ -40,11 +40,15 @@ public:
   BOOL LoadHiColor(LPCTSTR lpszResourceName,COLORREF transparentColor=CLR_DEFAULT);
 
   bool InsertControl (int nIndex, CWnd* pControl, DWORD_PTR dwData=NULL);
-  
+
+  // Change the toolbar button to a menu button
   bool SetMenuButton (int nIndex);
   bool SetMenuButtonID(UINT nCommandID);
 
+  // show the menu near the toolbar button
   void TrackPopupMenu (UINT nID, CMenu* pMenu);
+
+  CSize GetImageSize(){ return (m_sizeImage); }
 
 public:
   // virtual
@@ -61,6 +65,9 @@ public:
   // overwritten from baseclass not virtual
   void EraseNonClient();
 
+  COLORREF SetTansparentColor(COLORREF transparentColor);
+  COLORREF GetTansparentColor();
+
 protected:
 
   afx_msg void OnNcPaint();
@@ -69,22 +76,43 @@ protected:
   afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
   afx_msg void OnPaint();
 
+  afx_msg LRESULT OnAddBitmap(WPARAM wParam, LPARAM lParam);
+  afx_msg LRESULT OnReplaceBitmap(WPARAM wParam, LPARAM lParam);
+
+  //afx_msg  LRESULT OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam);
+
   DECLARE_MESSAGE_MAP()
 
 protected:
   void PaintToolBarBackGnd(CDC* pDC);
-  void PaintCorner(CDC *pDC, LPCRECT pRect, COLORREF color);
   void PaintOrangeState(CDC *pDC, CRect rc, bool bHot);
 
   void PaintTBButton(LPNMTBCUSTOMDRAW pInfo);
   BOOL PaintHotButton(LPNMTBCUSTOMDRAW lpNMCustomDraw); 
 
+  // Jan-12-2005 - Mark P. Peterson - mpp@rhinosoft.com - http://www.RhinoSoft.com/
+  // added AddGloomIcon() and BuildGloomImageList() adding support for toolbar glooming
+  int AddGloomIcon(HICON hIcon, int nIndex = -1);
+  void BuildGloomImageList();
+
+protected:
+  BOOL OnMenuInput(MSG msg);
+
+  static CNewToolBar* g_pNewToolBar;
+  static HHOOK g_hMsgHook;
+  static LRESULT CALLBACK MenuInputFilter(int code, WPARAM wParam, LPARAM lParam);
+
 private:
+  int m_ActMenuIndex;
   CImageList m_ImageList;
+  // Jan-12-2005 - Mark P. Peterson - mpp@rhinosoft.com - http://www.RhinoSoft.com/
+  // added the gloom image list for support for toolbar glooming
+  CImageList m_GloomImageList;
   CImageList m_ImageListDisabled;
   CMenu* m_pCustomizeMenu;
   DWORD m_DoCheck;
+
+  COLORREF m_transparentColor;
 };
 
-#endif //__CNewToolBar_H_
-
+#endif //__CNewToolBar_H_ 

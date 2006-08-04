@@ -15,7 +15,7 @@
 // - Intalled service packs
 // - Version of internet explorer (important for CNewToolBar)
 // - Short description how to reproduce the bug
-// - Pictures/Sample are wellcome too
+// - Pictures/Sample are welcome too
 // - You can write in English or German to the above email-address.
 // - Have my compiled examples the same effect?
 //------------------------------------------------------------------------------

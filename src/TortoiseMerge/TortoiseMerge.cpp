@@ -188,7 +188,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(_T("minename")));
 	pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(_T("merged")));
 	pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(_T("mergedname")));
-	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
+	pFrame->m_Data.m_sPatchPath = parser.HasVal(_T("patchpath")) ? parser.GetVal(_T("patchpath")) : _T("");
 	pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
 	if (parser.HasKey(_T("patchoriginal")))
 		pFrame->m_Data.m_sPatchOriginal = parser.GetVal(_T("patchoriginal"));

@@ -42,8 +42,14 @@
 #include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
-#define USE_NEW_DOCK_BAR 
+// Enable new Toolbar support
+#define USE_NEW_DOCK_BAR
+// Enable new menubar support
+#define USE_NEW_MENU_BAR
 #include "NewMenu.h"
+#include "NewToolbar.h"
+#include "NewMenuBar.h"
+
 #include <afxdlgs.h>
 #include <afxctl.h>
 

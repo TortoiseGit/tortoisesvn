@@ -153,6 +153,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//}
 	m_wndLocatorBar.m_pMainFrm = this;
 	m_wndLineDiffBar.m_pMainFrm = this;
+	m_DefaultNewMenu.SetMenuDrawMode(CNewMenu::STYLE_XP);
 	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
 	m_DefaultNewMenu.SetXpBlending();
 	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
