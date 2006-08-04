@@ -141,8 +141,8 @@ function print_content_stat($i, $postat, $vars)
   $acc=$postat[5];
   $reposfile=$postat[6].'.po';
   $reposurl=$vars['reposurl'].$reposfile;
-  $fdate=date("Y-m-d",$postat[7]);
-  $age=(strtotime("now") - $postat[7]) / 86400;
+  $fdate=$postat[7];
+  $age=(strtotime("now") - strtotime($postat[7])) / 86400;
   $lang=$postat[10];
 
   $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$lang.".exe".$vars['downloadurl2'];
