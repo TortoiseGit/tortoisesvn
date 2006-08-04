@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-07-28 15:54+0100\n"
+"PO-Revision-Date: 2006-08-04 10:42+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -985,7 +985,7 @@ msgstr "Annotieren"
 #: source/TortoiseMerge_en.xml:1107
 #: (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
 
 #: source/TortoiseMerge_en.xml:1117
 #: (glossterm)
@@ -1005,7 +1005,7 @@ msgstr "Verzweigen"
 #: source/TortoiseMerge_en.xml:1128
 #: (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "Ein Begriff der häufig in Versionskontrollsystemen verwendet wird, um zu beschreiben, wenn sich die Entwicklung an einem bestimmten Punkt verzweigt und verschiedenen Wegen folgt. Sie können von der Hauptentwicklungslinie abzweigen, um neue Funktionen zu implementieren ohne den Hauptzweig instabil zu machen. Genauso können Sie eine stabile, freigegebene Version abzweigen, an der Sie nur noch Fehler beseitigen, während die Weiterentwicklung am instabilen Hauptzweig erfolgt. In Subversion sind Zweige als <quote>billige Kopien</quote> implementiert."
 
 #: source/TortoiseMerge_en.xml:1141
 #: (glossterm)
@@ -1015,7 +1015,7 @@ msgstr "Auschecken"
 #: source/TortoiseMerge_en.xml:1143
 #: (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Ein Subversionbefehl, der eine lokale Arbeitskopie in einem leeren Verzeichnis erstellt, indem versionierte Dateien aus einem Projektarchiv heruntergeladen werden."
 
 #: source/TortoiseMerge_en.xml:1150
 #: (glossterm)
@@ -1025,7 +1025,7 @@ msgstr "Bereinigen"
 #: source/TortoiseMerge_en.xml:1152
 #: (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "Ein Zitat aus dem Subversion Buch: <quote>Räumt die Arbeitskopie rekursiv auf, entfernt dabei Sperren und setzt unvollendete Operationen fort. Wenn Sie jemals einen <literal>Arbeitskopie gesperrt</literal> Fehler bekommen, führen Sie diesen Befehl aus, um veraltete Sperren zu entfernen und Ihre Arbeitskopie wieder in einen nutzbaren Zustand zu versetzen.</quote> Beachten Sie, dass in diesem Zusammenhang <quote>Sperren</quote> lokale Dateisystemsperren bezeichnet und keine Sperren im Projektarchiv."
 
 #: source/TortoiseMerge_en.xml:1167
 #: (glossterm)
@@ -1035,7 +1035,7 @@ msgstr "Übertragen"
 #: source/TortoiseMerge_en.xml:1169
 #: (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Dieser Subversionbefehl wird verwendet, um die Änderungen in Ihrer lokalen Arbeitskopie zurück in das Projektarchiv zu übertragen."
 
 #: source/TortoiseMerge_en.xml:1177
 #: (glossterm)
