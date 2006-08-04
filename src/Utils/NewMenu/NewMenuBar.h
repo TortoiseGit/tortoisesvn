@@ -205,7 +205,7 @@ private:
   static LRESULT CALLBACK CilWindowProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 
 public:
-  afx_msg void OnTimer(UINT nIDEvent);
+  afx_msg void OnTimer(UINT_PTR nIDEvent);
   afx_msg void OnNcPaint();
   afx_msg void OnPaint();
   afx_msg BOOL OnEraseBkgnd(CDC* pDC);
