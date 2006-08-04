@@ -460,8 +460,12 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
-void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 {
+	if ((pWnd==0)||(pWnd != &m_cFileList))
+		return;
+	if (m_cFileList.GetSelectedCount() == 0)
+		return;
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
