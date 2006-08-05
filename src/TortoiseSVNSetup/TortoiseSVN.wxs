@@ -63,24 +63,24 @@
         <FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
       </DirectorySearch>
     </Property>
-    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" Win64="$(var.Win64YesNo)"/>
-    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" Win64="$(var.Win64YesNo)"/>
-    <CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" Win64="$(var.Win64YesNo)"/>
-    <CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
+    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" />
+    <CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" />
+    <CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" />
     <Binary Id="CustomActionsDLL" src="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
     <!-- Unsafe-check properties and custom actions .......................................................................... -->
     <Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
-    <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
 
     <!-- Figure out where a previous installation was, if any ................................................................ -->
     <Property Id="INSTALLDIR">
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <?if $(env.Platform) = "x64" ?>
-    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" />
     <?else ?>
-    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" />
     <?endif ?>
 
     <FragmentRef Id="StructureFragment"/>
