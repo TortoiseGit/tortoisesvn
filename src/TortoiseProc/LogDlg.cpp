@@ -728,14 +728,13 @@ UINT CLogDlg::LogThread()
 		m_pegrev = m_startrev;
 	size_t startcount = m_logEntries.size();
 	m_lowestRev = -1;
+	m_bStrictStopped = false;
 	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
-	if (((m_bStrict && m_limit)&&((startcount + m_limit)>m_logEntries.size()))||((m_bStrict && (m_limit==0))&&(m_endrev<m_lowestRev)))
+	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
-	else
-		m_bStrictStopped = false;
 	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 
 	m_timFrom = (__time64_t(m_tFrom));
@@ -3507,4 +3506,5 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 		return;
 	Refresh();
 }
+
 
