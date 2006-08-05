@@ -591,6 +591,19 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Re-open commit dialog after a commit failed</term>
+					<listitem>
+						<para>
+							When a commit fails for some reason (working copy needs updating,
+							pre-commit hook rejects commit, network error, etc), you can select
+							this option to keep the commit dialog open ready to try again.
+							However, you should be aware that this can lead to problems.
+							If the failure means you need to update your working copy, and
+							that update leads to conflicts you must resolve those first.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Contact the repository on startup</term>
 					<listitem>
 						<para>

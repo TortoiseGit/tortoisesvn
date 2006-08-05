@@ -35,7 +35,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Difference to another branch</term>
+				<term>Difference to another branch/tag</term>
 				<listitem>
 					<para>
 						If you want to see what has changed on trunk (if you are
@@ -49,6 +49,13 @@
 						</menuchoice>. In the following dialog, specify the URL in
 						the repository with which you want to compare your local
 						file to.
+					</para>
+					<para>
+						You can also use the repository browser and select two
+						trees to diff, perhaps two tags, or a branch/tag and trunk.
+						The context menu there allows you to compare them
+						using <guimenuitem>Compare revisions</guimenuitem>.
+						Read more in <xref linkend="tsvn-dug-compare-revs"/>.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -74,6 +81,12 @@
 						(using the usual <keycap>Ctrl</keycap>-modifier).
 						Then select <guimenuitem>Compare revisions</guimenuitem>
 						from the context menu.
+					</para>
+					<para>
+						If you did this from the revision log for a folder,
+						a Compare Revisions dialog appears, showing a list
+						of changed files in that folder. Read more in
+						<xref linkend="tsvn-dug-compare-revs"/>.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -152,6 +165,42 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</sect2>
+	<sect2 id="tsvn-dug-compare-revs">
+		<title>Comparing Folders</title>
+		<indexterm>
+			<primary>compare revisions</primary>
+		</indexterm>
+		<indexterm>
+			<primary>export changes</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-dug-compare-revs-dia-1">
+				<title>The Compare Revisions Dialog</title>
+				<graphic fileref="../images/CompareRevisions.png"/>
+			</figure>
+			When you select two trees within the repository browser, or when
+			you select two revisions of a folder in the log dialog, you can
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Compare revisions</guimenuitem>
+			</menuchoice>.
+		</para>
+		<para>
+			This dialog shows a list of all files which have changed and allows
+			you to compare or blame them individually using context menu.
+		</para>
+		<para>
+			You can also export the list of changed files to a text file,
+			or you can export the changed files themselves to a folder.
+			This operation works on the selected files only, so you need
+			to select the files of interest - usually that means all of them.
+		</para>
+		<para>
+			The button at the top allows you to change the direction of
+			comparison. You can show the changes need to get from A to B,
+			or if you prefer, from B to A.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-idiff">
 		<title>Diffing Images Using TortoiseIDiff</title>

@@ -190,7 +190,7 @@
 		</para>
 		<para>
 			<figure id="tsvn-dug-showlog-2-dia-1a">
-				<title>Top Pane Context Menu for 2 Selected Files</title>
+				<title>Top Pane Context Menu for 2 Selected Revisions</title>
 				<graphic fileref="../images/LogContextMenu1.png"/>
 			</figure>
 			If you select two revisions at once (using the usual
@@ -201,9 +201,13 @@
 					<para>
 						Compare the two selected revisions using a visual
 						difference tool. The default Diff-Tool is TortoiseMerge
-						which is supplied with TortoiseSVN. If you select this
-						option for a folder, a further dialog pops up listing
-						the changed files and you can diff them one at a time.
+						which is supplied with TortoiseSVN.
+					</para>
+					<para>
+						If you select this option for a folder, a further dialog pops
+						up listing the changed files and offering you further
+						diff options. Read more about the Compare Revisions
+						dialog in <xref linkend="tsvn-dug-compare-revs"/>.
 					</para>
 				</listitem>
 				<listitem>
