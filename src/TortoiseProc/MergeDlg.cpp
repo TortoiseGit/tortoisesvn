@@ -149,7 +149,7 @@ BOOL CMergeDlg::OnInitDialog()
 		DialogEnableWindow(IDC_URLCOMBO2, FALSE);
 		// set head revision as default revision
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	}
 	OnBnClickedUsefromurl();
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
