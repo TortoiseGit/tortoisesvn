@@ -260,6 +260,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 		break;
 	}
 	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
+	GetDlgItem(IDC_FLOPPY)->EnableWindow(m_bRemovable);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);

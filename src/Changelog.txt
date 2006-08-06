@@ -1,3 +1,8 @@
+- BUG: The header in TortoiseBlame was shown in the wrong font in translated
+       versions. (Kazutoshi Satoda)
+- BUG: The state of the "Floppy drives" checkbox was not set correctly
+       the first time on startup. (Stefan)
+
 Version 1.3.4RC1
 - NEW: Command line param /bugid to prefill the bug ID
        in the commit dialog. See issue #202 for details. (Stefan)
