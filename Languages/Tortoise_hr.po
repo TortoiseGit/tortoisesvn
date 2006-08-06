@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-01 23:17+0100\n"
+"PO-Revision-Date: 2006-08-06 20:03+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -469,8 +469,8 @@ msgstr "&Izlaz"
 
 # ID:9,
 #: ID:323
-msgid "&Export to..."
-msgstr "I&zvezi..."
+msgid "&Export selection to..."
+msgstr "I&zvezi odabrano u..."
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -777,8 +777,8 @@ msgstr "&Snimi graf kao..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Snimi popis u datoteku"
+msgid "&Save list of selected files to..."
+msgstr "&Snimi popis odabranih datoteka u..."
 
 # ID:313,
 #: Control-ID:1308
@@ -3112,7 +3112,7 @@ msgstr ""
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Savjet: pritisnite F5 za osvježavanje označenog pod-drveta te Ctrl-F5 kako bi se učitala i sva djeca"
+msgstr "Savjet: pritisnite F5 da bi osvježili sadržaj označene mape ili Ctrl-F5 kako bi učitali i sadržaj svih podmapa"
 
 # ID:82,
 #: ID:82
@@ -4192,7 +4192,6 @@ msgstr "Slike (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp
 # ID:269,#:
 # Dlg-ID:182,
 #: ID:246
-#, fuzzy
 msgid "Pie Graph"
 msgstr "Dijagram (pita)"
 
