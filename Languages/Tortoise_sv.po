@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-25 09:47+0100\n"
+"PO-Revision-Date: 2006-08-07 08:26+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,8 +392,8 @@ msgid "&Exit"
 msgstr "&Avsluta"
 
 #: ID:323
-msgid "&Export to..."
-msgstr "&Exportera till..."
+msgid "&Export selection to..."
+msgstr "&Exportera markering till..."
 
 #: Control-ID:1092
 #: Control-ID:1095
@@ -615,6 +615,11 @@ msgstr "&Ta bort"
 msgid "&Rename"
 msgstr "&Byt namn"
 
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Öppna arkiveringsdialogen igen om arkiveringen misslyckades"
+
 #: ID:13
 msgid "&Repo-browser"
 msgstr "&Arkivutforskaren"
@@ -647,8 +652,8 @@ msgstr "&Spara graf som..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Spara listan till fil"
+msgid "&Save list of selected files to..."
+msgstr "&Spara listan av valda filer som..."
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -2412,6 +2417,11 @@ msgstr "Filändringar varje vecka:"
 msgid "File diffs"
 msgstr "Filskillnader"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "Fillistan är tom"
+
 #: ID:376
 #: Dlg-ID:135
 msgid "File patches"
@@ -2452,6 +2462,12 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "Klar!"
+
+# Control-ID:1315,
+#: Control-ID:1315
+#, fuzzy
+msgid "Floppy drives (A: B:)"
+msgstr "Diskenheter (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -2654,6 +2670,16 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Skapa en temporär fil av BASE för att göra järmförelsen med nyckelorden expanderade och radsluten justerade. "
+
+# ID:196,
+#: ID:196
+#, fuzzy
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Öppna arkiveringsdialogen igen automatiskt efter fel\n"
+"med samma markeringar och loggmeddelande. "
 
 # ID:195,
 #: ID:195
@@ -3116,6 +3142,10 @@ msgstr "Felaktig DLL för e-post systemet."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Hantera Subversion egenskaper"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Markera som löst"
 
 # ID:2051,
 #: ID:2051
@@ -5192,19 +5222,19 @@ msgstr "TortoiseMerge"
 
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5217,13 +5247,13 @@ msgstr "TortoiseSVN"
 
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5233,7 +5263,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5981,11 +6011,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "extern"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "fillistan är tom"
 
 #: ID:13
 msgid "ignored"
