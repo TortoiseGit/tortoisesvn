@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-28 15:58+0900\n"
+"PO-Revision-Date: 2006-08-07 12:40+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -448,8 +448,8 @@ msgstr "종료(&E)"
 
 # ID:9,
 #: ID:323
-msgid "&Export to..."
-msgstr "익스포트(&E)..."
+msgid "&Export selection to..."
+msgstr "선택된 것을 익스포트(&E)..."
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -709,6 +709,11 @@ msgstr "삭제(&R)"
 msgid "&Rename"
 msgstr "이름 바꾸기(&R)"
 
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "커밋이 실패하면 커밋 대화상자를 다시 엽니다(&R)"
+
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
@@ -750,8 +755,8 @@ msgstr "그래프를 다른 이름으로 저장(&S)..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "리스트를 파일로 저장(&S)"
+msgid "&Save list of selected files to..."
+msgstr "선택된 파일 리스트를 저장(&S)..."
 
 # ID:313,
 #: Control-ID:1308
@@ -2888,6 +2893,11 @@ msgstr ""
 msgid "Finished!"
 msgstr "완료!"
 
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "플로피 드라이브 (A: B:)"
+
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -3108,6 +3118,15 @@ msgstr ""
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "비교하기 위해 꺼내온 원본 파일의 키워드 확장을 하고, 라인 구분자를 조정하여 임시 파일을 생성합니다."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"커밋 오류가 발생할 경우 선택한 내용과 로그 메시지를 유지하여, \n"
+"다시 이 대화상자를 보여 줍니다."
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -3203,7 +3222,7 @@ msgstr "대/소문자를 구분하지 않음(&C)"
 # Control-ID:1067,
 #: Control-ID:1267
 msgid "Ignore ancestry"
-msgstr "상위디렉토리를 무시함"
+msgstr "변경 기록을 무시함"
 
 # Control-ID:1018,
 #: Control-ID:1018
