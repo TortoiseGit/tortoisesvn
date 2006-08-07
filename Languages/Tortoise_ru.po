@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7079: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7178: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-07-21 09:59+0300\n"
+"PO-Revision-Date: 2006-08-07 18:33+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -402,8 +402,8 @@ msgid "&Exit"
 msgstr "&Выход"
 
 #: ID:323
-msgid "&Export to..."
-msgstr "&Экспортировать сюда"
+msgid "&Export selection to..."
+msgstr "&Экспортировать выбранное в..."
 
 # (программа сравнения ревизий)
 #: Control-ID:1092
@@ -616,6 +616,10 @@ msgstr "&Удалить"
 msgid "&Rename"
 msgstr "&Переименовать"
 
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Переоткрыть диалог фиксации после неудавшейся фиксации"
+
 #: ID:13
 msgid "&Repo-browser"
 msgstr "Обозреватель &хранилища"
@@ -648,8 +652,8 @@ msgid "&Save graph as..."
 msgstr "&Сохранить граф как..."
 
 #: ID:322
-msgid "&Save list to file"
-msgstr "Сохранить с&писок в файл"
+msgid "&Save list of selected files to..."
+msgstr "Сохранить с&писок выбранных файлов..."
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1914,6 +1918,10 @@ msgstr ""
 "Вырезать выбранное и положить в Буфер обмена\n"
 "Вырезать"
 
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "&Различия"
+
 #: ID:76
 #: ID:208
 #: ID:19
@@ -2343,6 +2351,10 @@ msgstr "Изменений файлов в неделю:"
 msgid "File diffs"
 msgstr "Файловые различия"
 
+#: ID:211
+msgid "File list is empty"
+msgstr "Cписок файлов пуст"
+
 #: ID:376
 #: Dlg-ID:135
 msgid "File patches"
@@ -2382,6 +2394,10 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "Закончено!"
+
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Гибкие диски (A: B:)"
 
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -2568,6 +2584,14 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Если выбрано, TortoiseSVN создает временный файл базовой версии для сравнения, в котором ключевые слова заменены их значениями и настроены окончания строк."
+
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Если отмечено, диалог фиксации будет перезапущен автоматически после ошибки,\n"
+"с теми же выбранными файлами и лог-сообщением."
 
 #: ID:195
 msgid ""
@@ -3011,6 +3035,10 @@ msgstr "Не подходящий DLL почтовой системы."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Управление свойствами Subversion "
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Пометить как улаженный"
 
 #: ID:2051
 msgid ""
@@ -5007,19 +5035,19 @@ msgstr "TortoiseMerge"
 
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Сборка %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Сборка %d - %s, %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Сборка %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Сборка %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5032,13 +5060,13 @@ msgstr "TortoiseSVN"
 
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Сборка %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Сборка %d - %s, %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5048,7 +5076,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Сборка %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Сборка %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5777,10 +5805,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "внешний"
-
-#: ID:211
-msgid "file list is empty"
-msgstr "список файлов пуст"
 
 #: ID:13
 msgid "ignored"
