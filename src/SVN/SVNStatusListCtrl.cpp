@@ -965,11 +965,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	if (pApp)
 		pApp->DoWaitCursor(-1);
 
-	if(GetItemCount() == 0)
-	{
-		m_bEmpty = true;
-		Invalidate();
-	}
+	m_bEmpty = (GetItemCount() == 0);
+	Invalidate();
 }
 
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bool bShowFolders /* = true */)
@@ -1097,11 +1094,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 	if (pApp)
 		pApp->DoWaitCursor(-1);
 
-	if(GetItemCount() == 0)
-	{
-		m_bEmpty = true;
-		Invalidate();
-	}
+	m_bEmpty = (GetItemCount() == 0);
+	Invalidate();
 }
 
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
