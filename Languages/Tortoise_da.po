@@ -7,7 +7,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7139
+# Based on Tortoise.pot r7178
 #
 msgid ""
 msgstr ""
@@ -362,8 +362,8 @@ msgid "&Exit"
 msgstr "&Afslut"
 
 #: ID:323,
-msgid "&Export to..."
-msgstr "&Eksporter til..."
+msgid "&Export selection to..."
+msgstr "&Eksporter valgte emner til..."
 
 #: Control-ID:1092,#: Control-ID:1095,
 msgid "&External"
@@ -567,6 +567,10 @@ msgstr "&Fjern"
 msgid "&Rename"
 msgstr "&Omdøb"
 
+#: Control-ID:1316,
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Genåbn arkivér-dialogen hvis arkivering fejler"
+
 #: ID:13,
 msgid "&Repo-browser"
 msgstr "&Versionsarkivsøger"
@@ -596,8 +600,8 @@ msgid "&Save graph as..."
 msgstr "Gem graf &som..."
 
 #: ID:322,
-msgid "&Save list to file"
-msgstr "&Gem liste i fil"
+msgid "&Save list of selected files to..."
+msgstr "&Gem liste af valgte filer til..."
 
 #: Control-ID:1308,
 msgid "&Save..."
@@ -2053,6 +2057,10 @@ msgstr "Ugentlige filændringer:"
 msgid "File diffs"
 msgstr "Filforskelle"
 
+#: ID:211,
+msgid "File list is empty"
+msgstr "Fillisten er tom"
+
 #: ID:376,#: Dlg-ID:135,
 msgid "File patches"
 msgstr "Korrekturark"
@@ -2073,6 +2081,10 @@ msgstr "Find den angivne tekst\nFind"
 #: ID:77,
 msgid "Finished!"
 msgstr "Færdig!"
+
+#: Control-ID:1315,
+msgid "Floppy drives (A: B:)"
+msgstr "Diskettedrev (A: B:)"
 
 #: ID:3585,
 #, fuzzy
@@ -2217,6 +2229,10 @@ msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt
 #: ID:79,
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linjeafslutninger."
+
+#: ID:196,
+msgid "If checked, the commit dialog will be started again automatically after an error,\nwhile preserving your last selection and log message."
+msgstr "Hvis valgt, så vil arkivér-dialogen automatisk åbnes igen, hvis arkiveringen fejler,\nsåledes at de valgte emner og logbeskeden bevares."
 
 #: ID:195,
 msgid "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the \"Show Log\" entry will show even for just added folders."
@@ -4708,10 +4724,6 @@ msgstr "eksporterede\n%s\ntil\n%s"
 #: ID:13,
 msgid "external"
 msgstr "ekstern"
-
-#: ID:211,
-msgid "file list is empty"
-msgstr "fillisten er tom"
 
 #: ID:13,
 msgid "ignored"
