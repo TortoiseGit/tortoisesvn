@@ -409,7 +409,15 @@ void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 void CRevisionGraphDlg::OnViewShowallrevisions()
 {
 	if (m_Graph.m_bThreadRunning)
+	{
+		int state = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWALLREVISIONS);
+		if (state & TBSTATE_CHECKED)
+			state &= ~TBSTATE_CHECKED;
+		else
+			state |= TBSTATE_CHECKED;
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, state);
 		return;
+	}
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
@@ -435,7 +443,15 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 void CRevisionGraphDlg::OnViewArrangedbypath()
 {
 	if (m_Graph.m_bThreadRunning)
+	{
+		int state = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_ARRANGEDBYPATH);
+		if (state & TBSTATE_CHECKED)
+			state &= ~TBSTATE_CHECKED;
+		else
+			state |= TBSTATE_CHECKED;
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, state);
 		return;
+	}
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
