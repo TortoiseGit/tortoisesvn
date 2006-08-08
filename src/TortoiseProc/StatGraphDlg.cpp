@@ -772,7 +772,7 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 			m_btnGraphPie.EnableWindow(FALSE);
 		}
 		m_GraphType = MyGraph::Line;
-		m_bStacked = true;
+		m_bStacked = false;
 		break;
 	case 3:
 		// by author
