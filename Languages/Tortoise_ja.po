@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-30 12:33+0900\n"
+"PO-Revision-Date: 2006-08-08 21:02+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -459,8 +459,8 @@ msgstr "終了(&E)"
 
 # ID:9,
 #: ID:323
-msgid "&Export to..."
-msgstr "エクスポート(&E) ..."
+msgid "&Export selection to..."
+msgstr "選択をエクスポート(&E) ..."
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -722,6 +722,11 @@ msgstr "削除(&R)"
 msgid "&Rename"
 msgstr "名前の変更(&R)"
 
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "コミットに失敗した場合はコミットダイアログを再表示する(&R)"
+
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
@@ -764,8 +769,8 @@ msgstr "グラフを別名で保存(&S) ..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "リストをファイルに保存(&S)"
+msgid "&Save list of selected files to..."
+msgstr "選択ファイルのリストを保存(&S) ..."
 
 # ID:313,#:
 # ID:101,
@@ -791,7 +796,7 @@ msgstr "ステータスバー(&S)"
 # ID:313,
 #: Control-ID:1211
 msgid "&Steal the locks"
-msgstr "ロックを奪う(&S)"
+msgstr "ロックを横取りする(&S)"
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -2724,12 +2729,12 @@ msgstr "除外するパス:"
 # ID:9,
 #: ID:209
 msgid "Explore to"
-msgstr "調査する"
+msgstr "エクスプローラで開く"
 
 # ID:94,
 #: ID:94
 msgid "Export directory:"
-msgstr "エクスポートディレクトリ:"
+msgstr "エクスポート先ディレクトリ:"
 
 # Control-ID:1073,
 #: ID:79
@@ -2901,6 +2906,11 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "終了！"
+
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "フロッピードライブ (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -3121,6 +3131,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や、改行コードの調整を行うために、ベースファイルの一時コピーを作成する。"
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"チェックすると、コミットダイアログはエラーが発生した後に、最後に選択した結果と\n"
+"ログメッセージを保存した状態で自動的に再表示されます。"
 
 # ID:195,
 #: ID:195
@@ -4447,12 +4466,12 @@ msgstr "ロックを開放(&K)"
 # ID:16,
 #: ID:16
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "ロックの保持者でなくてもロックを開放（解除）する。"
+msgstr "ロックの保持者でなくてもロックを開放する。"
 
 # ID:16,
 #: ID:16
 msgid "Releases locks on files so other users can edit them again."
-msgstr "他のユーザが再び編集できるようにファイルのロックを開放する。"
+msgstr "他のユーザが再び編集できるようにファイルのロックを開放（解除）する。"
 
 # ID:12,
 #: ID:12
@@ -5061,7 +5080,7 @@ msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"エクスポートするフォルダを選択してください。\n"
+"エクスポート先のフォルダを選択してください。\n"
 "これを実行する前に新しいフォルダを生成する必要があるかもしれません。"
 
 # ID:78,
@@ -5344,7 +5363,7 @@ msgstr "ターゲットが見つからないのでスキップします"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
-msgstr "数字で項目をソートする"
+msgstr "項目を数字でソートする"
 
 # Control-ID:1300,
 #: ID:101
@@ -5440,12 +5459,12 @@ msgstr "SVNの項目の状態"
 # ID:16,
 #: ID:16
 msgid "Steal loc&k"
-msgstr "ロックを奪う(&K)"
+msgstr "ロックを横取りする(&K)"
 
 # ID:313,
 #: ID:313
 msgid "Steal the lock"
-msgstr "ロックを奪う"
+msgstr "ロックを横取りする"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -7050,7 +7069,7 @@ msgstr "画素"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
-msgstr "衝突もしくは可能性のあるファイル／障害のあるファイル"
+msgstr "衝突もしくはその可能性のあるファイル"
 
 # ID:245,
 #: ID:245
