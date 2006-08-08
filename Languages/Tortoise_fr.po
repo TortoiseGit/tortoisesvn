@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-26 21:30+0100\n"
+"PO-Revision-Date: 2006-08-08 19:17+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -396,8 +396,8 @@ msgid "&Exit"
 msgstr "&Quitter"
 
 #: ID:323
-msgid "&Export to..."
-msgstr "&Exporter vers..."
+msgid "&Export selection to..."
+msgstr "&Exporter la sélection vers..."
 
 #: Control-ID:1092
 #: Control-ID:1095
@@ -615,6 +615,11 @@ msgstr "&Effacer"
 msgid "&Rename"
 msgstr "&Renommer"
 
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Réouvrir la boîte de dialogue Livrer après qu'une livraison ait échouée."
+
 #: ID:13
 msgid "&Repo-browser"
 msgstr "Navigateur de &référentiel"
@@ -647,8 +652,8 @@ msgstr "Enregistrer le graphique &sous..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Sauver la liste dans un fichier"
+msgid "&Save list of selected files to..."
+msgstr "&Sauver la liste des fichiers sélectionnés vers..."
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1457,8 +1462,8 @@ msgstr "Fichiers modifiés : %d"
 
 # Control-ID:1242,
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "Changements effectués (double-cliquez pour les détails) :"
+msgid "Changes made (double-click on file for diff):"
+msgstr "Changements effectués (double-cliquez pour voir les différences) :"
 
 #: ID:8
 msgid "Chec&kout..."
@@ -2408,6 +2413,11 @@ msgstr "Modifications de fichier chaque semaine :"
 msgid "File diffs"
 msgstr "Différences de fichiers"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "La liste des fichiers est vide"
+
 #: ID:376
 #: Dlg-ID:135
 msgid "File patches"
@@ -2448,6 +2458,11 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "Fini !"
+
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Lecteurs de disquettes (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -2644,6 +2659,15 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Si sélectionné, TortoiseSVN crée un fichier temporaire du fichier BASE pour faire un diff avec les mot-clés développés et les fins de ligne ajustées."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Si séléctionné, la boîte de dialogue Livrer redémarrera automatiquement après une erreur,\n"
+"tout en conservant votre sélection et vos commentaires précédents."
 
 # ID:195,
 #: ID:195
@@ -5981,11 +6005,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "externe"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "la liste des fichiers est vide"
 
 #: ID:13
 msgid "ignored"
