@@ -4,8 +4,8 @@
 	<target name="versioninfo">
 		<!-- When cross-compiling, we need to use the current platform's (win32)
 		     native build -->
-		<property name="SubWCRevFileName" value="bin\release${bindirextension}\bin\SubWCRev.exe"/>
-		<property name="SubWCRevFileName" value="bin\release\bin\SubWCRev.exe" if="${crosscompile == 'yes'}"/>
+		<property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
+		<property name="SubWCRevFileName" value="bin\${configuration}\bin\SubWCRev.exe" if="${crosscompile == 'yes'}"/>
 
 		<if test="${not file::exists(SubWCRevFileName)}">
 			<copy
