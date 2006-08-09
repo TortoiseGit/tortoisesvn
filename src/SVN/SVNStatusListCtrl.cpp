@@ -873,6 +873,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
 		if (entry->IsLocked())
 			showFlags |= SVNSLC_SHOWLOCKS;
+		if (entry->switched)
+			showFlags |= SVNSLC_SHOWSWITCHED;
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
@@ -905,11 +907,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				{
 					entry->checked = true;
 				}
-				AddEntry(entry, langID, listIndex++);
-			}
-			else if (entry->switched)
-			{
-				m_arListArray.push_back(i);
 				AddEntry(entry, langID, listIndex++);
 			}
 		}
