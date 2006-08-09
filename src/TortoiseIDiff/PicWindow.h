@@ -55,6 +55,7 @@ public:
 		, bPlaying(false)
 		, pTheOtherPic(NULL)
 		, bLinked(false)
+		, hwndAlphaSlider(NULL)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -84,6 +85,7 @@ public:
 		alpha = a; 
 		InvalidateRect(*this, NULL, FALSE);
 	}
+	void SetAlphaSlider(HWND hWnd) {hwndAlphaSlider = hWnd;}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
 	/// Sets the zoom factor of the image
@@ -155,6 +157,7 @@ protected:
 	HWND				hwndLeftBtn;
 	HWND				hwndRightBtn;
 	HWND				hwndPlayBtn;
+	HWND				hwndAlphaSlider;
 	HICON				hLeft;
 	HICON				hRight;
 	HICON				hPlay;

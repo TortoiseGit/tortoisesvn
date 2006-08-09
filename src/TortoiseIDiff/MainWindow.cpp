@@ -126,6 +126,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			// create a slider control
 			hTrackbar = CreateTrackbar(*this, 0, 255);
 			ShowWindow(hTrackbar, SW_HIDE);
+			picWindow1.SetAlphaSlider(hTrackbar);
 			CreateToolbar();
 		}
 		break;

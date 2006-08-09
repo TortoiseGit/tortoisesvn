@@ -443,7 +443,21 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 		width = max(width, long(double(pSecondPic->m_Width)*picscale));
 		height = max(height, long(double(pSecondPic->m_Height)*picscale));
 	}
-	if (fwKeys & MK_SHIFT)
+	if ((fwKeys & MK_SHIFT)&&(fwKeys & MK_CONTROL)&&(pSecondPic))
+	{
+		// ctrl+shift+wheel: change the alpha channel
+		int overflow = alpha;	// use an int to detect overflows
+		alpha -= (zDelta / 12);
+		overflow -= (zDelta / 12);
+		if (overflow > 255)
+			alpha = 255;
+		if (overflow < 0)
+			alpha = 0;
+		if (hwndAlphaSlider)
+			SendMessage(hwndAlphaSlider, TBM_SETPOS, 1, alpha);
+		InvalidateRect(*this, NULL, FALSE);
+	}
+	else if (fwKeys & MK_SHIFT)
 	{
 		// shift means scrolling sideways
 		nHScrollPos -= zDelta;
