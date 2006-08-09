@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-27 21:40+0100\n"
+"PO-Revision-Date: 2006-08-09 23:03+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -381,8 +381,8 @@ msgid "&Exit"
 msgstr "&Afsluiten"
 
 #: ID:323
-msgid "&Export to..."
-msgstr "E&xporteer naar..."
+msgid "&Export selection to..."
+msgstr "E&xporteer selectie naar..."
 
 #: Control-ID:1092
 #: Control-ID:1095
@@ -593,6 +593,10 @@ msgstr "&Verwijderen"
 msgid "&Rename"
 msgstr "&Hernoemen"
 
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Heropen vastleg-dialoog na een mislukte poging"
+
 #: ID:13
 msgid "&Repo-browser"
 msgstr "&Archief-verkenner"
@@ -624,8 +628,8 @@ msgid "&Save graph as..."
 msgstr "&Schema opslaan als..."
 
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Sla lijst op in bestand"
+msgid "&Save list of selected files to..."
+msgstr "&Sla lijst van geselecteerde bestanden op in..."
 
 #: Control-ID:1308
 msgid "&Save..."
@@ -1389,8 +1393,8 @@ msgid "Changed files: %d"
 msgstr "Gewijzigde bestanden: %d"
 
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "Gemaakte wijzigingen (dubbelklik voor details):"
+msgid "Changes made (double-click on file for diff):"
+msgstr "Gemaakte wijzigingen (dubbelklik op het bestand voor details):"
 
 #: ID:8
 msgid "Chec&kout..."
@@ -2348,6 +2352,10 @@ msgstr ""
 msgid "Finished!"
 msgstr "Gereed!"
 
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr "Diskette stations (A: B:)"
+
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Druk op F1 voor hulp. Horizontaal scrollen gaat met Ctrl-Scrollwiel"
@@ -2530,6 +2538,14 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Met deze optie maakt TortoiseSVN een tijdelijk bestand van BASE om de Diff uit te voeren met keyword-expansie en aangepaste regeleinden."
+
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Activeer deze optie om de vastleg-dialoog opnieuw te openen na een fout.\n"
+"Daarbij wordt de meest recente selectie en logboek-boodschap bewaard."
 
 #: ID:195
 msgid ""
