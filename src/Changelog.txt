@@ -9,6 +9,8 @@
        without the action being done. (Stefan)
 - BUG: Reverting a file removed it from the file list, even if it
        was switched. (Ivan Gerasimov)
+- BUG: Selecting fonts with non-ascii names didn't work in the
+       scintilla edit control. (Kazutoshi Satoda)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID
