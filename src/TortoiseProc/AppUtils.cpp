@@ -112,7 +112,7 @@ BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirf
 		}
 		else
 		{
-			com.Replace(_T("%bname"), _T("\"") + basefile.GetFileOrDirectoryName() + _T("\""));
+			com.Replace(_T("%bname"), _T("\"") + basefile.GetUIFileOrDirectoryName() + _T("\""));
 		}
 	}
 	else
@@ -126,7 +126,7 @@ BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirf
 		}
 		else
 		{
-			com.Replace(_T("%tname"), _T("\"") + theirfile.GetFileOrDirectoryName() + _T("\""));
+			com.Replace(_T("%tname"), _T("\"") + theirfile.GetUIFileOrDirectoryName() + _T("\""));
 		}
 	}
 	else
@@ -140,7 +140,7 @@ BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirf
 		}
 		else
 		{
-			com.Replace(_T("%yname"), _T("\"") + yourfile.GetFileOrDirectoryName() + _T("\""));
+			com.Replace(_T("%yname"), _T("\"") + yourfile.GetUIFileOrDirectoryName() + _T("\""));
 		}
 	}
 	else
@@ -154,7 +154,7 @@ BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirf
 		}
 		else
 		{
-			com.Replace(_T("%mname"), _T("\"") + mergedfile.GetFileOrDirectoryName() + _T("\""));
+			com.Replace(_T("%mname"), _T("\"") + mergedfile.GetUIFileOrDirectoryName() + _T("\""));
 		}
 	}
 	else
@@ -256,12 +256,12 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 	}
 
 	if (sName1.IsEmpty())
-		viewer.Replace(_T("%bname"), _T("\"") + file1.GetFileOrDirectoryName() + _T("\""));
+		viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
 
 	if (sName2.IsEmpty())
-		viewer.Replace(_T("%yname"), _T("\"") + file2.GetFileOrDirectoryName() + _T("\""));
+		viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
 

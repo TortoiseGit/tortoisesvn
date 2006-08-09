@@ -647,7 +647,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			CTSVNPath checkoutdir = m_targetPathList[0];
 			for (int i=0; i<urls.GetCount(); ++i)
 			{
-				sWindowTitle = urls[i].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+				sWindowTitle = urls[i].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 				SetWindowText(sWindowTitle);
 				checkoutdir = m_targetPathList[0];
 				if (urls.GetCount() > 1)
@@ -671,7 +671,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	case Import:			//no tempfile!
 		ASSERT(m_targetPathList.GetCount() == 1);
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
-		sWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+		sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 		SetWindowText(sWindowTitle);
 		if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
 		{
@@ -788,7 +788,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			if (m_targetPathList.GetCount()==1)
 			{
-				sWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+				sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 				SetWindowText(sWindowTitle);
 			}
 			BOOL isTag = FALSE;
@@ -929,7 +929,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	case Export:
 		ASSERT(m_targetPathList.GetCount() == 1);
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-		sWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+		sWindowTitle = m_url.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 		SetWindowText(sWindowTitle);
 		if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals))
 		{
@@ -1571,9 +1571,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									SetFileAttributes(newfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 									SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 									CString revname, wcname, basename;
-									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
-									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
-									basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
+									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
+									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
+									basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
 									CAppUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
 								}
 								else
@@ -1590,8 +1590,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									{
 										SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 										CString revname, wcname;
-										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
-										wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
+										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
+										wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
 										CAppUtils::StartExtDiff(tempfile, data->path, revname, wcname);
 									}
 								}

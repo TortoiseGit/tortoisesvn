@@ -406,6 +406,12 @@ CString CTSVNPath::GetFileOrDirectoryName() const
 	return m_sBackslashPath.Mid(m_sBackslashPath.ReverseFind('\\')+1);
 }
 
+CString CTSVNPath::GetUIFileOrDirectoryName() const
+{
+	GetUIPathString();
+	return m_sUIPath.Mid(m_sUIPath.ReverseFind('\\')+1);
+}
+
 CString CTSVNPath::GetFileExtension() const
 {
 	if(!IsDirectory())

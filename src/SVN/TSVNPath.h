@@ -112,6 +112,10 @@ public:
 	 */
 	CString GetFileOrDirectoryName() const;
 	/**
+	 * Returns the item's name without the full path, unescaped if necessary.
+	 */
+	CString GetUIFileOrDirectoryName() const;
+	/**
 	 * Returns the file extension, including the dot.
 	 * \remark Returns an empty string for directories
 	 */

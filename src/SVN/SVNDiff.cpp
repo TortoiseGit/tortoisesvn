@@ -98,7 +98,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 		SetFileAttributes(remotePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	}
 
-	CString name = filePath.GetFileOrDirectoryName();
+	CString name = filePath.GetUIFileOrDirectoryName();
 	CString n1, n2, n3;
 	n1.Format(IDS_DIFF_WCNAME, name);
 	n2.Format(IDS_DIFF_BASENAME, name);
@@ -476,8 +476,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			CString revname1, revname2;
 			if (url1.IsEquivalentTo(url2))
 			{
-				revname1.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFileOrDirectoryName(), rev1.ToString());
-				revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetFileOrDirectoryName(), rev2.ToString());
+				revname1.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetUIFileOrDirectoryName(), rev1.ToString());
+				revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetUIFileOrDirectoryName(), rev2.ToString());
 			}
 			else
 			{

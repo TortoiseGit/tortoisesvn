@@ -1540,7 +1540,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					// Offer a rename
 					progress.Stop();
 					CRenameDlg dlg;
-					dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetFileOrDirectoryName());
+					dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetUIFileOrDirectoryName());
 					if (dlg.DoModal() != IDOK)
 					{
 						return FALSE;
