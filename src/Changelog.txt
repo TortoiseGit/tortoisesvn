@@ -7,6 +7,8 @@
 - BUG: In the revision graph, if a button on the toolbar is pressed while
        the updating thread is running the state of the button changed
        without the action being done. (Stefan)
+- BUG: Reverting a file removed it from the file list, even if it
+       was switched. (Ivan Gerasimov)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

@@ -2097,6 +2097,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 											SetItemState(index, 0, LVIS_SELECTED);
 											SetEntryCheck(fentry, index, false);
 										}
+										else if ( fentry->switched )
+										{
+											fentry->textstatus = svn_wc_status_normal;
+											fentry->status = svn_wc_status_normal;
+											SetItemState(index, 0, LVIS_SELECTED);
+										}
 										else
 										{
 											m_nTotal--;
