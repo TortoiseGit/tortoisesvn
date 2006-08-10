@@ -64,6 +64,9 @@ public:
 
 	/// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
 	void RemoveCacheForPath(const CTSVNPath& path);
+
+	/// Removes all items from the cache
+	void ClearCache();
 	
 	/// Call this method before getting the status for a shell request
 	void StartRequest(const CTSVNPath& path);
@@ -94,6 +97,8 @@ public:
 	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
 	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
 	bool IsPathGood(CTSVNPath path);
+
+	bool m_bClearMemory;
 private:
 	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
 	CRWSection m_rwSection;

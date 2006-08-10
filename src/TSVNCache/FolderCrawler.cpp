@@ -141,7 +141,13 @@ void CFolderCrawler::WorkerThread()
 		for(;;)
 		{
 			// Any locks today?
-			
+			if (CSVNStatusCache::Instance().m_bClearMemory)
+			{
+				CSVNStatusCache::Instance().WaitToWrite();
+				CSVNStatusCache::Instance().ClearCache();
+				CSVNStatusCache::Instance().Done();
+				CSVNStatusCache::Instance().m_bClearMemory = false;
+			}
 			if(m_lCrawlInhibitSet > 0)
 			{
 				// We're in crawl hold-off 

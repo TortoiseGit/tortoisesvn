@@ -79,6 +79,8 @@ void CSVNStatusCache::Create()
 					}
 					sKey.ReleaseBuffer(value);
 					CCachedDirectory * cacheddir = new CCachedDirectory();
+					if (cacheddir == NULL)
+						goto error;
 					if (!cacheddir->LoadFromDisk(pFile))
 						goto error;
 					CTSVNPath KeyPath = CTSVNPath(sKey);
@@ -211,6 +213,7 @@ CSVNStatusCache::CSVNStatusCache(void)
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_bClearMemory = false;
 }
 
 CSVNStatusCache::~CSVNStatusCache(void)
@@ -244,6 +247,16 @@ bool CSVNStatusCache::IsPathGood(CTSVNPath path)
 void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
 {
 	m_shellUpdater.AddPathForUpdate(path);
+}
+
+void CSVNStatusCache::ClearCache()
+{
+	for (CCachedDirectory::CachedDirMap::iterator I = m_directoryCache.begin(); I != m_directoryCache.end(); ++I)
+	{
+		delete I->second;
+		I->second = NULL;
+	}
+	m_directoryCache.clear();
 }
 
 bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
@@ -319,10 +332,16 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// We don't know anything about this directory yet - lets add it to our cache
 		ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
 		ATLASSERT(path.IsDirectory());
-		CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
-		if (!path.IsEmpty())
-			watcher.AddPath(path);
-		return cdir;		
+		CCachedDirectory * newcdir = new CCachedDirectory(path);
+		if (newcdir)
+		{
+			CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
+			if (!path.IsEmpty())
+				watcher.AddPath(path);
+			return cdir;		
+		}
+		m_bClearMemory = true;
+		return NULL;
 	}
 }
 
