@@ -72,9 +72,9 @@ svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
 	if ((helper)&&(helper->m_bCancelled))
 	{
 #ifdef IDS_SVN_USERCANCELLED
-		CStringA temp;
+		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 #else
 		return svn_error_create(SVN_ERR_CANCELLED, NULL, "");
 #endif

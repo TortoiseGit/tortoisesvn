@@ -636,9 +636,9 @@ svn_error_t* SVNStatus::cancel(void *baton)
 	volatile bool * canceled = (bool *)baton;
 	if (*canceled)
 	{
-		CStringA temp;
+		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 	}
 	return SVN_NO_ERROR;
 }

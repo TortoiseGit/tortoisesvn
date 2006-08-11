@@ -99,9 +99,9 @@ svn_error_t* CRevisionGraph::cancel(void *baton)
 	CRevisionGraph * me = (CRevisionGraph *)baton;
 	if (me->m_bCancelled)
 	{
-		CStringA temp;
+		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 	}
 	return SVN_NO_ERROR;
 }
@@ -172,9 +172,9 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 		if (!me->ProgressCallback(temp, temp2, me->m_lHeadRevision - rev, me->m_lHeadRevision))
 		{
 			me->m_bCancelled = TRUE;
-			CStringA temp3;
+			CString temp3;
 			temp3.LoadString(IDS_SVN_USERCANCELLED);
-			error = svn_error_create(SVN_ERR_CANCELLED, NULL, temp3);
+			error = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp3));
 			return error;
 		}
 	}
@@ -451,9 +451,9 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 			temp2.Format(IDS_REVGRAPH_PROGANALYZEREV, currentrev);
 			if (!ProgressCallback(temp, temp2, currentrev, m_lHeadRevision))
 			{
-				CStringA temp3;
+				CString temp3;
 				temp3.LoadString(IDS_SVN_USERCANCELLED);
-				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp3);
+				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp3));
 				return FALSE;
 			}
 		}

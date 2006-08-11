@@ -82,9 +82,9 @@ svn_error_t* SVNInfo::cancel(void *baton)
 	SVNInfo * pThis = (SVNInfo *)baton;
 	if (pThis->Cancel())
 	{
-		CStringA temp;
+		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 	}
 	return SVN_NO_ERROR;
 }

@@ -358,7 +358,7 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force /* = FALSE
 		TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
 		if (Cancel())
 		{
-			Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
+			Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
 			return FALSE;
 		}
 		SVNPool subpool(pool);
@@ -560,7 +560,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			fop.Start();
 			if (fop.AnyOperationsAborted())
 			{
-				Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
+				Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
 				return FALSE;
 			}
 		}
@@ -606,7 +606,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 				fop.Start();
 				if (fop.AnyOperationsAborted())
 				{
-					Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
+					Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
 					return FALSE;
 				}
 			}
@@ -1205,9 +1205,9 @@ svn_error_t* SVN::cancel(void *baton)
 	SVN * svn = (SVN *)baton;
 	if ((svn->Cancel())||((svn->m_pProgressDlg)&&(svn->m_pProgressDlg->HasUserCancelled())))
 	{
-		CStringA temp;
+		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 	}
 	return SVN_NO_ERROR;
 }
