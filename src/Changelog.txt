@@ -22,6 +22,8 @@
 - BUG: Reverting an added file with history didn't reset the
        text status and the copied flag in the commit/cfm/...
        dialogs. (Stefan)
+- BUG: Wrong regex strings in a bugtraq property could crash TortoiseProc
+       or force it into an endless loop. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

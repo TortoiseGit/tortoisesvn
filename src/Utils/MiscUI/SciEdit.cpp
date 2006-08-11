@@ -1038,7 +1038,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 								if (offset2-idoffset1 > 0)
 									Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_ISSUEBOLD);
 							}
-						} while(idbr.matched);
+						} while((idbr.matched)&&(offset2-idoffset1));
 					}
 					offset1 = offset2;
 				}
@@ -1091,7 +1091,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 								Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_ISSUEBOLD);
 							Call(SCI_SETSTYLING, results.rlength(2), STYLE_ISSUEBOLDITALIC);
 						}
-						else
+						else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
 						{
 							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1), STYLE_ISSUEBOLD);
 							Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLDITALIC);

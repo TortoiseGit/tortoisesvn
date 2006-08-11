@@ -518,7 +518,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 									idoffset1 = idoffset2;
 									bFound = true;
 								}
-							} while(idbr.matched);
+							} while ((idbr.matched)&&(offset2-idoffset1));
 						}
 						offset1 = offset2;
 					}
@@ -559,7 +559,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
 								range.cpMax =  (LONG)(offset1 + results.rlength(1));
 							}
-							else if (results.cbackrefs() > 1)
+							else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
 							{
 								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
 								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
