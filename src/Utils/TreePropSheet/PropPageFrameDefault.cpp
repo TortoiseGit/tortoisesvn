@@ -372,12 +372,12 @@ BOOL CPropPageFrameDefault::OnEraseBkgnd(CDC* pDC)
 {
 	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsThemeActive())
 	{
-		HTHEME	hTheme = g_ThemeLib.OpenThemeData(m_hWnd, L"Tab");
+		HTHEME	hTheme = g_ThemeLib.OpenThemeData(m_hWnd, L"TREEVIEW");
 		if (hTheme)
 		{
 			CRect	rect;
 			GetClientRect(rect);
-			g_ThemeLib.DrawThemeBackground(hTheme, pDC->m_hDC, TABP_PANE, 0, rect, NULL);
+			g_ThemeLib.DrawThemeBackground(hTheme, pDC->m_hDC, 0, 0, rect, NULL);
 
 			g_ThemeLib.CloseThemeData(hTheme);
 		}
