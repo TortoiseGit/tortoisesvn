@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-25 11:28-0300\n"
+"PO-Revision-Date: 2006-08-12 12:12-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -456,8 +456,8 @@ msgstr "Sai&r"
 
 # ID:9,
 #: ID:323
-msgid "&Export to..."
-msgstr "&Exportar para..."
+msgid "&Export selection to..."
+msgstr "&Exportar seleção para..."
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -720,6 +720,12 @@ msgstr "&Remover"
 msgid "&Rename"
 msgstr "&Renomear"
 
+# Control-ID:1316,
+#: Control-ID:1316
+#, fuzzy
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Reabrir diálogo de submissão após falha na submissão"
+
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
@@ -762,8 +768,8 @@ msgstr "&Salvar gráfico como..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Salvar lista em arquivo"
+msgid "&Save list of selected files to..."
+msgstr "&Salvar lista de arquivos selecionadas para..."
 
 # ID:313,#:
 # ID:101,
@@ -1734,8 +1740,9 @@ msgstr "Arquivos Alterados: %d"
 
 # Control-ID:1242,
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "Modificações (duplo clique para detalhes):"
+#, fuzzy
+msgid "Changes made (double-click on file for diff):"
+msgstr "Modificações (duplo clique no arquivo para comparar):"
 
 # ID:8,
 #: ID:8
@@ -2860,6 +2867,11 @@ msgstr "Alterações de arquivos a cada semana:"
 msgid "File diffs"
 msgstr "Diferenças entre arquivos"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "Lista de arquivos vazia"
+
 # Dlg-ID:135,
 #: ID:376
 #: Dlg-ID:135
@@ -2903,6 +2915,12 @@ msgstr ""
 #: ID:77
 msgid "Finished!"
 msgstr "Concluído!"
+
+# Control-ID:1315,
+#: Control-ID:1315
+#, fuzzy
+msgid "Floppy drives (A: B:)"
+msgstr "Disquetes (A: B:)"
 
 # ID:3585,
 #: ID:3585
@@ -3123,6 +3141,16 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Se selecionado, o TortoiseSVN cria um arquivo temporário da revisão BASE para comparar com as palavras-chave expandidas e os fins de linha ajustados."
+
+# ID:196,
+#: ID:196
+#, fuzzy
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Se selecionado, o diálogo de submissão será aberto automaticamente após um erro,\n"
+"preservando sua última seleção e mensagem de log."
 
 # ID:195,
 #: ID:195
@@ -3639,6 +3667,10 @@ msgstr "DLL do sistema de correio inválida."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Gerenciar propriedades do Subversion"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Marcar como resolvido"
 
 # ID:2051,
 #: ID:2051
@@ -6073,20 +6105,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Compilação %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Compilação %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Compilação %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Compilação %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6102,14 +6134,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Compilação %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Compilação %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6119,7 +6151,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Compilação %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Compilação %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -6987,11 +7019,6 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "externo"
-
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "lista de arquivos vazia"
 
 # ID:13,
 #: ID:13
