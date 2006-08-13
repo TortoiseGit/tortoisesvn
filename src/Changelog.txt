@@ -1,5 +1,7 @@
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
        to be changed with Ctrl+Shift+Wheel. (Stefan)
+- NEW: In the file diff dialog, Ctrl-A now selects all entries, and 
+       Ctrl-C copies the selected entries to the clipboard. (Stefan)
 - CHG: Switched files are only shown in the check-for-modifications
        dialog and not in e.g. the commit/revert/add dialog if they're
        not modified. (Stefan)

@@ -721,6 +721,45 @@ void CFileDiffDlg::SetURLLabels()
 BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case 'A':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// select all entries
+					for (int i=0; i<m_cFileList.GetItemCount(); ++i)
+					{
+						m_cFileList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+					}
+					return TRUE;
+				}
+			}
+			break;
+		case 'C':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// copy all selected paths to the clipboard
+					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+					int index;
+					CString sTextForClipboard;
+					while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
+					{
+						sTextForClipboard += m_cFileList.GetItemText(index, 0);
+						sTextForClipboard += _T("\t");
+						sTextForClipboard += m_cFileList.GetItemText(index, 1);
+						sTextForClipboard += _T("\r\n");
+					}
+					CStringUtils::WriteAsciiStringToClipboard(CStringA(sTextForClipboard));
+					return TRUE;
+				}
+			}
+			break;
+		}
+	}
 	return __super::PreTranslateMessage(pMsg);
 }
 
