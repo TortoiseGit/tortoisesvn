@@ -4,7 +4,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7174)
+# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7257)
 #
 # Authors:
 #
@@ -12,9 +12,10 @@
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
 #  - v7154'den itibaren, arabirim calisirken kontrol edildi, bazi hatali tercumeler duzeltildi ve yeni duzenlemeler oldu.
+#  - v7186'i 2 yeni tercumesi daha kontrol edilmedi..
 #
 # Su anki versiyon:
-# (v7174)
+# (v7257)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -48,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-08-03 01:49+0300\n"
+"PO-Revision-Date: 2006-08-11 11:22+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -491,8 +492,8 @@ msgstr "&Çıkış"
 
 # ID:9,
 #: ID:323
-msgid "&Export to..."
-msgstr "E&xport...  "
+msgid "&Export selection to..."
+msgstr "Seçimi buraya &export et..."
 
 # Control-ID:1092,#:
 # Control-ID:1095,
@@ -799,8 +800,8 @@ msgstr "Diyagramı farklı &kaydet..."
 
 # ID:322,
 #: ID:322
-msgid "&Save list to file"
-msgstr "&Listeyi doyaya kaydet"
+msgid "&Save list of selected files to..."
+msgstr "Seçili dosyaları içeren listeyi &kaydet..."
 
 # Control-ID:1308,
 #: Control-ID:1308
@@ -1764,8 +1765,8 @@ msgstr "Değiştirilmiş Dosyalar: %d"
 
 # Control-ID:1242,
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "Yapılan değişiklikler (detaylar için iki kere tıklayınız):"
+msgid "Changes made (double-click on file for diff):"
+msgstr "Yapılan değişiklikler (farklılık detayları için iki kere tıklayınız):"
 
 # ID:8,
 #: ID:8
@@ -7298,4 +7299,5 @@ msgstr "URL: 'sindeki depoyu gösterir"
 #: ID:245
 msgid "year"
 msgstr "yıl"
+
 
