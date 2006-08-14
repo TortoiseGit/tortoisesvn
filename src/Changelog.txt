@@ -28,6 +28,8 @@
        or force it into an endless loop. (Stefan)
 - BUG: The error message "user cancelled" was not properly encoded
        and would show up garbled in certain translations. (Stefan)
+- BUG: TortoiseMerge could sometimes not diff 
+       UTF-16 files correctly. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

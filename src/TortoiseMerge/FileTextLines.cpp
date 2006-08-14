@@ -309,6 +309,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			while (file.ReadString(sLineU))
 			{
 				bEmpty = sLineU.IsEmpty();
+				sLineU.TrimRight('\r');
 				Add(sLineU);
 			}
 			if (bEmpty)
