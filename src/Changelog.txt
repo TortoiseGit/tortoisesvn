@@ -5,6 +5,8 @@
 - CHG: Switched files are only shown in the check-for-modifications
        dialog and not in e.g. the commit/revert/add dialog if they're
        not modified. (Stefan)
+- CHG: Importing a folder from the repository browser now uses the
+       global ignore patterns. (Stefan)
 - BUG: The header in TortoiseBlame was shown in the wrong font in translated
        versions. (Kazutoshi Satoda)
 - BUG: The state of the "Floppy drives" checkbox was not set correctly

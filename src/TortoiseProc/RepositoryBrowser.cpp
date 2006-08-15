@@ -759,7 +759,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							progDlg.SetLine(1, sInfoLine);
 							svn.SetAndClearProgressInfo(&progDlg);
 							progDlg.ShowModeless(m_hWnd);
-							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
+							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, FALSE))
 							{
 								progDlg.Stop();
 								svn.SetAndClearProgressInfo((HWND)NULL);
