@@ -99,6 +99,13 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					delete szFileName;
 					if (str.empty() == false)
 					{
+						if (isOnlyOneItemSelected)
+						{
+							CTSVNPath strpath;
+							strpath.SetFromWin(str.c_str());
+							isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0);
+							isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0);
+						}
 						files_.push_back(str);
 						if (i == 0)
 						{
@@ -603,6 +610,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, DropExport);
 		if (isInSVN)
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, DropExportExtended);
+		if ((isPatchFile)&&(isFolderInSVN))
+			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_MENUAPPLYPATCH, 0, idCmdFirst, ApplyPatch);
 		if (idCmd != idCmdFirst)
 			InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 
@@ -1358,7 +1367,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				{
 					svnCmd = _T(" /diff:\"");
 					if (files_.size() > 0)
+					{
 						svnCmd += files_.front();
+						if (isFolderInSVN)
+						{
+							svnCmd += _T("\" /patchpath:\"");
+							svnCmd += folder_;
+						}
+					}
 					else
 						svnCmd += folder_;
 					if (isInVersionedFolder)
@@ -2139,5 +2155,6 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	}
 	return resource;
 }
+
 
 
