@@ -7,6 +7,8 @@
        not modified. (Stefan)
 - CHG: Importing a folder from the repository browser now uses the
        global ignore patterns. (Stefan)
+- CHG: The ancestry of two nodes is ignored when showing the differences
+       in the repository browser. (Stefan)
 - BUG: The header in TortoiseBlame was shown in the wrong font in translated
        versions. (Kazutoshi Satoda)
 - BUG: The state of the "Floppy drives" checkbox was not set correctly
