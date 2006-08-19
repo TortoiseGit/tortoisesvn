@@ -1159,7 +1159,7 @@ msgstr "Standard-Diff &anwenden"
 
 #: ID:145
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "Sind Sie sicher, dass sie den Konflikt aufgelöst haben?"
+msgstr "Sind Sie sicher, dass Sie den Konflikt aufgelöst haben?"
 
 #: ID:79
 #, c-format
@@ -1788,7 +1788,7 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
-"Konnte die URL der Datei URL nicht finden!\n"
+"Konnte die URL der Datei nicht finden!\n"
 "%s"
 
 #: ID:66
@@ -2053,7 +2053,7 @@ msgid ""
 "Note: you will lose all changes you've made!"
 msgstr ""
 "Wollen Sie die Dokumente neu laden, damit die geänderten Einstellungen wirksam werden?\n"
-"Hinweis:Sie werden alle Ihre Änderungen verlieren!"
+"Hinweis: Sie werden alle Ihre Änderungen verlieren!"
 
 #: ID:313
 msgid ""
@@ -2840,7 +2840,7 @@ msgid ""
 msgstr ""
 "Es ist mit Subversion unter Windows nicht gestattet, beim Umbenennen nur die\n"
 "Groß-/Kleinschreibung (z.B. von datei.txt in DATEI.TXT) zu ändern!\n"
-"Bitte lesen Sie unsere Dokumentation, wie sie diese Einschränkung umgehen können."
+"Bitte lesen Sie unsere Dokumentation, wie Sie diese Einschränkung umgehen können."
 
 # ID:88,
 #: ID:88
@@ -2979,7 +2979,8 @@ msgstr "Gesperrt durch %s"
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
-msgstr "Sperren fehlgeschlagen, weil eine neuere Version existiertnMöchten Sie Aktualisieren und es noch einmal versuchen?"
+msgstr "Sperren fehlgeschlagen, weil eine neuere Version existiert\n"
+"Möchten Sie aktualisieren und es noch einmal versuchen?"
 
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -4234,7 +4235,7 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Select the type of repository you want to create:"
-msgstr "Wählen Sie die Art des Projektarchivs das sie erstellen möchten:"
+msgstr "Wählen Sie die Art des Projektarchivs das Sie erstellen möchten:"
 
 #: ID:78
 msgid "Select viewer for diff-files"
@@ -4848,7 +4849,7 @@ msgid ""
 "Are you sure you want to mark the file resolved?"
 msgstr ""
 "Die gewählte Datei enthält noch einen oder mehrere Konfliktmarken.\n"
-"Sind Sie sicher, daß Sie diesen Konflikt als 'aufgelöst' markieren wollen?"
+"Sind Sie sicher, dass Sie diesen Konflikt als 'aufgelöst' markieren wollen?"
 
 # ID:102,
 #: ID:102
@@ -5583,7 +5584,7 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr ""
-"Sie haben Eigenschaften verändert, ohne sie zu Speichern.\n"
+"Sie haben Eigenschaften verändert, ohne sie zu speichern.\n"
 "Wollen Sie das jetzt tun?"
 
 #: ID:251
@@ -5596,7 +5597,7 @@ msgid ""
 "Are you sure you want to commit without an issue number?"
 msgstr ""
 "Sie haben keine Bugtracker ID angegeben\n"
-"Sind  Sie sicher, daß Sie ohne ID übertragen wollen?"
+"Sind Sie sicher, dass Sie ohne ID übertragen wollen?"
 
 # ID:105,
 #: ID:105
@@ -5623,7 +5624,7 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"Sie haben eine unkontrollierte Datei gewählt.\n"
+"Sie haben eine nicht versionierte Datei gewählt.\n"
 "Die Datei wird vor dem Übertragen zur Versionskontrolle hinzugefügt."
 
 #: ID:195
@@ -5651,7 +5652,7 @@ msgid ""
 "Click here to read and insert them again."
 msgstr ""
 "Ihre zuletzt eingegebenen Logmeldungen wurden gespeichert.\n"
-"Klicken Sie auf diese Schaltfläche, um Sie durchzulesen und\n"
+"Klicken Sie auf diese Schaltfläche, um sie durchzulesen und\n"
 "gegebenenfalls in den Dialog einzufügen."
 
 #: Control-ID:1112
@@ -5683,7 +5684,7 @@ msgid ""
 msgstr ""
 "Ihre Arbeitskopie enthält lokale Modifikationen!\n"
 "Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
-"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der sie aktualisieren!"
+"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der Sie aktualisieren!"
 
 #: MenuEntry
 msgid "Zoo&m out"
@@ -6011,7 +6012,7 @@ msgstr ""
 "Setzen Sie diese Eigenschaft auf einen beliebigen Wert (z.B. '*'), um das\n"
 "Sperren der Datei zu erzwingen.\n"
 "Die Datei wird beim Auschecken oder Aktualisieren als nur-lesend markiert.\n"
-"Dies zeigt anderen Anwendern, dass Sie die Datei sperren müssen, bevor sie\n"
+"Dies zeigt anderen Anwendern, dass sie die Datei sperren müssen, bevor sie\n"
 "bearbeitet oder übertragen werden kann."
 
 # ID:208,
@@ -6103,4 +6104,5 @@ msgstr "die auf folgendes Projektarchiv zeigt:"
 #: ID:245
 msgid "year"
 msgstr "Jahr"
+
 
