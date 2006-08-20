@@ -35,6 +35,8 @@
 - BUG: TortoiseMerge could sometimes not diff 
        UTF-16 files correctly. (Stefan)
 - BUG: The cache could crash with overly long path names. (Stefan)
+- BUG: The "help" button in the lock dialog did nothing. (Stefan)
+
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

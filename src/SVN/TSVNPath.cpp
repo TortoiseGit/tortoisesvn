@@ -309,9 +309,20 @@ void CTSVNPath::UpdateAttributes() const
 	}
 	else
 	{
-		m_bIsDirectory = false;
-		m_lastWriteTime = 0;
-		m_bExists = false;
+		DWORD err = GetLastError();
+		if ((err == ERROR_FILE_NOT_FOUND)||(err == ERROR_PATH_NOT_FOUND))
+		{
+			m_bIsDirectory = false;
+			m_lastWriteTime = 0;
+			m_bExists = false;
+		}
+		else
+		{
+			m_bIsDirectory = false;
+			m_lastWriteTime = 0;
+			m_bExists = true;
+			return;
+		}
 	}
 	m_bDirectoryKnown = true;
 	m_bLastWriteTimeKnown = true;
