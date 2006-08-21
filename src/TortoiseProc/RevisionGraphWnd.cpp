@@ -302,6 +302,8 @@ void CRevisionGraphWnd::OnSize(UINT nType, int cx, int cy)
 
 void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 {
+	if (m_bThreadRunning)
+		return __super::OnLButtonDown(nFlags, point);
 	ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
 	SetFocus();
 	bool bHit = false;
@@ -371,6 +373,8 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	m_bIsRubberBand = false;
 	ReleaseCapture();
+	if (m_bThreadRunning)
+		return __super::OnLButtonUp(nFlags, point);
 	// zooming is finished
 	m_ptRubberEnd = CPoint(0,0);
 	CRect rect;
@@ -659,6 +663,8 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 
 BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
+	if (m_bThreadRunning)
+		return __super::OnMouseWheel(nFlags, zDelta, pt);
 	int orientation = GetKeyState(VK_CONTROL)&0x8000 ? SB_HORZ : SB_VERT;
 	int pos = GetScrollPos(orientation);
 	pos -= (zDelta);
@@ -669,6 +675,9 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
+	if (m_bThreadRunning)
+		return;
+
 	CRevisionEntry * clickedentry = NULL;
 	CPoint clientpoint = point;
 	this->ScreenToClient(&clientpoint);
@@ -775,7 +784,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 {
-	if (!m_bIsRubberBand)
+	if ((!m_bIsRubberBand)||(m_bThreadRunning))
 	{
 		return __super::OnMouseMove(nFlags, point);
 	}
