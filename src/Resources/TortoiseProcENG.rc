@@ -917,7 +917,7 @@ BEGIN
     GROUPBOX        "Check for modifications",IDC_STATIC,7,142,286,32
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,156,271,10
-    LTEXT           "Max. items to keep in the log message history",IDC_STATIC,15,107,226,8
+    LTEXT           "Max. items to keep in the log message history",IDC_MAXHISTORYLABEL,15,107,226,8,SS_NOTIFY
     EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
     GROUPBOX        "Repository browser",IDC_STATIC,7,179,286,30
     CONTROL         "Sort items numerically",IDC_SORTNUMERICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,192,237,10

@@ -134,6 +134,7 @@ BOOL CSetMisc::OnInitDialog()
 	m_tooltips.AddTool(IDC_REOPENCOMMIT, IDS_SETTINGS_COMMITREOPEN_TT);
 	m_tooltips.AddTool(IDC_REPOCHECK, IDS_SETTINGS_REPOCHECK_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
+	m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
