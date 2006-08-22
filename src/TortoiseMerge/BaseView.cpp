@@ -2066,10 +2066,9 @@ void CBaseView::OnEditCopy()
 	CString sCopyData;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
-		if (!sCopyData.IsEmpty())
-			sCopyData += _T("\r\n");
 		sCopyData += this->m_arDiffLines->GetAt(i);
-	} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+		sCopyData += _T("\r\n");
+	}
 	CStringA sCopyDataASCII = CStringA(sCopyData);
 	if (!sCopyDataASCII.IsEmpty())
 	{

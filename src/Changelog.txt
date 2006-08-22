@@ -1,3 +1,7 @@
+- CHG: When copying selected lines to the clipboard, a newline is added
+       at the end of the last line. See issue #272 for details. (Stefan)
+
+Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
        to be changed with Ctrl+Shift+Wheel. (Stefan)
 - NEW: In the file diff dialog, Ctrl-A now selects all entries, and 
