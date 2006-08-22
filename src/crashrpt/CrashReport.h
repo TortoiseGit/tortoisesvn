@@ -77,7 +77,10 @@ public:
 		if (m_hDll)
 		{
 			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
-			m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
+			if ( pfnInstallEx )
+			{
+				m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
+			}
 		}
 	}
 	~CCrashReport()
