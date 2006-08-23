@@ -14,6 +14,8 @@ Version 1.4.0
 - CHG: The ancestry of two nodes is ignored when showing the differences
        in the repository browser. (Stefan)
 - CHG: The sort arrows now use the same orientation as explorer. (Stefan)
+- CHG: Sorting the columns author and message in the log dialog is now
+       case-insensitive. (Tobias Schäfer)
 - BUG: The header in TortoiseBlame was shown in the wrong font in translated
        versions. (Kazutoshi Satoda)
 - BUG: The state of the "Floppy drives" checkbox was not set correctly

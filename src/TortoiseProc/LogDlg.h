@@ -301,7 +301,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->dwRev > pEnd->dwRev;
+				return pStart->dwRev > pEnd->dwRev;
             }
         };
         // Ascending author sorting.
@@ -309,7 +309,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->sAuthor < pEnd->sAuthor;
+                return pStart->sAuthor.CompareNoCase(pEnd->sAuthor)<0;
             }
         };
         // Descending author sorting.
@@ -317,7 +317,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->sAuthor > pEnd->sAuthor;
+                return pStart->sAuthor.CompareNoCase(pEnd->sAuthor)>0;
             }
         };
         // Ascending message sorting.
@@ -325,7 +325,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->sShortMessage < pEnd->sShortMessage;
+                return pStart->sShortMessage.CompareNoCase(pEnd->sShortMessage)<0;
             }
         };
         // Descending message sorting.
@@ -333,7 +333,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->sShortMessage > pEnd->sShortMessage;
+                return pStart->sShortMessage.CompareNoCase(pEnd->sShortMessage)>0;
             }
         };
 		// Ascending action sorting
