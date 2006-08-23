@@ -3362,7 +3362,7 @@ void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
 	if (nColumn >= 0)
 	{
 		pHeader->GetItem(nColumn, &HeaderItem);
-		HeaderItem.fmt |= (bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+		HeaderItem.fmt |= (bAscending ? HDF_SORTUP : HDF_SORTDOWN);
 		pHeader->SetItem(nColumn, &HeaderItem);
 	}
 }

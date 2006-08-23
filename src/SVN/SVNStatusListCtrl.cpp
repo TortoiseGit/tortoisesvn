@@ -938,7 +938,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	if (m_nSortedColumn)
 	{
 		pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-		HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+		HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
 		pHeader->SetItem(m_nSortedColumn, &HeaderItem);
 	}
 
@@ -1067,7 +1067,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 	if (m_nSortedColumn)
 	{
 		pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-		HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+		HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
 		pHeader->SetItem(m_nSortedColumn, &HeaderItem);
 	}
 
@@ -1428,7 +1428,7 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 		pHeader->SetItem(i, &HeaderItem);
 	}
 	pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-	HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+	HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
 	pHeader->SetItem(m_nSortedColumn, &HeaderItem);
 	m_bBlock = FALSE;
 }
