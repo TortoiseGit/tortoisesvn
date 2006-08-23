@@ -40,6 +40,7 @@ using namespace Gdiplus;
 
 void CRevisionGraphWnd::InitView()
 {
+	m_bIsRubberBand = false;
 	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
 	{
 		delete [] (CPoint*)m_arConnections.GetAt(i);

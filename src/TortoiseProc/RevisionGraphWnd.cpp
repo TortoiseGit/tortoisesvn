@@ -371,6 +371,9 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 {
+	if (!m_bIsRubberBand)
+		return;		// we don't have a rubberband, so no zooming necessary
+
 	m_bIsRubberBand = false;
 	ReleaseCapture();
 	if (m_bThreadRunning)
