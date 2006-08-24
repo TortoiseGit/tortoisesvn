@@ -2187,7 +2187,36 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						// *before* their parents
 						itemsToRemove.SortByPathname(true);
 
-						if (svn.Remove(itemsToRemove, TRUE))
+						bool bSuccess = false;
+						if (svn.Remove(itemsToRemove, FALSE))
+						{
+							bSuccess = true;
+						}
+						else
+						{
+							if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+								(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+							{
+								CString msg, yes, no, yestoall;
+								msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+								yes.LoadString(IDS_MSGBOX_YES);
+								no.LoadString(IDS_MSGBOX_NO);
+								yestoall.LoadString(IDS_PROC_YESTOALL);
+								UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
+								if ((ret == 1)||(ret==3))
+								{
+									if (!svn.Remove(itemsToRemove, TRUE))
+									{
+										CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									}
+									else
+										bSuccess = true;
+								}
+							}
+							else
+								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						if (bSuccess)
 						{
 							// The remove went ok, but we now need to run through the selected items again
 							// and update their status
@@ -2200,10 +2229,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								e->status = svn_wc_status_deleted;
 								SetEntryCheck(e,index,true);
 							}
-						}
-						else
-						{
-							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
 						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
