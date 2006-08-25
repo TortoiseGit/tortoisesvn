@@ -527,7 +527,18 @@ public:
 	 * the repository of the lock. It is \b not an absolute URL, the
 	 * repository root part is stripped off!
 	 */
-	BOOL GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks);	
+	BOOL GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks);
+
+	/**
+	 * get a summary of the working copy revisions
+	 * \param wcpath the path to the working copy to scan for
+	 * \param bCommitted if true, use the last-committed revisions, if false use the BASE revisions.
+	 * \param minrev the min revision of the working copy
+	 * \param maxrev the max revision of the working copy
+	 * \param switched true if one or more items in the working copy are switched
+	 * \param modified true if there are modified files in the working copy
+	 */
+	BOOL GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified);
 
 	CString GetURLFromPath(const CTSVNPath& path);
 	CString GetUIURLFromPath(const CTSVNPath& path);

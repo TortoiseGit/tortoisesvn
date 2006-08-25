@@ -27,32 +27,15 @@
 #include "LogDlg.h"
 #include "Balloon.h"
 
+#define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
+
 /**
  * \ingroup TortoiseProc
  * Prompts the user for the required information needed for a copy command.
  * The required information is a single URL to copy the current URL of the 
  * working copy to.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 11-21-2002
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
-class CCopyDlg : public CStandAloneDialog
+class CCopyDlg : public CStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CCopyDlg)
 
@@ -70,6 +53,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg LRESULT OnRevFound(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
@@ -81,12 +65,15 @@ protected:
 	afx_msg void OnEnChangeLogmessage();
 	DECLARE_MESSAGE_MAP()
 
+	virtual BOOL Cancel() {return m_bCancelled;}
+
 public:
 	CString	m_URL;
 	CTSVNPath m_path;
 	CString m_sLogMessage;
 	SVNRev m_CopyRev;
 	BOOL m_bDoSwitch;
+
 private:
 	CLogDlg *	m_pLogDlg;
 	CSciEdit	m_cLogMessage;
@@ -99,4 +86,14 @@ private:
 	CButton m_butBrowse;
 	CHistoryDlg m_HistoryDlg;
 	CBalloon	m_tooltips;
+
+	svn_revnum_t	m_minrev;
+	svn_revnum_t	m_maxrev;
+	bool			m_bswitched;
+	bool			m_bmodified;
+	bool			m_bSettingChanged;
+	static UINT		FindRevThreadEntry(LPVOID pVoid);
+	UINT			FindRevThread();
+	CWinThread *	m_pThread;
+	bool			m_bCancelled;
 };

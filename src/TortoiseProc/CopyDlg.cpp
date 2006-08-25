@@ -38,6 +38,9 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_sBugID(_T(""))
 	, m_CopyRev(SVNRev::REV_HEAD)
 	, m_bDoSwitch(false)
+	, m_bSettingChanged(false)
+	, m_bCancelled(false)
+	, m_pThread(NULL)
 {
 	m_pLogDlg = NULL;
 }
@@ -61,6 +64,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CCopyDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
+	ON_MESSAGE(WM_TSVN_MAXREVFOUND, OnRevFound)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_BROWSEFROM, OnBnClickedBrowsefrom)
@@ -144,12 +148,42 @@ BOOL CCopyDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+
+	m_bSettingChanged = false;
+	// start a thread to obtain the highest revision number of the working copy
+	// without blocking the dialog
+	if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
+UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
+{
+	return ((CCopyDlg*)pVoid)->FindRevThread();
+}
+
+UINT CCopyDlg::FindRevThread()
+{
+	if (GetWCRevisionStatus(m_path, true, m_minrev, m_maxrev, m_bswitched, m_bmodified))
+	{
+		SendMessage(WM_TSVN_MAXREVFOUND);
+	}
+	return 0;
+}
+
 void CCopyDlg::OnOK()
 {
+	m_bCancelled = true;
+	// check if the status thread has already finished
+	if (m_pThread)
+	{
+		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
+	}
+
 	CString id;
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
 	CString sRevText;
@@ -266,6 +300,12 @@ void CCopyDlg::OnBnClickedHelp()
 
 void CCopyDlg::OnCancel()
 {
+	m_bCancelled = true;
+	// check if the status thread has already finished
+	if (m_pThread)
+	{
+		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
+	}
 	m_HistoryDlg.AddString(m_cLogMessage.GetText());
 	m_HistoryDlg.SaveHistory();
 	CStandAloneDialog::OnCancel();
@@ -332,16 +372,19 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 
 void CCopyDlg::OnBnClickedCopyhead()
 {
+	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedCopyrev()
 {
+	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 }
 
 void CCopyDlg::OnBnClickedCopywc()
 {
+	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
@@ -357,5 +400,28 @@ void CCopyDlg::OnBnClickedHistory()
 			m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
 	}
+}
 
+LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+	// we have found the highest last-committed revision
+	// in the working copy
+	if ((!m_bSettingChanged)&&(m_maxrev != 0)&&(!m_bmodified)&&(!m_bCancelled))
+	{
+		// we only change the setting automatically if the user hasn't done so
+		// already him/herself, if the highest revision is valid and if the
+		// working copy has no modifications. And of course, if the thread hasn't
+		// been stopped forcefully.
+		if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
+		{
+			// and of course, we only change it if the radio button for a REPO-to-REPO copy
+			// is enabled for HEAD
+			CString temp;
+			temp.Format(_T("%ld"), m_maxrev);
+			GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+			CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
+			DialogEnableWindow(IDC_COPYREVTEXT, TRUE);			
+		}
+	}
+	return 0;
 }

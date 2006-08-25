@@ -1624,6 +1624,26 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 	return TRUE;
 }
 
+BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified)
+{
+	SVNPool localpool(pool);
+	svn_wc_revision_status_t * revstatus = NULL;
+	Err = svn_wc_revision_status(&revstatus, wcpath.GetSVNApiPath(), NULL, bCommitted, SVN::cancel, this, localpool);
+	if ((Err)||(revstatus == NULL))
+	{
+		minrev = 0;
+		maxrev = 0;
+		switched = false;
+		modified = false;
+		return FALSE;
+	}
+	minrev = revstatus->min_rev;
+	maxrev = revstatus->max_rev;
+	switched = !!revstatus->switched;
+	modified = !!revstatus->modified;
+	return TRUE;
+}
+
 svn_revnum_t SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
 {
 	svn_revnum_t set_rev;
