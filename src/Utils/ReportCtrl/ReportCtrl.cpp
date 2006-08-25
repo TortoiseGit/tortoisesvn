@@ -1089,6 +1089,8 @@ BOOL CReportCtrl::SetSubItemWidth(INT iSubItem, INT iWidth)
 INT CReportCtrl::GetItemIndex(HTREEITEM hItem)
 {
 	ASSERT(m_dwStyle&RVS_TREEVIEW);
+	if (hItem == RVTI_ROOT)
+		return 0;
 	if (hItem)
 		return ((LPTREEITEM)hItem)->iItem;
 	return 0;
