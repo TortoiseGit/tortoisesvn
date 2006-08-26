@@ -117,7 +117,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	}
 	pVal2 = (UINT8 *)pBuffer;
 	bool bUTF8 = false;
-	for (int i=0; i<cb; ++i)
+	for (int i=0; i<(cb-3); ++i)
 	{
 		if ((*pVal2 & 0xE0)==0xC0)
 		{
