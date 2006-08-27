@@ -1080,7 +1080,7 @@ void CMainFrame::OnEditFindnext()
 		{
 			left = m_pwndLeftView->m_arDiffLines->GetAt(i);
 			leftstate = (CDiffData::DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
-			if ((m_pwndRightView)&&(m_pwndRightView->m_arDiffLines))
+			if ((!m_bOneWay)&&(m_pwndRightView->m_arDiffLines))
 			{
 				right = m_pwndRightView->m_arDiffLines->GetAt(i);
 				rightstate = (CDiffData::DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
