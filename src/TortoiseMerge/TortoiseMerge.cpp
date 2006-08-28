@@ -296,7 +296,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 				{
 					pFrame->m_Data.m_baseFile.SetFileName(szArglist[1]);
 					pFrame->m_Data.m_yourFile.SetFileName(szArglist[2]);
-					if ( PathFileExists(szArglist[3]) )
+					if ( nArgs == 4 && PathFileExists(szArglist[3]) )
 					{
 						pFrame->m_Data.m_theirFile.SetFileName(szArglist[3]);
 					}
