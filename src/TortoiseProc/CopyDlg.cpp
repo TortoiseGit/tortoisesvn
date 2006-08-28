@@ -397,7 +397,12 @@ void CCopyDlg::OnBnClickedHistory()
 	if (m_HistoryDlg.DoModal()==IDOK)
 	{
 		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
-			m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+		{
+			if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
+				m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+			else
+				m_cLogMessage.SetText(m_HistoryDlg.GetSelectedText());
+		}
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
 	}
 }

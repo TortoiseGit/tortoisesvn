@@ -244,7 +244,12 @@ void CImportDlg::OnBnClickedHistory()
 	if (m_HistoryDlg.DoModal()==IDOK)
 	{
 		if (m_HistoryDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
-			m_cMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
+		{
+			if (m_ProjectProperties.sLogTemplate.Compare(m_cMessage.GetText())!=0)
+				m_cMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
+			else
+				m_cMessage.SetText(m_HistoryDlg.GetSelectedText());
+		}
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cMessage.GetText().GetLength());
 	}
 

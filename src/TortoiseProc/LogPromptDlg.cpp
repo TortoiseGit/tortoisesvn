@@ -908,7 +908,10 @@ void CLogPromptDlg::OnBnClickedHistory()
 			{
 				GetDlgItem(IDC_BUGID)->SetWindowText(sBugID);
 			}
-			m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
+			if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
+				m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
+			else
+				m_cLogMessage.SetText(sMsg);
 		}
 		
 		UpdateOKButton();
