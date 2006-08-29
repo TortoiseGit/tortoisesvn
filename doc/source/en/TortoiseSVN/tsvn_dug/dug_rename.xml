@@ -147,4 +147,51 @@
 			working copy.
 		</para>
 	</tip>
+	<sect2 id="tsvn-dug-renameincase">
+		<title>Renaming a file only in case</title>
+		<?dbhh topicname="HIDD_RENAMEINCASE"?>
+		<para>
+			In case you have two files in the repository with the same name
+			but differing only in case (e.g. TEST.TXT and test.txt) you can't
+			update or checkout the directory where those files are in anymore.
+		</para>
+		<para>
+			In that case, you have to decide which one of them you want to 
+			keep and delete (or rename) the other one from the repository.
+		</para>
+		<para>
+			There are (at least) two possible solutions to rename a file 
+			without losing its log history. It is important to rename it 
+			within subversion. Just renaming in the explorer will corrupt 
+			your working copy!!!
+		</para>
+		<para>
+			Solution A) (recommended)
+			<orderedlist>
+			<listitem><para>Commit the changes in your working copy.</para></listitem>
+			<listitem><para>Rename the file from UPPERcase to upperCASE directly 
+			in the repository using the repository browser.</para></listitem>
+			<listitem><para>Update your working copy.</para></listitem>
+			</orderedlist>
+		</para>
+		<para>
+			Solution B)
+			<orderedlist>
+			<listitem><para>Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu.</para></listitem>
+			<listitem><para>Commit the changes.</para></listitem>
+			<listitem><para>Rename from UPPERcase_ to upperCASE.</para></listitem>
+			<listitem><para>Commit the changes.</para></listitem>
+			</orderedlist>
+		</para>
+		<tip>
+			<title>Preventing two files with the same name</title>
+			<para>
+			There is a server hook script available at: 
+			<ulink url="http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/">
+				<citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle>
+			</ulink>
+			that will prevent checkins which result in case conflicts.
+			</para>
+		</tip>
+	</sect2>
 </sect1>
