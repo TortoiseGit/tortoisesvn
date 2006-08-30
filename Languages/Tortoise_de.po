@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-08-09 23:58+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2006-08-30 11:19+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,17 +55,17 @@ msgstr "%1 enthält einen ungültigen Pfad."
 #: ID:3867
 #, c-format
 msgid "%1 could not be created because the directory is full."
-msgstr "%1 konnte nicht erstellt werden weil der Ordner voll ist."
+msgstr "%1 konnte nicht erstellt werden, weil der Ordner voll ist."
 
 #: ID:3867
 #, c-format
 msgid "%1 could not be opened because there are too many open files."
-msgstr "%1 konnte nicht geöffnet werden weil zu viele Dateien geöffnet sind."
+msgstr "%1 konnte nicht geöffnet werden, weil zu viele Dateien geöffnet sind."
 
 #: ID:3867
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 konnte nicht entfernt werden da es der aktuelle Ordner ist."
+msgstr "%1 konnte nicht entfernt werden, da es der aktuelle Ordner ist."
 
 #: ID:3868
 #, c-format
@@ -95,7 +95,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "Konnte Datei nicht finden.\n"
-"Bitte überprüfen Sie ob der Pfad und der Dateiname korrekt sind."
+"Bitte überprüfen Sie, ob der Pfad und der Dateiname korrekt sind."
 
 # ID:357,
 #: ID:357
@@ -350,7 +350,7 @@ msgstr "&Vergleich"
 # ID:17,
 #: ID:17
 msgid "&Diff with URL"
-msgstr "&Diff mit URL"
+msgstr "&Vergleich mit URL"
 
 #: Control-ID:1179
 msgid "&Dry run"
@@ -376,7 +376,7 @@ msgstr "Aktiviere &Proxy Server"
 
 #: Control-ID:1213
 msgid "&Enter a message describing why you lock the file(s)."
-msgstr "Geben Sie eine &Meldung ein, in der Sie beschreiben warum Sie die Datei(en) sperren."
+msgstr "Geben Sie eine &Meldung ein, in der Sie beschreiben, warum Sie die Datei(en) sperren."
 
 #: MenuEntry
 msgid "&Exit"
@@ -577,7 +577,7 @@ msgstr "&Port:"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr "&Vorherige Unterschied"
+msgstr "&Vorheriger Unterschied"
 
 #: Control-ID:1246
 msgid "&Recent messages"
@@ -1045,12 +1045,12 @@ msgstr "Ein Versuch über %1 hinaus zuzugreifen schlug fehl."
 #: ID:3868
 #, c-format
 msgid "An attempt was made to read from the writing %1."
-msgstr "Ein Versuch auf den schreibenden %1 zu lesen wurde gemacht."
+msgstr "Es wurde versucht, vom schreibenden %1 zu lesen."
 
 #: ID:3868
 #, c-format
 msgid "An attempt was made to write to the reading %1."
-msgstr "Ein Versuch auf den lesenden %1 zu schreiben wurde gemacht."
+msgstr "Es wurde versucht, auf den lesenden %1 zu schreiben."
 
 #: ID:78
 #, c-format
@@ -1066,8 +1066,8 @@ msgstr ""
 "verschiedener Revisionen von Dateien\n"
 "<hr=100%>\n"
 "Sie können folgende Parameter für das Programm angeben:\n"
-"%base\t\tDie Originaldatei, ohne Ihre Änderungen\n"
-"%mine\t\tDie Datei mit Ihren Änderungen."
+"%base\t\tDie Ausgangsdatei\n"
+"%mine\t\tDie modifizierte Datei"
 
 #: ID:79
 #, c-format
@@ -1386,7 +1386,7 @@ msgstr "Zertifikat ist abgelaufen. Gültig bis: %s"
 #: ID:82
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr "Zertifikat noch nicht gültig. Gültig von: %s"
+msgstr "Zertifikat noch nicht gültig. Gültig ab: %s"
 
 #: ID:157
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -1494,7 +1494,7 @@ msgstr "Beim Aufräumen."
 
 #: ID:79
 msgid "Cleanup has finished"
-msgstr "Bereinigen ist fertig"
+msgstr "Aufräumen ist fertig"
 
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1780,7 +1780,7 @@ msgstr ""
 #: ID:82
 #, c-format
 msgid "Could not remove %s from the ignore list"
-msgstr "Konnte %s aus der 'Ignorieren' Liste entfernen!"
+msgstr "Konnte %s nicht aus der 'Ignorieren' Liste entfernen!"
 
 #: ID:81
 #, c-format
@@ -1872,7 +1872,7 @@ msgstr "Ordner im Projektarchiv angelegt"
 
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Erzeugt eine 'billige' Kopie innerhalb des Projektarchivs für Zweige oder Markierungen"
+msgstr "Erzeugt eine Kopie innerhalb des Projektarchivs für Zweige oder Markierungen"
 
 #: ID:10
 msgid "Creates a repository database at the current location"
@@ -1949,7 +1949,7 @@ msgstr "Dialoggrößen und -positionen"
 # ID:146,
 #: ID:146
 msgid "Diff With URL"
-msgstr "Diff mit URL"
+msgstr "Vergleich mit URL"
 
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2222,7 +2222,7 @@ msgstr "Fehler beim Reparieren des Shell Symbolcache!"
 #: ID:81
 #, c-format
 msgid "Error validating server certificate for %s:"
-msgstr "Fehler bei der Validierung des Serverzerzifikats für %s:"
+msgstr "Fehler bei der Validierung des Serverzertifikats für %s:"
 
 # ID:70,
 #: ID:70
@@ -2403,7 +2403,7 @@ msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 # ID:119,
 #: ID:119
 msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "Wählen Sie \"Bei Kopieren/Umbenennen anhalten\" ab, um eine vollständige Historie zu erhalten."
+msgstr "Wählen Sie \"Bei Kopien/Umbenennen anhalten\" ab, um eine vollständige Historie zu erhalten."
 
 #: Control-ID:1200
 msgid "From:"
@@ -2732,7 +2732,7 @@ msgstr "Erster Import"
 
 #: Control-ID:65535
 msgid "Inline diff"
-msgstr "Diff innerhalb Zeile"
+msgstr "Unterschiede innerhalb einer Zeile"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -2979,12 +2979,13 @@ msgstr "Gesperrt durch %s"
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
-msgstr "Sperren fehlgeschlagen, weil eine neuere Version existiert\n"
+msgstr ""
+"Sperren fehlgeschlagen, weil eine neuere Version existiert.\n"
 "Möchten Sie aktualisieren und es noch einmal versuchen?"
 
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Sperrt Dateien für andere Anwender su dass nur Sie die Datei bearbeiten können."
+msgstr "Sperrt Dateien für andere Anwender und hebt für Sie selbst den Schreibschutz auf."
 
 #: ID:126
 msgid "Log"
@@ -3232,7 +3233,7 @@ msgstr "Keine Unterschiede gefunden!"
 
 #: ID:3843
 msgid "No error message is available."
-msgstr "Keine Fehlermeldung vorhanden"
+msgstr "Keine Fehlermeldung vorhanden."
 
 #: ID:3867
 #: ID:3868
@@ -3243,7 +3244,7 @@ msgstr "Kein Fehler aufgetreten."
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr ""
 "Es wurden keine Dateien / Ordner modifiziert.\n"
-"TortoiseSVN kann keine Änderungen rückgängig machen!"
+"Es sind keine Änderungen vorhanden, die rückgängig gemacht werden könnten."
 
 #: ID:77
 msgid ""
@@ -3251,8 +3252,8 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"Es wurden keine Dateien / Ordner seit\n"
-"dem letzten Übertragen verändert.\n"
+"Seit der letzten Übertragung wurden keine\n"
+"Dateien / Ordner verändert oder hinzugefügt.\n"
 "Es gibt nichts zu tun für TortoiseSVN..."
 
 #: ID:170
@@ -3262,8 +3263,8 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
-"Es wurden keine Dateien / Ordner seit\n"
-"dem letzten Übertragen verändert.\n"
+"Seit der letzten Übertragung wurden keine\n"
+"Dateien / Ordner verändert oder hinzugefügt.\n"
 "Es gibt nichts zu tun für TortoiseSVN...\n"
 "\n"
 "Soll TortoiseSVN die nicht versionierten Dateien anzeigen?"
@@ -3365,7 +3366,7 @@ msgstr "Nur den &obersten Ordner aktualisieren"
 
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "&Rechtschreibkorrektur nur verwenden wenn tsvn:projectlanguage gesetzt ist"
+msgstr "&Rechtschreibkorrektur nur verwenden, wenn tsvn:projectlanguage gesetzt ist"
 
 #: ID:3841
 msgid "Open"
@@ -3516,7 +3517,7 @@ msgstr "Bitte nicht mehr als %1 Zeichen eingeben."
 
 #: ID:251
 msgid "Please execute the \"Cleanup\" command."
-msgstr "Bitte führen Sie den 'Aufräumen' Befehl aus."
+msgstr "Bitte führen Sie den Befehl 'Arbeitskopie aufräumen' aus."
 
 #: ID:78
 msgid ""
@@ -3527,7 +3528,7 @@ msgid ""
 msgstr ""
 "Bitte beachten:\n"
 "Ihre Arbeitskopie bleibt auf dem vorherigen Pfad. Wenn Sie Ihre nächsten Änderungen\n"
-"in der gerade erstellen Kopie haben möchten dann müssen Sie\n"
+"in der gerade erstellen Kopie haben möchten, dann müssen Sie\n"
 "zu dieser Kopie wechseln. Benutzen Sie dazu den Befehl <b>Wechseln zu...</b>."
 
 #: ID:3858
@@ -3690,7 +3691,7 @@ msgstr ""
 
 #: ID:3825
 msgid "Reduce the window to an icon"
-msgstr "Verkleinert das Fenster zu einem Icon"
+msgstr "Verkleinert das Fenster zu einem Symbol"
 
 #: ID:101
 #: ID:135
@@ -3853,11 +3854,11 @@ msgstr "Konflikt lösen"
 
 #: ID:282
 msgid "Resolve conflict using \"mine\""
-msgstr "Löse Konflikt mit 'Eigener' Datei"
+msgstr "Löse Konflikt mit 'Meiner' Datei"
 
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
-msgstr "Löse Konflikt mit 'Anderer' Datei"
+msgstr "Löse Konflikt mit 'Deren' Datei"
 
 #: ID:74
 #: ID:209
@@ -4178,7 +4179,7 @@ msgstr "Wähle einen SSH Client"
 
 #: ID:3585
 msgid "Select an object on which to get Help"
-msgstr "Wählen Sie ein Objekt für welches Sie Hilfe möchten"
+msgstr "Wählen Sie ein Objekt, für welches Sie Hilfe möchten"
 
 #: ID:78
 msgid "Select diff application"
@@ -4235,7 +4236,7 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Select the type of repository you want to create:"
-msgstr "Wählen Sie die Art des Projektarchivs das Sie erstellen möchten:"
+msgstr "Wählen Sie die Art des Projektarchivs, das Sie erstellen möchten:"
 
 #: ID:78
 msgid "Select viewer for diff-files"
@@ -4404,7 +4405,7 @@ msgstr "Zeigt alle Dateien, die sich seit der letzten Aktualisierung lokal oder 
 # ID:2050,
 #: ID:2050
 msgid "Shows all revisions where changes were made to this item"
-msgstr "Zeigt alle Revisionen in denen Änderungen vorgenommen wurden."
+msgstr "Zeigt alle Revisionen, in denen Änderungen vorgenommen wurden."
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4770,7 +4771,7 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Die 'Index: ' Zeile wurde nicht gefunden!\n"
-"Entweder handelt es sich nicht un eine Standard-Diffdatei oder die Datei ist leer."
+"Entweder handelt es sich nicht um eine Standard-Diffdatei oder die Datei ist leer."
 
 #: ID:63
 #, c-format
@@ -4817,7 +4818,7 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Der Pfad/die URL, die Sie eingegeben haben sind unter Windows nicht zulässing!\n"
+"Der Pfad/die URL, die Sie eingegeben haben, sind unter Windows nicht zulässig!\n"
 "Sie können es trotzdem versuchen, müssen aber mit Folgefehlern rechnen.\n"
 "Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
@@ -4882,7 +4883,7 @@ msgid ""
 "A lower value will make the autocompletion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"Die Zeit in Sekunden nach der die Analyse der ausgewählten Dateien angehalten wird.\n"
+"Die Zeit in Sekunden, nach der die Analyse der ausgewählten Dateien angehalten wird.\n"
 "Ein kleiner Wert stellt die Liste zum automatischen Vervollständigen schneller\n"
 "zur Verfügung, wird aber manchmal nicht alle Dateien analysieren."
 
@@ -4929,14 +4930,14 @@ msgstr "Deren Datei:"
 
 #: ID:263
 msgid "Theirs"
-msgstr "Ihre"
+msgstr "Deren"
 
 #: ID:169
 msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Es wurden Änderungen vorgenommen innerhalb von Ordnern\n"
+"Es wurden Änderungen innerhalb von Ordnern vorgenommen,\n"
 "welche Sie mittels svn:externals eingebunden haben.\n"
 "Diese Dateien werden <b>nicht</b> aufgelistet.\n"
 "Sie müssen diese Änderungen separat übertragen."
@@ -4957,7 +4958,7 @@ msgstr ""
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "Es gibt nichts hinzuzufügen. Alle Dateien und Ordner befinden sich entweder bereits unter Versionskontrolle oder sie werden aufgrund der svn:ignore Eigenschaft beziehungsweise der globalen Ausschlußmuster ignoriert."
+msgstr "Es gibt nichts hinzuzufügen. Alle Dateien und Ordner befinden sich entweder bereits unter Versionskontrolle oder sie werden aufgrund der svn:ignore Eigenschaft beziehungsweise der globalen Ausschlussmuster ignoriert."
 
 #: ID:188
 msgid "Thesaurus"
@@ -5059,7 +5060,7 @@ msgid ""
 "/right:\"path to right picture\"\n"
 "/righttitle:\"title to show for the right picture\""
 msgstr ""
-"TortoiseIDiff: Der Bild-Diff viewer für TortoiseSVN\n"
+"TortoiseIDiff: Das Programm zum Vergleichen von Bildern\n"
 "\n"
 "Mögliche Kommandozeilenparameter sind:\n"
 "/left:\"Pfad zum linken Bild\"\n"
@@ -5189,7 +5190,7 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
-"TortoiseSVN hat ähnliche Dateinamen gefunden. Wollen Sie dass die Dateien:%s\n"
+"TortoiseSVN hat ähnliche Dateinamen gefunden. Wollen Sie, dass die Dateien:%s\n"
 "ebenfalls umbenannt werden?"
 
 #: Control-ID:1162
@@ -5255,7 +5256,7 @@ msgstr "Konnte von %1 nicht lesen, es ist von jemand anderem geöffnet."
 
 #: ID:3865
 msgid "Unable to read write-only property."
-msgstr "Konnte write-only Eigenschaft nicht lesen."
+msgstr "Konnte 'nur Schreiben' Eigenschaft nicht lesen."
 
 # ID:119,
 #: ID:119
@@ -5272,7 +5273,7 @@ msgstr ""
 
 #: ID:3865
 msgid "Unable to write read-only property."
-msgstr "Konnte read-only Eigenschaft nicht beschreiben."
+msgstr "Konnte 'nur Lesen' Eigenschaft nicht beschreiben."
 
 #: ID:3859
 #, c-format
@@ -5287,7 +5288,9 @@ msgstr "Abwählen"
 msgid ""
 "Undo the last action\n"
 "Undo"
-msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
+msgstr ""
+"Letzte Aktion rückgängig machen\n"
+"Rückgängig"
 
 #: ID:3859
 msgid "Unexpected file format."
@@ -5365,7 +5368,7 @@ msgstr "Verwende &Einfenstersicht als Standard für Zweiwegevergleich"
 
 #: ID:251
 msgid "Use &other text block"
-msgstr "Verwende &anderen Textblock"
+msgstr "Verwende &deren Textblock"
 
 #: Control-ID:1126
 msgid "Use &text viewer to view blames"
@@ -5377,7 +5380,7 @@ msgid ""
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Verwenden Sie '*' als Platzhalter wenn Sie Ausnahmen angeben\n"
+"Verwenden Sie '*' als Platzhalter, wenn Sie Ausnahmen angeben.\n"
 "Zum Trennen mehrerer Ausnahmen verwenden Sie Kommata (',').\n"
 "Beispiel: *.mylan.com, *.company.com"
 
@@ -5410,19 +5413,19 @@ msgstr "Gelöschte Zeilen &durchstreichen"
 
 #: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "Verwende '&Eigenen' Textblock"
+msgstr "Verwende '&Meinen' Textblock"
 
 #: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "Verwende '&Anderen' Textblock"
+msgstr "Verwende '&Deren' Textblock"
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Verwende 'E&igenen' Textblock vor 'Anderen'"
+msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Verwende 'A&nderen' Textblock vor 'Eigenen'"
+msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
 
 #: ID:251
 msgid "Use th&is text block"
@@ -5438,7 +5441,7 @@ msgstr "URL der Arbeitskopie an geänderte URL des Projektarchivs anpassen."
 
 #: ID:251
 msgid "Use whole other &file"
-msgstr "Verwende &gesamte andere Datei"
+msgstr "Verwende 'Deren' &gesamte Datei"
 
 #: ID:74
 msgid "User cancelled"
@@ -5464,7 +5467,7 @@ msgstr ""
 "/mine:<Datei mit Ihren eigenen Änderungen>\n"
 "/merged:<Ergebnisdatei>\n"
 "/diff:<Patchdatei>\n"
-"/patchpath:<Verzeichnis das gepatcht werden soll>"
+"/patchpath:<Verzeichnis, das gepatcht werden soll>"
 
 #: ID:11
 msgid "Value"
@@ -5500,13 +5503,14 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"Arbeitskopie umplaziert zu\n"
+"Arbeitskopie umplatziert zu\n"
 "%s"
 
 #: ID:73
 msgid "Yes"
 msgstr "Ja"
 
+# hmmm...
 #: ID:145
 msgid "Yes to all"
 msgstr "Alle Ja"
@@ -5523,7 +5527,7 @@ msgid ""
 "Create the repository anyway?"
 msgstr ""
 "Sie erstellen ein Projektarchiv auf einer Netzwerkfreigabe.\n"
-"Dies ist zwar sicher, aber sobald das Projektarchiv erstellt wurde müssen Sie auf andere Weise darauf zugreifen. Der Zugriff via file:/// auf ein Projektarchiv auf einer Netzwerkfreigabe kann dieses zerstören!\n"
+"Dies ist zwar sicher, aber sobald das Projektarchiv erstellt wurde, müssen Sie auf andere Weise darauf zugreifen. Der Zugriff via file:/// auf ein Projektarchiv auf einer Netzwerkfreigabe kann dieses zerstören!\n"
 "Möchten Sie dennoch das Projektarchiv erstellen?"
 
 #: ID:88
@@ -5533,7 +5537,7 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Sie versuchen auf ein Projektarchiv mittels file:/// zuzugreifen, welches auf einer Netzwerkfreigabe liegt.\n"
+"Sie versuchen mittels file:/// auf ein Projektarchiv zuzugreifen, das auf einer Netzwerkfreigabe liegt.\n"
 "<b>Dies kann zur Zerstörung des Projektarchivs führen!</b>\n"
 "Möchten Sie dies wirklich tun?"
 
@@ -5684,7 +5688,7 @@ msgid ""
 msgstr ""
 "Ihre Arbeitskopie enthält lokale Modifikationen!\n"
 "Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
-"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der Sie aktualisieren!"
+"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen, zu der Sie aktualisieren!"
 
 #: MenuEntry
 msgid "Zoo&m out"
@@ -5774,7 +5778,7 @@ msgid ""
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"zwei durch eine Leerzeile getrennte reguläre Ausdrücke\n"
+"zwei durch eine Leerzeile getrennte reguläre Ausdrücke.\n"
 "Der erste Ausdruck dient dazu, eine Zeichenkette, die sich\n"
 "auf einen Bugtrackereintrag bezieht, zu identifizieren. Der\n"
 "zweite Ausdruck wird verwendet, um die Eintrags-ID aus der\n"
@@ -5788,8 +5792,8 @@ msgid ""
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"Zeichenkette, die an eine Logmeldung angefügt wird, wenn eine ID angegeben wird\n"
-"Die Zeichenkette muß '%BUGID%' enthalten, welches dann durch die eingegebene ID ersetzt wird."
+"Zeichenkette, die an eine Logmeldung angefügt wird, wenn eine ID angegeben wird.\n"
+"Die Zeichenkette muss '%BUGID%' enthalten, welches dann durch die eingegebene ID ersetzt wird."
 
 #: ID:14
 msgid ""
@@ -5807,7 +5811,7 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"URL, die zum Bugtracker zeigt. Muß '%BUGID%' enthalten,\n"
+"URL, die zum Bugtracker zeigt. Muss '%BUGID%' enthalten,\n"
 "welches dann durch die eingegebene ID ersetzt wird."
 
 #: ID:145
@@ -5938,7 +5942,7 @@ msgid ""
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\n"
-"Einer von 'native', 'LF', 'CR', 'CRLF'."
+"Mögliche Werte: 'native', 'LF', 'CR' oder 'CRLF'."
 
 #: ID:14
 msgid ""
@@ -5984,7 +5988,7 @@ msgstr ""
 "Schlüsselworte, die expandiert werden sollen. Gültige Schlüsselworte sind:\n"
 "URL, HeadURL\t\t\tDie URL für die neueste Revision des Objektes.\n"
 "Author, LastChangedBy\t\tDie letzte Person, die die Datei geändert hat.\n"
-"Date, LastChangedDate\t\tDas Datum / die Zeit zu der das Objekt zuletzt geändert wurde.\n"
+"Date, LastChangedDate\t\tDas Datum / die Zeit, zu der das Objekt zuletzt geändert wurde.\n"
 "Rev, LastChangedRevision\tDie letzte Revision, in der das Objekt geändert wurde.\n"
 "Id\t\t\t\tEine komprimierte Zusammenfassung der vier genannten Schlüsselworte."
 
@@ -5997,7 +6001,7 @@ msgid ""
 msgstr ""
 "svn:mime-type\n"
 "Der MIME-Typ der Datei. Verwendet, um festzustellen, ob die Datei zusammengeführt werden kann und wie sie von Apache übertragen werden soll.\n"
-"Ein MIME-Typ, der mit 'text/' beginnt (oder kein MIME-Typ) werden als Text behandelt.\n"
+"Ein MIME-Typ, der mit 'text/' beginnt (oder kein MIME-Typ) wird als Text behandelt.\n"
 "Alles Andere wird als Binärdatei behandelt."
 
 #: ID:16
@@ -6076,7 +6080,7 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Setzen Sie diese Eigenschaft auf die vierstellige Nummer der Sprache in\n"
+"Setzen Sie diese Eigenschaft auf die vierstellige Nummer der Sprache, in\n"
 "der die Logmeldungen geschrieben werden sollen. TortoiseSVN lädt dann\n"
 "die entsprechende Rechtschreibprüfung, falls sie installiert ist."
 
@@ -6104,5 +6108,4 @@ msgstr "die auf folgendes Projektarchiv zeigt:"
 #: ID:245
 msgid "year"
 msgstr "Jahr"
-
 
