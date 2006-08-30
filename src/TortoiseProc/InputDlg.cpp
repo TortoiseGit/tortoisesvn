@@ -131,7 +131,10 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{
-					PostMessage(WM_COMMAND, IDOK);
+					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
+					{
+						PostMessage(WM_COMMAND, IDOK);
+					}
 				}
 			}
 			break;
