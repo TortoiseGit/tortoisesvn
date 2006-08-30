@@ -1,5 +1,7 @@
 - NEW: A warning is shown when a modified file is about to be deleted
        in the various dialogs. See issue #274 for details. (Stefan)
+- NEW: External diff/merge programs can be specified by mime-type,
+       not just by extension. See issue #115 for details. (Stefan)
 - CHG: The 'recent message' is not appended to a prefilled log
        message by the tsvn:logtemplate property. Instead, the
        template is overwritten. See issue #283 for details. (Stefan)
