@@ -1113,7 +1113,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 			// Now draw ellipse.
 			CRect rcEllipse(ptLoc.x - 3, ptLoc.y - 3, ptLoc.x + 3, ptLoc.y + 3);
-			if(!m_bStackedGraph || pSeries->GetData(nGroup)!=0){
+			if(pSeries->GetData(nGroup)!=0){
 				VERIFY(dc.Ellipse(rcEllipse));
 			}
 			if (m_olMyGraphSeries.GetCount() < 40)
