@@ -64,6 +64,8 @@ Version 1.4.0
        to one revision below the expected revision. (Tobias Schäfer)
 - BUG: The hot key Ctrl-Return confirmed dialogs despite the
        ok-button being disabled. (Tobias Schäfer)
+- BUG: After resolving a conflicted line with "use mine before theirs" or
+       "use theirs before mine", the scrollbars were not updated. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

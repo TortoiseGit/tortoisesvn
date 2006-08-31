@@ -134,6 +134,7 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
 				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
 				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 				m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
+				RecalcAllVertScrollBars();
 				SetModified();
 				m_pwndLeft->SetModified();
 				m_pwndRight->SetModified();
@@ -170,6 +171,7 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
 				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
 				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 				m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
+				RecalcAllVertScrollBars();
 				SetModified();
 				m_pwndLeft->SetModified();
 				m_pwndRight->SetModified();
