@@ -95,6 +95,7 @@ protected:
 	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);
 	bool			FileSave();
 	bool			FileSaveAs();
+	bool 			StringFound(const CString&)const;
 protected: 
 	CStatusBar		m_wndStatusBar;
 	CNewToolBar		m_wndToolBar;
@@ -113,6 +114,7 @@ protected:
 	CString			m_sFindText;
 	BOOL			m_bMatchCase;
 	bool			m_bLimitToDiff;
+	bool			m_bWholeWord;
 	static const UINT m_FindDialogMessage;
 	CFindDlg *		m_pFindDialog;
 	bool			m_bHasConflicts;
@@ -127,5 +129,6 @@ public:
 	bool			m_bReadOnly;
 	bool			m_bBlame;
 };
+
 
 

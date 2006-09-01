@@ -1053,11 +1053,37 @@ LRESULT CMainFrame::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         m_sFindText = m_pFindDialog->GetFindString();
         m_bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
 		m_bLimitToDiff = m_pFindDialog->LimitToDiffs();
+		m_bWholeWord = m_pFindDialog->WholeWord();
 	
 		OnEditFindnext();
     } // if(m_pFindDialog->FindNext()) 
 
     return 0;
+}
+
+bool CharIsDelimiter(const CString& ch)
+{
+	CString delimiters(_T(" .,:;=+-*/\\\n\t()[]<>@"));
+	return delimiters.Find(ch) >= 0;
+}
+
+bool CMainFrame::StringFound(const CString& str)const
+{
+	int nSubStringStartIdx = str.Find(m_sFindText);
+	bool bStringFound = (nSubStringStartIdx >= 0);
+	if (bStringFound && m_bWholeWord)
+	{
+		if (nSubStringStartIdx)
+			bStringFound = CharIsDelimiter(str.Mid(nSubStringStartIdx-1,1));
+		
+		if (bStringFound)
+		{
+			int nEndIndex = nSubStringStartIdx + m_sFindText.GetLength();
+			if (str.GetLength() > nEndIndex)
+				bStringFound = CharIsDelimiter(str.Mid(nEndIndex, 1));
+		}
+	}
+	return bStringFound;
 }
 
 void CMainFrame::OnEditFindnext()
@@ -1076,68 +1102,73 @@ void CMainFrame::OnEditFindnext()
 		CDiffData::DiffStates rightstate = CDiffData::DIFFSTATE_NORMAL;
 		CDiffData::DiffStates bottomstate = CDiffData::DIFFSTATE_NORMAL;
 		int i = 0;
-		for (i=m_nSearchIndex; i<m_pwndLeftView->m_arDiffLines->GetCount(); i++)
+		const int idxLimits[2][2]={{m_nSearchIndex, m_pwndLeftView->m_arDiffLines->GetCount()},
+								   {0, m_nSearchIndex}};
+		for (int j=0; j != 2 && !bFound; ++j)
 		{
-			left = m_pwndLeftView->m_arDiffLines->GetAt(i);
-			leftstate = (CDiffData::DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
-			if ((!m_bOneWay)&&(m_pwndRightView->m_arDiffLines))
+			for (i=idxLimits[j][0]; i != idxLimits[j][1]; i++)
 			{
-				right = m_pwndRightView->m_arDiffLines->GetAt(i);
-				rightstate = (CDiffData::DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
-			}
-			if ((m_pwndBottomView)&&(m_pwndBottomView->m_arDiffLines))
-			{
-				bottom = m_pwndBottomView->m_arDiffLines->GetAt(i);
-				bottomstate = (CDiffData::DiffStates)m_pwndBottomView->m_arLineStates->GetAt(i);
-			}
+				left = m_pwndLeftView->m_arDiffLines->GetAt(i);
+				leftstate = (CDiffData::DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
+				if ((!m_bOneWay)&&(m_pwndRightView->m_arDiffLines))
+				{
+					right = m_pwndRightView->m_arDiffLines->GetAt(i);
+					rightstate = (CDiffData::DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
+				}
+				if ((m_pwndBottomView)&&(m_pwndBottomView->m_arDiffLines))
+				{
+					bottom = m_pwndBottomView->m_arDiffLines->GetAt(i);
+					bottomstate = (CDiffData::DiffStates)m_pwndBottomView->m_arLineStates->GetAt(i);
+				}
 
-			if (!m_bMatchCase)
-			{
-				left = left.MakeLower();
-				right = right.MakeLower();
-				bottom = bottom.MakeLower();
-				m_sFindText = m_sFindText.MakeLower();
+				if (!m_bMatchCase)
+				{
+					left = left.MakeLower();
+					right = right.MakeLower();
+					bottom = bottom.MakeLower();
+					m_sFindText = m_sFindText.MakeLower();
+				}
+				if (StringFound(left))
+				{
+					if ((!m_bLimitToDiff)||(leftstate != CDiffData::DIFFSTATE_NORMAL))
+					{
+						bFound = TRUE;
+						break;
+					}
+				} 
+				else if (StringFound(right))
+				{
+					if ((!m_bLimitToDiff)||(rightstate != CDiffData::DIFFSTATE_NORMAL))
+					{
+						bFound = TRUE;
+						break;
+					}
+				} 
+				else if (StringFound(bottom))
+				{
+					if ((!m_bLimitToDiff)||(bottomstate != CDiffData::DIFFSTATE_NORMAL))
+					{
+						bFound = TRUE;
+						break;
+					}
+				} 
 			}
-			if (left.Find(m_sFindText) >= 0)
-			{
-				if ((!m_bLimitToDiff)||(leftstate != CDiffData::DIFFSTATE_NORMAL))
-				{
-					bFound = TRUE;
-					break;
-				}
-			} 
-			else if (right.Find(m_sFindText) >= 0)
-			{
-				if ((!m_bLimitToDiff)||(rightstate != CDiffData::DIFFSTATE_NORMAL))
-				{
-					bFound = TRUE;
-					break;
-				}
-			} 
-			else if (bottom.Find(m_sFindText) >= 0)
-			{
-				if ((!m_bLimitToDiff)||(bottomstate != CDiffData::DIFFSTATE_NORMAL))
-				{
-					bFound = TRUE;
-					break;
-				}
-			} 
-		} 
+		}
 		if (bFound)
 		{
 			m_nSearchIndex = i;
 			m_pwndLeftView->GoToLine(m_nSearchIndex);
-			if (left.Find(m_sFindText) >= 0)
+			if (StringFound(left))
 			{
 				m_pwndLeftView->SetFocus();
 				m_pwndLeftView->SelectLines(m_nSearchIndex);
 			}
-			else if (right.Find(m_sFindText) >= 0)
+			else if (StringFound(right))
 			{
 				m_pwndRightView->SetFocus();
 				m_pwndRightView->SelectLines(m_nSearchIndex);
 			}
-			else if (bottom.Find(m_sFindText) >= 0)
+			else if (StringFound(bottom))
 			{
 				m_pwndBottomView->SetFocus();
 				m_pwndBottomView->SelectLines(m_nSearchIndex);

@@ -15,6 +15,7 @@ public:
 	bool FindNext() {return m_bFindNext;}
 	bool MatchCase() {return !!m_bMatchCase;}
 	bool LimitToDiffs() {return !!m_bLimitToDiffs;}
+	bool WholeWord() {return !!m_bWholeWord;}
 	CString GetFindString() {return m_sFindText;}
 // Dialog Data
 	enum { IDD = IDD_FIND };
@@ -34,5 +35,6 @@ private:
 	bool		m_bFindNext;
 	BOOL		m_bMatchCase;
 	BOOL		m_bLimitToDiffs;
+	BOOL		m_bWholeWord;
 	CString		m_sFindText;
 };

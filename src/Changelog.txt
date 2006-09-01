@@ -2,6 +2,9 @@
        in the various dialogs. See issue #274 for details. (Stefan)
 - NEW: External diff/merge programs can be specified by mime-type,
        not just by extension. See issue #115 for details. (Stefan)
+- NEW: Search by "whole word" and wrap around at the bottom of
+       the files when the word isn't found. 
+       See issue #271 for details. (Jeremy Whitby)
 - CHG: The 'recent message' is not appended to a prefilled log
        message by the tsvn:logtemplate property. Instead, the
        template is overwritten. See issue #283 for details. (Stefan)

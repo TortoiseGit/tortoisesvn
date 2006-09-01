@@ -16,6 +16,7 @@ CFindDlg::CFindDlg(CWnd* pParent /*=NULL*/)
 	, m_bFindNext(false)
 	, m_bMatchCase(FALSE)
 	, m_bLimitToDiffs(FALSE)
+	, m_bWholeWord(FALSE)
 	, m_sFindText(_T(""))
 {
 }
@@ -29,6 +30,7 @@ void CFindDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Check(pDX, IDC_MATCHCASE, m_bMatchCase);
 	DDX_Check(pDX, IDC_LIMITTODIFFS, m_bLimitToDiffs);
+	DDX_Check(pDX, IDC_WHOLEWORD, m_bWholeWord);
 	DDX_Text(pDX, IDC_SEARCHTEXT, m_sFindText);
 }
 
