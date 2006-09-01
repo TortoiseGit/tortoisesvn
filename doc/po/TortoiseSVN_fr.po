@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-08-30 10:23+0100\n"
+"PO-Revision-Date: 2006-09-01 18:55+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5545,433 +5545,433 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6619
 #: (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
-msgstr ""
+msgstr "La façon la plus facile de choisir la plage de révisions dont vous avez besoin est de cliquer sur <guibutton>Voir le journal</guibutton>, puisque cela listera les changements récents avec leurs commentaires de journal. Si vous voulez fusionner les changements d'une seule révision, sélectionnez juste cette révision. Si vous voulez fusionner les changements de plusieurs révisions, sélectionnez donc cette plage (en utilisant le modificateur habituel <keycap>Maj</keycap>). Cliquez sur <guibutton>OK</guibutton> et les numéros de révision <guilabel>Dépuis la révision</guilabel> et <guilabel>À la révision</guilabel> dans la boîte de dialogue Fusionner se remplirront <emphasis>tout deux</emphasis> pour vous."
 
 #: source/TortoiseSVN_en.xml:6632
 #: (para)
 msgid "When the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked, only one <guibutton>Show Log</guibutton> button is enabled. This is because the Show Log dialog sets both <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions, so you need to use the multiple selection method outlined above."
-msgstr ""
+msgstr "Quand la case <guilabel>Utiliser \"Depuis :\" URL</guilabel> est cochée, seul un bouton <guibutton>Voir le journal</guibutton> est activé. C'est parce que la boîte de dialogue du Journal définit les deux révisions <guilabel>De :</guilabel > et <guilabel>À :</guilabel>, donc vous devez utiliser la méthode de sélection multiple décrite ci-dessus."
 
 #: source/TortoiseSVN_en.xml:6640
 #: (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
-msgstr ""
+msgstr "Si vous avez déjà fusionné des changements de cette branche, avec bon espoir vous aurez fait une note de la dernière révision fusionnée dans le commentaire quand vous avez livré la modification. Dans ce cas, vous pouvez utiliser <guibutton>Voir le journal</guibutton> pour la Copie de Travail pour suivre ce commentaire. Utilisez le point final de la dernière fusion comme point de départ pour cette fusion. Par exemple, si vous avez fusionné les révisions 37 à 39 la dernière fois, alors le point de départ pour cette fusion devrait être la révision 39."
 
 #: source/TortoiseSVN_en.xml:6653
 #: (para)
 msgid "If you have not used <guibutton>Show Log</guibutton> to select the revision range, then you will need to set the <guilabel>To Revision</guilabel> manually. Enter the last revision number in the range you want to merge. Often this will be the HEAD revision, although it doesn't need to be - you may just want to merge a single revision."
-msgstr ""
+msgstr "Si vous n'avez pas utilisé <guibutton>Voir le journal</guibutton> pour choisir la plage de révisions, vous devrez alors définir la <guilabel>Révision</guilabel> manuellement. Entrez le dernier numéro de révision dans la plage que vous voulez fusionner. Souvent ce sera la révision HEAD, bien que ce ne soit pas nécessaire - vous pouvez juste vouloir fusionner une seule révision."
 
 #: source/TortoiseSVN_en.xml:6661
 #: (para)
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
-msgstr ""
+msgstr "Si d'autres gens peuvent livrer des changements alors soyez prudents en utilisant de la révision HEAD. Il peut ne pas se référer à la révision à laquelle vous pensez si quelqu'un d'autre a fait une livraison après votre dernière mise à jour."
 
 #: source/TortoiseSVN_en.xml:6669
 #: (para) source/TortoiseSVN_en.xml:6776
 #: source/TortoiseSVN_en.xml:9650
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr ""
+msgstr "Cliquez sur <guibutton>OK</guibutton> pour terminer la fusion."
 
 #: source/TortoiseSVN_en.xml:6555
 #: (para)
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "<placeholder-1/> Pour fusionner des révisions vous devez aller à une copie de travail de la branche dans laquelle vous voulez recevoir les changements, souvent le tronc. Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionner...</guimenuitem></menuchoice> du menu contextuel. <placeholder-2/> La fusion est maintenant terminée. C'est une bonne idée de regarder la fusion et de voir si elle correspond aux attentes. La fusion est d'habitude assez compliquée. Les conflits surgissent souvent si la branche a dérivé loin du tronc."
 
 #: source/TortoiseSVN_en.xml:6678
 #: (para)
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
-msgstr ""
+msgstr "Quand vous avez testé les changements et que vous venez pour livrer cette révision, votre commentaire de livraison devrait <emphasis>toujours</emphasis> inclure les numéros des révisions qui ont été reportées dans la fusion. Si vous voulez appliquer une autre fusion plus tard, vous aurez besoin de connaître ce que vous avez déjà fusionné, puisque vous ne voulez pas reporter un changement plus d'une fois. Malheureusement l'information de fusion n'est pas stockée par Subversion. Pour plus d'information à ce sujet, référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> dans le <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Manuel Subversion</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:6694
 #: (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr ""
+msgstr "La gestion de branches est importante. Si vous voulez conserver cette branche à jour avec le tronc, vous devriez vous assurer de fusionner souvent pour que la branche et le tronc ne dérivent pas trop loin. Bien sûr, vous devriez toujours éviter la fusion répétée de changements, comme expliquée ci-dessus."
 
 #: source/TortoiseSVN_en.xml:6701
 #: (para)
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder url for the merge."
-msgstr ""
+msgstr "La subversion ne peut pas fusionner un fichier avec un dossier et vice versa - seulement des dossiers aux dossiers et des fichiers aux fichiers. Si vous cliquez sur un fichier et ouvrez la boîte de dialogue fusionner, donc vous devez donner un chemin à un fichier dans cette boîte de dialogue. Si vous choisissez un dossier et affichez la boîte de dialogue, vous devez alors spécifier une URL de dossier pour la fusion."
 
 #: source/TortoiseSVN_en.xml:6711
 #: (title)
 msgid "Merging Two Different Trees"
-msgstr ""
+msgstr "Fusionner deux arbres différents"
 
 #: source/TortoiseSVN_en.xml:6712
 #: (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr ""
+msgstr "Cette méthode gère le cas où vous avez fait une branche de fonction comme dans le manuel Subversion. Tous les changements du tronc ont été reportés à la branche de fonction, semaine par semaine, et maintenant la fonction est terminée vous voulez la fusionner dans le tronc. Parce que vous avez gardé la branche de fonction synchronisée avec le tronc, les dernières versions de la branche et du tronc seront absolument identiques à part vos modifications de la branche. Ainsi dans ce cas particulier, vous fusionneriez en comparant la branche avec le tronc."
 
 #: source/TortoiseSVN_en.xml:6733
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "Dans le champ <guilabel>De :</guilabel> entrez l'URL complète du dossier du <emphasis>tronc</emphasis>. Cela peut sembler faux, mais souvenez-vous que le tronc est le point de départ auquel vous voulez ajouter les changements de la branche. Vous pouvez aussi cliquer sur <guibutton>...</guibutton> pour parcourir le référentiel."
 
 #: source/TortoiseSVN_en.xml:6744
 #: (para)
 msgid "Because you are comparing two different trees, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is <emphasis>not</emphasis> checked."
-msgstr ""
+msgstr "Parce que vous comparez deux arbres différents, assurez-vous que la case <guilabel>Utiliser l'URL \"Depuis :\"</guilabel> n'est <emphasis>pas</emphasis> cochée."
 
 #: source/TortoiseSVN_en.xml:6751
 #: (para)
 msgid "In the <guilabel>To:</guilabel> field enter the full folder url of the feature branch."
-msgstr ""
+msgstr "Dans le champ <guilabel>À :</guilabel> entrez l'URL complète du dossier de la branche de la fonctionnalité."
 
 #: source/TortoiseSVN_en.xml:6757
 #: (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr ""
+msgstr "Dans les deux champs <guilabel>Depuis la révision</guilabel> et <guilabel>À la révision</guilabel>, entrez le numéro de la dernière révision à laquelle les deux arbres ont été synchronisés. Si vous êtes sûrs que personne d'autre ne fait de livraisons vous pouvez utiliser la révision PRINCIPALE dans les deux cas. S'il y a une chance que quelqu'un d'autre puisse avoir fait une livraison depuis cette synchronisation, utilisez le numéro de la révision particulière pour éviter pour perdre des livraisons plus récentes."
 
 #: source/TortoiseSVN_en.xml:6767
 #: (para)
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision. Note that in this case you are not selecting a range of revisions, so the revision you select there is what will actually appear in the <guilabel>Revision</guilabel> field."
-msgstr ""
+msgstr "Vous pouvez aussi utiliser <guibutton>Voir le journal</guibutton> pour choisir la révision. Notez que dans ce cas vous ne sélectionnez pas une plage de révisions, donc la révision que vous choisissez là est ce qui apparaîtra en réalité dans le champ <guilabel>Révision</guilabel>."
 
 #: source/TortoiseSVN_en.xml:6722
 #: (para)
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
-msgstr ""
+msgstr "Pour fusionner la branche de fonction dans le tronc, vous devez aller sur une copie de travail du tronc. Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionner...</guimenuitem></menuchoice> du menu contextuel. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6782
 #: (para)
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
-msgstr ""
+msgstr "Dans ce cas, vous n'aurez pas besoin de la branche de fonction à nouveau parce que la nouvelle fonction est maintenant intégrée au tronc. La branche de fonction est superflue et peut être supprimée du référentiel au besoin."
 
 #: source/TortoiseSVN_en.xml:6790
 #: (title)
 msgid "Previewing Merge Results"
-msgstr ""
+msgstr "Prévisualiser les résultats de la fusion"
 
 #: source/TortoiseSVN_en.xml:6791
 #: (para)
 msgid "If you are uncertain about the merge operation, you may want to preview what will happen do before you allow it to change your working copy. There are three additional buttons to help you."
-msgstr ""
+msgstr "Si vous n'êtes pas certain de l'opération de fusion, vous pouvez vouloir prévisualiser ce qui arrivera avant de l'autoriser à modifier votre copie de travail. Il y a trois boutons supplémentaires pour vous aider."
 
 #: source/TortoiseSVN_en.xml:6796
 #: (para)
 msgid "<guibutton>Unified Diff</guibutton> creates the diff file (remember that merge is based on diff) and shows you which lines will be changed in your working copy files. As this is a unified diff (patch) file it is not always easy to read out of context, but for small scale changes it can be helpful as it shows all the changes in one hit."
-msgstr ""
+msgstr "<guibutton>Diff unifiée</guibutton> crée le fichier de différences (rappelez-vous que la fusion est basée sur les différences) et vous montre quelles lignes seront changées dans les fichiers de votre copie de travail. Comme c'est un fichier de différences unifiées unifié (patch) il n'est pas toujours facile de le lire hors du contexte, mais pour des changements à petite échelle, c'est souvent utile."
 
 #: source/TortoiseSVN_en.xml:6803
 #: (para)
 msgid "<guibutton>Diff</guibutton> shows you a list of changed files. <action>Double click</action> on any of the listed files to start the diff viewer. Unlike the unified diff, this shows you the changes in their full contextual detail. As with the unified diff, the changes you see here are the changes between the <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions. It does not show how your working copy will be affected by applying that change."
-msgstr ""
+msgstr "<guibutton>Comparer</guibutton> vous montre la liste des fichiers modifiés. <action>Double cliquez</action> sur n'importe quel fichier listé pour démarrer le visualiseur de différences. Contrairement à la différence unifiée, cela vous montre les changements dans leur détail contextuel complet. Comme pour la différence unifiée, les changements que vous voyez ici sont les changements entre les révisions <guilabel>De :</guilabel> et <guilabel>À :</guilabel>. Cela ne vous montre pas comment la copie de travail sera affectée par l'application de ce changement."
 
 #: source/TortoiseSVN_en.xml:6812
 #: (para)
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr ""
+msgstr "<guibutton>Exécution fictive</guibutton> exécute l'opération de fusion, mais ne modifie <emphasis>pas </emphasis> la copie de travail du tout. Il vous montre une liste des fichiers qui seront changés par une vraie fusion et note les secteurs où les conflits se produiront."
 
 #: source/TortoiseSVN_en.xml:6820
 #: (title)
 msgid "Ignoring Ancestry"
-msgstr ""
+msgstr "Ignorer l'ascendance"
 
 #: source/TortoiseSVN_en.xml:6821
 #: (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr ""
+msgstr "La plupart du temps vous voulez fusionner pour tenir compte de l'historique du fichier, pour que les changements relatif à un ancêtre commun soient fusionnés. Parfois vous pouvez devoir fusionner des fichiers qui sont peut-être liés, mais pas dans votre référentiel. Par exemple vous pouvez avoir importé les versions 1 et 2 d'une bibliothèque tiers dans deux répertoires séparés. Bien qu'ils soient logiquement liés, Subversion n'en a aucune connaissance parce qu'il ne voit que le package que vous avez importé. Si vous essayez de fusionner la différence entre ces deux arbres vous verriez une suppression totale suivie par un ajout total. Pour faire que Subversion n'utilise que les différences basées sur le chemin plutôt que les différences basées sur l'historique, cochez la case <guilabel>Ignorer l'ascendance</guilabel>. Lisez en plus à ce sujet dans le manuel Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:6841
 #: (title)
 msgid "Locking"
-msgstr ""
+msgstr "Verouiller"
 
 #: source/TortoiseSVN_en.xml:6843
 #: (primary)
 msgid "locking"
-msgstr ""
+msgstr "verrouiller"
 
 #: source/TortoiseSVN_en.xml:6853
 #: (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr ""
+msgstr "Vous utilisez des fichiers <quote>non fusionnables</quote>, par exemple, des fichiers graphiques. Si deux personnes changent le même fichier, la fusion n'est pas possible, donc l'un d'entre elle perdra ses changements."
 
 #: source/TortoiseSVN_en.xml:6861
 #: (para)
 msgid "Your company has always used a locking VCS in the past and there has been a management decision that <quote>locking is best</quote>."
-msgstr ""
+msgstr "Votre société a toujours utilisé un VCS verrouillant dans le passé et il y a eu une décision de la part des gestionnaires que <quote>le verrouillage est la meilleure solution</quote>."
 
 #: source/TortoiseSVN_en.xml:6845
 #: (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr ""
+msgstr "Subversion fonctionne généralement mieux sans verrouillage, en utilisant les méthodes <quote>Copier-Modifier-Fusionner</quote> décrites plus tôt dans <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. Cependant il y a quelques cas où vous pouvez devoir mettre en oeuvre une certaine forme de politique de verrouillage. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6869
 #: (para)
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <filename>file:///</filename> access, then of course only your client needs to be updated."
-msgstr ""
+msgstr "Premièrement vous devez assurer que votre serveur Subversion est mis à jour au moins à la version 1.2. Les versions précédentes ne supportent pas du tout le verrouillage. Si vous utilisez l'accès <filename>file:///</filename>, alors bien sûr seul votre client doit être mis à jour."
 
 #: source/TortoiseSVN_en.xml:6876
 #: (title)
 msgid "How Locking Works in Subversion"
-msgstr ""
+msgstr "Comment le verrouillage fonctionne dans Subversion"
 
 #: source/TortoiseSVN_en.xml:6877
 #: (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr ""
+msgstr "Par défaut, rien n'est verrouillé et personne quiconque a un accès en livraison peut livrez des changements à n'importe quel fichier à tout moment. Les autres mettront à jour leurs copies de travail périodiquement et les changements du référentiel seront fusionnés avec les changements locaux."
 
 #: source/TortoiseSVN_en.xml:6883
 #: (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr ""
+msgstr "Si vous <firstterm>obtenez une verrou</firstterm> sur un fichier, alors vous seul pouvez livrer ce fichier. Les livraisons des autres utilisateurs seront bloquées jusqu'à ce que vous relâchiez le verrou. Un fichier verrouillé ne peut être modifié d'aucune façon dans le référentiel, donc il ne peut pas être supprimé ou renommé non plus, sauf par le propriétaire du verrou."
 
 #: source/TortoiseSVN_en.xml:6890
 #: (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr ""
+msgstr "Toutefois, les autres utilisateurs ne sauront pas nécessairement que vous avez pris un verrou. À moins qu'ils ne vérifient le statut du verrou régulièrement, ils le sauront la première fois lorsque leur livraison échouera, ce qui n'est pas très utile dans la plupart des cas. Pour rendre plus facile la gestion des verrous, il existe une nouvelle propriété Subversion <literal>svn:needs-lock</literal>. Quand cette propriété est définie (avec n'importe quelle valeur) sur un fichier, chaque fois que le fichier est extrait ou mis à jour, la copie locale est mise en lecture seule <emphasis>à moins que</emphasis> que la copie de travail détient un verrou pour le fichier. Cela agit comme un avertissement de ne pas éditer ce fichier à moins que vous n'ayez d'abord acquis un verrou. Les fichiers qui sont versionnés et en lecture seule sont marqués avec un recouvrement spécial dans TortoiseSVN pour indiquer que vous devez acquérir un verrou avant l'édition."
 
 #: source/TortoiseSVN_en.xml:6906
 #: (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr ""
+msgstr "Les verrous sont enregistrées par emplacement de copie de travail et par propriétaire. Si vous avez plusieurs copies de travail (à la maison, au travail) alors vous pouvez seulement détenir un verrou dans <emphasis>une</emphasis> de ces copies de travail."
 
 #: source/TortoiseSVN_en.xml:6912
 #: (para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
-msgstr ""
+msgstr "Si l'un de vos collaborateurs acquiert un verrou et part ensuite en vacances sans le relâcher, que faites-vous ? Subversion fournit un moyen de forcer les verrous. Relâcher un verrou détenu par quelqu'un d'autre est connu comme <firstterm>Casser</firstterm> le verrou et l'acquisition de force d'un verrou déjà détenu par quelqu'un d'autre s'appelle <firstterm>Voler</firstterm> le verrou. Naturellement ce ne sont pas des choses que vous devriez faire à la légère si vous voulez rester ami avec vos collaborateurs."
 
 #: source/TortoiseSVN_en.xml:6922
 #: (para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr ""
+msgstr "Les verrous sont enregistrées dans le référentiel et un jeton de verrouillage est créé dans votre copie de travail locale. S'il y a une incohérence, par exemple si quelqu'un d'autre a cassé le verrou, le jeton de verrouillage local devient invalide. Le référentiel est toujours la référence définitive."
 
 #: source/TortoiseSVN_en.xml:6931
 #: (title)
 msgid "Getting a Lock"
-msgstr ""
+msgstr "Obtenir un verrou"
 
 #: source/TortoiseSVN_en.xml:6940
 #: (title)
 msgid "The Locking Dialog"
-msgstr ""
+msgstr "La boîte de dialogue Verrouiller"
 
 #: source/TortoiseSVN_en.xml:6932
 #: (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "Sélectionnez les fichiers dans votre copie de travail pour lesquels vous voulez acquérir un verrou, puis sélectionnez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice>. <placeholder-1/> Une boîte de dialogue apparaît, vous permettant de saisir un commentaire, pour que les autres puissent voir pourquoi vous avez verrouiller le fichier. Le commentaire est facultatif et seulement utilisé avec des référentiels basés sur Svnserve actuellement. Si (et <emphasis>seulement</emphasis> si ) vous deviez voler le verrou de quelqu'un d'autre, cochez la case <guilabel>Voler les verrous</guilabel>, cliquez ensuite sur <guibutton>OK</guibutton>."
 
 #: source/TortoiseSVN_en.xml:6952
 #: (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> subfolder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
-msgstr ""
+msgstr "Si vous sélectionnez un dossier et utilisez ensuite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice> la boîte de dialogue Verrouiller s'ouvrira avec <emphasis>tous</emphasis> les fichiers de <emphasis>tous</emphasis> les sous-dossiers choisis pour les verrouiller. Si vous voulez vraiment verrouiller une arborescence complète, voici la manière de le faire, mais vous pourriez devenir très impopulaire avec vos collaborateurs si vous les enfermez hors du projet entièrement. Utilisez avec parcimonie..."
 
 #: source/TortoiseSVN_en.xml:6966
 #: (title)
 msgid "Releasing a Lock"
-msgstr ""
+msgstr "Relâcher un verrou"
 
 #: source/TortoiseSVN_en.xml:6967
 #: (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr ""
+msgstr "Pour vous assurer de ne pas oubliez de relâcher un verrou dont vous n'avez plus besoin, les fichiers verrouillés sont affichés dans la boîte de dialogue de livraison et choisis par défaut. Si vous continuez la livraison, les verrous que vous détenez sur les fichiers sélectionnés sont supprimés, même si les fichiers n'ont pas été modifiés. Si vous ne voulez pas relâcher les verrous de certains fichiers, vous pouvez les décocher (s'ils ne sont pas modifiés). Si vous voulez garder un verrou sur un fichier que vous avez modifié, vous devez activer la case à cocher <guilabel>Garder les verrous</guilabel> avant livrer vos changements."
 
 #: source/TortoiseSVN_en.xml:6978
 #: (para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
-msgstr ""
+msgstr "Pour relâcher un verrou manuellement, sélectionnez les fichiers dans votre copie de travail pour lesquels vous voulez rélâcher les verrous, choisissez ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relâcher un verrou</guimenuitem></menuchoice> Il n'y a rien d'autre à faire donc TortoiseSVN va contacter le référentiel et relâcher les verrous. Vous pouvez aussi utiliser cette commande sur un dossier pour relâcher tous les verrous récursivement."
 
 #: source/TortoiseSVN_en.xml:6991
 #: (title)
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "Vérifier le statut des verrous"
 
 #: source/TortoiseSVN_en.xml:6994
 #: (title)
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "La boîte de dialogue Vérifier les modifications"
 
 #: source/TortoiseSVN_en.xml:6992
 #: (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr ""
+msgstr "<placeholder-1/> Pour voir quels verrous les autres et vous détenez, vous pouvez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice>. Les jetons des verrous détenus localement s'afficheront immédiatement. Pour vérifier les verrous détenues par les autres (et voir si l'un de vos verrous est cassé ou volé) vous devez cliquer sur <guibutton>Vérifier le référentiel</guibutton>."
 
 #: source/TortoiseSVN_en.xml:7007
 #: (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
-msgstr ""
+msgstr "À partir du menu contextuel ici, vous pouvez aussi obtenir et relâcher des verrous, que casser et voler des verrous détenus par d'autres."
 
 #: source/TortoiseSVN_en.xml:7012
 #: (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Évitez de casser et de voler les verrous"
 
 #: source/TortoiseSVN_en.xml:7013
 #: (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr ""
+msgstr "Si vous cassez ou volez le verrou de quelqu'un d'autre sans le lui dire, vous pourriez potentiellement causer la perte de travail. Si vous travaillez avec des types de fichier non fusionnables et que  vous volez le verrou de quelqu'un d'autre, une fois que vous relâchez le verrou, ils sont libres de livrer leurs changements et d'écraser les votres.Subversion ne perd pas de données, mais vous avez perdu la protection du travail en équipe que le verrouillage vous a donnée."
 
 #: source/TortoiseSVN_en.xml:7025
 #: (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Mettre les fichiers non verrouillés en Lecture seule"
 
 #: source/TortoiseSVN_en.xml:7026
 #: (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr ""
+msgstr "Comme mentionné ci-dessus, la façon la plus efficace d'utiliser le verrouillage est de mettre la propriété <literal>svn:needs-lock</literal> sur les fichiers. Référez-vous à <xref linkend=\"tsvn-dug-propertypage\"/> pour les instructions sur la façon de mettre les propriétés. Les fichiers avec cette propriété définie seront toujours extraits et mis à jour avec l'attribut Lecture seule défini à moins que votre copie de travaill ne détienne un verrou. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pour vous le rappeler, TortoiseSVN utilise un recouvrement spécial pour l'indiquer."
 
 #: source/TortoiseSVN_en.xml:7036
 #: (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
-msgstr ""
+msgstr "Si vous pratiquez une politique où chaque fichier doit être verrouillé alors vous pouvez trouver plus facile d'utiliser la fonction de propriétés automatiques de Subversion pour définir la propriété automatiquement chaque fois vous ajoutez de nouveaux fichiers. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:7044
 #: (title)
 msgid "The Locking Hook Scripts"
-msgstr ""
+msgstr "Les scripts hook de verrouillage"
 
 #: source/TortoiseSVN_en.xml:7045
 #: (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr ""
+msgstr "Quand vous créez un nouveau référentiel avec Subversion 1.2 ou supérieur, quatre modèles de hooks sont créés dans le répertoire <filename>hooks</filename> du référentiel. Ceux-ci sont appelés avant et après l'obtention d'un verrou et avant et après la libération d'un verrou."
 
 #: source/TortoiseSVN_en.xml:7051
 #: (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr ""
+msgstr "C'est une bonne idée d'installer un script hook <literal>post-lock</literal> et <literal>post-unlock</literal> sur le serveur qui envoie un e-mail indiquant que le fichier a été verrouillé. Avec une tel script en place, tous vos utilisateurs peuvent être notifiés si quelqu'un verrouille/déverrouille un fichier. Vous pouvez trouver un script hook  exemple <filename>hooks/post-lock.tmpl</filename> dans le dossier de votre référentiel."
 
 #: source/TortoiseSVN_en.xml:7059
 #: (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr ""
+msgstr "Vous pourriez aussi utiliser des hooks pour rejeter la casse ou le vol de verrous, ou le limiter peut-être à un administrateur nommé. Ou peut-être vous voulez envoyer un email au propriétaire quand un de leurs verrous est cassé ou volé."
 
 #: source/TortoiseSVN_en.xml:7065
 #: (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
-msgstr ""
+msgstr "Lisez <xref linkend=\"tsvn-repository-hooks\"/> pour en savoir plus."
 
 #: source/TortoiseSVN_en.xml:7071
 #: (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "Créer et appliquer des patches"
 
 #: source/TortoiseSVN_en.xml:7073
 #: (primary)
 msgid "patch"
-msgstr ""
+msgstr "patch"
 
 #: source/TortoiseSVN_en.xml:7077
 #: (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr ""
+msgstr "Pour des projets open-source (comme celui-ci) chacun a accès au référentiel en lecture et tout le monde peut contribuer au projet. Alors comment ces contributions sont-elles contrôlées ? Si tout le monde pouvait livrer des changements, le projet serait instable en permanence et probablement cassé en permanence. Dans cette situation, le changement est géré en soumettant un fichier <firstterm>patch</firstterm> à l'équipe de développement, qui a accès en écriture. Ils peuvent passer en revue le patch d'abord et ensuite le soumettre au référentiel ou le renvoyer à l'auteur."
 
 #: source/TortoiseSVN_en.xml:7088
 #: (para)
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
-msgstr ""
+msgstr "Les fichiers patch sont simplement des fichiers de différences unifiées montrant les différences entre votre copie de travail et la révision de base."
 
 #: source/TortoiseSVN_en.xml:7093
 #: (title)
 msgid "Creating a Patch File"
-msgstr ""
+msgstr "Créer un patch"
 
 #: source/TortoiseSVN_en.xml:7094
 #: (para)
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "D'abord vous devez faire <emphasis>et tester</emphasis> vos changements. Alors au lieu d'utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Livrer...</guimenuitem></menuchoice> sur le dossier parent, vous sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Créer un patch...</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:7108
 #: (title)
 msgid "The Create Patch dialog"
-msgstr ""
+msgstr "La boîte de dialogue Créer un patch"
 
 #: source/TortoiseSVN_en.xml:7111
 #: (para)
 msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
-msgstr ""
+msgstr "Vous pouvez maintenant choisir les fichiers que vous voulez inclure dans le patch, comme vous le feriez avec une livraison complète. Cela produira un unique fichier contenant un résumé de tous les changements que vous avez faits aux fichiers sélectionnés depuis la dernière mise à jour du référentiel."
 
 #: source/TortoiseSVN_en.xml:7122
 #: (para)
 msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr ""
+msgstr "Vous pouvez produire des patches séparés contenant des changements sur des jeux différents de fichiers. Bien sûr, si vous créez un fichier patch, faire un peu plus de modifications aux <emphasis>mêmes</emphasis> fichiers et créez ensuite un autre patch, le deuxième fichier patch inclura les <emphasis>deux</emphasis> jeux de changements."
 
 #: source/TortoiseSVN_en.xml:7128
 #: (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr ""
+msgstr "Sauvegardez juste le fichier en utilisant un nom de fichier de votre choix. Les patches peuvent avoir n'importe quelle extension que vous souhaitez, mais selon la convention ils devraient utiliser les extensions <filename>.patch</filename> ou <filename>.diff</filename>. Vous êtes maintenant prêts à soumettre votre patch."
 
 #: source/TortoiseSVN_en.xml:7137
 #: (title)
 msgid "Applying a Patch File"
-msgstr ""
+msgstr "Appliquer un patch"
 
 #: source/TortoiseSVN_en.xml:7138
 #: (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
-msgstr ""
+msgstr "Les fichiers patch s'appliquent à votre copie de travail. Cela devrait être fait au même niveau de dossier qui a été utilisé pour créer le patch. Si vous n'êtes pas sûr de le savoir, regardez simplement la première ligne du fichier patch. Par exemple, si le premier fichier travaillé était <filename>doc/source/english/chapter1.xml</filename> et la première ligne dans le patch est <filename>Index: english/chapter1.xml</filename> alors vous devez appliquer le patch sur le répertoire <filename>english</filename>. Cependant, pour le cas où vous êtes dans la bonne copie de travail, si vous choisissez le mauvais niveau de dossier, TSVN le remarquera et suggérera le niveau correct."
 
 #: source/TortoiseSVN_en.xml:7152
 #: (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr ""
+msgstr "Pour appliquer un patch à votre copie de travail, vous devez avoir au moins l'accès en lecture pour le référentiel. La raison à cela est que le programme de fusion doit faire référence aux changements de la révision contre laquelle ils ont été faits par le développeur distant."
 
 #: source/TortoiseSVN_en.xml:7159
 #: (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\"."
-msgstr ""
+msgstr "Depuis le menu contextuel de ce dossier, cliquez sur <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Appliquer le patch...</guimenuitem></menuchoice> Cela affichera une boîte de dialogue ouvrir un fichier vous permettant de choisir le fichier patch à appliquer. Par défaut seuls les fichiers <filename>.patch</filename> ou <filename>.diff</filename> sont affichés, mais vous pouvez opter pour \"Tous les fichiers \"."
 
 #: source/TortoiseSVN_en.xml:7170
 #: (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
-msgstr ""
+msgstr "Alternativement, si le fichier patch a une extension <filename>.patch</filename> ou <filename>.diff</filename>, vous pouvez faire un clic droit dessus directement et sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Appliquer un patch...</guimenuitem></menuchoice>. Dans ce cas, vous serez invités à entrer un emplacement de copie de travail."
 
 #: source/TortoiseSVN_en.xml:7180
 #: (para)
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
-msgstr ""
+msgstr "Ces deux méthodes offrent juste des façons différentes de faire la même chose. Avec la première méthode vous choisissez la CT et naviguez jusqu'au patch. Avec la deuxième vous choisissez le patch et naviguez jusqu'à la CT."
 
 #: source/TortoiseSVN_en.xml:7185
 #: (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr ""
+msgstr "Une fois que vous avez sélectionné le fichier patch et l'emplacement de la copie de travail, TortoiseMerge se lance pour fusionner les changements du fichier pacth avec votre copie de travail. Une petite fenêtre liste les fichiers qui ont été changés. Double-cliquez sur chacun à son tour, passez en revue les changements et sauvegardez les fichiers fusionnés."
 
 #: source/TortoiseSVN_en.xml:7192
 #: (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr ""
+msgstr "Le patch du développeur distant a maintenant été appliqué à votre copie de travail, donc vous devez livrer pour permettre à tous les autres d'avoir accès aux changements depuis le référentiel."
 
 #: source/TortoiseSVN_en.xml:7200
 #: (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Qui a changé quelle ligne ?"
 
 #: source/TortoiseSVN_en.xml:7202
 #: (primary)
 msgid "blame"
-msgstr ""
+msgstr "condamner"
 
 #: source/TortoiseSVN_en.xml:7205
 #: (primary)
 msgid "annotate"
-msgstr ""
+msgstr "annoter"
 
 #: source/TortoiseSVN_en.xml:7208
 #: (primary)
 msgid "praise"
-msgstr ""
+msgstr "approuver"
 
 #: source/TortoiseSVN_en.xml:7211
 #: (para)
 msgid "Sometimes you need to know not only what lines have changed, but also who exactly changed specific lines in a file. That's when the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blame...</guimenuitem></menuchoice> command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy."
-msgstr ""
+msgstr "Parfois vous avez besoin de connaître non seulement quelles lignes ont changé, mais aussi exactement qui a changé des lignes spécifiques dans un fichier. C'est à ce moment que la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Condamner...</guimenuitem></menuchoice>, parfois aussi mentionnée comme la commande<firstterm>annoter</firstterm> devient pratique."
 
 #: source/TortoiseSVN_en.xml:7221
 #: (para)
 msgid "This command lists, for every line in a file, the author and the revision the line was changed."
-msgstr ""
+msgstr "Cette commande liste, pour chaque ligne dans un fichier, l'auteur et la révision où la ligne a été changée."
 
 #: source/TortoiseSVN_en.xml:7226
 #: (title)
 msgid "Blame for Files"
-msgstr ""
+msgstr "Condamner pour les fichiers"
 
 #: source/TortoiseSVN_en.xml:7229
 #: (title)
 msgid "The Annotate / Blame Dialog"
-msgstr ""
+msgstr "La boîte de dialogue Condamner / Annoter"
 
 #: source/TortoiseSVN_en.xml:7227
 #: (para)
