@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-09-01 18:55+0100\n"
+"PO-Revision-Date: 2006-09-02 15:31+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5976,414 +5976,413 @@ msgstr "La boîte de dialogue Condamner / Annoter"
 #: source/TortoiseSVN_en.xml:7227
 #: (para)
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
-msgstr ""
+msgstr "<placeholder-1/> Si vous n'êtes pas intéressés par les changements de révisions précédentes, vous pouvez définir la révision dont à partir d'où la condamnation devrait commencer. Mettez cela à <literal>1</literal>, si vous voulez la condamnation pour <emphasis>chaque</emphasis> révision."
 
 #: source/TortoiseSVN_en.xml:7236
 #: (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr ""
+msgstr "Par défaut le fichier de condamnation est visualisé en utilisant <firstterm>TortoiseBlame</firstterm>, qui met en évidence les différentes révisions pour le rendre plus facile à lire. Si vous voulez imprimer ou éditer le fichier de condamnation, sélectionnez <guilabel>Utiliser le visualisateur texte pour voir les condamnations</guilabel>"
 
 #: source/TortoiseSVN_en.xml:7242
 #: (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Une fois que vous cliquez sur <guibutton>OK</guibutton> TortoiseSVN commence à récupérer les données pour créer le fichier de condamnation. Veuillez noter : Cela peut prendre plusieurs minutes, selon le nombre de fois que le fichier a été modifié et bien sûr votre connexion réseau au référentiel. Une fois que le processus de condamnation a terminé, le résultat est écrit dans un fichier temporaire et vous pouvez voir les résultats."
 
 #: source/TortoiseSVN_en.xml:7252
 #: (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #: source/TortoiseSVN_en.xml:7250
 #: (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
-msgstr ""
+msgstr "<placeholder-1/> TortoiseBlame, qui est inclus avec TortoiseSVN, rend le fichier de condamnation plus facile à lire. Quand vous survolez avec la souris sur une ligne dans la colonne de renseignements de la condamnation, toutes les lignes avec la même révision sont affichées avec un fond plus sombre. Les lignes d'autres révisions qui ont été changées par le même auteur sont affichées avec un fond clair. La coloration peut ne pas fonctionner aussi clairement si vous avez votre affichage en mode 256 couleurs."
 
 #: source/TortoiseSVN_en.xml:7263
 #: (para)
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
-msgstr ""
+msgstr "Si vous faites un <action>clic gauche</action> sur une ligne, toutes les lignes avec la même révision sont mises en évidence et les lignes d'autres révisions du même auteur sont mises en évidence dans une couleur plus claire. Cette accentuation est figée, vous permettant de déplacer la souris sans perdre les points en évidence. Cliquez sur cette révision de nouveau pour arrêter l'accentuation."
 
 #: source/TortoiseSVN_en.xml:7270
 #: (para)
 msgid "The revision comments are shown in a hint box whenever the mouse hovers over the blame info column."
-msgstr ""
+msgstr "Les commentaires de révision sont affichés dans une info-bulle chaque fois que la souris survole sur la colonne de renseignements de blâme."
 
 #: source/TortoiseSVN_en.xml:7274
 #: (para)
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
-msgstr ""
+msgstr "Vous pouvez faire des recherches dans le rapport de condamnation en utilisant <menuchoice><guimenu>Éditer</guimenu><guimenuitem>Rechercher...</guimenuitem></menuchoice>. Cela vous permet de chercher des numéros de révision, des auteurs et le contenu du fichier lui-même. Les commentaires ne sont pas inclus dans la recherche - vous devriez utiliser la boîte de dialogue de Journal pour rechercher dedans."
 
 #: source/TortoiseSVN_en.xml:7286
 #: (title) source/TortoiseSVN_en.xml:7311
 #: (term)
 msgid "Blame Differences"
-msgstr ""
+msgstr "Condamner les différences"
 
 #: source/TortoiseSVN_en.xml:7287
 #: (para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr ""
+msgstr "L'une des limitations du rapport de condamnation est qu'il ne montre que le fichier tel qu'il était à une révision particulière et montre la dernière personne à avoir changé chaque ligne. Parfois vous voulez connaître quel changement a été fait, et aussi qui l'a fait. Ce dont vous avez ici besoin est une combinaison des rapports de condamnation et de comparaison."
 
 #: source/TortoiseSVN_en.xml:7297
 #: (term)
 msgid "Blame Revisions"
-msgstr ""
+msgstr "Condamner les révisions"
 
 #: source/TortoiseSVN_en.xml:7299
 #: (para)
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Dans le panneau supérieur, sélectionnez 2 révisions, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Condamner les révisions</guimenuitem></menuchoice>. Cela parcoura les données de condamnation pour les 2 révisions puis utilisera le visualisateur de différences pour comparer les deux fichiers de condamnation."
 
 #: source/TortoiseSVN_en.xml:7313
 #: (para)
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame differences</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Sélectionnez une révision dans le panneau supérieur, puis choisissez un fichier dans le panneau inférieur et sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Condamner les différences</guimenuitem></menuchoice>. Cela ira chercher les données de condamnation pour la révision sélectionnée et la révision précédente, puis utilisera le visualisateur de différences pour comparer les deux fichiers de condamnation."
 
 #: source/TortoiseSVN_en.xml:7327
 #: (term)
 msgid "Compare and Blame with Working BASE"
-msgstr ""
+msgstr "Comparez et condamner avec la BASE de travail"
 
 #: source/TortoiseSVN_en.xml:7329
 #: (para)
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Afficher le journal pour un seul fichier et, dans le panneau supérieur, choisissez une seule révision, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer et condamner avec la BASE de travail</guimenuitem></menuchoice>. Cela ira chercher les données de condamnation pour la révision choisie et pour le fichier dans la BASE de travail, puis utilisera ensuite le visualisateur de différences pour comparer les deux fichiers de condamnation."
 
 #: source/TortoiseSVN_en.xml:7293
 #: (para)
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
-msgstr ""
+msgstr "La boîte de dialogue du journal de révision inclut plusieurs options vous permettant de faire cela. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7347
 #: (title) source/TortoiseSVN_en.xml:7359
 msgid "The Repository Browser"
-msgstr ""
+msgstr "Le Navigateur de référentiel"
 
 #: source/TortoiseSVN_en.xml:7349
 #: (primary)
 msgid "repobrowser"
-msgstr ""
+msgstr "navigateur de référentiel"
 
 #: source/TortoiseSVN_en.xml:7352
 #: (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr ""
+msgstr "Parfois vous devez travailler directement sur le référentiel, sans avoir de copie de travail. C'est à cela que sert<firstterm>Navigateur de référentiel</firstterm>. Comme l'explorateur et les recouvrements d'icône qui vous permettent de voir votre copie de travail, le Navigateur de référentiel vous permet de voir la structure et le statut du référentiel. <placeholder-1/> Avec le Navigateur de référentiel vous pouvez exécuter des commandes comme copier, déplacer, renommer... directement sur le référentiel."
 
 #: source/TortoiseSVN_en.xml:7365
 #: (para)
 msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
-msgstr ""
+msgstr "En haut de la fenêtre du navigateur de référentiel vous pouvez entrer l'URL du référentiel et la révision que vous voulez parcourir. La navigation d'une révision plus vieille est utile si vous voulez par exemple récupérer un fichier précédemment supprimé. Utilisez la commande <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Copier vers...</guimenuitem></menuchoice> pour ce faire et entrez le chemin complet de la copie de travail où vous voulez récupérer votre fichier supprimé."
 
 #: source/TortoiseSVN_en.xml:7377
 #: (para)
 msgid "The main browser window looks much like any other tree browser. You can click on the column headings at the top to change the sort order. If you right click on the <literal>File</literal> heading you can turn <literal>Numerical Sort</literal> on or off. This provides a more intelligent handling of numbers than a plain ascii sort does, and is useful for getting version number tags in the correct order. The default state of this setting can be changed in the settings dialog."
-msgstr ""
+msgstr "La fenêtre principale du navigateur ressemble beaucoup à n'importe quel autre navigateur d'arborescence. Vous pouvez cliquer sur les entêtes de colonne en haut pour changer l'ordre de tri. Si vous faites un clic droit sur l'entête <literal>Fichier</literal> vous pouvez activer ou désactiver le <literal>Tri numérique</literal>. Cela fournit un traitement plus intelligent des nombres qu'un tri ascii et est utile pour obtenir les étiquette avec des numéros de version dans l'ordre correct. L'état par défaut de ce réglage peut être changé dans la boîte de dialogue de configuration."
 
 #: source/TortoiseSVN_en.xml:7387
 #: (para)
 msgid "If you select two items, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool. This can be particularly useful for comparing two tags to see what changed."
-msgstr ""
+msgstr "Si vous choisissez deux éléments, vous pouvez voir les différences soit avec des différences unifiées, soit comme une liste des fichiers qui peuvent être comparés visuellement en utilisant l'outil de comparaison par défaut. Cela peut être particulièrement utile pour comparer deux étiquettes pour voir ce qui a changé."
 
 #: source/TortoiseSVN_en.xml:7393
 #: (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr ""
+msgstr "Si vous sélectionnez 2 étiquettes qui sont copiées depuis la même racine (typiquement <literal>/trunk/</literal>), vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir la liste des révisions entre les deux points d'étiquettes."
 
 #: source/TortoiseSVN_en.xml:7402
 #: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr ""
+msgstr "Vous pouvez aussi utiliser le navigateur de référentiel pour les opérations de glisser-déplacer. Si vous glissez un dossier de l'explorateur dans le navigateur de référentiel, il sera importé dans le référentiel. Notez que si vous glisser plusieurs éléments, ils seront importés dans des livraisons séparées."
 
 #: source/TortoiseSVN_en.xml:7408
 #: (para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <action>Ctrl left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr ""
+msgstr "Si vous voulez déplacer un élément au sein du référentiel, <action>glissez-le avec le bouton gauche</quote> simplement vers le nouvel emplacement. Si vous voulez créer une copie au lieu de déplacer l'élément, <action>glissez-le avec le bouton gauche et la touche Ctrl</action> à la place. Lors de la copie, le curseur a un symbole <quote>plus</quote> à coté, comme dans l'Explorateur."
 
 #: source/TortoiseSVN_en.xml:7414
 #: (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <action>ctrl right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-msgstr ""
+msgstr "Si vous voulez copier/déplacer un fichier ou un dossier à un autre emplacement et lui donner aussi un nouveau nom en même temps, vous pouvez <action>glisser avec le bouton droit</action> ou <action>glisser avec le bouton droit et ctrl</action> l'élément au lieu de le <action>glisser</action>. Dans ce cas, une boîte de dialogue renommer s'affiche où vous pouvez saisir un nouveau nom pour le fichier ou le dossier."
 
 #: source/TortoiseSVN_en.xml:7421
 #: (para)
 msgid "Whenever you make changes in the repository using one of these methods, you will be presented with a log message entry dialog. If you dragged something by mistake, this is also your chance to cancel the action."
-msgstr ""
+msgstr "Quand vous faîtes des changements dans le référentiel en utilisant l'une de ces méthodes, une boîte de dialogue de saisie de commentaire vous sera présentée. Si vous avez glissé quelque chose par erreur, c'est aussi une chance pour annuler l'action."
 
 #: source/TortoiseSVN_en.xml:7426
 #: (para)
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <action>CTRL+C</action>."
-msgstr ""
+msgstr "Parfois quand vous essayerez d'ouvrir un chemin vous obtiendrez un message d'erreur à la place des détails de l'élément. Cela pourrait arriver si vous spécifiez une URL invalide, ou si vous n'avez pas d'autorisation d'accès, ou s'il y a d'autres problèmes serveur. Si vous devez copier ce message pour l'inclure dans un e-mail, faites simplement un clic droit dessus et utilisez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Copier le message d'erreur dans le presse-papier</guimenuitem></menuchoice>, ou utilisez simplement <action>CTRL+C</action>."
 
 #: source/TortoiseSVN_en.xml:7441
 #: (title)
 msgid "Revision Graphs"
-msgstr ""
+msgstr "Graphiques de révision"
 
 #: source/TortoiseSVN_en.xml:7446
 #: (primary)
 msgid "graph"
-msgstr ""
+msgstr "graphique"
 
 #: source/TortoiseSVN_en.xml:7450
 #: (title)
 msgid "A Revision Graph"
-msgstr ""
+msgstr "Un graphique de révision"
 
 #: source/TortoiseSVN_en.xml:7448
 #: (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "<placeholder-1/> Parfois vous avez besoin de savoir à quel moment les branches et les étiquettes ont été prises du tronc et la façon idéale de voir cette sorte d'information est comme un graphique ou une structure arborescente. C'est à ce moment que vous devez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Graphique de révision</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:7461
 #: (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr ""
+msgstr "Cette commande analyse l'historique des révisions et essaye de créer un arbre montrant les points auxquels les copies ont été prises et quand les branches/étiquettes ont été supprimées."
 
 #: source/TortoiseSVN_en.xml:7467
 #: (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <literal>Apache</literal> project which currently has over 300,000 revisions you could be waiting for some time."
-msgstr ""
+msgstr "Pour générer le graphique, TortoiseSVN doit aller chercher tous les commentaires depuis la racine de référentiel. Inutile de dire cela peut prendre plusieurs minutes même avec un référentiel de quelques milliers de révisions, selon la vitesse du serveur, la bande passante du réseau, etc. Si vous essayez cela avec quelque chose comme le projet <literal>Apache</literal> qui a actuellement plus de 300000 révisions vous pourriez attendre un moment."
 
 #: source/TortoiseSVN_en.xml:7480
 #: (term)
 msgid "Added file/folder"
-msgstr ""
+msgstr "Fichier/dossier ajouté"
 
 #: source/TortoiseSVN_en.xml:7482
 #: (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle."
-msgstr ""
+msgstr "Les éléments qui ont été ajoutés, ou créés en copiant un autre fichier/dossier sont affichés en utilisant un rectangle arrondi."
 
 #: source/TortoiseSVN_en.xml:7489
 #: (term)
 msgid "Deleted file/folder"
-msgstr ""
+msgstr "Fichier/dossier supprimé"
 
 #: source/TortoiseSVN_en.xml:7491
 #: (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off)."
-msgstr ""
+msgstr "Les éléments supprimés, une branche qui n'est plus exigée par exemple, sont montrées en utilisant un octogone (un rectangle avec des coins coupés)."
 
 #: source/TortoiseSVN_en.xml:7498
 #: (term)
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Révision de pointe de branche"
 
 #: source/TortoiseSVN_en.xml:7500
 #: (para)
 msgid "Where a branch (or trunk or tag) has been modified since the last branch node, this is shown using an ellipse. This means that the latest revision on every branch is always shown on the graph."
-msgstr ""
+msgstr "Quand une branche (ou le tronc ou une étiquette) a été modifiée depuis le dernier noeud de branche, il est affiché en utilisant une ellipse. Cela signifie que la dernière révision sur chaque branche est toujours montrée sur le graphique."
 
 #: source/TortoiseSVN_en.xml:7509
 #: (term)
 msgid "Normal file/folder"
-msgstr ""
+msgstr "Fichier/dossier normal"
 
 #: source/TortoiseSVN_en.xml:7511
 #: (para)
 msgid "All other items are shown using a plain rectangle."
-msgstr ""
+msgstr "Tous les autres éléments sont affichés en utilisant un rectangle plat."
 
 #: source/TortoiseSVN_en.xml:7476
 #: (para)
 msgid "The revision graph shows several types of node: <placeholder-1/> Note that by default the graph only shows the points at which items were added or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
-msgstr ""
+msgstr "Le graphique de révision montre plusieurs types de noeud : <placeholder-1/> Notez que par défaut le graphique ne montre que les points auxquels les éléments ont été ajoutés ou supprimés. Afficher chaque révision d'un projet pourrait produire un graphique très grand pour des cas peu communs. Si vous voulez vraiment voir <emphasis>toutes</emphasis> les révisions, il  existe une option pour ce faire dans le menu <guilabel>Affichage</guilabel> et sur la barre d'outils."
 
 #: source/TortoiseSVN_en.xml:7523
 #: (para)
 msgid "There is also an option to arrange the graph <emphasis>by path</emphasis>. This attempts to sort the branches from the tags. Paths which contain no modifications after copying are assumed to be tags and are stacked in a single column. Branches (which contain modifications after creation) each have their own column, so you can see how the branch develops."
-msgstr ""
+msgstr "Il y a aussi une option pour arranger le graphique <emphasis>par chemin</emphasis>. Cela essaye de trier les branches des étiquettes. Les chemins qui ne contiennent aucune modification après la copie sont assumés d'être des étiquettes et sont empilés dans une colonne simple. Les branches (qui contiennent des modifications après la création) ont chacune leur colonne propre, donc vous pouvez voir comment la branche se développe."
 
 #: source/TortoiseSVN_en.xml:7530
 #: (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
-msgstr ""
+msgstr "La date de révision, l'auteur et les commentaires sont affichés dans une info-bulle chaque fois que la souris survole une boîte de révision."
 
 #: source/TortoiseSVN_en.xml:7534
 #: (para)
 msgid "If you select two revisions (Use <action>Ctrl left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr ""
+msgstr "Si vous sélectionnez deux révisions (Faites un <action>clic gauche avec Ctrl</action>), vous pouvez utiliser le menu contextuel pour afficher les différences entre ces révisions. Vous pouvez vouloir afficher les différences comme aux points de création de branche, mais le plus souvent vous voudrez afficher les différences aux points de fin de branche, c'est-à-dire à la révision HEAD."
 
 #: source/TortoiseSVN_en.xml:7541
 #: (para)
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
-msgstr ""
+msgstr "Vous pouvez voir les différences avec un fichier de différences unifiées, qui montre toutes les différences dans un seul fichier avec le contexte minimal. Si vous optez pour <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer les révisions</guimenuitem></menuchoice> vous vous retrouvez avec une liste des fichiers modifiés. <action>Double cliquez</action> sur un nom de fichier pour aller chercher les deux révisions du fichier et les comparer en utilisant l'outil de comparaison visuel."
 
 #: source/TortoiseSVN_en.xml:7552
 #: (para)
 msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
-msgstr ""
+msgstr "Si vous faites un <action>clic droit</action> sur une révision vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir l'historique."
 
 #: source/TortoiseSVN_en.xml:7561
 #: (para)
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
-msgstr ""
+msgstr "Parce que Subversion ne peut pas fournir toutes les informations requises, une certaine somme d'interprétation est exigée, qui peut parfois donner des résultats étranges. Néanmoins, le résultat pour le tronc donnera généralement des résultats utiles."
 
 #: source/TortoiseSVN_en.xml:7570
 #: (title)
 msgid "Exporting a Subversion Working Copy"
-msgstr ""
+msgstr "Exporter une copie de travail Subversion"
 
 #: source/TortoiseSVN_en.xml:7572
 #: (primary)
 msgid "export"
-msgstr ""
+msgstr "exportation"
 
 #: source/TortoiseSVN_en.xml:7574
 #: (para)
 msgid "Sometimes you may want a copy of your working tree without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source, or to export to a web server. Instead of making a copy and then deleting all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command on your working copy you'll be asked for a place to save the <emphasis>clean</emphasis> working copy without the <filename>.svn</filename> folders. By default, only the versioned files are exported, but you can use the <guilabel>Export unversioned files too</guilabel> checkbox to include any other unversioned files which exist in your WC and not in the repository. External references using <literal>svn:externals</literal> can be omitted if required."
-msgstr ""
+msgstr "Parfois vous pouvez vouloir une copie de votre arborescence de travail sans ces répertoires <filename>.svn</filename>, par exemple pour créer un paquet zippé de votre source ou pour l'exporter vers un serveur web. Au lieu de faire une copie puis de supprimer tous ces répertoires <filename>.svn</filename> manuellement, TortoiseSVN propose la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Exporter...</guimenuitem></menuchoice>. Si vous exécutez cette commande sur votre copie de travail on vous demandera un emplacement pour sauvegarder la copie de travail <literal>propre</literal> sans les répertoires <filename>.svn</filename>. Par défaut, seuls les fichiers versionnés sont exportés, mais vous pouvez utilisez la case <guilabel>Exporter aussi les fichiers non versionné</guilabel> pour inclure tous les autres fichiers non versionnés qui existent dans votre CT et pas dans le référentiel. Les références externes utilisant <literal>svn:externals</literal> peuvent être omises au besoin."
 
 #: source/TortoiseSVN_en.xml:7593
 #: (para)
-#, fuzzy
 msgid "Another way to export is to <action>right drag</action> a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. The second option includes the unversioned files as well."
-msgstr "Si l'une de ces options est cochée, vous devrez exécuter des mises à jour de votre copie de travail en utilisant <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mettre à jour à la révision...</guimenuitem></menuchoice> au lieu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mettre à jour</guimenuitem></menuchoice>. La mise à jour standard inclura tous les sous-dossiers et toutes les externes."
+msgstr "Une autre façon de faire une exportation consiste à <action>glisser avec le bouton droit</action> un dossier de la copie de travail vers un autre emplacement et de choisir <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter ici</guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter tout ici</guimenuitem></menuchoice>. La seconde option inclut aussi bien les fichiers non versionnés."
 
 #: source/TortoiseSVN_en.xml:7607
 #: (para)
 msgid "And of course you can export directly from the repository too. Use the Repository Browser to navigate to the relevant subtree in your repository, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Et bien sûr vous pouvez aussi exporter directement depuis le référentiel. Utilisez le Navigateur de référentiel pour naviguer au sous-arbre pertinant dans votre référentiel, utilisez ensuite <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Exporter</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:7618
 #: (title)
 msgid "Relocating a working copy"
-msgstr ""
+msgstr "Relocaliser une copie de travail"
 
 #: source/TortoiseSVN_en.xml:7620
 #: (primary)
 msgid "relocate"
-msgstr ""
+msgstr "relocaliser"
 
 #: source/TortoiseSVN_en.xml:7625
 #: (title)
 msgid "The Relocate Dialog"
-msgstr ""
+msgstr "La boîte de dialogue Relocaliser"
 
 #: source/TortoiseSVN_en.xml:7623
 #: (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr ""
+msgstr "<placeholder-1/> Si votre référentiel a pour quelque raison que ce soit changé d'emplacement (IP/URL). Peut-être que vous êtes même bloqué et que vous ne pouvez pas livrez et que vous ne voulez pas extraire votre copie de travail à nouveau depuis le nouvel emplacement et déplacer toutes vos données modifiées dans la nouvelle copie de travail, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocaliser</guimenuitem></menuchoice> est la commande que vous cherchez. Elle fait essentiellement très peu : elle parcourt toutes les fichiers \"entries\"  dans les dossiers <filename>.svn</filename> et change l'URL des entrées à la nouvelle valeur."
 
 #: source/TortoiseSVN_en.xml:7649
 #: (para)
 msgid "The IP address of the server has changed."
-msgstr ""
+msgstr "L'adresse IP du serveur a changé."
 
 #: source/TortoiseSVN_en.xml:7652
 #: (para)
 msgid "The protocol has changed (e.g. http:// to https://)."
-msgstr ""
+msgstr "Le protocole a changé (par exemple http:// à https: //)."
 
 #: source/TortoiseSVN_en.xml:7655
 #: (para)
 msgid "The repository root path in the server setup has changed."
-msgstr ""
+msgstr "Le chemin de la racine du référentiel a changé dans le paramétrage du serveur."
 
 #: source/TortoiseSVN_en.xml:7643
 #: (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr ""
+msgstr "<emphasis>C'est une opération très rare</emphasis>. La commande relocaliser est utilisée <emphasis>seulement</emphasis> si l'URL de la racine du référentiel a changé. Les raisons possibles sont : <placeholder-1/> Autrement, vous devez relocaliser quand votre copie de travail se réfère au même emplacement dans le même référentiel, mais le référentiel lui-même a été déplacé."
 
 #: source/TortoiseSVN_en.xml:7666
 #: (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
-msgstr ""
+msgstr "Vous voulez vous déplacer vers un référentiel Subversion différent. Dans ce cas vous devriez exécuter une extraction fraîche à partir du nouvel emplacement du référentiel."
 
 #: source/TortoiseSVN_en.xml:7672
 #: (para)
 msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
-msgstr ""
+msgstr "Vous voulez aller sur une branche différente ou sur un répertoire dans le même référentiel. Pour ce faire, vous devriez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice>. Lisez <xref linkend=\"tsvn-dug-switch-1\"/> pour plus d'information."
 
 #: source/TortoiseSVN_en.xml:7662
 #: (para)
 msgid "It does not apply if: <placeholder-1/>"
-msgstr ""
+msgstr "Il ne s'applique pas si : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7684
 #: (para)
 msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
-msgstr ""
+msgstr "Si vous utilisez relocaliser dans n'importe lequel des cas ci-dessus, cela <emphasis>corrompra votre copie de travail</emphasis> et vous obtiendrez beaucoup de messages d'erreur inexplicables en mettant à jour, en livrant, etc. Une fois que cela s'est produit, la seule correction est une extraction fraiche."
 
 #: source/TortoiseSVN_en.xml:7693
 #: (title)
 msgid "Integration with Bugtracking Systems / Issue trackers"
-msgstr ""
+msgstr "Intégration avec les systèmes de bugtracking / tracker d'incidents"
 
 #: source/TortoiseSVN_en.xml:7695
 #: (primary)
 msgid "bugtracking"
-msgstr ""
+msgstr "bugtracking"
 
 #: source/TortoiseSVN_en.xml:7698
 #: (primary)
 msgid "bugtracker"
-msgstr ""
+msgstr "bugtracker"
 
 #: source/TortoiseSVN_en.xml:7701
 #: (primary)
 msgid "issuetracker"
-msgstr ""
+msgstr "issuetracker"
 
 #: source/TortoiseSVN_en.xml:7703
 #: (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr ""
+msgstr "Il est très fréquent dans le développement logiciel que les changements sont liés à un bug spécifique ou à un ID d'incident. Les utilisateurs de systèmes de bugtracking (tracker d'incidents) voudraient associer les changements qu'ils font dans Subversion avec un ID spécifique dans leur tracker d'incidents. La plupart des trackers fournissent donc un script hook de pre-commit qui analyse syntaxiquement le commentaire pour trouver l'ID du bug auquel la livraison est associée. C'est quelque peu sujet aux erreurs puisqu'il compte sur l'utilisateur pour écrire le commentaire correctement pour que le script hook de pre-commit puisse en faire l'analyse syntaxique correctement."
 
 #: source/TortoiseSVN_en.xml:7716
 #: (para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr ""
+msgstr "Quand l'utilisateur entre un commentaire, une ligne bien définie incluant le numéro de l'incident associé à la livraison peut être ajoutée automatiquement. Cela réduit le risque que l'utilisateur entre le numéro de l'incident d'une façon dont les outils de bugtracking ne peuvent pas analyser correctement."
 
 #: source/TortoiseSVN_en.xml:7722
 #: (para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr ""
+msgstr "Ou TortoiseSVN peut mettre en évidence la partie du commentaire saisi qui est reconnu par le traqueur de question(publication). De cette voie l'utilisateur sait que le message de journal peut être fait l'analyse syntaxique correctement."
 
 #: source/TortoiseSVN_en.xml:7729
 #: (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr ""
+msgstr "Quand l'utilisateur parcourt les commentaires, TortoiseSVN crée un lien de chaque ID de bug dans le commentaire qui active le navigateur à l'incident mentionné."
 
 #: source/TortoiseSVN_en.xml:7712
 #: (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN peut aider l'utilisateur de deux manières : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7737
 #: (para)
 msgid "You can integrate a Bugtracking Tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "Vous pouvez intégrer l'outil de bugtracking de votre choix dans TortoiseSVN. Pour ce faire, vous devez définir quelques propriétés, qui commencent par <literal>bugtraq:</literal>. Elles doivent être définies sur les dossiers : (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #: source/TortoiseSVN_en.xml:7749
 #: (term)
 msgid "bugtraq:url"
-msgstr ""
+msgstr "bugtraq:url"
 
 #: source/TortoiseSVN_en.xml:7751
 #: (para)
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
-msgstr ""
+msgstr "Mettez cette propriété à l'URL de votre outil de bugtracking. Cela doit être correctement encodé URI et doit contenir <literal>%BUGID%</literal>. <literal>%BUGID%</literal> est remplacé de le numéro de l'incident que vous avez saisi. Cela permet à TortoiseSVN d'afficher un lien dans la boîte de dialogue de journal, pour que quand vous regardez le journal de révision vous pouvez aller directement à votre outil de bugtracking. Vous n'êtes pas obligé de fournir cette propriété, mais alors TortoiseSVN ne montre que le numéro de l'incident pas le lien. Par exemple le projet de TortoiseSVN utilise <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
 
 #: source/TortoiseSVN_en.xml:7769
 #: (term)
 msgid "bugtraq:warnifnoissue"
-msgstr ""
+msgstr "bugtraq:warnifnoissue"
 
 #: source/TortoiseSVN_en.xml:7771
 #: (para)
 msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you because of an empty issuenumber textfield. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>false</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Mettez cela à <literal>true</literal>, si vous voulez que TortoiseSVN vous avertisse quand le champ du numéro d'incident est vide. Les valeurs valables sont <literal>true/false</literal>. <emphasis> Si elle n'est pas définie, <literal>false</literal> est par défaut. </emphasis>"
 
 #: source/TortoiseSVN_en.xml:7743
 #: (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/>"
-msgstr ""
+msgstr "Il y a deux façons d'intégrer TortoiseSVN avec des trackers d'incidents. L'une est basée sur des chaînes simples, l'autre est basée sur les <literal>expressions régulières</literal>. Les propriétés utilisées par les deux approches sont : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7790
 #: (term)
 msgid "bugtraq:message"
-msgstr ""
+msgstr "bugtraq:message"
 
 #: source/TortoiseSVN_en.xml:7792
 #: (para)

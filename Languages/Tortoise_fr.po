@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-01 19:12+0100\n"
+"PO-Revision-Date: 2006-09-01 22:06+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -274,7 +274,7 @@ msgstr "&Condamner les révisions"
 
 #: ID:13
 msgid "&Blame..."
-msgstr "Con&damne..."
+msgstr "Con&damner..."
 
 #: ID:138
 msgid "&Browse repository"
@@ -775,6 +775,11 @@ msgstr "&Affichage"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Espacements"
+
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Mot entier"
 
 #: Control-ID:1183
 msgid "&Working copy"
@@ -1664,7 +1669,7 @@ msgstr "Comparer les révisions &HEAD"
 
 #: ID:114
 msgid "Compare and &blame with working BASE"
-msgstr "Comparer et &condamner avec la copie de travail BASE"
+msgstr "Comparer et &condamner avec la BASE de travail"
 
 #: ID:76
 msgid "Compare with &working copy"
