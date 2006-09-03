@@ -59,6 +59,7 @@ protected:
 	afx_msg void	OnClose();
 	afx_msg void	OnEditFind();
 	afx_msg void	OnEditFindnext();
+	afx_msg void	OnEditFindprev();
 	afx_msg void	OnViewWhitespaces();
 	afx_msg int		OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
@@ -96,6 +97,9 @@ protected:
 	bool			FileSave();
 	bool			FileSaveAs();
 	bool 			StringFound(const CString&)const;
+	enum SearchDirection{SearchNext=0, SearchPrevious=1};	
+	void 			Search(SearchDirection);
+
 protected: 
 	CStatusBar		m_wndStatusBar;
 	CNewToolBar		m_wndToolBar;
@@ -129,6 +133,7 @@ public:
 	bool			m_bReadOnly;
 	bool			m_bBlame;
 };
+
 
 
 

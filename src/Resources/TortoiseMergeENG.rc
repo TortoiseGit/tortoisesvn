@@ -402,6 +402,7 @@ BEGIN
     "T",            ID_VIEW_WHITESPACES,    VIRTKEY, CONTROL, NOINVERT
     VK_F8,          ID_MERGE_NEXTCONFLICT,  VIRTKEY, NOINVERT
     VK_F8,          ID_MERGE_PREVIOUSCONFLICT, VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_EDIT_FINDPREV,       VIRTKEY, SHIFT, NOINVERT	
 END
 
 
@@ -793,5 +794,6 @@ LANGUAGE 9, 1
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+
 
 

@@ -194,13 +194,14 @@
 #define ID_VIEW_LINERIGHT               32814
 #define ID_BUTTON32816                  32816
 #define ID_VIEW_SHOWFILELIST            32817
+#define ID_EDIT_FINDPREV				32818
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        141
-#define _APS_NEXT_COMMAND_VALUE         32818
+#define _APS_NEXT_COMMAND_VALUE         32819
 #define _APS_NEXT_CONTROL_VALUE         1071
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

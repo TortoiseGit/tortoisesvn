@@ -63,6 +63,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
+	ON_COMMAND(ID_EDIT_FINDPREV, OnEditFindprev)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
 	ON_COMMAND(ID_VIEW_LINEDOWN, OnViewLinedown)
 	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
@@ -1086,7 +1087,17 @@ bool CMainFrame::StringFound(const CString& str)const
 	return bStringFound;
 }
 
+void CMainFrame::OnEditFindprev()
+{
+	Search(SearchPrevious);
+}
+
 void CMainFrame::OnEditFindnext()
+{
+	Search(SearchNext);
+}
+
+void CMainFrame::Search(SearchDirection srchDir)
 {
 	if (m_sFindText.IsEmpty())
 		return;
@@ -1102,11 +1113,22 @@ void CMainFrame::OnEditFindnext()
 		CDiffData::DiffStates rightstate = CDiffData::DIFFSTATE_NORMAL;
 		CDiffData::DiffStates bottomstate = CDiffData::DIFFSTATE_NORMAL;
 		int i = 0;
-		const int idxLimits[2][2]={{m_nSearchIndex, m_pwndLeftView->m_arDiffLines->GetCount()},
-								   {0, m_nSearchIndex}};
+		
+		if (srchDir == SearchPrevious)
+		{
+			m_nSearchIndex -= 2;	// SearchIndex points 1 past where we found the last match, so if we are searching backwards we need to adjust accordingly
+			if (m_nSearchIndex < 0)
+				m_nSearchIndex += m_pwndLeftView->m_arDiffLines->GetCount();
+		}
+		const int idxLimits[2][2][2]={{{m_nSearchIndex, m_pwndLeftView->m_arDiffLines->GetCount()},
+									   {0, m_nSearchIndex}},
+									  {{m_nSearchIndex, -1},
+									   {m_pwndLeftView->m_arDiffLines->GetCount()-1, m_nSearchIndex}}};
+		const int offsets[2]={+1, -1};
+		
 		for (int j=0; j != 2 && !bFound; ++j)
 		{
-			for (i=idxLimits[j][0]; i != idxLimits[j][1]; i++)
+			for (i=idxLimits[srchDir][j][0]; i != idxLimits[srchDir][j][1]; i += offsets[srchDir])
 			{
 				left = m_pwndLeftView->m_arDiffLines->GetAt(i);
 				leftstate = (CDiffData::DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
