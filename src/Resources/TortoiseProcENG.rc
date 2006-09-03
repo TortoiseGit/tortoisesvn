@@ -66,6 +66,7 @@ IDI_GRAPHLINE           ICON                    "graph-line.ico"
 IDI_GRAPHLINESTACKED    ICON                    "graph-line-stacked.ico"
 IDI_GRAPHPIE            ICON                    "graph-pie.ico"
 IDI_SWITCHLEFTRIGHT     ICON                    "switch.ico"
+IDI_HOOK                ICON                    "hook.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -999,6 +1000,36 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,146,125,50,14
 END
 
+IDD_SETTINGSHOOKS DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Hook Scripts"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_HOOKLIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,286,180
+    PUSHBUTTON      "Remove...",IDC_HOOKREMOVEBUTTON,129,195,50,14,WS_DISABLED
+    PUSHBUTTON      "Edit...",IDC_HOOKEDITBUTTON,187,195,50,14,WS_DISABLED
+    PUSHBUTTON      "Add...",IDC_HOOKADDBUTTON,243,195,50,14
+END
+
+IDD_SETTINGSHOOKCONFIG DIALOGEX 0, 0, 346, 121
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Configure Hook Scripts"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Hook Type:",IDC_HOOKTYPELABEL,7,10,200,8
+    COMBOBOX        IDC_HOOKTYPECOMBO,216,7,123,107,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Working Copy Path:",IDC_HOOKWCPATHLABEL,7,25,332,8
+    EDITTEXT        IDC_HOOKPATH,7,36,303,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_HOOKBROWSE,315,36,24,14
+    LTEXT           "Command Line To Execute:",IDC_HOOKCMLABEL,7,59,332,8
+    EDITTEXT        IDC_HOOKCOMMANDLINE,7,72,303,14,ES_AUTOHSCROLL
+    CONTROL         "Wait for the script to finish",IDC_WAITCHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,90,209,10
+    CONTROL         "Hide the script while running",IDC_HIDECHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,103,209,10
+    DEFPUSHBUTTON   "OK",IDOK,232,100,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,289,100,50,14
+    PUSHBUTTON      "...",IDC_HOOKCOMMANDBROWSE,315,72,24,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1502,6 +1533,25 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 139
     END
+
+    IDD_SETTINGSHOOKS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 209
+    END
+
+    IDD_SETTINGSHOOKCONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 339
+        VERTGUIDE, 216
+        VERTGUIDE, 310
+        VERTGUIDE, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -1867,6 +1917,11 @@ BEGIN
     IDS_ERR_INVALIDREVNOWC  "Invalid revision number! Valid revisions are:\nHEAD\npositive decimal numbers,\ndates in one of the following example forms:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{""2002-02-17 15:30""}\n{""2002-02-17 15:30 +0230""}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
     IDS_ERR_MERGEIDENTICALREVISIONS 
                             "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+    IDS_ERR_NOHOOKTYPESPECIFIED "Please select a hook type"
+    IDS_ERR_NOHOOKPATHSPECIFIED 
+                            "Please enter a path where to apply the hook script to."
+    IDS_ERR_NOHOOKCOMMANDPECIFIED "Please enter a hook script to execute."
+    IDS_ERR_HOOKFAILED      "The hook script returned an error:\n%s"
 END
 
 STRINGTABLE 
@@ -2520,6 +2575,35 @@ END
 STRINGTABLE 
 BEGIN
     IDS_FILEDIFF_POPEXPORT  "&Export selection to..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HOOKTYPE_STARTCOMMIT "Start Commit Hook"
+    IDS_HOOKTYPE_PRECOMMIT  "Pre-Commit Hook"
+    IDS_HOOKTYPE_POSTCOMMIT "Post-Commit Hook"
+    IDS_HOOKTYPE_STARTUPDATE "Start Update Hook"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HOOKTYPE_PREUPDATE  "Pre-Update Hook"
+    IDS_HOOKTYPE_POSTUPDATE "Post-Update Hook"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
+    IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SETTINGS_HOOKS_TYPECOL "Hook Type"
+    IDS_SETTINGS_HOOKS_PATHCOL "Path"
+    IDS_SETTINGS_HOOKS_COMMANDLINECOL "Command Line"
+    IDS_SETTINGS_HOOKS_WAITCOL "Wait"
+    IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
 END
 
 #endif    // English (U.S.) resources

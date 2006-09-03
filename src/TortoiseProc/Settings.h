@@ -30,6 +30,7 @@
 #include "SettingsColors.h"
 #include "SetMisc.h"
 #include "SetSavedDataPage.h"
+#include "SetHooks.h"
 #include "TreePropSheet/TreePropSheet.h"
 
 using namespace TreePropSheet;
@@ -69,6 +70,7 @@ private:
 	CSettingsColors *		m_pColorsPage;
 	CSetMisc *				m_pMiscPage;
 	CSetSavedDataPage *		m_pSavedPage;
+	CSetHooks *				m_pHooksPage;
 
 	HICON					m_hIcon;
 public:
