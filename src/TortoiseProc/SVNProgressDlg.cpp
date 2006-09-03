@@ -31,6 +31,7 @@
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
 #include "SVNDiff.h"
+#include "Hooks.h"
 
 // CSVNProgressDlg dialog
 
@@ -741,6 +742,18 @@ UINT CSVNProgressDlg::ProgressThread()
 				SetWindowText(sWindowTitle);
 			}
 
+			DWORD exitcode = 0;
+			CString error;
+			if (CHooks::Instance().PreUpdate(m_targetPathList, bRecursive, nUUIDs > 1 ? revstore : m_Revision, exitcode, error))
+			{
+				if (exitcode)
+				{
+					CString temp;
+					temp.Format(IDS_ERR_HOOKFAILED, error);
+					ReportError(error);
+					break;
+				}
+			}
 			if (nUUIDs > 1)
 			{
 				// the selected items are from different repositories,
@@ -763,6 +776,16 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				ReportSVNError();
 				break;
+			}
+			if (CHooks::Instance().PostUpdate(m_targetPathList, bRecursive, m_RevisionEnd, exitcode, error))
+			{
+				if (exitcode)
+				{
+					CString temp;
+					temp.Format(IDS_ERR_HOOKFAILED, error);
+					ReportError(error);
+					break;
+				}
 			}
 
 			// after an update, show the user the log button, but only if only one single item was updated
@@ -819,6 +842,19 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
 					break;
 			}
+			DWORD exitcode = 0;
+			CString error;
+			if (CHooks::Instance().PreCommit(m_targetPathList, (m_Revision == 0), exitcode, error))
+			{
+				if (exitcode)
+				{
+					CString temp;
+					temp.Format(IDS_ERR_HOOKFAILED, error);
+					ReportError(error);
+					break;
+				}
+			}
+
 			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
@@ -827,6 +863,16 @@ UINT CSVNProgressDlg::ProgressThread()
 				if ((m_Revision != 0)&&(m_pSvn->Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
 				{
 					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
+				}
+			}
+			if (CHooks::Instance().PostCommit(m_targetPathList, (m_Revision == 0), m_RevisionEnd, exitcode, error))
+			{
+				if (exitcode)
+				{
+					CString temp;
+					temp.Format(IDS_ERR_HOOKFAILED, error);
+					ReportError(error);
+					break;
 				}
 			}
 		}
