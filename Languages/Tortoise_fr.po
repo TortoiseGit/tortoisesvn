@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-03 14:31+0100\n"
+"PO-Revision-Date: 2006-09-04 11:09+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -835,6 +835,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1000,6 +1002,10 @@ msgstr "Ajouter un programme de fusion selon l'extension"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Ajouter à la liste des &ignorés"
+
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Ajouter..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1629,6 +1635,15 @@ msgstr "Coloriser les changements de lignes de co&de "
 msgid "Colors"
 msgstr "Couleurs"
 
+#: ID:198
+msgid "Command Line"
+msgstr "Ligne de commande"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Ligne de commande à exécuter :"
+
 #: ID:3857
 msgid "Command failed."
 msgstr "Echec de la commande."
@@ -1695,6 +1710,11 @@ msgstr "Comparaison de %s à %s"
 #: ID:74
 msgid "Completed"
 msgstr "Terminé"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Configurer les scripts hook"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -2196,6 +2216,10 @@ msgstr "Editer programme de fusion selon extension"
 msgid "Edit log message"
 msgstr "Editer un commentaire"
 
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Éditer..."
+
 #: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "Le nom ou l'adresse IP du serveur de proxy"
@@ -2624,6 +2648,11 @@ msgstr "Cacher les chem&ins changés sans relation"
 msgid "Help"
 msgstr "Aide"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Masquer le script pendant l'exécution"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -2635,6 +2664,21 @@ msgstr "Afficher/Cacher la liste des fichiers patchAffiche ou cache la liste des
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Astuce : Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl-F5 pour charger tous les enfants aussi"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Scripts hook"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Type de hook"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Type de hook :"
 
 #: ID:82
 #, c-format
@@ -3552,6 +3596,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Chemin"
 
@@ -3584,6 +3629,10 @@ msgstr "Veuillez entrer une date ou une heure."
 msgid "Please enter a date."
 msgstr "Veuillez entrer une date."
 
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Veuillez entrer un script hook à exécuter."
+
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3592,6 +3641,11 @@ msgstr "Veuillez entrer un chiffre entre %1 et %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Veuillez entrer un chiffre."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Veuillez entrer un chemin où appliquer le script hook."
 
 #: ID:3858
 msgid "Please enter a positive integer."
@@ -3640,6 +3694,10 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Veuillez sélectionner un bouton."
 
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Veuillez sélectionner un type de hook."
+
 #: ID:76
 msgid "Please specify the certificate type"
 msgstr "Veuillez spécifier le type de certificat"
@@ -3666,6 +3724,24 @@ msgstr "Veuillez patienter pendant la récupération des différences..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
+
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Hook post-livraison"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Hook post-mise à jour"
+
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Hook pre-livraison"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Hook pre-mise à jour"
 
 # ID:376,
 #: ID:376
@@ -3867,6 +3943,10 @@ msgstr "Statut des propriétés textes distantes"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Retirer de la liste des &ignorés"
+
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Supprimer..."
 
 #: Control-ID:65535
 msgid "Removed"
@@ -4324,6 +4404,15 @@ msgstr ""
 "Sélectionnez le répertoire vers lequel réaliser l'exportation.\n"
 "Il est possible que vous deviez créer le répertoire avant d'effectuer cette exportation."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Sélectionnez le répertoire où exécuter le script"
+
+#: ID:197
+msgid "Select hook script file"
+msgstr "Sélectionner le fichier du script hook..."
+
 #: ID:78
 msgid "Select merge application"
 msgstr "Sélectionner l'application de fusion"
@@ -4503,6 +4592,11 @@ msgstr "Afficher les fichiers non modifiés"
 msgid "Show unversioned files"
 msgstr "Afficher les fichiers non versionnés"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Afficher/Masquer"
+
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
@@ -4606,9 +4700,19 @@ msgstr "Graphique en barre empilé"
 msgid "Stacked Line Graph"
 msgstr "Graphique en ligne empilé"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Hook de début de livraison"
+
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Révision de début"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Hook de début de mise à jour"
 
 #: ID:245
 #: Dlg-ID:179
@@ -4879,6 +4983,16 @@ msgstr ""
 "%s\n"
 "'existe pas.\n"
 "Voulez-vous le créer d'abord?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Le script hook a renvoyé une erreur :\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -5275,27 +5389,27 @@ msgstr "TortoiseSVN Condamner"
 
 #: ID:77
 msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Extraction..."
+msgstr "TortoiseSVN Extraire..."
 
 #: ID:77
 msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Livraison..."
+msgstr "TortoiseSVN Livrer..."
 
 #: ID:78
 msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Copie..."
+msgstr "TortoiseSVN Copier..."
 
 #: ID:78
 msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exportation..."
+msgstr "TortoiseSVN Exporter..."
 
 #: ID:77
 msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importation..."
+msgstr "TortoiseSVN Importer..."
 
 #: ID:78
 msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Fusion..."
+msgstr "TortoiseSVN Fusionner..."
 
 #: ID:221
 msgid "TortoiseSVN Rename/move"
@@ -5307,7 +5421,7 @@ msgstr "TortoiseSVN Résoudre..."
 
 #: ID:77
 msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Retour arrière..."
+msgstr "TortoiseSVN Revenir en arrière..."
 
 #: ID:80
 msgid "TortoiseSVN Settings"
@@ -5315,11 +5429,11 @@ msgstr "TortoiseSVN Configuration"
 
 #: ID:78
 msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Attribut..."
+msgstr "TortoiseSVN Aller sur..."
 
 #: ID:77
 msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Mise à jour..."
+msgstr "TortoiseSVN Mettre à jour..."
 
 # ID:98,
 #: ID:98
@@ -5626,6 +5740,16 @@ msgstr "Révision"
 msgid "Visit our website"
 msgstr "Visitez notre site Web"
 
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Attendre"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Attendre que le script se termine"
+
 # ID:219,
 #: ID:88
 msgid "Warning"
@@ -5643,6 +5767,10 @@ msgstr "Avec l'URL :"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Copie de travail"
+
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Chemin de la copie de travail :"
 
 #: ID:80
 #, c-format
