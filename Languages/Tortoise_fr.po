@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-04 11:09+0100\n"
+"PO-Revision-Date: 2006-09-05 00:29+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -439,7 +439,7 @@ msgstr "&Depuis l'URL :"
 
 #: Control-ID:1259
 msgid "&From WC at URL:"
-msgstr "&Depuis CT à l'URL :"
+msgstr "&Depuis CdT à l'URL :"
 
 #: Control-ID:65535
 msgid "&From revision"
@@ -4207,7 +4207,7 @@ msgstr "SSH"
 # ID:12,
 #: ID:12
 msgid "SVN Add files to this WC"
-msgstr "SVN Ajouter les fichiers à cette CT"
+msgstr "SVN Ajouter les fichiers à cette CdT"
 
 #: ID:16
 msgid "SVN Author"
@@ -5644,7 +5644,7 @@ msgstr ""
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Utiliser l'URL de la C&T comme défaut pour l'URL \"Depuis :\""
+msgstr "Utiliser l'URL de la Cd&T comme défaut pour l'URL \"Depuis :\""
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5735,6 +5735,16 @@ msgstr "Valeur"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Révision"
+
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr ""
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr ""
 
 #: Control-ID:1084
 msgid "Visit our website"
@@ -6384,6 +6394,25 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "les valeurs sont différentes"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
 
 # ID:244,
 #: ID:245
