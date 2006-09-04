@@ -38,6 +38,9 @@ using namespace regex;
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
 #define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
 
+#define PROJECTPROPNAME_WEBVIEWER_REV     _T("webviewer:revision")
+#define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
+
 class CTSVNPathList;
 
 /**
@@ -153,6 +156,16 @@ public:
 	
 	/** The language identifier this project uses for log messages. */
 	LONG		lProjectLanguage;
+
+	/** The url pointing to the web viewer. The string %REVISION% is replaced
+	 *  with the revision number, "HEAD", or a date */
+	CString		sWebViewerRev;
+
+	/** The url pointing to the web viewer. The string %REVISION% is replaced
+	 *  with the revision number, "HEAD", or a date. The string %PATH% is replaced
+	 *  with the path relative to the repository root, e.g. "/trunk/src/file" */
+	CString		sWebViewerPathRev;
+
 private:
 	rpattern	patCheckRe;
 	rpattern	patBugIDRe;

@@ -68,6 +68,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundMinLockMsgSize = FALSE;
 	BOOL bFoundFileListEnglish = FALSE;
 	BOOL bFoundProjectLanguage = FALSE;
+	BOOL bFoundWebViewRev = FALSE;
+	BOOL bFoundWebViewPathRev = FALSE;
 
 	if (!path.IsDirectory())
 		path = path.GetContainingDirectory();
@@ -215,6 +217,16 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundProjectLanguage = TRUE;
 			}
+			if ((!bFoundWebViewRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
+			{
+				sWebViewerRev = sPropVal;
+				bFoundWebViewRev = TRUE;
+			}
+			if ((!bFoundWebViewPathRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_PATHREV)==0))
+			{
+				sWebViewerPathRev = sPropVal;
+				bFoundWebViewPathRev = TRUE;
+			}
 		}
 		if (PathIsRoot(path.GetWinPath()))
 			return FALSE;
@@ -223,7 +235,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 		{
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
-				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize)
+				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
+				| bFoundWebViewRev | bFoundWebViewPathRev)
 				return TRUE;
 			return FALSE;
 		}
