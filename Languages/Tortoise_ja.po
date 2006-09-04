@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-11 14:43+0900\n"
+"PO-Revision-Date: 2006-09-04 16:22+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -923,6 +923,11 @@ msgstr "ビュー(&V)"
 msgid "&Whitespaces"
 msgstr "空白を表示(&W)"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr ""
+
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -981,6 +986,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1179,6 +1186,11 @@ msgstr "拡張子に対応したマージプログラムを追加"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "無視リストに追加(&I)"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "追加 ..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1921,6 +1933,17 @@ msgstr "色"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "コマンドライン"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
@@ -2001,6 +2024,11 @@ msgstr "%s を %s へコピー中"
 #: ID:74
 msgid "Completed"
 msgstr "完了"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2590,6 +2618,11 @@ msgstr "拡張子に対応したマージプログラムを編集"
 msgid "Edit log message"
 msgstr "ログメッセージを編集"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "編集 ..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2759,13 +2792,13 @@ msgstr "拡張子"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "それぞれの拡張子に対応するプログラム"
+msgid "Extension or mime-type:"
+msgstr "拡張子もしくは Mime タイプ:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "拡張子:"
+msgid "Extension/mime-type specific programs"
+msgstr "拡張子／Mime タイプに対応するプログラム"
 
 # ID:74,
 #: ID:74
@@ -3082,6 +3115,11 @@ msgstr "変更されたパスで無関係なものは表示しない(&I)"
 msgid "Help"
 msgstr "ヘルプ"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr ""
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3095,6 +3133,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "ヒント: 選択している部分以降の階層を更新するには F5 を押し、全ての子階層を読み込むには Ctrl-F5 を押す"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "フックスクリプト"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "フックの種類"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "フックの種類:"
 
 # ID:82,
 #: ID:82
@@ -3673,7 +3726,7 @@ msgid "Max"
 msgstr "最大"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "ログメッセージの履歴で表示する最大の項目数"
 
@@ -4137,6 +4190,7 @@ msgstr "パッチファイル (*.diff;*.patch)|*.diff;*.patch|全てのファイ
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "パス"
 
@@ -4181,6 +4235,12 @@ msgstr "日付を入力してください。"
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "実行するフックスクリプトを入力してください。"
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4191,6 +4251,11 @@ msgstr "%1 ～ %2 の間の数値を入力してください。"
 #: ID:3858
 msgid "Please enter a number."
 msgstr "数値を入力してください。"
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "フックスクリプトを適用するパスを入力してください。"
 
 # ID:3858,#:
 # ID:3858,
@@ -4254,6 +4319,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "ボタンを選択してください。"
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "フックの種類を選択してください"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4285,6 +4356,26 @@ msgstr "差分を取得する間、しばらくお待ちください ..."
 #: ID:211
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Post-Commit フック"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Post-Update フック"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Pre-Commit フック"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Pre-Update フック"
 
 # ID:376,
 #: ID:376
@@ -4526,6 +4617,11 @@ msgstr "リモートのテキストの状態"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "無視リストから削除(&I)"
+
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "削除 ..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5083,6 +5179,16 @@ msgstr ""
 "エクスポート先のフォルダを選択してください。\n"
 "これを実行する前に新しいフォルダを生成する必要があるかもしれません。"
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "スクリプトを実行するフォルダを選択"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "フックスクリプトファイルを選択 ..."
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5298,6 +5404,11 @@ msgstr "未変更ファイルを表示"
 msgid "Show unversioned files"
 msgstr "バージョン管理外のファイルを表示する"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "表示／非表示"
+
 # Control-ID:1073,
 #: ID:272
 #, c-format
@@ -5411,10 +5522,20 @@ msgstr "積み重ね棒グラフ"
 msgid "Stacked Line Graph"
 msgstr "積み重ね折れ線グラフ"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "コミットのフックを開始"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "開始リビジョン"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "更新のフックを開始"
 
 # ID:74,#:
 # ID:77,
@@ -5720,6 +5841,16 @@ msgstr ""
 "%s\n"
 "は存在していません。\n"
 "作成しますか？"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"フックスクリプトはエラーを返しました:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6582,6 +6713,16 @@ msgstr "バージョン"
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "待機"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "スクリプトが終了するまで待機"
+
 # ID:219,
 #: ID:88
 msgid "Warning"
@@ -6602,6 +6743,11 @@ msgstr "With URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "作業コピー"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "作業コピーのパス:"
 
 # ID:80,
 #: ID:80
