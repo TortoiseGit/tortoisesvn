@@ -100,6 +100,9 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:logminsize"));
 		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
+
+		m_PropNames.AddString(_T("webviewer:revision"));
+		m_PropNames.AddString(_T("webviewer:pathrevision"));
 	}
 	else
 		GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
@@ -248,6 +251,10 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_TSVNLOGFILELISTENGLISH;
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+		if (sName.Compare(_T("webviewer:revision"))==0)
+			nText = IDS_TT_WEBVIEWERREVISION;
+		if (sName.Compare(_T("webviewer:pathrevision"))==0)
+			nText = IDS_TT_WEBVIEWERPATHREVISION;
 
 		if (nText)
 		{

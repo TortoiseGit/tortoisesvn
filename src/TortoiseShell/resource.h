@@ -172,6 +172,8 @@
 #define IDS_MENUURLDIFF                 261
 #define IDS_MENUDESCURLDIFF             262
 #define IDS_PROPBIN                     263
+#define IDS_TT_WEBVIEWERREVISION        264
+#define IDS_TT_WEBVIEWERPATHREVISION    265
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

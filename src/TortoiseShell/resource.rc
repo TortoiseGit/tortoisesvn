@@ -352,6 +352,10 @@ BEGIN
     IDS_MENUURLDIFF         "&Diff with URL"
     IDS_MENUDESCURLDIFF     "Compares the selected file with a file in the repository"
     IDS_PROPBIN             "(binary value)"
+    IDS_TT_WEBVIEWERREVISION 
+                            "webviewer:revision\nURL pointing to the web viewer for the repository for a specific revision.\nThe string %REVISION% in that URL is replaced with the revision number."
+    IDS_TT_WEBVIEWERPATHREVISION 
+                            "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\nThe string %REVISION% in the URL is replaced with the revision number,\nthe string %PATH% is replaced with the path to the file relative to the repository root."
 END
 
 #endif    // English (U.S.) resources
