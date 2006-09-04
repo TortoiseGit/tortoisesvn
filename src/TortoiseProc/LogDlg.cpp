@@ -898,6 +898,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 						temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+						popup.AppendMenu(MF_SEPARATOR, NULL);
 					}
 					else
 					{
@@ -918,6 +919,22 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 					}
+					if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+					{
+						temp.LoadString(IDS_LOG_POPUP_VIEWREV);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWREV, temp);
+					}
+					if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+					{
+						temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+					}
+					if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
+						(!m_ProjectProperties.sWebViewerRev.IsEmpty()))
+					{
+						popup.AppendMenu(MF_SEPARATOR, NULL);
+					}
+
 					temp.LoadString(IDS_LOG_BROWSEREPO);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
 					temp.LoadString(IDS_LOG_POPUP_COPY);
@@ -1377,6 +1394,34 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					CAppUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
+				case ID_VIEWREV:
+					{
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+						SVNRev rev = pLogEntry->dwRev;
+						CString url = m_ProjectProperties.sWebViewerRev;
+						url.Replace(_T("%REVISION%"), rev.ToString());
+						if (!url.IsEmpty())
+							ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+					}
+					break;
+				case ID_VIEWPATHREV:
+					{
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+						SVNRev rev = pLogEntry->dwRev;
+						CString relurl = m_path.GetSVNPathString();
+						if (!SVN::PathIsURL(m_path.GetSVNPathString()))
+						{
+							relurl = GetURLFromPath(m_path);
+						}
+						CString sRoot = GetRepositoryRoot(CTSVNPath(relurl));
+						relurl = relurl.Mid(sRoot.GetLength());
+						CString url = m_ProjectProperties.sWebViewerPathRev;
+						url.Replace(_T("%REVISION%"), rev.ToString());
+						url.Replace(_T("%PATH%"), relurl);
+						if (!url.IsEmpty())
+							ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+					}
+					break;
 				default:
 					break;
 				} // switch (cmd)
@@ -1476,6 +1521,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_SAVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 					bEntryAdded = true;
+					popup.AppendMenu(MF_SEPARATOR, NULL);
+					if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+					{
+						temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+					}
 				}
 				if (!bEntryAdded)
 					return;
@@ -1808,6 +1859,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CAppUtils::LaunchApplication(sCmd, NULL, false);
 						EnableOKButton();
 						theApp.DoWaitCursor(-1);
+					}
+					break;
+				case ID_VIEWPATHREV:
+					{
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+						SVNRev rev = pLogEntry->dwRev;
+						CString relurl = changedpath;
+						CString url = m_ProjectProperties.sWebViewerPathRev;
+						url.Replace(_T("%REVISION%"), rev.ToString());
+						url.Replace(_T("%PATH%"), relurl);
+						if (!url.IsEmpty())
+							ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
 					}
 					break;
 				default:

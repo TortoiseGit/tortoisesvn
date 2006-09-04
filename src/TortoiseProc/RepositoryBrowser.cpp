@@ -335,6 +335,22 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_MENUBLAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);		// "Blame..."
 				}
+				if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+				{
+					temp.LoadString(IDS_LOG_POPUP_VIEWREV);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWREV, temp);
+				}
+				if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+				{
+					temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+				}
+				if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
+					(!m_ProjectProperties.sWebViewerRev.IsEmpty()))
+				{
+					popup.AppendMenu(MF_SEPARATOR, NULL);
+				}
+
 				if (bFolder)
 				{
 					temp.LoadString(IDS_MENUEXPORT);
@@ -621,6 +637,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 						CAppUtils::LaunchApplication(sCmd, NULL, false);
 					}
+				}
+				break;
+			case ID_VIEWREV:
+				{
+					CString url = m_ProjectProperties.sWebViewerRev;
+					url.Replace(_T("%REVISION%"), GetRevision().ToString());
+					if (!url.IsEmpty())
+						ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+				}
+				break;
+			case ID_VIEWPATHREV:
+				{
+					CString relurl = url;
+					relurl = relurl.Mid(m_treeRepository.m_strReposRoot.GetLength());
+					CString weburl = m_ProjectProperties.sWebViewerPathRev;
+					weburl.Replace(_T("%REVISION%"), GetRevision().ToString());
+					weburl.Replace(_T("%PATH%"), relurl);
+					if (!weburl.IsEmpty())
+						ShellExecute(this->m_hWnd, _T("open"), weburl, NULL, NULL, SW_SHOWDEFAULT);					
 				}
 				break;
 			case ID_POPCHECKOUT:

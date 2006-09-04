@@ -63,6 +63,9 @@
 #define ID_BLAMEDIFF    31
 #define ID_CONFLICTRESOLVE 32
 
+#define ID_VIEWREV      33
+#define ID_VIEWPATHREV  34
+
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
 #define LOGFILTER_PATHS    3
