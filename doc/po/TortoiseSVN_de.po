@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-08-29 18:29+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2006-09-04 11:35+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4964,22 +4964,22 @@ msgstr "Wenn Sie eine Datei oder einen Ordner gelöscht und die Löschung bereit
 #: source/TortoiseSVN_en.xml:5871
 #: (title)
 msgid "Renaming a file only in case"
-msgstr "Eine Datei nur in Gross/Kleinschreibung umbenennen"
+msgstr "Eine Datei nur in Groß-/Kleinschreibung umbenennen"
 
 #: source/TortoiseSVN_en.xml:5873
 #: (para)
 msgid "In case you have two files in the repository with the same name but differing only in case (e.g. TEST.TXT and test.txt) you can't update or checkout the directory where those files are in anymore."
-msgstr "Wenn Sie zwei Dateien im Projektarchiv haben mit demselben Namen aber unterschiedlicher Gross/Kleinschreibung (z.B. TEST.TXT und test.txt) können Sie den Ordner mit diesen Dateien nicht mehr aktualisieren oder auschecken."
+msgstr "Wenn ein Ordner im Projektarchiv zwei Dateien mit dem selben Namen aber unterschiedlicher Groß-/Kleinschreibung (z.B. TEST.TXT und test.txt) enthält, können Sie diesen Ordner nicht mehr aktualisieren oder auschecken."
 
 #: source/TortoiseSVN_en.xml:5878
 #: (para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
-msgstr "In diesem Falle müssen Sie entscheiden, welche der beiden Dateien Sie behalten möchten. Die andere Datei müssen Sie vom Projektarchiv löschen oder umbenennen."
+msgstr "In diesem Falle müssen Sie entscheiden, welche der beiden Dateien Sie behalten möchten. Die andere Datei müssen Sie aus dem Projektarchiv löschen oder umbenennen."
 
 #: source/TortoiseSVN_en.xml:5882
 #: (para)
 msgid "There are (at least) two possible solutions to rename a file without losing its log history. It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!!!"
-msgstr "Es gibt (mindestens) zwei mögliche Lösungen um eine Datei umzubenennen ohne die Historie zu verlieren. Es ist wichtig, die Datei mit Subversion umzubenennen. Ein Umbenennen nur im Explorer wird die Arbeitskopie zerstören!!!"
+msgstr "Es gibt (mindestens) zwei mögliche Lösungen, um eine Datei umzubenennen ohne die Historie zu verlieren. Es ist wichtig, die Datei mit Subversion umzubenennen. Ein Umbenennen nur im Explorer wird die Arbeitskopie beschädigen!!!"
 
 #: source/TortoiseSVN_en.xml:5891
 #: (para)
@@ -4989,7 +4989,7 @@ msgstr "Übertragen Sie die Änderungen der Arbeitskopie."
 #: source/TortoiseSVN_en.xml:5892
 #: (para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
-msgstr "Benennen Sie die Datei von GROSSbuchstaben zu grossBuchstaben direkt im Projektarchiv mit dem Projektarchivbrowser um."
+msgstr "Benennen Sie mit dem Projektarchivbetrachter die Datei von 'GROSSbuchstaben' in 'grossBuchstaben' direkt im Projektarchiv um."
 
 #: source/TortoiseSVN_en.xml:5894
 #: (para)
@@ -5004,7 +5004,7 @@ msgstr "Lösung A) (empfohlen) <placeholder-1/>"
 #: source/TortoiseSVN_en.xml:5900
 #: (para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
-msgstr "Benennen Sie die Datei von GROSSbuchstaben zu GROSSbuchstaben_ um mit dem umbennennen-Befehl im TortoiseSVN Submenu."
+msgstr "Benennen Sie die Datei mit dem <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Umbennennen...</guimenuitem></menuchoice> von 'GROSSbuchstaben' in 'GROSSbuchstaben_' um."
 
 #: source/TortoiseSVN_en.xml:5901
 #: (para) source/TortoiseSVN_en.xml:5903
@@ -5014,7 +5014,7 @@ msgstr "Änderungen übertragen."
 #: source/TortoiseSVN_en.xml:5902
 #: (para)
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "Benenen Sie die Datei von GROSSbuchstaben_ zu grossBUCHSTABEN um."
+msgstr "Benenen Sie die Datei von 'GROSSbuchstaben_' in 'grossBUCHSTABEN' um."
 
 #: source/TortoiseSVN_en.xml:5897
 #: (para)
@@ -5029,7 +5029,7 @@ msgstr "Zwei Dateien mit demselben Namen verhindern"
 #: source/TortoiseSVN_en.xml:5908
 #: (para)
 msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
-msgstr "Es gibt ein Serverseitiges Hook-Skript hier:  <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> welches verhindert, dass jemals zwei Dateien mit demselben Namen aber unterschiedlicher Gross/Kleinschreibung in Projektarchiv gelangen."
+msgstr "Es gibt ein serverseitiges Aktionsskript hier: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> welches verhindert, dass jemals zwei Dateien mit demselben Namen aber unterschiedlicher Schreibweise in das Projektarchiv gelangen."
 
 #: source/TortoiseSVN_en.xml:5920
 #: (title)
@@ -6773,7 +6773,7 @@ msgstr "Vorteil: benötigt nur sehr wenig Hauptspeicher (zirka 1 MB) und kann de
 #: source/TortoiseSVN_en.xml:8281
 #: (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr "Nachteil: Da nur ein Ordner zwischengespeichert wird, kann der Status nicht rekursiv angezeigt werden. Bei großen Arbeitskopien kann es länger als mit dem Standardcache dauern, einen Ordner anzuzeigen. Obendrein steht die mime-type Spalte nicht zur Verfügung."
+msgstr "Nachteil: Da nur ein Ordner zwischengespeichert wird, kann der Status nicht rekursiv angezeigt werden. Bei großen Arbeitskopien kann es länger als mit dem Standardcache dauern, einen Ordner anzuzeigen. Obendrein steht die MIME-Typ Spalte nicht zur Verfügung."
 
 #: source/TortoiseSVN_en.xml:8291
 #: (term)
