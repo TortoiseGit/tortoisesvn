@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-08-31 15:18+0900\n"
+"PO-Revision-Date: 2006-09-04 16:31+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -907,6 +907,11 @@ msgstr "보기(&V)"
 msgid "&Whitespaces"
 msgstr "공백(&W)"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "전체 단어(&W)"
+
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -965,6 +970,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1164,6 +1171,11 @@ msgstr "확장자에 따른 병합 프로그램 등록"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "무시 목록에 추가(&I)"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "추가..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1908,6 +1920,17 @@ msgstr "색상"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "명령 행"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "실행할 명령:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "명령 오류."
@@ -1988,6 +2011,11 @@ msgstr "비교 중 %s : %s"
 #: ID:74
 msgid "Completed"
 msgstr "완료"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "훅 스크립트 구성"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2575,6 +2603,11 @@ msgstr "확장자별 병합 프로그램 편집"
 msgid "Edit log message"
 msgstr "로그 메시지 수정"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "편집..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -3068,6 +3101,11 @@ msgstr "관련없는 변경된 경로를 숨기기(&I)"
 msgid "Help"
 msgstr "도움말"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "스크립트 수행중 숨김"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3081,6 +3119,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "힌트: 선택된 디렉토리를 새로 고치려면, F5를 누르시고, 모든 하위까지 고치려면 Ctrl+F5를 누르세요."
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "훅 스크립트"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "훅 종류"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "훅 종류:"
 
 # ID:82,
 #: ID:82
@@ -4123,6 +4176,7 @@ msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "경로"
 
@@ -4167,6 +4221,12 @@ msgstr "날짜를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "실행할 훅 스크립트를 넣으세요"
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4177,6 +4237,11 @@ msgstr "%1 ~ %2사이의 값을 입력하십시오."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "숫자를 입력하십시오."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "훅 스크립트가 적용될 경로를 입력하세요"
 
 # ID:3858,#:
 # ID:3858,
@@ -4240,6 +4305,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "버튼을 선택하십시오."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "훅 종류를 선택하십시오."
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4271,6 +4342,26 @@ msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
 #: ID:211
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "커밋 후 확인 훅"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "업데이트 후 확인 훅"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "커밋 전 확인 훅"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "업데이트 전 확인 훅"
 
 # ID:376,
 #: ID:376
@@ -4515,6 +4606,11 @@ msgstr "원격 상태"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "무시 목록에서 제거(&I)"
+
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "삭제..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5071,6 +5167,16 @@ msgstr ""
 "익스포트할 폴더 선택.\n"
 "익스포트하기 전에 폴더를 새로 만들어야 할 수도 있습니다."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "스크립트를 수행할 폴더를 선택하세요"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "훅 스크립트를 선택하세요"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5288,6 +5394,11 @@ msgstr "수정되지 않은 파일 보기"
 msgid "Show unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "보이기/숨기기"
+
 # Control-ID:1073,
 #: ID:272
 #, c-format
@@ -5399,10 +5510,20 @@ msgstr "누적 막대 그래프"
 msgid "Stacked Line Graph"
 msgstr "누적 꺽은선 그래프"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "커밋 훅 시작"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "시작 리비전"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "업데이트 훅 시작"
 
 # ID:74,#:
 # ID:77,#:
@@ -5709,6 +5830,16 @@ msgid ""
 msgstr ""
 "존재하지 않는 폴더:\n"
 "%s 만드시겠습니까?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"훅 스크립트가 오류를 반환하였습니다:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6567,6 +6698,16 @@ msgstr "버전"
 msgid "Visit our website"
 msgstr "웹 사이트 방문"
 
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "대기"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "스크립트가 종료할 때까지 대기하세요"
+
 # ID:219,
 #: ID:88
 msgid "Warning"
@@ -6587,6 +6728,11 @@ msgstr "대상 URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "작업 사본"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "작업 사본 경로:"
 
 # ID:80,
 #: ID:80
