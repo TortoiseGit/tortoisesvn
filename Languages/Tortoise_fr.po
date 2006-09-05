@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-05 00:29+0100\n"
+"PO-Revision-Date: 2006-09-06 00:42+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5739,12 +5739,12 @@ msgstr "Révision"
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
-msgstr ""
+msgstr "Voir la révision pour le chemin dans le visualisateur &web"
 
 # ID:114,
 #: ID:114
 msgid "View revision in &webviewer"
-msgstr ""
+msgstr "Voir la révision dans le visualisateur &web"
 
 #: Control-ID:1084
 msgid "Visit our website"
@@ -6404,6 +6404,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:pathrevision\n"
+"URL pointant sur sur le visualisateur web pour le référentiel pour un fichier et une révision spécifiques.\n"
+"La chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision,\n"
+"la chaîne %PATH% est remplacée par le chemin du fichier en fonction de la racine du référentiel."
 
 # ID:17,
 #: ID:17
@@ -6413,6 +6417,9 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\n"
+"URL pointant sur le visualisateur web pour le référentiel pour une révision particulière.\n"
+"La chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision."
 
 # ID:244,
 #: ID:245
