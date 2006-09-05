@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-08-15 14:28+0800\n"
+"PO-Revision-Date: 2006-09-05 17:50+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -916,6 +916,11 @@ msgstr "檢視(&V)"
 msgid "&Whitespaces"
 msgstr "空白字元(&W)"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "符合全字(&W)"
+
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -974,6 +979,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1172,6 +1179,11 @@ msgstr "根據副檔名加入合併程式"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "加入..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1915,6 +1927,17 @@ msgstr "色彩"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "命令列"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "要執行的命令列:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失敗."
@@ -1995,6 +2018,11 @@ msgstr "正在比對 %s 與 %s"
 #: ID:74
 msgid "Completed"
 msgstr "完畢"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "設定掛勾指令檔"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2584,6 +2612,11 @@ msgstr "編輯根據副檔名的合併程式"
 msgid "Edit log message"
 msgstr "編輯紀錄訊息"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "編輯..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2753,13 +2786,13 @@ msgstr "副檔名"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "根據副檔名的程式"
+msgid "Extension or mime-type:"
+msgstr "副檔名或 mime-類型:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "副檔名:"
+msgid "Extension/mime-type specific programs"
+msgstr "根據副檔名或mime-類型的程式"
 
 # ID:74,
 #: ID:74
@@ -3076,6 +3109,11 @@ msgstr "隱藏無關的異動路徑(&H)"
 msgid "Help"
 msgstr "說明"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "隱藏執行中的指令檔"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3089,6 +3127,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "小提示: 按下 F5 可以重新整理選擇的子樹, 而 Ctrl-F5 可以重新載入全部子樹"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "掛勾指令檔"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "掛勾類型"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "掛勾類型:"
 
 # ID:82,
 #: ID:82
@@ -3671,7 +3724,7 @@ msgid "Max"
 msgstr "最大"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "訊息紀錄最大保留筆數"
 
@@ -4136,6 +4189,7 @@ msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "路徑"
 
@@ -4180,6 +4234,12 @@ msgstr "請輸入日期."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "請輸入要指定的掛勾指令檔"
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4190,6 +4250,11 @@ msgstr "請輸入介於 %1 與 %2 之間的數字."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "請輸入數字."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "請輸入要套用這個掛勾指令檔的路徑"
 
 # ID:3858,#:
 # ID:3858,
@@ -4253,6 +4318,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "請選擇按鈕."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "請選擇掛勾類型"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4284,6 +4355,26 @@ msgstr "正在比對差異, 請稍候..."
 #: ID:211
 msgid "Please wait..."
 msgstr "請稍候..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "送交後掛勾"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "更新後掛勾"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "送交前掛勾"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "更新前掛勾"
 
 # ID:376,
 #: ID:376
@@ -4525,6 +4616,11 @@ msgstr "遠端文字狀態"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "自忽略列表移除(&I)"
+
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "移除..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5082,6 +5178,16 @@ msgstr ""
 "選擇要匯出至的資料夾.\n"
 "你可能需要在進行匯出之前先建立新資料夾."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "請選擇要執行指令檔的目錄"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "請選擇掛勾指令檔"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5297,6 +5403,11 @@ msgstr "顯示無異動的檔案"
 msgid "Show unversioned files"
 msgstr "顯示無版本控制的檔案"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "顯示/隱藏"
+
 # Control-ID:1073,
 #: ID:272
 #, c-format
@@ -5409,10 +5520,20 @@ msgstr "堆疊長條圖"
 msgid "Stacked Line Graph"
 msgstr "堆疊直線圖"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "開始送交掛勾"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "開始版本"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "開始更新掛勾"
 
 # ID:74,#:
 # ID:77,
@@ -5719,6 +5840,16 @@ msgstr ""
 "%s\n"
 " 不存在.\n"
 "是否要先建立?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"掛勾指令檔傳回錯誤:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6573,11 +6704,31 @@ msgstr "值"
 msgid "Version"
 msgstr "版本"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "以網頁瀏覽器檢視路徑的版本(&W)"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "以網頁瀏覽器檢視版本(&W)"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "等待"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "等待指令檔完成"
 
 # ID:219,
 #: ID:88
@@ -6599,6 +6750,11 @@ msgstr "以 URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "工作複本"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "工作複本路徑:"
 
 # ID:80,
 #: ID:80
@@ -7257,6 +7413,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "不同的值"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"代表檔案庫中特定檔案及版本的URL, 供網頁瀏覽器使用.\n"
+"URL 中的 %REVISION% 會以版號取代, \n"
+"而 %PATH% 則會以檔案庫根目錄的相對路徑取代."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"代表檔案庫中特定版本的 URL, 供網頁瀏覽器使用.\n"
+"字串中的 %REVISION% 會以版本號碼取代."
 
 # ID:244,
 #: ID:245
