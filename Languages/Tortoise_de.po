@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-01 10:49+0100\n"
+"PO-Revision-Date: 2006-09-05 10:22+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -751,6 +751,11 @@ msgstr "&Ansicht"
 msgid "&Whitespaces"
 msgstr "&Leerzeichen"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "Ganzes &Wort"
+
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Arbeitskopie"
@@ -795,6 +800,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -958,6 +965,10 @@ msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "&Ignorieren"
+
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Hinzufügen..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1572,6 +1583,15 @@ msgstr "Änderungen in Zeile &farbig hervorheben"
 msgid "Colors"
 msgstr "Farben"
 
+#: ID:198
+msgid "Command Line"
+msgstr "Befehlszeile"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Befehlszeile:"
+
 #: ID:3857
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
@@ -1637,6 +1657,11 @@ msgstr "Vergleiche %s mit %s"
 #: ID:74
 msgid "Completed"
 msgstr "Fertig"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Aktionsskripte konfigurieren"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -2127,6 +2152,10 @@ msgstr "Konflikteditor für bestimmte Dateitypen einrichten"
 msgid "Edit log message"
 msgstr "Logmeldung bearbeiten"
 
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Bearbeiten..."
+
 #: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "Entweder der Name oder die IP Adresse des Proxy Servers"
@@ -2543,6 +2572,11 @@ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 msgid "Help"
 msgstr "Hilfe"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Skript beim Ablauf verbergen"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -2555,6 +2589,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Hinweis: Drücken Sie F5, um den gewählten Teilbaum zu aktualisieren. Strg-F5, um alle Zweige zu aktualisieren"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Aktionsskript"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Aktionstyp"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Aktionstyp:"
 
 #: ID:82
 #, c-format
@@ -3449,6 +3498,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchdateien (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Pfad"
 
@@ -3480,6 +3530,10 @@ msgstr "Bitte geben Sie ein Datum und/oder eine Zeit ein."
 msgid "Please enter a date."
 msgstr "Bitte geben Sie ein Datum ein."
 
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Bitte wählen Sie das auszuführende Skript aus."
+
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3488,6 +3542,11 @@ msgstr "Bitte eine Zahl zwischen %1 und %2 eingeben."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Bitte eine Zahl eingeben."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Bitte geben Sie einen Pfad an auf den das Skript angewendet wird."
 
 #: ID:3858
 msgid "Please enter a positive integer."
@@ -3535,6 +3594,10 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Bitte wählen Sie eine Schaltfläche."
 
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Bitte wählen Sie einen Aktionstyp"
+
 #: ID:76
 msgid "Please specify the certificate type"
 msgstr "Bitte geben Sie den Zertifikatstyp an"
@@ -3560,6 +3623,24 @@ msgstr "Bitte warten Sie während wir die Unterschiede holen..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Bitte warten..."
+
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Nach Übertragung"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Nach Aktualisierung"
+
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Vor Übertragung"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Vor Aktualisierung"
 
 # ID:376,
 #: ID:376
@@ -3758,6 +3839,10 @@ msgstr "Inhalt Projektarchiv"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Aus &Ignorieren Liste entfernen"
+
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Entfernen..."
 
 #: Control-ID:65535
 msgid "Removed"
@@ -4206,6 +4291,15 @@ msgstr ""
 "Wähle Zielordner für Export.\n"
 "Vielleicht müssen Sie einen neuen Ordner erstellen."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Wählen Sie den Ordner, in dem das Skript ausgeführt wird"
+
+#: ID:197
+msgid "Select hook script file"
+msgstr "Skriptdatei auswählen"
+
 #: ID:78
 msgid "Select merge application"
 msgstr "Konflikteditor auswählen"
@@ -4383,6 +4477,11 @@ msgstr "Zeige unmodifizierte Dateien"
 msgid "Show unversioned files"
 msgstr "Zeige nicht versionierte Dateien"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Anzeigen/Verbergen"
+
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
@@ -4484,9 +4583,19 @@ msgstr "Gestapelte Balken"
 msgid "Stacked Line Graph"
 msgstr "Gestapelte Linien"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Start Übertragung"
+
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Startrevision"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Start Aktualisierung"
 
 #: ID:245
 #: Dlg-ID:179
@@ -4754,6 +4863,16 @@ msgstr ""
 "Der Ordner\n"
 "%s\n"
 "existiert nicht. Möchten Sie ihn erstellen?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Das Aktionsskript gab eine Fehlermeldung zurück:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -5477,9 +5596,29 @@ msgstr "Wert"
 msgid "Version"
 msgstr "Version"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Betrachte Revision eines Pfades im &Web"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Betrachte Revision im &Web"
+
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Besuchen Sie unsere Webseite"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Warten"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Warte auf Beendigung des Skripts"
 
 #: ID:88
 msgid "Warning"
@@ -5496,6 +5635,10 @@ msgstr "Mit URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Arbeitskopie"
+
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Pfad der Arbeitskopie:"
 
 #: ID:80
 #, c-format
@@ -6096,6 +6239,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "Werte sind unterschiedlich"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL eines Webbetrachter die auf eine Datei des Projektarchivs in einer spezifischen Revision zeigt.\n"
+"Der Platzhalter %REVISION% in der URL is wird durch die Revisionsnummer ersetzt.\n"
+"Der Platzhalter %PATH% wird durch den Pfad relativ zur Basis des Projektarchivs ersetzt."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"URL eines Webbetrachter die auf das Projektarchiv in einer spezifischen Revision zeigt.\n"
+"Der Platzhalter %REVISION% in der URL is wird durch die Revisionsnummer ersetzt."
 
 #: ID:245
 msgid "week"
