@@ -421,15 +421,18 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
+	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWALLREVISIONS);
 	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND);
 	if (state & MF_CHECKED)
 	{
 		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_UNCHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, tbstate & (~TBSTATE_CHECKED));
 		m_bShowAll = false;
 	}
 	else
 	{
 		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, tbstate | TBSTATE_CHECKED);
 		m_bShowAll = true;
 	}
 
@@ -455,15 +458,18 @@ void CRevisionGraphDlg::OnViewArrangedbypath()
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
+	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_ARRANGEDBYPATH);
 	UINT state = pMenu->GetMenuState(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND);
 	if (state & MF_CHECKED)
 	{
 		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_UNCHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, tbstate & (~TBSTATE_CHECKED));
 		m_bArrangeByPath = false;
 	}
 	else
 	{
 		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_CHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, tbstate | TBSTATE_CHECKED);
 		m_bArrangeByPath = true;
 	}
 
