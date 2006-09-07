@@ -684,6 +684,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_GETALL, FALSE);
 	DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
+	DialogEnableWindow(IDC_STATBUTTON, FALSE);
 	
 	CString temp;
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
@@ -749,6 +750,7 @@ UINT CLogDlg::LogThread()
 	if (!m_bShowedAll)
 		DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
+	DialogEnableWindow(IDC_STATBUTTON, TRUE);
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
