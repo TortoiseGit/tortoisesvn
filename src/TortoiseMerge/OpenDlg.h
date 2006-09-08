@@ -37,6 +37,8 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	BOOL BrowseForFile(CString& filepath, CString title, UINT nFileFilter = IDS_COMMONFILEFILTER);
 	void GroupRadio(UINT nID);
+	bool CheckAndEnableClipboardChecker();
+	BOOL DialogEnableWindow(UINT nID, BOOL bEnable);
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_sBaseFile;
@@ -60,6 +62,17 @@ protected:
 	afx_msg void OnBnClickedDirectorybrowse();
 	afx_msg void OnBnClickedMergeradio();
 	afx_msg void OnBnClickedApplyradio();
+
+	afx_msg void OnChangeCbChain(HWND hWndRemove, HWND hWndAfter);
+	afx_msg void OnDrawClipboard();
+	afx_msg void OnDestroy();
+
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+
+	BOOL	m_bFromClipboard;
+	UINT	m_cFormat;
+	HWND	m_nextViewer;
+public:
+	afx_msg void OnBnClickedPatchfromclipboard();
 };

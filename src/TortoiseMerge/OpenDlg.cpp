@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "BrowseFolder.h"
-#include "OpenDlg.h"
 #include ".\opendlg.h"
 
 
@@ -33,6 +32,9 @@ COpenDlg::COpenDlg(CWnd* pParent /*=NULL*/)
 	, m_sYourFile(_T(""))
 	, m_sUnifiedDiffFile(_T(""))
 	, m_sPatchDirectory(_T(""))
+	, m_bFromClipboard(FALSE)
+	, m_cFormat(0)
+	, m_nextViewer(NULL)
 {
 }
 
@@ -53,6 +55,7 @@ void COpenDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_YOURFILEEDIT, m_cYourFileEdit);
 	DDX_Control(pDX, IDC_DIFFFILEEDIT, m_cDiffFileEdit);
 	DDX_Control(pDX, IDC_DIRECTORYEDIT, m_cDirEdit);
+	DDX_Check(pDX, IDC_PATCHFROMCLIPBOARD, m_bFromClipboard);
 }
 
 BEGIN_MESSAGE_MAP(COpenDlg, CDialog)
@@ -64,6 +67,10 @@ BEGIN_MESSAGE_MAP(COpenDlg, CDialog)
 	ON_BN_CLICKED(IDC_DIRECTORYBROWSE, OnBnClickedDirectorybrowse)
 	ON_BN_CLICKED(IDC_MERGERADIO, OnBnClickedMergeradio)
 	ON_BN_CLICKED(IDC_APPLYRADIO, OnBnClickedApplyradio)
+	ON_WM_CHANGECBCHAIN()
+	ON_WM_DRAWCLIPBOARD()
+	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_PATCHFROMCLIPBOARD, &COpenDlg::OnBnClickedPatchfromclipboard)
 END_MESSAGE_MAP()
 
 BOOL COpenDlg::OnInitDialog()
@@ -91,6 +98,10 @@ BOOL COpenDlg::OnInitDialog()
 	GetDlgItem(IDC_DIRECTORYEDIT, &hwndEdit);
 	if (hwndEdit)
 		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+
+	m_cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+	m_nextViewer = SetClipboardViewer();
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -224,16 +235,33 @@ void COpenDlg::GroupRadio(UINT nID)
 	GetDlgItem(IDC_DIFFFILEBROWSE)->EnableWindow(bUnified);
 	GetDlgItem(IDC_DIRECTORYEDIT)->EnableWindow(bUnified);
 	GetDlgItem(IDC_DIRECTORYBROWSE)->EnableWindow(bUnified);
+
+	CheckAndEnableClipboardChecker();
 }
 
 void COpenDlg::OnOK()
 {
 	UpdateData(TRUE);
+
+	bool bUDiffOnClipboard = false;
+	if (OpenClipboard())
+	{
+		UINT enumFormat = 0;
+		do 
+		{
+			if (enumFormat == m_cFormat)
+			{
+				bUDiffOnClipboard = true;
+			}
+		} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+		CloseClipboard();
+	}
+
 	if (GetDlgItem(IDC_BASEFILEEDIT)->IsWindowEnabled())
 	{
 		m_sUnifiedDiffFile.Empty();
 		m_sPatchDirectory.Empty();
-	} // if (GetDlgItem(IDC_BASEFILEEDIT)->IsWindowEnabled())
+	}
 	else
 	{
 		m_sBaseFile.Empty();
@@ -258,6 +286,44 @@ void COpenDlg::OnOK()
 		if (!PathFileExists(m_sTheirFile))
 			sFile = m_sTheirFile;
 
+	if (bUDiffOnClipboard && m_bFromClipboard)
+	{
+		if (OpenClipboard()) 
+		{ 
+			HGLOBAL hglb = GetClipboardData(m_cFormat); 
+			LPCSTR lpstr = (LPCSTR)GlobalLock(hglb); 
+
+			DWORD len = GetTempPath(0, NULL);
+			TCHAR * path = new TCHAR[len+1];
+			TCHAR * tempF = new TCHAR[len+100];
+			GetTempPath (len+1, path);
+			GetTempFileName (path, TEXT("tsm"), 0, tempF);
+			CString sTempFile = CString(tempF);
+			delete path;
+			delete tempF;
+
+			FILE * outFile;
+			size_t patchlen = strlen(lpstr);
+			_tfopen_s(&outFile, sTempFile, _T("wb"));
+			if(outFile)
+			{
+				size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
+				if (size < patchlen)
+					bUDiffOnClipboard = false;
+				else
+				{
+					m_sUnifiedDiffFile = sTempFile;
+					UpdateData(FALSE);
+					sFile.Empty();
+				}
+				fclose(outFile);
+			}
+			GlobalUnlock(hglb); 
+			CloseClipboard(); 
+		} 
+
+	}
+
 	if (!sFile.IsEmpty())
 	{
 		CString sErr;
@@ -266,4 +332,66 @@ void COpenDlg::OnOK()
 		return;
 	}
 	CDialog::OnOK();
+}
+
+void COpenDlg::OnChangeCbChain(HWND hWndRemove, HWND hWndAfter)
+{
+	CDialog::OnChangeCbChain(hWndRemove, hWndAfter);
+}
+
+bool COpenDlg::CheckAndEnableClipboardChecker()
+{
+	int radio = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
+	bool bUDiffOnClipboard = false;
+	if (radio == IDC_APPLYRADIO)
+	{
+		if (OpenClipboard())
+		{
+			UINT enumFormat = 0;
+			do 
+			{
+				if (enumFormat == m_cFormat)
+				{
+					bUDiffOnClipboard = true;
+				}
+			} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+			CloseClipboard();
+		}
+	}
+
+	DialogEnableWindow(IDC_PATCHFROMCLIPBOARD, bUDiffOnClipboard);
+	return bUDiffOnClipboard;
+}
+
+void COpenDlg::OnDrawClipboard()
+{
+	CheckAndEnableClipboardChecker();
+	CDialog::OnDrawClipboard();
+}
+
+void COpenDlg::OnDestroy()
+{
+	ChangeClipboardChain(m_nextViewer);
+	CDialog::OnDestroy();
+}
+
+BOOL COpenDlg::DialogEnableWindow(UINT nID, BOOL bEnable)
+{
+	CWnd * pwndDlgItem = GetDlgItem(nID);
+	if (pwndDlgItem == NULL)
+		return FALSE;
+	if (bEnable)
+		return pwndDlgItem->EnableWindow(bEnable);
+	if (GetFocus() == pwndDlgItem)
+	{
+		SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+	}
+	return pwndDlgItem->EnableWindow(bEnable);
+}
+
+void COpenDlg::OnBnClickedPatchfromclipboard()
+{
+	UpdateData();
+	DialogEnableWindow(IDC_DIFFFILEEDIT, !m_bFromClipboard);
+	DialogEnableWindow(IDC_DIFFFILEBROWSE, !m_bFromClipboard);
 }

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by c:\Dev\SVN\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
@@ -107,6 +107,7 @@
 #define IDC_CHECK1                      1064
 #define IDC_MAGNIFIER                   1064
 #define IDC_MATCHCASE                   1064
+#define IDC_PATCHFROMCLIPBOARD          1064
 #define IDC_CHECK2                      1065
 #define IDC_DIFFBAR                     1065
 #define IDC_LIMITTODIFFS                1065
@@ -194,7 +195,7 @@
 #define ID_VIEW_LINERIGHT               32814
 #define ID_BUTTON32816                  32816
 #define ID_VIEW_SHOWFILELIST            32817
-#define ID_EDIT_FINDPREV				32818
+#define ID_EDIT_FINDPREV                32818
 
 // Next default values for new objects
 // 
