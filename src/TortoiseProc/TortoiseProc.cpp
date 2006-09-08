@@ -2254,6 +2254,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 			fclose(inFile);
 
 			CStringUtils::WriteAsciiStringToClipboard(sClipdata);
+			CStringUtils::WriteDiffToClipboard(sClipdata);
 
 		}
 	}

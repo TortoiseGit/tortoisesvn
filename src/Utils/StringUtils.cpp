@@ -252,6 +252,54 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND h
 	return false;
 }
 
+bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd)
+{
+	UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+	if (cFormat == 0)
+		return false;
+	if (OpenClipboard(hOwningWnd))
+	{
+		EmptyClipboard();
+		HGLOBAL hClipboardData;
+		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+		if (hClipboardData)
+		{
+			char * pchData;
+			pchData = (char*)GlobalLock(hClipboardData);
+			if (pchData)
+			{
+				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
+				if (GlobalUnlock(hClipboardData))
+				{
+					if (SetClipboardData(cFormat,hClipboardData)==NULL)
+					{
+						CloseClipboard();
+						return false;
+					}
+				}
+				else
+				{
+					CloseClipboard();
+					return false;
+				}
+			}
+			else
+			{
+				CloseClipboard();
+				return false;
+			}
+		}
+		else
+		{
+			CloseClipboard();
+			return false;
+		}
+		CloseClipboard();
+		return true;
+	}
+	return false;
+}
+
 #endif // #ifdef _MFC_VER
 
 
