@@ -118,16 +118,20 @@ void CSetHooks::RebuildHookList()
 
 void CSetHooks::OnBnClickedRemovebutton()
 {
-	POSITION pos = m_cHookList.GetFirstSelectedItemPosition();
-	while (pos)
+	// traversing from the end to the beginning so that the indices are not skipped
+	int index = m_cHookList.GetItemCount()-1;
+	while (index >= 0)
 	{
-		int index = m_cHookList.GetNextSelectedItem(pos);
-		hookkey key;
-		key.htype = CHooks::GetHookType((LPCTSTR)m_cHookList.GetItemText(index, 0));
-		key.path = CTSVNPath(m_cHookList.GetItemText(index, 1));
-		CHooks::Instance().Remove(key);
-		m_cHookList.DeleteItem(index);
-		SetModified();
+		if (m_cHookList.GetItemState(index, LVIS_SELECTED) & LVIS_SELECTED)
+		{
+			hookkey key;
+			key.htype = CHooks::GetHookType((LPCTSTR)m_cHookList.GetItemText(index, 0));
+			key.path = CTSVNPath(m_cHookList.GetItemText(index, 1));
+			CHooks::Instance().Remove(key);		
+			m_cHookList.DeleteItem(index);
+			SetModified();
+		}
+		index--;
 	}
 }
 
