@@ -132,7 +132,8 @@ void CShellUpdater::WorkerThread()
 				workingPath = m_pathsToUpdate.front();
 				m_pathsToUpdate.pop_front();
 			}
-
+			if (workingPath.IsEmpty())
+				continue;
 			ATLTRACE("Update notifications for: %ws\n", workingPath.GetWinPath());
 			if (workingPath.IsDirectory())
 			{

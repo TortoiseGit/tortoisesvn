@@ -222,9 +222,9 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		else
 			response.m_needslock = false;
 		// The whole of response has been zero'd, so this will copy safely 
-		strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH+1, m_sUrl, sizeof(response.m_url)-1);
-		strncat_s(response.m_owner, 255, m_sOwner, sizeof(response.m_owner)-1);
-		strncat_s(response.m_author, 255, m_sAuthor, sizeof(response.m_author)-1);
+		strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH, m_sUrl, _TRUNCATE);
+		strncat_s(response.m_owner, 255, m_sOwner, _TRUNCATE);
+		strncat_s(response.m_author, 255, m_sAuthor, _TRUNCATE);
 		responseLength = sizeof(response);
 	}
 	else
