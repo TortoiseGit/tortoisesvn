@@ -9,9 +9,6 @@
 - NEW: Integration with repo viewers. See issue #201 for details. (Stefan)
 - NEW: Applying a patchfile from clipboard. 
        See issue #270 for details. (Stefan)
-- CHG: The 'recent message' is not appended to a prefilled log
-       message by the tsvn:logtemplate property. Instead, the
-       template is overwritten. See issue #283 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added
@@ -34,6 +31,9 @@ Version 1.4.0
        case-insensitive. (Tobias Schäfer)
 - CHG: The FileDiff dialog now remembers its size and position. (Tobias
        Schäfer)
+- CHG: The 'recent message' is not appended to a prefilled log
+       message by the tsvn:logtemplate property. Instead, the
+       template is overwritten. See issue #283 for details. (Stefan)
 - BUG: The header in TortoiseBlame was shown in the wrong font in translated
        versions. (Kazutoshi Satoda)
 - BUG: The state of the "Floppy drives" checkbox was not set correctly
