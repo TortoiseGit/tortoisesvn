@@ -75,6 +75,7 @@ Version 1.4.0
        "use theirs before mine", the scrollbars were not updated. (Stefan)
 - BUG: When changing the view types in the revision graph via the menu,
        the toolbar buttons didn't change their state. (Stefan)
+- BUG: The status cache could make explorer flash constantly. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

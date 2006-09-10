@@ -485,7 +485,10 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	{
 		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if (childDir)
+		{
 			childDir->m_ownStatus.SetStatus(pSVNStatus);
+			childDir->m_ownStatus.SetKind(svn_node_dir);
+		}
 	}
 	else
 	{
