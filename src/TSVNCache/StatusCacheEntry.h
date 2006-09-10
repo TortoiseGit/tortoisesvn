@@ -44,6 +44,7 @@ public:
 	bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
 	bool SaveToDisk(FILE * pFile);
 	bool LoadFromDisk(FILE * pFile);
+	void SetKind(svn_node_kind_t kind) {m_kind = kind;}
 private:
 	void SetAsUnversioned();
 
