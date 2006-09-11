@@ -61,6 +61,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bShowBugtraqColumn(false),
 	m_lowestRev(-1),
 	m_bStrictStopped(false)
+	, m_sLogInfo(_T(""))
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -99,6 +100,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILTERICON, m_cFilterIcon);
 	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
 	DDX_Control(pDX, IDC_GETALL, m_btnShow);
+	DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -266,6 +268,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 
+	AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);	
 	AddAnchor(IDC_HIDEPATHS, BOTTOM_LEFT, BOTTOM_RIGHT);	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
@@ -2050,7 +2053,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				m_nSearchIndex = (int)m_arShownList.GetCount()-1;
 		}
     } // if(m_pFindDialog->FindNext()) 
-
+	UpdateLogInfoLabel();
     return 0;
 }
 
@@ -2100,6 +2103,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bThreadRunning)
 		return;
+	UpdateLogInfoLabel();
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
@@ -2428,6 +2432,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 	}
 	EnableOKButton();
+	UpdateLogInfoLabel();
 }
 
 void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
@@ -3019,6 +3024,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+	UpdateLogInfoLabel();
 	return;	
 }
 
@@ -3243,6 +3249,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+		UpdateLogInfoLabel();
 	} // if (nIDEvent == LOGFILTER_TIMER)
 	DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 	__super::OnTimer(nIDEvent);
@@ -3392,6 +3399,7 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 		SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
 		SortShownListArray();
 		m_LogList.Invalidate();
+		UpdateLogInfoLabel();
 	}
 	*pResult = 0;
 }
@@ -3571,4 +3579,21 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 	Refresh();
 }
 
-
+void CLogDlg::UpdateLogInfoLabel()
+{
+	long rev1 = 0;
+	long rev2 = 0;
+	long selectedrevs = 0;
+	if (m_arShownList.GetCount())
+	{
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(0));
+		rev1 = pLogEntry->dwRev;
+		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_arShownList.GetCount()-1));
+		rev2 = pLogEntry->dwRev;
+		selectedrevs = m_LogList.GetSelectedCount();
+	}
+	CString sTemp;
+	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_arShownList.GetCount(), rev1, rev2, selectedrevs);
+	m_sLogInfo = sTemp;
+	UpdateData(FALSE);
+}

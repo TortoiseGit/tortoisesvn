@@ -428,11 +428,7 @@ msgstr ""
 msgid "&Load..."
 msgstr ""
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr ""
-
-#: Control-ID:1,#: MenuEntry
+#: Control-ID:1,
 msgid "&Merge"
 msgstr ""
 
@@ -446,6 +442,10 @@ msgstr ""
 
 #: Control-ID:1129,
 msgid "&Native filesystem (FSFS)"
+msgstr ""
+
+#: MenuEntry
+msgid "&Navigate"
 msgstr ""
 
 #: Control-ID:1049,
@@ -2504,6 +2504,10 @@ msgstr ""
 msgid "Manage Subversion properties"
 msgstr ""
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr ""
+
 #: ID:282,
 msgid "Mark as resolved"
 msgstr ""
@@ -3725,6 +3729,11 @@ msgstr ""
 msgid "Showing %ld nodes"
 msgstr ""
 
+#: ID:115,
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr ""
+
 #: ID:272,
 #, c-format
 msgid "Showing graph for %s"
@@ -4463,12 +4472,44 @@ msgstr ""
 msgid "Use stri&keout for deleted lines"
 msgstr ""
 
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr ""
+
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr ""
+
 #: ID:251,
 msgid "Use text block from \"&mine\""
 msgstr ""
 
 #: ID:251,
 msgid "Use text block from \"&theirs\""
+msgstr ""
+
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr ""
+
+#: ID:2052,
+msgid "Use text block from \"Mine\" before \"Theirs\"\n\"My\" text block then \"Theirs\""
+msgstr ""
+
+#: ID:2052,
+msgid "Use text block from \"Mine\"\nUse \"My\" text block"
+msgstr ""
+
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr ""
+
+#: ID:2052,
+msgid "Use text block from \"Theirs\" before \"Mine\"\n\"Their\" text block then \"Mine\""
+msgstr ""
+
+#: ID:2052,
+msgid "Use text block from \"Theirs\"\nUse \"Their\" text block"
 msgstr ""
 
 #: ID:251,

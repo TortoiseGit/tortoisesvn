@@ -162,6 +162,7 @@ private:
 	bool IsSelectionContinuous();
 	void EnableOKButton();
 	void GetAll(bool bForceAll = false);
+	void UpdateLogInfoLabel();
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
@@ -225,7 +226,8 @@ private:
 	CString				m_sTitle;
 	bool				m_bSelect;
 	bool				m_bShowBugtraqColumn;
-	
+	CString				m_sLogInfo;
+
 	CTime				m_timFrom;
 	CTime				m_timTo;
 	CColors				m_Colors;

@@ -566,6 +566,7 @@
 #define IDC_HOOKTYPELABEL               1334
 #define IDC_HOOKWCPATHLABEL             1335
 #define IDC_HOOKCMLABEL                 1336
+#define IDC_LOGINFO                     1337
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -646,6 +647,7 @@
 #define IDS_LOG_AUTHOREDITTITLE         1832
 #define IDS_LOG_SHOWALL                 1833
 #define IDS_LOG_SHOWRANGE               1834
+#define IDS_LOG_LOGINFOSTRING           1835
 #define IDS_LOG_BUGIDS                  1840
 #define IDS_LOG_FILTER_ALL              1850
 #define IDS_LOG_FILTER_PATHS            1851
@@ -962,7 +964,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        238
 #define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1337
+#define _APS_NEXT_CONTROL_VALUE         1338
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
