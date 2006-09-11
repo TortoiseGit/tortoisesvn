@@ -22,16 +22,17 @@ FOR %%i in (_Tortois_*.po) DO (
 
 echo. > %LogFile%
 echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^) >> %LogFile%
-echo ----------------------------------------------------------- >> %LogFile%
+echo ============================================================ >> %LogFile%
 echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
 echo. >> %LogFile%
 echo Incomplete                     : tr - fu - ut - ma >> %Logfile%
+echo -------------------------------------------------- >> %Logfile%
 
 echo.
 echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^)
-echo -----------------------------------------------------------
+echo ============================================================
 echo Total=!total!
 echo.
 echo Language : translated - fuzzy - untranslated - missing accelerator keys
@@ -71,9 +72,9 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
     ) else (
       echo !LANGNAME! !tra! - !fuz! - !unt! - !accel!
       if !total! EQU !tra! (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %TmpFileReview% 
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %TmpFileReview%
       ) else (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %LogFile% 
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %LogFile%
       )
     )
   ) ELSE (
@@ -84,10 +85,12 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
 
 echo. >> %Logfile%
 echo Needs review                   : tr - fu - ut - ma >> %Logfile%
+echo -------------------------------------------------- >> %Logfile%
 type %TmpFileReview% >> %LogFile%
 
 echo. >> %Logfile%
 echo Up to date: >> %Logfile%
+echo -------------------------------------------------- >> %Logfile%
 type %TmpFileDone% >> %LogFile%
 
 del %TmpFileReview%
