@@ -589,7 +589,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 			return NOERROR;
 
-		//the drophandler only has four commands, but not all are visible at the same time:
+		//the drophandler only has eight commands, but not all are visible at the same time:
 		//if the source file(s) are under version control then those files can be moved
 		//to the new location or they can be moved with a rename, 
 		//if they are unversioned then they can be added to the working copy
