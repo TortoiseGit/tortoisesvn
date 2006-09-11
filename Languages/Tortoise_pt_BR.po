@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-04 13:11-0300\n"
+"PO-Revision-Date: 2006-09-11 09:49-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6620,6 +6620,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Usa a URL da Cópia de &Trabalho como a URL \"De:\" padrão"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Usar Comparação Unificada a partir da área de transferência"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6725,6 +6730,16 @@ msgstr "Valor"
 msgid "Version"
 msgstr "Versão"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Visualizar revisão do caminho no &webviewer"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Visualizar revisão no &webviewer"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
@@ -6733,15 +6748,14 @@ msgstr "Visite nosso website"
 
 # ID:198,
 #: ID:198
-#, fuzzy
 msgid "Wait"
-msgstr "Esperar"
+msgstr "Aguarde"
 
 # Control-ID:1327,
 #: Control-ID:1327
 #, fuzzy
 msgid "Wait for the script to finish"
-msgstr "Esperar pelo encerramento do script"
+msgstr "Aguardar encerramento do script"
 
 # ID:219,
 #: ID:88
@@ -7431,6 +7445,29 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "valores diferentes"
+
+# ID:17,
+#: ID:17
+#, fuzzy, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL apontando para web viewer do repositório para um arquivo e revisão específicos.\n"
+"A string %REVISION% na URL é substituída pelo número da revisão,\n"
+"a string %PATH% é substituída pelo caminho do arquivo, relativo à raiz do repostório."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
 
 # ID:244,
 #: ID:245
