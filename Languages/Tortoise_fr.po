@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-06 00:42+0100\n"
+"PO-Revision-Date: 2006-09-11 20:46+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -233,7 +233,7 @@ msgstr "&?"
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
-msgstr "&Au sujet de TortoiseMerge..."
+msgstr "&A propos de TortoiseMerge..."
 
 #: ID:8
 #: Control-ID:1098
@@ -329,7 +329,7 @@ msgstr "&Copier"
 # ID:101,
 #: MenuEntry
 msgid "&Copy to clipboard"
-msgstr "&Copier dans le presse-papier"
+msgstr "&Copier dans le presse-papiers"
 
 #: ID:101
 msgid "&Copy to..."
@@ -526,12 +526,7 @@ msgstr "Vue en &liste"
 msgid "&Load..."
 msgstr "&Charger..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Marquer comme résolu"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Fusionnner"
 
@@ -547,6 +542,10 @@ msgstr "&Fusion"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "Système de fichier &natif (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Naviguer"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -923,7 +922,7 @@ msgstr ""
 
 #: ID:9
 msgid "A&bout"
-msgstr "Au su&jet de"
+msgstr "À &propos"
 
 #: ID:101
 msgid "A&dd folder..."
@@ -935,11 +934,11 @@ msgstr "Interrompre"
 
 #: Dlg-ID:136
 msgid "About TortoiseMerge"
-msgstr "Au sujet de TortoiseMerge"
+msgstr "À propos de TortoiseMerge"
 
 #: Dlg-ID:129
 msgid "About TortoiseSVN"
-msgstr "Au sujet de TortoiseSVN"
+msgstr "À propos de TortoiseSVN"
 
 #: ID:82
 msgid "Accept once"
@@ -1615,7 +1614,7 @@ msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de fusion par exten
 # ID:257,
 #: ID:257
 msgid "Clipboard"
-msgstr "Presse-papier"
+msgstr "Presse-papiers"
 
 # ID:222,
 #: ID:222
@@ -1767,17 +1766,17 @@ msgstr "Copier (Branche / Etiquette)"
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
-msgstr "Copier l'URL dans le presse-papier"
+msgstr "Copier l'URL dans le presse-papiers"
 
 # ID:101,
 #: ID:209
 msgid "Copy all information to clipboard"
-msgstr "Copier toutes les informations dans le presse-papier"
+msgstr "Copier toutes les informations dans le presse-papiers"
 
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
-msgstr "Copier le message d'erreur dans le presse-papier"
+msgstr "Copier le message d'erreur dans le presse-papiers"
 
 # ID:76,
 #: ID:76
@@ -1787,20 +1786,20 @@ msgstr "Copier depuis le chemin"
 # ID:101,
 #: ID:209
 msgid "Copy paths to clipboard"
-msgstr "Copier les chemins dans le presse-papier"
+msgstr "Copier les chemins dans le presse-papiers"
 
 #: ID:3603
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"Copier la sélection et la mettre dans le presse papier\n"
+"Copier la sélection et la mettre dans le presse papiers\n"
 "Copier"
 
 # ID:101,
 #: ID:114
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papier"
+msgstr "Copier dans le presse-papiers"
 
 #: ID:103
 msgid "Copy to working copy"
@@ -1990,7 +1989,7 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"Couper la sélection et la mettre dans le presse papier\n"
+"Couper la sélection et la mettre dans le presse papiers\n"
 "Couper"
 
 #: Control-ID:1314
@@ -2103,7 +2102,7 @@ msgid ""
 "About"
 msgstr ""
 "Voir les informations du programme, sa version et son copyright\n"
-"Au sujet de"
+"À propos"
 
 # ID:145,
 #: ID:145
@@ -2862,7 +2861,7 @@ msgid ""
 "Insert Clipboard contents\n"
 "Paste"
 msgstr ""
-"Insérer le presse papier\n"
+"Insérer le presse papiers\n"
 "Coller"
 
 #: ID:3857
@@ -3187,6 +3186,10 @@ msgstr "La DLL du système de mail n'est pas valide."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Gérér les propriétés Subversion"
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Marquer comme &résolu"
 
 #: ID:282
 msgid "Mark as resolved"
@@ -4306,7 +4309,7 @@ msgstr ""
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Save to clipboard"
-msgstr "Enregistrer dans le presse-papier"
+msgstr "Enregistrer dans le presse-papiers"
 
 # Dlg-ID:108,
 #: Dlg-ID:108
@@ -4602,6 +4605,12 @@ msgstr "Afficher/Masquer"
 msgid "Showing %ld nodes"
 msgstr "Affiche %ld noeuds"
 
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Affiche %ld révisions, depuis la révision %ld à la révision %ld - %ld révisions sélectionnées"
+
 # ID:272,
 #: ID:272
 #, c-format
@@ -4624,7 +4633,7 @@ msgstr "Affiche toutes les révisions où des changements ont été faits à cet
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
-msgstr "Voir les informations au sujet de TortoiseSVN"
+msgstr "Voir les informations à propos de TortoiseSVN"
 
 # ID:17,
 #: ID:17
@@ -5646,6 +5655,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Utiliser l'URL de la Cd&T comme défaut pour l'URL \"Depuis :\""
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Utiliser les Différences unifiées du presse-papiers"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -5668,6 +5682,14 @@ msgstr "Utiliser les deux blocs de texte (celui-ci en dernier)"
 msgid "Use stri&keout for deleted lines"
 msgstr "Barrer les li&gnes effacées"
 
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Utiliser le bloc de texte depuis \"le &mien\""
+
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Utiliser le bloc de texte depuis \"le &leur\""
+
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Utiliser le bloc de texte depuis \"le &mien\""
@@ -5675,6 +5697,46 @@ msgstr "Utiliser le bloc de texte depuis \"le &mien\""
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Utiliser le bloc de texte depuis \"le &leur\""
+
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Utiliser le bloc de texte du \"m&ien\" avant \"le leur\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"Utiliser le bloc de texte du \"mien\" avant \"le leur\"\n"
+"\"Mon\" bloc de texte puis \"le leur\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"Utiliser le bloc de texte depuis \"le mien\"\n"
+"Utiliser \"Mon\" bloc de texte"
+
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"Utiliser le bloc de texte du \"leur\" avant le \"mien\"\n"
+"\"Leur\" bloc de texte puis \"le mien\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"Utiliser le bloc de texte du \"leur\"\n"
+"Utiliser \"leur\" bloc de texte"
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""

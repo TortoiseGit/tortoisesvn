@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-09-07 19:56+0100\n"
+"PO-Revision-Date: 2006-09-11 20:41+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5597,7 +5597,7 @@ msgstr "<placeholder-1/> Pour fusionner des révisions, vous devez aller à une 
 #: source/TortoiseSVN_en.xml:6694
 #: (para)
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
-msgstr "Quand vous avez testé les changements et que vous venez pour livrer cette révision, votre commentaire de livraison devrait <emphasis>toujours</emphasis> inclure les numéros des révisions qui ont été reportées dans la fusion. Si vous voulez appliquer une autre fusion plus tard, vous aurez besoin de connaître ce que vous avez déjà fusionné, puisque vous ne voulez pas reporter un changement plus d'une fois. Malheureusement l'information de fusion n'est pas stockée par Subversion. Pour plus d'information à ce sujet, référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> dans le <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Manuel de Subversion</citetitle></ulink>"
+msgstr "Quand vous avez testé les changements et que vous venez pour livrer cette révision, votre commentaire de livraison devrait <emphasis>toujours</emphasis> inclure les numéros des révisions qui ont été reportées dans la fusion. Si vous voulez appliquer une autre fusion plus tard, vous aurez besoin de connaître ce que vous avez déjà fusionné, puisque vous ne voulez pas reporter un changement plus d'une fois. Malheureusement l'information de fusion n'est pas stockée par Subversion. Pour plus d'informations à ce sujet, référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> dans le <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Manuel de Subversion</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:6710
 #: (para)
@@ -6283,7 +6283,7 @@ msgstr "La boîte de dialogue Relocaliser"
 #: source/TortoiseSVN_en.xml:7645
 #: (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr "<placeholder-1/> Si votre référentiel a pour quelque raison que ce soit changé d'emplacement (IP/URL). Peut-être que vous êtes même bloqué et que vous ne pouvez pas livrez et que vous ne voulez pas extraire votre copie de travail à nouveau depuis le nouvel emplacement et déplacer toutes vos données modifiées dans la nouvelle copie de travail, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocaliser</guimenuitem></menuchoice> est la commande que vous cherchez. Elle fait essentiellement très peu : elle parcourt toutes les fichiers \"entries\"  dans les dossiers <filename>.svn</filename> et change l'URL des entrées à la nouvelle valeur."
+msgstr "<placeholder-1/> Si votre référentiel a pour quelque raison que ce soit changé d'emplacement (IP/URL). Peut-être que vous êtes même bloqué et que vous ne pouvez pas livrer et que vous ne voulez pas extraire votre copie de travail à nouveau depuis le nouvel emplacement et déplacer toutes vos données modifiées dans la nouvelle copie de travail, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocaliser</guimenuitem></menuchoice> est la commande que vous recherchez. Elle fait essentiellement très peu : elle parcourt toutes les fichiers \"entries\"  dans les dossiers <filename>.svn</filename> et change l'URL des entrées avec la nouvelle valeur."
 
 #: source/TortoiseSVN_en.xml:7671
 #: (para)
@@ -6293,7 +6293,7 @@ msgstr "L'adresse IP du serveur a changé."
 #: source/TortoiseSVN_en.xml:7674
 #: (para)
 msgid "The protocol has changed (e.g. http:// to https://)."
-msgstr "Le protocole a changé (par exemple http:// à https: //)."
+msgstr "Le protocole a changé (par exemple http:// en https: //)."
 
 #: source/TortoiseSVN_en.xml:7677
 #: (para)
@@ -6308,17 +6308,17 @@ msgstr "<emphasis>C'est une opération très rare</emphasis>. La commande reloca
 #: source/TortoiseSVN_en.xml:7688
 #: (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
-msgstr "Vous voulez vous déplacer vers un référentiel Subversion différent. Dans ce cas vous devriez exécuter une extraction fraîche à partir du nouvel emplacement du référentiel."
+msgstr "Vous voulez vous déplacer vers un référentiel Subversion différent. Dans ce cas, vous devriez exécuter une extraction fraîche à partir du nouvel emplacement du référentiel."
 
 #: source/TortoiseSVN_en.xml:7694
 #: (para)
 msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
-msgstr "Vous voulez aller sur une branche différente ou sur un répertoire dans le même référentiel. Pour ce faire, vous devriez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice>. Lisez <xref linkend=\"tsvn-dug-switch-1\"/> pour plus d'information."
+msgstr "Vous voulez aller sur une branche différente ou sur un répertoire dans le même référentiel. Pour ce faire, vous devriez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice>. Lisez <xref linkend=\"tsvn-dug-switch-1\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:7684
 #: (para)
 msgid "It does not apply if: <placeholder-1/>"
-msgstr "Il ne s'applique pas si : <placeholder-1/>"
+msgstr "Elle ne s'applique pas si : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7706
 #: (para)
@@ -6328,7 +6328,7 @@ msgstr "Si vous utilisez relocaliser dans n'importe lequel des cas ci-dessus, ce
 #: source/TortoiseSVN_en.xml:7715
 #: (title)
 msgid "Integration with Bugtracking Systems / Issue trackers"
-msgstr "Intégration avec les systèmes de bugtracking / tracker d'incidents"
+msgstr "Intégration avec les systèmes de traque de bugs / traqueurs d'incidents"
 
 #: source/TortoiseSVN_en.xml:7717
 #: (primary)
@@ -6348,22 +6348,22 @@ msgstr "issuetracker"
 #: source/TortoiseSVN_en.xml:7725
 #: (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr "Il est très fréquent dans le développement logiciel que les changements sont liés à un bug spécifique ou à un ID d'incident. Les utilisateurs de systèmes de bugtracking (tracker d'incidents) voudraient associer les changements qu'ils font dans Subversion avec un ID spécifique dans leur tracker d'incidents. La plupart des trackers fournissent donc un script hook de pre-commit qui analyse syntaxiquement le commentaire pour trouver l'ID du bug auquel la livraison est associée. C'est quelque peu sujet aux erreurs puisqu'il compte sur l'utilisateur pour écrire le commentaire correctement pour que le script hook de pre-commit puisse en faire l'analyse syntaxique correctement."
+msgstr "Il est très fréquent dans le développement logiciel que les changements soient liés à un bug spécifique ou à un ID d'incident. Les utilisateurs de systèmes de traque de bug (traqueurs d'incidents) voudraient associer les changements qu'ils font dans Subversion avec un ID spécifique dans leur traqueur d'incidents. La plupart des traqueurs fournissent donc un script hook de pre-commit qui analyse syntaxiquement le commentaire pour trouver l'ID du bug auquel la livraison est associée. C'est quelque peu sujet aux erreurs puisque cela compte sur l'utilisateur pour écrire le commentaire correctement pour que le script hook de pre-commit puisse en faire l'analyse syntaxique correctement."
 
 #: source/TortoiseSVN_en.xml:7738
 #: (para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr "Quand l'utilisateur entre un commentaire, une ligne bien définie incluant le numéro de l'incident associé à la livraison peut être ajoutée automatiquement. Cela réduit le risque que l'utilisateur entre le numéro de l'incident d'une façon dont les outils de bugtracking ne peuvent pas analyser correctement."
+msgstr "Quand l'utilisateur entre un commentaire, une ligne bien définie incluant le numéro de l'incident associé à la livraison peut être ajoutée automatiquement. Cela réduit le risque que l'utilisateur entre le numéro de l'incident d'une façon que les outils de traque de bugs ne peuvent pas analyser correctement."
 
 #: source/TortoiseSVN_en.xml:7744
 #: (para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr "Ou TortoiseSVN peut mettre en évidence la partie du commentaire saisi qui est reconnu par le traqueur de question(publication). De cette voie l'utilisateur sait que le message de journal peut être fait l'analyse syntaxique correctement."
+msgstr "Ou TortoiseSVN peut mettre en évidence la partie du commentaire saisi qui est reconnu par le traqueur d'incidents. De cette façon, l'utilisateur sait que le commentaire peut être correctement analysé syntaxiquement."
 
 #: source/TortoiseSVN_en.xml:7751
 #: (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr "Quand l'utilisateur parcourt les commentaires, TortoiseSVN crée un lien de chaque ID de bug dans le commentaire qui active le navigateur à l'incident mentionné."
+msgstr "Quand l'utilisateur parcourt les commentaires, TortoiseSVN crée un lien à partir de chaque ID de bug dans le commentaire qui lance le navigateur à l'incident mentionné."
 
 #: source/TortoiseSVN_en.xml:7734
 #: (para)
@@ -6373,7 +6373,7 @@ msgstr "TortoiseSVN peut aider l'utilisateur de deux manières : <placeholder-1/
 #: source/TortoiseSVN_en.xml:7759
 #: (para)
 msgid "You can integrate a Bugtracking Tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Vous pouvez intégrer l'outil de bugtracking de votre choix dans TortoiseSVN. Pour ce faire, vous devez définir quelques propriétés, qui commencent par <literal>bugtraq:</literal>. Elles doivent être définies sur les dossiers : (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Vous pouvez intégrer l'outil de traque de bugs de votre choix dans TortoiseSVN. Pour ce faire, vous devez définir quelques propriétés, qui commencent par <literal>bugtraq:</literal>. Elles doivent être définies sur les dossiers : (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #: source/TortoiseSVN_en.xml:7771
 #: (term)
@@ -6383,7 +6383,7 @@ msgstr "bugtraq:url"
 #: source/TortoiseSVN_en.xml:7773
 #: (para)
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
-msgstr "Mettez cette propriété à l'URL de votre outil de bugtracking. Cela doit être correctement encodé URI et doit contenir <literal>%BUGID%</literal>. <literal>%BUGID%</literal> est remplacé de le numéro de l'incident que vous avez saisi. Cela permet à TortoiseSVN d'afficher un lien dans la boîte de dialogue de journal, pour que quand vous regardez le journal de révision vous pouvez aller directement à votre outil de bugtracking. Vous n'êtes pas obligé de fournir cette propriété, mais alors TortoiseSVN ne montre que le numéro de l'incident pas le lien. Par exemple le projet de TortoiseSVN utilise <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
+msgstr "Mettez cette propriété à l'URL de votre outil de traque de bugs. Cela doit être correctement encodé URI et doit contenir <literal>%BUGID%</literal>. <literal>%BUGID%</literal> est remplacé de le numéro de l'incident que vous avez saisi. Cela permet à TortoiseSVN d'afficher un lien dans la boîte de dialogue de journal, pour que quand vous regardez le journal de révision, vous pouvez aller directement à votre outil de traque de bugs. Vous n'êtes pas obligé de fournir cette propriété, mais alors TortoiseSVN ne montre que le numéro de l'incident, pas le lien. Par exemple le projet de TortoiseSVN utilise <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
 
 #: source/TortoiseSVN_en.xml:7791
 #: (term)
@@ -6398,7 +6398,7 @@ msgstr "Mettez cela à <literal>true</literal>, si vous voulez que TortoiseSVN v
 #: source/TortoiseSVN_en.xml:7765
 #: (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/>"
-msgstr "Il y a deux façons d'intégrer TortoiseSVN avec des trackers d'incidents. L'une est basée sur des chaînes simples, l'autre est basée sur les <literal>expressions régulières</literal>. Les propriétés utilisées par les deux approches sont : <placeholder-1/>"
+msgstr "Il y a deux façons d'intégrer TortoiseSVN avec les traqueurs d'incidents. L'une est basée sur des chaînes simples, l'autre sur les <literal>expressions régulières</literal>. Les propriétés utilisées par les deux approches sont : <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7812
 #: (term)
@@ -6408,7 +6408,7 @@ msgstr "bugtraq:message"
 #: source/TortoiseSVN_en.xml:7814
 #: (para)
 msgid "<emphasis> This property activates the Bugtracking System in <literal>Input field</literal> mode. </emphasis> If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the logmessage. It must contain <literal>%BUGID%</literal>, which is replaced with the issuenumber on commit. This ensures that your commit log contains a reference to the issuenumber which is always in a consistent format and can be parsed by your Bugtracking tool to associate the issuenumber with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr "<emphasis> Cette propriété active le système de bugtracking en mode <literal>champ de saisie</literal>. </emphasis> Si cette propriété est définie, alors TortoiseSVN vous demandera d'entrer un numéro d'incident quand vous livrez vos changements. Elle est utilisé pour ajouter une ligne à la fin du commentaire. Elle doit contenir <literal>%BUGID%</literal>, qui est remplacé par le numéro d'incident à la livraison. Cela assure que votre journal de livraison contient une référence au numéro d'incident qui est toujours dans un format cohérent et peut être analysé syntaxiquement par votre outil de bugtracking pour associer le numéro d'incident avec une livraison particulière. Par exemple le projet de TortoiseSVN utilise <literal>Issue : %BUGID%</literal>, mais cela dépend de votre outil."
+msgstr "<emphasis> Cette propriété active le système de traque de bugs en mode <literal>champ de saisie</literal>. </emphasis> Si cette propriété est définie, alors TortoiseSVN vous demandera d'entrer un numéro d'incident quand vous livrez vos changements. Elle est utilisée pour ajouter une ligne à la fin du commentaire. Elle doit contenir <literal>%BUGID%</literal>, qui est remplacé par le numéro d'incident à la livraison. Cela assure que votre journal de livraison contient une référence au numéro d'incident qui est toujours dans un format cohérent et peut être analysé syntaxiquement par votre outil de traque de bugs pour associer le numéro d'incident à une livraison particulière. Par exemple le projet de TortoiseSVN utilise <literal>Issue : %BUGID%</literal>, mais cela dépend de votre outil."
 
 #: source/TortoiseSVN_en.xml:7835
 #: (term)
@@ -6418,7 +6418,7 @@ msgstr "bugtraq:append"
 #: source/TortoiseSVN_en.xml:7837
 #: (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr "Cette propriété définit si l'ID-bug est ajouté (vrai) à la fin du commentaire ou inséré (faux) au début du commentaire. Les valeurs valables sont <literal>true/false</literal>. <emphasis> Si elle n'est pas définie, <literal>true</literal> est par défaut, pour que les projets existants ne cassent pas. </emphasis>"
+msgstr "Cette propriété définit si l'ID-bug est ajouté (true) à la fin du commentaire ou inséré (false) au début du commentaire. Les valeurs valables sont <literal>true/false</literal>. <emphasis> Si elle n'est pas définie, <literal>true</literal> est par défaut, pour que les projets existants ne cassent pas. </emphasis>"
 
 #: source/TortoiseSVN_en.xml:7850
 #: (term)
@@ -6438,12 +6438,12 @@ msgstr "bugtraq:number"
 #: source/TortoiseSVN_en.xml:7866
 #: (para)
 msgid "If set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr "Si elle est définie à <literal>true</literal> seuls les nombres sont autorisés dans le champ du numéro d'incident. La virgule est une exception, donc vous pouvez séparer par des virgules plusieurs numéros. Les valeurs valides sont <literal>true/false</literal>. <emphasis> Si elle n'est pas définie, <literal>true</literal> est la valeur par défaut. </emphasis>"
+msgstr "Si elle est définie à <literal>true</literal>, seuls les nombres sont autorisés dans le champ du numéro d'incident. La virgule est une exception, donc vous pouvez séparer plusieurs numéros par des virgules. Les valeurs valides sont <literal>true/false</literal>. <emphasis> Si elle n'est pas définie, <literal>true</literal> est la valeur par défaut. </emphasis>"
 
 #: source/TortoiseSVN_en.xml:7806
 #: (para)
 msgid "In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-1/>"
-msgstr "Dans l'approche simple, TortoiseSVN montre à l'utilisateur un champ de saisie séparé où un ID de bug peut être entré. Alors une ligne séparée est ajouté avant/après le commentaire que l'utilisateur a saisi. <placeholder-1/>"
+msgstr "Dans l'approche simple, TortoiseSVN montre à l'utilisateur un champ de saisie séparé où un ID de bug peut être entré. Une ligne séparée est alors ajoutée avant/après le commentaire que l'utilisateur a saisi. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7888
 #: (term)
@@ -6468,7 +6468,7 @@ msgstr "Si deux expressions sont définies, alors la première expression est ut
 #: source/TortoiseSVN_en.xml:7910
 #: (para)
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr "Si vous voulez attraper chaque modèle \"incident #XXX\" et \"incident #890, #789\" à l'intérieur d'un commentaire vous pourriez utiliser les chaînes regex suivantes : <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> et la deuxième expression telle que <literal>(\\d+)</literal>"
+msgstr "Si vous voulez attraper chaque modèle \"incident #XXX\" et \"incident #890, #789\" à l'intérieur d'un commentaire, vous pourriez utiliser les chaînes regex suivantes : <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> et la deuxième expression telle que <literal>(\\d+)</literal>"
 
 #: source/TortoiseSVN_en.xml:7916
 #: (para)
@@ -6478,7 +6478,7 @@ msgstr "Si vous êtes peu familiers avec les expressions régulières, jetez un 
 #: source/TortoiseSVN_en.xml:7879
 #: (para)
 msgid "In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr "Dans l'approche avec les <literal>expressions régulières</literal>, TortoiseSVN n'affiche pas de champ de saisie séparé, mais marque la partie du commentaire que l'utilisateur entre qui est reconnue par le traqueur d'incident. Cela se fait pendant que l'utilisateur écrit le commentaire. Cela signifie aussi que l'ID de bug peut être n'importe où à l'intérieur d'un commentaire ! Cette méthode est beaucoup plus flexible et c'est celle utilisée par le projet de TortoiseSVN lui-même. <placeholder-1/>"
+msgstr "Dans l'approche avec les <literal>expressions régulières</literal>, TortoiseSVN n'affiche pas de champ de saisie séparé, mais marque la partie du commentaire que l'utilisateur entre qui est reconnue par le traqueur d'incidents. Cela se fait pendant que l'utilisateur écrit le commentaire. Cela signifie aussi que l'ID de bug peut être n'importe où à l'intérieur d'un commentaire ! Cette méthode est beaucoup plus souple et c'est celle utilisée par le projet de TortoiseSVN lui-même. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7927
 #: (para)
@@ -6488,7 +6488,7 @@ msgstr "Si les deux propriétés <literal>bugtraq:message</literal> et <literal>
 #: source/TortoiseSVN_en.xml:7932
 #: (para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr "Même si vous n'avez pas de traqueur d'incident avec un hook pre-commit analyse syntaxiquement vos commentaires, vous pouvez toujours utiliser cela pour transformer les incidents mentionnés dans vos commentaires en liens!"
+msgstr "Même si vous n'avez pas de traqueur d'incidents avec un hook pre-commit analysant syntaxiquement vos commentaires, vous pouvez toujours utiliser cela pour transformer les incidents mentionnés dans vos commentaires en liens !"
 
 #: source/TortoiseSVN_en.xml:7945
 #: (title)
@@ -6498,12 +6498,12 @@ msgstr "Mettre les propriétés sur les dossiers"
 #: source/TortoiseSVN_en.xml:7946
 #: (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "Ces propriétés doivent être définies sur des dossiers pour que le système fonctionne. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou à la racine de l'arborescence (par exemple <literal>C:\\</literal>) est trouvé. Si vous pouvez être sûrs que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûrs, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Un réglage de la propriété plus profond dans la hiérarchie de projet remplace les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
+msgstr "Ces propriétés doivent être définies sur des dossiers pour que le système fonctionne. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arborescence (par exemple <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Un réglage de la propriété plus profondément dans la hiérarchie de projet remplace les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
 #: source/TortoiseSVN_en.xml:7967
 #: (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
-msgstr "Cette intégration de tracker d'incidents n'est pas limité à TortoiseSVN; cela peut être utilisé avec n'importe quel client de Subversion. Pour plus d'information, lisez <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
+msgstr "Cette intégration de tracker d'incidents n'est pas limité à TortoiseSVN ; elle peut être utilisée avec n'importe quel client Subversion. Pour plus d'informations, lisez <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:7976
 #: (title)
@@ -6538,7 +6538,7 @@ msgstr "La boîte de dialogue Configuration, page Général"
 #: source/TortoiseSVN_en.xml:7991
 #: (para)
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
-msgstr "<placeholder-1/> Cette boîte de dialogue vous permet de spécifier votre langue préféré et la configuration spécifique à Subversion."
+msgstr "<placeholder-1/> Cette boîte de dialogue vous permet de spécifier votre langue préférée et la configuration spécifique à Subversion."
 
 #: source/TortoiseSVN_en.xml:8001
 #: (term)
@@ -6553,7 +6553,7 @@ msgstr "Sélectionne la langue de votre interface utilisateur. À quoi d'autre v
 #: source/TortoiseSVN_en.xml:8010
 #: (term)
 msgid "Automatically check for newer versions every week"
-msgstr "Vérifiez automatiquement les nouvelles versions chaque semaine"
+msgstr "Vérifier automatiquement les nouvelles versions chaque semaine"
 
 #: source/TortoiseSVN_en.xml:8012
 #: (para)
@@ -6583,7 +6583,7 @@ msgstr "Avertissement"
 #: source/TortoiseSVN_en.xml:8025
 #: (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel. <guibutton>Configure</guibutton> is a shortcut to the Control Panel."
-msgstr "TortoiseSVN a trois sons personnalisés qui sont installés par défaut. <placeholder-1/> Vous pouvez choisir des sons différents (ou désactiver ces sons complètement) en utilisant le Panneau de Configuration Windows. <guibutton>Configure</guibutton> est un raccourci vers le Panneau de Configuration."
+msgstr "TortoiseSVN a trois sons personnalisés qui sont installés par défaut. <placeholder-1/> Vous pouvez choisir des sons différents (ou désactiver ces sons complètement) en utilisant le Panneau de Configuration Windows. <guibutton>Configurer</guibutton> est un raccourci vers le Panneau de Configuration."
 
 #: source/TortoiseSVN_en.xml:8051
 #: (term)
@@ -6603,7 +6603,7 @@ msgstr "exclusion globale"
 #: source/TortoiseSVN_en.xml:8059
 #: (para)
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files. These patterns use filename globbing. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information."
-msgstr "Les modèles d'exclusion globaux sont utilisé pour empêcher des fichiers non versionné d'apparaître dans la boîte de dialogue de livraison par exemple. Les fichiers correspondant aux modèles sont aussi ignorés lors d'un import. Ignorez des fichiers ou des répertoires en saisissant les noms ou les extensions. Les modèles sont séparés par des espaces par exemple <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Les deux premières entrées se réfèrent aux répertoires, les quatre autres aux fichiers. Ces modèles utilisent l'expansion de nom de fichier. Lisez <xref linkend=\"tsvn-dug-ignore-glob\"/> pour plus d'informations."
+msgstr "Les modèles d'exclusion globaux sont utilisés pour empêcher des fichiers non versionnés d'apparaître dans la boîte de dialogue de livraison par exemple. Les fichiers correspondant aux modèles sont aussi ignorés lors d'un import. Ignorez des fichiers ou des répertoires en saisissant les noms ou les extensions. Les modèles sont séparés par des espaces par exemple <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Les deux premières entrées se réfèrent aux répertoires, les quatre autres aux fichiers. Ces modèles utilisent l'expansion de nom de fichier. Lisez <xref linkend=\"tsvn-dug-ignore-glob\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:8071
 #: (para)
@@ -6613,7 +6613,7 @@ msgstr "Notez que les modèles d'exclusion que vous spécifiez ici affecteront a
 #: source/TortoiseSVN_en.xml:8077
 #: (para)
 msgid "If you use the Subversion configuration file to set a <literal>global-ignores</literal> pattern, it will override the settings you make here. The Subversion configuration file is accessed using the <guibutton>Edit</guibutton> as described below."
-msgstr "Si vous utilisez le fichier de configuration de Subversion pour définir un modèle <literal>global-ignores</literal>, il ignorera les réglages que vous faites ici. Le fichier de configuration de Subversion est accessible en utilisant le <guibutton>Éditer</guibutton> comme décrit ci-dessous."
+msgstr "Si vous utilisez le fichier de configuration de Subversion pour définir un modèle <literal>global-ignores</literal>, il ignorera les réglages que vous faites ici. Le fichier de configuration de Subversion est accessible en utilisant <guibutton>Éditer</guibutton> comme décrit ci-dessous."
 
 #: source/TortoiseSVN_en.xml:8085
 #: (para)
@@ -6638,7 +6638,7 @@ msgstr "Fichier de configuration de Subversion"
 #: source/TortoiseSVN_en.xml:8115
 #: (para)
 msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
-msgstr "Utilisez <guibutton>Éditer</guibutton> pour éditer directement le fichier de configuration de Subversion. Quelques réglages ne peuvent pas être modifiés directement par TortoiseSVN et ont besoin d'être définis ici à la place. Pour plus d'informations concernant le fichier <filename>config</filename> Subversion, regardez le <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Manuel Subversion</citetitle></ulink>. La section sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> a beacoup d'intérêt et c'est ce qui se configure ici. Notez que Subversion peut lire l'information de configuration depuis plusieurs endroits et vous devez connaître lequel à la priorité. Référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> pour en savoir plus."
+msgstr "Utilisez <guibutton>Éditer</guibutton> pour éditer directement le fichier de configuration de Subversion. Quelques réglages ne peuvent pas être modifiés directement par TortoiseSVN et ont besoin d'être définis ici à la place. Pour plus d'informations concernant le fichier <filename>config</filename> Subversion, regardez le <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Manuel Subversion</citetitle></ulink>. La section sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> a beacoup d'intérêt et c'est ce qui se configure ici. Notez que Subversion peut lire l'information de configuration depuis plusieurs endroits et vous devez savoir lequel à la priorité. Référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> pour en savoir plus."
 
 #: source/TortoiseSVN_en.xml:8140
 #: (term)
@@ -6733,7 +6733,7 @@ msgstr "Les disques USB Flash semblent être un cas particulier en cela que le t
 #: source/TortoiseSVN_en.xml:8248
 #: (para)
 msgid "By default, overlay icons will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays only in explorer</guilabel> box."
-msgstr "Par défaut, les icônes de recouvrement apparaîtront dans toutes les boîtes de dialogue Ouvrir/Enregsitrer comme dans l'explorateur Windows. Si vous voulez qu'elles n'apparaissent <emphasis>que</emphasis> dans l'explorateur Windows, cochez la case<guilabel>Voir le recouvrement seulement dans l'explorateur</guilabel>."
+msgstr "Par défaut, les icônes de recouvrement apparaîtront dans toutes les boîtes de dialogue Ouvrir/Enregistrer comme dans l'explorateur Windows. Si vous voulez qu'elles n'apparaissent <emphasis>que</emphasis> dans l'explorateur Windows, cochez la case <guilabel>Voir le recouvrement seulement dans l'explorateur</guilabel>."
 
 #: source/TortoiseSVN_en.xml:8262
 #: (term)
@@ -6748,7 +6748,7 @@ msgstr "Met en cache toute l'information de statut dans un processus séparé (<
 #: source/TortoiseSVN_en.xml:8275
 #: (para)
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left treeview usually change too."
-msgstr "Avantage : les recouvrements montrent le statut récursivement, c'est-à-dire si un fichier est modifié dans les profondeurs d'une copie de travail, tous les dossiers jusqu'à la racine de la copie de travail montreront aussi le recouvrement modifié. Et puisque le processus peut envoyer des avis au shell, les recouvrements sur l'arborescence gauche changent d'habitude aussi."
+msgstr "Avantage : les recouvrements montrent le statut récursivement, c'est-à-dire si un fichier est modifié dans les profondeurs d'une copie de travail, tous les dossiers jusqu'à la racine de la copie de travail montreront aussi le recouvrement modifié. Et puisque le processus peut envoyer des notifications au shell, les recouvrements sur l'arborescence gauche changent d'habitude aussi."
 
 #: source/TortoiseSVN_en.xml:8283
 #: (para)
@@ -6763,7 +6763,7 @@ msgstr "Shell"
 #: source/TortoiseSVN_en.xml:8293
 #: (para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
-msgstr "La mise en cache est faite directement à l'intérieur de la dll d'extension su shell, mais seulement pour le dossier actuellement visible. Chaque fois vous naviguez à un autre dossier, l'information de statut est parcourue de nouveau."
+msgstr "La mise en cache est faite directement à l'intérieur de la dll d'extension du shell, mais seulement pour le dossier actuellement visible. Chaque fois vous naviguez à un autre dossier, l'information de statut est parcourue de nouveau."
 
 #: source/TortoiseSVN_en.xml:8299
 #: (para)
@@ -6773,7 +6773,7 @@ msgstr "Avantage : a besoin seulement de très peu de mémoire (autour de 1 MO d
 #: source/TortoiseSVN_en.xml:8303
 #: (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr "Inconvénient : puisque un seul dossier est mis en cache, les recouvrements ne montrent pas le statut récursivement. Pour des grandes copies de travail, cela peut prendre plus de temps pour montrer un dossier dans l'explorateur qu'avec le cache par défaut. Aussi la colonne de type mime n'est pas disponible."
+msgstr "Inconvénient : puisque un seul dossier est mis en cache, les recouvrements ne montrent pas le statut récursivement. Pour de grandes copies de travail, cela peut prendre plus de temps pour montrer un dossier dans l'explorateur qu'avec le cache par défaut. Aussi la colonne de type mime n'est pas disponible."
 
 #: source/TortoiseSVN_en.xml:8313
 #: (term)
@@ -6783,7 +6783,7 @@ msgstr "Aucun"
 #: source/TortoiseSVN_en.xml:8315
 #: (para)
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
-msgstr "Avec ce réglage, TortoiseSVN ne va pas du tout chercher le statut dans l'Explorateur. De ce fait, les fichiers n'ont pas de recouvrement et les dossiers ont seulement un recouvrement 'normal' s'ils sont versionné. Aucun autre recouvrement n'est affiché et aucune colonne supplémentaire n'est disponible non plus."
+msgstr "Avec ce réglage, TortoiseSVN ne va pas du tout chercher le statut dans l'Explorateur. De ce fait, les fichiers n'ont pas de recouvrement et les dossiers ont seulement un recouvrement 'normal' s'ils sont versionnés. Aucun autre recouvrement n'est affiché et aucune colonne supplémentaire n'est disponible non plus."
 
 #: source/TortoiseSVN_en.xml:8322
 #: (para)
@@ -6793,7 +6793,7 @@ msgstr "Avantage : n'utilise absolument aucune mémoire supplémentaire et ne ra
 #: source/TortoiseSVN_en.xml:8326
 #: (para)
 msgid "Disadvantage: Status information of files and folders is not shown in Explorer. To see if your working copies are modified, you have to use the \"Check for modifications\" dialog."
-msgstr "Inconvénient : L'information de statut des fichiers et des dossiers n'est pas affiché dans l'Explorateur. Pour voir si vos copies de travail sont modifiées, vous devez utiliser la boîte de dialogue \"Vérifier les modifications\"."
+msgstr "Inconvénient : L'information de statut des fichiers et des dossiers n'est pas affichée dans l'Explorateur. Pour voir si vos copies de travail sont modifiées, vous devez utiliser la boîte de dialogue \"Vérifier les modifications\"."
 
 #: source/TortoiseSVN_en.xml:8254
 #: (para)
@@ -6808,7 +6808,7 @@ msgstr "Si vous sélectionnez l'option par défaut, vous pouvez aussi choisir de
 #: source/TortoiseSVN_en.xml:8340
 #: (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr "Les <guilabel>Chemins exclus</guilabel> sont utilisés pour indiquer à TortoiseSVN ces chemins pour lesquels il ne devrait <emphasis>pas</emphasis> afficher les recouvrements d'icône et les colonnes de statut. Cela est utile si vous avez de très grandes copies de travail contenant seulement des bibliothèques que vous ne changerez pas du tout et donc pour lesquelles vous n'aurez pas besoin des recouvrements. Par exemple :"
+msgstr "Les <guilabel>Chemins exclus</guilabel> sont utilisés pour indiquer à TortoiseSVN que ces chemins ne devraient <emphasis>pas</emphasis> montrer les recouvrements d'icône et les colonnes de statut. Cela est utile si vous avez de très grandes copies de travail contenant seulement des bibliothèques que vous ne changerez pas du tout et donc pour lesquelles vous n'aurez pas besoin des recouvrements. Par exemple :"
 
 #: source/TortoiseSVN_en.xml:8348
 #: (para)
@@ -6818,17 +6818,17 @@ msgstr "<filename>f:\\dévelopement\\SVN\\Subversion</filename> désactivera les
 #: source/TortoiseSVN_en.xml:8353
 #: (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> désactivera les recouvrements sur <emphasis>tous</emphasis> les fichiers et dossiers dont le chemin commence par <filename>f:\\development\\SVN\\Subversion</filename>. Cela signifie que vous ne verrez pas de recouvrement pour aucuns fichiers et dossiers en-dessous de ce chemin."
+msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> désactivera les recouvrements sur <emphasis>tous</emphasis> les fichiers et dossiers dont le chemin commence par <filename>f:\\development\\SVN\\Subversion</filename>. Cela signifie que vous ne verrez pas de recouvrement pour aucun des fichiers et des dossiers en-dessous de ce chemin."
 
 #: source/TortoiseSVN_en.xml:8360
 #: (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
-msgstr "La même chose s'applique aux <guilabel>Chemins inclus</guilabel>. Sauf que pour ces chemins les recouvrements s'affichent même si les recouvrements sont désactivés pour ce type de disque spécifique, ou par un chemin exclus indiqué au-dessus."
+msgstr "La même chose s'applique aux <guilabel>Chemins inclus</guilabel>. Sauf que pour ces chemins, les recouvrements s'affichent même s'ils sont désactivés pour ce type de disque spécifique, ou par un chemin exclus indiqué au-dessus."
 
 #: source/TortoiseSVN_en.xml:8365
 #: (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
-msgstr "TSVNCache.exe utilise aussi ces chemins pour limiter son balayage. Si vous voulez qu'il ne regarde que dans des dossiers particuliers, désactiver tous les types de disque et incluez seulement les dossiers que vous voulez spécifiquement être parcourus."
+msgstr "TSVNCache.exe utilise aussi ces chemins pour limiter son balayage. Si vous voulez qu'il ne regarde que dans des dossiers particuliers, désactivez tous les types de disque et incluez seulement les dossiers que vous voulez spécifiquement être parcourus."
 
 #: source/TortoiseSVN_en.xml:8372
 #: (title)
@@ -6843,7 +6843,7 @@ msgstr "La boîte de dialogue Configuration, page Ensemble d'icônes"
 #: source/TortoiseSVN_en.xml:8374
 #: (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
-msgstr "<placeholder-1/> Vous pouvez changer le jeu d'icône de recouvrement pour celui que vous aimez le plus. Notez que si vous changez le jeu de recouvrement, vous devriez redémarrer votre ordinateur pour que les changements prennent effet."
+msgstr "<placeholder-1/> Vous pouvez changer le jeu d'icônes de recouvrement pour celui que vous aimez le plus. Notez que si vous changez le jeu de recouvrement, vous devriez redémarrer votre ordinateur pour que les changements prennent effet."
 
 #: source/TortoiseSVN_en.xml:8385
 #: (title)
@@ -6868,7 +6868,7 @@ msgstr "Nombre par défaut de commentaires"
 #: source/TortoiseSVN_en.xml:8399
 #: (para)
 msgid "Limits the number of log messages that TortoiseSVN fetches when you first select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> Useful for slow server connections. You can always use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to get more messages."
-msgstr "Limite le nombre de commentaires que TortoiseSVN va d'abord chercher quand vous choisissez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> Utile avec des connexions serveur lentes. Vous pouvez toujours utiliser <guibutton>Afficher tout</guibutton> or <guibutton>100 suivants</guibutton> obtenir plus de messages."
+msgstr "Limite le nombre de commentaires que TortoiseSVN va d'abord chercher quand vous choisissez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> Utile avec des connexions serveur lentes. Vous pouvez toujours utiliser <guibutton>Afficher tout</guibutton> ou <guibutton>100 suivants</guibutton> pour obtenir plus de messages."
 
 #: source/TortoiseSVN_en.xml:8413
 #: (term)
@@ -6898,7 +6898,7 @@ msgstr "Boîte de dialogue de progression"
 #: source/TortoiseSVN_en.xml:8435
 #: (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
-msgstr "TortoiseSVN peut fermer automatiquement tous les boîte de dialogues de progression quand l'action s'est terminée sans erreur. Ce régalge vous permet de choisir les conditions pour fermer les dialogues. Le réglage par défaut est <guilabel>Fermeture manuelle</guilabel> ce qui vous permet de passer en revue tous les messages et contrôler ce qui s'est passé. Cependant, vous pouvez décider que vous voulez ignorer quelques types de message et vouloir que la boîte de dialogue se ferme automatiquement s'il n'y a aucun changement critique."
+msgstr "TortoiseSVN peut fermer automatiquement toutes les boîte de dialogues de progression quand l'action s'est terminée sans erreur. Ce réglage vous permet de choisir les conditions pour fermer les boîtes de dialogues. Le réglage par défaut est <guilabel>Fermeture manuelle</guilabel> ce qui vous permet de passer en revue tous les messages et de contrôler ce qui s'est passé. Cependant, vous pouvez décider que vous voulez ignorer quelques types de message et vouloir que la boîte de dialogue se ferme automatiquement s'il n'y a aucun changement critique."
 
 #: source/TortoiseSVN_en.xml:8446
 #: (para)
@@ -6918,7 +6918,7 @@ msgstr "<guilabel>Fermeture automatique s'il n'y a pas de conflit</guilabel> ass
 #: source/TortoiseSVN_en.xml:8469
 #: (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
-msgstr "<guilabel>Fermeture automatique s'il n'y a pas d'erreur</guilabel> ferme toujours la boîte de dialogue même s'il y a eu des conflits. La seule condition qui maintient la boîte de dialogue ouverte est un cas d'erreur, qui se produit quand Subversion est incapable d'achever la tâche. Par exemple, une mise à jour échoue parce que le serveur est inaccessible, ou une livraison échoue parce que la copie de travaillante est périmée."
+msgstr "<guilabel>Fermeture automatique s'il n'y a pas d'erreur</guilabel> ferme toujours la boîte de dialogue même s'il y a eu des conflits. La seule condition qui maintient la boîte de dialogue ouverte est un cas d'erreur, qui se produit quand Subversion est incapable d'achever la tâche. Par exemple, une mise à jour échoue parce que le serveur est inaccessible, ou une livraison échoue parce que la copie de travail est périmée."
 
 #: source/TortoiseSVN_en.xml:8481
 #: (term)
@@ -6928,7 +6928,7 @@ msgstr "Utiliser l'URL de la CdT comme défaut pour l'URL \"Depuis :\""
 #: source/TortoiseSVN_en.xml:8483
 #: (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
-msgstr "Dans la boîte de dialogue de fusion, le comportement par défaut est de mémoriser l'URL <guilabel>De :</guilabel > entre les fusions. Cependant, quelques personnes aiment exécuter les fusions depuis différents endroits de leur hiérarchie et trouvent plus facile de partir avec l'URL de la copie de travail courante. Elle peut alors être éditée pour se référer à un chemin parallèle à une autre branche."
+msgstr "Dans la boîte de dialogue de fusion, le comportement par défaut est de mémoriser l'URL <guilabel>De :</guilabel > entre les fusions. Cependant, certaines personnes aiment exécuter les fusions depuis différents endroits de leur hiérarchie et trouvent plus facile de partir avec l'URL de la copie de travail courante. Elle peut alors être éditée pour se référer à un chemin parallèle sur une autre branche."
 
 #: source/TortoiseSVN_en.xml:8497
 #: (title)
@@ -7153,7 +7153,7 @@ msgstr "<placeholder-1/> Ici vous pouvez configurer votre serveur proxy, si vous
 #: source/TortoiseSVN_en.xml:8717
 #: (para)
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Manual</citetitle></ulink> for details on how to use this file."
-msgstr "Si vous devez mettre en place des réglages de proxy par référentiel, vous devez utiliser le fichier <literal>servers</literal> de Subversion pour configurer cela. Utilisez <guibutton>Éditer</guibutton> pour y arriver directement. Consultez le ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Manuel Subversion</citetitle></ulink> pour les détails sur la façon d'utiliser ce fichier."
+msgstr "Si vous devez mettre en place des réglages de proxy par référentiel, vous devez utiliser le fichier <literal>servers</literal> de Subversion pour configurer cela. Utilisez <guibutton>Éditer</guibutton> pour y arriver directement. Consultez le <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Manuel Subversion</citetitle></ulink> pour les détails sur la façon d'utiliser ce fichier."
 
 #: source/TortoiseSVN_en.xml:8727
 #: (para)
@@ -7506,7 +7506,7 @@ msgstr "À partir de la version 1.3.0 de Subversion et de TortoiseSVN, vous pouv
 #: source/TortoiseSVN_en.xml:9112
 #: (para)
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
-msgstr "Pour plus d'information et d'autres façons d'éviter ce problème en premier lieu, regarder l'article à ce sujet dans notre <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
+msgstr "Pour plus d'informations et d'autres façons d'éviter ce problème en premier lieu, regarder l'article à ce sujet dans notre <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:9122
 #: (title)
