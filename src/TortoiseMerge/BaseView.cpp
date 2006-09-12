@@ -139,16 +139,16 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_KILLFOCUS()
 	ON_WM_SETFOCUS()
 	ON_WM_CONTEXTMENU()
-	ON_COMMAND(ID_MERGE_NEXTDIFFERENCE, OnMergeNextdifference)
-	ON_COMMAND(ID_MERGE_PREVIOUSDIFFERENCE, OnMergePreviousdifference)
+	ON_COMMAND(ID_NAVIGATE_NEXTDIFFERENCE, OnMergeNextdifference)
+	ON_COMMAND(ID_NAVIGATE_PREVIOUSDIFFERENCE, OnMergePreviousdifference)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_WM_KEYDOWN()
 	ON_WM_LBUTTONUP()
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_WM_MOUSEMOVE()
-	ON_COMMAND(ID_MERGE_PREVIOUSCONFLICT, OnMergePreviousconflict)
-	ON_COMMAND(ID_MERGE_NEXTCONFLICT, OnMergeNextconflict)
+	ON_COMMAND(ID_NAVIGATE_PREVIOUSCONFLICT, OnMergePreviousconflict)
+	ON_COMMAND(ID_NAVIGATE_NEXTCONFLICT, OnMergeNextconflict)
 	ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
@@ -1595,25 +1595,30 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			OnContextMenu(point, nLine);
 			m_nSelBlockStart = -1;
 			m_nSelBlockEnd = -1;
-			if (m_pwndLeft)
-			{
-				m_pwndLeft->UpdateStatusBar();
-				m_pwndLeft->Invalidate();
-			}
-			if (m_pwndRight)
-			{
-				m_pwndRight->UpdateStatusBar();
-				m_pwndRight->Invalidate();
-			}
-			if (m_pwndBottom)
-			{
-				m_pwndBottom->UpdateStatusBar();
-				m_pwndBottom->Invalidate();
-			}
-			if (m_pwndLocator)
-				m_pwndLocator->Invalidate();
+			RefreshViews();
 		} // if (ShallShowContextMenu(state, nLine))
 	} // if (nLine <= m_arLineStates->GetCount()) 
+}
+
+void CBaseView::RefreshViews()
+{
+	if (m_pwndLeft)
+	{
+		m_pwndLeft->UpdateStatusBar();
+		m_pwndLeft->Invalidate();
+	}
+	if (m_pwndRight)
+	{
+		m_pwndRight->UpdateStatusBar();
+		m_pwndRight->Invalidate();
+	}
+	if (m_pwndBottom)
+	{
+		m_pwndBottom->UpdateStatusBar();
+		m_pwndBottom->Invalidate();
+	}
+	if (m_pwndLocator)
+		m_pwndLocator->Invalidate();
 }
 
 void CBaseView::GoToFirstDifference()
@@ -1655,6 +1660,28 @@ void CBaseView::SetupDiffBars(int start, int end)
 	{
 		m_pwndRight->m_nDiffBlockStart = start;
 		m_pwndRight->m_nDiffBlockEnd = end;
+		m_pwndRight->Invalidate();
+	}
+}
+
+void CBaseView::SetupSelection(int start, int end)
+{
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	{
+		m_pwndBottom->m_nSelBlockStart = start;
+		m_pwndBottom->m_nSelBlockEnd = end;
+		m_pwndBottom->Invalidate();
+	}
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	{
+		m_pwndLeft->m_nSelBlockStart = start;
+		m_pwndLeft->m_nSelBlockEnd = end;
+		m_pwndLeft->Invalidate();
+	}
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	{
+		m_pwndRight->m_nSelBlockStart = start;
+		m_pwndRight->m_nSelBlockEnd = end;
 		m_pwndRight->Invalidate();
 	}
 }
@@ -1702,6 +1729,7 @@ void CBaseView::OnMergePreviousconflict()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
+		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ShowDiffLines(m_nDiffBlockStart);
 	}
@@ -1750,6 +1778,7 @@ void CBaseView::OnMergeNextconflict()
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
+		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
@@ -1795,6 +1824,8 @@ void CBaseView::OnMergeNextdifference()
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
+			
+		SetupSelection(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
@@ -1842,6 +1873,7 @@ void CBaseView::OnMergePreviousdifference()
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
+		SetupSelection(m_nDiffBlockStart, m_nDiffBlockEnd);
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
@@ -2014,6 +2046,7 @@ void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 				m_nSelBlockStart = m_nSelBlockEnd = nClickedLine;
 			}
 		}
+		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 		Invalidate();
 	} // if ((nClickedLine <= 0)&&(nClickedLine <= nLineCount)) 
 
@@ -2126,6 +2159,7 @@ void CBaseView::ShowDiffLines(int nLine)
 		}
 	}
 }
+
 
 
 

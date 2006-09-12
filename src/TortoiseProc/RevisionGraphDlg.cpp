@@ -121,7 +121,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 		RGBTRIPLE *	rgb	= (RGBTRIPLE*)(bmBitmap.bmBits);
 		COLORREF	rgbMask	= RGB(rgb[0].rgbtRed, rgb[0].rgbtGreen, rgb[0].rgbtBlue);
 
-		cImageList.Create(20, cSize.cy, ILC_COLOR24|ILC_MASK, nNbBtn, 0);
+		cImageList.Create(20, cSize.cy, ILC_COLOR32|ILC_MASK, nNbBtn, 0);
 		cImageList.Add(&cBitmap, rgbMask);
 		m_ToolBar.SendMessage(TB_SETIMAGELIST, 0, (LPARAM)cImageList.m_hImageList);
 		cImageList.Detach(); 

@@ -25,6 +25,13 @@ class CBottomView : public CBaseView
 public:
 	CBottomView(void);
 	~CBottomView(void);
+	
+	BOOL CanSelectTextBlocks();
+	void UseMyTextBlock();
+	void UseMyThenTheirTextBlock();
+	void UseTheirTextBlock();
+	void UseTheirThenMyTextBlock();
+
 protected:
 	void	OnContextMenu(CPoint point, int nLine);
 	BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);

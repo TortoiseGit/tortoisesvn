@@ -67,10 +67,10 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
 	ON_COMMAND(ID_VIEW_LINEDOWN, OnViewLinedown)
 	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
-	ON_UPDATE_COMMAND_UI(ID_MERGE_MARKASRESOLVED, OnUpdateMergeMarkasresolved)
-	ON_COMMAND(ID_MERGE_MARKASRESOLVED, OnMergeMarkasresolved)
-	ON_UPDATE_COMMAND_UI(ID_MERGE_NEXTCONFLICT, OnUpdateMergeNextconflict)
-	ON_UPDATE_COMMAND_UI(ID_MERGE_PREVIOUSCONFLICT, OnUpdateMergePreviousconflict)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_MARKASRESOLVED, OnUpdateMergeMarkasresolved)
+	ON_COMMAND(ID_EDIT_MARKASRESOLVED, OnMergeMarkasresolved)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTCONFLICT, OnUpdateMergeNextconflict)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVIOUSCONFLICT, OnUpdateMergePreviousconflict)
 	ON_WM_MOVE()
 	ON_WM_MOVING()
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, OnUpdateEditCopy)
@@ -80,6 +80,14 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_VIEW_LINERIGHT, &CMainFrame::OnViewLineright)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_SHOWFILELIST, &CMainFrame::OnUpdateViewShowfilelist)
 	ON_COMMAND(ID_VIEW_SHOWFILELIST, &CMainFrame::OnViewShowfilelist)
+	ON_COMMAND(ID_EDIT_USETHEIRBLOCK, &CMainFrame::OnEditUseTheirs)
+    ON_COMMAND(ID_EDIT_USEMYBLOCK, &CMainFrame::OnEditUseMine)
+    ON_COMMAND(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnEditUseTheirsThenMine)
+    ON_COMMAND(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnEditUseMineThenTheirs)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1246,6 +1254,39 @@ void CMainFrame::OnViewLineright()
 		m_pwndRightView->ScrollSide(1);
 	if (m_pwndBottomView)
 		m_pwndBottomView->ScrollSide(1);
+}
+
+void CMainFrame::OnEditUseTheirs()
+{
+	if (m_pwndBottomView)
+		m_pwndBottomView->UseTheirTextBlock();
+}
+
+void CMainFrame::OnEditUseMine()
+{
+	if (m_pwndBottomView)
+		m_pwndBottomView->UseMyTextBlock();
+}
+
+void CMainFrame::OnEditUseTheirsThenMine()
+{
+	if (m_pwndBottomView)
+		m_pwndBottomView->UseTheirThenMyTextBlock();
+}
+
+void CMainFrame::OnEditUseMineThenTheirs()
+{
+	if (m_pwndBottomView)
+		m_pwndBottomView->UseMyThenTheirTextBlock();
+}
+
+void CMainFrame::OnUpdateTextBlockSelection(CCmdUI *pCmdUI)
+{
+	BOOL bEnable = FALSE;
+	if (m_pwndBottomView)
+		bEnable = m_pwndBottomView->CanSelectTextBlocks();
+
+	pCmdUI->Enable(bEnable);
 }
 
 void CMainFrame::OnFileReload()

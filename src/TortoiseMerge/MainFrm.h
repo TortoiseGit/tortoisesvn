@@ -73,6 +73,11 @@ protected:
 	afx_msg void	OnViewLineup();
 	afx_msg void	OnViewLineleft();
 	afx_msg void	OnViewLineright();
+	afx_msg void	OnEditUseTheirs();
+	afx_msg void	OnEditUseMine();
+	afx_msg void	OnEditUseTheirsThenMine();
+	afx_msg void	OnEditUseMineThenTheirs();
+	afx_msg void	OnUpdateTextBlockSelection(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
 	afx_msg void	OnMergeMarkasresolved();
 	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);
@@ -133,6 +138,7 @@ public:
 	bool			m_bReadOnly;
 	bool			m_bBlame;
 };
+
 
 
 
