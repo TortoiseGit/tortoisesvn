@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-05 17:50+0800\n"
+"PO-Revision-Date: 2006-09-12 14:36+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -607,12 +607,7 @@ msgstr "清單檢視(&L)"
 msgid "&Load..."
 msgstr "載入(&L)..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "標記為已解決(&M)"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "合併(&M)"
 
@@ -630,6 +625,10 @@ msgstr "合併(&M)"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "原生檔案系統(FSFS)(&N)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "導覽(&N)"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -3700,6 +3699,10 @@ msgstr "郵件系統 DLL 錯誤."
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 性質"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "標記為已解決(&R)"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "標記為已解決"
@@ -4133,7 +4136,7 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr "原始大小(G)"
+msgstr "原始大小(&G)"
 
 # ID:188,
 #: ID:245
@@ -5414,6 +5417,12 @@ msgstr "顯示/隱藏"
 msgid "Showing %ld nodes"
 msgstr "顯示 %ld 個節點"
 
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "顯示 %ld 個版本, 從版本: %ld 到版本: %ld - 選擇了 %ld 個版本."
+
 # ID:272,
 #: ID:272
 #, c-format
@@ -6599,6 +6608,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "使用工作複本的URL做為預設的來源URL(&W)"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "使用剪貼簿中的單一差異檔"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6625,6 +6639,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "用雙刪除線表示已刪除行(&K)"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "套用本地的文字區塊(&M)"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "套用遠端的文字區塊(&T)"
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "使用本地(&mime)的文字區塊"
@@ -6633,6 +6657,50 @@ msgstr "使用本地(&mime)的文字區塊"
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "使用遠端(&theirs)的文字區塊"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "先套用本地再套用遠端的文字區塊(&I)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"先套用本地再套用遠端的文字區塊\n"
+"先本地後遠端"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"套用本地的文字區塊\n"
+"套用本地文字區塊"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "先套用遠端再套用本地的文字區塊(&H)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"先套用遠端再套用本地的文字區塊\n"
+"先遠端後本地"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr "先套用遠端再套用本地的文字區塊(&H)"
 
 # ID:251,
 #: ID:251
