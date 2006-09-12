@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-08-07 21:13+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2006-09-12 10:44+0800\n"
+"Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -248,7 +248,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "是个文件夹，不是文件！\n"
-"TortoiseMerge无法比较文件夹的差异。"
+"TortoiseMerge 无法比较文件夹的差异。"
 
 #: MenuEntry
 msgid "&?"
@@ -274,7 +274,7 @@ msgstr "高级设置(&A)..."
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply unified diff"
-msgstr "应用单一补丁文件(&A)"
+msgstr "应用标准差异文件(&A)"
 
 # ID:76,
 #: Control-ID:65535
@@ -604,12 +604,7 @@ msgstr "列表视图(&L)"
 msgid "&Load..."
 msgstr "载入(&L)..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "标记为已解决(&M)"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "合并(&M)"
 
@@ -627,6 +622,10 @@ msgstr "合并(&M)"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "本地文件系统(FSFS)(&N)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "导航(&N)"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -831,26 +830,26 @@ msgstr "工具栏(&T)"
 #: Control-ID:1091
 #: Control-ID:1094
 msgid "&TortoiseMerge"
-msgstr "TortoiseMerge(&T)"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
 #: ID:9
 msgid "&TortoiseSVN"
-msgstr "TortoiseSVN(&T)"
+msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
 #: Control-ID:65535
 #: Control-ID:1058
 msgid "&URL of repository:"
-msgstr "版本库 URL(&U)："
+msgstr "版本库 &URL："
 
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: Control-ID:1076
 msgid "&URL:"
-msgstr "URL(&U)："
+msgstr "&URL："
 
 # ID:376,
 #: ID:376
@@ -864,7 +863,7 @@ msgstr "还原(&U) Ctrl+Z"
 # Control-ID:1013,
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "标准差异（Unified diff）(&U)"
+msgstr "标准差异（&Unified diff）"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -908,6 +907,11 @@ msgstr "查看(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "空白字符(&W)"
+
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "全字匹配(&W)"
 
 # ID:151,
 #: Control-ID:1183
@@ -967,6 +971,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1104,7 +1110,7 @@ msgstr "总是接受"
 #: ID:3867
 #, c-format
 msgid "Access to %1 was denied."
-msgstr "拒绝存取 %1。"
+msgstr "存取 %1 被拒绝。"
 
 # ID:77,
 #: ID:77
@@ -1166,6 +1172,11 @@ msgstr "根据扩展名指定合并程序"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "添加到忽略列表(&I)"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "添加..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1388,7 +1399,7 @@ msgstr "分析分支数据..."
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "应用单一差异文件至工作拷贝"
+msgstr "应用标准差异文件至工作拷贝"
 
 # ID:15,
 #: ID:15
@@ -1412,7 +1423,7 @@ msgstr "递归应用该属性"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
-msgstr "应用单一补丁文件"
+msgstr "应用标准差异文件"
 
 # ID:145,
 #: ID:145
@@ -1725,8 +1736,8 @@ msgstr "变动文件数：%d"
 
 # Control-ID:1242,
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "变更列表（双击查看细节）："
+msgid "Changes made (double-click on file for diff):"
+msgstr "变更列表（双击文件查看差异）："
 
 # ID:8,
 #: ID:8
@@ -1911,6 +1922,17 @@ msgstr "颜色"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "命令行"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "要执行的命令行："
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失败。"
@@ -1991,6 +2013,11 @@ msgstr "比较 %s 和 %s"
 #: ID:74
 msgid "Completed"
 msgstr "完毕"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "设置 Hook 脚本"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2231,7 +2258,7 @@ msgstr ""
 # ID:3857,
 #: ID:3857
 msgid "Could not start print job."
-msgstr "无法启动打印工作。"
+msgstr "无法启动打印任务。"
 
 # ID:81,
 #: ID:81
@@ -2281,7 +2308,7 @@ msgstr "在当前地址创建文件数据库"
 # ID:14,
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "创建包含你所有修改的单一修改文件"
+msgstr "创建包含你所有修改的标准差异文件"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2395,7 +2422,7 @@ msgstr "目录："
 msgid ""
 "Disable this option if you have really big working copies and experience\n"
 "too much disk access when browsing the working copy."
-msgstr "如果你的工作拷贝非常大，占用了许多硬盘空间，请禁用此选项。"
+msgstr "如果你的工作拷贝非常大，占用了较大的硬盘空间，请禁用此选项。"
 
 # ID:3867,#:
 # ID:3867,
@@ -2571,6 +2598,11 @@ msgstr "编辑根据扩展名的合并程序"
 msgid "Edit log message"
 msgstr "编辑日志信息"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "编辑..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2740,13 +2772,13 @@ msgstr "扩展名"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "根据扩展名的程序"
+msgid "Extension or mime-type:"
+msgstr "扩展名或文件类型："
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "扩展名："
+msgid "Extension/mime-type specific programs"
+msgstr "根据扩展名/文件类型指定程序"
 
 # ID:74,
 #: ID:74
@@ -2771,7 +2803,7 @@ msgstr "外部程序：合并工具"
 # Control-ID:65535,
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
-msgstr "外部程序：单一差异查看器"
+msgstr "外部程序：标准差异查看器"
 
 # ID:74,
 #: ID:74
@@ -3000,7 +3032,7 @@ msgstr "正在取得日志信息..."
 # ID:132,
 #: ID:119
 msgid "Getting unified diff"
-msgstr "正在取得单一比较"
+msgstr "正在获取标准差异"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3064,6 +3096,11 @@ msgstr "隐藏无关的修改路径(&I)"
 msgid "Help"
 msgstr "帮助"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "运行时隐藏脚本"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3077,6 +3114,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "提示：按下 F5 可以重新整理选择的子树，而 Ctrl-F5 可以重新加载全部子树"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Hook 脚本"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Hook 类型"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Hook 类型："
 
 # ID:82,
 #: ID:82
@@ -3635,6 +3687,10 @@ msgstr "邮件系统 DLL 无效。"
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 属性"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "标记为已解决(&R)"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "标记为已解决"
@@ -3659,7 +3715,7 @@ msgid "Max"
 msgstr "最大"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "日志中保留的最大条目数量"
 
@@ -4120,6 +4176,7 @@ msgstr "补丁文件(*.diff, *.patch)|*.diff;*.patch|所有文件(*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "路径"
 
@@ -4164,6 +4221,12 @@ msgstr "请输入日期。"
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "请输入要执行的 Hook 脚本"
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4174,6 +4237,11 @@ msgstr "请输入介于 %1 与 %2 之间的数字。"
 #: ID:3858
 msgid "Please enter a number."
 msgstr "请输入数字。"
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "请输入要引用 Hook 脚本的路径。"
 
 # ID:3858,#:
 # ID:3858,
@@ -4237,6 +4305,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "请选择按钮。"
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "请选择 Hook 类型"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4245,7 +4319,7 @@ msgstr "请指定凭证类型"
 # ID:132,
 #: ID:132
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "请稍候，确实可能需要数分钟！"
+msgstr "请稍候，此操作可能需要实实在在的数分钟时间！"
 
 # ID:13,
 #: ID:13
@@ -4260,7 +4334,7 @@ msgstr "请稍候，正在启动版本库浏览器"
 # ID:13,
 #: ID:319
 msgid "Please wait while we get the differences..."
-msgstr "正在获取差异， 请稍候..."
+msgstr "正在获取差异，请稍候..."
 
 # ID:119,
 #: ID:119
@@ -4269,10 +4343,30 @@ msgstr "正在获取差异， 请稍候..."
 msgid "Please wait..."
 msgstr "请稍候..."
 
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Post-Commit Hook"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Post-Update Hook"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Pre-Commit Hook"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Pre-Update Hook"
+
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
-msgstr "预览补丁过的文件"
+msgstr "预览打过补丁的文件"
 
 # ID:132,
 #: ID:132
@@ -4512,6 +4606,11 @@ msgstr "远程文字状态："
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "从忽略列表删除(&I)"
+
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "移除..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5067,6 +5166,16 @@ msgstr ""
 "选择要导出至的文件夹。\n"
 "你可能需要在进行导出之前先创建新文件夹。"
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "选择要运行脚本的文件夹"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "选择 Hook 脚本文件..."
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5228,7 +5337,7 @@ msgstr "显示文件列表"
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
-msgstr "以单一差异文件显示修改(&U)"
+msgstr "以标准差异文件显示修改(&U)"
 
 # Control-ID:1073,
 #: Control-ID:1264
@@ -5282,11 +5391,22 @@ msgstr "显示未修改的文件"
 msgid "Show unversioned files"
 msgstr "显示非版本控制的文件"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "显示/隐藏"
+
 # Control-ID:1073,
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "显示 %ld 个节点"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "正在显示 %ld 个版本（介于版本 %ld 到版本 %ld 之间）， 选中了 %ld 个版本。"
 
 # ID:272,
 #: ID:272
@@ -5394,10 +5514,20 @@ msgstr "叠加柱状图"
 msgid "Stacked Line Graph"
 msgstr "叠加折线图"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "启动提交 Hook"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "起始版本"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "启动更新 Hook"
 
 # Control-ID:1132,#:
 # Dlg-ID:179,
@@ -5635,7 +5765,7 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
-"差异比较引擎停止，错误信息:\n"
+"差异比较引擎终止，错误信息:\n"
 "%s"
 
 # ID:64,
@@ -5705,6 +5835,16 @@ msgstr ""
 "%s\n"
 "不存在。\n"
 "是否要先创建？"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Hook 脚本返回了一个错误：\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6335,7 +6475,7 @@ msgstr "预期外的文件格式。"
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
-msgstr "与最新版本的标准差异（Unified diff）(&D)"
+msgstr "与最新版本的标准差异(&D)"
 
 # ID:81,
 #: ID:81
@@ -6426,7 +6566,7 @@ msgstr "对两个文件进行比较时默认使用单窗口方式(&O)"
 # ID:251,
 #: ID:251
 msgid "Use &other text block"
-msgstr "使用其它文字区块(&O)"
+msgstr "使用其它文本块(&O)"
 
 # Control-ID:1126,
 #: Control-ID:1126
@@ -6449,6 +6589,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "使用工作拷贝的 URL 作为默认的来源 URL(&W)"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "使用剪贴板上的标准差异"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6462,12 +6607,12 @@ msgstr "使用“_svn”目录替代“.svn”目录"
 # ID:251,
 #: ID:251
 msgid "Use both text blocks (this one first)"
-msgstr "使用两个文字区块（这个块最前）"
+msgstr "使用两个文本块（这个块最前）"
 
 # ID:251,
 #: ID:251
 msgid "Use both text blocks (this one last)"
-msgstr "使用两个文字区块（这个块最后）"
+msgstr "使用两个文本块（这个块最后）"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -6475,29 +6620,85 @@ msgid "Use stri&keout for deleted lines"
 msgstr "用双删除线表示已删除行(&K)"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "使用本地的文本块(&M)"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "使用远程的文本块(&T)"
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "使用本地的文字区块(&M)"
+msgstr "使用本地的文本块(&M)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "使用远程的文字区块(&T)"
+msgstr "使用远程的文本块(&T)"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "优先使用本地的而非远程的文本块(&I)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"优先使用本地的而非远程的文本块\n"
+"优先使用“我的”文本块，然后才是“他们的”"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"使用本地的文本块\n"
+"使用“我的”文本块"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "优先使用远程的而非本地的文本块(&H)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"优先使用远程的而非本地的文本块\n"
+"优先使用“他们的”文本块，然后才是“我的”"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"使用远程文本块\n"
+"使用“他们的”文本块"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "优先使用本地的而非远程的文字区块(&I)"
+msgstr "优先使用本地的而非远程的文本块(&I)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "优先使用远程的而非本地的文字区块(&H)"
+msgstr "优先使用远程的而非本地的文本块(&H)"
 
 # ID:251,
 #: ID:251
 msgid "Use th&is text block"
-msgstr "使用此文字区块(&I)"
+msgstr "使用此文本块(&I)"
 
 # ID:251,
 #: ID:251
@@ -6540,7 +6741,7 @@ msgstr ""
 "/theirs：<远程文件的路径>\n"
 "/yours：<本地文件的路径>\n"
 "/merged：<合并后文件的路径>\n"
-"/diff：<单一补丁文件的路径>\n"
+"/diff：<标准差异文件的路径>\n"
 "/patchpath：<文件夹路径>"
 
 # ID:11,
@@ -6554,11 +6755,31 @@ msgstr "值"
 msgid "Version"
 msgstr "版本"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "在 &Web 浏览器中查看路径的版本"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "在 Web 浏览器中查看版本"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "浏览我们的网站"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "等待"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "等待脚本运行结束"
 
 # ID:219,
 #: ID:88
@@ -6580,6 +6801,11 @@ msgstr "URL："
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "工作拷贝"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "工作拷贝路径"
 
 # ID:80,
 #: ID:80
@@ -7238,6 +7464,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "所取值是不同的"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"指向版本库的特定文件和版本的 URL，用于 Web 浏览器进行浏览。\n"
+"URL 中的字符串 %REVISION% 字符串将被版本号所替代，\n"
+"字符串 %PATH% 将被文件相对于版本库的路径所替代。"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"指向版本库的指定版本的 URL，用于 Web 浏览器进行浏览。\n"
+"URL 中的 %REVISION% 字符串将被版本号所替代。"
 
 # ID:244,
 #: ID:245
