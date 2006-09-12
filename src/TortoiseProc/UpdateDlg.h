@@ -27,25 +27,6 @@
  * \ingroup TortoiseProc
  * A simple dialog box asking the user for a revision number
  * to update to.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 01-27-2003
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CUpdateDlg : public CStandAloneDialog
 {

@@ -22,8 +22,6 @@
 #include "ResolveDlg.h"
 
 
-// CResolveDlg dialog
-
 IMPLEMENT_DYNAMIC(CResolveDlg, CResizableStandAloneDialog)
 CResolveDlg::CResolveDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CResolveDlg::IDD, pParent)
@@ -50,13 +48,10 @@ BEGIN_MESSAGE_MAP(CResolveDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
-
-// CResolveDlg message handlers
 BOOL CResolveDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	//set the listcontrol to support checkboxes
 	m_resolveListCtrl.Init(0, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT));
 	m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_resolveListCtrl.SetSelectButton(&m_SelectAll);
@@ -71,16 +66,15 @@ BOOL CResolveDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("ResolveDlg"));
 
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
+	// first start a thread to obtain the file list with the status without
+	// blocking the dialog
 	if(AfxBeginThread(ResolveThreadEntry, this) == NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CResolveDlg::OnOK()
@@ -124,9 +118,8 @@ UINT CResolveDlg::ResolveThreadEntry(LPVOID pVoid)
 }
 UINT CResolveDlg::ResolveThread()
 {
-	//get the status of all selected file/folders recursively
-	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	// get the status of all selected file/folders recursively
+	// and show the ones which are in conflict
 	DialogEnableWindow(IDOK, false);
 
 	m_bCancelled = false;

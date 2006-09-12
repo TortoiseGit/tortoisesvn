@@ -26,9 +26,7 @@
 #include "BrowseFolder.h"
 #include "Registry.h"
 #include "TSVNPath.h"
-#include ".\copydlg.h"
-
-// CCopyDlg dialog
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CCopyDlg, CStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
@@ -41,8 +39,8 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_bSettingChanged(false)
 	, m_bCancelled(false)
 	, m_pThread(NULL)
+	, m_pLogDlg(NULL)
 {
-	m_pLogDlg = NULL;
 }
 
 CCopyDlg::~CCopyDlg()
@@ -99,7 +97,7 @@ BOOL CCopyDlg::OnInitDialog()
 	}
 	
 	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_HISTORY, IDS_LOGPROMPT_HISTORY_TT);
+	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 	
 	if (SVN::PathIsURL(path.GetSVNPathString()))
 	{
@@ -157,8 +155,7 @@ BOOL CCopyDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
@@ -190,13 +187,13 @@ void CCopyDlg::OnOK()
 	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_COMMITDLG_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 	m_sLogMessage = m_cLogMessage.GetText();
 	if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
 	{
-		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+		if (CMessageBox::Show(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
 			return;
 	}
 	UpdateData(TRUE);
@@ -246,51 +243,7 @@ void CCopyDlg::OnOK()
 
 void CCopyDlg::OnBnClickedBrowse()
 {
-	CString strUrl;
-	m_URLCombo.GetWindowText(strUrl);
-	if (strUrl.Left(7) == _T("file://"))
-	{
-		CString strFile(strUrl);
-		SVN::UrlToPath(strFile);
-
-		SVN svn;
-		if (svn.IsRepository(strFile))
-		{
-			// browse repository - show repository browser
-			CRepositoryBrowser browser(strUrl, this, m_bFile);
-			if (browser.DoModal() == IDOK)
-			{
-				m_URLCombo.SetCurSel(-1);
-				m_URLCombo.SetWindowText(browser.GetPath());
-			}
-		}
-		else
-		{
-			// browse local directories
-			CBrowseFolder folderBrowser;
-			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-			if (folderBrowser.Show(GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
-			{
-				SVN::PathToUrl(strUrl);
-
-				m_URLCombo.SetCurSel(-1);
-				m_URLCombo.SetWindowText(strUrl);
-			}
-		}
-	}
-	else if ((strUrl.Left(7) == _T("http://")
-		||(strUrl.Left(8) == _T("https://"))
-		||(strUrl.Left(6) == _T("svn://"))
-		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
-	{
-		// browse repository - show repository browser
-		CRepositoryBrowser browser(strUrl, this, m_bFile);
-		if (browser.DoModal() == IDOK)
-		{
-			m_URLCombo.SetCurSel(-1);
-			m_URLCombo.SetWindowText(browser.GetPath());
-		}
-	}
+	CAppUtils::BrowseRepository(m_URLCombo, this, !!m_bFile);
 }
 
 void CCopyDlg::OnBnClickedHelp()

@@ -42,18 +42,14 @@ public:
 	CMergeDlg(CWnd* pParent = NULL);   ///< standard constructor
 	virtual ~CMergeDlg();
 
-// Dialog Data
 	enum { IDD = IDD_MERGE };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedBrowse();
-	BOOL CheckData();
-	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedFindbranchstart();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedFindbranchend();
@@ -66,7 +62,10 @@ protected:
 	afx_msg void OnCbnEditchangeUrlcombo();
 	afx_msg void OnEnChangeRevisionEnd();
 	afx_msg void OnEnChangeRevisionStart();
+	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
+
+	BOOL CheckData();
 
 	CLogDlg *	m_pLogDlg;
 	CLogDlg *	m_pLogDlg2;

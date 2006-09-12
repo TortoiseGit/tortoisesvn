@@ -24,8 +24,6 @@
 #include "SVNProperties.h"
 
 
-// CLockDlg dialog
-
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
 CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLockDlg::IDD, pParent)
@@ -58,9 +56,6 @@ BEGIN_MESSAGE_MAP(CLockDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
-
-// CLockDlg message handlers
-
 BOOL CLockDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
@@ -91,8 +86,8 @@ BOOL CLockDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("LockDlg"));
 
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
+	// start a thread to obtain the file list with the status without
+	// blocking the dialog
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
@@ -136,9 +131,9 @@ UINT CLockDlg::StatusThreadEntry(LPVOID pVoid)
 
 UINT CLockDlg::StatusThread()
 {
-	//get the status of all selected file/folders recursively
-	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	// get the status of all selected file/folders recursively
+	// and show the ones which can be locked to the user
+	// in a list control. 
 	m_bBlock = TRUE;
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;

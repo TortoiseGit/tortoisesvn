@@ -24,8 +24,6 @@
 #include ".\renamedlg.h"
 
 
-// CRenameDlg dialog
-
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
@@ -47,9 +45,6 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
 
-
-// CRenameDlg message handlers
-
 BOOL CRenameDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
@@ -67,8 +62,7 @@ BOOL CRenameDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RenameDlg"));
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CRenameDlg::OnOK()

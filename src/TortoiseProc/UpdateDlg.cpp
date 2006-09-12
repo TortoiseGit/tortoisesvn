@@ -23,8 +23,6 @@
 #include "registry.h"
 
 
-// CUpdateDlg dialog
-
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	: CStandAloneDialog(CUpdateDlg::IDD, pParent)
@@ -64,8 +62,7 @@ BOOL CUpdateDlg::OnInitDialog()
 	GetDlgItem(IDC_REVNUM)->SetFocus();
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return FALSE;  // return TRUE unless you set the focus to a control
-	               // EXCEPTION: OCX Property Pages should return FALSE
+	return FALSE;  
 }
 
 void CUpdateDlg::OnOK()
@@ -74,7 +71,6 @@ void CUpdateDlg::OnOK()
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	Revision = SVNRev(m_sRevision);
-	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
 		Revision = SVNRev(_T("HEAD"));

@@ -32,27 +32,6 @@
  * is the module name and the repository url. The Revision to check out is always the
  * newest one - I don't think someone wants to check out old revisions. But if someone
  * still wants to do that then the switch/merge commands provide that functionality.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.1
- * added tooltips
- * \version 1.0
- * first version
- *
- * \date 10-20-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CCheckoutDlg : public CStandAloneDialog //CStandAloneDialog
 {

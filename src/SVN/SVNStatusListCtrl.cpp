@@ -2933,7 +2933,7 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 		(LPCTSTR)sConflicted, m_nConflicted
 		);
 	CString sStats;
-	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, GetItemCount());
+	sStats.Format(IDS_COMMITDLG_STATISTICSFORMAT, m_nSelected, GetItemCount());
 	if (m_pStatLabel)
 	{
 		m_pStatLabel->SetWindowText(sStats);

@@ -24,9 +24,6 @@
 #include "SVN.h"
 #include ".\createpatch.h"
 
-
-// CCreatePatch dialog
-
 IMPLEMENT_DYNAMIC(CCreatePatch, CResizableStandAloneDialog)
 CCreatePatch::CCreatePatch(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CCreatePatch::IDD, pParent)
@@ -53,14 +50,10 @@ BEGIN_MESSAGE_MAP(CCreatePatch, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
-
-// CCreatePatch message handlers
-
 BOOL CCreatePatch::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	//set the listcontrol to support checkboxes
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT));
 	m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_PatchList.SetSelectButton(&m_SelectAll);
@@ -75,8 +68,8 @@ BOOL CCreatePatch::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("CreatePatchDlg"));
 
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
+	// first start a thread to obtain the file list with the status without
+	// blocking the dialog
 	if(AfxBeginThread(PatchThreadEntry, this) == NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -92,9 +85,8 @@ UINT CCreatePatch::PatchThreadEntry(LPVOID pVoid)
 }
 UINT CCreatePatch::PatchThread()
 {
-	//get the status of all selected file/folders recursively
-	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	// get the status of all selected file/folders recursively
+	// and show the ones which can be included in a patch (i.e. the versioned and not-normal ones)
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 

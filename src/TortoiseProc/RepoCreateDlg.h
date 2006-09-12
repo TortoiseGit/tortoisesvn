@@ -19,9 +19,11 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
-// CRepoCreateDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * helper dialog, asking what kind of repository (BDB or FSFS) should be
+ * created.
+ */
 class CRepoCreateDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRepoCreateDlg)
@@ -30,7 +32,6 @@ public:
 	CRepoCreateDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRepoCreateDlg();
 
-// Dialog Data
 	enum { IDD = IDD_REPOCREATE };
 
 protected:

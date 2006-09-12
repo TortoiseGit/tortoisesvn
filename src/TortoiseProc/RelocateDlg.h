@@ -20,8 +20,10 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
-// CRelocateDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Dialog asking for a new URL for the working copy.
+ */
 class CRelocateDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRelocateDlg)
@@ -30,7 +32,6 @@ public:
 	CRelocateDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRelocateDlg();
 
-// Dialog Data
 	enum { IDD = IDD_RELOCATE };
 
 protected:

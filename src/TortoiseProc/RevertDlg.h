@@ -22,8 +22,11 @@
 #include "SVNStatusListCtrl.h"
 
 
-// CRevertDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Dialog showing a list of verdioned files which don't have the status 'normal'.
+ * The dialog effectively shows a list of files which can be reverted.
+ */
 class CRevertDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevertDlg)
@@ -32,7 +35,6 @@ public:
 	CRevertDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRevertDlg();
 
-// Dialog Data
 	enum { IDD = IDD_REVERT };
 
 protected:
@@ -51,17 +53,17 @@ protected:
 
 private:
 	static UINT RevertThreadEntry(LPVOID pVoid);
-	UINT RevertThread();
+	UINT		RevertThread();
 
 public:
-	CTSVNPathList 	m_pathList;
-	BOOL			m_bRecursive;
+	CTSVNPathList 		m_pathList;
+	BOOL				m_bRecursive;
 
 private:
-	BOOL			m_bSelectAll;
-	volatile LONG	m_bThreadRunning;
+	BOOL				m_bSelectAll;
+	volatile LONG		m_bThreadRunning;
 	CSVNStatusListCtrl	m_RevertList;
-	CButton			m_SelectAll;
-	bool			m_bCancelled;
+	CButton				m_SelectAll;
+	bool				m_bCancelled;
 };
 

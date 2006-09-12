@@ -25,6 +25,9 @@
 #include "MessageBox.h"
 #include "Registry.h"
 #include "TSVNPath.h"
+#include "SVN.h"
+#include "RepositoryBrowser.h"
+#include "BrowseFolder.h"
 
 
 CAppUtils::CAppUtils(void)
@@ -715,4 +718,71 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 		i++;
 	}
 	return bFoundMarker;
+}
+
+bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFile /* = true */ )
+{
+	CString strUrl;
+	combo.GetWindowText(strUrl);
+	if (strUrl.Left(7) == _T("file://"))
+	{
+		CString strFile(strUrl);
+		SVN::UrlToPath(strFile);
+
+		SVN svn;
+		if (svn.IsRepository(strFile))
+		{
+			// browse repository - show repository browser
+			CRepositoryBrowser browser(strUrl, pParent, bFile);
+			if (browser.DoModal() == IDOK)
+			{
+				combo.SetCurSel(-1);
+				combo.SetWindowText(browser.GetPath());
+				return true;
+			}
+		}
+		else
+		{
+			// browse local directories
+			CBrowseFolder folderBrowser;
+			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+			if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
+			{
+				SVN::PathToUrl(strUrl);
+
+				combo.SetCurSel(-1);
+				combo.SetWindowText(strUrl);
+				return true;
+			}
+		}
+	} // if (strUrl.Left(7) == _T("file://")) 
+	else if ((strUrl.Left(7) == _T("http://")
+		||(strUrl.Left(8) == _T("https://"))
+		||(strUrl.Left(6) == _T("svn://"))
+		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
+	{
+		// browse repository - show repository browser
+		CRepositoryBrowser browser(strUrl, pParent, bFile);
+		if (browser.DoModal() == IDOK)
+		{
+			combo.SetCurSel(-1);
+			combo.SetWindowText(browser.GetPath());
+			return true;
+		}
+	}
+	else
+	{
+		// browse local directories
+		CBrowseFolder folderBrowser;
+		folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+		if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
+		{
+			SVN::PathToUrl(strUrl);
+
+			combo.SetCurSel(-1);
+			combo.SetWindowText(strUrl);
+			return true;
+		}
+	}
+	return false;
 }

@@ -21,8 +21,10 @@
 #include "SVNStatusListCtrl.h"
 
 
-// CResolveDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Helper dialog, showing a list of conflicted files of the working copy.
+ */
 class CResolveDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CResolveDlg)

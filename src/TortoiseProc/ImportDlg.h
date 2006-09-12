@@ -30,27 +30,6 @@
  * \ingroup TortoiseProc
  * Dialog used to prompt the user for required information to do an import.
  * The required information is the URL to import to.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.1
- * added tooltips
- * \version 1.0
- * first version
- *
- * \date 11-21-2002
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CImportDlg : public CResizableStandAloneDialog
 {
@@ -79,13 +58,13 @@ protected:
 	afx_msg void OnBnClickedHistory();
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_url;
-	CTSVNPath m_path;
-	CString m_sMessage;
-	CHistoryCombo m_URLCombo;
-	CSciEdit m_cMessage;
-	CHistoryCombo m_OldLogs;
-	ProjectProperties		m_ProjectProperties;
-	CHistoryDlg		m_HistoryDlg;
-	BOOL m_bIncludeIgnored;
+	CTSVNPath			m_path;
+	CString				m_url;
+	BOOL				m_bIncludeIgnored;
+	CString				m_sMessage;
+private:
+	CSciEdit			m_cMessage;
+	CHistoryCombo		m_URLCombo;
+	ProjectProperties	m_ProjectProperties;
+	CHistoryDlg			m_HistoryDlg;
 };

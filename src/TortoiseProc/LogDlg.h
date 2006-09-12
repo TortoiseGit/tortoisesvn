@@ -177,7 +177,7 @@ private:
 	CString				m_sRelativeRoot;
 	CString				m_sRepositoryRoot;
 	CListCtrl			m_LogList;
-	CListCtrl			m_LogMsgCtrl;
+	CListCtrl			m_ChangedFileListCtrl;
 	CProgressCtrl		m_LogProgress;
 	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;

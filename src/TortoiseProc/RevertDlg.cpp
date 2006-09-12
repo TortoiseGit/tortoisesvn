@@ -24,9 +24,6 @@
 #include "Registry.h"
 #include ".\revertdlg.h"
 
-
-// CRevertDlg dialog
-
 IMPLEMENT_DYNAMIC(CRevertDlg, CResizableStandAloneDialog)
 CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevertDlg::IDD, pParent)
@@ -75,16 +72,15 @@ BOOL CRevertDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RevertDlg"));
 
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
+	// first start a thread to obtain the file list with the status without
+	// blocking the dialog
 	if (AfxBeginThread(RevertThreadEntry, this)==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 UINT CRevertDlg::RevertThreadEntry(LPVOID pVoid)
@@ -94,9 +90,9 @@ UINT CRevertDlg::RevertThreadEntry(LPVOID pVoid)
 
 UINT CRevertDlg::RevertThread()
 {
-	//get the status of all selected file/folders recursively
-	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	// get the status of all selected file/folders recursively
+	// and show the ones which can be reverted to the user
+	// in a listcontrol. 
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 
@@ -121,7 +117,7 @@ void CRevertDlg::OnOK()
 {
 	if (m_bThreadRunning)
 		return;
-	//save only the files the user has selected into the temporary file
+	// save only the files the user has selected into the temporary file
 	m_bRecursive = TRUE;
 	for (int i=0; i<m_RevertList.GetItemCount(); ++i)
 	{

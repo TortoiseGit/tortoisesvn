@@ -62,13 +62,13 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	CString m_rev;
-	CHistoryCombo m_URLCombo;
-	BOOL	m_bFolder;
-	CString	m_sTitle;
-	CString m_sLabel;
+	CString			m_rev;
+	CHistoryCombo	m_URLCombo;
+	BOOL			m_bFolder;
+	CString			m_sTitle;
+	CString			m_sLabel;
 public:
-	CString m_path;
-	CString m_URL;
-	SVNRev	Revision;
+	CString			m_path;
+	CString			m_URL;
+	SVNRev			Revision;
 };

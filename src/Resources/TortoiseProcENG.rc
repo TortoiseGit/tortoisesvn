@@ -285,7 +285,7 @@ BEGIN
     LTEXT           "",IDC_LOGINFO,7,248,349,8
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 300, 280
+IDD_COMMITDLG DIALOGEX 0, 0, 300, 280
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "Enter Log Message"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -1117,7 +1117,7 @@ BEGIN
         BOTTOMMARGIN, 311
     END
 
-    IDD_LOGPROMPT, DIALOG
+    IDD_COMMITDLG, DIALOG
     BEGIN
         LEFTMARGIN, 6
         RIGHTMARGIN, 293
@@ -1690,10 +1690,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_POPUP_COPY      "C&reate tag from revision"
-    IDS_LOGPROMPT_FILE      "File"
-    IDS_LOGPROMPT_STATUS    "Status"
-    IDS_LOGPROMPT_ASKADD    "You selected an unversioned file.\nThe file will be added to version control when you commit."
-    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+    IDS_COMMITDLG_FILE      "File"
+    IDS_COMMITDLG_STATUS    "Status"
+    IDS_COMMITDLG_ASKADD    "You selected an unversioned file.\nThe file will be added to version control when you commit."
+    IDS_COMMITDLG_NOTHINGTOCOMMIT 
                             "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here..."
     IDS_PROGRS_ATREV        "At revision: %d"
     IDS_PROGRS_ACTION       "Action"
@@ -2018,11 +2018,11 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOGPROMPT_EXTERNALS "There are changes inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
-    IDS_LOGPROMPT_STATISTICSFORMAT "%d files selected, %d files total"
-    IDS_LOGPROMPT_ONLYNUMBERS 
+    IDS_COMMITDLG_EXTERNALS "There are changes inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
+    IDS_COMMITDLG_STATISTICSFORMAT "%d files selected, %d files total"
+    IDS_COMMITDLG_ONLYNUMBERS 
                             "Only numbers (optionally separated by commas)\nare allowed!"
-    IDS_LOGPROMPT_NOISSUEWARNING 
+    IDS_COMMITDLG_NOISSUEWARNING 
                             "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 END
 
@@ -2247,10 +2247,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED 
+    IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED 
                             "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
-    IDS_LOGPROMPT_HISTORY_TT "Click here to select a recently typed message"
-    IDS_LOGPROMPT_HISTORYHINT_TT 
+    IDS_COMMITDLG_HISTORY_TT "Click here to select a recently typed message"
+    IDS_COMMITDLG_HISTORYHINT_TT 
                             "Your previously entered log messages have been saved.\nClick here to read and insert them again."
 END
 
@@ -2292,7 +2292,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOGPROMPT_POPUP_PASTEFILELIST "Paste filename list"
+    IDS_COMMITDLG_POPUP_PASTEFILELIST "Paste filename list"
 END
 
 STRINGTABLE 

@@ -32,7 +32,7 @@
 #include "ImportDlg.h"
 #include "CheckoutDlg.h"
 #include "UpdateDlg.h"
-#include "LogPromptDlg.h"
+#include "CommitDlg.h"
 #include "AddDlg.h"
 #include "ResolveDlg.h"
 #include "RevertDlg.h"
@@ -731,7 +731,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			while (bFailed)
 			{
 				bFailed = false;
-				CLogPromptDlg dlg;
+				CCommitDlg dlg;
 				if (parser.HasKey(_T("logmsg")))
 				{
 					dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
