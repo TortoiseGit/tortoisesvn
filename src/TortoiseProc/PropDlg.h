@@ -20,23 +20,22 @@
 
 #include "StandAloneDlg.h"
 
-// CPropDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Helper dialog which shows revision properties.
+ */
 class CPropDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CPropDlg)
 
 public:
-	CPropDlg(CWnd* pParent = NULL);   // standard constructor
+	CPropDlg(CWnd* pParent = NULL);
 	virtual ~CPropDlg();
 
-// Dialog Data
 	enum { IDD = IDD_PROPERTIES };
-
-
 private:
 	static UINT PropThreadEntry(LPVOID pVoid);
-	UINT PropThread();
+	UINT		PropThread();
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

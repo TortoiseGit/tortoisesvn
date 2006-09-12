@@ -22,6 +22,10 @@
 #include "MyGraph.h"
 #include "XPImageButton.h"
 
+/**
+ * \ingroup TortoiseProc
+ * Helper class for drawing and then saving the drawing to a metafile (wmf)
+ */
 class CMyMetaFileDC : public CMetaFileDC
 {
 public:
@@ -30,21 +34,24 @@ public:
 		return (hObject != NULL) ? ::SelectObject(m_hDC, hObject) : NULL; 
 	}
 };
-// CStatGraphDlg dialog
 
+/**
+ * \ingroup TortoiseProc
+ * Helper dialog showing statistics gathered from the log messages shown in the
+ * log dialog.
+ */
 class CStatGraphDlg : public CResizableStandAloneDialog//CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CStatGraphDlg)
 
 public:
-	CStatGraphDlg(CWnd* pParent = NULL);   // standard constructor
+	CStatGraphDlg(CWnd* pParent = NULL);
 	virtual ~CStatGraphDlg();
 
-// Dialog Data
 	enum { IDD = IDD_STATGRAPH };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelchangeGraphcombo();

@@ -23,8 +23,6 @@
 #include ".\revisiondlg.h"
 
 
-// CRevisionDlg dialog
-
 IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CRevisionDlg::IDD, pParent)

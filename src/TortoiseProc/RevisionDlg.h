@@ -32,13 +32,13 @@ class CRevisionDlg : public CDialog, public SVNRev
 	DECLARE_DYNAMIC(CRevisionDlg)
 
 public:
-	CRevisionDlg(CWnd* pParent = NULL);   // standard constructor
+	CRevisionDlg(CWnd* pParent = NULL);
 	virtual ~CRevisionDlg();
 
-// Dialog Data
 	enum { IDD = IDD_REVISION };
+
 	CString GetEnteredRevisionString() {return m_sRevision;}
-	void AllowWCRevs(bool bAllowWCRevs = true) {m_bAllowWCRevs = bAllowWCRevs;}
+	void	AllowWCRevs(bool bAllowWCRevs = true) {m_bAllowWCRevs = bAllowWCRevs;}
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();

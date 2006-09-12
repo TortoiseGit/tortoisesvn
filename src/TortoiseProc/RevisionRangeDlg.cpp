@@ -7,8 +7,6 @@
 #include "RevisionRangeDlg.h"
 
 
-// CRevisionRangeDlg dialog
-
 IMPLEMENT_DYNAMIC(CRevisionRangeDlg, CStandAloneDialog)
 
 CRevisionRangeDlg::CRevisionRangeDlg(CWnd* pParent /*=NULL*/)
@@ -17,7 +15,6 @@ CRevisionRangeDlg::CRevisionRangeDlg(CWnd* pParent /*=NULL*/)
 	, m_StartRev(_T("HEAD"))
 	, m_EndRev(_T("HEAD"))
 {
-
 }
 
 CRevisionRangeDlg::~CRevisionRangeDlg()
@@ -36,9 +33,6 @@ BEGIN_MESSAGE_MAP(CRevisionRangeDlg, CStandAloneDialog)
 	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
 	ON_EN_CHANGE(IDC_REVNUM2, OnEnChangeRevnum2)
 END_MESSAGE_MAP()
-
-
-// CRevisionRangeDlg message handlers
 
 BOOL CRevisionRangeDlg::OnInitDialog()
 {
@@ -85,7 +79,6 @@ void CRevisionRangeDlg::OnOK()
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	m_StartRev = SVNRev(m_sStartRevision);
-	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
 		m_StartRev = SVNRev(_T("HEAD"));
@@ -101,7 +94,6 @@ void CRevisionRangeDlg::OnOK()
 	}
 
 	m_EndRev = SVNRev(m_sEndRevision);
-	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST2, IDC_REVISION_N2) == IDC_NEWEST2)
 	{
 		m_EndRev = SVNRev(_T("HEAD"));

@@ -123,9 +123,6 @@ BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)
 	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
-
-// CSettings message handlers
-
 BOOL CSettings::OnInitDialog()
 {
 	BOOL bResult = CTreePropSheet::OnInitDialog();

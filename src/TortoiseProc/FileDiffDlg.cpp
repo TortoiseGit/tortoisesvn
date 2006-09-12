@@ -35,8 +35,6 @@
 #define ID_SAVEAS 3
 #define ID_EXPORT 4
 
-// CFileDiffDlg dialog
-
 IMPLEMENT_DYNAMIC(CFileDiffDlg, CResizableStandAloneDialog)
 CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CFileDiffDlg::IDD, pParent),
@@ -536,7 +534,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					sFilter.LoadString(IDS_COMMONFILEFILTER);
 					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-					// Replace '|' delimeters with '\0's
+					// Replace '|' delimiters with '\0's
 					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 					while (ptr != pszFilters)
 					{

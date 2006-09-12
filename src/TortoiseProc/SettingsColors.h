@@ -38,13 +38,13 @@ public:
 
 	UINT GetIconID() {return IDI_LOOKANDFEEL;}
 
-// Dialog Data
 	enum { IDD = IDD_SETTINGSCOLORS };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	afx_msg LRESULT OnColorChanged(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedRestore();
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -60,6 +60,4 @@ private:
 	CColors			m_Colors;
 	
 	bool bInit;
-public:
-	afx_msg void OnBnClickedRestore();
 };

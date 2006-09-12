@@ -25,8 +25,6 @@
 #include "Registry.h"
 
 
-// CPropDlg dialog
-
 IMPLEMENT_DYNAMIC(CPropDlg, CResizableStandAloneDialog)
 CPropDlg::CPropDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CPropDlg::IDD, pParent)
@@ -48,9 +46,6 @@ void CPropDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CPropDlg, CResizableStandAloneDialog)
 	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
-
-
-// CPropDlg message handlers
 
 BOOL CPropDlg::OnInitDialog()
 {
@@ -85,8 +80,7 @@ BOOL CPropDlg::OnInitDialog()
 
 	AddAnchor(IDC_PROPERTYLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_CENTER);
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CPropDlg::OnCancel()

@@ -26,27 +26,26 @@
 /**
  * \ingroup TortoiseProc
  * A simple dialog, used for entering an URL.
- *
- * \author kueng
  */
 class CURLDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CURLDlg)
 
 public:
-	CURLDlg(CWnd* pParent = NULL);   // standard constructor
+	CURLDlg(CWnd* pParent = NULL);
 	virtual ~CURLDlg();
 
 	CString m_url;
 
 	enum { IDD = IDD_URL };
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 
 	DECLARE_MESSAGE_MAP()
-	CHistoryCombo m_URLCombo;
-	int m_heigth;
+
+	CHistoryCombo	m_URLCombo;
+	int				m_heigth;
 };

@@ -29,6 +29,12 @@
 #include "Balloon.h"
 #include "afxwin.h"
 
+/**
+ * \ingroup TortoiseProc
+ * Dialog which fetches and shows the difference between two urls in the
+ * repository. It shows a list of files/folders which were changed in those
+ * two revisions.
+ */
 class CFileDiffDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CFileDiffDlg)
@@ -42,7 +48,7 @@ public:
 		svn_node_kind_t node;
 	};
 public:
-	CFileDiffDlg(CWnd* pParent = NULL);   // standard constructor
+	CFileDiffDlg(CWnd* pParent = NULL);
 	virtual ~CFileDiffDlg();
 
 	void SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry);
@@ -50,7 +56,6 @@ public:
 
 	void	DoBlame(bool blame = true) {m_bBlame = blame;}
 
-// Dialog Data
 	enum { IDD = IDD_DIFFFILES };
 
 protected:
@@ -74,10 +79,10 @@ protected:
 											bool propchanged, 
 											svn_node_kind_t node);
 
-	int AddEntry(FileDiff * fd);
-	void DoDiff(int selIndex, bool blame);
-	void DiffProps(int selIndex);
-	void SetURLLabels();
+	int					AddEntry(FileDiff * fd);
+	void				DoDiff(int selIndex, bool blame);
+	void				DiffProps(int selIndex);
+	void				SetURLLabels();
 private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();

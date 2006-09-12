@@ -27,9 +27,6 @@
 #include "SVN.h"
 #include "MessageBox.h"
 
-
-// CSetDialogs dialog
-
 IMPLEMENT_DYNAMIC(CSetDialogs, CPropertyPage)
 CSetDialogs::CSetDialogs()
 	: CPropertyPage(CSetDialogs::IDD)
@@ -108,12 +105,12 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
-	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
-	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnBnClickedShortdateformat)
-	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
-	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
+	ON_EN_CHANGE(IDC_DEFAULTLOG, OnChange)
+	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnChange)
+	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnChange)
+	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnChange)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
-	ON_BN_CLICKED(IDC_WCURLFROM, OnBnClickedWcurlfrom)
+	ON_BN_CLICKED(IDC_WCURLFROM, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -186,8 +183,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_bInitialized = TRUE;
 	
 	UpdateData(FALSE);
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 BOOL CSetDialogs::PreTranslateMessage(MSG* pMsg)
@@ -196,27 +192,7 @@ BOOL CSetDialogs::PreTranslateMessage(MSG* pMsg)
 	return CPropertyPage::PreTranslateMessage(pMsg);
 }
 
-void CSetDialogs::OnBnClickedShortdateformat()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnEnChangeDefaultlog()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnCbnSelchangeFontsizes()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnCbnSelchangeFontnames()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnBnClickedWcurlfrom()
+void CSetDialogs::OnChange()
 {
 	SetModified();
 }

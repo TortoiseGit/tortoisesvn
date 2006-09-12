@@ -29,8 +29,6 @@
 #include "MessageBox.h"
 
 
-// CSetMainPage dialog
-
 IMPLEMENT_DYNAMIC(CSetMainPage, CPropertyPage)
 CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
@@ -120,8 +118,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_ASPDOTNETHACK, OnASPHACK)
 END_MESSAGE_MAP()
 
-
-// CSetMainPage message handlers
 BOOL CSetMainPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
@@ -143,7 +139,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 	m_tooltips.AddTool(IDC_ASPDOTNETHACK, IDS_SETTINGS_DOTNETHACK_TT);
 
-	//set up the language selecting combobox
+	// set up the language selecting combobox
 	TCHAR buf[MAX_PATH];
 	GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 	m_LanguageCombo.AddString(buf);
@@ -169,8 +165,8 @@ BOOL CSetMainPage::OnInitDialog()
 			GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 			m_LanguageCombo.AddString(buf);
 			m_LanguageCombo.SetItemData(langcount++, loc);
-		} // if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0) 
-	} // while (finder.FindNextFileNoDirectories()) 
+		}
+	}
 	
 	for (int i=0; i<m_LanguageCombo.GetCount(); i++)
 	{

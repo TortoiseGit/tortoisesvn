@@ -22,8 +22,6 @@
 #include "SetProgsAdvDlg.h"
 
 
-// CSetProgsAdvDlg dialog
-
 IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
 	: CDialog(CSetProgsAdvDlg::IDD, pParent)
@@ -262,8 +260,6 @@ void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pRes
 
 void CSetProgsAdvDlg::OnLvnItemchangedToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
-	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	
 	EnableBtns();
 
 	*pResult = 0;

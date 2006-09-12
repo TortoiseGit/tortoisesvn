@@ -22,23 +22,24 @@
 #include "SciEdit.h"
 #include "ProjectProperties.h"
 
-// CInputDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Helper dialog to ask for various text inputs.
+ */
 class CInputDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CInputDlg)
 
 public:
-	CInputDlg(CWnd* pParent = NULL);   // standard constructor
+	CInputDlg(CWnd* pParent = NULL);
 	virtual ~CInputDlg();
 
-// Dialog Data
 	enum { IDD = IDD_INPUTDLG };
 
 protected:
 	CFont			m_logFont;
 
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual void OnOK();

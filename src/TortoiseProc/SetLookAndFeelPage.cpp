@@ -25,9 +25,6 @@
 #include ".\setlookandfeelpage.h"
 #include "MessageBox.h"
 
-
-// CSetLookAndFeelPage dialog
-
 IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, CPropertyPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
@@ -62,8 +59,7 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
-	ON_BN_CLICKED(IDC_SIMPLECONTEXT, OnBnClickedSimplecontext)
-	ON_BN_CLICKED(IDC_ENABLEACCELERATORS, OnBnClickedOwnerdrawn)
+	ON_BN_CLICKED(IDC_SIMPLECONTEXT, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -164,8 +160,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
 	UpdateData(FALSE);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 BOOL CSetLookAndFeelPage::PreTranslateMessage(MSG* pMsg)
@@ -199,7 +194,6 @@ void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
 
 void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	SetModified(TRUE);
 	if (m_cMenuList.GetItemCount() > 0)
 	{
@@ -234,16 +228,12 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUIGNORE;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCREATEPATCH;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUAPPLYPATCH;
-	} // if (m_cMenuList.GetItemCount() > 0) 
+	}
 	*pResult = 0;
 }
 
-void CSetLookAndFeelPage::OnBnClickedSimplecontext()
+void CSetLookAndFeelPage::OnChange()
 {
 	SetModified();
 }
 
-void CSetLookAndFeelPage::OnBnClickedOwnerdrawn()
-{
-	SetModified();
-}

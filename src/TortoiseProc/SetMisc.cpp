@@ -21,9 +21,6 @@
 #include "SetMisc.h"
 #include "MessageBox.h"
 
-
-// CSetMisc dialog
-
 IMPLEMENT_DYNAMIC(CSetMisc, CPropertyPage)
 
 CSetMisc::CSetMisc()
@@ -114,9 +111,6 @@ BEGIN_MESSAGE_MAP(CSetMisc, CPropertyPage)
 	ON_BN_CLICKED(IDC_REOPENCOMMIT, &CSetMisc::OnChanged)
 END_MESSAGE_MAP()
 
-
-// CSetMisc message handlers
-
 void CSetMisc::OnChanged()
 {
 	SetModified();
@@ -136,8 +130,7 @@ BOOL CSetMisc::OnInitDialog()
 	m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 BOOL CSetMisc::PreTranslateMessage(MSG* pMsg)

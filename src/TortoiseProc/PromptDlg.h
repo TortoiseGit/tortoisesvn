@@ -26,41 +26,20 @@
  *
  * A dialog box which is used by Subversion authentication callback
  * to prompt the user for authentication data.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 10-20-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CPromptDlg : public CDialog
 {
 	DECLARE_DYNAMIC(CPromptDlg)
 
 public:
-	CPromptDlg(CWnd* pParent = NULL);   // standard constructor
+	CPromptDlg(CWnd* pParent = NULL);
 	virtual ~CPromptDlg();
 
 	void	SetHide(BOOL hide);
-// Dialog Data
-	enum { IDD = IDD_PROMPT };
 
+	enum { IDD = IDD_PROMPT };
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
 	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()

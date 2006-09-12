@@ -21,9 +21,10 @@
 #include "FileDropEdit.h"
 
 
-
-// CSettingsProgsUniDiff dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Settings page to configure external unified diff viewers.
+ */
 class CSettingsProgsUniDiff : public CPropertyPage
 {
 	DECLARE_DYNAMIC(CSettingsProgsUniDiff)
@@ -43,18 +44,20 @@ public:
 
 	UINT GetIconID() {return IDI_DIFF;}
 
-// Dialog Data
 	enum { IDD = IDD_SETTINGSPROGSUNIDIFF };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-	DECLARE_MESSAGE_MAP()
-public:
+	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual BOOL OnApply();
 	afx_msg void OnBnClickedDiffviewerOff();
 	afx_msg void OnBnClickedDiffviewerOn();
 	afx_msg void OnBnClickedDiffviewerbrowse();
 	afx_msg void OnEnChangeDiffviewer();
+
+	DECLARE_MESSAGE_MAP()
+
 private:
 	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
 	void CheckProgComment();
@@ -66,8 +69,4 @@ private:
 	BOOL			m_bInitialized;
 
 	CFileDropEdit	m_cUnifiedDiffEdit;
-public:
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
 };

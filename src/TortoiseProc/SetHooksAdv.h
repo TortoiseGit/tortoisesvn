@@ -20,8 +20,10 @@
 #include "Hooks.h"
 #include "StandAloneDlg.h"
 
-// CSetHooksAdv dialog
-
+/**
+ * \ingroup TortoiseProc
+ * helper dialog to configure client side hook scripts.
+ */
 class CSetHooksAdv : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSetHooksAdv)

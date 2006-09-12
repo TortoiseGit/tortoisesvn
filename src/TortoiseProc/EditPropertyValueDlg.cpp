@@ -25,8 +25,6 @@
 #include "EditPropertyValueDlg.h"
 
 
-// CEditPropertyValueDlg dialog
-
 IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 
 CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
@@ -37,7 +35,6 @@ CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
 	, m_bMultiple(false)
 	, m_bIsBinary(false)
 {
-
 }
 
 CEditPropertyValueDlg::~CEditPropertyValueDlg()
@@ -60,9 +57,6 @@ BEGIN_MESSAGE_MAP(CEditPropertyValueDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_LOADPROP, &CEditPropertyValueDlg::OnBnClickedLoadprop)
 	ON_EN_CHANGE(IDC_PROPVALUE, &CEditPropertyValueDlg::OnEnChangePropvalue)
 END_MESSAGE_MAP()
-
-
-// CEditPropertyValueDlg message handlers
 
 BOOL CEditPropertyValueDlg::OnInitDialog()
 {
@@ -146,8 +140,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CEditPropertyValueDlg::SetPropertyValue(const std::string& sValue)

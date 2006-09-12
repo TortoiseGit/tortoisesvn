@@ -23,8 +23,6 @@
 #include "Balloon.h"
 
 
-// CSetHooksAdv dialog
-
 IMPLEMENT_DYNAMIC(CSetHooksAdv, CResizableStandAloneDialog)
 
 CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
@@ -34,7 +32,6 @@ CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
 	, m_bWait(FALSE)
 	, m_bHide(FALSE)
 {
-
 }
 
 CSetHooksAdv::~CSetHooksAdv()
@@ -56,9 +53,6 @@ BEGIN_MESSAGE_MAP(CSetHooksAdv, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_HOOKBROWSE, &CSetHooksAdv::OnBnClickedHookbrowse)
 	ON_BN_CLICKED(IDC_HOOKCOMMANDBROWSE, &CSetHooksAdv::OnBnClickedHookcommandbrowse)
 END_MESSAGE_MAP()
-
-
-// CSetHooksAdv message handlers
 
 BOOL CSetHooksAdv::OnInitDialog()
 {
@@ -109,8 +103,7 @@ BOOL CSetHooksAdv::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CSetHooksAdv::OnOK()

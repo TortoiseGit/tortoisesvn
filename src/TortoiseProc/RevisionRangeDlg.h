@@ -30,10 +30,9 @@ class CRevisionRangeDlg : public CStandAloneDialog
 	DECLARE_DYNAMIC(CRevisionRangeDlg)
 
 public:
-	CRevisionRangeDlg(CWnd* pParent = NULL);   // standard constructor
+	CRevisionRangeDlg(CWnd* pParent = NULL);
 	virtual ~CRevisionRangeDlg();
 
-// Dialog Data
 	enum { IDD = IDD_REVISIONRANGE };
 
 	/**

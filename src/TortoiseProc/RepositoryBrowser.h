@@ -31,43 +31,23 @@ class CInputDlg;
 /**
  * \ingroup TortoiseProc
  * Dialog to browse a repository.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 02-07-2003
- *
- * \author Tim Kemp
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CRepositoryBrowser : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
 public:
-	CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile = FALSE);					//!< standalone repository browser
-	CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOOL bFile = FALSE);	//!< dependent repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile = FALSE);					///< standalone repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOOL bFile = FALSE);	///< dependent repository browser
 	virtual ~CRepositoryBrowser();
 
-	//! Returns the currently displayed URL and revision.
+	/// Returns the currently displayed URL and revision.
 	SVNUrl GetURL() const;
-	//! Returns the currently displayed revision only (for convenience)
+	/// Returns the currently displayed revision only (for convenience)
 	SVNRev GetRevision() const;
-	//! Returns the currently displayed URL's path only (for convenience)
+	/// Returns the currently displayed URL's path only (for convenience)
 	CString GetPath() const;
 
-// Dialog Data
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
 	ProjectProperties m_ProjectProperties;
@@ -84,14 +64,14 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg LRESULT OnAfterInitDialog(WPARAM wParam, LPARAM lParam);
-	void OnFilesDropped(int iItem, int iSubItem, const CTSVNPathList& droppedPaths);
 	afx_msg LRESULT OnFilesDropped(WPARAM wParam, LPARAM lParam);
 
-	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 
+	void OnFilesDropped(int iItem, int iSubItem, const CTSVNPathList& droppedPaths);
 	void DeleteSelectedEntries();
 	void SetupInputDlg(CInputDlg * dlg);
+	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();
@@ -106,7 +86,6 @@ private:
 	SVNUrl m_InitialSvnUrl;
 	bool m_bThreadRunning;
 	static const UINT	m_AfterInitMessage;
-public:
 };
 
 /**

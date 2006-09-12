@@ -23,8 +23,6 @@
 #include ".\settingsprogsdiff.h"
 
 
-// CSettingsProgsDiff dialog
-
 IMPLEMENT_DYNAMIC(CSettingsProgsDiff, CPropertyPage)
 CSettingsProgsDiff::CSettingsProgsDiff()
 	: CPropertyPage(CSettingsProgsDiff::IDD)
@@ -140,7 +138,6 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
-	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
@@ -148,14 +145,14 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimeters with '\0's
+	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
 	{
 		if (*ptr == '|')
 			*ptr = '\0';
 		ptr--;
-	} // while (ptr != pszFilters) 
+	}
 	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
@@ -174,7 +171,7 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 		m_sDiffPath = CString(ofn.lpstrFile);
 		UpdateData(FALSE);
 		SetModified();
-	} // if (GetOpenFileName(&ofn)==TRUE)
+	}
 	delete [] pszFilters;
 }
 

@@ -25,8 +25,6 @@
 #include "BDBVersion.h"
 #include "AppUtils.h"
 
-// CAboutDlg dialog
-
 IMPLEMENT_DYNAMIC(CAboutDlg, CStandAloneDialog)
 CAboutDlg::CAboutDlg(CWnd* pParent /*=NULL*/)
 	: CStandAloneDialog(CAboutDlg::IDD, pParent)
@@ -54,7 +52,7 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	//set the version string
+	// set the version string
 	CString temp, boxtitle;
 	boxtitle.Format(IDS_ABOUTVERSIONBOX, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE));
 	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(boxtitle);
@@ -86,8 +84,7 @@ BOOL CAboutDlg::OnInitDialog()
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDOK)->SetFocus();
-	return FALSE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return FALSE;
 }
 
 void CAboutDlg::OnTimer(UINT_PTR nIDEvent)

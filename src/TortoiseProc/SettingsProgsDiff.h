@@ -21,8 +21,10 @@
 #include "FileDropEdit.h"
 
 
-// CSettingsProgsDiff dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Settings page to configure the external diff tools.
+ */
 class CSettingsProgsDiff : public CPropertyPage
 {
 	DECLARE_DYNAMIC(CSettingsProgsDiff)
@@ -42,7 +44,6 @@ public:
 
 	UINT GetIconID() {return IDI_DIFF;}
 
-// Dialog Data
 	enum { IDD = IDD_SETTINGSPROGSDIFF };
 
 protected:

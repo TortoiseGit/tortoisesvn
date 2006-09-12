@@ -22,9 +22,6 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 
-
-// CToolAssocDlg dialog
-
 IMPLEMENT_DYNAMIC(CToolAssocDlg, CDialog)
 CToolAssocDlg::CToolAssocDlg(const CString& type, bool add, CWnd* pParent /*=NULL*/)
 	: CDialog(CToolAssocDlg::IDD, pParent)
@@ -60,9 +57,6 @@ void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CToolAssocDlg, CDialog)
 	ON_BN_CLICKED(IDC_TOOLBROWSE, OnBnClickedToolbrowse)
 END_MESSAGE_MAP()
-
-
-// CToolAssocDlg message handlers
 
 BOOL CToolAssocDlg::OnInitDialog()
 {
@@ -106,7 +100,6 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
-	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
@@ -114,14 +107,14 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimeters with '\0's
+	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
 	{
 		if (*ptr == '|')
 			*ptr = '\0';
 		ptr--;
-	} // while (ptr != pszFilters) 
+	}
 	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
@@ -139,6 +132,6 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	{
 		m_sTool = CString(ofn.lpstrFile);
 		UpdateData(FALSE);
-	} // if (GetOpenFileName(&ofn)==TRUE)
+	}
 	delete [] pszFilters;
 }

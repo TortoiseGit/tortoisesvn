@@ -30,8 +30,6 @@
 
 using namespace Gdiplus;
 
-// CStatGraphDlg dialog
-
 IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
@@ -86,9 +84,6 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_GRAPHPIEBUTTON, &CStatGraphDlg::OnBnClickedGraphpiebutton)
 	ON_COMMAND(ID_FILE_SAVESTATGRAPHAS, &CStatGraphDlg::OnFileSavestatgraphas)
 END_MESSAGE_MAP()
-
-
-// CStatGraphDlg message handlers
 
 BOOL CStatGraphDlg::OnInitDialog()
 {
@@ -349,7 +344,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	InitUnits();
 
-	//Set up the graph.
+	// Set up the graph.
 	CString temp;
 	UpdateData();
 	m_graph.SetGraphType(m_GraphType, m_bStacked);
@@ -1144,7 +1139,7 @@ void CStatGraphDlg::OnFileSavestatgraphas()
 	sFilter.LoadString(IDS_PICTUREFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimeters with '\0's
+	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
 	{
@@ -1260,10 +1255,10 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
 				return;
 			}
 			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-			//paint the whole graph
+			// paint the whole graph
 			RedrawGraph();
 			m_graph.DrawGraph(dc);
-			//now use GDI+ to save the picture
+			// now use GDI+ to save the picture
 			CLSID   encoderClsid;
 			GdiplusStartupInput gdiplusStartupInput;
 			ULONG_PTR           gdiplusToken;

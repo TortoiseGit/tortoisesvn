@@ -40,8 +40,6 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace Gdiplus;
 
-// CRevisionGraphWnd dialog
-
 CRevisionGraphWnd::CRevisionGraphWnd()
 	: CWnd()
 	, m_SelectedEntry1(NULL)
@@ -134,9 +132,6 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
-
-
-// CRevisionGraphWnd message handlers
 
 void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 {
@@ -597,9 +592,9 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				return;
 			}
 			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-			//paint the whole graph
+			// paint the whole graph
 			DrawGraph(&dc, rect, 0, 0, false);
-			//now use GDI+ to save the picture
+			// now use GDI+ to save the picture
 			CLSID   encoderClsid;
 			GdiplusStartupInput gdiplusStartupInput;
 			ULONG_PTR           gdiplusToken;

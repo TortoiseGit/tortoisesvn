@@ -22,15 +22,11 @@
 #include "DirFileEnum.h"
 #include "SetSavedDataPage.h"
 
-
-// CSetSavedDataPage dialog
-
 IMPLEMENT_DYNAMIC(CSetSavedDataPage, CPropertyPage)
 
 CSetSavedDataPage::CSetSavedDataPage()
 	: CPropertyPage(CSetSavedDataPage::IDD)
 {
-
 }
 
 CSetSavedDataPage::~CSetSavedDataPage()
@@ -159,9 +155,6 @@ BEGIN_MESSAGE_MAP(CSetSavedDataPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_RESIZABLEHISTCLEAR, &CSetSavedDataPage::OnBnClickedResizablehistclear)
 	ON_BN_CLICKED(IDC_AUTHHISTCLEAR, &CSetSavedDataPage::OnBnClickedAuthhistclear)
 END_MESSAGE_MAP()
-
-
-// CSetSavedDataPage message handlers
 
 void CSetSavedDataPage::OnBnClickedUrlhistclear()
 {

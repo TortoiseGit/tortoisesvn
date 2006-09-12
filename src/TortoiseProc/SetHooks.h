@@ -19,9 +19,10 @@
 #pragma once
 #include "afxcmn.h"
 
-
-// CSetHooks dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Setting page to configure the client side hook scripts
+ */
 class CSetHooks : public CPropertyPage
 {
 	DECLARE_DYNAMIC(CSetHooks)

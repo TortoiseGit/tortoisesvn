@@ -127,7 +127,7 @@ private:
 
 public:
 
-	CSVNProgressDlg(CWnd* pParent = NULL);   // standard constructor
+	CSVNProgressDlg(CWnd* pParent = NULL);
 	virtual ~CSVNProgressDlg();
 
 	virtual BOOL OnInitDialog();
@@ -147,7 +147,6 @@ public:
 	
 	bool DidErrorsOccur() {return m_bErrorsOccurred;}
 
-// Dialog Data
 	enum { IDD = IDD_SVNPROGRESS };
 
 protected:
@@ -158,27 +157,27 @@ protected:
 		svn_wc_notify_state_t prop_state, LONG rev,
 		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 		svn_error_t * err, apr_pool_t * pool);
-	virtual BOOL Cancel();
-	virtual void OnCancel();
+	virtual BOOL	Cancel();
+	virtual void	OnCancel();
+	virtual BOOL	PreTranslateMessage(MSG* pMsg);
+	virtual void	DoDataExchange(CDataExchange* pDX);
 
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	void Sort();
-	static bool SortCompare(const NotificationData* pElem1, const NotificationData* pElem2);
-
-	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedLogbutton();
-	afx_msg void OnBnClickedOk();
-	afx_msg void OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-	afx_msg void OnClose();
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg void	OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void	OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void	OnBnClickedLogbutton();
+	afx_msg void	OnBnClickedOk();
+	afx_msg void	OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void	OnClose();
+	afx_msg void	OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg LRESULT OnSVNProgress(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnEnSetfocusInfotext();
+	afx_msg void	OnTimer(UINT_PTR nIDEvent);
+	afx_msg void	OnEnSetfocusInfotext();
 
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	DECLARE_MESSAGE_MAP()
+
+	void			Sort();
+	static bool		SortCompare(const NotificationData* pElem1, const NotificationData* pElem2);
 
 	static BOOL	m_bAscending;
 	static int	m_nSortedColumn;
@@ -186,20 +185,20 @@ protected:
 
 private:
 	static UINT ProgressThreadEntry(LPVOID pVoid);
-	UINT ProgressThread();
+	UINT		ProgressThread();
 	virtual void OnOK();
-	void ReportSVNError();
-	void ReportError(const CString& sError);
-	void ReportWarning(const CString& sWarning);
-	void ReportNotification(const CString& sNotification);
-	void ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
-	void AddItemToList(const NotificationData* pData);
+	void		ReportSVNError();
+	void		ReportError(const CString& sError);
+	void		ReportWarning(const CString& sWarning);
+	void		ReportNotification(const CString& sNotification);
+	void		ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
+	void		AddItemToList(const NotificationData* pData);
 
 private:
 	/**
 	* Resizes the columns of the progress list so that the headings are visible.
 	*/
-	void ResizeColumns();
+	void		ResizeColumns();
 
 	// Predicate function to tell us if a notification data item is auxiliary or not
 	static bool NotificationDataIsAux(const NotificationData* pData);

@@ -26,8 +26,6 @@
 #include "PathUtils.h"
 #include "ShellUpdater.h"
 
-// CSetOverlayIcons dialog
-
 IMPLEMENT_DYNAMIC(CSetOverlayIcons, CPropertyPage)
 CSetOverlayIcons::CSetOverlayIcons()
 	: CPropertyPage(CSetOverlayIcons::IDD)
@@ -64,10 +62,10 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	CPropertyPage::OnInitDialog();
 
 	m_cIconList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES);
-	//get the path to our icon sets
+	// get the path to our icon sets
 	m_sIconPath = CPathUtils::GetAppParentDirectory();
 	m_sIconPath += _T("Icons");
-	//list all the icon sets
+	// list all the icon sets
 	CDirFileEnum filefinder(m_sIconPath);
 	bool isDir = false;
 	CString item;
@@ -81,20 +79,20 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	CString sModifiedIcon = m_regModified;
 	if (sModifiedIcon.IsEmpty())
 	{
-		//no custom icon set, use the default
+		// no custom icon set, use the default
 		sModifiedIcon = m_sIconPath + _T("\\XPStyle\\TortoiseModified.ico");
 	}
 	if (sModifiedIcon.Left(m_sIconPath.GetLength()).CompareNoCase(m_sIconPath)!=0)
 	{
-		//an icon set outside our own installation? We don't support that,
-		//so fall back to the default!
+		// an icon set outside our own installation? We don't support that,
+		// so fall back to the default!
 		sModifiedIcon = m_sIconPath + _T("\\XPStyle\\TortoiseModified.ico");
 	}
-	//the name of the icon set is the folder of the icon location
+	// the name of the icon set is the folder of the icon location
 	m_sOriginalIconSet = sModifiedIcon.Mid(m_sIconPath.GetLength()+1);
 	m_sOriginalIconSet = m_sOriginalIconSet.Left(m_sOriginalIconSet.ReverseFind('\\'));
-	//now we have the name of the icon set. Set the combobox to show
-	//that as selected
+	// now we have the name of the icon set. Set the combobox to show
+	// that as selected
 	CString ComboItem;
 	for (int i=0; i<m_cIconSet.GetCount(); ++i)
 	{
@@ -132,12 +130,12 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 	m_cIconList.SetImageList(&m_ImageList, LVSIL_SMALL);
 	m_cIconList.SetImageList(&m_ImageListBig, LVSIL_NORMAL);
 
-	//find all the icons of the selected icon set
+	// find all the icons of the selected icon set
 	CString sIconSet;
 	int index = m_cIconSet.GetCurSel();
 	if (index == CB_ERR)
 	{
-		//nothing selected. Shouldn't happen!
+		// nothing selected. Shouldn't happen!
 		return;
 	}
 	m_cIconSet.GetLBText(index, sIconSet);
@@ -174,7 +172,7 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 	DestroyIcon(hLockedOverlay);
 	DestroyIcon(hAddedOverlay);
 
-	//create an image list with different file icons
+	// create an image list with different file icons
 	SHFILEINFO sfi;
 	ZeroMemory(&sfi, sizeof sfi);
 

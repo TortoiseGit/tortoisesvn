@@ -55,14 +55,8 @@ protected:
 	virtual BOOL OnApply();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnChange();
 	afx_msg void OnBnClickedEnable();
-	afx_msg void OnEnChangeServeraddress();
-	afx_msg void OnEnChangeServerport();
-	afx_msg void OnEnChangeUsername();
-	afx_msg void OnEnChangePassword();
-	afx_msg void OnEnChangeTimeout();
-	afx_msg void OnEnChangeExceptions();
-	afx_msg void OnEnChangeSshclient();
 	afx_msg void OnBnClickedSshbrowse();
 	afx_msg void OnBnClickedEditservers();
 

@@ -78,12 +78,7 @@ private:
 public:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnCbnSelchangeLanguagecombo();
 	virtual BOOL OnApply();
-	afx_msg void OnEnChangeDefaultlog();
-	afx_msg void OnBnClickedShortdateformat();
-	afx_msg void OnCbnSelchangeFontsizes();
-	afx_msg void OnCbnSelchangeFontnames();
+	afx_msg void OnChange();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
-	afx_msg void OnBnClickedWcurlfrom();
 };

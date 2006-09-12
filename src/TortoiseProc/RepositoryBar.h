@@ -31,25 +31,6 @@ class CRepositoryTree;
  * tree control, call AssocTree() once after both objects are created. As
  * long as they are associated, the bar and the tree form a "team" of
  * controls that work together.
- *
- * \par requirements
- * win98 or later, win95 with IE4
- * win2K or later, NT4 with IE4
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date MAR-2004
- *
- * \author Thomas Epting
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CRepositoryBar : public CReBarCtrl
 {
@@ -96,6 +77,9 @@ public:
 	 */
 	void SaveHistory();
 	
+	/**
+	 * Set the revision
+	 */
 	void SetRevision(SVNRev rev);
 
 protected:
@@ -109,10 +93,11 @@ private:
 	CRepositoryTree	*m_pRepositoryTree;
 	SVNUrl m_SvnUrl;
 
-	class CRepositoryCombo : public CHistoryCombo {
+	class CRepositoryCombo : public CHistoryCombo 
+	{
 		CRepositoryBar *m_bar;
 	public:
-		CRepositoryCombo(CRepositoryBar *bar) : m_bar(bar) { }
+		CRepositoryCombo(CRepositoryBar *bar) : m_bar(bar) {}
 		virtual bool OnReturnKeyPressed();
 	} m_cbxUrl;
 
@@ -125,25 +110,6 @@ private:
  * Implements a visual container for a CRepositoryBar which may be added to a
  * dialog. A CRepositoryBarCnr is not needed if the CRepositoryBar is attached
  * to a frame window.
- *
- * \par requirements
- * win98 or later, win95 with IE4
- * win2K or later, NT4 with IE4
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date MAR-2004
- *
- * \author Thomas Epting
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CRepositoryBarCnr : public CStatic
 {

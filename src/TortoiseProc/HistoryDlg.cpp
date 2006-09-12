@@ -23,8 +23,6 @@
 #include ".\historydlg.h"
 
 
-// CHistoryDlg dialog
-
 IMPLEMENT_DYNAMIC(CHistoryDlg, CResizableStandAloneDialog)
 CHistoryDlg::CHistoryDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CHistoryDlg::IDD, pParent),
@@ -103,7 +101,7 @@ bool CHistoryDlg::SaveHistory()
 	if (m_sSection.IsEmpty())
 		return false;
 
-	//save history to registry/inifile
+	// save history to registry
 	int nMax = min(m_arEntries.GetCount(), m_nMaxHistoryItems + 1);
 	for (int n = 0; n < nMax; n++)
 	{
@@ -112,7 +110,7 @@ bool CHistoryDlg::SaveHistory()
 		CRegString regkey = CRegString(sKey);
 		regkey = m_arEntries.GetAt(n);
 	}
-	//remove items exceeding the max number of history items
+	// remove items exceeding the max number of history items
 	for (int n = nMax; ; n++)
 	{
 		CString sKey;
@@ -163,8 +161,7 @@ BOOL CHistoryDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("HistoryDlg"));
 	m_List.SetFocus();
-	return FALSE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return FALSE;
 }
 
 void CHistoryDlg::OnLbnDblclkHistorylist()

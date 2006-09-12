@@ -25,8 +25,6 @@
 #include ".\setproxypage.h"
 #include "MessageBox.h"
 
-// CSetProxyPage dialog
-
 IMPLEMENT_DYNAMIC(CSetProxyPage, CPropertyPage)
 CSetProxyPage::CSetProxyPage()
 	: CPropertyPage(CSetProxyPage::IDD)
@@ -135,14 +133,14 @@ void CSetProxyPage::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSetProxyPage, CPropertyPage)
+	ON_EN_CHANGE(IDC_SERVERADDRESS, OnChange)
+	ON_EN_CHANGE(IDC_SERVERPORT, OnChange)
+	ON_EN_CHANGE(IDC_USERNAME, OnChange)
+	ON_EN_CHANGE(IDC_PASSWORD, OnChange)
+	ON_EN_CHANGE(IDC_TIMEOUT, OnChange)
+	ON_EN_CHANGE(IDC_SSHCLIENT, OnChange)
+	ON_EN_CHANGE(IDC_EXCEPTIONS, OnChange)
 	ON_BN_CLICKED(IDC_ENABLE, OnBnClickedEnable)
-	ON_EN_CHANGE(IDC_SERVERADDRESS, OnEnChangeServeraddress)
-	ON_EN_CHANGE(IDC_SERVERPORT, OnEnChangeServerport)
-	ON_EN_CHANGE(IDC_USERNAME, OnEnChangeUsername)
-	ON_EN_CHANGE(IDC_PASSWORD, OnEnChangePassword)
-	ON_EN_CHANGE(IDC_TIMEOUT, OnEnChangeTimeout)
-	ON_EN_CHANGE(IDC_SSHCLIENT, OnEnChangeSshclient)
-	ON_EN_CHANGE(IDC_EXCEPTIONS, OnEnChangeExceptions)
 	ON_BN_CLICKED(IDC_SSHBROWSE, OnBnClickedSshbrowse)
 	ON_BN_CLICKED(IDC_EDITSERVERS, OnBnClickedEditservers)
 END_MESSAGE_MAP()
@@ -156,8 +154,6 @@ BOOL CSetProxyPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SERVERADDRESS, IDS_SETTINGS_PROXYSERVER_TT);
 	m_tooltips.AddTool(IDC_EXCEPTIONS, IDS_SETTINGS_PROXYEXCEPTIONS_TT);
-	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	m_SSHClient = m_regSSHClient;
 	m_serveraddress = m_regServeraddress;
@@ -171,8 +167,8 @@ BOOL CSetProxyPage::OnInitDialog()
 	{
 		m_isEnabled = FALSE;
 		EnableGroup(FALSE);
-		//now since we already created our registry entries
-		//we delete them here again...
+		// now since we already created our registry entries
+		// we delete them here again...
 		m_regServeraddress.removeValue();
 		m_regServerport.removeValue();
 		m_regUsername.removeValue();
@@ -203,8 +199,7 @@ BOOL CSetProxyPage::OnInitDialog()
 	UpdateData(FALSE);
 
 	m_bInit = TRUE;
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CSetProxyPage::OnBnClickedEnable()
@@ -231,45 +226,13 @@ void CSetProxyPage::EnableGroup(BOOL b)
 	GetDlgItem(IDC_EXCEPTIONS)->EnableWindow(b);
 }
 
-
-
 BOOL CSetProxyPage::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CPropertyPage::PreTranslateMessage(pMsg);
 }
 
-void CSetProxyPage::OnEnChangeServeraddress()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangeServerport()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangeUsername()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangePassword()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangeTimeout()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangeSshclient()
-{
-	SetModified();
-}
-
-void CSetProxyPage::OnEnChangeExceptions()
+void CSetProxyPage::OnChange()
 {
 	SetModified();
 }
@@ -290,7 +253,6 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
-	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
@@ -298,14 +260,14 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimeters with '\0's
+	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
 	{
 		if (*ptr == '|')
 			*ptr = '\0';
 		ptr--;
-	} // while (ptr != pszFilters) 
+	}
 	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;

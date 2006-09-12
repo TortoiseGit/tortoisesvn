@@ -22,8 +22,6 @@
 #include "SetHooksAdv.h"
 #include "Hooks.h"
 
-// CSetHooks dialog
-
 IMPLEMENT_DYNAMIC(CSetHooks, CPropertyPage)
 
 CSetHooks::CSetHooks()
@@ -56,9 +54,6 @@ BEGIN_MESSAGE_MAP(CSetHooks, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_HOOKLIST, &CSetHooks::OnLvnItemchangedHooklist)
 	ON_NOTIFY(NM_DBLCLK, IDC_HOOKLIST, &CSetHooks::OnNMDblclkHooklist)
 END_MESSAGE_MAP()
-
-
-// CSetHooks message handlers
 
 BOOL CSetHooks::OnInitDialog()
 {
