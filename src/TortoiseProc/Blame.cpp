@@ -25,38 +25,6 @@
 #include "UnicodeUtils.h"
 #include "TempFile.h"
 
-
-void CStdioFileA::WriteString(LPCSTR lpsz)
-{
-	ASSERT(lpsz != NULL);
-	ASSERT(m_pStream != NULL);
-	
-	if (lpsz == NULL)
-	{
-		AfxThrowInvalidArgException();
-	}
-
-	if (fputs(lpsz, m_pStream) == EOF)
-		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
-}
-
-
-void CStdioFileA::WriteString(LPCWSTR lpsz)
-{
-	ASSERT(lpsz != NULL);
-	ASSERT(m_pStream != NULL);
-	
-	if (lpsz == NULL)
-	{
-		AfxThrowInvalidArgException();
-	}
-
-	if (fputws(lpsz, m_pStream) == EOF)
-		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
-}
-
-
-
 CBlame::CBlame()
 {
 	m_bCancelled = FALSE;
@@ -128,7 +96,11 @@ BOOL CBlame::Cancel()
 
 CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, BOOL showprogress /* = TRUE */)
 {
+	// if the user specified to use another tool to show the blames, there's no
+	// need to fetch the log later: only TortoiseBlame uses those logs to give 
+	// the user additional information for the blame.
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+
 	CString temp;
 	m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
 	if (m_sSavePath.IsEmpty())

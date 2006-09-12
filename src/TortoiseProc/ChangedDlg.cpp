@@ -90,15 +90,14 @@ BOOL CChangedDlg::OnInitDialog()
 
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
 	
-	//first start a thread to obtain the status without
-	//blocking the dialog
+	// first start a thread to obtain the status without
+	// blocking the dialog
 	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)

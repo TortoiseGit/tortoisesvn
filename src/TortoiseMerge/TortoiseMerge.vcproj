@@ -382,10 +382,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\AppUtils.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\BaseView.cpp"
 				>
 			</File>
@@ -394,67 +390,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\MiscUI\BrowseFolder.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\CmdLineParser.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\ColourPickerXP.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\DIB.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\DiffData.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\DirFileEnum.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\DragDropImpl.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\FileDropEdit.cpp"
 				>
 			</File>
 			<File
@@ -467,18 +403,6 @@
 			</File>
 			<File
 				RelativePath=".\FindDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\FontPreviewCombo.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\HTMLFormatter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\HyperLink.cpp"
 				>
 			</File>
 			<File
@@ -502,26 +426,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\NewMenu\NewDialogBar.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewMenu.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewMenuBar.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewStatusBar.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewToolBar.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\OpenDlg.cpp"
 				>
 			</File>
@@ -530,15 +434,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\PathUtils.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\Utils\MiscUI\ProgressDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\Registry.cpp"
 				>
 			</File>
 			<File
@@ -602,31 +498,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\TempFiles.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\TortoiseMerge.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\WaterEffect.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\WorkingFile.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\XPTheme.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\XSplitter.cpp"
 				>
 			</File>
 		</Filter>
@@ -640,10 +516,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\AppUtils.h"
-				>
-			</File>
-			<File
 				RelativePath=".\BaseView.h"
 				>
 			</File>
@@ -652,35 +524,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\MiscUI\BrowseFolder.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\CmdLineParser.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\ColourPickerXP.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\DIB.h"
-				>
-			</File>
-			<File
 				RelativePath=".\DiffData.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\DirFileEnum.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\DragDropImpl.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\FileDropEdit.h"
 				>
 			</File>
 			<File
@@ -693,18 +537,6 @@
 			</File>
 			<File
 				RelativePath=".\FindDlg.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\FontPreviewCombo.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\HTMLFormatter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\HyperLink.h"
 				>
 			</File>
 			<File
@@ -724,30 +556,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\MiscUI\MessageBox.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewDialogBar.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewMenu.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewMenuBar.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewStatusBar.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewToolBar.h"
-				>
-			</File>
-			<File
 				RelativePath=".\OpenDlg.h"
 				>
 			</File>
@@ -756,15 +564,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\PathUtils.h"
-				>
-			</File>
-			<File
 				RelativePath="..\Utils\MiscUI\ProgressDlg.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\registry.h"
 				>
 			</File>
 			<File
@@ -800,27 +600,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\TempFiles.h"
-				>
-			</File>
-			<File
 				RelativePath=".\TortoiseMerge.h"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\WaterEffect.h"
-				>
-			</File>
-			<File
 				RelativePath=".\WorkingFile.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\XPTheme.h"
 				>
 			</File>
 		</Filter>
@@ -913,6 +697,242 @@
 				RelativePath="..\Resources\ttf_glyph.bmp"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="Utils"
+			>
+			<Filter
+				Name="Source Files"
+				>
+				<File
+					RelativePath=".\AppUtils.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\BrowseFolder.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\CmdLineParser.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\ColourPickerXP.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\DIB.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\DirFileEnum.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\DragDropImpl.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\FileDropEdit.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\FontPreviewCombo.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\HTMLFormatter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\HyperLink.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewDialogBar.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewMenu.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewMenuBar.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewStatusBar.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewToolBar.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\PathUtils.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\Registry.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\StdioFileT.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\TempFiles.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\UnicodeUtils.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\WaterEffect.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\XPTheme.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\XSplitter.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Header Files"
+				>
+				<File
+					RelativePath=".\AppUtils.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\BrowseFolder.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\CmdLineParser.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\ColourPickerXP.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\DIB.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\DirFileEnum.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\DragDropImpl.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\FileDropEdit.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\FontPreviewCombo.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\HTMLFormatter.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\HyperLink.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\MessageBox.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewDialogBar.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewMenu.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewMenuBar.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewStatusBar.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\NewMenu\NewToolBar.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\PathUtils.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\registry.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\StdioFileT.h"
+					>
+				</File>
+				<File
+					RelativePath=".\TempFiles.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\UnicodeUtils.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\WaterEffect.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\XPTheme.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

@@ -16,43 +16,23 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
+
 #pragma once
-#include "SVNRev.h"
-#include "Registry.h"
-#include "StandAloneDlg.h"
 
 /**
- * \ingroup TortoiseProc
- * Show the blame dialog where the user can select the revision to blame
- * and whether to use TortoiseBlame or the default text editor to view the blame.
+ * \ingroup Utils
+ * CStdioFileT extends the standard CStdioFile MFC class to handle ANSI and
+ * UNICODE files equally, independent on how the program is compiled.
  */
-class CBlameDlg : public CStandAloneDialog
+class CStdioFileT : public CStdioFile
 {
-	DECLARE_DYNAMIC(CBlameDlg)
-
 public:
-	CBlameDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CBlameDlg();
+	CStdioFileT();
+	CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags);
 
-// Dialog Data
-	enum { IDD = IDD_BLAME };
+	BOOL ReadString(CStringA& rString);
+	BOOL ReadString(CString& rString) {return CStdioFile::ReadString(rString);}
 
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnEnChangeRevisionEnd();
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-
-	DECLARE_MESSAGE_MAP()
-
-protected:
-	CString m_sStartRev;
-	CString m_sEndRev;
-	BOOL	m_bTextView;
-	CRegDWORD m_regTextView;
-
-public:
-	SVNRev	StartRev;
-	SVNRev	EndRev;
+	void WriteString(LPCSTR lpsz);
+	void WriteString(LPCWSTR lpsz);
 };

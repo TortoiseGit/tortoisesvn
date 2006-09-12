@@ -21,17 +21,14 @@
 #include "SVN.h"
 #include "ProgressDlg.h"
 #include "SVNRev.h"
+#include "StdioFileT.h"
 
 class CTSVNPath;
 
-
-class CStdioFileA : public CStdioFile
-{
-public:
-	void WriteString(LPCSTR lpsz);
-	void WriteString(LPCWSTR lpsz);
-};
-
+/**
+ * \ingroup TortoiseProc
+ * Helper class to get the blame information for a file.
+ */
 class CBlame : public SVN
 {
 public:
@@ -68,7 +65,7 @@ private:
 	bool		m_bNoLineNo;			///< if true, then the line number isn't written to the file
 
 	CString		m_sSavePath;			///< Where to save the blame data
-	CStdioFileA	m_saveFile;				///< The file object to write to
+	CStdioFileT	m_saveFile;				///< The file object to write to
 	CFile		m_saveLog;
 	CProgressDlg m_progressDlg;			///< The progress dialog shown during operation
 	LONG		m_lowestrev;

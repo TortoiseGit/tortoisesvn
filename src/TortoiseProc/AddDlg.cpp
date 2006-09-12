@@ -23,10 +23,6 @@
 #include "AddDlg.h"
 #include "SVNConfig.h"
 #include "Registry.h"
-#include ".\adddlg.h"
-
-
-// CAddDlg dialog
 
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableStandAloneDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
@@ -58,10 +54,10 @@ BOOL CAddDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	//set the listcontrol to support checkboxes
-	m_addListCtrl.Init(0, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT));
-	m_addListCtrl.SetIgnoreRemoveOnly();
-	m_addListCtrl.SetUnversionedRecurse(true);
+	// initialize the svn status list control
+	m_addListCtrl.Init(0, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT)); // adding and committing is useless in the add dialog
+	m_addListCtrl.SetIgnoreRemoveOnly();	// when ignoring, don't add the parent folder since we're in the add dialog
+	m_addListCtrl.SetUnversionedRecurse(true);	// recurse into unversioned folders - user might want to add those too
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
 	m_addListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
@@ -84,8 +80,7 @@ BOOL CAddDlg::OnInitDialog()
 	}
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void CAddDlg::OnOK()
@@ -93,7 +88,7 @@ void CAddDlg::OnOK()
 	if (m_bThreadRunning)
 		return;
 
-	//save only the files the user has selected into the pathlist
+	// save only the files the user has selected into the pathlist
 	m_addListCtrl.WriteCheckedNamesToPathList(m_pathList);
 
 	CResizableStandAloneDialog::OnOK();
@@ -127,11 +122,11 @@ UINT CAddDlg::AddThreadEntry(LPVOID pVoid)
 {
 	return ((CAddDlg*)pVoid)->AddThread();
 }
+
 UINT CAddDlg::AddThread()
 {
-	//get the status of all selected file/folders recursively
-	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	// get the status of all selected file/folders recursively
+	// and show the ones which the user can add (i.e. the unversioned ones)
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 	if (!m_addListCtrl.GetStatus(m_pathList))

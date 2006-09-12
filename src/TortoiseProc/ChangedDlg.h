@@ -24,8 +24,10 @@
 #include "Registry.h"
 
 
-// CChangedDlg dialog
-
+/**
+ * \ingroup TortoiseProc
+ * Shows the "check for modifications" dialog.
+ */
 class CChangedDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CChangedDlg)
@@ -39,35 +41,34 @@ public:
 
 protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL			OnInitDialog();
+	virtual void			OnOK();
+	virtual void			OnCancel();
+	virtual BOOL			PreTranslateMessage(MSG* pMsg);
 	afx_msg void			OnBnClickedCheckrepo();
 	afx_msg void			OnBnClickedShowunversioned();
 	afx_msg void			OnBnClickedShowUnmodified();
 	afx_msg void			OnBnClickedShowignored();
-	virtual BOOL			OnInitDialog();
-	virtual void			OnOK();
-	virtual void			OnCancel();
-
 	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-	virtual BOOL			PreTranslateMessage(MSG* pMsg);
 
 	DECLARE_MESSAGE_MAP()
 
 private:
-	static UINT ChangedStatusThreadEntry(LPVOID pVoid);
-	UINT ChangedStatusThread();
+	static UINT				ChangedStatusThreadEntry(LPVOID pVoid);
+	UINT					ChangedStatusThread();
 
 public: 
-	CTSVNPathList	m_pathList;
+	CTSVNPathList			m_pathList;
 
 private:
-	CRegDWORD		m_regAddBeforeCommit;
-	CSVNStatusListCtrl	m_FileListCtrl;
-	bool			m_bRemote;
-	BOOL			m_bShowUnversioned;
-	int				m_iShowUnmodified;
-	volatile LONG	m_bBlock;
-	CString			m_sTitle;
-	bool			m_bCanceled;
-	BOOL			m_bShowIgnored;
+	CRegDWORD				m_regAddBeforeCommit;
+	CSVNStatusListCtrl		m_FileListCtrl;
+	bool					m_bRemote;
+	BOOL					m_bShowUnversioned;
+	int						m_iShowUnmodified;
+	volatile LONG			m_bBlock;
+	CString					m_sTitle;
+	bool					m_bCanceled;
+	BOOL					m_bShowIgnored;
 };
 
