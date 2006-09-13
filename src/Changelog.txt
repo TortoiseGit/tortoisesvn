@@ -87,6 +87,8 @@ Version 1.4.0
 - BUG: When two consecutive revisions were selected in the log dialog,
        some entries were not shown in the context menu for the changed
        files. (Stefan)
+- BUG: If an entry was deselected in the log dialog, the log message and
+       the changed files list was not cleared. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID
