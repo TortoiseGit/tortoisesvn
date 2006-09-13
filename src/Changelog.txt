@@ -84,6 +84,9 @@ Version 1.4.0
 - BUG: Showing the diffs of a file with property changes in the log dialog
        started TortoiseMerge without additional information so that only the
        temp file name was shown in the view header. (Stefan)
+- BUG: When two consecutive revisions were selected in the log dialog,
+       some entries were not shown in the context menu for the changed
+       files. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID

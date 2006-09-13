@@ -1452,11 +1452,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		long rev1 = pLogEntry->dwRev;
 		long rev2 = rev1-1;
+		bool bOneRev = true;
 		if (pos)
 		{
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			if (pLogEntry)
+			{
 				rev2 = pLogEntry->dwRev;
+				bOneRev = false;
+			}
 			changedpath = m_currentChangedPathList[selIndex].GetSVNPathString();
 		}
 		else
@@ -1490,7 +1494,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			bool bEntryAdded = false;
 			if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 			{
-				if ((rev2 != rev1-1)||(DiffPossible(changedlogpath, rev1)))
+				if ((!bOneRev)||(DiffPossible(changedlogpath, rev1)))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
