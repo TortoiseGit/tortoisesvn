@@ -654,19 +654,43 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 			SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			CString n1, n2;
+			bool bSwitch = false;
 			if (rev1.IsWorking())
 				n1.Format(IDS_DIFF_WCNAME, basename.c_str());
 			if (rev1.IsBase())
 				n1.Format(IDS_DIFF_BASENAME, basename.c_str());
 			if (rev1.IsHead())
 				n1.Format(IDS_DIFF_REMOTENAME, basename.c_str());
+			if (n1.IsEmpty())
+			{
+				CString temp;
+				temp.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev1);
+				n1 = basename.c_str();
+				n1 += _T(" ") + temp;
+				bSwitch = true;
+			}
 			if (rev2.IsWorking())
 				n2.Format(IDS_DIFF_WCNAME, basename.c_str());
 			if (rev2.IsBase())
 				n2.Format(IDS_DIFF_BASENAME, basename.c_str());
 			if (rev2.IsHead())
 				n2.Format(IDS_DIFF_REMOTENAME, basename.c_str());
-			retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+			if (n2.IsEmpty())
+			{
+				CString temp;
+				temp.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
+				n2 = basename.c_str();
+				n2 += _T(" ") + temp;
+				bSwitch = true;
+			}
+			if (bSwitch)
+			{
+				retvalue = !!CAppUtils::StartExtDiff(wcpropfile, basepropfile, n1, n2, TRUE);
+			}
+			else
+			{
+				retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+			}
 		}
 	}
 
