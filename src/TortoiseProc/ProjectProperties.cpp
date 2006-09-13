@@ -281,10 +281,15 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
 			return sBugID;
 		sBugID = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (bTop)
-			msg = msg.Right(sBugLine.GetLength());
+		{
+			msg = msg.Mid(sBugLine.GetLength());
+			msg.TrimLeft('\n');
+		}
 		else
+		{
 			msg = msg.Left(msg.GetLength()-sBugLine.GetLength());
-		msg.TrimRight('\n');
+			msg.TrimRight('\n');
+		}
 	}
 	return sBugID;
 }
