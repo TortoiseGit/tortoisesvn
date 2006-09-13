@@ -38,8 +38,7 @@ typedef std::basic_string<wchar_t> wide_string;
 
 /**
  * \ingroup SVN
- * Provides Subversion commands, some of them as static methods for easier and
- * faster use.
+ * Handles Subversion status of working copies.
  */
 class SVNStatus
 {

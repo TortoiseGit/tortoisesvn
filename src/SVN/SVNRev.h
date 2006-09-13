@@ -38,25 +38,6 @@
  * as a normal revision number. This is just for convenience to stay
  * compatible with the current implementation in TortoiseSVN, but
  * will be removed soon!
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date MAR-2004
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class SVNRev
 {
@@ -67,16 +48,26 @@ public:
 	SVNRev(){rev.kind = svn_opt_revision_unspecified;m_bIsValid = FALSE;}
 	~SVNRev();
 
+	/// returns TRUE if the revision is valid (i.e. not unspecified)
 	BOOL IsValid() const {return m_bIsValid;}
+	/// returns TRUE if the revision is HEAD
 	BOOL IsHead() const {return (rev.kind == svn_opt_revision_head);}
+	/// returns TRUE if the revision is BASE
 	BOOL IsBase() const {return (rev.kind == svn_opt_revision_base);}
+	/// returns TRUE if the revision is WORKING
 	BOOL IsWorking() const {return (rev.kind == svn_opt_revision_working);}
+	/// returns TRUE if the revision is PREV
 	BOOL IsPrev() const {return (rev.kind == svn_opt_revision_previous);}
+	/// returns TRUE if the revision is COMMITTED
 	BOOL IsCommitted() const {return (rev.kind == svn_opt_revision_committed);}
+	/// returns TRUE if the revision is a date
 	BOOL IsDate() const {return (rev.kind == svn_opt_revision_date);}
+	/// returns TRUE if the revision is a number
 	BOOL IsNumber() const {return (rev.kind == svn_opt_revision_number);}
 
+	/// Returns a string representing the date of a DATE revision, otherwise an empty string.
 	CString GetDateString() const {return sDate;}
+	/// Converts the revision into a string representation.
 	CString ToString() const;
 
 	operator LONG () const;

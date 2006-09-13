@@ -46,6 +46,9 @@ public:
 							svn_wc_status_kind text_status = svn_wc_status_none, 
 							svn_wc_status_kind prop_status = svn_wc_status_none);
 
+	/**
+	 * Shows a diff of a file in the working copy with its BASE.
+	 */
 	bool DiffWCFile(const CTSVNPath& filePath, 
 					svn_wc_status_kind text_status = svn_wc_status_none, 
 					svn_wc_status_kind prop_status = svn_wc_status_none,
@@ -92,6 +95,9 @@ public:
 
 	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
 	
+	/**
+	 * Sets the Peg revision to use instead of HEAD.
+	 */
 	void SetHEADPeg(SVNRev headpeg) {m_headPeg = headpeg;}
 protected:
 private:

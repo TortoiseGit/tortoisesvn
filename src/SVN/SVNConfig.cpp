@@ -42,7 +42,7 @@ SVNConfig::SVNConfig(void)
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
-	} // if (err != 0) 
+	}
 }
 
 SVNConfig::~SVNConfig(void)

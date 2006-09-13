@@ -16,9 +16,6 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
-#ifndef __SVNUrl_h
-#define __SVNUrl_h
-
 #pragma once
 #include "SVNRev.h"
 
@@ -28,25 +25,6 @@
  * SVNUrl is a specialized CString class which is aware of Subversion URLs.
  * In addition to the normal conventions for URLs, SVNUrls may include a
  * revision information in the form "PATH?REV".
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date MAR-2004
- *
- * \author Thomas Epting
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class SVNUrl : public CString
 {
@@ -119,4 +97,3 @@ public:
 
 };
 
-#endif /*__SVNUrl_h*/

@@ -64,9 +64,9 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 		::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (m_pool);					// free the allocated memory
 		exit(-1);
-	} // if (m_err) 
+	}
 
-	//set up the SVN_SSH param
+	// set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	if (tsvn_ssh.IsEmpty())
 		tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
@@ -179,7 +179,7 @@ stdstring SVNStatus::GetLastErrorMsg()
 }
 #endif
 
-//static method
+// static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive)
 {
 	svn_client_ctx_t * 			ctx;
@@ -229,20 +229,20 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 	return statuskind;
 }
 
-//static method
+// static method
 svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const CTSVNPath& path)
 {
 	return GetAllStatus(path, TRUE);
 }
 
-//static method
+// static method
 svn_wc_status_kind SVNStatus::GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2)
 {
 	if (GetStatusRanking(status1) >= GetStatusRanking(status2))
 		return status1;
 	return status2;
 }
-//static private method
+// static private method
 int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 {
 	switch (status)
@@ -274,7 +274,7 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 			return 12;
 		case svn_wc_status_obstructed:
 			return 13;
-	} // switch (status)
+	}
 	return 0;
 }
 
@@ -320,7 +320,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 							  sort_compare_items_as_paths,
 							  m_pool);
 
-	//only the first entry is needed (no recurse)
+	// only the first entry is needed (no recurse)
 	item = &APR_ARRAY_IDX (statusarray, 0, const sort_item);
 	
 	status = (svn_wc_status2_t *) item->value;
@@ -366,7 +366,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 								sort_compare_items_as_paths,
 								m_pool);
 
-	//only the first entry is needed (no recurse)
+	// only the first entry is needed (no recurse)
 	m_statushashindex = 0;
 	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 	retPath.SetFromSVN((const char*)item->key);
@@ -527,7 +527,7 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
 	if (!hResource)
 	{
-		//try the default language before giving up!
+		// try the default language before giving up!
 		hResource = FindResource(hInstance, MAKEINTRESOURCE(((uID>>4)+1)), RT_STRING);
 		if (!hResource)
 			return 0;

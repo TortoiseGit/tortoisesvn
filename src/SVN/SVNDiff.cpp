@@ -129,8 +129,8 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	CTSVNPath base(directory);
 	bool bConflictData = false;
 
-	//we have the conflicted file (%merged)
-	//now look for the other required files
+	// we have the conflicted file (%merged)
+	// now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge);
 	if ((stat.status == NULL)||(stat.status->entry == NULL))

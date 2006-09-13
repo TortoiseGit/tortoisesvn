@@ -21,6 +21,13 @@
 
 extern char * g_pConfigDir;
 
+/**
+ * \ingroup SVN
+ * Global class to set the path to the directory where the config files are
+ * stored. This is used to override the default path from the command line with
+ * the /configdir:"path\to\config\dir" param (as the CL client has with the
+ * --config-dir param.
+ */
 class SVNGlobal
 {
 public:

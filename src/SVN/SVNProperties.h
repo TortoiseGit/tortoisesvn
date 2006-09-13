@@ -30,7 +30,7 @@
 /**
  * \ingroup SVN
  * Subversion Properties.
- * Use this class to retreive, add and remove Subversion properties
+ * Use this class to retrieve, add and remove Subversion properties
  * for files and directories.
  */
 class SVNProperties

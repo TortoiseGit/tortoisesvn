@@ -70,7 +70,7 @@ SVN::SVN(void) :
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
-	} // if (Err != 0) 
+	}
 
 	// set up authentication
 	m_prompt.Init(parentpool, m_pctx);
@@ -234,6 +234,7 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 			msg += temp;
 		}
 		temp.Empty();
+		// add some hint text for some of the error messages
 		switch (Err->apr_err)
 		{
 		case SVN_ERR_BAD_FILENAME:
@@ -264,10 +265,12 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 			(Err->apr_err == SVN_ERR_FS_NO_SUCH_LOCK)||
 			(Err->apr_err == SVN_ERR_RA_NOT_LOCKED))
 		{
+			// the lock has already been broken from another working copy
 			temp.LoadString(IDS_SVNERR_UNLOCKFAILEDNOLOCK);
 		}
 		else if (SVN_ERR_IS_UNLOCK_ERROR(Err))
 		{
+			// if you want to break the lock, use the "check for modifications" dialog
 			temp.LoadString(IDS_SVNERR_UNLOCKFAILED);
 		}
 		if (!temp.IsEmpty())
@@ -529,8 +532,10 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			return TRUE;
 		}
 		// our own "export" function with a callback and the ability to export
-		// unversioned items too
-		// BUGBUG: If a folder is marked as deleted, we export that folder too!
+		// unversioned items too. With our own function, we can show the progress
+		// of the export with a progress bar - that's not possible with the
+		// Subversion API.
+		// BUG?: If a folder is marked as deleted, we export that folder too!
 		if (extended)
 		{
 			CString srcfile;
@@ -1031,7 +1036,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 
 	if (date && date[0])
 	{
-		//Convert date to a format for humans.
+		// Convert date to a format for humans.
 		apr_time_t time_temp;
 
 		error = svn_time_from_cstring (&time_temp, date, pool);
@@ -1240,13 +1245,13 @@ void SVN::PathToUrl(CString &path)
 
 void SVN::UrlToPath(CString &url)
 {
-	//we have to convert paths like file:///c:/myfolder
-	//to c:/myfolder
-	//and paths like file:////mymachine/c/myfolder
-	//to //mymachine/c/myfolder
+	// we have to convert paths like file:///c:/myfolder
+	// to c:/myfolder
+	// and paths like file:////mymachine/c/myfolder
+	// to //mymachine/c/myfolder
 	url.Trim();
 	url.Replace('\\','/');
-	url = url.Mid(7);
+	url = url.Mid(7);	// "file://" has seven chars
 	if (url.GetAt(1) != '/')
 		url = url.Mid(1);
 	SVN::preparePath(url);
@@ -1257,7 +1262,7 @@ void	SVN::preparePath(CString &path)
 	path.Trim();
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 	path.Replace('\\','/');
-	//workaround for Subversions UNC-path bug
+	// workaround for Subversions UNC-path bug
 	if (path.Left(10).CompareNoCase(_T("file://///"))==0)
 	{
 		path.Replace(_T("file://///"), _T("file:///\\"));
@@ -1892,15 +1897,15 @@ ERROR_LABEL:
 }
 
 /** 
-* Set the parent window of an authentication prompt dialog
-*/
+ * Set the parent window of an authentication prompt dialog
+ */
 void SVN::SetPromptParentWindow(HWND hWnd)
 {
 	m_prompt.SetParentWindow(hWnd);
 }
 /** 
-* Set the MFC Application object for a prompt dialog
-*/
+ * Set the MFC Application object for a prompt dialog
+ */
 void SVN::SetPromptApp(CWinApp* pWinApp)
 {
 	m_prompt.SetApp(pWinApp);

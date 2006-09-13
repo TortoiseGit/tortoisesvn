@@ -330,6 +330,33 @@ public:
 	 */
 	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE);
 
+	/**
+	 * Merge changes from source/revision1 to source/revision2 into the
+	 * working-copy path localPath.
+	 * 
+	 * The peg revision is used as an anchor where to look for \c source
+	 * since it may have been moved/renamed and does not exist anymore with the
+	 * name specified by \c source in \c revision1 or \c revision2.
+	 * 
+	 * By "merging", we mean:  apply file differences and schedule 
+	 * additions & deletions when appopriate.
+	 *
+	 * If recurse is true (and the paths are directories), apply changes
+	 * recursively; otherwise, only apply changes in the current
+	 * directory.
+	 *
+	 * If force is not set and the merge involves deleting locally modified or
+	 * unversioned items the operation will fail.  If force is set such items
+	 * will be deleted.
+	 *
+	 * \param source		url
+	 * \param revision1		first revision
+	 * \param revision2		second revision
+	 * \param pegrevision	the peg revision
+	 * \param localPath		destination path
+	 * \param force			see description
+	 * \param recurse 
+	 */
 	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE);
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
@@ -503,6 +530,9 @@ public:
 	 */
 	svn_revnum_t GetHEADRevision(const CTSVNPath& url);
 
+	/**
+	 * Returns the repository root and the HEAD revision of the repository.
+	 */
 	BOOL GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& rev);
 
 	/**
@@ -540,10 +570,23 @@ public:
 	 */
 	BOOL GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified);
 
+	/**
+	 * Returns the URL associated with the \c path.
+	 */
 	CString GetURLFromPath(const CTSVNPath& path);
+	/**
+	 * Returns the URL associated with the \c path, unescaped.
+	 */
 	CString GetUIURLFromPath(const CTSVNPath& path);
+	/**
+	 * Returns the repository UUID for the \c path.
+	 */
 	CString GetUUIDFromPath(const CTSVNPath& path);
 
+	/**
+	 * Checks if the configuration file is present and valid.
+	 * \return the error message string, or an empty string if everything is ok.
+	 */
 	static CString CheckConfigFile();
 
 	/**
@@ -603,25 +646,61 @@ public:
 	*/
 	void SetPromptApp(CWinApp* pWinApp);
 
+	/**
+	 * Sets and clears the progress info which is shown during lengthy operations.
+	 * \param hWnd the window handle of the parent dialog/window
+	 */
 	void SetAndClearProgressInfo(HWND hWnd);
+	/**
+	 * Sets and clears the progress info which is shown during lengthy operations.
+	 * \param pProgressDlg the CProgressDlg object to show the progress info on.
+	 * \param bShowProgressBar set to true if the progress bar should be shown. Only makes
+	 * sense if the total amount of the progress is known beforehand. Otherwise the
+	 * progressbar is always "empty".
+	 */
 	void SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar = false);
 	
+	/**
+	 * Returns the string representation of the summarize action.
+	 */
 	static CString GetSummarizeActionText(svn_client_diff_summarize_kind_t kind);
 
+	/**
+	 * Returns the string representation of the error object \c Err, wrapped
+	 * (if possible) at \c wrap chars.
+	 */
 	static CString GetErrorString(svn_error_t * Err, int wrap = 80);
+	/**
+	 * Converts an url or path in the Subversion format for urls/paths
+	 * (utf8 encoded, escaped, forward slashes)
+	 */
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
+	/**
+	 * Converts a Subversion url/path to an UI format (utf16 encoded, unescaped,
+	 * backslash for paths, forward slashes for urls).
+	 */
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
+	/**
+	 * Returns a string in \c date_native[] representing the date in the OS local
+	 * format.
+	 */
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
 
+	/**
+	 * Reads the proxy settings from Internet Explorer and sets them for Subversion
+	 * to use. Doesn't work as reliable as hoped, that's why this method isn't
+	 * currently used.
+	 */
 	static void UseIEProxySettings(apr_hash_t * cfg);
+
 	svn_error_t *				Err;			///< Global error object struct
 private:
-	svn_client_ctx_t * 			m_pctx;
-	apr_hash_t *				statushash;
-	apr_array_header_t *		statusarray;
-	svn_wc_status_t *			status;
-	apr_pool_t *				parentpool;
-	apr_pool_t *				pool;			///< memory pool
+	svn_client_ctx_t * 			m_pctx;			///< pointer to client context
+	apr_hash_t *				statushash;		///< holds the status
+	apr_array_header_t *		statusarray;	///< an array of all status
+	svn_wc_status_t *			status;			///< the status object
+	apr_pool_t *				parentpool;		///< the main memory pool
+	apr_pool_t *				pool;			///< 'root' memory pool
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 	SVNPrompt					m_prompt;
 

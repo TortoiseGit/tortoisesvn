@@ -117,7 +117,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 
 	m_path = filepath;
 
-	//set up the SVN_SSH param
+	// set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	if (tsvn_ssh.IsEmpty())
 		tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
@@ -186,8 +186,8 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 			propval = (svn_string_t *)val;
 			pname_utf8 = (char *)key;
 
-			//If this is a special Subversion property, it is stored as
-			//UTF8, so convert to the native format.
+			// If this is a special Subversion property, it is stored as
+			// UTF8, so convert to the native format.
 			if ((svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
@@ -275,7 +275,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse)
 	}
 	if ((!m_path.IsDirectory())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
 	{
-		//bugtraq: and tsvn: properties are not allowed on files.
+		// bugtraq: and tsvn: properties are not allowed on files.
 #ifdef _MFC_VER
 		CString temp;
 		temp.LoadString(IDS_ERR_PROPNOTONFILE);
@@ -313,7 +313,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse)
 	}
 	if ((recurse)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
 	{
-		//The bugtraq and tsvn properties must only be set on folders.
+		// The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
 		SVNStatus stat;
 		svn_wc_status2_t * status = NULL;
@@ -340,7 +340,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse)
 		return FALSE;
 	}
 
-	//rebuild the property list
+	// rebuild the property list
 	m_error = SVNProperties::Refresh();
 	if (m_error != NULL)
 	{
@@ -362,7 +362,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse)
 		return FALSE;
 	}
 
-	//rebuild the property list
+	// rebuild the property list
 	m_error = Refresh();
 	if (m_error != NULL)
 	{
