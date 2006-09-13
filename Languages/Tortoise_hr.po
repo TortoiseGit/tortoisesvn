@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-13 17:18+0100\n"
+"PO-Revision-Date: 2006-09-13 10:56+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -625,12 +625,7 @@ msgstr "&Pogled popisa"
 msgid "&Load..."
 msgstr "&Učitaj..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Označi kao riješeno"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Stopi"
 
@@ -648,6 +643,11 @@ msgstr "&Stapanje"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Izvorni datotečni sustav (FSFS)"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Navigate"
+msgstr "&Navigacija"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -930,6 +930,11 @@ msgstr "&Pogled"
 msgid "&Whitespaces"
 msgstr "&Razmaci"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Cijela riječ"
+
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -987,6 +992,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1188,6 +1195,11 @@ msgstr "Dodaj program za stapanje datoteka određene vrste"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Dodaj na popis &zanemarenih"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Dodaj..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1938,6 +1950,17 @@ msgstr "Boje"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "Linijska naredba"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Naredba koju treba izvršiti:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "Naredba nije izvršena."
@@ -2018,6 +2041,11 @@ msgstr "Uspoređujem %s s %s"
 #: ID:74
 msgid "Completed"
 msgstr "Završeno"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Podesi vezne skripte"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2606,6 +2634,11 @@ msgstr "Izmijeni program za stapanje određene vrste datoteka"
 msgid "Edit log message"
 msgstr "Upiši poruku dnevnika"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Uredi..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2775,13 +2808,15 @@ msgstr "Nastavak"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Programi koji ovise o nastavku (vrsti datoteke)"
+#, fuzzy
+msgid "Extension or mime-type:"
+msgstr "Nastavak ili mime-tip:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Nastavak:"
+#, fuzzy
+msgid "Extension/mime-type specific programs"
+msgstr "Programi koji ovise o nastavku (vrsti datoteke)"
 
 # ID:74,
 #: ID:74
@@ -3100,6 +3135,11 @@ msgstr "S&akrij nepovezane promijenjene staze"
 msgid "Help"
 msgstr "Pomoć"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Sakrij skript dok se izvršava"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3113,6 +3153,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Savjet: pritisnite F5 da bi osvježili sadržaj označene mape ili Ctrl-F5 kako bi učitali i sadržaj svih podmapa"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Skripte"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Vrsta udice"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Vrsta udice:"
 
 # ID:82,
 #: ID:82
@@ -3680,6 +3735,10 @@ msgstr "Neispravan DLL sustava elektronske pošte."
 msgid "Manage Subversion properties"
 msgstr "Upravljaj Subversion svojstvima"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Označi kao &riješeno"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Označi kao riješeno"
@@ -3705,7 +3764,7 @@ msgid "Max"
 msgstr "Maksimum"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "Dopušteni broj poruka za pregled dnevnika"
 
@@ -4174,6 +4233,7 @@ msgstr "Datoteke zakrpa (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 # Put, putanja?
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Staza"
 
@@ -4221,6 +4281,12 @@ msgstr "Molim unesite datum."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Molimo upišite ime skripta koji će se izvršiti."
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4231,6 +4297,11 @@ msgstr "Molim unesite broj između %1 i %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Molim unesite broj."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Odaberite stazu na koju će primjeniti skript."
 
 # ID:3858,#:
 # ID:3858,
@@ -4294,6 +4365,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Molim odaberite tipku."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Molim odaberite vrstu skripte"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4325,6 +4402,26 @@ msgstr "Molim pričekajte dok napravim razlike..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Molim pričekajte..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Nakon pohrane"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Skript nakon obnavljanja"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Prije pohrane"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Skript prije obnavljanja"
 
 # ID:376,
 #: ID:376
@@ -4570,6 +4667,12 @@ msgstr "Udaljeni status teksta"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Ukloni s popisa &zanemarenih"
+
+# ID:8,#:
+# ID:74,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Ukloni..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5135,6 +5238,16 @@ msgstr ""
 "Odaberi mapu u koju će biti napravljen izvoz.\n"
 "Možda bi trebalo napraviti novu mapu prije no što se napravi izvoz."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Odaberite radnu mapu za skript"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "Izaberite datoteku skripte"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5355,11 +5468,22 @@ msgstr "Prikaži datoteke bez izmjena"
 msgid "Show unversioned files"
 msgstr "Prikaži datoteke bez verzija"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Pokaži/Sakrij"
+
 # ID:272,
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Prikazujem %ld čvorova"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Prikaz %ld revizija, od revizija %ld  do %ld - %ld revizija odabrano."
 
 # ID:272,
 #: ID:272
@@ -5468,10 +5592,22 @@ msgstr "Naslagani stupčasti dijagram"
 msgid "Stacked Line Graph"
 msgstr "Naslagani linijski dijagram"
 
+# ID:569,
+#: ID:569
+#, fuzzy
+msgid "Start Commit Hook"
+msgstr "Vezna skripta prije pohrane"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Početna revizija"
+
+# ID:569,
+#: ID:569
+#, fuzzy
+msgid "Start Update Hook"
+msgstr "Vezna skrpta prije obnavljanja"
 
 # ID:245,#:
 # Control-ID:1132,#:
@@ -5780,6 +5916,16 @@ msgstr ""
 "%s\n"
 "ne postoji.\n"
 "Želite li ju prvo napraviti?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Skript je vratio grešku:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6526,6 +6672,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Koristi URL &radne kopije kao osnovni \"Iz:\" URL"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Upotrijebi objedienjenu razliku iz priručnog spremnika"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6552,6 +6703,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Koristi pre&crtani tekst za obrisane redke"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Koristi blok teksta iz \"&moja\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Koristi blok teksta iz \"&njihova\""
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Koristi blok teksta iz \"&moje\""
@@ -6560,6 +6721,52 @@ msgstr "Koristi blok teksta iz \"&moje\""
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Koristi blok teksta iz \"&njihovo\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Koristi blok teksta iz \"m&oja\" prije \"njihova\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"Koristi blok teksta iz \"m&oja\" prije \"njihova\"\n"
+"blok teksta iz \"moja\", pa onda iz \"njihova\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"Koristi blok teksta iz \"&moja\"\n"
+"Koristi \"moj\" tekst blok"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Koristi blok teksta iz \"nj&ihova\" prije \"moja\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"Koristi blok teksta iz \"nj&ihova\" prije \"moja\"\n"
+"\"Njihov\" tekst blok prije \"mog\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"Koristi blok teksta iz \"nj&ihova\"\n"
+"Koristi \"njihov\" tekst blok"
 
 # ID:251,
 #: ID:251
@@ -6631,11 +6838,31 @@ msgstr "Vrijednost"
 msgid "Version"
 msgstr "Verzija"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Pogledaj reviziju za stazu u &web pregledniku"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Pogledaj reviziju u &web pregledniku"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Posjetite naše web stranice"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Čekaj"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Čekaj da skript završi"
 
 # ID:219,
 #: ID:88
@@ -6657,6 +6884,11 @@ msgstr "URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Radna kopija"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Staza radne kopije:"
 
 # ID:80,
 #: ID:80
@@ -7319,6 +7551,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "vrijednosti su različite"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL pokazuje na mjesto u skladištu za odabranu datoteku i reviziju.\n"
+"Tekst %REVISION% u URLu je zamijenjen s brojem revizije,\n"
+"a %PATH% s relativnom stazom datoteke u skladištu."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL pokazuje na mjesto u skladištu za odabranu reviziju.\n"
+"Tekst %REVISION% u URLu je zamijenjen s brojem revizije.a %PATH% s relativnom stazom datoteke u skladištu."
 
 # ID:244,
 #: ID:245
