@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-12 18:09+0100\n"
+"PO-Revision-Date: 2006-09-14 11:39+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -655,8 +655,9 @@ msgid "&Native filesystem (FSFS)"
 msgstr "&Natívny filesystem (FSFS)"
 
 #: MenuEntry
+#, fuzzy
 msgid "&Navigate"
-msgstr ""
+msgstr "&Navigovať"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -1164,7 +1165,7 @@ msgstr "Akcie"
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
-msgstr "Aktivivať zoznam úloh"
+msgstr "Aktivovať zoznam úloh"
 
 # ID:209,#:
 # Dlg-ID:155,
@@ -1259,7 +1260,7 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Prodaná šablona\n"
+"Pridaná šablona\n"
 "%s\n"
 "do zoznamu ignorovaných."
 
@@ -2061,8 +2062,9 @@ msgstr "Porovnať \"&HEAD\" revízií"
 
 # ID:114,
 #: ID:114
+#, fuzzy
 msgid "Compare and &blame with working BASE"
-msgstr ""
+msgstr "Porovnať a &obviniť s pracovným základom"
 
 # Porovnať s &lokálnou kópiou
 # ID:76,
@@ -2401,8 +2403,9 @@ msgstr "Vytvorý súbor unifikovaného 'diff' so vštkými zmenami, ktoré ste u
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "Credits:"
-msgstr ""
+msgstr "Credits:"
 
 # ID:376,
 #: ID:376
@@ -2525,9 +2528,9 @@ msgstr "Disk plný pri prístupe k %1."
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
-#, c-format
+#, fuzzy, c-format
 msgid "Dispatch exception: %1"
-msgstr ""
+msgstr "Prijatá výnimka: %1"
 
 # ID:3605,
 #: ID:3605
@@ -2948,19 +2951,21 @@ msgstr "Ukladanie dokumentu zlyhalo."
 
 # Control-ID:1217,
 #: Control-ID:1217
+#, fuzzy
 msgid "Fetch &status for context menu"
-msgstr ""
+msgstr "Vyvolať &stav kontextového menu"
 
 # ID:313,
 #: ID:313
+#, fuzzy
 msgid "Fetching file..."
-msgstr ""
+msgstr "Vyvolávanie súboru..."
 
 # ID:313,
 #: ID:313
-#, c-format
+#, fuzzy, c-format
 msgid "Fetching revision %s of file:"
-msgstr ""
+msgstr "Vyvolávanie revízie %s súboru:"
 
 # ID:63,#:
 # ID:74,#:
@@ -3058,8 +3063,9 @@ msgstr "Od:"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "From: (start URL and revision of the range to merge)"
-msgstr ""
+msgstr "Z: (začiatočná URL adresa a revízia rozsahu k zlučeniu)"
 
 # ID:273,
 #: ID:273
@@ -3105,12 +3111,17 @@ msgstr "Uzam&kni..."
 
 # ID:89,
 #: ID:89
+#, fuzzy
 msgid ""
 "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
 "To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
+"Zamknutie súboru bez 'svn:needs-lock' <b>nezabráni</b> ostatným upravovať ich pracovné kópie.\n"
+"Na skutočné zamknutie nastavne 'svn:needs-lock' všetkým súborom, ktoré chcete zamknúť a odovzdajte tieto súbory.\n"
+"Všetky súbory budú mať nastavený príznak len na čítanie.\n"
+"Poznámka: K zamknutiu u uživateľov dôjde až po aktualizovaní ich pracovných kópií."
 
 # ID:119,
 #: ID:119
@@ -3151,8 +3162,9 @@ msgstr "Získavam unifikovaný 'diff'"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "Global ignore &pattern:"
-msgstr ""
+msgstr "Globálna šablóna pre &vylúčenie:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3215,7 +3227,7 @@ msgstr "Pomoc"
 # Control-ID:1326,
 #: Control-ID:1326
 msgid "Hide the script while running"
-msgstr ""
+msgstr "Stryť skript počas behu"
 
 # ID:2052,
 #: ID:2052
@@ -3283,8 +3295,9 @@ msgstr ""
 
 # ID:79,
 #: ID:79
+#, fuzzy
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr ""
+msgstr "Keď je označené, TortoiseSVN vystorí dočasný súbor základu, aby urobil porovnanie s rozšírenými klúčovými slovami a upravenými koncami roadkov."
 
 # ID:196,
 #: ID:196
@@ -4400,8 +4413,9 @@ msgstr "Prosím zadajte číslo."
 
 # ID:83,
 #: ID:83
+#, fuzzy
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
+msgstr "Prosím zadajte cestu, pre ktorú sa má vykonať hookskript."
 
 # ID:3858,#:
 # ID:3858,
@@ -5355,7 +5369,7 @@ msgstr ""
 # ID:197,
 #: ID:197
 msgid "Select folder to run script for"
-msgstr ""
+msgstr "Vyberte adresár, pre ktorý sa má vykonať skript"
 
 # ID:313,
 #: ID:197
@@ -5442,7 +5456,7 @@ msgstr "Nastavenia"
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
-msgstr "Z&obraz záznam"
+msgstr "Z&obraziť záznam"
 
 # Control-ID:1270,
 #: Control-ID:1270
@@ -5686,7 +5700,7 @@ msgid ""
 "should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Určuje súbory a aresáre ktoeé ma TortoiseSVN\n"
+"Určuje súbory a aresáre ktoré má TortoiseSVN\n"
 "ignorovať vo <b>všetkých</b> pracovných kópiach.\n"
 "Vzory oddelujte medzerov."
 
@@ -5958,8 +5972,9 @@ msgstr "Uložisko bolo úspešne vytvorené."
 
 # ID:63,
 #: ID:63
+#, fuzzy
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr ""
+msgstr "Veľkosť bloku nezodpovedá počtu pridaných/vymazaných riadkov!"
 
 # ID:63,
 #: ID:63
@@ -6121,6 +6136,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -6128,10 +6144,15 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
+"Cesta/URL, ktorú ste zadlai vyzerá byť vo Windows nepovolená!\n"
+"Môžete to napriek tomu skúsiť, ale asi to spôsobí chybu.\n"
+"\n"
+"Platná adresa vo Windows nesmie obsahovať  '<>|\"?*:' a ani jedno z mien zariadení:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
 #: ID:314
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -6140,6 +6161,12 @@ msgid ""
 "<i>%s</i>\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
+"Cesta\n"
+"<i>%s</i>\n"
+"nevyzerá zhodná s cestou záplatového súboru.\n"
+"Ale TortoiseMerge našiel cestu\n"
+"<i>%s</i>,\n"
+"ktorá sa zhoduje lepšie. Chcete použiť navrhnutú cestu?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6195,10 +6222,13 @@ msgstr ""
 
 # ID:82,
 #: ID:82
+#, fuzzy
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
 msgstr ""
+"Vybrané URL adresy neboli vytvorené z jedného kmeňového adresára.\n"
+"Nieje možné zobraziť záznamy medzi nimi!"
 
 # ID:16,
 #: ID:16
@@ -6308,9 +6338,9 @@ msgstr "Tento produkt obsahuje softvér vyvynutý projektom OpenSSL (http://www.
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
-#, c-format
+#, fuzzy, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr ""
+msgstr "Program je prepojený s chýbajúcim exportom %s v súbore %s. Tento počítač prevdepodobne nemá kompatibilnú verziu %s."
 
 # ID:3857,#:
 # ID:3857,
@@ -6331,6 +6361,7 @@ msgstr "Táto vlastnoť nesmie mať viac riadkov. Iba jeden riadok je povolený.
 
 # ID:224,
 #: ID:224
+#, fuzzy
 msgid ""
 "To commit recursively and work around this error,\n"
 "make sure that all child items of a checked folder\n"
@@ -6338,6 +6369,11 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
+"Pre rekurzívne odovzdanie a obídenie tejto chyby,\n"
+"sa uistite, či všetky objekty v označenem adresáry\n"
+"sú tiež označené v odozvdávacom okne.\n"
+"Inak TortoiseSVN bude musieť vykonať nerekurzívne odovzdanie,\n"
+"ktoré neumožní odstránenie adresára."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -6463,7 +6499,7 @@ msgstr "TortoiseSVN Pridať..."
 # ID:132,
 #: ID:132
 msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Obvinenie"
+msgstr "TortoiseSVN Obviniť"
 
 # ID:77,
 #: ID:77
@@ -6519,7 +6555,7 @@ msgstr "TortoiseSVN Nastavenia"
 # ID:78,
 #: ID:78
 msgid "TortoiseSVN Switch..."
-msgstr ""
+msgstr "TortoiseSVN Prepnúť..."
 
 # ID:77,
 #: ID:77
@@ -6745,8 +6781,9 @@ msgstr "Aktualizujem %s"
 
 # ID:283,
 #: ID:283
+#, fuzzy
 msgid "Updating and retrying the lock..."
-msgstr ""
+msgstr "Aktualizovanie a obnovovanie zámkov..."
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6789,7 +6826,7 @@ msgstr "Použiť URL adresu &pracovnej kópie ako predvolenú pre \"Z:\" URL"
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Unified Diff from clipboard"
-msgstr ""
+msgstr "Použiť záplatový súbor zo schránky"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -6955,13 +6992,15 @@ msgstr "Verzia"
 
 # ID:114,
 #: ID:114
+#, fuzzy
 msgid "View revision for path in &webviewer"
-msgstr ""
+msgstr "Prezrieť revíziu cesty v &webviewer"
 
 # ID:114,
 #: ID:114
+#, fuzzy
 msgid "View revision in &webviewer"
-msgstr ""
+msgstr "Prezrieť revíziu v &webviewer"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -7304,10 +7343,13 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
+"bugtraq:label\n"
+"Menovka, ktorá bude zobrazená v edit boxe, kde uzivatel zada číslo prípadu."
 
 # ID:15,
 #: ID:15
@@ -7325,28 +7367,37 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
+"bugtraq:message\n"
+"Reťazec, ktorý je pridaný k záznamu, keď je zadané číslo prípadu.\n"
+"Reťazec musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
+"bugtraq:number\n"
+"Nastavte \"false\" keď váš bugtracking systém má odkazy na prípady nie podľa čísiel."
 
 # ID:14,
 #: ID:14
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 msgstr ""
+"bugtraq:url\n"
+"URL odkazujúca na záznam prípadov.\n"
+"Musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
 
 # ID:145,
 #: ID:145
@@ -7532,12 +7583,17 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
+"svn:externals\n"
+"Novými riadkami oddelený zoznam modulov. Každý pozostáva z relatívnej cesty, parametrami revízie a URL. Napríklad\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
 #: ID:14
@@ -7583,6 +7639,7 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+#, fuzzy
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -7590,6 +7647,11 @@ msgid ""
 "indicating that a user must acquire a lock on the file\n"
 "before they can edit it and commit changes."
 msgstr ""
+"svn:needs-lock\n"
+"Nastavte na hodnotu (napr.: '*') k vynúteniu zamknutia tohoto súboru.\n"
+"Pri odovzdávaní a aktulizovaní bude súbor označený ako zamknutý,\n"
+"indikujúc, že uživaľ musí získať zámok k súboru\n"
+"predtím ako ho zmení, alebo odošle zmeny."
 
 # ID:208,
 #: ID:208
@@ -7612,11 +7674,15 @@ msgstr "na %s"
 
 # ID:15,
 #: ID:15
+#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
 "in the commit dialog."
 msgstr ""
+"tsvn:logfilelistenglish\n"
+"Nastavte na \"false\", keď aby nechcete zoznam zmenených súborov v odovzdávacom okne\n"
+"bol vložený v angličtine."
 
 # ID:15,
 #: ID:15
@@ -7677,22 +7743,28 @@ msgstr "rozdielne hodnoty"
 
 # ID:17,
 #: ID:17
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "webviewer:pathrevision\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\n"
 "The string %REVISION% in the URL is replaced with the revision number,\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:revision\n"
+"URL odkazujúca na web stránku úložiska pre určený súbor a revíziu.\n"
+"Reťazec %REVISION% v URL bude nahradený číslom revízie.Reťazec %PATH% bude nahradený cestou súboru relatívne od kmeňového adresára úložiska."
 
 # ID:17,
 #: ID:17
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\n"
+"URL odkazujúca na web stránku úložiska pre určenú revíziu.\n"
+"Reťazec %REVISION% v URL bude nahradený číslom revízie."
 
 # ID:245,
 #: ID:245
@@ -7708,5 +7780,4 @@ msgstr "čo ukazuje na úložisko na URL:"
 #: ID:245
 msgid "year"
 msgstr "rok"
-
 
