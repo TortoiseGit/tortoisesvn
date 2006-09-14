@@ -140,6 +140,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
+	EnableSaveRestore(_T("EditPropertyValueDlg"));
 	return TRUE;
 }
 

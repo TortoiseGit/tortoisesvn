@@ -59,6 +59,7 @@ BOOL CURLDlg::OnInitDialog()
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	EnableSaveRestore(_T("URLDlg"));
 	return FALSE;
 }
 

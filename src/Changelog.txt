@@ -34,8 +34,8 @@ Version 1.4.0
 - CHG: The sort arrows now use the same orientation as explorer. (Stefan)
 - CHG: Sorting the columns author and message in the log dialog is now
        case-insensitive. (Tobias Schäfer)
-- CHG: The FileDiff dialog now remembers its size and position. (Tobias
-       Schäfer)
+- CHG: Several more dialogs now remember their size and position.
+       (Tobias Schäfer)
 - CHG: The 'recent message' is not appended to a prefilled log
        message by the tsvn:logtemplate property. Instead, the
        template is overwritten. See issue #283 for details. (Stefan)
