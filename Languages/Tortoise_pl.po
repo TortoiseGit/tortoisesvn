@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-06 13:04+0100\n"
+"PO-Revision-Date: 2006-09-13 17:33+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -613,12 +613,7 @@ msgstr "&Lista"
 msgid "&Load..."
 msgstr "&Załaduj..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Oznacz jako rozwiązany"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Scalanie"
 
@@ -636,6 +631,10 @@ msgstr "&Scalanie"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Natywny system plików (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Nawiguj"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -3727,6 +3726,10 @@ msgstr "DLL systemu pocztowego jest niepoprawny."
 msgid "Manage Subversion properties"
 msgstr "Zarządzaj właściwościami Subversion"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Oznacz jako &rozwiązany"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Oznacz jako rozwiązany"
@@ -5451,6 +5454,12 @@ msgstr "Pokaż/ukryj"
 msgid "Showing %ld nodes"
 msgstr "Pokazuje %ld węzłów"
 
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Pokazuję %ld wersji, od wersji %ld do wersji %ld - %ld wersji wybanych."
+
 # ID:272,
 #: ID:272
 #, c-format
@@ -6642,6 +6651,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Użyj adresu URL kopii roboczej jako &wartości domyślnej dla pola \"Od:\""
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Użyj zunifikowanego Diffa ze schowka"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6668,6 +6682,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Użyj prze&kreślenia dla usuniętych linii"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Użyj bloku tekstu z \"&Mój\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Użyj bloku tekstu z \"&Ich\""
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Użyj bloku tekstu z \"&mój\""
@@ -6678,6 +6702,50 @@ msgid "Use text block from \"&theirs\""
 msgstr "Użyj bloku tekstu z \"&ich\""
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Użyj bloku tekstu z \"Mó&j\" przed \"Ich\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"Użyj bloku tekstu z \"Mój\" przed \"Ich\"\n"
+"\"Mój\" blok tekstu a następnie \"Ich\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"Użyj bloku tekstu z \"Mój\"\n"
+"Użyj \"Mój\" blok tekstu"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Użyj bloku tekstu z \"Ic&h\" przed \"Mój\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr "Użyj bloku tekstu z \"Ich\" przed \"Mój\"\"Ich\" blok tekstu a następnie \"Mój\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"Użyj bloku tekstu z \"Ich\"\n"
+"Użyj \"Ich\" blok tekstu"
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Użyj bloku tekstu z \"mó&j\" przed \"ich\""
@@ -6685,7 +6753,7 @@ msgstr "Użyj bloku tekstu z \"mó&j\" przed \"ich\""
 # ID:251,
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Użyj bloku tekstu z \"i&ch\" przed \"mój\""
+msgstr "Użyj bloku tekstu z \"ic&h\" przed \"mój\""
 
 # ID:251,
 #: ID:251
