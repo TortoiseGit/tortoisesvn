@@ -225,6 +225,8 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_EOLSTYLE;
 		if (sName.Compare(_T("bugtraq:label"))==0)
 			nText = IDS_TT_BQLABEL;
+		if (sName.Compare(_T("bugtraq:logregex"))==0)
+			nText = IDS_TT_BQLOGREGEX;
 		if (sName.Compare(_T("bugtraq:message"))==0)
 			nText = IDS_TT_BQMESSAGE;
 		if (sName.Compare(_T("bugtraq:number"))==0)
