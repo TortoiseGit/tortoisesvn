@@ -153,7 +153,8 @@ UINT CLockDlg::StatusThread()
 	for (int i=0; i<nCount;i++)
 	{
 		CSVNStatusListCtrl::FileEntry* entry = m_cFileList.GetListEntry(i);
-
+		if (entry == NULL)
+			break;
 		BOOL bFound = FALSE;
 		SVNProperties propsbase(entry->GetPath(),SVNRev::REV_BASE);
 		for (int i=0; i<propsbase.GetCount(); i++)
