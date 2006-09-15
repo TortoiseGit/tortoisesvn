@@ -150,6 +150,7 @@
 					<defines>
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APU_HAVE_DB=1" />
+						<define name="SVN_LIBSVN_FS_LINKS_FS_BASE=1" />
 						<define name="ENABLE_NLS" />
 						<define name="SVN_NEON_0_25=1" />
 						<define name="alloca=_alloca" />
