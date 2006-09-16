@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2006-09-15 17:56+0900\n"
+"PO-Revision-Date: 2006-09-17 01:12+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7897,7 +7897,7 @@ msgstr "衝突"
 
 #: source/TortoiseSVN_en.xml:11093(para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "リポジトリの変更が手元にマージされる際、時には同じ行に変更がある場合があります。この場合、Subversion はそちらを使用するか自動的に決定できません。これを衝突と呼びます。それ以降の変更をコミットする前には、ファイルを手で修正し衝突を解消しなければなりません。"
 
 #: source/TortoiseSVN_en.xml:11103(glossterm)
 msgid "Copy"
@@ -7905,11 +7905,11 @@ msgstr "コピー"
 
 #: source/TortoiseSVN_en.xml:11105(para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "Subversion リポジトリでは、単一ファイルやツリー全体のコピーを作成できます。これは、領域を消費しないように、オリジナルへのリンクに少し似ている <quote>チープコピー</quote> で実装されています。コピーの作成ではコピー内に履歴を保存します。そのためコピーされる前についても追跡できます。"
 
 #: source/TortoiseSVN_en.xml:11117(para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "バージョン管理下のファイルを削除 (してコミット) すると、リポジトリ内のそのコミットを行ったバージョン以降に、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote> できます。"
 
 #: source/TortoiseSVN_en.xml:11129(para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
@@ -7969,11 +7969,11 @@ msgstr "ファイルやフォルダのリビジョンの歴史を表します。
 
 #: source/TortoiseSVN_en.xml:11210(para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "リポジトリに追加された変更を、手元で行った変更を壊さないように、作業コピーに追加するプロセスです。時には自動的に調整できず、作業コピーが衝突と呼ばれる状態になります。"
 
 #: source/TortoiseSVN_en.xml:11216(para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "作業コピーを更新する際に、自動的にマージが行われます。また、TortoiseSVN のマージツールを用いて、別のブランチにある変更を指定してマージすることもできます。"
 
 #: source/TortoiseSVN_en.xml:11224(glossterm)
 msgid "Patch"
@@ -7981,7 +7981,7 @@ msgstr "パッチ"
 
 #: source/TortoiseSVN_en.xml:11226(para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "作業コピーにテキストファイルの変更のみある場合、Unified Diff 形式で変更内容の単一ファイルを作成するのに、Subversion の Diff コマンドを使用できます。この形のファイルは、よく <quote>パッチ</quote> と言われており、他の誰か (やメーリングリスト) にメールで送ったり、他の作業コピーに適用したりできます。コミットアクセスできない人は、権限のあるコミッタが適用するように、変更をパッチファイルにして送ることができます。また、変更に自信がなければ、他の人に見てもらうようにパッチを送れます。"
 
 #: source/TortoiseSVN_en.xml:11239(glossterm)
 msgid "Property"
