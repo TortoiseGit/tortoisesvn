@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-09-11 22:48+0100\n"
+"PO-Revision-Date: 2006-09-16 16:36+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -995,7 +995,7 @@ msgstr "Branche"
 #: source/TortoiseMerge_en.xml:1128
 #: (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr "Un terme fréquemment utilisé dans les système de contrôle de révisions pour décrire ce qu'il se passe quand le développement se scinde à un point particuliers et suit 2 chemins séparés. Vous pouvez créer une branche hors de la ligne de développement principale pour développer une nouvelle fonctionnalité sans rendre la ligne principale instable. Ou vous pouvez faire une branche d'une sortie stable sur laquelle vous ne ferez que des corrections de bugs, pendant que les nouveaux développements sont faits sur la branche instable. Dans Subversion, une branche est implémentée comme une <quote>copie bon marché</quote>."
+msgstr "Un terme fréquemment utilisé dans les système de contrôle de révisions pour décrire ce qu'il se passe quand le développement se scinde à un point particulier et suit 2 chemins séparés. Vous pouvez créer une branche hors de la ligne de développement principale pour développer une nouvelle fonctionnalité sans rendre la ligne principale instable. Ou vous pouvez faire une branche d'une sortie stable sur laquelle vous ne ferez que des corrections de bugs, pendant que les nouveaux développements sont faits sur la branche instable. Dans Subversion, une branche est implémentée comme une <quote>copie bon marché</quote>."
 
 #: source/TortoiseMerge_en.xml:1141
 #: (glossterm)
@@ -1015,7 +1015,7 @@ msgstr "Nettoyer"
 #: source/TortoiseMerge_en.xml:1152
 #: (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
-msgstr "Pour citer le manuel de Subversion : <quote> Nettoie récursivement la copie de travail, en supprimant les verrous et en reprenant les opérations non terminées. Si vous obtenez une erreur <literal>copie de travail verrouillée</literal>, exécutez cette commande pour supprimer les verrous et rendre votre copie de travail utilisable à nouveau.</quote> Notez que dans ce contexte, les <quote>verrous</quote> font référence aux verrouillages du système de fichiers local et non au verrouillage du référentiel."
+msgstr "Pour citer le manuel Subversion : <quote> Nettoie récursivement la copie de travail, en supprimant les verrous et en reprenant les opérations non terminées. Si vous obtenez une erreur <literal>copie de travail verrouillée</literal>, exécutez cette commande pour supprimer les verrous et rendre votre copie de travail utilisable à nouveau.</quote> Notez que dans ce contexte, les <quote>verrous</quote> font référence aux verrouillages du système de fichiers local et non au verrouillage du référentiel."
 
 #: source/TortoiseMerge_en.xml:1167
 #: (glossterm)
@@ -1045,7 +1045,7 @@ msgstr "Copier"
 #: source/TortoiseMerge_en.xml:1191
 #: (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr "Dans un référentiel Subversion, vous pouvez créer une copie d'un unique fichier ou de toute une arborescence. Celles-ci sont implémentées comme des <quote>copies bon marché</quote> qui fonctionnent comme des liens vers l'original dans le sens qu'elle ne prennent quasiment pas de place. Faire une copie préserve l'historique de l'élément dans la copie, donc vous pouvez suivre les changements effectués avant que la copie n'ait été faite. "
+msgstr "Dans un référentiel Subversion, vous pouvez créer une copie d'un unique fichier ou de toute une arborescence. Celles-ci sont implémentées comme des <quote>copies bon marché</quote> qui fonctionnent comme des liens vers l'original dans le sens où elles ne prennent quasiment pas de place. Faire une copie préserve l'historique de l'élément dans la copie, donc vous pouvez suivre les changements effectués avant que la copie n'ait été faite. "
 
 #: source/TortoiseMerge_en.xml:1201
 #: (glossterm)
