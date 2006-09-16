@@ -1,3 +1,77 @@
+Version 1.4.0
+- NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
+       to be changed with Ctrl+Shift+Wheel. (Stefan)
+- NEW: In the file diff dialog, Ctrl-A now selects all entries, and 
+       Ctrl-C copies the selected entries to the clipboard. (Stefan)
+- CHG: Switched files are only shown in the check-for-modifications
+       dialog and not in e.g. the commit/revert/add dialog if they're
+       not modified. (Stefan)
+- CHG: Importing a folder from the repository browser now uses the
+       global ignore patterns. (Stefan)
+- CHG: The ancestry of two nodes is ignored when showing the differences
+       in the repository browser. (Stefan)
+- CHG: The sort arrows now use the same orientation as explorer. (Stefan)
+- CHG: Sorting the columns author and message in the log dialog is now
+       case-insensitive. (Tobias Schäfer)
+- CHG: Several more dialogs now remember their size and position.
+       (Tobias Schäfer)
+- CHG: The 'recent message' is not appended to a prefilled log
+       message by the tsvn:logtemplate property. Instead, the
+       template is overwritten. See issue #283 for details. (Stefan)
+- BUG: The header in TortoiseBlame was shown in the wrong font in translated
+       versions. (Kazutoshi Satoda)
+- BUG: The state of the "Floppy drives" checkbox was not set correctly
+       the first time on startup. (Stefan)
+- BUG: If the file list was initially empty, showing more files didn't
+       work correctly. (Stefan)
+- BUG: In the revision graph, if a button on the toolbar is pressed while
+       the updating thread is running the state of the button changed
+       without the action being done. (Stefan)
+- BUG: Reverting a file removed it from the file list, even if it
+       was switched. (Ivan Gerasimov)
+- BUG: Selecting fonts with non-ascii names didn't work in the
+       scintilla edit control. (Kazutoshi Satoda)
+- BUG: The file titles were not always un-escaped. (Stefan)
+- BUG: Ignored files couldn't be deleted correctly 
+       from the TSVN dialogs. (Ivan Gerasimov)
+- BUG: Reverting an added file with history didn't reset the
+       text status and the copied flag in the commit/cfm/...
+       dialogs. (Stefan)
+- BUG: Wrong regex strings in a bugtraq property could crash TortoiseProc
+       or force it into an endless loop. (Stefan)
+- BUG: The error message "user cancelled" was not properly encoded
+       and would show up garbled in certain translations. (Stefan)
+- BUG: TortoiseMerge could sometimes not diff 
+       UTF-16 files correctly. (Stefan)
+- BUG: The cache could crash with overly long path names. (Stefan)
+- BUG: The "help" button in the lock dialog did nothing. (Stefan)
+- BUG: The rubberband in the revision graph was not reset after
+       a recalculation of the graph. (Stefan)
+- BUG: TortoiseMerge coud cause a GPF when searching on one-pane
+       view mode. (Jeremy Whitby)
+- BUG: TortoiseMerge caused a GPF in debug mode when passing two
+       filenames. (Jeremy Whitby)
+- BUG: Reverting to a revision in the log dialog actually restored
+       to one revision below the expected revision. (Tobias Schäfer)
+- BUG: The hot key Ctrl-Return confirmed dialogs despite the
+       ok-button being disabled. (Tobias Schäfer)
+- BUG: After resolving a conflicted line with "use mine before theirs" or
+       "use theirs before mine", the scrollbars were not updated. (Stefan)
+- BUG: When changing the view types in the revision graph via the menu,
+       the toolbar buttons didn't change their state. (Stefan)
+- BUG: The status cache could make explorer flash constantly. (Stefan)
+- BUG: Showing the diffs of a file with property changes in the log dialog
+       started TortoiseMerge without additional information so that only the
+       temp file name was shown in the view header. (Stefan)
+- BUG: When two consecutive revisions were selected in the log dialog,
+       some entries were not shown in the context menu for the changed
+       files. (Stefan)
+- BUG: If an entry was deselected in the log dialog, the log message and
+       the changed files list was not cleared. (Stefan)
+- BUG: If the bugtraq:append property was set to 'false', the log message
+       inserted from the history was not inserted correctly. (Stefan)
+- BUG: Creating and accessing BDB repositories did not work. (Stefan)
+
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID
        in the commit dialog. See issue #202 for details. (Stefan)
@@ -179,6 +253,7 @@ Version 1.4.0RC1
 - NEW: If a commit fails with an error, the commit dialog re-opens again
        with the same files checked as before. 
        See issue #97 for details. (Stefan)
+- NEW: Added a glossary of terms to the docs. (Simon)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
