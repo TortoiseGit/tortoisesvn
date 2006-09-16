@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-12 00:41+0100\n"
+"PO-Revision-Date: 2006-09-16 15:53+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -605,13 +605,8 @@ msgstr "&Lista Nézet"
 msgid "&Load..."
 msgstr "&Betölt..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Megoldottnak jelöl"
-
 # Control-ID:1,#:
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Összegyúr"
 
@@ -629,6 +624,10 @@ msgstr "&Egyesít"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Természetes fájlrendszer (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Böngész"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -910,6 +909,11 @@ msgstr "&Nézet"
 msgid "&Whitespaces"
 msgstr "&Láthatatlan karakterek"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Egész világ"
+
 # Control-ID:1183,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -968,6 +972,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1166,6 +1172,11 @@ msgstr "Kiterjesztésfüggő összegyúró program hozzáadáasa"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "&Az elutasító listához adás"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Hozzáad..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1908,6 +1919,17 @@ msgstr "Színek"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "Parancs"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Parancs:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "Sikertelen parancs."
@@ -1987,6 +2009,11 @@ msgstr "%s és %s összehasonlítása"
 #: ID:74
 msgid "Completed"
 msgstr "Teljesítve"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Hook Szkrpitek Beállítása"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2573,6 +2600,11 @@ msgstr "Kiterjesztésfüggő összegyúró program szerkesztése"
 msgid "Edit log message"
 msgstr "Megjegyzés szerkesztése"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Szerkeszt..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2741,13 +2773,13 @@ msgstr "Kiterjesztés"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Kiterjesztésfüggő programok"
+msgid "Extension or mime-type:"
+msgstr "Kiterjesztés vagy mime-típus:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Kiterjesztés:"
+msgid "Extension/mime-type specific programs"
+msgstr "Kiterjesztésre/mime-típusra specializált programok"
 
 # ID:74,
 #: ID:74
@@ -3067,6 +3099,11 @@ msgstr "Nem kapcsolódó változó útvonalak el&rejtése"
 msgid "Help"
 msgstr "Súgó"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Szkript elrejtése futás közben"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3080,6 +3117,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tipp: Nyomj F5-t az fa ujratöltéséhez és Ctrl-F5-t az összes al-fához"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Hook Szkrpitek"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Hook Típus"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Hook Típus:"
 
 # ID:82,
 #: ID:82
@@ -3638,6 +3690,10 @@ msgstr "A levelezőrendszer DLL-je rossz."
 msgid "Manage Subversion properties"
 msgstr "Subversion tulajdonságok változtatása"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "&Megoldottnak jelöl"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Megoldottnak jelöl"
@@ -3662,7 +3718,7 @@ msgid "Max"
 msgstr "Max"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "Megőrizni kivánt megjegyzések száma"
 
@@ -4125,6 +4181,7 @@ msgstr "Foltfájlok (*.diff, *.patch)|*.diff;*.patch|Minden fájl (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Útvonal"
 
@@ -4171,6 +4228,12 @@ msgstr "Írd be a dátumot."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Adj meg a futtatandó hook szkriptet."
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4181,6 +4244,11 @@ msgstr "Írj be egy számot %1 és %2. között."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Írj be egy számot."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Adj meg egy útvonalat, ahol a hook szkriptet futtatod:"
 
 # ID:3858,#:
 # ID:3858,
@@ -4244,6 +4312,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Válassz egy gombot."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Válassz egy hook típust."
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4275,6 +4349,26 @@ msgstr "Várj, különbségeket keresek..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Kérlek várj..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Beküldés utáni hook"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Frissítés-utáni Hook"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Beküldés előtti hook"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Frissítés-előtti Hook"
 
 # ID:376,
 #: ID:376
@@ -4520,6 +4614,12 @@ msgstr "Távoli szöveges állapot"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "El&távolít az elutasító listáról"
+
+# ID:8,#:
+# ID:74,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Eltávolít..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5086,6 +5186,16 @@ msgstr ""
 "Válassz egy mappát ahová exportálsz.\n"
 "Új mappát is létrehozhatsz."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Válassz mappát ahol a szkript fut"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "Válassz hook szkriptfájlt"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5302,11 +5412,22 @@ msgstr "Változatlan fájlok mutatása"
 msgid "Show unversioned files"
 msgstr "Nem verziókezelt fájlok mutatása"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Mutat/Elrejt"
+
 # Control-ID:1209,
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "%ld csomók mutatása"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "%ld db verzió, %ld-tól %ld-ig, %ld kiválasztva."
 
 # ID:272,
 #: ID:272
@@ -5414,10 +5535,20 @@ msgstr "Telioszlop-grafikon"
 msgid "Stacked Line Graph"
 msgstr "Telivonal-grafikon"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Beküld Hook Indítása"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Kezdeti-Verzió"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Frissít Hook Indítása"
 
 # ID:245,#:
 # Control-ID:1132,#:
@@ -5723,6 +5854,16 @@ msgstr ""
 "A %s\n"
 "mappa nem létezik.\n"
 "Létre akarsz hozni egy ilyet?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"A hook szkript hibát jelzett:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6466,6 +6607,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "A &munkapéldány címeként használd az alap \"Innen:\" címet"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Egyesített folt használata a vágólapról"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6492,6 +6638,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "&Kitörölt sorok erőszakolása"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "\"&Enyém\" szövegblokk használata"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "\"&Övék\" szövegblokk használata"
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "\"&enyém\" szövegblokk használata"
@@ -6500,6 +6656,52 @@ msgstr "\"&enyém\" szövegblokk használata"
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "\"&övék\" szövegblokk használata"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "\"E&nyém\" szövegblokk használata az \"Övék\" előtt"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"\"Enyém\" szövegblokk használata az \"Övék\" előtt\n"
+"\"Én\" szövegblokk használata az \"Övék\" helyett"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"\"Enyém\" szövegblokk használata\n"
+"\"Én\" szövegblokk használata"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "\"Ö&vék\" szövegblokk használata az \"Enyém\" előtt"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"\"Övék\" szövegblokk használata az \"Enyém\" előtt\n"
+"\"Övék\" zövegblokk használata az \"Enyém\" helyett"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"\"Ö&vék\" szövegblokk használata\n"
+" \"Ö&vék\" szövegének használata"
 
 # ID:251,
 #: ID:251
@@ -6571,11 +6773,31 @@ msgstr "Érték"
 msgid "Version"
 msgstr "Verzió"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Útvonal verzió nézet a &böngészőben"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Verzió nézet a &böngészőben"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Látogasd meg a honlapunkat"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Várj"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Várj, amíg a script fut"
 
 # ID:88,
 #: ID:88
@@ -6597,6 +6819,11 @@ msgstr "URL-el:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Munkamásolat"
+
+# Control-ID:1183,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Munkamásolat Útvonala:"
 
 # ID:80,
 #: ID:80
@@ -7254,6 +7481,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "az értékek különböznek"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"A böngészőnek megadott cím egy megadott fájl megodott verziójára mutat.\n"
+"A %REVISION% szövegrészt cseréld a verziószámra,\n"
+"a %PATH% részt pedig a fájl elérési relatív útvonalára a tárház gyökerétől."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:pathrevision\n"
+"A böngészőnek megadott cím egy megadott fájlra mutat.\n"
+"A %REVISION% szövegrészt cseréld a verziószámra."
 
 # ID:244,
 #: ID:245
