@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2006-09-08 17:37+0900\n"
+"PO-Revision-Date: 2006-09-15 17:56+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3798,7 +3798,7 @@ msgstr "変更されたファイルの一覧をテキストファイルにエク
 
 #: source/TortoiseSVN_en.xml:5325(para)
 msgid "If you want to export the list of files <emphasis>and</emphasis> the actions (modified, added, deleted) as well, you can do that using the keyboard shortcuts <action>Ctrl-A</action> to select all entries and <action>Ctrl-C</action> to copy the detailed list to the clipboard."
-msgstr ""
+msgstr "ファイルの一覧 <emphasis>と</emphasis> 操作 (変更・追加・削除) をエクスポートする場合、キーボードショートカットを使用し、<action>Ctrl-A</action> ですべての項目を選択し、<action>Ctrl-C</action> で詳細な一覧をクリップボードにコピーできます。"
 
 #: source/TortoiseSVN_en.xml:5331(para)
 msgid "The button at the top allows you to change the direction of comparison. You can show the changes need to get from A to B, or if you prefer, from B to A."
@@ -3830,7 +3830,7 @@ msgstr "<placeholder-1/> いずれかのよくある画像フォーマットで 
 
 #: source/TortoiseSVN_en.xml:5367(para)
 msgid "Naturally you can also zoom in and out and pan around the image. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, wheelmouse) on both images are linked."
-msgstr ""
+msgstr "当然、画像をズームイン・ズームアウトしたり、視点変更もできます。<guilabel>Link images together</guilabel> オプションを選択しておくと、視点変更コントロール (スクロールバー、マウスホイール) は両方の画像をリンクして動かします。"
 
 #: source/TortoiseSVN_en.xml:5372(para)
 msgid "In image info box shows details about the image file, such as the size in pixels, resolution and colour depth. If this box gets in the way, use <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> to hide it."
@@ -4721,7 +4721,7 @@ msgstr "<guibutton>Unified Diff</guibutton>  は diff (差分) ファイル (マ
 
 #: source/TortoiseSVN_en.xml:6819(para)
 msgid "<guibutton>Diff</guibutton> shows you a list of changed files. <action>Double click</action> on any of the listed files to start the diff viewer. Unlike the unified diff, this shows you the changes in their full contextual detail. As with the unified diff, the changes you see here are the changes between the <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions. It does not show how your working copy will be affected by applying that change."
-msgstr ""
+msgstr "<guibutton>差分</guibutton> は変更されたファイルの一覧を表示します。その一覧したファイルを <action>ダブルクリック</action> すると、差分ビューアが起動します。Unified diff とは違い、文脈詳細の変更点を表示します。Unified diff と同様に、そこに表示された変更点は <guilabel>元:</guilabel> リビジョンと <guilabel>先:</guilabel> リビジョンの間の変更点です。その変更を適用することで、作業コピーにどのような影響があるかは表示しません。"
 
 #: source/TortoiseSVN_en.xml:6828(para)
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
@@ -5079,7 +5079,7 @@ msgstr "リポジトリブラウザをドラッグ &amp; ドロップでも操�
 
 #: source/TortoiseSVN_en.xml:7430(para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <action>Ctrl left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr ""
+msgstr "リポジトリ内で項目を移動する場合、単に新しい場所へ <action>左ドラッグ</action> してください。移動ではなくコピーを作成したい場合は、<action>Ctrl + 左ドラッグ</action> してください。コピーの際は、エクスプローラと同様にカーソルが <quote>+</quote> マークになります。"
 
 #: source/TortoiseSVN_en.xml:7436(para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <action>ctrl right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
@@ -5087,7 +5087,7 @@ msgstr "ファイルやフォルダを他の場所へコピー・移動したい
 
 #: source/TortoiseSVN_en.xml:7443(para)
 msgid "Whenever you make changes in the repository using one of these methods, you will be presented with a log message entry dialog. If you dragged something by mistake, this is also your chance to cancel the action."
-msgstr ""
+msgstr "以上の方法でリポジトリに変更を加える際には、必ずログメッセージ入力ダイアログが表示されます。間違えてドラッグした場合は、その操作をそこでキャンセルできます。"
 
 #: source/TortoiseSVN_en.xml:7448(para)
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <action>CTRL+C</action>."
@@ -5628,7 +5628,7 @@ msgstr "作業コピーの状態を取得するには時間がかかるため、
 
 #: source/TortoiseSVN_en.xml:8335(para)
 msgid "If you select the default option, you can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned."
-msgstr ""
+msgstr "デフォルトを選択すると、バージョン管理外のファイルを含むフォルダに、変更済マークをつけるようにできます。これにより、まだバージョン管理下に入れてない新しいファイルを作成したのを、覚えておくのに便利です。"
 
 #: source/TortoiseSVN_en.xml:8340(para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
@@ -5780,11 +5780,11 @@ msgstr "TortoiseSVN は、リポジトリごとに最新のログメッセージ
 
 #: source/TortoiseSVN_en.xml:8566(term)
 msgid "Re-open commit dialog after a commit failed"
-msgstr ""
+msgstr "コミットに失敗した場合はコミットダイアログを再表示する"
 
 #: source/TortoiseSVN_en.xml:8568(para)
 msgid "When a commit fails for some reason (working copy needs updating, pre-commit hook rejects commit, network error, etc), you can select this option to keep the commit dialog open ready to try again. However, you should be aware that this can lead to problems. If the failure means you need to update your working copy, and that update leads to conflicts you must resolve those first."
-msgstr ""
+msgstr "何らかの理由でコミットが失敗 (作業コピーを更新する必要があったり、pre-commit フックスクリプトがコミットを拒否したり、ネットワークエラーなど) したときに、もう一度できるようにコミットダイアログを開いたままにするのに、このオプションを選択できます。しかし、このオプションが原因で問題が起こる可能性があることを知っておいてください。作業コピーを更新する必要があるという理由で失敗した場合、更新して衝突が発生したら、まずこれを解決しなければなりません。"
 
 #: source/TortoiseSVN_en.xml:8579(term)
 msgid "Contact the repository on startup"
@@ -6984,7 +6984,7 @@ msgstr "永続的な設定を行わずに、コマンド終了時に進行ダイ
 
 #: source/TortoiseSVN_en.xml:10181(para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
-msgstr ""
+msgstr "以下の表には、TortoiseProc.exe のコマンドラインで使用してアクセスする、すべてのコマンドを一覧しています。上で述べたように、<literal>/command:abcd</literal> の形で使用してください。表では、紙面を節約するため、頭に付ける <literal>/command</literal> は省略しています。"
 
 #: source/TortoiseSVN_en.xml:10200(title)
 msgid "List of available commands and options"
@@ -7849,7 +7849,7 @@ msgstr "用語集"
 
 #: source/TortoiseSVN_en.xml:11000(para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr "ファイルやディレクトリをリポジトリに追加する Subversion コマンド。新しい項目は、コミットした際にリポジトリに追加されます。"
+msgstr "ファイルやディレクトリをリポジトリに追加する Subversion コマンドです。新しい項目は、コミットした際にリポジトリに追加されます。"
 
 #: source/TortoiseSVN_en.xml:11008(glossterm)
 msgid "BASE revision"
@@ -7857,11 +7857,11 @@ msgstr "BASE リビジョン"
 
 #: source/TortoiseSVN_en.xml:11010(para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr "<emphasis>作業コピー</emphasis>にあるファイルやフォルダの現在のベースリビジョン。最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダののリビジョンです。BASE リビジョンは、通常 HEAD リビジョンと同じではありません。"
+msgstr "<emphasis>作業コピー</emphasis>にあるファイルやフォルダの現在のベースリビジョンで、最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダののリビジョンです。BASE リビジョンは、通常 HEAD リビジョンと同じではありません。"
 
 #: source/TortoiseSVN_en.xml:11021(para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "このコマンドはテキストファイル専用で、すべての行に対して、最後に変更したリポジトリのリビジョンと、誰が変更したのかを注釈します。我々の GUI 実装では、TortoiseBlame を呼び出し、リビジョン番号の上にマウスを持っていくと、コミット日時やログメッセージも表示します。"
 
 #: source/TortoiseSVN_en.xml:11031(glossterm)
 msgid "BDB"
@@ -7869,7 +7869,7 @@ msgstr "BDB"
 
 #: source/TortoiseSVN_en.xml:11033(para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB。十分テストされているリポジトリ用データベースバックエンドですが、ネットワーク共有できません。1.2 以前のリポジトリのデフォルト。"
+msgstr "Berkeley DB。十分テストされているリポジトリ用データベースバックエンドですが、ネットワーク共有できません。1.2 以前のリポジトリのデフォルトです。"
 
 #: source/TortoiseSVN_en.xml:11040(glossterm)
 msgid "Branch"
@@ -7877,19 +7877,19 @@ msgstr "ブランチ"
 
 #: source/TortoiseSVN_en.xml:11042(para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "ある点で開発が2つの独立したパスに分岐したことをと表す、リビジョン管理システムの用語です。メインラインを不安定にせずに新機能の開発を行うように、メインの開発ラインからブランチを作成できます。また、今後バグフィックスしか行わない安定版リリースのブランチを作成し、新機能の開発は不安定なトランクで行えます。Subversion のブランチは、<quote>チープコピー</quote> として実装されています。"
 
 #: source/TortoiseSVN_en.xml:11057(para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr "空のディレクトリにリポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion コマンド。"
+msgstr "空のディレクトリにリポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion コマンドです。"
 
 #: source/TortoiseSVN_en.xml:11066(para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "以下 Subversion book から引用します。<quote>作業コピーを再帰的にクリーンアップ (ロックの削除、未完操作の回復) を行います。<literal>作業コピーがロックされています</literal>というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote> ここで言う <quote>ロック</quote> は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
 
 #: source/TortoiseSVN_en.xml:11083(para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion コマンド"
+msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion コマンドです。"
 
 #: source/TortoiseSVN_en.xml:11091(glossterm)
 msgid "Conflict"
@@ -7925,7 +7925,7 @@ msgstr "FSFS"
 
 #: source/TortoiseSVN_en.xml:11148(para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "FS ファイルシステム。リポジトリ用の Subversion が持つファイルシステムバックエンド。ネットワーク共有が可能。1.2 以降のリポジトリのデフォルト。"
+msgstr "FS ファイルシステム。リポジトリ用の Subversion が持つファイルシステムバックエンドです。ネットワーク共有が可能です。1.2 以降のリポジトリのデフォルトです。"
 
 #: source/TortoiseSVN_en.xml:11157(para)
 msgid "Group policy object"
@@ -7937,11 +7937,11 @@ msgstr "HEAD リビジョン"
 
 #: source/TortoiseSVN_en.xml:11165(para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダの最新リビジョン。"
+msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダの最新リビジョンです。"
 
 #: source/TortoiseSVN_en.xml:11173(para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr "ひとつのリビジョンで、フォルダ階層のエントリをリポジトリにインポートするコマンド。"
+msgstr "ひとつのリビジョンで、フォルダ階層のエントリをリポジトリにインポートするコマンドです。"
 
 #: source/TortoiseSVN_en.xml:11180(glossterm)
 msgid "Lock"
@@ -8045,7 +8045,7 @@ msgstr "Subversion のよく使われる省略表現。"
 
 #: source/TortoiseSVN_en.xml:11340(para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subversion カスタムプロトコルの名前。"
+msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subversion カスタムプロトコルの名前です。"
 
 #: source/TortoiseSVN_en.xml:11349(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
