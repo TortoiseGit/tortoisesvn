@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2006-09-17 16:24+0900\n"
+"PO-Revision-Date: 2006-09-17 17:49+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -789,11 +789,11 @@ msgstr "<emphasis>作業コピー</emphasis>にあるファイルやフォルダ
 
 #: source/TortoiseMerge_en.xml:1105(glossterm)
 msgid "Blame"
-msgstr ""
+msgstr "注釈履歴"
 
 #: source/TortoiseMerge_en.xml:1107(para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "このコマンドはテキストファイル専用で、すべての行に対して、最後に変更したリポジトリのリビジョンと、誰が変更したのかを注釈します。我々の GUI 実装では、TortoiseBlame を呼び出し、リビジョン番号の上にマウスを持っていくと、コミット日時やログメッセージも表示します。"
 
 #: source/TortoiseMerge_en.xml:1117(glossterm)
 msgid "BDB"
@@ -805,27 +805,27 @@ msgstr "Berkeley DB。十分テストされているリポジトリ用データ�
 
 #: source/TortoiseMerge_en.xml:1126(glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "ブランチ"
 
 #: source/TortoiseMerge_en.xml:1128(para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "ある点で開発が2つの独立したパスに分岐したことをと表す、リビジョン管理システムの用語です。メインラインを不安定にせずに新機能の開発を行うように、メインの開発ラインからブランチを作成できます。また、今後バグフィックスしか行わない安定版リリースのブランチを作成し、新機能の開発は不安定なトランクで行えます。Subversion のブランチは、<quote>チープコピー</quote> として実装されています。"
 
 #: source/TortoiseMerge_en.xml:1141(glossterm)
 msgid "Checkout"
-msgstr ""
+msgstr "チェックアウト"
 
 #: source/TortoiseMerge_en.xml:1143(para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "空のディレクトリにリポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion コマンドです。"
 
 #: source/TortoiseMerge_en.xml:1150(glossterm)
 msgid "Cleanup"
-msgstr ""
+msgstr "クリーンアップ"
 
 #: source/TortoiseMerge_en.xml:1152(para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "以下 Subversion book から引用します。<quote>作業コピーを再帰的にクリーンアップ (ロックの削除、未完操作の回復) を行います。<literal>作業コピーがロックされています</literal>というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote> ここで言う <quote>ロック</quote> は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
 
 #: source/TortoiseMerge_en.xml:1167(glossterm)
 msgid "Commit"
@@ -833,7 +833,7 @@ msgstr "コミット"
 
 #: source/TortoiseMerge_en.xml:1169(para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion コマンドです。"
 
 #: source/TortoiseMerge_en.xml:1177(glossterm)
 msgid "Conflict"
@@ -841,39 +841,39 @@ msgstr "衝突"
 
 #: source/TortoiseMerge_en.xml:1179(para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "リポジトリの変更が手元にマージされる際、時には同じ行に変更がある場合があります。この場合、Subversion はそちらを使用するか自動的に決定できません。これを衝突と呼びます。それ以降の変更をコミットする前には、ファイルを手で修正し衝突を解消しなければなりません。"
 
 #: source/TortoiseMerge_en.xml:1189(glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "コピー"
 
 #: source/TortoiseMerge_en.xml:1191(para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "Subversion リポジトリでは、単一ファイルやツリー全体のコピーを作成できます。これは、領域を消費しないように、オリジナルへのリンクに少し似ている <quote>チープコピー</quote> で実装されています。コピーの作成ではコピー内に履歴を保存します。そのためコピーされる前についても追跡できます。"
 
 #: source/TortoiseMerge_en.xml:1201(glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: source/TortoiseMerge_en.xml:1203(para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "バージョン管理下のファイルを削除 (してコミット) すると、リポジトリ内のそのコミットを行ったバージョン以降に、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote> できます。"
 
 #: source/TortoiseMerge_en.xml:1213(glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "Diff"
 
 #: source/TortoiseMerge_en.xml:1215(para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr ""
+msgstr "<quote>差分表示 (Show Differences)</quote> の略。どのような変更が行われたのか正確に見たいときに便利です。"
 
 #: source/TortoiseMerge_en.xml:1222(glossterm)
 msgid "Export"
-msgstr ""
+msgstr "エクスポート"
 
 #: source/TortoiseMerge_en.xml:1224(para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr ""
+msgstr "このコマンドは、作業コピーと同様にバージョン管理下のフォルダをコピーしますが、<literal>.svn</literal> は作成しません。"
 
 #: source/TortoiseMerge_en.xml:1232(glossterm)
 msgid "FSFS"
@@ -901,76 +901,75 @@ msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダ
 
 #: source/TortoiseMerge_en.xml:1257(glossterm)
 msgid "Import"
-msgstr ""
+msgstr "インポート"
 
 #: source/TortoiseMerge_en.xml:1259(para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr ""
+msgstr "ひとつのリビジョンで、フォルダ階層のエントリをリポジトリにインポートするコマンドです。"
 
 #: source/TortoiseMerge_en.xml:1266(glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "ロック"
 
 #: source/TortoiseMerge_en.xml:1268(para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除き、ロックが外れるまでリポジトリにコミット禁止の印を付けます。"
 
 #: source/TortoiseMerge_en.xml:1276(glossterm)
 msgid "Log"
-msgstr ""
+msgstr "ログ"
 
 #: source/TortoiseMerge_en.xml:1278(para)
-#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダの最新リビジョン。"
+msgstr "ファイルやフォルダのリビジョンの歴史を表します。<quote>履歴</quote>とも表します。"
 
 #: source/TortoiseMerge_en.xml:1285(glossterm)
 msgid "History"
-msgstr ""
+msgstr "履歴"
 
 #: source/TortoiseMerge_en.xml:1287(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr ""
+msgstr "ファイルやフォルダのリビジョンの歴史を表します。<quote>ログ</quote>とも表します。"
 
 #: source/TortoiseMerge_en.xml:1294(glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "マージ"
 
 #: source/TortoiseMerge_en.xml:1296(para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "リポジトリに追加された変更を、手元で行った変更を壊さないように、作業コピーに追加するプロセスです。時には自動的に調整できず、作業コピーが衝突と呼ばれる状態になります。"
 
 #: source/TortoiseMerge_en.xml:1302(para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "作業コピーを更新する際に、自動的にマージが行われます。また、TortoiseSVN のマージツールを用いて、別のブランチにある変更を指定してマージすることもできます。"
 
 #: source/TortoiseMerge_en.xml:1310(glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "パッチ"
 
 #: source/TortoiseMerge_en.xml:1312(para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "作業コピーにテキストファイルの変更のみある場合、Unified Diff 形式で変更内容の単一ファイルを作成するのに、Subversion の Diff コマンドを使用できます。この形のファイルは、よく <quote>パッチ</quote> と言われており、他の誰か (やメーリングリスト) にメールで送ったり、他の作業コピーに適用したりできます。コミットアクセスできない人は、権限のあるコミッタが適用するように、変更をパッチファイルにして送ることができます。また、変更に自信がなければ、他の人に見てもらうようにパッチを送れます。"
 
 #: source/TortoiseMerge_en.xml:1325(glossterm)
 msgid "Property"
-msgstr ""
+msgstr "プロパティ"
 
 #: source/TortoiseMerge_en.xml:1327(para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "ディレクトリやファイルをバージョン管理下に置くのに加えて、Subversion はバージョン管理下のメタデータを追加できます。これは、バージョン管理下のディレクトリ・ファイルごとの <quote>プロパティ</quote> として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。Subversion には、<literal>svn:eol-style</literal> のような内部で使用する特殊なプロパティがいくつかあります。TortoiseSVN にも <literal>tsvn:logminsize</literal> のような特殊なプロパティがあります。お好みの名前と値を持つプロパティの追加もできます。"
 
 #: source/TortoiseMerge_en.xml:1340(glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "再配置"
 
 #: source/TortoiseMerge_en.xml:1342(para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "サーバ上の異なるディレクトリに移動したり、ドメイン名が変更されたりして、リポジトリが移動する場合、作業コピーを <quote>再配置</quote> して、リポジトリのURLを新しい場所に指し示してください。"
 
 #: source/TortoiseMerge_en.xml:1348(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "データを格納し保守する中心部。複数のデータベースやファイルをネットワーク上に分散して置くこともでき、ネットワークに出ずに直接アクセスできる場所に置くこともできます。"
 
 #: source/TortoiseMerge_en.xml:1357(glossterm)
 msgid "Repository"
@@ -986,7 +985,7 @@ msgstr "解消"
 
 #: source/TortoiseMerge_en.xml:1370(para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr ""
+msgstr "作業コピーのファイルが、マージ後に衝突状態になったままになった場合、人間がエディタ (または TortoiseMerge) で衝突を整理しなければなりません。このプロセスは <quote>衝突の解消</quote> と言われています。衝突したファイルを解消マークを付けると、コミットできるようになります。"
 
 #: source/TortoiseMerge_en.xml:1380(glossterm)
 msgid "Revert"
@@ -994,7 +993,7 @@ msgstr "取り消し"
 
 #: source/TortoiseMerge_en.xml:1382(para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "作業コピーを最後に更新したときから、Subversion はそれぞれのファイルの <quote>当初の</quote> コピーを手元に保持しています。変更を行い、その変更を取り消したい場合は、<quote>取り消し</quote> コマンドを使用して当初のコピーに戻せます。"
 
 #: source/TortoiseMerge_en.xml:1391(glossterm)
 msgid "Revision"
@@ -1002,55 +1001,55 @@ msgstr "リビジョン"
 
 #: source/TortoiseMerge_en.xml:1393(para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "変更セットのコミット時、常に新しい <quote>リビジョン</quote> をリポジトリに作成します。各リビジョンは、履歴の決まった場所にリポジトリツリーの状態を表します。過去にさかのぼる場合は、リビジョン N のような形でリポジトリを調べられます。"
 
 #: source/TortoiseMerge_en.xml:1400(para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "言い換えると、リビジョンは、リビジョンが作成された時に行われた変更を指し示しています。"
 
 #: source/TortoiseMerge_en.xml:1407(glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "リビジョンプロパティ (revprop)"
 
 #: source/TortoiseMerge_en.xml:1409(para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "ちょうどファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持てます。リビジョンが作成されるときに、<literal>svn:date svn:author svn:log</literal> といった特殊な revprops が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
 
 #: source/TortoiseMerge_en.xml:1421(glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #: source/TortoiseMerge_en.xml:1423(para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Subversion のよく使われる省略表現。"
 
 #: source/TortoiseMerge_en.xml:1426(para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subversion カスタムプロトコルの名前です。"
 
 #: source/TortoiseMerge_en.xml:1433(glossterm)
 msgid "Switch"
-msgstr ""
+msgstr "スイッチ"
 
 #: source/TortoiseMerge_en.xml:1435(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "ちょうど <quote>リビジョンへの更新</quote> が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>スイッチ</quote> はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
 
 #: source/TortoiseMerge_en.xml:1447(glossterm)
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: source/TortoiseMerge_en.xml:1449(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "リポジトリから作業コピーへ最新の変更点を取得するコマンド。作業コピーの変更点に、他の人が行った変更をマージします。"
 
 #: source/TortoiseMerge_en.xml:1457(glossterm)
 msgid "Working Copy"
-msgstr ""
+msgstr "作業コピー"
 
 #: source/TortoiseMerge_en.xml:1459(para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "手元の<quote>サンドボックス</quote>で、バージョン管理ファイルに対して作業を行う場所です。また通常手元のハードディスクに記録されています。リポジトリからの <quote>チェックアウト</quote> で作業コピーを作成し、<quote>コミット</quote> で変更点をリポジトリに反映します。"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseMerge_en.xml:0(None)
