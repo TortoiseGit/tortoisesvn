@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2006-09-17 01:12+0900\n"
+"PO-Revision-Date: 2006-09-17 13:02+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7989,15 +7989,15 @@ msgstr "プロパティ"
 
 #: source/TortoiseSVN_en.xml:11241(para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "ディレクトリやファイルをバージョン管理下に置くのに加えて、Subversion はバージョン管理下のメタデータを追加できます。これは、バージョン管理下のディレクトリ・ファイルごとの <quote>プロパティ</quote> として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。Subversion には、<literal>svn:eol-style</literal> のような内部で使用する特殊なプロパティがいくつかあります。TortoiseSVN にも <literal>tsvn:logminsize</literal> のような特殊なプロパティがあります。お好みの名前と値を持つプロパティの追加もできます。"
 
 #: source/TortoiseSVN_en.xml:11256(para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "サーバ上の異なるディレクトリに移動したり、ドメイン名が変更されたりして、リポジトリが移動する場合、作業コピーを <quote>再配置</quote> して、リポジトリのURLを新しい場所に指し示してください。"
 
 #: source/TortoiseSVN_en.xml:11262(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "注意: このコマンドは、作業コピーが同じリポジトリ、同じ場所を指していて、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに <quote>スイッチ</quote> コマンドを使用する必要があります。"
 
 #: source/TortoiseSVN_en.xml:11273(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
@@ -8009,11 +8009,11 @@ msgstr "解消"
 
 #: source/TortoiseSVN_en.xml:11284(para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr ""
+msgstr "作業コピーのファイルが、マージ後に衝突状態になったままになった場合、人間がエディタ (または TortoiseMerge) で衝突を整理しなければなりません。このプロセスは <quote>衝突の解消</quote> と言われています。衝突したファイルを解消マークを付けると、コミットできるようになります。"
 
 #: source/TortoiseSVN_en.xml:11296(para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "作業コピーを最後に更新したときから、Subversion はそれぞれのファイルの <quote>当初の</quote> コピーを手元に保持しています。変更を行い、その変更を取り消したい場合は、<quote>取り消し</quote> コマンドを使用して当初のコピーに戻せます。"
 
 #: source/TortoiseSVN_en.xml:11305(glossterm)
 msgid "Revision"
@@ -8021,11 +8021,11 @@ msgstr "リビジョン"
 
 #: source/TortoiseSVN_en.xml:11307(para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "変更セットのコミット時、常に新しい <quote>リビジョン</quote> をリポジトリに作成します。各リビジョンは、履歴の決まった場所にリポジトリツリーの状態を表します。過去にさかのぼる場合は、リビジョン N のような形でリポジトリを調べられます。"
 
 #: source/TortoiseSVN_en.xml:11314(para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "言い換えると、リビジョンは、リビジョンが作成された時に行われた変更を指し示しています。"
 
 #: source/TortoiseSVN_en.xml:11321(glossterm)
 msgid "Revision Property (revprop)"
@@ -8033,7 +8033,7 @@ msgstr "リビジョンプロパティ (revprop)"
 
 #: source/TortoiseSVN_en.xml:11323(para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "ちょうどファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持てます。リビジョンが作成されるときに、<literal>svn:date svn:author svn:log</literal> といった特殊な revprops が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
 
 #: source/TortoiseSVN_en.xml:11335(glossterm)
 msgid "SVN"
@@ -8049,7 +8049,7 @@ msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subver
 
 #: source/TortoiseSVN_en.xml:11349(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "ちょうど <quote>リビジョンへの更新</quote> が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>スイッチ</quote> はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
 
 #: source/TortoiseSVN_en.xml:11363(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
