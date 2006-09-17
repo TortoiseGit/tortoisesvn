@@ -19,6 +19,12 @@
 - CHG: More accelerator keys and menu reorganization in TortoiseMerge.
        See issue #284 for details. (Jeremy Whitby)
 
+Version 1.4.1
+- BUG: When the bugtraq:message was set to "%BUGID%" only and the 
+       bugtraq:number was set to "true", the log message from the
+       'recent log messages' was inserted into the bug ID field instead of
+       the log message field in the commit dialog. (Stefan)
+
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
        to be changed with Ctrl+Shift+Wheel. (Stefan)

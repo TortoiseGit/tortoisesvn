@@ -262,7 +262,25 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
 		if (msg.ReverseFind('\n')>=0)
 			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
 		else
-			sBugLine = msg;
+		{
+			if (bNumber)
+			{
+				// find out if the message consists only of numbers
+				bool bOnlyNumbers = true;
+				for (int i=0; i<msg.GetLength(); ++i)
+				{
+					if (!_istdigit(msg[i]))
+					{
+						bOnlyNumbers = false;
+						break;
+					}
+				}
+				if (bOnlyNumbers)
+					sBugLine = msg;
+			}
+			else
+				sBugLine = msg;
+		}
 		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
 			sBugLine.Empty();
 		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
