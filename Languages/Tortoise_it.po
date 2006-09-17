@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-11 14:37+0100\n"
+"PO-Revision-Date: 2006-09-17 14:01+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -606,12 +606,7 @@ msgstr "&Lista"
 msgid "&Load..."
 msgstr "&Carica..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Segna come risolto"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Fondi"
 
@@ -629,6 +624,10 @@ msgstr "&Fusione"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "Filesystem &nativo (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Naviga"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -915,6 +914,11 @@ msgstr "&Visualizza"
 msgid "&Whitespaces"
 msgstr "&Spaziature"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Tutta la parola"
+
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -973,6 +977,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1173,6 +1179,11 @@ msgstr "Aggiungi applicazione di fusione per l'estensione"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Aggiungi alla lista &ignora"
+
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Aggiungi..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1917,6 +1928,17 @@ msgstr "Colori"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "Linea di comando"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Linea di comando da eseguire:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "Impossibile eseguire il comando."
@@ -1997,6 +2019,11 @@ msgstr "Comparazione di %s con %s"
 #: ID:74
 msgid "Completed"
 msgstr "Completato"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Configura gli Hook script"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2585,6 +2612,11 @@ msgstr "Modifica programma di fusione l'estensione"
 msgid "Edit log message"
 msgstr "Modifica commento"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Modifica..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2754,13 +2786,13 @@ msgstr "Estensione"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Programma specifico per l'estensione"
+msgid "Extension or mime-type:"
+msgstr "Estensione o mime-type:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Estensione:"
+msgid "Extension/mime-type specific programs"
+msgstr "Programma specifico per l'estensione/mime-type"
 
 # ID:74,
 #: ID:74
@@ -3078,6 +3110,11 @@ msgstr "&Nascondi percorsi modificati non correlati"
 msgid "Help"
 msgstr "Aiuto"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Nascondi lo script mentre è attivo"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3091,6 +3128,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Suggerimento: premere F5 per aggiornare il sottoramo selezionato e Ctrl-F5 per caricarne tutte le sottocartelle."
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Hook script"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Hook Type"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Hook Type:"
 
 # ID:82,
 #: ID:82
@@ -3647,6 +3699,10 @@ msgstr "La DLL del sistema di mail non è valida."
 msgid "Manage Subversion properties"
 msgstr "Fondi le proprietà di Subversion"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Segna come &risolto"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Segna come risolto"
@@ -3671,7 +3727,7 @@ msgid "Max"
 msgstr "Massimo"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "Numero massimo di commenti da conservare nella cronologia"
 
@@ -4137,6 +4193,7 @@ msgstr "File patch (*.diff, *.patch)|*.diff;*.patch|Tutti i file (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Percorso"
 
@@ -4181,6 +4238,12 @@ msgstr "Inserire una data."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Inserire uno hook script da eseguire."
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4191,6 +4254,11 @@ msgstr "Inserire un numero da %1 a %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Inserire un numero."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Inserire un percorso al quale applicare uno hook script"
 
 # ID:3858,#:
 # ID:3858,
@@ -4253,6 +4321,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Per favore selezionare un bottone."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Selezionare un tipo di hook"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4284,6 +4358,26 @@ msgstr "Attendere, reperimento delle differenze..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Attendere prego..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Hook post-invio"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Hook post-aggiornamento"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Hook pre-invio"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Hook pre-aggiornamento"
 
 # ID:376,
 #: ID:376
@@ -4529,6 +4623,11 @@ msgstr "Stato del testo remoto"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Rimuovi dalla lista &ignora"
+
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Rimuovi..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5087,6 +5186,16 @@ msgstr ""
 "Selezionare la cartella in cui esportare.\n"
 "Potrebbe essere necessario dover creare una nuova cartella prima di procedere all'esportazione."
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Seleziona una cartella su cui eseguire lo script"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "Seleziona il file contenente lo hook script"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5302,11 +5411,22 @@ msgstr "Mostra file non modificati"
 msgid "Show unversioned files"
 msgstr "Mostra file senza versione"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Visualizza/Nascondi"
+
 # Control-ID:1073,
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Mostra %ld nodi"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "%ld revisioni visualizzate, dalla revisione %ld alla revisione %ld - %ld revisioni selezionate."
 
 # ID:272,
 #: ID:272
@@ -5414,10 +5534,20 @@ msgstr "Barre in pila"
 msgid "Stacked Line Graph"
 msgstr "Linee in pila"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Hook di inizio invio"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Inizio revisione"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Hook di inizio aggiornamento"
 
 # ID:74,#:
 # ID:77,#:
@@ -5726,6 +5856,16 @@ msgstr ""
 "%s\n"
 "non esiste.\n"
 "Si desidera crearla?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Lo hook script ha segnalato un errore:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6478,6 +6618,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Usa l'URL della copia di &lavoro come predefinito per il campo \"Da:\""
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Una confronto unificato dagli appunti"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6504,6 +6649,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "&Barra le linee eliminate"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Usa il blocco di testo dal \"&mio\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Usa il blocco di testo dal \"&loro\""
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Usa il blocco di testo dal \"&mio\""
@@ -6512,6 +6667,44 @@ msgstr "Usa il blocco di testo dal \"&mio\""
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Usa il blocco di testo dal \"&loro\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr "Usa il blocco di testo dal \"&mio\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
 
 # ID:251,
 #: ID:251
@@ -6583,11 +6776,31 @@ msgstr "Valore"
 msgid "Version"
 msgstr "Versione"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Visualizza il percorso della revisione nel &webviewer"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Visualizza revisione nel &webviewer"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visita il nostro sito"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Attendi"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Attende che lo script abbia finito"
 
 # ID:219,
 #: ID:88
@@ -6609,6 +6822,11 @@ msgstr "Con URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Copia di lavoro"
+
+# ID:151,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Percorso della copia di lavoro:"
 
 # ID:80,
 #: ID:80
@@ -7266,6 +7484,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "valori sono differenti"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL che punta al web viewer per un repository secondo un specifico file e revisione.\n"
+"La stringa %REVISION% nell'URL verrà sostituita con il numero di revisione,\n"
+"la stringa %PATH% sarà sostituita con il percorso del file basandosi sulla root del repository."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"URL che punta al web viewer per un repository secondo una specifica revisione.\n"
+"La stringa %REVISION% nell'URL verrà sostituita con il numero di revisione."
 
 # ID:244,
 #: ID:245
