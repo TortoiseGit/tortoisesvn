@@ -32,8 +32,14 @@
 				</listitem>
 				<listitem>
 					<para>
+						If you already have a version of Subversion installed, and
+						svnserve is running, you will need to stop it before continuing.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						Run the Subversion installer. If you run the installer on
-						your server you can skip step 3.
+						your server you can skip step 4.
 					</para>
 				</listitem>
 				<listitem>
@@ -43,7 +49,7 @@
 						<filename>C:\Program Files\Subversion</filename>) and in the
 						<filename>bin</filename> directory, find the files
 						<filename>svnserve.exe</filename>,
-						<filename>libdb43.dll</filename>,
+						<filename>libdb44.dll</filename>,
 						<filename>libeay32.dll</filename> and
 						<filename>ssleay32.dll</filename>
 						- copy these files into a directory on your server e.g.
@@ -60,10 +66,10 @@
 			on your server.  The simplest approach is to run the following from a DOS
 			shell or create a windows shortcut:
 <screen>
-svnserve.exe -d
+svnserve.exe --daemon
 </screen>
 			svnserve will now start waiting for incoming requests
-			on port 3690. The -d switch tells svnserve to run
+			on port 3690. The --daemon switch tells svnserve to run
 			as a daemon process, so it will always exist until it is manually terminated.
 		</para>
 		<para>
@@ -90,21 +96,21 @@ svn://localhost/repos/TestRepo
 		</para>
 		<para>
 			You can also increase security and save time entering Url's with
-			svnserve by using the -r switch to set the root
+			svnserve by using the --root switch to set the root
 			location and restrict access to a specified directory on the server:
 <screen>
-svnserve.exe -d -r drive:\path\to\repository
+svnserve.exe --daemon --root drive:\path\to\repository
 </screen>
 			Using the previous test as a guide, svnserve would now run as:
 <screen>
-svnserve.exe -d -r c:\repos
+svnserve.exe --daemon --root c:\repos
 </screen>
 			And in TortoiseSVN our repo-browser Url is now shortened to:
 <screen>
 svn://localhost/TestRepo
 </screen>
-			Note that the -r switch is also needed if your repository is located on
-			a different partition or drive than the location of svnserve
+			Note that the --root switch is also needed if your repository is located 
+			on a different partition or drive than the location of svnserve
 			on your server.
 		</para>
 		<warning>
@@ -124,15 +130,45 @@ svn://localhost/TestRepo
 				<primary>svnservice</primary>
 			</indexterm>
 			<para>
-				If you are concerned about always having a user logged in on your server,
-				or worried about someone shutting down svnserve or
+				If you are concerned about always having a user logged in on your 
+				server, or worried about someone shutting down svnserve or
 				forgetting to restart it after a reboot, it is possible to run
-				svnserve as a windows service using a wrapper.
+				svnserve as a windows service. Starting with Subversion 1.4,
+				svnserve can be installed as a native windows service, 
+				in previous versions it can be installed using a wrapper.
 			</para>
 			<para>
-				One written specifically for svnserve is <literal>SvnService</literal>.
-				Magnus Norddahl adapted some skeleton code from Microsoft,
-				and further improvements have been made by Daniel Thompson.
+				To install svnserve as a native windows service, execute the following
+				command all on one line to create a service which is automatically
+				started when windows starts.
+<screen>
+sc create svnserve binpath= "c:\svnserve\svnserve.exe --service 
+	--root c:\repos" displayname= "Subversion" depend= tcpip start= auto
+</screen>
+			</para>
+			<tip>
+				<para>
+					Microsoft now recommend services to be run as under either the
+					Local Service or Network Service account. Refer to
+					<ulink 
+						url="http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx">
+						<citetitle>The Services and Service Accounts Security Planning Guide</citetitle>
+					</ulink>.
+					To create the service under the Local Service account, append the
+					following to the example above.
+<screen>
+obj= "NT AUTHORITY\LocalService"
+</screen>
+					Note that you would have to give the Local Service account
+					appropriate rights to both Subversion and your repositories,
+					as well as any applications which are used by hook scripts.
+				</para>
+			</tip>
+			<para>
+				To install svnserve using a wrapper, one written specifically for
+				svnserve is <literal>SvnService</literal>. Magnus Norddahl adapted
+				some skeleton code from Microsoft, and further improvements have
+				been made by Daniel Thompson.
 				Daniel's version is available for download from
 				<ulink url="http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip">
 					<citetitle>tigris.org</citetitle>
@@ -144,7 +180,7 @@ svn://localhost/TestRepo
 					<citetitle>firedaemon</citetitle>
 				</ulink>
 				will also work. Note that you will still need to run
-				svnserve with the -d switch.
+				svnserve with the --daemon switch.
 			</para>
 			<para>
 				Finally, if you have access to the Windows 2000/XP/2003
