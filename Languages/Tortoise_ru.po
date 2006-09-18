@@ -17,6 +17,7 @@
 # diff -- различие
 # file handle -- файловый дескриптор
 # help -- cправка
+# hook -- привязка
 # locking (files) -- блокирование (файлов)
 # log -- журнал (было: лог)
 # merge -- слияние
@@ -33,13 +34,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7370: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7521: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-08-31 09:47+0300\n"
+"PO-Revision-Date: 2006-09-18 11:37+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -530,12 +531,7 @@ msgstr "&Мелкие значки"
 msgid "&Load..."
 msgstr "&Загрузить..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "Пометить как &улаженный"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "С&лияние"
 
@@ -550,6 +546,10 @@ msgstr "&Слияние"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Native filesystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Навигация"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -773,6 +773,10 @@ msgstr "&Вид"
 msgid "&Whitespaces"
 msgstr "Непечатаемые &знаки"
 
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "Cлово &целиком"
+
 # д.б. согласовано с "из ..."
 #: Control-ID:1183
 msgid "&Working copy"
@@ -816,6 +820,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -977,6 +983,10 @@ msgstr "Добавить программу слияния для конкрет
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Добавить в список &игнорирования"
+
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Добавить..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1206,7 +1216,7 @@ msgstr "До ревизии: %d"
 #: Dlg-ID:131
 #: Dlg-ID:160
 msgid "Authentication"
-msgstr "Установление личности"
+msgstr "Аутентификация"
 
 #: Control-ID:1278
 msgid "Authentication data"
@@ -1543,11 +1553,10 @@ msgstr ""
 "Очищает все сохраненные данные авторизации.\n"
 "Вам нужно будет заново ввести имя/пароль для всех хранилищ."
 
-# ID:196,
 #: ID:196
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "Очищает размеры и расположение %ld окон"
+msgstr "Очищает сохранённые размеры и расположение %ld диалогов"
 
 #: ID:170
 msgid "Click here to select a recently typed message"
@@ -1580,6 +1589,14 @@ msgstr "Помечать &цветом изменения внутри стро�
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Цвета"
+
+#: ID:198
+msgid "Command Line"
+msgstr "Командная строка"
+
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Командная строка для выполнения:"
 
 #: ID:3857
 msgid "Command failed."
@@ -1646,6 +1663,10 @@ msgstr "Сравнение %s с %s"
 #: ID:74
 msgid "Completed"
 msgstr "Завершено"
+
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Настройка скриптов привязок"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -2136,6 +2157,10 @@ msgstr "Редактировать программу слияния для ко
 msgid "Edit log message"
 msgstr "Редактировать сообщение журнала"
 
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Поправить..."
+
 #: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "Введите имя либо IP-адрес прокси-сервера"
@@ -2403,7 +2428,6 @@ msgstr "Гибкие диски (A: B:)"
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Для справки нажмите F1. Для горизонтальной прокрутки используйте Ctrl+колёсико прокрутки"
 
-# !!! посмотреть, как помещается
 #: ID:119
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Для получения полного списка разотметьте \"Остановиться на копировании/переименовании\""
@@ -2544,6 +2568,10 @@ msgstr "&Скрыть несвязанные изменённые пути"
 msgid "Help"
 msgstr "Справка"
 
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Скрыть скрипт во время работы"
+
 #: ID:2052
 msgid ""
 "Hide/Show the patch file list\n"
@@ -2555,6 +2583,18 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Подсказка: Нажмите F5 для обновления выбранного поддерева и Ctrl+F5 для загрузки всех потомков"
+
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Привязки"
+
+#: ID:198
+msgid "Hook Type"
+msgstr "Тип привязки"
+
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Тип привязки:"
 
 #: ID:82
 #, c-format
@@ -2972,26 +3012,26 @@ msgstr "Блокирует файл для других пользователе
 
 #: ID:126
 msgid "Log"
-msgstr "Лог"
+msgstr "Журнал"
 
 # Заголовок окна
 #: Dlg-ID:211
 msgid "Log History"
-msgstr "Предыдущие лог-сообщения"
+msgstr "Предыдущие сообщения журнала"
 
 # Заголовок окна
 #: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
-msgstr "Лог-сообщения"
+msgstr "Сообщения журнала"
 
 #: Control-ID:65535
 msgid "Log message"
-msgstr "Лог-сообщение"
+msgstr "Сообщение журнала"
 
 #: Control-ID:65535
 msgid "Log messages"
-msgstr "Лог-сообщения"
+msgstr "Сообщения журнала"
 
 #: Dlg-ID:195
 msgid "Look and Feel"
@@ -3035,6 +3075,10 @@ msgstr "Не подходящий DLL почтовой системы."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Управление свойствами Subversion "
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Пометить как &улаженный"
 
 #: ID:282
 msgid "Mark as resolved"
@@ -3429,6 +3473,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Файлы заплаток(*.diff, *.patch)|*.diff;*.patch|Все файлы (*.*)|*.*||"
 
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Путь"
 
@@ -3460,6 +3505,10 @@ msgstr "Пожалуйста, введите дату и/или время."
 msgid "Please enter a date."
 msgstr "Пожалуйста, введите дату."
 
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Пожалуйста, введите скрипт привязки для выполнения."
+
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3468,6 +3517,10 @@ msgstr "Пожалуйста, введите число между %1 и %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Пожалуйста, введите число."
+
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Пожалуйста, введите путь применения скрипта привязки."
 
 #: ID:3858
 msgid "Please enter a positive integer."
@@ -3516,6 +3569,10 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Пожалуйста, выберите кнопку."
 
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Пожалуйста, выберите тип привязки"
+
 #: ID:76
 msgid "Please specify the certificate type"
 msgstr "Пожалуйста, укажите тип сертификата."
@@ -3528,19 +3585,35 @@ msgstr "Подождите, пожалуйста. Это может занять
 msgid "Please wait while cancelling..."
 msgstr "Пожалуйста, подождите отмены..."
 
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Пожалуйста, подождите, пока получаются различия..."
+
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Подождите, пожалуйста, пока обозреватель хранилища  инициализируется..."
-
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Пожалуйста, подождите, пока мы получаем различия..."
 
 #: ID:119
 #: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Подождите, пожалуйста..."
+
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Привязка после-фиксации"
+
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Привязка после-обновления"
+
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Привязка перед-фиксацией"
+
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Привязка перед-обновлением"
 
 #: ID:376
 msgid "Preview patched file"
@@ -3738,6 +3811,10 @@ msgstr "Удаленное состояние текста"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Удалить из списка &игнорирования"
+
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Убрать..."
 
 #: Control-ID:65535
 msgid "Removed"
@@ -3962,7 +4039,7 @@ msgstr ""
 "Автор: %s\r\n"
 "Дата: %s\r\n"
 "\r\n"
-"Log-сообщение:\r\n"
+"Сообщение журнала:\r\n"
 "%s"
 
 #: ID:116
@@ -4124,7 +4201,7 @@ msgstr "Scintilla"
 
 #: ID:113
 msgid "Search &log messages..."
-msgstr "Найти в &лог-сообщениях..."
+msgstr "Найти в &сообщениях журнала..."
 
 #: Control-ID:65535
 msgid "Search for:"
@@ -4144,7 +4221,6 @@ msgstr "Поиск прервался на %1"
 msgid "Select &All"
 msgstr "Выбрать &все"
 
-# Выбрать / Убрать &все
 #: Control-ID:1067
 msgid "Select / deselect &all"
 msgstr "Отметить / Разотметить &все"
@@ -4189,6 +4265,14 @@ msgid ""
 msgstr ""
 "Выберите папку для экспорта.\n"
 "Вам может понадобится создать новую папку перед выполнением этого экспорта."
+
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Выберите папку для запуска скрипта"
+
+#: ID:197
+msgid "Select hook script file"
+msgstr "Выбрать файл скрипта привязки"
 
 #: ID:78
 msgid "Select merge application"
@@ -4299,11 +4383,11 @@ msgstr "Показать &различия"
 #: Control-ID:1034
 #: Control-ID:1132
 msgid "Show &log"
-msgstr "Показать &лог"
+msgstr "Показать &журнал"
 
 #: Control-ID:1031
 msgid "Show &log..."
-msgstr "Показать &лог..."
+msgstr "Показать &журнал..."
 
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
@@ -4365,12 +4449,20 @@ msgstr "Показать файлы без изменений"
 msgid "Show unversioned files"
 msgstr "Показать неверсионные файлы"
 
+#: ID:198
+msgid "Show/Hide"
+msgstr "Показать/скрыть"
+
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Отображено %ld узлов"
 
-# ID:272,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Показано ревизий: %ld, с ревизии %ld по ревизию %ld - выбрано ревизий: %ld."
+
 #: ID:272
 #, c-format
 msgid "Showing graph for %s"
@@ -4459,9 +4551,17 @@ msgstr "Гистограмма стопкой"
 msgid "Stacked Line Graph"
 msgstr "График стопкой"
 
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Привязка запуск-фиксации"
+
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Начальная ревизия"
+
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Привязка запуск-обновления"
 
 #: ID:245
 #: Dlg-ID:179
@@ -4534,7 +4634,7 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
-# В оригинале файл называется 'servers'
+# Вообще-то файл называется 'servers'
 #: Control-ID:65535
 msgid "Subversion server file:"
 msgstr "Файл серверов Subversion:"
@@ -4723,6 +4823,15 @@ msgstr ""
 "%s\n"
 "не существует.\n"
 "Вы хотите сначала создать ее?"
+
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Скрипт привязки вернул ошибку:\n"
+"%s"
 
 #: ID:7
 msgid "The image can not be shown."
@@ -5350,6 +5459,10 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Задать изначально URL &рабочей копии в поле \"Из:\""
 
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Использовать объединённые различия из буфера обмена"
+
 # или \"С:\"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -5371,6 +5484,14 @@ msgstr "Использовать оба текстовых блока (этот 
 msgid "Use stri&keout for deleted lines"
 msgstr "Использовать за&чёркивание для удалённых строк"
 
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Использовать \"&мой\" текстовый блок"
+
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Использовать \"&их\" текстовый блок"
+
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Использовать текстовый блок из \"&моего\""
@@ -5378,6 +5499,46 @@ msgstr "Использовать текстовый блок из \"&моего\
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Использовать текстовый блок из \"&их\""
+
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Использовать \"м&ой\" тестовый блок перед \"их\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"Использовать \"м&ой\" тестовый блок перед \"их\"\n"
+"Сначала \"м&ой\", затем \"их\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"Использовать \"мой\" тестовый блок\n"
+"Использовать \"мой\" тестовый блок"
+
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Использовать \"и&х\" тестовый блок перед \"моим\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"Использовать \"и&х\" тестовый блок перед \"моим\"\n"
+"Сначала \"и&х\", затем \"мой\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"Использовать \"их\" тестовый блок\n"
+"Использовать \"их\" тестовый блок"
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
@@ -5437,9 +5598,25 @@ msgstr "Значение"
 msgid "Version"
 msgstr "Версия"
 
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Посмотреть ревизию для пути в &веб-обозревателе"
+
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Посмотреть ревизию в &веб-обозревателе"
+
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Посетить наш вебсайт"
+
+#: ID:198
+msgid "Wait"
+msgstr "Ждать"
+
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Ждать окончания работы скрипта"
 
 #: ID:88
 msgid "Warning"
@@ -5457,6 +5634,10 @@ msgstr "По URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Рабочая копия"
+
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Путь в рабочей копии:"
 
 #: ID:80
 #, c-format
@@ -5710,7 +5891,7 @@ msgid ""
 msgstr ""
 "bugtraq:append\n"
 "Установите в \"false\", если вы хотите чтобы ID отслеживания ошибок был всавлен в начале\n"
-"лог-сообщения. Значение по умолчанию \"true\" означает, что ID отслеживания ошибок\n"
+"сообщения журнала. Значение по умолчанию \"true\" означает, что ID отслеживания ошибок\n"
 "добавляется в конец сообшения журнала."
 
 #: ID:14
@@ -6040,6 +6221,30 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "значения различны"
+
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"Адрес URL для веб-обозревателя хранилища, указывающий на определённый файл и ревизию.\n"
+"Строка %REVISION% в URL заменяется на номер ревизии,\n"
+"строка %PATH% заменяется на путь к файлу относительно корня хранилища."
+
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"Адрес URL для веб-обозревателя хранилища, указывающий на определённую ревизию.\n"
+"Строка %REVISION% в этом URL заменяется на номер ревизии."
 
 # статистика: номера недель
 #: ID:245
