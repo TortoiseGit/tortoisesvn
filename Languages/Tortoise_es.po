@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-10 23:07+0100\n"
+"PO-Revision-Date: 2006-09-18 12:04+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -524,12 +524,7 @@ msgstr "&Lista"
 msgid "&Load..."
 msgstr "&Cargar..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Marcar como resuelto"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Fusionar"
 
@@ -545,6 +540,10 @@ msgstr "&Fusionando"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Native Filesystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Navegar"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -3218,6 +3217,10 @@ msgstr "La DLL del sistema de correo no es válida."
 msgid "Manage Subversion properties"
 msgstr "Administrar las propiedades de Subversion"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Marcar como &resuelto"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Marcar como resuelto"
@@ -3754,14 +3757,14 @@ msgstr "Esta tarea puede tardar varios minutos. ¡En serio!.  Espere ..."
 msgid "Please wait while cancelling..."
 msgstr "Por favor, espere mientras se cancela..."
 
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Por favor espere mientras se obtienen las diferencias..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
-
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Por favor, espere mientras se obtienen las diferencias..."
 
 #: ID:119
 #: ID:146
@@ -4652,6 +4655,12 @@ msgstr "Mostrar/ocultar"
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Mostrando %ld nodos"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Mostrando %ld revisiones, desde la revisión %ld a la revisión %ld - %ld revisiones seleccionadas."
 
 # ID:272,
 #: ID:272
@@ -5736,6 +5745,14 @@ msgstr "Utilizar ambos bloques de texto (este el último)"
 msgid "Use stri&keout for deleted lines"
 msgstr "Usar &tachado para las líneas borradas"
 
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "Utilizar bloque de texto \"&Mío\""
+
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "Utilizar bloque de texto \"de &Otros\""
+
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Utilizar bloque de texto \"&mío\""
@@ -5743,6 +5760,46 @@ msgstr "Utilizar bloque de texto \"&mío\""
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Utilizar bloque de texto \"de &otros\""
+
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "Utilizar bloque de texto \"M&ío\" &antes del \"de Otros\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"Utilizar bloque de texto \"Mío\" antes del \"de Otros\"\n"
+"\"Mi\" bloque de texto y luego el \"suyo\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"Utilizar bloque de texto \"Mío\"\n"
+"Usar \"Mi\" bloque de texto"
+
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "Utilizar bloque de texto \"de O&tros\" antes del \"Mío\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr ""
+"Utilizar bloque de texto \"de Otros\" antes del \"Mío\"\n"
+"\"Su\" bloque de texto y luego el \"Mío\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr ""
+"Utilizar bloque de texto \"de Otros\"\n"
+"Utiliza \"Su\" bloque de texto"
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
