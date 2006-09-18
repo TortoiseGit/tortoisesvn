@@ -123,6 +123,12 @@ This will only build the english HTML helpf file for TortoiseSVN
 		value="${path::get-full-path('../Tools')}"
 		unless="${property::exists('path.gettext')}"
 	/>
+
+  <!-- Choose between 32/64 Bit executable of SubWCRev -->
+	<property name="bindirextension" 
+	  value=""
+		unless="${property::exists('bindirextension')}"
+	/>
 	<property name="path.subwcrev" 
 		value="../bin/release${bindirextension}/bin/"
 		unless="${property::exists('path.subwcrev')}"
