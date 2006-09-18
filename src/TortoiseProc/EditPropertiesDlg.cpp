@@ -494,9 +494,18 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 				return;
 			}
 			FILE * stream;
-			_tfopen_s(&stream, ofn.lpstrFile, _T("wbS"));
-			fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
-			fclose(stream);
+			errno_t err = 0;
+			if ((err = _tfopen_s(&stream, ofn.lpstrFile, _T("wbS")))==0)
+			{
+				fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
+				fclose(stream);
+			}
+			else
+			{
+				TCHAR strErr[4096] = {0};
+				_tcserror_s(strErr, 4096, err);
+				CMessageBox::Show(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+			}
 		}
 	}
 }

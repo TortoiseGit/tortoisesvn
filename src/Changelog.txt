@@ -24,6 +24,8 @@ Version 1.4.1
        bugtraq:number was set to "true", the log message from the
        'recent log messages' was inserted into the bug ID field instead of
        the log message field in the commit dialog. (Stefan)
+- BUG: When saving a property over an existing and in-use file an exception
+       was thrown. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
