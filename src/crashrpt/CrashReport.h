@@ -73,7 +73,15 @@ public:
 	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
 	{
 		InstallEx pfnInstallEx;
-		m_hDll = LoadLibrary(_T("CrashRpt.dll"));
+		TCHAR szFileName[_MAX_PATH];
+		GetModuleFileName(NULL, szFileName, _MAX_FNAME);
+
+		// C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
+		CString strFilename = szFileName;
+		strFilename = strFilename.Left(strFilename.ReverseFind(_T('\\')) + 1);
+		strFilename += _T("CrashRpt.dll");
+
+		m_hDll = LoadLibrary(strFilename);
 		if (m_hDll)
 		{
 			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
