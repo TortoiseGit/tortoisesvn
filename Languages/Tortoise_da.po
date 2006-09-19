@@ -472,7 +472,7 @@ msgstr "&Begræns søgning til ændrede linjer"
 
 #: MenuEntry
 msgid "&Link images together"
-msgstr "Kæd bi&lleder sammer"
+msgstr "Kæd bi&lleder sammen"
 
 #: Control-ID:1172,
 msgid "&List View"
@@ -593,7 +593,7 @@ msgstr "&Gem Ctrl-S"
 
 #: Control-ID:1023,#: Control-ID:1023,
 msgid "&Save authentication"
-msgstr "&Gem adgangskode"
+msgstr "&Gem brugernavn og adgangskode"
 
 #: MenuEntry
 msgid "&Save graph as..."
@@ -768,7 +768,7 @@ msgstr ": arbejdskopi"
 
 #: ID:145,
 msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
-msgstr "<b>TortoiseSVN</b> er en såkaldt shell-udvidelse.\nDet betyder, at det er integreret i Windows Stifinder.\nFor at bruge <b>TortoiseSVN</b> skal du åbne Windows Stifinder og højreklikke på en mappe\nfor at vise kontekstmenuen, hvor du finder alle kommandoerne i <b>TortoiseSVN</b>.\nHusk at <u>læse manualen!</u>"
+msgstr "<b>TortoiseSVN</b> er en såkaldt shell-udvidelse.\nDet betyder, at den er integreret i Windows Stifinder.\nFor at bruge <b>TortoiseSVN</b> skal du åbne Windows Stifinder og højreklikke på en mappe\nfor at vise kontekstmenuen, hvor du finder alle kommandoerne i <b>TortoiseSVN</b>.\nHusk at <u>læse manualen!</u>"
 
 #: ID:3867,#: ID:3867,
 #, c-format
@@ -861,7 +861,7 @@ msgstr "Tilføj &fil..."
 #: ID:376,
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr "Tilføj '%s' til ordbog"
+msgstr "Føj '%s' til ordbog"
 
 #: ID:16,
 msgid "Add (as replacement)..."
@@ -881,7 +881,7 @@ msgstr "Tilføj filendelse-specifikt flet-program"
 
 #: ID:13,
 msgid "Add to &ignore list"
-msgstr "Tilføj \"&ignorer\"-listen"
+msgstr "Føj til \"&ignorer\"-listen"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1016,7 +1016,7 @@ msgstr "Analyser revisionsdetaljer..."
 
 #: ID:14,
 msgid "Applies a unified diff file to the working copy"
-msgstr "Påfører en unified diff-fil til arbejdskopien"
+msgstr "Påfører en unified diff-fil i arbejdskopien"
 
 #: ID:15,
 msgid "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
@@ -1091,7 +1091,7 @@ msgstr "Forfattere:"
 
 #: ID:222,
 msgid "Auto-close for local operations"
-msgstr "Luk automatisk for lokale handlinger"
+msgstr "Luk automatisk ved lokale handlinger"
 
 #: ID:222,
 msgid "Auto-close if no conflicts"
@@ -1179,11 +1179,11 @@ msgstr "Fejl-&ID/problemnr:"
 
 #: ID:116,
 msgid "Bug-ID"
-msgstr "Bug-ID"
+msgstr "Fejl-ID"
 
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
-msgstr "Fejl-id/problemnr:"
+msgstr "Fejl-ID/problemnr:"
 
 #: Control-ID:1215,
 msgid "C&heck now"
@@ -1267,8 +1267,8 @@ msgid "Changed files: %d"
 msgstr "Ændrede filer: %d"
 
 #: Control-ID:1242,
-msgid "Changes made (double-click for details):"
-msgstr "Aktuelle ændringer (dobbeltklik for at vise detailer):"
+msgid "Changes made (double-click on file for diff):"
+msgstr "Aktuelle ændringer (dobbeltklik på fil for at sammenligne):"
 
 #: ID:8,
 msgid "Chec&kout..."
@@ -1374,7 +1374,7 @@ msgstr "Sletter de gemte adgangskoder.\nDu vil skulle indtaste brugernavn/adgang
 #: ID:196,
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "Sletter de gemte størrelser og posititioner for %ld dialoger"
+msgstr "Sletter de gemte størrelser og placeringer for %ld dialoger"
 
 #: ID:170,
 msgid "Click here to select a recently typed message"
@@ -1449,7 +1449,7 @@ msgstr "Sammenlign &HEAD-revisioner"
 #: ID:114,
 #, fuzzy
 msgid "Compare and &blame with working BASE"
-msgstr "Sammenlign og vis &ansvar i forhold til basisfilen"
+msgstr "Sammenlign med og vis &ansvar i forhold til basisfilen"
 
 #: ID:76,
 msgid "Compare with &working copy"
@@ -1623,7 +1623,7 @@ msgstr "Filen %s kunne ikke gemmes!"
 #: ID:81,
 #, c-format
 msgid "Could not start diff viewer!\n<hr=100%%>\n%s"
-msgstr "Diff-visningsprogrammet kunne ikke startes!\n<hr=100%%>\n%s"
+msgstr "Sammenligningsprogrammet kunne ikke startes!\n<hr=100%%>\n%s"
 
 #: ID:81,
 #, c-format
@@ -2002,7 +2002,7 @@ msgstr "Eksternt program:"
 
 #: Dlg-ID:192,
 msgid "External Programs::Diff Viewer"
-msgstr "Eksterne programmer::Diff-visningsprogram"
+msgstr "Eksterne programmer::Sammenligningsprogram"
 
 #: Dlg-ID:193,
 msgid "External Programs::Merge Tool"
@@ -2198,6 +2198,7 @@ msgid "Help"
 msgstr "Hjælp"
 
 #: ID:2052,
+#, fuzzy
 msgid "Hide/Show the patch file list\nHides or shows the patch file list"
 msgstr "Vis/skjul listen over filer\nSkjuler eller viser listen over filer"
 
@@ -2228,7 +2229,7 @@ msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt
 
 #: ID:79,
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linjeafslutninger."
+msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig kopi af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linjeafslutninger."
 
 #: ID:196,
 msgid "If checked, the commit dialog will be started again automatically after an error,\nwhile preserving your last selection and log message."
@@ -2256,11 +2257,11 @@ msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til de
 
 #: ID:196,
 msgid "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
-msgstr "Hvis valgt, så kan filer i ikke-versionerede mapper vises i status-kontrollen.\nStatus-kontrollen benyttes til eksempel i \"Arkivér\"-dialogen."
+msgstr "Hvis valgt, så kan filer i ikke-versionerede mapper vises i status-kontrollen.\nStatus-kontrollen benyttes som eksempel i \"Arkivér\"-dialogen."
 
 #: ID:196,
 msgid "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
-msgstr "Hvis valgt, så vil en overordnet mappe, der indeholder ikke-versionerede filer, bliver vist som værende ændret,\ndvs. blive vist med ikonoverdæningen hørende til ændrede emner."
+msgstr "Hvis valgt, så vil en overordnet mappe, der indeholder ikke-versionerede filer, blive vist som værende ændret,\ndvs. blive vist med ikonoverdæningen hørende til ændrede emner."
 
 #: ID:196,
 msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
@@ -2876,7 +2877,7 @@ msgstr "Påfør korrektur på alle"
 
 #: ID:376,
 msgid "Patch selected"
-msgstr "Korrektur valgt"
+msgstr "Påfør korrektur på valgt"
 
 #: ID:157,#: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -2955,7 +2956,7 @@ msgstr "Udfør venligst kommandoen \"Ryd op\"."
 
 #: ID:78,
 msgid "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
-msgstr "Bemærk:\nDin arbejdskopi forbliver på den forrige sti. Hvis du ønsker at dine fremtidige ændringer\nskal være i den nyoprettede kopi, skal du skifte over\npå stien for kopien. Brug kommandoen Skift for at gøre dette."
+msgstr "Bemærk:\nDin arbejdskopi forbliver på den samme sti. Hvis du ønsker at dine fremtidige ændringer\nskal være i den nyoprettede kopi, skal du skifte over\npå stien for kopien. Brug kommandoen Skift for at gøre dette."
 
 #: ID:3858,#: ID:3858,
 msgid "Please select a button."
@@ -3959,7 +3960,7 @@ msgstr "\"Chunk start\" \"@@\" var forventet i linje %d!"
 #: ID:68,
 #, c-format
 msgid "The diffing engine aborted because of an error:\n%s"
-msgstr "Differensprocessen blev afbrudt med en fejl:\n%s"
+msgstr "Sammenligningsprocessen blev afbrudt med en fejl:\n%s"
 
 #: ID:64,
 #, c-format
@@ -4286,7 +4287,7 @@ msgstr "Optimer TortoiseSVN"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "Tovejs-&differens"
+msgstr "Tovejs-&sammenligning"
 
 #: ID:207,#: Dlg-ID:164,
 msgid "URL"
@@ -4683,7 +4684,7 @@ msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linjeskift.\nDet førs
 #: ID:14,
 #, c-format
 msgid "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain \"%BUGID%\" which gets replaced with the issue number."
-msgstr "bugtraq:message\nDen streng, som tilføjes en logbesked, når et problemnummer udfyldes.\nStrengen skal indeholde \"%BUGID%\", som vil blive erstattet af problemnummeret."
+msgstr "bugtraq:message\nDen streng, som tilføjes en logbesked, når et problemnummer udfyldes.\nStrengen skal indeholde \"%BUGID%\", som vil blive erstattet af fejl-ID'et."
 
 #: ID:14,
 msgid "bugtraq:number\nSet to \"false\" if your bugtracking system has issues which are referenced not by numbers."
