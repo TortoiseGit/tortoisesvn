@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-12 19:32+0100\n"
+"PO-Revision-Date: 2006-09-19 21:52+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3713,14 +3713,14 @@ msgstr "Veuillez patienter - cela peut prendre plusieurs minutes. Vraiment !"
 msgid "Please wait while cancelling..."
 msgstr "Attente de l'annulation..."
 
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Veuillez patienter pendant la récupération des différences..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Veuillez patienter pendant l'initialisation du navigateur de référentiel..."
-
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Veuillez patienter pendant la récupération des différences..."
 
 #: ID:119
 #: ID:146
@@ -5683,24 +5683,12 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Barrer les li&gnes effacées"
 
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Utiliser le bloc de texte depuis \"le &mien\""
-
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Utiliser le bloc de texte depuis \"le &leur\""
-
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Utiliser le bloc de texte depuis \"le &mien\""
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Utiliser le bloc de texte depuis \"le &leur\""
-
-#: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Utiliser le bloc de texte du \"m&ien\" avant \"le leur\""
 
 #: ID:2052
 msgid ""
@@ -5718,10 +5706,6 @@ msgstr ""
 "Utiliser le bloc de texte depuis \"le mien\"\n"
 "Utiliser \"Mon\" bloc de texte"
 
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
-
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
@@ -5738,12 +5722,16 @@ msgstr ""
 "Utiliser le bloc de texte du \"leur\"\n"
 "Utiliser \"leur\" bloc de texte"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Utiliser le bloc de texte du \"m&ien\" avant \"le leur\""
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
+
+#: MenuEntry
+msgid "Use text block from \"t&heirs\"before \"mine\""
 msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
 
 #: ID:251
