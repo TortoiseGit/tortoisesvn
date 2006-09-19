@@ -336,10 +336,10 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Copy",                       ID_EDIT_COPY
         MENUITEM SEPARATOR
-        MENUITEM "Use text block from ""&Theirs""", ID_EDIT_USETHEIRBLOCK
-        MENUITEM "Use text block from ""&Mine""", ID_EDIT_USEMYBLOCK
-        MENUITEM "Use text block from ""T&heirs""before ""Mine""", ID_EDIT_USETHEIRTHENMYBLOCK
-        MENUITEM "Use text block from ""M&ine"" before ""Theirs""", ID_EDIT_USEMINETHENTHEIRBLOCK
+        MENUITEM "Use text block from ""&theirs""", ID_EDIT_USETHEIRBLOCK
+        MENUITEM "Use text block from ""&mine""", ID_EDIT_USEMYBLOCK
+        MENUITEM "Use text block from ""t&heirs""before ""mine""", ID_EDIT_USETHEIRTHENMYBLOCK
+        MENUITEM "Use text block from ""m&ine"" before ""theirs""", ID_EDIT_USEMINETHENTHEIRBLOCK
         MENUITEM SEPARATOR
         MENUITEM "&Find",                       ID_EDIT_FIND
         MENUITEM "Mark as &resolved",           ID_EDIT_MARKASRESOLVED
