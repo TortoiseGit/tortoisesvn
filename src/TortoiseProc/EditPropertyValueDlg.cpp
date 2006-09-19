@@ -333,6 +333,7 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
 		// see if the loaded file contents are binary
 		SetPropertyValue(m_PropValue);
 		UpdateData(FALSE);
+		CloseHandle(hFile);
 	}
 
 }
