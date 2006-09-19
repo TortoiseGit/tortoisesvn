@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-04 16:31+0900\n"
+"PO-Revision-Date: 2006-09-19 10:18+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -603,12 +603,7 @@ msgstr "리스트 뷰(&L)"
 msgid "&Load..."
 msgstr "읽기(&L)..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "충돌해결상태로 표시(&M)"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "병합(&M)"
 
@@ -626,6 +621,10 @@ msgstr "병합(&M)"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "고유의 파일시스템 (&Native FS, FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "둘러보기(&N)"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -3688,6 +3687,10 @@ msgstr "메일 시스템 DLL이 유효하지 않습니다."
 msgid "Manage Subversion properties"
 msgstr "Subversion 속성 관리"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "충돌해결상태로 표시(&R)"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "충돌해결상태로 표시"
@@ -5405,6 +5408,12 @@ msgstr "보이기/숨기기"
 msgid "Showing %ld nodes"
 msgstr "%ld개 노드 출력"
 
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "%ld 리비전 출력됨, (리비전 %ld에서 %ld까지) - %ld 개의 리비전이 선택됨."
+
 # ID:272,
 #: ID:272
 #, c-format
@@ -6587,6 +6596,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "클립보드와 Unified diff를 수행"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6613,6 +6627,16 @@ msgid "Use stri&keout for deleted lines"
 msgstr "지워진 행에는 줄 긋기(&K)"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Mine\""
+msgstr "\"작업 사본\"의 텍스트 블럭 사용(&M)"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"&Theirs\""
+msgstr "\"저장소\"의 텍스트 사용(&T)"
+
+# ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "작업 사본의 텍스트 블럭 사용(&m)"
@@ -6621,6 +6645,49 @@ msgstr "작업 사본의 텍스트 블럭 사용(&m)"
 #: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "저장소의 텍스트 사용(&t)"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&I)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\" before \"Theirs\"\n"
+"\"My\" text block then \"Theirs\""
+msgstr ""
+"\"저장소\"의 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용\n"
+"\"작업사본\"의 텍스트 사용후 \"저장소\"의 텍스트를 사용"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Mine\"\n"
+"Use \"My\" text block"
+msgstr ""
+"\"작업 사본\"의 텍스트 블럭 사용\n"
+"\"작업 사본\"의 텍스트 블럭 사용"
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&H)"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"Theirs\" before \"Mine\"\n"
+"\"Their\" text block then \"Mine\""
+msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&H)\"저장소\"의 텍스트 블럭을 사용후 \"작업 사본\"의 텍스트 블럭 사용"
+
+# ID:251,
+#: ID:2052
+#, fuzzy
+msgid ""
+"Use text block from \"Theirs\"\n"
+"Use \"Their\" text block"
+msgstr "작업사본 텍스트를 사용하기 전 저장소의 텍스트 블럭을 사용(&h)"
 
 # ID:251,
 #: ID:251
@@ -6691,6 +6758,16 @@ msgstr "값"
 #: Control-ID:1075
 msgid "Version"
 msgstr "버전"
+
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "웹 브라우저에서 해당 경로의 리비전 보기(&W)"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "웹 브라우저에서 리비전 보기(&W)"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -7392,6 +7469,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "값들이 다릅니다"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"특정 파일과 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\n"
+"URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다.\n"
+"URL 안의 %PATH% 문자열은 저장소 루트에 대해 상대적인 경로로 치환 됩니다."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"특정 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\n"
+"URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다."
 
 # ID:244,
 #: ID:245
