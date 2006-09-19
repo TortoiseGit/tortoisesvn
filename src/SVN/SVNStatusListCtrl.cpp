@@ -161,6 +161,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	// set the extended style of the listcontrol
 	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
 	exStyle |= (bHasCheckboxes ? LVS_EX_CHECKBOXES : 0);
+	SetRedraw(false);
 	SetExtendedStyle(exStyle);
 
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
@@ -234,7 +235,6 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLSVNNEEDSLOCK;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
-	SetRedraw(false);
 	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
 	CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
 	int arr[SVNSLC_NUMCOLUMNS];
@@ -251,6 +251,8 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	int col;
 	for (col = 0; col <= maxcol; col++)
 	{
+		if (m_ColumnShown[col]==0)
+			HideColumn(col);
 		if (m_arColumnWidths[col] == 0)
 			SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
 		else
@@ -2797,10 +2799,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 	} // if (pWnd == this)
 	else if (pWnd == GetHeaderCtrl())
 	{
+		CHeaderCtrl * pHeaderCtrl = (CHeaderCtrl *)pWnd;
 		if ((point.x == -1) && (point.y == -1))
 		{
 			CRect rect;
-			GetHeaderCtrl()->GetItemRect(0, &rect);
+			pHeaderCtrl->GetItemRect(0, &rect);
 			ClientToScreen(&rect);
 			point = rect.CenterPoint();
 		}
@@ -2845,24 +2848,94 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				if (m_ColumnShown[cmd])
 				{
-					SetColumnWidth(cmd,0);
-					m_ColumnShown[cmd] = 0;
+					HideColumn(cmd);
 				}
 				else
 				{
-					m_ColumnShown[cmd] = 1;
-					SetColumnWidth(cmd, LVSCW_AUTOSIZE_USEHEADER);
+					ShowColumn(cmd);
 				}
-				DWORD dwColumns = 0;
-				for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-				{
-					if (m_ColumnShown[i])
-						dwColumns |= (1<<i);
-				}
-				m_dwColumns = dwColumns;
 			}
 		}
 	}
+}
+
+void CSVNStatusListCtrl::ShowColumn(int col)
+{
+	m_ColumnShown[col] = 1;
+	SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+
+	// restore position
+	int arr[SVNSLC_NUMCOLUMNS];
+	int arr2[SVNSLC_NUMCOLUMNS];
+	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
+	int arrIndex = 0;
+	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
+	{
+		if (m_ColumnShown[arr[i]] == 0)
+		{
+			arr2[arrIndex++] = arr[i];
+		}
+	}
+	bool bInserted = false;
+	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
+	{
+		if (m_ColumnShown[arr[i]])
+		{
+			if ((arr[i]>col)&&(!bInserted))
+			{
+				arr2[arrIndex++] = col;
+				bInserted = true;
+			}
+			if (arr[i] != col)
+				arr2[arrIndex++] = arr[i];
+		}
+	}
+
+	SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr2);
+
+
+	DWORD dwColumns = 0;
+	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
+	{
+		if (m_ColumnShown[i])
+			dwColumns |= (1<<i);
+	}
+	m_dwColumns = dwColumns;
+}
+
+void CSVNStatusListCtrl::HideColumn(int col)
+{
+	SetColumnWidth(col,0);
+	m_ColumnShown[col] = 0;
+	// move to front of list
+	int arr[SVNSLC_NUMCOLUMNS];
+	int arr2[SVNSLC_NUMCOLUMNS];
+	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
+	int arrIndex = 0;
+	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
+	{
+		if (m_ColumnShown[arr[i]] == 0)
+		{
+			arr2[arrIndex++] = arr[i];
+		}
+	}
+	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
+	{
+		if (m_ColumnShown[arr[i]])
+		{
+			arr2[arrIndex++] = arr[i];
+		}
+	}
+
+	SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr2);
+
+	DWORD dwColumns = 0;
+	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
+	{
+		if (m_ColumnShown[i])
+			dwColumns |= (1<<i);
+	}
+	m_dwColumns = dwColumns;
 }
 
 void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)

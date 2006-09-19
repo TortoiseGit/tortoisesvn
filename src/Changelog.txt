@@ -28,6 +28,9 @@ Version 1.4.1
        the log message field in the commit dialog. (Stefan)
 - BUG: When saving a property over an existing and in-use file an exception
        was thrown. (Stefan)
+- BUG: When columns were hidden in the various dialogs using the status
+       control, the redrawing on the right end was sometimes wrong.
+       See issue #293 for details. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

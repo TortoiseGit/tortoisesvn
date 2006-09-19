@@ -472,6 +472,9 @@ private:
 	bool StringToWidthArray(const CString& WidthString, int WidthArray[]);
 	CString WidthArrayToString(int WidthArray[]);
 
+	void HideColumn(int col);
+	void ShowColumn(int col);
+
 	virtual void PreSubclassWindow();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
