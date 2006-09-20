@@ -34,13 +34,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7521: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7541: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-18 11:37+0300\n"
+"PO-Revision-Date: 2006-09-20 10:09+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5485,72 +5485,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Использовать за&чёркивание для удалённых строк"
 
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
+msgid "Use text block from \"&mine\""
 msgstr "Использовать \"&мой\" текстовый блок"
 
 #: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Использовать \"&их\" текстовый блок"
-
-#: ID:251
-msgid "Use text block from \"&mine\""
-msgstr "Использовать текстовый блок из \"&моего\""
-
-#: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "Использовать текстовый блок из \"&их\""
-
-#: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Использовать \"м&ой\" тестовый блок перед \"их\""
+msgstr "Использовать \"&их\" текстовый блок"
 
 #: ID:2052
 msgid ""
 "Use text block from \"Mine\" before \"Theirs\"\n"
 "\"My\" text block then \"Theirs\""
 msgstr ""
-"Использовать \"м&ой\" тестовый блок перед \"их\"\n"
-"Сначала \"м&ой\", затем \"их\""
+"Использовать \"мой\" текстовый блок перед \"их\"\n"
+"Сначала \"мой\", затем \"их\""
 
 #: ID:2052
 msgid ""
 "Use text block from \"Mine\"\n"
 "Use \"My\" text block"
 msgstr ""
-"Использовать \"мой\" тестовый блок\n"
-"Использовать \"мой\" тестовый блок"
-
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Использовать \"и&х\" тестовый блок перед \"моим\""
+"Использовать \"мой\" текстовый блок\n"
+"Использовать \"мой\" текстовый блок"
 
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
 "\"Their\" text block then \"Mine\""
 msgstr ""
-"Использовать \"и&х\" тестовый блок перед \"моим\"\n"
-"Сначала \"и&х\", затем \"мой\""
+"Использовать \"их\" текстовый блок перед \"моим\"\n"
+"Сначала \"их\", затем \"мой\""
 
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\"\n"
 "Use \"Their\" text block"
 msgstr ""
-"Использовать \"их\" тестовый блок\n"
-"Использовать \"их\" тестовый блок"
+"Использовать \"их\" текстовый блок\n"
+"Использовать \"их\" текстовый блок"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Использовать тестовый блок из \"м&оего\" перед \"их\""
+msgstr "Использовать \"м&ой\" текстовый блок перед \"их\""
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Использовать тестовый блок из \"и&х\" перед \"моим\""
+msgstr "Использовать \"и&х\" текстовый блок перед \"моим\""
+
+#: MenuEntry
+msgid "Use text block from \"t&heirs\"before \"mine\""
+msgstr "Использовать \"и&х\" текстовый блок перед \"моим\""
 
 #: ID:251
 msgid "Use th&is text block"
-msgstr "Использовать эт&от текстовый блок"
+msgstr "Использовать э&тот текстовый блок"
 
 #: ID:251
 msgid "Use this &whole file"
