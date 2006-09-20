@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-18 09:55+0100\n"
+"PO-Revision-Date: 2006-09-20 08:57+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5544,24 +5544,12 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Gelöschte Zeilen &durchstreichen"
 
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Verwende Textblock aus '&Meine'"
-
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Verwende Textblock aus '&Deren'"
-
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Verwende '&Meinen' Textblock"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Verwende '&Deren' Textblock"
-
-#: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Verwende Textblock aus 'M&eine' vor 'Deren'"
 
 #: ID:2052
 msgid ""
@@ -5579,10 +5567,6 @@ msgstr ""
 "Verwende Textblock aus 'Meine'\n"
 "Verwende 'Meinen' Textblock"
 
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Verwende Textblock aus 'De&ren' vor 'Meine'"
-
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
@@ -5597,7 +5581,7 @@ msgid ""
 "Use \"Their\" text block"
 msgstr "Verwende Textblock aus 'De&ren' vor 'Meine'"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
 
