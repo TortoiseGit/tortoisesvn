@@ -411,7 +411,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 							}
 							else
 							{
-								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
+								range.cpMin = (LONG)(offset1 + results.rstart(1)-results.rstart(0));
 								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
 							}
 							if (range.cpMin != range.cpMax)
@@ -597,7 +597,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 							}
 							else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
 							{
-								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
+								range.cpMin = (LONG)(offset1 + results.rstart(1)-results.rstart(0));
 								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
 							}
 							else
@@ -839,6 +839,18 @@ public:
 		sRet = props.FindBugID(_T("This is a test for Issue #7463"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("7463"))==0);
+		props.sCheckRe = _T("^\\[(\\d+)\\].*");
+		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
+		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+		sRet = props.FindBugID(_T("[000815] some stupid programming error fixed"));
+		sRet.Trim();
+		ATLASSERT(sRet.Compare(_T("000815"))==0);
+		props.sCheckRe = _T("\\[\\[(\\d+)\\]\\]\\]");
+		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
+		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+		sRet = props.FindBugID(_T("test test [[000815]]] some stupid programming error fixed"));
+		sRet.Trim();
+		ATLASSERT(sRet.Compare(_T("000815"))==0);
 	}
 } PropTest;
 #endif

@@ -31,6 +31,8 @@ Version 1.4.1
 - BUG: When columns were hidden in the various dialogs using the status
        control, the redrawing on the right end was sometimes wrong.
        See issue #293 for details. (Stefan)
+- BUG: The bugtraq:regex parsing was wrong if the group object was not
+       the last in the string. See issue #295 for details. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

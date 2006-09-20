@@ -1093,8 +1093,9 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 						}
 						else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
 						{
-							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1), STYLE_ISSUEBOLD);
+							Call(SCI_SETSTYLING, results.rstart(1)-results.rstart(0), STYLE_ISSUEBOLD);
 							Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLDITALIC);
+							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1)-(results.rstart(1)-results.rstart(0)), STYLE_ISSUEBOLD);
 						}
 						offset1 += results.rlength(0);
 					}
