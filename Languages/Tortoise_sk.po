@@ -17,14 +17,13 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-18 16:04+0100\n"
+"PO-Revision-Date: 2006-09-21 23:10+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: 6\n"
-"X-Poedit-Language: Slovak\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -46,7 +45,7 @@ msgstr "! %d"
 #: ID:357
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "Prenesené: %.2f MB"
+msgstr "Prenesené dáta: %.2f MB"
 
 # ID:3868,#:
 # ID:3868,
@@ -61,7 +60,7 @@ msgstr "%1 obsahuje neočakávaný objekt."
 #: ID:3868
 #, fuzzy, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 obsahuje nespravnu schemu."
+msgstr "%1 obsahuje nesprávnu schemu."
 
 # ID:3867,#:
 # ID:3867,
@@ -133,13 +132,13 @@ msgstr ""
 #: ID:357
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "Prenesených %I64d B"
+msgstr "Prenesené dáta: %I64d B"
 
 # ID:357,
 #: ID:357
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "Prenesených %I64d kB"
+msgstr "Prenesené dáta: %I64d kB"
 
 # ID:169,
 #: ID:169
@@ -157,7 +156,7 @@ msgstr "%ld z %ld"
 #: ID:563
 #, c-format
 msgid "%ld paths"
-msgstr "%ld cesty"
+msgstr "cesty: %ld "
 
 # ID:226,
 #: ID:226
@@ -288,7 +287,7 @@ msgstr "&Pokročilé"
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply unified diff"
-msgstr "&Použi zápladu (Unified diff)"
+msgstr "&Použiť záplatu (Unified diff)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -397,7 +396,6 @@ msgstr "Kopírovať do  ..."
 
 # Control-ID:1097,
 #: Control-ID:1097
-#, fuzzy
 msgid "&Custom"
 msgstr "&Vlastné"
 
@@ -455,7 +453,6 @@ msgstr "&Upraviť..."
 # Použiť proxy server
 # Control-ID:1023,
 #: Control-ID:1023
-#, fuzzy
 msgid "&Enable Proxy Server"
 msgstr "&Povoliť Proxy Server"
 
@@ -486,14 +483,12 @@ msgid "&File"
 msgstr "&Súbor"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Find"
 msgstr "&Nájsť"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Find..."
-msgstr "&Najdi..."
+msgstr "&Nájsť..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
@@ -650,9 +645,8 @@ msgstr "&Zlučovanie"
 
 # Control-ID:1129,
 #: Control-ID:1129
-#, fuzzy
 msgid "&Native filesystem (FSFS)"
-msgstr "&Natívny filesystem (FSFS)"
+msgstr "&Natívny súborový systém (FSFS)"
 
 #: MenuEntry
 #, fuzzy
@@ -687,14 +681,12 @@ msgid "&OK"
 msgstr "&OK"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Open"
-msgstr "&Otvor"
+msgstr "&Otvoriť"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Open Ctrl-O"
-msgstr "&Otvor Ctrl-O"
+msgstr "&Otvoriť Ctrl-O"
 
 #: MenuEntry
 msgid "&Overlap images"
@@ -737,7 +729,7 @@ msgstr "Zn&ova"
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
-msgstr "&Odsrániť"
+msgstr "&Odstrániť"
 
 # ID:101,
 #: ID:101
@@ -794,9 +786,8 @@ msgstr "&Ulož zoznam vybraných súborov do..."
 
 # Control-ID:1308,
 #: Control-ID:1308
-#, fuzzy
 msgid "&Save..."
-msgstr "&Ulož..."
+msgstr "&Uložiť..."
 
 # ID:9,
 #: ID:9
@@ -956,7 +947,6 @@ msgstr "(binárna hodnota)"
 
 # ID:219,
 #: ID:219
-#, fuzzy
 msgid "(dry run)"
 msgstr "(skušobný beh)"
 
@@ -1330,7 +1320,7 @@ msgstr "Nastal pokus o prístup za koncom %1m."
 #: ID:3868
 #, fuzzy, c-format
 msgid "An attempt was made to read from the writing %1."
-msgstr "Pri zapisovaní do %1 bol pokus čítanie."
+msgstr "Pri zapisovaní do %1 bol pokus o čítanie."
 
 # bol-nastal _
 # ID:3868,#:
@@ -1338,7 +1328,7 @@ msgstr "Pri zapisovaní do %1 bol pokus čítanie."
 #: ID:3868
 #, fuzzy, c-format
 msgid "An attempt was made to write to the reading %1."
-msgstr "Pri čítaní %1 bol pokus zápis."
+msgstr "Pri čítaní %1 bol pokus o zápis."
 
 # ID:78,
 #: ID:78
@@ -1457,17 +1447,17 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "Apply &patch..."
-msgstr "Použi zá&platu..."
+msgstr "Použiť zá&platu..."
 
 # Control-ID:1294,
 #: Control-ID:1294
 msgid "Apply property recursively"
-msgstr "Použi vlastnosť rekurzívne"
+msgstr "Použiť vlastnosť rekurzívne"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
-msgstr "Použi unifikovaný 'diff'"
+msgstr "Použiť unifikovaný 'diff'"
 
 # Ste si istý, že chcete označiť súbor(y) v stave konfliktu za vyriešené?
 # ID:145,
@@ -1483,7 +1473,6 @@ msgstr "Naozaj chcete vrátiť %d objekt(y)? Stratíte <b>všetky</b> zmeny vyko
 
 # Usporiadať zvyslo
 #: MenuEntry
-#, fuzzy
 msgid "Arrange &Vertical"
 msgstr "&Vertikálne usporiadnie"
 
@@ -2096,7 +2085,6 @@ msgstr "Porovnanie %s s %s"
 # Dokončené
 # ID:74,
 #: ID:74
-#, fuzzy
 msgid "Completed"
 msgstr "Hotovo"
 
@@ -2708,9 +2696,8 @@ msgstr "Uprav správu"
 # Control-ID:1099,#:
 # Control-ID:1282,
 #: Control-ID:1331
-#, fuzzy
 msgid "Edit..."
-msgstr "&Upraviť..."
+msgstr "Upraviť..."
 
 # ID:79,
 #: ID:79
@@ -3441,9 +3428,8 @@ msgstr "Importuje adresár do úložiska"
 
 # Control-ID:1266,
 #: Control-ID:1266
-#, fuzzy
 msgid "Include ignored files"
-msgstr "Vrátane ignoroavných súborov"
+msgstr "Vrátane ignorovaných súborov"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3490,7 +3476,7 @@ msgstr "Vnútorná chyba programu."
 #: ID:102
 #, fuzzy
 msgid "Invalid data object dropped!"
-msgstr "Odstránený chybný dáatový objekt!"
+msgstr "Odstránený chybný dátový objekt!"
 
 # ID:3857,#:
 # ID:3857,
@@ -4169,7 +4155,6 @@ msgstr "Nerecursivne"
 # Upozornenie
 # ID:88,
 #: ID:88
-#, fuzzy
 msgid "Notice"
 msgstr "Poznámka"
 
@@ -4527,25 +4512,25 @@ msgstr "Prosím, čakajte..."
 #: ID:569
 #, fuzzy
 msgid "Post-Commit Hook"
-msgstr "Poodovzdavací"
+msgstr "Poodovzdavací hookskript"
 
 # ID:570,
 #: ID:570
 #, fuzzy
 msgid "Post-Update Hook"
-msgstr "Poaktualizačný"
+msgstr "Poaktualizačný hookskript"
 
 # Control-ID:1110,
 #: ID:569
 #, fuzzy
 msgid "Pre-Commit Hook"
-msgstr "Predodovzdavací"
+msgstr "Predodovzdavací hootskript"
 
 # ID:570,
 #: ID:570
 #, fuzzy
 msgid "Pre-Update Hook"
-msgstr "Predaktulizačný"
+msgstr "Predaktulizačný hookskript"
 
 # ID:376,
 #: ID:376
@@ -4796,9 +4781,8 @@ msgstr "Odstrániť zo zoznamu &ignorovaných"
 
 # ID:8,
 #: Control-ID:1332
-#, fuzzy
 msgid "Remove..."
-msgstr "&Vyriešené"
+msgstr "Odstrániť..."
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -4852,9 +4836,8 @@ msgstr "Vzdialene premenované"
 
 # ID:11,
 #: ID:11
-#, fuzzy
 msgid "Renames files / folders inside version control"
-msgstr "Premenuje súbory/adresáre vo sprave verzií"
+msgstr "Premenuje súbory/adresáre vo správe verzií"
 
 # ID:3603,
 #: ID:3603
@@ -5612,9 +5595,9 @@ msgstr "Zobrazujem %ld uzlov"
 
 # ID:238,
 #: ID:115
-#, fuzzy, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "Najnižšia revízia: %ld - Najvyššia revízia: %ld - HEAD revízia: %ld"
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Zobrazovanie %ld revízie(í), od revízie %ld do revízie %ld - Vybrané revízie: %ld."
 
 # ID:272,
 #: ID:272
@@ -6687,7 +6670,6 @@ msgstr "Nemožno zapísať do %1, je len na čítanie, alebo otvorený niekym in
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
-#, fuzzy
 msgid "Uncheck"
 msgstr "Odznačiť"
 
@@ -6725,7 +6707,6 @@ msgstr ""
 # Odomkni
 # ID:221,
 #: ID:221
-#, fuzzy
 msgid "Unlock"
 msgstr "Odomknúť"
 
@@ -6854,72 +6835,52 @@ msgstr "Použiť preš&krtávanie pre vymazané riadky"
 
 # ID:251,
 #: MenuEntry
-#, fuzzy
-msgid "Use text block from \"&Mine\""
-msgstr "Použiť blok \"&moje\""
-
-# ID:251,
-#: MenuEntry
-#, fuzzy
-msgid "Use text block from \"&Theirs\""
-msgstr "Použiť blok \"&ich\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Použiť blok \"&moje\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Použiť blok \"&ich\""
 
 # ID:251,
-#: MenuEntry
-#, fuzzy
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Použiť blok \"m&oje\" pred \"ich\""
-
-# ID:251,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Use text block from \"Mine\" before \"Theirs\"\n"
 "\"My\" text block then \"Theirs\""
-msgstr "Použiť blok \"m&oje\" pred \"ich\""
+msgstr ""
+"Použiť blok \"Moje\" pred \"ich\"\n"
+"\"Moje\", potom \"Ich\""
 
 # ID:251,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Use text block from \"Mine\"\n"
 "Use \"My\" text block"
-msgstr "Použiť blok \"&moje\""
-
-# ID:251,
-#: MenuEntry
-#, fuzzy
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Použiť blok  \"i&ch\" pred \"moje\""
+msgstr ""
+"Použiť blok z \"Moje\"\n"
+"Použiť \"Moje\""
 
 # ID:251,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
 "\"Their\" text block then \"Mine\""
-msgstr "Použiť blok  \"i&ch\" pred \"moje\""
+msgstr ""
+"Použiť blok  \"Ich\" pred \"Moje\"\n"
+"\"Ich\", potom \"Moje\""
 
 # ID:251,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Use text block from \"Theirs\"\n"
 "Use \"Their\" text block"
-msgstr "Použiť blok  \"i&ch\" pred \"moje\""
+msgstr ""
+"Použiť blok z \"Ich\"\n"
+"Použiť \"Ich\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Použiť blok \"m&oje\" pred \"ich\""
 
@@ -6941,12 +6902,12 @@ msgstr "Požiť tento &celý súbor"
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
-msgstr "Použi keď sa úložisku zmenila URL"
+msgstr "Použiť keď sa úložisku zmenila URL"
 
 # ID:251,
 #: ID:251
 msgid "Use whole other &file"
-msgstr "Použi celý drúhý &súbor"
+msgstr "Použiť celý drúhý &súbor"
 
 # ID:74,
 #: ID:74
@@ -6999,7 +6960,7 @@ msgstr "Prezrieť revíziu cesty v &webviewer"
 #: ID:114
 #, fuzzy
 msgid "View revision in &webviewer"
-msgstr "Prezrieť revíziu v &webviewer"
+msgstr "Prezrieť revíziu vo &webviewer"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -7036,7 +6997,7 @@ msgstr "S URL:"
 # Dlg-ID:158,
 #: Dlg-ID:158
 msgid "Working Copy"
-msgstr "Pracovná verzia"
+msgstr "Pracovná kópia"
 
 # Dlg-ID:158,
 #: Control-ID:1335
@@ -7050,7 +7011,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"Pracovná verzia/kópia preložená do \n"
+"Pracovná kópia preložená do \n"
 "%s"
 
 # ID:73,
@@ -7240,7 +7201,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Vaša pracovná kópia vyzerá byť na cesta značky!\n"
+"Vaša pracovná kópia vyzerá byť na ceste značky!\n"
 "Najprv by ste mali prepnúť na vetvu, alebo kmeň pred odovzdaním.\n"
 "\n"
 "Chcete napriek tomu odovzdať?"
@@ -7266,7 +7227,7 @@ msgstr "Zväčš&iť\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
-msgstr "Zoom &out\tCtrl--"
+msgstr "Zme&nšiť\tCtrl--"
 
 # ID:2051,
 #: ID:2051
@@ -7486,12 +7447,12 @@ msgstr "zlúčené"
 # ID:10,
 #: ID:10
 msgid "missing"
-msgstr "chýba"
+msgstr "chýbajúce"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "missing / deleted / replaced"
-msgstr "chýba / zmazené / nahradené"
+msgstr "chýbajpce / zmazené / nahradené"
 
 # zmenený
 # ID:10,
@@ -7512,13 +7473,11 @@ msgstr "mesiac"
 
 # ID:10,
 #: ID:10
-#, fuzzy
 msgid "no description for this command is available"
 msgstr "k tomuto príkazu nie je popis "
 
 # ID:10,
 #: ID:10
-#, fuzzy
 msgid "non-versioned"
 msgstr "neverziované"
 
