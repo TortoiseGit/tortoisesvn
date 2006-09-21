@@ -1009,7 +1009,17 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
 						diff.SetHEADPeg(m_LogRevision);
-						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev);
+						SVNRev prevrev = rev-1;
+						if ((pLogEntry->pArChangedPaths)&&(pLogEntry->pArChangedPaths->GetCount() <= 2))
+						{
+							for (int i=0; i<pLogEntry->pArChangedPaths->GetCount(); ++i)
+							{
+								LogChangedPath * changedpath = (LogChangedPath *)pLogEntry->pArChangedPaths->GetAt(i);
+								if (changedpath->lCopyFromRev)
+									prevrev = changedpath->lCopyFromRev;
+							}
+						}
+						diff.ShowUnifiedDiff(m_path, prevrev, m_path, rev);
 					}
 					break;
 				case ID_GNUDIFF2:

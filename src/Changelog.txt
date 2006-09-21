@@ -34,6 +34,8 @@ Version 1.4.1
        See issue #293 for details. (Stefan)
 - BUG: The bugtraq:regex parsing was wrong if the group object was not
        the last in the string. See issue #295 for details. (Stefan)
+- BUG: Showing the changes done in a revision of a renamed file in
+       the revision of the rename could fail for unified diffs. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
