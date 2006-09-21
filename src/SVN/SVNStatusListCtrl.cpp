@@ -390,7 +390,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			}
 		}
 		refetchcounter++;
-	} while(!BuildStatistics() && (refetchcounter < 2));
+	} while(!BuildStatistics() && (refetchcounter < 2) && (*m_pbCanceled==false));
 
 	m_bBlock = FALSE;
 	m_bBusy = false;
