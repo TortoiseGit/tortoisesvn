@@ -19,7 +19,8 @@
 - CHG: More accelerator keys and menu reorganization in TortoiseMerge.
        See issue #284 for details. (Jeremy Whitby)
 - CHG: CrashRpt.dll is now loaded with an absolute path. This prevents
-       TSVN from loading an arbitrary DLL. (Tobias Schäfer)
+       TSVN from loading an arbitrary DLL. See issue #278 for details.
+       (Tobias Schäfer)
 
 Version 1.4.1
 - BUG: When the bugtraq:message was set to "%BUGID%" only and the 
