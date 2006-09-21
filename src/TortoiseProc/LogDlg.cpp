@@ -170,7 +170,7 @@ BOOL CLogDlg::OnInitDialog()
 	{
 		m_ProjectProperties.ReadProps(m_path);
 	}
-	if (!m_ProjectProperties.sUrl.IsEmpty())
+	if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.sBugIDRe.IsEmpty()))
 	{
 		m_bShowBugtraqColumn = true;
 	}
