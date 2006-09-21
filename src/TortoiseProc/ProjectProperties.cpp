@@ -409,10 +409,15 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
 								range.cpMax =  (LONG)(offset1 + results.rlength(1));
 							}
-							else
+							else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
 							{
 								range.cpMin = (LONG)(offset1 + results.rstart(1)-results.rstart(0));
 								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
+							}
+							else
+							{
+								range.cpMin = offset1;
+								range.cpMax = offset1;
 							}
 							if (range.cpMin != range.cpMax)
 							{

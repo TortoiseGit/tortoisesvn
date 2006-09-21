@@ -40,6 +40,8 @@ Version 1.4.1
        the last in the string. See issue #295 for details. (Stefan)
 - BUG: Showing the changes done in a revision of a renamed file in
        the revision of the rename could fail for unified diffs. (Stefan)
+- BUG: The log dialog could crash when trying to show a log message with a
+       bug ID and an illegal regex string. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
