@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-17 14:01+0100\n"
+"PO-Revision-Date: 2006-09-22 00:48+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2327,13 +2327,13 @@ msgstr "&Taglia"
 # Control-ID:1113,
 #: Control-ID:1113
 msgid "Current version is:"
-msgstr "La versione corrente è:"
+msgstr "Ultima versione disponibile:"
 
 # ID:201,
 #: ID:201
 #, c-format
 msgid "Current version is: %s"
-msgstr "La versione corrente è: %s"
+msgstr "Ultima versione disponibile:: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4342,15 +4342,15 @@ msgstr "Attendere prego - questa operazione potrebbe richiedere parecchi minuti.
 msgid "Please wait while cancelling..."
 msgstr "Si prega di attendere. Annullamento in corso..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Attendere, reperimento delle differenze..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Attendere che il Repository Browser venga inizializzato..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Attendere, reperimento delle differenze..."
 
 # ID:119,
 #: ID:119
@@ -5425,8 +5425,8 @@ msgstr "Mostra %ld nodi"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "%ld revisioni visualizzate, dalla revisione %ld alla revisione %ld - %ld revisioni selezionate."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld revisione/i visualizzata/e, dalla revisione %ld alla revisione %ld - %ld revisione/i selezionata/e."
 
 # ID:272,
 #: ID:272
@@ -6650,28 +6650,13 @@ msgstr "&Barra le linee eliminate"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Usa il blocco di testo dal \"&mio\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Usa il blocco di testo dal \"&loro\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Usa il blocco di testo dal \"&mio\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Usa il blocco di testo dal \"&loro\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
 
 # ID:251,
 #: ID:2052
@@ -6688,11 +6673,6 @@ msgid ""
 msgstr "Usa il blocco di testo dal \"&mio\""
 
 # ID:251,
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
-
-# ID:251,
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
@@ -6707,7 +6687,7 @@ msgid ""
 msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
 
@@ -7001,13 +6981,13 @@ msgstr ""
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "Your version is:"
-msgstr "La verisione installata è:"
+msgstr "Verisione installata:"
 
 # ID:201,
 #: ID:201
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
-msgstr "La versione installata è: %d.%d.%d.%d"
+msgstr "Versione installata: %d.%d.%d.%d"
 
 # ID:78,
 #: ID:78
