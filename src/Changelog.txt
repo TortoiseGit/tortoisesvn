@@ -23,6 +23,8 @@
        (Tobias Schäfer)
 
 Version 1.4.1
+- CHG: If a bug ID is specified multiple times in a log message, the log
+       dialog now shows each ID only once in the bug ID column. (Stefan)
 - BUG: When the bugtraq:message was set to "%BUGID%" only and the 
        bugtraq:number was set to "true", the log message from the
        'recent log messages' was inserted into the bug ID field instead of

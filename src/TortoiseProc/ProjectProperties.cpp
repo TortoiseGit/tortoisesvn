@@ -513,6 +513,8 @@ CString ProjectProperties::FindBugID(const CString& msg)
 	if (sUrl.IsEmpty())
 		return sRet;
 
+	std::set<CString> bugIDs;
+
 	// for use with GRETA, actually a basic_string<TCHAR>
 	restring reMsg = (LPCTSTR)msg;
 
@@ -549,8 +551,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 									idoffset1 += idresults.rstart(0);
 									idoffset2 = idoffset1 + idresults.rlength(0);
 									ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
-									sRet += idresults.backref(0).str().c_str();
-									sRet += _T(" ");
+									bugIDs.insert(CString(idresults.backref(0).str().c_str()));
 									idoffset1 = idoffset2;
 									bFound = true;
 								}
@@ -606,8 +607,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 							}
 							if (range.cpMin != range.cpMax)
 							{
-								sRet += msg.Mid(range.cpMin, range.cpMax-range.cpMin);
-								sRet += _T(" ");
+								bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
 								bFound = true;
 							}
 							offset1 += results.rlength(0);
@@ -626,7 +626,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		CString sLastPart;
 		BOOL bTop = FALSE;
 		if (sMessage.Find(_T("%BUGID%"))<0)
-			return sRet;
+			goto finish;
 		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
 		CString sMsg = msg;
@@ -650,10 +650,10 @@ CString ProjectProperties::FindBugID(const CString& msg)
 			bTop = TRUE;
 		}
 		if (sBugLine.IsEmpty())
-			return sRet;
+			goto finish;
 		CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
-			return sRet;
+			goto finish;
 		//the bug id part can contain several bug id's, separated by commas
 		if (!bTop)
 			offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
@@ -664,17 +664,21 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		{
 			offset2 = offset1 + sBugIDPart.Find(',');
 			CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-			sRet += msg.Mid(range.cpMin, range.cpMax-range.cpMin);
-			sRet += _T(" ");
+			bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
 			sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
 			offset1 = offset2 + 1;
 		}
 		offset2 = offset1 + sBugIDPart.GetLength();
 		CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-		sRet += msg.Mid(range.cpMin, range.cpMax-range.cpMin);
-		sRet += _T(" ");
-		return sRet;
+		bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
 	}
+finish:
+	for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
+	{
+		sRet += *it;
+		sRet += _T(" ");
+	}
+	sRet.Trim();
 	return sRet;
 }
 
