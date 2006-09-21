@@ -1660,7 +1660,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
-									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
+									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 								}
 							}
 							break;
@@ -1693,7 +1693,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
-									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
+									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 								}
 							}
 							break;
@@ -1712,7 +1712,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
-									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK);
+									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 								}
 							}
 							break;

@@ -414,7 +414,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		
 		if (command == cmdTest)
 		{
-			CMessageBox::Show(NULL, _T("Test command successfully executed"), _T("Info"), MB_OK);
+			CMessageBox::Show(NULL, _T("Test command successfully executed"), _T("Info"), MB_OK | MB_ICONINFORMATION);
 			return FALSE;
 		} // if (comVal.Compare(_T("test"))==0)
 
