@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-21 23:10+0100\n"
+"PO-Revision-Date: 2006-09-22 21:32+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -631,7 +631,7 @@ msgstr "&Načítaj..."
 # Control-ID:1,#:
 #: Control-ID:1
 msgid "&Merge"
-msgstr "&Zlúč"
+msgstr "&Zlúčovanie"
 
 # ID:9,
 #: ID:9
@@ -767,22 +767,22 @@ msgstr "&SSH klient:"
 
 #: MenuEntry
 msgid "&Save Ctrl-S"
-msgstr "&Ulož Ctrl-S"
+msgstr "&Uložiť Ctrl-S"
 
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
-msgstr "&Ulož autentifikáciu"
+msgstr "&Uložiť autentifikáciu"
 
 #: MenuEntry
 msgid "&Save graph as..."
-msgstr "&Ulož graf ako..."
+msgstr "&Uložiť graf ako..."
 
 # ID:322,
 #: ID:322
 msgid "&Save list of selected files to..."
-msgstr "&Ulož zoznam vybraných súborov do..."
+msgstr "&Uložiť zoznam vybraných súborov do..."
 
 # Control-ID:1308,
 #: Control-ID:1308
@@ -922,7 +922,7 @@ msgstr "&Uživateľ:"
 # MenuEntry#:
 #: MenuEntry
 msgid "&View"
-msgstr "&Ukáž"
+msgstr "&Zobraziť"
 
 #: MenuEntry
 msgid "&Whitespaces"
@@ -3831,7 +3831,7 @@ msgstr "Označiť ako &vyriešené..."
 # ID:282,
 #: ID:282
 msgid "Mark as resolved"
-msgstr "Označ ako vyriešené"
+msgstr "Označiť ako vyriešené"
 
 # ID:2051,
 #: ID:2051
@@ -3914,13 +3914,14 @@ msgstr "Typ MIME"
 
 # Control-ID:1158,
 #: Control-ID:1158
+#, fuzzy
 msgid "Min"
 msgstr "Min"
 
 # ID:263,
 #: ID:263
 msgid "Mine"
-msgstr "Môj"
+msgstr "Moje"
 
 # Control-ID:1023,
 #: Control-ID:1023
@@ -3982,7 +3983,7 @@ msgstr "Môj súbor:"
 
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr "D&a%lší konflikt"
+msgstr "Ď&alší konflikt"
 
 # ID:3697,
 #: ID:3697
@@ -4905,12 +4906,12 @@ msgstr "Vyriešiť"
 # ID:282,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
-msgstr "Vyriešiť konfikt použitím \"moje\""
+msgstr "Vyriešiť konfikt použitím \"Moje\""
 
 # ID:282,
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
-msgstr "Vyriešiť konfikt použitím \"ich\""
+msgstr "Vyriešiť konfikt použitím \"Ich\""
 
 # ID:74,#:
 # ID:209,
@@ -5595,8 +5596,8 @@ msgstr "Zobrazujem %ld uzlov"
 
 # ID:238,
 #: ID:115
-#, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+#, fuzzy, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
 msgstr "Zobrazovanie %ld revízie(í), od revízie %ld do revízie %ld - Vybrané revízie: %ld."
 
 # ID:272,
@@ -6713,7 +6714,7 @@ msgstr "Odomknúť"
 # ID:264,
 #: ID:264
 msgid "Unlock failed"
-msgstr "Odoknutie zlihalo"
+msgstr "Odoknutie zlyhalo"
 
 # ID:263,
 #: ID:263
@@ -6757,7 +6758,7 @@ msgstr "Aktualizuje pracovnú kópiu na aktuálnu revíziu"
 #: ID:226
 #, c-format
 msgid "Updating %s"
-msgstr "Aktualizujem %s"
+msgstr "Aktualizovanie %s"
 
 # ID:283,
 #: ID:283
@@ -6836,36 +6837,46 @@ msgstr "Použiť preš&krtávanie pre vymazané riadky"
 # ID:251,
 #: MenuEntry
 msgid "Use text block from \"&mine\""
-msgstr "Použiť blok \"&moje\""
+msgstr "Použiť blok \"&Moje\""
 
 # ID:251,
 #: MenuEntry
 msgid "Use text block from \"&theirs\""
-msgstr "Použiť blok \"&ich\""
+msgstr "Použiť blok \"&Ich\""
+
+# ID:251,
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Použiť blok \"M&oje\" pred \"Ich\""
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
-"Použiť blok \"Moje\" pred \"ich\"\n"
+"Použiť blok \"Moje\" pred \"Ich\"\n"
 "\"Moje\", potom \"Ich\""
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "Použiť blok z \"Moje\"\n"
 "Použiť \"Moje\""
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Použiť blok  \"I&ch\" pred \"Moje\""
+
+# ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
 msgstr ""
 "Použiť blok  \"Ich\" pred \"Moje\"\n"
 "\"Ich\", potom \"Moje\""
@@ -6873,21 +6884,11 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
 msgstr ""
 "Použiť blok z \"Ich\"\n"
 "Použiť \"Ich\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Použiť blok \"m&oje\" pred \"ich\""
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Použiť blok  \"i&ch\" pred \"moje\""
 
 # ID:251,
 #: ID:251
