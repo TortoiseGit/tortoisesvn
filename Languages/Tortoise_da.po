@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7178
+# Based on Tortoise.pot r7555
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-25 13:56+0100\n"
+"PO-Revision-Date: 2006-09-22 14:28+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -482,11 +482,7 @@ msgstr "Vis som &liste"
 msgid "&Load..."
 msgstr "&Åbn..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Marker som løst"
-
-#: Control-ID:1,#: MenuEntry
+#: Control-ID:1,
 msgid "&Merge"
 msgstr "&Flet"
 
@@ -502,6 +498,10 @@ msgstr "&Fletning"
 #: Control-ID:1129,
 msgid "&Native filesystem (FSFS)"
 msgstr "&Indbygget filsystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Naviger"
 
 #: Control-ID:1049,
 msgid "&Network drives"
@@ -715,6 +715,11 @@ msgstr "&Vis"
 msgid "&Whitespaces"
 msgstr "&Blanktegn"
 
+#: Control-ID:1066,
+#, fuzzy
+msgid "&Whole word"
+msgstr "&Hele ord"
+
 #: Control-ID:1183,
 msgid "&Working copy"
 msgstr "&Arbejdskopi"
@@ -749,7 +754,7 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1002,#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -882,6 +887,10 @@ msgstr "Tilføj filendelse-specifikt flet-program"
 #: ID:13,
 msgid "Add to &ignore list"
 msgstr "Føj til \"&ignorer\"-listen"
+
+#: Control-ID:1279,
+msgid "Add..."
+msgstr "Tilføj..."
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1206,7 +1215,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1408,6 +1417,14 @@ msgstr "Farveko&dning af ændringer indenfor linje"
 msgid "Colors"
 msgstr "Farver"
 
+#: ID:198,
+msgid "Command Line"
+msgstr "Kommandolinje"
+
+#: Control-ID:1336,
+msgid "Command Line To Execute:"
+msgstr "Kommandolinje, der skal udføres:"
+
 #: ID:3857,#: ID:3857,
 msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
@@ -1475,6 +1492,10 @@ msgstr "Sammenligner %s med %s"
 #: ID:74,
 msgid "Completed"
 msgstr "Afsluttet"
+
+#: Dlg-ID:236,
+msgid "Configure Hook Scripts"
+msgstr "Indstilling af hook-scripts"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files."
@@ -1874,6 +1895,10 @@ msgstr "Rediger filendelse-specifikt flet-program"
 msgid "Edit log message"
 msgstr "Rediger logbesked"
 
+#: Control-ID:1331,
+msgid "Edit..."
+msgstr "Rediger..."
+
 #: ID:79,
 msgid "Either the name or IP of the proxy server"
 msgstr "Navn eller IP-adresse på proxyserveren"
@@ -1985,12 +2010,12 @@ msgid "Extension"
 msgstr "Filendelse"
 
 #: Control-ID:65535,
-msgid "Extension specific programs"
-msgstr "Filendelse-specifikke programmer"
+msgid "Extension or mime-type:"
+msgstr "Filendelse eller MIME-type:"
 
 #: Control-ID:65535,
-msgid "Extension:"
-msgstr "Filendelse:"
+msgid "Extension/mime-type specific programs"
+msgstr "Filendelse/MIME-type-specifikke programmer"
 
 #: ID:74,
 msgid "External"
@@ -2197,6 +2222,11 @@ msgstr "Skjul &ikke-relaterede, ændrede stier"
 msgid "Help"
 msgstr "Hjælp"
 
+#: Control-ID:1326,
+#, fuzzy
+msgid "Hide the script while running"
+msgstr "Skjul script ved kørsel"
+
 #: ID:2052,
 #, fuzzy
 msgid "Hide/Show the patch file list\nHides or shows the patch file list"
@@ -2205,6 +2235,18 @@ msgstr "Vis/skjul listen over filer\nSkjuler eller viser listen over filer"
 #: Control-ID:1127,
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tip: Tryk F5 for at genopfriske det valgte deltræ og Ctrl-F5 for også at genopfriske alt nedenunder"
+
+#: Dlg-ID:103,
+msgid "Hook Scripts"
+msgstr "Hook-scripts"
+
+#: ID:198,
+msgid "Hook Type"
+msgstr "Hook-type"
+
+#: Control-ID:1334,
+msgid "Hook Type:"
+msgstr "Hook-type:"
 
 #: ID:82,
 #, c-format
@@ -2531,6 +2573,10 @@ msgstr "Mailsystem-DLL'en er ugyldig."
 msgid "Manage Subversion properties"
 msgstr "Rediger Subversion-egenskaber"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Marker som &løst"
+
 #: ID:282,
 msgid "Mark as resolved"
 msgstr "Marker som løst"
@@ -2547,7 +2593,7 @@ msgstr "Forskel på store/små &bogstaver"
 msgid "Max"
 msgstr "Maks"
 
-#: Control-ID:65535,
+#: Control-ID:1317,
 msgid "Max. items to keep in the log message history"
 msgstr "Maksimalt antal logbeskeder gemt i historikken"
 
@@ -2770,7 +2816,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -2883,7 +2929,7 @@ msgstr "Påfør korrektur på valgt"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Korrekturfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
-#: ID:77,
+#: ID:77,#: ID:198,
 msgid "Path"
 msgstr "Sti"
 
@@ -2915,6 +2961,10 @@ msgstr "Indtast venligst en dato og/eller et tidspunkt."
 msgid "Please enter a date."
 msgstr "Indtast venligst en dato."
 
+#: ID:83,
+msgid "Please enter a hook script to execute."
+msgstr "Indtast venligst et hook-script, der skal udføres."
+
 #: ID:3858,#: ID:3858,
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -2923,6 +2973,10 @@ msgstr "Indtast venligst et tal mellem %1 og %2."
 #: ID:3858,#: ID:3858,
 msgid "Please enter a number."
 msgstr "Indtast venligst et tal."
+
+#: ID:83,
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Indtast venligst stien, som hook-scriptet skal anvendes på."
 
 #: ID:3858,#: ID:3858,
 msgid "Please enter a positive integer."
@@ -2962,6 +3016,10 @@ msgstr "Bemærk:\nDin arbejdskopi forbliver på den samme sti. Hvis du ønsker a
 msgid "Please select a button."
 msgstr "Vælg venligst en knap."
 
+#: ID:83,
+msgid "Please select a hook type"
+msgstr "Vælg venligst en hook-type"
+
 #: ID:76,
 msgid "Please specify the certificate type"
 msgstr "Angiv venligst certifikattypen"
@@ -2974,17 +3032,33 @@ msgstr "Vent venligst - dette kan meget vel vare flere minutter!"
 msgid "Please wait while cancelling..."
 msgstr "Vent venligst mens der annulleres..."
 
+#: ID:319,
+msgid "Please wait while differences are obtained..."
+msgstr "Vent venligst mens forskellene findes..."
+
 #: ID:104,
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 
-#: ID:319,
-msgid "Please wait while we get the differences..."
-msgstr "Vent venligst mens forskellene findes..."
-
 #: ID:119,#: ID:146,#: ID:211,
 msgid "Please wait..."
 msgstr "Vent venligst..."
+
+#: ID:569,
+msgid "Post-Commit Hook"
+msgstr "\"Efter arkivering\"-hook"
+
+#: ID:570,
+msgid "Post-Update Hook"
+msgstr "\"Efter opdatering\"-hook"
+
+#: ID:569,
+msgid "Pre-Commit Hook"
+msgstr "\"Før arkivering\"-hook"
+
+#: ID:570,
+msgid "Pre-Update Hook"
+msgstr "\"Før opdatering\"-hook"
 
 #: ID:376,
 #, fuzzy
@@ -3167,6 +3241,10 @@ msgstr "Tekststatus på server"
 #: ID:15,
 msgid "Remove from &ignore list"
 msgstr "Fjern fra \"&ignorer\"-listen"
+
+#: Control-ID:1332,
+msgid "Remove..."
+msgstr "Fjern..."
 
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "Removed"
@@ -3561,6 +3639,14 @@ msgstr "Vælg slut-revision"
 msgid "Select folder to export to.\nYou might need to create a new folder before performing this export."
 msgstr "Vælg den mappe der skal eksporteres til.\nDet kan være nødvendigt at oprette en ny mappe, før du udfører denne eksport."
 
+#: ID:197,
+msgid "Select folder to run script for"
+msgstr "Vælg mappen, som scriptet skal køres i"
+
+#: ID:197,
+msgid "Select hook script file"
+msgstr "Vælg fil med hook-script"
+
 #: ID:78,
 msgid "Select merge application"
 msgstr "Vælg flet-program"
@@ -3716,10 +3802,19 @@ msgstr "Vis ikke-ændrede filer"
 msgid "Show unversioned files"
 msgstr "Vis ikke-versionerede filer"
 
+#: ID:198,
+msgid "Show/Hide"
+msgstr "Vis/skjul"
+
 #: ID:272,
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Viser %ld knuder"
+
+#: ID:115,
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Viser %ld revision(er) fra revision %ld til revision %ld - %ld revision(er) valgt."
 
 #: ID:272,
 #, c-format
@@ -3800,9 +3895,17 @@ msgstr "Stablet søjlediagram"
 msgid "Stacked Line Graph"
 msgstr "Stablet kurvediagram"
 
+#: ID:569,
+msgid "Start Commit Hook"
+msgstr "Start arkiverings-hook"
+
 #: Control-ID:65535,
 msgid "Start Revision"
 msgstr "Start-revision"
+
+#: ID:569,
+msgid "Start Update Hook"
+msgstr "Start opdaterings-hook"
 
 #: ID:245,#: Dlg-ID:179,
 msgid "Statistics"
@@ -3995,6 +4098,11 @@ msgstr "Mappen %s\nindeholder ikke-versionerede og/eller ændrede fil(er). Vil d
 #, c-format
 msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
 msgstr "Mappen \n%s\nfindes ikke.\nVil du oprette den først?"
+
+#: ID:83,
+#, c-format
+msgid "The hook script returned an error:\n%s"
+msgstr "Hook-scriptet returnerede en fejl:\n%s"
 
 #: ID:7,
 msgid "The image can not be shown."
@@ -4428,6 +4536,10 @@ msgstr "Brug '*' i betydningen \"hvad som helst\", når du angiver en undtagelse
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Brug URL for &arbejdskopi som standard \"Fra:\"-URL"
 
+#: Control-ID:1064,
+msgid "Use Unified Diff from clipboard"
+msgstr "Brug \"unified diff\" fra udklipsholder"
+
 #: Control-ID:1073,
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Anvend \"Fra:\"-URL (revisionsintervallet kan vælges i log-dialogen ovenfor)"
@@ -4448,15 +4560,30 @@ msgstr "Brug begge tekstblokke (denne sidst)"
 msgid "Use stri&keout for deleted lines"
 msgstr "Brug overst&regning til slettede linjer"
 
-#: ID:251,
 msgid "Use text block from \"&mine\""
 msgstr "Brug tekstblok fra \"&min\""
 
-#: ID:251,
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Brug tekstblok fra \"&deres\""
 
-#: ID:251,
+#: ID:2052,
+msgid "Use text block from \"Mine\" before \"Theirs\"\n\"My\" text block then \"Theirs\""
+msgstr "Brug tekstblok fra \"Min\" før \"Deres\"\n\"Min\" tekstblok, derefter \"Deres\""
+
+#: ID:2052,
+msgid "Use text block from \"Mine\"\nUse \"My\" text block"
+msgstr "Brug tekstblok fra \"Min\"\nBrug \"Min\" tekstblok"
+
+#: ID:2052,
+msgid "Use text block from \"Theirs\" before \"Mine\"\n\"Their\" text block then \"Mine\""
+msgstr "Brug tekstblok fra \"Deres\" før \"Min\"\n\"Deres\" tekstblok, derefter \"Min\""
+
+#: ID:2052,
+msgid "Use text block from \"Theirs\"\nUse \"Their\" text block"
+msgstr "Brug tekstblok fra \"Deres\"\nBrug \"Deres\" tekstblok"
+
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Brug tekstblok fra \"m&in\" før \"deres\""
 
@@ -4500,9 +4627,27 @@ msgstr "Værdi"
 msgid "Version"
 msgstr "Version"
 
+#: ID:114,
+#, fuzzy
+msgid "View revision for path in &webviewer"
+msgstr "Vis revision for sti i &webbrowser"
+
+#: ID:114,
+#, fuzzy
+msgid "View revision in &webviewer"
+msgstr "Vis revision i &webbrowser"
+
 #: Control-ID:1084,#: Control-ID:1084,
 msgid "Visit our website"
 msgstr "Besøg vores hjemmeside"
+
+#: ID:198,
+msgid "Wait"
+msgstr "Vent"
+
+#: Control-ID:1327,
+msgid "Wait for the script to finish"
+msgstr "Vent på at scriptet afsluttes"
 
 #: ID:88,
 msgid "Warning"
@@ -4519,6 +4664,10 @@ msgstr "Med URL:"
 #: Dlg-ID:158,
 msgid "Working Copy"
 msgstr "Arbejdskopi"
+
+#: Control-ID:1335,
+msgid "Working Copy Path:"
+msgstr "Sti for arbejdskopi:"
 
 #: ID:80,
 #, c-format
@@ -4863,6 +5012,16 @@ msgstr "tsvn:warnifnoissue\nSæt denne værdi til \"yes\", hvis der skal vises e
 #: ID:563,
 msgid "values are different"
 msgstr "værdierne er forskellige"
+
+#: ID:17,
+#, c-format
+msgid "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\nThe string %REVISION% in the URL is replaced with the revision number,\nthe string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr "webviewer:pathrevision\nURL, der peger på en web-visning af en bestemt fil og revision i versionsarkivet.\nStrengen %REVISION% i denne URL bliver erstattet med revisionsnummeret,\nog strengen %PATH% bliver erstattet af den relative sti til filen i forhold til versionsarkivets rod."
+
+#: ID:17,
+#, c-format
+msgid "webviewer:revision\nURL pointing to the web viewer for the repository for a specific revision.\nThe string %REVISION% in that URL is replaced with the revision number."
+msgstr "webviewer:revision\nURL, der peger på en web-visning af en bestemt revision i versionsarkivet.\nStrengen %REVISION% i denne URL bliver erstattet med revisionsnummeret."
 
 #: ID:245,
 msgid "week"
