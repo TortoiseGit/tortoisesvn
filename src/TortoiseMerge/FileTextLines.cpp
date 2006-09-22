@@ -270,6 +270,29 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			bool bEmpty = false;
 			while (file.ReadString(sLine))
 			{
+				int cr = sLine.Find('\r');
+				if (cr >= 0)
+				{
+					CStringA sLine1 = sLine.Left(cr);
+					if (sLine.GetLength() > cr)
+						sLine = sLine.Mid(cr+1);
+					else
+						sLine.Empty();
+					switch (m_UnicodeType)
+					{
+					case CFileTextLines::ASCII:
+						Add(CString(sLine1));
+						break;
+					case CFileTextLines::UTF8BOM:
+					case CFileTextLines::UTF8:
+						{
+							Add(CUnicodeUtils::GetUnicode(sLine1));
+						}
+						break;
+					default:
+						Add(CString(sLine1));
+					}
+				}
 				bEmpty = sLine.IsEmpty();
 				switch (m_UnicodeType)
 				{
