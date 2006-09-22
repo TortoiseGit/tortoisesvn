@@ -194,10 +194,11 @@ function print_blank_stat($i, $postat, $vars)
   $tl = $postat[1];
   $reposurl = $vars['reposurl'].$postat[6];
   $fdate=date("Y-m-d",$postat[7]);
-  $flagimg=$vars['flagpath']."$postat[10].png";
+  $flagimg=$vars['flagpath'].$postat[10].".png";
+  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[10] flag\"/>";
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</a></td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\">$flagtag&nbsp;$postat[11]</a></td>";
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
@@ -229,7 +230,8 @@ function print_content_stat($i, $postat, $vars)
   $lang=$postat[10];
 
   $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$lang.".exe".$vars['downloadurl2'];
-  $flagimg=$vars['flagpath']."$lang.png";
+  $flagimg=$vars['flagpath'].$postat[10].".png";
+  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[10] flag\"/>";
 
 
   // Calculate width of bars
@@ -267,7 +269,7 @@ function print_content_stat($i, $postat, $vars)
   $tra=$tra+$fuz;
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</a></td>";
+  echo "<td class=\"lang\"><a href=\"$dlfile\">$flagtag&nbsp;$postat[11]</a></td>";
   echo "<td class=\"lang\">$lang</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
