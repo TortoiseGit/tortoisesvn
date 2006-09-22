@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-19 10:18+0900\n"
+"PO-Revision-Date: 2006-09-22 10:15+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4329,15 +4329,15 @@ msgstr "잠시 기다려주십시오. 몇분 걸리는 작업을 수행중입니
 msgid "Please wait while cancelling..."
 msgstr "취소중입니다. 잠시 기다려주십시오..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
 
 # ID:119,
 #: ID:119
@@ -5411,8 +5411,8 @@ msgstr "%ld개 노드 출력"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "%ld 리비전 출력됨, (리비전 %ld에서 %ld까지) - %ld 개의 리비전이 선택됨."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld 개의 리비전이 출력됨, (리비전 %ld에서 %ld까지) - %ld 개의 리비전이 선택됨."
 
 # ID:272,
 #: ID:272
@@ -6599,7 +6599,7 @@ msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Unified Diff from clipboard"
-msgstr "클립보드와 Unified diff를 수행"
+msgstr "클립보드와 Unified diff를 사용"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -6628,28 +6628,13 @@ msgstr "지워진 행에는 줄 긋기(&K)"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "\"작업 사본\"의 텍스트 블럭 사용(&M)"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "\"저장소\"의 텍스트 사용(&T)"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "작업 사본의 텍스트 블럭 사용(&m)"
 
 # ID:251,
-#: ID:251
-msgid "Use text block from \"&theirs\""
-msgstr "저장소의 텍스트 사용(&t)"
-
-# ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&I)"
+msgid "Use text block from \"&theirs\""
+msgstr "\"저장소\"의 텍스트 블럭 사용(&T)"
 
 # ID:251,
 #: ID:2052
@@ -6670,34 +6655,32 @@ msgstr ""
 "\"작업 사본\"의 텍스트 블럭 사용"
 
 # ID:251,
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&H)"
-
-# ID:251,
 #: ID:2052
 msgid ""
 "Use text block from \"Theirs\" before \"Mine\"\n"
 "\"Their\" text block then \"Mine\""
-msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&H)\"저장소\"의 텍스트 블럭을 사용후 \"작업 사본\"의 텍스트 블럭 사용"
+msgstr ""
+"\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭 사용\n"
+"\"저장소\"의 텍스트 블럭을 사용후 \"작업 사본\"의 텍스트를 사용"
 
 # ID:251,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Use text block from \"Theirs\"\n"
 "Use \"Their\" text block"
-msgstr "작업사본 텍스트를 사용하기 전 저장소의 텍스트 블럭을 사용(&h)"
+msgstr ""
+"\"저장소\"의 텍스트 블럭 사용\n"
+"\"저장소\"의 텍스트 블럭 사용"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "저장소 텍스트를 사용하기 전 작업사본의 텍스트 블럭 사용(&i)"
+msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&i)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "작업사본 텍스트를 사용하기 전 저장소의 텍스트 블럭을 사용(&h)"
+msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&h)"
 
 # ID:251,
 #: ID:251
