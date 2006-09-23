@@ -699,6 +699,11 @@ BEGIN
                             "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_VIEWSCROLLTIPTEXT   "Line: %*ld"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

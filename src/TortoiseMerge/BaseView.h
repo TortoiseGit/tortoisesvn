@@ -19,6 +19,7 @@
 #pragma once
 #include "DiffData.h"
 #include "SVNLineDiff.h"
+#include "ScrollTool.h"
 
 class CMainFrame;
 class CLocatorBar;
@@ -201,6 +202,7 @@ protected:
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;
 	CToolTipCtrl	m_ToolTips;
+	CScrollTool		m_ScrollTool;
 	
 	char			m_szTip[MAX_PATH+1];
 	wchar_t			m_wszTip[MAX_PATH+1];

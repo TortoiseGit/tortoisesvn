@@ -160,7 +160,7 @@ void CBaseView::DocumentUpdated()
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
-	} // if (m_pCacheBitmap != NULL) 
+	}
 	m_nLineHeight = -1;
 	m_nCharWidth = -1;
 	m_nScreenChars = -1;
@@ -181,9 +181,9 @@ void CBaseView::DocumentUpdated()
 		{
 			m_apFonts[i]->DeleteObject();
 			delete m_apFonts[i];
-		} // if (m_apFonts[i] != NULL)  
+		}
 		m_apFonts[i] = NULL;
-	} // for (int i=0; i<MAXFONTS; i++) 
+	}
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	RecalcVertScrollBar();
@@ -703,7 +703,12 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
 	int nPageLines = GetScreenLines();
 	int nLineCount = GetLineCount();
 
+	RECT thumbrect;
+	POINT thumbpoint;
 	int nNewTopLine;
+
+	static LONG textwidth = 0;
+	static CString sFormat(MAKEINTRESOURCE(IDS_VIEWSCROLLTIPTEXT));
 	switch (nSBCode)
 	{
 	case SB_TOP:
@@ -725,8 +730,32 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
 		nNewTopLine = m_nTopLine + si.nPage - 1;
 		break;
 	case SB_THUMBPOSITION:
+		m_ScrollTool.Clear();
+		nNewTopLine = si.nTrackPos;
+		textwidth = 0;
+		break;
 	case SB_THUMBTRACK:
 		nNewTopLine = si.nTrackPos;
+		if (GetFocus() == this)
+		{
+			GetClientRect(&thumbrect);
+			ClientToScreen(&thumbrect);
+			thumbpoint.x = thumbrect.right;
+			thumbpoint.y = thumbrect.top + ((thumbrect.bottom-thumbrect.top)*si.nTrackPos)/(si.nMax-si.nMin);
+			m_ScrollTool.Init(&thumbpoint);
+			if (textwidth == 0)
+			{
+				CString sTemp = sFormat;
+				sTemp.Format(sFormat, m_nDigits, 10*m_nDigits-1);
+				textwidth = m_ScrollTool.GetTextWidth(sTemp);
+			}
+			thumbpoint.x -= textwidth;
+			int line = GetLineNumber(nNewTopLine);
+			if (line >= 0)
+				m_ScrollTool.SetText(&thumbpoint, sFormat, m_nDigits, GetLineNumber(nNewTopLine)+1);
+			else
+				m_ScrollTool.SetText(&thumbpoint, _T(" "));
+		}
 		break;
 	default:
 		return;
@@ -939,8 +968,8 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 				pdc->SelectObject(GetFont());
 				pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
 			}
-		} // if (m_bViewLinenumbers) 
-	} // if (nLineIndex >= 0)
+		}
+	}
 }
 
 int CBaseView::GetMarginWidth()
@@ -951,17 +980,17 @@ int CBaseView::GetMarginWidth()
 		if (m_nDigits <= 0)
 		{
 			int nLength = (int)m_arDiffLines->GetCount();
-			// find out how many digits are needed to show the highest linenumber
+			// find out how many digits are needed to show the highest line number
 			int nDigits = 1;
 			while (nLength / 10)
 			{
 				nDigits++;
 				nLength /= 10;
-			} // while (nLength % 10) 
+			}
 			m_nDigits = nDigits;
-		} // if (m_nDigits <= 0)
+		}
 		return (MARGINWIDTH + (m_nDigits * nWidth) + 2);
-	} // if ((m_arLineStates)&&(m_arLineStates->GetCount())) 
+	}
 	return MARGINWIDTH;
 }
 

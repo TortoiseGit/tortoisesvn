@@ -156,6 +156,7 @@
 #define IDS_VIEWTITLE_THEIRS            4200
 #define IDS_VIEWTITLE_MERGED            4201
 #define IDS_VIEWTITLE_MINE              4202
+#define IDS_VIEWSCROLLTIPTEXT           4300
 #define IDS_SAVEASTITLE                 5000
 #define IDS_COMMANDLINEHELP             5001
 #define IDS_OPENDIFFFILETITLE           5002
