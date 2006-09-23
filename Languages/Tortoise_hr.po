@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-13 10:56+0100\n"
+"PO-Revision-Date: 2006-09-23 20:56+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -645,7 +645,6 @@ msgid "&Native filesystem (FSFS)"
 msgstr "&Izvorni datotečni sustav (FSFS)"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Navigate"
 msgstr "&Navigacija"
 
@@ -2808,13 +2807,11 @@ msgstr "Nastavak"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Extension or mime-type:"
 msgstr "Nastavak ili mime-tip:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Extension/mime-type specific programs"
 msgstr "Programi koji ovise o nastavku (vrsti datoteke)"
 
@@ -3561,6 +3558,13 @@ msgstr "Linijski graf revizija"
 #: Control-ID:65535
 msgid "Line:"
 msgstr "Linija:"
+
+# Ovdje je Min umjesto Najmanje zato što na formi sa statistikama "Najmanje" ne stane.
+# Control-ID:1158,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Redak: %*ld"
 
 # ID:3605,
 #: ID:3605
@@ -4386,15 +4390,15 @@ msgstr "Molim pričekajte - ovo može potrajati nekoliko minuta. Ne šalim se!"
 msgid "Please wait while cancelling..."
 msgstr "Molim pričekajte dok odustajem..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Molim pričekajte dohvaćanje razlika..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Molim pričekajte inicijalizaciju preglednika skladišta..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Molim pričekajte dok napravim razlike..."
 
 # ID:119,
 #: ID:119
@@ -5594,7 +5598,6 @@ msgstr "Naslagani linijski dijagram"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Commit Hook"
 msgstr "Vezna skripta prije pohrane"
 
@@ -5605,7 +5608,6 @@ msgstr "Početna revizija"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Update Hook"
 msgstr "Vezna skrpta prije obnavljanja"
 
@@ -6704,79 +6706,59 @@ msgstr "Koristi pre&crtani tekst za obrisane redke"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Koristi blok teksta iz \"&moja\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Koristi blok teksta iz \"&njihova\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Koristi blok teksta iz \"&moje\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Koristi blok teksta iz \"&njihovo\""
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Koristi blok teksta iz \"m&oja\" prije \"njihova\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Koristi blok teksta iz \"m&oje\" prije \"njihovo\""
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
-"Koristi blok teksta iz \"m&oja\" prije \"njihova\"\n"
+"Koristi blok teksta iz \"moja\" prije \"njihova\"\n"
 "blok teksta iz \"moja\", pa onda iz \"njihova\""
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
-"Koristi blok teksta iz \"&moja\"\n"
-"Koristi \"moj\" tekst blok"
+"Koristi blok teksta iz \"moja\"\n"
+"Koristi \"moja\" tekst blok"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Koristi blok teksta iz \"nj&ihova\" prije \"moja\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr ""
-"Koristi blok teksta iz \"nj&ihova\" prije \"moja\"\n"
-"\"Njihov\" tekst blok prije \"mog\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"Koristi blok teksta iz \"nj&ihova\"\n"
-"Koristi \"njihov\" tekst blok"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Koristi blok teksta iz \"m&oje\" prije \"njihovo\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Koristi blok teksta iz \"nj&ihovo\" prije \"moje\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Koristi blok teksta iz \"njihova\" prije \"moja\"\n"
+"\"Njihova\" tekst blok prije \"moja\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Koristi blok teksta iz \"njihova\"\n"
+"Koristi \"njihova\" tekst blok"
 
 # ID:251,
 #: ID:251
