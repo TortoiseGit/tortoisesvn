@@ -11,13 +11,12 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-11-27 19:38+0100\n"
-"Last-Translator: Radek Svarz <translate@svarz.cz>\n"
+"PO-Revision-Date: 2006-09-23 17:44+0100\n"
+"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,41,-1,-1\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -137,6 +136,18 @@ msgstr "%I64d kBajtů přeneseno"
 msgid "%d files selected, %d files total"
 msgstr "Souborů vybraných: %d, souborů celkem: %d"
 
+# ID:7,
+#: ID:7
+#, c-format
+msgid "%ld of %ld"
+msgstr ""
+
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "Cest: %ld"
+
 # ID:226,
 #: ID:226
 #, c-format
@@ -170,12 +181,46 @@ msgstr "%s, na %s"
 # ID:145,
 #: ID:145
 #, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr ""
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr ""
+
+# ID:145,
+#: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
 "Chcete to přeci jen odstranit?"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
 
 # ID:69,
 #: ID:69
@@ -200,6 +245,7 @@ msgstr "&O TortoiseMerge..."
 # Control-ID:1098,
 #: ID:8
 #: Control-ID:1098
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "Přid&at..."
 
@@ -230,6 +276,15 @@ msgstr "Zálohovat originální sou&bor"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
 
+#: ID:114
+msgid "&Blame differences"
+msgstr "O&bvinit rozdíl"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "O&bvinit revize"
+
 # ID:13,
 #: ID:13
 msgid "&Blame..."
@@ -244,15 +299,6 @@ msgstr "&Procházet uložiště"
 #: Control-ID:1011
 msgid "&Browse..."
 msgstr "&Procházet..."
-
-# Control-ID:1091,#:
-# Control-ID:1094,#:
-# Control-ID:1096,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Vestavěný"
 
 # Control-ID:1051,
 #: Control-ID:1051
@@ -303,10 +349,26 @@ msgstr "&Konvertovat soubory při porovnávání oproti základně (BASE)"
 msgid "&Copy"
 msgstr "&Kopírovat"
 
+# ID:114,
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Zkopírovat do schránky"
+
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Kopírovat do..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr ""
+
+# ID:11,
+#: Control-ID:1269
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Předvolené"
 
 # ID:11,
 #: ID:11
@@ -322,6 +384,11 @@ msgstr "&Smazat..."
 #: ID:12
 msgid "&Diff"
 msgstr "Rozdíl (&Diff)"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr ""
 
 # Control-ID:1179,
 #: Control-ID:1179
@@ -341,6 +408,7 @@ msgstr "&Upravit konflikty"
 
 # Control-ID:1099,
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Upravit..."
 
@@ -358,12 +426,16 @@ msgstr "Vložt&e zprávu popisující, proč chcete zamknout soubor(y)."
 msgid "&Exit"
 msgstr "&Ukončit program"
 
+# ID:79,
+#: ID:323
+msgid "&Export selection to..."
+msgstr "&Exportovat výběr do..."
+
 # Control-ID:1092,#:
 # Control-ID:1095,#:
 # Control-ID:1097,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Externí"
 
@@ -375,6 +447,14 @@ msgstr "&Soubor"
 #: MenuEntry
 msgid "&Find"
 msgstr "&Najít"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Najít..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr ""
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -392,6 +472,7 @@ msgid "&Font:"
 msgstr "&Písmo:"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Z URL:"
@@ -405,6 +486,10 @@ msgstr "&Z pracovní kopie (WC) na URL:"
 #: Control-ID:65535
 msgid "&From revision"
 msgstr "&Od revize"
+
+#: MenuEntry
+msgid "&Go To Line..."
+msgstr ""
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -421,6 +506,7 @@ msgstr "&HEAD (přední) revize"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&HEAD (přední) revize"
 
@@ -457,10 +543,14 @@ msgstr "Sada &ikon:"
 msgid "&Ignore %d items"
 msgstr "&Ignorovat %d položky"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignorovat počáteční prázdné znaky"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "&Ignorovat bíle znaky"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr ""
 
 # ID:9,
 #: ID:9
@@ -477,18 +567,27 @@ msgstr "&Skočit na první rozdíl při nahrání"
 msgid "&Language:"
 msgstr "&Jazyk:"
 
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "&Limit search to modified lines"
+msgstr ""
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr ""
+
 # Control-ID:1172,
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&Seznam"
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "Oz&načit jako vyřešené"
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Načíst..."
 
 # Control-ID:1,#:
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Sloučit (Merge)"
 
@@ -506,6 +605,10 @@ msgstr "&Sloučení"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Nativní Filesystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr ""
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -535,14 +638,17 @@ msgstr "&OK"
 
 # ID:101,#:
 # ID:113,
-#: ID:101
-#: ID:113
+#: MenuEntry
 msgid "&Open"
 msgstr "Otevřít"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "Otevřít Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr ""
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -577,8 +683,8 @@ msgstr "Zn&ovu"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "Odeb&rat"
 
@@ -586,6 +692,16 @@ msgstr "Odeb&rat"
 #: ID:101
 msgid "&Rename"
 msgstr "&Přejmenovat"
+
+# Control-ID:1316,
+#: Control-ID:1316
+msgid "&Reopen commit dialog after a commit failed"
+msgstr ""
+
+# ID:13,
+#: ID:13
+msgid "&Repo-browser"
+msgstr "P&růzkumník uložiště"
 
 # ID:113,
 #: ID:113
@@ -597,6 +713,7 @@ msgstr "V&rátit změny z této revize"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revize"
 
@@ -609,19 +726,25 @@ msgstr "&SSH klient:"
 msgid "&Save Ctrl-S"
 msgstr "&Uložit Ctrl-S"
 
-#: MenuEntry
-msgid "&Save Graph As..."
-msgstr "&Uložit graf jako..."
-
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Uložit autentizace"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Nastavit"
+# ID:272,
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Uložit graf jako..."
+
+# ID:169,
+#: ID:322
+msgid "&Save list of selected files to..."
+msgstr ""
+
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Uložit..."
 
 # ID:9,#:
 # ID:107,
@@ -675,13 +798,21 @@ msgid "&To URL:"
 msgstr "&Do URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Do URL:"
 
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "Nás&trojová lišta"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,#:
@@ -759,10 +890,22 @@ msgstr "Po&hled"
 msgid "&Whitespaces"
 msgstr "&Prázdné znaky"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr ""
+
 # Control-ID:1183,
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "Pracovní kopie (&WC)"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr ""
 
 # ID:219,
 #: ID:219
@@ -810,6 +953,10 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
+#: Control-ID:1002
+#: Control-ID:1003
 msgid "..."
 msgstr "..."
 
@@ -828,41 +975,6 @@ msgstr ": pracovní základna (base)"
 #: ID:151
 msgid ": working copy"
 msgstr ": pracovní kopie (WC)"
-
-# ID:88,
-#: ID:88
-msgid ""
-"<b>ATTENTION:</b>\n"
-"The Relocate command is only used if the URL of the\n"
-"repository root has changed due to a server IP address change, protocol\n"
-"change (e.g. http:// to https://) or a change of the repository root\n"
-"path in the server setup.\n"
-"<b>This is a very infrequently used operation</b> and applies neither if you\n"
-"want to move to another Subversion repository nor if you want to switch\n"
-"to another branch or directory <b>within the same repository.</b>\n"
-"To move to another Subversion repository, perform a clean checkout from\n"
-"the new repository location.\n"
-"To associate your working copy with another branch or another directory\n"
-"within the same repository, use the Switch command from the main menu\n"
-"\n"
-"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
-"If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
-msgstr ""
-"<b>POZOR:</b>\n"
-"Příkaz Změnit umístění (Relocate) použijte pouze, pokud originální uložiště se přesunulo na na nové URL\n"
-" (např. kvůli změně IP adresy serveru, změny protokolu [z http:// na https://], či změny cesty k uložišti).\n"
-"<b>To je velice málo používaná operace</b> a nepoužívá se, ani když \n"
-"chcete přesunout na jiné Subversion uložiště, ani když chcete přepnout \n"
-"na jinou větev, či složku <b> v rámci stejného uložiště.</b>\n"
-"Pro přesun na jiné Subversion uložiště, prověďte čistý checkout (získat)\n"
-"z lokace nového uložiště.\n"
-"Pro připojení Vaší pracovní kopie k jiné větvy nebo jiné složce v rámci stejného uložiště\n"
-"použijte příkaz Přepojit (Switch).\n"
-"Pokud použijete příkaz Změnit umístění (Relocate) na nasměrování Vaší pracovní kopie do jiného uložiště nebo větve,\n"
-"tak se <b>Vám může pracovní kopie poničit!</b>\n"
-"Pokud si nejste jistí zda příkaz Změnit umístění (Relocate) je ta správná operace, tak pravděpodobně\n"
-"není a měli byste konzultovat <b>Nápovědu</b>."
 
 # ID:145,
 #: ID:145
@@ -983,6 +1095,7 @@ msgstr "Odmítnutý přístup na %1."
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Akce"
 
@@ -999,6 +1112,7 @@ msgstr "Aktivovat seznam úkolů"
 # ID:209,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "Přidat"
 
@@ -1018,6 +1132,12 @@ msgstr "Přidat '%s' do slovníku"
 msgid "Add (as replacement)..."
 msgstr "Přidat (jako náhradu)..."
 
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "Přidat Vlastnosti"
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1033,6 +1153,11 @@ msgstr "Přidat specifický program slučování (merge) podle přípony"
 msgid "Add to &ignore list"
 msgstr "Přidat do seznamu k &ignorování"
 
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Přidat..."
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1041,6 +1166,7 @@ msgstr "Přidat/Upravit specifický program rozdílů"
 # ID:73,#:
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Přidáno"
@@ -1070,11 +1196,11 @@ msgstr "Přidán uzel"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Přidány soubor(y)\n"
+"Bili přidány souborové vzorky\n"
 "%s\n"
 "do seznamu ignorování."
 
@@ -1270,6 +1396,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "Aplikovat zá&platu..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1282,8 +1413,22 @@ msgstr "Jste si jistý označit konfliktní soubor(y) jako vyřešené?"
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "Jste si jistý vrátit změny? Ztratíte <b>všechny</b> změny od poslední aktualizace!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "Jste si jistý vrátit změny %d položek? Ztratíte <b>všechny</b> změny od poslední aktualizace!"
+
+#: MenuEntry
+msgid "Arrange &Vertical"
+msgstr ""
+
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr ""
+
+# ID:2050,
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr ""
 
 # ID:77,
 #: ID:77
@@ -1291,26 +1436,48 @@ msgstr "Jste si jistý vrátit změny? Ztratíte <b>všechny</b> změny od posle
 msgid "At revision: %d"
 msgstr "Na revizi: %d"
 
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "Autentizace"
+
+# Control-ID:65535,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Data autentifikace"
+
 # ID:76,
 #: ID:76
 #: ID:207
+#: ID:19
 msgid "Author"
 msgstr "Autor"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
-msgstr "Autor: Stefan Kueng, cz překlad Radek Švarz"
+msgstr "Autor: Stefan Kueng, cz překlad Radek Švarz, Oto  BREZINA(SK)"
 
 # ID:116,
 #: ID:116
 msgid "Authors"
 msgstr "Autoři"
 
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:"
 msgstr "Autoři:"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close for local operations"
+msgstr "Automaticky zavřít, pro lokalní operace"
 
 # ID:222,
 #: ID:222
@@ -1357,10 +1524,20 @@ msgstr "Průměr"
 msgid "B&rowse..."
 msgstr "P&rocházet..."
 
+# ID:246,
+#: ID:246
+msgid "Bar Graph"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "Základní (base) soubor:"
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Obvinit (Blame)..."
 
 # ID:13,
 #: ID:13
@@ -1413,6 +1590,11 @@ msgstr "Procházet..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "ID chyby/ č. problému:"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr ""
+
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1457,6 +1639,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Storno"
@@ -1470,6 +1653,11 @@ msgstr "Stornuji SVN obviňování..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Stornuji operaci..."
+
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1509,6 +1697,17 @@ msgid "Change the window size"
 msgstr "Změnit velikost okna"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Změněné soubory"
+
+# ID:324,
+#: ID:324
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr ""
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1516,8 +1715,8 @@ msgstr "Změněné soubory: %d"
 
 # Control-ID:1242,
 #: Control-ID:1242
-msgid "Changes made (double-click for details):"
-msgstr "Provedené změny (dvojklik ukáže detaily):"
+msgid "Changes made (double-click on file for diff):"
+msgstr "Bili vykonány změny (dvojklik ukáže porovnání):"
 
 # ID:8,
 #: ID:8
@@ -1529,6 +1728,11 @@ msgstr "Získat (Chec&kout)..."
 #: ID:3887
 msgid "Check"
 msgstr "Kontrola"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "Zjistit aktualizovanou verzi"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1589,10 +1793,20 @@ msgstr "Kontroluji předčasné kopie"
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Ověřuji, zda je dostupná nová verze TortoiseSVN..."
 
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "Získat (Chec&kout)"
+
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "Checkout &directory:"
 msgstr "Získat &složku:"
+
+# ID:145,
+#: ID:146
+msgid "Cleaning up."
+msgstr "Čistím"
 
 # ID:79,
 #: ID:79
@@ -1605,9 +1819,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Čištění přerušených operací, uzamčených souborů, ..."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "&Smazat uložená hesla"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "&Smazat"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr ""
 
 # ID:195,
 #: ID:195
@@ -1617,6 +1852,12 @@ msgid ""
 msgstr ""
 "Smaže uloženou autentifikaci.\n"
 "Budete muset znovu zadávat uživatelské jméno/heslo pro všechna uložiště."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr ""
 
 # ID:170,
 #: ID:170
@@ -1660,19 +1901,31 @@ msgstr "Barvy"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "Příkazoví řádek"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "Příkaz selhal."
 
 # Control-ID:1083,
-#: ID:319
-msgid "Comment"
-msgstr "Poznámka"
-
-# Control-ID:1083,
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Odevzdat"
+
+# Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr ""
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1686,8 +1939,8 @@ msgstr "Počet uložení autora"
 
 # ID:244,
 #: ID:244
-msgid "Commits by week"
-msgstr "Uložení za týden"
+msgid "Commits by date"
+msgstr ""
 
 # Control-ID:1135,
 #: Control-ID:1135
@@ -1704,6 +1957,11 @@ msgid "Compare &HEAD revisions"
 msgstr "Porovnat přední (&HEAD) Revize"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working BASE"
+msgstr ""
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Porovnat s pracovní kopií (&WC)"
@@ -1718,6 +1976,11 @@ msgstr "Porovnat se zákl&adnou"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Porovná soubor s poslední odevzdanou revizí pro ukázání změn, které jste udělal"
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr ""
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -1728,6 +1991,11 @@ msgstr "Porovnávnám %s s %s"
 #: ID:74
 msgid "Completed"
 msgstr "Dokončeno"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1783,15 +2051,35 @@ msgstr "Zkopírované na dálku"
 msgid "Copy %s"
 msgstr "Kopírovat %s"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Kopírovat (větev / značku)"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "Kopírovat URL do schránky"
 
+# ID:114,
+#: ID:209
+msgid "Copy all information to clipboard"
+msgstr "Zkopírovat všechni informace do schránky"
+
+# ID:114,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Zkopírovat chybovou spávu do schránky"
+
 # ID:76,
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopírovat z cesty"
+
+# ID:114,
+#: ID:209
+msgid "Copy paths to clipboard"
+msgstr "Zkopírovat všechny cesty do schránky"
 
 # ID:3603,
 #: ID:3603
@@ -1852,10 +2140,10 @@ msgstr "Nelze zjistit, zda existuje nová verze!"
 
 # ID:81,
 #: ID:81
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze kopírovat soubory!\n"
@@ -1880,7 +2168,7 @@ msgstr ""
 # ID:82,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "Nelze odstranit %s ze seznamu k ignorování"
 
 # ID:81,
@@ -1911,10 +2199,10 @@ msgstr "Nelze uložit soubor %s!"
 
 # ID:81,
 #: ID:81
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat prohlížeč rozdílů (diff viewer)!\n"
@@ -1923,10 +2211,10 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat externí rozdílový (diff) program!\n"
@@ -1935,10 +2223,10 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat externí slučovací (merge) program!\n"
@@ -1960,6 +2248,16 @@ msgstr "Nelze spustit vlákno (thread)!"
 #: ID:13
 msgid "Create &patch..."
 msgstr "Vytvořit záplatu (&patch)..."
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Vytvořit záplatu (patch)"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Vytvořit uložiště"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2021,9 +2319,15 @@ msgstr ""
 "Vyjme výběr a vloží ho do schránky\n"
 "Vyjmout"
 
+# ID:12,
+#: Control-ID:1314
+msgid "D&iff"
+msgstr "Rozdíl (D&iff)"
+
 # ID:76,
 #: ID:76
 #: ID:208
+#: ID:19
 msgid "Date"
 msgstr "Datum"
 
@@ -2034,6 +2338,7 @@ msgstr "Standardní počet log záznamů"
 
 # ID:73,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Odstraněno"
 
@@ -2044,7 +2349,7 @@ msgstr "Odstraněn uzel"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "Smaže soubory / složky ze správy verzí"
 
 # ID:263,
@@ -2058,10 +2363,25 @@ msgstr "Mazání"
 msgid "Destination disk drive is full."
 msgstr "Cílový disk je plný."
 
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Rozměry a pozice oknen"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Diff soubor:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr ""
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -2138,6 +2458,16 @@ msgid "Do you really want to move this file or folder?"
 msgstr "Opravdu chcete přesunout tento soubor nebo složku?"
 
 # ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Chcete opravdu vrátit všechny změny %s\n"
+"a vrátit se k této revizi?"
+
+# ID:76,
 #: ID:76
 #, c-format
 msgid ""
@@ -2171,6 +2501,12 @@ msgid ""
 msgstr ""
 "Chcete znovu načíst dokumenty?\n"
 "Ztratíte všechny změny, které jste udělal!"
+
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr ""
 
 # ID:313,
 #: ID:313
@@ -2212,6 +2548,13 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Editovat"
 
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:564
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Upravit Vlastnosti"
+
 # ID:113,
 #: ID:113
 msgid "Edit author"
@@ -2238,6 +2581,11 @@ msgstr "Editovat určený program dle přípony pro sloučení (merge)"
 msgid "Edit log message"
 msgstr "Editovat log záznam"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Upravit..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2262,6 +2610,13 @@ msgstr ""
 "Povolte toto, pokud chcete klávesové zkratky také v nejvyšším kontextovém menu.\n"
 "Nicméně ikony kontextového menu vypadají lépe, pokud je toto vypnuté."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -2271,10 +2626,23 @@ msgstr ""
 "Aktivuje kontrolu pravopisu pouze pokud je\n"
 "tsvn:projectlanguage vlastnost nastavena."
 
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Do Revize"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Zvětšit okno na maximum"
+
+# ID:126,#:
+# Control-ID:1065,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Vložte Log zprávu"
 
 # ID:80,
 #: ID:80
@@ -2332,6 +2700,14 @@ msgstr "Chyba při znovuobnovování šelové keše ikon!"
 msgid "Error validating server certificate for %s:"
 msgstr "Chyba při kontrole certifikátu serveru pro %s:"
 
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -2376,13 +2752,13 @@ msgstr "Přípona"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Specifické programy dle přípony"
+msgid "Extension or mime-type:"
+msgstr "Přípona ale mime-type:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Přípona:"
+msgid "Extension/mime-type specific programs"
+msgstr "Specifické programy dle přípony/mime-type"
 
 # ID:74,
 #: ID:74
@@ -2476,12 +2852,34 @@ msgstr "Počet změn souborů během týdne:"
 msgid "File diffs"
 msgstr "Rozdíly souborů"
 
+# ID:211,
+#: ID:211
+msgid "File list is empty"
+msgstr "Seznam souborů je prázdný"
+
 # ID:376,#:
 # Dlg-ID:135,
 #: ID:376
 #: Dlg-ID:135
 msgid "File patches"
 msgstr "Záplaty souboru"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+
+#: Dlg-ID:139
+msgid "Find"
+msgstr "Najít"
 
 # ID:3603,
 #: ID:3603
@@ -2497,15 +2895,20 @@ msgstr ""
 msgid "Finished!"
 msgstr "Hotovo!"
 
+# Control-ID:1315,
+#: Control-ID:1315
+msgid "Floppy drives (A: B:)"
+msgstr ""
+
 # ID:3585,
 #: ID:3585
-msgid "For Help, press F1"
-msgstr "Pro nápovědu, zmčkněte F1"
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr ""
 
-# Control-ID:65535,
-#: ID:501
-msgid "From URL:"
-msgstr "Z URL:"
+# ID:119,
+#: ID:119
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr ""
 
 # Control-ID:1200,
 #: Control-ID:1200
@@ -2556,6 +2959,15 @@ msgstr "Generuji soubor záplaty..."
 msgid "Get loc&k..."
 msgstr "Zam&knout..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2597,6 +3009,11 @@ msgstr "Získávám spojený diff soubor"
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
 msgstr "Vynechat/Ignorovat vzorek:"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Go to line"
+msgstr ""
 
 # ID:2051,
 #: ID:2051
@@ -2650,10 +3067,37 @@ msgstr "Schovat &nesouvisející změněné cesty"
 msgid "Help"
 msgstr "Nápověda"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr ""
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tip: Zmačkněte F5 pro znovunačtení vybraného podstromu a Ctrl-F5 pro načtení všech podvětví"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr ""
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr ""
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr ""
 
 # ID:82,
 #: ID:82
@@ -2687,10 +3131,18 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+#, fuzzy
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr ""
 "Pokud zaškrtnuto, TortoiseSVN vytvoří dočasný soubor BASE pro zjišťování rozdílu \n"
 "s expandovanými klíčovými slovy a upravenými konci řádků."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
 
 # ID:195,
 #: ID:195
@@ -2735,6 +3187,29 @@ msgstr ""
 "Pokud nastaveno, TortoiseSVN nastaví čas souborů na čas, kdy byly\n"
 "naposledy odevzdány. Pokud nenastaveno, TortoiseSVN použije aktuální čas."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2746,7 +3221,7 @@ msgid "Ignore"
 msgstr "Ignorovat"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Ignorovat &všechny prázdné znaky"
 
@@ -2755,10 +3230,22 @@ msgstr "Ignorovat &všechny prázdné znaky"
 msgid "Ignore &case changes"
 msgstr "Ignorovat &změny velikosti písmen"
 
+# Control-ID:1067,
+#: Control-ID:1267
+#, fuzzy
+msgid "Ignore ancestry"
+msgstr "Ignorovat &změny velikosti písmen"
+
 # Control-ID:1018,
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+#, fuzzy
+msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovat konc&e řádků (doporučeno)"
+
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Importovat"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -2776,6 +3263,11 @@ msgstr "Importuji soubor %s"
 msgid "Imports the directory to a repository"
 msgstr "Importuje složku do uložiště"
 
+# Control-ID:1266,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
@@ -2786,10 +3278,14 @@ msgstr "Zahrnout cesty:"
 msgid "Initial import"
 msgstr "Úvodní Import"
 
-# Control-ID:65535,
 #: Control-ID:65535
-msgid "Inline whitespace diff"
-msgstr "Rozdíl prázdných znaků v řádce"
+msgid "Inline diff"
+msgstr ""
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr ""
 
 # ID:3603,
 #: ID:3603
@@ -2858,6 +3354,41 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:82,
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"Neplatné číslo revize! Platné revize jsou:\n"
+"HEAD\n"
+"kladná celá čísla,\n"
+"data v jednom z následujících tvarů:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
 # ID:145,
 #: ID:145
 msgid ""
@@ -2868,6 +3399,23 @@ msgstr ""
 "Není možné přejmenovat soubor změnou velikosti jména samotného.\n"
 "Například, soubor MujSoubor.txt se nemůž stát MUJSOUBOR.TXT.\n"
 "Prosíme, konzultujte dokumentaci, jak obejít tuto limitaci."
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -2899,10 +3447,31 @@ msgstr "Nejméně aktivní autor:"
 msgid "Left View: "
 msgstr "Levý pohled: "
 
-# Control-ID:65535,
+# ID:188,
 #: Control-ID:65535
-msgid "Line with whitespace diff"
-msgstr "Řádka s rozdílem prázdných znaků"
+msgid "Left image"
+msgstr "Levý obrázek"
+
+# Control-ID:1158,
+#: ID:19
+msgid "Line"
+msgstr "Řádek"
+
+# ID:246,
+#: ID:246
+msgid "Line Graph"
+msgstr ""
+
+# Control-ID:1158,
+#: Control-ID:65535
+msgid "Line:"
+msgstr "Řadek:"
+
+# Control-ID:1158,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Řadek: %*ld"
 
 # ID:3605,
 #: ID:3605
@@ -2912,6 +3481,12 @@ msgid ""
 msgstr ""
 "Seznam témat nápovědy\n"
 "Témata nápovědy"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Dlg-ID:130
+msgid "Load Images"
+msgstr "Načíst obrázek"
 
 # ID:63,
 #: ID:63
@@ -2933,6 +3508,11 @@ msgstr ""
 #: ID:221
 msgid "Lock"
 msgstr "Zámek"
+
+# ID:263,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr ""
 
 # ID:209,
 #: ID:209
@@ -2971,6 +3551,13 @@ msgstr "Zámek odebral %s"
 msgid "Locked by %s"
 msgstr "Uzamkl %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -2980,6 +3567,18 @@ msgstr "Uzamkne soubor proti ostatním uživatelům a ponechá editovatelné pro
 #: ID:126
 msgid "Log"
 msgstr "Log"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "Log historie"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Control-ID:1274
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Log správy"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3004,8 +3603,13 @@ msgstr "Vzhled a pocit::Barvy"
 
 # Dlg-ID:196,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Vzhled a pocit::Dialogy"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Vzhled a pocit::Dialogy 1"
+
+# Dlg-ID:196,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Vzhled a pocit::Dialogy 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3035,6 +3639,19 @@ msgstr "Nejnižší revize: %ld - Nejvyšší revize: %ld - přední (HEAD) revi
 msgid "Mail system DLL is invalid."
 msgstr "DLL knihovna mail systému je neplatná."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr ""
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Oz&načit jako vyřešené"
+
+#: ID:282
+msgid "Mark as resolved"
+msgstr "Označit jako vyřešené"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3044,13 +3661,24 @@ msgstr ""
 "Označit soubor jako vyřešený v Subversion\n"
 "Označit jako vyřešený"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Match &case"
+msgstr ""
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
 msgstr "Max"
 
+# Control-ID:1317,
+#: Control-ID:1317
+msgid "Max. items to keep in the log message history"
+msgstr ""
+
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Sloučit (Merge)"
@@ -3069,6 +3697,11 @@ msgstr "Sloučí větev do hlavní kmene"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Sloučení"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr ""
 
 # ID:76,
 #: ID:76
@@ -3118,6 +3751,7 @@ msgstr "Mixované"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Modifikováno"
 
@@ -3166,6 +3800,11 @@ msgstr "&Další Konflikt"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# ID:16,
+#: ID:208
+msgid "Needs lock"
+msgstr ""
 
 # ID:210,
 #: ID:210
@@ -3285,12 +3924,23 @@ msgstr "Nebyl nalezen image encoder pro %s."
 msgid "No spell corrections"
 msgstr "Žádné opravy překlepů"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr ""
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Žádné návrhy synonym"
 
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "Žádné"
+
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normální"
@@ -3306,6 +3956,11 @@ msgstr "Ne všechny položky systémového registru (nebo INI souboru) byly odst
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "Nedostatek paměti pro provedení operace."
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "Nerekurzivně"
 
 # ID:88,
 #: ID:88
@@ -3338,6 +3993,7 @@ msgstr "OVR"
 # ID:145,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
+#: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Vynechat e&xterní napojení"
@@ -3355,15 +4011,10 @@ msgid "One or more files are in a conflicted state."
 msgstr "Jeden nebo více souborů je v konfliktním stavu."
 
 # Control-ID:1073,
+#: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Pouze přijmou&t vrchní složku"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Pouze v %s"
 
 # ID:169,
 #: ID:169
@@ -3400,6 +4051,16 @@ msgstr "Otevřít soubor s certifikátem"
 msgid "Open file"
 msgstr "Otevřít soubor"
 
+# ID:3601,
+#: ID:7
+msgid "Open image file..."
+msgstr "Otevřít soubor obrázku..."
+
+# Control-ID:1073,
+#: ID:282
+msgid "Open parent folder"
+msgstr "Otevřít vrchní složku"
+
 # ID:113,
 #: ID:113
 msgid "Open with..."
@@ -3418,6 +4079,15 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Otevře průzkumníka uložiště pro online manipulaci"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr ""
+
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr ""
 
 # ID:3843,#:
 # ID:3843,
@@ -3454,6 +4124,11 @@ msgstr "Vložit seznam souborů"
 msgid "Patch all"
 msgstr "Záplatovat vše"
 
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "Vybáná záplata"
+
 # ID:157,#:
 # ID:157,
 #: ID:157
@@ -3462,6 +4137,7 @@ msgstr "Soubory se záplatami (*.diff, *.patch)|*.diff;*.patch|Vše (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Cesta"
 
@@ -3474,6 +4150,11 @@ msgstr "Cesty"
 #: ID:157
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "Obrázky (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Vše (*.*)|*.*||"
+
+# ID:246,
+#: ID:246
+msgid "Pie Graph"
+msgstr ""
 
 # ID:3858,#:
 # ID:3858,
@@ -3501,6 +4182,12 @@ msgstr "Zadejte prosím datum."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Zadejte prosím hookskript na vykonání."
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3511,6 +4198,11 @@ msgstr "Zadejte prosím číslo mezi %1 a %2"
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Zadejte prosím číslo."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr ""
 
 # ID:3858,#:
 # ID:3858,
@@ -3574,6 +4266,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Vyberte prosím tlačítko."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Vyberte prosím typ hookskriptu."
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -3589,6 +4287,11 @@ msgstr "Prosím počkejte. Toto může trvat několik minut. Opravdu!"
 msgid "Please wait while cancelling..."
 msgstr "Prosím, čekejte během stornování..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Prosím, čekejte během získavaní rozdílů..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
@@ -3596,9 +4299,35 @@ msgstr "Prosím, počkejte dokud se nenastartuje průzkumník uložiště..."
 
 # ID:119,
 #: ID:119
+#: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Čekejte, prosím..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Poodezdáváci hookskript"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr ""
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Předodezdáváci hookskript"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr ""
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr ""
 
 # ID:132,
 #: ID:132
@@ -3617,15 +4346,31 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programy (*.exe)|*.exe|Všechny soubory (*.*)|*.*||"
 
 # Control-ID:65535,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "Průběh"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Control-ID:65535
+#: ID:17
+#: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Vlastnosti"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Vlastnosti pro"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:209
+#: Control-ID:11021
+msgid "Properties..."
+msgstr "Vlastnosti..."
 
 # ID:11,
 #: ID:11
@@ -3642,10 +4387,20 @@ msgstr "Strana Vlastností"
 msgid "Property Status:"
 msgstr "Stav Vlastnosti:"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Méno vlastnosti:"
+
 # ID:207,
 #: ID:207
 msgid "Property status"
 msgstr "Vlastnosti - stav"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Hodnota vlastnosti:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3656,6 +4411,12 @@ msgstr "Časový limi&t proxy v sekundách:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Nastavení proxy"
+
+# ID:246,
+#: ID:246
+#, c-format
+msgid "Q%d/%.2d"
+msgstr ""
 
 # ID:3605,
 #: ID:3605
@@ -3670,6 +4431,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "R&AM disky"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "Vrátit na túto r&evizi"
 
 # ID:3697,
 #: ID:3697
@@ -3695,6 +4461,17 @@ msgstr "Na&vrátit..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Přečtěte si 'Daily Use Guide' dřív, než se zaseknete..."
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr ""
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "Rekurzivně"
 
 # ID:3603,
 #: ID:3603
@@ -3755,6 +4532,16 @@ msgstr ""
 "Znovu načte otevřené soubory a vrátí veškeré změny.\n"
 "Znovu načíst"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Přemístit (Relocate)..."
+
+# ID:80,
+#: ID:89
+msgid "Relocate Warning"
+msgstr "Varovaní přemísťování"
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3782,6 +4569,12 @@ msgstr "Vzdálený stav obsahu"
 msgid "Remove from &ignore list"
 msgstr "Odstranit ze seznamu &ignorování"
 
+# ID:8,#:
+# ID:74,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Odstránit..."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
@@ -3796,11 +4589,11 @@ msgstr "Odstraněný soubor/složka"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"Odstraněné soubory\n"
+"Odstraněné vzarky souborů\n"
 "%s\n"
 "ze seznamu k ignorování."
 
@@ -3809,17 +4602,16 @@ msgstr ""
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Odstraní soubory (nebo dle masky) ze seznamu k ignorování"
 
+# ID:101,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Přejmenovat"
+
 # ID:97,
 #: ID:97
 #, c-format
 msgid "Rename %s"
 msgstr "Přejmenovat %s"
-
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Přejmenováno z %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -3833,7 +4625,7 @@ msgstr "Přejmenováno na dálku"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "Přejmenuje soubory / složky pod správou verzí"
 
 # ID:3603,
@@ -3864,11 +4656,6 @@ msgstr "Nahrazen uzel"
 msgid "Replacing"
 msgstr "Nahrazuji"
 
-# ID:13,
-#: ID:13
-msgid "Repo-browser"
-msgstr "Průzkumník uložiště"
-
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
@@ -3876,6 +4663,16 @@ msgstr "Průzkumník uložiště"
 #: Control-ID:1055
 msgid "Repository"
 msgstr "Uložiště"
+
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Průzkumník uložiště"
+
+# ID:13,
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "Průzkumník uložiště"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3887,6 +4684,12 @@ msgstr "Vyžaduje uživatelské jméno a heslo"
 #: ID:8
 msgid "Res&olved..."
 msgstr "Vyřešené (Res&olved)..."
+
+# ID:8,#:
+# ID:74,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Vyřešit"
 
 # ID:9,
 #: ID:282
@@ -3941,6 +4744,11 @@ msgstr "Obnoveno"
 msgid "Retry"
 msgstr "Opakovat"
 
+# ID:73,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Vrátit"
+
 # ID:114,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -3962,6 +4770,8 @@ msgstr "Navrátí všechny změny, které byly provedeny od poslední aktualizac
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
+#: ID:19
 msgid "Revision"
 msgstr "Revize"
 
@@ -3976,10 +4786,16 @@ msgstr "Revize %d"
 # ID:271,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Revize %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revize %s"
 
 # ID:15,#:
 # ID:269,#:
@@ -3996,6 +4812,18 @@ msgstr "Revize / Autor:"
 # ID:15,#:
 # ID:269,#:
 # Dlg-ID:182,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Graf verzí/revizí"
+
+# ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Rozsah revizí:"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4005,6 +4833,26 @@ msgstr "Graf verzí/revizí"
 #: ID:75
 msgid "Revision: "
 msgstr "Revize:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revize: %ld\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Log záznam:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4017,6 +4865,11 @@ msgstr "Revize"
 #: ID:188
 msgid "Right View: "
 msgstr "Pravý pohled:"
+
+# ID:188,
+#: Control-ID:65535
+msgid "Right image"
+msgstr "Pravý obrázek"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -4056,7 +4909,7 @@ msgstr "SVN Autor"
 
 # ID:16,
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
+msgid "SVN Copy and rename versioned file here"
 msgstr "SVN Kopírovat a Přejmenovat sem verzované soubory"
 
 # ID:13,
@@ -4079,6 +4932,11 @@ msgstr "SVN Exportovat sem"
 msgid "SVN Lock owner"
 msgstr "Vlastník zámku SVN"
 
+# ID:16,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Přesunout a Přejmenovat sem verzované soubory"
+
 # ID:12,
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -4096,8 +4954,13 @@ msgstr "SVN Stav"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
+msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN styl konce rádků"
 
 # ID:14,
 #: ID:14
@@ -4106,8 +4969,8 @@ msgstr "SVN mime-typ"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
-msgstr "SVN krátké Url"
+msgid "SVN short URL"
+msgstr "SVN krátké URL"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -4141,11 +5004,6 @@ msgstr "Uložit změny do %1?"
 msgid "Save client certificate path"
 msgstr "Uložit cestu klientského certifikátu"
 
-# ID:272,
-#: ID:272
-msgid "Save graph as..."
-msgstr "Uložit graf jako..."
-
 # ID:76,
 #: ID:76
 msgid "Save revision &to..."
@@ -4165,6 +5023,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Z&kopírovat do schránky"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr ""
 
 # ID:103,
 #: ID:103
@@ -4198,6 +5061,16 @@ msgstr "Scintilla"
 msgid "Search &log messages..."
 msgstr "Hledat &log záznamy..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Search for:"
+msgstr ""
+
+# ID:7,
+#: ID:7
+msgid "Search string not found!"
+msgstr ""
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -4221,6 +5094,11 @@ msgstr "Ozn&ačit / Zrušit označení všeho"
 msgid "Select File..."
 msgstr "Vybrat soubor..."
 
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "Vybrat revizi"
+
 # ID:78,
 #: ID:78
 msgid "Select SSH client"
@@ -4241,6 +5119,11 @@ msgstr "Zvolte aplikaci pro zjištění rozdílů (diff)"
 msgid "Select diff file..."
 msgstr "Zvolte záplatu (diff file)..."
 
+# ID:99,
+#: ID:99
+msgid "Select directory to check out to"
+msgstr ""
+
 # Dlg-ID:173,
 #: ID:276
 msgid "Select end revision"
@@ -4254,6 +5137,16 @@ msgid ""
 msgstr ""
 "Vyberte složku kam exportovat.\n"
 "Možná budete potřebovat nejprve vytvořit novou složku, než zahájíte export."
+
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr ""
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "Zvolte soubor hookskriptu"
 
 # ID:78,
 #: ID:78
@@ -4336,6 +5229,11 @@ msgstr "Nastavení"
 msgid "Sh&ow log"
 msgstr "Z&obrazit Log"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr ""
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4353,13 +5251,23 @@ msgstr "Krátký formát &data/času v log zprávách"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "Krátké URL položek Subversion"
 
 # Control-ID:1031,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Ukáz&at vše"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "Zobrazit &Roszah..."
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Zobrazit &všechni revize"
 
 # ID:113,
 #: ID:113
@@ -4393,10 +5301,19 @@ msgstr "Z&obrazovat překryvy pouze v exploreru"
 msgid "Show &unversioned files"
 msgstr "&Ukázat neverzované soubory"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr ""
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "&Ukázat rozdíly jako spojený Diff soubor"
+
+# Control-ID:1209,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Zobrazit ignorované soubory"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -4426,11 +5343,6 @@ msgstr ""
 "Zobrazit, nebo skrýt lištu nástrojů\n"
 "Přepnout lištu nástrojů"
 
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Ukazovat ikony rekurzivně"
-
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4451,6 +5363,29 @@ msgstr "Zobrazit nezměněné soubory"
 msgid "Show unversioned files"
 msgstr "Ukázat neverzované soubory"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr ""
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr ""
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr ""
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr ""
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -4461,10 +5396,20 @@ msgstr "Ukáže grafickou reprezentaci kopií/značek/větví"
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Ukáže všechny soubory od poslední aktualizace změněné lokálně a v uložišti"
 
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr ""
+
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
 msgstr "Zobrazit informace o TortoiseSVN"
+
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr ""
 
 # ID:12,
 #: ID:12
@@ -4491,6 +5436,21 @@ msgstr "Vynecháno"
 msgid "Skipped missing target"
 msgstr "Vynechat chybějící cíl"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr ""
+
+# ID:101,
+#: ID:101
+msgid "Sort numerical"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr ""
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4516,10 +5476,36 @@ msgstr ""
 "Rozdělit aktivní okno do panelů\n"
 "Rozdělit"
 
+# ID:246,
+#: ID:246
+msgid "Stacked Bar Graph"
+msgstr ""
+
+# ID:246,
+#: ID:246
+msgid "Stacked Line Graph"
+msgstr ""
+
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr ""
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Od Revize"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr ""
+
 # ID:245,#:
 # Control-ID:1132,#:
 # Dlg-ID:179,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "Statistika"
 
@@ -4529,6 +5515,7 @@ msgstr "Statistika"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Stav"
 
@@ -4536,6 +5523,20 @@ msgstr "Stav"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "Stavové a akční barvy"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr ""
 
 # ID:11,
 #: ID:11
@@ -4564,11 +5565,6 @@ msgstr "SubVersion"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Data &autentifikace do serveru:"
-
-# Control-ID:65535,
-#: Control-ID:65535
 msgid "Subversion configuration &file:"
 msgstr "Konfigurační &soubor Subversion:"
 
@@ -4583,10 +5579,10 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion nahlásilo chybu během čištění!\n"
@@ -4606,6 +5602,11 @@ msgstr "Překlopit pracovní kopii (&WC) do nové větve / značky"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Přepnout levá<->pravá"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Překlopit (switch) na větev / značku"
 
 # ID:3606,
 #: ID:3606
@@ -4658,6 +5659,11 @@ msgstr "Přepnout se do předchozího okna dokumentu"
 msgid "Switch working copy to another branch / tag"
 msgstr "Překlopit pracovní kopii (WC) do jiné větve / značky"
 
+#: ID:325
+#, fuzzy
+msgid "Switches the comparison left<->right"
+msgstr "Přepnout levá<->pravá"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -4668,6 +5674,16 @@ msgstr "&Systémové zvuky"
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Položky systémového registru byly odstraněny a INI soubor (pokud existoval) byl smazán."
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEBLAME"
+msgstr ""
+
+# ID:7,
+#: ID:7
+msgid "TORTOISEIDIFF"
+msgstr ""
 
 # ID:79,
 #: ID:79
@@ -4692,12 +5708,12 @@ msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!\n"
-"Note that UTF16 and UTF32 files are treated as binary too."
+"Note that UTF32 files are treated as binary too."
 msgstr ""
 "Soubor\n"
 "%s\n"
 "není platný textový soubor!\n"
-"Upozorňuji, že UTF16 a UTF32 soubory jsou považovány také za binární."
+"Upozorňuji, že  UTF32 soubory jsou považovány také za binární."
 
 # ID:80,
 #: ID:80
@@ -4737,6 +5753,16 @@ msgstr "Soubor %s neexistuje"
 msgid "The file %s was not found in the patch file!"
 msgstr "Soubor %s nebyl nalezen v záplatě (patch file)!"
 
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -4755,6 +5781,14 @@ msgstr ""
 "%s\n"
 "již existuje! Přejete si jej přepsat?"
 
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -4768,6 +5802,19 @@ msgstr ""
 "%s\n"
 "neexistuje.\n"
 "Přejete si nejdříve ji vytvořit?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+
+# ID:7,
+#: ID:7
+msgid "The image can not be shown."
+msgstr ""
 
 # ID:63,
 #: ID:63
@@ -4829,13 +5876,13 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Zadaná cesta / URL vypadá neplatná na Windows!\n"
+"Zadaná cesta / URL vypadá být neplatná na Windows!\n"
 "Můžete ji přeci jen zkusit, ale můžete později narazit na chybu.\n"
 "\n"
 "Platná cesta na windows nesmí obsahovat '<>|\"?*:' ani jeden z následujích názvů:\n"
@@ -4873,26 +5920,31 @@ msgstr ""
 "Vypadá to, že vybraný soubor stále má jedno nebo více označení konfliktu.\n"
 "Skutečně ho chcete označit za rozhodnutý?"
 
-# ID:88,
-#: ID:88
-msgid ""
-"The target folder is not empty!\n"
-"Are you sure you want to checkout/export into that folder?"
-msgstr ""
-"Cílová složka není prázdná!\n"
-"Jste si jist, že chcete provézt získání/export do této složky?"
-
 # ID:102,
 #: ID:102
 #, c-format
 msgid ""
-"The target url\n"
+"The target URL\n"
 "%s\n"
 "already exists!"
 msgstr ""
 "Cílové URL\n"
 "%s\n"
 "již existuje!"
+
+# ID:88,
+#: ID:88
+#, c-format
+msgid ""
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
+"Are you sure you want to checkout/export into that folder?"
+msgstr ""
+"Cílová složka\n"
+"%s\n"
+"není prázdná!\n"
+"Jste si jist, že chcete provézt získání/export do této složky?"
 
 # ID:195,
 #: ID:195
@@ -5042,6 +6094,16 @@ msgstr "Tato vlastnost je povolená pouze na složkách, ne na souborech."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Tato vlastnost nesmí mít více řádek. Pouze jedna řádka je povolená."
 
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
@@ -5051,6 +6113,39 @@ msgstr "Do:"
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Do: (konec URL a revize rozsahu pro sloučení (merge))"
+
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:7
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame - Obvinit"
+
+# ID:13,
+#: ID:13
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:7
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+# ID:7,
+#: ID:7
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
 
 # ID:7,#:
 # ID:3585,#:
@@ -5064,20 +6159,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5094,14 +6189,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5111,7 +6206,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5120,183 +6215,6 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : Přidat (Add)"
-
-# ID:80,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : Autentifikace"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : Obvinit (Blame)"
-
-# Dlg-ID:199,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : Změněné soubory"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : Zjistit aktualizovanou verzi"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : Přijmout (Checkout)..."
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : Kopírovat (větev / značku)"
-
-# ID:80,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : Vytvořit záplatu (Patch)"
-
-# Dlg-ID:178,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Vytvořit uložiště"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : Vložte Log zprávu"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : Import"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : Vstup"
-
-# ID:80,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : Zamknout soubory"
-
-# ID:80,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : Log historie"
-
-# ID:80,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : Log záznamy"
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : Sloučit (Merge)"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : Průběh"
-
-# ID:80,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : Vlastnosti"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : Přesunout (Relocate)"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : Přejmenovat (Rename)"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Průzkumník uložiště"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : Rozhodnout (Resolve)"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : Vrátit (Revert)"
-
-# ID:15,#:
-# ID:269,#:
-# Dlg-ID:182,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : Graf verzí/revizí"
-
-# ID:80,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : Vybrat revizi"
-
-# ID:80,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : Statistika"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : Překlopit (switch) na větev / značku"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : Aktualizovat (Update)"
-
-# ID:151,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : Pracovní kopie (WC)"
 
 # ID:9,#:
 # ID:80,#:
@@ -5374,6 +6292,14 @@ msgstr "TortoiseSVN Překlopit (Switch)..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Aktualizovat (Update)..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -5409,6 +6335,18 @@ msgstr "Vyladit TortoiseSVN"
 msgid "Two-way &Diff"
 msgstr "Dva panely"
 
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:207
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
+
+# Control-ID:1272,
+#: Control-ID:1272
+msgid "URL history"
+msgstr ""
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5416,6 +6354,7 @@ msgstr "URL Subversion položek"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5424,24 +6363,6 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
-
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Autor: %s\r\n"
-"Datum: %s\r\n"
-"\r\n"
-"Log záznam:\r\n"
-"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -5461,6 +6382,15 @@ msgstr "Nelze číst z %1, je to otevřené někým jiným."
 #: ID:3865
 msgid "Unable to read write-only property."
 msgstr "Nelze číst vlastnost určenou pouze pro zápis."
+
+# ID:119,
+#: ID:119
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
 
 # ID:3865,#:
 # ID:3865,
@@ -5533,6 +6463,17 @@ msgstr "Odemčeno"
 msgid "Untitled"
 msgstr "Bez názvu"
 
+# Control-ID:1313,
+#: Control-ID:1313
+msgid "Unversioned files mark parent folder as modified"
+msgstr ""
+
+# ID:8,#:
+# Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Aktualizovat"
+
 # ID:74,
 #: ID:74
 msgid "Updated"
@@ -5548,15 +6489,16 @@ msgstr "Aktualizuje pracovní kopii (WC) na konkrétní revizi"
 msgid "Updates the working copy to the current revision"
 msgstr "Aktualizuje pracovní kopii (WC) na současnou revizi"
 
-# ID:207,
-#: ID:207
-msgid "Url"
-msgstr "URL"
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Aktualizuji %s"
 
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "URL:"
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr ""
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -5594,10 +6536,30 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Použít URL pracovní kopie (WC) jako defaultní \"Od:\" URL"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr ""
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Použijte \"Z:\" URL (rozsah revizí je volitelný v log dialogu)"
+
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Použít adresáře \"_svn\" místo \".svn\""
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr ""
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr ""
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5605,24 +6567,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Použít přeš&krtnutí pro smazané řádky"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "Použít z \"mého\" bloku textu"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Použít z \"jejich\" bloku textu"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Použijte textový blok z \"m&ého\" před \"jejich\""
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Použije textový blok z \"mého\" před \"jejich\"\n"
+"Použíije \"mého\" pak \"jejich\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Použíje  blok textu z \"mého\"\n"
+"Použije \"mého\""
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Použijte textový blok z \"jejic&h\" před \"mojím\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Použijte textový blok z \"jejic&h\" před \"mojím\"\n"
+"\"jejic&h\" pak \"moje\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Použije textový blok z \"jejich\"\n"
+"Použije \"theirs\""
 
 # ID:251,
 #: ID:251
@@ -5684,11 +6682,31 @@ msgstr "Hodnota"
 msgid "Version"
 msgstr "Verze"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr ""
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr ""
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Navštivte webovou stránku"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr ""
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr ""
 
 # ID:88,
 #: ID:88
@@ -5700,10 +6718,21 @@ msgstr "Varování"
 msgid "Warning!"
 msgstr "Varování!"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespace diff"
-msgstr "Rozdíl prázdných znaků"
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr ""
+
+# Control-ID:1183,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Pracovní kopie (&WC)"
+
+# Control-ID:1183,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Cesta pracovní kopie (&WC)"
 
 # ID:80,
 #: ID:80
@@ -5835,6 +6864,11 @@ msgstr ""
 "\n"
 "Opravdu to chcete provést?"
 
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr ""
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -5908,12 +6942,39 @@ msgstr ""
 "nebude vypadat přesně stejně, jako v revizi, na kterou aktualizujete!"
 
 #: MenuEntry
+msgid "Zoo&m out"
+msgstr "&Oddálit"
+
+#: MenuEntry
 msgid "Zoom &in\tCtrl-+"
 msgstr "Přiblíž&it\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "&Oddálit\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr ""
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Přiblíž&it"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Přiblíž&it"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "&Oddálit"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr ""
 
 # ID:10,
 #: ID:10
@@ -5930,6 +6991,11 @@ msgstr "přidané soubory"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "soubor bez názvu"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "a"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
@@ -5968,12 +7034,14 @@ msgstr ""
 #: ID:15
 msgid ""
 "bugtraq:logregex\n"
-"two regular expressions separated by a newline\n"
-"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
 "2 regulární výrazy oddělené novou řádkou\n"
-"1. výraz se používá pro nalezení řetězce odkazujícího na problém, 2. výraz se používá pro extrakci vlastního chybového ID z toho řetězce."
+"1. výraz se používá pro nalezení řetězce odkazujícího na problém,\n"
+"2. výraz se používá pro extrakci vlastního chybového ID z toho řetězce."
 
 # ID:14,
 #: ID:14
@@ -6059,11 +7127,6 @@ msgstr ""
 msgid "external"
 msgstr "externí"
 
-# ID:211,
-#: ID:211
-msgid "file list is empty"
-msgstr "seznam souborů je prázdný"
-
 # ID:13,
 #: ID:13
 msgid "ignored"
@@ -6109,6 +7172,11 @@ msgstr "modifikováno"
 msgid "modified / copied"
 msgstr "modifikováno / kopírováno"
 
+# ID:245,
+#: ID:245
+msgid "month"
+msgstr "měsíc"
+
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
@@ -6140,10 +7208,10 @@ msgstr "pixely"
 msgid "possible or real conflict / obstructed"
 msgstr "možné nebo reálný konflikt / překážky"
 
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "re&kurzivně"
+# ID:245,
+#: ID:245
+msgid "quarter of year"
+msgstr ""
 
 # ID:195,
 #: ID:195
@@ -6168,10 +7236,12 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Pokud se vyskytuje, nastaví soubor spustitelným. Tato vlastnost nemůže být nastavena na složce. Nerekurzivní pokus skončí neúspěšně, a rekurizvní nastaví vlastnost jenom na soubory ve složce."
+"Pokud se vyskytuje, nastaví soubor spustitelným. Tato vlastnost nemůže být nastavena na složce.\n"
+" Nerekurzivní pokus skončí neúspěšně, a rekurizvní nastaví vlastnost jenom na soubory ve složce."
 
 # ID:14,
 #: ID:14
@@ -6218,10 +7288,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Typ MIME souboru. Použitý pro zjištění, zda sloučit soubor a pro poskytování z Apache. MIME typ začínající na 'text/' (nebo žádný) se posuzuje jako text. Cokoliv jiného je posuzováno jako binární."
+"Typ MIME souboru. Použitý pro zjištění, zda sloučit soubor a pro poskytování z Apache.\n"
+"MIME typ začínající na 'text/' (nebo žádný) se posuzuje jako text.\n"
+"Cokoliv jiného je posuzováno jako binární."
 
 # ID:16,
 #: ID:16
@@ -6237,6 +7311,14 @@ msgstr ""
 "Soubor bude nastaven na pouze pro čtení, když bude přijmut (checked out), nebo zauktualizován (updated),\n"
 "indikující, že uživatel musí nastavit zámek na souboru\n"
 "před tím, než ho může upravovat a odevzdat změny."
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
 
 # ID:80,#:
 # ID:103,#:
@@ -6309,8 +7391,32 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Nastavte na \"yes\" , pokud se má zobrazit upozornění, když není vloženo žádné číslo problému v dialogu odevzdání (commit)."
 
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr ""
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+
 # ID:244,
-#: ID:244
+#: ID:245
 msgid "week"
 msgstr "týden"
 
@@ -6318,4 +7424,9 @@ msgstr "týden"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "které ukazuje na uložiště na URL:"
+
+# ID:245,
+#: ID:245
+msgid "year"
+msgstr "rok"
 

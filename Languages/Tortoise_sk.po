@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-22 21:32+0100\n"
+"PO-Revision-Date: 2006-09-23 17:59+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,7 +306,6 @@ msgstr "&Berkeley databáza (BDB)"
 
 # ID:114,
 #: ID:114
-#, fuzzy
 msgid "&Blame differences"
 msgstr "&Obviniť rozdiely"
 
@@ -314,13 +313,11 @@ msgstr "&Obviniť rozdiely"
 # ID:322,
 #: ID:114
 #: ID:322
-#, fuzzy
 msgid "&Blame revisions"
 msgstr "&Obviniť revízie"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "&Blame..."
 msgstr "&Obviniť..."
 
@@ -348,7 +345,7 @@ msgstr "&Zrušiť"
 # ID:8,
 #: ID:8
 msgid "&Clean up"
-msgstr "Vyčistiť"
+msgstr "&Vyčistiť"
 
 # ID:8,
 #: ID:8
@@ -362,7 +359,7 @@ msgstr "&Porovnať revízie"
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "&Compare whitespaces"
-msgstr "&Porovnávať prázdne znaky"
+msgstr "Porovnávať &biele znaky"
 
 # Control-ID:1239,
 #: Control-ID:1239
@@ -371,7 +368,6 @@ msgstr "&Nastavenia"
 
 # Control-ID:1227,
 #: Control-ID:1227
-#, fuzzy
 msgid "&Contact the repository on startup"
 msgstr "&Pripojiť uložisko pri spustení"
 
@@ -383,7 +379,7 @@ msgstr "&Previesť súbory pri porovnávaní so základňou"
 
 #: MenuEntry
 msgid "&Copy"
-msgstr "Kopírovať"
+msgstr "&Kopírovať"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -392,7 +388,7 @@ msgstr "&Kopírovať do schránky"
 # ID:101,
 #: ID:101
 msgid "&Copy to..."
-msgstr "Kopírovať do  ..."
+msgstr "&Kopírovať do  ..."
 
 # Control-ID:1097,
 #: Control-ID:1097
@@ -404,27 +400,27 @@ msgstr "&Vlastné"
 #: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
-msgstr "Predvolené"
+msgstr "&Predvolené"
 
 # ID:11,
 #: ID:11
 msgid "&Delete"
-msgstr "Vymazať"
+msgstr "&Vymazať"
 
 # ID:101,
 #: ID:101
 msgid "&Delete..."
-msgstr "Vymazať"
+msgstr "&Vymazať"
 
 # ID:12,
 #: ID:12
 msgid "&Diff"
-msgstr "Porovnať"
+msgstr "&Porovnať"
 
 # ID:17,
 #: ID:17
 msgid "&Diff with URL"
-msgstr "&Diff s URL"
+msgstr "&Porovnať s URL"
 
 # Control-ID:1179,
 #: Control-ID:1179
@@ -492,7 +488,7 @@ msgstr "&Nájsť..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr "Zväčšiť obázok na veľkosť okna"
+msgstr "Zväčšiť obrázok na veľkosť &okna"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -883,7 +879,7 @@ msgstr "&Späť\tCtrl+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "&Unifikovaný 'diff'"
+msgstr "&Unifikované porovnanie"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -915,7 +911,6 @@ msgstr "Po&užiť automatické dolňovanie ciest sáborov a kľúčových slov"
 # Control-ID:65535,
 #: Control-ID:65535
 #: Control-ID:1005
-#, fuzzy
 msgid "&Username:"
 msgstr "&Uživateľ:"
 
@@ -963,7 +958,7 @@ msgstr "(nenajdené)"
 # ID:208,
 #: ID:208
 msgid "(property change only)"
-msgstr "(zmena iba vo vlastnosti)"
+msgstr "(zmenená iba vlastnosť)"
 
 # ID:188,
 #: ID:188
@@ -1142,13 +1137,11 @@ msgstr "Prístup k %1 bol zamietnutý."
 # ID:319,
 #: ID:77
 #: ID:319
-#, fuzzy
 msgid "Action"
 msgstr "Akcia"
 
 # ID:117,
 #: ID:117
-#, fuzzy
 msgid "Actions"
 msgstr "Akcie"
 
@@ -1188,7 +1181,7 @@ msgstr "Pridaj vlastnosť"
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
-msgstr "Pridať 'diff' program pre príponu"
+msgstr "Pridať porovnací program pre príponu"
 
 # ID:110,
 #: ID:110
@@ -1210,7 +1203,7 @@ msgstr "Pridať..."
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Pridať/upraviť 'diff' program pre príponu"
+msgstr "Pridať/upraviť porovávací program pre príponu"
 
 # ID:73,#:
 # ID:264,#:
@@ -1286,7 +1279,7 @@ msgstr "Rozšírené nastavenia rozdiely/zlúčenie"
 # ID:110,
 #: ID:110
 msgid "Advanced diff settings"
-msgstr "Rozšírené nastavenia pre 'diff'"
+msgstr "Rozšírené nastavenia porovnávania"
 
 # ID:110,
 #: ID:110
@@ -1584,7 +1577,6 @@ msgstr "Priemer"
 # P&rezeraj...
 # Control-ID:1001,
 #: Control-ID:1001
-#, fuzzy
 msgid "B&rowse..."
 msgstr "P&rechádzaj..."
 
@@ -1600,7 +1592,6 @@ msgstr "Základný súbor:"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
-#, fuzzy
 msgid "Blame"
 msgstr "Obviniť"
 
@@ -1633,15 +1624,13 @@ msgstr "Zruš zámo&k"
 
 # Control-ID:1009,
 #: Control-ID:1009
-#, fuzzy
 msgid "Bro&wse..."
-msgstr "P&rechádzaj..."
+msgstr "Pr&echádzaj..."
 
 # Control-ID:1007,
 #: Control-ID:1007
-#, fuzzy
 msgid "Brows&e..."
-msgstr "P&rechádzaj..."
+msgstr "Prechá&dzaj..."
 
 # ID:78,
 #: ID:78
@@ -1673,9 +1662,8 @@ msgstr "Bug-ID / Issue-Nr:"
 
 # Control-ID:1215,
 #: Control-ID:1215
-#, fuzzy
 msgid "C&heck now"
-msgstr "Skontroluj teraz"
+msgstr "S&kontroluj teraz"
 
 # ID:101,
 #: ID:101
@@ -1731,7 +1719,7 @@ msgstr "Ruším úkon..."
 # ID:68,
 #: ID:68
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr "Nemožno zobraziť 'diff' pretože sú nekonzistentné ukončenia riadkov v súbore."
+msgstr "Nemožno zobraziť porovnanie, pretože sú nekonzistentné ukončenia riadkov v súbore."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1791,21 +1779,19 @@ msgstr "Zmenené súbory: %d"
 # Control-ID:1242,
 #: Control-ID:1242
 msgid "Changes made (double-click on file for diff):"
-msgstr "Boli vykonané zmeny (dvojklik na zobrazenie rozdielov 'diff'):"
+msgstr "Boli vykonané zmeny (dvojklik na zobrazenie rozdielov):"
 
 # ID:8,
 #: ID:8
-#, fuzzy
 msgid "Chec&kout..."
-msgstr "&Kontrola..."
+msgstr "&Získať..."
 
 # Kontrola
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
-#, fuzzy
 msgid "Check"
-msgstr "Skontoroluj"
+msgstr "Skontrolovať"
 
 # Dlg-ID:174,
 #: Dlg-ID:174
@@ -1825,7 +1811,7 @@ msgstr "Skontroluj &zmeny"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Check for modifications"
-msgstr "Skontroluj &zmeny"
+msgstr "Skontroluj zmeny"
 
 # ID:9,
 #: ID:9
@@ -1876,12 +1862,12 @@ msgstr "Kontrola prístupnosti novšej verzie TortoiseSVN..."
 # Dlg-ID:133,
 #: Dlg-ID:133
 msgid "Checkout"
-msgstr "Kontrola"
+msgstr "Získať"
 
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "Checkout &directory:"
-msgstr "Skontoluj a&dresár:"
+msgstr "Získať a&dresár:"
 
 # Čistím
 # ID:146,
@@ -1908,9 +1894,8 @@ msgstr "Vyčistiť preušené úkony, zamknuté súbory, ..."
 #: Control-ID:1275
 #: Control-ID:1276
 #: Control-ID:1279
-#, fuzzy
 msgid "Clear"
-msgstr "Vymaž"
+msgstr "Vymazať"
 
 # ID:196,
 #: ID:196
@@ -1953,7 +1938,7 @@ msgstr "Kiknite pre vybranie naposledy napísanej správy"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Vyberte  \"Rozšírené\" k zadaniu náhradného programu 'diff' podľa prípon"
+msgstr "Vyberte  \"Rozšírené\" k zadaniu náhradného porovnávacieho programu  podľa prípon"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2129,7 +2114,7 @@ msgstr "Pokračovať"
 # ID:376,
 #: ID:376
 msgid "Cop&y"
-msgstr "Kopíruj"
+msgstr "&Kopíruj"
 
 # ID:73,
 #: ID:73
@@ -2302,7 +2287,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Nemožno spustiť 'diff' prehliahač!\n"
+"Nemožno spustiť porovnávač!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -2314,7 +2299,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Nemožno spustiť externý 'diff' program!\n"
+"Nemožno spustiť externý porovnávač!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -2516,7 +2501,7 @@ msgstr "Disk plný pri prístupe k %1."
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
-#, fuzzy, c-format
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "Prijatá výnimka: %1"
 
@@ -2676,13 +2661,11 @@ msgstr "Uprav meno autora"
 
 # ID:110,
 #: ID:110
-#, fuzzy
 msgid "Edit extension specific diff program"
-msgstr "Upraviť 'diff' program pre príponu"
+msgstr "Upraviť porvnávací program podľa prípony"
 
 # ID:110,
 #: ID:110
-#, fuzzy
 msgid "Edit extension specific merge program"
 msgstr "Upraviť zlučovací program pre príponu"
 
@@ -2707,7 +2690,7 @@ msgstr "IP adresa, alebo meno proxy servera"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Empty"
-msgstr "Prázdny"
+msgstr "Prázdne"
 
 # Control-ID:1240,
 #: Control-ID:1240
@@ -2903,9 +2886,8 @@ msgstr "Externý program::Spájací nástroj"
 # prehliadač
 # Dlg-ID:194,
 #: Dlg-ID:194
-#, fuzzy
 msgid "External Programs::Unified Diff Viewer"
-msgstr "Extrerný program::Prezerač unifikovaného 'Diff'"
+msgstr "Extrerný program::Prezerač unifikovaného porovnania"
 
 # ID:74,
 #: ID:74
@@ -3082,7 +3064,6 @@ msgstr ""
 #: Dlg-ID:143
 #: Dlg-ID:107
 #: Control-ID:65535
-#, fuzzy
 msgid "General"
 msgstr "Hlavné"
 
@@ -3382,17 +3363,17 @@ msgstr "Keď chcete zrušiť zámok, poižite \"Skontrolovať zmeny\"."
 # ID:73,
 #: ID:73
 msgid "Ignore"
-msgstr "Ignoruj"
+msgstr "Ignorovať"
 
 # Control-ID:1020,
 #: Control-ID:1020
 msgid "Ignore &all whitespaces"
-msgstr "Ignoruj &biele(prázdne) znaky"
+msgstr "Ignorovať &biele znaky"
 
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Ignore &case changes"
-msgstr "Ignoruj &zmeny vo veľkosti písma"
+msgstr "Ignorovať zmeny vo &veľkosti písma"
 
 # Ignorovať predkov
 #: Control-ID:1267
@@ -3403,7 +3384,7 @@ msgstr "Zanedbať pôvod"
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
-msgstr "Ignnoruj &konce riadkov (doporučené)"
+msgstr "Ignorovať &konce riadkov (doporučené)"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -3599,9 +3580,8 @@ msgstr ""
 
 # Control-ID:1203,
 #: Control-ID:1203
-#, fuzzy
 msgid "Keep &locks"
-msgstr "Zachovaj &zámky"
+msgstr "Zachovať &zámky"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3647,6 +3627,12 @@ msgstr "Čiarový graf"
 #: Control-ID:65535
 msgid "Line:"
 msgstr "Riadok:"
+
+# Control-ID:65535,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Riadok: %*ld"
 
 # ID:3605,
 #: ID:3605
@@ -3941,7 +3927,7 @@ msgstr "Zmiešané"
 #: ID:74
 #: ID:264
 msgid "Modified"
-msgstr "Zmenený"
+msgstr "Zmenené"
 
 # ID:438,#:
 # ID:438,
@@ -4250,9 +4236,8 @@ msgstr "Otvor obrazok..."
 # nadadresaár
 # ID:282,
 #: ID:282
-#, fuzzy
 msgid "Open parent folder"
-msgstr "Otvor hlavný adresár"
+msgstr "Otvoriť hlavný adresár"
 
 # Otvoriť pomocou...
 # ID:113,
@@ -4278,7 +4263,7 @@ msgstr "Otvorí prezeranie úložiska na doladenie priamo"
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr "Pôvodná veľkosť"
+msgstr "Pôvodná &veľkosť"
 
 # ID:245,
 #: ID:245
@@ -4442,9 +4427,8 @@ msgstr "Prosím zadajte nie viac ako %1 znakov."
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Please execute the \"Cleanup\" command."
-msgstr "Prosím spustite \"Cleanup\"."
+msgstr "Prosím spustite \"Vyčistiť\"."
 
 # ID:78,
 #: ID:78
@@ -4655,7 +4639,7 @@ msgstr "REC"
 # Control-ID:1048,
 #: Control-ID:1048
 msgid "Re&movable drives"
-msgstr "Vyberateľné disky"
+msgstr "&Vyberateľné disky"
 
 # ID:11,
 #: ID:11
@@ -4826,7 +4810,6 @@ msgstr "Premenovat %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Renamed node"
 msgstr "Premenovať uzol"
 
@@ -5089,9 +5072,8 @@ msgstr "Š&tatistika"
 # Preklopiť
 # ID:9,
 #: ID:9
-#, fuzzy
 msgid "S&witch..."
-msgstr "Pepínač..."
+msgstr "&Pepínač..."
 
 # ID:3697,
 #: ID:3697
@@ -5356,9 +5338,8 @@ msgstr "Vyberte adresár, pre ktorý sa má vykonať skript"
 
 # ID:313,
 #: ID:197
-#, fuzzy
 msgid "Select hook script file"
-msgstr "Vybrať 'diff' súbor "
+msgstr "Vybrať  súbor hookskriptu"
 
 # ID:78,
 #: ID:78
@@ -5422,9 +5403,8 @@ msgstr "&Adresa servera:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-#, fuzzy
 msgid "Set filedates to the \"last commit &time\""
-msgstr "SNastaviť čas súborov na \"&čas posledného odovdania\""
+msgstr "Nastaviť čas súborov na \"&čas posledného odovzdania\""
 
 # ID:13,
 #: ID:13
@@ -5514,7 +5494,7 @@ msgstr "Zobraziť &záznam..."
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
-msgstr "Zobrazovať prekrytie len v Explorer-y"
+msgstr "Z&obrazovať prekrytie len v Explorer-y"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5537,14 +5517,13 @@ msgstr "Zobraz ignorované súbory"
 
 # Control-ID:1065,
 #: Control-ID:1065
-#, fuzzy
 msgid "Show li&ne diff bar"
-msgstr "Zobraz ria&dkový 'diff'"
+msgstr "Zobraz porovnania &riadkov"
 
 # Control-ID:1063,
 #: Control-ID:1063
 msgid "Show linenumber&s"
-msgstr "Zobraz čísla &riadkov"
+msgstr "Zobraz &čísla riadkov"
 
 # ID:3713,
 #: ID:3713
@@ -5713,9 +5692,8 @@ msgstr "Stacked Line Graph"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Commit Hook"
-msgstr "Spustiť Odovzdavací hookskript"
+msgstr "Spustiť odovzdavací hookskript"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5825,7 +5803,7 @@ msgstr "Súbor Subversion servera:"
 # Control-ID:1232,
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Prenúť pracovanú kópiu na novú vetvu/značku"
+msgstr "Prenúť pracovanú kópiu na novú ve&tvu/značku"
 
 # Prepnúť ľavú <-> pravú
 #: MenuEntry
@@ -5907,15 +5885,13 @@ msgstr "Položký systémových registrov boli odstránené a INI súbor (ak exi
 
 # ID:7,
 #: ID:7
-#, fuzzy
 msgid "TORTOISEBLAME"
 msgstr "TORTOISEBLAME(Obvinovač)"
 
 # ID:7,
 #: ID:7
-#, fuzzy
 msgid "TORTOISEIDIFF"
-msgstr "TORTOISEIDIFF(porovnávač)"
+msgstr "TORTOISEIDIFF(obrázkový porovnávač)"
 
 # ID:79,
 #: ID:79
@@ -6180,7 +6156,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target folder \n"
 "%s\n"
@@ -6190,7 +6166,7 @@ msgstr ""
 "Cieľový adresár \n"
 "%s\n"
 "nieje prázdny!\n"
-"Ste si istý, že chcete chcekout-export do tohoto adresára?"
+"Ste si istý, že chcete získanie/export do tohoto adresára?"
 
 # ID:195,
 #: ID:195
@@ -6487,7 +6463,7 @@ msgstr "TortoiseSVN Obviniť"
 # ID:77,
 #: ID:77
 msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Kontrola..."
+msgstr "TortoiseSVN Získať..."
 
 # ID:77,
 #: ID:77
@@ -6574,7 +6550,7 @@ msgstr "Prenosová rychlosť %s"
 # ID:251,
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Skúste \"Vyčistiť\". Keď to nepomôže treba vykonať novú kontrolu."
+msgstr "Skúste \"Vyčistiť\". Keď to nepomôže treba vykonať nové získanie."
 
 # Skúsiť znova
 # ID:73,
@@ -6775,7 +6751,7 @@ msgstr "Použiť &lupu"
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Použiť &jednopanelové zobrazenie ako predvolené pre dvojsúborové porovnanie"
+msgstr "Predvoliť &jednopanelové zobrazenie pre dvojsúborové porovnanie"
 
 # ID:251,
 #: ID:251
@@ -6832,7 +6808,7 @@ msgstr "Použiť oba bloky (tento posledný)"
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
-msgstr "Použiť preš&krtávanie pre vymazané riadky"
+msgstr "Použiť &preškrtávanie pre vymazané riadky"
 
 # ID:251,
 #: MenuEntry
