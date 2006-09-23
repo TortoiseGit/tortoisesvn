@@ -21,6 +21,9 @@
 - CHG: CrashRpt.dll is now loaded with an absolute path. This prevents
        TSVN from loading an arbitrary DLL. See issue #278 for details.
        (Tobias Schäfer)
+- CHG: Pressing Enter in the issue ID text box of the commit dialog now
+       sets the focus to the commit message. See issue #292 for details.
+       (Tobias Schäfer)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)

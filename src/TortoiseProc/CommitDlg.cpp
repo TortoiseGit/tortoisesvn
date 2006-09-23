@@ -512,6 +512,13 @@ BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 					}
 					return TRUE;
 				}
+				if ( GetFocus()==GetDlgItem(IDC_BUGID) )
+				{
+					// Pressing RETURN in the bugid control
+					// moves the focus to the message
+					GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+					return TRUE;
+				}
 			}
 			break;
 		}
