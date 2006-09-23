@@ -106,7 +106,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
-	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -121,11 +121,11 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETO, OnDtnDatetimechangeDateto)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATEFROM, OnDtnDatetimechangeDatefrom)
 	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
-	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawLogmsg)
-	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoLogmsg)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawChangedFileList)
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoChangedFileList)
 	ON_BN_CLICKED(IDC_FILTERCANCEL, OnBnClickedFiltercancel)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
-	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickLogmsg)
+	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickChangedFileList)
 	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
 	ON_NOTIFY(LVN_ODFINDITEM, IDC_LOGLIST, OnLvnOdfinditemLoglist)
 	ON_BN_CLICKED(IDC_CHECK_STOPONCOPY, &CLogDlg::OnBnClickedCheckStoponcopy)
@@ -1440,7 +1440,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		} // if (selIndex >= 0)
 	} // if (pWnd == &m_LogList)
 //#endregion
-//#region m_LogMsgCtrl
+//#region m_ChangedFileListCtrl
 	if (pWnd == &m_ChangedFileListCtrl)
 	{
 		int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
@@ -1890,9 +1890,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				default:
 					break;
 				} // switch (cmd)
-			} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
+			} // if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 		} // if (popup.CreatePopupMenu())
-	} // if (pWnd == &m_LogMsgCtrl) 
+	} // if (pWnd == &m_ChangedFileListCtrl) 
 //#endregion
 
 }
@@ -2107,7 +2107,7 @@ void CLogDlg::OnOK()
 	reg = m_btnShow.GetCurrentEntry();
 }
 
-void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
 	if (m_bThreadRunning)
@@ -2615,7 +2615,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	*pResult = CDRF_DODEFAULT;
 }
-void CLogDlg::OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
 	// Take the default processing unless we set this to something else below.
@@ -2924,7 +2924,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
 
@@ -3448,7 +3448,7 @@ void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
 		pHeader->SetItem(nColumn, &HeaderItem);
 	}
 }
-void CLogDlg::OnLvnColumnclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	if (m_bThreadRunning)
 		return;		//no sorting while the arrays are filled
