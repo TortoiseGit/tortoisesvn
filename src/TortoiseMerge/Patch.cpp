@@ -105,11 +105,28 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	int nAddLineCount = 0;
 	int nRemoveLineCount = 0;
 	int nContextLineCount = 0;
+	CString sLine1;
 	for ( ;nIndex<PatchLines.GetCount(); nIndex++)
 	{
-		sLine = PatchLines.GetAt(nIndex);
-		if (sLine.IsEmpty())
-			continue;
+		if (!sLine1.IsEmpty())
+		{
+			sLine = sLine1;
+			sLine1.Empty();
+		}
+		else
+			sLine = PatchLines.GetAt(nIndex);
+		int cr = sLine.Find('\r');
+		if (cr >= 0)
+		{
+			sLine1 = sLine.Left(cr);
+			if (sLine.GetLength() > cr)
+				sLine = sLine.Mid(cr+1);
+			else
+				sLine.Empty();
+			CString temp = sLine;
+			sLine = sLine1;
+			sLine1 = temp;
+		}
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
