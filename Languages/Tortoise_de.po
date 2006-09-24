@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-22 16:36+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2006-09-24 11:11+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2959,6 +2959,11 @@ msgstr "Liniendiagramm"
 msgid "Line:"
 msgstr "Zeile:"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Zeile: %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -4492,7 +4497,7 @@ msgstr "Zeige %ld Knoten"
 
 #: ID:115
 #, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
 msgstr "Zeige %ld Revisionen, von Revision %ld bis %ld - %ld Revisionen gewählt."
 
 # ID:272,
@@ -5551,43 +5556,45 @@ msgstr "Verwende '&Meinen' Textblock"
 msgid "Use text block from \"&theirs\""
 msgstr "Verwende '&Deren' Textblock"
 
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
+
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "Verwende Textblock aus 'Meine' vor 'Deren'\n"
 "'Mein' Textblock, danach 'Deren'"
 
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "Verwende Textblock aus 'Meine'\n"
 "Verwende 'Meinen' Textblock"
 
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
+
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
 msgstr ""
-"Verwende Textblock aus 'De&ren' vor 'Meine'\n"
+"Verwende Textblock aus 'Deren' vor 'Meine'\n"
 "'Deren' Textblock, danach 'Meiner'"
 
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr "Verwende Textblock aus 'De&ren' vor 'Meine'"
-
-#: MenuEntry
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
-
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Verwende Textblock aus 'Deren'\n"
+"Verwende 'Deren' Textblock"
 
 #: ID:251
 msgid "Use th&is text block"
