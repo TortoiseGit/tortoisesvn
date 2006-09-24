@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2006-09-23 17:44+0100\n"
+"PO-Revision-Date: 2006-09-24 22:38+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2140,14 +2140,14 @@ msgstr "Nelze zjistit, zda existuje nová verze!"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze kopírovat soubory!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -2199,38 +2199,38 @@ msgstr "Nelze uložit soubor %s!"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat prohlížeč rozdílů (diff viewer)!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat externí rozdílový (diff) program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nelze nastartovat externí slučovací (merge) program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -3131,11 +3131,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr ""
-"Pokud zaškrtnuto, TortoiseSVN vytvoří dočasný soubor BASE pro zjišťování rozdílu \n"
-"s expandovanými klíčovými slovy a upravenými konci řádků."
+msgstr "Pokud zaškrtnuto, TortoiseSVN vytvoří dočasný soubor BASE pro zjišťování rozdílu s expandovanými klíčovými slovy a upravenými konci řádků."
 
 # ID:196,
 #: ID:196
@@ -3232,13 +3229,11 @@ msgstr "Ignorovat &změny velikosti písmen"
 
 # Control-ID:1067,
 #: Control-ID:1267
-#, fuzzy
 msgid "Ignore ancestry"
-msgstr "Ignorovat &změny velikosti písmen"
+msgstr "Ignorovat původ"
 
 # Control-ID:1018,
 #: Control-ID:1018
-#, fuzzy
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovat konc&e řádků (doporučeno)"
 
@@ -4628,6 +4623,13 @@ msgstr "Přejmenováno na dálku"
 msgid "Renames files / folders inside version control"
 msgstr "Přejmenuje soubory / složky pod správou verzí"
 
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+#, fuzzy
+msgid "Repair move"
+msgstr "Odeb&rat"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -5232,7 +5234,7 @@ msgstr "Z&obrazit Log"
 # Control-ID:1270,
 #: Control-ID:1270
 msgid "Shell"
-msgstr ""
+msgstr "Šel"
 
 # ID:145,
 #: ID:145
@@ -5303,7 +5305,7 @@ msgstr "&Ukázat neverzované soubory"
 
 #: MenuEntry
 msgid "Show File List"
-msgstr ""
+msgstr "Zobrazit zoznam souborů"
 
 # ID:113,
 #: ID:113
@@ -5376,9 +5378,9 @@ msgstr ""
 
 # ID:238,
 #: ID:115
-#, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr ""
+#, fuzzy, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Nejnižší revize: %ld - Nejvyšší revize: %ld - přední (HEAD) revize: %ld"
 
 # ID:272,
 #: ID:272
@@ -5579,14 +5581,14 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion nahlásilo chybu během čištění!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
@@ -6701,7 +6703,7 @@ msgstr "Navštivte webovou stránku"
 # ID:198,
 #: ID:198
 msgid "Wait"
-msgstr ""
+msgstr "Čekat"
 
 # Control-ID:1327,
 #: Control-ID:1327
@@ -7211,7 +7213,7 @@ msgstr "možné nebo reálný konflikt / překážky"
 # ID:245,
 #: ID:245
 msgid "quarter of year"
-msgstr ""
+msgstr "čvrtletí"
 
 # ID:195,
 #: ID:195

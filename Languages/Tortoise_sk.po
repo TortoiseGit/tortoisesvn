@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-23 17:59+0100\n"
+"PO-Revision-Date: 2006-09-24 23:06+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -148,7 +148,7 @@ msgstr "%d vybraných súborov, %d súborov celkom"
 
 # ID:7,
 #: ID:7
-#, fuzzy, c-format
+#, c-format
 msgid "%ld of %ld"
 msgstr "%ld z %ld"
 
@@ -202,7 +202,7 @@ msgstr "%s\\Export %s"
 
 # ID:145,
 #: ID:145
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -498,7 +498,7 @@ msgstr "&Pevné disky"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Font for log messages:"
-msgstr "&Písmo záznamov:"
+msgstr "&Písmo správ denníka:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -579,10 +579,9 @@ msgstr "&Ignorovať %d objekty"
 # Control-ID:1021,
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
-msgstr "Ignoruj zmeny &bielych znakov"
+msgstr "Ignorovať zmeny &bielych znakov"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Image Info"
 msgstr "&Info o obrázku"
 
@@ -645,7 +644,6 @@ msgid "&Native filesystem (FSFS)"
 msgstr "&Natívny súborový systém (FSFS)"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Navigate"
 msgstr "&Navigovať"
 
@@ -672,7 +670,6 @@ msgstr "&Ďaľší rozdiel"
 # Control-ID:1,#:
 # Control-ID:1,
 #: Control-ID:1
-#, fuzzy
 msgid "&OK"
 msgstr "&OK"
 
@@ -716,7 +713,6 @@ msgstr "&Ostatné záznamy"
 
 # ID:376,
 #: ID:376
-#, fuzzy
 msgid "&Redo"
 msgstr "Zn&ova"
 
@@ -921,7 +917,7 @@ msgstr "&Zobraziť"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr "&Biele - prázdne znaky"
+msgstr "&Biele znaky"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -1014,7 +1010,6 @@ msgstr ": pracovná kópia"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
 "That means it is integrated into the Windows explorer.\n"
@@ -1023,10 +1018,10 @@ msgid ""
 "And <u>read the manual!</u>"
 msgstr ""
 "<b>TortoiseSVN</b> je rozšírenie 'šelu'.\n"
-"To znamená, že je integrované do Windows explorera.\n"
-"Aby ste použili <b>TortoiseSVN</b> otvorte prosím explorer a vyberte pravým tlačítkom myšy\n"
-"adresár. Vkontextovom menu nájdete všetky príkazy <b>TortoiseSVN</b>.\n"
-"And <u>read the manual!</u>"
+"To znamená, že je integrovaný do Windows explorera.\n"
+"Aby ste použili <b>TortoiseSVN</b> otvorte prosím explorer a vyberte pravým tlačítkom myši adresár.\n"
+"V kontextovom menu nájdete všetky príkazy <b>TortoiseSVN</b>.\n"
+"A <u>prečítajte si manuál!</u>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1304,14 +1299,14 @@ msgstr "Všetky súbory (*.*)|*.*||"
 # ID:3868,
 #: ID:3867
 #: ID:3868
-#, fuzzy, c-format
+#, c-format
 msgid "An attempt was made to access %1 past its end."
-msgstr "Nastal pokus o prístup za koncom %1m."
+msgstr "Nastal pokus o prístup za koncom %1."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
-#, fuzzy, c-format
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "Pri zapisovaní do %1 bol pokus o čítanie."
 
@@ -1319,7 +1314,7 @@ msgstr "Pri zapisovaní do %1 bol pokus o čítanie."
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
-#, fuzzy, c-format
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "Pri čítaní %1 bol pokus o zápis."
 
@@ -1408,9 +1403,9 @@ msgstr "Počas prístupu k %1 nastala neznáma chyba."
 
 # ID:63,
 #: ID:63
-#, fuzzy, c-format
+#, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr "Nájdený neznámy typ riadku %d !"
+msgstr "Bol nájdený neznámy typ riadku %d !"
 
 # ID:3843,#:
 # ID:3843,
@@ -1518,7 +1513,7 @@ msgstr "Autori"
 # Control-ID:1265,
 #: Control-ID:1265
 msgid "Authors case insensitive"
-msgstr "Autori bez rozlišovania veľkosti písmen"
+msgstr "Nerozlišovať veľkosť písmien v menách autorov"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1532,22 +1527,19 @@ msgstr "Automaticky zavrieť po miestných úkonoch"
 
 # ID:222,
 #: ID:222
-#, fuzzy
 msgid "Auto-close if no conflicts"
-msgstr "Automaticky zavrieť keď niesú konflikty"
+msgstr "Automaticky zavrieť, keď nie sú konflikty"
 
 # Keď niesú chyby automaticky zavrieť
 # ID:222,
 #: ID:222
-#, fuzzy
 msgid "Auto-close if no errors"
-msgstr "Automaticky zavrieť keď niesú chyby"
+msgstr "Automaticky zavrieť, keď nie sú chyby"
 
 # ID:222,
 #: ID:222
-#, fuzzy
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Automatcky zavrieť keď niesú zlúčenia, pridania alebo vymazania"
+msgstr "Automatcky zavrieť ,keď nie sú zlúčenia, pridania alebo vymazania"
 
 # ID:195,
 #: ID:195
@@ -1556,7 +1548,7 @@ msgid ""
 "from the files that you have changed as you type a log message."
 msgstr ""
 "Automatické dokončovanie slov (typicky tried a mien členov)\n"
-"počas písania záznamov, zo súborov, ktoré ste zmenili."
+"počas písania správ denníka zo súborov, ktoré ste zmenili."
 
 # ID:438,#:
 # ID:438,
@@ -1677,7 +1669,6 @@ msgstr "Vytvo&r značku z revízie"
 
 # ID:3697,
 #: ID:3697
-#, fuzzy
 msgid "CAP"
 msgstr "CAP"
 
@@ -1707,9 +1698,8 @@ msgstr "Zrušiť"
 
 # ID:132,
 #: ID:132
-#, fuzzy
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Ruším TortoiseSVN Obvinovanie..."
+msgstr "Rušenie TortoiseSVN Obviniť..."
 
 # ID:270,
 #: ID:270
@@ -1844,9 +1834,8 @@ msgstr "Zaškrtnite tie položky, ktoré chcete aby sa zobrazovali v podmenu nam
 
 # ID:80,
 #: ID:80
-#, fuzzy
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Zašrtnite ak chcete menej výpisov dátumu a času v záznamoch"
+msgstr "Zašrtnite ak chcete menej výpisov dátumu a času v správach denníka"
 
 # ID:270,
 #: ID:270
@@ -1907,7 +1896,7 @@ msgstr "Vymaže uložené URL adresy (%ld) pre pracovné kópie (%ld)"
 #: ID:196
 #, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "Vymaže uložené záznamy (%ld) pre pracové kópie (%ld)"
+msgstr "Vymaže uložené správy denníka (%ld) pre pracové kópie (%ld)"
 
 # ID:196,
 #: ID:196
@@ -1952,7 +1941,6 @@ msgstr "Schránka"
 
 # ID:222,
 #: ID:222
-#, fuzzy
 msgid "Close manually"
 msgstr "Zatvoriť ručne"
 
@@ -1980,7 +1968,6 @@ msgstr "Príkazový riadok"
 
 # Control-ID:1336,
 #: Control-ID:1336
-#, fuzzy
 msgid "Command Line To Execute:"
 msgstr "Príkazový riadok na vykonanie:"
 
@@ -2000,7 +1987,6 @@ msgstr "Odovzdať"
 # Citlivosť
 # Control-ID:1262,
 #: Control-ID:1262
-#, fuzzy
 msgid "Commit threshold:"
 msgstr "Prah počtu odovzdaní:"
 
@@ -2026,9 +2012,8 @@ msgstr "Odovzdania každý týždeň:"
 
 # ID:9,
 #: ID:9
-#, fuzzy
 msgid "Commits your changes to the repository"
-msgstr "Odovzdať vaše zmeny (do) uložiska"
+msgstr "Odovzdať vaše zmeny do úložiska"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
@@ -2104,7 +2089,7 @@ msgstr "Konflikné"
 #: ID:188
 #, c-format
 msgid "Conflicts: %d"
-msgstr "Konfliktov: %d"
+msgstr "Konflikty: %d"
 
 # ID:73,
 #: ID:73
@@ -2318,9 +2303,8 @@ msgstr ""
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
-#, fuzzy
 msgid "Could not start print job."
-msgstr "Nemožno začať tlačiť."
+msgstr "Nemožno začať tlačovú úlohu."
 
 # ID:81,
 #: ID:81
@@ -2344,7 +2328,6 @@ msgstr "Vytvoriť úložisko"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Create copy in the repository from:"
 msgstr "Vytvoriť kópiu v úložisku z:"
 
@@ -2365,7 +2348,6 @@ msgstr "Vytvorí 'lacnú' kópiu v úložisku použitú na vetvy, alebo značky"
 
 # ID:10,
 #: ID:10
-#, fuzzy
 msgid "Creates a repository database at the current location"
 msgstr "Vytvorí databázu úložiska na aktuálnom mieste"
 
@@ -2376,9 +2358,8 @@ msgstr "Vytvorý súbor unifikovaného 'diff' so vštkými zmenami, ktoré ste u
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Credits:"
-msgstr "Credits:"
+msgstr "Zásluhy:"
 
 # ID:376,
 #: ID:376
@@ -2422,7 +2403,7 @@ msgstr "Dátum"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "Prednastavený &počet záznamov"
+msgstr "Prednastavený &počet správ denníka"
 
 # ID:73,#:
 # ID:264,
@@ -2674,7 +2655,7 @@ msgstr "Upraviť zlučovací program pre príponu"
 #: ID:113
 #: ID:115
 msgid "Edit log message"
-msgstr "Uprav správu"
+msgstr "Uprav správu denníka"
 
 # Control-ID:1099,#:
 # Control-ID:1282,
@@ -2696,7 +2677,7 @@ msgstr "Prázdne"
 #: Control-ID:1240
 #, fuzzy
 msgid "Enable &accelerators on the top level menu"
-msgstr "Povoľ &akceleračné klávesy pre hlavné menu"
+msgstr "Povoliť &akceleračné klávesy pre hlavné menu"
 
 # ID:196,
 #: ID:196
@@ -2736,14 +2717,13 @@ msgstr "Posledná revízia"
 # Maximalizuj
 # ID:3825,
 #: ID:3825
-#, fuzzy
 msgid "Enlarge the window to full size"
-msgstr "Zväčši okno na plnú veľkosť"
+msgstr "Zväčšiť okno na plnú veľkosť"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "Enter Log Message"
-msgstr "Zadaj správu"
+msgstr "Zadaj správu denníka"
 
 # ID:80,
 #: ID:80
@@ -2758,12 +2738,12 @@ msgstr "Zadaj správu k zámku (nepovinné):"
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
-msgstr "Zadaj &správu:"
+msgstr "Zadaj &správu denníka:"
 
 # ID:126,
 #: ID:126
 msgid "Enter log message:"
-msgstr "Zadaj správu:"
+msgstr "Zadaj správu denníka:"
 
 # ID:3603,
 #: ID:3603
@@ -3130,9 +3110,8 @@ msgstr "Získavam unifikovaný 'diff'"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Global ignore &pattern:"
-msgstr "Globálna šablóna pre &vylúčenie:"
+msgstr "Globálna šablóna &vylúčenia:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3198,35 +3177,30 @@ msgstr "Stryť skript počas behu"
 
 # ID:2052,
 #: ID:2052
-#, fuzzy
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
-"Sryť/zobraziť zoznam zoznam záplatových súborov\n"
+"Skryť/zobraziť zoznam záplatových súborov\n"
 "Skryje, alebo zobrazí zoznam záplatových súborov"
 
 # Control-ID:1127,
 #: Control-ID:1127
-#, fuzzy
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tip: F5 obnovuje vybraný podstrom a Ctrl-F5 načíta aj deti"
 
 # Dlg-ID:103,
 #: Dlg-ID:103
-#, fuzzy
 msgid "Hook Scripts"
-msgstr "Pripnuté hookskripty"
+msgstr "Pripnuté (hook)skripty"
 
 # ID:198,
 #: ID:198
-#, fuzzy
 msgid "Hook Type"
 msgstr "Typ pripnutia"
 
 # Control-ID:1334,
 #: Control-ID:1334
-#, fuzzy
 msgid "Hook Type:"
 msgstr "Typ pripnutia:"
 
@@ -3268,17 +3242,15 @@ msgstr "Keď je označené, TortoiseSVN vystorí dočasný súbor základu, aby 
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\n"
 "while preserving your last selection and log message."
 msgstr ""
 "Zaškrtnuté znamená, že dialóg odovzdávania začne po chybe automaticky znova,\n"
-"pričom zachová váš výber a záznam."
+"pričom zachová váš výber a správu denníka."
 
 # ID:195,
 #: ID:195
-#, fuzzy
 msgid ""
 "If disabled, then the context menu will show up faster.\n"
 "But some context menu entries will show up which can't really be used.\n"
@@ -3286,7 +3258,7 @@ msgid ""
 msgstr ""
 "Zakázané znamená, že kontextové menu sa zobrazí rýchlejšie.\n"
 "Avšak niektoré zobrazené položky nebudú využiteľné.\n"
-"Napríklad: Položka \"Zobraz záznamy\" bude zobrazená aj pre práve pridaný adresár."
+"Napríklad: Položka \"Zobraziť denník\" bude zobrazená aj pre práve pridaný adresár."
 
 # ID:194,
 #: ID:194
@@ -3358,7 +3330,7 @@ msgstr ""
 #: ID:251
 #, fuzzy
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Keď chcete zrušiť zámok, poižite \"Skontrolovať zmeny\"."
+msgstr "Keď chcete zrušiť zámok, použite \"Skontrolovať zmeny\"."
 
 # ID:73,
 #: ID:73
@@ -3377,7 +3349,6 @@ msgstr "Ignorovať zmeny vo &veľkosti písma"
 
 # Ignorovať predkov
 #: Control-ID:1267
-#, fuzzy
 msgid "Ignore ancestry"
 msgstr "Zanedbať pôvod"
 
@@ -3455,7 +3426,6 @@ msgstr "Vnútorná chyba programu."
 
 # ID:102,
 #: ID:102
-#, fuzzy
 msgid "Invalid data object dropped!"
 msgstr "Odstránený chybný dátový objekt!"
 
@@ -3552,7 +3522,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
@@ -3574,8 +3544,8 @@ msgstr ""
 "Premiestnenie je potrebné iba ak <b>do</b> je inom úložisku.\n"
 "Menenie cesty <b>vrámci</b> úložiska sa vykonáva pomocou príkazu 'prepni'.\n"
 "\n"
-"Nesprávne použitie resunúť <b>poškodí vašu pracovnú kópiu!</b>\n"
-"Pokiaľ nie ste si istý, pozrite si náš manuál položku<i>relocate</i>.\n"
+"Nesprávne použitie presunúť <b>poškodí vašu pracovnú kópiu!</b>\n"
+"Pokiaľ si nie ste istý, pozrite si náš manuál položku<i>relocate</i>.\n"
 "Chcete naozaj presunúť?"
 
 # Control-ID:1203,
@@ -3716,7 +3686,6 @@ msgstr "Zamkol %s"
 # revízia ?
 # ID:89,
 #: ID:89
-#, fuzzy
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
@@ -3732,29 +3701,29 @@ msgstr "Zamkne súbor pre iných užívateľov a povolí ho editovať vám."
 # ID:126,
 #: ID:126
 msgid "Log"
-msgstr "Záznam"
+msgstr "Denník"
 
 # Dlg-ID:211,
 #: Dlg-ID:211
 msgid "Log History"
-msgstr "Históra záznamov"
+msgstr "Denník"
 
 # Control-ID:1274,#:
 # Dlg-ID:130,
 #: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
-msgstr "Správa"
+msgstr "Správy denníka"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Log message"
-msgstr "Správa"
+msgstr "Správa denníka"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Log messages"
-msgstr "Správy"
+msgstr "Správy denníka"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -3788,7 +3757,7 @@ msgstr "Vzhlad a pocit::Sada ikon"
 
 # ID:238,
 #: ID:238
-#, fuzzy, c-format
+#, c-format
 msgid "Lowest revision: %ld - Highest revision: %ld"
 msgstr "Najnižšia revízia: %ld - Najvyššia revízia: %ld"
 
@@ -3840,9 +3809,8 @@ msgstr "Max"
 
 # Control-ID:65535,
 #: Control-ID:1317
-#, fuzzy
 msgid "Max. items to keep in the log message history"
-msgstr "Maximálny počet záznamov, ktoré majú byť uchované v pamäti"
+msgstr "Maximálny počet záznamov, ktoré majú byť uchované v pamäti denníka"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
@@ -3900,9 +3868,8 @@ msgstr "Typ MIME"
 
 # Control-ID:1158,
 #: Control-ID:1158
-#, fuzzy
 msgid "Min"
-msgstr "Min"
+msgstr "Minimálne"
 
 # ID:263,
 #: ID:263
@@ -3911,14 +3878,12 @@ msgstr "Moje"
 
 # Control-ID:1023,
 #: Control-ID:1023
-#, fuzzy
 msgid "Misc"
 msgstr "Rôzne"
 
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
-#, fuzzy
 msgid "Mixed"
 msgstr "Zmiešané"
 
@@ -3983,7 +3948,6 @@ msgstr "Je nutný zámok"
 
 # ID:210,
 #: ID:210
-#, fuzzy
 msgid "Nested"
 msgstr "Vnorené"
 
@@ -4242,9 +4206,8 @@ msgstr "Otvoriť hlavný adresár"
 # Otvoriť pomocou...
 # ID:113,
 #: ID:113
-#, fuzzy
 msgid "Open with..."
-msgstr "Otvoriť s..."
+msgstr "Otvoriť pomocou..."
 
 # ID:3605,
 #: ID:3605
@@ -4268,7 +4231,7 @@ msgstr "Pôvodná &veľkosť"
 # ID:245,
 #: ID:245
 msgid "Others"
-msgstr "Iné"
+msgstr "Ostatný"
 
 # ID:3843,#:
 # ID:3843,
@@ -4364,9 +4327,8 @@ msgstr "Prosím zadajte dátum."
 # ID:3858,#:
 # ID:3858,
 #: ID:83
-#, fuzzy
 msgid "Please enter a hook script to execute."
-msgstr "Prosím zadajte kladné číslo."
+msgstr "Prosím zadajte Pripnutý (hook)skript na vykonanie."
 
 # ID:3858,#:
 # ID:3858,
@@ -4383,9 +4345,8 @@ msgstr "Prosím zadajte číslo."
 
 # ID:83,
 #: ID:83
-#, fuzzy
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Prosím zadajte cestu, pre ktorú sa má vykonať hookskript."
+msgstr "Prosím zadajte cestu, pre ktorú sa má vykonať pripnutý (hook)skript."
 
 # ID:3858,#:
 # ID:3858,
@@ -4451,7 +4412,6 @@ msgstr "Vyberte si prosím tlačítko."
 # ID:3858,#:
 # ID:3858,
 #: ID:83
-#, fuzzy
 msgid "Please select a hook type"
 msgstr "Prosím vyberte typ pripnutia"
 
@@ -4462,27 +4422,23 @@ msgstr "Prosím udajte typ certifikátu"
 
 # ID:132,
 #: ID:132
-#, fuzzy
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Prosím čakajte - toto može trvať nemalú chíľu. Vážne!"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Please wait while cancelling..."
 msgstr "Prosím čakajte, prebieha stornovanie..."
 
 # ID:319,
 #: ID:319
-#, fuzzy
 msgid "Please wait while differences are obtained..."
 msgstr "Prosím počkajte na získanie rozdielov..."
 
 # ID:104,
 #: ID:104
-#, fuzzy
 msgid "Please wait while the repository browser is initialized..."
-msgstr "Prosím, čakajte prehliadač úložiska sa inicializuje..."
+msgstr "Prosím čakajte, prehliadač úložiska sa inicializuje..."
 
 # ID:119,#:
 # ID:146,#:
@@ -4495,27 +4451,23 @@ msgstr "Prosím, čakajte..."
 
 # Control-ID:1110,
 #: ID:569
-#, fuzzy
 msgid "Post-Commit Hook"
-msgstr "Poodovzdavací hookskript"
+msgstr "Poodovzdavací pripnutý (hook)skript"
 
 # ID:570,
 #: ID:570
-#, fuzzy
 msgid "Post-Update Hook"
-msgstr "Poaktualizačný hookskript"
+msgstr "Poaktualizačný pripnutý (hook)skript"
 
 # Control-ID:1110,
 #: ID:569
-#, fuzzy
 msgid "Pre-Commit Hook"
-msgstr "Predodovzdavací hootskript"
+msgstr "Predodovzdavací pripnutý (hook)skript"
 
 # ID:570,
 #: ID:570
-#, fuzzy
 msgid "Pre-Update Hook"
-msgstr "Predaktulizačný hookskript"
+msgstr "Predaktulizačný pripnutý (hook)skript"
 
 # ID:376,
 #: ID:376
@@ -4823,6 +4775,12 @@ msgstr "Vzdialene premenované"
 msgid "Renames files / folders inside version control"
 msgstr "Premenuje súbory/adresáre vo správe verzií"
 
+# Control-ID:1100,#:
+# Control-ID:1285,
+#: ID:209
+msgid "Repair move"
+msgstr "Opraviť presunutie"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -5027,7 +4985,7 @@ msgstr "Revízia:"
 
 # ID:272,
 #: ID:272
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld\n"
 "URL: %s\r\n"
@@ -5042,7 +5000,7 @@ msgstr ""
 "Autor: %s\r\n"
 "Dátum: %s\r\n"
 "\r\n"
-"Záznam/denník:\r\n"
+"Správa denníka:\r\n"
 "%s"
 
 # ID:116,
@@ -5157,7 +5115,6 @@ msgstr "SVN MIME typ"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "SVN short URL"
 msgstr "SVN krátka URL"
 
@@ -5250,7 +5207,7 @@ msgstr "Stopa"
 # ID:113,
 #: ID:113
 msgid "Search &log messages..."
-msgstr "Vyhľadaj &správy..."
+msgstr "Vyhľadaj &správy denníka..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5314,7 +5271,7 @@ msgstr "Vybrať 'diff' súbor "
 #: ID:99
 #, fuzzy
 msgid "Select directory to check out to"
-msgstr "Vyber adresár na kontrolu"
+msgstr "Vybrať adresár na kontrolu"
 
 # ID:276,
 #: ID:276
@@ -5419,7 +5376,7 @@ msgstr "Nastavenia"
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
-msgstr "Z&obraziť záznam"
+msgstr "Z&obraziť denník"
 
 # Control-ID:1270,
 #: Control-ID:1270
@@ -5440,7 +5397,7 @@ msgstr "Z&obraz vlastnosti"
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "Krátky formát &dátumu/času v záznamoch"
+msgstr "Krátky formát &dátumu/času v správach denníka"
 
 # ID:12,
 #: ID:12
@@ -5453,12 +5410,12 @@ msgstr "Krátka URL adresa objektov Subversion"
 #: ID:115
 #: Control-ID:1031
 msgid "Show &All"
-msgstr "Zobraziť &všetky"
+msgstr "Zobraziť &všetko"
 
 # ID:115,
 #: ID:115
 msgid "Show &Range..."
-msgstr "Zobraziť &Rozsah"
+msgstr "Zobraziť &Rozsah..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -5484,12 +5441,12 @@ msgstr "Zobraziť &rozdiely"
 #: Control-ID:1034
 #: Control-ID:1132
 msgid "Show &log"
-msgstr "Zobraziť &záznam"
+msgstr "Zobraziť &denník"
 
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Show &log..."
-msgstr "Zobraziť &záznam..."
+msgstr "Zobraziť &denník..."
 
 # Control-ID:1088,
 #: Control-ID:1088
@@ -5575,8 +5532,8 @@ msgstr "Zobrazujem %ld uzlov"
 
 # ID:238,
 #: ID:115
-#, fuzzy, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "Zobrazovanie %ld revízie(í), od revízie %ld do revízie %ld - Vybrané revízie: %ld."
 
 # ID:272,
@@ -5598,7 +5555,6 @@ msgstr "Zobrazí všetky súbory, ktoré boli zmenené od poslednej aktualizáci
 # Zobrazí všetky revízie, v ktorých boli zmený tohoto objektu
 # ID:2050,
 #: ID:2050
-#, fuzzy
 msgid "Shows all revisions where changes were made to this item"
 msgstr "Zobrazí všetky revízie, v ktorých bol tento objekt zmeneý"
 
@@ -5615,7 +5571,7 @@ msgstr "Zobrazí hodnotu štýlu ukončenia riadkov"
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
-msgstr "Zobrazí záznamy pre vybraný súbor / adresár"
+msgstr "Zobrazí denník pre vybraný súbor / adresár"
 
 # ID:14,
 #: ID:14
@@ -5651,9 +5607,8 @@ msgstr "Číselné triedenie"
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Určuje koľko záznamov sa ma pamäť v histórií."
+msgstr "Určuje koľko záznamov sa ma pamätať v histórií správ denníka."
 
 # ID:79,
 #: ID:79
@@ -5704,7 +5659,7 @@ msgstr "Začiatočná revízia"
 #: ID:569
 #, fuzzy
 msgid "Start Update Hook"
-msgstr "Spustiť aktualizačný hookskript"
+msgstr "Spustiť aktualizačný pripnutý (hook)skript"
 
 # ID:245,#:
 # Dlg-ID:179,
@@ -5931,7 +5886,6 @@ msgstr "Uložisko bolo úspešne vytvorené."
 
 # ID:63,
 #: ID:63
-#, fuzzy
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Veľkosť bloku nezodpovedá počtu pridaných/vymazaných riadkov!"
 
@@ -5959,13 +5913,13 @@ msgstr "Súbor %s neexistuje!"
 
 # ID:64,
 #: ID:64
-#, fuzzy, c-format
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Súbor %s nebol nájdený v záplatovom súbore!"
 
 # ID:65,
 #: ID:65
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The file %s\n"
 "was found twice!?!\n"
@@ -6021,18 +5975,17 @@ msgstr ""
 
 # ID:83,
 #: ID:83
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"Hookskript vrátil chybu:\n"
+"Pripnutý (Hook)skript vrátil chybu:\n"
 "%s"
 
 # Nemožno zobraziť (tento) obrázok.
 # ID:7,
 #: ID:7
-#, fuzzy
 msgid "The image can not be shown."
 msgstr "Obrázok nemôže byť zobrazený."
 
@@ -6095,7 +6048,6 @@ msgstr ""
 
 # ID:88,
 #: ID:88
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -6181,13 +6133,12 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
 msgstr ""
 "Vybrané URL adresy neboli vytvorené z jedného kmeňového adresára.\n"
-"Nieje možné zobraziť záznamy medzi nimi!"
+"Nieje možné zobraziť správy denníka medzi nimi!"
 
 # ID:16,
 #: ID:16
@@ -6788,7 +6739,7 @@ msgstr "Použiť záplatový súbor zo schránky"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Použiť \"Z:\" URL (rozsah revízií je možne vybrať v hornom dialógu)"
+msgstr "Použiť \"Z:\" URL (rozsah revízií je možne vybrať v hornom dialógu denníka)"
 
 # Control-ID:1296,
 #: Control-ID:1296
@@ -7156,8 +7107,8 @@ msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
 msgstr ""
-"V minulosti zadaná správý boli uložené.\n"
-"Kliknitím sem ju prečítate a vložíte ju znova."
+"V minulosti zadané správy denníka boli uložené.\n"
+"Kliknite sem na ich prečítanie a opätovné vloženie."
 
 # Control-ID:1112,
 #: Control-ID:1112
@@ -7275,8 +7226,8 @@ msgid ""
 msgstr ""
 "bugtraq:append\n"
 "Nastavte \"false\" keď chcete aby ' bugtracking ID' bolo pridané na vrch\n"
-"záznamu. Predvolená je hodnota \"true\", ttorá znamá, že 'bugtracking ID'\n"
-"je k srpáve pripojená."
+"správy denníka. Predvolená hodnota \"true\" znamená, že 'bugtracking ID'\n"
+"je k správe denníka pripojená."
 
 # ID:14,
 #: ID:14
@@ -7286,7 +7237,7 @@ msgid ""
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\n"
-"Menovka, ktorá bude zobrazená v edit boxe, kde uzivatel zada číslo prípadu."
+"Menovka, ktorá bude zobrazená v editovacom boxe, kde uživateľ zadá číslo prípadu."
 
 # ID:15,
 #: ID:15
@@ -7304,14 +7255,14 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"Reťazec, ktorý je pridaný k záznamu, keď je zadané číslo prípadu.\n"
+"Reťazec, ktorý je pridaný k správe v denníku, keď je zadané číslo prípadu.\n"
 "Reťazec musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
 
 # ID:14,
@@ -7429,7 +7380,7 @@ msgstr "chýbajúce"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "missing / deleted / replaced"
-msgstr "chýbajpce / zmazené / nahradené"
+msgstr "chýbajúce / zmazené / nahradené"
 
 # zmenený
 # ID:10,
@@ -7658,18 +7609,17 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Nstavte na čislo jazyka, v ktorom chcete písať zánamy denníka.\n"
-"TortoiseSVN načíta príslušnú kontorlu pravopisu - ak bude prístupná."
+"Nastavte na číslo jazyka, v ktorom chcete písať záznamy denníka.\n"
+"TortoiseSVN načíta príslušnú kontrolu pravopisu - ak bude dostupná."
 
 # ID:15,
 #: ID:15
-#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"Nastavte na \"yes\" ak má byť zobrazené varovanie, že nebol zadaný žiaden záznam pri odovzdávaní."
+"Nastavte na \"yes\" ak má byť zobrazené varovanie, pri odovzdávaní bez zadania prípadu."
 
 # ID:563,
 #: ID:563
@@ -7678,7 +7628,7 @@ msgstr "rozdielne hodnoty"
 
 # ID:17,
 #: ID:17
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "webviewer:pathrevision\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\n"
@@ -7686,12 +7636,13 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:revision\n"
-"URL odkazujúca na web stránku úložiska pre určený súbor a revíziu.\n"
-"Reťazec %REVISION% v URL bude nahradený číslom revízie.Reťazec %PATH% bude nahradený cestou súboru relatívne od kmeňového adresára úložiska."
+"URL adresa odkazujúca na web stránku úložiska pre určený súbor a revíziu.\n"
+"Reťazec %REVISION% v URL adrese bude nahradený číslom revízie.\n"
+"Reťazec %PATH% bude nahradený cestou súboru relatívne od kmeňového adresára úložiska."
 
 # ID:17,
 #: ID:17
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
@@ -7699,7 +7650,7 @@ msgid ""
 msgstr ""
 "webviewer:revision\n"
 "URL odkazujúca na web stránku úložiska pre určenú revíziu.\n"
-"Reťazec %REVISION% v URL bude nahradený číslom revízie."
+"Reťazec %REVISION% v URL adrese bude nahradený číslom revízie."
 
 # ID:245,
 #: ID:245
