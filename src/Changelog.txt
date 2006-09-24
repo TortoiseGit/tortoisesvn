@@ -48,6 +48,8 @@ Version 1.4.1
        bug ID and an illegal regex string. (Stefan)
 - BUG: When the status fetching in the action dialog was cancelled a race
        condition could occur which lead to a crash. (Stefan)
+- BUG: Fonts overlapped in the TSVNCacheWindow when larger than 15 points
+       (Masaru Tsuchiyama)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

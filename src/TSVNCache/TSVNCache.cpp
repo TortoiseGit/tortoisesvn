@@ -319,16 +319,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			HBRUSH background = CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
 			HGDIOBJ oldbrush = SelectObject(hdc, background);
 			FillRect(hdc, &rect, background);
+
 			int line = 0;
+			SIZE fontsize = {0};
 			AutoLocker print(critSec);
+			GetTextExtentPoint32( hdc, szCurrentCrawledPath[0], (int)_tcslen(szCurrentCrawledPath[0]), &fontsize );
 			for (int i=nCurrentCrawledpathIndex; i<MAX_CRAWLEDPATHS; ++i)
 			{
-				TextOut(hdc, 0, line*15, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+				TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
 				line++;
 			}
 			for (int i=0; i<nCurrentCrawledpathIndex; ++i)
 			{
-				TextOut(hdc, 0, line*15, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+				TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
 				line++;
 			}
 			
