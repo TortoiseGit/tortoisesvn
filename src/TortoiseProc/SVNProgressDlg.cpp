@@ -1507,7 +1507,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else if ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command))
 								popup.SetDefaultItem(ID_COMPARE, FALSE);
-
 						}
 						if ((data->action == svn_wc_notify_add)||
 							(data->action == svn_wc_notify_update_add)||
@@ -1556,6 +1555,17 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_EXPLORE:
 							{
 								CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
+								if (sPath.Find(':')<0)
+								{
+									// the path is not absolute: add the current directory in front of it
+									DWORD len = GetCurrentDirectory(0, NULL);
+									TCHAR * buf = new TCHAR[len+1];
+									GetCurrentDirectory(len, buf);
+									sPath = buf;
+									sPath += _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
+									delete [] buf;
+								}
+
 								CTSVNPath path = CTSVNPath(sPath);
 								ShellExecute(m_hWnd, _T("explore"), path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
 							}
@@ -1628,7 +1638,18 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						case ID_EDITCONFLICT:
 							{
-								SVNDiff::StartConflictEditor(data->path);
+								CString sWinPath = data->path.GetWinPathString();
+								if (sWinPath.Find(':')<0)
+								{
+									// the path is not absolute: add the current directory in front of it
+									DWORD len = GetCurrentDirectory(0, NULL);
+									TCHAR * buf = new TCHAR[len+1];
+									GetCurrentDirectory(len, buf);
+									sWinPath = buf;
+									sWinPath += _T("\\") + data->path.GetWinPathString();
+									delete [] buf;
+								}
+								SVNDiff::StartConflictEditor(CTSVNPath(sWinPath));
 							}
 							break;
 						case ID_CONFLICTUSETHEIRS:
@@ -1731,7 +1752,18 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								// fetch the log from HEAD, not the revision we updated to:
 								// the path might be inside an external folder which has its own
 								// revisions.
-								dlg.SetParams(data->path, SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
+								CString sWinPath = data->path.GetWinPathString();
+								if (sWinPath.Find(':')<0)
+								{
+									// the path is not absolute: add the current directory in front of it
+									DWORD len = GetCurrentDirectory(0, NULL);
+									TCHAR * buf = new TCHAR[len+1];
+									GetCurrentDirectory(len, buf);
+									sWinPath = buf;
+									sWinPath += _T("\\") + data->path.GetWinPathString();
+									delete [] buf;
+								}
+								dlg.SetParams(CTSVNPath(sWinPath), SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
 								dlg.DoModal();
 							}
 							break;
@@ -1740,12 +1772,23 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_OPEN:
 							{
 								int ret = 0;
+								CString sWinPath = data->path.GetWinPathString();
+								if (sWinPath.Find(':')<0)
+								{
+									// the path is not absolute: add the current directory in front of it
+									DWORD len = GetCurrentDirectory(0, NULL);
+									TCHAR * buf = new TCHAR[len+1];
+									GetCurrentDirectory(len, buf);
+									sWinPath = buf;
+									sWinPath += _T("\\") + data->path.GetWinPathString();
+									delete [] buf;
+								}
 								if (!bOpenWith)
-									ret = (int)ShellExecute(this->m_hWnd, NULL, data->path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+									ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
 								if ((ret <= HINSTANCE_ERROR)||bOpenWith)
 								{
 									CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-									cmd += data->path.GetWinPathString();
+									cmd += sWinPath;
 									CAppUtils::LaunchApplication(cmd, NULL, false);
 								}
 							}

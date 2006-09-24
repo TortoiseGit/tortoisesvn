@@ -50,6 +50,9 @@ Version 1.4.1
        condition could occur which lead to a crash. (Stefan)
 - BUG: Fonts overlapped in the TSVNCacheWindow when larger than 15 points
        (Masaru Tsuchiyama)
+- BUG: The actions from the context menu in the progress dialog could
+       use relative paths if the current directory was inside the
+       working copy. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
