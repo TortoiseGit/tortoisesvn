@@ -12,6 +12,10 @@
 - NEW: The log dialog shows the number of revisions, start and end revision
        and the number of selected revisions. 
        See issue #276 for details. (Stefan)
+- NEW: Ability to 'repair' a move/rename which was done without using the
+       Subversion commands. Repairing works by selecting two files
+       where one is unversioned and the other missing, then choose "repair move"
+       from the context menu. See issue #273 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

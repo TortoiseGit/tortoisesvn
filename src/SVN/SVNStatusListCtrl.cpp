@@ -79,6 +79,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 #define IDSVNLC_PROPERTIES		23
 #define IDSVNLC_COPY			24
 #define IDSVNLC_COPYEXT			25
+#define IDSVNLC_REPAIRMOVE		26
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1819,6 +1820,32 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				if (GetSelectedCount() > 0)
 				{
+					if ((GetSelectedCount() == 2)&&(m_dwContextMenus & SVNSLC_POPREPAIRMOVE))
+					{
+						POSITION pos = GetFirstSelectedItemPosition();
+						int index = GetNextSelectedItem(pos);
+						if (index >= 0)
+						{
+							FileEntry * entry = GetListEntry(index);
+							svn_wc_status_kind status1 = svn_wc_status_none;
+							svn_wc_status_kind status2 = svn_wc_status_none;
+							if (entry)
+								status1 = entry->status;
+							index = GetNextSelectedItem(pos);
+							if (index >= 0)
+							{
+								entry = GetListEntry(index);
+								if (entry)
+									status2 = entry->status;
+								if ((status1 == svn_wc_status_missing && status2 == svn_wc_status_unversioned) ||
+									(status2 == svn_wc_status_missing && status1 == svn_wc_status_unversioned))
+								{
+									temp.LoadString(IDS_STATUSLIST_CONTEXT_REPAIRMOVE);
+									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REPAIRMOVE, temp);
+								}
+							}
+						}
+					}
 					if (wcStatus > svn_wc_status_normal)
 					{
 						if (m_dwContextMenus & SVNSLC_POPREVERT)
@@ -2775,6 +2802,80 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (NULL != pParent && NULL != pParent->GetSafeHwnd())
 					{
 						pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+					}
+				}
+				break;
+				case IDSVNLC_REPAIRMOVE:
+				{
+					POSITION pos = GetFirstSelectedItemPosition();
+					int index = GetNextSelectedItem(pos);
+					FileEntry * entry1 = NULL;
+					FileEntry * entry2 = NULL;
+					if (index >= 0)
+					{
+						entry1 = GetListEntry(index);
+						svn_wc_status_kind status1 = svn_wc_status_none;
+						svn_wc_status_kind status2 = svn_wc_status_none;
+						if (entry1)
+						{
+							status1 = entry1->status;
+							index = GetNextSelectedItem(pos);
+							if (index >= 0)
+							{
+								entry2 = GetListEntry(index);
+								if (entry2)
+								{
+									status2 = entry2->status;
+									if (status2 == svn_wc_status_missing && status1 == svn_wc_status_unversioned)
+									{
+										FileEntry * tempentry = entry1;
+										entry1 = entry2;
+										entry2 = tempentry;
+									}
+									// entry1 was renamed to entry2 but outside of Subversion
+									// fix this by moving entry2 back to entry1 first,
+									// then do an svn-move from entry1 to entry2
+									if (MoveFile(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath()))
+									{
+										SVN svn;
+										if (!svn.Move(entry1->GetPath(), entry2->GetPath(), TRUE))
+										{
+											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+										}
+										else
+										{
+											// check the previously unversioned item
+											entry1->checked = true;
+											// fixing the move was successful. We have to adjust the new status of the
+											// files.
+											// Since we don't know if the moved/renamed file had local modifications or not,
+											// we can't guess the new status. That means we have to refresh...
+											CWnd* pParent = GetParent();
+											if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+											{
+												pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+											}
+										}
+									}
+									else
+									{
+										LPVOID lpMsgBuf;
+										FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+											FORMAT_MESSAGE_FROM_SYSTEM | 
+											FORMAT_MESSAGE_IGNORE_INSERTS,
+											NULL,
+											GetLastError(),
+											MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+											(LPTSTR) &lpMsgBuf,
+											0,
+											NULL 
+											);
+										MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+										LocalFree( lpMsgBuf );
+									}
+								}
+							}
+						}
 					}
 				}
 				break;
