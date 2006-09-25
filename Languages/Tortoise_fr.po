@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-19 21:52+0100\n"
+"PO-Revision-Date: 2006-09-25 21:19+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3032,6 +3032,11 @@ msgstr "Gaphique en ligne"
 msgid "Line:"
 msgstr "Ligne :"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Ligne : %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3995,6 +4000,10 @@ msgstr "Renommé à distance"
 msgid "Renames files / folders inside version control"
 msgstr "Renomme des fichiers / des répertoires sous contrôle de version"
 
+#: ID:209
+msgid "Repair move"
+msgstr "Réparer le déplacement"
+
 #: ID:3603
 msgid ""
 "Repeat the last action\n"
@@ -4608,7 +4617,7 @@ msgstr "Affiche %ld noeuds"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "Affiche %ld révisions, depuis la révision %ld à la révision %ld - %ld révisions sélectionnées"
 
 # ID:272,
@@ -5690,49 +5699,45 @@ msgstr "Utiliser le bloc de texte depuis \"le &mien\""
 msgid "Use text block from \"&theirs\""
 msgstr "Utiliser le bloc de texte depuis \"le &leur\""
 
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
-msgstr ""
-"Utiliser le bloc de texte du \"mien\" avant \"le leur\"\n"
-"\"Mon\" bloc de texte puis \"le leur\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
-msgstr ""
-"Utiliser le bloc de texte depuis \"le mien\"\n"
-"Utiliser \"Mon\" bloc de texte"
-
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr ""
-"Utiliser le bloc de texte du \"leur\" avant le \"mien\"\n"
-"\"Leur\" bloc de texte puis \"le mien\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"Utiliser le bloc de texte du \"leur\"\n"
-"Utiliser \"leur\" bloc de texte"
-
 #: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Utiliser le bloc de texte du \"m&ien\" avant \"le leur\""
 
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Utiliser le bloc de texte du \"mien\" avant \"le leur\"\n"
+"Utiliser \"mon\" bloc de texte puis \"le leur\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Utiliser le bloc de texte depuis \"le mien\"\n"
+"Utiliser \"mon\" bloc de texte"
+
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
 
-#: MenuEntry
-msgid "Use text block from \"t&heirs\"before \"mine\""
-msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Utiliser le bloc de texte du \"leur\" avant le \"mien\"\n"
+"\"leur\" bloc de texte puis \"le mien\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Utiliser le bloc de texte du \"leur\"\n"
+"Utiliser \"leur\" bloc de texte"
 
 #: ID:251
 msgid "Use th&is text block"
