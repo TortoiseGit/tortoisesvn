@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-11 09:49-0300\n"
+"PO-Revision-Date: 2006-09-25 09:58-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -612,12 +612,7 @@ msgstr "Visão de &Lista"
 msgid "&Load..."
 msgstr "&Carregar..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Marcar como resolvido"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Combinar"
 
@@ -635,6 +630,10 @@ msgstr "&Combinando"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "Sistema de Arquivos &Nativo (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Navegar"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -923,7 +922,6 @@ msgstr "&Espaços em branco"
 
 # Control-ID:1066,
 #: Control-ID:1066
-#, fuzzy
 msgid "&Whole word"
 msgstr "&Palavra inteira"
 
@@ -2035,8 +2033,9 @@ msgstr "Concluído"
 
 # Dlg-ID:236,
 #: Dlg-ID:236
+#, fuzzy
 msgid "Configure Hook Scripts"
-msgstr ""
+msgstr "Configurar Hook Scripts"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3145,18 +3144,21 @@ msgstr "Dica: Pressione F5 para atualizar a sub-árvore selecionada e Ctrl-F5 pa
 
 # Dlg-ID:103,
 #: Dlg-ID:103
+#, fuzzy
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Hook Scripts"
 
 # ID:198,
 #: ID:198
+#, fuzzy
 msgid "Hook Type"
-msgstr ""
+msgstr "Tipo de Hook"
 
 # Control-ID:1334,
 #: Control-ID:1334
+#, fuzzy
 msgid "Hook Type:"
-msgstr ""
+msgstr "Tipo de Hook:"
 
 # ID:82,
 #: ID:82
@@ -3547,6 +3549,12 @@ msgstr "Gráfico em Linha"
 msgid "Line:"
 msgstr "Linha:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Linha: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3718,6 +3726,10 @@ msgstr "DLL do sistema de correio inválida."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Gerenciar propriedades do Subversion"
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Marcar como &resolvido"
 
 #: ID:282
 msgid "Mark as resolved"
@@ -4255,8 +4267,9 @@ msgstr "Por favor, insira uma data."
 # ID:3858,#:
 # ID:3858,
 #: ID:83
+#, fuzzy
 msgid "Please enter a hook script to execute."
-msgstr ""
+msgstr "Por favor, especifique o hook scrip a ser executado."
 
 # ID:3858,#:
 # ID:3858,
@@ -4273,8 +4286,9 @@ msgstr "Por favor, insira um número."
 
 # ID:83,
 #: ID:83
+#, fuzzy
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
+msgstr "Por favor, especifique o caminho onde o hook script deve ser aplicado ."
 
 # ID:3858,#:
 # ID:3858,
@@ -4341,8 +4355,9 @@ msgstr "Por favor, selecione um botão."
 # ID:3858,#:
 # ID:3858,
 #: ID:83
+#, fuzzy
 msgid "Please select a hook type"
-msgstr ""
+msgstr "Por favor, seleciona o tipo de hook"
 
 # ID:76,
 #: ID:76
@@ -4359,15 +4374,15 @@ msgstr "Por favor, aguarde - isso pode levar vários minutos. É sério!"
 msgid "Please wait while cancelling..."
 msgstr "Por favor, aguarde, cancelando..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Por favor, aguarde enquanto as diferenças são encontradas..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor, espere enquanto o navegador de repositório é inicializado..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Por favor aguarde enquanto pegamos as diferenças..."
 
 # ID:119,
 #: ID:119
@@ -4378,23 +4393,27 @@ msgstr "Por favor, aguarde..."
 
 # Control-ID:1110,
 #: ID:569
+#, fuzzy
 msgid "Post-Commit Hook"
-msgstr ""
+msgstr "Post-Commit Hook"
 
 # ID:570,
 #: ID:570
+#, fuzzy
 msgid "Post-Update Hook"
-msgstr ""
+msgstr "Post-Update Hook"
 
 # Control-ID:1110,
 #: ID:569
+#, fuzzy
 msgid "Pre-Commit Hook"
-msgstr ""
+msgstr "Pre-Commit Hook"
 
 # ID:570,
 #: ID:570
+#, fuzzy
 msgid "Pre-Update Hook"
-msgstr ""
+msgstr "Pre-Update Hook"
 
 # ID:376,
 #: ID:376
@@ -4695,6 +4714,13 @@ msgstr "Renomeado remotamente"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Renomeia arquivos / pastas dentro do controle de versão"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+#, fuzzy
+msgid "Repair move"
+msgstr "Reparar mover"
 
 # ID:3603,
 #: ID:3603
@@ -5206,8 +5232,9 @@ msgstr "Selecionar pasta para execução do script"
 
 # ID:313,
 #: ID:197
+#, fuzzy
 msgid "Select hook script file"
-msgstr ""
+msgstr "Selecionar arquivo de hook script"
 
 # ID:78,
 #: ID:78
@@ -5427,7 +5454,6 @@ msgstr "Mostrar arquivos sem controle de versão"
 
 # ID:198,
 #: ID:198
-#, fuzzy
 msgid "Show/Hide"
 msgstr "Mostrar/Ocultar"
 
@@ -5436,6 +5462,12 @@ msgstr "Mostrar/Ocultar"
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Apresentando %ld nós"
+
+# ID:238,
+#: ID:115
+#, fuzzy, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Mostrando %ld revisão(ões), da revisão %ld a revisão %ld - %ld revisão(ões) selecionada(s)."
 
 # ID:272,
 #: ID:272
@@ -5545,8 +5577,9 @@ msgstr "Barra de Gráfico em Linha"
 
 # ID:569,
 #: ID:569
+#, fuzzy
 msgid "Start Commit Hook"
-msgstr ""
+msgstr "Iniciar Commit Hook"
 
 # ID:11,
 #: Control-ID:65535
@@ -5555,8 +5588,9 @@ msgstr "Começar Revisão"
 
 # ID:569,
 #: ID:569
+#, fuzzy
 msgid "Start Update Hook"
-msgstr ""
+msgstr "Iniciar Update Hook"
 
 # ID:74,#:
 # ID:77,
@@ -5866,11 +5900,13 @@ msgstr ""
 
 # ID:83,
 #: ID:83
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
+"O hook script retornou um erro:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6651,24 +6687,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Ta&char as linhas deletadas"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "Usar bloco de texto do \"&meu\" arquivo"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Usar bloco de texto do arquivo \"&deles\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Usar bloco de texto do \"me&u\" arquivo antes do \"deles\""
 
 # ID:251,
-#: ID:251
+#: ID:2052
+#, fuzzy
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Usar bloco de texto do \"meu\" arquivo antes do \"deles\"\n"
+"Usar \"meu\" bloco de texto e não o \"deles\""
+
+# ID:251,
+#: ID:2052
+#, fuzzy
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr "Usar bloco de texto do \"&meu\" arquivo"
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Usar bloco de texto do arquivo \"d&eles\" antes do \"meu\""
+
+# ID:251,
+#: ID:2052
+#, fuzzy
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr "Usar bloco de texto do arquivo \"d&eles\" antes do \"meu\""
+
+# ID:251,
+#: ID:2052
+#, fuzzy
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Usar \"meu\" bloco de texto\n"
+"Usar bloco de texto \"deles\""
 
 # ID:251,
 #: ID:251
@@ -6753,7 +6825,6 @@ msgstr "Aguarde"
 
 # Control-ID:1327,
 #: Control-ID:1327
-#, fuzzy
 msgid "Wait for the script to finish"
 msgstr "Aguardar encerramento do script"
 
@@ -7462,12 +7533,15 @@ msgstr ""
 
 # ID:17,
 #: ID:17
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revisão\n"
+"URL apontando para o visualizador web de um repositório numa revisão específica.\n"
+"A string %REVISION% nessa URL está sendo substituída pelo número da revisão."
 
 # ID:244,
 #: ID:245
