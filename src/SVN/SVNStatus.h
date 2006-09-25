@@ -106,9 +106,12 @@ public:
 	 * \param path the path of the folder from where the status list should be obtained
 	 * \param retPath the path of the file for which the status was returned
 	 * \param update set this to true if you want the status to be updated with the repository (needs network access)
+	 * \param recurse true to fetch the status recursively
+	 * \param bNoIgnore true to not fetch the ignored files
+	 * \param bNoExternals true to not fetch the status of included svn:externals
 	 * \return the status
 	 */
-	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, bool recurse = true, bool bNoIgnore = true);
+	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, bool recurse = true, bool bNoIgnore = true, bool bNoExternals = false);
 	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
 	unsigned int GetVersionedCount();
 	/**
