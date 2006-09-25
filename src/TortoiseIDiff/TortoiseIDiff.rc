@@ -74,7 +74,7 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
-        MENUITEM "&Link images together",       ID_VIEW_LINKIMAGESTOGETHER
+        MENUITEM "&Link images together",       ID_VIEW_LINKIMAGESTOGETHER, CHECKED
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
         MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM SEPARATOR
