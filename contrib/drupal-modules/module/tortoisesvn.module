@@ -265,6 +265,9 @@ function print_content_stat($i, $postat, $vars)
     $title="tr:$tra&nbsp;fu:$fuz&nbsp;ut:$unt;&nbsp;$acc&nbsp;missing&nbsp;hotkeys";
   }
 
+  // Put Debug info into title
+  //  $title="$wc&nbsp;tr:$wt&nbsp;fu:$wf&nbsp;ut:$wu;&nbsp;$wa&nbsp;missing&nbsp;hotkeys";
+
   // count fuzzies as translated, only for the display
   $tra=$tra+$fuz;
 
@@ -274,10 +277,14 @@ function print_content_stat($i, $postat, $vars)
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
-  echo "<img src=\"siteicons/translated.png\" alt=\"tr\" title=\"$title\" width=\"$wt\" height=\"16\"/>";
-  echo "<img src=\"siteicons/missingaccelerator.png\" alt=\"mh\" title=\"$title\" width=\"$wa\" height=\"16\"/>";
-  echo "<img src=\"siteicons/fuzzy.png\" alt=\"fu\" title=\"$title\" width=\"$wf\" height=\"16\"/>";
-  echo "<img src=\"siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
+  if ($wt > 0) 
+    echo "<img src=\"siteicons/translated.png\" alt=\"tr\" title=\"$title\" width=\"$wt\" height=\"16\"/>";
+  if ($wa > 0) 
+    echo "<img src=\"siteicons/missingaccelerator.png\" alt=\"mh\" title=\"$title\" width=\"$wa\" height=\"16\"/>";
+  if ($wf > 0) 
+    echo "<img src=\"siteicons/fuzzy.png\" alt=\"fu\" title=\"$title\" width=\"$wf\" height=\"16\"/>";
+  if ($wu > 0) 
+    echo "<img src=\"siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
   echo "</td>";
   echo "<td class=\"download\"><a href=\"$reposurl\">$reposfile</a></td>";
   echo "<td class=\"lang\">$fdate</td>";
