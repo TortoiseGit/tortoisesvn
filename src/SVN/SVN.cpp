@@ -575,7 +575,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			svn_wc_status2_t * s;
 			SVNStatus status;
 			CShellFileOp fop;
-			if ((s = status.GetFirstFileStatus(srcPath, statusPath))!=0)
+			if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, true, true, !!bIgnoreExternals))!=0)
 			{
 				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
 				{
@@ -594,6 +594,41 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 						continue;
 					
 					CString src = statusPath.GetWinPathString();
+
+					// If we have nested externals, we can have something like this:
+					// folder					-> folder
+					// folder/nested/f1			-> folder/nested/f1
+					// then we have to make sure that
+					// folder/nested			-> folder/nested
+					// is also added
+					if ((!bIgnoreExternals)&&(s->entry)&&(s->entry->kind == svn_node_dir))
+					{
+						if (srcPath.IsAncestorOf(statusPath))
+						{
+							CTSVNPathList interlist;
+							CTSVNPath intermediate = statusPath.GetContainingDirectory();
+							while ((!intermediate.IsEquivalentTo(srcPath))&&(!intermediate.IsEmpty()))
+							{
+								interlist.AddPath(intermediate);
+								intermediate = intermediate.GetContainingDirectory();
+							}
+							interlist.SortByPathname();
+							for (int ii=0; ii<interlist.GetCount(); ++ii)
+							{
+								if (!fop.AddSourceFile(interlist[ii].GetWinPathString()))
+								{
+									Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
+									return FALSE;
+								}
+								CString interdestination = destPath.GetWinPathString() + _T("\\") + interlist[ii].GetWinPathString().Mid(srcPath.GetWinPathString().GetLength());
+								if (!fop.AddDestFile(interdestination))
+								{
+									Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
+									return FALSE;
+								}
+							}
+						}
+					}
 					if (!fop.AddSourceFile(src))
 					{
 						Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));

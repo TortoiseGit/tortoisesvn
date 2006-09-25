@@ -978,6 +978,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				folderBrowser.SetCheckBoxText(strTemp);
 				strTemp.LoadString(IDS_PROC_OMMITEXTERNALS);
 				folderBrowser.SetCheckBoxText2(strTemp);
+				folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
 				CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
 				CBrowseFolder::m_bCheck = regExtended;
 				if (folderBrowser.Show(EXPLORERHWND, saveto, MAX_PATH)==CBrowseFolder::OK)
