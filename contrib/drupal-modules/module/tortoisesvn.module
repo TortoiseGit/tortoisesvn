@@ -192,6 +192,7 @@ function print_table_footer()
 function print_blank_stat($i, $postat, $vars)
 {
   $tl = $postat[1];
+  $wc=$vars['wc'];
   $reposurl = $vars['reposurl'].$postat[6];
   $fdate=date("Y-m-d",$postat[7]);
   $flagimg=$vars['flagpath'].$postat[10].".png";
@@ -205,7 +206,9 @@ function print_blank_stat($i, $postat, $vars)
 if ($postat[0] > 0) {
   echo "<td class=\"graph\">Error in po file</td>";
 } else {
-  echo "<td class=\"graph\">&nbsp;</td>";
+  echo "<td class=\"graph\">";
+  echo "<img src=\"siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
+  echo "</td>";
 }
   echo "<td class=\"download\"><a href=\"$reposurl\">$postat[6]</a></td>";
   echo "<td class=\"lang\">$fdate</td>";

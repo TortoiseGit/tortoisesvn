@@ -1,7 +1,9 @@
 <?php
 
-include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_data.inc");
-include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_countries.inc");
+
+
+include("/var/www/vhosts/default/htdocs/includes/trans_data.inc");
+include("/var/www/vhosts/default/htdocs/includes/trans_countries.inc");
 
 $v['release']=variable_get('tsvn_version', '');
 $v['build']=variable_get('tsvn_build', '');
@@ -71,11 +73,12 @@ function print_langpack($i, $postat, $v, $w)
 ?>
 <h1>The current version is <?php echo $v['release'] ?>.</h1>
 <p>
-For detailed info on what's new, read the <?php echo get_changelog($v); ?>.
+For detailed info on what's new, read the <?php echo get_changelog($v); ?> and the <a href="http://tortoisesvn.tigris.org/tsvn_1.4_releasenotes.html">release notes</a>.
 </p>
 <p>
 This page points to installers for 32 bit and 64 bit operating systems. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
 </p>
+<?php print adsense_display("336x280",2,1) ?>
 <p>
 <div class="table">
 <table>
@@ -85,12 +88,12 @@ This page points to installers for 32 bit and 64 bit operating systems. Please m
 </tr>
 <tr>
 <th>32 Bit</th>
-<td><?php echo get_installer($v,$w['w32wrong']) ?></td>
+<td><?php echo get_installer($v,$w['w32']) ?></td>
 <td>Installer</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td><?php echo get_checksum($v,$w['w32wrong']) ?></td>
+<td><?php echo get_checksum($v,$w['w32']) ?></td>
 <td>MD5 checksum</td>
 </tr>
 <tr>
@@ -156,13 +159,20 @@ foreach ($TortoiseGUI as $key => $postat)
 
 </div>
 
-<h1>Older Releases</h1>
+<h1>Release Candidates</h1>
 <ul>
-<li>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</li>
+<li>We maintain ongoing <a href="http://mapcar.org/tsvn-snapshots/1.4.x/">Release Candidates</a> as well. These contain the latest offical release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
+Please read <a href="http://mapcar.org/tsvn-snapshots/1.4.x/Readme.txt">Readme.txt</a> first.</li>
 </ul>
 
 <h1>Nightly Builds</h1>
 <ul>
-<li><a href="http://mapcar.org/tsvn-snapshots/latest/">Nightly builds</a> are available too. These are for testing only. Please read the <a href="http://mapcar.org/tsvn-snapshots/latest/readme.txt">Readme.txt</a> first.</li>
+<li><a href="http://mapcar.org/tsvn-snapshots/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://mapcar.org/tsvn-snapshots/latest/NightlyBuild.txt">NightlyBuild.txt</a> first.</li>
+</ul>
+
+<h1>Older Releases</h1>
+<ul>
+<li>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</li>
+</ul>
 
 <!--break-->
