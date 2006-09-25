@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-18 12:04+0100\n"
+"PO-Revision-Date: 2006-09-25 11:45+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3062,6 +3062,11 @@ msgstr "Gráfico de líneas"
 msgid "Line:"
 msgstr "Línea:"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Línea: %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -4042,6 +4047,10 @@ msgstr "Renombrado de forma remota"
 msgid "Renames files / folders inside version control"
 msgstr "Renombra archivos / carpetas dentro del control de versiones"
 
+#: ID:209
+msgid "Repair move"
+msgstr "Reparar mover"
+
 #: ID:3603
 msgid ""
 "Repeat the last action\n"
@@ -4659,8 +4668,8 @@ msgstr "Mostrando %ld nodos"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "Mostrando %ld revisiones, desde la revisión %ld a la revisión %ld - %ld revisiones seleccionadas."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Mostrando %ld revision(es), desde la revisión %ld a la revisión %ld - %ld revision(es) seleccionadas."
 
 # ID:272,
 #: ID:272
@@ -5746,68 +5755,52 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Usar &tachado para las líneas borradas"
 
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Utilizar bloque de texto \"&Mío\""
-
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Utilizar bloque de texto \"de &Otros\""
-
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Utilizar bloque de texto \"&mío\""
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Utilizar bloque de texto \"de &otros\""
 
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Utilizar bloque de texto \"M&ío\" &antes del \"de Otros\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
-msgstr ""
-"Utilizar bloque de texto \"Mío\" antes del \"de Otros\"\n"
-"\"Mi\" bloque de texto y luego el \"suyo\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
-msgstr ""
-"Utilizar bloque de texto \"Mío\"\n"
-"Usar \"Mi\" bloque de texto"
-
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Utilizar bloque de texto \"de O&tros\" antes del \"Mío\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr ""
-"Utilizar bloque de texto \"de Otros\" antes del \"Mío\"\n"
-"\"Su\" bloque de texto y luego el \"Mío\""
-
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"Utilizar bloque de texto \"de Otros\"\n"
-"Utiliza \"Su\" bloque de texto"
-
-#: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Utilizar bloque de texto \"mío\" &antes del \"de otros\""
 
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Utilizar bloque de texto \"mío\" antes del \"de otros\"\n"
+"Usar \"mi\" bloque de texto y luego el \"suyo\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Utilizar bloque de texto \"mío\"\n"
+"Utilizar \"mi\" bloque de texto"
+
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Utilizar bloque de texto \"de o&tros\" antes del \"mío\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Utilizar bloque de texto \"de otros\" antes del \"mío\"\n"
+"\"su\" bloque de texto y luego el \"mío\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Utilizar bloque de texto \"de otros\"\n"
+"Utilizar \"su\" bloque de texto"
 
 #: ID:251
 msgid "Use th&is text block"
