@@ -34,13 +34,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7555: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7591: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-22 15:09+0300\n"
+"PO-Revision-Date: 2006-09-25 12:00+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2933,6 +2933,11 @@ msgstr "График"
 msgid "Line:"
 msgstr "Строка:"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Строка:  %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3860,6 +3865,10 @@ msgstr "Переименовано удаленно"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Переименовывает файлы/папки внутри управления версиями"
+
+#: ID:209
+msgid "Repair move"
+msgstr "Поправить перемещение"
 
 #: ID:3603
 msgid ""
@@ -5492,45 +5501,45 @@ msgstr "Использовать \"&мой\" текстовый блок"
 msgid "Use text block from \"&theirs\""
 msgstr "Использовать \"&их\" текстовый блок"
 
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Использовать \"м&ой\" текстовый блок перед \"их\""
+
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "Использовать \"мой\" текстовый блок перед \"их\"\n"
 "Сначала \"мой\", затем \"их\""
 
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "Использовать \"мой\" текстовый блок\n"
 "Использовать \"мой\" текстовый блок"
 
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Использовать \"и&х\" текстовый блок перед \"моим\""
+
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
 msgstr ""
 "Использовать \"их\" текстовый блок перед \"моим\"\n"
 "Сначала \"их\", затем \"мой\""
 
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
 msgstr ""
 "Использовать \"их\" текстовый блок\n"
 "Использовать \"их\" текстовый блок"
-
-#: MenuEntry
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Использовать \"м&ой\" текстовый блок перед \"их\""
-
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Использовать \"и&х\" текстовый блок перед \"моим\""
 
 #: ID:251
 msgid "Use th&is text block"
