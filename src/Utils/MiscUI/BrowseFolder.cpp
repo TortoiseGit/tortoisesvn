@@ -29,6 +29,7 @@ HWND CBrowseFolder::ListView = NULL;
 TCHAR CBrowseFolder::m_CheckText[200];		
 TCHAR CBrowseFolder::m_CheckText2[200];		
 CString CBrowseFolder::m_sDefaultPath;
+bool CBrowseFolder::m_DisableCheckbox2WhenCheckbox1IsChecked = false;
 
 
 CBrowseFolder::CBrowseFolder(void)
@@ -281,6 +282,12 @@ LRESULT CBrowseFolder::CheckBoxSubclassProc(HWND hwnd,UINT uMsg,WPARAM wParam,LP
 	if (uMsg == WM_LBUTTONUP)
 	{
 		m_bCheck = (SendMessage(hwnd,BM_GETCHECK,0,0)==BST_UNCHECKED);
+		if (m_bCheck && m_DisableCheckbox2WhenCheckbox1IsChecked)
+		{
+			::EnableWindow(checkbox2, !m_bCheck);
+		}
+		else
+			::EnableWindow(checkbox2, true);
 	}
 
 	return CallWindowProc(CBProc, hwnd, uMsg, 

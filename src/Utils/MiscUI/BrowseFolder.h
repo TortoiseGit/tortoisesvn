@@ -56,6 +56,14 @@ public:
 	 */
 	CBrowseFolder::retVal Show(HWND parent, CString& path, const CString& sDefaultPath = CString());
 	CBrowseFolder::retVal Show(HWND parent, LPTSTR path, size_t pathlen, LPCTSTR szDefaultPath = NULL);
+
+	/**
+	 * If this is set to true, then the second checkbox gets disabled as soon as the first
+	 * checkbox is checked. If the first checkbox is unchecked, then the second checkbox is enabled
+	 * again.
+	 */
+	void DisableCheckBox2WhenCheckbox1IsEnabled(bool bSet = true) {m_DisableCheckbox2WhenCheckbox1IsChecked = bSet;}
+
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
 	static BOOL m_bCheck2;
 	TCHAR m_title[200];
@@ -75,4 +83,5 @@ protected:
 	LPITEMIDLIST m_root;
 	static TCHAR m_CheckText[200];
 	static TCHAR m_CheckText2[200];
+	static bool m_DisableCheckbox2WhenCheckbox1IsChecked;
 };
