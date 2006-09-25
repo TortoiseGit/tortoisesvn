@@ -32,9 +32,13 @@ CShellFileOp::~CShellFileOp()
 
 bool CShellFileOp::AddSourceFile(LPCTSTR szPath)
 {
+	POSITION pos = m_SourceFileList.Find(szPath);
 	try
 	{
-		m_SourceFileList.AddTail(szPath);
+		if (pos)
+			m_SourceFileList.SetAt(pos, szPath);
+		else
+			m_SourceFileList.AddTail(szPath);
 	}
 	catch(CMemoryException *)
 	{
@@ -46,9 +50,13 @@ bool CShellFileOp::AddSourceFile(LPCTSTR szPath)
 
 bool CShellFileOp::AddDestFile(LPCTSTR szPath)
 {
+	POSITION pos = m_DestinationFileList.Find(szPath);
 	try
 	{
-		m_DestinationFileList.AddTail(szPath);
+		if (pos)
+			m_DestinationFileList.SetAt(pos, szPath);
+		else
+			m_DestinationFileList.AddTail(szPath);
 	}
 	catch(CMemoryException *)
 	{
