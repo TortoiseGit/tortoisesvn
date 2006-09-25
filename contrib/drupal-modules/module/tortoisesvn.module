@@ -172,7 +172,7 @@ function print_table_header($name, $summary, $postat, $vars)
 <th class="lang">Nr.</th>
 <th class="lang">Download Win32 Installer (<?php echo $vars['release'] ?>)</th>
 <th class="lang">ISO code</th>
-<th colspan="2" class="trans">(<?php echo $postat[1] ?>) Complete</th>
+<th colspan="2" class="trans">Total=<?php echo $postat[1] ?></th>
 <th class="graph">Graph</th>
 <th class="download">Download .po file</th>
 <th colspan="2" class="download">Last update</th>
