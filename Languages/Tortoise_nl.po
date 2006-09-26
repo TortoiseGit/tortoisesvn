@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-09 23:03+0100\n"
+"PO-Revision-Date: 2006-09-26 22:34+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -507,12 +507,7 @@ msgstr "&Lijstweergave"
 msgid "&Load..."
 msgstr "&Laden..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Markeer als opgelost"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Samenvoegen"
 
@@ -527,6 +522,10 @@ msgstr "&Samenvoegen"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "B&estandsysteem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Navigeer"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -746,6 +745,10 @@ msgstr "B&eeld"
 msgid "&Whitespaces"
 msgstr "&Spaties en lege regels"
 
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Heel woord"
+
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Werkkopie"
@@ -788,6 +791,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -948,6 +953,10 @@ msgstr "Voeg een extensie-specifiek merge-programma toe"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Voeg toe aan &negeerlijst"
+
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Toevoegen..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1543,6 +1552,14 @@ msgstr "&Kleurcoderen van in-line wijzigingen"
 msgid "Colors"
 msgstr "Kleuren"
 
+#: ID:198
+msgid "Command Line"
+msgstr "Commandoregel"
+
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Uit te voeren commando:"
+
 #: ID:3857
 msgid "Command failed."
 msgstr "Opdracht mislukt."
@@ -1608,6 +1625,10 @@ msgstr "%s vergelijken met %s"
 #: ID:74
 msgid "Completed"
 msgstr "Gereed"
+
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Hook-scripts configureren"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -2096,6 +2117,10 @@ msgstr "Wijzig extensie-specifiek merge-programma"
 msgid "Edit log message"
 msgstr "Logboek boodschap wijzigen"
 
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Wijzigen..."
+
 #: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "De naam of het IP-adres van de proxyserver"
@@ -2232,12 +2257,12 @@ msgid "Extension"
 msgstr "Extensie"
 
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Extensie-specifieke programma's"
+msgid "Extension or mime-type:"
+msgstr "Extensie of mime-type:"
 
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Extensie:"
+msgid "Extension/mime-type specific programs"
+msgstr "Extensie- of mime-type-specifieke programma's"
 
 #: ID:74
 msgid "External"
@@ -2498,6 +2523,10 @@ msgstr "&Verberg ongerelateerde wijzigingspaden"
 msgid "Help"
 msgstr "Help"
 
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Verberg script bij uitvoeren"
+
 #: ID:2052
 msgid ""
 "Hide/Show the patch file list\n"
@@ -2509,6 +2538,18 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Hint: Druk F5 om de geselecteerde tak te verversen"
+
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Hook-scripts"
+
+#: ID:198
+msgid "Hook Type"
+msgstr "Soort hook"
+
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Soort hook:"
 
 #: ID:82
 #, c-format
@@ -2843,6 +2884,11 @@ msgstr "Lijndiagram"
 msgid "Line:"
 msgstr "Regel:"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Regel: %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -2981,6 +3027,10 @@ msgstr "De DLL van het mailsysteem is ongeldig."
 msgid "Manage Subversion properties"
 msgstr "Subversion eigenschappen beheren"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Markeer als &opgelost"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Markeer als opgelost"
@@ -3001,7 +3051,7 @@ msgstr "Gelijke &hoofd-/kleine letters"
 msgid "Max"
 msgstr "Max"
 
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "Maximum aantal boodschappen in de geschiedenis van logboek-boodschappen"
 
@@ -3370,6 +3420,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchbestanden (*.diff, *.patch)|*.diff;*.patch|Alle bestanden(*.*)|*.*||"
 
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Pad"
 
@@ -3401,6 +3452,10 @@ msgstr "Geef een datum en/of tijd."
 msgid "Please enter a date."
 msgstr "Geef een datum."
 
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Geef een hook-script om uit te voeren."
+
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3409,6 +3464,10 @@ msgstr "Geef een getal tussen %1 en %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Geef een getal."
+
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Geef een pad op om het hook-script op toe te passen."
 
 #: ID:3858
 msgid "Please enter a positive integer."
@@ -3456,6 +3515,10 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Druk op een knop."
 
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Selecteer een hook-script"
+
 #: ID:76
 msgid "Please specify the certificate type"
 msgstr "Geef het soort certificaat"
@@ -3468,19 +3531,35 @@ msgstr "Even geduld - dit kan enkele minuten duren. Echt waar!"
 msgid "Please wait while cancelling..."
 msgstr "Even geduld terwijl er wordt afgebroken..."
 
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Even geduld terwijl de verschillen worden opgehaald..."
+
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Even geduld a.u.b. De archief-verkenner wordt geïnitialiseerd..."
-
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Even geduld terwijl de verschillen worden opgehaald..."
 
 #: ID:119
 #: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Even geduld..."
+
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "Post-Vastleggen hook:"
+
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "Post-Ververs Hook"
+
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "Pre-Vastleggen hook:"
+
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "Pre-Ververs Hook"
 
 #: ID:376
 msgid "Preview patched file"
@@ -3678,6 +3757,10 @@ msgstr "Remote tekst status"
 msgid "Remove from &ignore list"
 msgstr "Verwijder uit &negeerlijst"
 
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Verwijder..."
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Verwijderd"
@@ -3721,6 +3804,10 @@ msgstr "Op afstand hernoemd"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Hernoemt bestanden/mappen binnen versiebeheer"
+
+#: ID:209
+msgid "Repair move"
+msgstr "Repareer verplaatsing"
 
 #: ID:3603
 msgid ""
@@ -4120,6 +4207,14 @@ msgstr ""
 "Kies de map om naartoe te exporteren.\n"
 "Maak eventueel eerst een map aan voordat u exporteert."
 
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "Selecteer map om script op toe te passen"
+
+#: ID:197
+msgid "Select hook script file"
+msgstr "Selecteer hook-script bestand"
+
 #: ID:78
 msgid "Select merge application"
 msgstr "Selecteer een samenvoeg-applicatie"
@@ -4295,10 +4390,19 @@ msgstr "Toon ongewijzigde bestanden"
 msgid "Show unversioned files"
 msgstr "Toon bestanden zonder versiebeheer"
 
+#: ID:198
+msgid "Show/Hide"
+msgstr "Toon/verberg"
+
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "%ld knopen worden getoond"
+
+#: ID:115
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld revisie(s) worden getoond, van %ld tot %ld - %ld revisie(s) geselecteerd."
 
 #: ID:272
 #, c-format
@@ -4387,9 +4491,17 @@ msgstr "Gestapeld staafdiagram"
 msgid "Stacked Line Graph"
 msgstr "Gestapeld lijndiagram"
 
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "Start Vastleggen Hook-script"
+
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Eerste Revisie"
+
+#: ID:569
+msgid "Start Update Hook"
+msgstr "Start Ververs Hook-script"
 
 #: ID:245
 #: Dlg-ID:179
@@ -4650,6 +4762,15 @@ msgstr ""
 "%s\n"
 "bestaat niet.\n"
 "Wilt u de map eerst aanmaken?"
+
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Het hook-script gaf een foutmelding:\n"
+"%s"
 
 #: ID:7
 msgid "The image can not be shown."
@@ -5273,6 +5394,10 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Gebruik URL van &werkkopie als standaard \"Van:\" URL"
 
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Gebruik unified-diff van klembord"
+
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Gebruik \"Van:\" URL (het revisiebereik kan in de bovenliggende dialoog gekozen worden)"
@@ -5293,21 +5418,53 @@ msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 msgid "Use stri&keout for deleted lines"
 msgstr "Gebruik &doorhalen voor verwijderde regels"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "Gebruik tekstgedeelte uit \"&mijn\""
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Gebruik tekstgedeelte van \"h&un\""
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Gebruik tekstgedeelte uit \"m&ijn\" vóór \"hun\""
 
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Gebruik tekstgedeelte uit \"mijn\" vóór \"hun\"\n"
+"Gebruik \"mijn\" tekstgedeelte en dan \"hun\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Gebruik tekstgedeelte uit \"mijn\"\n"
+"Gebruik \"mijn\" tekstgedeelte"
+
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Gebruik tekstgedeelte uit \"&hun\" vóór  \"mijn\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Gebruik tekstgedeelte uit \"hun\" vóór  \"mijn\"\n"
+"Gebruik \"hun\" tekstgedeelte en dan \"mijn\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Gebruik tekstgedeelte uit \"hun\"\n"
+"Gebruik \"hun\" tekstgedeelte"
 
 #: ID:251
 msgid "Use th&is text block"
@@ -5359,9 +5516,25 @@ msgstr "Waarde"
 msgid "Version"
 msgstr "Versie"
 
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Bekijk revisie voor dit pad in &webviewer"
+
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Toon revisie in &webviewer"
+
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Bezoek onze website"
+
+#: ID:198
+msgid "Wait"
+msgstr "Wacht"
+
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Wacht op het beëindigen van het script"
 
 #: ID:88
 msgid "Warning"
@@ -5378,6 +5551,10 @@ msgstr "Met URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Werkkopie"
+
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Werkkopie pad:"
 
 #: ID:80
 #, c-format
@@ -5957,6 +6134,30 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "waarden verschillen"
+
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"URL naar de webviewer van het archief voor een specifiek bestand en revisie.\n"
+"De tekst %REVISION% in de URL wordt vervangen door het revisienummer,\n"
+"de tekst %PATH% wordt vervangen door het pad naar het bestand (t.o.v. de root van het archief)."
+
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"URL naar de webviewer van het archief voor een specifieke revisie.\n"
+"De tekst %REVISION% in de URL wordt vervangen door het revisienummer."
 
 #: ID:245
 msgid "week"
