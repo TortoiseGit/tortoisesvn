@@ -723,6 +723,14 @@ UINT CLogDlg::LogThread()
 	else
 		m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
+	// TODO:
+	// Subversion currently doesn't like WC or BASE as a peg revision for logs,
+	// so we just work around that problem by setting the peg revision to invalid
+	// here.
+	// Once Subversion can work with WC and BASE peg revisions, we have to
+	// remove this workaround again.
+	if (m_pegrev.IsBase() || m_pegrev.IsWorking())
+		m_pegrev = SVNRev();
 	if (!m_pegrev.IsValid())
 		m_pegrev = m_startrev;
 	size_t startcount = m_logEntries.size();

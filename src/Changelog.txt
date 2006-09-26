@@ -63,6 +63,8 @@ Version 1.4.1
        working copy. (Stefan)
 - BUG: The exporting options didn't always work correctly with externals.
        See issue #302 for details. (Stefan)
+- BUG: Showing the log from some dialogs (e.g. the merge dialog at the bottom)
+       would throw an error because of a wrong peg revision. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
