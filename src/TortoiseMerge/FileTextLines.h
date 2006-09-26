@@ -93,6 +93,7 @@ public:
 	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
 	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
+	CFileTextLines::LineEndings GetLineEndings() const {return m_LineEndings;}
 
 private:
 	/**

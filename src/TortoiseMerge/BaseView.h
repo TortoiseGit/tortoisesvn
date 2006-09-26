@@ -73,6 +73,8 @@ public:
 	CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
+	CFileTextLines::UnicodeType texttype;	///< the text encoding this view uses
+	CFileTextLines::LineEndings lineendings; ///< the line endings the view uses
 
 	BOOL			m_bViewWhitespace;	///< If TRUE, then SPACE and TAB are shown as special characters
 	int				m_nTopLine;			///< The topmost text line in the view

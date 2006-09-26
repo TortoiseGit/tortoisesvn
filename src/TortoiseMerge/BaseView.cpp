@@ -64,6 +64,8 @@ CBaseView::CBaseView()
 	m_nDigits = 0;
 	m_nMouseLine = -1;
 	m_bIsHidden = FALSE;
+	lineendings = CFileTextLines::AUTOLINE;
+	texttype = CFileTextLines::AUTOTYPE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
@@ -227,6 +229,44 @@ void CBaseView::UpdateStatusBar()
 
 	CString sBarText;
 	CString sTemp;
+
+	switch (texttype)
+	{
+	case CFileTextLines::ASCII:
+		sBarText = _T("ASCII ");
+		break;
+	case CFileTextLines::BINARY:
+		sBarText = _T("BINARY ");
+		break;
+	case CFileTextLines::UNICODE_LE:
+		sBarText = _T("UTF-16LE ");
+		break;
+	case CFileTextLines::UTF8:
+		sBarText = _T("UTF8 ");
+		break;
+	case CFileTextLines::UTF8BOM:
+		sBarText = _T("UTF8 BOM ");
+		break;
+	}
+
+	switch(lineendings)
+	{
+	case CFileTextLines::LF:
+		sBarText += _T("LF ");
+		break;
+	case CFileTextLines::CRLF:
+		sBarText += _T("CRLF ");
+		break;
+	case CFileTextLines::LFCR:
+		sBarText += _T("LFCR ");
+		break;
+	case CFileTextLines::CR:
+		sBarText += _T("CR ");
+		break;
+	}
+
+	if (sBarText.IsEmpty())
+		sBarText  += _T(" / ");
 
 	if (nRemovedLines)
 	{

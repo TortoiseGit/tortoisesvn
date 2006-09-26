@@ -523,7 +523,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
 		}
-	} // if (m_Data.!IsBaseFileInUse()) 
+	}
 	if (m_Data.IsBaseFileInUse() && !m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
 	{
 		m_Data.m_yourFile.TransferDetailsFrom(m_Data.m_theirFile);
@@ -540,6 +540,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
 				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
+				m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+				m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + _T(" - ") + m_Data.m_yourFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
@@ -549,7 +551,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->SetHidden(TRUE);
 			m_pwndBottomView->SetHidden(TRUE);
 			::SetWindowPos(m_pwndLeftView->m_hWnd, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
-		} // if (m_bOneWay)
+		}
 		else
 		{
 			if (m_wndSplitter2.IsColumnHidden(1))
@@ -559,6 +561,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
 				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseLeft;
+				m_pwndLeftView->texttype = m_Data.m_arBaseFile.GetUnicodeType();
+				m_pwndLeftView->lineendings = m_Data.m_arBaseFile.GetLineEndings();
 			}
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
@@ -567,6 +571,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
 				m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
 				m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseRight;
+				m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+				m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}
 			m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
 			m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
@@ -585,6 +591,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseBoth;
 			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
 			m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesTheirBaseBoth;
+			m_pwndLeftView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
+			m_pwndLeftView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		}
 		m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
 		m_pwndLeftView->m_sWindowName += _T(" - ") + m_Data.m_theirFile.GetWindowName();
@@ -594,6 +602,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
 			m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
+			m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+			m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 		}
 		m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
 		m_pwndRightView->m_sWindowName += _T(" - ") + m_Data.m_yourFile.GetWindowName();
@@ -603,6 +613,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndBottomView->m_arDiffLines = &m_Data.m_arDiff3;
 			m_pwndBottomView->m_arLineStates = &m_Data.m_arStateDiff3;
 			m_pwndBottomView->m_arLineLines = &m_Data.m_arLinesDiff3;
+			m_pwndBottomView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
+			m_pwndBottomView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		}
 		m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
 		m_pwndBottomView->m_sWindowName += _T(" - ") + m_Data.m_mergedFile.GetWindowName();
