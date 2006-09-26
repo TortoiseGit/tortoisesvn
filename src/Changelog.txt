@@ -18,6 +18,8 @@
        from the context menu. See issue #273 for details. (Stefan)
 - NEW: TortoiseMerge shows the encoding and line ending style in its
        status bar. See issue #279 for details. (Stefan)
+- NEW: Support more image formats in TortoiseIDiff by using the FreeImage
+       dll if it's available. See issue #304 for details. (Will Wilson)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

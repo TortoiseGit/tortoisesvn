@@ -82,6 +82,22 @@ void CPicture::FreePictureData()
 		delete lpIcons;
 }
 
+// Util function to ease loading of FreeImage library
+static FARPROC s_GetProcAddressEx(HMODULE hDll, const char* procName, bool& valid)
+{
+	FARPROC proc = NULL;
+
+	if (valid)
+	{
+		proc = GetProcAddress(hDll, procName);
+
+		if (!proc)
+			valid = false;
+	}
+
+	return proc;
+}
+
 bool CPicture::Load(stdstring sFilePathName)
 {
 	bool bResult = false;
@@ -93,87 +109,224 @@ bool CPicture::Load(stdstring sFilePathName)
 	m_FileSize.clear();
 	FreePictureData(); // Important - Avoid Leaks...
 
-	HMODULE hLib = LoadLibrary(_T("gdiplus.dll"));
-	if (hLib)
+	// No-op if no file specified
+	if (sFilePathName.empty())
+		return true;
+
+	// Load & initialize the GDI+ library if available
+	HMODULE hGdiPlusLib = LoadLibrary(_T("gdiplus.dll"));
+	if (hGdiPlusLib && GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL) == Ok)
 	{
-		// we have gdiplus, so try loading the picture with that one
-		if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
-		{   
+		bHaveGDIPlus = true;
+	}
+	// Since we loaded the gdiplus.dll only to check if it's available, we
+	// can savely free the library here again - GdiplusStartup() loaded it too
+	// and reference counting will make sure that it stays loaded until GdiplusShutdown()
+	// is called.
+	FreeLibrary(hGdiPlusLib);
+
+	// Attempt to load using GDI+ if available
+	if (bHaveGDIPlus)
+	{
+		pBitmap = new Bitmap(sFilePathName.c_str(), FALSE);
+		GUID guid;
+		pBitmap->GetRawFormat(&guid);
+
+		if (pBitmap->GetLastStatus() != Ok)
+		{
+			delete pBitmap;
+			pBitmap = NULL;
+		}
+
+		// gdiplus only loads the first icon found in an icon file
+		// so we have to handle icon files ourselves :(
+
+		// Even though gdiplus can load icons, it can't load the new
+		// icons from Vista - in Vista, the icon format changed slightly.
+		// But the LoadIcon/LoadImage API still can load those icons,
+		// at least those dimensions which are also used on pre-Vista
+		// systems.
+		// For that reason, we don't rely on gdiplus telling us if
+		// the image format is "icon" or not, we also check the
+		// file extension for ".ico".
+		std::transform(sFilePathName.begin(), sFilePathName.end(), sFilePathName.begin(), ::tolower);
+		bIsIcon = (guid == ImageFormatIcon) || (_tcsstr(sFilePathName.c_str(), _T(".ico")) != NULL);
+
+		if (bIsIcon)
+		{
+			// Icon file, get special treatment...
+			if (pBitmap)
 			{
-				pBitmap = new Bitmap(sFilePathName.c_str(), FALSE);
-				GUID guid;
-				pBitmap->GetRawFormat(&guid);
+				// Cleanup first...
+				delete (pBitmap);
+				pBitmap = NULL;
+				bIsIcon = true;
+			}
 
-				// gdiplus only loads the first icon found in an icon file
-				// so we have to handle icon files ourselves :(
-
-				// Even though gdiplus can load icons, it can't load the new
-				// icons from Vista - in Vista, the icon format changed slightly.
-				// But the LoadIcon/LoadImage API still can load those icons,
-				// at least those dimensions which are also used on pre-Vista
-				// systems.
-				// For that reason, we don't rely on gdiplus telling us if
-				// the image format is "icon" or not, we also check the
-				// file extension for ".ico".
-				std::transform(sFilePathName.begin(), sFilePathName.end(), sFilePathName.begin(), ::tolower);
-				bool bIco = _tcsstr(sFilePathName.c_str(), _T(".ico"))!=NULL;
-				if ((guid == ImageFormatIcon)||((pBitmap->GetLastStatus() != Ok)&&(bIco)))
+			HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+			if (hFile != INVALID_HANDLE_VALUE)
+			{
+				BY_HANDLE_FILE_INFORMATION fileinfo;
+				if (GetFileInformationByHandle(hFile, &fileinfo))
 				{
-					delete (pBitmap);
-					pBitmap = NULL;
-					bIsIcon = true;
-
-					HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-					if (hFile != INVALID_HANDLE_VALUE)
+					lpIcons = new BYTE[fileinfo.nFileSizeLow];
+					DWORD readbytes;
+					if (ReadFile(hFile, lpIcons, fileinfo.nFileSizeLow, &readbytes, NULL))
 					{
-						BY_HANDLE_FILE_INFORMATION fileinfo;
-						if (GetFileInformationByHandle(hFile, &fileinfo))
+						// we have the icon. Now gather the information we need later
+						CloseHandle(hFile);
+						nCurrentIcon = 0;
+						LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
+						hIcons = new HICON[lpIconDir->idCount];
+						m_Width = lpIconDir->idEntries[0].bWidth;
+						m_Height = lpIconDir->idEntries[0].bHeight;
+						for (int i=0; i<lpIconDir->idCount; ++i)
 						{
-							lpIcons = new BYTE[fileinfo.nFileSizeLow];
-							DWORD readbytes;
-							if (ReadFile(hFile, lpIcons, fileinfo.nFileSizeLow, &readbytes, NULL))
-							{
-								// we have the icon. Now gather the information we need later
-								CloseHandle(hFile);
-								nCurrentIcon = 0;
-								LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-								hIcons = new HICON[lpIconDir->idCount];
-								m_Width = lpIconDir->idEntries[0].bWidth;
-								m_Height = lpIconDir->idEntries[0].bHeight;
-								for (int i=0; i<lpIconDir->idCount; ++i)
-								{
-									hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON, 
-																lpIconDir->idEntries[i].bWidth,
-																lpIconDir->idEntries[i].bHeight,
-																LR_LOADFROMFILE);
-								}
-								bResult = true;
-							}
-							else
-							{
-								delete lpIcons;
-								lpIcons = NULL;
-								CloseHandle(hFile);
-							}
+							hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON, 
+								lpIconDir->idEntries[i].bWidth,
+								lpIconDir->idEntries[i].bHeight,
+								LR_LOADFROMFILE);
 						}
-						else
-							CloseHandle(hFile);
+						bResult = true;
+					}
+					else
+					{
+						delete lpIcons;
+						lpIcons = NULL;
+						CloseHandle(hFile);
 					}
 				}
 				else
-				{
-					m_Height = pBitmap->GetHeight();
-					m_Width = pBitmap->GetWidth();
-					bResult = true;
-				}
+					CloseHandle(hFile);
 			}
-			bHaveGDIPlus = true;
 		}
-		else
-			pBitmap = NULL;
-		FreeLibrary(hLib);
+		else if (pBitmap)	// Image loaded successfully with GDI+
+		{
+			m_Height = pBitmap->GetHeight();
+			m_Width = pBitmap->GetWidth();
+			bResult = true;
+		}
+
+		// If still failed to load the file...
+		if (!bResult)
+		{
+			// Attempt to load the FreeImage library as an optional DLL to support additional formats
+
+			// NOTE: Currently just loading via FreeImage & using GDI+ for drawing.
+			// It might be nice to remove this dependency in the future.
+			HMODULE hFreeImageLib = LoadLibrary(_T("FreeImage.dll"));
+
+			// FreeImage DLL functions
+			typedef const char* (__stdcall *FreeImage_GetVersion_t)(void);
+			typedef int			(__stdcall *FreeImage_GetFileType_t)(const TCHAR *filename, int size);
+			typedef int			(__stdcall *FreeImage_GetFIFFromFilename_t)(const TCHAR *filename);
+			typedef void*		(__stdcall *FreeImage_Load_t)(int format, const TCHAR *filename, int flags);
+			typedef void		(__stdcall *FreeImage_Unload_t)(void* dib);
+			typedef int			(__stdcall *FreeImage_GetColorType_t)(void* dib);
+			typedef unsigned	(__stdcall *FreeImage_GetWidth_t)(void* dib);
+			typedef unsigned	(__stdcall *FreeImage_GetHeight_t)(void* dib);
+			typedef void		(__stdcall *FreeImage_ConvertToRawBits_t)(BYTE *bits, void *dib, int pitch, unsigned bpp, unsigned red_mask, unsigned green_mask, unsigned blue_mask, BOOL topdown);
+
+			FreeImage_GetVersion_t FreeImage_GetVersion = NULL;
+			FreeImage_GetFileType_t FreeImage_GetFileType = NULL;
+			FreeImage_GetFIFFromFilename_t FreeImage_GetFIFFromFilename = NULL;
+			FreeImage_Load_t FreeImage_Load = NULL;
+			FreeImage_Unload_t FreeImage_Unload = NULL;
+			FreeImage_GetColorType_t FreeImage_GetColorType = NULL;
+			FreeImage_GetWidth_t FreeImage_GetWidth = NULL;
+			FreeImage_GetHeight_t FreeImage_GetHeight = NULL;
+			FreeImage_ConvertToRawBits_t  FreeImage_ConvertToRawBits = NULL;
+
+			if (hFreeImageLib)
+			{
+				bool exportsValid = true;
+
+				//FreeImage_GetVersion = (FreeImage_GetVersion_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetVersion@0", valid);
+				FreeImage_GetWidth = (FreeImage_GetWidth_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetWidth@4", exportsValid);
+				FreeImage_GetHeight = (FreeImage_GetHeight_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetHeight@4", exportsValid);
+				FreeImage_Unload = (FreeImage_Unload_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_Unload@4", exportsValid);
+				FreeImage_ConvertToRawBits = (FreeImage_ConvertToRawBits_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_ConvertToRawBits@32", exportsValid);
+
+#ifdef UNICODE
+				FreeImage_GetFileType = (FreeImage_GetFileType_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileTypeU@8", exportsValid);
+				FreeImage_GetFIFFromFilename = (FreeImage_GetFIFFromFilename_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilenameU@4", exportsValid);
+				FreeImage_Load = (FreeImage_Load_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_LoadU@12", exportsValid);
+#else
+				FreeImage_GetFileType = (FreeImage_GetFileType_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileType@8", exportsValid);
+				FreeImage_GetFIFFromFilename = (FreeImage_GetFIFFromFilename_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilename@4", exportsValid);
+				FreeImage_Load = (FreeImage_Load_t)s_GetProcAddressEx(hFreeImageLib, "_FreeImage_Load@12", exportsValid);
+#endif
+
+				//const char* version = FreeImage_GetVersion();
+
+				// Check the DLL is using compatible exports
+				if (exportsValid)
+				{
+					// Derive file type from file header.
+					int fileType = FreeImage_GetFileType(sFilePathName.c_str(), 0);
+					if (fileType < 0)
+					{
+						// No file header available, attempt to parse file name for extension.
+						fileType = FreeImage_GetFIFFromFilename(sFilePathName.c_str());
+					}
+
+					// If we have a valid file type
+					if (fileType >= 0)
+					{
+						void* dib = FreeImage_Load(fileType, sFilePathName.c_str(), 0);
+
+						if (dib)
+						{
+							unsigned width = FreeImage_GetWidth(dib);
+							unsigned height = FreeImage_GetHeight(dib);
+
+							// Create a GDI+ bitmap to load into...
+							pBitmap = new Bitmap(width, height, PixelFormat32bppARGB);
+
+							if (pBitmap && pBitmap->GetLastStatus() == Ok)
+							{
+								void* imageData = NULL;
+
+								// Write & convert the loaded data into the GDI+ Bitmap
+								Rect rect(0, 0, width, height);
+								BitmapData bitmapData;
+								if (pBitmap->LockBits(&rect, ImageLockModeWrite, PixelFormat32bppARGB, &bitmapData) == Ok)
+								{
+									FreeImage_ConvertToRawBits((BYTE*)bitmapData.Scan0, dib, bitmapData.Stride, 32, 0xff << RED_SHIFT, 0xff << GREEN_SHIFT, 0xff << BLUE_SHIFT, FALSE);
+
+									pBitmap->UnlockBits(&bitmapData);
+
+									m_Width = width;
+									m_Height = height;
+									bResult = true;
+								}
+								else	// Failed to lock the destination Bitmap
+								{
+									delete pBitmap;
+									pBitmap = NULL;
+								}
+							}
+							else	// Bitmap allocation failed
+							{
+								if (pBitmap)
+								{
+									delete pBitmap;
+									pBitmap = NULL;
+								}
+							}
+
+							FreeImage_Unload(dib);
+							dib = NULL;
+						}
+					}
+				}
+
+				FreeLibrary(hFreeImageLib);
+				hFreeImageLib = NULL;
+			}
+		}
 	}
-	else
+	else	// GDI+ Unavailable...
 	{
 		pBitmap = NULL;
 		HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
