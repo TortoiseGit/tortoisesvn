@@ -95,9 +95,9 @@
 		<description>
 			Builds the API docs from the comments in the sourcecode
 		</description>
-		<nant target="all">
+		<nant target="apidoc">
 			<buildfiles>
-				<include name="doc/APIDoc.build" />
+				<include name="doc/doc.build" />
 			</buildfiles>
 		</nant>
 	</target>
