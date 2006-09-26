@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-12 14:36+0800\n"
+"PO-Revision-Date: 2006-09-26 14:50+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3528,6 +3528,12 @@ msgstr "直線圖"
 msgid "Line:"
 msgstr "行:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "行: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -4342,15 +4348,15 @@ msgstr "請稍候 - 可能需要數分鐘, 真的!"
 msgid "Please wait while cancelling..."
 msgstr "正在取消, 請稍候..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "正在比對差異, 請稍候..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "正在比對差異, 請稍候..."
 
 # ID:119,
 #: ID:119
@@ -4677,6 +4683,12 @@ msgstr "遠端重新命名完成"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "重新命名版本控制樹中的檔案/資料夾"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "修復移動"
 
 # ID:3603,
 #: ID:3603
@@ -5420,7 +5432,7 @@ msgstr "顯示 %ld 個節點"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "顯示 %ld 個版本, 從版本: %ld 到版本: %ld - 選擇了 %ld 個版本."
 
 # ID:272,
@@ -6640,34 +6652,24 @@ msgstr "用雙刪除線表示已刪除行(&K)"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "套用本地的文字區塊(&M)"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "套用遠端的文字區塊(&T)"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "使用本地(&mime)的文字區塊"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "使用遠端(&theirs)的文字區塊"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "先套用本地再套用遠端的文字區塊(&I)"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "優先使用本地(m&ine)的而非遠端(theirs)的文字區塊"
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "先套用本地再套用遠端的文字區塊\n"
 "先本地後遠端"
@@ -6675,22 +6677,22 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "套用本地的文字區塊\n"
 "套用本地文字區塊"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "先套用遠端再套用本地的文字區塊(&H)"
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "優先使用遠端(t&heirs)的而非本地(mine)的文字區塊"
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
 msgstr ""
 "先套用遠端再套用本地的文字區塊\n"
 "先遠端後本地"
@@ -6698,19 +6700,9 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
 msgstr "先套用遠端再套用本地的文字區塊(&H)"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "優先使用本地(m&ine)的而非遠端(theirs)的文字區塊"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "優先使用遠端(t&heirs)的而非本地(mine)的文字區塊"
 
 # ID:251,
 #: ID:251
