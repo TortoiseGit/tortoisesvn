@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-12 10:44+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"PO-Revision-Date: 2006-09-26 23:00+0800\n"
+"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -3517,6 +3517,12 @@ msgstr "折线图"
 msgid "Line:"
 msgstr "行号："
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "行号：%*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -4326,15 +4332,15 @@ msgstr "请稍候，此操作可能需要实实在在的数分钟时间！"
 msgid "Please wait while cancelling..."
 msgstr "正在取消, 请稍候…"
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "正在获取差异，请稍候..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "请稍候，正在启动版本库浏览器"
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "正在获取差异，请稍候..."
 
 # ID:119,
 #: ID:119
@@ -4664,6 +4670,12 @@ msgstr "远程重命名完成"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "重命名版本控制树中的文件/文件夹"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "准备移动"
 
 # ID:3603,
 #: ID:3603
@@ -5405,7 +5417,7 @@ msgstr "显示 %ld 个节点"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "正在显示 %ld 个版本（介于版本 %ld 到版本 %ld 之间）， 选中了 %ld 个版本。"
 
 # ID:272,
@@ -6621,34 +6633,24 @@ msgstr "用双删除线表示已删除行(&K)"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "使用本地的文本块(&M)"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "使用远程的文本块(&T)"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "使用本地的文本块(&M)"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "使用远程的文本块(&T)"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "优先使用本地的而非远程的文本块(&I)"
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "优先使用本地的而非远程的文本块\n"
 "优先使用“我的”文本块，然后才是“他们的”"
@@ -6656,22 +6658,22 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "使用本地的文本块\n"
 "使用“我的”文本块"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "优先使用远程的而非本地的文本块(&H)"
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
 msgstr ""
 "优先使用远程的而非本地的文本块\n"
 "优先使用“他们的”文本块，然后才是“我的”"
@@ -6679,21 +6681,11 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
 msgstr ""
 "使用远程文本块\n"
 "使用“他们的”文本块"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "优先使用本地的而非远程的文本块(&I)"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "优先使用远程的而非本地的文本块(&H)"
 
 # ID:251,
 #: ID:251
