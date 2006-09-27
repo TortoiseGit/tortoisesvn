@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-08-07 20:51+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2006-09-27 08:41+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -389,60 +389,60 @@ msgstr "<guibutton>Öffnen</guibutton> Startet den Datei Öffnen Dialog. Was son
 
 #: source/TortoiseMerge_en.xml:470
 #: (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made. If you have selected <guilabel>Resolve conflicted Subversion status on save</guilabel> in the settings dialog, then Subversion's conflict working files will be deleted automatically if all conflicts were resolved."
-msgstr "<guibutton>Speichern</guibutton> Speichert alle Änderungen welche Sie gemacht haben. Wenn Sie <guilabel>Konflikte beim Speichern als gelöst markieren</guilabel> im Einstellungs-Dialog aktiviert haben, dann werden die Konfliktdateien automatisch gelöscht, sofern keine Konflikte mehr vorhanden sind."
+msgid "<guibutton>Save</guibutton> saves any changes you have made."
+msgstr "<guibutton>Speichern</guibutton> speichert alle Ihre Änderungen."
 
-#: source/TortoiseMerge_en.xml:481
+#: source/TortoiseMerge_en.xml:476
 #: (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
 msgstr "<guibutton>Aktualisieren</guibutton> Lädt die Dateien erneut und verwirft alle Änderungen, welche Sie bisher gemacht haben."
 
-#: source/TortoiseMerge_en.xml:488
+#: source/TortoiseMerge_en.xml:483
 #: (para)
 msgid "<guibutton>Undo</guibutton> This feature is not enabled yet."
 msgstr "<guibutton>Rückgängig</guibutton> Diese Funktion ist noch nicht aktiviert."
 
-#: source/TortoiseMerge_en.xml:494
+#: source/TortoiseMerge_en.xml:489
 #: (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
 msgstr "<guibutton>Vorherige/Nächste Differenz</guibutton> springt direkt zum vorherigen/nächsten Ort Unterschied besteht."
 
-#: source/TortoiseMerge_en.xml:500
+#: source/TortoiseMerge_en.xml:495
 #: (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
 msgstr "Wenn Sie das in der Zweifenstersicht machen, wird Ihnen die untere Detailanzeige die Unterschiede innerhalb der ersten Zeile anzeigen, unabhängig davon, über welcher Zeile sich der Mauszeiger gerade befindet."
 
-#: source/TortoiseMerge_en.xml:507
+#: source/TortoiseMerge_en.xml:502
 #: (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
 msgstr "<guibutton>Vorheriger/Nächster Konflikt</guibutton> springt direkt zum vorherigen/nächsten Ort in der Datei wo ein Konflikt besteht und aufgelöst werden muss."
 
-#: source/TortoiseMerge_en.xml:514
+#: source/TortoiseMerge_en.xml:509
 #: (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
 msgstr "<guibutton>Als aufgelöst markieren</guibutton> Wenn Sie alle Konflikte in einer Datei aufgelöst und die Änderungen gespeichert haben, können Sie beim Speichern den Konflikt aus TortoiseMerge heraus als aufgelöst markieren, anstatt dies in einem weiteren Schritt im Windows Explorer zu tun."
 
-#: source/TortoiseMerge_en.xml:523
+#: source/TortoiseMerge_en.xml:518
 #: (para)
-msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Zeige Leerzeichen</guibutton> Zeigt Leerzeichen als Symbole an so dass Sie einfach zwischen Leerzeichen/Tabulatoren unterscheiden können."
+msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
+msgstr "<guibutton>Zeige Leerzeichen</guibutton> als Symbole an so dass Sie einfach zwischen Leerzeichen/Tabulatoren unterscheiden können."
 
-#: source/TortoiseMerge_en.xml:530
+#: source/TortoiseMerge_en.xml:525
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Wechsle Ansicht</guibutton> wechselt zwischen Ein- und Zweifenstersicht. Diese Funktion ist im Dreiwegevergleich deaktiviert."
 
-#: source/TortoiseMerge_en.xml:537
+#: source/TortoiseMerge_en.xml:532
 #: (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Tausche Links - Rechts</guibutton>. In der Zweifenstersicht wird das rechte mit dem linken Fenster vertauscht. Wenn Sie zwei Dateien in verschiedenen Bäumen vergleichen, weiß TortoiseSVN im Gegensatz zu zwei verschiedenen Revisionen derselben Datei nicht, welche Version als <quote>Original/Basis</quote> Version im linken Fenster angezeigt werden soll. Falls TortoiseSVN falsch rät können Sie somit einfach die Anzeige tauschen."
 
-#: source/TortoiseMerge_en.xml:548
+#: source/TortoiseMerge_en.xml:543
 #: (para)
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
 msgstr "<guibutton>Verberge/Zeige die Patchliste</guibutton> Wenn TortoiseMerge über eine Patchdateiliste verfügt, erlaubt Ihnen diese Schaltfläche, die Liste, damit die Fenster nicht verdeckt werden, an- oder auszuschalten."
 
-#: source/TortoiseMerge_en.xml:556
+#: source/TortoiseMerge_en.xml:551
 #: (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von TortoiseMerge."
@@ -452,372 +452,372 @@ msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von 
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
 msgstr "<placeholder-1/> Unterhalb der Menüleiste befindet sich die Werkzeugleiste. Diese stellt einen einfachen Zugang zu den am meisten verwendeten Befehlen dar: <placeholder-2/>"
 
-#: source/TortoiseMerge_en.xml:563
+#: source/TortoiseMerge_en.xml:558
 #: (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
 msgstr "Auf der linken Seite ist eine kleine Navigationsleiste. Diese zeigt in einem schnellen Überblick, wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Fenster, die rechte Spalte dem rechten Fenster, die mittlere Spalte, falls angezeigt, dem unteren Fenster. In der Einfenstersicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei dann jeweils alle drei Fenster synchron rollen."
 
-#: source/TortoiseMerge_en.xml:572
+#: source/TortoiseMerge_en.xml:567
 #: (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. The left side of the status bar is used to display hints when you hover the mouse over a control."
 msgstr "Unterhalb des unteren Fensters ist die Statusleiste. Diese zeigt die Anzahl der hinzugefügten und entfernten Zeilen in <literal>Deren</literal> und <literal>Meiner</literal> Datei, sowie die Anzahl ungelöster Konflikte an. Die linke Seite der Statusleiste zeigt Hilfetexte wenn Sie den Mauszeiger über Objekte führen."
 
-#: source/TortoiseMerge_en.xml:585
+#: source/TortoiseMerge_en.xml:580
 #: (title)
 msgid "Merging / Editing Conflicts"
 msgstr "Zusammenführen / Konflikte bearbeiten"
 
-#: source/TortoiseMerge_en.xml:586
+#: source/TortoiseMerge_en.xml:581
 #: (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr "TortoiseMerge <emphasis>zeigt</emphasis> Ihnen nicht nur die  Unterschiede zwischen Dateien an, sondern lässt Sie diese Änderungen auch übernehmen und Konflikte lösen."
 
-#: source/TortoiseMerge_en.xml:590
+#: source/TortoiseMerge_en.xml:585
 #: (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
 msgstr "Wenn Sie in der Zweifenstersicht sind, dann können nur Sie die Datei im rechten Fenster (<literal>Meiner</literal> Version) ändern. Um Unterschiede aus der linken Datei in die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
 
-#: source/TortoiseMerge_en.xml:602
+#: source/TortoiseMerge_en.xml:597
 #: (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 msgstr "Wenn Sie einen Dreiwegevergleich durchführen (auch <emphasis>Zusammenführensicht</emphasis> oder <emphasis>Konfliktsicht</emphasis> genannt), können Sie nur die Ergebnisdatei im unteren Fenster bearbeiten. Wie auch in der Zweifenstersicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten."
 
-#: source/TortoiseMerge_en.xml:639
+#: source/TortoiseMerge_en.xml:634
 #: (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
 msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <literal>Deren</literal> oder <literal>Meinem</literal> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzuarbeiten."
 
-#: source/TortoiseMerge_en.xml:647
+#: source/TortoiseMerge_en.xml:642
 #: (para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr "Beachten Sie, dass wenn TortoiseMerge nochmals mit den selben Dateien aufgerufen wird, alle Änderungen der Ergebnisdatei <emphasis>verworfen werden</emphasis>, egal ob durch TortoiseMerge oder manuelles Bearbeiten und die Ergebnisdatei im Ursprungszustand wieder hergestellt wird."
 
-#: source/TortoiseMerge_en.xml:655
+#: source/TortoiseMerge_en.xml:650
 #: (para)
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
 msgstr "Wenn Sie Textzeilen mit einem Editor austauschen möchten, können Sie mehrere Zeilen zum Kopieren in TortoiseMerge auswählen.<action>Klicken</action> Sie auf die erste Zeile des Blocks und markieren Sie mit <action>Umsch+Klick</action> dessen letzte Zeile. Wie üblich können Sie mit <action>Strg+C</action> den markierten Bereich in die Zwischenablage kopieren."
 
-#: source/TortoiseMerge_en.xml:668
+#: source/TortoiseMerge_en.xml:663
 #: (title)
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: source/TortoiseMerge_en.xml:670
+#: source/TortoiseMerge_en.xml:665
 #: (title)
 msgid "Main Settings Page"
 msgstr "Einstellungen Hauptseite"
 
-#: source/TortoiseMerge_en.xml:673
+#: source/TortoiseMerge_en.xml:668
 #: (title)
 msgid "The Settings Main Page"
 msgstr "Einstellungen Hauptseite"
 
-#: source/TortoiseMerge_en.xml:676
+#: source/TortoiseMerge_en.xml:671
 #: (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
 msgstr "Die meisten Optionen auf dieser Seite sind selbsterklärend. Ein paar benötigen jedoch ergänzende Informationen."
 
-#: source/TortoiseMerge_en.xml:680
+#: source/TortoiseMerge_en.xml:675
 #: (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
 msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei in der Arbeitskopie in <literal>dateiname.bak</literal> um, bevor die Änderungen gespeichert werden."
 
-#: source/TortoiseMerge_en.xml:685
+#: source/TortoiseMerge_en.xml:680
 #: (para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr "<guilabel>Ignoriere Zeilenende</guilabel> verbirgt Änderungen, die nur in unterschiedlichen Zeilenumbrüchen bestehen."
 
-#: source/TortoiseMerge_en.xml:689
+#: source/TortoiseMerge_en.xml:684
 #: (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
 msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- / Kleinbuchstaben Änderungen. Dies ist besonders nützlich bei Anwendungen wie Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
 
-#: source/TortoiseMerge_en.xml:695
+#: source/TortoiseMerge_en.xml:690
 #: (para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
 msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor (Subversion behandelt Änderungen in Leerzeichen so)."
 
-#: source/TortoiseMerge_en.xml:700
+#: source/TortoiseMerge_en.xml:695
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
 msgstr "<guilabel>Ignoriere führende Leerzeichen</guilabel> verbirgt Änderungen die nur aus Leerzeichen am Zeilenanfang bestehen. Leerzeichen-Änderungen innerhalb einer Zeile werden dort markiert und nicht als gelöschte / hinzugefügte Zeilen angezeigt."
 
-#: source/TortoiseMerge_en.xml:706
+#: source/TortoiseMerge_en.xml:701
 #: (para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
 msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche Änderungen, die nur aus Leerzeichen bestehen."
 
-#: source/TortoiseMerge_en.xml:712
+#: source/TortoiseMerge_en.xml:707
 #: (title)
 msgid "Colour Settings Page"
 msgstr "Einstellungen Farben"
 
-#: source/TortoiseMerge_en.xml:715
+#: source/TortoiseMerge_en.xml:710
 #: (title)
 msgid "The Settings Color Page"
 msgstr "Einstellungen Farben"
 
-#: source/TortoiseMerge_en.xml:718
+#: source/TortoiseMerge_en.xml:713
 #: (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
 msgstr "Auf dieser Seite können Sie die Hintergrundfarben zum Hervorheben der verschiedenen Änderungen einstellen."
 
-#: source/TortoiseMerge_en.xml:724
+#: source/TortoiseMerge_en.xml:719
 #: (term)
 msgid "Normal"
 msgstr "Normal"
 
-#: source/TortoiseMerge_en.xml:725
+#: source/TortoiseMerge_en.xml:720
 #: (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
 msgstr "Alle nicht veränderten Zeilen oder Zeilen deren Änderungen verborgen wurden"
 
-#: source/TortoiseMerge_en.xml:730
+#: source/TortoiseMerge_en.xml:725
 #: (term)
 msgid "Removed"
 msgstr "Entfernt"
 
-#: source/TortoiseMerge_en.xml:731
+#: source/TortoiseMerge_en.xml:726
 #: (listitem)
 msgid "Lines which have been deleted."
 msgstr "Zeilen, die gelöscht wurden"
 
-#: source/TortoiseMerge_en.xml:736
+#: source/TortoiseMerge_en.xml:731
 #: (term)
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: source/TortoiseMerge_en.xml:737
+#: source/TortoiseMerge_en.xml:732
 #: (listitem)
 msgid "Lines which have been added."
 msgstr "Zeilen, die hinzugefügt wurden"
 
-#: source/TortoiseMerge_en.xml:742
+#: source/TortoiseMerge_en.xml:737
 #: (term)
 msgid "Empty"
 msgstr "Leer"
 
-#: source/TortoiseMerge_en.xml:743
+#: source/TortoiseMerge_en.xml:738
 #: (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
 msgstr "Zeilen wurden in der gegenüberliegenden Seite hinzugefügt und keine entsprechende Zeile existiert in dieser Seite."
 
-#: source/TortoiseMerge_en.xml:749
+#: source/TortoiseMerge_en.xml:744
 #: (term)
 msgid "Conflicted"
 msgstr "Konflikt"
 
-#: source/TortoiseMerge_en.xml:750
+#: source/TortoiseMerge_en.xml:745
 #: (listitem)
 msgid "Where the same line has been changed in both files."
 msgstr "Dieselbe Zeile wurde in beiden Dateien geändert."
 
-#: source/TortoiseMerge_en.xml:755
+#: source/TortoiseMerge_en.xml:750
 #: (term)
 msgid "Line with whitespace diff"
 msgstr "Zeile mit Leerzeichen Diff"
 
-#: source/TortoiseMerge_en.xml:759
+#: source/TortoiseMerge_en.xml:754
 #: (guilabel)
 msgid "Ignore leading whitespace"
 msgstr "Ignoriere führende Leerzeichen"
 
-#: source/TortoiseMerge_en.xml:756
+#: source/TortoiseMerge_en.xml:751
 #: (listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
 msgstr "Zeilen, die noch andere Unterschiede in Leerzeichen außer führenden Leerzeichen enthalten. Erscheint nur, wenn <placeholder-1/> gewählt ist."
 
-#: source/TortoiseMerge_en.xml:764
+#: source/TortoiseMerge_en.xml:759
 #: (term)
 msgid "Whitespace diff"
 msgstr "Leerzeichen Diff"
 
-#: source/TortoiseMerge_en.xml:765
+#: source/TortoiseMerge_en.xml:760
 #: (listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
 msgstr "Die Leerzeichen Differenzen aus dem vorstehenden Fall werden in dieser Farbe hervorgehoben."
 
-#: source/TortoiseMerge_en.xml:775
+#: source/TortoiseMerge_en.xml:770
 #: (title)
 msgid "keyboard shortcuts"
 msgstr "Tastaturkürzel"
 
-#: source/TortoiseMerge_en.xml:777
+#: source/TortoiseMerge_en.xml:772
 #: (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Liste der Tastaturkürzel und Befehle"
 
-#: source/TortoiseMerge_en.xml:782
+#: source/TortoiseMerge_en.xml:777
 #: (title)
 msgid "Keyboard shortcuts"
 msgstr "Tastaturkürzel"
 
-#: source/TortoiseMerge_en.xml:785
+#: source/TortoiseMerge_en.xml:780
 #: (term)
 msgid "Ctrl-Q"
 msgstr "Strg-Q"
 
-#: source/TortoiseMerge_en.xml:787
+#: source/TortoiseMerge_en.xml:782
 #: (para)
 msgid "Quit the program"
 msgstr "Beendet das Programm"
 
-#: source/TortoiseMerge_en.xml:793
+#: source/TortoiseMerge_en.xml:788
 #: (term)
 msgid "Ctrl-C"
 msgstr "Strg-C"
 
-#: source/TortoiseMerge_en.xml:795
+#: source/TortoiseMerge_en.xml:790
 #: (para)
 msgid "Copy the selected line(s) to the clipboard"
 msgstr "Kopierte die markierten Zeilen in die Zwischenablage"
 
-#: source/TortoiseMerge_en.xml:801
+#: source/TortoiseMerge_en.xml:796
 #: (term)
 msgid "Ctrl-F"
 msgstr "Strg-F"
 
-#: source/TortoiseMerge_en.xml:803
+#: source/TortoiseMerge_en.xml:798
 #: (para)
 msgid "Open the Find dialog for text searches"
 msgstr "Öffnet den Dialog zum Suchen von Text"
 
-#: source/TortoiseMerge_en.xml:809
+#: source/TortoiseMerge_en.xml:804
 #: (term)
 msgid "Ctrl-O"
 msgstr "Strg-O"
 
-#: source/TortoiseMerge_en.xml:811
+#: source/TortoiseMerge_en.xml:806
 #: (para)
 msgid "Open files to diff/merge"
 msgstr "Öffnet Dateien für Diff / Merge"
 
-#: source/TortoiseMerge_en.xml:817
+#: source/TortoiseMerge_en.xml:812
 #: (term)
 msgid "Ctrl-S"
 msgstr "Strg-S"
 
-#: source/TortoiseMerge_en.xml:819
+#: source/TortoiseMerge_en.xml:814
 #: (para)
 msgid "Save the changes"
 msgstr "Speichert die Änderungen"
 
-#: source/TortoiseMerge_en.xml:825
+#: source/TortoiseMerge_en.xml:820
 #: (term)
 msgid "Ctrl-Shift-S"
 msgstr "Strg-Umsch-S"
 
-#: source/TortoiseMerge_en.xml:827
+#: source/TortoiseMerge_en.xml:822
 #: (para)
 msgid "Save as..."
 msgstr "Speichern unter..."
 
-#: source/TortoiseMerge_en.xml:833
+#: source/TortoiseMerge_en.xml:828
 #: (term)
 msgid "F7 or cursor-right"
 msgstr "F7 oder Rechtspfeil"
 
-#: source/TortoiseMerge_en.xml:835
+#: source/TortoiseMerge_en.xml:830
 #: (para)
 msgid "Go to next difference"
 msgstr "Gehe zum nächsten Unterschied"
 
-#: source/TortoiseMerge_en.xml:841
+#: source/TortoiseMerge_en.xml:836
 #: (term)
 msgid "Shift-F7 or cursor-left"
 msgstr "Umsch-F7 oder Linkspfeil"
 
-#: source/TortoiseMerge_en.xml:843
+#: source/TortoiseMerge_en.xml:838
 #: (para)
 msgid "Go to previous difference"
 msgstr "Gehe zum vorherigen Unterschied"
 
-#: source/TortoiseMerge_en.xml:849
+#: source/TortoiseMerge_en.xml:844
 #: (term)
 msgid "Shift-cursor-right"
 msgstr "Umsch+Rechtspfeil"
 
-#: source/TortoiseMerge_en.xml:851
+#: source/TortoiseMerge_en.xml:846
 #: (para)
 msgid "Go to next conflict"
 msgstr "Nächster Konflikt"
 
-#: source/TortoiseMerge_en.xml:857
+#: source/TortoiseMerge_en.xml:852
 #: (term)
 msgid "Shift-cursor-left"
 msgstr "Umsch+Linkspfeil"
 
-#: source/TortoiseMerge_en.xml:859
+#: source/TortoiseMerge_en.xml:854
 #: (para)
 msgid "Go to previous conflict"
 msgstr "Vorheriger Konflikt"
 
-#: source/TortoiseMerge_en.xml:865
+#: source/TortoiseMerge_en.xml:860
 #: (term)
 msgid "Ctrl-D"
 msgstr "Strg-D"
 
-#: source/TortoiseMerge_en.xml:867
+#: source/TortoiseMerge_en.xml:862
 #: (para)
 msgid "Toggle between one-pane diff and two-pane diff"
 msgstr "Wechselt zwischen Einfenstersicht und Zweifenstersicht"
 
-#: source/TortoiseMerge_en.xml:873
+#: source/TortoiseMerge_en.xml:868
 #: (term)
 msgid "Ctrl-R"
 msgstr "Strg-R"
 
-#: source/TortoiseMerge_en.xml:875
+#: source/TortoiseMerge_en.xml:870
 #: (para)
 msgid "Reload the files and revert all changes made"
 msgstr "Lade die Dateien neu und mache alle Änderungen rückgängig."
 
-#: source/TortoiseMerge_en.xml:881
+#: source/TortoiseMerge_en.xml:876
 #: (term)
 msgid "Ctrl-T"
 msgstr "Strg-T"
 
-#: source/TortoiseMerge_en.xml:883
+#: source/TortoiseMerge_en.xml:878
 #: (para)
 msgid "Toggles between showing whitespaces or not"
 msgstr "Zeigt Platzhalter für nicht druckbare Zeichen an oder nicht"
 
-#: source/TortoiseMerge_en.xml:889
+#: source/TortoiseMerge_en.xml:884
 #: (term)
 msgid "Ctrl-wheelmouse"
 msgstr "Strg+Mausrad"
 
-#: source/TortoiseMerge_en.xml:891
+#: source/TortoiseMerge_en.xml:886
 #: (para)
 msgid "Scroll the display left/right"
 msgstr "Anzeige links/rechts rollen"
 
-#: source/TortoiseMerge_en.xml:900
+#: source/TortoiseMerge_en.xml:895
 #: (title)
 msgid "Automating TortoiseMerge"
 msgstr "TortoiseMerge automatisieren"
 
-#: source/TortoiseMerge_en.xml:902
+#: source/TortoiseMerge_en.xml:897
 #: (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
 msgstr "TortoiseMerge kann auch über die Kommandozeile gestartet werden. Auf diese Weise können die zu vergleichenden Dateien direkt ohne den <guilabel>Öffnen</guilabel> Dialog angegeben werden. Dies ist vor allem dann nützlich, wenn Sie TortoiseMerge aus einer anderen Anwendung heraus aufrufen wollen."
 
-#: source/TortoiseMerge_en.xml:913
+#: source/TortoiseMerge_en.xml:908
 #: (title)
 msgid "TortoiseMerge Command Line Switches"
 msgstr "TortoiseMerge Kommandozeilenbefehle"
 
-#: source/TortoiseMerge_en.xml:915
+#: source/TortoiseMerge_en.xml:910
 #: (primary)
 msgid "automation"
 msgstr "Automatisierung"
 
-#: source/TortoiseMerge_en.xml:918
+#: source/TortoiseMerge_en.xml:913
 #: (primary)
 msgid "command line"
 msgstr "Kommandozeilen"
 
-#: source/TortoiseMerge_en.xml:920
+#: source/TortoiseMerge_en.xml:915
 #: (para)
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
@@ -827,482 +827,482 @@ msgstr ""
 "Die meisten Befehle benötigen zusätzliche Informationen, wie einen Pfad oder einen anderen Parameter. Zur Übergabe des Parameters hängen Sie einfach einen ':' an den Befehl an und schreiben den Parameter dahinter. Zum Beispiel:\n"
 "<screen>/base:\"c:\\ordner\\meine basisdatei.txt\"</screen>"
 
-#: source/TortoiseMerge_en.xml:940
+#: source/TortoiseMerge_en.xml:935
 #: (title)
 msgid "List of available command line options"
 msgstr "Liste der Kommandozeilenbefehle"
 
-#: source/TortoiseMerge_en.xml:946
+#: source/TortoiseMerge_en.xml:941
 #: (entry)
 msgid "Command"
 msgstr "Befehl"
 
-#: source/TortoiseMerge_en.xml:947
+#: source/TortoiseMerge_en.xml:942
 #: (entry)
 msgid "Description"
 msgstr "Beschreibung"
 
-#: source/TortoiseMerge_en.xml:953
+#: source/TortoiseMerge_en.xml:948
 #: (entry)
 msgid "Shows a dialog box with the most important command line switches."
 msgstr "Zeigt einen Dialog mit allen möglichen  Kommandozeilenbefehlen an."
 
-#: source/TortoiseMerge_en.xml:961
+#: source/TortoiseMerge_en.xml:956
 #: (option)
 msgid "?"
 msgstr "/?"
 
-#: source/TortoiseMerge_en.xml:960
+#: source/TortoiseMerge_en.xml:955
 #: (entry)
 msgid "The same as <placeholder-1/>."
 msgstr "Das Gleiche wie <placeholder-1/>."
 
-#: source/TortoiseMerge_en.xml:967
+#: source/TortoiseMerge_en.xml:962
 #: (emphasis)
 msgid "base"
 msgstr "<literal>Basis</literal>"
 
-#: source/TortoiseMerge_en.xml:966
+#: source/TortoiseMerge_en.xml:961
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
 msgstr "Definiert die <placeholder-1/> Datei für einen Dreiwegevergleich. Diese ist der gemeinsame Vorgänger der zu vergleichenden Dateien, auch wenn sie nicht angezeigt wird. Beim Zweiwegevergleich wird die Datei im linken Fenster angezeigt."
 
-#: source/TortoiseMerge_en.xml:976
+#: source/TortoiseMerge_en.xml:971
 #: (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Der Anzeigename der <literal>Basis</literal>datei. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hiweistext angezeigt."
 
-#: source/TortoiseMerge_en.xml:986
+#: source/TortoiseMerge_en.xml:981
 #: (emphasis)
 msgid "theirs"
 msgstr "<literal>Deren</literal>"
 
-#: source/TortoiseMerge_en.xml:985
+#: source/TortoiseMerge_en.xml:980
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
 msgstr "Definiert die <placeholder-1/> Datei für einen Dreiwegevergleich, dargestellt im linken Fenster."
 
-#: source/TortoiseMerge_en.xml:992
+#: source/TortoiseMerge_en.xml:987
 #: (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
 msgstr "Der Anzeigename von <literal>Deren</literal> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
-#: source/TortoiseMerge_en.xml:1000
+#: source/TortoiseMerge_en.xml:995
 #: (emphasis)
 msgid "mine"
 msgstr "<literal>Meiner</literal>"
 
-#: source/TortoiseMerge_en.xml:999
+#: source/TortoiseMerge_en.xml:994
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
 msgstr "Definiert die <placeholder-1/> Datei, die sowohl im Dreiwegevergleich als auch im Zweiwegevergleich im rechten Fenster dargestellt wird."
 
-#: source/TortoiseMerge_en.xml:1007
+#: source/TortoiseMerge_en.xml:1002
 #: (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
 msgstr "Der Anzeigename von <literal>Meiner</literal> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
-#: source/TortoiseMerge_en.xml:1015
+#: source/TortoiseMerge_en.xml:1010
 #: (emphasis)
 msgid "merged"
 msgstr "<literal>Zieldatei</literal>"
 
-#: source/TortoiseMerge_en.xml:1014
+#: source/TortoiseMerge_en.xml:1009
 #: (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "Definiert die <placeholder-1/> für den Dreiwegevergleich. Dies ist die Datei, in der das Ergbnis abgespeichert wird. Wenn dieser Pfad nicht angegeben wird, fragt TortoiseMerge den Anwender, wo das Ergebnis gespeicher werden soll."
 
-#: source/TortoiseMerge_en.xml:1024
+#: source/TortoiseMerge_en.xml:1019
 #: (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
 msgstr "Der Anzeigename der <literal>Ziel</literal>datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
-#: source/TortoiseMerge_en.xml:1035
+#: source/TortoiseMerge_en.xml:1030
 #: (emphasis)
 msgid "very long"
 msgstr "sehr lange"
 
-#: source/TortoiseMerge_en.xml:1031
+#: source/TortoiseMerge_en.xml:1026
 #: (entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patchfile, but that can take <placeholder-1/>."
 msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst einen zu den Pfaden in der Patchdatei passenden Basipfad herauszufinden, aber das kann <placeholder-1/> dauern."
 
-#: source/TortoiseMerge_en.xml:1040
+#: source/TortoiseMerge_en.xml:1035
 #: (entry)
 msgid "The name of the original file to patch. Used for the view title."
 msgstr "Der Anzeigename der zu patchenden Originaldatei."
 
-#: source/TortoiseMerge_en.xml:1047
+#: source/TortoiseMerge_en.xml:1042
 #: (entry)
 msgid "The name of the resulting patched file. Used for the view title."
 msgstr "Der Anzeigename der Zieldatei."
 
-#: source/TortoiseMerge_en.xml:1054
+#: source/TortoiseMerge_en.xml:1049
 #: (entry)
 msgid "The path to the patch/diff file to apply to a directory."
 msgstr "Der Pfad zu der Patch- / Diffdatei, die auf ein Verzeichnis angewendet werden soll."
 
-#: source/TortoiseMerge_en.xml:1060
+#: source/TortoiseMerge_en.xml:1055
 #: (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
 msgstr "Zwingt TortoiseMerge mit der Einfenstersicht anstatt der in den Optionen eingestellten Sicht zu starten."
 
-#: source/TortoiseMerge_en.xml:1067
+#: source/TortoiseMerge_en.xml:1062
 #: (entry)
 msgid "Switches the left and right view of the specified two files to diff."
 msgstr "Vertauscht die Dateien im rechten und linken Fenster."
 
-#: source/TortoiseMerge_en.xml:1082
+#: source/TortoiseMerge_en.xml:1077
 #: (title)
 msgid "Glossary"
 msgstr "Glossar"
 
-#: source/TortoiseMerge_en.xml:1084
+#: source/TortoiseMerge_en.xml:1079
 #: (glossterm)
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: source/TortoiseMerge_en.xml:1086
+#: source/TortoiseMerge_en.xml:1081
 #: (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Ein Subversion Befehl, der zum Hinzufügen von Dateien oder Ordnern zu einem Projektarchiv benutzt wird. Die neuen Objekte werden beim Übertragen zum Projektarchiv hinzugefügt."
 
-#: source/TortoiseMerge_en.xml:1094
+#: source/TortoiseMerge_en.xml:1089
 #: (glossterm)
 msgid "BASE revision"
 msgstr "BASE Revision"
 
-#: source/TortoiseMerge_en.xml:1096
+#: source/TortoiseMerge_en.xml:1091
 #: (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "Die aktuelle Basisrevision einer Datei oder eines Ordners in Ihrer <emphasis>Arbeitskopie</emphasis>. Dies ist die Revision in der sich die Datei oder der Ordners befand als zuletzt Auschecken, Aktualisieren oder Übertragen aufgerufen wurde. Die BASE Revision entspricht normalerweise nicht der HEAD Revision"
 
-#: source/TortoiseMerge_en.xml:1105
+#: source/TortoiseMerge_en.xml:1100
 #: (glossterm)
 msgid "Blame"
 msgstr "Annotieren"
 
-#: source/TortoiseMerge_en.xml:1107
+#: source/TortoiseMerge_en.xml:1102
 #: (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
 
-#: source/TortoiseMerge_en.xml:1117
+#: source/TortoiseMerge_en.xml:1112
 #: (glossterm)
 msgid "BDB"
 msgstr "BDB"
 
-#: source/TortoiseMerge_en.xml:1119
+#: source/TortoiseMerge_en.xml:1114
 #: (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "Berkeley DB. Ein bewährtes Datenbanksystem für Projektarchive. Kann nicht über Netzwerkfreigaben genutzt werden. Standard für Projektarchive von Subversion vor Version 1.2."
 
-#: source/TortoiseMerge_en.xml:1126
+#: source/TortoiseMerge_en.xml:1121
 #: (glossterm)
 msgid "Branch"
 msgstr "Verzweigen"
 
-#: source/TortoiseMerge_en.xml:1128
+#: source/TortoiseMerge_en.xml:1123
 #: (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Ein Begriff der häufig in Versionskontrollsystemen verwendet wird, um zu beschreiben, wenn sich die Entwicklung an einem bestimmten Punkt verzweigt und verschiedenen Wegen folgt. Sie können von der Hauptentwicklungslinie abzweigen, um neue Funktionen zu implementieren ohne den Hauptzweig instabil zu machen. Genauso können Sie eine stabile, freigegebene Version abzweigen, an der Sie nur noch Fehler beseitigen, während die Weiterentwicklung am instabilen Hauptzweig erfolgt. In Subversion sind Zweige als <quote>billige Kopien</quote> implementiert."
 
-#: source/TortoiseMerge_en.xml:1141
+#: source/TortoiseMerge_en.xml:1136
 #: (glossterm)
 msgid "Checkout"
 msgstr "Auschecken"
 
-#: source/TortoiseMerge_en.xml:1143
+#: source/TortoiseMerge_en.xml:1138
 #: (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Ein Subversionbefehl, der eine lokale Arbeitskopie in einem leeren Verzeichnis erstellt, indem versionierte Dateien aus einem Projektarchiv heruntergeladen werden."
 
-#: source/TortoiseMerge_en.xml:1150
+#: source/TortoiseMerge_en.xml:1145
 #: (glossterm)
 msgid "Cleanup"
 msgstr "Bereinigen"
 
-#: source/TortoiseMerge_en.xml:1152
+#: source/TortoiseMerge_en.xml:1147
 #: (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
 msgstr "Ein Zitat aus dem Subversion Buch: <quote>Räumt die Arbeitskopie rekursiv auf, entfernt dabei Sperren und setzt unvollendete Operationen fort. Wenn Sie jemals einen <literal>Arbeitskopie gesperrt</literal> Fehler bekommen, führen Sie diesen Befehl aus, um veraltete Sperren zu entfernen und Ihre Arbeitskopie wieder in einen nutzbaren Zustand zu versetzen.</quote> Beachten Sie, dass in diesem Zusammenhang <quote>Sperren</quote> lokale Dateisystemsperren bezeichnet und keine Sperren im Projektarchiv."
 
-#: source/TortoiseMerge_en.xml:1167
+#: source/TortoiseMerge_en.xml:1162
 #: (glossterm)
 msgid "Commit"
 msgstr "Übertragen"
 
-#: source/TortoiseMerge_en.xml:1169
+#: source/TortoiseMerge_en.xml:1164
 #: (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Dieser Subversionbefehl wird verwendet, um die Änderungen in Ihrer lokalen Arbeitskopie zurück in das Projektarchiv zu übertragen."
 
-#: source/TortoiseMerge_en.xml:1177
+#: source/TortoiseMerge_en.xml:1172
 #: (glossterm)
 msgid "Conflict"
 msgstr "Konflikt"
 
-#: source/TortoiseMerge_en.xml:1179
+#: source/TortoiseMerge_en.xml:1174
 #: (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "Wenn Änderungen vom Projektarchiv mit den lokalen Änderungen zusammengeführt werden sollen, kann es vorkommen dass diese Änderungen in den selben Zeilen der Datei auftreten. In diesem Fall kann Subversion nicht selbst entscheiden welche Version zu verwenden ist und die Datei wird somit als \"in Konflikt\" markiert. Sie müssen die Datei von Hand editieren und den Konflikt auflösen, bevor Sie weitere Änderungen übertragen können."
 
-#: source/TortoiseMerge_en.xml:1189
+#: source/TortoiseMerge_en.xml:1184
 #: (glossterm)
 msgid "Copy"
 msgstr "Kopieren"
 
-#: source/TortoiseMerge_en.xml:1191
+#: source/TortoiseMerge_en.xml:1186
 #: (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "In einem Subversion Projektarchiv können Sie eine Kopie einer einzelnen Datei oder eines ganzen Baumes erstellen. Diese sind als <quote>billige Kopien</quote> in Form eines Verweises auf das Original implementiert. Somit benötigt selbst die Kopie eines Dateibaumes fast keinen Platz. Eine Kopie behält die Historie ihrer Vorgänger, so dass auch Log-Meldungen über die Kopie hinaus verfolgt werden können."
 
-#: source/TortoiseMerge_en.xml:1201
+#: source/TortoiseMerge_en.xml:1196
 #: (glossterm)
 msgid "Delete"
 msgstr "Löschen"
 
-#: source/TortoiseMerge_en.xml:1203
+#: source/TortoiseMerge_en.xml:1198
 #: (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Wenn Sie ein versioniertes Objekt löschen (und dann Übertragen), existiert die Datei oder Ordner nach der übertragenen Revision nicht mehr im Projektarchiv. Aber selbstverständlich existiert diese noch in früheren Revisionen und es kann immer noch darauf zugegriffen werden. Falls notwendig, können Sie das gelöschte Objekt wieder in die Arbeitskopie kopieren und diese so mit der kompletten Historie <quote>wieder herstellen</quote>."
 
-#: source/TortoiseMerge_en.xml:1213
+#: source/TortoiseMerge_en.xml:1208
 #: (glossterm)
 msgid "Diff"
 msgstr "Diff"
 
-#: source/TortoiseMerge_en.xml:1215
+#: source/TortoiseMerge_en.xml:1210
 #: (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "Abkürzung für <quote>Zeige Unterschiede</quote>. Sehr nützlich, wenn Sie genau sehen wollen, welche Änderungen Sie vorgenommen haben."
 
-#: source/TortoiseMerge_en.xml:1222
+#: source/TortoiseMerge_en.xml:1217
 #: (glossterm)
 msgid "Export"
 msgstr "Exportieren"
 
-#: source/TortoiseMerge_en.xml:1224
+#: source/TortoiseMerge_en.xml:1219
 #: (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Dieser Befehl erzeugt eine Kopie eines versionierten Ordners. Wie eine Arbeitskopie jedoch ohne die lokalen <literal>.svn</literal> Verzeichnisse."
 
-#: source/TortoiseMerge_en.xml:1232
+#: source/TortoiseMerge_en.xml:1227
 #: (glossterm)
 msgid "FSFS"
 msgstr "FSFS"
 
-#: source/TortoiseMerge_en.xml:1234
+#: source/TortoiseMerge_en.xml:1229
 #: (para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS Dateisystem. Ein proprietäres Subversion-Dateisystem für Projektarchive. Kann über Netzwerkfreigaben genutzt werden. Seit Version 1.2 Standard für neue Projektarchive."
 
-#: source/TortoiseMerge_en.xml:1241
+#: source/TortoiseMerge_en.xml:1236
 #: (glossterm)
 msgid "GPO"
 msgstr "GPO"
 
-#: source/TortoiseMerge_en.xml:1243
+#: source/TortoiseMerge_en.xml:1238
 #: (para)
 msgid "Group policy object"
 msgstr "Gruppenrichtlinienobjekt"
 
-#: source/TortoiseMerge_en.xml:1249
+#: source/TortoiseMerge_en.xml:1244
 #: (glossterm)
 msgid "HEAD revision"
 msgstr "HEAD Revision"
 
-#: source/TortoiseMerge_en.xml:1251
+#: source/TortoiseMerge_en.xml:1246
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "Die neueste Revision einer Datei oder eines Ordners im <emphasis>Projektarchiv</emphasis>."
 
-#: source/TortoiseMerge_en.xml:1257
+#: source/TortoiseMerge_en.xml:1252
 #: (glossterm)
 msgid "Import"
 msgstr "Importieren"
 
-#: source/TortoiseMerge_en.xml:1259
+#: source/TortoiseMerge_en.xml:1254
 #: (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Ein Subversionbefehl mit dem eine vollständige Ordnerhierarchie mit einer einzigen Revision in ein Projektarchiv importiert wird."
 
-#: source/TortoiseMerge_en.xml:1266
+#: source/TortoiseMerge_en.xml:1261
 #: (glossterm)
 msgid "Lock"
 msgstr "Sperren"
 
-#: source/TortoiseMerge_en.xml:1268
+#: source/TortoiseMerge_en.xml:1263
 #: (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "Wenn Sie eine Datei sperren, wird diese im Projektarchiv als nicht übertragbar markiert, mit Ausnahme der Arbeitskopie von der aus aus die Sperre gesetzt wurde."
 
-#: source/TortoiseMerge_en.xml:1276
+#: source/TortoiseMerge_en.xml:1271
 #: (glossterm)
 msgid "Log"
 msgstr "Protokoll"
 
-#: source/TortoiseMerge_en.xml:1278
+#: source/TortoiseMerge_en.xml:1273
 #: (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "Zeigt das Änderigsprotokoll einer Datei oder eines Ordners. Auch <quote>Historie</quote> genannt."
 
-#: source/TortoiseMerge_en.xml:1285
+#: source/TortoiseMerge_en.xml:1280
 #: (glossterm)
 msgid "History"
 msgstr "Historie"
 
-#: source/TortoiseMerge_en.xml:1287
+#: source/TortoiseMerge_en.xml:1282
 #: (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "Zeigt die Revisionshistorie einer Datei oder eines Ordners. Auch als <quote>Log</quote> bekannt."
 
-#: source/TortoiseMerge_en.xml:1294
+#: source/TortoiseMerge_en.xml:1289
 #: (glossterm)
 msgid "Merge"
 msgstr "Zusammenführen"
 
-#: source/TortoiseMerge_en.xml:1296
+#: source/TortoiseMerge_en.xml:1291
 #: (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Der Prozess mit welchem Änderungen vom Projektarchiv zur Arbeitskopie hinzugefügt werden, ohne lokale Änderungen zu beeinträchtigen. Manchmal können diese Änderungen nicht automatisch hinzugefügt werden und die Arbeitskopie befindet sich dann in einem Konflikt."
 
-#: source/TortoiseMerge_en.xml:1302
+#: source/TortoiseMerge_en.xml:1297
 #: (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Das Zusammenführen passiert automatisch, wenn Sie ihre Arbeitskopie aktualisieren. Sie können auch mit dem TortoiseSVN Befehl \"Zusammenführen\" spezifische Änderungen von einem Zweig in der Arbeitskopie zusammenführen."
 
-#: source/TortoiseMerge_en.xml:1310
+#: source/TortoiseMerge_en.xml:1305
 #: (glossterm)
 msgid "Patch"
 msgstr "Patch"
 
-#: source/TortoiseMerge_en.xml:1312
+#: source/TortoiseMerge_en.xml:1307
 #: (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "Wenn eine Arbeitskopie nur Änderungen an Textdateien aufweist, ist es möglich mit dem Diff-Befehl von Subversion eine Datei zu erstellen, welche diese Änderungen im Unified Diff Format enthält. Eine Datei mit solchem Inhalt wird üblicherweise als <quote>Patch</quote> bezeichnet und kann zum Beispiel jemand anderem per Mail geschickt werden, der diese Änderungen dann in seine Arbeitskopie übernehmen kann. Jemand ohne Übertragungsrechte zum Projektarchiv kann so Änderungen vornehmen, diese Änderungen an eine Person mit Übertragungsrechten schicken, welche dann diese Änderungen übertragen kann. Oder man kann eine solche Patchdatei anderen zuerst zur Diskussion schicken, bevor man die Änderungen überträgt."
 
-#: source/TortoiseMerge_en.xml:1325
+#: source/TortoiseMerge_en.xml:1320
 #: (glossterm)
 msgid "Property"
 msgstr "Eigenschaft"
 
-#: source/TortoiseMerge_en.xml:1327
+#: source/TortoiseMerge_en.xml:1322
 #: (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "Zusätzlich zur Versionierung von Dateien und Ordnern erlaubt Subversion die Versionierung von Metadaten für Ordner und Dateien, auch als <quote>Eigenschaften</quote> bezeichnet. Jede Eigenschaft hat einen Namen und einen Wert, ähnlich wie ein Registry-Schlüssel. Subversion selbst hat einige spezielle Eigenschaften definiert, welche intern benutzt werden, wie zum Beispiel <literal>svn:eol-style</literal>. TortoiseSVN nutzt ebenfalls spezielle Eigenschaften, so zum Beispiel <literal>tsvn:logminsize</literal>. Sie können eigene Eigenschaften mit jedem Namen und Wert erstellen den sie möchten."
 
-#: source/TortoiseMerge_en.xml:1340
+#: source/TortoiseMerge_en.xml:1335
 #: (glossterm)
 msgid "Relocate"
 msgstr "Umplatzieren"
 
-#: source/TortoiseMerge_en.xml:1342
+#: source/TortoiseMerge_en.xml:1337
 #: (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Wenn das Projektarchiv verschoben wird, vielleicht weil Sie es in einen anderen Ordner auf dem Server verschoben haben oder der Domänenname des Servers ändert, dann müssen Sie die Arbeitskopie <quote>umplatzieren</quote>, so dass die Projektarchiv-URL zum neuen Ort zeigt."
 
-#: source/TortoiseMerge_en.xml:1348
+#: source/TortoiseMerge_en.xml:1343
 #: (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Hinweis: Sie sollten diesen Befehl nur benutzen wenn die Arbeitskopie zur selben Stelle im Projektarchiv selbst zeigt und nur das Projektarchiv selbst verschoben wurde. In allen anderen Situationen müssen Sie den Befehl <quote>Wechseln zu</quote> verwenden."
 
-#: source/TortoiseMerge_en.xml:1357
+#: source/TortoiseMerge_en.xml:1352
 #: (glossterm)
 msgid "Repository"
 msgstr "Projektarchiv"
 
-#: source/TortoiseMerge_en.xml:1359
+#: source/TortoiseMerge_en.xml:1354
 #: (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Ein Projektarchiv ist ein zentraler Platz in dem Daten gespeichert und verwaltet werden. Das Projektarchiv kann sowohl auf einem Server liegen und über das Netzwerk angesprochen werden, als auch auf der lokalen Platte liegen."
 
-#: source/TortoiseMerge_en.xml:1368
+#: source/TortoiseMerge_en.xml:1363
 #: (glossterm)
 msgid "Resolve"
 msgstr "Konflikt lösen"
 
-#: source/TortoiseMerge_en.xml:1370
+#: source/TortoiseMerge_en.xml:1365
 #: (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "Wenn sich Dateien in einer Arbeitskopie nach einem Zusammenführen in einem Konflikt befinden, müssen diese Konflikte von einer Person mittels eines Editors (oder vielleicht TortoiseMerge) aufgelöst werden. Dieser Prozess wird als <quote>Konflikt lösen</quote> bezeichnet. Wenn die Konflikte aufgelöst sind, können diese Dateien als aufgelöst markiert werden, was eine Übertragung erlaubt."
 
-#: source/TortoiseMerge_en.xml:1380
+#: source/TortoiseMerge_en.xml:1375
 #: (glossterm)
 msgid "Revert"
 msgstr "Rückgängig"
 
-#: source/TortoiseMerge_en.xml:1382
+#: source/TortoiseMerge_en.xml:1377
 #: (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion hält eine lokale <quote>Basis</quote>-Kopie von jeder Datei in dem Zustand, in dem sie zuletzt aktualisiert wurde in der Arbeitskopie. Wenn Sie Änderungen gemacht haben und diese rückgängig machen wollen, können Sie den Befehl <quote>Rückgängig</quote> verwenden, um zurück zur Basisversion der Datei zu kommen."
 
-#: source/TortoiseMerge_en.xml:1391
+#: source/TortoiseMerge_en.xml:1386
 #: (glossterm)
 msgid "Revision"
 msgstr "Revision"
 
-#: source/TortoiseMerge_en.xml:1393
+#: source/TortoiseMerge_en.xml:1388
 #: (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Jedes Mal, wenn Sie Änderungen übertragen, wird eine neue <quote>Revision</quote> im Projektarchiv erstellt. Jede Revision stellt den Status des Projektarchivs zu einem bestimmten Zeitpunkt in der Vergangenheit dar. Wenn Sie in der Zeit zurückgehen möchten, können Sie den Zustand des Projektarchivs, wie es zur Revision N war, ansehen."
 
-#: source/TortoiseMerge_en.xml:1400
+#: source/TortoiseMerge_en.xml:1395
 #: (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "Anders ausgedrückt bezieht sich eine Revision auf eine Menge von Änderungen, die, als diese Revision erstellt wurde, vorgenommen wurden."
 
-#: source/TortoiseMerge_en.xml:1407
+#: source/TortoiseMerge_en.xml:1402
 #: (glossterm)
 msgid "Revision Property (revprop)"
 msgstr "Revisionseigenschaft (revprop)"
 
-#: source/TortoiseMerge_en.xml:1409
+#: source/TortoiseMerge_en.xml:1404
 #: (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "So wie Dateien Eigenschaften haben können, hat auch jede Revision im Projektarchiv Eigenschaften. Einige spezielle Revisionseigenschaften werden automatisch hinzugefügt, wenn die Revision erstellt wird. Diese sind: <literal>svn:date, svn:author svn:log</literal> welche das Übertragungsdatum, die Person welche die Übertragung gemacht hat und die Log-Meldung darstellen. Diese Eigenschaften können verändert werden, aber sie sind nicht versioniert, was bedeutet dass jede Änderung permanent ist und nicht rückgängig gemacht werden kann."
 
-#: source/TortoiseMerge_en.xml:1421
+#: source/TortoiseMerge_en.xml:1416
 #: (glossterm)
 msgid "SVN"
 msgstr "SVN"
 
-#: source/TortoiseMerge_en.xml:1423
+#: source/TortoiseMerge_en.xml:1418
 #: (para)
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Eine häfig verwendete Abkürzung für Subversion"
 
-#: source/TortoiseMerge_en.xml:1426
+#: source/TortoiseMerge_en.xml:1421
 #: (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "Der Name des spezifischen Protokolls, das von <quote>svnserve</quote> genutzt wird."
 
-#: source/TortoiseMerge_en.xml:1433
+#: source/TortoiseMerge_en.xml:1428
 #: (glossterm)
 msgid "Switch"
 msgstr "Wechseln zu"
 
-#: source/TortoiseMerge_en.xml:1435
+#: source/TortoiseMerge_en.xml:1430
 #: (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "So wie <quote>Aktualisieren zu Revision</quote> den Zeitpunkt der Arbeitskopie ändert, um auf einen anderen Punkt in der Vergangenheit zu zeigen, ändert <quote>Wecheln zu</quote> die Position der Arbeitskopie, so dass sie an einen anderen Ort im Projektarchiv zeigt. Dies ist vor allem nützlich, wenn Sie mit verschiedenen Ästen arbeiten, in denen nur wenige Dateien unterschiedlich sind. Sie können ihre Arbeitskopie zwischen den Ästen hin und her wechseln wobei jeweils nur die Unterschiede übertragen werden."
 
-#: source/TortoiseMerge_en.xml:1447
+#: source/TortoiseMerge_en.xml:1442
 #: (glossterm)
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: source/TortoiseMerge_en.xml:1449
+#: source/TortoiseMerge_en.xml:1444
 #: (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "Dieser Subversionbefehlt holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
 
-#: source/TortoiseMerge_en.xml:1457
+#: source/TortoiseMerge_en.xml:1452
 #: (glossterm)
 msgid "Working Copy"
 msgstr "Arbeitskopie"
 
-#: source/TortoiseMerge_en.xml:1459
+#: source/TortoiseMerge_en.xml:1454
 #: (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Dies ist Ihr lokaler <quote>Sandkasten</quote>, der Bereich, in dem Sie an versionierten Dateien arbeiten, und er liegt normalerweise auf Ihrer lokalen Festplatte. Sie erzeugen eine Arbeitskopie, indem Sie einen Ordner aus einem Projektarchiv <quote>Auschecken</quote> und  Sie führen Ihre Änderungen mit einem <quote>Übertragen</quote> in das Projektarchiv zurück."
