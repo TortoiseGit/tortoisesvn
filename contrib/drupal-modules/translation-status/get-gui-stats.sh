@@ -74,7 +74,7 @@ for i in ${CATALOGS_DIR}/*.po ; do
    echo "\"$country\" => array($ER, $TO, $TR, $FZ, $UT, $AK, \"$catname\", \"$PRD\"),"
 #   echo "\"$country\" => array($ER, $TO, $TR, $FZ, $UT, $AK, \"$catname\", \"$filedate\"),"
 done
-filedate=`stat -c "%y" ${CATALOGS_DIR}/${APP}.pot`
+filedate=`stat -c "%Y" ${CATALOGS_DIR}/${APP}.pot`
 echo "\"zzz\" => array(0, $TO, 0, 0, $TO, 0, \"${APP}.pot\",\"$filedate\")"
 #echo "\"zzz\" => array(0, $TO, 0, 0, $TO, 0, \"${APP}.pot\",\"$filedate\",\"\")"
 

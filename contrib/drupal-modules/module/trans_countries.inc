@@ -17,6 +17,7 @@ $countries = array(
 "fi"    => array("0","0","fi","Finnish","Pekka Järvinen"),
 "hr"    => array("0","1","hr","Croatian","Helix d.o.o: Dinko Srkoc, Mario Saric"),
 "hu"    => array("0","1","hu","Hungarian","Szente-Varga Bálint"),
+"it"    => array("0","0","it","Indonesian","Zaenal Mutaqin"),
 "it"    => array("0","1","it","Italian","Luca Berti"),
 "ja"    => array("0","0","ja","Japanese","Daisuke Deguchi (GUI), Kurasawa Nozomu (docs)"),
 "ko"    => array("0","0","ko","Korean","Hojin Choi, Jae-Hong Lee"),
