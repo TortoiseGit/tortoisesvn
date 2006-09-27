@@ -32,6 +32,7 @@
 #include "SoundUtils.h"
 #include "SVNDiff.h"
 #include "Hooks.h"
+#include "DropFiles.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -86,6 +87,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_SVNPROGRESS, OnSVNProgress)
 	ON_WM_TIMER()
 	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
+	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -1808,4 +1810,46 @@ void CSVNProgressDlg::OnEnSetfocusInfotext()
 	GetDlgItem(IDC_INFOTEXT)->GetWindowText(sTemp);
 	if (sTemp.IsEmpty())
 		GetDlgItem(IDC_INFOTEXT)->HideCaret();
+}
+
+void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
+{
+	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+
+	int selIndex = m_ProgList.GetSelectionMark();
+	if (selIndex < 0)
+		return;
+	
+	CDropFiles dropFiles; // class for creating DROPFILES struct
+	
+	int index;
+	POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
+	while ( (index = m_ProgList.GetNextSelectedItem(pos)) >= 0 )
+	{
+		NotificationData * data = m_arData[index];
+
+		if ( data->kind==svn_node_file || data->kind==svn_node_dir )
+		{
+			CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
+			if (sPath.Find(':')<0)
+			{
+				// the path is not absolute: add the current directory in front of it
+				DWORD len = GetCurrentDirectory(0, NULL);
+				TCHAR * buf = new TCHAR[len+1];
+				GetCurrentDirectory(len, buf);
+				sPath = buf;
+				sPath += _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
+				delete [] buf;
+			}
+			
+			dropFiles.AddFile( sPath );
+		}
+	}
+
+	if ( dropFiles.GetCount()>0 )
+	{
+		dropFiles.CreateStructure();
+	}
+
+	*pResult = 0;
 }

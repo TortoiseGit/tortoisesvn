@@ -22,6 +22,8 @@
        dll if it's available. See issue #304 for details. (Will Wilson)
 - NEW: "Compare with base" now works on multiple selected files. See issue
        #277 for details. (Tobias Schäfer)
+- NEW: Files shown in the progress dialog can now also be dragged to other
+       applications such as text editors or IDEs. (Tobias Schäfer)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

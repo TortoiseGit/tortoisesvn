@@ -173,6 +173,7 @@ protected:
 	afx_msg LRESULT OnSVNProgress(WPARAM wParam, LPARAM lParam);
 	afx_msg void	OnTimer(UINT_PTR nIDEvent);
 	afx_msg void	OnEnSetfocusInfotext();
+	afx_msg void	OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
