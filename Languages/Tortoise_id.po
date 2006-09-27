@@ -1,0 +1,6258 @@
+#
+# Indonesian translations for TortoiseSVN
+# Copyright (C) 2004-2006 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+# Zaenal Mutaqin <ade999@gmail.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN 1.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2006-09-26 02:53+0700\n"
+"Last-Translator: Zaenal Mutaqin <ade999@gmail.com>\n"
+"Language-Team: Zaenal Mutaqin <ade999@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ID:10,#:
+#: ID:126,#:
+#: ID:126,
+msgid " "
+msgstr " "
+
+#: ID:188,
+#, c-format
+msgid "! %d"
+msgstr "! %d"
+
+#: ID:357,
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MByte ditransfer"
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 contained an unexpected object."
+msgstr "%1 berisi obyek yang tidak diharapkan."
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 contains an incorrect schema."
+msgstr "%1 berisi skema yang tidak benar."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 contains an invalid path."
+msgstr "%1 berisi path yang tidak benar."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be created because the directory is full."
+msgstr "%1 tidak bisa dibuat karena direktori sudah penuh."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be opened because there are too many open files."
+msgstr "%1 tidak bisa dibuka karena terlalu banyak file yang dibuka."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be removed because it is the current directory."
+msgstr "%1 tidak bisa dihapus karena ini direktori aktif saat ini."
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 has a bad format."
+msgstr "%1 mempunyai format tidak benar."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 was not found."
+msgstr "%1 tidak ditemukan."
+
+#: ID:3860,#:
+#: ID:3860,
+#, c-format
+msgid ""
+"%1: %2\n"
+"Continue running script?"
+msgstr ""
+"%1: %2\n"
+"Lanjutkan menjalankan naskah?"
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid ""
+"%1\n"
+"Cannot find this file.\n"
+"Please verify that the correct path and file name are given."
+msgstr ""
+"%1\n"
+"Tidak bisa menemukan file ini.\n"
+"Silahkan betulkan bahwa path dan nama file yang disediakan sudah benar."
+
+#: ID:357,
+#, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Byte ditransfer"
+
+#: ID:357,
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kByte ditransfer"
+
+#: ID:169,
+#, c-format
+msgid "%d files selected, %d files total"
+msgstr "%d file dipilih, %d total file"
+
+#: ID:7,
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld dari %ld"
+
+#: ID:563,
+#, c-format
+msgid "%ld paths"
+msgstr "%ld path"
+
+#: ID:226,
+#, c-format
+msgid "%s - at revision: %d"
+msgstr "%s - di revisi: %d"
+
+#: ID:151,
+#, c-format
+msgid "%s : Remote file"
+msgstr "%s : File remote"
+
+#: ID:151,
+#, c-format
+msgid "%s : Working Base"
+msgstr "%s : Basis yang Bekerja"
+
+#: ID:151,
+#, c-format
+msgid "%s : Working Copy"
+msgstr "%s : Copy yang Bekerja"
+
+#: ID:357,
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, di %s"
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Ekspor (%d) dari %s"
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Ekspor dari %s"
+
+#: ID:145,
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove it anyway?"
+msgstr ""
+"%s\n"
+"Anda tetap ingin menghapusnya?"
+
+#: ID:7,
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+"%s\n"
+"Besar file:\t\t\t%s\n"
+"Panjang:\t\t\t%ld pixel\n"
+"Tinggi:\t\t\t%ld pixel\n"
+"Resolusi Horisontal:\t%.1f dpi\n"
+"Resolusi Vertikal:\t\t%.1f dpi\n"
+"Kedalaman:\t\t\t%d bit\n"
+"Pembesaran:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Besar file:\t\t\t%s\n"
+"Panjang:\t\t\t%ld pixel\n"
+"Tinggi:\t\t\t%ld pixel\n"
+"Resolusi Horisontal:\t%.1f dpi\n"
+"Resolusi Vertikal:\t\t%.1f dpi\n"
+"Kedalaman:\t\t\t%d bit"
+
+#: ID:69,
+#, c-format
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"adalah direktori, bukan file!\n"
+"TortoiseMerge tidak bisa men-diff direktori."
+
+#: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
+msgid "&About TortoiseMerge..."
+msgstr "&Tentang TortoiseMerge..."
+
+#: ID:8,#:
+#: Control-ID:1098,#:
+#: Control-ID:1310,
+msgid "&Add..."
+msgstr "&Tambah..."
+
+#: Control-ID:1090,#:
+#: Control-ID:1093,
+msgid "&Advanced..."
+msgstr "L&anjutan..."
+
+#: Control-ID:1013,
+msgid "&Apply unified diff"
+msgstr "Tera&pkan unified diff"
+
+#: Control-ID:65535,
+msgid "&Autoclose:"
+msgstr "Otom&atis tutup:"
+
+#: Control-ID:1015,
+msgid "&Backup original file"
+msgstr "Ca&dangkan file aslinya"
+
+#: Control-ID:1128,
+msgid "&Berkeley database (BDB)"
+msgstr "&Berkeley database (BDB)"
+
+#: ID:114,
+msgid "&Blame differences"
+msgstr "A&baikan perbedaan"
+
+#: ID:114,#:
+#: ID:322,
+msgid "&Blame revisions"
+msgstr "A&baikan revisi"
+
+#: ID:13,
+msgid "&Blame..."
+msgstr "A&baikan..."
+
+#: ID:138,
+msgid "&Browse repository"
+msgstr "&Lihat repositori"
+
+#: Control-ID:1011,
+msgid "&Browse..."
+msgstr "&Lihat..."
+
+#: Control-ID:1051,
+msgid "&CD-ROM"
+msgstr "&CD-ROM"
+
+#: Control-ID:2,#:
+#: Control-ID:2,
+msgid "&Cancel"
+msgstr "&Batal"
+
+#: ID:8,
+msgid "&Clean up"
+msgstr "&Bersihkan"
+
+#: ID:8,
+msgid "&Commit..."
+msgstr "&Komit..."
+
+#: MenuEntry
+msgid "&Compare revisions"
+msgstr "&Bandingkan revisi"
+
+#: Control-ID:1019,
+msgid "&Compare whitespaces"
+msgstr "&Bandingkan spasi"
+
+#: Control-ID:1239,
+msgid "&Configure"
+msgstr "&Konfigurasi"
+
+#: Control-ID:1227,
+msgid "&Contact the repository on startup"
+msgstr "&Hubungkan repositori saat mulai"
+
+#: Control-ID:1073,
+msgid "&Convert files when diffing against BASE"
+msgstr "&Ubah file ketika men-diff terhadap BASE"
+
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Copy"
+
+#: MenuEntry
+msgid "&Copy to clipboard"
+msgstr "&Copy ke clipboard"
+
+#: ID:101,
+msgid "&Copy to..."
+msgstr "&Copy ke..."
+
+#: Control-ID:1097,
+msgid "&Custom"
+msgstr "&Kustom"
+
+#: Control-ID:1269,#:
+#: Control-ID:1096,
+msgid "&Default"
+msgstr "&Standar"
+
+#: ID:11,
+msgid "&Delete"
+msgstr "&Hapus"
+
+#: ID:101,
+msgid "&Delete..."
+msgstr "&Hapus..."
+
+#: ID:12,
+msgid "&Diff"
+msgstr "&Diff"
+
+#: ID:17,
+msgid "&Diff with URL"
+msgstr "&Diff dengan URL"
+
+#: Control-ID:1179,
+msgid "&Dry run"
+msgstr "&Latihan menembak"
+
+#: Control-ID:1031,#:
+#: MenuEntry#:
+#: MenuEntry
+msgid "&Edit"
+msgstr "&Edit"
+
+#: ID:12,
+msgid "&Edit conflicts"
+msgstr "&Edit yang konflik"
+
+#: Control-ID:1099,#:
+#: Control-ID:1282,
+msgid "&Edit..."
+msgstr "&Edit..."
+
+#: Control-ID:1023,
+msgid "&Enable Proxy Server"
+msgstr "H&idupkan Server Proxy"
+
+#: Control-ID:1213,
+msgid "&Enter a message describing why you lock the file(s)."
+msgstr "&Masukkan pesan yang menjelaskan mengapa anda mengunci file."
+
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Keluar"
+
+#: ID:323,
+msgid "&Export selection to..."
+msgstr "&Ekspor yang dipilih ke..."
+
+#: Control-ID:1092,#:
+#: Control-ID:1095,
+msgid "&External"
+msgstr "&Eksternal"
+
+#: MenuEntry#:
+#: MenuEntry
+msgid "&File"
+msgstr "&File"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Cari"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "&Cari..."
+
+#: MenuEntry
+msgid "&Fit Images in window"
+msgstr "&Cukupkan Gambar dalam jendela"
+
+#: Control-ID:1050,
+msgid "&Fixed drives"
+msgstr "&Drive tetap"
+
+#: Control-ID:65535,
+msgid "&Font for log messages:"
+msgstr "&Font untuk  log pesan:"
+
+#: Control-ID:65535,
+msgid "&Font:"
+msgstr "&Font:"
+
+#: ID:501,#:
+#: Control-ID:65535,
+msgid "&From URL:"
+msgstr "&Dari URL:"
+
+#: Control-ID:1259,
+msgid "&From WC at URL:"
+msgstr "&Dari WC di URL:"
+
+#: Control-ID:65535,
+msgid "&From revision"
+msgstr "&Dari revisi"
+
+#: MenuEntry
+msgid "&Go To Line..."
+msgstr "&Pergi ke baris..."
+
+#: Control-ID:1115,#:
+#: Control-ID:1032,
+msgid "&HEAD Revision"
+msgstr "Revisi &HEAD"
+
+#: Control-ID:1032,#:
+#: Control-ID:1019,#:
+#: Control-ID:1034,
+msgid "&HEAD revision"
+msgstr "Revisi &HEAD"
+
+#: Control-ID:1182,
+msgid "&HEAD revision in the repository"
+msgstr "Revisi &HEAD dalam repositori"
+
+#: MenuEntry#:
+#: Control-ID:57670,#:
+#: MenuEntry
+msgid "&Help"
+msgstr "&Bantuan"
+
+#: MenuEntry
+msgid "&Help Topics"
+msgstr "&Topik Bantuan"
+
+#: ID:3842,#:
+#: ID:3842,
+msgid "&Hide"
+msgstr "&Sembunyikan"
+
+#: Control-ID:1170,
+msgid "&Icon Set:"
+msgstr "&Ikon Set:"
+
+#: ID:15,
+#, c-format
+msgid "&Ignore %d items"
+msgstr "&Abaikan %d item"
+
+#: Control-ID:1021,
+msgid "&Ignore whitespace changes"
+msgstr "&Abaikan perubahan spasi"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "Info &Gambar"
+
+#: ID:9,
+msgid "&Import..."
+msgstr "&Impor..."
+
+#: Control-ID:1016,
+msgid "&Jump to first difference when loading"
+msgstr "&Lompat ke perbedaan pertama ketika pengambilan"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&Language:"
+msgstr "&Bahasa"
+
+#: Control-ID:1065,
+msgid "&Limit search to modified lines"
+msgstr "&Batasi pencarian ke baris yang diubah"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "&Gabung gambar bersama"
+
+#: Control-ID:1172,
+msgid "&List View"
+msgstr "Tampilan &Daftar"
+
+#: Control-ID:1309,
+msgid "&Load..."
+msgstr "&Ambil"
+
+#: Control-ID:1,
+msgid "&Merge"
+msgstr "&Gabung"
+
+#: ID:9,
+msgid "&Merge..."
+msgstr "&Gabung..."
+
+#: Control-ID:1012,
+msgid "&Merging"
+msgstr "&Menggabungkan"
+
+#: Control-ID:1129,
+msgid "&Native filesystem (FSFS)"
+msgstr "Sistem file &asli (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Navigasi"
+
+#: Control-ID:1049,
+msgid "&Network drives"
+msgstr "Drive &Jaringan"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&New "
+msgstr "&Baru"
+
+#: Control-ID:1208,
+msgid "&Next 100"
+msgstr "100 &Berikutnya"
+
+#: MenuEntry
+msgid "&Next Difference"
+msgstr "Perbedaan &Berikutnya"
+
+#: Control-ID:1,#:
+#: Control-ID:1,
+msgid "&OK"
+msgstr "&OK"
+
+#: MenuEntry
+msgid "&Open"
+msgstr "&Buka"
+
+#: MenuEntry
+msgid "&Open Ctrl-O"
+msgstr "&Buka Ctrl-O"
+
+#: MenuEntry
+msgid "&Overlap images"
+msgstr "&Cocokan Gambar"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&Password:"
+msgstr "&Kata sandi:"
+
+#: ID:376,
+msgid "&Paste"
+msgstr "&Paste"
+
+#: Control-ID:65535,
+msgid "&Port:"
+msgstr "&Port:"
+
+#: MenuEntry
+msgid "&Previous Difference"
+msgstr "Perbedaan &Sebelumnya"
+
+#: Control-ID:1246,#:
+#: Control-ID:1246,
+msgid "&Recent messages"
+msgstr "Pesan &Terbaru"
+
+#: ID:376,
+msgid "&Redo"
+msgstr "&Redo"
+
+#: Control-ID:1100,#:
+#: Control-ID:1285,
+msgid "&Remove"
+msgstr "&Hapus"
+
+#: ID:101,
+msgid "&Rename"
+msgstr "&Ganti nama"
+
+#: Control-ID:1316,
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "&Buka lagi dialog komit setelah komit gagal"
+
+#: ID:13,
+msgid "&Repo-browser"
+msgstr "&Repo-browser"
+
+#: ID:113,
+msgid "&Revert changes from this revision"
+msgstr "&Balikan perubahan dari revisi ini"
+
+#: Control-ID:1033,#:
+#: Control-ID:1116,#:
+#: Control-ID:1035,
+msgid "&Revision"
+msgstr "&Revisi"
+
+#: Control-ID:65535,
+msgid "&SSH client:"
+msgstr "Klien &SSH:"
+
+#: MenuEntry
+msgid "&Save Ctrl-S"
+msgstr "&Simpan Ctrl-S"
+
+#: Control-ID:1023,#:
+#: Control-ID:1023,
+msgid "&Save authentication"
+msgstr "&Simpan Otentikasi"
+
+#: MenuEntry
+msgid "&Save graph as..."
+msgstr "&Simpan grafik sebagai..."
+
+#: ID:322,
+msgid "&Save list of selected files to..."
+msgstr "&Simpan daftar file yang dipilih ke..."
+
+#: Control-ID:1308,
+msgid "&Save..."
+msgstr "&Simpan..."
+
+#: ID:9,
+msgid "&Settings"
+msgstr "&Seting"
+
+#: Control-ID:1185,
+msgid "&Specific revision in repository"
+msgstr "Revisi &spesifik dalam repositori"
+
+#: MenuEntry
+msgid "&Status Bar"
+msgstr "&Status Bar"
+
+#: Control-ID:1211,
+msgid "&Steal the locks"
+msgstr "&Curi kuncian"
+
+#: Control-ID:1130,
+msgid "&Stop on copy/rename"
+msgstr "&Hentikan copy/ganti nama"
+
+#: Control-ID:1173,
+msgid "&Symbol View"
+msgstr "Tampilan &Simbol"
+
+#: Control-ID:65535,
+msgid "&Tab size:"
+msgstr "Besar &Tab:"
+
+#: Control-ID:1222,
+msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgstr "&Waktu habis dalam detik untuk menghentikan penguraian autocompletion"
+
+#: Control-ID:65535,
+msgid "&To Revision"
+msgstr "&Ke Revisi"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&To URL:"
+msgstr "&Ke URL:"
+
+#: Control-ID:1305,
+msgid "&To URL: "
+msgstr "&Ke URL: "
+
+#: MenuEntry
+msgid "&Toolbar"
+msgstr "&Toolbar"
+
+#: Control-ID:1091,#:
+#: Control-ID:1094,
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
+
+#: ID:9,
+msgid "&TortoiseSVN"
+msgstr "&TortoiseSVN"
+
+#: Control-ID:65535,#:
+#: Control-ID:1058,
+msgid "&URL of repository:"
+msgstr "&URL dari repositori:"
+
+#: Control-ID:1076,
+msgid "&URL:"
+msgstr "&URL:"
+
+#: ID:376,
+msgid "&Undo"
+msgstr "&Undo"
+
+#: MenuEntry
+msgid "&Undo\tCtrl+Z"
+msgstr "&Undo\tCtrl+Z"
+
+#: MenuEntry
+msgid "&Unified diff"
+msgstr "&Unified diff"
+
+#: Control-ID:1061,
+msgid "&Unknown drives"
+msgstr "Dirve &tidak dikenal"
+
+#: ID:8,
+msgid "&Update"
+msgstr "&Mutahirkan"
+
+#: ID:76,
+msgid "&Update item to revision"
+msgstr "&Mutahirkan item ke revisi"
+
+#: ID:11,
+msgid "&Update to revision..."
+msgstr "&Mutahirkan item ke revisi..."
+
+#: Control-ID:1184,
+msgid "&Use autocompletion of filepaths and keywords"
+msgstr "&Gunakan autocompletion dari path file dan kata kunci"
+
+#: Control-ID:65535,#:
+#: Control-ID:1005,#:
+#: Control-ID:65535,
+msgid "&Username:"
+msgstr "&Nama pengguna:"
+
+#: MenuEntry#:
+#: MenuEntry
+msgid "&View"
+msgstr "&Lihat"
+
+#: MenuEntry
+msgid "&Whitespaces"
+msgstr "&Spasi"
+
+#: Control-ID:1066,
+msgid "&Whole word"
+msgstr "&Seluruh kata"
+
+#: Control-ID:1183,
+msgid "&Working copy"
+msgstr "&Copy yang bekerja"
+
+#: ID:17,#:
+#: ID:564,
+msgid "(binary value)"
+msgstr "(nilai biner)"
+
+#: ID:219,
+msgid "(dry run)"
+msgstr "(latihan menembak)"
+
+#: ID:208,
+msgid "(multiple targets selected)"
+msgstr "(target multipel yang dipilih)"
+
+#: ID:314,
+msgid "(not found)"
+msgstr "(tidak ditemukan)"
+
+#: ID:208,
+msgid "(property change only)"
+msgstr "(hanya perubahan properti)"
+
+#: ID:188,
+#, c-format
+msgid "+ %d"
+msgstr "+ %d"
+
+#: ID:188,
+#, c-format
+msgid "- %d"
+msgstr "- %d"
+
+#: Control-ID:1035,#:
+#: Control-ID:1036,#:
+#: Control-ID:1187,#:
+#: Control-ID:1104,#:
+#: Control-ID:1021,#:
+#: Control-ID:1022,#:
+#: Control-ID:1089,#:
+#: Control-ID:1324,#:
+#: Control-ID:1333,#:
+#: Control-ID:1002,#:
+#: Control-ID:1003,
+msgid "..."
+msgstr "..."
+
+#: ID:151,
+#, c-format
+msgid ": Revision %d"
+msgstr ": Revisi %d"
+
+#: ID:151,
+msgid ": working base"
+msgstr ": basis yang bekerja"
+
+#: ID:151,
+msgid ": working copy"
+msgstr ": copy yang bekerja"
+
+#: ID:145,
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> adalah ekstensi shell.\n"
+"Itu berarti terintegrasi ke dalam ekspoler Windows.\n"
+"Untuk menggunakan <b>TortoiseSVN</b> silahkan buka explorer dan klik-kanan pada setiap folder yang anda inginkan\n"
+"untuk membawa menu konteks dimana anda ingin menemukan semua perintah <b>TortoiseSVN</b>.\n"
+"Dan <u>membaca manual!</u>"
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A hardware I/O error was reported while accessing %1."
+msgstr "Kesalahan I/O hardware dilaporkan ketika mengakses %1."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A locking violation occurred while accessing %1."
+msgstr "Pelanggaran penguncian terjadi ketika mengakses %1."
+
+#: ID:201,
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+msgstr "Versi lebih baru tersedia. Silahkan pergi ke http://tortoisesvn.tigris.org dan download versi saat ini!"
+
+#: ID:195,
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"daftar path yang dipisahka baris baru dimana ikon ditampilkan.\n"
+"Jika anda menambahkan karakter \"*\" diakhir path, maka semua file dan subdir didalamnya disertakan juga."
+
+#: ID:194,
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"daftar path yang dipisahka baris baru dimana ikon ditampilkan.\n"
+"Jika anda menambahkan karakter \"*\" diakhir path, maka semua file dan subdir didalamnya disertakan juga.\n"
+"Daftar kosong akan membolehkan overlays pada semua path."
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "A required resource was unavailable."
+msgstr "sumber yang dibutuhkan tidak tersedia."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A sharing violation occurred while accessing %1."
+msgstr "Pelanggaran sharing terjadi ketika mengakses %1."
+
+#: ID:79,
+msgid ""
+"A viewer program for GNU diff files (patch files).\n"
+"If you don't have one use NotePad."
+msgstr ""
+"Program viewer untuk file GNU diff (file patch).\n"
+"Jika anda tidak mempunyainya gunakan NotePad."
+
+#: ID:9,
+msgid "A&bout"
+msgstr "&Tentang"
+
+#: ID:101,
+msgid "A&dd folder..."
+msgstr "Tambah fol&der..."
+
+#: ID:73,
+msgid "Abort"
+msgstr "Batalkan"
+
+#: Dlg-ID:136,
+msgid "About TortoiseMerge"
+msgstr "Tentang TortoiseMerge"
+
+#: Dlg-ID:129,
+msgid "About TortoiseSVN"
+msgstr "Tentang TortoiseSVN"
+
+#: ID:82,
+msgid "Accept once"
+msgstr "Terima sekali"
+
+#: ID:82,
+msgid "Accept permanently"
+msgstr "Terima secara permanen"
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Access to %1 was denied."
+msgstr "Akses ke %1 ditolak."
+
+#: ID:77,#:
+#: ID:319,
+msgid "Action"
+msgstr "Aksi"
+
+#: ID:117,
+msgid "Actions"
+msgstr "Aksi"
+
+#: ID:3826,
+msgid "Activate Task List"
+msgstr "Aktifkan Daftar Tugas"
+
+#: ID:209,#:
+#: Dlg-ID:155,
+msgid "Add"
+msgstr "Tambah"
+
+#: ID:101,
+msgid "Add &file..."
+msgstr "Tambah &file..."
+
+#: ID:376,
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Tambahkan '%s' ke kamus"
+
+#: ID:16,
+msgid "Add (as replacement)..."
+msgstr "Tambah (sebagai pengganti)..."
+
+#: ID:563,
+msgid "Add Properties"
+msgstr "Tambah Properti"
+
+#: ID:110,
+msgid "Add extension specific diff program"
+msgstr "Tambah ekstensi spesifik program diff"
+
+#: ID:110,
+msgid "Add extension specific merge program"
+msgstr "Tambah ekstensi spesifik program merge"
+
+#: ID:13,
+msgid "Add to &ignore list"
+msgstr "Tambahkan ke daftar ab&ikan"
+
+#: Control-ID:1279,
+msgid "Add..."
+msgstr "Tambah..."
+
+#: Dlg-ID:171,
+msgid "Add/Edit Extension Specific Diff/Merge Program"
+msgstr "Tambah/Edit Ekstensi Spesifik Program Diff/Merge"
+
+#: ID:73,#:
+#: ID:264,#:
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "Added"
+msgstr "Ditambahkan"
+
+#: ID:126,
+msgid "Added a file remotely"
+msgstr "Ditambahkan file secara remote"
+
+#: ID:126,
+msgid "Added a folder remotely"
+msgstr "Ditambahkan folder secara remote"
+
+#: ID:126,
+msgid "Added items remotely"
+msgstr "Ditambahkan item secara remote"
+
+#: Control-ID:65535,
+msgid "Added node"
+msgstr "Ditambahkan node"
+
+#: ID:145,
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the ignore list."
+msgstr ""
+"Ditambahkan file pattern\n"
+"%s\n"
+"ke daftar abaikan."
+
+#: ID:263,
+msgid "Adding"
+msgstr "Menambahkan"
+
+#: ID:9,
+msgid "Adds file(s) to Subversion control"
+msgstr "Menambahkan file ke kontrol Subversi"
+
+#: ID:13,
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Menambaj file yang dipilih atau mask file ke daftar 'abaikan'"
+
+#: ID:2049,
+msgid ""
+"Adjust the settings\n"
+"Settings"
+msgstr ""
+"Sesuaikan seting\n"
+"Seting"
+
+#: Dlg-ID:170,
+msgid "Advanced Diff/Merge Settings"
+msgstr "Seting Lanjutan Diff/Merge"
+
+#: ID:110,
+msgid "Advanced diff settings"
+msgstr "Seting lanjutan diff"
+
+#: ID:110,
+msgid "Advanced merge settings"
+msgstr "Seting lanjutan merge"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "All Files (*.*)"
+msgstr "Semua file (*.*)"
+
+#: ID:157,#:
+#: ID:157,
+msgid "All Files (*.*)|*.*||"
+msgstr "Semua File (*.*)|*.*||"
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to access %1 past its end."
+msgstr "Percobaan dibuat untuk mengakses %1 melewati batas akhirnya."
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to read from the writing %1."
+msgstr "Percobaan dibuat untuk membaca dari penulisan %1."
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to write to the reading %1."
+msgstr "Percobaan dibuat untuk menulis pembacaan %1."
+
+#: ID:78,
+#, c-format
+msgid ""
+"An external diff program used\n"
+"for comparing different revisions of files\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%base\tthe base file\n"
+"%mine\tthe modified file"
+msgstr ""
+"Program eksternal diff digunakan\n"
+"untuk membandingkan perbedaan revisi file\n"
+"<hr=100%>\n"
+"Anda bisa menetapkan parameter berikut ke path:\n"
+"%base\tbasis file\n"
+"%mine\tfile yang diubah"
+
+#: ID:79,
+#, c-format
+msgid ""
+"An external merge program used\n"
+"to resolve conflicted files.\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%merged\tthe conflicted file, where to save\n"
+"%theirs\t\tthe file as it is in the repository\n"
+"%mine\t\tyour own file, with your changes\n"
+"%base\t\tthe original file without your changes"
+msgstr ""
+"Program eksternal merge digunakan\n"
+"untuk memecahkan file yang konflik.\n"
+"<hr=100%>\n"
+"Anda bisa menetapkan parameter berikut ke path:\n"
+"%merged\tfile yang konflik, dimana untuk menyimpan\n"
+"%theirs\t\tfile seperti yang dalam repositori\n"
+"%mine\t\tfile anda sendiri, dengan perubahan anda\n"
+"%base\t\tfile asli tanpa perubahan anda"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An invalid argument was encountered."
+msgstr "Ditemukan argumen yang tidak benar."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "An invalid file handle was associated with %1."
+msgstr "Kendali file tidak benar yang dikaitkan dengan %1."
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "An unexpected error occurred while reading %1."
+msgstr "Kesalahan tidak diharapkan terjadi saat membaca %1."
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "An unexpected error occurred while writing %1."
+msgstr "Kesalahan tidak diharapkan terjadi saat menulis %1."
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An unknown error has occurred."
+msgstr "Kesalahan tidak dikenal telah terjadi."
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An unknown error occurred while accessing %1."
+msgstr "Kesalahan tidak diharapkan terjadi saat mengakses %1."
+
+#: ID:63,
+#, c-format
+msgid "An unknown line type was found in line %d !"
+msgstr "Tipe baris tidak dikenal ditemukan dalam baris %d !"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An unsupported operation was attempted."
+msgstr "Operasi yang tidak didukung sudah dicoba."
+
+#: ID:269,
+msgid "Analyze revision data..."
+msgstr "Menganalisa data revisi..."
+
+#: ID:14,
+msgid "Applies a unified diff file to the working copy"
+msgstr "Menerapkan file unified diff ke copy yang bekerja"
+
+#: ID:15,
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"Menerapkan properti secara rekursif ke semua file/folder.\n"
+"bugtraq: dan tsvn: properti hanya diterapkan ke folder."
+
+#: ID:13,
+msgid "Apply &patch..."
+msgstr "Terapkan &patch..."
+
+#: Control-ID:1294,
+msgid "Apply property recursively"
+msgstr "Terapkan properti secara rekursif"
+
+#: Control-ID:65535,
+msgid "Apply unified diff"
+msgstr "Terapkan unified diff"
+
+#: ID:145,
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "Anda yakin ingin menandai file yang konflik sudah dipecahkan?"
+
+#: ID:79,
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "Anda yakin ingin mengembalikan %d item? Anda akan kehilangan <b>semua</b> perubahan sejak pemutahiran terakhir!"
+
+#: MenuEntry
+msgid "Arrange &Vertical"
+msgstr "Atur &Vertikal"
+
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "Diatur dengan &path"
+
+#: ID:2050,
+msgid "Arranges the nodes sorted by path"
+msgstr "Mengatur node yang diurut dengan path"
+
+#: ID:77,
+#, c-format
+msgid "At revision: %d"
+msgstr "Di revisi: %d"
+
+#: Dlg-ID:131,#:
+#: Dlg-ID:160,
+msgid "Authentication"
+msgstr "Otentikasi"
+
+#: Control-ID:1278,
+msgid "Authentication data"
+msgstr "Data otentikasi"
+
+#: ID:76,#:
+#: ID:207,#:
+#: ID:19,
+msgid "Author"
+msgstr "Pembuat"
+
+#: Control-ID:65535,
+msgid "Author:                        Stefan Kueng"
+msgstr "Pembuat:                        Stefan Kueng"
+
+#: ID:116,
+msgid "Authors"
+msgstr "Para Pembuat"
+
+#: Control-ID:1265,
+msgid "Authors case insensitive"
+msgstr "Para pembuat sensitif huruf"
+
+#: Control-ID:65535,
+msgid "Authors:"
+msgstr "Para pembuat:"
+
+#: ID:222,
+msgid "Auto-close for local operations"
+msgstr "Otomatis-tutup untuk operasi lokal"
+
+#: ID:222,
+msgid "Auto-close if no conflicts"
+msgstr "Otomatis-tutup jika tidak ada konflik"
+
+#: ID:222,
+msgid "Auto-close if no errors"
+msgstr "Otomatis-tutup jika tidak ada kesalahan"
+
+#: ID:222,
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Otomatis-tutup jika tidak ada penggabungan, penambahan atau penghapusan"
+
+#: ID:195,
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Autocomplete menyarankan kata-kata (biasanya class atau nama anggota)\n"
+"dari file yang sudah anda ubah seperti yang anda mengetik log pesan."
+
+#: ID:438,#:
+#: ID:438,
+msgid "Automatic"
+msgstr "Otomatis"
+
+#: Control-ID:1073,
+msgid "Automatically check for &newer versions every week"
+msgstr "Otomatis memeriksa versi terbaru setiap mi&nggu"
+
+#: Control-ID:1157,
+msgid "Average"
+msgstr "Rata-rata"
+
+#: Control-ID:1001,
+msgid "B&rowse..."
+msgstr "&Lihat..."
+
+#: ID:246,
+msgid "Bar Graph"
+msgstr "Bar Grafik"
+
+#: Control-ID:65535,
+msgid "Base file:"
+msgstr "File Basis:"
+
+#: Dlg-ID:162,
+msgid "Blame"
+msgstr "Blame"
+
+#: ID:13,
+msgid "Blames each line of a file on an author"
+msgstr "Blames setiap baris dari file pada pembuat"
+
+#: Control-ID:1003,
+msgid "Br&owse..."
+msgstr "&Lihat..."
+
+#: ID:115,
+msgid "Branch / tag created successfully!"
+msgstr "Cabang / tag dibuat dengan sukses!"
+
+#: ID:9,
+msgid "Branch/&tag..."
+msgstr "Cabang/&tag..."
+
+#: ID:16,
+msgid "Break loc&k"
+msgstr "Lepaskan &kunci"
+
+#: Control-ID:1009,
+msgid "Bro&wse..."
+msgstr "&Lihat..."
+
+#: Control-ID:1007,
+msgid "Brows&e..."
+msgstr "&Lihat..."
+
+#: ID:78,
+msgid "Browse for the external diff program"
+msgstr "Melihat program eksternal diff"
+
+#: Control-ID:1069,
+msgid "Browse..."
+msgstr "Lihat..."
+
+#: Control-ID:1119,
+msgid "Bug-&ID / Issue-Nr:"
+msgstr "Bug-&ID / Issue-Nr:"
+
+#: ID:116,
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
+#: Control-ID:1119,
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
+
+#: Control-ID:1215,
+msgid "C&heck now"
+msgstr "&Periksa sekarang"
+
+#: ID:101,
+msgid "C&reate folder..."
+msgstr "Buat folde&r"
+
+#: ID:77,
+msgid "C&reate tag from revision"
+msgstr "Buat tag da&ri revisi"
+
+#: ID:3697,
+msgid "CAP"
+msgstr "CAP"
+
+#: ID:82,
+#, c-format
+msgid ""
+"Can't copy \n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"Tidak bisa meng-copy \n"
+"%s\n"
+"ke\n"
+"%s"
+
+#: ID:73,#:
+#: ID:563,#:
+#: Control-ID:2,#:
+#: Control-ID:2,
+msgid "Cancel"
+msgstr "Batal"
+
+#: ID:132,
+msgid "Cancelling TortoiseSVN Blame..."
+msgstr "Membatalkan TortoiseSVN Blame..."
+
+#: ID:270,
+msgid "Cancelling operation..."
+msgstr "Membatalkan operasi..."
+
+#: ID:68,
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Tidak bisa menampilkan diff karena baris baru tidak konsisten dalam file."
+
+#: Control-ID:65535,
+msgid "Cascaded context menu"
+msgstr "Cascaded menu konteks"
+
+#: ID:82,
+msgid "Certificate expired or not yet valid"
+msgstr "Sertifikat habis atau belum benar"
+
+#: ID:82,
+#, c-format
+msgid "Certificate expired. Valid until: %s"
+msgstr "Sertifikat habis. Berlaku sampai: %s"
+
+#: ID:82,
+#, c-format
+msgid "Certificate not yet valid. Valid from: %s"
+msgstr "Sertifikat belum benar. Berlaku dari: %s"
+
+#: ID:157,
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgstr "Sertifikat|*.p12;*.pkcs12;*.pfx|Semua|*.*||"
+
+#: ID:3825,
+msgid "Change the window position"
+msgstr "Ubah posisi jendela"
+
+#: ID:3825,
+msgid "Change the window size"
+msgstr "Ubah ukuran jendela"
+
+#: Dlg-ID:199,
+msgid "Changed Files"
+msgstr "File yang Diubah"
+
+#: ID:324,
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "Mengubah file antara %s, %s dan %s, %s"
+
+#: ID:163,
+#, c-format
+msgid "Changed files: %d"
+msgstr "File yang Diubah: %d"
+
+#: Control-ID:1242,
+msgid "Changes made (double-click on file for diff):"
+msgstr "Perubahan dibuat (klik ganda pada file untuk diff):"
+
+#: ID:8,
+msgid "Chec&kout..."
+msgstr "Peri&ksa..."
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Check"
+msgstr "Periksa"
+
+#: Dlg-ID:174,
+msgid "Check For Updates"
+msgstr "Periksa Pemutahiran"
+
+#: Control-ID:1031,
+msgid "Check For Updates..."
+msgstr "Periksa Pemutahiran..."
+
+#: ID:13,
+msgid "Check for modi&fications"
+msgstr "Periksa modifikasi"
+
+#: Control-ID:65535,
+msgid "Check for modifications"
+msgstr "Periksa modifikasi"
+
+#: ID:9,
+msgid "Check out a working copy from a repository"
+msgstr "Periksa copy yang bekerja dari repositori"
+
+#: Control-ID:1132,
+msgid "Check repository"
+msgstr "Periksa repositori"
+
+#: ID:95,
+msgid ""
+"Check the files which you want to\n"
+"delete before importing."
+msgstr ""
+"Periksa file yang ingin anda\n"
+"hapus sebelum mengimpor."
+
+#: ID:251,
+msgid "Check the path and/or URL you've entered."
+msgstr "Periksa path dan/atau URL yang anda masukan."
+
+#: ID:194,
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Periksa entri menu yang ingin anda tampilkan dalam submenu daripada menu konteks atas"
+
+#: ID:80,
+msgid "Check to use a less verbose date and time format in log messages"
+msgstr "Periksa untuk menggunakan verbose kurang dari format tanggal dan waktu dalam log pesasn"
+
+#: ID:270,
+msgid "Checking for forward copies"
+msgstr "Memeriksa copy penerusan"
+
+#: Control-ID:65535,
+msgid "Checking if a newer version of TortoiseSVN is available..."
+msgstr "Memeriksa apakah versi TortoiseSVN lebih baru tersedia..."
+
+#: Dlg-ID:133,
+msgid "Checkout"
+msgstr "Checkout"
+
+#: Control-ID:1074,
+msgid "Checkout &directory:"
+msgstr "Periksa &direktori"
+
+#: ID:146,
+msgid "Cleaning up."
+msgstr "Membersihkan."
+
+#: ID:79,
+msgid "Cleanup has finished"
+msgstr "Pembersihan selesai"
+
+#: ID:9,
+msgid "Cleanup interrupted operations, locked files, ..."
+msgstr "Operasi Pembersihan diinterupsi, file dikunci, ..."
+
+#: Control-ID:1273,#:
+#: Control-ID:1275,#:
+#: Control-ID:1276,#:
+#: Control-ID:1279,
+msgid "Clear"
+msgstr "Bersihkan"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Membersihkan %ld URLs yang disimpanuntuk %ld copy yang bekerja"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Bersihkan %ld log pesan yang disimpan untuk %ld copy yang bekerja"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Membersihkan %ld pasangan nama pengguna/kata sandi, %ld sertifikat ssl dan %ld nama pengguna"
+
+#: ID:195,
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"Membersihkan otentikasi yang disimpan.\n"
+"Anda harus memasukan nama pengguna/kata sandi anda untuk seluruh repositori."
+
+#: ID:196,
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Membersihkan ukuran dan posisi %ld dialog yang disimpan"
+
+#: ID:170,
+msgid "Click here to select a recently typed message"
+msgstr "Klik disini untuk memilih pesan terbaru yang diketik "
+
+#: Control-ID:65535,
+msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
+msgstr "Klik pada \"Lanjutan\" untuk menetapkan program diff alternatif berdasarkan ekstensi file"
+
+#: Control-ID:65535,
+msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
+msgstr "Klik pada \"Lanjutan\" untuk menetapkan program merge alternatif berdasarkan ekstensi file"
+
+#: ID:257,
+msgid "Clipboard"
+msgstr "Clipboard"
+
+#: ID:222,
+msgid "Close manually"
+msgstr "Tutup secara manual"
+
+#: ID:3825,
+msgid "Close the active window and prompts to save the documents"
+msgstr "Tutup semua jendela aktif dan tanya untuk menyimpan dokumen"
+
+#: Control-ID:1068,
+msgid "Color co&de in-line changes"
+msgstr "Warna ko&de dalam perubahan sebaris"
+
+#: Dlg-ID:138,
+msgid "Colors"
+msgstr "Warna"
+
+#: ID:198,
+msgid "Command Line"
+msgstr "Baris Perintah"
+
+#: Control-ID:1336,
+msgid "Command Line To Execute:"
+msgstr "Baris Perintah Untuk Dijalankan:"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Command failed."
+msgstr "Perintah gagal."
+
+#: ID:209,#:
+#: Control-ID:1083,
+msgid "Commit"
+msgstr "Komit"
+
+#: Control-ID:1262,
+msgid "Commit threshold:"
+msgstr "Threshold komit:"
+
+#: Control-ID:1110,
+msgid "Commit to:"
+msgstr "Komit ke:"
+
+#: ID:244,
+msgid "Commits by author"
+msgstr "Komit dengan pembuat"
+
+#: ID:244,
+msgid "Commits by date"
+msgstr "Komit dengan tanggal"
+
+#: Control-ID:1135,
+msgid "Commits each week:"
+msgstr "Komit setiap minggu:"
+
+#: ID:9,
+msgid "Commits your changes to the repository"
+msgstr "Komit perubahan anda ke repositori"
+
+#: MenuEntry
+msgid "Compare &HEAD revisions"
+msgstr "Bandingkan revisi &HEAD"
+
+#: ID:114,
+msgid "Compare and &blame with working BASE"
+msgstr "Bandingkan dan &blame dengan BASE yang bekerja"
+
+#: ID:76,
+msgid "Compare with &working copy"
+msgstr "Bandingkan dengan copy yang beker&ja"
+
+#: ID:138,
+msgid "Compare with b&ase"
+msgstr "Bandingkan dengan b&ase"
+
+#: ID:12,
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "Membandingkan file dengan revisi yang terakhir di-komit untuk menampilkan perubahan yang telah anda buat"
+
+#: ID:17,
+msgid "Compares the selected file with a file in the repository"
+msgstr "Membandingkan file yang dipilih dengan file dalam repositori"
+
+#: ID:120,
+#, c-format
+msgid "Comparing %s to %s"
+msgstr "Membandingkan %s dengan %s"
+
+#: ID:74,
+msgid "Completed"
+msgstr "Selesai"
+
+#: Dlg-ID:236,
+msgid "Configure Hook Scripts"
+msgstr "Konfigurasi Naskah Hook"
+
+#: Control-ID:65535,
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Konfigurasi program yang digunakan untuk membandingkan revisi file yang berbeda."
+
+#: Control-ID:65535,
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Konfigurasi program yang digunakan untuk memecahkan file yang konflik."
+
+#: Control-ID:65535,
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Konfigurasi program viewer untuk file GNU diff (file patch)."
+
+#: ID:263,#:
+#: Control-ID:65535,
+msgid "Conflicted"
+msgstr "Konflik"
+
+#: ID:188,
+#, c-format
+msgid "Conflicts: %d"
+msgstr "Konflik: %d"
+
+#: ID:73,
+msgid "Continue"
+msgstr "Lanjutkan"
+
+#: ID:376,
+msgid "Cop&y"
+msgstr "Cop&y"
+
+#: ID:73,
+msgid "Copied"
+msgstr "Dicopy"
+
+#: ID:126,
+msgid "Copied remotely"
+msgstr "Dicopy secara remote"
+
+#: ID:103,
+#, c-format
+msgid "Copy %s"
+msgstr "Copy %s"
+
+#: Dlg-ID:142,
+msgid "Copy (Branch / Tag)"
+msgstr "Copy (Cabang / Tag)"
+
+#: ID:101,
+msgid "Copy URL to clipboard"
+msgstr "Copy URL ke clipboard"
+
+#: ID:209,
+msgid "Copy all information to clipboard"
+msgstr "Copy semual informasi ke clipboard"
+
+#: ID:101,
+msgid "Copy error message to clipboard"
+msgstr "Copy pesan kesalahan ke clipboard"
+
+#: ID:76,
+msgid "Copy from path"
+msgstr "Copy dari path"
+
+#: ID:209,
+msgid "Copy paths to clipboard"
+msgstr "Copy path ke clipboard"
+
+#: ID:3603,
+msgid ""
+"Copy the selection and put it on the Clipboard\n"
+"Copy"
+msgstr ""
+"Copy yang dipilih dan simpan pada Clipboard\n"
+"Copy"
+
+#: ID:114,
+msgid "Copy to clipboard"
+msgstr "Copy ke clipboard"
+
+#: ID:103,
+msgid "Copy to working copy"
+msgstr "Copy ke copy yang bekerja"
+
+#: ID:101,
+msgid "Copy to working copy..."
+msgstr "Copy ke copy yang bekerja..."
+
+#: ID:98,
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Copy: Nama baru untuk %s"
+
+#: ID:80,
+#, c-format
+msgid "Copying %s"
+msgstr "Mengcopy %s"
+
+#: ID:80,
+msgid "Copying..."
+msgstr "Mengcopy..."
+
+#: ID:188,
+msgid "Corrections"
+msgstr "Pembetulan"
+
+#: ID:81,
+#, c-format
+msgid "Could not add %s to the ignore list!"
+msgstr "Tidak dapat menambah %s ke daftar abaikan!"
+
+#: ID:201,
+msgid "Could not check for a newer version!"
+msgstr "Tidak dapat memeriksa versi terbaru!"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not copy the files!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Tidak dapat mengcopy file!\n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+msgid "Could not get the status!"
+msgstr "Tidak dapat memperoleh status!"
+
+#: ID:69,
+#, c-format
+msgid ""
+"Could not open the file\n"
+"%s"
+msgstr ""
+"Tidak dapat membuka file \n"
+"%s"
+
+#: ID:82,
+#, c-format
+msgid "Could not remove %s from the ignore list"
+msgstr "Tidak dapat menghapus %s dari daftar abaikan"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not retrieve URL of the file!\n"
+"%s"
+msgstr ""
+"Tidak dapat mengambil URL file!\n"
+"%s"
+
+#: ID:66,
+#, c-format
+msgid ""
+"Could not retrieve revision %s of the file %s.\n"
+"Patching is not possible!"
+msgstr ""
+"Tidak dapat mengambil revisi %s dari file %s.\n"
+"Patching tidak memungkinkan!"
+
+#: ID:64,
+#, c-format
+msgid "Could not save the file %s!"
+msgstr "Tidak dapat menyimpan file %s!"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Tidak dapat memulai viewer diff!\n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start external diff program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Tidak dapat memulai program eksternal diff!\n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start external merge program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Tidak dapat memulai program eksternal merge!\n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Could not start print job."
+msgstr "Tidak dapat memulai pekerjaan mencetak."
+
+#: ID:81,
+msgid "Could not start thread!"
+msgstr "Tidak dapat memulai thread!"
+
+#: ID:13,
+msgid "Create &patch..."
+msgstr "Buat &patch..."
+
+#: Dlg-ID:208,
+msgid "Create Patch"
+msgstr "Buat Patch"
+
+#: Dlg-ID:178,
+msgid "Create Repository"
+msgstr "Buat Repositori"
+
+#: Control-ID:65535,
+msgid "Create copy in the repository from:"
+msgstr "Buat copy dalam repositori dari:"
+
+#: ID:8,
+msgid "Create repositor&y here..."
+msgstr "Buat repositor&i disini..."
+
+#: ID:126,
+msgid "Created folder remotely"
+msgstr "Folder dibuat secara remote"
+
+#: ID:10,
+msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
+msgstr "Buat copy 'murah' di dalam repositori yang digunakan untuk pencabangan atau tag"
+
+#: ID:10,
+msgid "Creates a repository database at the current location"
+msgstr "Membuat database repositori di lokasi saat ini"
+
+#: ID:14,
+msgid "Creates a unified diff file with all changes you made"
+msgstr "Membuat file unified diff dengan semua perubahan yang anda buat"
+
+#: Control-ID:65535,
+msgid "Credits:"
+msgstr "Penghargaan:"
+
+#: ID:376,
+msgid "Cu&t"
+msgstr "Cu&t"
+
+#: Control-ID:1113,
+msgid "Current version is:"
+msgstr "Versi saat ini:"
+
+#: ID:201,
+#, c-format
+msgid "Current version is: %s"
+msgstr "Versi saat ini adalah: %s"
+
+#: ID:3603,
+msgid ""
+"Cut the selection and put it on the Clipboard\n"
+"Cut"
+msgstr ""
+"Potong yang dipilih dan simpan pada Clipboard\n"
+"Cut"
+
+#: Control-ID:1314,
+msgid "D&iff"
+msgstr "D&iff"
+
+#: ID:76,#:
+#: ID:208,#:
+#: ID:19,
+msgid "Date"
+msgstr "Tanggal"
+
+#: Control-ID:65535,
+msgid "Default &number of log messages"
+msgstr "&Jumlah standar dari log pesan"
+
+#: ID:73,#:
+#: ID:264,
+msgid "Deleted"
+msgstr "Dihapus"
+
+#: Control-ID:65535,
+msgid "Deleted node"
+msgstr "Node yang dihapus"
+
+#: ID:11,
+msgid "Deletes files / folders from version control"
+msgstr "Menghapus file / folder dari kontrol versi"
+
+#: ID:263,
+msgid "Deleting"
+msgstr "Menghapus"
+
+#: ID:3859,#:
+#: ID:3859,
+msgid "Destination disk drive is full."
+msgstr "Disk drive tujuan penuh."
+
+#: Control-ID:1277,
+msgid "Dialog sizes and positions"
+msgstr "Ukuran dan posisi dialog"
+
+#: ID:146,
+msgid "Diff With URL"
+msgstr "Diff Dengan URL"
+
+#: Control-ID:65535,
+msgid "Diff file:"
+msgstr "Diff file:"
+
+#: Control-ID:1302,
+msgid "Difference between"
+msgstr "Perbedaan antara"
+
+#: Control-ID:1022,
+msgid "Diffing"
+msgstr "Diffing"
+
+#: Control-ID:65535,
+msgid "Directory:"
+msgstr "Direktori:"
+
+#: ID:195,
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Matikan opsi ini jika anda mempunyai copy yang bekerja yang sangat besar dan mengalami\n"
+"terlalu banyak akses disk ketika melihat copy yang bekerja."
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Disk full while accessing %1."
+msgstr "Disk penuh saat mengakses %1."
+
+#: ID:3860,#:
+#: ID:3860,
+#, c-format
+msgid "Dispatch exception: %1"
+msgstr "Kekecualian pengiriman: %1"
+
+#: ID:3605,
+msgid ""
+"Display help for clicked on buttons, menus and windows\n"
+"Help"
+msgstr ""
+"Menampilkan bantuan untuk tombol yang diklik, menu dan jendela\n"
+"Bantuan"
+
+#: ID:3605,
+msgid ""
+"Display help for current task or command\n"
+"Help"
+msgstr ""
+"Menampilkan bantuan untuk tugas atau perintah saat ini\n"
+"Bantuan"
+
+#: ID:3605,
+msgid ""
+"Display instructions about how to use help\n"
+"Help"
+msgstr ""
+"Menampilkan instruksi mengenai bagaimana menggunakan bantuan\n"
+"Bantuan"
+
+#: ID:3605,
+msgid ""
+"Display program information, version number and copyright\n"
+"About"
+msgstr ""
+"Menampilkan informasi program, nomor versi dan hak cipta\n"
+"Tentang"
+
+#: ID:145,
+msgid "Do you really want to move this file or folder?"
+msgstr "Anda benar-benar ingin memindahkan file atau folder ini?"
+
+#: ID:119,
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Anda benar-benar ingin mengembalikan semua perubahan dalam %s\n"
+"dan kembali ke revisi ini?"
+
+#: ID:76,
+#, c-format
+msgid ""
+"Do you really want to revert all changes to\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+"Anda benar-benar ingin mengembalikan semua perubahan ke\n"
+"%s\n"
+"yang sudah dibuat dalam revisi ini?"
+
+#: ID:76,
+msgid "Do you want to proceed?"
+msgstr "Anda ingin melanjutkan?"
+
+#: ID:313,
+msgid ""
+"Do you want to reload the documents to reflect the settings changes?\n"
+"Note: you will lose all changes you've made!"
+msgstr ""
+"Anda ingin mengambil lagi dokumen untuk melihat perubahan seting?\n"
+"Catatan: anda akan kehilangan semua perubahan yang sudah anda buat!"
+
+#: ID:313,
+msgid ""
+"Do you want to reload the documents?\n"
+"You will lose all changes you've made!"
+msgstr ""
+"Anda ingin mengambil lagi dokumen?\n"
+"Anda akan kehilangan semua perubahan yang sudah anda buat!"
+
+#: ID:563,
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Anda ingin menghapus properti %s secara rekursif?"
+
+#: ID:313,
+msgid "Do you want to save your changes?"
+msgstr "Anda ingin menyimpan perubahan anda?"
+
+#: Control-ID:65535,
+msgid "Documentation - Simon Large"
+msgstr "Documentasi - Simon Large"
+
+#: ID:73,#:
+#: ID:80,
+msgid "Don't show this message again"
+msgstr "Jangan tampilkan pesan ini lagi"
+
+#: Control-ID:1079,
+msgid "Drive Types"
+msgstr "Tipe Drive"
+
+#: MenuEntry
+msgid "E&xit"
+msgstr "&Keluar"
+
+#: ID:9,
+msgid "E&xport..."
+msgstr "&Ekspor..."
+
+#: ID:3697,
+msgid "EXT"
+msgstr "EXT"
+
+#: Control-ID:1237,
+msgid "Edit"
+msgstr "Edit"
+
+#: ID:564,#:
+#: Dlg-ID:227,
+msgid "Edit Properties"
+msgstr "Edit Properti"
+
+#: ID:113,
+msgid "Edit author"
+msgstr "Edit pembuat"
+
+#: ID:115,
+msgid "Edit author name"
+msgstr "Edit nama pembuat"
+
+#: ID:110,
+msgid "Edit extension specific diff program"
+msgstr "Edit ekstensi program diff spesifik"
+
+#: ID:110,
+msgid "Edit extension specific merge program"
+msgstr "Edit ekstensi program merge spesifik"
+
+#: ID:113,#:
+#: ID:115,
+msgid "Edit log message"
+msgstr "Edit log pesan"
+
+#: Control-ID:1331,
+msgid "Edit..."
+msgstr "Edit..."
+
+#: ID:79,
+msgid "Either the name or IP of the proxy server"
+msgstr "Baik nama ataupun IP dari server proxy"
+
+#: Control-ID:65535,
+msgid "Empty"
+msgstr "Kosong"
+
+#: Control-ID:1240,
+msgid "Enable &accelerators on the top level menu"
+msgstr "Hidupkan akselerasi pada menu tingkat atas"
+
+#: ID:196,
+msgid ""
+"Enable this if you want keyboard accelerators on the top level context menu too.\n"
+"Note that the context menu icons look nicer with this disabled."
+msgstr ""
+"Hidupkan ini jika anda ingin akselerasi keyboard pada menu konteks tingkat atas juga.\n"
+"Catatan: ikon menu konteks itu lebih bagus bila ini dimatikan."
+
+#: ID:196,
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Hidupkan ini hanya jika anda bekerja denga proyek web pada VS.NET2003!\n"
+"Anda harus memulai lagi sistem agar seting ini berpengaruh."
+
+#: ID:195,
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"Hidupkan pemeriksa ejaan hanya jika\n"
+"properti tsvn:projectlanguage di-set."
+
+#: Control-ID:65535,
+msgid "End Revision"
+msgstr "Akhir Revisi"
+
+#: ID:3825,
+msgid "Enlarge the window to full size"
+msgstr "Besarkan jendela ke ukuran penuh"
+
+#: Dlg-ID:135,
+msgid "Enter Log Message"
+msgstr "Masukkan Log Pesan"
+
+#: ID:80,
+msgid "Enter URL"
+msgstr "Masukkan URL"
+
+#: ID:313,
+msgid "Enter a lock message (optional):"
+msgstr "Masukkan pesan kunci (opsional):"
+
+#: Control-ID:1065,
+msgid "Enter log &message:"
+msgstr "Masukkan log &pesan:"
+
+#: ID:126,
+msgid "Enter log message:"
+msgstr "Masukkan log pesan:"
+
+#: ID:3603,
+msgid ""
+"Erase everything\n"
+"Erase All"
+msgstr ""
+"Hapus semuanya\n"
+"Hapus Semua"
+
+#: ID:3603,
+msgid ""
+"Erase the selection\n"
+"Erase"
+msgstr ""
+"Hapus yang dipilih\n"
+"Hapus"
+
+#: ID:82,
+msgid "Error"
+msgstr "Salah"
+
+#: ID:145,
+msgid "Error rebuilding Shell Icon Cache!"
+msgstr "Kesalahan membangun ulang Shell Icon Cache!"
+
+#: ID:81,
+#, c-format
+msgid "Error validating server certificate for %s:"
+msgstr "Kesalahan memvalidasi sertifikat server untuk %s:"
+
+#: ID:70,
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Kesalahan saat membaca/menulis kunci registri %s\n"
+"%s"
+
+#: Control-ID:65535,
+msgid "Exceptions:"
+msgstr "Kekecualian:"
+
+#: Control-ID:65535,
+msgid "Exclude paths:"
+msgstr "Kecuali path:"
+
+#: ID:209,
+msgid "Explore to"
+msgstr "Eksplorasi ke"
+
+#: ID:94,
+msgid "Export directory:"
+msgstr "Direktori ekspor:"
+
+#: ID:79,
+msgid "Export unversioned files too"
+msgstr "Ekspor file yang tidak diversi juga"
+
+#: ID:79,
+msgid "Exporting..."
+msgstr "Mengekspor..."
+
+#: ID:10,
+msgid "Exports a repository to a clean working copy without the svn administrative folders"
+msgstr "Mengekspor repositori ke copy yang bekerja yang bersih tanpa folder administratif svn"
+
+#: ID:74,#:
+#: ID:207,
+msgid "Extension"
+msgstr "Ekstensi"
+
+#: Control-ID:65535,
+msgid "Extension or mime-type:"
+msgstr "Ekstensi atau tipe-mime:"
+
+#: Control-ID:65535,
+msgid "Extension/mime-type specific programs"
+msgstr "Ekstensi/tipe-mime program spesifik"
+
+#: ID:74,
+msgid "External"
+msgstr "Eksternal"
+
+#: Control-ID:65535,
+msgid "External Program:"
+msgstr "Program Eksternal:"
+
+#: Dlg-ID:192,
+msgid "External Programs::Diff Viewer"
+msgstr "Program Eksternal::Diff Viewer"
+
+#: Dlg-ID:193,
+msgid "External Programs::Merge Tool"
+msgstr "Program Eksternal::Piranti Merge"
+
+#: Dlg-ID:194,
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Program Eksternal::Unified Diff Viewer"
+
+#: ID:74,
+msgid "Failed revert"
+msgstr "Gagal mengembalikan"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to create empty document."
+msgstr "Gagal untuk membuat dokumen kosong."
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to launch help."
+msgstr "Gagal untuk menjalankan bantuan."
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to open document."
+msgstr "Gagal untuk membuka dokumen."
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to save document."
+msgstr "Gagal untuk menyimpan dokumen."
+
+#: Control-ID:1217,
+msgid "Fetch &status for context menu"
+msgstr "Mengambil &status untuk menu konteks"
+
+#: ID:313,
+msgid "Fetching file..."
+msgstr "Mengambil file..."
+
+#: ID:313,
+#, c-format
+msgid "Fetching revision %s of file:"
+msgstr "Mengambil revisi %s dari file:"
+
+#: ID:63,#:
+#: ID:74,#:
+#: ID:77,#:
+#: ID:207,#:
+#: ID:319,
+msgid "File"
+msgstr "File"
+
+#: Control-ID:1138,
+msgid "File changes each week:"
+msgstr "Perubahan file setiap minggu:"
+
+#: ID:376,
+msgid "File diffs"
+msgstr "File diffs"
+
+#: ID:211,
+msgid "File list is empty"
+msgstr "Daftar file kosong"
+
+#: ID:376,#:
+#: Dlg-ID:135,
+msgid "File patches"
+msgstr "File patches"
+
+#: ID:7,
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Besar file:\t\t\t%s\n"
+"Panjang:\t\t\t%ld pixel\n"
+"Tinggi:\t\t\t%ld pixel\n"
+"Resolusi Horisontal:\t%.1f dpi\n"
+"Resolusi Vertikal:\t\t%.1f dpi\n"
+"Kedalaman:\t\t\t%d bit\n"
+"Pembesaran:\t\t\t%d%%"
+
+#: Dlg-ID:139,
+msgid "Find"
+msgstr "Cari"
+
+#: ID:3603,
+msgid ""
+"Find the specified text\n"
+"Find"
+msgstr ""
+"Cari teks yang ditetapkan\n"
+"Cari"
+
+#: ID:77,
+msgid "Finished!"
+msgstr "Selesai!"
+
+#: Control-ID:1315,
+msgid "Floppy drives (A: B:)"
+msgstr "Floppy drives (A: B:)"
+
+#: ID:3585,
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "Untuk Bantuan, tekan F1. Gulung secara horisontal dengan Ctrl-Scrollwheel"
+
+#: ID:119,
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr "Untuk histori lengkap jangan pilih \"Hentikan copy/ganti nama\""
+
+#: Control-ID:1200,
+msgid "From:"
+msgstr "Dari:"
+
+#: Control-ID:65535,
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "Dari: (mulai URL dan revisi dari jangkauan untuk digabung)"
+
+#: ID:273,
+msgid "GDI+ couldn't be initialized!"
+msgstr "GDI+ tidak bisa diinisialisasi!"
+
+#: ID:273,
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ tidak bisa membuat obyek. Mungkin anda tidak punya cukup memori."
+
+#: ID:83,
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"GDI+ diperlukan untuk menyimpann grafik revisi sebagai gambar.\n"
+"Anda bisa mendapatkan GDI+ dari\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
+#: Dlg-ID:143,#:
+#: Dlg-ID:107,#:
+#: Control-ID:65535,
+msgid "General"
+msgstr "Umum"
+
+#: ID:144,
+msgid "Generating patchfile..."
+msgstr "Membuat patchfile..."
+
+#: ID:16,
+msgid "Get loc&k..."
+msgstr "Dapatkan &kunci..."
+
+#: ID:89,
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Mendapatkan kunci untuk file tanpa properti 'svn:needs-lock' <b>tidak</b> akan menjaga yang lain dari pengeditan dalam copy pekerjaannya.\n"
+"Untuk menghidupkan penguncian langsung silahkan tambah properti  'svn:needs-lock' ke semua file yang memerlukan penguncian, dan komit file itu.\n"
+"Setiap file akan mempunyai tanda file-system read-only di-set, dan memperoleh kunci akan membuatnya bisa ditulisi.\n"
+"Catatan bahwa pengguna lain akan perlu memutahirkan copy pekerjaannya sebelum mereka melihat sebagai hanya-baca."
+
+#: ID:119,
+#, c-format
+msgid "Getting file %s"
+msgstr "Mendapatkan file %s"
+
+#: ID:120,
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr "Mendapatkan file %s, revisi %ld"
+
+#: ID:132,
+msgid "Getting file info..."
+msgstr "Mendapatkan info file..."
+
+#: ID:269,
+msgid "Getting information from repository..."
+msgstr "Mendapatkan informasi dari repositori..."
+
+#: ID:120,
+msgid "Getting information..."
+msgstr "Mendapatkan informasi..."
+
+#: ID:132,
+msgid "Getting log info..."
+msgstr "Mendapatkan info log..."
+
+#: ID:119,
+msgid "Getting unified diff"
+msgstr "Mendapatkan unified diff"
+
+#: Control-ID:65535,
+msgid "Global ignore &pattern:"
+msgstr "&Pattern abaikan global:"
+
+#: Dlg-ID:130,
+msgid "Go to line"
+msgstr "Pergi ke baris"
+
+#: ID:2051,
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Pergi ke konflik berikutnya\n"
+"konflik berikutnya"
+
+#: ID:2049,
+msgid ""
+"Go to the next difference\n"
+"next difference"
+msgstr ""
+"Pergi ke perbedaan berikutnya\n"
+"perbedaan berikutnya"
+
+#: ID:2051,
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Pergi ke konflik sebelumnya\n"
+"konflik sebelumnya"
+
+#: ID:2049,
+msgid ""
+"Go to the previous difference\n"
+"previous difference"
+msgstr ""
+"Pergi ke perbedaan sebelumnya\n"
+"perbedaan sebelumnya"
+
+#: Control-ID:1134,
+msgid "Graph type:"
+msgstr "Tipe grafik:"
+
+#: Control-ID:1229,
+msgid "H&ide unrelated changed paths"
+msgstr "&Sembunyikan path perubahan tidak terkait"
+
+#: Control-ID:1004,
+msgid "Help"
+msgstr "Bantuan"
+
+#: Control-ID:1326,
+msgid "Hide the script while running"
+msgstr "Sembunyikan naskah saat dijalankan"
+
+#: ID:2052,
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Sembunyikan/Tampilkan daftar file patch\n"
+"Menyembunyikan atau menampilkan daftar file patch"
+
+#: Control-ID:1127,
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Petunjuk: Tekan F5 untuk menyegarkan subtree yang dipilih dan Ctrl-F5 untuk mengambil semua anaknya juga"
+
+#: Dlg-ID:103,
+msgid "Hook Scripts"
+msgstr "Naskah Hook"
+
+#: ID:198,
+msgid "Hook Type"
+msgstr "Tipe Hook"
+
+#: Control-ID:1334,
+msgid "Hook Type:"
+msgstr "Tipe Hook:"
+
+#: ID:82,
+#, c-format
+msgid "Hostname mismatch (%s)"
+msgstr "Nama host tidak sama (%s)"
+
+#: Control-ID:65535,
+msgid "Icon Overlays / Status Columns"
+msgstr "Ikon Overlays / Kolom Status"
+
+#: Control-ID:65535,
+msgid "Icons/Design/Code:     Luebbe Onken"
+msgstr "Ikons/Desain/Kode:     Luebbe Onken"
+
+#: ID:194,
+msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgstr "Jika diaktifkan, menjaga overlay dari tampilan dalam dialog \"simpan sebagai..\" atau \"buka\" "
+
+#: ID:95,
+msgid ""
+"If checked then a new folder is created in the repository.\n"
+"If not checked then the import goes directly to the specified URL."
+msgstr ""
+"Jika dicentang maka folder baru dibuat dalam repositori.\n"
+"Jika tidak dicentang maka impor langsung ke URL yang ditetapkan."
+
+#: ID:79,
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr "Jika dicentang, TortoiseSVN membuat file sementara dari BASE untuk dilakukan diff dengan kata kunci yang diperluas dan akhir baris disesuaikan."
+
+#: ID:196,
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr ""
+"Jika dicentang, dialog komit akan dimulai lagi secara otomatis setelah kesalahan,\n"
+"sementara menyimpan pilihan anda terakhir dan log pesan."
+
+#: ID:195,
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Jika dimatikan, maka menu konteks akan ditampilkan lebih cepat.\n"
+"Tetapi beberapa entri menu konteks akan tampil yang tidak bisa digunakan.\n"
+"Sebagai contoh: entri \"Tampilkan Log\" akan ditampilkan untuk folder yang baru ditambahkan saja."
+
+#: ID:194,
+msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+msgstr "Jika dihidupkan, TortoiseSVN memeriksa sekali seminggu jika versi yang lebih baru tersedia"
+
+#: ID:195,
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Jika dihidupkan, dialog Merge menginisialisasi URL \"Dari:\" dengan URL copy pekerjaan yang dipilih\n"
+"daripada URL yang terakhir digunakan."
+
+#: ID:195,
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Jika dihidupkan, repositori dihubungi ketika dialog dimulai.\n"
+"Anda tidak harus mengklik pada \"Periksa Repositori\" lagi."
+
+#: ID:195,
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"Jika di-set, TortoiseSVN akan menset waktu file ke waktu dikomit\n"
+"terakhir kali. Jika tidak di-set, TortoiseSVN menggunakan waktu saat ini."
+
+#: ID:196,
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Jika di-set, file di dalam folder tidak diversi bisa ditampilkan dalam kontrol status \n"
+"Kontrol status digunakan untuk contoh dalam dialog komit."
+
+#: ID:196,
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr ""
+"Jika di-set, maka file tidak diversi akan menandai status dari direktori diatasnya sebagai diubah\n"
+"contoh. mereka memperoleh ikon overlay yang diubah."
+
+#: ID:196,
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Jika anda mengubah nilai ini, copy pekerjaan anda yang ada tidak akan dikenal lagi!\n"
+"Anda harus memeriksakan lago copy pekerjaan anda.\n"
+"Jika anda tidak yakin tentang ini, silahkan baca dokumen.\n"
+"Anda sudah yakin ingin melakukan ini?"
+
+#: ID:251,
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "Jika anda ingin membebaskan kunci, gunakan dialog \"Periksa Modifikasi\"."
+
+#: ID:73,
+msgid "Ignore"
+msgstr "Abaikan"
+
+#: Control-ID:1020,
+msgid "Ignore &all whitespaces"
+msgstr "Abaikan semu&a spasi"
+
+#: Control-ID:1067,
+msgid "Ignore &case changes"
+msgstr "Abaikan perubahan &huruf"
+
+#: Control-ID:1267,
+msgid "Ignore ancestry"
+msgstr "Abaikan keturunan"
+
+#: Control-ID:1018,
+msgid "Ignore line &endings (recommended)"
+msgstr "Abaikan a&khir baris (direkomendasikan)"
+
+#: Dlg-ID:139,
+msgid "Import"
+msgstr "Impor"
+
+#: Control-ID:1056,
+msgid "Import &message"
+msgstr "Impor p&esan"
+
+#: ID:120,
+#, c-format
+msgid "Importing file %s"
+msgstr "Mengimpor file %s"
+
+#: ID:10,
+msgid "Imports the directory to a repository"
+msgstr "Mengimpor direktori ke repositori"
+
+#: Control-ID:1266,
+msgid "Include ignored files"
+msgstr "Sertakan file yang diabaikan"
+
+#: Control-ID:65535,
+msgid "Include paths:"
+msgstr "Sertakan path:"
+
+#: ID:76,
+msgid "Initial import"
+msgstr "Impor inisial"
+
+#: Control-ID:65535,
+msgid "Inline diff"
+msgstr "Inline diff"
+
+#: Dlg-ID:161,
+msgid "Input"
+msgstr "Input"
+
+#: ID:3603,
+msgid ""
+"Insert Clipboard contents\n"
+"Paste"
+msgstr ""
+"Sisipkan isi Clipboard\n"
+"Paste"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Insufficient memory to perform operation."
+msgstr "Memori tidak cukup untuk melakukan operasi."
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Internal application error."
+msgstr "Kesalahan aplikasi internal."
+
+#: ID:102,
+msgid "Invalid data object dropped!"
+msgstr "Obyek data yang dikirim tidak benar!"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Invalid filename."
+msgstr "Nama file tidak benar."
+
+#: ID:82,
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"Nomor revisi tidak benar! Revisi yang benar adalah:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"angka desimal positif,\n"
+"tanggal dalam salah satu dari contoh formulir berikut:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+#: ID:83,
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"Nomor revisi tidak benar! Revisi yang benar adalah:\n"
+"HEAD\n"
+"angka desimal positif,\n"
+"tanggal dalam salah satu dari contoh formulir berikut:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+#: ID:145,
+msgid ""
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
+msgstr ""
+"Tidak mungkin untuk mengganti nama file dengan mengubah huruf pada namanya sendiri.\n"
+"Sebagai contoh, anda tidak bisa membuat MyFile.txt menjadi MYFILE.txt.\n"
+"Silahkan lihat dokumentasi untuk mengatasi batasan ini."
+
+#: ID:88,
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr ""
+"Nampaknya anda sedang mencoba untuk <b>merelokasi</b> copy pekerjaan anda ke path berbeda di dalam repositori yang sama.\n"
+"\n"
+"Dari: %s\n"
+"Ke: %s\n"
+"\n"
+"Relokasi hanya diperlukan jika path <b>ke</b> repositori berubah.\n"
+"Mengubah path berbeda <b>di dalam</b> repositori dikerjakan dengan operasi tukar.\n"
+"\n"
+"Penggunaan yang tidak benar dari relokasi <b>akan merusak copy pekerjaan anda!</b>\n"
+"Jika anda tidak yakin apa yang dikerjakan, silahkan rujuk dokumen kami pada <i>relokasi</i>.\n"
+"Anda benar-benar ingin merelokasi?"
+
+#: Control-ID:1203,
+msgid "Keep &locks"
+msgstr "Biarkan &kuncian"
+
+#: Control-ID:65535,
+msgid "Last commit revision:"
+msgstr "Revisi komit terakhir:"
+
+#: ID:11,
+msgid "Last saved revision of item"
+msgstr "Item revisi yang terakhir disimpan"
+
+#: ID:12,
+msgid "Launches the external diff / merge program to solve the conflicts"
+msgstr "Menjalankan program diff / merge eksternal untuk mengatasi konflik"
+
+#: Control-ID:1137,
+msgid "Least active author:"
+msgstr "Pembuat aktif terbaru:"
+
+#: ID:188,
+msgid "Left View: "
+msgstr "Tampilan Kiri:"
+
+#: Control-ID:65535,
+msgid "Left image"
+msgstr "Gambar kiri"
+
+#: ID:19,
+msgid "Line"
+msgstr "Baris"
+
+#: ID:246,
+msgid "Line Graph"
+msgstr "Grafik baris"
+
+#: Control-ID:65535,
+msgid "Line:"
+msgstr "Baris:"
+
+#: ID:3605,
+msgid ""
+"List Help topics\n"
+"Help Topics"
+msgstr ""
+"Daftar topik Bantuan\n"
+"Topik Bantuan"
+
+#: Dlg-ID:130,
+msgid "Load Images"
+msgstr "Ambil Gambar"
+
+#: ID:63,
+msgid "Local status"
+msgstr "Status lokal"
+
+#: ID:94,
+msgid ""
+"Location where the contents of the\n"
+"repository URL will be saved to."
+msgstr ""
+"Lokasi dimana isi dari\n"
+"URL repositori akan menyimpannya."
+
+#: ID:207,#:
+#: ID:221,
+msgid "Lock"
+msgstr "Kunci"
+
+#: Dlg-ID:191,
+msgid "Lock Files"
+msgstr "Kunci File"
+
+#: ID:209,
+msgid "Lock broken!"
+msgstr "Kunci rusak!"
+
+#: ID:207,
+msgid "Lock comment"
+msgstr "Komentar kunci"
+
+#: Control-ID:65535,
+msgid "Lock creation date:"
+msgstr "Tanggal pembuatan kunci:"
+
+#: ID:263,
+msgid "Lock failed"
+msgstr "Penguncian gagal"
+
+#: Control-ID:65535,
+msgid "Lock owner:"
+msgstr "Pemilik kunci:"
+
+#: ID:209,
+#, c-format
+msgid "Lock stolen by %s"
+msgstr "Kunci dicuri oleh %s"
+
+#: ID:263,
+#, c-format
+msgid "Locked by %s"
+msgstr "Dikunci oleh %s"
+
+#: ID:89,
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Penguncian gagal karena versi lebih baru sudah ada!\n"
+"Anda ingin memutahirkan dan mencoba lagi?"
+
+#: ID:16,
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "Kuncian file untuk pengguna lain dan membuatnya bisa diedit oleh anda."
+
+#: ID:126,
+msgid "Log"
+msgstr "Log"
+
+#: Dlg-ID:211,
+msgid "Log History"
+msgstr "Histori Log"
+
+#: Control-ID:1274,#:
+#: Dlg-ID:130,
+msgid "Log Messages"
+msgstr "Log Pesan"
+
+#: Control-ID:65535,
+msgid "Log message"
+msgstr "Log pesan"
+
+#: Control-ID:65535,
+msgid "Log messages"
+msgstr "Log pesan"
+
+#: Dlg-ID:195,
+msgid "Look and Feel"
+msgstr "Gaya tampilan"
+
+#: Dlg-ID:212,
+msgid "Look and Feel::Colors"
+msgstr "Gaya tampilan::Warna"
+
+#: Dlg-ID:196,
+msgid "Look and Feel::Dialogs 1"
+msgstr "Gaya tampilan::Dialog 1"
+
+#: Dlg-ID:213,
+msgid "Look and Feel::Dialogs 2"
+msgstr "Gaya tampilan::Dialog 2"
+
+#: Dlg-ID:106,
+msgid "Look and Feel::Icon Overlays"
+msgstr "Gaya tampilan::Ikon Overlay"
+
+#: Dlg-ID:184,
+msgid "Look and Feel::Icon Set"
+msgstr "Gaya tampilan::Ikon Set"
+
+#: ID:238,
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld"
+msgstr "Revisi terendah: %ld - Revisi tertinggi: %ld"
+
+#: ID:238,
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+msgstr "Revisi terendah: %ld - Revisi tertinggi: %ld - revisi HEAD: %ld"
+
+#: ID:3866,#:
+#: ID:3866,
+msgid "Mail system DLL is invalid."
+msgstr "DLL sistem Mail tidak benar"
+
+#: ID:17,
+msgid "Manage Subversion properties"
+msgstr "Atur properti Subversion"
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Tandai sebagai &diatasi"
+
+#: ID:282,
+msgid "Mark as resolved"
+msgstr "Tandai sebagai sudah diatasi"
+
+#: ID:2051,
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Menandai file sudah diatasi dalam Subversion\n"
+"Tandai sudah diatasi"
+
+#: Control-ID:1064,
+msgid "Match &case"
+msgstr "Huruf sama"
+
+#: Control-ID:1159,
+msgid "Max"
+msgstr "Maks"
+
+#: Control-ID:1317,
+msgid "Max. items to keep in the log message history"
+msgstr "Maks item untuk tetap dalam histori log pesan"
+
+#: Dlg-ID:141,#:
+#: Control-ID:65535,
+msgid "Merge"
+msgstr "Gabung"
+
+#: ID:263,#:
+#: ID:263,
+msgid "Merged"
+msgstr "Digabung"
+
+#: ID:10,
+msgid "Merges a branch into the main trunk"
+msgstr "Menggabung cabang ke dalam trunk utama"
+
+#: Control-ID:65535,
+msgid "Merging"
+msgstr "Menggabung"
+
+#: ID:83,
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Penggabungan memerlukan revisi berbeda atau URL berbeda dalam 'Dari:' dan 'Ke:'"
+
+#: ID:76,
+msgid "Message"
+msgstr "Pesan"
+
+#: Control-ID:1241,
+msgid "Message:"
+msgstr "Pesan:"
+
+#: ID:116,
+msgid "Messages"
+msgstr "Pesan"
+
+#: ID:116,
+msgid "Messages, authors and paths"
+msgstr "Pesan, pembuat dan path"
+
+#: ID:78,
+msgid "Mime type"
+msgstr "Tipe mime"
+
+#: Control-ID:1158,
+msgid "Min"
+msgstr "Min"
+
+#: ID:263,
+msgid "Mine"
+msgstr "Mine"
+
+#: Control-ID:1023,
+msgid "Misc"
+msgstr "Lain-lain"
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Mixed"
+msgstr "Campuran"
+
+#: ID:74,#:
+#: ID:264,
+msgid "Modified"
+msgstr "Diubah"
+
+#: ID:438,#:
+#: ID:438,
+msgid "More colors..."
+msgstr "Warna lainnya..."
+
+#: Control-ID:1136,
+msgid "Most active author:"
+msgstr "Pembuat yang paling aktif:"
+
+#: ID:98,
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Pindah: Nama baru untuk %s"
+
+#: ID:126,
+msgid "Moved remotely"
+msgstr "Dipindahkan secara remote"
+
+#: ID:80,
+#, c-format
+msgid "Moving %s"
+msgstr "Memindahkan %s"
+
+#: ID:80,
+msgid "Moving..."
+msgstr "Memindahkan..."
+
+#: Control-ID:65535,
+msgid "My file:"
+msgstr "File saya:"
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "K&onflik berikutnya"
+
+#: ID:3697,
+msgid "NUM"
+msgstr "NUM"
+
+#: ID:208,
+msgid "Needs lock"
+msgstr "Memerlukan kunci"
+
+#: ID:210,
+msgid "Nested"
+msgstr "Berulang"
+
+#: Dlg-ID:102,
+msgid "Network"
+msgstr "Jaringan"
+
+#: Dlg-ID:30721,#:
+#: Dlg-ID:30721,
+msgid "New"
+msgstr "Baru"
+
+#: Control-ID:1076,
+msgid "New &name:"
+msgstr "&Nama baru:"
+
+#: ID:97,
+#, c-format
+msgid "New name for %s"
+msgstr "Nama baru untuk %s"
+
+#: ID:98,
+msgid "New name:"
+msgstr "Nama baru:"
+
+#: ID:73,
+msgid "No"
+msgstr "Tidak"
+
+#: ID:81,
+#, c-format
+msgid ""
+"No command specified!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgstr ""
+"Tidak ada perintah yang ditetapkan!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe digunakan oleh ekstensi Shell dan tidak boleh dipanggil secara langsung!"
+
+#: ID:81,
+msgid "No command value specified!"
+msgstr "Tidak ada nilai perintah yang ditetapkan!"
+
+#: ID:82,
+msgid "No differences found!"
+msgstr "Tidak ada perbedaan yang ditemukan!"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "No error message is available."
+msgstr "Tidak ada pesan kesalahan tersedia."
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+msgid "No error occurred."
+msgstr "Tidak ada kesalahan terjadi."
+
+#: ID:82,
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dikembalikan oleh TortoiseSVN!"
+
+#: ID:77,
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here..."
+msgstr ""
+"Tidak ada file yang diubah atau ditambahkan sejak\n"
+"komit terakhir. Tidak ada yang perlu\n"
+"dikerjakan TortoiseSVN disini..."
+
+#: ID:170,
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Tidak ada file yang diubah atau ditambahkan sejak\n"
+"komit terakhir. Tidak ada yang perlu\n"
+"dikerjakan TortoiseSVN disini...\n"
+"Anda ingin melihat file yang tidak diversi?"
+
+#: ID:273,
+msgid "No graph available"
+msgstr "Tidak ada grafik yang tersedia"
+
+#: ID:273,
+#, c-format
+msgid "No image encoder found for %s."
+msgstr "Tidak ada enkoder gambar ditemukan untuk %s."
+
+#: ID:188,
+msgid "No spell corrections"
+msgstr "Tidak pembetulan ejaan"
+
+#: ID:196,
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Tidak ada cache status. Hanya folder yang diversi mendapatkan overlay, filde tidak memperoleh overlay"
+
+#: ID:188,
+msgid "No thesaurus suggestions"
+msgstr "Tidak ada saran kamus"
+
+#: Control-ID:1271,
+msgid "None"
+msgstr "Tidak ada"
+
+#: ID:264,#:
+#: Control-ID:65535,
+msgid "Normal"
+msgstr "Normal"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr "Tidak semua entri registri sistem (atau file INI) yang dihapus."
+
+#: ID:83,
+msgid "Not enough memory to complete operation."
+msgstr "Memori tidak cukup untuk menyelesaikan operasi."
+
+#: ID:563,
+msgid "Not recursive"
+msgstr "Tidak rekursif"
+
+#: ID:88,
+msgid "Notice"
+msgstr "Pemberitahuan"
+
+#: Control-ID:1161,
+msgid "Number of authors:"
+msgstr "Jumlah pembuat:"
+
+#: Control-ID:1160,
+msgid "Number of weeks:"
+msgstr "Jumlah minggu:"
+
+#: ID:73,#:
+#: Control-ID:1,#:
+#: Control-ID:1,
+msgid "OK"
+msgstr "OK"
+
+#: ID:3697,
+msgid "OVR"
+msgstr "OVR"
+
+#: ID:99,#:
+#: Control-ID:1202,#:
+#: Control-ID:1202,
+msgid "Omit e&xternals"
+msgstr "Abaikan e&ksternal"
+
+#: ID:145,
+msgid "Omit externals"
+msgstr "Abaikan eksternal"
+
+#: ID:219,
+msgid "One or more files are in a conflicted state."
+msgstr "Satu atau lebih file dalam keadaan konflik."
+
+#: ID:99,#:
+#: Control-ID:1073,
+msgid "Only check out the &top folder"
+msgstr "Hanya memeriksa folder &teratas"
+
+#: ID:169,
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"Hanya angka (secara opsional dipisahkan oleh koma)\n"
+"yang dibolehkan!"
+
+#: Control-ID:1073,
+msgid "Only update the &top folder"
+msgstr "Hanya memutahirkan folder &teratas"
+
+#: Control-ID:1224,
+msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
+msgstr "Hanya menggunakan &pemeriksa ejaan bila tsvn:projectlanguage di-set"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "Open"
+msgstr "Buka"
+
+#: ID:76,
+msgid "Open client certificate file"
+msgstr "Buka file sertifikat klien"
+
+#: ID:3601,
+msgid "Open file"
+msgstr "Buka file"
+
+#: ID:7,
+msgid "Open image file..."
+msgstr "Buka file gambar..."
+
+#: ID:282,
+msgid "Open parent folder"
+msgstr "Buka folder diatasnya"
+
+#: ID:113,
+msgid "Open with..."
+msgstr "Buka dengan..."
+
+#: ID:3605,
+msgid ""
+"Opens Help\n"
+"Help Topics"
+msgstr ""
+"Membuka Bantuan \n"
+"Topik Batuan"
+
+#: ID:13,
+msgid "Opens the repository browser to tweak the repository online"
+msgstr "Membuka browser repositori untuk membedah repositori secar online"
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr "Ukuran asl&i"
+
+#: ID:245,
+msgid "Others"
+msgstr "Lainnya"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "Out of memory."
+msgstr "Kekurangan memori."
+
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "Konflik sebelumnya"
+
+#: ID:76,
+msgid "PEM"
+msgstr "PEM"
+
+#: ID:76,
+msgid "PKCS12"
+msgstr "PKCS12"
+
+#: ID:69,
+msgid "Password:"
+msgstr "Kata sandi:"
+
+#: ID:172,
+msgid "Paste filename list"
+msgstr "Paste daftar nama file"
+
+#: ID:376,
+msgid "Patch all"
+msgstr "Patch semua"
+
+#: ID:376,
+msgid "Patch selected"
+msgstr "Patch yang dipilih"
+
+#: ID:157,#:
+#: ID:157,
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|Semua (*.*)|*.*||"
+
+#: ID:77,#:
+#: ID:198,
+msgid "Path"
+msgstr "Path"
+
+#: ID:116,
+msgid "Paths"
+msgstr "Path"
+
+#: ID:157,
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Gambar (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Semua (*.*)|*.*||"
+
+#: ID:246,
+msgid "Pie Graph"
+msgstr "Grafik Bulat"
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a GUID."
+msgstr "Silahkan masukkan GUID."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a currency."
+msgstr "Silahkan masukkan kurs."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a date and/or time."
+msgstr "Silahkan masukkan tanggal dan/atau jam."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a date."
+msgstr "Silahkan masukkan tanggal."
+
+#: ID:83,
+msgid "Please enter a hook script to execute."
+msgstr "Silahkan masukkan naskah hook untuk dijalankan."
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter a number between %1 and %2."
+msgstr "Silahkan masukkan angka antara %1 dan %2."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a number."
+msgstr "Silahkan masukkan angka."
+
+#: ID:83,
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Silahkan masukkan path dimana untuk menerapkan naskah hook."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a positive integer."
+msgstr "Silahkan masukkan integer positif."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a time."
+msgstr "Silahkan masukkan jam."
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter an integer between %1 and %2."
+msgstr "Silahkan masukkan integer antara %1 dan %2."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter an integer between 0 and 255."
+msgstr "Silahkan masukkan integer antara 0 dan 255."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter an integer."
+msgstr "Silahkan masukkan integer."
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter no more than %1 characters."
+msgstr "Silahkan masukkan tidak lebih dari %1 karakter."
+
+#: ID:251,
+msgid "Please execute the \"Cleanup\" command."
+msgstr "Silahkan jalankan perintah \"Bersihkan\""
+
+#: ID:78,
+msgid ""
+"Please note:\n"
+"your working copy remains on the previous path. If you want your next changes\n"
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
+msgstr ""
+"Harap dicatat:\n"
+"copy pekerjaan anda tetap pada path sebelumnya. Jika anda kemudian ingin mengubah\n"
+"agar ada dalam copy yang baru dibuat maka anda perlu menukarnya\n"
+"ke copy path itu. Gunakan perintah Tukar untuk melakukannya."
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please select a button."
+msgstr "Silahkan pilih tombol."
+
+#: ID:83,
+msgid "Please select a hook type"
+msgstr "Silahkan pilih tipe hook"
+
+#: ID:76,
+msgid "Please specify the certificate type"
+msgstr "Silahkan tetapkan tipe sertifikat"
+
+#: ID:132,
+msgid "Please wait - this can take several minutes. Seriously!"
+msgstr "Silakan menunggu - ini bisa memerlukan beberapa menit. Serius!"
+
+#: ID:13,
+msgid "Please wait while cancelling..."
+msgstr "Harap menunggu sementara membatalkan..."
+
+#: ID:319,
+msgid "Please wait while differences are obtained..."
+msgstr "Harap menunggu sementara mendapatkan perbedaan..."
+
+#: ID:104,
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Harap menunggu sementara browser repositori diinisialisasi..."
+
+#: ID:119,#:
+#: ID:146,#:
+#: ID:211,
+msgid "Please wait..."
+msgstr "Harap menunggu..."
+
+#: ID:569,
+msgid "Post-Commit Hook"
+msgstr "Post-Commit Hook"
+
+#: ID:570,
+msgid "Post-Update Hook"
+msgstr "Post-Update Hook"
+
+#: ID:569,
+msgid "Pre-Commit Hook"
+msgstr "Pre-Commit Hook"
+
+#: ID:570,
+msgid "Pre-Update Hook"
+msgstr "Pre-Update Hook"
+
+#: ID:376,
+msgid "Preview patched file"
+msgstr "Tinjau file yang di-patch"
+
+#: ID:132,
+#, c-format
+msgid "Processing revision %d of %d..."
+msgstr "Memproses revisi %d dari %d..."
+
+#: ID:74,
+msgid "Program"
+msgstr "Program"
+
+#: ID:157,
+msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
+msgstr "Programs (*.exe)|*.exe|Semua File (*.*)|*.*||"
+
+#: Dlg-ID:134,#:
+#: Control-ID:65535,
+msgid "Progress"
+msgstr "Progres"
+
+#: ID:17,#:
+#: Dlg-ID:177,#:
+#: Dlg-ID:226,
+msgid "Properties"
+msgstr "Properti"
+
+#: Control-ID:1287,
+msgid "Properties for"
+msgstr "Properti untuk"
+
+#: ID:209,#:
+#: Control-ID:11021,
+msgid "Properties..."
+msgstr "Properti..."
+
+#: ID:11,
+msgid "Property"
+msgstr "Properti"
+
+#: Dlg-ID:107,
+msgid "Property Page"
+msgstr "Halaman Properti"
+
+#: Control-ID:65535,
+msgid "Property Status:"
+msgstr "Status Properti:"
+
+#: Control-ID:1292,
+msgid "Property name:"
+msgstr "Nama properti:"
+
+#: ID:207,
+msgid "Property status"
+msgstr "Status properti"
+
+#: Control-ID:1293,
+msgid "Property value:"
+msgstr "Nilai properti:"
+
+#: Control-ID:65535,
+msgid "Proxy &timeout in seconds:"
+msgstr "&Waktu habis proxy dalam detik:"
+
+#: Control-ID:1080,
+msgid "Proxy Settings"
+msgstr "Seting Proxy"
+
+#: ID:246,
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
+
+#: ID:3605,
+msgid ""
+"Quit the application; prompts to save documents\n"
+"Exit"
+msgstr ""
+"Keluar aplikasi; tanya untuk menyimpan dokumen\n"
+"Keluar"
+
+#: Control-ID:1073,
+msgid "R&AM drives"
+msgstr "R&AM drives"
+
+#: ID:114,
+msgid "R&evert to this revision"
+msgstr "&Balikkan ke revisi ini"
+
+#: ID:3697,
+msgid "REC"
+msgstr "REC"
+
+#: Control-ID:1048,
+msgid "Re&movable drives"
+msgstr "Re&movable drives"
+
+#: ID:11,
+msgid "Re&name..."
+msgstr "&Ganti nama..."
+
+#: ID:8,
+msgid "Re&vert..."
+msgstr "&Balikkan..."
+
+#: ID:12,
+msgid "Read the 'Daily Use Guide' before you are stuck..."
+msgstr "Baca 'Petunjuk Penggunaan Tiap Hari' sebelum anda macet..."
+
+#: Control-ID:1260,
+msgid "Recurse into unversioned folders"
+msgstr "Masuk ke dalam folder tidak diversi"
+
+#: ID:563,
+msgid "Recursive"
+msgstr "Rekursif"
+
+#: ID:3603,
+msgid ""
+"Redo the previously undone action\n"
+"Redo"
+msgstr ""
+"Kerjakan lagi aksi pembatalan sebelumnya\n"
+"Redo"
+
+#: ID:3825,
+msgid "Reduce the window to an icon"
+msgstr "Kurangi jendela menjadi ikon"
+
+#: ID:101,#:
+#: ID:135,
+msgid "Refresh"
+msgstr "Segarkan"
+
+#: ID:82,
+msgid "Reject"
+msgstr "Tolak"
+
+#: ID:16,
+msgid "Release loc&k"
+msgstr "Bebaskan &kunci"
+
+#: ID:16,
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Membebaskan kunci bahkan jika anda bukan pemilik kunci (membebaskannya)."
+
+#: ID:16,
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Membebaskan kunci pada file agar pengguna bisa mengeditnya lagi."
+
+#: ID:12,
+msgid "Relo&cate..."
+msgstr "Rel&okasi..."
+
+#: MenuEntry
+msgid "Reload"
+msgstr "Ambil lagi"
+
+#: ID:2050,
+msgid ""
+"Reloads the opened files and reverts all changes.\n"
+"Reload"
+msgstr ""
+"Mengambil lagi file yang dibuka dan mengembalikan semua perubahan.\n"
+"Ambil lagi"
+
+#: Dlg-ID:157,
+msgid "Relocate"
+msgstr "Relokasi"
+
+#: ID:89,
+msgid "Relocate Warning"
+msgstr "Peringatan Relokasi"
+
+#: ID:80,
+msgid "Relocating..."
+msgstr "Merelokasi..."
+
+#: ID:207,
+msgid "Remote property status"
+msgstr "Status properti remote"
+
+#: ID:63,#:
+#: ID:207,
+msgid "Remote status"
+msgstr "Status remote"
+
+#: ID:207,
+msgid "Remote text status"
+msgstr "Status teks remote"
+
+#: ID:15,
+msgid "Remove from &ignore list"
+msgstr "Hapus dari daftar aba&ikan"
+
+#: Control-ID:1332,
+msgid "Remove..."
+msgstr "Hapus..."
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "Removed"
+msgstr "Dihapus"
+
+#: ID:126,
+msgid "Removed file/folder"
+msgstr "File/folder dihapus"
+
+#: ID:145,
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the ignore list."
+msgstr ""
+"Pattern file dihapus\n"
+"%s\n"
+"dari daftar abaikan."
+
+#: ID:15,
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "Menghapus file atau mask file dari daftar item yang diabaikan"
+
+#: Dlg-ID:151,
+msgid "Rename"
+msgstr "Ganti nama"
+
+#: ID:97,
+#, c-format
+msgid "Rename %s"
+msgstr "Ganti nama %s"
+
+#: Control-ID:65535,
+msgid "Renamed node"
+msgstr "Node yang diganti nama"
+
+#: ID:126,
+msgid "Renamed remotely"
+msgstr "Ganti nama secara remote"
+
+#: ID:11,
+msgid "Renames files / folders inside version control"
+msgstr "Mengganti nama file / folder di dalam kontrol versi"
+
+#: ID:3603,
+msgid ""
+"Repeat the last action\n"
+"Repeat"
+msgstr ""
+"Ulangi aksi terakhir\n"
+"Ulangi"
+
+#: ID:3603,
+msgid ""
+"Replace specific text with different text\n"
+"Replace"
+msgstr ""
+"Timpa teks spesifik dengan teks yang berbeda\n"
+"Timpa"
+
+#: Control-ID:65535,
+msgid "Replaced node"
+msgstr "Node yang ditimpa"
+
+#: ID:74,
+msgid "Replacing"
+msgstr "Menimpa"
+
+#: Control-ID:65535,#:
+#: Control-ID:1055,#:
+#: Control-ID:65535,
+msgid "Repository"
+msgstr "Repositori"
+
+#: Dlg-ID:153,
+msgid "Repository Browser"
+msgstr "Browser Repositori"
+
+#: Control-ID:65535,
+msgid "Repository browser"
+msgstr "Browser repositori"
+
+#: Control-ID:65535,
+msgid "Requests a username and a password"
+msgstr "Meminta nama pengguna dan kata sandi"
+
+#: ID:8,
+msgid "Res&olved..."
+msgstr "Di&sekesaikan..."
+
+#: Dlg-ID:207,
+msgid "Resolve"
+msgstr "Selesaikan"
+
+#: ID:282,
+msgid "Resolve conflict using \"mine\""
+msgstr "Menyelesaikan konflik dengan menggunakan \"mine\""
+
+#: ID:282,
+msgid "Resolve conflict using \"theirs\""
+msgstr "Selesaikan konflik menggunakan \"theirs\""
+
+#: ID:74,#:
+#: ID:209,
+msgid "Resolved"
+msgstr "Diselesaikan"
+
+#: ID:282,
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Diselesikan:\n"
+"%s"
+
+#: ID:9,
+msgid "Resolves conflicted files"
+msgstr "Menyelesaikan file yang konflik"
+
+#: Control-ID:1254,
+msgid "Restore Default"
+msgstr "Kembalikan Standar"
+
+#: ID:3826,
+msgid "Restore the window to normal size"
+msgstr "Mengembalikan jendela ke ukuran normal"
+
+#: ID:73,
+msgid "Restored"
+msgstr "Dikembalikan"
+
+#: ID:73,
+msgid "Retry"
+msgstr "Coba lagi"
+
+#: Dlg-ID:175,
+msgid "Revert"
+msgstr "Balikkan"
+
+#: ID:114,
+msgid "Revert changes from these revisions"
+msgstr "Balikkan perubahan dari revisi ini"
+
+#: ID:73,
+msgid "Reverted"
+msgstr "Dibalikan"
+
+#: ID:9,
+msgid "Reverts all changes you made since the last update"
+msgstr "Membalikan semua peruibahan yang anda buat sejak pemutahiran terakhir"
+
+#: ID:76,#:
+#: ID:208,#:
+#: Control-ID:65535,#:
+#: Control-ID:1306,#:
+#: ID:19,
+msgid "Revision"
+msgstr "Revisi"
+
+#: ID:119,
+#, c-format
+msgid "Revision %d"
+msgstr "Revisi %d"
+
+#: ID:269,#:
+#: ID:270,#:
+#: ID:272,
+#, c-format
+msgid "Revision %ld"
+msgstr "Revisi %ld"
+
+#: ID:120,
+#, c-format
+msgid "Revision %s"
+msgstr "Revisi %s"
+
+#: ID:15,
+msgid "Revision &graph"
+msgstr "&Grafik revisi"
+
+#: Control-ID:65535,
+msgid "Revision / Author:"
+msgstr "Revisi / Pembuat:"
+
+#: Dlg-ID:182,
+msgid "Revision Graph"
+msgstr "Grafik Revisi"
+
+#: Dlg-ID:228,
+msgid "Revision Range"
+msgstr "Jangkauan Revisi"
+
+#: ID:269,#:
+#: Control-ID:65535,
+msgid "Revision graph"
+msgstr "Grafik revisi"
+
+#: ID:75,
+msgid "Revision: "
+msgstr "Revisi:"
+
+#: ID:272,
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revisi: %ld\n"
+"URL: %s\r\n"
+"Pembuat: %s\r\n"
+"Tanggal: %s\r\n"
+"\r\n"
+"Log pesan:\r\n"
+"%s"
+
+#: ID:116,
+msgid "Revisions"
+msgstr "Revisi"
+
+#: ID:188,
+msgid "Right View: "
+msgstr "Tampilan Kanan:"
+
+#: Control-ID:65535,
+msgid "Right image"
+msgstr "Gambar kanan:"
+
+#: MenuEntry
+msgid "S&ettings"
+msgstr "S&eting"
+
+#: Control-ID:1132,
+msgid "S&tatistics"
+msgstr "S&tatistik"
+
+#: ID:9,
+msgid "S&witch..."
+msgstr "T&ukar..."
+
+#: ID:3697,
+msgid "SCRL"
+msgstr "SCRL"
+
+#: Control-ID:1081,
+msgid "SSH"
+msgstr "SSH"
+
+#: ID:12,
+msgid "SVN Add files to this WC"
+msgstr "SVN Menambah file ke WC ini"
+
+#: ID:16,
+msgid "SVN Author"
+msgstr "SVN Pembuat"
+
+#: ID:16,
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN Copy dan ganti nama file yang diversi disini"
+
+#: ID:13,
+msgid "SVN Copy versioned files here"
+msgstr "SVN Copy file yang diversi disini"
+
+#: ID:14,
+msgid "SVN Export all to here"
+msgstr "SVN Ekspor semua kesini"
+
+#: ID:14,
+msgid "SVN Export to here"
+msgstr "SVN Ekspor kesini"
+
+#: ID:16,
+msgid "SVN Lock owner"
+msgstr "SVN Kunci pemilik"
+
+#: ID:17,
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Pindahkan dan ganti nama file yang diversi disini"
+
+#: ID:12,
+msgid "SVN Move versioned files here"
+msgstr "SVN Pindahkan file yang diversi disini"
+
+#: ID:11,
+msgid "SVN Revision"
+msgstr "SVN Revisi"
+
+#: ID:11,
+msgid "SVN Status"
+msgstr "SVN Status"
+
+#: ID:12,
+msgid "SVN URL"
+msgstr "SVN URL"
+
+#: ID:17,
+msgid "SVN eol-style"
+msgstr "SVN gaya-eol"
+
+#: ID:14,
+msgid "SVN mime-type"
+msgstr "SVN tipe-mime"
+
+#: ID:12,
+msgid "SVN short URL"
+msgstr "SVN URL singkat"
+
+#: MenuEntry
+msgid "Save &As..."
+msgstr "Simpan Seb&agai..."
+
+#: ID:101,
+msgid "Save &as..."
+msgstr "Simpan seb&agai..."
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "Save As"
+msgstr "Simpan Sebagai"
+
+#: ID:313,
+msgid "Save as..."
+msgstr "Simpan sebagai..."
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "Save changes to %1?"
+msgstr "Simpan perubahan ke %1?"
+
+#: ID:232,
+msgid "Save client certificate path"
+msgstr "Simpan path sertifikat klien"
+
+#: ID:76,
+msgid "Save revision &to..."
+msgstr "Simpan revisi &ke..."
+
+#: ID:3601,#:
+#: ID:3601,
+msgid ""
+"Save the modified file\n"
+"Save file"
+msgstr ""
+"Simpan file yang diubah\n"
+"Simpan file"
+
+#: Control-ID:1132,
+msgid "Save to clipboard"
+msgstr "Simpan ke clipboard"
+
+#: Dlg-ID:108,
+msgid "Saved Data"
+msgstr "Data Tersimpan"
+
+#: ID:103,
+#, c-format
+msgid "Saving file %s"
+msgstr "Menyimpan file %s"
+
+#: ID:103,
+msgid "Saving files"
+msgstr "Menyimpan file"
+
+#: ID:144,
+msgid "Saving patchfile to:"
+msgstr "Menyimpan file patch ke:"
+
+#: Control-ID:1014,#:
+#: Control-ID:1017,#:
+#: Control-ID:1064,#:
+#: Control-ID:1212,
+msgid "Scintilla"
+msgstr "Scintilla"
+
+#: ID:113,
+msgid "Search &log messages..."
+msgstr "Cari &log pesan..."
+
+#: Control-ID:65535,
+msgid "Search for:"
+msgstr "Mencari:"
+
+#: ID:7,
+msgid "Search string not found!"
+msgstr "String yang dicari tidak ditemukan!"
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Seek failed on %1"
+msgstr "Pencarian gagal pada %1"
+
+#: ID:376,
+msgid "Select &All"
+msgstr "Pilih Semu&a"
+
+#: Control-ID:1067,#:
+#: Control-ID:1067,
+msgid "Select / deselect &all"
+msgstr "Pilih / jangan pilih semu&a"
+
+#: ID:13,
+msgid "Select File..."
+msgstr "Pilih File..."
+
+#: Dlg-ID:173,
+msgid "Select Revision"
+msgstr "Pilih Revisi"
+
+#: ID:78,
+msgid "Select SSH client"
+msgstr "Pilih klien SSH"
+
+#: ID:3585,
+msgid "Select an object on which to get Help"
+msgstr "Pilih obyek dimana untuk mendapatkan Bantuan"
+
+#: ID:78,
+msgid "Select diff application"
+msgstr "Pilih aplikasi diff"
+
+#: ID:313,
+msgid "Select diff file..."
+msgstr "Pilih file diff..."
+
+#: ID:99,
+msgid "Select directory to check out to"
+msgstr "Pilih direktori yang akan di-check out"
+
+#: ID:276,
+msgid "Select end revision"
+msgstr "Pilih akhir revisi"
+
+#: ID:79,
+msgid ""
+"Select folder to export to.\n"
+"You might need to create a new folder before performing this export."
+msgstr ""
+"Pilih folder yang akan diekspor.\n"
+"Anda mungkin perlu untuk membuat folder baru sebelum melakukan ekspor ini."
+
+#: ID:197,
+msgid "Select folder to run script for"
+msgstr "Pilih folder untuk menjalankan naskah"
+
+#: ID:197,
+msgid "Select hook script file"
+msgstr "Pilih file naskah hook"
+
+#: ID:78,
+msgid "Select merge application"
+msgstr "Pilih aplikasi merge"
+
+#: ID:276,
+msgid "Select revision range"
+msgstr "Pilih jangkauan revisi"
+
+#: ID:276,
+msgid "Select start revision"
+msgstr "Pilih awal revisi"
+
+#: ID:79,
+msgid "Select text editor application"
+msgstr "Pilih aplikasi editor teks"
+
+#: ID:79,
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Pilih cara dialog progres diakhir operasi."
+
+#: ID:3603,
+msgid ""
+"Select the entire document\n"
+"Select All"
+msgstr ""
+"Pilih seluruh dokumen\n"
+"Pilih Semua"
+
+#: Control-ID:65535,
+msgid "Select the type of repository you want to create:"
+msgstr "Pilih tipe repositori yang ingin anda buat:"
+
+#: ID:78,
+msgid "Select viewer for diff-files"
+msgstr "Pilih viewer untuk file-diff"
+
+#: ID:3866,#:
+#: ID:3866,
+msgid "Send Mail failed to send message."
+msgstr "Kirim Surat gagal untuk mengirimkan pesan."
+
+#: ID:74,
+msgid "Sending content"
+msgstr "Mengirimkan konten"
+
+#: Control-ID:65535,
+msgid "Server &address:"
+msgstr "&Alamat Server:"
+
+#: Control-ID:1088,
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Set tanggal file ke \"&waktu komit terakhir\""
+
+#: ID:13,
+msgid "Setting properties..."
+msgstr "Seting properti..."
+
+#: ID:107,
+msgid "Settings"
+msgstr "Seting"
+
+#: Control-ID:1132,
+msgid "Sh&ow log"
+msgstr "Ta&mpilkan log"
+
+#: Control-ID:1270,
+msgid "Shell"
+msgstr "Shell"
+
+#: ID:145,
+msgid "Shell Icon Cache was rebuilt!"
+msgstr "Shell Icon Cache sudah dibangun ulang!"
+
+#: ID:101,
+msgid "Sho&w properties"
+msgstr "Tampilkan pr&operti"
+
+#: Control-ID:1105,
+msgid "Short &date/time format in log messages"
+msgstr "Format pendek tanggal/&jam dalam log pesan"
+
+#: ID:12,
+msgid "Short URL of Subversion items"
+msgstr "URL singkat dari item Subversion"
+
+#: ID:115,#:
+#: Control-ID:1031,
+msgid "Show &All"
+msgstr "Tampilkan Semu&a"
+
+#: ID:115,
+msgid "Show &Range..."
+msgstr "Tampilkan &Jangkauan..."
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Tampilkan semu&a revisi"
+
+#: ID:113,
+msgid "Show &differences"
+msgstr "Tampilkan perbe&daan"
+
+#: ID:12,#:
+#: ID:101,#:
+#: Control-ID:1016,#:
+#: Control-ID:1228,#:
+#: Control-ID:1031,#:
+#: Control-ID:1034,#:
+#: Control-ID:1132,
+msgid "Show &log"
+msgstr "Tampilkan &log"
+
+#: Control-ID:1031,
+msgid "Show &log..."
+msgstr "Tampilkan &log..."
+
+#: Control-ID:1088,
+msgid "Show &overlays only in explorer"
+msgstr "Tampilkan &overlay hanya dalam eksplorer"
+
+#: Control-ID:1073,
+msgid "Show &unversioned files"
+msgstr "Tampilkan file yang tidak di&versi"
+
+#: MenuEntry
+msgid "Show File List"
+msgstr "Tampilkan Daftar File"
+
+#: ID:113,
+msgid "Show differences as &unified diff"
+msgstr "Tampilkan perbedaan &unified diff"
+
+#: Control-ID:1264,
+msgid "Show ignored files"
+msgstr "Tampilkan file yang diabaikan"
+
+#: Control-ID:1065,
+msgid "Show li&ne diff bar"
+msgstr "Tampilkan bar&is diff bar"
+
+#: Control-ID:1063,
+msgid "Show linenumber&s"
+msgstr "Tampilkan nomor bari&s"
+
+#: ID:3713,
+msgid ""
+"Show or hide the status bar\n"
+"Toggle StatusBar"
+msgstr ""
+"Tampilkan atau sembunyikan status bar\n"
+"Toggle StatusBar"
+
+#: ID:3713,
+msgid ""
+"Show or hide the toolbar\n"
+"Toggle ToolBar"
+msgstr ""
+"Tampilkan atau sembunyikan toolbar\n"
+"Toggle ToolBar"
+
+#: ID:2049,
+msgid ""
+"Show special characters for whitespaces\n"
+"Show Whitespaces"
+msgstr ""
+"Tampilkan karakter khusus untuk spasi\n"
+"Tampilkan Spasi"
+
+#: Control-ID:1209,
+msgid "Show unmodified files"
+msgstr "Tampilkan file yang tidak diubah"
+
+#: Control-ID:1073,
+msgid "Show unversioned files"
+msgstr "Tampilkan file yang tidak diversi"
+
+#: ID:198,
+msgid "Show/Hide"
+msgstr "Tampilkan/Sembunyikan"
+
+#: ID:272,
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Menampilkan %ld node"
+
+#: ID:115,
+#, c-format
+msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgstr "Menampilkan %ld revisi, dari revisi %ld ke revisi %ld - %ld revisi dipilih."
+
+#: ID:272,
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Menampilkan grafik untuk %s"
+
+#: ID:15,
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Menampilkan representasi grafis dari copy/tag/cabang"
+
+#: ID:13,
+msgid "Shows all files which were changed since the last update, locally and in the repository"
+msgstr "Menampilkan semua file yang diubah sejak pemutahiran terakhir, secara lokal dan dalam repositori"
+
+#: ID:2050,
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Menampilkan semua revisi dimana perubahan dibuat ke item ini"
+
+#: ID:10,
+msgid "Shows information about TortoiseSVN"
+msgstr "Menampilkan informasi tentang TortoiseSVN"
+
+#: ID:17,
+msgid "Shows the eol-style property value"
+msgstr "Menampilkan nilai properti gaya-eol"
+
+#: ID:12,
+msgid "Shows the log for the selected file / folder"
+msgstr "Menampilkan log untuk file / folder yang dipilih"
+
+#: ID:14,
+msgid "Shows the mime type of the versioned file"
+msgstr "Menampilkan tipe mime dari file yang diversi"
+
+#: ID:74,
+msgid "Size"
+msgstr "Ukuran"
+
+#: ID:74,
+msgid "Skipped"
+msgstr "Dilewati"
+
+#: ID:263,
+msgid "Skipped missing target"
+msgstr "Dilewati target yang hilang"
+
+#: Control-ID:1300,
+msgid "Sort items numerically"
+msgstr "Urut item secara numerik"
+
+#: ID:101,
+msgid "Sort numerical"
+msgstr "Urut numerik"
+
+#: ID:196,
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "Menetapkan seberapa banyak item yang ingin anda biarkan dalam dialog log pesan paling baru"
+
+#: ID:79,
+msgid ""
+"Specify the files or folders which TortoiseSVN\n"
+"should ignore in <b>all</b> working copies.\n"
+"Separate the patterns with a space."
+msgstr ""
+"Menetapkan file atau folder dimana TortoiseSVN\n"
+"harus mengabaikan <b>semua</b> copy pekerjaan.\n"
+"Memisahkan pattern dengan spasi."
+
+#: Control-ID:65535,
+msgid "Specify the revision range which you want to merge:"
+msgstr "Menetapkan jangkauan revisi yang ingin anda gabung:"
+
+#: ID:3604,
+msgid ""
+"Split the active window into panes\n"
+"Split"
+msgstr ""
+"Pisahkan jendela aktif ke dalam pane\n"
+"Pisahkan"
+
+#: ID:246,
+msgid "Stacked Bar Graph"
+msgstr "Grafik Bar Bertumpuk"
+
+#: ID:246,
+msgid "Stacked Line Graph"
+msgstr "Grafik Baris Bertumpuk"
+
+#: ID:569,
+msgid "Start Commit Hook"
+msgstr "Mulai Komit Hook"
+
+#: Control-ID:65535,
+msgid "Start Revision"
+msgstr "Mulai Revisi"
+
+#: ID:569,
+msgid "Start Update Hook"
+msgstr "Mulai Memutahirkan Hook"
+
+#: ID:245,#:
+#: Dlg-ID:179,
+msgid "Statistics"
+msgstr "Statistik"
+
+#: ID:74,#:
+#: ID:77,#:
+#: ID:207,#:
+#: Control-ID:65535,
+msgid "Status"
+msgstr "Status"
+
+#: Control-ID:65535,
+msgid "Status and action colors"
+msgstr "Warna status dan aksi"
+
+#: Control-ID:65535,
+msgid "Status cache"
+msgstr "Status cache"
+
+#: ID:196,
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Status cache dibiarkan dalam proses eksternal, bisa menampilkan overlay sercara rekursif"
+
+#: ID:196,
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Status cache hanya untuk satu folder, bukan recursive overlays"
+
+#: ID:11,
+msgid "Status of item in SVN"
+msgstr "Status item dalam SVN"
+
+#: ID:16,
+msgid "Steal loc&k"
+msgstr "Curi &kunci"
+
+#: ID:313,
+msgid "Steal the lock"
+msgstr "Mencuri kunci"
+
+#: Control-ID:65535,
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
+
+#: Control-ID:65535,
+msgid "Subversion"
+msgstr "Subversion"
+
+#: Control-ID:65535,
+msgid "Subversion configuration &file:"
+msgstr "&File konfigurasi Subversion:"
+
+#: ID:79,
+msgid ""
+"Subversion reported an error while creating a repository!\n"
+"Make sure the folder is empty and not write protected."
+msgstr ""
+"Subversion melaporkan kesalahan saat pembuatan repositori!\n"
+"Pastikan folder kosong dan tidak dikunci."
+
+#: ID:81,
+#, c-format
+msgid ""
+"Subversion reported an error while doing a cleanup!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Subversion melaporkan kesalahan saat melakukan pembersihan!\n"
+"<hr=100%%>\n"
+"%s"
+
+#: Control-ID:65535,
+msgid "Subversion server file:"
+msgstr "File server Subversion:"
+
+#: Control-ID:1232,
+msgid "Sw&itch working copy to new branch/tag"
+msgstr "T&ukar copy pekerjaan ke cabang/tag baru"
+
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Tukar Kiri<->Kanan"
+
+#: Dlg-ID:140,
+msgid "Switch To Branch / Tag"
+msgstr "Tukar Ke Cabang / Tag"
+
+#: ID:3606,
+msgid ""
+"Switch back to the previous window pane\n"
+"Previous Pane"
+msgstr ""
+"Menukar kembali ke pane jendela sebelumnya\n"
+"Pane Sebelumnya"
+
+#: ID:2049,
+msgid ""
+"Switch between single and double pane view\n"
+"Switch between single and double pane view"
+msgstr ""
+"Menukar antara tampilan pane tunggal dan ganda\n"
+"Tukar antara tampilan pane tunggal dan ganda"
+
+#: ID:2051,
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Menukar isi dari tampilan kiri dan kanan\n"
+"Tukar tampilan kiri dan kanan"
+
+#: ID:3825,
+msgid "Switch to the next document window"
+msgstr "Tukar ke jendela dokumen berikutnya"
+
+#: ID:3606,
+msgid ""
+"Switch to the next window pane\n"
+"Next Pane"
+msgstr ""
+"Menukar ke pane jendela berikutnya\n"
+"Pane Berikutnya"
+
+#: ID:3825,
+msgid "Switch to the previous document window"
+msgstr "Menukar ke jendela dokumen sebelumnya"
+
+#: ID:9,
+msgid "Switch working copy to another branch / tag"
+msgstr "Tukar copy pekerjaan ke cabang / tag lain"
+
+#: ID:325,
+msgid "Switches the comparison left<->right"
+msgstr "Menukar perbandingan kiri<->kanan"
+
+#: Control-ID:65535,
+msgid "System &sounds"
+msgstr "Suara sistem"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "System registry entries have been removed and the INI file (if any) was deleted."
+msgstr "Entri registri sistem sudah dihapus dan file INI (jika ada) sudah dihapus."
+
+#: ID:7,
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+#: ID:7,
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
+#: ID:79,
+#, c-format
+msgid "Tagged the working copy to %s"
+msgstr "Copy pekerjaan yang di-tag ke %s"
+
+#: Control-ID:65535,
+msgid "Text Status:"
+msgstr "Status Teks:"
+
+#: ID:207,
+msgid "Text status"
+msgstr "Status teks"
+
+#: ID:69,
+#, c-format
+msgid ""
+"The File\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"File\n"
+"%s\n"
+"bukan file teks yang benar!\n"
+"Catatan bahwa file UTF32 diperlakukan sebagai biner juga."
+
+#: ID:80,
+msgid "The Repository was successfully created."
+msgstr "Repositori dibuat dengan sukses"
+
+#: ID:63,
+msgid "The chunk size did not match the number of added/removed lines!"
+msgstr "Ukuran chunk tidak sama dengan jumlah baris yang ditambahkan/dihapus!"
+
+#: ID:63,
+#, c-format
+msgid "The chunk start \"@@\" was expected in line %d !"
+msgstr "Chunk mulai \"@@\" diharapkan dalam baris %d !"
+
+#: ID:68,
+#, c-format
+msgid ""
+"The diffing engine aborted because of an error:\n"
+"%s"
+msgstr ""
+"Mesin diffing dibatalkan karena kesalahan:\n"
+"%s"
+
+#: ID:64,
+#, c-format
+msgid "The file %s does not exist!"
+msgstr "File %s tidak ada!"
+
+#: ID:64,
+#, c-format
+msgid "The file %s was not found in the patch file!"
+msgstr "File %s tidak ditemukan dalam file patch!"
+
+#: ID:65,
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"File %s\n"
+"ditemukan dua kali!?!\n"
+"Biasanya ini terjadi jika anda menerapkan patchfile ke\n"
+"folder yang salah!"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "The file is too large to open."
+msgstr "File terlalu besar untuk dibuka."
+
+#: ID:80,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"already exists! Do you want to overwrite it?"
+msgstr ""
+"File\n"
+"%s\n"
+"sudah ada! Anda ingin menimpanya?"
+
+#: ID:145,
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Folder %s\n"
+"berisi file yang tidak diversi dan/atau diubah. Anda tetap ingin menghapusnya?"
+
+#: ID:88,
+#, c-format
+msgid ""
+"The folder \n"
+"%s\n"
+"does not exist.\n"
+"Would you like to create it first?"
+msgstr ""
+"Folder \n"
+"%s\n"
+"tidak ada.\n"
+"Anda ingin membuatnya terlebih dulu?"
+
+#: ID:83,
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Naskah hook menghasilkan kesalahan:\n"
+"%s"
+
+#: ID:7,
+msgid "The image can not be shown."
+msgstr "Gambar tidak bisa ditampilkan."
+
+#: ID:63,
+#, c-format
+msgid "The line \"====\" was expected in line %d !"
+msgstr "Baris \"====\" diharapkan dalam baris %d !"
+
+#: ID:63,
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"Baris \"Index: \" tidak ditemukan!\n"
+"Baik ini bukan file diff ataupun diff kosong."
+
+#: ID:63,
+#, c-format
+msgid "The line indicating the new file was expected in line %d !"
+msgstr "Baris yang menunjukan file baru diharapkan dalam baris %d !"
+
+#: ID:63,
+#, c-format
+msgid "The line indicating the old file was expected in line %d !"
+msgstr "Baris yang menunjukan file lama diharapkan dalam baris %d !"
+
+#: ID:251,
+msgid "The lock has already been broken from another working copy"
+msgstr "Kunci sudah rusak dari copy pekerjaan lain"
+
+#: ID:63,
+msgid ""
+"The old file does not match the new file.\n"
+"Renaming of files is not (yet) supported!"
+msgstr ""
+"File lama tidak sama dengan file baru.\n"
+"Mengganti nama file tidak (belum) didukung!"
+
+#: ID:64,
+#, c-format
+msgid ""
+"The patch seems outdated! The file line\n"
+"%s\n"
+"and the patchline\n"
+"%s\n"
+"do not match!"
+msgstr ""
+"Patch nampaknya ketinggalan jaman! Baris file\n"
+"%s\n"
+"dan baris patch\n"
+"%s\n"
+"tidak sama!"
+
+#: ID:88,
+msgid ""
+"The path/URL you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Path/URL yang anda masukan nampaknya tidak benar pada Windows!\n"
+"Anda bisa mencobanya, tapi mungkin anda mendapatkan kesalahan nanti.\n"
+"\n"
+"Path yang benar pada windows tidak boleh berisi '<>|\"?*:' atau salah satu nama device berikut:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#: ID:314,
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Path\n"
+"<i>%s</i>\n"
+"Nampaknya tidak sama dengan path dalam patchfile.\n"
+"Tetapi TortoiseMerge menemukan path\n"
+"<i>%s</i>\n"
+"sama yang lebih baik. Sebaliknya, anda ingin path yang disarankan?"
+
+#: Control-ID:65535,
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Hasil penggabungan disimpan dalam copy pekerjaan di:"
+
+#: ID:78,
+msgid ""
+"The selected file appears to still have one or more conflict markers in it.\n"
+"Are you sure you want to mark the file resolved?"
+msgstr ""
+"File yang dipilih nampaknya masih mempunyai satu atau lebih tanda konflik.\n"
+"Anda yakin ingin menandao file sudah diselesaikan?"
+
+#: ID:102,
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Target URL\n"
+"%s\n"
+"sudah ada!"
+
+#: ID:88,
+#, c-format
+msgid ""
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
+"Are you sure you want to checkout/export into that folder?"
+msgstr ""
+"Target folder \n"
+"%s\n"
+"tidak kosong!\n"
+"Anda yakin ingin men-checkout/ekspor ke dalam folder itu?"
+
+#: ID:195,
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Waktu dalam detik setelah penguraian file yang dipilih berhenti.\n"
+"Nilai lebih rendah membuat daftar autocompletion tersedia segera,\n"
+"tapi mungkin tidak meneliti semua file."
+
+#: ID:82,
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"Dua URL yang dipilih tidak dibuat dari akar yang sama.\n"
+"Tidak mungkin untuk menampilkan log pesan diantaranya!"
+
+#: ID:16,
+msgid "The user who did the last commit"
+msgstr "Pengguna yang melakukan komit terakhir"
+
+#: ID:16,
+msgid "The user who owns the lock of the file"
+msgstr "Pengguna yang memiliki kunci dari file"
+
+#: ID:81,
+#, c-format
+msgid ""
+"The working copy has changed!\n"
+"<hr=100%>\n"
+"Please commit your changes first or revert."
+msgstr ""
+"Copy pekerjaan sudah berubah!\n"
+"<hr=100%>\n"
+"Silahkan komit perubahan anda dulu untuk mengembalikan."
+
+#: ID:81,
+msgid ""
+"The working copy is not up to date!\n"
+"Please Update first."
+msgstr ""
+"Copy pekerjaan tidak mutahir!\n"
+"Silahkan mutahirkan dului."
+
+#: Control-ID:65535,
+msgid "Their file:"
+msgstr "File mereka:"
+
+#: ID:263,
+msgid "Theirs"
+msgstr "Theirs"
+
+#: ID:169,
+msgid ""
+"There are changes inside one or more directories which you have included with svn:externals.\n"
+"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr ""
+"Ada perubahan didalam satu atau lebih direktori yang sudah anda sertakan dengan svn:eksternal.\n"
+"File-file itu <b>tidak</b> didaftarkan untuk komit. Anda perlu mengkomit file-file itu secara terpisah."
+
+#: ID:66,
+#, c-format
+msgid ""
+"There are still unresolved conflicts in line %d!\n"
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
+msgstr ""
+"Masih ada konflik tidak terselsaikan dalam baris %d!\n"
+"Anda harus menyelesaikan konflik itu lebih dulu sebelum menyimpan\n"
+"Anda ingin menyimpan file yang masih konflik?\n"
+"Jika anda mengklik YA, maka anda harus menyelesaikan secara manual konflik dalam editor lain!"
+
+#: ID:82,
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Tidak ada yang ditambahkan. Semua file dan folder baik dibawah kontrol versi ataupun sudah diabaikan menggunakan properti svn:ingnore atau seting konfigurasi abaikan global."
+
+#: ID:188,
+msgid "Thesaurus"
+msgstr "Kamus"
+
+#: ID:83,
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"Ini bukan URL yang benar/\n"
+"Silahkan masukkan URL disini."
+
+#: ID:82,
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Ini bukan path yang benar!\n"
+"Path yang benar tidak boleh berisi '<>|\"?*:' atau salah satu dari nama device:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#: Control-ID:65535,
+msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
+msgstr "Produk ini menyertakan software yang dikembangkan oleh CollabNet (http://www.Collab.Net/)"
+
+#: Control-ID:65535,
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Produk ini menyertakan software yang dikembangkan oleh OpenSSL Project untuk penggunaan OpenSSL Toolkit (http://www.openssl.org/)"
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+msgstr "Program ini dikaitkan ke ekspor yang hilang %s dalam file %s. Mesin ini mungkin tidak kompatibel versi %s."
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Program ini memerlukan file %s, yang tidak ditemukan pada sistem ini."
+
+#: ID:15,
+msgid "This property is only allowed on folders, not files."
+msgstr "Properti ini hanya dibolehkan pada folder, bukan file."
+
+#: ID:15,
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "Properti ini tidak boleh mempunyai baris multipel. Hanya satu baris dibolehkan."
+
+#: ID:224,
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Untuk mengkomit secara rekursif dan mengatasi kesalahanini,\n"
+"pastikan bahwa semua item anak dari folder yang diperiksa\n"
+"juga diperiksa dalam dialog komit.\n"
+"Sebaliknya, TortoiseSVN harus melakukan komit non-rekursif\n"
+"yang tidak membolehkan penghapusan direktori."
+
+#: Control-ID:1201,
+msgid "To:"
+msgstr "Ke:"
+
+#: Control-ID:65535,
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "Ke: (akhir URL dan revisi dari jangkauan yang digabung)"
+
+#: ID:7,
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+#: ID:13,
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr ""
+"TortoiseBlame tidak bisa dimulai secara langsung!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
+#: ID:7,
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+#: ID:7,
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr ""
+"TortoiseIDiff: viewer diff gambar untuk TortoiseSVN\n"
+"\n"
+"Parameter baris perintah yang tersedia adalah:\n"
+"/left:\"path ke gambar kiri\"\n"
+"/lefttitle:\"judul untuk menampilkan gambar\"\n"
+"/right:\"path gambar kanan\"\n"
+"/righttitle:\"judul untuk menampilkan gambar kanan\""
+
+#: ID:7,#:
+#: ID:3585,#:
+#: Dlg-ID:130,
+msgid "TortoiseMerge"
+msgstr "TortoiseMerge"
+
+#: ID:107,
+#, c-format
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+
+#: ID:107,
+#, c-format
+msgid ""
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+msgstr ""
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+
+#: ID:80,#:
+#: Control-ID:65535,
+msgid "TortoiseSVN"
+msgstr "TortoiseSVN"
+
+#: ID:107,
+#, c-format
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+
+#: ID:107,
+#, c-format
+msgid ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+
+#: ID:77,
+msgid "TortoiseSVN Add..."
+msgstr "TortoiseSVN Tambah..."
+
+#: ID:132,
+msgid "TortoiseSVN Blame"
+msgstr "TortoiseSVN Blame"
+
+#: ID:77,
+msgid "TortoiseSVN Checkout..."
+msgstr "TortoiseSVN Checkout..."
+
+#: ID:77,
+msgid "TortoiseSVN Commit..."
+msgstr "TortoiseSVN Komit..."
+
+#: ID:78,
+msgid "TortoiseSVN Copy..."
+msgstr "TortoiseSVN Copy..."
+
+#: ID:78,
+msgid "TortoiseSVN Export..."
+msgstr "TortoiseSVN Ekspor..."
+
+#: ID:77,
+msgid "TortoiseSVN Import..."
+msgstr "TortoiseSVN Impor..."
+
+#: ID:78,
+msgid "TortoiseSVN Merge..."
+msgstr "TortoiseSVN Gabung..."
+
+#: ID:221,
+msgid "TortoiseSVN Rename/move"
+msgstr "TortoiseSVN Ganti nama/pindahkan"
+
+#: ID:77,
+msgid "TortoiseSVN Resolve..."
+msgstr "TortoiseSVN Selesaikan..."
+
+#: ID:77,
+msgid "TortoiseSVN Revert..."
+msgstr "TortoiseSVN Balikkan..."
+
+#: ID:80,
+msgid "TortoiseSVN Settings"
+msgstr "TortoiseSVN Seting"
+
+#: ID:78,
+msgid "TortoiseSVN Switch..."
+msgstr "TortoiseSVN Tukar..."
+
+#: ID:77,
+msgid "TortoiseSVN Update..."
+msgstr "TortoiseSVN Mutahirkan..."
+
+#: ID:98,
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN telah mendeteksi nama file mirip. Anda ingin file:%s\n"
+"diganti nama juga?"
+
+#: Control-ID:1162,
+msgid "Total commits analyzed:"
+msgstr "Total komit dianalisa:"
+
+#: Control-ID:1163,
+msgid "Total file changes:"
+msgstr "Total file berubah:"
+
+#: ID:357,
+#, c-format
+msgid "Transferring at %s"
+msgstr "Mentransfer pada %s"
+
+#: ID:251,
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "Coba \"Bersihkan\". Jika itu tidak bekerja anda perlu chekout baru."
+
+#: ID:73,
+msgid "Try again"
+msgstr "Coba lagi"
+
+#: ID:10,
+msgid "Tweak TortoiseSVN"
+msgstr "Tweak TortoiseSVN"
+
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "&Diff Dua-arah"
+
+#: ID:207,#:
+#: Dlg-ID:164,
+msgid "URL"
+msgstr "URL"
+
+#: Control-ID:1272,
+msgid "URL history"
+msgstr "Histori URL"
+
+#: ID:12,
+msgid "URL of Subversion items"
+msgstr "URL item Subversion"
+
+#: ID:144,#:
+#: Control-ID:65535,
+msgid "URL:"
+msgstr "URL:"
+
+#: ID:75,
+msgid "URL: "
+msgstr "URL: "
+
+#: ID:3866,#:
+#: ID:3866,
+msgid "Unable to load mail system support."
+msgstr "Tidak bisa mengambil dukungan sistem mail."
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "Unable to read from %1, it is opened by someone else."
+msgstr "Tidak bisa membaca dari %1, sedang dibuka oleh orang lain."
+
+#: ID:3865,#:
+#: ID:3865,
+msgid "Unable to read write-only property."
+msgstr "Tidak bisas membaca properti hanya-tulis."
+
+#: ID:119,
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr ""
+"Tidak bisa merekonstruksi path copy pekerjaan!\n"
+"Ini bisas terjadi jika file sudah diganti nama.\n"
+"Silahkan mulai dialog log pada file spesifik ini sendiri dan lalu balikkan perubahan\n"
+"dari pane atas dalam dialog log."
+
+#: ID:3865,#:
+#: ID:3865,
+msgid "Unable to write read-only property."
+msgstr "Tidak bisa menulis properti hanya-baca."
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "Unable to write to %1, it is read-only or opened by someone else."
+msgstr "Tidak bisa menulis ke %1, ini hanya-baca atau dibuka oleh orang lain."
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Uncheck"
+msgstr "Tidak dicentang"
+
+#: ID:3603,
+msgid ""
+"Undo the last action\n"
+"Undo"
+msgstr ""
+"Batalkan aksi terakhir\n"
+"Undo"
+
+#: ID:3859,#:
+#: ID:3859,
+msgid "Unexpected file format."
+msgstr "Format file tidak diharapkan."
+
+#: MenuEntry
+msgid "Unified &diff of HEAD revisions"
+msgstr "Unified &diff dari revisi HEAD"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Unknown certificate issuer.\n"
+"  Fingerprint: %s\n"
+"  Distinguished name: %s"
+msgstr ""
+"Penerbit sertifikat tidak dikenal.\n"
+"  Ciri khas: %s\n"
+"  Nama Terkenal: %s"
+
+#: ID:221,
+msgid "Unlock"
+msgstr "Buka kunci"
+
+#: ID:264,
+msgid "Unlock failed"
+msgstr "Buka kunci gagal"
+
+#: ID:263,
+msgid "Unlocked"
+msgstr "Kunci terbuka"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "Untitled"
+msgstr "Tanpa judul"
+
+#: Control-ID:1313,
+msgid "Unversioned files mark parent folder as modified"
+msgstr "File tidak diversi menandai folder leluhur sebagai diubah"
+
+#: Dlg-ID:152,
+msgid "Update"
+msgstr "Mutahirkan"
+
+#: ID:74,
+msgid "Updated"
+msgstr "Dimutahirkan"
+
+#: ID:11,
+msgid "Updates the working copy to a specific revision"
+msgstr "Memutahirkan copy pekerjaan ke revisi tertentu"
+
+#: ID:9,
+msgid "Updates the working copy to the current revision"
+msgstr "Memutahirkan copy pekerjaan ke revisi sekarang"
+
+#: ID:226,
+#, c-format
+msgid "Updating %s"
+msgstr "Memutahirkan %s"
+
+#: ID:283,
+msgid "Updating and retrying the lock..."
+msgstr "Memutahirkan dan mencoba untuk mengunci..."
+
+#: Control-ID:1064,
+msgid "Use &magnifier on locatorbar"
+msgstr "Gunakan pe&mbesar pada locatorbar"
+
+#: Control-ID:1024,
+msgid "Use &one-pane view as default for 2-file diff"
+msgstr "Gunakan tampilan &satu-pane sebagai standar untuk 2-file diff"
+
+#: ID:251,
+msgid "Use &other text block"
+msgstr "Gunakan bl&ok teks lain"
+
+#: Control-ID:1126,
+msgid "Use &text viewer to view blames"
+msgstr "Gunakan viewer &teks untuk melihat blames"
+
+#: ID:195,
+msgid ""
+"Use '*' as a wildcard character when specifying an exception.\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Gunakan '*' sebagai karakter wildcard saat menetapkan kekecualian.\n"
+"Untuk memisahkan kekecualian multipel, gunakan koma (',').\n"
+"Contoh: *.mylan.com, *.company.com"
+
+#: Control-ID:1230,
+msgid "Use URL of &WC as the default \"From:\" URL"
+msgstr "Gunakan URL dari &WC sebagai standar URL \"Dari:\""
+
+#: Control-ID:1064,
+msgid "Use Unified Diff from clipboard"
+msgstr "Gunakan Unified Diff dari clipboard"
+
+#: Control-ID:1073,
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "Gunakan URL \"Dari:\" (jangkauan revisi bisa dipilih dalam dialog log diatas)"
+
+#: Control-ID:1296,
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Gunakan \"_svn\" daripada direktori \".svn\""
+
+#: ID:251,
+msgid "Use both text blocks (this one first)"
+msgstr "Gunakan blok teks keduanya (ini yang pertama)"
+
+#: ID:251,
+msgid "Use both text blocks (this one last)"
+msgstr "Gunakan blok teks keduanya (ini yang pertama)"
+
+#: Control-ID:1066,
+msgid "Use stri&keout for deleted lines"
+msgstr "Gunakan &coretan untuk baris yang dihapus"
+
+#: MenuEntry
+msgid "Use text block from \"&mine\""
+msgstr "Gunakan blok teks dari \"&mine\""
+
+#: MenuEntry
+msgid "Use text block from \"&theirs\""
+msgstr "Gunakan blok teks dari \"&theirs\""
+
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Gunakan blok teks dari \"m&ine\" sebelum \"theirs\""
+
+#: ID:2052,
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Gunakan blok teks dari \"mine\" sebelum \"theirs\"\n"
+"Gunakan blok teks \"mine\" kemudian \"theirs\""
+
+#: ID:2052,
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Gunakan blok teks dari \"mine\"\n"
+"Gunakan blok teks \"mine\""
+
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Gunakan blok teks dari \"t&heirs\" sebelum \"mine\""
+
+#: ID:2052,
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"\"theirs\" text block then \"mine\""
+msgstr ""
+"Gunakan blok teks dari \"theirs\" sebelum \"mine\"\n"
+"blok teks \"theirs\" kemudian \"mine\""
+
+#: ID:2052,
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Gunakan blok teks dari \"theirs\"\n"
+"Gunakan blok teks \"theirs\""
+
+#: ID:251,
+msgid "Use th&is text block"
+msgstr "Gunakan blok teks &ini"
+
+#: ID:251,
+msgid "Use this &whole file"
+msgstr "Gunakan seluru&h file ini"
+
+#: ID:12,
+msgid "Use this if the URL of the repository has changed"
+msgstr "Gunakan ini jika URL repositori sudah diubah"
+
+#: ID:251,
+msgid "Use whole other &file"
+msgstr "Gunakan seluruh &file lain"
+
+#: ID:74,
+msgid "User cancelled"
+msgstr "Dibatalkan pengguna"
+
+#: ID:69,
+msgid "Username:"
+msgstr "Nama pengguna:"
+
+#: ID:313,
+msgid ""
+"Valid command line options are:\n"
+"/base:<path to base file>\n"
+"/theirs:<path to their file>\n"
+"/mine:<path to your file>\n"
+"/merged:<path to resulting merged file>\n"
+"/diff:<path to unified diff file>\n"
+"/patchpath:<path to folder>"
+msgstr ""
+"Opsi baris perintah yang benar adalah:\n"
+"/base:<path ke file base>\n"
+"/theirs:<path ke file mereka>\n"
+"/mine:<path ke file anda>\n"
+"/merged:<path ke file hasil gabungan>\n"
+"/diff:<path ke file unified diff>\n"
+"/patchpath:<path ke folder>"
+
+#: ID:11,
+msgid "Value"
+msgstr "Nilai"
+
+#: Control-ID:1075,#:
+#: Control-ID:1075,
+msgid "Version"
+msgstr "Versi"
+
+#: ID:114,
+msgid "View revision for path in &webviewer"
+msgstr "Lihat revisi untuk path dalam &webviewer"
+
+#: ID:114,
+msgid "View revision in &webviewer"
+msgstr "Lihat revisi dalam &webviewer"
+
+#: Control-ID:1084,#:
+#: Control-ID:1084,
+msgid "Visit our website"
+msgstr "Kunjungi website kami"
+
+#: ID:198,
+msgid "Wait"
+msgstr "Tunggu"
+
+#: Control-ID:1327,
+msgid "Wait for the script to finish"
+msgstr "Menunggu naskah selesai"
+
+#: ID:88,
+msgid "Warning"
+msgstr "Peringatan"
+
+#: ID:219,
+msgid "Warning!"
+msgstr "Peringatan!"
+
+#: ID:146,
+msgid "With URL:"
+msgstr "Dengan URL:"
+
+#: Dlg-ID:158,
+msgid "Working Copy"
+msgstr "Copy yang Bekerja"
+
+#: Control-ID:1335,
+msgid "Working Copy Path:"
+msgstr "Path Copy yang Bekerja:"
+
+#: ID:80,
+#, c-format
+msgid ""
+"Working copy relocated to\n"
+"%s"
+msgstr ""
+"Copy yang bekerja direlokasi ke\n"
+"%s"
+
+#: ID:73,
+msgid "Yes"
+msgstr "Ya"
+
+#: ID:145,
+msgid "Yes to all"
+msgstr "Ya untuk semua"
+
+#: ID:201,
+msgid "You already have the latest version installed."
+msgstr "Anda sudah mempunyai versi terbaru yang diinstalasi."
+
+#: ID:144,
+msgid ""
+"You are creating a repository on a network share.\n"
+"This is safe, but once the repository is created you must access it by some other means.\n"
+"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Create the repository anyway?"
+msgstr ""
+"Anda sedang membuat repositori pada share jaringan.\n"
+"Ini aman, tapi sekali repositori dibuat anda harus mengaksesnya dengan beberapa arti lain.\n"
+"Mengakses repositori via  file:/// pada share jaringan bisa merusak data anda!\n"
+"Tetap buat repositori?"
+
+#: ID:88,
+msgid ""
+"You are trying to access a repository via file:/// on\n"
+"a shared network drive.\n"
+"This could lead to severe repository corruption!\n"
+"Do you really want to do that?"
+msgstr ""
+"Anda mencoba mengakses reposirori via file:/// pada\n"
+"drive share jaringan.\n"
+"Ini bisa menghasilkan kerusakan berat repositori!\n"
+"Anda ingin melakukannya?"
+
+#: ID:16,
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Anda tidak bisa menset properti ini pada folder, hanya pada file\n"
+"Jika anda ingin menset pada semua file dalam folder itu,\n"
+"anda harus mengaktifkan kotak centang 'rekursif'."
+
+#: ID:105,
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Anda mengcopy lebih dari satu file atau folder.\n"
+"Tidak mungkin melakukan itu dalam satu langkah, maka TortoiseSVN akan mengcopy setiap file/folder\n"
+"secara individu, membuat revisi baru untuk setiap item yang dicopy.\n"
+"\n"
+"Anda masih ingin melakukan ini?"
+
+#: ID:105,
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Anda mengirimkan lebih dari satu file atau folder untuk ditambahkan ke repositori.\n"
+"Tidak mungkin melakukan itu dalam satu langkah, maka TortoiseSVN akan menambahkan setiap file/folder\n"
+"secara individu, membuat revisi baru untuk setiap item yang ditambahkan.\n"
+"\n"
+"Anda masih ingin melakukan ini?"
+
+#: ID:16,
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+"Anda sudah mengubah properti tanpa menyimpannya dulu\n"
+"Anda ingin menyimpannya sekarang?"
+
+#: ID:251,
+msgid "You have to update your working copy first."
+msgstr "Anda harus memutahirkan copy pekerjaan anda lebih dulu."
+
+#: ID:169,
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"Anda tidak memasukan nomor penerbitan!\n"
+"Anda yakin ingin mengkomit tanpa nomor penerbitan?"
+
+#: ID:105,
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Anda memindahkan lebih dari satu file atau folder untuk ditambahkan ke repositori.\n"
+"Tidak mungkin melakukan itu dalam satu langkah, maka TortoiseSVN akan memindahkan setiap file/folder\n"
+"secara individu, membuat revisi baru untuk setiap item yang dipindahkan.\n"
+"\n"
+"Anda masih ingin melakukan ini?"
+
+#: ID:196,
+msgid "You must restart your system for the changes to take effect."
+msgstr "Anda harus memulai lagi sistem anda agar perubahan berpengaruh."
+
+#: ID:77,
+msgid ""
+"You selected an unversioned file.\n"
+"The file will be added to version control when you commit."
+msgstr ""
+"Anda memilih file tidak diversi\n"
+"File akan ditambahkan ke kontrol versi saat anda komit."
+
+#: ID:195,
+#, c-format
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Anda sudah mengubah ikon set dari <i>%s</i> ke <i>%s</i>.\n"
+"Perubahan itu tidak akan berpengaruh sampai anda memulai lagi komputer anda atau keluar dan lalu masuk lagi!"
+
+#: ID:338,
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr ""
+"Anda memilih folder yang ditambahkan. Patch tidak akan berisi file-file yang ditambahkan dalam folder yang ditambahkan itu.\n"
+"Anda tetap ingin melanjutkan?"
+
+#: ID:170,
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Sebelumnya anda memasukan log pesan yang sudah disimpan.\n"
+"Klik disini untuk membaca dan menyisipkannya lagi."
+
+#: Control-ID:1112,
+msgid "Your version is:"
+msgstr "Versi anda:"
+
+#: ID:201,
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Versi anda adalah: %d.%d.%d.%d"
+
+#: ID:78,
+msgid ""
+"Your working copy appears to be on a tag path!\n"
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+"Copy pekerjaan anda nampaknya merupakan tag path!\n"
+"Pertama anda harus menukar ke cabang atau trunk utama sebelum mengkomit.\n"
+"\n"
+"Anda tetap ingin mengkomit?"
+
+#: ID:88,
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"Copy pekerjaan anda mempunyai modifikasi lokal~\n"
+"Catatan: memutahirkan ke revisi lain tidak akan kehilangan modifikasi itu juga copy pekerjaan\n"
+"tidak akan terlihat tepat seperti dalam revisi yang anda mutahirkan!"
+
+#: MenuEntry
+msgid "Zoo&m out"
+msgstr "Pengecila&n"
+
+#: MenuEntry
+msgid "Zoom &in\tCtrl-+"
+msgstr "Pem&besaran\tCtrl-+"
+
+#: MenuEntry
+msgid "Zoom &out\tCtrl--"
+msgstr "Pengc&ilan\tCtrl--"
+
+#: ID:2051,
+#, c-format
+msgid "Zoom 100%"
+msgstr "Pembesaran 100%"
+
+#: MenuEntry
+msgid "Zoom i&n"
+msgstr "Besarkan &dalam"
+
+#: ID:2049,
+msgid "Zoom in"
+msgstr "Pembesaran"
+
+#: ID:2049,
+msgid "Zoom out"
+msgstr "Pengecilan"
+
+#: ID:2051,
+msgid "Zoom to fit"
+msgstr "Dibesarkan agar cukup"
+
+#: ID:10,
+msgid "added"
+msgstr "ditambahkan"
+
+#: Control-ID:65535,
+msgid "added files"
+msgstr "file ditambahkan"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "an unnamed file"
+msgstr "file tanpa nama"
+
+#: Control-ID:1304,
+msgid "and"
+msgstr "dan"
+
+#: Control-ID:1085,#:
+#: Control-ID:1085,
+msgid "and support the developers"
+msgstr "dan mendukung para pengembang"
+
+#: ID:245,
+msgid "author"
+msgstr "pembuat"
+
+#: ID:15,
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Set ke \"false\" jika anda ingin bugtracking ID disisipkan di atas log\n"
+"pesan. Standarnya \"true\" yang berarti bugtracking ID\n"
+"ditambahkan ke log pesan."
+
+#: ID:14,
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"Teks label untuk ditampilkan pada kotak edit dimana pengguna memasukan nomor penerbitan."
+
+#: ID:15,
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"dua ekspresi reguler dipisahkan oleh baris baru.\n"
+"Ekspresi pertama digunakan untuk menemukan string yang merujuk ke penerbitan,\n"
+"ekspresi kedua digunakan untuk mengekstrak bug ID yang terlihat dari string itu."
+
+#: ID:14,
+#, c-format
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"String yang ditambahkan ke log pesan saat angka penerbitan dimasukan.\n"
+"String harus berisi \"%BUGID%\" yang dapat ditimpa dengan angka penerbitan."
+
+#: ID:14,
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"Set ke \"false\" Jika sistem bugtracking anda mempunyai terbitan yang dirujuk bukan dengan nomor."
+
+#: ID:14,
+#, c-format
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"URL yang menunjuk ke pelacak penerbitan. Itu harus berisi \"%BUGID%\" yang\n"
+"dapat ditimpa dengan angka penerbitan."
+
+#: ID:145,
+msgid "cleaning up"
+msgstr "Membersihkan"
+
+#: ID:244,#:
+#: ID:245,
+msgid "commits"
+msgstr "komit"
+
+#: ID:11,
+msgid "conflicted"
+msgstr "konflik"
+
+#: ID:208,
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"dicopy dari\r\n"
+"%s - revisi %ld"
+
+#: ID:10,
+msgid "deleted"
+msgstr "dihapus"
+
+#: ID:79,
+#, c-format
+msgid ""
+"exported\n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"dieskpor\n"
+"%s\n"
+"ke\n"
+"%s"
+
+#: ID:13,
+msgid "external"
+msgstr "eksternal"
+
+#: ID:13,
+msgid "ignored"
+msgstr "diabaikan"
+
+#: ID:13,
+msgid "incomplete"
+msgstr "tidak lengkap"
+
+#: ID:11,#:
+#: ID:195,#:
+#: Control-ID:1002,
+msgid "locked"
+msgstr "dikunci"
+
+#: ID:11,#:
+#: Control-ID:65535,
+msgid "merged"
+msgstr "digabung"
+
+#: ID:10,
+msgid "missing"
+msgstr "hilang"
+
+#: Control-ID:65535,
+msgid "missing / deleted / replaced"
+msgstr "hilang / dihapus / ditimpa"
+
+#: ID:10,
+msgid "modified"
+msgstr "diubah"
+
+#: Control-ID:65535,
+msgid "modified / copied"
+msgstr "diubah / dicopy"
+
+#: ID:245,
+msgid "month"
+msgstr "bulan"
+
+#: ID:10,
+msgid "no description for this command is available"
+msgstr "tidak ada penjelasan untuk perintah ini yang tersedia"
+
+#: ID:10,
+msgid "non-versioned"
+msgstr "tidak-diversi"
+
+#: ID:10,
+msgid "normal"
+msgstr "normal"
+
+#: ID:11,
+msgid "obstructed"
+msgstr "diblokir"
+
+#: ID:3869,#:
+#: ID:3869,
+msgid "pixels"
+msgstr "pixel"
+
+#: Control-ID:65535,
+msgid "possible or real conflict / obstructed"
+msgstr "mungkin atau konflik nyata / diblokir"
+
+#: ID:245,
+msgid "quarter of year"
+msgstr "seperempat tahun"
+
+#: ID:195,
+msgid "readonly"
+msgstr "hanya baca"
+
+#: ID:10,
+msgid "replaced"
+msgstr "diganti"
+
+#: ID:14,
+msgid ""
+"svn:eol-style\n"
+"One of 'native', 'LF', 'CR', 'CRLF'."
+msgstr ""
+"svn:eol-style\n"
+"Salah satu 'native', 'LF', 'CR', 'CRLF'."
+
+#: ID:14,
+msgid ""
+"svn:executable\n"
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgstr ""
+"svn:executable\n"
+"Jika ada, buatlah file bisa dijalankan. Properti ini tidak bisa diset pada direktori.\n"
+"Percobaan non-rekursif akan gagal, dan percobaan rekursif akan men-set properti hanya pada anak file dari direktori."
+
+#: ID:14,
+msgid ""
+"svn:externals\n"
+"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
+msgstr ""
+"svn:externals\n"
+"Baris baru memisahkan daftar pembeda modul, masing-masing terdiri dari path direktori relatif, tanda revisi opsional, dan URL. Contoh\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
+
+#: ID:14,
+msgid ""
+"svn:ignore\n"
+"A newline separated list of file patterns to ignore."
+msgstr ""
+"svn:ignore\n"
+"Baris baru memisahkan daftar dari pattern file untuk diabaikan."
+
+#: ID:14,
+msgid ""
+"svn:keywords\n"
+"Keywords to be expanded. Valid keywords are:\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
+"Author, LastChangedBy\t\tThe last person to modify the file.\n"
+"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
+"Rev, LastChangedRevision\tThe last revision the object changed.\n"
+"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+msgstr ""
+"svn:keywords\n"
+"Kata kunci untuk dilebarkan. Kata kunci yang benar adalah:\n"
+"URL, HeadURL\t\t\tURL untuk revisi head dari obyek.\n"
+"Author, LastChangedBy\t\tOrang terakhir yang mengubah file.\n"
+"Date, LastChangedDate\t\tTanggal/jam obyek terakhir diubah.\n"
+"Rev, LastChangedRevision\tRevisi terakhir obyek diubah.\n"
+"Id\t\t\t\tRingkasan singkat dari 4 kata kunci terakhir."
+
+#: ID:14,
+msgid ""
+"svn:mime-type\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
+msgstr ""
+"svn:mime-type\n"
+"Tipe mime dari file. Digunakan untuk memeriksa apakah menggabung file, dan bagaimana melayaninya dari Apache.\n"
+"Tipe mime diawali dengan 'text/' (atau tipe mime absen) dianggap sebagai teks.\n"
+"Selain itu dianggap biner."
+
+#: ID:16,
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"Set ini ke nilai apapun (contoh. '*') untuk memaksa penguncian atas file ini.\n"
+"File akan diset hanya-baca saat diperiksa atau dimutahirkan,\n"
+"menunjukan bahwa pengguna harus memerlukan kunci pada file\n"
+"sebelum mereka bisa mengeditnya dan mengkomit perubahan."
+
+#: ID:208,
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"ditukar ke\r\n"
+"%s"
+
+#: ID:80,#:
+#: ID:103,#:
+#: ID:103,
+#, c-format
+msgid "to %s"
+msgstr "ke %s"
+
+#: ID:15,
+msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Set ke \"false\" jika anda tida ingin daftar file yang diubah di past dalam bahasa inggris\n"
+"dalam dialog komit."
+
+#: ID:15,
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Ukuran minimum dalam karakter log pesan harus dipunyai sebelum komit diijinkan."
+
+#: ID:15,
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"String yang disisipkan dalam kotak log pesan dalam dialog komit.\n"
+"Gunakan ini sebagai template log pesan bagi pengguna untuk mengisinya."
+
+#: ID:15,
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Set ini ke jumlah karakter yang tidak boleh melebihi panjang log pesan.\n"
+"Baris semu ditampilkan dalam dialog komit pada posisi itu. Standarnya 80 karakter."
+
+#: ID:15,
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Set ini ke nomor bahasa yang ditulis pada log pesan anda.\n"
+"TortoiseSVN akan mengambil modul pemeriksa ejaan yang benar jika tersedia."
+
+#: ID:15,
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Set ke \"yes\" jika peringatan harus ditampilkan ketika tidak ada terbitan dimasukan dalam dialog komit."
+
+#: ID:563,
+msgid "values are different"
+msgstr "nilai berbeda"
+
+#: ID:17,
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:revisi\n"
+"URL yang merujuk ke web viewer untuk repositori pada revisi spesifik.\n"
+"String %REVISION% dalam URL itu diganti dengan angka revisi,\n"
+"string %PATH% diganti dengan path ke relatif file terhadap akar repositori."
+
+#: ID:17,
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revisi\n"
+"URL yang merujuk ke web viewer untuk repositori pada revisi spesifik.\n"
+"String %REVISION% dalam URL itu diganti dengan angka revisi."
+
+#: ID:245,
+msgid "week"
+msgstr "minggu"
+
+#: Control-ID:65535,
+msgid "which points to the repository at URL:"
+msgstr "yang merujuk ke repositori di URL:"
+
+#: ID:245,
+msgid "year"
+msgstr "tahun"
+
