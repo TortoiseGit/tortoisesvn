@@ -774,6 +774,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						return FALSE;
 					selectedList = dlg.m_pathList;
 					sLogMsg = dlg.m_sLogMessage;
+					pathList = dlg.m_pathList;
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					progDlg.SetParams(CSVNProgressDlg::Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);

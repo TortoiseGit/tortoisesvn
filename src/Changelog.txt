@@ -73,6 +73,8 @@ Version 1.4.1
        would throw an error because of a wrong peg revision. (Stefan)
 - BUG: The entry "copy to workign copy..." was not available in the 
        repository browser for non-HEAD revisions. (Stefan)
+- BUG: If a commit failed with an error, the commit dialog re-opened but
+       it didn't restore any manually added targets. (Tobias Schäfer)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
