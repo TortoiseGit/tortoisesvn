@@ -1757,6 +1757,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				if ((wcStatus >= svn_wc_status_normal)
 					&&(wcStatus != svn_wc_status_missing))
 				{
+					if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
+					{
+						temp.LoadString(IDS_LOG_COMPAREWITHBASE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+					}
+								
 					if (GetSelectedCount() == 1)
 					{
 						bool bEntryAdded = false;
@@ -1764,13 +1771,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (wcStatus > svn_wc_status_normal)
 							{
-								if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
-								{
-									temp.LoadString(IDS_LOG_COMPAREWITHBASE);
-									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
-									popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
-									bEntryAdded = true;
-								}
 								if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus != svn_wc_status_deleted))
 								{
 									temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
@@ -2152,7 +2152,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_COMPARE:
 					{
-						StartDiff(selIndex);
+						POSITION pos = GetFirstSelectedItemPosition();
+						while ( pos )
+						{
+							int index = GetNextSelectedItem(pos);
+							StartDiff(index);
+						}
 					}
 					break;
 				case IDSVNLC_GNUDIFF1:
