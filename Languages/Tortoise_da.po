@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7555
+# Based on Tortoise.pot r7591
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-22 14:28+0100\n"
+"PO-Revision-Date: 2006-09-27 14:34+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2449,6 +2449,11 @@ msgstr "Kurvediagram"
 msgid "Line:"
 msgstr "Linje:"
 
+#: ID:269,
+#, c-format
+msgid "Line: %*ld"
+msgstr "Linje: %*ld"
+
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
 msgstr "Oversigt over hjælpeemner\nHjælpeemner"
@@ -3283,6 +3288,11 @@ msgstr "Omdøbt på serveren"
 #: ID:11,
 msgid "Renames files / folders inside version control"
 msgstr "Omdøber filer/mapper under versionskontrol"
+
+#: ID:209,
+#, fuzzy
+msgid "Repair move"
+msgstr "Reparer flytning"
 
 #: ID:3603,
 # Autogenereret, bruges formodentlig ikke
@@ -4567,29 +4577,29 @@ msgstr "Brug tekstblok fra \"&min\""
 msgid "Use text block from \"&theirs\""
 msgstr "Brug tekstblok fra \"&deres\""
 
-#: ID:2052,
-msgid "Use text block from \"Mine\" before \"Theirs\"\n\"My\" text block then \"Theirs\""
-msgstr "Brug tekstblok fra \"Min\" før \"Deres\"\n\"Min\" tekstblok, derefter \"Deres\""
-
-#: ID:2052,
-msgid "Use text block from \"Mine\"\nUse \"My\" text block"
-msgstr "Brug tekstblok fra \"Min\"\nBrug \"Min\" tekstblok"
-
-#: ID:2052,
-msgid "Use text block from \"Theirs\" before \"Mine\"\n\"Their\" text block then \"Mine\""
-msgstr "Brug tekstblok fra \"Deres\" før \"Min\"\n\"Deres\" tekstblok, derefter \"Min\""
-
-#: ID:2052,
-msgid "Use text block from \"Theirs\"\nUse \"Their\" text block"
-msgstr "Brug tekstblok fra \"Deres\"\nBrug \"Deres\" tekstblok"
-
 #: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Brug tekstblok fra \"m&in\" før \"deres\""
 
-#: ID:251,
+#: ID:2052,
+msgid "Use text block from \"mine\" before \"theirs\"\nUse \"mine\" text block then \"theirs\""
+msgstr "Brug tekstblok fra \"min\" før \"deres\"\nBrug \"min\" tekstblok, derefter \"deres\""
+
+#: ID:2052,
+msgid "Use text block from \"mine\"\nUse \"mine\" text block"
+msgstr "Brug tekstblok fra \"min\"\nBrug \"min\" tekstblok"
+
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Brug tekstblok fra \"d&eres\" før \"min\""
+
+#: ID:2052,
+msgid "Use text block from \"theirs\" before \"mine\"\n\"theirs\" text block then \"mine\""
+msgstr "Brug tekstblok fra \"deres\" før \"min\"\nBrug \"deres\" tekstblok, derefter \"min\""
+
+#: ID:2052,
+msgid "Use text block from \"theirs\"\nUse \"theirs\" text block"
+msgstr "Brug tekstblok fra \"deres\"\nBrug \"deres\" tekstblok"
 
 #: ID:251,
 msgid "Use th&is text block"
