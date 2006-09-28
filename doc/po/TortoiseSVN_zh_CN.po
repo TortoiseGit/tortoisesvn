@@ -39,7 +39,7 @@ msgstr "TortoiseSVN"
 #: source/TortoiseSVN_en.xml:5
 #: (subtitle)
 msgid "A Subversion client for Windows"
-msgstr "一种 Windows 下的 Subversion 客户端"
+msgstr "Windows下的一种Subversion客户端"
 
 #: source/TortoiseSVN_en.xml:8
 #: (edition)
@@ -84,7 +84,7 @@ msgstr "前言"
 #: source/TortoiseSVN_en.xml:35
 #: (para)
 msgid "Do you work in a team?"
-msgstr "是否在一个团队中工作？"
+msgstr "你是否在一个团队中工作？"
 
 #: source/TortoiseSVN_en.xml:40
 #: (para)
@@ -104,7 +104,7 @@ msgstr "是否曾经在项目中发现了一个BUG，然后想调查它是什么
 #: source/TortoiseSVN_en.xml:61
 #: (para)
 msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr "如果这些问题中的任何一个回答<quote>是</quote>的话，那么 TortoiseSVN 就是为你准备的！请继续读下去，你就能知道怎样让 TortoiseSVN 对你的工作起到帮助。这其实并不困难。"
+msgstr "如果这些问题中的任何一个回答<quote>是</quote>的话，那么 TortoiseSVN 就是为你准备的！请继续读下去，你就能知道怎样让TortoiseSVN对你的工作起到帮助，这其实并不困难。"
 
 #: source/TortoiseSVN_en.xml:71
 #: (title)
@@ -114,7 +114,7 @@ msgstr "致读者"
 #: source/TortoiseSVN_en.xml:72
 #: (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "本书面向这样的计算机用户：希望使用 Subversion 管理数据，但又不愿意使用 Subversion 的命令行客户端。因为 TortoiseSVN 是 windows 的外壳扩展应用，所以我们假设用户很熟悉 windows 资源管理器的使用。"
+msgstr "本书面向这样的计算机用户：希望使用Subversion管理数据，但又不愿意使用Subversion的命令行客户端。因为TortoiseSVN是windows的外壳扩展应用，所以我们假设用户很熟悉windows资源管理器的使用。"
 
 #: source/TortoiseSVN_en.xml:84
 #: (title)
@@ -124,7 +124,7 @@ msgstr "阅读指南"
 #: source/TortoiseSVN_en.xml:85
 #: (para)
 msgid "This <emphasis>Preface</emphasis> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr "在<emphasis>前言</emphasis>里简单介绍了 TortoiseSVN 的开发团体—— TortoiseSVN 工程。还介绍了使用及分发该软件应遵循的许可证。"
+msgstr "在<emphasis>前言</emphasis>里简单介绍了TortoiseSVN的开发团体—— TortoiseSVN 工程。还介绍了使用及分发该软件应遵循的许可证。"
 
 #: source/TortoiseSVN_en.xml:90
 #: (para)
@@ -6758,7 +6758,7 @@ msgstr "推荐的方法是：用鼠标<action>右键拖拽</action>这些文件�
 #: source/TortoiseSVN_en.xml:8664
 #: (title)
 msgid "Force users to enter a log message"
-msgstr "让用户必须写日志"
+msgstr "强制用户写日志"
 
 #: source/TortoiseSVN_en.xml:8666
 #: (primary)
@@ -6783,12 +6783,12 @@ msgstr "如果能够直接访问服务器，可以安装一个pre-commit钩子�
 #: source/TortoiseSVN_en.xml:8680
 #: (para)
 msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
-msgstr "在服务器端的版本库目录下有一个 <filename>hooks</filename> 子目录，这个子目录下有一些钩子脚本的例子。在 <filename>pre-commit.tmpl</filename> 这个例子里，示范了当日志是空白或者过于简短的时候如何拒绝提交。这个例子的注释里包括了安装和使用这个脚本的说明。仅按照那里面的指示做就能够使用了。"
+msgstr "在服务器端的版本库目录下有一个<filename>hooks</filename>子目录，这个子目录下有一些钩子脚本的例子。在 <filename>pre-commit.tmpl</filename> 这个例子里，示范了当日志是空白或者过于简短的时候如何拒绝提交。这个例子的注释里包括了安装和使用这个脚本的说明，按照那里面的指示做就能够使用了。"
 
 #: source/TortoiseSVN_en.xml:8690
 #: (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
-msgstr "除了 TortoiseSVN ，如果还要同时使用其他的 Subversion 客户端，推荐使用这种方法。缺点是提交是被服务器端拒绝的，因此用户会看到一个错误消息。客户端无法在提交之前就知道会被拒绝。如果希望在日志的内容达到足够长之前，TortoiseSVN 的 <guibutton>OK</guibutton> 按钮处于无效的状态，请使用下面的方法。"
+msgstr "除了TortoiseSVN，如果还要同时使用其他的Subversion客户端，推荐使用这种方法。缺点是提交是被服务器端拒绝的，因此用户会看到一个错误消息。客户端无法在提交之前就知道会被拒绝。如果希望在日志的内容达到足够长之前，TortoiseSVN 的 <guibutton>OK</guibutton> 按钮处于无效的状态，请使用下面的方法。"
 
 #: source/TortoiseSVN_en.xml:8701
 #: (title)
