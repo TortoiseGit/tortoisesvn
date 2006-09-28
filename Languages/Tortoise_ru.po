@@ -34,21 +34,21 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7591: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7640: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-25 12:00+0300\n"
+"PO-Revision-Date: 2006-09-28 11:47+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Russian\n"
 
 #: ID:10
 #: ID:126
@@ -598,6 +598,10 @@ msgstr "&Порт:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Предыдущее различие"
+
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "Сво&йства..."
 
 #: Control-ID:1246
 msgid "&Recent messages"
@@ -3653,7 +3657,6 @@ msgid "Properties for"
 msgstr "Свойства для"
 
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Свойства..."
 
@@ -5528,7 +5531,7 @@ msgstr "Использовать \"и&х\" текстовый блок пере�
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "Использовать \"их\" текстовый блок перед \"моим\"\n"
 "Сначала \"их\", затем \"мой\""
