@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-18 15:47+0100\n"
+"PO-Revision-Date: 2006-09-28 09:28+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -696,6 +696,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Poprzednia różnica"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Właściwości..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -3553,6 +3559,12 @@ msgstr "Wykres liniowy"
 msgid "Line:"
 msgstr "Linia:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Linia: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -4452,7 +4464,6 @@ msgstr "Właściwości dla"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Właściwości..."
 
@@ -4712,6 +4723,12 @@ msgstr "Zmieniono nazwę zdalnie"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Zmienia nazwy plików / folderów wewnątrz kontroli wersji"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "Napraw przeniesienie"
 
 # ID:3603,
 #: ID:3603
@@ -5457,7 +5474,7 @@ msgstr "Pokazuje %ld węzłów"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "Pokazuję %ld wersji, od wersji %ld do wersji %ld - %ld wersji wybanych."
 
 # ID:272,
@@ -6683,77 +6700,59 @@ msgstr "Użyj prze&kreślenia dla usuniętych linii"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Użyj bloku tekstu z \"&Mój\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Użyj bloku tekstu z \"&Ich\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "Użyj bloku tekstu z \"&mój\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Użyj bloku tekstu z \"&ich\""
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Użyj bloku tekstu z \"Mó&j\" przed \"Ich\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
-msgstr ""
-"Użyj bloku tekstu z \"Mój\" przed \"Ich\"\n"
-"\"Mój\" blok tekstu a następnie \"Ich\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
-msgstr ""
-"Użyj bloku tekstu z \"Mój\"\n"
-"Użyj \"Mój\" blok tekstu"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Użyj bloku tekstu z \"Ic&h\" przed \"Mój\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr "Użyj bloku tekstu z \"Ich\" przed \"Mój\"\"Ich\" blok tekstu a następnie \"Mój\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"Użyj bloku tekstu z \"Ich\"\n"
-"Użyj \"Ich\" blok tekstu"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Użyj bloku tekstu z \"mó&j\" przed \"ich\""
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Użyj bloku tekstu z \"mój\" przed \"ich\"\n"
+"Użyj \"mój\" blok tekstu a następnie \"ich\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Użyj bloku tekstu z \"mój\"\n"
+"Użyj \"mój\" blok tekstu"
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Użyj bloku tekstu z \"ic&h\" przed \"mój\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"Użyj bloku tekstu z \"ich\" przed \"mój\"\n"
+"Użyj \"ich\" blok tekstu a następnie \"mój\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Użyj bloku tekstu z \"ich\"\n"
+"Użyj \"ich\" blok tekstu"
 
 # ID:251,
 #: ID:251
