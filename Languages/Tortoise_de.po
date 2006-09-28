@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-25 09:09+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-09-28 08:32+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -577,6 +577,10 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Vorheriger Unterschied"
+
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Eigenschaften..."
 
 #: Control-ID:1246
 msgid "&Recent messages"
@@ -3684,7 +3688,6 @@ msgid "Properties for"
 msgstr "Eigenschaften für"
 
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Eigenschaften..."
 
@@ -5570,7 +5573,7 @@ msgid ""
 "Use \"mine\" text block then \"theirs\""
 msgstr ""
 "Verwende Textblock aus 'Meine' vor 'Deren'\n"
-"'Mein' Textblock, danach 'Deren'"
+"Erst 'Mein' Textblock, danach 'Deren'"
 
 #: ID:2052
 msgid ""
@@ -5587,10 +5590,10 @@ msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "Verwende Textblock aus 'Deren' vor 'Meine'\n"
-"'Deren' Textblock, danach 'Meiner'"
+"Erst 'Deren' Textblock, danach 'Meiner'"
 
 #: ID:2052
 msgid ""
