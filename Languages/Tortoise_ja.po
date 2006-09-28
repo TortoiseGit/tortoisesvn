@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-04 16:22+0900\n"
+"PO-Revision-Date: 2006-09-28 20:46+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -614,12 +614,7 @@ msgstr "リスト表示(&L)"
 msgid "&Load..."
 msgstr "開く(&L) ..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "解消マークを付ける(&M)"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "マージ(&M)"
 
@@ -637,6 +632,10 @@ msgstr "マージ(&M)"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Native filesystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "ナビゲート(&N)"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -698,6 +697,11 @@ msgstr "ポート(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前の相違点へ(&P)"
+
+# Control-ID:65535,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "属性(&P) ..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -926,7 +930,7 @@ msgstr "空白を表示(&W)"
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "&Whole word"
-msgstr ""
+msgstr "単語単位(&W)"
 
 # ID:151,
 #: Control-ID:1183
@@ -1940,7 +1944,7 @@ msgstr "コマンドライン"
 # Control-ID:1336,
 #: Control-ID:1336
 msgid "Command Line To Execute:"
-msgstr ""
+msgstr "実行するコマンドライン:"
 
 # ID:3857,#:
 # ID:3857,
@@ -2028,7 +2032,7 @@ msgstr "完了"
 # Dlg-ID:236,
 #: Dlg-ID:236
 msgid "Configure Hook Scripts"
-msgstr ""
+msgstr "フックスクリプトの設定"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3118,7 +3122,7 @@ msgstr "ヘルプ"
 # Control-ID:1326,
 #: Control-ID:1326
 msgid "Hide the script while running"
-msgstr ""
+msgstr "実行時はスクリプトを非表示にする"
 
 # ID:2052,
 #: ID:2052
@@ -3533,6 +3537,12 @@ msgstr "折れ線グラフ"
 msgid "Line:"
 msgstr "行番号:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "行番号: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3701,6 +3711,10 @@ msgstr "メールシステムDLLは無効です。"
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Subversion の属性を管理する"
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "解消マークを付ける(&R)"
 
 #: ID:282
 msgid "Mark as resolved"
@@ -4340,15 +4354,15 @@ msgstr "しばらくお待ちください - この処理には数分かかるか
 msgid "Please wait while cancelling..."
 msgstr "キャンセル処理が完了するまでしばらくお待ちください ..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "差分を取得する間、しばらくお待ちください ..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "リポジトリブラウザが初期化されるまでしばらくお待ちください ..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "差分を取得する間、しばらくお待ちください ..."
 
 # ID:119,
 #: ID:119
@@ -4418,7 +4432,6 @@ msgstr "属性"
 
 # Control-ID:65535,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "属性 ..."
 
@@ -4675,6 +4688,12 @@ msgstr "リモート操作による名前の変更"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "バージョン管理内のファイル／フォルダの名前を変更"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "移動を修復"
 
 # ID:3603,
 #: ID:3603
@@ -5415,6 +5434,12 @@ msgstr "表示／非表示"
 msgid "Showing %ld nodes"
 msgstr "%ld 個のノードを表示"
 
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld 個のリビジョンを表示（%ld から %ld まで）、%ld 個のリビジョンを選択"
+
 # ID:272,
 #: ID:272
 #, c-format
@@ -5525,7 +5550,7 @@ msgstr "積み重ね折れ線グラフ"
 # ID:569,
 #: ID:569
 msgid "Start Commit Hook"
-msgstr "コミットのフックを開始"
+msgstr "Start Commit フック"
 
 # ID:11,
 #: Control-ID:65535
@@ -5535,7 +5560,7 @@ msgstr "開始リビジョン"
 # ID:569,
 #: ID:569
 msgid "Start Update Hook"
-msgstr "更新のフックを開始"
+msgstr "Start Update フック"
 
 # ID:74,#:
 # ID:77,
@@ -6602,6 +6627,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "作業コピーのURLを \"元:\" のデフォルトURLとして利用する(&W)"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "クリップボードの Unified Diff を利用"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6628,24 +6658,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "削除された行に取り消し線を引く(&K)"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "\"&mine\" のテキストブロックを利用"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "\"&theirs\" のテキストブロックを利用"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "\"theirs\" の前に \"m&ine\" のテキストブロックを利用"
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"\"theirs\" の前に \"mine\" のテキストブロックを利用\n"
+"\"mine\" → \"theirs\" の順にテキストブロックを利用する"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"\"mine\" のテキストブロックを利用\n"
+"\"mine\" のテキストブロックを利用する"
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "\"mine\" の前に \"t&heirs\" のテキストブロックを利用"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"\"mine\" の前に \"theirs\" のテキストブロックを利用\n"
+"\"theirs\" → \"mine\" の順にテキストブロックを利用する"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"\"theirs\" のテキストブロックを利用\n"
+"\"theirs\" のテキストブロックを利用する"
 
 # ID:251,
 #: ID:251
@@ -6706,6 +6772,16 @@ msgstr "値"
 #: Control-ID:1075
 msgid "Version"
 msgstr "バージョン"
+
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "パスのリビジョンをウェブビューアで表示(&W)"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "リビジョンをウェブビューアで表示(&W)"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -7403,6 +7479,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "値が異なっています"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"リポジトリ内で、特定のファイルとリビジョンをウェブビューアに渡すURL。\n"
+"URL内の %REVISION% 文字列はリビジョン番号で置換され、\n"
+"%PATH% 文字列はリポジトリルートからの相対的なパスで置換されます。"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"リポジトリ内で、特定のリビジョンをウェブビューアに渡すURL。\n"
+"URL内の %REVISION% 文字列はリビジョン番号で置換されます。"
 
 # ID:244,
 #: ID:245
