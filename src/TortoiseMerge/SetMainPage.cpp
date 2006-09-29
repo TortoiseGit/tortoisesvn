@@ -350,6 +350,7 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 
 void CSetMainPage::OnBnClickedUsebdiff()
 {
+	m_bReloadNeeded = TRUE;
 	SetModified();
 }
 

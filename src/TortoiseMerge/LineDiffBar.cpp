@@ -130,10 +130,13 @@ void CLineDiffBar::OnPaint()
 		if ((m_pMainFrm->m_pwndLeftView->IsWindowVisible())&&(m_pMainFrm->m_pwndRightView->IsWindowVisible()))
 		{
 			BOOL bViewWhiteSpace = m_pMainFrm->m_pwndLeftView->m_bViewWhitespace;
+			BOOL bInlineDiffs = m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff;
 			int nDiffBlockStart = m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart;
 			int nDiffBlockEnd = m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd;
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = TRUE;
+			m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff = TRUE;
 			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = TRUE;
+			m_pMainFrm->m_pwndRightView->m_bShowInlineDiff = TRUE;
 			m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart = -1;
 			m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd = -1;
 			m_pMainFrm->m_pwndRightView->m_nDiffBlockStart = -1;
@@ -142,7 +145,9 @@ void CLineDiffBar::OnPaint()
 			m_pMainFrm->m_pwndLeftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
 			m_pMainFrm->m_pwndRightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = bViewWhiteSpace;
+			m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff = bInlineDiffs;
 			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = bViewWhiteSpace;
+			m_pMainFrm->m_pwndRightView->m_bShowInlineDiff = bInlineDiffs;
 			m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart = nDiffBlockStart;
 			m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd = nDiffBlockEnd;
 			m_pMainFrm->m_pwndRightView->m_nDiffBlockStart = nDiffBlockStart;

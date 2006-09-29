@@ -77,6 +77,7 @@ public:
 	CFileTextLines::LineEndings lineendings; ///< the line endings the view uses
 
 	BOOL			m_bViewWhitespace;	///< If TRUE, then SPACE and TAB are shown as special characters
+	BOOL			m_bShowInlineDiff;	///< If TRUE, diffs in lines are marked colored
 	int				m_nTopLine;			///< The topmost text line in the view
 
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left

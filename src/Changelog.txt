@@ -75,6 +75,7 @@ Version 1.4.1
        repository browser for non-HEAD revisions. (Stefan)
 - BUG: If a commit failed with an error, the commit dialog re-opened but
        it didn't restore any manually added targets. (Tobias Schäfer)
+- BUG: The setting "Color code in-line changes" was always active. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
