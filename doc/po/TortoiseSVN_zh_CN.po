@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-29 11:27+0800\n"
+"PO-Revision-Date: 2006-09-29 16:01+0800\n"
 "Last-Translator: rocksun <daijun@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -410,157 +410,157 @@ msgstr "TortoiseSVN与Windows外壳（例如资源管理器）无缝集成，你
 #: source/TortoiseSVN_en.xml:413
 #: (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "并且你不一定必须使用Windows资源管理器，TortoiseSVN的右键菜单可以工作在其他文件管理器，以及文件/打开对话框等标准的Windows应用程序中。你必须牢记，TortoiseSVN是有意作为Windows资源管理器的扩展开发，因此它可能"
+msgstr "并且你不一定必须使用Windows资源管理器，TortoiseSVN的右键菜单可以工作在其他文件管理器，以及文件/打开对话框等标准的Windows应用程序中。你必须牢记，TortoiseSVN是有意作为Windows资源管理器的扩展开发，因此在其他程序可能集成的并不完整，例如图标覆盖可能不会显示。"
 
 #: source/TortoiseSVN_en.xml:427
 #: (term)
 msgid "Icon overlays"
-msgstr ""
+msgstr "图标覆盖"
 
 #: source/TortoiseSVN_en.xml:429
 #: (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr ""
+msgstr "每个版本化的文件和目录的状态使用小的覆盖图标表示，可以让你立刻看出工作拷贝的状态。"
 
 #: source/TortoiseSVN_en.xml:437
 #: (term)
 msgid "Easy access to Subversion commands"
-msgstr ""
+msgstr "Subversion命令的简便访问"
 
 #: source/TortoiseSVN_en.xml:439
 #: (para)
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
-msgstr ""
+msgstr "所有的Subversion命令存在于资源管理器的右键菜单，TortoiseSVN在那里添加子菜单。"
 
 #: source/TortoiseSVN_en.xml:446
 #: (para)
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
-msgstr ""
+msgstr "因为TortoiseSVN是一个Subversion客户端，我们也很愿意为你展示一些Subversion本身的特性："
 
 #: source/TortoiseSVN_en.xml:452
 #: (term)
 msgid "Directory versioning"
-msgstr ""
+msgstr "目录版本化"
 
 #: source/TortoiseSVN_en.xml:454
 #: (para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
-msgstr ""
+msgstr "CVS只能追踪单个文件的历史，但是Subversion实现了一个<quote>虚拟的</quote>文件系统，可以追踪整个目录树的修改，文件<emphasis>和</emphasis>目录都是版本化的，结果就是可以在客户端对文件和目录执行<command>move</command>和<command>copy</command>命令。"
 
 #: source/TortoiseSVN_en.xml:467
 #: (term)
 msgid "Atomic commits"
-msgstr ""
+msgstr "原子提交"
 
 #: source/TortoiseSVN_en.xml:469
 #: (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
-msgstr ""
+msgstr "提交要么完全进入版本库，要么一点都没有，这允许开发者以一个逻辑块提交修改。"
 
 #: source/TortoiseSVN_en.xml:477
 #: (term)
 msgid "Versioned metadata"
-msgstr ""
+msgstr "版本化的元数据"
 
 #: source/TortoiseSVN_en.xml:479
 #: (para)
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
-msgstr ""
+msgstr "每个文件和睦路都有一组附加的<quote>属性</quote>，你可以发明和保存任意的键/值对，属性是版本化的，就像文件内容。"
 
 #: source/TortoiseSVN_en.xml:489
 #: (term)
 msgid "Choice of network layers"
-msgstr ""
+msgstr "可选的网络层"
 
 #: source/TortoiseSVN_en.xml:491
 #: (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr ""
+msgstr "Subversion在版本库访问方面有一个抽象概念，利于人们去实现新的网络机制，Subversion的<quote>高级</quote>服务器是Apache网络服务器的一个模块，使用HTTP的变种协议WebDAV/DeltaV通讯，这给了Subversion在稳定性和交互性方面很大的好处，可以直接使用服务器的特性，例如认证、授权、传输压缩和版本库浏览等等。也有一个轻型的，单独运行的Subversion服务器，这个服务器使用自己的协议，可以轻松的用SSH封装。"
 
 #: source/TortoiseSVN_en.xml:508
 #: (term)
 msgid "Consistent data handling"
-msgstr ""
+msgstr "一致的数据处理"
 
 #: source/TortoiseSVN_en.xml:510
 #: (para)
 msgid "Subversion expresses file differences using a binary differencing algorithm, which works identically on both text (human-readable) and binary (human-unreadable) files. Both types of files are stored equally compressed in the repository, and differences are transmitted in both directions across the network."
-msgstr ""
+msgstr "Subversion使用二进制文件区别算法表示文件的区别，对于文本（可读）和二进制（不可读）文件具备一致的操作方式，两种类型的文件都压缩存放在版本库中，区别信息是在网络上双向传递的。"
 
 #: source/TortoiseSVN_en.xml:521
 #: (term)
 msgid "Efficient branching and tagging"
-msgstr ""
+msgstr "有效率的分支和标签"
 
 #: source/TortoiseSVN_en.xml:523
 #: (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr ""
+msgstr "分支与标签的代价不与工程的大小成比例，Subversion建立分支与标签时只是拷贝整个项目，使用了一种类似于硬链接的机制，因而这类操作通常只会花费很少并且相对固定的时间和很小的版本库空间。"
 
 #: source/TortoiseSVN_en.xml:534
 #: (term)
 msgid "Hackability"
-msgstr ""
+msgstr "可修改性"
 
 #: source/TortoiseSVN_en.xml:536
 #: (para)
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
-msgstr ""
+msgstr "Subversion没有历史负担，它由一系列良好的共享C库实现，具有定义良好的API，这使得Subversion非常容易维护，可以轻易的用其他语言和程序使用。"
 
 #: source/TortoiseSVN_en.xml:550
 #: (title)
 msgid "Installing TortoiseSVN"
-msgstr ""
+msgstr "安装TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:552
 #: (title)
 msgid "System requirements"
-msgstr ""
+msgstr "系统要求"
 
 #: source/TortoiseSVN_en.xml:553
 #: (para)
 msgid "TortoiseSVN runs on Win2k SP2, WinXP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr ""
+msgstr "TortoiseSVN可以运行在Win2k SP2，WinXP或更高的版本，TortoiseSVN 1.2.0以后不再支持Windows 98, Windows ME和Windows NT4，但是如果需要的话，你仍容可以下载以前的版本。"
 
 #: source/TortoiseSVN_en.xml:559
 #: (para)
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
-msgstr ""
+msgstr "如果在安装TortoiseSVN时发现了任何问题，请首先参考<xref linkend=\"tsvn-faq\"/>。"
 
 #: source/TortoiseSVN_en.xml:567
 #: (title)
 msgid "Installation"
-msgstr ""
+msgstr "安装"
 
 #: source/TortoiseSVN_en.xml:569
 #: (primary)
 msgid "install"
-msgstr ""
+msgstr "安装"
 
 #: source/TortoiseSVN_en.xml:571
 #: (para)
 msgid "TortoiseSVN comes with an easy to use installer. Doubleclick on the installer file and follow the instructions. The installer will take care of the rest. If you want to install TortoiseSVN for <literal>all users</literal> then you must have administrator rights on your system. If you don't have those rights, TortoiseSVN will automatically install for the current user only."
-msgstr ""
+msgstr "TortoiseSVN有一个简单易用的安装程序，双击安装文件，并根据指导，安装程序会完成剩下的工作，如果你希望为<literal>所有用户</literal>安装TortoiseSVN，你必须有系统的管理员权限，如果你没有那些权限，TortoiseSVN只会为当前用户安装。"
 
 #: source/TortoiseSVN_en.xml:581
 #: (para)
 msgid "If you don't have the latest C-runtime and MFC libraries installed, you still must have Administrator privileges to install TortoiseSVN. But once those libraries are installed, you can update or install TortoiseSVN without those privileges."
-msgstr ""
+msgstr "如果你没有安装最新的C运行和MFC库，你仍然必须拥有管理员权限才能安装TortoiseSVN，一旦安装了那些库，你可以在没有权限的情况下更新或安装TortoiseSVN。"
 
 #: source/TortoiseSVN_en.xml:590
 #: (title)
 msgid "Language Packs"
-msgstr ""
+msgstr "语言包"
 
 #: source/TortoiseSVN_en.xml:592
 #: (primary)
 msgid "language packs"
-msgstr ""
+msgstr "语言包"
 
 #: source/TortoiseSVN_en.xml:595
 #: (primary)
 msgid "translations"
-msgstr ""
+msgstr "翻译"
 
 #: source/TortoiseSVN_en.xml:597
 #: (para)
@@ -575,17 +575,17 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:615
 #: (title)
 msgid "Spellchecker"
-msgstr ""
+msgstr "拼写检查器"
 
 #: source/TortoiseSVN_en.xml:617
 #: (primary)
 msgid "spellchecker"
-msgstr ""
+msgstr "拼写检查器"
 
 #: source/TortoiseSVN_en.xml:620
 #: (primary)
 msgid "dictionary"
-msgstr ""
+msgstr "词典"
 
 #: source/TortoiseSVN_en.xml:622
 #: (para)
