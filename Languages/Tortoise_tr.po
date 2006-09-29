@@ -4,17 +4,17 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7411)
+# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7655)
 #
 # Authors:
 #
 #
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
-#  - (v7411) de bir suru yeni tercume geldi bunlar daha kontrol edilmedi.
+#  - (7655) de 4 tercume daha kontrol edilmedi.
 #
 # Su anki versiyon:
-# (v7411)
+# (v7655)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -44,13 +44,13 @@
 # Link - Birbirine baglamak
 # ReOpen - tekrar ac
 # Hook - yakalayici
-#
+# Navigate - Dolas
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-09-05 15:59+0300\n"
+"PO-Revision-Date: 2006-09-28 22:16+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -649,13 +649,8 @@ msgstr "&Liste görünümü"
 msgid "&Load..."
 msgstr "&Yükle..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Çözümlendi olarak işaretle"
-
 # Control-ID:1,#:
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Birleştir"
 
@@ -673,6 +668,10 @@ msgstr "&Birleştiriliyor"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Yerel dosya sistemi (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Dolaş"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -731,6 +730,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Önceki Farklılık"
+
+# ID:209,#:
+# Control-ID:11021,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Ayarlar..."
 
 # Control-ID:1246,#:
 # Control-ID:1246,
@@ -3562,6 +3567,12 @@ msgstr "Diyagram (Çizgi)"
 msgid "Line:"
 msgstr "Satır:"
 
+# Control-ID:65535,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Dizin: %*ld "
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3730,6 +3741,10 @@ msgstr "Posta sistemi DLL'si geçersiz."
 #: ID:17
 msgid "Manage Subversion properties"
 msgstr "Subversion ayarları yöneticisi:"
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "&Çözümlendi olarak işaretle"
 
 #: ID:282
 msgid "Mark as resolved"
@@ -4370,15 +4385,15 @@ msgstr "Bu işlem birkaç dakkika sürebilir - Lütfen bekleyiniz!"
 msgid "Please wait while cancelling..."
 msgstr "Iptal işlemi yapılırken lütfen bekleyiniz..."
 
+# ID:319,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Farklılıkları alana kadar lütfen bekleyiniz..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Depo tarayıcısı başlayana kadar lütfen bekleyiniz..."
-
-# ID:319,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Farklılıkları alana kadar lütfen bekleyiniz..."
 
 # ID:119,#:
 # ID:146,#:
@@ -4454,7 +4469,6 @@ msgstr "Seçenekler "
 # ID:209,#:
 # Control-ID:11021,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Ayarlar..."
 
@@ -4712,6 +4726,12 @@ msgstr "Uzaktan tekrar adlandırıldı"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Versiyon kontrolündeki dosya / klasörleri tekrar adlandırır"
+
+# Control-ID:1100,#:
+# Control-ID:1285,
+#: ID:209
+msgid "Repair move"
+msgstr "Taşımayı onar"
 
 # ID:3603,
 #: ID:3603
@@ -5452,6 +5472,12 @@ msgstr "Göster/Gizle"
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "%ld düğümleri gösterilmekte"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr " %ld revizyon(lar) gösterilmekte, %ld revizyonundan %ld  revizyonuna - %ld revizyon seçili."
 
 # ID:272,
 #: ID:272
@@ -6624,6 +6650,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "&Çalışan kopya dosyasından gelen URL'yi \"From:\" URL'si olarak kullan"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Panodaki birleştirilmiş karşılaştırma dosyasını kullan"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6650,24 +6681,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "Silinen satırları çizgi& ili çizinerek kullanınız"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "\"&mine\" 'den itibaren metin bloğunu kullanınız"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "\"&theirs\" 'den itibaren metin bloğunu kullanınız"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "\"m&ine\" 'den sonra ve \"theirs\" 'den önce metin bloğunu kullanınız"
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"\"mine\" 'den sonra ve \"theirs\" 'den önceki metin bloğunu kullanınız\n"
+"İlk \"mine\" sonra \"theirs\" metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"\"mine\" 'daki metin bloğunu kullan\n"
+"\"mine\" metin bloğunu kullan."
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "\"t&heirs\" 'den sonra ve \"mine\" 'den önce metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"\"theirs\"  'den sonra ve \"mine\" 'den önceki metin bloğunu kullanınız\n"
+"İlk \"theirs\" sonra \"mine\" metin bloğunu kullanınız"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"\"theirs\" 'daki metin bloğunu kullan\n"
+"\"theirs\" metin bloğunu kullan."
 
 # ID:251,
 #: ID:251
