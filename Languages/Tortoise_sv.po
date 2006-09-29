@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-29 07:32+0100\n"
+"PO-Revision-Date: 2006-09-29 08:48+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -522,12 +522,7 @@ msgstr "&List vy"
 msgid "&Load..."
 msgstr "&Öppna..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&Markera som löst"
-
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&Förena"
 
@@ -543,6 +538,10 @@ msgstr "&Förenar"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&Lokalt filsystem (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&Navigera"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -596,6 +595,10 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Föregående skillnad"
+
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Egenskaper..."
 
 #: Control-ID:1246
 msgid "&Recent messages"
@@ -776,6 +779,11 @@ msgstr "&Visa"
 msgid "&Whitespaces"
 msgstr "&Whitespace"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&Helt ord"
+
 # Osäker på var denna visas
 #: Control-ID:1183
 msgid "&Working copy"
@@ -822,6 +830,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -992,6 +1002,10 @@ msgstr "Lägg till föreningsprogram för filändelse"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Lägg till på &undantagslistan"
+
+#: Control-ID:1279
+msgid "Add..."
+msgstr "Lägg till..."
 
 # Hur översätta "diff/merge"
 #: Dlg-ID:171
@@ -1620,6 +1634,15 @@ msgstr "Färgko&da ändringar inom en rad"
 msgid "Colors"
 msgstr "Färger"
 
+#: ID:198
+msgid "Command Line"
+msgstr "Kommandorad"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "Kommandoraden som skall exekveras:"
+
 #: ID:3857
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
@@ -1687,6 +1710,11 @@ msgstr "Jämför %s med %s"
 #: ID:74
 msgid "Completed"
 msgstr "Klar"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "Konfigurera hook skript"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -2194,6 +2222,10 @@ msgstr "Ändra föreningsprogram för filändelse"
 msgid "Edit log message"
 msgstr "Skriv loggmeddelande"
 
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "Redigera..."
+
 #: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "Ange antingen namnet på eller IP-adressen till proxyservern."
@@ -2338,12 +2370,12 @@ msgid "Extension"
 msgstr "Filändelse"
 
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "Filändelsespecifika program"
+msgid "Extension or mime-type:"
+msgstr "Filändelse eller mime-typ:"
 
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "Filändelse:"
+msgid "Extension/mime-type specific programs"
+msgstr "Filändelse- och mime-typ specifika program"
 
 #: ID:74
 msgid "External"
@@ -2626,6 +2658,11 @@ msgstr "&Göm orelaterade ändrade sökvägar"
 msgid "Help"
 msgstr "Hjälp"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "Dölj skriptet medans det körs"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -2639,6 +2676,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tips: Tryck F5 för att uppdatera valt underträd och Ctrl-F5 för att också ladda in alla barnnoder"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "Hook skript"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "Hook typ"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "Hook typ:"
 
 #: ID:82
 #, c-format
@@ -2986,6 +3038,11 @@ msgstr "Linjediagram"
 msgid "Line:"
 msgstr "Rad:"
 
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Rad: %*ld"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -3141,6 +3198,10 @@ msgstr "Felaktig DLL för e-post systemet."
 msgid "Manage Subversion properties"
 msgstr "Hantera Subversion egenskaper"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "Markera som &löst"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "Markera som löst"
@@ -3166,7 +3227,7 @@ msgid "Max"
 msgstr "Max"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "Max antal sparade logmeddelanden"
 
@@ -3549,6 +3610,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchfiler (*.diff, *.patch)|*.diff;*.patch|Alla (*.*)|*.*||"
 
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "Sökväg"
 
@@ -3581,6 +3643,10 @@ msgstr "Ange ett datum och / eller en tidpunkt."
 msgid "Please enter a date."
 msgstr "Ange ett datum."
 
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "Fyll i ett hook skript som skall exekveras. "
+
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -3589,6 +3655,11 @@ msgstr "Ange ett numeriskt värde mellan %1 och %2."
 #: ID:3858
 msgid "Please enter a number."
 msgstr "Ange ett numeriskt värde."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "Fyll i sökvägen som hook skriptet skall appliceras på. "
 
 #: ID:3858
 msgid "Please enter a positive integer."
@@ -3636,6 +3707,10 @@ msgstr ""
 msgid "Please select a button."
 msgstr "Välj en knapp."
 
+#: ID:83
+msgid "Please select a hook type"
+msgstr "Välj hook skript typ"
+
 #: ID:76
 msgid "Please specify the certificate type"
 msgstr "Ange typ av certifikat"
@@ -3648,21 +3723,43 @@ msgstr "Var god vänta - åtgärden kan ta upp till flera minuter att genomföra
 msgid "Please wait while cancelling..."
 msgstr "Vänta medan operationen avbryts..."
 
+#: ID:319
+#, fuzzy
+msgid "Please wait while differences are obtained..."
+msgstr "Vänta medan skillnader tas fram..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Var god vänta medans arkivsutforskaren initieras..."
-
-#: ID:319
-#, fuzzy
-msgid "Please wait while we get the differences..."
-msgstr "Vänta medan skillnader tas fram..."
 
 #: ID:119
 #: ID:146
 #: ID:211
 msgid "Please wait..."
 msgstr "Vänta..."
+
+#: ID:569
+#, fuzzy
+msgid "Post-Commit Hook"
+msgstr "\"Efter arkivering\" hook"
+
+# ID:570,
+#: ID:570
+#, fuzzy
+msgid "Post-Update Hook"
+msgstr "\"Efter uppdatering\" hook"
+
+#: ID:569
+#, fuzzy
+msgid "Pre-Commit Hook"
+msgstr "\"Innan akrivering\" hook"
+
+# ID:570,
+#: ID:570
+#, fuzzy
+msgid "Pre-Update Hook"
+msgstr "\"Innan uppdatering\" hook"
 
 # ID:376,
 #: ID:376
@@ -3698,7 +3795,6 @@ msgid "Properties for"
 msgstr "Egenskaper för"
 
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Egenskaper..."
 
@@ -3865,6 +3961,10 @@ msgstr "Textstatus i arkivet"
 msgid "Remove from &ignore list"
 msgstr "Ta bort från &undantagslistan"
 
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "Ta bort.."
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Borttagen"
@@ -3908,6 +4008,10 @@ msgstr "Bytte namn på i arkivet"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Byter namn på filer / mappar i arkivet"
+
+#: ID:209
+msgid "Repair move"
+msgstr "Reparera flytta"
 
 #: ID:3603
 msgid ""
@@ -4324,6 +4428,17 @@ msgstr ""
 "Välj mapp att exportera till.\n"
 "Du kan behöva skapa en ny mapp innan du kan genomföra den här exporten."
 
+# ID:197,
+#: ID:197
+#, fuzzy
+msgid "Select folder to run script for"
+msgstr "Välj mapp att köra skriptet för"
+
+# Hur översätta "diff"
+#: ID:197
+msgid "Select hook script file"
+msgstr "Välj "
+
 #: ID:78
 msgid "Select merge application"
 msgstr "Välj föreningsapplikation"
@@ -4507,10 +4622,21 @@ msgstr "Visa filer utan ändringar"
 msgid "Show unversioned files"
 msgstr "Visa icke versionshanterade filer"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "Visa/dölj"
+
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Visar %ld noder"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Visar %ld revisioner, från revision %ld till revision %ld - %ld revisioner valda. "
 
 # ID:272,
 #: ID:272
@@ -4610,9 +4736,21 @@ msgstr "Staplat stapeldiagram"
 msgid "Stacked Line Graph"
 msgstr "Staplat linjediagram"
 
+# ID:569,
+#: ID:569
+#, fuzzy
+msgid "Start Commit Hook"
+msgstr "\"Börja arkivera\" hook"
+
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Startrevision"
+
+# ID:569,
+#: ID:569
+#, fuzzy
+msgid "Start Update Hook"
+msgstr "\"Börja uppdatera\" hook"
 
 #: ID:245
 #: Dlg-ID:179
@@ -4885,6 +5023,16 @@ msgstr ""
 "%s\n"
 "finns inte.\n"
 "Vill du skapa den först?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"Ett fel uppstod när hook skriptet kördes:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -5538,6 +5686,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Använd a&rbetskopians URL som default \"Från:\" URL"
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "Använd patchfil i \"Unified Diff\"-format från urklipp"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -5560,21 +5713,53 @@ msgstr "Använd båda textblocken (den här sist)"
 msgid "Use stri&keout for deleted lines"
 msgstr "Använd överstry&kning för borttagna rader"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "Använd \"&mitt\" textblock"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "Använd \"&deras\" textblock"
 
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Använd \"mi&tt\" textblock istället för \"deras\""
 
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Använd textblock från \"mitt\" före \"deras\"\n"
+"Använd \"mitt\" textblock följt av \"deras\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Använd textblocket från \"mitt\"\n"
+"Använd \"mitt\" textblock"
+
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Använd \"d&eras\" textblock istället för \"mitt\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"Använd textblocket från \"deras\" före \"mitt\"\n"
+"Använd \"deras\" textblock följt av \"mitt\""
+
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Använd textblocket från \"deras\"\n"
+"Använd \"deras\" textblock"
 
 #: ID:251
 msgid "Use th&is text block"
@@ -5628,9 +5813,29 @@ msgstr "Värde"
 msgid "Version"
 msgstr "Version"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "Visa revision för sökväg i &webläsare"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "Visa revision i &webläsare"
+
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Besök vår webbsida"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "Vänta"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "Vänta tills skriptet har avslutats"
 
 #: ID:88
 msgid "Warning"
@@ -5648,6 +5853,11 @@ msgstr "Med URL:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Arbetskopia"
+
+# Osäker på var denna visas
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "Sökväg till arbetskopia:"
 
 #: ID:80
 #, c-format
@@ -6251,6 +6461,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "värden är olika"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webvier:pathrevision\n"
+"URL till en specifik fil och revision i en webbaserad arkivutforskare.\n"
+"Strängen %REVISION% i URL:en ersätts med revisionsnumret,\n"
+"strängen %PATH% ersätts med sökvägen till filen relativt arkivets rot. "
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"URL till en specific revision i en webbaserad akrivutforskare.\n"
+"Strängen %REVISION% i URL:en ersätts med revisionsnumret. "
 
 # ID:244,
 #: ID:245
