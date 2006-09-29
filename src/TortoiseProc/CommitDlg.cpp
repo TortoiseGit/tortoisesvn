@@ -374,18 +374,21 @@ UINT CCommitDlg::StatusThread()
 
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWLOCKS;
 	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
-	if (m_checkedPathList.GetCount())
-		m_ListCtrl.Show(dwShow, m_checkedPathList);
-	else
-		m_ListCtrl.Show(dwShow, SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS);
-
-	if (m_ListCtrl.HasExternalsFromDifferentRepos())
+	if (success)
 	{
-		GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
-		DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
+		if (m_checkedPathList.GetCount())
+			m_ListCtrl.Show(dwShow, m_checkedPathList);
+		else
+			m_ListCtrl.Show(dwShow, SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS);
+
+		if (m_ListCtrl.HasExternalsFromDifferentRepos())
+		{
+			GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
+			DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
+		}
+		GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
+		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	}
-	GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
-	m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
