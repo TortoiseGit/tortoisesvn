@@ -714,6 +714,8 @@ UINT CSVNProgressDlg::ProgressThread()
 								m_UpdateStartRevMap[targetPath.GetSVNApiPath()] = st.status->entry->cmt_rev;
 						}
 					}
+					if (uuidmap.size() > 1)
+						m_Revision = SVNRev::REV_HEAD;
 				} // if (m_Revision.IsHead()) 
 			} // for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
 			if (m_targetPathList.GetCount() > 1)

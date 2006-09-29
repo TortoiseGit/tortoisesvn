@@ -77,6 +77,9 @@ Version 1.4.1
 - BUG: If a commit failed with an error, the commit dialog re-opened but
        it didn't restore any manually added targets. (Tobias Schäfer)
 - BUG: The setting "Color code in-line changes" was always active. (Stefan)
+- BUG: Updating multiple selected items sometimes updated all of them
+       to the same revision even if they were from different 
+       repositories. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
