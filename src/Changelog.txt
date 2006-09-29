@@ -101,6 +101,9 @@ Version 1.4.0
 - CHG: The 'recent message' is not appended to a prefilled log
        message by the tsvn:logtemplate property. Instead, the
        template is overwritten. See issue #283 for details. (Stefan)
+- CHG: When ignoring file(s) failed, the error message from Subversion is
+       shown in full instead of just the simple message telling that it
+       failed. (Stefan)
 - BUG: The header in TortoiseBlame was shown in the wrong font in translated
        versions. (Kazutoshi Satoda)
 - BUG: The state of the "Floppy drives" checkbox was not set correctly
