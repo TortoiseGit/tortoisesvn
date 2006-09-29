@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-22 10:15+0900\n"
+"PO-Revision-Date: 2006-09-29 14:34+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -684,6 +684,12 @@ msgstr "포트(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "속성(&P)..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -3518,6 +3524,12 @@ msgstr "꺽은선 그래프"
 msgid "Line:"
 msgstr "행:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "행: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -4410,7 +4422,6 @@ msgstr "속성"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "속성..."
 
@@ -4667,6 +4678,12 @@ msgstr "원격지의 파일이름 수정됨"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "버전 컨트롤안의 파일 폴더의 이름 바꾸기"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "관계 복원후 이동"
 
 # ID:3603,
 #: ID:3603
@@ -6637,10 +6654,15 @@ msgid "Use text block from \"&theirs\""
 msgstr "\"저장소\"의 텍스트 블럭 사용(&T)"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&i)"
+
+# ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "\"저장소\"의 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용\n"
 "\"작업사본\"의 텍스트 사용후 \"저장소\"의 텍스트를 사용"
@@ -6648,17 +6670,22 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "\"작업 사본\"의 텍스트 블럭 사용\n"
 "\"작업 사본\"의 텍스트 블럭 사용"
 
 # ID:251,
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&h)"
+
+# ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭 사용\n"
 "\"저장소\"의 텍스트 블럭을 사용후 \"작업 사본\"의 텍스트를 사용"
@@ -6666,21 +6693,11 @@ msgstr ""
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
 msgstr ""
 "\"저장소\"의 텍스트 블럭 사용\n"
 "\"저장소\"의 텍스트 블럭 사용"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&i)"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&h)"
 
 # ID:251,
 #: ID:251
