@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-23 20:56+0100\n"
+"PO-Revision-Date: 2006-09-29 08:28+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -707,6 +707,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Prethodna razlika"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Svojstva..."
 
 # Control-ID:1246,#:
 # Control-ID:1246,
@@ -4471,7 +4477,6 @@ msgstr "Svojstva za"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Svojstva..."
 
@@ -4730,6 +4735,12 @@ msgstr "Promijenjeno ime izvana"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Mijenja ime datoteka / mapa unutar upravljanja verzijama"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "Popravi"
 
 # ID:3603,
 #: ID:3603
@@ -5486,7 +5497,7 @@ msgstr "Prikazujem %ld čvorova"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr "Prikaz %ld revizija, od revizija %ld  do %ld - %ld revizija odabrano."
 
 # ID:272,
@@ -6746,7 +6757,7 @@ msgstr "Koristi blok teksta iz \"nj&ihovo\" prije \"moje\""
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "Koristi blok teksta iz \"njihova\" prije \"moja\"\n"
 "\"Njihova\" tekst blok prije \"moja\""
