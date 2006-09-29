@@ -137,6 +137,10 @@ public:
 	CDiffData		m_Data;
 	bool			m_bReadOnly;
 	bool			m_bBlame;
+public:
+	afx_msg void OnEditUndo();
+public:
+	afx_msg void OnUpdateEditUndo(CCmdUI *pCmdUI);
 };
 
 

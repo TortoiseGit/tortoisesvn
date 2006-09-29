@@ -20,6 +20,7 @@
 #include "DiffData.h"
 #include "SVNLineDiff.h"
 #include "ScrollTool.h"
+#include "Undo.h"
 
 class CMainFrame;
 class CLocatorBar;

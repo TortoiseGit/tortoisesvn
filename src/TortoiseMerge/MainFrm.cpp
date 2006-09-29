@@ -88,6 +88,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
+	ON_COMMAND(ID_EDIT_UNDO, &CMainFrame::OnEditUndo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, &CMainFrame::OnUpdateEditUndo)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1564,4 +1566,18 @@ void CMainFrame::OnUpdateViewShowfilelist(CCmdUI *pCmdUI)
 void CMainFrame::OnViewShowfilelist()
 {
 	m_dlgFilePatches.ShowWindow(m_dlgFilePatches.IsWindowVisible() ? SW_HIDE : SW_SHOW);
+}
+
+void CMainFrame::OnEditUndo()
+{
+	if (CUndo::GetInstance().CanUndo())
+	{
+		CUndo::GetInstance().Undo(m_pwndLeftView, m_pwndRightView, m_pwndBottomView);
+
+	}
+}
+
+void CMainFrame::OnUpdateEditUndo(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(CUndo::GetInstance().CanUndo());
 }
