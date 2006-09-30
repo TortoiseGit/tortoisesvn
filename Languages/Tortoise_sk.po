@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-24 23:06+0100\n"
+"PO-Revision-Date: 2006-09-30 15:30+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,9 @@ msgstr "%1 obsahuje neočakávaný objekt."
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
-#, fuzzy, c-format
+#, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 obsahuje nesprávnu schemu."
+msgstr "%1 obsahuje nesprávnu schému."
 
 # ID:3867,#:
 # ID:3867,
@@ -583,7 +583,7 @@ msgstr "Ignorovať zmeny &bielych znakov"
 
 #: MenuEntry
 msgid "&Image Info"
-msgstr "&Info o obrázku"
+msgstr "&Informácie o obrázku"
 
 # &Importovať...
 # ID:9,
@@ -704,6 +704,12 @@ msgstr "&Triediť:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Predošlý rozdiel"
+
+# ID:209,#:
+# Control-ID:11021,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Vlastnosti..."
 
 # Control-ID:1246,#:
 # Control-ID:1246,
@@ -1591,7 +1597,7 @@ msgstr "Obviniť"
 #: ID:13
 #, fuzzy
 msgid "Blames each line of a file on an author"
-msgstr "Obviň každý riadok súboru na autora"
+msgstr "Obviní každý riadok súboru na autora"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -1806,7 +1812,7 @@ msgstr "Skontroluj zmeny"
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "Zkontorlovať pracovnú verziu z úložiska"
+msgstr "Získať pracovnú verziu z úložiska"
 
 # Control-ID:1132,
 #: Control-ID:1132
@@ -2021,7 +2027,6 @@ msgstr "Porovnať \"&HEAD\" revízií"
 
 # ID:114,
 #: ID:114
-#, fuzzy
 msgid "Compare and &blame with working BASE"
 msgstr "Porovnať a &obviniť s pracovným základom"
 
@@ -2675,7 +2680,6 @@ msgstr "Prázdne"
 
 # Control-ID:1240,
 #: Control-ID:1240
-#, fuzzy
 msgid "Enable &accelerators on the top level menu"
 msgstr "Povoliť &akceleračné klávesy pre hlavné menu"
 
@@ -2963,13 +2967,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Veľkosť súboru:\t\t\t%s\n"
+"Veľkosť súboru:\t\t%s\n"
 "Šírka:\t\t\t%ld bodov\n"
 "Výška:\t\t\t%ld bodov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
-"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
-"Farebná hĺbka:\t\t\t%d bit\n"
-"Zväčšenie:\t\t\t%d%%"
+"Vertikálne rozlíšenie:\t%.1f dpi\n"
+"Farebná hĺbka:\t\t%d bit\n"
+"Zväčšenie:\t\t%d%%"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -3163,7 +3167,7 @@ msgstr "Typ grafu:"
 # Control-ID:1229,
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
-msgstr "&Skry zmeny na prislúchajúcich cestách"
+msgstr "&Skry zmeny na neprislúchajúcich cestách"
 
 # Control-ID:1004,
 #: Control-ID:1004
@@ -3314,7 +3318,6 @@ msgstr ""
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
@@ -3322,7 +3325,7 @@ msgid ""
 "Are you absolutely sure you want to do this?"
 msgstr ""
 "Zmenou tejto hodnoty sa stanú vaše lokálne kópie nečitateľné!\n"
-"Bute ich musieť znova skontrolovať.\n"
+"Bute ich musieť znova získať.\n"
 "Ak ste si nie istý, prosím pozrite si dokumentáciu.\n"
 "Ste si úplne istý, že to chcete?"
 
@@ -3437,7 +3440,6 @@ msgstr "Chybné meno súboru."
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
@@ -3456,7 +3458,8 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "Chybné číslo revízie! Platné revízie:\n"
-"HEAD, BASE (vaša základná), \n"
+"HEAD(hlavná),\n"
+"BASE (vaša základná), \n"
 "PREV(precházdajúca?), \n"
 "COMMITTED(odoslana?), \n"
 "WC(pracovná kópia),\n"
@@ -3493,7 +3496,7 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
-"Chybné číslo verzie! Platné čísla revízie:\n"
+"Chybné číslo revízie! Platné revízie:\n"
 "HEAD\n"
 "kladné desiatkové číslo,\n"
 "dátum v jednej s nasledovných foriem:\n"
@@ -3997,7 +4000,6 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, fuzzy
 msgid "No command value specified!"
 msgstr "Nebola udaná žiadna hodnota príkazu!"
 
@@ -4155,7 +4157,7 @@ msgstr "Jeden alebo viac súborov sú v stave konfliktu."
 #: ID:99
 #: Control-ID:1073
 msgid "Only check out the &top folder"
-msgstr "Skon&troluj len hlavný adresár"
+msgstr "Získa&ť iba hlavný adresár"
 
 # ID:169,
 #: ID:169
@@ -4382,7 +4384,7 @@ msgstr "Prosím zadajte celé číslo."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "Prosím zadajte nie viac ako %1 znakov."
 
@@ -4405,7 +4407,6 @@ msgstr ""
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
-#, fuzzy
 msgid "Please select a button."
 msgstr "Vyberte si prosím tlačítko."
 
@@ -4514,7 +4515,6 @@ msgstr "Vlastnoti pre"
 # ID:209,#:
 # Control-ID:11021,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Vlastnosti..."
 
@@ -4830,7 +4830,6 @@ msgstr "Prezeranie úložiska"
 # Vyžaduje užívateľské meno a heslo
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Requests a username and a password"
 msgstr "Vyžiada užívateľské meno a heslo"
 
@@ -5147,9 +5146,8 @@ msgstr "Uložiť zmeny do %1?"
 
 # ID:232,
 #: ID:232
-#, fuzzy
 msgid "Save client certificate path"
-msgstr "Uložiť cestu clientskeho certifikátu"
+msgstr "Uložiť cestu clientského certifikátu"
 
 # ID:76,
 #: ID:76
@@ -5269,9 +5267,8 @@ msgstr "Vybrať 'diff' súbor "
 
 # ID:99,
 #: ID:99
-#, fuzzy
 msgid "Select directory to check out to"
-msgstr "Vybrať adresár na kontrolu"
+msgstr "Vybrať adresár na získanie"
 
 # ID:276,
 #: ID:276
@@ -5506,8 +5503,8 @@ msgid ""
 "Show special characters for whitespaces\n"
 "Show Whitespaces"
 msgstr ""
-"Zobraziť špeciálne znaky pre prázdne znaky\n"
-"Zobraziť prázdne znaky"
+"Zobraziť špeciálne znaky pre biele znaky\n"
+"Zobraziť biele znaky"
 
 # Control-ID:1209,
 #: Control-ID:1209
@@ -5534,7 +5531,7 @@ msgstr "Zobrazujem %ld uzlov"
 #: ID:115
 #, c-format
 msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "Zobrazovanie %ld revízie(í), od revízie %ld do revízie %ld - Vybrané revízie: %ld."
+msgstr "Zobrazené revízie: %ld (od revízie %ld do revízie %ld) - Vybrané revízie: %ld"
 
 # ID:272,
 #: ID:272
@@ -6081,7 +6078,6 @@ msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "The result of the merge is stored in the working copy at:"
 msgstr "Vysledok zlučovania je uložený v pracovnej kópií na:"
 
@@ -6271,7 +6267,6 @@ msgstr "Táto vlastnoť nesmie mať viac riadkov. Iba jeden riadok je povolený.
 
 # ID:224,
 #: ID:224
-#, fuzzy
 msgid ""
 "To commit recursively and work around this error,\n"
 "make sure that all child items of a checked folder\n"
@@ -6281,7 +6276,7 @@ msgid ""
 msgstr ""
 "Pre rekurzívne odovzdanie a obídenie tejto chyby,\n"
 "sa uistite, či všetky objekty v označenem adresáry\n"
-"sú tiež označené v odozvdávacom okne.\n"
+"sú tiež označené v odovzdávacom okne.\n"
 "Inak TortoiseSVN bude musieť vykonať nerekurzívne odovzdanie,\n"
 "ktoré neumožní odstránenie adresára."
 
@@ -6803,7 +6798,7 @@ msgstr "Použiť blok  \"I&ch\" pred \"Moje\""
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "Použiť blok  \"Ich\" pred \"Moje\"\n"
 "\"Ich\", potom \"Moje\""
@@ -6882,7 +6877,7 @@ msgstr "Verzia"
 #: ID:114
 #, fuzzy
 msgid "View revision for path in &webviewer"
-msgstr "Prezrieť revíziu cesty v &webviewer"
+msgstr "Prezrieť revíziu cesty vo &webviewer"
 
 # ID:114,
 #: ID:114
@@ -7231,7 +7226,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -7241,7 +7235,6 @@ msgstr ""
 
 # ID:15,
 #: ID:15
-#, fuzzy
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -7250,8 +7243,8 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\n"
 "dva novým riadkom oddelené regulárne výrazy.\n"
-"Prvý výraz je použitý na najdenie odkazu k prípadu,\n"
-"Druhý výraz je použitý na vybranie vlastného ID chyby z reťazca."
+"Prvý výraz je použitý na nájdenie odkazu k prípadu,\n"
+"druhý výraz je použitý na vybranie vlastného ID chyby z reťazca."
 
 # ID:14,
 #: ID:14
@@ -7469,7 +7462,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
@@ -7511,7 +7503,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -7560,14 +7551,13 @@ msgstr "na %s"
 
 # ID:15,
 #: ID:15
-#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\n"
-"Nastavte na \"false\", keď aby nechcete zoznam zmenených súborov v odovzdávacom okne\n"
+"Nastavte na \"false\", keď aby nechcete, aby zoznam zmenených súborov v odovzdávacom okne\n"
 "bol vložený v angličtine."
 
 # ID:15,
