@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-16 21:29+0200\n"
+"PO-Revision-Date: 2006-09-30 18:24+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -729,6 +729,11 @@ msgstr "&Порт:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Предишна разлика"
+
+# Control-ID:65535,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Свойства..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -2061,7 +2066,7 @@ msgstr "Завършено"
 # Dlg-ID:236,
 #: Dlg-ID:236
 msgid "Configure Hook Scripts"
-msgstr "Настройака на скриптовете-куки"
+msgstr "Настройки на скриптовете-куки"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3568,6 +3573,12 @@ msgstr "Линейна диаграма"
 msgid "Line:"
 msgstr "Ред:"
 
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Ред: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -4382,15 +4393,15 @@ msgstr "Моля, изчакайте - може да отнеме няколко
 msgid "Please wait while cancelling..."
 msgstr "Моля, изчакайте отменянето..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Моля, изчакайте докато се получават разликите..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Моля, изчакайте инициализацията на програмата за разглеждане на хранилища... "
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Моля, изчакайте докато се получават разликите..."
 
 # ID:119,
 #: ID:119
@@ -4460,7 +4471,6 @@ msgstr "Свойства за"
 
 # Control-ID:65535,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Свойства..."
 
@@ -4718,6 +4728,12 @@ msgstr "Преименуван отдалечено"
 msgid "Renames files / folders inside version control"
 msgstr "Преименува файлове / папки под контрол"
 
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "Поправка на преместване"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -4782,12 +4798,12 @@ msgstr "Разрешаване"
 # ID:9,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
-msgstr "Разрешаване на конфликт, използвайки \"Моят\""
+msgstr "Разрешаване на конфликт, използвайки \"моя\""
 
 # ID:9,
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
-msgstr "Разрешаване на конфликт, използвайки \"Техният\""
+msgstr "Разрешаване на конфликт, използвайки \"техния\""
 
 # ID:8,
 #: ID:74
@@ -5460,8 +5476,8 @@ msgstr "Показване на %ld възела"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "Показани са %ld ревизии, от ревизия %ld до ревизия %ld - %ld ревизии са избрани."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "Показват се %ld ревизии, от ревизия %ld до ревизия %ld - %ld ревизии са избрани."
 
 # ID:272,
 #: ID:272
@@ -6679,79 +6695,59 @@ msgstr "За&черкване за изтритите редове"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "Използване на текстовият блок от \"&Моят\""
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "Използване на текстовият блок от \"&Техният\""
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "Използване на текстовият блок от \"&Моят\""
+msgstr "Използване на текстовият блок от \"&моя\""
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
-msgstr "Използване на текстовият блок от \"&Техният\""
+msgstr "Използване на текстовият блок от \"&техния\""
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "Използване на текстовият блок от \"&Моят\" преди \"Техният\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
-msgstr ""
-"Използване на текстовият блок от \"Моят\" преди \"Техният\"\n"
-"\"Моят\" текстов блок преди \"Техният\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
-msgstr ""
-"Използване на текстовият блок от \"Моят\"\n"
-"Използване на \"Моят\" текстов блок"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "Използване на текстовият блок от \"&Техният\" преди \"Моят\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr ""
-"Използване на текстовият блок от \"Техният\" преди \"Моят\"\n"
-"\"Техният\" текстов блок преди \"Моят\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"ИзползваНе на текстовият блок от \"Техният\"\n"
-"Използване на \"Техният\" текстов блок"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Използване на текстовият блок от \"&Моят\" преди \"Техният\""
+msgstr "Използване на текстовият блок от \"&моя\" преди \"техния\""
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Използване на текстовият блок от \"моя\" преди \"техния\"\n"
+"Използване на \"моя\" текстов блок и тогава \"техния\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Използване на текстовият блок от \"моя\"\n"
+"Използване на \"моя\" текстов блок"
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Използване на текстовият блок от \"&Техният\" преди \"Моят\""
+msgstr "Използване на текстовият блок от \"&техния\" преди \"моя\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"Използване на текстовият блок от \"моя\" преди \"техния\"\n"
+"Използване на \"моя\" текстов блок и тогава \"техния\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Използване на текстовият блок от \"техния\"\n"
+"Използване на \"техния\" текстов блок"
 
 # ID:251,
 #: ID:251
@@ -6797,7 +6793,7 @@ msgstr ""
 "Валидни опции за командния ред са:\n"
 "/base:<път до базовия файл>\n"
 "/theirs:<път до \"техния\" файл>\n"
-"/mine:<път до Вашия файл>\n"
+"/mine:<път до \"моя\" файл>\n"
 "/merged:<път до крайния, слят файл>\n"
 "/diff:<път до Unified Diff файл>\n"
 "/patchpath:<път до папка>"
