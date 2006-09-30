@@ -21,13 +21,18 @@
 
 #include "BaseView.h"
 
-CUndo * CUndo::m_pUndo = NULL;
-
 CUndo& CUndo::GetInstance()
 {
-	if (m_pUndo == NULL)
-		m_pUndo = new CUndo();
-	return *m_pUndo;
+	static CUndo instance;
+	return instance;
+}
+
+CUndo::CUndo()
+{
+}
+
+CUndo::~CUndo()
+{
 }
 
 void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate)

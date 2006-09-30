@@ -42,7 +42,6 @@ protected:
 	void Undo(const viewstate& state, CBaseView * pView);
 	std::list<viewstate> m_viewstates;
 private:
-	static CUndo * m_pUndo;
-	CUndo() {m_pUndo = NULL;};
-	~CUndo() {if (m_pUndo) delete m_pUndo;};
+	CUndo();
+	~CUndo();
 };
