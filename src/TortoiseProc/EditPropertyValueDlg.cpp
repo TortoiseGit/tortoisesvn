@@ -64,19 +64,19 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 
 	// fill the combobox control with all the
 	// known properties
-	if ((!m_bFolder)&&(!m_bMultiple))
+	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:eol-style"));
-	if ((!m_bFolder)&&(!m_bMultiple))
+	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:executable"));
 	if ((m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:externals"));
 	if ((m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:ignore"));
-	if ((!m_bFolder)&&(!m_bMultiple))
+	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:keywords"));
-	if ((!m_bFolder)&&(!m_bMultiple))
+	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:needs-lock"));
-	if ((!m_bFolder)&&(!m_bMultiple))
+	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:mime-type"));
 
 	if ((m_bFolder)||(m_bMultiple))
