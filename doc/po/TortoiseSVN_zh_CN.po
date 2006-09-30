@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-09-29 16:01+0800\n"
+"PO-Revision-Date: 2006-09-29 18:07+0800\n"
 "Last-Translator: rocksun <daijun@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -565,12 +565,12 @@ msgstr "翻译"
 #: source/TortoiseSVN_en.xml:597
 #: (para)
 msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "TortoiseSVN的界面已经翻译成了许多种语言，所以你可以下载符合你要求的语言包，你可以在我们的<ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>翻译状态页</citetitle></ulink>里看到语言包，如果没有你需要的，为什么不加入我们的团队并且提交你的翻译呢;-)"
 
 #: source/TortoiseSVN_en.xml:608
 #: (para)
 msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr ""
+msgstr "每一种语言包都是一个<literal>.exe</literal>安装程序，只要根据指示运行安装程序，下一次重启程序，翻译就会生效。"
 
 #: source/TortoiseSVN_en.xml:615
 #: (title)
@@ -590,253 +590,253 @@ msgstr "词典"
 #: source/TortoiseSVN_en.xml:622
 #: (para)
 msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN包括了一个拼写检查器，可以检查你的提交日志信息，当你的项目语言不是你的本地语言时尤其有用，拼写检查器使用<ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink>和<ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>相同的词典。"
 
 #: source/TortoiseSVN_en.xml:635
 #: (para)
 msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr ""
+msgstr "安装程序自动添加US和UK英语词典，如果你需要其他语言，最简单的选择是安装TortoiseSVN的语言包，这会安装合适的词典文件和TortoiseSVN的本地用户界面，当你下一次重启后，词典也将会生效。"
 
 #: source/TortoiseSVN_en.xml:643
 #: (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
-msgstr ""
+msgstr "或者你也可以自己安装词典。如果你安装了OpenOffice或Mozilla，你可以拷贝这些词典，位于那些应用的安装目录。否则，你需要从<ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>下载必要的词典文件。"
 
 #: source/TortoiseSVN_en.xml:659
 #: (para)
 msgid "en_US.aff"
-msgstr ""
+msgstr "en_US.aff"
 
 #: source/TortoiseSVN_en.xml:664
 #: (para)
 msgid "en_US.dic"
-msgstr ""
+msgstr "en_US.dic"
 
 #: source/TortoiseSVN_en.xml:652
 #: (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "一旦你得到了词典文件，你可能需要重命名文件，这样文件名只包含位置信息，例如：<placeholder-1/>然后把它们拷贝到TortoiseSVN安装目录的<filename>bin</filename>子目录，通常情况下，可能是在<filename>C:\\Program Files\\TortoiseSVN\\bin</filename>。如果你不希望弄乱<filename>bin</filename>子目录，你可以将拼写检查文件放置在<filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>，如果那个目录不存在，你可以自己创建，当你下次启动TortoiseSVN后，拼写检查器将会可用。"
 
 #: source/TortoiseSVN_en.xml:683
 #: (para)
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr ""
+msgstr "检查<literal>tsvn:projectlanguage</literal>设置，关于设置项目属性的可以参考<xref linkend=\"tsvn-dug-propertypage\"/>。"
 
 #: source/TortoiseSVN_en.xml:690
 #: (para)
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr ""
+msgstr "如果没有设置项目语言，或者那个语言没有安装，尝试使用对应Windows区域信息的语言。"
 
 #: source/TortoiseSVN_en.xml:696
 #: (para)
 msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr ""
+msgstr "如果精确的Windows区域信息不起作用，可以试一下<quote>基础</quote>语言，例如将<literal>de_CH</literal>（Swiss-German）修改为<literal>de_DE</literal> （German）。"
 
 #: source/TortoiseSVN_en.xml:704
 #: (para)
 msgid "If none of the above works, then the default language is english, which is included with the standard installation."
-msgstr ""
+msgstr "如果以上都没有效果，则缺省语言是英语，包含在标准安装中。"
 
 #: source/TortoiseSVN_en.xml:678
 #: (para)
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr ""
+msgstr "如果你安装了多个词典，TortoiseSVN使用下面的规则选择一个来使用。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:721
 #: (title)
 msgid "Basic Concepts"
-msgstr ""
+msgstr "基本概念"
 
 #: source/TortoiseSVN_en.xml:723
 #: (primary)
 msgid "Subversion book"
-msgstr ""
+msgstr "使用Subversion进行版本控制"
 
 #: source/TortoiseSVN_en.xml:726
 #: (para)
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. You can read the Subversion book here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
-msgstr ""
+msgstr "本章修改自《使用Subversion进行版本控制》中文版的相同章节，你可以在<ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>阅读此书。"
 
 #: source/TortoiseSVN_en.xml:733
 #: (para)
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr ""
+msgstr "这一章是对Subversion一个简短和随意的介绍，如果你对版本控制很陌生，这一章节完全为你准备的，我们从讨论基本概念开始，深入理解Subversion的思想，然后展示许多简单的实例。"
 
 #: source/TortoiseSVN_en.xml:741
 #: (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
+msgstr "尽管我们的例子展示了人们如何分享程序源代码，仍然要记住Subversion可以控制所有类型的文件－它并没有限制在只为程序员工作。"
 
 #: source/TortoiseSVN_en.xml:749
 #: (title) source/TortoiseSVN_en.xml:1255
 #: source/TortoiseSVN_en.xml:2819
 msgid "The Repository"
-msgstr ""
+msgstr "版本库"
 
 #: source/TortoiseSVN_en.xml:751
 #: (primary)
 msgid "repository"
-msgstr ""
+msgstr "版本库"
 
 #: source/TortoiseSVN_en.xml:753
 #: (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
-msgstr ""
+msgstr "Subversion是一种集中的分享信息的系统，它的核心是<firstterm>版本库</firstterm>，它储存所有的数据，版本库按照<firstterm>文件树</firstterm>形式储存数据－包括文件和目录，任意数量的<firstterm>客户端</firstterm>可以连接到版本库，读写这些文件。通过写，别人可以看到这些信息；通过读数据，可以看到别人的修改。"
 
 #: source/TortoiseSVN_en.xml:765
 #: (title)
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "一个典型的客户/服务器系统"
 
 #: source/TortoiseSVN_en.xml:768
 #: (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr ""
+msgstr "所以为什么这很有趣呢？讲了这么多，让人感觉这是一种普通的文件服务器，但实际上，版本库<emphasis>是</emphasis>另一种文件服务器，而不是你常见的那一种。最特别的是Subversion<emphasis>会记录每一次的更改</emphasis>，不仅针对文件也包括目录本身，包括增加、删除和重新组织文件和目录。"
 
 #: source/TortoiseSVN_en.xml:778
 #: (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, \"what did this directory contain last Wednesday?\", or \"who was the last person to change this file, and what changes did they make?\" These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr ""
+msgstr "当一个客户端从版本库读取数据时，通常只会看到最新的版本，但是客户端也可以去看<emphasis>以前</emphasis>的任何一个版本。举个例子，一个客户端可以发出这样的历史问题<quote>上个星期三的目录是怎样的？</quote>或是<quote>谁最后一个更改了这个文件，更改了什么？</quote>，这些是每一种<firstterm>版本控制系统</firstterm>的核心问题：系统是设计来记录和跟踪每一次改动的。"
 
 #: source/TortoiseSVN_en.xml:793
 #: (title)
 msgid "Versioning Models"
-msgstr ""
+msgstr "版本模型"
 
 #: source/TortoiseSVN_en.xml:794
 #: (para)
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
-msgstr ""
+msgstr "所有的版本控制系统都需要解决这样一个基础问题：怎样让系统允许用户共享信息，而不会让他们因意外而互相干扰？版本库里意外覆盖别人的更改非常的容易。"
 
 #: source/TortoiseSVN_en.xml:803
 #: (title)
 msgid "The Problem of File-Sharing"
-msgstr ""
+msgstr "文件共享的问题"
 
 #: source/TortoiseSVN_en.xml:804
 #: (para)
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
-msgstr ""
+msgstr "考虑这个情景，我们有两个共同工作者，Harry和Sally，他们想同时编辑版本库里的同一个文件，如果首先Harry保存它的修改，过了一会，Sally可能凑巧用自己的版本覆盖了这些文件，Harry的更改不会永远消失（因为系统记录了每次修改），Harry所有的修改<emphasis>不会</emphasis>出现在Sally的文件中，所以Harry的工作还是丢失了&mdash;至少是从最新的版本中丢失了&mdash;而且是意外的，这就是我们要明确避免的情况！"
 
 #: source/TortoiseSVN_en.xml:820
 #: (title)
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "需要避免的问题"
 
 #: source/TortoiseSVN_en.xml:825
 #: (title) source/TortoiseSVN_en.xml:841
 msgid "The Lock-Modify-Unlock Solution"
-msgstr ""
+msgstr "锁定-修改-解锁 方案"
 
 #: source/TortoiseSVN_en.xml:826
 #: (para)
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must \"lock\" the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr ""
+msgstr "许多版本控制系统使用<firstterm>锁定-修改-解锁</firstterm>这种机制解决这种问题，在这样的模型里，在一个时间段里版本库的一个文件只允许被一个人修改。首先在修改之前，Harry要“锁定”住这个文件，锁定很像是从图书馆借一本书，如果Harry锁住这个文件，Sally不能做任何修改，如果Sally想请求得到一个锁，版本库会拒绝这个请求。在Harry结束编辑并且放开这个锁之前，她只可以阅读文件。Harry解锁后，就要换班了，Sally得到自己的轮换位置，锁定并且开始编辑这个文件。"
 
 #: source/TortoiseSVN_en.xml:844
 #: (para)
 msgid "The problem with the lock-modify-unlock model is that it's a bit restrictive, and often becomes a roadblock for users:"
-msgstr ""
+msgstr "锁定-修改-解锁模型有一点问题就是限制太多，经常会成为用户的障碍："
 
 #: source/TortoiseSVN_en.xml:851
 #: (para)
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr ""
+msgstr "<emphasis>锁定可能导致管理问题。</emphasis>有时候Harry会锁住文件然后忘了此事，这就是说Sally一直等待解锁来编辑这些文件，她在这里僵住了。然后Harry去旅行了，现在Sally只好去找管理员放开锁，这种情况会导致不必要的耽搁和时间浪费。"
 
 #: source/TortoiseSVN_en.xml:862
 #: (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr ""
+msgstr "<emphasis>锁定可能导致不必要的线性化开发。</emphasis>如果Harry编辑一个文件的开始，Sally想编辑同一个文件的结尾，这种修改不会冲突，设想修改可以正确的合并到一起，他们可以轻松的并行工作而没有太多的坏处，没有必要让他们轮流工作。"
 
 #: source/TortoiseSVN_en.xml:874
 #: (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr ""
+msgstr "<emphasis>锁定可能导致错误的安全状态。</emphasis>假设Harry锁定和编辑一个文件A，同时Sally锁定并编辑文件B，如果A和B互相依赖，这种变化是必须同时作的，这样A和B不能正确的工作了，锁定机制对防止此类问题将无能为力—从而产生了一种处于安全状态的假相。很容易想象Harry和Sally都以为自己锁住了文件，而且从一个安全，孤立的情况开始工作，因而没有尽早发现他们不匹配的修改。"
 
 #: source/TortoiseSVN_en.xml:892
 #: (title) source/TortoiseSVN_en.xml:920
 msgid "The Copy-Modify-Merge Solution"
-msgstr ""
+msgstr "拷贝-修改-合并 方案"
 
 #: source/TortoiseSVN_en.xml:893
 #: (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr ""
+msgstr "Subversion，CVS和一些版本控制系统使用<firstterm>拷贝-修改-合并</firstterm>模型，在这种模型里，每一个客户联系项目版本库建立一个个人<firstterm>工作拷贝</firstterm>&mdash;版本库中文件和目录的本地映射。用户并行工作，修改各自的工作拷贝，最终，各个私有的拷贝合并在一起，成为最终的版本，这种系统通常可以辅助合并操作，但是最终要靠人工去确定正误。"
 
 #: source/TortoiseSVN_en.xml:905
 #: (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file \"A\" within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr ""
+msgstr "这是一个例子，Harry和Sally为同一个项目各自建立了一个工作拷贝，工作是并行的，修改了同一个文件A，Sally首先保存修改到版本库，当Harry想去提交修改的时候，版本库提示文件A已经<firstterm>过期</firstterm>，换句话说，A在他上次更新之后已经更改了，所以当他通过客户端请求<firstterm>合并</firstterm>版本库和他的工作拷贝之后，碰巧Sally的修改和他的不冲突，所以一旦他把所有的修改集成到一起，他可以将工作拷贝保存到版本库。"
 
 #: source/TortoiseSVN_en.xml:924
 #: (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "拷贝-修改-合并 方案（续）"
 
 #: source/TortoiseSVN_en.xml:928
 #: (primary) source/TortoiseSVN_en.xml:4204
 msgid "conflict"
-msgstr ""
+msgstr "冲突"
 
 #: source/TortoiseSVN_en.xml:930
 #: (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr ""
+msgstr "但是如果Sally和Harry的修改<emphasis>交迭</emphasis>了该怎么办？这种情况叫做<firstterm>冲突</firstterm>，这通常不是个大问题，当Harry告诉他的客户端去合并版本库的最新修改到自己的工作拷贝时，他的文件A就会处于冲突状态：他可以看到一对冲突的修改集，并手工的选择保留一组修改。需要注意的是软件不能自动的解决冲突，只有人可以理解并作出智能的选择，一旦Harry手工的解决了冲突（也许需要与Sally讨论），他就可以安全的把合并的文件保存到版本库。"
 
 #: source/TortoiseSVN_en.xml:945
 #: (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr ""
+msgstr "拷贝-修改-合并模型感觉是有一点混乱，但在实践中，通常运行的很平稳，用户可以并行的工作，不必等待别人，当工作在同一个文件上时，也很少会有交迭发生，冲突并不频繁，处理冲突的时间远比等待解锁花费的时间少。"
 
 #: source/TortoiseSVN_en.xml:954
 #: (para)
 msgid "In the end, it all comes down to one critical factor: user communication. When users communicate poorly, both syntactic and semantic conflicts increase. No system can force users to communicate perfectly, and no system can detect semantic conflicts. So there's no point in being lulled into a false promise that a locking system will somehow prevent conflicts; in practice, locking seems to inhibit productivity more than anything else."
-msgstr ""
+msgstr "最后，一切都要归结到一条重要的因素：用户交流。当用户交流贫乏，语法和语义的冲突就会增加，没有系统可以强制用户完美的交流，没有系统可以检测语义上的冲突，所以没有任何证据能够承诺锁定系统可以防止冲突，实践中，锁定除了约束了生产力，并没有做什么事。"
 
 #: source/TortoiseSVN_en.xml:964
 #: (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have un-mergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "有一种情况下锁定-修改-解锁模型会更好，也就是你有不可合并的文件，例如你的版本库包含了图片，两个人同时编辑这个文件，没有办法将这两个修改合并，Harry或Sally会丢失他们的修改。"
 
 #: source/TortoiseSVN_en.xml:974
 #: (title)
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "Subversion做了什么？"
 
 #: source/TortoiseSVN_en.xml:975
 #: (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr ""
+msgstr "Subversion缺省使用拷贝-修改-合并模型，大多数情况下可以满足你的需求。然而，Subversion 1.2后还是支持锁定，如果你有不可合并的文件，或者你只是想实行强制管理策略，Subversion仍然会提供你需要的特性。"
 
 #: source/TortoiseSVN_en.xml:987
 #: (title)
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Subversion实战"
 
 #: source/TortoiseSVN_en.xml:989
 #: (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "工作拷贝"
 
 #: source/TortoiseSVN_en.xml:991
 #: (primary)
 msgid "working copy"
-msgstr ""
+msgstr "工作拷贝"
 
 #: source/TortoiseSVN_en.xml:993
 #: (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
-msgstr ""
+msgstr "你已经阅读过了关于工作拷贝的内容，现在我们要讲一讲客户端怎样建立和使用它。"
 
 #: source/TortoiseSVN_en.xml:998
 #: (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr ""
+msgstr "一个Subversion工作拷贝是你本地机器一个普通的目录，保存着一些文件，你可以任意的编辑文件，而且如果是源代码文件，你可以像平常一样编译，你的工作拷贝是你的私有工作区，在你明确的做了特定操作之前，Subversion不会把你的修改与其他人的合并，也不会把你的修改展示给别人。"
 
 #: source/TortoiseSVN_en.xml:1008
 #: (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to \"publish\" your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr ""
+msgstr "当你在工作拷贝作了一些修改并且确认它们工作正常之后，Subversion提供了一个命令可以“发布”你的修改给项目中的其他人（通过写到版本库），如果别人发布了各自的修改，Subversion提供了手段可以把这些修改与你的工作目录进行合并（通过读取版本库）。"
 
 #: source/TortoiseSVN_en.xml:1018
 #: (para)
