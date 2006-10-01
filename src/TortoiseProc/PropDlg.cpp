@@ -110,7 +110,8 @@ UINT CPropDlg::PropThread()
 	for (int i=0; i<props.GetCount(); ++i)
 	{
 		CString name = props.GetItemName(i).c_str();
-		CString val = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
+		CString val;
+		val = props.GetItemValue(i).c_str();
 
 		int nFound = -1;
 		do 

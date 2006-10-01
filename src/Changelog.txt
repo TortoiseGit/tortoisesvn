@@ -83,6 +83,9 @@ Version 1.4.1
 - BUG: Updating multiple selected items sometimes updated all of them
        to the same revision even if they were from different 
        repositories. (Stefan)
+- BUG: Properties which had values with non-English chars were not shown
+       correctly in the props dialog started from the repository browser
+       or the log dialog. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

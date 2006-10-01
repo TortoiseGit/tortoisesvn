@@ -32,6 +32,13 @@
  * Subversion Properties.
  * Use this class to retrieve, add and remove Subversion properties
  * for files and directories.
+ *
+ * A property value is represented in std::string. If a property is a
+ * known text property (like svn:* or bugtraq:* or tsvn:*), the value
+ * is converted to(from) UTF-8 from(to) the native encoding in this
+ * class. Otherwise the value is treated as a raw binary data, and no
+ * conversion is performed. This behavior is same as "svn propset" and
+ * "svn propget".
  */
 class SVNProperties
 {
