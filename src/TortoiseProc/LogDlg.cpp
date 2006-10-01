@@ -547,7 +547,8 @@ void CLogDlg::OnBnClickedNexthundred()
 		// messages from.
 		return GetAll(true);
 	}
-	LONG rev = m_logEntries[m_logEntries.size()-1]->dwRev - 1;
+	LONG rev = m_logEntries[m_logEntries.size()-1]->dwRev;
+
 	if (rev < 1)
 		return;		// do nothing! No more revisions to get
 	m_startrev = rev;
@@ -557,6 +558,9 @@ void CLogDlg::OnBnClickedNexthundred()
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	SetSortArrow(&m_LogList, -1, true);
 	InterlockedExchange(&m_bThreadRunning, TRUE);
+	// since we fetch the log from the last revision we already have,
+	// we have to remove that revision entry to avoid getting it twice
+	m_logEntries.pop_back();
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		InterlockedExchange(&m_bThreadRunning, FALSE);
