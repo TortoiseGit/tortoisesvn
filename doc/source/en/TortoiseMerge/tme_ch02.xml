@@ -205,8 +205,8 @@
 				<listitem>
 					<para>
 						<guibutton>Reload</guibutton>
-						discards any changes you have made and
-						reloads the original files.
+						discards any changes you have made in TortoiseMerge and
+						reloads the files from disk.
 					</para>
 				</listitem>
 				<listitem>
@@ -418,18 +418,25 @@
 				case in variables without warning.
 			</para>
 			<para>
-				<guilabel>Compare Whitespaces</guilabel>
+				<guilabel>Colour code in-line changes</guilabel>
+				uses the same scheme as the line diff bar to show the detailed
+				in-line changes within the main display panes.
+			</para>
+			<para>
+				<guilabel>Compare whitespaces</guilabel>
 				shows all changes in indentation and inline whitespace as
 				added/removed lines (which is how Subversion treats such changes).
 			</para>
 			<para>
-				<guilabel>Ignore Leading Whitespaces</guilabel>
-				hides changes which are due solely to leading whitespace
-				(indentation). Other whitespace changes within a line are
-				shown <quote>inline</quote> rather than as added/removed lines.
+				<guilabel>Ignore whitespace changes</guilabel>
+				hides changes which are due solely to a change in the
+				amount or type of whitespace, eg. changing the indentation
+				or changing tabs to spaces. Adding whitespace where there
+				was none before, or removing a whitespace completely is still
+				shown as a change.
 			</para>
 			<para>
-				<guilabel>Ignore All Whitespaces</guilabel>
+				<guilabel>Ignore all whitespaces</guilabel>
 				hides all whitespace-only changes.
 			</para>
 		</sect2>
