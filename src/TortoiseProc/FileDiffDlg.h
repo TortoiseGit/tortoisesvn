@@ -71,7 +71,8 @@ protected:
 	afx_msg void OnEnSetfocusSecondurl();
 	afx_msg void OnEnSetfocusFirsturl();
 	afx_msg void OnBnClickedSwitchleftright();
-	
+	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+
 	DECLARE_MESSAGE_MAP()
 
 	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, 
@@ -99,7 +100,7 @@ private:
 	CHintListCtrl		m_cFileList;
 	bool				m_bBlame;
 	CBlame				m_blamer;
-	CArray<FileDiff, FileDiff> m_arFileList;
+	std::vector<FileDiff> m_arFileList;
 	CArray<FileDiff, FileDiff> m_arSelectedFileList;
 
 	CString				m_strExportDir;
@@ -118,5 +119,13 @@ private:
 	volatile LONG		m_bThreadRunning;
 
 	bool				m_bCancelled;
+
+	void				Sort();
+	static bool			SortCompare(const FileDiff& Data1, const FileDiff& Data2);
+
+	static BOOL			m_bAscending;
+	static int			m_nSortedColumn;
+
 protected:
+public:
 };

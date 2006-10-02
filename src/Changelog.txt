@@ -25,6 +25,8 @@
 - NEW: Files shown in the progress dialog can now also be dragged to other
        applications such as text editors or IDEs. (Tobias Schäfer)
 - NEW: Undo function for TortoiseMerge. See issue #266 for details. (Stefan)
+- NEW: The columns in the "changed files" dialog are now sortable.
+       See issue #275 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added
