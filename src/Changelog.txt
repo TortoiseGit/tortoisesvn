@@ -88,6 +88,7 @@ Version 1.4.1
 - BUG: Properties which had values with non-English chars were not shown
        correctly in the props dialog started from the repository browser
        or the log dialog. (Stefan)
+- BUG: TortoiseMerge did not save UTF-16 files correctly. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

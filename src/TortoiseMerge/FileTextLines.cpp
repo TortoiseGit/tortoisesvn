@@ -438,7 +438,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				StripWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
-				file.Write((LPCTSTR)sLine, sLine.GetLength());
+				file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
 				switch (m_LineEndings)
 				{
 				case CR:
@@ -455,7 +455,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 					sLine = _T("\x0a\x0d");
 					break;
 				} // switch (endings)
-				file.Write((LPCTSTR)sLine, sLine.GetLength());
+				file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		} // if (CUtils::IsFileUnicode(sPath)) 
 		else if ((!bSaveAsUTF8)&&((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE)))
