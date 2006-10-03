@@ -89,6 +89,12 @@
 		conflicts in red. You can <action>double click</action> on these lines
 		to start the external merge tool to resolve the conflicts.
 	</para>
+	<para>
+        When the update is complete, the progress dialog shows a summary of the
+        number of items updated, added, removed, conflicted, etc. below
+        the file list. This summary information can be copied to the clipboard
+        using <action>CTRL+C</action>.
+	</para>
 	<?dbhh topicname="HIDD_UPDATE"?>
 	<para>
 		The standard Update command has no options and just updates your

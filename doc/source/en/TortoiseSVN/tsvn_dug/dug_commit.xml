@@ -141,6 +141,14 @@
 		a strict format.
 	</para>
 	<para>
+		You can apply simple formatting to your log messages using a convention
+		similar to that used within emails.
+		To apply styling to <literal>text</literal>, use
+		<literal>*text*</literal> for bold,
+		<literal>_text_</literal> for underlining, and
+		<literal>^text^</literal> for italics.
+	</para>
+	<para>
 		<figure id="tsvn-dug-commit-dia-2">
 			<title>The Commit Dialog Spellchecker</title>
 			<graphic fileref="../images/CommitSpellcheck.png"/>

@@ -283,11 +283,20 @@
 			and you can use <literal>Revert</literal> to recover it.
 		</para>
 		<para>
+			Unversioned and ignored files can be sent to the recycle bin from here using
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Delete</guimenuitem>
+			</menuchoice>.
+			If you want to delete files permanently (bypassing the recycle bin) hold
+			the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>.
+		</para>
+		<para>
 			If you want to examine a file in detail, you can drag it from here
 			into another application such as a text editor or IDE.
 		</para>
 		<para>
-			The columns displayed in the bottom pane are customizable. If you
+			The columns are customizable. If you
 			<action>right click</action> on any column header you will see a
 			context menu allowing you to select which columns are displayed.
 			You can also change column width by using the drag handle which

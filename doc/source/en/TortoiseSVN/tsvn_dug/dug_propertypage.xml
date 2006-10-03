@@ -110,6 +110,12 @@
             tool to create a file with the content you require, then
             <guibutton>Load...</guibutton> from that file.
         </para>
+        <para>
+            Although binary properties are not often used, they can be useful in
+            some applications. For example if you are storing huge graphics files,
+            or if the application used to load the file is huge, you might want
+            to store a thumbnail as a property so you can obtain a preview quickly.
+        </para>
         <important>
             <title>Commit properties</title>
             <para>
