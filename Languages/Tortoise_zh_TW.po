@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-26 14:50+0800\n"
+"PO-Revision-Date: 2006-10-03 15:59+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -690,6 +690,11 @@ msgstr "埠(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前一筆差異(&P)"
+
+# Control-ID:65535,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "性質(&P)..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -4426,7 +4431,6 @@ msgstr "性質:"
 
 # Control-ID:65535,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "性質..."
 
@@ -6692,7 +6696,7 @@ msgstr "優先使用遠端(t&heirs)的而非本地(mine)的文字區塊"
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "先套用遠端再套用本地的文字區塊\n"
 "先遠端後本地"
