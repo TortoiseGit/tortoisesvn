@@ -89,6 +89,8 @@ Version 1.4.1
        correctly in the props dialog started from the repository browser
        or the log dialog. (Stefan)
 - BUG: TortoiseMerge did not save UTF-16 files correctly. (Stefan)
+- BUG: The relocate warning was shown even if clearly a relocate was
+       needed and not a switch. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

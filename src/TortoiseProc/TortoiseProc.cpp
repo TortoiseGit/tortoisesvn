@@ -1611,6 +1611,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			CRelocateDlg dlg;
 			dlg.m_sFromUrl = svn.GetUIURLFromPath(cmdLinePath);
+			dlg.m_sFromUrl = _T("svn://escala/xxx/yyy/branches/SAM/FIBER");
 			dlg.m_sToUrl = dlg.m_sFromUrl;
 
 			if (dlg.DoModal() == IDOK)
@@ -1618,17 +1619,47 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("relocate from %s to %s\n"), (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
 				// crack the urls into their components
 				TCHAR urlpath1[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR scheme1[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR hostname1[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR username1[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR password1[INTERNET_MAX_URL_LENGTH+1];
 				TCHAR urlpath2[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR scheme2[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR hostname2[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR username2[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR password2[INTERNET_MAX_URL_LENGTH+1];
 				URL_COMPONENTS components1 = {0};
 				URL_COMPONENTS components2 = {0};
 				components1.dwStructSize = sizeof(URL_COMPONENTS);
 				components1.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
 				components1.lpszUrlPath = urlpath1;
+				components1.lpszScheme = scheme1;
+				components1.dwSchemeLength = INTERNET_MAX_URL_LENGTH;
+				components1.lpszHostName = hostname1;
+				components1.dwHostNameLength = INTERNET_MAX_URL_LENGTH;
+				components1.lpszUserName = username1;
+				components1.dwUserNameLength = INTERNET_MAX_URL_LENGTH;
+				components1.lpszPassword = password1;
+				components1.dwPasswordLength = INTERNET_MAX_URL_LENGTH;
 				components2.dwStructSize = sizeof(URL_COMPONENTS);
 				components2.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
 				components2.lpszUrlPath = urlpath2;
-				InternetCrackUrl((LPCTSTR)dlg.m_sFromUrl, dlg.m_sFromUrl.GetLength(), 0, &components1);
-				InternetCrackUrl((LPCTSTR)dlg.m_sToUrl, dlg.m_sToUrl.GetLength(), 0, &components2);
+				components2.lpszScheme = scheme2;
+				components2.dwSchemeLength = INTERNET_MAX_URL_LENGTH;
+				components2.lpszHostName = hostname2;
+				components2.dwHostNameLength = INTERNET_MAX_URL_LENGTH;
+				components2.lpszUserName = username2;
+				components2.dwUserNameLength = INTERNET_MAX_URL_LENGTH;
+				components2.lpszPassword = password2;
+				components2.dwPasswordLength = INTERNET_MAX_URL_LENGTH;
+				CString sTempUrl = dlg.m_sFromUrl;
+				if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
+					sTempUrl.Replace(_T("file:///"), _T("file://"));
+				InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components1);
+				sTempUrl = dlg.m_sToUrl;
+				if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
+					sTempUrl.Replace(_T("file:///"), _T("file://"));
+				InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components2);
 				// now compare the url components.
 				// If the 'main' parts differ (e.g. hostname, port, scheme, ...) then a relocate is
 				// necessary and we don't show a warning. But if only the path part of the url
