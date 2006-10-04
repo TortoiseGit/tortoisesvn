@@ -204,6 +204,7 @@ void CSetProgsAdvDlg::OnBnClickedAddtool()
 	{
 		int index = AddExtension(dlg.m_sExtension, dlg.m_sTool);
 		m_ToolListCtrl.SetItemState(index, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
+		m_ToolListCtrl.SetSelectionMark(index);
 	}
 
 	EnableBtns();
