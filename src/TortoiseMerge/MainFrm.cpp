@@ -827,20 +827,23 @@ void CMainFrame::OnFileSave()
 	FileSave();
 }
 
-bool CMainFrame::FileSave()
+bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 {
 	if ((m_bReadOnly)||(!this->m_Data.m_mergedFile.InUse()))
-		return FileSaveAs();
-	int nConflictLine = CheckResolved();
-	if (nConflictLine >= 0)
+		return FileSaveAs(bCheckResolved);
+	if (bCheckResolved)
 	{
-		CString sTemp;
-		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
-		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+		int nConflictLine = CheckResolved();
+		if (nConflictLine >= 0)
 		{
-			if (m_pwndBottomView)
-				m_pwndBottomView->GoToLine(nConflictLine);
-			return false;
+			CString sTemp;
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+			{
+				if (m_pwndBottomView)
+					m_pwndBottomView->GoToLine(nConflictLine);
+				return false;
+			}
 		}
 	}
 	if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
@@ -857,18 +860,21 @@ void CMainFrame::OnFileSaveAs()
 	FileSaveAs();
 }
 
-bool CMainFrame::FileSaveAs()
+bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 {
-	int nConflictLine = CheckResolved();
-	if (nConflictLine >= 0)
+	if (bCheckResolved)
 	{
-		CString sTemp;
-		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
-		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+		int nConflictLine = CheckResolved();
+		if (nConflictLine >= 0)
 		{
-			if (m_pwndBottomView)
-				m_pwndBottomView->GoToLine(nConflictLine);
-			return false;
+			CString sTemp;
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+			{
+				if (m_pwndBottomView)
+					m_pwndBottomView->GoToLine(nConflictLine);
+				return false;
+			}
 		}
 	}
 	OPENFILENAME ofn;		// common dialog box structure
@@ -1429,7 +1435,7 @@ void CMainFrame::OnMergeMarkasresolved()
 		{
 			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
-				FileSave();
+				FileSave(false);
 			} 
 		}
 	}	

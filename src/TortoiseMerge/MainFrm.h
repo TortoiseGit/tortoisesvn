@@ -99,8 +99,8 @@ protected:
 	void			SaveFile(const CString& sFilePath);
 	void			WriteWindowPlacement(WINDOWPLACEMENT * pwp);
 	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);
-	bool			FileSave();
-	bool			FileSaveAs();
+	bool			FileSave(bool bCheckResolved=true);
+	bool			FileSaveAs(bool bCheckResolved=true);
 	bool 			StringFound(const CString&)const;
 	enum SearchDirection{SearchNext=0, SearchPrevious=1};	
 	void 			Search(SearchDirection);
@@ -142,6 +142,7 @@ public:
 public:
 	afx_msg void OnUpdateEditUndo(CCmdUI *pCmdUI);
 };
+
 
 
 
