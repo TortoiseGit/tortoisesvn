@@ -17,13 +17,12 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-30 15:30+0100\n"
+"PO-Revision-Date: 2006-10-04 13:54+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: 6\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -819,7 +818,7 @@ msgstr "&Zobrazenie znakov"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Tab size:"
-msgstr "Veľkosť &tabulátora:"
+msgstr "Veľkosť &tab.:"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -1427,7 +1426,7 @@ msgstr "Analyzovanie informácií o revíziách..."
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Aplikuje unifikovaný 'diff' na pracovnú kópiu"
+msgstr "Aplikuje unifikované porovnanie na pracovnú kópiu"
 
 # ID:15,
 #: ID:15
@@ -1451,7 +1450,7 @@ msgstr "Použiť vlastnosť rekurzívne"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
-msgstr "Použiť unifikovaný 'diff'"
+msgstr "Použiť unifikované porovnanie"
 
 # Ste si istý, že chcete označiť súbor(y) v stave konfliktu za vyriešené?
 # ID:145,
@@ -1601,7 +1600,6 @@ msgstr "Obviní každý riadok súboru na autora"
 
 # Control-ID:1003,
 #: Control-ID:1003
-#, fuzzy
 msgid "Br&owse..."
 msgstr "P&rechádzaj..."
 
@@ -1633,7 +1631,7 @@ msgstr "Prechá&dzaj..."
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
-msgstr "Vyhľadaj externý 'diff' program"
+msgstr "Vyhľadaj externý porovnávací program"
 
 # Control-ID:1069,
 #: Control-ID:1069
@@ -1952,9 +1950,8 @@ msgstr "Zatvoriť ručne"
 
 # ID:3825,
 #: ID:3825
-#, fuzzy
 msgid "Close the active window and prompts to save the documents"
-msgstr "Zatvor aktívne okno a vyzve k uloženiu dokumentov"
+msgstr "Zatvorí aktívne okno a vyzve k uloženiu dokumentov"
 
 # Control-ID:1068,
 #: Control-ID:1068
@@ -2187,7 +2184,7 @@ msgstr "Skopíruj: Nové meno pre %s"
 #: ID:80
 #, c-format
 msgid "Copying %s"
-msgstr "Kopirovanie %s"
+msgstr "Kopírovanie %s"
 
 # ID:80,
 #: ID:80
@@ -2359,7 +2356,7 @@ msgstr "Vytvorí databázu úložiska na aktuálnom mieste"
 # ID:14,
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Vytvorý súbor unifikovaného 'diff' so vštkými zmenami, ktoré ste urobili"
+msgstr "Vytvorí súbor unifikovaného porovnania so vštkými zmenami, ktoré ste urobili"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2451,7 +2448,7 @@ msgstr "Porovnať s URL"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
-msgstr "'Diff' súbor:"
+msgstr "Súbor porovnania:"
 
 # Control-ID:1302,
 #: Control-ID:1302
@@ -2461,7 +2458,7 @@ msgstr "Rozdiel medzi"
 # Control-ID:1022,
 #: Control-ID:1022
 msgid "Diffing"
-msgstr "'Diff'ujem - porovnávam"
+msgstr "Porovnávanie"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2685,13 +2682,12 @@ msgstr "Povoliť &akceleračné klávesy pre hlavné menu"
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "Enable this if you want keyboard accelerators on the top level context menu too.\n"
 "Note that the context menu icons look nicer with this disabled."
 msgstr ""
 "Zaškrtnite ak chcete povoliť akceleračné klúče aj pre hlavné kontextové menu.\n"
-"Poznámka: ikonky kontextového menu vyzerajú krajšie ak nieje povolené ."
+"Poznámka: ikonky kontextového menu vyzerajú krajšie ak nieje povolené."
 
 # ID:196,
 #: ID:196
@@ -2904,21 +2900,19 @@ msgstr "Ukladanie dokumentu zlyhalo."
 
 # Control-ID:1217,
 #: Control-ID:1217
-#, fuzzy
 msgid "Fetch &status for context menu"
-msgstr "Vyvolať &stav kontextového menu"
+msgstr "Získať &stav kontextového menu"
 
 # ID:313,
 #: ID:313
-#, fuzzy
 msgid "Fetching file..."
-msgstr "Vyvolávanie súboru..."
+msgstr "Získavanie súboru..."
 
 # ID:313,
 #: ID:313
-#, fuzzy, c-format
+#, c-format
 msgid "Fetching revision %s of file:"
-msgstr "Vyvolávanie revízie %s súboru:"
+msgstr "Získavanie revízie %s súboru:"
 
 # ID:63,#:
 # ID:74,#:
@@ -3063,7 +3057,6 @@ msgstr "Uzam&kni..."
 
 # ID:89,
 #: ID:89
-#, fuzzy
 msgid ""
 "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
 "To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
@@ -3110,7 +3103,7 @@ msgstr "Získavam informácie denníka..."
 # ID:119,
 #: ID:119
 msgid "Getting unified diff"
-msgstr "Získavam unifikovaný 'diff'"
+msgstr "Získavam unifikované porovnanie"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3240,9 +3233,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "Keď je označené, TortoiseSVN vystorí dočasný súbor základu, aby urobil porovnanie s rozšírenými klúčovými slovami a upravenými koncami roadkov."
+msgstr "Keď je označené, TortoiseSVN vytvorí dočasný súbor základu, aby urobil porovnanie s rozšírenými klúčovými slovami a upravenými koncami riadkov."
 
 # ID:196,
 #: ID:196
@@ -3298,7 +3290,6 @@ msgstr ""
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
@@ -3308,7 +3299,6 @@ msgstr ""
 
 # ID:196,
 #: ID:196
-#, fuzzy
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
@@ -3331,7 +3321,6 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "Keď chcete zrušiť zámok, použite \"Skontrolovať zmeny\"."
 
@@ -3399,7 +3388,7 @@ msgstr "Prvotný import"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Inline diff"
-msgstr "Riadkový 'diff'"
+msgstr "Riadkové porovnanie"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3569,7 +3558,7 @@ msgstr "Naposledy uložená revízia objektu"
 # ID:12,
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Spustí 'diff'/spájací program na riešenie konfliktov"
+msgstr "Spustí porovnávací/spájací program na riešenie konfliktov"
 
 # Control-ID:1137,
 #: Control-ID:1137
@@ -5258,12 +5247,12 @@ msgstr "Vybrať objekt, pre ktorý chcete pomoc"
 # ID:78,
 #: ID:78
 msgid "Select diff application"
-msgstr "Vybrať 'diff' program"
+msgstr "Vybrať porovnávací program"
 
 # ID:313,
 #: ID:313
 msgid "Select diff file..."
-msgstr "Vybrať 'diff' súbor "
+msgstr "Vybrať súbor porovnania"
 
 # ID:99,
 #: ID:99
@@ -5277,13 +5266,12 @@ msgstr "Vyberte konocvú revíziu"
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
 "Vybrať adresár kam sa má exportovať.\n"
-"Môžete potrebovať vytvoriť nový adrsár pred exportovaním."
+"Môžete potrebovať vytvoriť nový adresár pred exportovaním."
 
 # ID:197,
 #: ID:197
@@ -5337,7 +5325,7 @@ msgstr "Vyberte typ úložiska, ktorý chcete vytvoriť:"
 # ID:78,
 #: ID:78
 msgid "Select viewer for diff-files"
-msgstr "Vyber prehliadač 'diff' súborov"
+msgstr "Vyberte prehliadač súborov porovnania"
 
 # ID:3866,#:
 # ID:3866,
@@ -5462,7 +5450,7 @@ msgstr "Zobraziť zoznam súborov"
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
-msgstr "Zobraz rozdiely &unifikovaným 'diff'"
+msgstr "Zobraz rozdiely &unifikovaným porovnaním"
 
 # Control-ID:1264,
 #: Control-ID:1264
@@ -5588,7 +5576,6 @@ msgstr "Preskočené"
 
 # ID:263,
 #: ID:263
-#, fuzzy
 msgid "Skipped missing target"
 msgstr "Preskočené chýbajúce ciele"
 
@@ -5654,7 +5641,6 @@ msgstr "Začiatočná revízia"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Update Hook"
 msgstr "Spustiť aktualizačný pripnutý (hook)skript"
 
@@ -5759,7 +5745,6 @@ msgstr "Prenúť pracovanú kópiu na novú ve&tvu/značku"
 
 # Prepnúť ľavú <-> pravú
 #: MenuEntry
-#, fuzzy
 msgid "Switch Left<->Right"
 msgstr "Vymeniť ľavé<->pravé"
 
@@ -5864,7 +5849,7 @@ msgstr "Stav obsahu"
 
 # ID:69,
 #: ID:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -5999,7 +5984,7 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Nebol najdený riadok \"Index: \"!\n"
-"Súbor je prázdny, alebo nie je 'diff'."
+"Súbor je prázdny, alebo to nie je súbor porovnania."
 
 # ID:63,
 #: ID:63
@@ -6060,7 +6045,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -6202,9 +6187,8 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "Nieje čo pridať. Všetky súbory a adresáre sú pod už pod správou verzií, alebo sú ignorované na základe nastavenia svn:ignore, alebo globálneho nastavenia."
+msgstr "Nieje čo pridať. Všetky súbory a adresáre sú už pod správou verzií, alebo sú ignorované na základe nastavenia svn:ignore, alebo globálneho nastavenia."
 
 # ID:188,
 #: ID:188
@@ -6320,7 +6304,7 @@ msgid ""
 "/right:\"path to right picture\"\n"
 "/righttitle:\"title to show for the right picture\""
 msgstr ""
-"TortoiseIDiff: Porovnávač ('diff') obrázkov pre TortoiseSVN\n"
+"TortoiseIDiff: Porovnávanie obrázkov pre TortoiseSVN\n"
 "\n"
 "Platné voľby príkazového riadku sú:\n"
 "/left:\"cesta k ľavému obrázku\"\n"
@@ -6706,7 +6690,6 @@ msgstr "Použíť iný bl&ok textu"
 
 # Control-ID:1126,
 #: Control-ID:1126
-#, fuzzy
 msgid "Use &text viewer to view blames"
 msgstr "Použiť &textový prehliadač pre obvinenia"
 
@@ -6859,7 +6842,7 @@ msgstr ""
 "/theirs:<cesta k ich súboru>\n"
 "/mine:<cesta k vášmu súboru>\n"
 "/merged:<cesta k výslednému súboru>\n"
-"/diff:<cesta k súboru unifikovaného 'diff'>\n"
+"/diff:<cesta k súboru unifikovaného porovnania>\n"
 "/patchpath:<cesta k adresáru>"
 
 # ID:11,
@@ -6898,7 +6881,6 @@ msgstr "Čakať"
 
 # Control-ID:1327,
 #: Control-ID:1327
-#, fuzzy
 msgid "Wait for the script to finish"
 msgstr "Čakajte na dokončenie skriptu"
 
@@ -7037,7 +7019,6 @@ msgstr "Najprv musíte aktualizovať pracovnú kópiu."
 
 # ID:169,
 #: ID:169
-#, fuzzy
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
@@ -7270,7 +7251,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -7516,7 +7497,6 @@ msgstr ""
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
