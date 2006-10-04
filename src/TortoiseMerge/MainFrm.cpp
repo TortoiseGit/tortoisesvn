@@ -837,7 +837,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		if (nConflictLine >= 0)
 		{
 			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
 			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 			{
 				if (m_pwndBottomView)
@@ -868,7 +868,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 		if (nConflictLine >= 0)
 		{
 			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
 			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 			{
 				if (m_pwndBottomView)
@@ -1420,7 +1420,7 @@ void CMainFrame::OnMergeMarkasresolved()
 	if (nConflictLine >= 0)
 	{
 		CString sTemp;
-		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
 		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 		{
 			if (m_pwndBottomView)
