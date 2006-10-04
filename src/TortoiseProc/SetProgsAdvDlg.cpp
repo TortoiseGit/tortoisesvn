@@ -225,6 +225,7 @@ void CSetProgsAdvDlg::OnBnClickedEdittool()
 			{
 				selected = AddExtension(dlg.m_sExtension, dlg.m_sTool);
 				m_ToolListCtrl.SetItemState(selected, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
+				m_ToolListCtrl.SetSelectionMark(selected);
 			}
 		}
 	}
@@ -244,7 +245,10 @@ void CSetProgsAdvDlg::OnBnClickedRemovetool()
 			if (m_ToolListCtrl.GetItemCount() <= selected)
 				--selected;
 			if (selected >= 0)
+			{
 				m_ToolListCtrl.SetItemState(selected, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
+				m_ToolListCtrl.SetSelectionMark(selected);
+			}
 		}
 		m_ToolListCtrl.SetRedraw(TRUE);
 	}
