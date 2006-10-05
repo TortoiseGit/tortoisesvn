@@ -808,11 +808,13 @@ CAPTION "Look and Feel"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Cascaded context menu",IDC_STATIC,7,7,286,210
-    CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,12,19,274,168
+    CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,12,19,274,153
     CONTROL         "Fetch &status for context menu",IDC_SIMPLECONTEXT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,191,274,10
     CONTROL         "Enable &accelerators on the top level menu",IDC_ENABLEACCELERATORS,
-                    "Button",BS_AUTO3STATE | WS_TABSTOP,11,203,274,10
+                    "Button",BS_AUTO3STATE | WS_TABSTOP,12,203,273,10
+    CONTROL         "Put ""Get Lock"" on top menu when svn:needs-lock is set",IDC_GETLOCKTOP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,178,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -2609,6 +2611,8 @@ BEGIN
     IDS_SETTINGS_HOOKS_COMMANDLINECOL "Command Line"
     IDS_SETTINGS_HOOKS_WAITCOL "Wait"
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
+    IDS_SETTINGS_GETLOCKTOP_TT 
+                            "If activated, the menu entry ""Get Lock"" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
 END
 
 #endif    // English (U.S.) resources

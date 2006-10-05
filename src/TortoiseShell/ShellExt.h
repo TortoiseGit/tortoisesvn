@@ -58,26 +58,6 @@ typedef CComCritSecLock<CComCriticalSection> AutoLocker;
  * It contains all Interfaces we implement for the shell to use.
  * \remark The implementations of the different interfaces are
  * split into several *.cpp files to keep them in a reasonable size.
- *
- * \par requirements
- * Version 4.00 or later of Shell32.dll (WinNT or later, Win95 or later)
- * Internet Explorer Version 5.0 or higher
- * Note: some functions are disabled and/or reduced for older systems.
- *
- * \version 1.0
- * first version
- *
- * \date 10-12-2002
- *
- * \author Stefan Kueng, Tim Kemp
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- *
  */
 class CShellExt : public IContextMenu3,
 							IPersistFile,
@@ -175,6 +155,7 @@ protected:
 	bool isLocked;
 	bool isPatchFile;
 	bool isShortcut;
+	bool isNeedsLock;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider

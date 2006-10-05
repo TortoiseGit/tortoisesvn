@@ -75,4 +75,7 @@ private:
 	
 	CRegDWORD		m_regOwnerDrawn;
 	int				m_OwnerDrawn;
+
+	CRegDWORD		m_regGetLockTop;
+	BOOL			m_bGetLockTop;
 };

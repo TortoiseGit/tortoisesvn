@@ -27,6 +27,9 @@
 - NEW: Undo function for TortoiseMerge. See issue #266 for details. (Stefan)
 - NEW: The columns in the "changed files" dialog are now sortable.
        See issue #275 for details. (Stefan)
+- NEW: Option to show the "Get Lock" menu entry on the top level menu
+       only if the svn:needs-lock property is set. 
+       See issue #261 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

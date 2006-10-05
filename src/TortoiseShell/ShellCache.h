@@ -56,6 +56,7 @@ public:
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
+		getlocktop = CRegStdWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		cachetypeticker = GetTickCount();
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
@@ -69,6 +70,7 @@ public:
 		unversionedasmodifiedticker = cachetypeticker;
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
+		getlocktopticker = cachetypeticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -111,6 +113,7 @@ public:
 		langid.read();
 		blockstatus.read();
 		columnseverywhere.read();
+		getlocktop.read();
 	}
 	CacheType GetCacheType()
 	{
@@ -174,6 +177,15 @@ public:
 			unversionedasmodified.read();
 		}
 		return (unversionedasmodified);
+	}
+	BOOL IsGetLockTop()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>getlocktopticker)
+		{
+			getlocktopticker = GetTickCount();
+			getlocktop.read();
+		}
+		return (getlocktop);
 	}
 	BOOL IsRemote()
 	{
@@ -429,6 +441,7 @@ private:
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
 	CRegStdWORD folderoverlay;
+	CRegStdWORD getlocktop;
 	CRegStdWORD driveremote;
 	CRegStdWORD drivefixed;
 	CRegStdWORD drivecdrom;
@@ -449,6 +462,7 @@ private:
 	DWORD cachetypeticker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
+	DWORD getlocktopticker;
 	DWORD driveticker;
 	DWORD drivetypeticker;
 	DWORD layoutticker;

@@ -50,6 +50,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isLocked = false;
 	isPatchFile = false;
 	isShortcut = false;
+	isNeedsLock = false;
 	stdstring statuspath;
 	svn_wc_status_kind fetchedstatus = svn_wc_status_unversioned;
 	// get selected files/folders
@@ -131,6 +132,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										fetchedstatus = status;
 										if ((stat.status->entry)&&(stat.status->entry->lock_token))
 											isLocked = (stat.status->entry->lock_token[0] != 0);
+										if ((stat.status->entry)&&(stat.status->entry->present_props))
+										{
+											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+												isNeedsLock = true;
+										}
 									}
 									else
 									{
@@ -213,6 +219,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 											isFolder = true;
 										if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
 											isConflicted = true;
+										if ((stat.status->entry)&&(stat.status->entry->present_props))
+										{
+											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+												isNeedsLock = true;
+										}
 									}	
 									else
 									{
@@ -300,6 +311,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
 						if ((stat.status->entry)&&(stat.status->entry->lock_token))
 							isLocked = (stat.status->entry->lock_token[0] != 0);
+						if ((stat.status->entry)&&(stat.status->entry->present_props))
+						{
+							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+								isNeedsLock = true;
+						}
 					}
 					else
 					{
@@ -356,6 +372,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
 							if ((stat.status->entry)&&(stat.status->entry->lock_token))
 								isLocked = (stat.status->entry->lock_token[0] != 0);
+							if ((stat.status->entry)&&(stat.status->entry->present_props))
+							{
+								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+									isNeedsLock = true;
+							}
 						}
 					}
 					catch ( ... )
@@ -763,7 +784,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
 	if ((isInSVN)&&(!isLocked)&&(!isAdded))
-		InsertSVNMenu(ownerdrawn, ISTOP(MENULOCK), HMENU(MENULOCK), INDEXMENU(MENULOCK), idCmd++, IDS_MENU_LOCK, IDI_LOCK, idCmdFirst, Lock);
+	{
+		// if the setting "Put "Get Lock" on top menu when svn:needs-lock is set" is active, then we
+		// do exactly that here
+		bool isTop = ISTOP(MENULOCK) || (isNeedsLock && g_ShellCache.IsGetLockTop());
+		InsertSVNMenu(ownerdrawn, isTop, isTop ? hMenu : subMenu, isTop ? indexMenu++ : indexSubMenu++, idCmd++, IDS_MENU_LOCK, IDI_LOCK, idCmdFirst, Lock);
+	}
 	if ((isInSVN)&&((isLocked)||(isFolder))&&(!(uFlags & CMF_EXTENDEDVERBS)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCK, IDI_UNLOCK, idCmdFirst, Unlock);
 	if ((isInSVN)&&((isLocked)||(isFolder))&&(uFlags & CMF_EXTENDEDVERBS))
@@ -2129,7 +2155,13 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case Lock:
 			MAKESTRING(IDS_MENU_LOCK);
 			resource = MAKEINTRESOURCE(IDI_LOCK);
-			SETSPACE(MENULOCK);
+			space = ((layout & MENULOCK) || (isNeedsLock && g_ShellCache.IsGetLockTop())) ? 0 : 6;
+			if ((layout & MENULOCK) || (isNeedsLock && g_ShellCache.IsGetLockTop()))
+			{
+				_tcscpy_s(textbuf, 255, _T("SVN "));
+				_tcscat_s(textbuf, 255, stringtablebuffer);
+				_tcscpy_s(stringtablebuffer, 255, textbuf);
+			}
 			PREPENDSVN(MENULOCK);
 			break;
 		case Unlock:

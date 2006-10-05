@@ -2202,6 +2202,10 @@ msgstr ""
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr ""
 
+#: ID:198,
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr ""
+
 #: ID:95,
 msgid "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
 msgstr ""
@@ -3060,6 +3064,10 @@ msgstr ""
 
 #: Control-ID:1080,
 msgid "Proxy Settings"
+msgstr ""
+
+#: Control-ID:1338,
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr ""
 
 #: ID:246,
