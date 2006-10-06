@@ -20,7 +20,7 @@
 #include "ShellExt.h"
 #include "Guids.h"
 #include "PreserveChdir.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "SVNStatus.h"
 #include "..\TSVNCache\CacheInterface.h"
 
@@ -79,9 +79,9 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	if ((m_State == AddedOverlay)&&(nInstalledOverlays > 12))
+	if ((m_State == FileStateAddedOverlay)&&(nInstalledOverlays > 12))
 		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == LockedOverlay)&&(nInstalledOverlays > 13))
+	if ((m_State == FileStateLockedOverlay)&&(nInstalledOverlays > 13))
 		return S_FALSE;		// don't show the 'locked' overlay
 
     // Get folder icons from registry
@@ -96,13 +96,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
 	switch (m_State)
 	{
-		case Versioned		: iconName = _T("InSubversionIcon"); break;
-		case Modified		: iconName = _T("ModifiedIcon"); break;
-		case Conflict		: iconName = _T("ConflictIcon"); break;
-		case Deleted		: iconName = _T("DeletedIcon"); break;
-		case ReadOnly		: iconName = _T("ReadOnlyIcon"); break;
-		case LockedOverlay	: iconName = _T("LockedIcon"); break;
-		case AddedOverlay	: iconName = _T("AddedIcon"); break;
+		case FileStateVersioned		: iconName = _T("InSubversionIcon"); break;
+		case FileStateModified		: iconName = _T("ModifiedIcon"); break;
+		case FileStateConflict		: iconName = _T("ConflictIcon"); break;
+		case FileStateDeleted		: iconName = _T("DeletedIcon"); break;
+		case FileStateReadOnly		: iconName = _T("ReadOnlyIcon"); break;
+		case FileStateLockedOverlay	: iconName = _T("LockedIcon"); break;
+		case FileStateAddedOverlay	: iconName = _T("AddedIcon"); break;
 	}
 
 	for (int i = 0; i < 2; ++i)
@@ -141,13 +141,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// loaded, so we can later check if some are missing
 	switch (m_State)
 	{
-		case Versioned		: g_normalovlloaded = true; break;
-		case Modified		: g_modifiedovlloaded = true; break;
-		case Conflict		: g_conflictedovlloaded = true; break;
-		case Deleted		: g_deletedovlloaded = true; break;
-		case ReadOnly		: g_readonlyovlloaded = true; break;
-		case LockedOverlay	: g_lockedovlloaded = true; break;
-		case AddedOverlay	: g_addedovlloaded = true; break;
+		case FileStateVersioned		: g_normalovlloaded = true; break;
+		case FileStateModified		: g_modifiedovlloaded = true; break;
+		case FileStateConflict		: g_conflictedovlloaded = true; break;
+		case FileStateDeleted		: g_deletedovlloaded = true; break;
+		case FileStateReadOnly		: g_readonlyovlloaded = true; break;
+		case FileStateLockedOverlay	: g_lockedovlloaded = true; break;
+		case FileStateAddedOverlay	: g_addedovlloaded = true; break;
 	}
 
 	ATLTRACE2(_T("Icon loaded : %s\n"), icon.c_str());
@@ -160,25 +160,25 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 {
 	switch (m_State)
 	{
-		case Conflict:
+		case FileStateConflict:
 			*pPriority = 0;
 			break;
-		case Modified:
+		case FileStateModified:
 			*pPriority = 1;
 			break;
-		case Deleted:
+		case FileStateDeleted:
 			*pPriority = 2;
 			break;
-		case ReadOnly:
+		case FileStateReadOnly:
 			*pPriority = 3;
 			break;
-		case LockedOverlay:
+		case FileStateLockedOverlay:
 			*pPriority = 4;
 			break;
-		case AddedOverlay:
+		case FileStateAddedOverlay:
 			*pPriority = 5;
 			break;
-		case Versioned:
+		case FileStateVersioned:
 			*pPriority = 6;
 			break;
 		default:
@@ -341,7 +341,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_incomplete:
 			if ((readonlyoverlay)&&(g_readonlyovlloaded))
 			{
-				if (m_State == ReadOnly)
+				if (m_State == FileStateReadOnly)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -351,7 +351,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			}
 			else if ((lockedoverlay)&&(g_lockedovlloaded))
 			{
-				if (m_State == LockedOverlay)
+				if (m_State == FileStateLockedOverlay)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -359,7 +359,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 				else
 					return S_FALSE;
 			}
-			else if (m_State == Versioned)
+			else if (m_State == FileStateVersioned)
 			{
 				g_filepath.clear();
 				return S_OK;
@@ -370,7 +370,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_deleted:
 			if (g_deletedovlloaded)
 			{
-				if (m_State == Deleted)
+				if (m_State == FileStateDeleted)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -382,7 +382,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			{
 				// the 'deleted' overlay isn't available (due to lack of enough
 				// overlay slots). So just show the 'modified' overlay instead.
-				if (m_State == Modified)
+				if (m_State == FileStateModified)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -393,7 +393,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_replaced:
 		case svn_wc_status_modified:
 		case svn_wc_status_merged:
-			if (m_State == Modified)
+			if (m_State == FileStateModified)
 			{
 				g_filepath.clear();
 				return S_OK;
@@ -403,7 +403,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_added:
 			if (g_addedovlloaded)
 			{
-				if (m_State== AddedOverlay)
+				if (m_State== FileStateAddedOverlay)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -415,7 +415,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			{
 				// the 'added' overlay isn't available (due to lack of enough
 				// overlay slots). So just show the 'modified' overlay instead.
-				if (m_State == Modified)
+				if (m_State == FileStateModified)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -427,7 +427,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_obstructed:
 			if (g_conflictedovlloaded)
 			{
-				if (m_State == Conflict)
+				if (m_State == FileStateConflict)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -439,7 +439,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			{
 				// the 'conflicted' overlay isn't available (due to lack of enough
 				// overlay slots). So just show the 'modified' overlay instead.
-				if (m_State == Modified)
+				if (m_State == FileStateModified)
 				{
 					g_filepath.clear();
 					return S_OK;

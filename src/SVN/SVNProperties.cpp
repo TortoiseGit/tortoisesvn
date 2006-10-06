@@ -21,7 +21,6 @@
 #include "registry.h"  // Just provides stdstring def
 #include "SVNProperties.h"
 #include "SVNStatus.h"
-#include "UnicodeStrings.h"
 #include "SVNHelpers.h"
 
 #ifdef _MFC_VER

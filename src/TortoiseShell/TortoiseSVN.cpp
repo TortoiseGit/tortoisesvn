@@ -128,27 +128,27 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 {
     *ppvOut = NULL;
 	
-    FileState state = Invalid;
+    FileState state = FileStateInvalid;
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
-        state = Versioned;
+        state = FileStateVersioned;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_MODIFIED))
-        state = Modified;
+        state = FileStateModified;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_CONFLICTING))
-        state = Conflict;
+        state = FileStateConflict;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UNCONTROLLED))
-        state = Uncontrolled;
+        state = FileStateUncontrolled;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_DROPHANDLER))
-		state = DropHandler;
+		state = FileStateDropHandler;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_DELETED))
-		state = Deleted;
+		state = FileStateDeleted;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_READONLY))
-		state = ReadOnly;
+		state = FileStateReadOnly;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_LOCKED))
-		state = LockedOverlay;
+		state = FileStateLockedOverlay;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_ADDED))
-		state = AddedOverlay;
+		state = FileStateAddedOverlay;
 	
-    if (state != Invalid)
+    if (state != FileStateInvalid)
     {
 		apr_initialize();
 		g_SVNAdminDir.Init();

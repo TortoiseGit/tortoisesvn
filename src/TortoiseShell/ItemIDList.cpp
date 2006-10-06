@@ -22,9 +22,9 @@
 
 
 ItemIDList::ItemIDList(LPCITEMIDLIST item, LPCITEMIDLIST parent) :
-item_ (item),
-parent_ (parent),
-count_ (-1)
+	  item_ (item)
+	, parent_ (parent)
+	, count_ (-1)
 {
 }
 

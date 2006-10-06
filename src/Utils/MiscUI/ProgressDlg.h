@@ -24,11 +24,6 @@
  * the dialog used by the shell/IE to show progress in e.g.
  * copying, downloading, ...
  *
- * \par requirements 
- * Version 5.0 or later of Shell32.dll (Win2k or later)
- * Note: it seems as if that interface is already available
- * on older systems.
- *
  * \remark you need to call AfxOleInit() before using this class, preferably in
  * your app's InitInistance() method.
  */

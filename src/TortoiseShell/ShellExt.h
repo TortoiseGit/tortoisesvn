@@ -75,62 +75,62 @@ protected:
 
 	enum SVNCommands
 	{
-		SubMenu = 1,
-		SubMenuFolder,
-		SubMenuFile,
-		SubMenuLink,
-		SubMenuMultiple,
-		Checkout,
-		Update,
-		Commit,
-		Add,
-		AddAsReplacement,
-		Revert,
-		Cleanup,
-		Resolve,
-		Switch,
-		Import,
-		Export,
-		About,
-		CreateRepos,
-		Copy,
-		Merge,
-		Settings,
-		Remove,
-		Rename,
-		UpdateExt,
-		Diff,
-		UrlDiff,
-		DropCopyAdd,
-		DropMoveAdd,
-		DropMove,
-		DropMoveRename,
-		DropCopy,
-		DropCopyRename,
-		DropExport,
-		DropExportExtended,
-		Log,
-		ConflictEditor,
-		Relocate,
-		Help,
-		ShowChanged,
-		IgnoreSub,
-		Ignore,
-		IgnoreFile,
-		IgnoreCaseSensitive,
-		IgnoreCaseInsensitive,
-		RepoBrowse,
-		Blame,
-		ApplyPatch,
-		CreatePatch,
-		RevisionGraph,
-		UnIgnoreSub,
-		UnIgnoreCaseSensitive,
-		UnIgnore,
-		Lock,
-		Unlock,
-		UnlockForce,
-		Properties
+		ShellSubMenu = 1,
+		ShellSubMenuFolder,
+		ShellSubMenuFile,
+		ShellSubMenuLink,
+		ShellSubMenuMultiple,
+		ShellMenuCheckout,
+		ShellMenuUpdate,
+		ShellMenuCommit,
+		ShellMenuAdd,
+		ShellMenuAddAsReplacement,
+		ShellMenuRevert,
+		ShellMenuCleanup,
+		ShellMenuResolve,
+		ShellMenuSwitch,
+		ShellMenuImport,
+		ShellMenuExport,
+		ShellMenuAbout,
+		ShellMenuCreateRepos,
+		ShellMenuCopy,
+		ShellMenuMerge,
+		ShellMenuSettings,
+		ShellMenuRemove,
+		ShellMenuRename,
+		ShellMenuUpdateExt,
+		ShellMenuDiff,
+		ShellMenuUrlDiff,
+		ShellMenuDropCopyAdd,
+		ShellMenuDropMoveAdd,
+		ShellMenuDropMove,
+		ShellMenuDropMoveRename,
+		ShellMenuDropCopy,
+		ShellMenuDropCopyRename,
+		ShellMenuDropExport,
+		ShellMenuDropExportExtended,
+		ShellMenuLog,
+		ShellMenuConflictEditor,
+		ShellMenuRelocate,
+		ShellMenuHelp,
+		ShellMenuShowChanged,
+		ShellMenuIgnoreSub,
+		ShellMenuIgnore,
+		ShellMenuIgnoreFile,
+		ShellMenuIgnoreCaseSensitive,
+		ShellMenuIgnoreCaseInsensitive,
+		ShellMenuRepoBrowse,
+		ShellMenuBlame,
+		ShellMenuApplyPatch,
+		ShellMenuCreatePatch,
+		ShellMenuRevisionGraph,
+		ShellMenuUnIgnoreSub,
+		ShellMenuUnIgnoreCaseSensitive,
+		ShellMenuUnIgnore,
+		ShellMenuLock,
+		ShellMenuUnlock,
+		ShellMenuUnlockForce,
+		ShellMenuProperties
 	};
 
 	FileState m_State;
@@ -170,12 +170,13 @@ protected:
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 //#define MAKESTRING(ID) LoadString(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer))
 private:
-	void InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
-	stdstring WriteFileListToTempFile();
-	LPCTSTR GetMenuTextFromResource(int id);
-	void GetColumnStatus(const TCHAR * path, BOOL bIsDir);
-	HBITMAP IconToBitmap(UINT uIcon, COLORREF transparentColor);
-	int GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
+	void			InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
+	stdstring		WriteFileListToTempFile();
+	LPCTSTR			GetMenuTextFromResource(int id);
+	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
+	HBITMAP			IconToBitmap(UINT uIcon, COLORREF transparentColor);
+	int				GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
+	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();
@@ -226,12 +227,12 @@ public:
 	 * IPersistFile methods
 	 */
 	//@{
-    STDMETHODIMP GetClassID(CLSID *pclsid);
-    STDMETHODIMP Load(LPCOLESTR pszFileName, DWORD dwMode);
-    STDMETHODIMP IsDirty(void) { return S_OK; };
-    STDMETHODIMP Save(LPCOLESTR /*pszFileName*/, BOOL /*fRemember*/) { return S_OK; };
-    STDMETHODIMP SaveCompleted(LPCOLESTR /*pszFileName*/) { return S_OK; };
-    STDMETHODIMP GetCurFile(LPOLESTR * /*ppszFileName*/) { return S_OK; };
+    STDMETHODIMP	GetClassID(CLSID *pclsid);
+    STDMETHODIMP	Load(LPCOLESTR pszFileName, DWORD dwMode);
+    STDMETHODIMP	IsDirty(void) { return S_OK; };
+    STDMETHODIMP	Save(LPCOLESTR /*pszFileName*/, BOOL /*fRemember*/) { return S_OK; };
+    STDMETHODIMP	SaveCompleted(LPCOLESTR /*pszFileName*/) { return S_OK; };
+    STDMETHODIMP	GetCurFile(LPOLESTR * /*ppszFileName*/) { return S_OK; };
 	//@}
 
 	/** \name IShellIconOverlayIdentifier 

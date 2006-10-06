@@ -27,20 +27,6 @@
  * which when in the explorer process space causes problems / crashs,
  * this class is used to reset the current directory after calling
  * those functions.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class PreserveChdir
 {

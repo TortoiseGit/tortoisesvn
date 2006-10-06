@@ -21,7 +21,7 @@
 #include "guids.h"
 #include "PreserveChdir.h"
 #include "SVNProperties.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "SVNStatus.h"
 #include "..\TSVNCache\CacheInterface.h"
 

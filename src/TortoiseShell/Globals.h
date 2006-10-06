@@ -57,16 +57,16 @@
  */
 enum FileState
 {
-    Uncontrolled,
-    Versioned,
-    Modified,
-    Conflict,
-	Deleted,
-	ReadOnly,
-	LockedOverlay,
-	AddedOverlay,
-	DropHandler,
-	Invalid
+    FileStateUncontrolled,
+    FileStateVersioned,
+    FileStateModified,
+    FileStateConflict,
+	FileStateDeleted,
+	FileStateReadOnly,
+	FileStateLockedOverlay,
+	FileStateAddedOverlay,
+	FileStateDropHandler,
+	FileStateInvalid
 };
 
 

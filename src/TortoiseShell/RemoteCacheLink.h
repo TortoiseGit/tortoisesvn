@@ -21,6 +21,10 @@
 struct TSVNCacheResponse;
 class CTSVNPath;
 
+/**
+ * \ingroup TortoiseShell
+ * This class provides the link to the cache process.
+ */
 class CRemoteCacheLink
 {
 public:

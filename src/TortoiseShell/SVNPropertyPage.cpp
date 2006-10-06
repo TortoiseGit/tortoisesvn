@@ -20,8 +20,6 @@
 
 #include "ShellExt.h"
 #include "svnpropertypage.h"
-#include "ProgressDlg.h"
-#include "UnicodeStrings.h"
 #include "UnicodeUtils.h"
 #include "SVNStatus.h"
 

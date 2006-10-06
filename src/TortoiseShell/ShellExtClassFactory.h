@@ -23,22 +23,6 @@
  * \ingroup TortoiseShell
  * This class factory object creates the main handlers -
  * its constructor says which OLE class it has to make.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \date 10-10-2002
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CShellExtClassFactory : public IClassFactory
 {

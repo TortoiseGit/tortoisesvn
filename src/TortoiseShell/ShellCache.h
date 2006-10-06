@@ -30,7 +30,11 @@
 
 typedef CComCritSecLock<CComCriticalSection> Locker;
 
-
+/**
+ * \ingroup TortoiseShell
+ * Helper class which caches access to the registry. Also provides helper methods
+ * for checks against the settings stored in the registry.
+ */
 class ShellCache
 {
 public:

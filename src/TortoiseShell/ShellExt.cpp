@@ -122,7 +122,7 @@ void LoadLangDll()
 						dwBufferSize,
 						pBuffer))
 					{
-						// Abfragen der aktuellen Sprache
+						// Query the current language
 						if (VerQueryValue(	pBuffer,
 							_T("\\VarFileInfo\\Translation"),
 							&lpFixedPointer,
@@ -162,7 +162,7 @@ void LoadLangDll()
 				if (g_hResInst != g_hmodThisDll)
 					FreeLibrary(g_hResInst);
 				g_hResInst = hInst;
-			} // if (hInst != NULL) 
+			}
 			else
 			{
 				DWORD lid = SUBLANGID(langId);
