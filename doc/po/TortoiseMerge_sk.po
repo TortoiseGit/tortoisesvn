@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2006-10-04 13:59+0100\n"
+"PO-Revision-Date: 2006-10-06 14:49+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:376
 #: (para)
 msgid "The relationships between the three files are explained in the diagram below:"
-msgstr ""
+msgstr "Vzťah medzi tromi súbormi je vysvetlený na nasledovnom obrázku:"
 
 # Three Pane View
 #: source/TortoiseMerge_en.xml:384
@@ -515,8 +515,9 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:597
 #: (para)
+#, fuzzy
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr ""
+msgstr "Keď ste v trojpanelovom zobrazení (niekdy nazývanom <emphasis>podľad zlučovania</emphasis>) môžete upravovať iba súbor na spodu pohľadu(<literal>Zlúčené</literal>). Tak ako pri dvojpanelovom zobrazní možete <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 
 #: source/TortoiseMerge_en.xml:634
 #: (para)
@@ -688,7 +689,7 @@ msgstr "Porovnavanie bielych znakov"
 #: source/TortoiseMerge_en.xml:767
 #: (listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
-msgstr ""
+msgstr "V predchádzajúcom prípade, sú vysvietené zmeny bielych znakov použitím tejto farby."
 
 #: source/TortoiseMerge_en.xml:777
 #: (title)
@@ -851,22 +852,24 @@ msgstr "Posúvať zobrazenie vľavo/vpravo"
 #: source/TortoiseMerge_en.xml:902
 #: (title)
 msgid "Automating TortoiseMerge"
-msgstr ""
+msgstr "Automatizovanie TortoiseMerge"
 
 #: source/TortoiseMerge_en.xml:904
 #: (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr ""
+msgstr "TortoiseMerge može byť spustený s parametrami v príkazovom riadku, aby nebolo nutné použiť dialóg <guilabel>Otvoriť</guilabel> na vybratie súborov. Toto je užitočné keď chcete sputit TortoiseMerge z inej aplikácie."
 
 #: source/TortoiseMerge_en.xml:915
 #: (title)
+#, fuzzy
 msgid "TortoiseMerge Command Line Switches"
-msgstr ""
+msgstr "Prepínače príkazového riadka TortoiseMerge"
 
 #: source/TortoiseMerge_en.xml:917
 #: (primary)
+#, fuzzy
 msgid "automation"
-msgstr ""
+msgstr "automatizácia"
 
 #: source/TortoiseMerge_en.xml:920
 #: (primary)

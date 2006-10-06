@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-04 13:54+0100\n"
+"PO-Revision-Date: 2006-10-06 14:37+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -608,7 +608,6 @@ msgstr "&Obmedziť vyhľadávanie na zmenené riadky"
 
 # Spojiť, naviazať
 #: MenuEntry
-#, fuzzy
 msgid "&Link images together"
 msgstr "Z&linkovať obrázky dokopy"
 
@@ -630,7 +629,7 @@ msgstr "&Zlúčovanie"
 # ID:9,
 #: ID:9
 msgid "&Merge..."
-msgstr "&Zlúč..."
+msgstr "&Zlúčiť..."
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -741,7 +740,7 @@ msgstr "Znova otvo&riť odovzdávací dialog po zlihaní odovzdávania"
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
-msgstr "P&rehliadač úložiska"
+msgstr "P&rehliadať úložisko"
 
 # ID:113,
 #: ID:113
@@ -895,12 +894,12 @@ msgstr "&Aktualizovať"
 # ID:76,
 #: ID:76
 msgid "&Update item to revision"
-msgstr "Akt&ualizuj objekt na revíziu"
+msgstr "Akt&ualizovať objekt na revíziu"
 
 # ID:11,
 #: ID:11
 msgid "&Update to revision..."
-msgstr "Akt&ualizuj na revíziu..."
+msgstr "Akt&ualizovať na revíziu..."
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -1070,7 +1069,6 @@ msgstr ""
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
-#, fuzzy
 msgid "A required resource was unavailable."
 msgstr "Požadovaný zdroj nebol prístupný."
 
@@ -1636,7 +1634,7 @@ msgstr "Vyhľadaj externý porovnávací program"
 # Control-ID:1069,
 #: Control-ID:1069
 msgid "Browse..."
-msgstr "Prezeraj..."
+msgstr "Prezerať..."
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1717,7 +1715,6 @@ msgstr "Nemožno zobraziť porovnanie, pretože sú nekonzistentné ukončenia r
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Cascaded context menu"
 msgstr "Kaskádne kontextové menu"
 
@@ -1800,12 +1797,12 @@ msgstr "Skontoluj aktualizácie..."
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
-msgstr "Skontroluj &zmeny"
+msgstr "Skontrolovať &zmeny"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Check for modifications"
-msgstr "Skontroluj zmeny"
+msgstr "Skontrolovať zmeny"
 
 # ID:9,
 #: ID:9
@@ -3053,7 +3050,7 @@ msgstr "Vztváram súbor záplaty..."
 # ID:16,
 #: ID:16
 msgid "Get loc&k..."
-msgstr "Uzam&kni..."
+msgstr "Uzam&knuť..."
 
 # ID:89,
 #: ID:89
@@ -3221,6 +3218,11 @@ msgstr "Ikony/Design/Kód:     Luebbe ONKEN"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
+
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Keď je aktívne, položka \"Uzamknúť\" je zobrazovaná na vrchu menu keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 # ID:95,
 #: ID:95
@@ -4211,7 +4213,6 @@ msgstr ""
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Otvorí prezeranie úložiska na doladenie priamo"
 
@@ -4546,6 +4547,11 @@ msgstr "Proxy časový limi&t:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Nastavenia Proxy"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Umiestniť \"Uzam&knuť\" na vrch menu pri nastavenom svn:needs-lock"
 
 # ID:246,
 #: ID:246
@@ -5019,7 +5025,7 @@ msgstr "Š&tatistika"
 # ID:9,
 #: ID:9
 msgid "S&witch..."
-msgstr "&Pepínač..."
+msgstr "&Prepnúť..."
 
 # ID:3697,
 #: ID:3697
@@ -5108,23 +5114,23 @@ msgstr "SVN krátka URL"
 
 #: MenuEntry
 msgid "Save &As..."
-msgstr "Ulož &ako..."
+msgstr "Uložiť &ako..."
 
 # ID:101,
 #: ID:101
 msgid "Save &as..."
-msgstr "Ulož &ako..."
+msgstr "Uložiť &ako..."
 
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
-msgstr "Ulož ako"
+msgstr "Uložiť ako"
 
 # ID:313,
 #: ID:313
 msgid "Save as..."
-msgstr "Ulož ako..."
+msgstr "Uložiť ako..."
 
 # ID:3857,#:
 # ID:3857,
@@ -6485,9 +6491,8 @@ msgstr "Skúste \"Vyčistiť\". Keď to nepomôže treba vykonať nové získani
 # Skúsiť znova
 # ID:73,
 #: ID:73
-#, fuzzy
 msgid "Try again"
-msgstr "Znovu"
+msgstr "Skúsiť znovu"
 
 # ID:10,
 #: ID:10
@@ -6668,7 +6673,6 @@ msgstr "Aktualizovanie %s"
 
 # ID:283,
 #: ID:283
-#, fuzzy
 msgid "Updating and retrying the lock..."
 msgstr "Aktualizovanie a obnovovanie zámkov..."
 
@@ -6676,7 +6680,7 @@ msgstr "Aktualizovanie a obnovovanie zámkov..."
 #: Control-ID:1064
 #, fuzzy
 msgid "Use &magnifier on locatorbar"
-msgstr "Použiť &lupu"
+msgstr "Použiť &lupu na LOCATORBAR"
 
 # Control-ID:1024,
 #: Control-ID:1024
