@@ -12,6 +12,7 @@
 #
 # blame -- авторство (было: авторы файла)
 # branch -- ответвление
+# checkbox -- флажок
 # checkout -- извлечь
 # commit -- фиксировать
 # diff -- различие
@@ -34,13 +35,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7640: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7714: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-28 11:47+0300\n"
+"PO-Revision-Date: 2006-10-06 10:47+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,6 +49,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Poedit-Language: Russian\n"
 
 #: ID:10
@@ -2617,6 +2619,10 @@ msgstr "Значки/Дизайн/Код: Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Если отмечено, запрещает помечать значки в диалогах \"сохранить как...\" и \"открыть\""
 
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "При активации пункт меню \"Заблокировать\" показывается в меню верхнего уровня, если у выбранного файла установлено свойство svn:needs-lock"
+
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -3691,6 +3697,10 @@ msgstr "&Таймаут прокси в секундах:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Настройки прокси"
+
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Поместить \"Заблокировать\" в меню верхнего уровня, если установлено svn:needs-lock"
 
 #: ID:246
 #, c-format
@@ -5689,7 +5699,7 @@ msgid ""
 msgstr ""
 "Это свойство применимо к файлам, а не папкам!\n"
 "Если вы желаете установить его на всех файлах в этой папке,\n"
-"необходимо отметить опцию 'рекурсивно'."
+"необходимо отметить флажок 'рекурсивно'."
 
 #: ID:105
 msgid ""
