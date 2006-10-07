@@ -13,13 +13,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-25 21:19+0100\n"
+"PO-Revision-Date: 2006-10-07 21:20+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -596,6 +595,10 @@ msgstr "&Port :"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Précédente différence"
+
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Propriétés..."
 
 #: Control-ID:1246
 msgid "&Recent messages"
@@ -2696,6 +2699,11 @@ msgstr "Icônes/Design/Code :    Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Si activé, prévient le recouvrement dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Si cela est activé, l'entrée du menu \"Obtenir un verrou\" est affichée dans le niveau supérieur du menu si le fichier sélectionné a la propriété svn:needs-lock définie."
+
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -3785,7 +3793,6 @@ msgid "Properties for"
 msgstr "Propriétés pour"
 
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Propriétés..."
 
@@ -3820,6 +3827,11 @@ msgstr "&Timeout proxy en secondes :"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Configuration du Proxy"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Mettre \"Obtenir un verrou\" sur le menu supérieur quand svn:needs-lock est défini"
 
 # ID:246,
 #: ID:246
@@ -5726,10 +5738,10 @@ msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
 #: ID:2052
 msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
-"\"theirs\" text block then \"mine\""
+"Use \"theirs\" text block then \"mine\""
 msgstr ""
 "Utiliser le bloc de texte du \"leur\" avant le \"mien\"\n"
-"\"leur\" bloc de texte puis \"le mien\""
+"Utiliiser \"leur\" bloc de texte puis \"le mien\""
 
 #: ID:2052
 msgid ""
