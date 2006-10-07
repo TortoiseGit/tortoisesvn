@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-22 00:48+0100\n"
+"PO-Revision-Date: 2006-10-07 14:00+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -689,6 +689,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Differenza precedente"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Proprietà..."
 
 # Dlg-ID:130,
 #: Control-ID:1246
@@ -3166,6 +3172,11 @@ msgstr "Icone/Design/Codice:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Se attivata previene la visualizzazione delle icone di stato nelle finestre di dialogo \"Salva come...\" e \"Apri\""
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Se attivato, il comando \"Blocca\" verrà visualizzato nella prima posizione del menu se per il file selezionato è stata impostata la proprietà svn:needs-lock"
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -3527,6 +3538,12 @@ msgstr "Linee"
 #: Control-ID:65535
 msgid "Line:"
 msgstr "Linea:"
+
+# Dlg-ID:143,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Linea: %*ld"
 
 # ID:3605,
 #: ID:3605
@@ -4423,7 +4440,6 @@ msgstr "Proprietà per"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Proprietà..."
 
@@ -4466,6 +4482,11 @@ msgstr "&Timeout proxy in secondi:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Configurazione proxy"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Metti \"Blocca\" in cima al menu quando la proprietà svn:needs-lock è impostata"
 
 # ID:246,
 #: ID:246
@@ -4681,6 +4702,13 @@ msgstr "Rinominato in remoto"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Rinomina file / cartelle versionate"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+#, fuzzy
+msgid "Repair move"
+msgstr "Ripara spostamento"
 
 # ID:3603,
 #: ID:3603
@@ -6659,42 +6687,50 @@ msgid "Use text block from \"&theirs\""
 msgstr "Usa il blocco di testo dal \"&loro\""
 
 # ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
-msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
-msgstr "Usa il blocco di testo dal \"&mio\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
-
-# ID:251,
 #: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"Usa blocco di testo dal \"mio\" prima del \"loro\"\n"
+"Usa il \"mio\" blocco di testo e poi il \"loro\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"Usa il blocco di testo da \"mio\"\n"
+"Usa il \"mio\" blocco di testo"
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"Usa il blocco di testo dal \"loro\" prima del \"mio\"\n"
+"Usa il \"loro\" blocco di testo e poi il \"mio\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"Usa il blocco di testo da \"loro\"\n"
+"Usa il \"loro\" blocco di testo"
 
 # ID:251,
 #: ID:251
