@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "MessageBox.h"
 #include ".\lockdlg.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "SVNProperties.h"
 
 

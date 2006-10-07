@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SVNProperties.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "EditPropertyValueDlg.h"

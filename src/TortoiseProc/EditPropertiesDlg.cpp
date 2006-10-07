@@ -22,7 +22,7 @@
 #include "TortoiseProc.h"
 #include "EditPropertiesDlg.h"
 #include "EditPropertyValueDlg.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "ProgressDlg.h"

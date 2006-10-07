@@ -18,7 +18,7 @@
 //
 #include "StdAfx.h"
 #include "TortoiseProc.h"
-#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
 #include "TSVNPath.h"
