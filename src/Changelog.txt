@@ -100,6 +100,9 @@ Version 1.4.1
        See issue #310 for details. (Stefan)
 - BUG: Wrong line numbers in TMerge. See issue #311 for details. (Stefan)
 - BUG: The column "SVN eol-style" could not be enabled. (Stefan)
+- BUG: TortoiseMerge could destroy lines when saving with the option
+       "ignore whitespace changes" activated. 
+       See issue #312 for details. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
