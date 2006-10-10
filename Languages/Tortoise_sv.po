@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-29 08:48+0100\n"
+"PO-Revision-Date: 2006-10-10 13:34+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2709,6 +2709,11 @@ msgstr "Ikoner/Design/Kodning: Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Förhindra att ikonsymboler visas i \"spara som...\" och \"öppna\" dialoger"
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Visa menyvalet \"Lås\" på den högsta nivån i menyn om den valda filen har egenskapen svn:needs-lock satt"
+
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -3829,6 +3834,11 @@ msgstr "&Timeout för proxy i sekunder:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Inställningar för proxy"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Visa \"Lås\" på den högsta nivån i menyn när svn:needs-lock är satt"
 
 # ID:246,
 #: ID:246
