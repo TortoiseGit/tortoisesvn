@@ -659,6 +659,9 @@ AuthType SSPI
 SSPIAuth On
 SSPIAuthoritative On
 SSPIDomain &lt;domaincontroller&gt;
+SSPIOmitDomain on
+SSPIUsernameCase lower
+SSPIPerRequestAuth on
 SSPIOfferBasic On
 </screen>
 					within the &lt;Location /svn&gt; block.
