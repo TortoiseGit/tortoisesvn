@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-03 15:59+0800\n"
+"PO-Revision-Date: 2006-10-11 09:42+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3169,6 +3169,11 @@ msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "勾選此選項時, 如果選擇的檔案有設定 svn:needs-lock 性質, 「取得鎖定」選項會出現在最上層選單中."
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -4473,6 +4478,11 @@ msgstr "Proxy 逾時設定(秒)(&T):"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy 設定"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "有設定 svn:needs-lock 性質時, 將「取得鎖定」放在上層選單"
 
 # ID:246,
 #: ID:246
