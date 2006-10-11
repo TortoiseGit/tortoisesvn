@@ -1185,9 +1185,9 @@ BOOL CTortoiseProcApp::InitInstance()
 					{
 						SVN svn;
 						CString sFilemask = cmdLinePath.GetFilename();
-						if (sFilemask.Find('.')>=0)
+						if (sFilemask.ReverseFind('.')>=0)
 						{
-							sFilemask = sFilemask.Left(sFilemask.Find('.'));
+							sFilemask = sFilemask.Left(sFilemask.ReverseFind('.'));
 						}
 						else
 							sFilemask.Empty();

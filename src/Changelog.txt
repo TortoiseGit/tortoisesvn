@@ -103,6 +103,8 @@ Version 1.4.1
 - BUG: TortoiseMerge could destroy lines when saving with the option
        "ignore whitespace changes" activated. 
        See issue #312 for details. (Stefan)
+- BUG: When renaming multiple files at once, the files could be renamed
+       to the wrong name if the file had multiple dots in its name. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
