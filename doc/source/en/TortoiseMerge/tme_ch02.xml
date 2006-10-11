@@ -325,6 +325,19 @@
 			Then the changes from the left file are added to the right file.
 		</para>
 		<para>
+			Sometimes you actually want both text blocks, and the context menu
+			also offers you
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Use both text blocks (this one first)</guimenuitem>
+			</menuchoice>
+			and
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Use both text blocks (this one last)</guimenuitem>
+			</menuchoice>.
+		</para>
+		<para>
 			If you're in three pane view (sometimes called
 			<emphasis>merge view</emphasis>) you can only edit the file in the
 			bottom view (<literal>Merged</literal>). As in two pane view,

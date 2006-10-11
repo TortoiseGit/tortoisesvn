@@ -72,8 +72,10 @@
             the highlights. Click on that revision again to turn off highlighting.
         </para>
         <para>
-            The revision comments are shown in a hint box whenever the mouse hovers over
-            the blame info column.
+            The revision comments (log message) are shown in a hint box whenever
+            the mouse hovers over the blame info column. If you want to copy the
+            log message for that revision, use the context menu which appears when
+            you right click on the blame info column.
         </para>
         <para>
             You can search within the Blame report using
@@ -84,6 +86,13 @@
             This allows you to search for revision numbers, authors and the content of
             the file itself. Log messages are not included in the search - you should
             use the Log Dialog to search those.
+        </para>
+        <para>
+            You can also jump to a specific line number using
+            <menuchoice>
+                <guimenu>Edit</guimenu>
+                <guimenuitem>Go To Line...</guimenuitem>
+            </menuchoice>.
         </para>
     </sect2>
     <sect2 id="tsvn-dug-blame-diffs">

@@ -39,6 +39,11 @@
         The second option includes the unversioned files as well.
     </para>
     <para>
+        If the target folder already contains a folder of the same
+        name as the one you are exporting, a new folder will be created
+        with a <literal>(n)</literal> suffix, eg. <literal>Target (1)</literal>.
+    </para>
+    <para>
         And of course you can export directly from the repository too.
         Use the Repository Browser to navigate to the relevant subtree
         in your repository, then use

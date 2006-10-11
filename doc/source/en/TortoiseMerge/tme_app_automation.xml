@@ -177,5 +177,15 @@ Don't touch these lines:
 				</tgroup>
 			</table>
 		</para>
+		<para>
+			You can also supply simple filenames on the command line for compatibility
+			with other diff programs. In this simplified form the command line is
+<screen>
+TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]
+</screen>
+			If two files are given they will be compared with each other.
+			If three files are given, the first is taken as the BASE file,
+			and the other two are compared with it in a three-way diff.
+		</para>
 	</sect1>
 </appendix>
