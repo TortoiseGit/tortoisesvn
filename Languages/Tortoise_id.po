@@ -1,5 +1,5 @@
 #
-# Indonesian translation for TortoiseSVN
+# Indonesian translations for TortoiseSVN
 # Copyright (C) 2004-2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -8,12 +8,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN 1.4.0\n"
+"Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
 "PO-Revision-Date: 2006-09-26 02:53+0700\n"
 "Last-Translator: Zaenal Mutaqin <ade999@gmail.com>\n"
-"Language-Team: Zaenal Mutaqin <ade999@gmail.com>\n"
+"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -142,12 +142,12 @@ msgstr "%s : File remote"
 #: ID:151,
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s : Basis yang Bekerja"
+msgstr "%s : Basis Pekerjaan"
 
 #: ID:151,
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s : Copy yang Bekerja"
+msgstr "%s : Copy Pekerjaan"
 
 #: ID:357,
 #, c-format
@@ -258,16 +258,16 @@ msgstr "&Berkeley database (BDB)"
 
 #: ID:114,
 msgid "&Blame differences"
-msgstr "A&baikan perbedaan"
+msgstr "&Blame perbedaan"
 
 #: ID:114,#:
 #: ID:322,
 msgid "&Blame revisions"
-msgstr "A&baikan revisi"
+msgstr "&Blame revisi"
 
 #: ID:13,
 msgid "&Blame..."
-msgstr "A&baikan..."
+msgstr "&Blame..."
 
 #: ID:138,
 msgid "&Browse repository"
@@ -612,7 +612,7 @@ msgstr "&Repo-browser"
 
 #: ID:113,
 msgid "&Revert changes from this revision"
-msgstr "&Balikan perubahan dari revisi ini"
+msgstr "&Pulihkan perubahan dari revisi ini"
 
 #: Control-ID:1033,#:
 #: Control-ID:1116,#:
@@ -1194,7 +1194,7 @@ msgstr "Anda yakin ingin menandai file yang konflik sudah dipecahkan?"
 #: ID:79,
 #, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
-msgstr "Anda yakin ingin mengembalikan %d item? Anda akan kehilangan <b>semua</b> perubahan sejak pemutahiran terakhir!"
+msgstr "Anda yakin ingin memulihkan %d item? Anda akan kehilangan <b>semua</b> perubahan sejak pemutahiran terakhir!"
 
 #: MenuEntry
 msgid "Arrange &Vertical"
@@ -1460,7 +1460,7 @@ msgstr "Periksa Pemutahiran..."
 
 #: ID:13,
 msgid "Check for modi&fications"
-msgstr "Periksa modi&fikasi"
+msgstr "Periksa modifikasi"
 
 #: Control-ID:65535,
 msgid "Check for modifications"
@@ -2059,7 +2059,7 @@ msgid ""
 "Do you really want to revert all changes in %s\n"
 "and go back to this revision?"
 msgstr ""
-"Anda benar-benar ingin mengembalikan semua perubahan dalam %s\n"
+"Anda benar-benar ingin memulihkan semua perubahan dalam %s\n"
 "dan kembali ke revisi ini?"
 
 #: ID:76,
@@ -2069,7 +2069,7 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
-"Anda benar-benar ingin mengembalikan semua perubahan ke\n"
+"Anda benar-benar ingin memulihkan semua perubahan ke\n"
 "%s\n"
 "yang sudah dibuat dalam revisi ini?"
 
@@ -2171,7 +2171,7 @@ msgstr "Kosong"
 
 #: Control-ID:1240,
 msgid "Enable &accelerators on the top level menu"
-msgstr "Hidupkan &akselerasi pada menu tingkat atas"
+msgstr "Hidupkan akselerasi pada menu tingkat atas"
 
 #: ID:196,
 msgid ""
@@ -2326,7 +2326,7 @@ msgstr "Program Eksternal::Unified Diff Viewer"
 
 #: ID:74,
 msgid "Failed revert"
-msgstr "Gagal mengembalikan"
+msgstr "Pemulihan gagal"
 
 #: ID:3857,#:
 #: ID:3857,
@@ -3088,7 +3088,7 @@ msgstr ""
 
 #: Control-ID:1064,
 msgid "Match &case"
-msgstr "Huru&f sama"
+msgstr "Huruf sama"
 
 #: Control-ID:1159,
 msgid "Max"
@@ -3267,7 +3267,7 @@ msgstr "Tidak ada kesalahan terjadi."
 
 #: ID:82,
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dikembalikan oleh TortoiseSVN!"
+msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dipulihkan oleh TortoiseSVN!"
 
 #: ID:77,
 msgid ""
@@ -3443,7 +3443,7 @@ msgstr "Kekurangan memori."
 
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr "Konflik sebelumn&ya"
+msgstr "Konflik sebelumnya"
 
 #: ID:76,
 msgid "PEM"
@@ -3717,7 +3717,7 @@ msgstr "R&AM drives"
 
 #: ID:114,
 msgid "R&evert to this revision"
-msgstr "&Balikkan ke revisi ini"
+msgstr "&Pulihkan ke revisi ini"
 
 #: ID:3697,
 msgid "REC"
@@ -3725,7 +3725,7 @@ msgstr "REC"
 
 #: Control-ID:1048,
 msgid "Re&movable drives"
-msgstr "Re&movable drives"
+msgstr "Re&movable drive"
 
 #: ID:11,
 msgid "Re&name..."
@@ -3733,7 +3733,7 @@ msgstr "&Ganti nama..."
 
 #: ID:8,
 msgid "Re&vert..."
-msgstr "&Balikkan..."
+msgstr "&Pulihkan..."
 
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -3793,7 +3793,7 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"Mengambil lagi file yang dibuka dan mengembalikan semua perubahan.\n"
+"Mengambil lagi file yang dibuka dan memulihkan semua perubahan.\n"
 "Ambil lagi"
 
 #: Dlg-ID:157,
@@ -3968,19 +3968,19 @@ msgstr "Coba lagi"
 
 #: Dlg-ID:175,
 msgid "Revert"
-msgstr "Balikkan"
+msgstr "Pulihkan"
 
 #: ID:114,
 msgid "Revert changes from these revisions"
-msgstr "Balikkan perubahan dari revisi ini"
+msgstr "Pulihkan perubahan dari revisi ini"
 
 #: ID:73,
 msgid "Reverted"
-msgstr "Dibalikan"
+msgstr "Dipulihkan"
 
 #: ID:9,
 msgid "Reverts all changes you made since the last update"
-msgstr "Membalikan semua peruibahan yang anda buat sejak pemutahiran terakhir"
+msgstr "Memulihkan semua peruibahan yang anda buat sejak pemutahiran terakhir"
 
 #: ID:76,#:
 #: ID:208,#:
@@ -4712,7 +4712,7 @@ msgstr "Menukar perbandingan kiri<->kanan"
 
 #: Control-ID:65535,
 msgid "System &sounds"
-msgstr "&Suara sistem"
+msgstr "Suara sistem"
 
 #: ID:3857,#:
 #: ID:3857,
@@ -5001,7 +5001,7 @@ msgid ""
 msgstr ""
 "Copy pekerjaan sudah berubah!\n"
 "<hr=100%>\n"
-"Silahkan komit perubahan anda dulu untuk mengembalikan."
+"Silahkan komit perubahan anda dulu untuk memulihkan."
 
 #: ID:81,
 msgid ""
@@ -5251,7 +5251,7 @@ msgstr "TortoiseSVN Selesaikan..."
 
 #: ID:77,
 msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Balikkan..."
+msgstr "TortoiseSVN Pulihkakn..."
 
 #: ID:80,
 msgid "TortoiseSVN Settings"
@@ -5350,7 +5350,7 @@ msgid ""
 msgstr ""
 "Tidak bisa merekonstruksi path copy pekerjaan!\n"
 "Ini bisas terjadi jika file sudah diganti nama.\n"
-"Silahkan mulai dialog log pada file spesifik ini sendiri dan lalu balikkan perubahan\n"
+"Silahkan mulai dialog log pada file spesifik ini sendiri dan lalu pulihkan perubahan\n"
 "dari pane atas dalam dialog log."
 
 #: ID:3865,#:
@@ -6229,7 +6229,7 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:revisi\n"
-"URL yang merujuk ke web viewer untuk repositori pada revisi spesifik.\n"
+"URL yang merujuk ke peninjau web untuk repositori pada revisi spesifik.\n"
 "String %REVISION% dalam URL itu diganti dengan angka revisi,\n"
 "string %PATH% diganti dengan path ke relatif file terhadap akar repositori."
 
