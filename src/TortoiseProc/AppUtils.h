@@ -83,7 +83,7 @@ public:
 	/**
 	* Launch the external blame viewer
 	*/
-	static bool LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile);
+	static bool LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams = CString());
 	
 	/**
 	 * Resizes all columns in a list control. Considers also icons in columns
