@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-06 14:37+0100\n"
+"PO-Revision-Date: 2006-10-10 17:42+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,13 +189,13 @@ msgstr "%s. Rýchlosť: %s"
 
 # ID:145,
 #: ID:145
-#, fuzzy, c-format
+#, c-format
 msgid "%s\\Export (%d) of %s"
 msgstr "%s\\Export (%d) z %s"
 
 # ID:145,
 #: ID:145
-#, fuzzy, c-format
+#, c-format
 msgid "%s\\Export of %s"
 msgstr "%s\\Export %s"
 
@@ -1638,21 +1638,18 @@ msgstr "Prezerať..."
 
 # Control-ID:1119,
 #: Control-ID:1119
-#, fuzzy
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "Bug-&ID / Issue-Nr:"
+msgstr "Chyba / &Prípad:"
 
 # ID:116,
 #: ID:116
-#, fuzzy
 msgid "Bug-ID"
-msgstr "Bug-ID"
+msgstr "Chyba"
 
 # Control-ID:1119,
 #: Control-ID:1119
-#, fuzzy
 msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID / Issue-Nr:"
+msgstr "Chyba / Prípad:"
 
 # Control-ID:1215,
 #: Control-ID:1215
@@ -1840,7 +1837,6 @@ msgstr "Zašrtnite ak chcete menej výpisov dátumu a času v správach denníka
 
 # ID:270,
 #: ID:270
-#, fuzzy
 msgid "Checking for forward copies"
 msgstr "Zaškrktnite pre preposielanie kópií"
 
@@ -2559,7 +2555,7 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"Chcete znova načítať dokumenty, aby sa odrkadlili zmeny z nastavení?\n"
+"Chcete znova načítať dokumenty, aby sa prejavili zmeny nastavení?\n"
 "Poznámka: stratíte všetky zmeny, ktoré ste urobili!"
 
 # ID:313,
@@ -5193,7 +5189,6 @@ msgstr "Ukladám záplatu do:"
 #: Control-ID:1017
 #: Control-ID:1064
 #: Control-ID:1212
-#, fuzzy
 msgid "Scintilla"
 msgstr "Stopa"
 
@@ -5228,7 +5223,7 @@ msgstr "Ozn&ač všetko"
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Select / deselect &all"
-msgstr "Označ / odzn&ač všetkol"
+msgstr "Označ / odzn&ač všetko"
 
 # ID:13,
 #: ID:13
@@ -5376,7 +5371,6 @@ msgstr "Šel"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Ikonky pamäte šelu boli prebudované!"
 
@@ -5747,7 +5741,7 @@ msgstr "Súbor Subversion servera:"
 # Control-ID:1232,
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Prenúť pracovanú kópiu na novú ve&tvu/značku"
+msgstr "Prepnúť pracovanú kópiu na novú ve&tvu/značku"
 
 # Prepnúť ľavú <-> pravú
 #: MenuEntry
@@ -5783,7 +5777,7 @@ msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
 msgstr ""
-"Prepnuť obsah ľavejho a pravého panelu\n"
+"Prepnúť obsah ľavejho a pravého panelu\n"
 "Prepnúť ľavý a pravý pohľad"
 
 # ID:3825,
@@ -5797,7 +5791,7 @@ msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
-"Prenúť na nasledovný panel\n"
+"Prepnúť na nasledovný panel\n"
 "Ďaľší panel"
 
 # ID:3825,
@@ -5844,7 +5838,6 @@ msgstr "Označiť pracovnú kópiu ako %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Text Status:"
 msgstr "Stav textu:"
 
@@ -6234,7 +6227,7 @@ msgstr "Tento produkt obsahuje softvér vyvynutý projektom OpenSSL (http://www.
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
-#, fuzzy, c-format
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "Program je prepojený s chýbajúcim exportom %s v súbore %s. Tento počítač prevdepodobne nemá kompatibilnú verziu %s."
 
@@ -6553,7 +6546,6 @@ msgstr "Nemožno čítať vlastnosť určenú len na zápis."
 
 # ID:119,
 #: ID:119
-#, fuzzy
 msgid ""
 "Unable to reconstruct working copy path!\n"
 "This can happen if the file has been renamed.\n"
@@ -6862,15 +6854,13 @@ msgstr "Verzia"
 
 # ID:114,
 #: ID:114
-#, fuzzy
 msgid "View revision for path in &webviewer"
-msgstr "Prezrieť revíziu cesty vo &webviewer"
+msgstr "Prezrieť revíziu cesty vo &internetovom prehliadači"
 
 # ID:114,
 #: ID:114
-#, fuzzy
 msgid "View revision in &webviewer"
-msgstr "Prezrieť revíziu vo &webviewer"
+msgstr "Prezrieť revíziu vo &internetovom prehliadači"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -7401,7 +7391,6 @@ msgstr "blokované"
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
-#, fuzzy
 msgid "pixels"
 msgstr "pixely"
 
