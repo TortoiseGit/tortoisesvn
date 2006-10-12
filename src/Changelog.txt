@@ -105,6 +105,8 @@ Version 1.4.1
        See issue #312 for details. (Stefan)
 - BUG: When renaming multiple files at once, the files could be renamed
        to the wrong name if the file had multiple dots in its name. (Stefan)
+- BUG: The menu "properties" could not be configured to show on the
+       top level context menu. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
