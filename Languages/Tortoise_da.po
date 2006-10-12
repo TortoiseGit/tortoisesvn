@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7640
+# Based on Tortoise.pot r7714
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-27 14:34+0100\n"
+"PO-Revision-Date: 2006-10-12 14:35+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2269,6 +2269,10 @@ msgstr "Ikoner/design/kode:    Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Hvis valgt, så vises overdækningerne ikke i dialogerne \"gem som..\" eller \"åbn\""
 
+#: ID:198,
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Hvis valgt, så vises menupunktet \"Tag lås\" i den øverste kontekstmenu, hvis den valgte fil har egenskaben svn:needs-lock sat"
+
 #: ID:95,
 msgid "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
 msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt, så importeres der direkte til den angivne URL."
@@ -3134,6 +3138,10 @@ msgstr "Proxy-&timeout i sekunder:"
 #: Control-ID:1080,
 msgid "Proxy Settings"
 msgstr "Proxy-indstillinger"
+
+#: Control-ID:1338,
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Føj \"Tag lås\" til den øverste menu, når svn:needs-lock er sat"
 
 #: ID:246,
 #, c-format
