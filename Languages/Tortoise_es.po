@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-09 02:21+0100\n"
-"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
+"PO-Revision-Date: 2006-10-11 23:46+0100\n"
+"Last-Translator: Abel Francisco Paz Gallardo <icaro.heaven@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2284,7 +2284,7 @@ msgid ""
 "tsvn:projectlanguage property is set."
 msgstr ""
 "Habilita el corrector ortográfico únicamente\n"
-"si la propiedad tsvn:projectlanguage se ha establecido"
+"si la propiedad tsvn:projectlanguage está marcada."
 
 #: Control-ID:65535
 msgid "End Revision"
@@ -2731,7 +2731,7 @@ msgstr "Si activado, previene la aparición de iconos sobreimpresos en los diál
 # ID:198,
 #: ID:198
 msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Si se activa, se muestra la entrada de menú \"Obtener bloqueo\" en el menú de nivel superior si el fichero seleccionado tiene establecida la propiedad svn:needs-lock."
+msgstr "Si se activa, se muestra la entrada de menú \"Obtener bloqueo\" en el menú de nivel superior si el fichero seleccionado tiene activada la propiedad svn:needs-lock."
 
 #: ID:95
 msgid ""
@@ -2801,7 +2801,7 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Si se establece, los ficheros dentro de carpetas sin versionar se pueden vern en el control de estado.\n"
+"Si está marcado los ficheros dentro de carpetas sin versionar se pueden vern en el control de estado.\n"
 "El control de estado se utiliza por ejemplo en el diálogo de confirmación."
 
 # ID:196,
@@ -2810,7 +2810,7 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Si se establece, los ficheros sin versionar marcarán el estado de su directorio padre como modificado\n"
+"Si está marcado, los ficheros sin versionar marcarán el estado de su directorio padre como modificado\n"
 "es decir, esos directorios obtendrán el icono sobreimpresionado de estar modificados."
 
 # ID:196,
@@ -3566,9 +3566,10 @@ msgid "Only update the &top folder"
 msgstr "Sólo actualizar la carpeta &superior"
 
 # Control-ID:1224,
+# En españa, establecer no se usa en este contexto. Una casilla de verificación se marca, no se establece.
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Utilizar el &corrector ortográfico únicamente cuando se haya establecido tsvn:projectlanguage"
+msgstr "Utilizar el &corrector ortográfico únicamente cuando esté marcado tsvn:projectlanguage"
 
 #: ID:3841
 msgid "Open"
@@ -3875,9 +3876,10 @@ msgid "Proxy Settings"
 msgstr "Configuración del Proxy"
 
 # Control-ID:1338,
+# Establecer no se utiliza en este contexto. Es más correcto marcar una propiedad.
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Poner \"Obtener bloqueo\" en el menú superior cuando se establece svn:needs-lock"
+msgstr "Poner \"Obtener bloqueo\" en el menú superior si está marcado svn:needs-lock"
 
 # ID:246,
 #: ID:246
@@ -5897,7 +5899,7 @@ msgstr "Atención"
 # ID:219,
 #: ID:219
 msgid "Warning!"
-msgstr "¡ Atención !"
+msgstr "¡Atención!"
 
 #: ID:146
 msgid "With URL:"
@@ -5965,7 +5967,7 @@ msgid ""
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
 msgstr ""
-"¡No puede establecer esta propiedad en carpetas, sólo puede en ficheros!\n"
+"No se puede establecer esta propiedad en carpetas, ¡sólo es posible en ficheros!\n"
 "Si desea establecerla en todos los ficheros dentro de esa carpeta,\n"
 "debe activar la casilla 'recursivo'."
 
@@ -6180,7 +6182,7 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\n"
-"Establézcalo a \"false\" si desea que el número de incidencia se coloque al inicio\n"
+"Márquelo a \"false\" si desea que el número de incidencia se coloque al inicio\n"
 "del mensaje de registro. Por defecto es \"true\" que significa que el número de incidencia\n"
 "se añade al final del mensaje de registro."
 
@@ -6225,7 +6227,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Establézcalo a \"false\" si su sistema de control de bugs tiene identificadores de incidencias no numéricos."
+"Márquelo a \"false\" si su sistema de control de bugs tiene identificadores de incidencias no numéricos."
 
 # ID:14,
 #: ID:14
@@ -6449,7 +6451,7 @@ msgid ""
 "before they can edit it and commit changes."
 msgstr ""
 "svn:needs-lock\n"
-"Establezca esto a cualquier valor (por ejemplo, '*') para forzar el bloqueo para este fichero.\n"
+"Introduzca cualquier valor (por ejemplo, '*') para forzar el bloqueo para este fichero.\n"
 "El fichero quedará como solo-lectura cuando se obtenga o se actualize,\n"
 "indicando que el usuario debe adquirir un bloqueo sobre el fichero\n"
 "antes de que puedan editarlo y confirmar los cambios."
@@ -6478,7 +6480,7 @@ msgid ""
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\n"
-"Establézcalo a \"false\" si no desea que la lista de ficheros cambiados se pegue en inglés\n"
+"Márquelo a \"false\" si no desea que la lista de ficheros cambiados se pegue en inglés\n"
 "en el diálogo de confirmación."
 
 # ID:15,
@@ -6509,7 +6511,7 @@ msgid ""
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\n"
-"Establezca esta propiedad al número máximo de caracteres por línea que debería haber en los mensajes de registro.\n"
+"Número máximo de caracteres por línea que debería haber en los mensajes de registro.\n"
 "Aparecerá una linea vertical en los diálogos de confirmación en esa posición. Por defecto son 80 caracteres."
 
 # ID:15,
@@ -6520,7 +6522,7 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Establezca esto al número del idioma en el que desea escribir sus mensajes de registro.\n"
+"Número del idioma en el que desea escribir sus mensajes de registro.\n"
 "TortoiseSVN intentará entonces cargar el módulo del corrector ortográfico apropiado si está disponible."
 
 # ID:15,
@@ -6530,7 +6532,7 @@ msgid ""
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"Establézcalo a \"yes\" si debería aparecer un mensaje de advertencia cuando no se introduzca un número de incidencia en el diálogo de confirmación."
+"Márquelo a \"yes\" si quiere que aparezca un mensaje de advertencia cuando no se introduzca un número de incidencia en el diálogo de confirmación."
 
 # ID:563,
 #: ID:563
@@ -6576,4 +6578,5 @@ msgstr "que apunta al repositorio en la URL:"
 #: ID:245
 msgid "year"
 msgstr "año"
+
 
