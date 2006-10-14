@@ -44,6 +44,9 @@
        (Tobias Schäfer)
 - CHG: Make the option "link images together" the default 
        in TortoiseIDiff. (Stefan)
+- CHG: Menu items which should appear in the top level menu now need to
+       be checked instead of unchecked. See issue #306 for details.
+       (Tobias Schäfer)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
