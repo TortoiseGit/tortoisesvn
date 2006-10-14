@@ -28,6 +28,7 @@
 #include ".\repositorytree.h"
 #include "InputDlg.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 #include "StringUtils.h"
 #include "DragDropImpl.h"
 #include "UnicodeUtils.h"
@@ -114,7 +115,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	{
 		HTREEITEM hParentItem = RVTI_ROOT;
 
-		CString parent_folder = SVNUrl(folder_path).GetParentPath();
+		CString parent_folder = SVNUrl(folder_path, true).GetParentPath();
 		if (!parent_folder.IsEmpty())
 		{
 			hParentItem = FindUrl(parent_folder);
@@ -177,7 +178,7 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 	{
 		HTREEITEM hParentItem = RVTI_ROOT;
 
-		CString parent_folder = SVNUrl(file_path).GetParentPath();
+		CString parent_folder = SVNUrl(file_path, true).GetParentPath();
 		if (!parent_folder.IsEmpty())
 		{
 			hParentItem = FindUrl(parent_folder);
@@ -959,10 +960,14 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
 									if (hItem)
 									{
+										CString sEscapedName = destUrlList[index].GetFileOrDirectoryName();
+										sEscapedName.Replace(_T("%"), _T("%25"));
+										sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
+
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
+											AddFolder(sDestUrl+_T("/")+sEscapedName);
 										else
-											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
+											AddFile(sDestUrl+_T("/")+sEscapedName);
 										Refresh(hItem);
 									}
 								}
@@ -1018,10 +1023,13 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
 									if (hItem)
 									{
+										CString sEscapedName = destUrlList[index].GetFileOrDirectoryName();
+										sEscapedName.Replace(_T("%"), _T("%25"));
+										sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
+											AddFolder(sDestUrl+_T("/")+sEscapedName);
 										else
-											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
+											AddFile(sDestUrl+_T("/")+sEscapedName);
 										Refresh(hItem);
 									}
 								}

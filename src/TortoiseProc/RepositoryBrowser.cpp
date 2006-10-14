@@ -797,7 +797,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							}
 							progDlg.Stop();
 							svn.SetAndClearProgressInfo((HWND)NULL);
-							m_treeRepository.AddFolder(url+_T("/")+filename);
+							CString sEscapedName = filename;
+							sEscapedName.Replace(_T("%"), _T("%25"));
+							sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
+							m_treeRepository.AddFolder(url+_T("/")+sEscapedName);
 						}
 					}
 				}
@@ -869,7 +872,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							}
 							progDlg.Stop();
 							svn.SetAndClearProgressInfo((HWND)NULL);
-							m_treeRepository.AddFile(url+_T("/")+filename);
+							CString sEscapedName = filename;
+							sEscapedName.Replace(_T("%"), _T("%25"));
+							sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
+							m_treeRepository.AddFile(url+_T("/")+sEscapedName);
 						}
 					}
 					delete [] pszFilters;
@@ -1038,7 +1044,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							}
-							m_treeRepository.AddFolder(url+_T("/")+dlg.m_name);
+							CString sEscapedName = dlg.m_name;
+							sEscapedName.Replace(_T("%"), _T("%25"));
+							sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
+							m_treeRepository.AddFolder(url+_T("/")+sEscapedName);
 						}
 					}
 				}
@@ -1293,10 +1302,13 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return;
 			}
+			CString sEscapedName = filename;
+			sEscapedName.Replace(_T("%"), _T("%25"));
+			sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
 			if (droppedPaths[importindex].IsDirectory())
-				m_treeRepository.AddFolder(url+_T("/")+filename);
+				m_treeRepository.AddFolder(url+_T("/")+sEscapedName);
 			else
-				m_treeRepository.AddFile(url+_T("/")+filename);				
+				m_treeRepository.AddFile(url+_T("/")+sEscapedName);				
 		}
 	}
 

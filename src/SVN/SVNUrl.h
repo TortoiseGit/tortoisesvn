@@ -30,7 +30,7 @@ class SVNUrl : public CString
 {
 public:
 	SVNUrl();
-	SVNUrl(const CString& svn_url);
+	SVNUrl(const CString& svn_url, bool bAlreadyUnescaped = false);
 	SVNUrl(const CString& path, const CString& revision);
 	SVNUrl(const CString& path, const SVNRev& revision);
 	SVNUrl(const SVNUrl& other);

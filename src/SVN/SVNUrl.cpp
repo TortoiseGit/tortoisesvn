@@ -31,8 +31,8 @@ SVNUrl::SVNUrl()
 {
 }
 
-SVNUrl::SVNUrl(const CString& svn_url) :
-	CString(Unescape(svn_url))
+SVNUrl::SVNUrl(const CString& svn_url, bool bAlreadyUnescaped /* = false*/ ) :
+	CString(bAlreadyUnescaped ? svn_url : Unescape(svn_url))
 {
 }
 
