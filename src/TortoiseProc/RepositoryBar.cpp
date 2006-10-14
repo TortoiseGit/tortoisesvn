@@ -302,7 +302,7 @@ void CRepositoryBar::OnDestroy()
 		CString path, revision;
 		m_cbxUrl.GetLBText(idx, path);
 		m_btnRevision.GetWindowText(revision);
-		m_SvnUrl = SVNUrl(path, revision);
+		m_SvnUrl = SVNUrl(path, revision, true);
 	}
 	CReBarCtrl::OnDestroy();
 }

@@ -56,7 +56,7 @@ public:
 	 * \return Returns the item handle of the folder created or NULL if
 	 *         creation failed
 	 */
-	HTREEITEM AddFolder(const CString& folder, bool force = false, bool init = false);
+	HTREEITEM AddFolder(const CString& folder, bool force = false, bool init = false, bool bAlreadyUnescaped = false);
 
 	/**
 	 * Adds the given \a file to the tree control, if it is not already
@@ -68,7 +68,7 @@ public:
 	 * \return Returns the item handle of the file created or NULL if
 	 *         creation failed
 	 */
-	HTREEITEM AddFile(const CString& file, bool force = false);
+	HTREEITEM AddFile(const CString& file, bool force = false, bool bAlreadyUnescaped = false);
 
 	/**
 	 * Updates the given \a url. It is assumed that the supplied string

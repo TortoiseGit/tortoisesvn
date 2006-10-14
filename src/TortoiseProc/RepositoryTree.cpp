@@ -83,9 +83,9 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 	DeleteAllItems();
 
 	if (m_bFile)
-		AddFolder(svn_url.GetParentPath(), true, true);
+		AddFolder(svn_url.GetParentPath(), true, true, true);
 	else
-		AddFolder(m_strUrl, true, true);
+		AddFolder(m_strUrl, true, true, true);
 
 	HTREEITEM hItem = FindUrl(m_strUrl);
 	if (hItem != 0)
@@ -94,7 +94,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 
 // CRepositoryTree low level update functions
 
-HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init)
+HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init, bool bAlreadyUnescaped)
 {
 	CString folder_path;
 	if ((init)&&(!m_strReposRoot.IsEmpty()))
@@ -108,7 +108,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			SetItemData(GetItemIndex(hRootItem), 0);
 		}
 	}
-	AfxExtractSubString(folder_path, SVNUrl(folder), 0, '\t');
+	AfxExtractSubString(folder_path, SVNUrl(folder, bAlreadyUnescaped), 0, '\t');
 
 	HTREEITEM hItem = FindUrl(folder_path);
 	if (hItem == 0)
@@ -121,7 +121,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				hParentItem = AddFolder(parent_folder, force, init);
+				hParentItem = AddFolder(parent_folder, force, init, true);
 			}
 		}
 
@@ -167,10 +167,10 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	return hItem;
 }
 
-HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
+HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force, bool bAlreadyUnescaped)
 {
 	CString file_path;
-	AfxExtractSubString(file_path, SVNUrl(file), 0, '\t');
+	AfxExtractSubString(file_path, SVNUrl(file, bAlreadyUnescaped), 0, '\t');
 
 	HTREEITEM hItem = FindUrl(file_path);
 	
@@ -184,7 +184,7 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				hParentItem = AddFolder(parent_folder, force);
+				hParentItem = AddFolder(parent_folder, force, false, true);
 			}
 		}
 
@@ -623,7 +623,7 @@ void CRepositoryTree::Init(const SVNRev& revision)
 	DefineSubItem(6, &rvs);
 	ActivateSubItem(6, 6);
 
-	SVNUrl svn_url(m_strUrl, m_Revision);
+	SVNUrl svn_url(m_strUrl, m_Revision, true);
 
 	SetSortCallback(SortCallback, (LPARAM)this);
 	bInit = FALSE;

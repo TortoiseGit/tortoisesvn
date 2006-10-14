@@ -31,9 +31,9 @@ class SVNUrl : public CString
 public:
 	SVNUrl();
 	SVNUrl(const CString& svn_url, bool bAlreadyUnescaped = false);
-	SVNUrl(const CString& path, const CString& revision);
-	SVNUrl(const CString& path, const SVNRev& revision);
-	SVNUrl(const SVNUrl& other);
+	SVNUrl(const CString& path, const CString& revision, bool bAlreadyUnescaped = false);
+	SVNUrl(const CString& path, const SVNRev& revision, bool bAlreadyUnescaped = false);
+	SVNUrl(const SVNUrl& other, bool bAlreadyUnescaped = false);
 
 	SVNUrl& operator=(const CString& svn_url);
 	SVNUrl& operator=(const SVNUrl& svn_url);

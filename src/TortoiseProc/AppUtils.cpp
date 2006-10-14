@@ -724,6 +724,8 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFil
 {
 	CString strUrl;
 	combo.GetWindowText(strUrl);
+	strUrl.Replace(_T("%"), _T("%25"));
+	strUrl = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(strUrl)));
 	if (strUrl.Left(7) == _T("file://"))
 	{
 		CString strFile(strUrl);

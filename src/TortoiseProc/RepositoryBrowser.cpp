@@ -78,7 +78,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 	: CResizableStandAloneDialog(CRepositoryBrowser::IDD, pParent)
 	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_InitialSvnUrl(svn_url)
+	, m_InitialSvnUrl(svn_url, true)
 	, m_bStandAlone(false)
 	, m_bInitDone(false)
 {
@@ -912,9 +912,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							if (GetRevision().IsHead())
 							{
 								if (bFolder)
-									m_treeRepository.AddFolder(dlg.m_name);
+									m_treeRepository.AddFolder(dlg.m_name, false, false, true);
 								else
-									m_treeRepository.AddFile(dlg.m_name);
+									m_treeRepository.AddFile(dlg.m_name, false, true);
 							}
 						}
 					}

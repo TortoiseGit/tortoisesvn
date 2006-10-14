@@ -36,17 +36,17 @@ SVNUrl::SVNUrl(const CString& svn_url, bool bAlreadyUnescaped /* = false*/ ) :
 {
 }
 
-SVNUrl::SVNUrl(const CString& path, const CString& revision) :
-	CString(Unescape(path + _T("?") + revision))
+SVNUrl::SVNUrl(const CString& path, const CString& revision, bool bAlreadyUnescaped /* = false*/ ) :
+	CString(bAlreadyUnescaped ? path + _T("?") + revision : Unescape(path + _T("?") + revision))
 {
 }
 
-SVNUrl::SVNUrl(const CString& path, const SVNRev& revision) :
-	CString(Unescape(path + _T("?") + GetTextFromRev(revision)))
+SVNUrl::SVNUrl(const CString& path, const SVNRev& revision, bool bAlreadyUnescaped /* = false*/ ) :
+	CString(bAlreadyUnescaped ? path + _T("?") + GetTextFromRev(revision) : Unescape(path + _T("?") + GetTextFromRev(revision)))
 {
 }
 
-SVNUrl::SVNUrl(const SVNUrl& other) :
+SVNUrl::SVNUrl(const SVNUrl& other, bool bAlreadyUnescaped /* = false*/ ) :
 	CString(other)
 {
 }

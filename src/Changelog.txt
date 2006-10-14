@@ -112,6 +112,8 @@ Version 1.4.1
        to the wrong name if the file had multiple dots in its name. (Stefan)
 - BUG: The menu "properties" could not be configured to show on the
        top level context menu. (Stefan)
+- BUG: The repository browser had problems with pathnames which contained
+       a '%' char. See issue #314 for details. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
