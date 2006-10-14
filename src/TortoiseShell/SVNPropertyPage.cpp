@@ -285,14 +285,6 @@ void CSVNPropertyPage::InitWorkfileView()
 			if (svn.status->entry != NULL)
 			{
 				LoadLangDll();
-				if (svn.status->entry->kind == svn_node_file)
-				{
-					//disable the 'recursive' checkbox for files
-					HWND recursivewnd = GetDlgItem(m_hwnd, IDC_RECURSIVE);
-					if (GetFocus() == recursivewnd)
-						::SendMessage(m_hwnd, WM_NEXTDLGCTL, 0, FALSE);
-					::EnableWindow(recursivewnd, FALSE);					
-				}
 				if (svn.status->text_status == svn_wc_status_added)
 				{
 					// disable the "show log" button for added files
