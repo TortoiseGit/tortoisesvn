@@ -38,7 +38,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 		unless="${property::exists('docformats')}"
 	/>
 	<property name="languages" 
-		value="en,de,es,fr,hr,ja,ru,sk,zh_CN" 
+		value="en,de,es,fr,hr,ja,ru,zh_CN" 
 		unless="${property::exists('languages')}"
 	/>
 
@@ -200,6 +200,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 		<!-- This task shouldn't run every time because it triggers a rebuild of all the docs.
 		     To work around this, version.xml is excluded from the files that trigger the build.-->
 		<if test="${environment::variable-exists('MajorVersion')}">
+  		<property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}" />
 			<copy
 				file="source\en\version.in"
 				tofile="source\en\version.xml"
