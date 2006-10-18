@@ -104,7 +104,9 @@ BOOL CMergeDlg::OnInitDialog()
 	{
 		if (!bRepeating)
 		{
-			m_URLFrom = url;
+			// do not overwrite the "from" url if set on the commandline
+			if (m_URLFrom.IsEmpty())
+				m_URLFrom = url;
 			m_URLTo = url;
 		}
 		GetDlgItem(IDC_WCURL)->SetWindowText(url);
@@ -117,7 +119,7 @@ BOOL CMergeDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
-	if ((m_URLCombo.GetString().IsEmpty())||bRepeating)
+	if ((m_URLCombo.GetString().IsEmpty())||bRepeating||!m_URLFrom.IsEmpty())
 		m_URLCombo.SetWindowText(m_URLFrom);
 	m_URLCombo2.SetURLHistory(TRUE);
 	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
@@ -125,16 +127,25 @@ BOOL CMergeDlg::OnInitDialog()
 	if ((m_URLCombo2.GetString().IsEmpty())||bRepeating)
 		m_URLCombo2.SetWindowText(m_URLTo);
 
-	if (bRepeating)
+	// if StartRev and/or EndRev are not HEAD, then they're set from the command
+	// line and we have to fill in the edit boxes for them and of course set the
+	// correct radio button
+	if ((bRepeating)||(!StartRev.IsHead() || !EndRev.IsHead()))
 	{
 		if (StartRev.IsHead())
 			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
 		else
+		{
 			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+			m_sStartRev = StartRev.ToString();
+		}
 		if (EndRev.IsHead())
 			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 		else
+		{
 			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+			m_sEndRev = EndRev.ToString();
+		}
 		if (m_bUseFromURL)
 			DialogEnableWindow(IDC_URLCOMBO2, FALSE);
 		else
@@ -142,6 +153,7 @@ BOOL CMergeDlg::OnInitDialog()
 			DialogEnableWindow(IDC_URLCOMBO2, TRUE);
 			GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLTo);
 		}
+		UpdateData(FALSE);
 	}
 	else
 	{

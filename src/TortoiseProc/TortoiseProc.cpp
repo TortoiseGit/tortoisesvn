@@ -1009,13 +1009,23 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL repeat = FALSE;
 			CMergeDlg dlg;
 			dlg.m_wcPath = cmdLinePath;
+			// mergefrom = start revision of the merge revision range
+			if (parser.HasVal(_T("mergefrom")))
+				dlg.StartRev = SVNRev(parser.GetVal(_T("mergefrom")));
+			// mergeto = end revision of the merge revision range
+			if (parser.HasVal(_T("mergeto")))
+				dlg.EndRev = SVNRev(parser.GetVal(_T("mergeto")));
+			// fromurl = the url the merge is done from
+			if (parser.HasVal(_T("fromurl")))
+				dlg.m_URLFrom = parser.GetVal(_T("fromurl"));
+			// The do-while loop is for repeating the merge dialog.
+			// It's needed in case the user tries a "dry-run"
 			do 
 			{	
 				if (dlg.DoModal() == IDOK)
 				{
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-					//m_pMainWnd = &progDlg;
 					int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
 					options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
 					progDlg.SetParams(CSVNProgressDlg::Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
