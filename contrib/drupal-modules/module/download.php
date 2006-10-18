@@ -1,7 +1,5 @@
 <?php
 
-
-
 include("/var/www/vhosts/default/htdocs/includes/trans_data.inc");
 include("/var/www/vhosts/default/htdocs/includes/trans_countries.inc");
 
@@ -49,7 +47,7 @@ function print_langpack($i, $postat, $v, $w)
   $flagimg=$v['flagpath']."$postat[10].png";
   $dlfile32=get_langpack($postat[10], $postat[11], $v, $w['w32']);
   $dlfile64=get_langpack($postat[10], $postat[11], $v, $w['x64']);
-  if ($postat[9]=="1")   {
+  if ( ($postat[9] & "01") <> "0")   {
    $t_ln="SpellChecker_".$postat[10].".exe";
    $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
 	} else {
