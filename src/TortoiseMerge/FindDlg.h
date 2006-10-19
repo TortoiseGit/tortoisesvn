@@ -1,7 +1,7 @@
 #pragma once
+#include "afxcmn.h"
+#include "HistoryCombo.h"
 
-
-// CFindDlg dialog
 
 class CFindDlg : public CDialog
 {
@@ -16,7 +16,7 @@ public:
 	bool MatchCase() {return !!m_bMatchCase;}
 	bool LimitToDiffs() {return !!m_bLimitToDiffs;}
 	bool WholeWord() {return !!m_bWholeWord;}
-	CString GetFindString() {return m_sFindText;}
+	CString GetFindString() {return m_FindCombo.GetString();}
 // Dialog Data
 	enum { IDD = IDD_FIND };
 
@@ -28,13 +28,13 @@ protected:
 	virtual void PostNcDestroy();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
-	afx_msg void OnEnChangeSearchtext();
+	afx_msg void OnCbnEditchangeFindcombo();
 private:
-	UINT		m_FindMsg;
-	bool		m_bTerminating;
-	bool		m_bFindNext;
-	BOOL		m_bMatchCase;
-	BOOL		m_bLimitToDiffs;
-	BOOL		m_bWholeWord;
-	CString		m_sFindText;
+	UINT			m_FindMsg;
+	bool			m_bTerminating;
+	bool			m_bFindNext;
+	BOOL			m_bMatchCase;
+	BOOL			m_bLimitToDiffs;
+	BOOL			m_bWholeWord;
+	CHistoryCombo	m_FindCombo;
 };

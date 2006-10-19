@@ -18,8 +18,11 @@
 //
 #include "stdafx.h"
 #include "HistoryCombo.h"
-#include "SysImageList.h"
 #include "registry.h"
+
+#ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
+#include "SysImageList.h"
+#endif
 
 #define MAX_HISTORY_ITEMS 25
 
@@ -81,6 +84,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 	combostring.Replace('\n', ' ');
 	cbei.pszText = const_cast<LPTSTR>(combostring.GetString());
 
+#ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
 	if (m_bURLHistory)
 	{
 		cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
@@ -110,6 +114,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.iSelectedImage = cbei.iImage;
 		cbei.mask |= CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
 	}
+#endif
 	int nRet = InsertItem(&cbei);
 	if (nRet >= 0)
 		m_arEntries.InsertAt(nRet, str);
@@ -243,7 +248,9 @@ void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
 			SHAutoComplete(hwndEdit, SHACF_URLALL);
 	} // if (bUseShellURLHistory) 
 
+#ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
 	SetImageList(&SYS_IMAGE_LIST());
+#endif
 }
 
 void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
@@ -271,7 +278,9 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
 			SHAutoComplete(hwndEdit, SHACF_FILESYSTEM);
 	} // if (bUseShellURLHistory) 
 
+#ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
 	SetImageList(&SYS_IMAGE_LIST());
+#endif
 }
 
 void CHistoryCombo::SetMaxHistoryItems(int nMaxItems)

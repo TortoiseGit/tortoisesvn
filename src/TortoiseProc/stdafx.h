@@ -88,4 +88,4 @@
 #include "..\..\..\common\zlib\zlib.h"
 #pragma warning(pop)
 
-
+#define HISTORYCOMBO_WITH_SYSIMAGELIST
