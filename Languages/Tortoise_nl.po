@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-27 21:19+0100\n"
+"PO-Revision-Date: 2006-10-19 21:38+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1454,8 +1454,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Controleer het pad en/of de URL die u heeft ingevoerd."
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Selecteer de menuopties die in het submenu moeten verschijnen in plaats van het contextmenu"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Selecteer de menuopties die in het contextmenu moeten verschijnen in plaats van het TortoiseSVN submenu"
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2572,6 +2572,10 @@ msgstr "Iconen/Ontw./Code: Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Activeer deze optie om geen overlays te tonen in de \"Opslaan als...\" en \"Open...\" dialogen"
 
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Activeer deze optie om het \"Plaats blokkade\" commando in het contextmenu te tonen als het geselecteerde bestand de svn:needs-lock eigenschap heeft"
+
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -3632,6 +3636,10 @@ msgstr "Proxy &timeout in seconden:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy Instellingen"
+
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Toon \"Plaats blokkade\" in het contextmenu als svn:needs-lock gezet is"
 
 #: ID:246
 #, c-format
