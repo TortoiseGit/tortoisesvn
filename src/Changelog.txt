@@ -117,6 +117,9 @@ Version 1.4.1
        top level context menu. (Stefan)
 - BUG: The repository browser had problems with pathnames which contained
        a '%' char. See issue #314 for details. (Stefan)
+- BUG: Showing the log for a deleted item in the log dialog did not work
+       because the selected revision was used instead of the previous
+       one. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

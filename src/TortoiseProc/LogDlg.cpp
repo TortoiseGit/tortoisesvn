@@ -1878,9 +1878,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						filepath += changedpath;
-						
+						svn_revnum_t logrev = rev1;
+						CString added, deleted;
+						deleted.LoadString(IDS_SVNACTION_DELETE);
+						if (changedlogpath->sAction.Compare(deleted)==0)
+						{
+							// if the item got deleted in this revision,
+							// fetch the log from the previous revision where it
+							// still existed.
+							logrev--;
+						}
 						CString sCmd;
-						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev1);
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
 						
 						CAppUtils::LaunchApplication(sCmd, NULL, false);
 						EnableOKButton();
