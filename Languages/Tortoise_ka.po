@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-08-18 10:28+0400\n"
+"PO-Revision-Date: 2006-10-21 21:55+0400\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -606,13 +606,8 @@ msgstr "&სიის ჩვენება"
 msgid "&Load..."
 msgstr "&ჩატვირთვა..."
 
-#: MenuEntry
-msgid "&Mark as resolved"
-msgstr "&მონიშვნა მოგვარებულად"
-
 # Control-ID:1,#:
 #: Control-ID:1
-#: MenuEntry
 msgid "&Merge"
 msgstr "&შერწყმა"
 
@@ -630,6 +625,10 @@ msgstr "&შერწყმა"
 #: Control-ID:1129
 msgid "&Native filesystem (FSFS)"
 msgstr "&საწყისი ფაილური სისტემა (FSFS)"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "&ნავიგაცია"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -690,6 +689,11 @@ msgstr "&პორტი:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&წინა განსხვავება"
+
+# Control-ID:65535,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&პარამეტრები..."
 
 # Control-ID:65535,
 #: Control-ID:1246
@@ -908,6 +912,11 @@ msgstr "&ჩვენება"
 msgid "&Whitespaces"
 msgstr "&ხარეები"
 
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "&Whole word"
+msgstr "&სრული სიტყვა"
+
 # Control-ID:1183,
 #: Control-ID:1183
 msgid "&Working copy"
@@ -966,6 +975,8 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1324
+#: Control-ID:1333
 #: Control-ID:1002
 #: Control-ID:1003
 msgid "..."
@@ -1162,6 +1173,12 @@ msgstr "შერწყმის პროგრამის გაფართ�
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "&იგნორირების სიაში დამატება"
+
+# ID:8,#:
+# Control-ID:1098,
+#: Control-ID:1279
+msgid "Add..."
+msgstr "დამატება..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1779,8 +1796,8 @@ msgstr "შეამოწმეთ მითითებული გეზი 
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "მენიუს იმ ელემენტების შერჩევა, რომელთა ჩვენებაც კონტექსტური მენიუს ზემოდან და არა ქვემენიუებში გნებავთ"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "მენიუს იმ ელემენტების შერჩევა, რომელთა ჩვენებაც ზედა კონტექსტურ მენიუში TortoiseSVN ქვემენიუს ნაცვლად გნებავთ"
 
 # ID:80,
 #: ID:80
@@ -1905,6 +1922,17 @@ msgstr "ფერები"
 
 # ID:3857,#:
 # ID:3857,
+#: ID:198
+msgid "Command Line"
+msgstr "ბრძანების ხაზი"
+
+# Control-ID:1336,
+#: Control-ID:1336
+msgid "Command Line To Execute:"
+msgstr "შესასრულებელი ბრძანება:"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "Command failed."
 msgstr "ბრძანება არ შესრულდა."
@@ -1985,6 +2013,11 @@ msgstr "შედარება - %s და %s"
 #: ID:74
 msgid "Completed"
 msgstr "დასრულდა"
+
+# Dlg-ID:236,
+#: Dlg-ID:236
+msgid "Configure Hook Scripts"
+msgstr "ბმული სცენარების გამართვა"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2571,6 +2604,11 @@ msgstr "შერწყმის პროგრამის რედაქტ�
 msgid "Edit log message"
 msgstr "ჟურნალის რედაქტირება"
 
+# Control-ID:1099,
+#: Control-ID:1331
+msgid "Edit..."
+msgstr "რედაქტირება..."
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2738,13 +2776,13 @@ msgstr "გაფართოება"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension specific programs"
-msgstr "გაფართოების პროგრამები"
+msgid "Extension or mime-type:"
+msgstr "გაფართოება ან mime ტიპი:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Extension:"
-msgstr "გაფართოება:"
+msgid "Extension/mime-type specific programs"
+msgstr "პაკეტი/mime ტიპის სპეციფიური პროგრამები"
 
 # ID:74,
 #: ID:74
@@ -3065,6 +3103,11 @@ msgstr "დაუკავშირებელი შეცვლილი გ�
 msgid "Help"
 msgstr "კარნახი"
 
+# Control-ID:1326,
+#: Control-ID:1326
+msgid "Hide the script while running"
+msgstr "სკრიპტის დამალვა შესრულებისას"
+
 # ID:2052,
 #: ID:2052
 msgid ""
@@ -3078,6 +3121,21 @@ msgstr ""
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "მინიშნება: დააჭირეთ F5-ს მითითებული განშტოების გასაახლებლად და Ctrl+F5-ს ყველა ქვეგანშტოების ჩამოსატვირთად"
+
+# Dlg-ID:103,
+#: Dlg-ID:103
+msgid "Hook Scripts"
+msgstr "ბმული სცენარები"
+
+# ID:198,
+#: ID:198
+msgid "Hook Type"
+msgstr "ბმულის ტიპი"
+
+# Control-ID:1334,
+#: Control-ID:1334
+msgid "Hook Type:"
+msgstr "ბმულის ტიპი:"
 
 # ID:82,
 #: ID:82
@@ -3099,6 +3157,11 @@ msgstr "პიქტოგრამები/დიზაინი/კოდი:
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "თუ მონიშნულია, კრძალავს პიქტოგრამებს დიალოგებში \"შენახვა როგორც...\" და \"გახსნა\""
+
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "თუ აქტიურია, მენიუს ელემეტი \"დაბლოკვა\" გამოჩნდება მენიუს ზედა დონეზე თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
 
 # ID:95,
 #: ID:95
@@ -3465,6 +3528,12 @@ msgstr "ხაზოვანი დიაგრამა"
 msgid "Line:"
 msgstr "ხაზი:"
 
+# ID:263,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "სტრიქონი: %*ld"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3635,6 +3704,10 @@ msgstr "საფოსტო სისტემის DLL–ი მცდარ
 msgid "Manage Subversion properties"
 msgstr "ქვევერსიის პარამეტრების მართვა"
 
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "მონიშვნა &მოგვარებულად"
+
 #: ID:282
 msgid "Mark as resolved"
 msgstr "მონიშვნა მოგვარებულად"
@@ -3659,7 +3732,7 @@ msgid "Max"
 msgstr "მაქსიმუმი"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1317
 msgid "Max. items to keep in the log message history"
 msgstr "ჟურნალის ჩანაწერების მაქსიმალური რაოდენობა"
 
@@ -4121,6 +4194,7 @@ msgstr "ბებკი ფაილები (*.diff, *.patch)|*.diff;*.patch|�
 
 # ID:77,
 #: ID:77
+#: ID:198
 msgid "Path"
 msgstr "გეზი"
 
@@ -4165,6 +4239,12 @@ msgstr "გთხოვთ მიუთითოთ თარიღი."
 
 # ID:3858,#:
 # ID:3858,
+#: ID:83
+msgid "Please enter a hook script to execute."
+msgstr "გთხოვთ მიუთითოთ ბმული სცენარი შესასრულებლად."
+
+# ID:3858,#:
+# ID:3858,
 #: ID:3858
 #, c-format
 msgid "Please enter a number between %1 and %2."
@@ -4175,6 +4255,11 @@ msgstr "გთხოვთ მიუთითოთ რიცხვი %1–დ�
 #: ID:3858
 msgid "Please enter a number."
 msgstr "გთხოვთ მიუთითოთ რიცხვი."
+
+# ID:83,
+#: ID:83
+msgid "Please enter a path where to apply the hook script to."
+msgstr "გთხოვთ მიუთითოთ გეზი ბმული სცენარის გამოსაყენებლად."
 
 # ID:3858,#:
 # ID:3858,
@@ -4238,6 +4323,12 @@ msgstr ""
 msgid "Please select a button."
 msgstr "გთხოვთ აირჩიოთ ღილაკი."
 
+# ID:3858,#:
+# ID:3858,
+#: ID:83
+msgid "Please select a hook type"
+msgstr "გთხოვთ მიუთითოთ ბმულის ტიპი"
+
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
@@ -4253,15 +4344,15 @@ msgstr "შეიცადეთ.  შესაძლოა რამდენ�
 msgid "Please wait while cancelling..."
 msgstr "შეიცადეთ გაუქმებამდე..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "გთხოვთ დაიცადოთ განსხვავებების მიღებამდე..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "გთხოვთ დაელოდოთ სანამ საცავის ბროუზერი ინიციალიზდება..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "გთხოვთ დაიცადოთ განსხვავებების მიღებამდე..."
 
 # ID:119,
 #: ID:119
@@ -4269,6 +4360,26 @@ msgstr "გთხოვთ დაიცადოთ განსხვავე�
 #: ID:211
 msgid "Please wait..."
 msgstr "გთხოვთ შეიცადოთ..."
+
+# Control-ID:1110,
+#: ID:569
+msgid "Post-Commit Hook"
+msgstr "ფიქსირებისშემდგომი ბმული"
+
+# ID:570,
+#: ID:570
+msgid "Post-Update Hook"
+msgstr "განახლებისშემდგომი ბმული"
+
+# Control-ID:1110,
+#: ID:569
+msgid "Pre-Commit Hook"
+msgstr "ბმული ფიქსირებამდე"
+
+# ID:570,
+#: ID:570
+msgid "Pre-Update Hook"
+msgstr "ბმული განახლებამდე"
 
 # ID:376,
 #: ID:376
@@ -4311,7 +4422,6 @@ msgstr "პარამეტრები -"
 
 # Control-ID:65535,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "პარამეტრები..."
 
@@ -4354,6 +4464,11 @@ msgstr "პროქსის &ყოვნის ვადა წამებ�
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "პროქსის პარამეტრები"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 
 # ID:246,
 #: ID:246
@@ -4511,6 +4626,11 @@ msgstr "დაშორებული ტექსტის სტატუს�
 msgid "Remove from &ignore list"
 msgstr "ამოშლა იგნორირებულთა სიიდან"
 
+# ID:8,
+#: Control-ID:1332
+msgid "Remove..."
+msgstr "ამოღება..."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
@@ -4563,6 +4683,12 @@ msgstr "გადარქმეულია დაშორებიდან"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "ფაილის/დასტის გადარქმევა ვერსიის კონტროლში"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "გადატანა აღდგენა"
 
 # ID:3603,
 #: ID:3603
@@ -5062,6 +5188,16 @@ msgstr ""
 "საექსპორტო დასტის არჩევა.\n"
 "ამ ექსპორტამდე ახალი დასტის შექმნა შეგიძლიათ"
 
+# ID:197,
+#: ID:197
+msgid "Select folder to run script for"
+msgstr "შერაჩიეთ დასტა სკრიპტისთვის"
+
+# ID:313,
+#: ID:197
+msgid "Select hook script file"
+msgstr "ბმული სცენარის ფაილის არჩევა"
+
 # ID:78,
 #: ID:78
 msgid "Select merge application"
@@ -5283,11 +5419,22 @@ msgstr "უცვლელი ფაილების ჩვენება"
 msgid "Show unversioned files"
 msgstr "არავერსიული ფაილების ჩვენება"
 
+# ID:198,
+#: ID:198
+msgid "Show/Hide"
+msgstr "ჩვენება/დამალვა"
+
 # Control-ID:1209,
 #: ID:272
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "%ld კვანძების ჩვენება"
+
+# ID:238,
+#: ID:115
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld ვერსი(ებ)ის ჩვენება, შერჩეულია ვერსიები %ld ვერსიამდე %ld - %ld."
 
 # ID:272,
 #: ID:272
@@ -5395,10 +5542,20 @@ msgstr "ჰისტოგრამა გადაფარვით"
 msgid "Stacked Line Graph"
 msgstr "ხაზოვანი გრაფიკი გადაფარვით"
 
+# ID:569,
+#: ID:569
+msgid "Start Commit Hook"
+msgstr "ბმულის ფიქსირების დაწყება"
+
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "შემოწმების დაწყება"
+
+# ID:569,
+#: ID:569
+msgid "Start Update Hook"
+msgstr "ბმულის განახლების დაწყება"
 
 # ID:245,
 #: ID:245
@@ -5704,6 +5861,16 @@ msgstr ""
 "%s\n"
 "არ არსებობს.\n"
 "გნებავთ მისი შექმნა?"
+
+# ID:83,
+#: ID:83
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"ბმული სცენარის შეცდომა:\n"
+"%s"
 
 # ID:7,
 #: ID:7
@@ -6438,6 +6605,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "სამუშაო &ასლის საწყისი URL-ს მითითება ველში \"აქედან:\""
 
+# Control-ID:1064,
+#: Control-ID:1064
+msgid "Use Unified Diff from clipboard"
+msgstr "ბებკის გამოყენება ბუფერიდან"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -6464,24 +6636,60 @@ msgid "Use stri&keout for deleted lines"
 msgstr "წაშლილი სტრიქონების გადა&ხაზვა"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&mine\""
 msgstr "ტექსტური ბლოკის გამოყენება \"&ჩემი\"-დან"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "ტექსტური ბლოკის გამოყენება \"&მათი\"-დან"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "ტექსტური ბლოკის გამოყენება \"ჩე&მი\"-დან \"მათი\"-მდე"
 
 # ID:251,
-#: ID:251
+#: ID:2052
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr ""
+"ტექსტური ბლოკის გამოყენება \"ჩემი\"-დან \"მათი\"-მდე\n"
+"ჯერ \"ჩემი\" ტექსტური ბლოკის გამოყენება, შემდეგ \"მათი\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr ""
+"ტექტუსრი ბლოკის გამოყენება \"ჩემი\"-დან\n"
+"ტექტუსრი ბლოკის გამოყენება \"ჩემი\""
+
+# ID:251,
+#: MenuEntry
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "ტექსტური ბლოკის გამოყენება \"მა&თი\"-დან \"ჩემი\"-მდე"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"ტექსტური ბლოკის გამოყენება \"მათი\"-დან \"ჩემი\"-მდე\n"
+"ჯერ \"მათი\" ტექსტური ბლოკის გამოყენება, შემდეგ \"ჩემი\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"ტექტუსრი ბლოკის გამოყენება \"მათი\"-დან\n"
+"ტექტუსრი ბლოკის გამოყენება \"მათი\""
 
 # ID:251,
 #: ID:251
@@ -6543,11 +6751,31 @@ msgstr "მნიშვნელობა"
 msgid "Version"
 msgstr "ვერსია"
 
+# ID:114,
+#: ID:114
+msgid "View revision for path in &webviewer"
+msgstr "ვერსიის გეზის ნახვა &ვებ მიმომხილველით"
+
+# ID:114,
+#: ID:114
+msgid "View revision in &webviewer"
+msgstr "ვერსიის ნახვა &ვებ მიმომხილველით"
+
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "მოინახულეთ ჩვენი ვებსაიტი"
+
+# ID:198,
+#: ID:198
+msgid "Wait"
+msgstr "დაცდა"
+
+# Control-ID:1327,
+#: Control-ID:1327
+msgid "Wait for the script to finish"
+msgstr "დაიცადეთ სცენარის დასრულებამდე"
 
 # ID:88,
 #: ID:88
@@ -6568,6 +6796,11 @@ msgstr "მისამართით:"
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "სამუშაო ასლი"
+
+# Control-ID:1183,
+#: Control-ID:1335
+msgid "Working Copy Path:"
+msgstr "სამუშაო ასლის გეზი:"
 
 # ID:80,
 #: ID:80
@@ -7232,6 +7465,32 @@ msgstr ""
 #: ID:563
 msgid "values are different"
 msgstr "მნიშვნელობები განსხვავდება"
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr ""
+"webviewer:pathrevision\n"
+"საცავის ვებ მიმოხილველის მისამართი სპეციფიური ფაილის ან ვერსიისთვის.\n"
+"ტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით,\n"
+"ტექსტი  %PATH% ჩაინაცვლება ფაილის გეზით საცავის ძირეულთან მიმართებით."
+
+# ID:17,
+#: ID:17
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+"webviewer:revision\n"
+"საცავის ვებ მიმოხილველის მისამართი სპეციფიური ვერსიისთვის.\n"
+"ტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით."
 
 # ID:244,
 #: ID:245
