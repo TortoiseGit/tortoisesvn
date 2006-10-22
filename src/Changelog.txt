@@ -5,6 +5,9 @@
 - NEW: Search by "whole word" and wrap around at the bottom of
        the files when the word isn't found. 
        A history of previous searches is shown in the new combobox.
+       The search will now start either at where the previous search
+       stopped, or the selected line if there is one. Bringing up
+       the search dialog will force the search to start at the top.
        See issue #271 for details. (Jeremy Whitby, Stefan)
 - NEW: Client-side hook scripts. See issue #137 for details. (Stefan)
 - NEW: Integration with repo viewers. See issue #201 for details. (Stefan)

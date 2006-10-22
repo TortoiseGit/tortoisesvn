@@ -1036,10 +1036,10 @@ void CMainFrame::OnClose()
 		// before it is destroyed, save the position of the window
 		wp.length = sizeof wp;
 
-		if ( GetWindowPlacement(&wp) )
+		if (GetWindowPlacement(&wp))
 		{
 
-			if ( IsIconic() )
+			if (IsIconic())
 				// never restore to Iconic state
 				wp.showCmd = SW_SHOW ;
 
@@ -1062,6 +1062,10 @@ void CMainFrame::OnEditFind()
 	}
 	else
 	{
+		// start searching from the start again
+		// if no line is selected, otherwise start from
+		// the selected line
+		m_nSearchIndex = FindSearchStart(0);
 		m_pFindDialog = new CFindDlg();
 		m_pFindDialog->Create(this);
 	}
@@ -1144,9 +1148,16 @@ void CMainFrame::Search(SearchDirection srchDir)
 		CDiffData::DiffStates bottomstate = CDiffData::DIFFSTATE_NORMAL;
 		int i = 0;
 		
+		m_nSearchIndex = FindSearchStart(m_nSearchIndex);
+		m_nSearchIndex++;
+		if (m_nSearchIndex >= m_pwndLeftView->m_arDiffLines->GetCount())
+			m_nSearchIndex = 0;
 		if (srchDir == SearchPrevious)
 		{
-			m_nSearchIndex -= 2;	// SearchIndex points 1 past where we found the last match, so if we are searching backwards we need to adjust accordingly
+			// SearchIndex points 1 past where we found the last match, 
+			// so if we are searching backwards we need to adjust accordingly
+			m_nSearchIndex -= 2;
+			// if at the top, start again from the end
 			if (m_nSearchIndex < 0)
 				m_nSearchIndex += m_pwndLeftView->m_arDiffLines->GetCount();
 		}
@@ -1225,15 +1236,50 @@ void CMainFrame::Search(SearchDirection srchDir)
 				m_pwndBottomView->SetFocus();
 				m_pwndBottomView->SelectLines(m_nSearchIndex);
 			}
-			m_nSearchIndex++;
-			if (m_nSearchIndex >= m_pwndLeftView->m_arDiffLines->GetCount())
-				m_nSearchIndex = 0;
-		} // if (bFound) 
+		}
 		else
 		{
 			m_nSearchIndex = 0;
 		}
 	} // if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines)) 
+}
+
+int CMainFrame::FindSearchStart(int nDefault)
+{
+	// TortoiseMerge doesn't have a cursor which we could use to
+	// anchor the search on.
+	// Instead we use a line that is selected.
+	// If however no line is selected, use the default line (which could
+	// be the top of the document for a new search, or the line where the
+	// search was successful on)
+	int nLine = nDefault;
+	int nSelStart = 0;
+	int nSelEnd = 0;
+	if (m_pwndLeftView)
+	{
+		if (m_pwndLeftView->GetSelection(nSelStart, nSelEnd))
+		{
+			if (nSelStart == nSelEnd)
+				nLine = nSelStart;
+		}
+	}
+	else if ((nLine == nDefault)&&(m_pwndRightView))
+	{
+		if (m_pwndRightView->GetSelection(nSelStart, nSelEnd))
+		{
+			if (nSelStart == nSelEnd)
+				nLine = nSelStart;
+		}
+	}
+	else if ((nLine == nDefault)&&(m_pwndBottomView))
+	{
+		if (m_pwndBottomView->GetSelection(nSelStart, nSelEnd))
+		{
+			if (nSelStart == nSelEnd)
+				nLine = nSelStart;
+		}
+	}
+	return nLine;
 }
 
 void CMainFrame::OnViewLinedown()

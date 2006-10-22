@@ -104,6 +104,7 @@ protected:
 	bool 			StringFound(const CString&)const;
 	enum SearchDirection{SearchNext=0, SearchPrevious=1};	
 	void 			Search(SearchDirection);
+	int				FindSearchStart(int nDefault);
 
 protected: 
 	CStatusBar		m_wndStatusBar;
