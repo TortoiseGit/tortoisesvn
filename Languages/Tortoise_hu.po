@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-16 15:53+0100\n"
+"PO-Revision-Date: 2006-10-22 10:35+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -688,6 +688,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "E&lőző eltérés"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:11021
+msgid "&Properties..."
+msgstr "&Tulajdonságok..."
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
@@ -1793,8 +1799,8 @@ msgstr "Ellenőrizd az elérési utat és/vagy címet, amit beírtál."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Pipáld be azokat az elemeket, amik az almenüben jelenjenek meg a felső menü helyett"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Pipáld be azokat az elemeket, amik a felső menüben jelenjenek meg a TortoiseSVN  almenü helyett"
 
 # ID:80,
 #: ID:80
@@ -3154,6 +3160,11 @@ msgstr "Ikonok/Dizájn/Kód:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Ha aktiválva van, akkor nincs felirat a \"mentés másként..\" és \"megnyitás\" ablakokban"
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Ha be van kapcsolva, a \"Zár kérése\" a megjelenik a menüben ha a fájlnak svn:needs-lock tulajdonsága van"
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -3516,6 +3527,12 @@ msgstr "Vonal-grafikon"
 #: Control-ID:65535
 msgid "Line:"
 msgstr "Vonal:"
+
+# Control-ID:1158,
+#: ID:269
+#, c-format
+msgid "Line: %*ld"
+msgstr "Sor: %*ld"
 
 # ID:3605,
 #: ID:3605
@@ -4333,15 +4350,15 @@ msgstr "Várj türelemmel - ez több percig eltarthat. Tényleg!"
 msgid "Please wait while cancelling..."
 msgstr "Várj, megszakítás folyamatban..."
 
+# ID:13,
+#: ID:319
+msgid "Please wait while differences are obtained..."
+msgstr "Várj, amíg különbségeket keresek..."
+
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Várj amíg elindítom a Tárház böngészőt..."
-
-# ID:13,
-#: ID:319
-msgid "Please wait while we get the differences..."
-msgstr "Várj, különbségeket keresek..."
 
 # ID:119,
 #: ID:119
@@ -4414,7 +4431,6 @@ msgstr "Tulajdonságai ennek:"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
-#: Control-ID:11021
 msgid "Properties..."
 msgstr "Tulajdonságok..."
 
@@ -4457,6 +4473,11 @@ msgstr "Proxy &max várakozási idő:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy Beállítások"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr " \"Zár kérése\" a menüben ha a fájl svn:needs-lock állapotú"
 
 # ID:246,
 #: ID:246
@@ -4673,6 +4694,12 @@ msgstr "Távolról átnevezve"
 #: ID:11
 msgid "Renames files / folders inside version control"
 msgstr "Átnevez fájlokat / mappákat a verziókezelésben"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:209
+msgid "Repair move"
+msgstr "Áthelyezés javítása"
 
 # ID:3603,
 #: ID:3603
@@ -5426,8 +5453,8 @@ msgstr "%ld csomók mutatása"
 # ID:238,
 #: ID:115
 #, c-format
-msgid "Showing %ld revisions, from revision %ld to revision %ld - %ld revisions selected."
-msgstr "%ld db verzió, %ld-tól %ld-ig, %ld kiválasztva."
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "%ld db verzió, %ld-tól %ld-ig - %ld verzió kiválasztva."
 
 # ID:272,
 #: ID:272
@@ -6639,79 +6666,59 @@ msgstr "&Kitörölt sorok erőszakolása"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"&Mine\""
-msgstr "\"&Enyém\" szövegblokk használata"
-
-# ID:251,
-#: MenuEntry
-msgid "Use text block from \"&Theirs\""
-msgstr "\"&Övék\" szövegblokk használata"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"&mine\""
 msgstr "\"&enyém\" szövegblokk használata"
 
 # ID:251,
-#: ID:251
+#: MenuEntry
 msgid "Use text block from \"&theirs\""
 msgstr "\"&övék\" szövegblokk használata"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"M&ine\" before \"Theirs\""
-msgstr "\"E&nyém\" szövegblokk használata az \"Övék\" előtt"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "\"e&nyém\" szövegblokk használata az \"övék\" előtt"
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\" before \"Theirs\"\n"
-"\"My\" text block then \"Theirs\""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
 msgstr ""
 "\"Enyém\" szövegblokk használata az \"Övék\" előtt\n"
-"\"Én\" szövegblokk használata az \"Övék\" helyett"
+"\"Enyém\" szövegblokk használata, aztán az \"Övék\""
 
 # ID:251,
 #: ID:2052
 msgid ""
-"Use text block from \"Mine\"\n"
-"Use \"My\" text block"
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
 msgstr ""
 "\"Enyém\" szövegblokk használata\n"
 "\"Én\" szövegblokk használata"
 
 # ID:251,
 #: MenuEntry
-msgid "Use text block from \"T&heirs\"before \"Mine\""
-msgstr "\"Ö&vék\" szövegblokk használata az \"Enyém\" előtt"
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\" before \"Mine\"\n"
-"\"Their\" text block then \"Mine\""
-msgstr ""
-"\"Övék\" szövegblokk használata az \"Enyém\" előtt\n"
-"\"Övék\" zövegblokk használata az \"Enyém\" helyett"
-
-# ID:251,
-#: ID:2052
-msgid ""
-"Use text block from \"Theirs\"\n"
-"Use \"Their\" text block"
-msgstr ""
-"\"Ö&vék\" szövegblokk használata\n"
-" \"Ö&vék\" szövegének használata"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "\"e&nyém\" szövegblokk használata az \"övék\" előtt"
-
-# ID:251,
-#: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "\"ö&vék\" szövegblokk használata az \"enyém\" előtt"
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr ""
+"\"Övék\" szövegblokk használata az \"Enyém\" előtt\n"
+"\"Övék\" szövegblokk használata, aztán az \"Enyém\""
+
+# ID:251,
+#: ID:2052
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr ""
+"\"Ö&vék\" szövegblokk használata\n"
+" \"Ö&vék\" szövegblokk használata"
 
 # ID:251,
 #: ID:251
