@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-29 08:28+0100\n"
+"PO-Revision-Date: 2006-10-22 13:53+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1829,8 +1829,8 @@ msgstr "Provjeri unešenu stazu i/ili URL."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Označite one stavke izbornika za koje želite da se pojave u podizborniku umjesto na glavnom kontekstnom izborniku"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Označite one stavke izbornika za koje želite da se pojave u glavnom kontekstom izborniku umjesto u TortoiseSVN podizborniku"
 
 # ID:80,
 #: ID:80
@@ -3194,6 +3194,11 @@ msgstr "Ikone/Dizajn/Kod:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Ukoliko uključeno, sprječava da se preklapanja prikazuju u  \"snimi kao..\" ili \"otvori\" dijalozima"
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Kad je aktivirano, stavka izbornika \"Zaključaj\" je postavljena u glavni kontekstni izbornik kada odabrana datoteka ima postavljeno svojstvo svn:needs-lock"
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -4519,6 +4524,11 @@ msgstr "&Vrem. ograničenje posredničkog poslužitelja u sek:"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Postavke zamjenskog poslužitelja"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "Pokaži \"Zaključaj\" na glavnom izborniku kad je postavljeno svojstvo svn:needs-lock"
 
 # ID:246,
 #: ID:246
