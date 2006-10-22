@@ -243,10 +243,10 @@ void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
 			{
 				hwndEdit = pWnd->GetSafeHwnd();
 			}
-		} // if (NULL == hwndEdit) 
+		}
 		if (hwndEdit)
 			SHAutoComplete(hwndEdit, SHACF_URLALL);
-	} // if (bUseShellURLHistory) 
+	}
 
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
 	SetImageList(&SYS_IMAGE_LIST());
@@ -272,11 +272,11 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
 				{
 					hwndEdit = pWnd->GetSafeHwnd();
 				}
-			} // if(hwndEdit==NULL) 
-		} // if (NULL == hwndEdit) 
+			}
+		}
 		if (hwndEdit)
 			SHAutoComplete(hwndEdit, SHACF_FILESYSTEM);
-	} // if (bUseShellURLHistory) 
+	}
 
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
 	SetImageList(&SYS_IMAGE_LIST());

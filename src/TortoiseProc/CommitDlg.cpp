@@ -280,7 +280,7 @@ void CCommitDlg::OnOK()
 				}
 			}
 		}
-	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+	}
 
 	// Now, do all the adds - make sure that the list is sorted into order, so that parents 
 	// are added before any children
@@ -324,7 +324,7 @@ void CCommitDlg::OnOK()
 					}
 				}
 			}
-		} // for (int i=0; i<arDeleted.GetCount(); i++) 
+		} 
 		m_ListCtrl.Block(FALSE);
 		//save only the files the user has checked into the temporary file
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);

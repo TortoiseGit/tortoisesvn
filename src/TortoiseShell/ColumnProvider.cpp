@@ -408,7 +408,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		{
 			*ptr = '\0';
 			itemshorturl = urlComponents.lpszUrlPath;
-		} // if (ptr)
+		}
 		else 
 			itemshorturl = _T(" ");
 	}

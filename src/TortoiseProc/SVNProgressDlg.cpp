@@ -318,7 +318,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	default:
 		break;
-	} // switch (action)
+	} // switch (data->action)
 
 	if (bNoNotify)
 		delete data;
@@ -717,7 +717,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (uuidmap.size() > 1)
 						m_Revision = SVNRev::REV_HEAD;
 				} // if (m_Revision.IsHead()) 
-			} // for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
+			} // for(int nItem = 0; nItem < targetcount; nItem++) 
 			if (m_targetPathList.GetCount() > 1)
 			{
 				sWindowTitle = m_targetPathList.GetCommonRoot().GetWinPathString()+_T(" - ")+sWindowTitle;

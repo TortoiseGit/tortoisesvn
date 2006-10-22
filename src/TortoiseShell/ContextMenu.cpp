@@ -168,7 +168,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 				} // for (int i = 0; i < count; i++)
 				GlobalUnlock ( drop );
-			} // if (m_State == DropHandler)
+			} // if (m_State == FileStateDropHandler) 
 			else
 			{
 				//Enumerate PIDLs which the user has selected
@@ -983,7 +983,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
-	} // if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	}
 
 	if ((isInSVN)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCREATEPATCH), HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, ShellMenuCreatePatch);
@@ -1440,7 +1440,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						);
 					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 					LocalFree( lpMsgBuf );
-				} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+				}
 				CloseHandle(process.hThread);
 				CloseHandle(process.hProcess);
 				return NOERROR;
@@ -1480,7 +1480,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			default:
 				break;
 				//#endregion
-			} // switch (myIDMap[idCmd])
+			} // switch (id_it->second) 
 			svnCmd += _T(" /hwnd:");
 			TCHAR buf[30];
 			_stprintf_s(buf, 30, _T("%d"), lpcmi->hwnd);
@@ -1503,11 +1503,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					);
 				MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 				LocalFree( lpMsgBuf );
-			} // if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+			}
 			CloseHandle(process.hThread);
 			CloseHandle(process.hProcess);
 			hr = NOERROR;
-		} // if (id_it != myIDMap.end() && id_it->first == idCmp)
+		} // if (id_it != myIDMap.end() && id_it->first == idCmd) 
 	} // if ((files_.size() > 0)||(folder_.size() > 0)) 
 	return hr;
 
@@ -1801,7 +1801,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 				DeleteDC(hDCTemp);
 				DeleteObject(hbmItem);
-			} // if (hbmItem)
+			}
 			ix = rt.right + space;
 
 			//free memory

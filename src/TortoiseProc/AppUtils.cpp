@@ -450,7 +450,7 @@ BOOL CAppUtils::StartTextViewer(CString file)
 		{
 			delete [] pszFilters;
 			viewer = CString(ofn.lpstrFile);
-		} // if (GetOpenFileName(&ofn)==TRUE)
+		}
 		else
 		{
 			delete [] pszFilters;
@@ -757,7 +757,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFil
 				return true;
 			}
 		}
-	} // if (strUrl.Left(7) == _T("file://")) 
+	}
 	else if ((strUrl.Left(7) == _T("http://")
 		||(strUrl.Left(8) == _T("https://"))
 		||(strUrl.Left(6) == _T("svn://"))

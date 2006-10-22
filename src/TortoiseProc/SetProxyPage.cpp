@@ -92,7 +92,7 @@ int CSetProxyPage::SaveData()
 			if (m_regExceptions.LastError != ERROR_SUCCESS)
 				CMessageBox::Show(m_hWnd, m_regExceptions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regExceptions_copy = m_Exceptions;
-		} // if (m_isEnabled)
+		}
 		else
 		{
 			m_regServeraddress.removeValue();

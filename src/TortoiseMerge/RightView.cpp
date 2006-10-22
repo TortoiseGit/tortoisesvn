@@ -52,7 +52,7 @@ BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/
 		return TRUE;
 	default:
 		return FALSE;
-	} // switch (state) 
+	}
 	//return FALSE;
 }
 
@@ -169,7 +169,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
 					}
 					m_pwndBottom->SetModified();
-				} // if (m_pwndBottom->IsWindowVisible()) 
+				}
 				else
 				{
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)

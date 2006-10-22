@@ -39,7 +39,7 @@ BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
 	{
 		//Right view is not visible -> one way diff
 		return FALSE;		//no editing in one way diff
-	} // if (m_pwndRight->IsWindowVisible())
+	}
 	
 	//The left view is always "Theirs" in both two and three-way diff
 	switch (state)
@@ -53,7 +53,7 @@ BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
 		return TRUE;
 	default:
 		return FALSE;
-	} // switch (state) 
+	}
 	//return FALSE;
 }
 

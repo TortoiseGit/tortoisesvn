@@ -687,7 +687,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 					AddUnversionedFolder(entry->path, basePath, pIgnorePatterns);
 			}
 		}
-	} // while (filefinder.NextFile(filename,&bIsDirectory))
+	}
 }
 
 
@@ -758,7 +758,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 					}
 				}
 			}
-		} // if (s->entry)
+		}
 		if (status.IsExternal(svnPath))
 		{
 			arExtPaths.AddPath(svnPath);
@@ -794,7 +794,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				AddUnversionedFolder(svnPath, basePath, pIgnorePatterns);
 			}
 		}
-	} // while ((s = status.GetNextFileStatus(&pSVNItemPath)) != NULL)
+	} // while ((s = status.GetNextFileStatus(svnPath)) != NULL) 
 }
 
 // Get the show-flags bitmap value which corresponds to a particular SVN status
@@ -1545,9 +1545,9 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 						SetCheckOnAllDescendentsOf(testEntry, true);
 					}
 				}
-			} // if (!GetCheck(i))
-		} // for (int i=0; i<GetItemCount(); ++i)
-	} // if (entry->status == svn_wc_status_deleted)
+			}
+		}
+	}
 
 	if ( !entry->checked )
 	{
@@ -1593,8 +1593,8 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 					}
 				}
 			}
-		} // for (int i=0; i<GetItemCount(); i++)
-	} // else if (entry->status == svn_wc_status_deleted)
+		}
+	}
 
 	if ( entry->checked )
 	{

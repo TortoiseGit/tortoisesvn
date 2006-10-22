@@ -502,8 +502,8 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				}
 				baseline++;
 				yourline++;
-			} // for (int i=0; i<tempdiff->original_length; i++)
-		} // if (tempdiff->type == svn_diff__type_common)
+			}
+		}
 		if (tempdiff->type == svn_diff__type_diff_modified)
 		{
 			apr_off_t original_length = tempdiff->original_length;

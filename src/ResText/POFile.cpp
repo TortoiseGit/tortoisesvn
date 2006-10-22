@@ -140,7 +140,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 			else
 				nDeleted++;
 			msgid.clear();
-		} // if (line[0]=='\n')
+		}
 		else
 		{
 			entry.push_back(line);

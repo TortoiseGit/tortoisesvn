@@ -179,7 +179,7 @@ HRESULT CProgressDlg::ShowModal (HWND hWndParent)
 			m_isVisible = true;
 		}
 		return hr;
-	} // if (m_bValid)
+	}
 	return E_FAIL;
 }
 

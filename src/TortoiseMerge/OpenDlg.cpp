@@ -182,7 +182,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 		filepath = CString(ofn.lpstrFile);
 		delete [] pszFilters;
 		return TRUE;
-	} // if (GetOpenFileName(&ofn)==TRUE)
+	}
 	delete [] pszFilters;
 	return FALSE;			//user cancelled the dialog
 }

@@ -40,7 +40,7 @@ CLineDiffBar::~CLineDiffBar()
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
-	} // if (m_pCacheBitmap) 
+	}
 }
 
 BEGIN_MESSAGE_MAP(CLineDiffBar, CDialogBar)
@@ -81,7 +81,7 @@ CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
 				size.cy = 0;
 			if ((m_pMainFrm->m_pwndBottomView)&&(!m_pMainFrm->m_pwndBottomView->IsHidden()))
 				size.cy = 0;
-		} // if (m_pMainFrm) 
+		}
 
 		if (size.cy > 0)
 		{
@@ -90,7 +90,7 @@ CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
 			AdjustWindowRectEx(&rc, GetStyle(), FALSE, GetExStyle());
 			size = rc.Size();
 		}
-	} // if (bStretch) // if not docked stretch to fit 
+	}
 	else
 	{
 		size = m_sizeDefault;
@@ -170,7 +170,7 @@ void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
-	} // if (m_pCacheBitmap != NULL)
+	}
 	Invalidate();
 }
 

@@ -3265,7 +3265,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 					}
 				}
 			} // else (from if (bRegex))	
-		} // for (INT_PTR i=0; i<m_logEntries.size(); ++i)
+		} // for (DWORD i=0; i<m_logEntries.size(); ++i) 
 		
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();

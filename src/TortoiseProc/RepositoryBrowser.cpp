@@ -566,7 +566,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						} while (si != RVI_INVALID);
 						progDlg.Stop();
 						svn.SetAndClearProgressInfo((HWND)NULL);
-					} // if (GetSaveFileName(&ofn)==TRUE) 
+					}
 				}
 				break;
 			case ID_POPSHOWLOG:

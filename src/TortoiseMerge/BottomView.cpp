@@ -64,7 +64,7 @@ BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*
 		return TRUE;
 	default:
 		return FALSE;
-	} // switch (state) 
+	}
 	//return FALSE;
 }
 
@@ -105,8 +105,8 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
 		case ID_USETHEIRANDYOURBLOCK:
 			UseTheirThenMyTextBlock();
 			break;
-		} // switch (cmd) 
-	} // if (popup.CreatePopupMenu()) 
+		}
+	}
 }
 
 void CBottomView::UseTheirTextBlock()

@@ -218,7 +218,7 @@ BOOL CResModule::ExtractString(UINT nID)
 		}
 		delete [] pBuf;
 		pp += len;
-	} // for (int i=0; i<16; ++i)
+	}
 	UnlockResource(hglStringTable);
 	FreeResource(hglStringTable);
 	return TRUE;
@@ -276,7 +276,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 			nMem += len;
 		pp += len;
 		delete [] pBuf;
-	} // for (int i=0; i<16; ++i)
+	}
 
 	WORD * newTable = new WORD[nMem + (nMem % 2)];
 	ZeroMemory(newTable, (nMem + (nMem % 2))*2);
@@ -304,7 +304,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 			wcsncpy((wchar_t *)&newTable[index], pBuf, newlen);
 			index += newlen;
 			m_bTranslatedStrings++;
-		} // if (newlen)
+		}
 		else
 		{
 			newTable[index++] = (WORD)len;
@@ -924,7 +924,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 	{
 		newDialog[(*wordcount)++] = GET_WORD(res++);
 		newDialog[(*wordcount)++] = GET_WORD(res++);
-	} // if (newDialog)
+	}
 	else
 	{
 		res += 2;
@@ -943,7 +943,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 			style = GET_DWORD(res);
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
-		} // if (newDialog
+		}
 		else
 		{
 			res += 4;
@@ -1011,7 +1011,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 		{
 			newDialog[(*wordcount)++] = GET_WORD(res++);
 			newDialog[(*wordcount)++] = GET_WORD(res++);
-		} // if (newDialog)
+		}
 		else
 		{
 			(*wordcount) += 2;
@@ -1043,7 +1043,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 		{
 			newDialog[(*wordcount)++] = GET_WORD(res++);
 			newDialog[(*wordcount)++] = GET_WORD(res++);
-		} // if (newDialog)
+		}
 		else
 		{
 			(*wordcount) += 2;
@@ -1080,13 +1080,13 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 			{
 				newDialog[(*wordcount)++] = GET_WORD(res++);
 				newDialog[(*wordcount)++] = GET_WORD(res++);
-			} // if (newDialog)
+			}
 			else
 			{
 				res += 2;
 				(*wordcount) += 2;
 			}
-		} // if (bEx)
+		}
 
 		if (newDialog)
 			wcscpy((LPWSTR)&newDialog[(*wordcount)], (LPCWSTR)res);
@@ -1114,18 +1114,18 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount,
 		{
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//helpid
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//helpid
-		} // if (newDialog)
+		}
 		else
 		{
 			res += 2;
 			(*wordcount) += 2;
 		}
-	} // if (bEx)
+	}
 	if (newDialog)
 	{
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
-	} // if (newDialog)
+	}
 	else
 	{
 		res += 2;
@@ -1136,7 +1136,7 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount,
 	{
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//style
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//style
-	} // if (newDialog)
+	}
 	else
 	{
 		res += 2;

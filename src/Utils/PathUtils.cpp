@@ -202,7 +202,7 @@ void CPathUtils::Unescape(char * psz)
 					nValue = (char) (((pszHigh - szHex) << 4) +
 						(pszLow - szHex));
 				}
-			} // if (pszHigh != NULL) 
+			}
 			*pszDest++ = nValue;
 		} 
 		else

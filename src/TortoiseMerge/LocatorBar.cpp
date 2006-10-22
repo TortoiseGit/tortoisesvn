@@ -41,7 +41,7 @@ CLocatorBar::~CLocatorBar()
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
-	} // if (m_pCacheBitmap) 
+	}
 }
 
 BEGIN_MESSAGE_MAP(CLocatorBar, CDialogBar)
@@ -79,7 +79,7 @@ void CLocatorBar::DocumentUpdated()
 				state = m_pMainFrm->m_pwndLeftView->m_arLineStates->GetAt(i);
 				identcount = 1;
 			} 
-		} // for (int i=0; i<m_pMainFrm->m_pwndLeftView->m_arLineStates->GetCount(); i++) 
+		}
 		m_arLeft.Add(MAKELONG(identcount, state));
 	}
 
@@ -100,7 +100,7 @@ void CLocatorBar::DocumentUpdated()
 				state = m_pMainFrm->m_pwndRightView->m_arLineStates->GetAt(i);
 				identcount = 1;
 			}
-		} // for (int i=0; i<m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount(); i++) 
+		}
 		m_arRight.Add(MAKELONG(identcount, state));
 	}
 
@@ -120,10 +120,10 @@ void CLocatorBar::DocumentUpdated()
 				state = m_pMainFrm->m_pwndBottomView->m_arLineStates->GetAt(i);
 				identcount = 1;
 			}
-		} // for (int i=0; i<m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount(); i++) 
+		}
 		m_arBottom.Add(MAKELONG(identcount, state));
 		m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount(), m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount());
-	} // if ((m_pMainFrm->m_pwndBottomView->m_arLineStates)&&(m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount()))
+	}
 	else if (m_pMainFrm->m_pwndRightView->m_arLineStates)
 		m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount());
 
@@ -185,8 +185,8 @@ void CLocatorBar::OnPaint()
 				cacheDC.FillSolidRect(rect.left, height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
-		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
-	} // if (m_pMainFrm->m_pwndLeftView->IsWindowVisible()) 
+		}
+	}
 	state = 0;
 	identcount = 0;
 	linecount = 0;
@@ -203,8 +203,8 @@ void CLocatorBar::OnPaint()
 				cacheDC.FillSolidRect(rect.left + (width*2/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
-		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
-	} // if (m_pMainFrm->m_pwndRightView->IsWindowVisible()) 
+		}
+	}
 	state = 0;
 	identcount = 0;
 	linecount = 0;
@@ -220,8 +220,8 @@ void CLocatorBar::OnPaint()
 				cacheDC.FillSolidRect(rect.left + (width/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
-		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
-	} // if (m_pMainFrm->m_pwndBottomView->IsWindowVisible()) 
+		}
+	}
 
 	if (m_nLines == 0)
 		m_nLines = 1;
@@ -254,9 +254,9 @@ void CLocatorBar::OnPaint()
 				g = max(GetGValue(color)-20, 0);
 				b = max(GetBValue(color)-20, 0);
 				cacheDC.SetPixel(i, j, RGB(r,g,b));
-			} // for (int j=fishstart; j<fishstart+fishheight; j++) 
-		} // for (int i=rect.left; i<(width - rect.left); i++) 
-	} // if (m_bMouseWithin)  
+			}
+		}
+	}
 	VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
 	
 	cacheDC.SelectObject(pOldBitmap);
@@ -272,7 +272,7 @@ void CLocatorBar::OnSize(UINT nType, int cx, int cy)
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
-	} // if (m_pCacheBitmap != NULL)
+	}
 	Invalidate();
 }
 
@@ -310,7 +310,7 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 		tme.dwFlags = TME_LEAVE;
 		tme.hwndTrack = m_hWnd;
 		_TrackMouseEvent(&tme);
-	} // if (!m_bMouseWithin) 
+	}
 
 	if (nFlags & MK_LBUTTON)
 	{
@@ -326,7 +326,7 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 			m_pMainFrm->m_pwndLeftView->GoToLine(nLine, FALSE);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
 			m_pMainFrm->m_pwndRightView->GoToLine(nLine, FALSE);
-	} // if (nFlags & MK_LBUTTON)
+	}
 	Invalidate();
 }
 

@@ -55,7 +55,7 @@ CRevisionGraph::CRevisionGraph(void) :
 		svn_pool_destroy (graphpool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
-	} // if (Err != 0) 
+	}
 
 	// set up authentication
 	m_prompt.Init(pool, &m_ctx);

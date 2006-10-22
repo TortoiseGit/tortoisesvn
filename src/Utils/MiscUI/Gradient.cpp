@@ -52,7 +52,7 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorE
             if (r2.Width() > 0)
                 pDC->FillRect(r2, &br);
         }
-    } // for (int i = 0; i < nSteps; i++)
+    }
 }
 
 void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)

@@ -45,7 +45,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 			sSCMPath += _T("\\TortoiseProc.exe");
 		}
 		sSCMPath += _T(" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4");
-	} // if (sSCMPath.IsEmpty()) 
+	}
 	CString sTemp;
 	sTemp.Format(_T("%d"), hWnd);
 	sSCMPath.Replace(_T("%1"), sPath);

@@ -703,7 +703,7 @@ HTREEITEM CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 		if (GetItemText(GetItemIndex(hCurrent), 0).CompareNoCase(item)==0)
 			return hCurrent;
 		hCurrent = GetNextItem(hCurrent, RVGN_NEXT);
-	} // while (hCurrent != NULL)
+	}
 	return NULL;
 }
 

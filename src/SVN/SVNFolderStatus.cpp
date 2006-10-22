@@ -195,7 +195,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 					dirstat.owner = owners.GetString(dirstatus->entry->lock_owner);
 				}
 				dirstat.status = SVNStatus::GetMoreImportant(dirstatus->text_status, dirstatus->prop_status);
-			} // if (status)
+			}
 			m_cache[filepath.GetWinPath()] = dirstat;
 			m_TimeStamp = GetTickCount();
 			svn_pool_destroy (pool);				//free allocated memory

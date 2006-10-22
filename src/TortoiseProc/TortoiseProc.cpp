@@ -230,6 +230,7 @@ CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for To
 
 void CTortoiseProcApp::CrashProgram()
 {
+	// this function is to test the crash reporting utility
 	int * a;
 	a = NULL;
 	*a = 7;
@@ -284,6 +285,8 @@ BOOL CTortoiseProcApp::InitInstance()
 	CString sHelppath;
 	sHelppath = this->m_pszHelpFilePath;
 	sHelppath = sHelppath.MakeLower();
+	// MFC uses a help file with the same name as the application by default,
+	// which means we have to change that default to our language specific help files
 	sHelppath.Replace(_T("tortoiseproc.chm"), _T("TortoiseSVN_en.chm"));
 	free((void*)m_pszHelpFilePath);
 	m_pszHelpFilePath=_tcsdup(sHelppath);
@@ -348,11 +351,14 @@ BOOL CTortoiseProcApp::InitInstance()
 
 	CCmdLineParser parser(AfxGetApp()->m_lpCmdLine);
 
+	// if HKCU\Software\TortoiseSVN\Debug is not 0, show our command line
+	// in a messagebox
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
 		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
 	if (!parser.HasKey(_T("command")))
 	{
+		// if we don't have a command, just show the about dialog
 		CAboutDlg dlg;
 		m_pMainWnd = &dlg;
 		dlg.DoModal();
@@ -360,14 +366,11 @@ BOOL CTortoiseProcApp::InitInstance()
 	}
 
 	CString comVal = parser.GetVal(_T("command"));
-	if (comVal.IsEmpty())
+	// We already checked above if the '/command' key is present
+	// but the user could just provide '/command:""' and then the value
+	// would be empty - so we have to check against that too.
+	if (!comVal.IsEmpty())
 	{
-		CMessageBox::Show(NULL, IDS_ERR_NOCOMMANDVALUE, IDS_APPNAME, MB_ICONERROR);
-		return FALSE;
-	}
-	else
-	{
-
 		// Look up the command
 		TSVNCommand command = cmdAbout;		// Something harmless as a default
 		for(int nCommand = 0; nCommand < (sizeof(commandInfo)/sizeof(commandInfo[0])); nCommand++)
@@ -416,7 +419,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CMessageBox::Show(NULL, _T("Test command successfully executed"), _T("Info"), MB_OK | MB_ICONINFORMATION);
 			return FALSE;
-		} // if (comVal.Compare(_T("test"))==0)
+		}
 
 		CString sVal = parser.GetVal(_T("hwnd"));
 		hWndExplorer = (HWND)_ttoi64(sVal);
@@ -429,27 +432,13 @@ BOOL CTortoiseProcApp::InitInstance()
 		}
 		
 		// Subversion sometimes writes temp files to the current directory!
-		// so here, we check if we can write to the cwd, and if not, set the cwd
-		// to the temp directory
-		// We use a GUID here for the filename - this should be safe enough to do.
-		HANDLE hFile = ::CreateFile(_T("{E80E91D7-D534-47a6-AEAC-239F5553E173}"), GENERIC_WRITE, NULL, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
-		if (hFile == INVALID_HANDLE_VALUE)
+		// Since TSVN doesn't need a specific CWD anyway, we just set it
+		// to the users temp folder: that way, Subversion is guaranteed to
+		// have write access to the CWD
 		{
-			if (cmdLinePath.IsEmpty())
-			{
-				TCHAR pathbuf[MAX_PATH];
-				GetTempPath(MAX_PATH, pathbuf);
-				SetCurrentDirectory(pathbuf);		
-			}
-			else
-			{
-				SetCurrentDirectory(cmdLinePath.GetDirectory().GetWinPath());
-			}
-		}
-		else
-		{
-			CloseHandle(hFile);
-			DeleteFile(_T("{E80E91D7-D534-47a6-AEAC-239F5553E173}"));
+			TCHAR pathbuf[MAX_PATH];
+			GetTempPath(MAX_PATH, pathbuf);
+			SetCurrentDirectory(pathbuf);		
 		}
 
 // check for newer versions
@@ -462,11 +451,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (localtime_s(&ptm, &now)==0)
 			{
 				int week = 0;
+				// we don't calculate the real 'week of the year' here
+				// because just to decide if we should check for an update
+				// that's not needed.
 				week = ptm.tm_yday / 7;
 
 				CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
 				if (((DWORD)oldweek) == -1)
-					oldweek = week;
+					oldweek = week;		// first start of TortoiseProc, no update check needed
 				else
 				{
 					if ((DWORD)week != oldweek)
@@ -477,7 +469,6 @@ BOOL CTortoiseProcApp::InitInstance()
 						GetModuleFileName(NULL, com, MAX_PATH);
 						_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
 
-//BUGBUG - Should this really have an error message string resource ID?
 						CAppUtils::LaunchApplication(com, 0, false);
 					}
 				}
@@ -486,6 +477,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 		if (parser.HasVal(_T("configdir")))
 		{
+			// the user can override the location of the Subversion config directory here
 			CString sConfigDir = parser.GetVal(_T("configdir"));
 			g_SVNGlobal.SetConfigDir(sConfigDir);
 		}
@@ -525,6 +517,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region rtfm
 		if (command == cmdRTFM)
 		{
+			// If the user tries to start TortoiseProc from the link in the programs start menu
+			// show an explanation about what TSVN is (shell extension) and open up an explorer window
 			CMessageBox::Show(EXPLORERHWND, IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
 			TCHAR path[MAX_PATH];
 			SHGetFolderPath(EXPLORERHWND, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
@@ -803,7 +797,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(CSVNProgressDlg::Add, 0, dlg.m_pathList);
 				progDlg.DoModal();
-			} // if (dlg.DoModal() == IDOK) // if (dlg.DoModal() == IDOK) 
+			}
 		}
 		//#endregion
 		//#region revert
@@ -926,7 +920,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 				}
 			}
-		} // if (comVal.Compare(_T("repocreate"))==0) 
+		}
 		//#endregion
 		//#region switch
 		if (command == cmdSwitch)
@@ -947,10 +941,16 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region export
 		if (command == cmdExport)
 		{
+			// When the user clicked on a working copy, we know that the export should
+			// be done from that. We then have to ask where the export should go to.
+			// If however the user clicked on an unversioned folder, we assume that
+			// this is where the export should go to and have to ask from where
+			// the export should be done from.
 			TCHAR saveto[MAX_PATH];
 			bool bURL = !!SVN::PathIsURL(cmdLinePath.GetSVNPathString());
 			if ((bURL)||(SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned))
 			{
+				// ask from where the export has to be done
 				CCheckoutDlg dlg;
 				if (bURL)
 					dlg.m_URL = cmdLinePath.GetSVNPathString();
@@ -970,6 +970,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			else
 			{
+				// ask where the export should go to.
 				CBrowseFolder folderBrowser;
 				CString strTemp;
 				strTemp.LoadString(IDS_PROC_EXPORT_1);
@@ -1071,6 +1072,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region remove
 		if (command == cmdRemove)
 		{
+			// removing items from a working copy is done item-by-item so we
+			// have a chance to show a progress bar
+			//
+			// removing items from an URL in the repository requires that we
+			// ask the user for a log message.
 			BOOL bForce = FALSE;
 			SVN svn;
 			if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0].GetSVNPathString())))
@@ -1300,7 +1306,7 @@ BOOL CTortoiseProcApp::InitInstance()
 							}
 						}
 					} // else from if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
-				} // if (cmdLinePath.IsEquivalentTo(destinationPath))
+				} // else from if (cmdLinePath.GetWinPathString().CompareNoCase(destinationPath.GetWinPathString())==0)
 			} // if (dlg.DoModal() == IDOK)
 		}
 		//#endregion
@@ -1593,14 +1599,14 @@ BOOL CTortoiseProcApp::InitInstance()
 					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return FALSE;		//get out of here
-				} // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) 
+				}
 				count++;
 				if (progress.IsValid())
 				{
 					progress.FormatPathLine(1, IDS_PROC_COPYINGPROG, sourcePath.GetWinPath());
 					progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, fullDropPath.GetWinPath());
 					progress.SetProgress(count, pathList.GetCount());
-				} // if (progress.IsValid())
+				}
 				if ((progress.IsValid())&&(progress.HasUserCancelled()))
 				{
 					CMessageBox::Show(EXPLORERHWND, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
@@ -1720,7 +1726,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 				}
 			}
-		} // if (comVal.Compare(_T("relocate"))==0)
+		} // if (command == cmdRelocate) 
 		//#endregion
 		//#region help
 		if (command == cmdHelp)
@@ -1734,7 +1740,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CChangedDlg dlg;
 			dlg.m_pathList = pathList;
 			dlg.DoModal();
-		} // if (comVal.Compare(_T("repostatus"))==0)
+		}
 		//#endregion 
 		//#region repobrowser
 		if (command == cmdRepoBrowser)
@@ -1954,13 +1960,13 @@ BOOL CTortoiseProcApp::InitInstance()
 						}
 						CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal);
 					}
-				} // if (!tempfile.IsEmpty()) 
+				}
 				else
 				{
 					CMessageBox::Show(EXPLORERHWND, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
-			} // if (dlg.DoModal() == IDOK) 
-		} // if (comVal.Compare(_T("blame"))==0) 
+			}
+		}
 		//#endregion 
 		//#region cat
 		if (command == cmdCat)
@@ -2213,7 +2219,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 		{
 			delete [] pszFilters;
 			return FALSE;
-		} // if (GetSaveFileName(&ofn)==FALSE)
+		}
 		delete [] pszFilters;
 		savePath = CTSVNPath(ofn.lpstrFile);
 		if (ofn.nFilterIndex == 1)

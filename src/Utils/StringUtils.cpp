@@ -31,7 +31,7 @@ int strwildcmp(const char *wild, const char *string)
 		}
 		wild++; 
 		string++; 
-	} // while ((*string) && (*wild != '*')) 
+	}
 	while (*string) 
 	{
 		if (*wild == '*') 
@@ -42,7 +42,7 @@ int strwildcmp(const char *wild, const char *string)
 			} 
 			mp = wild; 
 			cp = string+1;
-		} // if (*wild == '*') 
+		}
 		else if ((*wild == *string) || (*wild == '?')) 
 		{
 			wild++;
@@ -53,7 +53,7 @@ int strwildcmp(const char *wild, const char *string)
 			wild = mp;
 			string = cp++;
 		}
-	} // while (*string)
+	}
 
 	while (*wild == '*') 
 	{
@@ -74,7 +74,7 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 		}
 		wild++; 
 		string++; 
-	} // while ((*string) && (*wild != '*')) 
+	}
 	while (*string) 
 	{
 		if (*wild == '*') 
@@ -85,7 +85,7 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 			} 
 			mp = wild; 
 			cp = string+1;
-		} // if (*wild == '*') 
+		}
 		else if ((*wild == *string) || (*wild == '?')) 
 		{
 			wild++;
@@ -96,7 +96,7 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 			wild = mp;
 			string = cp++;
 		}
-	} // while (*string)
+	}
 
 	while (*wild == '*') 
 	{

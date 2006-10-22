@@ -294,7 +294,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
 		// Remove $WCxxx?TrueText:
 		memmove(pBuild, pSplit + 1, filelength - (pSplit + 1 - pBuf));
 		filelength -= (pSplit + 1 - pBuild);
-	} // if (isTrue)
+	}
 	return TRUE;
 }
 

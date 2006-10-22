@@ -306,14 +306,14 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 			sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sVersion, sFilePath);
 			MessageBox(sErrMsg, NULL, MB_ICONERROR);
 			return FALSE;
-		} // if (!CUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, this->m_hWnd)) 
+		}
 		progDlg.Stop();
 		CString sTempFile = m_TempFiles.GetTempFilePath();
 		if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile))
 		{
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
-		} // if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile)) 
+		}
 		CString temp;
 		temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sFilePath), sVersion);
 		this->m_Data.m_baseFile.SetFileName(sBaseFile);
@@ -326,7 +326,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		this->m_Data.m_mergedFile.SetFileName(sFilePath);
 		this->m_Data.m_mergedFile.SetDescriptiveName(CPathUtils::GetFileNameFromPath(sFilePath));
 		TRACE(_T("comparing %s and %s\nagainst the base file %s\n"), (LPCTSTR)sTempFile, (LPCTSTR)sFilePath, (LPCTSTR)sBaseFile);
-	} // if (!m_Patch.PatchFile(sFilePath)) 
+	}
 	else
 	{
 		//"dry run" was successful, so save the patched file somewhere...
@@ -335,7 +335,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		{
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
-		} // if (!m_Patch.PatchFile(sFilePath, sTempFile)) 
+		}
 		if (m_bReversedPatch)
 		{
 			this->m_Data.m_baseFile.SetFileName(sTempFile);
@@ -584,7 +584,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
 		}
-	} // if (!m_Data.!IsBaseFileInUse() && !m_Data.!IsYourFileInUse() && m_Data.!IsTheirFileInUse())
+	}
 	else if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
 	{
 		//diff between THEIR, YOUR and BASE
@@ -660,7 +660,7 @@ void CMainFrame::UpdateLayout()
 		m_wndSplitter2.SetColumnInfo(1, cr.Width() / 2, 50);
 
 		m_wndSplitter.RecalcLayout();
-	} // if (m_bInitSplitter) 
+	}
 }
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
@@ -668,7 +668,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
     if (m_bInitSplitter && nType != SIZE_MINIMIZED)
     {
 		UpdateLayout();
-    } // if (m_bInitSplitter && nType != SIZE_MINIMIZED) 
+    }
     CNewFrameWnd::OnSize(nType, cx, cy);
 }
 
@@ -685,17 +685,17 @@ void CMainFrame::OnViewWhitespaces()
 	{
 		m_pwndLeftView->m_bViewWhitespace = bViewWhitespaces;
 		m_pwndLeftView->Invalidate();
-	} // if (m_pwndLeftView)
+	}
 	if (m_pwndRightView)
 	{
 		m_pwndRightView->m_bViewWhitespace = bViewWhitespaces;
 		m_pwndRightView->Invalidate();
-	} // if (m_pwndRightView)
+	}
 	if (m_pwndBottomView)
 	{
 		m_pwndBottomView->m_bViewWhitespace = bViewWhitespaces;
 		m_pwndBottomView->Invalidate();
-	} // if (m_pwndBottomView) 
+	}
 }
 
 void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
@@ -742,7 +742,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 			m_pwndRightView->SetModified(FALSE);
 		Invalidate();
-	} // if (m_pwndBottomView) 
+	}
 	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
 		arText = m_pwndRightView->m_arDiffLines;
@@ -814,15 +814,15 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 				break;
 			default:
 				break;
-			} // switch (state) 
-		} // for (int i=0; i<arText->GetCount(); i++) 
+			}
+		}
 		if (!file.Save(sFilePath, false))
 		{
 			CMessageBox::Show(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
 			return;
 		}
 		m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
-	} // if ((arText)&&(arStates)&&(pOriginFile)) 
+	}
 }
 
 void CMainFrame::OnFileSave()
@@ -916,7 +916,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 		SaveFile(sFile);
 		delete [] pszFilters;
 		return true;
-	} // if (GetSaveFileName(&ofn)==TRUE)
+	}
 	delete [] pszFilters;
 	return false;
 }
@@ -999,7 +999,7 @@ void CMainFrame::OnViewOptions()
 		m_Data.LoadRegistry();
 		LoadViews();
 		return;
-	} // if (dlg.IsReloadNeeded())
+	}
 	m_Data.LoadRegistry();
 	if (m_pwndBottomView)
 		m_pwndBottomView->Invalidate();
@@ -1091,7 +1091,7 @@ LRESULT CMainFrame::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		m_bWholeWord = m_pFindDialog->WholeWord();
 	
 		OnEditFindnext();
-    } // if(m_pFindDialog->FindNext()) 
+    }
 
     return 0;
 }
@@ -1241,7 +1241,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 		{
 			m_nSearchIndex = 0;
 		}
-	} // if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines)) 
+	}
 }
 
 int CMainFrame::FindSearchStart(int nDefault)
@@ -1368,7 +1368,7 @@ void CMainFrame::OnFileReload()
 		{
 			return;
 		}
-	} // ified())))
+	}
 	m_Data.LoadRegistry();
 	LoadViews();
 }

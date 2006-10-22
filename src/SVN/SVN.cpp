@@ -1011,7 +1011,7 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	if (err != NULL)
 	{
 		return FALSE;
-	} // if (err != NULL) 
+	}
 	return TRUE;
 }
 
@@ -1202,8 +1202,8 @@ svn_error_t* SVN::logReceiver(void* baton,
 					changedpath->lCopyFromRev = 0;
 				}
 				arChangedPaths->Add(changedpath);
-			} // for (int i = 0; i < sorted_paths->nelts; i++) 
-		} // if (ch_paths)
+			}
+		}
 	}
 	catch (CMemoryException * e)
 	{

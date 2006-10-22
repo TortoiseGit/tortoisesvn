@@ -127,8 +127,8 @@ void CXSplitter::HideRow(int nRowHide)
 			if( ++nActiveRow >= m_nRows )
 				nActiveRow = 0;
 			SetActivePane( nActiveRow, nActiveCol );
-		} // if( nActiveRow == nRowHide ) 
-	} // if( GetActivePane( &nActiveRow, &nActiveCol ) != NULL ) 
+		}
+	}
 
 	// hide all nRow panes.
 	for( int nCol = 0; nCol < m_nCols; ++nCol )
@@ -145,8 +145,8 @@ void CXSplitter::HideRow(int nRowHide)
 			ASSERT( pPane != NULL );
 
 			pPane->SetDlgCtrlID( IdFromRowCol( nRow-1, nCol ));
-		} // for( int nRow = nRowHide+1; nRow < m_nRows; ++nRow ) 
-	} // for( int nCol = 0; nCol < m_nCols; ++nCol ) 
+		}
+	}
 
 	m_nRows--;
 	m_pRowInfo[m_nRows].nCurSize = m_pRowInfo[nRowHide].nCurSize;
@@ -181,10 +181,10 @@ void CXSplitter::ShowRow()
 			CWnd* pPane = GetPane( nRow, nCol );
 			ASSERT( pPane != NULL );
 			pPane->SetDlgCtrlID( IdFromRowCol( nRow + 1, nCol ));
-		} // for( nRow = m_nRows - 2; nRow >= nShowRow; --nRow ) 
+		}
 
 		pPaneShow->SetDlgCtrlID( IdFromRowCol( nShowRow, nCol ));
-	} // for( int nCol = 0; nCol < m_nCols; ++nCol ) 
+	}
 
 	// new panes have been created -- recalculate layout
 	for( nRow = nShowRow+1; nRow < m_nRows; nRow++ )
@@ -211,8 +211,8 @@ void CXSplitter::HideColumn(int nColHide)
 			if( ++nActiveCol >= m_nCols )
 				nActiveCol = 0;
 			SetActivePane( nActiveRow, nActiveCol );
-		} // if( nActiveCol == nColHide ) 
-	} // if( GetActivePane( &nActiveRow, &nActiveCol ) != NULL ) 
+		}
+	}
 
 	// hide all column panes
 	for( int nRow = 0; nRow < m_nRows; nRow++)
@@ -229,8 +229,8 @@ void CXSplitter::HideColumn(int nColHide)
 			ASSERT( pPane != NULL );
 
 			pPane->SetDlgCtrlID( IdFromRowCol( nRow, nCol - 1 ));
-		} // for( int nCol = nColHide + 1; nCol < m_nCols; nCol++ ) 
-	} // for( int nRow = 0; nRow < m_nRows; nRow++) 
+		}
+	}
 
 	m_nCols--;
 	m_pColInfo[m_nCols].nCurSize = m_pColInfo[nColHide].nCurSize;
@@ -265,10 +265,10 @@ void CXSplitter::ShowColumn()
 			CWnd* pPane = GetPane( nRow, nCol );
 			ASSERT( pPane != NULL );
 			pPane->SetDlgCtrlID( IdFromRowCol( nRow, nCol + 1 ));
-		} // for( nCol = m_nCols - 2; nCol >= nShowCol; --nCol ) 
+		}
 
 		pPaneShow->SetDlgCtrlID( IdFromRowCol( nRow, nShowCol ));
-	} // for( int nRow = 0; nRow < m_nRows; ++nRow ) 
+	}
 
 	// new panes have been created -- recalculate layout
 	for( nCol = nShowCol+1; nCol < m_nCols; nCol++ )

@@ -263,7 +263,7 @@ void CHyperLink::SetDefaultCursor()
 		{
 			m_hLinkCursor = hHandCursor;
 			return;
-		} // if (hHandCursor)
+		}
 		// windows cursor not available, so try to load it from winhlp32.exe
         CString strWndDir;
         GetWindowsDirectory(strWndDir.GetBuffer(MAX_PATH), MAX_PATH);	// Explorer can't handle paths longer than MAX_PATH.

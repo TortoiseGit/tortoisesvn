@@ -205,14 +205,14 @@ BOOL CSetMainPage::OnInitDialog()
 			GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 			m_LanguageCombo.AddString(buf);
 			m_LanguageCombo.SetItemData(langcount++, loc);
-		} // if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0) 
-	} // while (finder.FindNextFileNoDirectories())
+		}
+	}
 	
 	for (int i=0; i<m_LanguageCombo.GetCount(); i++)
 	{
 		if (m_LanguageCombo.GetItemData(i) == m_dwLanguage)
 			m_LanguageCombo.SetCurSel(i);
-	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
+	}
 
 	CString temp;
 	int count = 0;
@@ -221,7 +221,7 @@ BOOL CSetMainPage::OnInitDialog()
 		temp.Format(_T("%d"), i);
 		m_cFontSizes.AddString(temp);
 		m_cFontSizes.SetItemData(count++, i);
-	} // for (int i=6; i<20; i=i+2) 
+	}
 	BOOL foundfont = FALSE;
 	for (int i=0; i<m_cFontSizes.GetCount(); i++)
 	{

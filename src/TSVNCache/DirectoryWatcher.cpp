@@ -395,7 +395,7 @@ continuewatching:
 						// wrong.
 						Sleep(200);
 					}
-				} // if (pdi)
+				}
 			}
 		}// if (watchedPaths.GetCount())
 		else

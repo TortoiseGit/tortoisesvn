@@ -264,10 +264,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 		{
 			delete [] pszFilters;
 			return FALSE;
-		} // if (GetOpenFileName(&ofn)==FALSE)
+		}
 		delete [] pszFilters;
 		pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
-	} // if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff")))) 
+	}
 
 	if ( pFrame->m_Data.m_baseFile.GetFilename().IsEmpty() && pFrame->m_Data.m_yourFile.GetFilename().IsEmpty() )
 	{

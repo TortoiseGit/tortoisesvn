@@ -149,11 +149,11 @@ void CSpellEdit::OnTimer(UINT_PTR nIDEvent)
 				} while ((pos >= 0)&&(CharPos.x < clientRect.right));
 				//underline words
 				delete [] pBuf;
-			} // if (nLineLength > 0) 
+			}
 			i++;
 		} while ((i < this->GetLineCount())&&(CharPos.y < clientRect.bottom));
 		dc.SelectObject(pOldPen);
-	} // if (nIDEvent == SPELLTIMER)
+	} // if (nIDEvent == m_timer)
 	CEdit::OnTimer(nIDEvent);
 }
 
@@ -374,7 +374,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 #endif
 			nCorrections = ns;
 		}
-	} // if (pChecker)
+	}
 
 	// add found thesauri to submenu's
 	CPtrArray menuArray;
@@ -469,7 +469,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 			else
 				SendMessage(WM_COMMAND, nCmd);
 		}
-	} // switch (nCmd)
+	}
 	menu.DestroyMenu();    
 }
 

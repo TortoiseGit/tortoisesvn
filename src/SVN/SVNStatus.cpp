@@ -459,7 +459,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR 
 		default:
 			buf = _T("\0");
 			break;
-	} // switch (status) 
+	}
 	_stprintf_s(string, buflen, _T("%s"), buf);
 }
 
@@ -512,7 +512,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 		default:
 			LoadStringEx(hInst, IDS_STATUSNONE, string, size, lang);
 			break;
-	} // switch (status) 
+	}
 }
 
 int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
