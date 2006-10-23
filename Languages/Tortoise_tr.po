@@ -4,17 +4,17 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7655)
+# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7804)
 #
 # Authors:
 #
 #
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
-#  - (7655) de 4 tercume daha kontrol edilmedi.
+#
 #
 # Su anki versiyon:
-# (v7655)
+# (v7804)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-09-28 22:16+0300\n"
+"PO-Revision-Date: 2006-10-22 01:13+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1845,8 +1845,8 @@ msgstr "Giridiğiniz dizin ve/veya URL'yi kontrol ediniz."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Üst içerik menüsünün yerine alt-menüde gösterilmesini istediğiniz menü elemanlarını işaretleyiniz. "
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "TortoiseSVN alt menüsü yerine üst içerik menüsünde gösterilmesini istediğiniz menü elemanlarını işaretleyiniz. "
 
 # ID:80,
 #: ID:80
@@ -3207,6 +3207,11 @@ msgstr "Simgeler/Dizayn/Kod:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Aktive edildiğinde,\"Farklı kaydet..\" yada \"Aç\" diyaloglarında işaretlerin gösterilmesini engeller"
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "Aktive edildiğinde, eğer svn:needs-lock özelliği işaretli ise menüdeki \"Kilidi Al\" seçeneği  üst menüde gösterilir"
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -4511,6 +4516,11 @@ msgstr "Proxy &zaman-aşımına kalan süre (sn) : "
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "Proxy Ayarları"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "svn:needs-lock özelliği işaretli ise \"Kilidi Al\" 'ı üst menüye yerleştir"
 
 # ID:246,
 #: ID:246
