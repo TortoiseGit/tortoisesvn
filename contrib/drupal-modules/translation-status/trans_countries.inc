@@ -10,6 +10,7 @@
 $countries = array(
 "bg"    => array("0","01","bg","Bulgarian","Milen A. Radev"),
 "bs_BA" => array("0","00","bs_BA","Bosnian/Herzegovinan","Boris Musa"),
+"ca"    => array("0","00","ca","Catalan","Arnau Perelló"),
 "cs"    => array("0","01","cs","Czech","Radek Svarz"),
 "da"    => array("0","01","da","Danish","Jan Normann Nielsen, Gunther Strube"),
 "de"    => array("0","11","de","German","Stefan Küng, Lübbe Onken"),
@@ -35,6 +36,6 @@ $countries = array(
 "tr"    => array("0","00","tr","Turkish","Aydogan Yolacan"),
 "zh_CN" => array("0","10","zh_CN","Chinese, simplified","Cecil Sheng, Ken Chew, Cobra Net, Xingyu Wang, Lixinfeng"),
 "zh_TW" => array("0","00","zh_TW","Chinese, traditional","Cecil Sheng"),
-"zzz"   => array("1","00","gb","Empty Catalog","")
+"zzz"   => array("1","00","gb","Empty Catalog (English)","Stefan Küng, Simon Large, Lübbe Onken")
 );
 ?>
