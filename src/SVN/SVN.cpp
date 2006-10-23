@@ -560,7 +560,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 					return FALSE;
 				}
 			}
-			fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION);
+			fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION | (force ? FOF_NOCONFIRMATION : 0));
 			fop.SetProgressDlgTitle(IDS_PROC_EXPORT_3);
 			fop.Start();
 			if (fop.AnyOperationsAborted())
@@ -641,7 +641,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 						return FALSE;
 					}
 				}
-				fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION);
+				fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION | (force ? FOF_NOCONFIRMATION : 0));
 				fop.SetProgressDlgTitle(IDS_PROC_EXPORT_3);
 				fop.Start();
 				if (fop.AnyOperationsAborted())
