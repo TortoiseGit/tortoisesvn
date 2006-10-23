@@ -1,7 +1,6 @@
 /**
  * \mainpage TortoiseSVN
  * \section introduction Introduction
- * \image html charlie.gif "Logo"
  * TortoiseSVN is a windows shell integration for the Subversion
  * source versioning system. Subversion aims to be the successor
  * of the famous CVS. See http://subversion.tigris.org for
@@ -18,10 +17,8 @@
  * (right-click).
  *
  * \section Requirements Requirements
- * TortoiseSVN runs under Win95, Win98, WinME, WinNT4 (SP6), Win2k and WinXP.
+ * TortoiseSVN runs under Win2k and WinXP.
  * You also need at least Internet Explorer Version 5 or higher.
- * Please note that some functions like the Subversion Columns need Win2k or higher
- * to work and are disabled in other systems. But TortoiseSVN will still work.
  *
  * \section Installation Installation
  * TortoiseSVN comes with an installer. Just run the installer and follow
@@ -32,11 +29,6 @@
  *
  * \section Sourcecode Sourcecode
  * The full sourcecode of TortoiseSVN is available at http://tortoisesvn.tigris.org.
- * Right now it is under CVS version control and you therefore need a CVS client
- * to get the source. For a really superior CVS client go to http://www.tortoisecvs.org.
- * Please read the instructions on the website on server/login.
- * As soon as we can we will put the source under Subversion control and then you
- * can use TortoiseSVN itself to get the source.
  *
  */
 
