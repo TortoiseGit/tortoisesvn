@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-10-23 09:21+0100\n"
+"PO-Revision-Date: 2006-10-23 11:01+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2855,7 +2855,7 @@ msgstr "Kontextmenü für einen Ordner unter Versionskontrolle"
 #: source/TortoiseSVN_en.xml:3178
 #: (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
-msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextmenü des Windows  Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Rechtklick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab das angeklickte Objekt oder sein übergeordneter Ordner unter Versionskontrolle steht oder nicht. Das TortoiseSVN Menü wird auch im Dateimenü des Explorers angezeigt."
+msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextmenü des Windows  Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Rechtklick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab ob das angeklickte Objekt oder sein übergeordneter Ordner unter Versionskontrolle stehen oder nicht. Das TortoiseSVN Menü wird auch im Dateimenü des Explorers angezeigt."
 
 #: source/TortoiseSVN_en.xml:3192
 #: (title)
@@ -3495,7 +3495,7 @@ msgstr "<placeholder-1/> TortoiseSVN enthält eine Rechtschreibprüfung die Sie 
 #: source/TortoiseSVN_en.xml:3945
 #: (para)
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr "Das Eingabefeld verfügt außerdem über eine Auto-Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie die Dateinamen selbst zu extrahieren. Sobald Sie die erste drei Zeichen eines Wortes eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können. Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen sowie ein Tutorial dazu unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
+msgstr "Das Eingabefeld verfügt außerdem über eine Auto-Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie die Dateinamen selbst zu extrahieren. Sobald Sie die ersten drei Zeichen eines Wortes eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können. Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen sowie ein Tutorial dazu unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:3965
 #: (title)
@@ -3759,7 +3759,7 @@ msgstr "Sie können nun entweder ein Merge Programm benutzen, welches Sie durch 
 #: source/TortoiseSVN_en.xml:4289
 #: (para)
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr "Anschließend müssen Sie Subversion noch mitteilen, dass Sie den Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Konflikt aufgelöst</guimenuitem></menuchoice>. Bitte beachten Sie dass dieser Befehl nicht den Konflikt selbst löst, sondern nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst haben. Der Befehl macht nichts weiter als die drei zusätzlich erstellten Dateien <filename>filename.ext.mine</filename> und <filename>filename.ext.r*</filename>zu löschen, damit sie Ihre Änderungen in das Projektarchiv übertrage können."
+msgstr "Anschließend müssen Sie Subversion noch mitteilen, dass Sie den Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Konflikt aufgelöst</guimenuitem></menuchoice>. Bitte beachten Sie dass dieser Befehl nicht den Konflikt selbst löst, sondern nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst haben. Der Befehl macht nichts weiter als die drei zusätzlich erstellten Dateien <filename>filename.ext.mine</filename> und <filename>filename.ext.r*</filename>zu löschen, damit sie Ihre Änderungen in das Projektarchiv übertragen können."
 
 #: source/TortoiseSVN_en.xml:4302
 #: (para)
@@ -4410,7 +4410,7 @@ msgstr "Übertragungen per Autor als Tortendiagramm"
 #: source/TortoiseSVN_en.xml:5130
 #: (para)
 msgid "<placeholder-1/> This graph shows you which authors have been active on the project as a simple histogram, stacked histogram or pie chart. <placeholder-2/>"
-msgstr "<placeholder-1/> Dieser Graph zeigt welche Autoren aktive am Projekt gearbeitet haben als einfaches Histogram, überlagertes Histogram oder Kuchediagram. <placeholder-2/>"
+msgstr "<placeholder-1/> Dieser Graph zeigt welche Autoren aktiv am Projekt gearbeitet haben als einfaches Histogram, überlagertes Histogram oder Kuchediagram. <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:5143
 #: (para)
@@ -6081,7 +6081,7 @@ msgstr "Standardmäßig wird die annotierte Datei in <firstterm>TortoiseBlame</f
 #: source/TortoiseSVN_en.xml:7325
 #: (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr "Sobald Sie auf <guibutton>OK</guibutton> klicken, beginnt TortoiseSVN mit der Analyse der Daten dieser Datei. Beachten Sie bitte, dass dies mehrere Minuten dauern kann, je nach nachdem wie schnell Ihre Verbindung zum Projektarchiv ist. Sobald der TortoiseSVN mit der Analyse fertig ist wird das Ergebnis der Analyse in TortoiseBlame angezeigt."
+msgstr "Sobald Sie auf <guibutton>OK</guibutton> klicken, beginnt TortoiseSVN mit der Analyse der Daten dieser Datei. Beachten Sie bitte, dass dies mehrere Minuten dauern kann, je nachdem wie schnell Ihre Verbindung zum Projektarchiv ist. Sobald der TortoiseSVN mit der Analyse fertig ist wird das Ergebnis der Analyse in TortoiseBlame angezeigt."
 
 #: source/TortoiseSVN_en.xml:7335
 #: (title)
@@ -6207,7 +6207,7 @@ msgstr "Wenn Sie ein Objekt innerhalb des Projektarchivs verschieben wollen, <ac
 #: source/TortoiseSVN_en.xml:7512
 #: (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <action>ctrl right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/verschieben möchten und gleichzeitig einen neuen Namen vergeben möchten, können Sie die Datei oder den Ordner mit <action>Rechts-Ziehen</action> oder <action>Strg+Rechts-Ziehen</action> anstatt <action>Links-Ziehen</action> zu verschieben. In diesem Falle wird ein Umbenennen Dialog angezeigt, in dem Sie den neuen Namen für die Datei oder den Ordner eingeben können."
+msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/verschieben und gleichzeitig einen neuen Namen vergeben möchten, können Sie die Datei oder den Ordner mit <action>Rechts-Ziehen</action> oder <action>Strg+Rechts-Ziehen</action> anstatt <action>Links-Ziehen</action> verschieben. In diesem Falle wird ein Umbenennen Dialog angezeigt, in dem Sie den neuen Namen für die Datei oder den Ordner eingeben können."
 
 #: source/TortoiseSVN_en.xml:7519
 #: (para)
