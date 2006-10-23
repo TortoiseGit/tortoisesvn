@@ -2562,6 +2562,10 @@ BEGIN
     IDS_PROC_CHECKOUTTO     "Select directory to check out to"
     IDS_PROC_CHECKOUTTOPONLY "Only check out the &top folder"
     IDS_PROC_CHECKOUTNOEXTERNALS "Omit e&xternals"
+    IDS_PROC_OVERWRITEEXPORT "The folder\n%s\nalready exists!"
+    IDS_PROC_OVERWRITEEXPORT_OVERWRITE "Overwrite"
+    IDS_PROC_OVERWRITEEXPORT_RENAME "Auto Rename"
+    IDS_PROC_OVERWRITEEXPORT_CANCEL "Cancel"
 END
 
 STRINGTABLE 

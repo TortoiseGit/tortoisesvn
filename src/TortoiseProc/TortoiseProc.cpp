@@ -1527,11 +1527,24 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
 				if (PathFileExists(dropper))
-					dropper.Format(IDS_PROC_EXPORTFOLDERNAME, droppath, pathList[nPath].GetFileOrDirectoryName());
-				int exportcount = 1;
-				while (PathFileExists(dropper))
 				{
-					dropper.Format(IDS_PROC_EXPORTFOLDERNAME2, droppath, exportcount++, pathList[nPath].GetFileOrDirectoryName());
+					CString sMsg;
+					CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
+					CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
+					CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
+					sMsg.Format(IDS_PROC_OVERWRITEEXPORT, dropper);
+					UINT ret = CMessageBox::Show(EXPLORERHWND, sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sBtn1, sBtn2, sBtn3);
+					if (ret==2)
+					{
+						dropper.Format(IDS_PROC_EXPORTFOLDERNAME, droppath, pathList[nPath].GetFileOrDirectoryName());
+						int exportcount = 1;
+						while (PathFileExists(dropper))
+						{
+							dropper.Format(IDS_PROC_EXPORTFOLDERNAME2, droppath, exportcount++, pathList[nPath].GetFileOrDirectoryName());
+						}
+					}
+					else if (ret == 3)
+						return FALSE;
 				}
 				if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, FALSE, EXPLORERHWND, parser.HasKey(_T("extended"))))
 				{
