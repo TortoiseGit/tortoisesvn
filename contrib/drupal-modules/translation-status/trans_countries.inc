@@ -10,7 +10,7 @@
 $countries = array(
 "bg"    => array("0","01","bg","Bulgarian","Milen A. Radev"),
 "bs_BA" => array("0","00","bs_BA","Bosnian/Herzegovinan","Boris Musa"),
-"ca"    => array("0","00","ca","Catalan","Arnau Perelló"),
+"ca_ES" => array("0","00","ca","Catalan","Arnau Perelló"),
 "cs"    => array("0","01","cs","Czech","Radek Svarz"),
 "da"    => array("0","01","da","Danish","Jan Normann Nielsen, Gunther Strube"),
 "de"    => array("0","11","de","German","Stefan Küng, Lübbe Onken"),
