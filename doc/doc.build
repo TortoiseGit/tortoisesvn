@@ -271,7 +271,7 @@ All user/site specific configuration is stored in doc.build.user.
 			<call target="xsltproc" />
 
 			<property name="userconfig.lang" value="${path.user.xsl}/${lang.target}/userconfig.xml" />
-			<property name="commandline" value="-fo ${xslt.target} -pdf ${file.target}"/>
+			<property name="commandline" value="-q -fo ${xslt.target} -pdf ${file.target}"/>
 			<property name="commandline" value="-c ${userconfig.lang} ${commandline}" if="${file::exists(userconfig.lang)}"/>
 			
 			<exec program="fop.bat"

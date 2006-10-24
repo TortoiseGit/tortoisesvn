@@ -9,6 +9,8 @@
 <xsl:param name="monospace.font.family" select="'simsun'"></xsl:param> 
 <xsl:param name="title.font.family" select="'simhei'"></xsl:param> 
 
+<xsl:param name="hyphenate">false</xsl:param>
+
 <xsl:template match="menuchoice">
   <fo:inline font-family="simhei">
     <xsl:call-template name="process.menuchoice"/>

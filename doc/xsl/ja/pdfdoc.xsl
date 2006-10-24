@@ -9,6 +9,8 @@
 <xsl:param name="monospace.font.family" select="'Mincho'"></xsl:param> 
 <xsl:param name="title.font.family" select="'Gothic'"></xsl:param> 
 
+<xsl:param name="hyphenate">false</xsl:param>
+
 <xsl:template match="menuchoice">
   <fo:inline font-family="Gothic">
     <xsl:call-template name="process.menuchoice"/>

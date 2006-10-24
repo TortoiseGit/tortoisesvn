@@ -7,6 +7,8 @@
 <xsl:param name="sans.font.family" select="'Arial'"/> 
 <xsl:param name="monospace.font.family" select="'Courier New'"/> 
 
+<xsl:param name="hyphenate">false</xsl:param>
+
 <!-- produce correct back-of-the-book index for non-English-alphabet languages, 
      don't work with xsltproc (tested up to v.2.06.19)
 <xsl:include href="file:///C:/works/TSVN/Tools/xsl/fo/autoidx-ng.xsl"/> 
