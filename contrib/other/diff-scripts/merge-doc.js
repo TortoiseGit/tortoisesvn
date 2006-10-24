@@ -43,7 +43,12 @@ word.visible = true
 baseDoc = word.Documents.Open(sTheirDoc);
 
 // Merge into the "My" document
-baseDoc.Merge(sMergedDoc);
+if (Number(word.Version) < 12)
+{
+	baseDoc.Compare(sMergedDoc);
+} else {
+	baseDoc.Merge(sMergedDoc);
+}
 
 // Show the merge result
 if (Number(word.Version) < 12)
