@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-10-16 10:47+0100\n"
+"PO-Revision-Date: 2006-10-24 12:05+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: German\n"
 
 # Ein einzelnes Leerzeichen
 #: ID:10
@@ -1231,6 +1230,10 @@ msgstr "Groß- / Kleinschreibung bei Autoren ignorieren"
 msgid "Authors:"
 msgstr "Autoren:"
 
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automatisch Umbenennen"
+
 #: ID:222
 msgid "Auto-close for local operations"
 msgstr "Für lokale Operationen"
@@ -1366,6 +1369,7 @@ msgstr ""
 " kopieren!"
 
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -3482,6 +3486,11 @@ msgstr "Andere"
 msgid "Out of memory."
 msgstr "Zu wenig Speicher."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Überschreiben"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "V&orheriger Konflikt"
@@ -4893,6 +4902,18 @@ msgstr ""
 "Der Ordner\n"
 "%s\n"
 "existiert nicht. Möchten Sie ihn erstellen?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Der Ordner\n"
+"%s\n"
+"existiert bereits!"
 
 # ID:83,
 #: ID:83
