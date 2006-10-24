@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-17 12:11+0800\n"
+"PO-Revision-Date: 2006-10-24 10:24+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1505,6 +1505,11 @@ msgstr "作者欄有大小寫之分"
 msgid "Authors:"
 msgstr "作者"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "自動重新命名"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1669,6 +1674,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -4165,6 +4171,11 @@ msgstr "對方的"
 msgid "Out of memory."
 msgstr "記憶體不足."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "覆寫"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -5875,6 +5886,18 @@ msgstr ""
 "%s\n"
 " 不存在.\n"
 "是否要先建立?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"目的資料夾\n"
+"%s\n"
+"已經存在!"
 
 # ID:83,
 #: ID:83
