@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-18 17:13+0100\n"
+"PO-Revision-Date: 2006-10-24 11:50+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1522,6 +1522,11 @@ msgstr "Autorzy bez uwzględnienia wielkości liter"
 msgid "Authors:"
 msgstr "Autorzy:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automatycznie zmień nazwę"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1686,6 +1691,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -4194,6 +4200,11 @@ msgstr "Innych"
 msgid "Out of memory."
 msgstr "Brak pamięci."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Nadpisz"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -5916,6 +5927,18 @@ msgstr ""
 "%s\n"
 "nie istnieje.\n"
 "Czy chcesz go utworzyć?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Folder\n"
+"%s\n"
+"już istnieje!"
 
 # ID:83,
 #: ID:83
