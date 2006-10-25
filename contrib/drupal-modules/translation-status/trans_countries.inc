@@ -2,7 +2,7 @@
 // Meaning of the columns:
 // 1: 1 = pot file, 0 = po file
 // 2: Flag byte used to create links on different download pages
-//    Bit0 = spellchecker available 
+//    Bit0 = spellchecker available (rightmost bit)
 //    Bit1 = documentation available
 // 3: Country code. Used to display the flag. The [flagname].png has to match this column
 // 4: Full country name.
@@ -10,7 +10,7 @@
 $countries = array(
 "bg"    => array("0","01","bg","Bulgarian","Milen A. Radev"),
 "bs_BA" => array("0","00","bs_BA","Bosnian/Herzegovinan","Boris Musa"),
-"ca_ES" => array("0","00","ca_ES","Catalan","Arnau Perelló"),
+"ca_ES" => array("0","01","ca_ES","Catalan","Arnau Perelló"),
 "cs"    => array("0","01","cs","Czech","Radek Svarz"),
 "da"    => array("0","01","da","Danish","Jan Normann Nielsen, Gunther Strube"),
 "de"    => array("0","11","de","German","Stefan Küng, Lübbe Onken"),
@@ -22,7 +22,7 @@ $countries = array(
 "hu"    => array("0","01","hu","Hungarian","Szente-Varga Bálint"),
 "id"    => array("0","00","id","Indonesian","Zaenal Mutaqin"),
 "it"    => array("0","01","it","Italian","Luca Berti"),
-"ja"    => array("0","20","ja","Japanese","Daisuke Deguchi (GUI), Kurasawa Nozomu (docs)"),
+"ja"    => array("0","10","ja","Japanese","Daisuke Deguchi (GUI), Kurasawa Nozomu (docs)"),
 "ko"    => array("0","00","ko","Korean","Hojin Choi, Jae-Hong Lee"),
 "ka"    => array("0","00","ka","Georgian","Gia Shervashidze"),
 "nb"    => array("0","01","nb","Norwegian, bokmål","Jostein Andersen"),
