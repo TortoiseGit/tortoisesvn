@@ -128,6 +128,8 @@ Version 1.4.1
 - BUG: Showing the log for a deleted item in the log dialog did not work
        because the selected revision was used instead of the previous
        one. (Stefan)
+- BUG: Revert from the log dialog bottom pane if the URL contained non-ascii
+       characters always failed. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

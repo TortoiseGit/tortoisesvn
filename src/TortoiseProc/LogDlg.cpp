@@ -33,6 +33,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
+#include "UnicodeUtils.h"
 #include "TempFile.h"
 #include "InsertControl.h"
 #include "SVNInfo.h"
@@ -1609,7 +1610,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CStringA sTempA = CStringA(sUrl);
 						CPathUtils::Unescape(sTempA.GetBuffer());
 						sTempA.ReleaseBuffer();
-						CString sUnescapedUrl = CString(sTempA);
+						CString sUnescapedUrl = CUnicodeUtils::GetUnicode(sTempA);
 						// find out until which char the urls are identical
 						int i=0;
 						while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
