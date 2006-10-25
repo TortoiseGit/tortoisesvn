@@ -1619,15 +1619,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString wcPath = m_path.GetWinPathString().Left(leftcount);
 						wcPath += fileURL.Mid(i);
 						wcPath.Replace('/', '\\');
-						if (!PathFileExists(wcPath))
-						{
-							// seems the path got renamed
-							// tell the user how to work around this.
-							CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
-							EnableOKButton();
-							theApp.DoWaitCursor(-1);
-							break;		//exit
-						}
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
@@ -1644,6 +1635,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
+								if (!PathFileExists(wcPath))
+								{
+									// seems the path got renamed
+									// tell the user how to work around this.
+									CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+									EnableOKButton();
+									theApp.DoWaitCursor(-1);
+									break;		//exit
+								}
 								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
 								dlg.m_RevisionEnd = rev2;
