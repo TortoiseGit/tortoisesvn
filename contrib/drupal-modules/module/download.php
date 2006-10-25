@@ -55,8 +55,8 @@ function print_langpack($i, $postat, $v, $w)
   }
   
   if ( ($postat[9] & "10") <> "0")   {
-   $t_ts="TortoiseSVN-".$v['release'].'-'.$postat[10].".exe";
-   $t_tm="TortoiseMerge-".$v['release'].'-'.$postat[10].".exe";
+   $t_ts="TortoiseSVN-".$v['release'].'-'.$postat[10].".pdf";
+   $t_tm="TortoiseMerge-".$v['release'].'-'.$postat[10].".pdf";
    $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
    $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
   } else {
