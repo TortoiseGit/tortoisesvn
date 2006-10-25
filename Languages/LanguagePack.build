@@ -237,7 +237,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			pattern="^(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'langhelpfile'\d+);[ \t]+(?'langUI'.+);[ \t]+(?'langweb'.+);[ \t]+(?'langnative'.+)" 
 			input="${langline}"
 		/>
-		<echo message="Building ${langUI} dlls and installer" />
+		<echo message="Building ${langweb} dlls and installer" />
 		<!-- create the dlls -->
 		<exec program="${ResTextFileName}">
 			<arg value="apply" />
