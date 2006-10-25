@@ -45,8 +45,8 @@ function print_langpack($i, $postat, $v, $w)
 {
   
   $flagimg=$v['flagpath']."$postat[10].png";
-  $dlfile32=get_langpack($postat[10], $postat[11], $v, $w['w32']);
-  $dlfile64=get_langpack($postat[10], $postat[11], $v, $w['x64']);
+  $dlfile32=get_langpack($postat[10], 'Setup', $v, $w['w32']);
+  $dlfile64=get_langpack($postat[10], 'Setup', $v, $w['x64']);
   if ( ($postat[9] & "01") <> "0")   {
    $t_ln="SpellChecker_".$postat[10].".exe";
    $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
@@ -54,12 +54,24 @@ function print_langpack($i, $postat, $v, $w)
    $dlfilechecker="";
   }
   
+  if ( ($postat[9] & "10") <> "0")   {
+   $t_ts="TortoiseSVN-".$v['release'].'-'.$postat[10].".exe";
+   $t_tm="TortoiseMerge-".$v['release'].'-'.$postat[10].".exe";
+   $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
+   $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
+  } else {
+   $dlmanTSVN="";
+   $dlmanTMerge="";
+  }
+
   echo "<tr>";
   echo "<td>$i</td>";
-  echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" /></td>";
+  echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</td>";
   echo "<td>$dlfile32</td>";
   echo "<td>$dlfile64</td>";
   echo "<td>$dlfilechecker</td>";
+  echo "<td>$dlmanTSVN</td>";
+  echo "<td>$dlmanTMerge</td>";
   echo "</tr>";
 }
 
@@ -136,10 +148,11 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 <table>
 <tr>
 <th class="lang">&nbsp;</th>
-<th class="lang">&nbsp;</th>
+<th class="lang">Country</th>
 <th class="lang">32 Bit</th>
 <th class="lang">64 Bit</th>
 <th class="lang">Spellchecker</th>
+<th class="lang" colspan="2">Separate manual (PDF)</th>
 </tr>
 
 <?php
