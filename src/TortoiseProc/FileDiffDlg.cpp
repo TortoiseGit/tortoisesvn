@@ -632,7 +632,7 @@ UINT CFileDiffDlg::ExportThread()
 		CFileDiffDlg::FileDiff fd = m_arFileList[i];
 		CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 		CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-		if (fd.node == svn_node_dir)
+		if ((fd.node == svn_node_dir)&&(fd.kind != svn_client_diff_summarize_kind_added))
 		{
 			// just create the directory
 			CreateDirectoryEx(NULL, m_strExportDir+_T("\\")+fd.path.GetWinPathString(), NULL);
@@ -644,12 +644,25 @@ UINT CFileDiffDlg::ExportThread()
 
 		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + fd.path.GetWinPathString());
 		CPathUtils::MakeSureDirectoryPathExists(savepath.GetDirectory().GetWinPath());
-		if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
+		if (fd.node == svn_node_dir)
 		{
-			CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			delete m_pProgDlg;
-			m_pProgDlg = NULL;
-			return 1;
+			if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Export(url2, savepath, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, true, true)))
+			{
+				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				delete m_pProgDlg;
+				m_pProgDlg = NULL;
+				return 1;
+			}
+		}
+		else
+		{
+			if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
+			{
+				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				delete m_pProgDlg;
+				m_pProgDlg = NULL;
+				return 1;
+			}
 		}
 		count++;
 		m_pProgDlg->SetProgress(count,m_arSelectedFileList.GetCount());

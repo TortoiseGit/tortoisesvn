@@ -132,6 +132,8 @@ Version 1.4.1
        characters always failed. (Stefan)
 - BUG: Reverting from the log dialog bottom pane for deleted items
        was not working. (Stefan)
+- BUG: When exporting selected items from the changed-files dialog,
+       folders were skipped. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
