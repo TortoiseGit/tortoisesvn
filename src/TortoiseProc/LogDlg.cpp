@@ -1549,9 +1549,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_SAVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 					bEntryAdded = true;
-					popup.AppendMenu(MF_SEPARATOR, NULL);
 					if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 					{
+						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
 					}
