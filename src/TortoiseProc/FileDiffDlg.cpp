@@ -646,7 +646,9 @@ UINT CFileDiffDlg::ExportThread()
 		CPathUtils::MakeSureDirectoryPathExists(savepath.GetDirectory().GetWinPath());
 		if (fd.node == svn_node_dir)
 		{
-			if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Export(url2, savepath, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, true, true)))
+			// exporting a folder requires calling SVN::Export() so we also export all
+			// children of that added folder.
+			if ((fd.kind == svn_client_diff_summarize_kind_added)&&(!Export(url2, savepath, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, true, true)))
 			{
 				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				delete m_pProgDlg;
@@ -656,6 +658,8 @@ UINT CFileDiffDlg::ExportThread()
 		}
 		else
 		{
+			// exporting a file requires calling SVN::Cat(), since SVN::Export() only works
+			// with folders.
 			if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
 			{
 				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
