@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-09-29 14:34+0900\n"
+"PO-Revision-Date: 2006-10-27 17:23+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1497,6 +1497,11 @@ msgstr "작성자 대소문자 구별 안함"
 msgid "Authors:"
 msgstr "작성자:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "자동으로 이름 바꾸기"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1663,6 +1668,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1799,8 +1805,8 @@ msgstr "입력한 경로나 URL을 확인하십시오."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "컨텍스트 메뉴에 나타내지 않고 하위메뉴에 바로 나타낼 것을 선택하십시오."
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "TortoiseSVN 하위 메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타낼 것을 선택하십시오."
 
 # ID:80,
 #: ID:80
@@ -3162,6 +3168,11 @@ msgstr "아이콘/설계/코딩:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "\"다른 이름으로 저장\" 혹은 \"열기\" 대화 상자에서는 오버레이 아이콘을 사용하지 않습니다."
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "svn:needs-lock 속성이 있는 파일을 선택하면 컨텍스트 메뉴에 \"잠그기\"를 추가합니다."
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -4148,6 +4159,11 @@ msgstr "기타"
 msgid "Out of memory."
 msgstr "메모리 부족."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "덮어 쓰기"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -4464,6 +4480,11 @@ msgstr "프록시 만료시간(단위: 초)(&T)"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "프록시 설정"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "svn:needs-lock이 속성이 설정되면 \"잠그기\"를 메뉴에 넣습니다."
 
 # ID:246,
 #: ID:246
@@ -5856,6 +5877,18 @@ msgid ""
 msgstr ""
 "존재하지 않는 폴더:\n"
 "%s 만드시겠습니까?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"폴더\n"
+"%s\n"
+"이(가) 이미 존재합니다."
 
 # ID:83,
 #: ID:83
