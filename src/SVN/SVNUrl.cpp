@@ -46,23 +46,11 @@ SVNUrl::SVNUrl(const CString& path, const SVNRev& revision, bool bAlreadyUnescap
 {
 }
 
-SVNUrl::SVNUrl(const SVNUrl& other, bool bAlreadyUnescaped /* = false*/ ) :
-	CString(other)
-{
-}
-
 SVNUrl& SVNUrl::operator=(const CString& svn_url)
 {
 	CString::operator=(Unescape(svn_url));
 	return *this;
 }
-
-SVNUrl& SVNUrl::operator=(const SVNUrl& svn_url)
-{
-	CString::operator=(svn_url);
-	return *this;
-}
-
 
 
 // SVNUrl public interface
