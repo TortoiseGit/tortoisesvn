@@ -12,6 +12,7 @@
 #
 # blame -- авторство (было: авторы файла)
 # branch -- ответвление
+# bugtracking system -- система отслеживания ошибок
 # checkbox -- флажок
 # checkout -- извлечь
 # commit -- фиксировать
@@ -19,6 +20,7 @@
 # file handle -- файловый дескриптор
 # help -- cправка
 # hook -- привязка
+# issue -- проблема (в системе отслеживания ошибок)
 # locking (files) -- блокирование (файлов)
 # log -- журнал (было: лог)
 # merge -- слияние
@@ -35,13 +37,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7768: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7825: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-17 10:46+0300\n"
+"PO-Revision-Date: 2006-10-27 15:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1249,6 +1251,10 @@ msgstr "Авторы без учёта регистра"
 msgid "Authors:"
 msgstr "Авторы:"
 
+#: ID:99
+msgid "Auto Rename"
+msgstr "Авто-переименовать"
+
 #: ID:222
 msgid "Auto-close for local operations"
 msgstr "Автозакрытие: при локальных операциях"
@@ -1380,6 +1386,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -3456,6 +3463,10 @@ msgstr "Остальные"
 msgid "Out of memory."
 msgstr "Нехватка памяти."
 
+#: ID:99
+msgid "Overwrite"
+msgstr "Перезаписать"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "П&редыдущий конфликт"
@@ -4846,6 +4857,17 @@ msgstr ""
 "%s\n"
 "не существует.\n"
 "Вы хотите сначала создать ее?"
+
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Папка\n"
+"%s\n"
+"уже существует!"
 
 #: ID:83
 #, c-format
