@@ -1619,36 +1619,34 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString wcPath = m_path.GetWinPathString().Left(leftcount);
 						wcPath += fileURL.Mid(i);
 						wcPath.Replace('/', '\\');
+						CSVNProgressDlg dlg;
+						CString sAction;
+						sAction.LoadString(IDS_SVNACTION_DELETE);
+						if (changedlogpath->sAction.Compare(sAction)==0)
+						{
+							// a deleted path! Since the path isn't there anymore, merge
+							// won't work. So just do a copy url->wc
+							dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
+						}
+						else
+						{
+							if (!PathFileExists(wcPath))
+							{
+								// seems the path got renamed
+								// tell the user how to work around this.
+								CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+								EnableOKButton();
+								theApp.DoWaitCursor(-1);
+								break;		//exit
+							}
+							dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
+							dlg.m_RevisionEnd = rev2;
+						}
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
-							CString sAction;
-							sAction.LoadString(IDS_SVNACTION_DELETE);
-							if (changedlogpath->sAction.Compare(sAction)==0)
-							{
-								// a deleted path! Since the path isn't there anymore, merge
-								// won't work. So just do a copy url->wc
-								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
-								dlg.DoModal();
-							}
-							else
-							{
-								if (!PathFileExists(wcPath))
-								{
-									// seems the path got renamed
-									// tell the user how to work around this.
-									CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
-									EnableOKButton();
-									theApp.DoWaitCursor(-1);
-									break;		//exit
-								}
-								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
-								dlg.m_RevisionEnd = rev2;
-								dlg.DoModal();
-							}
+							dlg.DoModal();
 						}
 						theApp.DoWaitCursor(-1);
 					}
