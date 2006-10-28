@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-10 17:42+0100\n"
+"PO-Revision-Date: 2006-10-24 23:41+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -372,7 +372,6 @@ msgstr "&Pripojiť uložisko pri spustení"
 
 # Control-ID:1073,
 #: Control-ID:1073
-#, fuzzy
 msgid "&Convert files when diffing against BASE"
 msgstr "&Previesť súbory pri porovnávaní so základňou"
 
@@ -1253,7 +1252,7 @@ msgstr "Pridávam"
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
-msgstr "Pridať subor(y) do správy Subversion"
+msgstr "Pridať súbor(y) do správy Subversion"
 
 # ID:13,
 #: ID:13
@@ -1523,6 +1522,11 @@ msgstr "Nerozlišovať veľkosť písmien v menách autorov"
 msgid "Authors:"
 msgstr "Autori:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automaticky premenovať"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1592,9 +1596,8 @@ msgstr "Obviniť"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Blames each line of a file on an author"
-msgstr "Obviní každý riadok súboru na autora"
+msgstr "Obviní každý riadok autora v súbore"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -1690,6 +1693,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1827,8 +1831,8 @@ msgstr "Skontrolujte cestu a URL adresu, ktorú ste zadali."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Zaškrtnite tie položky, ktoré chcete aby sa zobrazovali v podmenu namiesto v kontextovom menu"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Zaškrtnite tie položky, ktoré chcete aby sa zobrazovali vo vrchnom kontextovom menu namiesto v podmenu TortoiseSVN"
 
 # ID:80,
 #: ID:80
@@ -2576,7 +2580,7 @@ msgstr "Chcete odstrániť vlastnosť %s rekurzívne?"
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
-msgstr "Chcete uloložiť zmeny?"
+msgstr "Chcete uložiť zmeny?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3003,7 +3007,6 @@ msgstr "Od:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Z: (začiatočná URL adresa a revízia rozsahu k zlučeniu)"
 
@@ -3615,7 +3618,6 @@ msgstr "Miestny stav"
 
 # ID:94,
 #: ID:94
-#, fuzzy
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
@@ -4137,7 +4139,7 @@ msgstr "Vynechať externé"
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
-msgstr "Jeden alebo viac súborov sú v stave konfliktu."
+msgstr "Jeden alebo viac súborov v stave konfliktu."
 
 # ID:99,#:
 # Control-ID:1073,
@@ -4226,6 +4228,11 @@ msgstr "Ostatný"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Nedostatok pamäte."
+
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Prepísať"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -5954,6 +5961,18 @@ msgstr ""
 "nexistuje.\n"
 "Chcete ho vytvoriť?"
 
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Adresár\n"
+"%s\n"
+"už existuje!"
+
 # ID:83,
 #: ID:83
 #, c-format
@@ -6670,9 +6689,8 @@ msgstr "Aktualizovanie a obnovovanie zámkov..."
 
 # Control-ID:1064,
 #: Control-ID:1064
-#, fuzzy
 msgid "Use &magnifier on locatorbar"
-msgstr "Použiť &lupu na LOCATORBAR"
+msgstr "Použiť &lupu na prehľadový stĺpec"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -7235,13 +7253,12 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Nastavte \"false\" keď váš bugtracking systém má odkazy na prípady nie podľa čísiel."
+"Nastavte \"false\" keď váš bugtracking systém nemá odkazy na prípady podľa čísiel."
 
 # ID:14,
 #: ID:14
@@ -7518,7 +7535,7 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
-#, fuzzy, c-format
+#, c-format
 msgid "to %s"
 msgstr "na %s"
 
