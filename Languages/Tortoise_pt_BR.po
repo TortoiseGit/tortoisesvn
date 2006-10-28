@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-13 09:57+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-10-28 10:51-0300\n"
+"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1512,6 +1512,12 @@ msgstr "Autores sensível a caixa"
 msgid "Authors:"
 msgstr "Autores:"
 
+# Dlg-ID:151,
+#: ID:99
+#, fuzzy
+msgid "Auto Rename"
+msgstr "Renomear automaticamente"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1678,6 +1684,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1816,8 +1823,9 @@ msgstr "Verifique o caminho e/ou a URL entrados."
 
 # Control-ID:65535,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Marque as entradas de menu que você quer que apareçam no submenu ao invés do menu de contexto superior"
+#, fuzzy
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Marque as entradas de menu que você quer que apareçam no menu de contexto ao invés de no submenu do TortoiseSVN"
 
 # ID:80,
 #: ID:80
@@ -4182,6 +4190,11 @@ msgstr "Outros"
 msgid "Out of memory."
 msgstr "Sem memória."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Sobrescrever"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -4498,9 +4511,8 @@ msgstr "Configurações de Proxy"
 
 # Control-ID:1338,
 #: Control-ID:1338
-#, fuzzy
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Acrescentar \"Obter bloqueio\" no menu quando svn:needs-lock  estiver setada"
+msgstr "Acrescentar \"Obter bloqueio\" no menu quando svn:needs-lock  estiver selecionado"
 
 # ID:246,
 #: ID:246
@@ -5378,7 +5390,7 @@ msgstr "Exibir &histórico..."
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Show &log..."
-msgstr "Exibir mensagens de &log..."
+msgstr "Mensagens de &log..."
 
 # Control-ID:1088,
 #: Control-ID:1088
@@ -5895,6 +5907,18 @@ msgstr ""
 "%s\n"
 "não existe.\n"
 "Gostaria de criá-la antes?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"A pasta\n"
+"%s\n"
+"já existe!"
 
 # ID:83,
 #: ID:83
@@ -7531,14 +7555,14 @@ msgstr ""
 
 # ID:17,
 #: ID:17
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
 "webviewer:revisão\n"
-"URL apontando para o visualizador web de um repositório numa revisão específica.\n"
+"URL apontando para o visualizador web de um repositório em uma revisão específica.\n"
 "A string %REVISION% nessa URL está sendo substituída pelo número da revisão."
 
 # ID:244,
