@@ -117,7 +117,7 @@ BOOL CAboutDlg::OnInitDialog()
 	SetTimer(ID_EFFECTTIMER, 40, NULL);
 	SetTimer(ID_DROPTIMER, 300, NULL);
 
-	m_cWebLink.SetURL(_T("http://www.tortoisesvn.org"));
+	m_cWebLink.SetURL(_T("http://tortoisesvn.net"));
 	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/contributors.html"));
 
 	return TRUE;  // return TRUE unless you set the focus to a control
