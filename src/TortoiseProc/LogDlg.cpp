@@ -964,6 +964,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);					
 					temp.LoadString(IDS_MENUCHECKOUT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CHECKOUT, temp);
+					temp.LoadString(IDS_MENUEXPORT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 				else if (m_LogList.GetSelectedCount() >= 2)
@@ -1400,6 +1402,23 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					CopySelectionToClipBoard();
 				}
 				break;
+				case ID_EXPORT:
+					{
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+						long rev = pLogEntry->dwRev;
+						CString url = m_path.GetSVNPathString();
+						CString sCmd;
+						if (!SVN::PathIsURL(m_path.GetSVNPathString()))
+						{
+							url = GetURLFromPath(m_path);
+						}
+						url = _T("tsvn:")+url;
+						sCmd.Format(_T("%s /command:export /url:\"%s\" /revision:%ld /notempfile"),
+							CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
+							url, rev);
+						CAppUtils::LaunchApplication(sCmd, NULL, false);
+					}
+					break;
 				case ID_CHECKOUT:
 				{
 					PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));

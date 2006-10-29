@@ -65,6 +65,7 @@
 
 #define ID_VIEWREV      33
 #define ID_VIEWPATHREV  34
+#define ID_EXPORT		35
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
