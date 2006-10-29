@@ -1513,10 +1513,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 							selRealIndex++;
-						if (selRealIndex == selIndex)
+						if (selRealIndex == nItem)
 						{
 							selIndex = hiddenindex;
-							changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+							changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
 							break;
 						}
 					}
