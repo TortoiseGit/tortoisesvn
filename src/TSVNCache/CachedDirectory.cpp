@@ -428,13 +428,15 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				}
 				else
 				{
-					ATLTRACE("svn_cli_stat error, assume normal status\n");
+					ATLTRACE("svn_cli_stat error, assume none status\n");
 					svn_wc_status2_t st;
 					ZeroMemory(&st, sizeof(st));
-					st.text_status = svn_wc_status_normal;
-					// Since we only assume a normal status here due to svn_client_status()
+					st.text_status = svn_wc_status_none;
+					// Since we only assume a none status here due to svn_client_status()
 					// returning an error, make sure that this status times out soon.
 					AddEntry(path, &st, GetTickCount()+4000);
+					CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
+					return CStatusCacheEntry();
 				}
 			}
 		}
