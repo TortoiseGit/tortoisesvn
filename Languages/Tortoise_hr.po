@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-22 13:53+0100\n"
+"PO-Revision-Date: 2006-10-29 23:24+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1525,6 +1525,11 @@ msgstr "Autori bez obzira na veličinu slova"
 msgid "Authors:"
 msgstr "Autori:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automatska promijena imena"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1691,6 +1696,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -4205,6 +4211,11 @@ msgstr "Ostali"
 msgid "Out of memory."
 msgstr "Program je ostao bez memorije."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Prepiši"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "P&rethodni sukob"
@@ -5268,6 +5279,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Odaberite radnu mapu za skript"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Odaberite radnu mapu za snimanje odabrane datoteke"
+
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
@@ -5939,6 +5955,18 @@ msgstr ""
 "%s\n"
 "ne postoji.\n"
 "Želite li ju prvo napraviti?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Mapa\n"
+"%s\n"
+"već postoji!"
 
 # ID:83,
 #: ID:83
