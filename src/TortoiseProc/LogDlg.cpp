@@ -39,6 +39,7 @@
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include "RevisionRangeDlg.h"
+#include "BrowseFolder.h"
 
 #define ICONITEMBORDER 5
 
@@ -1469,11 +1470,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int s = m_LogList.GetSelectionMark();
 		if (s < 0)
 			return;
-		CString changedpath;
-		LogChangedPath * changedlogpath = NULL;
+		std::vector<CString> changedpaths;
+		std::vector<LogChangedPath*> changedlogpaths;
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		if (pos == NULL)
-			return;
+			return;	// nothing is selected, get out of here
+
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		long rev1 = pLogEntry->dwRev;
 		long rev2 = rev1-1;
@@ -1486,29 +1488,45 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				rev2 = pLogEntry->dwRev;
 				bOneRev = false;
 			}
-			changedpath = m_currentChangedPathList[selIndex].GetSVNPathString();
+			POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+			while (pos)
+			{
+				int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+				changedpaths.push_back(m_currentChangedPathList[nItem].GetSVNPathString());
+			}
 		}
 		else
 		{
-			changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-
-			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+			// only one revision is selected in the log dialog top pane
+			// but multiple items could be selected  in the changed items list
+			POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+			while (pos)
 			{
-				// some items are hidden! So find out which item the user really clicked on
-				INT_PTR selRealIndex = -1;
-				for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
+				int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+				LogChangedPath * changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
+
+				if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 				{
-					if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
-						selRealIndex++;
-					if (selRealIndex == selIndex)
+					// some items are hidden! So find out which item the user really clicked on
+					INT_PTR selRealIndex = -1;
+					for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
 					{
-						selIndex = hiddenindex;
-						changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
-						break;
+						if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+							selRealIndex++;
+						if (selRealIndex == selIndex)
+						{
+							selIndex = hiddenindex;
+							changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+							break;
+						}
 					}
 				}
+				if (changedlogpath)
+				{
+					changedpaths.push_back(changedlogpath->sPath);
+					changedlogpaths.push_back(changedlogpath);
+				}
 			}
-			changedpath = changedlogpath->sPath;
 		}
 		
 		//entry is selected, now show the popup menu
@@ -1519,7 +1537,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			bool bEntryAdded = false;
 			if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 			{
-				if ((!bOneRev)||(DiffPossible(changedlogpath, rev1)))
+				if ((!bOneRev)||(DiffPossible(changedlogpaths[0], rev1)))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
@@ -1556,168 +1574,193 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
 					}
 				}
-				if (!bEntryAdded)
-					return;
-				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				bool bOpenWith = false;
-				switch (cmd)
+			}
+			else
+			{
+				// more than one entry is selected
+				temp.LoadString(IDS_LOG_POPUP_SAVE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				bEntryAdded = true;
+			}
+
+			if (!bEntryAdded)
+				return;
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			bool bOpenWith = false;
+			switch (cmd)
+			{
+			case ID_DIFF:
 				{
-				case ID_DIFF:
+					DoDiffFromLog(selIndex, rev1, rev2, false, false);
+				}
+				break;
+			case ID_BLAMEDIFF:
+				{
+					DoDiffFromLog(selIndex, rev1, rev2, true, false);
+				}
+				break;
+			case ID_GNUDIFF1:
+				{
+					DoDiffFromLog(selIndex, rev1, rev2, false, true);
+				}
+				break;
+			case ID_REVERTREV:
+				{
+					SetPromptApp(&theApp);
+					theApp.DoWaitCursor(1);
+					CString sUrl;
+					if (SVN::PathIsURL(m_path.GetSVNPathString()))
 					{
-						DoDiffFromLog(selIndex, rev1, rev2, false, false);
+						sUrl = m_path.GetSVNPathString();
 					}
-					break;
-				case ID_BLAMEDIFF:
+					else
 					{
-						DoDiffFromLog(selIndex, rev1, rev2, true, false);
-					}
-					break;
-				case ID_GNUDIFF1:
-					{
-						DoDiffFromLog(selIndex, rev1, rev2, false, true);
-					}
-					break;
-				case ID_REVERTREV:
-					{
-						SetPromptApp(&theApp);
-						theApp.DoWaitCursor(1);
-						CString sUrl;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						sUrl = GetURLFromPath(m_path);
+						if (sUrl.IsEmpty())
 						{
-							sUrl = m_path.GetSVNPathString();
+							theApp.DoWaitCursor(-1);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, m_path);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							EnableOKButton();
+							theApp.DoWaitCursor(-1);
+							break;		//exit
 						}
-						else
-						{
-							sUrl = GetURLFromPath(m_path);
-							if (sUrl.IsEmpty())
-							{
-								theApp.DoWaitCursor(-1);
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								EnableOKButton();
-								theApp.DoWaitCursor(-1);
-								break;		//exit
-							}
-						}
-						// find the working copy path of the selected item from the URL
-						CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
+					}
+					// find the working copy path of the selected item from the URL
+					CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
 
-						CString fileURL = changedpath;
-						fileURL = sUrlRoot + fileURL.Trim();
-						// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
-						// sUrl = http://mydomain.com/repos/trunk/folder
-						CStringA sTempA = CStringA(sUrl);
-						CPathUtils::Unescape(sTempA.GetBuffer());
-						sTempA.ReleaseBuffer();
-						CString sUnescapedUrl = CUnicodeUtils::GetUnicode(sTempA);
-						// find out until which char the urls are identical
-						int i=0;
-						while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
-							i++;
-						int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
-						CString wcPath = m_path.GetWinPathString().Left(leftcount);
-						wcPath += fileURL.Mid(i);
-						wcPath.Replace('/', '\\');
-						CSVNProgressDlg dlg;
-						CString sAction;
-						sAction.LoadString(IDS_SVNACTION_DELETE);
-						if (changedlogpath->sAction.Compare(sAction)==0)
-						{
-							// a deleted path! Since the path isn't there anymore, merge
-							// won't work. So just do a copy url->wc
-							dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
-						}
-						else
-						{
-							if (!PathFileExists(wcPath))
-							{
-								// seems the path got renamed
-								// tell the user how to work around this.
-								CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
-								EnableOKButton();
-								theApp.DoWaitCursor(-1);
-								break;		//exit
-							}
-							dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
-							dlg.m_RevisionEnd = rev2;
-						}
-						CString msg;
-						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
-						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
-						{
-							dlg.DoModal();
-						}
-						theApp.DoWaitCursor(-1);
-					}
-					break;
-				case ID_POPPROPS:
+					CString fileURL = changedpaths[0];
+					fileURL = sUrlRoot + fileURL.Trim();
+					// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+					// sUrl = http://mydomain.com/repos/trunk/folder
+					CStringA sTempA = CStringA(sUrl);
+					CPathUtils::Unescape(sTempA.GetBuffer());
+					sTempA.ReleaseBuffer();
+					CString sUnescapedUrl = CUnicodeUtils::GetUnicode(sTempA);
+					// find out until which char the urls are identical
+					int i=0;
+					while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
+						i++;
+					int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
+					CString wcPath = m_path.GetWinPathString().Left(leftcount);
+					wcPath += fileURL.Mid(i);
+					wcPath.Replace('/', '\\');
+					CSVNProgressDlg dlg;
+					CString sAction;
+					sAction.LoadString(IDS_SVNACTION_DELETE);
+					if (changedlogpaths[0]->sAction.Compare(sAction)==0)
 					{
-						DialogEnableWindow(IDOK, FALSE);
-						SetPromptApp(&theApp);
-						theApp.DoWaitCursor(1);
-						CString filepath;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						// a deleted path! Since the path isn't there anymore, merge
+						// won't work. So just do a copy url->wc
+						dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
+					}
+					else
+					{
+						if (!PathFileExists(wcPath))
 						{
-							filepath = m_path.GetSVNPathString();
+							// seems the path got renamed
+							// tell the user how to work around this.
+							CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+							EnableOKButton();
+							theApp.DoWaitCursor(-1);
+							break;		//exit
 						}
-						else
-						{
-							filepath = GetURLFromPath(m_path);
-							if (filepath.IsEmpty())
-							{
-								theApp.DoWaitCursor(-1);
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								TRACE(_T("could not retrieve the URL of the file!\n"));
-								EnableOKButton();
-								break;
-							}
-						}
-						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath;
-						CPropDlg dlg;
-						dlg.m_rev = rev1;
-						dlg.m_Path = CTSVNPath(filepath);
+						dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
+						dlg.m_RevisionEnd = rev2;
+					}
+					CString msg;
+					msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
+					if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+					{
 						dlg.DoModal();
-						EnableOKButton();
-						theApp.DoWaitCursor(-1);
 					}
-					break;
-				case ID_SAVEAS:
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_POPPROPS:
+				{
+					DialogEnableWindow(IDOK, FALSE);
+					SetPromptApp(&theApp);
+					theApp.DoWaitCursor(1);
+					CString filepath;
+					if (SVN::PathIsURL(m_path.GetSVNPathString()))
 					{
-						DialogEnableWindow(IDOK, FALSE);
-						SetPromptApp(&theApp);
-						theApp.DoWaitCursor(1);
-						CString filepath;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						filepath = m_path.GetSVNPathString();
+					}
+					else
+					{
+						filepath = GetURLFromPath(m_path);
+						if (filepath.IsEmpty())
 						{
-							filepath = m_path.GetSVNPathString();
+							theApp.DoWaitCursor(-1);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							TRACE(_T("could not retrieve the URL of the file!\n"));
+							EnableOKButton();
+							break;
 						}
-						else
+					}
+					filepath = GetRepositoryRoot(CTSVNPath(filepath));
+					filepath += changedpaths[0];
+					CPropDlg dlg;
+					dlg.m_rev = rev1;
+					dlg.m_Path = CTSVNPath(filepath);
+					dlg.DoModal();
+					EnableOKButton();
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_SAVEAS:
+				{
+					DialogEnableWindow(IDOK, FALSE);
+					SetPromptApp(&theApp);
+					theApp.DoWaitCursor(1);
+					CString filepath;
+					if (SVN::PathIsURL(m_path.GetSVNPathString()))
+					{
+						filepath = m_path.GetSVNPathString();
+					}
+					else
+					{
+						filepath = GetURLFromPath(m_path);
+						if (filepath.IsEmpty())
 						{
-							filepath = GetURLFromPath(m_path);
-							if (filepath.IsEmpty())
-							{
-								theApp.DoWaitCursor(-1);
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								TRACE(_T("could not retrieve the URL of the file!\n"));
-								EnableOKButton();
-								break;
-							}
+							theApp.DoWaitCursor(-1);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							TRACE(_T("could not retrieve the URL of the file!\n"));
+							EnableOKButton();
+							break;
 						}
-						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath;
-
+					}
+					CString sRoot = GetRepositoryRoot(CTSVNPath(filepath));
+					// if more than one entry is selected, we save them
+					// one by one into a folder the user has selected
+					bool bTargetSelected = false;
+					CTSVNPath TargetPath;
+					if (m_ChangedFileListCtrl.GetSelectedCount() > 1)
+					{
+						CBrowseFolder browseFolder;
+						browseFolder.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_SAVEFOLDERTOHINT)));
+						browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+						CString strSaveAsDirectory;
+						if (browseFolder.Show(GetSafeHwnd(), strSaveAsDirectory) == CBrowseFolder::OK) 
+						{
+							TargetPath = CTSVNPath(strSaveAsDirectory);
+							bTargetSelected = true;
+						}
+					}
+					else
+					{
 						OPENFILENAME ofn;		// common dialog box structure
 						TCHAR szFile[MAX_PATH];  // buffer for file name
 						ZeroMemory(szFile, sizeof(szFile));
 						CString revFilename;
-						temp = CPathUtils::GetFileNameFromPath(filepath);
-						int rfind = filepath.ReverseFind('.');
+						temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
+						int rfind = changedpaths[0].ReverseFind('.');
 						if (rfind > 0)
 							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
 						else
@@ -1752,165 +1795,195 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						ofn.lpstrFilter = pszFilters;
 						ofn.nFilterIndex = 1;
 						// Display the Open dialog box. 
-						CTSVNPath tempfile;
-						if (GetSaveFileName(&ofn)==TRUE)
+						bTargetSelected = !!GetSaveFileName(&ofn);
+						TargetPath.SetFromWin(ofn.lpstrFile);
+						delete [] pszFilters;
+					}
+					if (bTargetSelected)
+					{
+						CProgressDlg progDlg;
+						progDlg.SetTitle(IDS_APPNAME);
+						for (std::vector<LogChangedPath*>::iterator it = changedlogpaths.begin(); it!= changedlogpaths.end(); ++it)
 						{
-							tempfile.SetFromWin(ofn.lpstrFile);
 							CString sAction(MAKEINTRESOURCE(IDS_SVNACTION_DELETE));
-							SVNRev getrev = (sAction.Compare(changedlogpath->sAction)==0) ? rev2 : rev1;
+							SVNRev getrev = (sAction.Compare((*it)->sAction)==0) ? rev2 : rev1;
 
-							CProgressDlg progDlg;
-							progDlg.SetTitle(IDS_APPNAME);
 							CString sInfoLine;
 							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)getrev);
 							progDlg.SetLine(1, sInfoLine);
 							SetAndClearProgressInfo(&progDlg);
 							progDlg.ShowModeless(m_hWnd);
 
+							CTSVNPath tempfile = TargetPath;
+							if (changedpaths.size() > 1)
+							{
+								// if multiple items are selected, then the TargetPath
+								// points to a folder and we have to append the filename
+								// to save to to that folder.
+								CString sName = (*it)->sPath;
+								int slashpos = sName.ReverseFind('/');
+								if (slashpos >= 0)
+									sName = sName.Mid(slashpos);
+								tempfile.AppendPathString(sName);
+								// one problem here:
+								// a user could have selected multiple items which
+								// have the same filename but reside in different
+								// directories, e.g.
+								// /folder1/file1
+								// /folder2/file1
+								// in that case, the second 'file1' will overwrite
+								// the already saved 'file1'.
+								// 
+								// we could maybe find the common root of all selected
+								// items and then create subfolders to save those files
+								// there.
+								// But I think we should just leave it that way: to check
+								// out multiple items at once, the better way is still to
+								// use the export command from the top pane of the log dialog.
+							}
+							filepath = sRoot + (*it)->sPath;
 							if (!Cat(CTSVNPath(filepath), getrev, getrev, tempfile))
 							{
 								progDlg.Stop();
 								SetAndClearProgressInfo((HWND)NULL);
-								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								EnableOKButton();
 								theApp.DoWaitCursor(-1);
 								break;
 							}
-							progDlg.Stop();
-							SetAndClearProgressInfo((HWND)NULL);
-						}
-						delete [] pszFilters;
-						EnableOKButton();
-						theApp.DoWaitCursor(-1);
-					}
-					break;
-				case ID_OPENWITH:
-					bOpenWith = true;
-				case ID_OPEN:
-					{
-						DialogEnableWindow(IDOK, FALSE);
-						SetPromptApp(&theApp);
-						theApp.DoWaitCursor(1);
-						CString filepath;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
-						{
-							filepath = m_path.GetSVNPathString();
-						}
-						else
-						{
-							filepath = GetURLFromPath(m_path);
-							if (filepath.IsEmpty())
-							{
-								theApp.DoWaitCursor(-1);
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								TRACE(_T("could not retrieve the URL of the file!\n"));
-								EnableOKButton();
-								break;
-							}
-						}
-						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath;
-
-						CProgressDlg progDlg;
-						progDlg.SetTitle(IDS_APPNAME);
-						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev1);
-						progDlg.SetLine(1, sInfoLine);
-						SetAndClearProgressInfo(&progDlg);
-						progDlg.ShowModeless(m_hWnd);
-
-						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev1);
-						if (!Cat(CTSVNPath(filepath), SVNRev(rev1), rev1, tempfile))
-						{
-							progDlg.Stop();
-							SetAndClearProgressInfo((HWND)NULL);
-							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							EnableOKButton();
-							theApp.DoWaitCursor(-1);
-							break;
 						}
 						progDlg.Stop();
 						SetAndClearProgressInfo((HWND)NULL);
-						SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-						if (!bOpenWith)
+					}
+					EnableOKButton();
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_OPENWITH:
+				bOpenWith = true;
+			case ID_OPEN:
+				{
+					DialogEnableWindow(IDOK, FALSE);
+					SetPromptApp(&theApp);
+					theApp.DoWaitCursor(1);
+					CString filepath;
+					if (SVN::PathIsURL(m_path.GetSVNPathString()))
+					{
+						filepath = m_path.GetSVNPathString();
+					}
+					else
+					{
+						filepath = GetURLFromPath(m_path);
+						if (filepath.IsEmpty())
 						{
-							int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
-							if (ret <= HINSTANCE_ERROR)
-								bOpenWith = true;
+							theApp.DoWaitCursor(-1);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							TRACE(_T("could not retrieve the URL of the file!\n"));
+							EnableOKButton();
+							break;
 						}
-						if (bOpenWith)
-						{
-							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-							cmd += tempfile.GetWinPathString();
-							CAppUtils::LaunchApplication(cmd, NULL, false);
-						}
+					}
+					filepath = GetRepositoryRoot(CTSVNPath(filepath));
+					filepath += changedpaths[0];
+
+					CProgressDlg progDlg;
+					progDlg.SetTitle(IDS_APPNAME);
+					CString sInfoLine;
+					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev1);
+					progDlg.SetLine(1, sInfoLine);
+					SetAndClearProgressInfo(&progDlg);
+					progDlg.ShowModeless(m_hWnd);
+
+					CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev1);
+					if (!Cat(CTSVNPath(filepath), SVNRev(rev1), rev1, tempfile))
+					{
+						progDlg.Stop();
+						SetAndClearProgressInfo((HWND)NULL);
+						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						EnableOKButton();
 						theApp.DoWaitCursor(-1);
+						break;
 					}
-					break;
-				case ID_LOG:
+					progDlg.Stop();
+					SetAndClearProgressInfo((HWND)NULL);
+					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+					if (!bOpenWith)
 					{
-						DialogEnableWindow(IDOK, FALSE);
-						SetPromptApp(&theApp);
-						theApp.DoWaitCursor(1);
-						CString filepath;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
-						{
-							filepath = m_path.GetSVNPathString();
-						}
-						else
-						{
-							filepath = GetURLFromPath(m_path);
-							if (filepath.IsEmpty())
-							{
-								theApp.DoWaitCursor(-1);
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								TRACE(_T("could not retrieve the URL of the file!\n"));
-								EnableOKButton();
-								break;
-							}
-						}
-						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						filepath += changedpath;
-						svn_revnum_t logrev = rev1;
-						CString added, deleted;
-						deleted.LoadString(IDS_SVNACTION_DELETE);
-						if (changedlogpath->sAction.Compare(deleted)==0)
-						{
-							// if the item got deleted in this revision,
-							// fetch the log from the previous revision where it
-							// still existed.
-							logrev--;
-						}
-						CString sCmd;
-						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
-						
-						CAppUtils::LaunchApplication(sCmd, NULL, false);
-						EnableOKButton();
-						theApp.DoWaitCursor(-1);
+						int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+						if (ret <= HINSTANCE_ERROR)
+							bOpenWith = true;
 					}
-					break;
-				case ID_VIEWPATHREV:
+					if (bOpenWith)
 					{
-						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
-						SVNRev rev = pLogEntry->dwRev;
-						CString relurl = changedpath;
-						CString url = m_ProjectProperties.sWebViewerPathRev;
-						url.Replace(_T("%REVISION%"), rev.ToString());
-						url.Replace(_T("%PATH%"), relurl);
-						if (!url.IsEmpty())
-							ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+						cmd += tempfile.GetWinPathString();
+						CAppUtils::LaunchApplication(cmd, NULL, false);
 					}
-					break;
-				default:
-					break;
-				} // switch (cmd)
-			} // if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
+					EnableOKButton();
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_LOG:
+				{
+					DialogEnableWindow(IDOK, FALSE);
+					SetPromptApp(&theApp);
+					theApp.DoWaitCursor(1);
+					CString filepath;
+					if (SVN::PathIsURL(m_path.GetSVNPathString()))
+					{
+						filepath = m_path.GetSVNPathString();
+					}
+					else
+					{
+						filepath = GetURLFromPath(m_path);
+						if (filepath.IsEmpty())
+						{
+							theApp.DoWaitCursor(-1);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							TRACE(_T("could not retrieve the URL of the file!\n"));
+							EnableOKButton();
+							break;
+						}
+					}
+					filepath = GetRepositoryRoot(CTSVNPath(filepath));
+					filepath += changedpaths[0];
+					svn_revnum_t logrev = rev1;
+					CString added, deleted;
+					deleted.LoadString(IDS_SVNACTION_DELETE);
+					if (changedlogpaths[0]->sAction.Compare(deleted)==0)
+					{
+						// if the item got deleted in this revision,
+						// fetch the log from the previous revision where it
+						// still existed.
+						logrev--;
+					}
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
+
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
+					EnableOKButton();
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_VIEWPATHREV:
+				{
+					PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+					SVNRev rev = pLogEntry->dwRev;
+					CString relurl = changedpaths[0];
+					CString url = m_ProjectProperties.sWebViewerPathRev;
+					url.Replace(_T("%REVISION%"), rev.ToString());
+					url.Replace(_T("%PATH%"), relurl);
+					if (!url.IsEmpty())
+						ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+				}
+				break;
+			default:
+				break;
+			} // switch (cmd)
 		} // if (popup.CreatePopupMenu())
 	} // if (pWnd == &m_ChangedFileListCtrl) 
 //#endregion
