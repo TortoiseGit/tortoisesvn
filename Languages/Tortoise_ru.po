@@ -37,13 +37,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7825: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7877: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-27 15:54+0300\n"
+"PO-Revision-Date: 2006-10-30 10:46+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,7 @@ msgstr ""
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Poedit-Language: Russian\n"
 
 #: ID:10
 #: ID:126
@@ -4303,6 +4304,10 @@ msgstr ""
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "Выберите папку для запуска скрипта"
+
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Выберите папку, в которую будут сохранены выбранные файлы"
 
 #: ID:197
 msgid "Select hook script file"
