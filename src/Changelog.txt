@@ -141,6 +141,8 @@ Version 1.4.1
 - BUG: Browsing the repository from the merge/copy/... dialog with the
        "..." button next to an url combobox did not work for file:///
        urls with spaces in them. (Stefan)
+- BUG: The context menu entry "Select All" in the edit control in the
+       commit dialog did not work. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff

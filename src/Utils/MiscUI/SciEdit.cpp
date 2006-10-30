@@ -627,6 +627,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	}
 	CString sMenuItemText;
 	CMenu popup;
+	bool bRestoreCursor = true;
 	if (popup.CreatePopupMenu())
 	{
 		bool bCanUndo = !!Call(SCI_CANUNDO);
@@ -780,12 +781,14 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		{
 		case 0:
 			break;	// no command selected
+		case SCI_SELECTALL:
+			bRestoreCursor = false;
+			// fall through
 		case SCI_UNDO:
 		case SCI_REDO:
 		case SCI_CUT:
 		case SCI_COPY:
 		case SCI_PASTE:
-		case SCI_SELECTALL:
 			Call(cmd);
 			break;
 		case SCI_ADDWORD:
@@ -832,9 +835,12 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 #endif
 	}
-	// restore the anchor and cursor position
-	Call(SCI_SETCURRENTPOS, currentpos);
-	Call(SCI_SETANCHOR, anchor);
+	if (bRestoreCursor)
+	{
+		// restore the anchor and cursor position
+		Call(SCI_SETCURRENTPOS, currentpos);
+		Call(SCI_SETANCHOR, anchor);
+	}
 }
 
 bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
