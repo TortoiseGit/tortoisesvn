@@ -9,29 +9,47 @@ $v['url1']=variable_get('tsvn_sf_prefix', '');
 $v['url2']=variable_get('tsvn_sf_append', '');
 $v['flagpath']="/flags/world.small/";
 $v['devurl']='http://www.tortoisesvn.net/docs/nightly/';
+$v['relurl']='http://www.tortoisesvn.net/docs/release/';
 
 
-function print_langpack($i, $postat, $v, $w)
+function print_langpack($i, $postat, $v, $w, $b_release)
 {
-  
   $flagimg=$v['flagpath']."$postat[10].png";
-  
-  if ( ($postat[9] & "10") <> "0")   {
-   $t_ts="TortoiseSVN-".$v['release'].'-'.$postat[10].".pdf";
-   $t_tm="TortoiseMerge-".$v['release'].'-'.$postat[10].".pdf";
 
-   $relTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
-   $relTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
-   $devTSVN="<a href=\"".$v['devurl'].$t_ts."\">TSVN</a>";
-   $devTMerge="<a href=\"".$v['devurl'].$t_tm."\">TMerge</a>";
+  if ( (($postat[9] & "10") <> "0") || ($postat[10] == "gb") ) {
 
-   echo "<tr>";
-   echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</td>";
-   echo "<td>$relTSVN</td>";
-   echo "<td>$relTMerge</td>";
-   echo "<td>$devTSVN</td>";
-   echo "<td>$devTMerge</td>";
-   echo "</tr>";
+    if ($postat[10] == "gb") {
+      $m_cc = "en";
+      $m_cn = "English";
+    } else {
+      $m_cc = $postat[10];
+      $m_cn = $postat[11];
+    }
+
+    $ts_pdf="TortoiseSVN-".$v['release'].'-'.$m_cc.".pdf";
+    $tm_pdf="TortoiseMerge-".$v['release'].'-'.$m_cc.".pdf";
+    $ts_htm="TortoiseSVN_".$m_cc."/index.html";
+    $tm_htm="TortoiseMerge_".$m_cc."/index.html";
+
+    if ($b_release==TRUE) {
+      $pdfTSVN="<a href=\"".$v['url1'].$ts_pdf.$v['url2']."\">PDF</a>";
+      $htmTSVN="<a href=\"".$v['relurl'].$ts_htm."\">HTML</a>";
+      $pdfTMerge="<a href=\"".$v['url1'].$tm_pdf.$v['url2']."\">PDF</a>";
+      $htmTMerge="<a href=\"".$v['relurl'].$tm_htm."\">HTML</a>";
+    } else {
+      $pdfTSVN="<a href=\"".$v['devurl'].$ts_pdf."\">PDF</a>";
+      $htmTSVN="<a href=\"".$v['devurl'].$ts_htm."\">HTML</a>";
+      $pdfTMerge="<a href=\"".$v['devurl'].$tm_pdf."\">PDF</a>";
+      $htmTMerge="<a href=\"".$v['devurl'].$tm_htm."\">HTML</a>";
+    }
+
+    echo "<tr>";
+    echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$m_cn</td>";
+    echo "<td>$pdfTSVN</td>";
+    echo "<td>$htmTSVN</td>";
+    echo "<td>$pdfTMerge</td>";
+    echo "<td>$htmTMerge</td>";
+    echo "</tr>";
   }
 
 }
@@ -45,13 +63,7 @@ function print_langpack($i, $postat, $v, $w)
 <h1>The latest official release is <?php echo $v['release'] ?>.</h1>
 
 On this page you can download separate PDF versions of the TortoiseSVN documentation.
-
-<dl>
-<dt>Release version</dt>
-<dd>If you have TortoiseSVN installed, you can simply press the F1 key in any dialog to start up the help. That help is the same as the documentation you find here.</dd>
-<dt>Developer version</dt>
-<dd>Please note that these docs aren't updated on a daily basis but very irregularily.</dd>
-</dl>
+The manuals are also made available in multi page HTML format if you prefer to browse them online. 
 
 <?php
 
@@ -77,29 +89,44 @@ foreach ($TortoiseGUI as $key => $row) {
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
 
 ?>
-<p>
-<h2>Manuals</h2>
+<h1>Manuals (release version)</h1>
+If you have TortoiseSVN installed, you can simply press the F1 key in any dialog to start up the help. That help is the same as the documentation you find here.
 <div class="table">
 <table>
 <tr>
 <th class="lang">Country</th>
-<th class="lang" colspan="2">Release version (PDF)</th>
-<th class="lang" colspan="2">Developer version (PDF)</th>
+<th class="lang" colspan="2">TortoiseSVN</th>
+<th class="lang" colspan="2">TortoiseMerge</th>
 </tr>
-
 <?php
 $i=0;
 foreach ($TortoiseGUI as $key => $postat)
 {
   $i++;
-  if ($postat[8] == "0")
-    print_langpack($i, $postat, $v, $w);
+  print_langpack($i, $postat, $v, $w, TRUE);
 }
 ?>
-
 </table>
-</p>
+</div>
 
+<h1>Manuals (developer version)</h1>
+Please note that these docs aren't updated nightly but very irregularly.
+<div class="table">
+<table>
+<tr>
+<th class="lang">Country</th>
+<th class="lang" colspan="2">TortoiseSVN</th>
+<th class="lang" colspan="2">TortoiseMerge</th>
+</tr>
+<?php
+$i=0;
+foreach ($TortoiseGUI as $key => $postat)
+{
+  $i++;
+  print_langpack($i, $postat, $v, $w, FALSE);
+}
+?>
+</table>
 </div>
 
 <h1>Older Manuals</h1>
