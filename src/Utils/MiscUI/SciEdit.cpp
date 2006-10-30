@@ -635,7 +635,60 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		bool bCanPaste = !!Call(SCI_CANPASTE);
 		UINT uEnabledMenu = MF_STRING | MF_ENABLED;
 		UINT uDisabledMenu = MF_STRING | MF_GRAYED;
-		
+
+		// find the word under the cursor
+		CString sWord;		
+		if (pointpos)
+		{
+			// setting the cursor clears the selection
+			Call(SCI_SETANCHOR, pointpos);
+			Call(SCI_SETCURRENTPOS, pointpos);
+			sWord = GetWordUnderCursor();
+			// restore the selection
+			Call(SCI_SETSELECTIONSTART, selstart);
+			Call(SCI_SETSELECTIONEND, selend);
+		}
+		else
+			sWord = GetWordUnderCursor();
+		CStringA worda = CStringA(sWord);
+
+		int nCorrections = 1;
+		bool bSpellAdded = false;
+		// check if the word under the cursor is spelled wrong
+		if ((pChecker)&&(!worda.IsEmpty()))
+		{
+			char ** wlst;
+			// get the spell suggestions
+			int ns = pChecker->suggest(&wlst,worda);
+			if (ns > 0)
+			{
+				// add the suggestions to the context menu
+				for (int i=0; i < ns; i++) 
+				{
+					bSpellAdded = true;
+					CString sug = CString(wlst[i]);
+					popup.InsertMenu((UINT)-1, 0, nCorrections++, sug);
+					free(wlst[i]);
+				} 
+				free(wlst);
+			}
+		}
+		// only add a separator if spelling correction suggestions were added
+		if (bSpellAdded)
+			popup.AppendMenu(MF_SEPARATOR);
+
+		// also allow the user to add the word to the custom dictionary so
+		// it won't show up as misspelled anymore
+		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
+			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
+		{
+			sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
+			popup.AppendMenu(uEnabledMenu, SCI_ADDWORD, sMenuItemText);
+			// another separator
+			popup.AppendMenu(MF_SEPARATOR);
+		}
+
+		// add the 'default' entries
 		sMenuItemText.LoadString(IDS_SCIEDIT_UNDO);
 		popup.AppendMenu(bCanUndo ? uEnabledMenu : uDisabledMenu, SCI_UNDO, sMenuItemText);
 		sMenuItemText.LoadString(IDS_SCIEDIT_REDO);
@@ -657,76 +710,19 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 		popup.AppendMenu(MF_SEPARATOR);
 
+		int nCustoms = nCorrections;
 		// now add any custom context menus
-		int nCustoms = 1;
 		for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
 		{
 			CSciEditContextMenuInterface * pHandler = m_arContextHandlers.GetAt(handlerindex);
 			pHandler->InsertMenuItems(popup, nCustoms);
 		}
-		if (nCustoms > 1)
+		if (nCustoms > nCorrections)
 		{
 			// custom menu entries present, so add another separator
 			popup.AppendMenu(MF_SEPARATOR);
 		}
-		int menuid = nCustoms;
 
-		CString sWord;		
-		if (pointpos)
-		{
-			// setting the cursor clears the selection
-			Call(SCI_SETANCHOR, pointpos);
-			Call(SCI_SETCURRENTPOS, pointpos);
-			sWord = GetWordUnderCursor();
-			// restore the selection
-			Call(SCI_SETSELECTIONSTART, selstart);
-			Call(SCI_SETSELECTIONEND, selend);
-		}
-		else
-			sWord = GetWordUnderCursor();
-		CStringA worda = CStringA(sWord);
-		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
-			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
-		{
-			sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
-			popup.AppendMenu(uEnabledMenu, SCI_ADDWORD, sMenuItemText);
-		}
-
-		CMenu corrections;
-		corrections.CreatePopupMenu();
-		int nCorrections = nCustoms;
-		if ((pChecker)&&(!worda.IsEmpty()))
-		{
-			char ** wlst;
-			int ns = pChecker->suggest(&wlst,worda);
-			if (ns > 0)
-			{
-				for (int i=0; i < ns; i++) 
-				{
-					CString sug = CString(wlst[i]);
-					corrections.InsertMenu((UINT)-1, 0, menuid++, sug);
-					free(wlst[i]);
-				} 
-				free(wlst);
-			}
-
-			if ((ns > 0)&&(point.x >= 0))
-			{
-				sMenuItemText.LoadString(IDS_SPELLEDIT_CORRECTIONS);
-				popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, sMenuItemText);
-				nCorrections = ns;
-			}
-			else
-			{
-				sMenuItemText.LoadString(IDS_SPELLEDIT_NOCORRECTIONS);
-				popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
-			}
-		}
-		else
-		{
-			sMenuItemText.LoadString(IDS_SPELLEDIT_NOCORRECTIONS);
-			popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
-		}
 #if THESAURUS
 		// add found thesauri to submenu's
 		CMenu thesaurs;
@@ -749,7 +745,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					for (int j=0; j < pm->count; j++) 
 					{
 						CString sug = CString(pm->psyns[j]);
-						submenu->InsertMenu((UINT)-1, 0, menuid++, sug);
+						submenu->InsertMenu((UINT)-1, 0, nThesaurs++, sug);
 					}
 					thesaurs.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), CString(pm->defn));
 					pm++;
@@ -763,7 +759,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 #else
 				popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
 #endif
-				nThesaurs = menuid;
+				nThesaurs = nCustoms;
 			}
 			else
 			{
@@ -797,7 +793,17 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			CheckSpelling();
 			break;
 		default:
-			if (cmd < nCustoms)
+			if (cmd < nCorrections)
+			{
+				Call(SCI_SETANCHOR, pointpos);
+				Call(SCI_SETCURRENTPOS, pointpos);
+				GetWordUnderCursor(true);
+				CString temp;
+				popup.GetMenuString(cmd, temp, 0);
+				// setting the cursor clears the selection
+				Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
+			}
+			else if (cmd < (nCorrections+nCustoms))
 			{
 				for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
 				{
@@ -805,16 +811,6 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					if (pHandler->HandleMenuItemClick(cmd, this))
 						break;
 				}		
-			}
-			else if (cmd <= (nCorrections+nCustoms))
-			{
-				Call(SCI_SETANCHOR, pointpos);
-				Call(SCI_SETCURRENTPOS, pointpos);
-				GetWordUnderCursor(true);
-				CString temp;
-				corrections.GetMenuString(cmd, temp, 0);
-				// setting the cursor clears the selection
-				Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
 			}
 #if THESAURUS
 			else if (cmd <= (nThesaurs+nCorrections+nCustoms))
