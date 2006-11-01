@@ -41,6 +41,8 @@
        automatically rename the target. See issue #227 for details. (Stefan)
 - NEW: In the log dialog changed-files-list, it's possible to select
        multiple items for saving. See issue #281 for details. (Stefan)
+- NEW: Single items can be permanently removed from dropped down combo
+       boxes by pressing Shift-Delete. (Tobias Schäfer)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

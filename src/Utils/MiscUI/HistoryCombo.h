@@ -117,6 +117,12 @@ protected:
 	 */
 	virtual bool OnReturnKeyPressed() { return false; }
 
+	/**
+	 * Removes the selected item from the combo box and updates
+	 * the registry settings. Returns TRUE if successfull.
+	 */
+	BOOL RemoveSelectedItem();
+
 protected:
 	CStringArray m_arEntries;
 	CString m_sSection;

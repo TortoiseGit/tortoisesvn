@@ -50,9 +50,16 @@ BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
 {
 	if (pMsg->message == WM_KEYDOWN)
 	{
+		bool bShift = !!(GetKeyState(VK_SHIFT) & 0x8000);
 		int nVirtKey = (int) pMsg->wParam;
+		
 		if (nVirtKey == VK_RETURN)
 			return OnReturnKeyPressed();
+		else if (nVirtKey == VK_DELETE && bShift && GetDroppedState() )
+		{
+			RemoveSelectedItem();
+			return TRUE;
+		}
 	}
 
 	return CComboBoxEx::PreTranslateMessage(pMsg);
@@ -314,6 +321,53 @@ CString CHistoryCombo::GetString() const
 	return m_arEntries.GetAt(sel);
 }
 
+BOOL CHistoryCombo::RemoveSelectedItem()
+{
+	int nIndex = GetCurSel();
+	if (nIndex == CB_ERR)
+	{
+		return FALSE;
+	}
 
+	DeleteItem(nIndex);
+	m_arEntries.RemoveAt(nIndex);
 
+	if ( nIndex < GetCount() )
+	{
+		// index stays the same to select the
+		// next item after the item which has
+		// just been deleted
+	}
+	else
+	{
+		// the end of the list has been reached
+		// so we select the previous item
+		nIndex--;
+	}
 
+	if ( nIndex == -1 )
+	{
+		// The one and only item has just been
+		// deleted -> reset window text since
+		// there is no item to select
+		SetWindowText(_T(""));
+	}
+	else
+	{
+		SetCurSel(nIndex);
+	}
+
+	// Since the dialog might be cancelled we
+	// should now save the history. Before that
+	// set the selection to the first item so that
+	// the items will not be reordered and restore
+	// the selection after saving.
+	SetCurSel(0);
+	SaveHistory();
+	if ( nIndex != -1 )
+	{
+		SetCurSel(nIndex);
+	}
+
+	return TRUE;
+}
