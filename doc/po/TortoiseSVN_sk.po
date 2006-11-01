@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2005-10-28 23:20+0100\n"
+"PO-Revision-Date: 2006-10-30 00:22+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,-1,-1,177\n"
 
 #: source/TortoiseSVN_en.xml:4
 #: (title) source/TortoiseSVN_en.xml:2894
@@ -171,7 +170,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:144
 #: (title)
 msgid "TortoiseSVN is free!"
-msgstr ""
+msgstr "TortoiseMerge je volnešíritelný!"
 
 #: source/TortoiseSVN_en.xml:145
 #: (para)
@@ -181,7 +180,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:149
 #: (para)
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge je projekt s uvolneným kódom (\"Open Source\"). To znamená, že máte plný prístup ku zdrojovým kódom tohoto programu. Môžete ho prehliadať na tejto linke <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Uživateľ:guest, a prázdne heslo) Najaktuálnejšia verzia, ( na ktorej práve pracuejeme, ) je umiestnená pod <filename>/trunk/</filename> vydané verzie sú umiestnené pod <filename>/tags/</filename>."
 
 #: source/TortoiseSVN_en.xml:168
 #: (title)
@@ -195,8 +194,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:180
 #: (title)
+#, fuzzy
 msgid "Acknowledgments"
-msgstr ""
+msgstr "Poďakovania"
 
 #: source/TortoiseSVN_en.xml:183
 #: (term)
@@ -225,13 +225,15 @@ msgstr "Lübbe Onken"
 
 #: source/TortoiseSVN_en.xml:201
 #: (para)
+#, fuzzy
 msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
-msgstr ""
+msgstr "za nádherné ikonky, logo, vychytávanie chýb a starostlivosť o dokumenáciu"
 
 #: source/TortoiseSVN_en.xml:208
 #: (term)
+#, fuzzy
 msgid "The Subversion Book"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:210
 #: (para)
@@ -240,33 +242,36 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:217
 #: (term)
+#, fuzzy
 msgid "The Tigris Style project"
-msgstr ""
+msgstr "SVN štýl ukončenia riadkov"
 
 #: source/TortoiseSVN_en.xml:219
 #: (para)
+#, fuzzy
 msgid "for some of the styles which are reused in this documentation"
-msgstr ""
+msgstr "za niektoré štýly, ktoré sa požili v dokumenácií"
 
 #: source/TortoiseSVN_en.xml:225
 #: (term)
 msgid "Our Contributors"
-msgstr ""
+msgstr "Naši spolupracovníci"
 
 #: source/TortoiseSVN_en.xml:227
 #: (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr ""
+msgstr "za záplaty, hlásenia chýb a nápadov, a za pomoc iných, ktorý odpovedali na otázky v našich mailinglistoch"
 
 #: source/TortoiseSVN_en.xml:234
 #: (term)
 msgid "Our Donators"
-msgstr ""
+msgstr "Naši darcovia"
 
 #: source/TortoiseSVN_en.xml:236
 #: (para)
+#, fuzzy
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "za mnoho hodín dobrej hudby, ktoré nám poslali"
 
 #: source/TortoiseSVN_en.xml:247
 #: (title)
@@ -327,12 +332,13 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:1468
 #: source/TortoiseSVN_en.xml:2504
 msgid "Introduction"
-msgstr ""
+msgstr "Úvod"
 
 #: source/TortoiseSVN_en.xml:314
 #: (primary)
+#, fuzzy
 msgid "version control"
-msgstr ""
+msgstr "Aktuálna verzia:"
 
 #: source/TortoiseSVN_en.xml:317
 #: (para)
@@ -342,7 +348,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:331
 #: (title)
 msgid "What is TortoiseSVN?"
-msgstr ""
+msgstr "Čo je TortoiseSVN?"
 
 #: source/TortoiseSVN_en.xml:332
 #: (para)
@@ -357,7 +363,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:360
 #: (title)
 msgid "TortoiseSVN's History"
-msgstr ""
+msgstr "História TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:361
 #: (para)
@@ -376,8 +382,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:391
 #: (title)
+#, fuzzy
 msgid "TortoiseSVN's Features"
-msgstr ""
+msgstr "TortoiseSVN Switch..."
 
 #: source/TortoiseSVN_en.xml:392
 #: (para)
@@ -412,7 +419,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:427
 #: (term)
 msgid "Icon overlays"
-msgstr ""
+msgstr "Prekrývané ikony"
 
 #: source/TortoiseSVN_en.xml:429
 #: (para)
@@ -436,8 +443,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:452
 #: (term)
+#, fuzzy
 msgid "Directory versioning"
-msgstr ""
+msgstr "Získať a&dresár:"
 
 #: source/TortoiseSVN_en.xml:454
 #: (para)
@@ -446,8 +454,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:467
 #: (term)
+#, fuzzy
 msgid "Atomic commits"
-msgstr ""
+msgstr "Odovzdania podľa autorov"
 
 #: source/TortoiseSVN_en.xml:469
 #: (para)
@@ -456,8 +465,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:477
 #: (term)
+#, fuzzy
 msgid "Versioned metadata"
-msgstr ""
+msgstr "neverziované"
 
 #: source/TortoiseSVN_en.xml:479
 #: (para)
@@ -476,8 +486,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:508
 #: (term)
+#, fuzzy
 msgid "Consistent data handling"
-msgstr ""
+msgstr "Analyzovanie informácií o revíziách..."
 
 #: source/TortoiseSVN_en.xml:510
 #: (para)
@@ -646,8 +657,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:723
 #: (primary)
+#, fuzzy
 msgid "Subversion book"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:726
 #: (para)
@@ -668,12 +680,12 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:1255
 #: source/TortoiseSVN_en.xml:2822
 msgid "The Repository"
-msgstr ""
+msgstr "Úložisko"
 
 #: source/TortoiseSVN_en.xml:751
 #: (primary)
 msgid "repository"
-msgstr ""
+msgstr "úložisko"
 
 #: source/TortoiseSVN_en.xml:753
 #: (para)
@@ -707,8 +719,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:803
 #: (title)
+#, fuzzy
 msgid "The Problem of File-Sharing"
-msgstr ""
+msgstr "Vybrať 'diff' súbor "
 
 #: source/TortoiseSVN_en.xml:804
 #: (para)
@@ -717,8 +730,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:820
 #: (title)
+#, fuzzy
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "&Kopírovať do schránky"
 
 #: source/TortoiseSVN_en.xml:825
 #: (title) source/TortoiseSVN_en.xml:841
@@ -773,7 +787,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:928
 #: (primary) source/TortoiseSVN_en.xml:4221
 msgid "conflict"
-msgstr ""
+msgstr "konflikt"
 
 #: source/TortoiseSVN_en.xml:930
 #: (para)
@@ -807,18 +821,19 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:987
 #: (title)
+#, fuzzy
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Zväčš&iť\tCtrl-+"
 
 #: source/TortoiseSVN_en.xml:989
 #: (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "Pracovné kópie"
 
 #: source/TortoiseSVN_en.xml:991
 #: (primary)
 msgid "working copy"
-msgstr ""
+msgstr "pracovná kópia"
 
 #: source/TortoiseSVN_en.xml:993
 #: (para)
@@ -852,8 +867,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1041
 #: (title)
+#, fuzzy
 msgid "The Repository's Filesystem"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:1044
 #: (para)
@@ -867,8 +883,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1057
 #: (title)
+#, fuzzy
 msgid "Repository URLs"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:1058
 #: (para)
@@ -877,13 +894,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1066
 #: (title)
+#, fuzzy
 msgid "Repository Access URLs"
-msgstr ""
+msgstr "Prístup k %1 bol zamietnutý."
 
 #: source/TortoiseSVN_en.xml:1072
 #: (entry)
+#, fuzzy
 msgid "Schema"
-msgstr ""
+msgstr "%1 obsahuje nesprávnu schému."
 
 #: source/TortoiseSVN_en.xml:1073
 #: (entry)
@@ -939,8 +958,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1112
 #: (literal)
+#, fuzzy
 msgid "svn+ssh://"
-msgstr ""
+msgstr "&SSH klient:"
 
 #: source/TortoiseSVN_en.xml:1114
 #: (entry)
@@ -1017,12 +1037,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:1218
 #: (title)
 msgid "Revisions"
-msgstr ""
+msgstr "Revízie"
 
 #: source/TortoiseSVN_en.xml:1220
 #: (primary) source/TortoiseSVN_en.xml:7541
 msgid "revision"
-msgstr ""
+msgstr "revízia"
 
 #: source/TortoiseSVN_en.xml:1222
 #: (para)
@@ -1046,8 +1066,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1259
 #: (title)
+#, fuzzy
 msgid "Global Revision Numbers"
-msgstr ""
+msgstr "Zobraziť čís&la riadkov"
 
 #: source/TortoiseSVN_en.xml:1260
 #: (para)
@@ -1131,8 +1152,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1351
 #: (term)
+#, fuzzy
 msgid "Unchanged, and current"
-msgstr ""
+msgstr "Aktuálna verzia:"
 
 #: source/TortoiseSVN_en.xml:1353
 #: (para)
@@ -1141,8 +1163,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1364
 #: (term)
+#, fuzzy
 msgid "Locally changed, and current"
-msgstr ""
+msgstr "Rozdiely medzi %s, %s a %s, %s"
 
 #: source/TortoiseSVN_en.xml:1366
 #: (para)
@@ -1151,8 +1174,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1378
 #: (term)
+#, fuzzy
 msgid "Unchanged, and out-of-date"
-msgstr ""
+msgstr "Prosím zadajte dátum a/alebo čas."
 
 #: source/TortoiseSVN_en.xml:1380
 #: (para)
@@ -1171,8 +1195,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1411
 #: (title)
+#, fuzzy
 msgid "Summary"
-msgstr ""
+msgstr "Súhrn aktualizácie"
 
 #: source/TortoiseSVN_en.xml:1412
 #: (para)
@@ -1196,8 +1221,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1444
 #: (title)
+#, fuzzy
 msgid "Setting Up A Server"
-msgstr ""
+msgstr "&Povoliť Proxy Server"
 
 #: source/TortoiseSVN_en.xml:1446
 #: (para)
@@ -1211,8 +1237,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1466
 #: (title)
+#, fuzzy
 msgid "Apache Based Server"
-msgstr ""
+msgstr "&Povoliť Proxy Server"
 
 #: source/TortoiseSVN_en.xml:1470
 #: (primary)
@@ -1237,8 +1264,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1495
 #: (term)
+#, fuzzy
 msgid "Browsing The Repository"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:1497
 #: (para)
@@ -1249,7 +1277,7 @@ msgstr ""
 #: (term) source/TortoiseSVN_en.xml:3280
 #: (title)
 msgid "Authentication"
-msgstr ""
+msgstr "Authentifikácia"
 
 #: source/TortoiseSVN_en.xml:1509
 #: (para)
@@ -1318,8 +1346,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1610
 #: (title)
+#, fuzzy
 msgid "Installing Subversion"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:1614
 #: (para)
@@ -1333,8 +1362,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1632
 #: (primary) source/TortoiseSVN_en.xml:2001
+#, fuzzy
 msgid "mod_authz_svn"
-msgstr ""
+msgstr "SVN MIME typ"
 
 #: source/TortoiseSVN_en.xml:1634
 #: (para)
@@ -1364,7 +1394,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:9145
 #: (term)
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigurácia"
 
 #: source/TortoiseSVN_en.xml:1688
 #: (para)
@@ -1425,8 +1455,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1765
 #: (entry)
+#, fuzzy
 msgid "Setting"
-msgstr ""
+msgstr "Nastavenia vlastnosí..."
 
 #: source/TortoiseSVN_en.xml:1766
 #: (entry)
@@ -1440,8 +1471,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1774
 #: (systemitem)
+#, fuzzy
 msgid "http://MyServer/svn/"
-msgstr ""
+msgstr "SVN MIME typ"
 
 #: source/TortoiseSVN_en.xml:1772
 #: (entry)
@@ -1450,8 +1482,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1778
 #: (entry)
+#, fuzzy
 msgid "DAV svn"
-msgstr ""
+msgstr "SVN Autor"
 
 #: source/TortoiseSVN_en.xml:1779
 #: (entry)
@@ -1460,8 +1493,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1785
 #: (entry)
+#, fuzzy
 msgid "SVNListParentPath on"
-msgstr ""
+msgstr "Vyhľadanie zlyhalo na %1"
 
 #: source/TortoiseSVN_en.xml:1786
 #: (entry)
@@ -1470,13 +1504,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1792
 #: (entry)
+#, fuzzy
 msgid "SVNParentPath D:\\SVN"
-msgstr ""
+msgstr "SVN Autor"
 
 #: source/TortoiseSVN_en.xml:1795
 #: (filename)
+#, fuzzy
 msgid "D:\\SVN"
-msgstr ""
+msgstr "SVN"
 
 #: source/TortoiseSVN_en.xml:1793
 #: (entry)
@@ -1495,8 +1531,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1806
 #: (entry)
+#, fuzzy
 msgid "AuthName \"Subversion repositories\""
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:1807
 #: (entry)
@@ -1525,8 +1562,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1826
 #: (entry)
+#, fuzzy
 msgid "Require valid-user"
-msgstr ""
+msgstr "Certifikát vypršal. Platný do: %s"
 
 #: source/TortoiseSVN_en.xml:1827
 #: (entry)
@@ -1560,8 +1598,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1884
 #: (title)
+#, fuzzy
 msgid "Multiple Repositories"
-msgstr ""
+msgstr "(vybraných viacero cieĺov)"
 
 #: source/TortoiseSVN_en.xml:1889
 #: (primary)
@@ -1663,8 +1702,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1996
 #: (title)
+#, fuzzy
 msgid "Path-Based Authorization"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:1998
 #: (primary)
@@ -1820,8 +1860,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2182
 #: (title)
+#, fuzzy
 msgid "SSL and InternetExplorer"
-msgstr ""
+msgstr "a podporu vyvojárov"
 
 #: source/TortoiseSVN_en.xml:2183
 #: (para)
@@ -1855,13 +1896,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2242
 #: (title)
+#, fuzzy
 msgid "Multiple Authentication Sources"
-msgstr ""
+msgstr "Akt&ualizovať zo zdrojových kódov"
 
 #: source/TortoiseSVN_en.xml:2244
 #: (primary)
+#, fuzzy
 msgid "Multiple authentication"
-msgstr ""
+msgstr "&Uložiť autentifikáciu"
 
 #: source/TortoiseSVN_en.xml:2246
 #: (para)
@@ -2030,8 +2073,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2475
 #: (title)
+#, fuzzy
 msgid "Forcing SSL access"
-msgstr ""
+msgstr "Prístup k %1 bol zamietnutý."
 
 #: source/TortoiseSVN_en.xml:2476
 #: (para)
@@ -2057,8 +2101,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2502
 #: (title)
+#, fuzzy
 msgid "Svnserve Based Server"
-msgstr ""
+msgstr "&Povoliť Proxy Server"
 
 #: source/TortoiseSVN_en.xml:2508
 #: (para)
@@ -2097,8 +2142,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2561
 #: (title)
+#, fuzzy
 msgid "Running svnserve"
 msgstr ""
+"%1: %2\n"
+"Pokračovať v skripte?"
 
 #: source/TortoiseSVN_en.xml:2562
 #: (para)
@@ -2187,8 +2235,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2702
 #: (title)
+#, fuzzy
 msgid "Authentication with svnserve"
-msgstr ""
+msgstr "Porovnať s URL"
 
 #: source/TortoiseSVN_en.xml:2703
 #: (para)
@@ -2280,8 +2329,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2837
 #: (title)
+#, fuzzy
 msgid "Repository Creation"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:2838
 #: (para)
@@ -2295,13 +2345,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2852
 #: (primary) source/TortoiseSVN_en.xml:2893
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Vytvoriť zá&platu..."
 
 #: source/TortoiseSVN_en.xml:2853
 #: (secondary)
+#, fuzzy
 msgid "Command Line Client"
-msgstr ""
+msgstr "Parametre príkazového riadka TortoiseMerge"
 
 #: source/TortoiseSVN_en.xml:2857
 #: (para)
@@ -2330,8 +2382,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2891
 #: (title)
+#, fuzzy
 msgid "Creating The Repository With TortoiseSVN"
-msgstr ""
+msgstr "Porovná vybraný súbor so súborov v úložisku"
 
 #: source/TortoiseSVN_en.xml:2898
 #: (title)
@@ -2340,8 +2393,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2903
 #: (para)
+#, fuzzy
 msgid "Open the windows explorer"
-msgstr ""
+msgstr "Otvor obrazok..."
 
 #: source/TortoiseSVN_en.xml:2908
 #: (para)
@@ -2360,8 +2414,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2933
 #: (title)
+#, fuzzy
 msgid "Local Access to the Repository"
-msgstr ""
+msgstr "Importuje adresár do úložiska"
 
 #: source/TortoiseSVN_en.xml:2935
 #: (primary)
@@ -2370,8 +2425,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2938
 #: (primary)
+#, fuzzy
 msgid "UNC paths"
-msgstr ""
+msgstr "Zaradené cesty:"
 
 #: source/TortoiseSVN_en.xml:2940
 #: (para)
@@ -2395,13 +2451,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2979
 #: (title)
+#, fuzzy
 msgid "Repository Backup"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:2981
 #: (primary)
+#, fuzzy
 msgid "backup"
-msgstr ""
+msgstr "&Archivuj pôvodný súbor"
 
 #: source/TortoiseSVN_en.xml:2983
 #: (para)
@@ -2428,8 +2486,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3025
 #: (title)
+#, fuzzy
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Pripnuté (hook)skripty"
 
 #: source/TortoiseSVN_en.xml:3027
 #: (primary)
@@ -2454,13 +2513,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3064
 #: (title)
+#, fuzzy
 msgid "Checkout Links"
-msgstr ""
+msgstr "Získať a&dresár:"
 
 #: source/TortoiseSVN_en.xml:3066
 #: (primary)
+#, fuzzy
 msgid "checkout link"
-msgstr ""
+msgstr "Získať a&dresár:"
 
 #: source/TortoiseSVN_en.xml:3068
 #: (para)
@@ -2491,8 +2552,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3102
 #: (title)
+#, fuzzy
 msgid "Daily Use Guide"
-msgstr ""
+msgstr "(Použiť štandardný jazyk)"
 
 #: source/TortoiseSVN_en.xml:3106
 #: (para)
@@ -2511,8 +2573,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3132
 #: (para)
+#, fuzzy
 msgid "You should have installed TortoiseSVN already."
-msgstr ""
+msgstr "Už máte nainštalovanú aktuálnu verziu."
 
 #: source/TortoiseSVN_en.xml:3137
 #: (para)
@@ -2531,18 +2594,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3158
 #: (title)
+#, fuzzy
 msgid "Getting Started"
-msgstr ""
+msgstr "Získavam súbor %s"
 
 #: source/TortoiseSVN_en.xml:3160
 #: (title) source/TortoiseSVN_en.xml:4335
+#, fuzzy
 msgid "Icon Overlays"
-msgstr ""
+msgstr "Prekrývané ikony / Stĺpec stavu"
 
 #: source/TortoiseSVN_en.xml:3163
 #: (title) source/TortoiseSVN_en.xml:4344
+#, fuzzy
 msgid "Explorer showing icon overlays"
-msgstr ""
+msgstr "Prekrývané ikony / Stĺpec stavu"
 
 #: source/TortoiseSVN_en.xml:3161
 #: (para)
@@ -2551,13 +2617,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3174
 #: (title)
+#, fuzzy
 msgid "Context Menus"
-msgstr ""
+msgstr "Kaskádne kontextové menu"
 
 #: source/TortoiseSVN_en.xml:3176
 #: (primary)
+#, fuzzy
 msgid "context menu"
-msgstr ""
+msgstr "Kaskádne kontextové menu"
 
 #: source/TortoiseSVN_en.xml:3180
 #: (title)
@@ -2581,8 +2649,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3205
 #: (title) source/TortoiseSVN_en.xml:3905
+#, fuzzy
 msgid "Drag and Drop"
-msgstr ""
+msgstr "a podporu vyvojárov"
 
 #: source/TortoiseSVN_en.xml:3207
 #: (primary)
@@ -2596,14 +2665,16 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3213
 #: (primary)
+#, fuzzy
 msgid "right drag"
-msgstr ""
+msgstr "Pravý pohlad:"
 
 #: source/TortoiseSVN_en.xml:3216
 #: (primary) source/TortoiseSVN_en.xml:6347
 #: source/TortoiseSVN_en.xml:7447
+#, fuzzy
 msgid "copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: source/TortoiseSVN_en.xml:3220
 #: (title)
@@ -2617,8 +2688,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3230
 #: (title)
+#, fuzzy
 msgid "Common Shortcuts"
-msgstr ""
+msgstr "Klávesové skratky"
 
 #: source/TortoiseSVN_en.xml:3237
 #: (term)
@@ -2627,8 +2699,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3239
 #: (para)
+#, fuzzy
 msgid "Help, of course."
-msgstr ""
+msgstr "&Témy pomocníka"
 
 #: source/TortoiseSVN_en.xml:3245
 #: (term)
@@ -2643,7 +2716,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:3259
 #: (term)
 msgid "Ctrl-A"
-msgstr ""
+msgstr "Ctrl-A"
 
 #: source/TortoiseSVN_en.xml:3261
 #: (para)
@@ -2653,12 +2726,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:3269
 #: (term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #: source/TortoiseSVN_en.xml:3271
 #: (para)
+#, fuzzy
 msgid "... Copy the selected text."
-msgstr ""
+msgstr "Skopírovať vybrané riadky do schránky"
 
 #: source/TortoiseSVN_en.xml:3231
 #: (para)
@@ -2668,12 +2742,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:3282
 #: (primary)
 msgid "authentication"
-msgstr ""
+msgstr "autentifikácia"
 
 #: source/TortoiseSVN_en.xml:3288
 #: (title)
+#, fuzzy
 msgid "Authentication Dialog"
-msgstr ""
+msgstr "&Uložiť autentifikáciu"
 
 #: source/TortoiseSVN_en.xml:3296
 #: (para)
@@ -2718,18 +2793,19 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:3345
 #: (primary)
 msgid "import"
-msgstr ""
+msgstr "importovať"
 
 #: source/TortoiseSVN_en.xml:3348
 #: (primary) source/TortoiseSVN_en.xml:11356
 #: (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Úložisko"
 
 #: source/TortoiseSVN_en.xml:3352
 #: (title)
+#, fuzzy
 msgid "Repository Layout"
-msgstr ""
+msgstr "&Prezerať úložisko"
 
 #: source/TortoiseSVN_en.xml:3353
 #: (para)
@@ -2743,13 +2819,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3368
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-msgstr ""
+msgstr "Spojit vetvy do hlavného kmeňa"
 
 #: source/TortoiseSVN_en.xml:3373
 #: (para)
@@ -2771,8 +2847,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3385
 #: (para)
+#, fuzzy
 msgid "...or by project:"
-msgstr ""
+msgstr "Usporiadané podľa &adresárov"
 
 #: source/TortoiseSVN_en.xml:3388
 #: (screen)
@@ -2856,12 +2933,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11256
 #: (glossterm)
 msgid "Import"
-msgstr ""
+msgstr "Importovať"
 
 #: source/TortoiseSVN_en.xml:3490
 #: (primary)
+#, fuzzy
 msgid "temporary files"
-msgstr ""
+msgstr "pridané súbory"
 
 #: source/TortoiseSVN_en.xml:3496
 #: (para)
@@ -2880,8 +2958,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3524
 #: (title)
+#, fuzzy
 msgid "The Import dialog"
-msgstr ""
+msgstr "Importovať &správu"
 
 #: source/TortoiseSVN_en.xml:3513
 #: (para)
@@ -2910,13 +2989,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3555
 #: (title)
+#, fuzzy
 msgid "Special Files"
-msgstr ""
+msgstr "pridané súbory"
 
 #: source/TortoiseSVN_en.xml:3557
 #: (primary)
+#, fuzzy
 msgid "special files"
-msgstr ""
+msgstr "pridané súbory"
 
 #: source/TortoiseSVN_en.xml:3559
 #: (para)
@@ -2945,13 +3026,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3596
 #: (primary)
+#, fuzzy
 msgid "external repositories"
-msgstr ""
+msgstr "Externý program:"
 
 #: source/TortoiseSVN_en.xml:3599
 #: (primary)
+#, fuzzy
 msgid "externals"
-msgstr ""
+msgstr "Vynechať externé"
 
 #: source/TortoiseSVN_en.xml:3601
 #: (para)
@@ -3005,13 +3088,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3708
 #: (title)
+#, fuzzy
 msgid "Checking Out A Working Copy"
-msgstr ""
+msgstr "Získať pracovnú verziu z úložiska"
 
 #: source/TortoiseSVN_en.xml:3710
 #: (primary)
 msgid "checkout"
-msgstr ""
+msgstr "získať"
 
 #: source/TortoiseSVN_en.xml:3713
 #: (para)
@@ -3020,8 +3104,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3727
 #: (title)
+#, fuzzy
 msgid "The Checkout dialog"
-msgstr ""
+msgstr "Získať a&dresár:"
 
 #: source/TortoiseSVN_en.xml:3717
 #: (para)
@@ -3055,8 +3140,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3776
 #: (title)
+#, fuzzy
 msgid "Exporting"
-msgstr ""
+msgstr "Exportovanie..."
 
 #: source/TortoiseSVN_en.xml:3777
 #: (para)
@@ -3065,13 +3151,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3786
 #: (title)
+#, fuzzy
 msgid "Sending Your Changes To The Repository"
-msgstr ""
+msgstr "Odovzdať vaše zmeny do úložiska"
 
 #: source/TortoiseSVN_en.xml:3788
 #: (primary)
 msgid "commit"
-msgstr ""
+msgstr "odovzdať"
 
 #: source/TortoiseSVN_en.xml:3791
 #: (para)
@@ -3080,8 +3167,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3816
 #: (title)
+#, fuzzy
 msgid "The Commit dialog"
-msgstr ""
+msgstr "Odovzdať do:"
 
 #: source/TortoiseSVN_en.xml:3807
 #: (para)
@@ -3100,8 +3188,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3834
 #: (title)
+#, fuzzy
 msgid "Commit files or folders?"
-msgstr ""
+msgstr "Odstráni súbory, adresáre zo správy verzií"
 
 #: source/TortoiseSVN_en.xml:3835
 #: (para)
@@ -3160,8 +3249,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3935
 #: (title)
+#, fuzzy
 msgid "The Commit Dialog Spellchecker"
-msgstr ""
+msgstr "Znova otvo&riť odovzdávací dialog po zlihaní odovzdávania"
 
 #: source/TortoiseSVN_en.xml:3933
 #: (para)
@@ -3201,8 +3291,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3984
 #: (para)
+#, fuzzy
 msgid "Committing a new addition."
-msgstr ""
+msgstr "Nové meno prer %s"
 
 #: source/TortoiseSVN_en.xml:3990
 #: (term) source/TortoiseSVN_en.xml:4073
@@ -3223,8 +3314,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4000
 #: (para)
+#, fuzzy
 msgid "All other items."
-msgstr ""
+msgstr "Objekt bol pridaný vzdialene"
 
 #: source/TortoiseSVN_en.xml:3969
 #: (para)
@@ -3239,8 +3331,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4013
 #: (title)
+#, fuzzy
 msgid "Special Folder Properties"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:4014
 #: (para)
@@ -3264,8 +3357,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4036
 #: (primary) source/TortoiseSVN_en.xml:9615
+#, fuzzy
 msgid "update"
-msgstr ""
+msgstr "Aktualizovať"
 
 #: source/TortoiseSVN_en.xml:4040
 #: (title)
@@ -3344,8 +3438,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4178
 #: (title)
+#, fuzzy
 msgid "Multiple Files/Folders"
-msgstr ""
+msgstr "Zobraziť &neverziované súbory"
 
 #: source/TortoiseSVN_en.xml:4179
 #: (para)
@@ -3374,13 +3469,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4219
 #: (title)
+#, fuzzy
 msgid "Resolving Conflicts"
-msgstr ""
+msgstr "&Upraviť konflikty"
 
 #: source/TortoiseSVN_en.xml:4244
 #: (term)
+#, fuzzy
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "Vlož zoznam súborov"
 
 #: source/TortoiseSVN_en.xml:4246
 #: (para)
@@ -3389,8 +3486,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4255
 #: (term)
+#, fuzzy
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "Vlož zoznam súborov"
 
 #: source/TortoiseSVN_en.xml:4257
 #: (para)
@@ -3399,8 +3497,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4266
 #: (term)
+#, fuzzy
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "Vlož zoznam súborov"
 
 #: source/TortoiseSVN_en.xml:4268
 #: (para)
@@ -3441,13 +3540,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4325
 #: (title)
+#, fuzzy
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Získavam informácie z úložiska..."
 
 #: source/TortoiseSVN_en.xml:4327
 #: (primary) source/TortoiseSVN_en.xml:4486
 msgid "status"
-msgstr ""
+msgstr "stav"
 
 #: source/TortoiseSVN_en.xml:4329
 #: (para)
@@ -3546,8 +3646,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4457
 #: (primary)
+#, fuzzy
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Prekrývané ikony / Stĺpec stavu"
 
 #: source/TortoiseSVN_en.xml:4459
 #: (para)
@@ -3566,18 +3667,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4484
 #: (title)
+#, fuzzy
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Farby stavu a akcií"
 
 #: source/TortoiseSVN_en.xml:4489
 #: (primary)
+#, fuzzy
 msgid "modifications"
-msgstr ""
+msgstr "Skontrolovať zmeny"
 
 #: source/TortoiseSVN_en.xml:4493
 #: (title) source/TortoiseSVN_en.xml:10781
+#, fuzzy
 msgid "Check for Modifications"
-msgstr ""
+msgstr "Skontrolovať zmeny"
 
 #: source/TortoiseSVN_en.xml:4491
 #: (para)
@@ -3591,8 +3695,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4522
 #: (para)
+#, fuzzy
 msgid "Locally modified items."
-msgstr ""
+msgstr "Objekt bol pridaný vzdialene"
 
 #: source/TortoiseSVN_en.xml:4530
 #: (para)
@@ -3656,13 +3761,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4644
 #: (title)
+#, fuzzy
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Rozdiely súboru"
 
 #: source/TortoiseSVN_en.xml:4646
 #: (primary)
 msgid "diffing"
-msgstr ""
+msgstr "porovnávanie"
 
 #: source/TortoiseSVN_en.xml:4648
 #: (para)
@@ -3681,18 +3787,20 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4674
 #: (title)
+#, fuzzy
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "Vyhľadaj &správy..."
 
 #: source/TortoiseSVN_en.xml:4676
 #: (primary)
+#, fuzzy
 msgid "log"
-msgstr ""
+msgstr "Záznam-denník"
 
 #: source/TortoiseSVN_en.xml:4679
 #: (primary)
 msgid "history"
-msgstr ""
+msgstr "história"
 
 #: source/TortoiseSVN_en.xml:4682
 #: (para)
@@ -3731,8 +3839,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4726
 #: (title)
+#, fuzzy
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "Vyhľadaj &správy..."
 
 #: source/TortoiseSVN_en.xml:4732
 #: (para)
@@ -3741,8 +3850,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4737
 #: (para)
+#, fuzzy
 msgid "From the property page"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:4742
 #: (para)
@@ -3756,8 +3866,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4752
 #: (title)
+#, fuzzy
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Získavam informácie z úložiska..."
 
 #: source/TortoiseSVN_en.xml:4755
 #: (title)
@@ -3916,8 +4027,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4967
 #: (title)
+#, fuzzy
 msgid "Getting more log messages"
-msgstr ""
+msgstr "&Písmo správ denníka:"
 
 #: source/TortoiseSVN_en.xml:4973
 #: (para)
@@ -3976,8 +4088,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5041
 #: (primary)
+#, fuzzy
 msgid "edit log/author"
-msgstr ""
+msgstr "Uprav meno autora"
 
 #: source/TortoiseSVN_en.xml:5043
 #: (para)
@@ -4001,8 +4114,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5079
 #: (title)
+#, fuzzy
 msgid "Filtering Log Messages"
-msgstr ""
+msgstr "Vyhľadaj &správy..."
 
 #: source/TortoiseSVN_en.xml:5081
 #: (primary)
@@ -4026,13 +4140,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5108
 #: (title)
+#, fuzzy
 msgid "Statistical Information"
-msgstr ""
+msgstr "Získavam informácie..."
 
 #: source/TortoiseSVN_en.xml:5110
 #: (primary)
 msgid "statistics"
-msgstr ""
+msgstr "štatistiky"
 
 #: source/TortoiseSVN_en.xml:5112
 #: (para)
@@ -4041,8 +4156,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5121
 #: (title)
+#, fuzzy
 msgid "Statistics Page"
-msgstr ""
+msgstr "Stana vlastností"
 
 #: source/TortoiseSVN_en.xml:5122
 #: (para)
@@ -4106,13 +4222,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5191
 #: (title)
+#, fuzzy
 msgid "Viewing Differences"
-msgstr ""
+msgstr "Zobraziť &rozdiely"
 
 #: source/TortoiseSVN_en.xml:5193
 #: (primary)
 msgid "diff"
-msgstr ""
+msgstr "porovnať"
 
 #: source/TortoiseSVN_en.xml:5195
 #: (para)
@@ -4121,13 +4238,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5208
 #: (title)
+#, fuzzy
 msgid "File Differences"
-msgstr ""
+msgstr "Zobraziť &rozdiely"
 
 #: source/TortoiseSVN_en.xml:5211
 #: (term)
+#, fuzzy
 msgid "Local changes"
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: source/TortoiseSVN_en.xml:5213
 #: (para)
@@ -4136,8 +4255,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5225
 #: (term)
+#, fuzzy
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Prepnúť pracovnú  kópiu do inej vetvy / značky"
 
 #: source/TortoiseSVN_en.xml:5227
 #: (para)
@@ -4151,8 +4271,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5250
 #: (term)
+#, fuzzy
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Vytvo&r značku z revízie"
 
 #: source/TortoiseSVN_en.xml:5252
 #: (para)
@@ -4176,8 +4297,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5281
 #: (term)
+#, fuzzy
 msgid "All changes made in a commit"
-msgstr ""
+msgstr "Znova načíta súbory a vráti všetky vykonané zmeny"
 
 #: source/TortoiseSVN_en.xml:5283
 #: (para)
@@ -4186,8 +4308,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5297
 #: (term)
+#, fuzzy
 msgid "Difference between files"
-msgstr ""
+msgstr "Rozdiely medzi %s, %s a %s, %s"
 
 #: source/TortoiseSVN_en.xml:5299
 #: (para)
@@ -4206,8 +4329,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5332
 #: (term)
+#, fuzzy
 msgid "Difference with blame information"
-msgstr ""
+msgstr "Porovnať a &obviniť s pracovným základom"
 
 #: source/TortoiseSVN_en.xml:5334
 #: (para)
@@ -4216,8 +4340,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5343
 #: (term)
+#, fuzzy
 msgid "Difference between folders"
-msgstr ""
+msgstr "Vnoriť sa do neverziovaných adresárov"
 
 #: source/TortoiseSVN_en.xml:5345
 #: (para)
@@ -4226,23 +4351,26 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5357
 #: (title)
+#, fuzzy
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Porovnanie %s s %s"
 
 #: source/TortoiseSVN_en.xml:5359
 #: (primary)
 msgid "compare revisions"
-msgstr ""
+msgstr "porovnať revízie"
 
 #: source/TortoiseSVN_en.xml:5362
 #: (primary)
+#, fuzzy
 msgid "export changes"
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: source/TortoiseSVN_en.xml:5366
 #: (title)
+#, fuzzy
 msgid "The Compare Revisions Dialog"
-msgstr ""
+msgstr "Porovnať \"&HEAD\" revízií"
 
 #: source/TortoiseSVN_en.xml:5364
 #: (para)
@@ -4277,12 +4405,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5401
 #: (primary)
 msgid "image diff"
-msgstr ""
+msgstr "obrázkové porovnaie"
 
 #: source/TortoiseSVN_en.xml:5404
 #: (primary)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #: source/TortoiseSVN_en.xml:5406
 #: (para)
@@ -4291,8 +4419,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5413
 #: (title)
+#, fuzzy
 msgid "The image difference viewer"
-msgstr ""
+msgstr "Otvor obrazok..."
 
 #: source/TortoiseSVN_en.xml:5411
 #: (para)
@@ -4311,18 +4440,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5445
 #: (title)
+#, fuzzy
 msgid "External Diff/Merge Tools"
-msgstr ""
+msgstr "Rozšírené nastavenia rozdiely/zlúčenie"
 
 #: source/TortoiseSVN_en.xml:5447
 #: (primary)
+#, fuzzy
 msgid "diff tools"
-msgstr ""
+msgstr "Riadkový 'diff'"
 
 #: source/TortoiseSVN_en.xml:5450
 #: (primary)
+#, fuzzy
 msgid "merge tools"
-msgstr ""
+msgstr "TortoiseSVN Zlúčiť..."
 
 #: source/TortoiseSVN_en.xml:5452
 #: (para)
@@ -4341,8 +4473,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5472
 #: (term)
+#, fuzzy
 msgid "Perforce Merge"
-msgstr ""
+msgstr "TortoiseSVN Zlúčiť..."
 
 #: source/TortoiseSVN_en.xml:5474
 #: (para)
@@ -4371,8 +4504,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5513
 #: (term)
+#, fuzzy
 msgid "Beyond Compare"
-msgstr ""
+msgstr "&Porovnať revízie"
 
 #: source/TortoiseSVN_en.xml:5515
 #: (para)
@@ -4381,8 +4515,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5526
 #: (term)
+#, fuzzy
 msgid "Araxis Merge"
-msgstr ""
+msgstr "TortoiseSVN Zlúčiť..."
 
 #: source/TortoiseSVN_en.xml:5528
 #: (para)
@@ -4422,7 +4557,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5576
 #: (primary)
 msgid "add"
-msgstr ""
+msgstr "pridať"
 
 #: source/TortoiseSVN_en.xml:5581
 #: (title) source/TortoiseSVN_en.xml:5653
@@ -4451,8 +4586,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5616
 #: (para)
+#, fuzzy
 msgid "select the files you want to add"
-msgstr ""
+msgstr "Vyberte typ úložiska, ktorý chcete vytvoriť:"
 
 #: source/TortoiseSVN_en.xml:5621
 #: (para) source/TortoiseSVN_en.xml:5845
@@ -4476,13 +4612,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5646
 #: (title)
+#, fuzzy
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "Rozdiely medzi %s, %s a %s, %s"
 
 #: source/TortoiseSVN_en.xml:5648
 #: (primary)
 msgid "ignore"
-msgstr ""
+msgstr "ignorovať"
 
 #: source/TortoiseSVN_en.xml:5651
 #: (para)
@@ -4506,8 +4643,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5696
 #: (title)
+#, fuzzy
 msgid "The Global Ignore List"
-msgstr ""
+msgstr "Globálna šablóna &vylúčenia:"
 
 #: source/TortoiseSVN_en.xml:5697
 #: (para)
@@ -4516,8 +4654,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5710
 #: (title)
+#, fuzzy
 msgid "Ignoring Versioned Items"
-msgstr ""
+msgstr "Objekt bol pridaný vzdialene"
 
 #: source/TortoiseSVN_en.xml:5711
 #: (para)
@@ -4547,7 +4686,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5739
 #: (term)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: source/TortoiseSVN_en.xml:5741
 #: (para)
@@ -4602,22 +4741,23 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5803
 #: (primary)
 msgid "delete"
-msgstr ""
+msgstr "vymazať"
 
 #: source/TortoiseSVN_en.xml:5806
 #: (primary)
 msgid "remove"
-msgstr ""
+msgstr "odstrániť"
 
 #: source/TortoiseSVN_en.xml:5809
 #: (primary)
 msgid "rename"
-msgstr ""
+msgstr "premenovať"
 
 #: source/TortoiseSVN_en.xml:5812
 #: (primary)
+#, fuzzy
 msgid "move"
-msgstr ""
+msgstr "Opraviť presunutie"
 
 #: source/TortoiseSVN_en.xml:5820
 #: (title)
@@ -4671,8 +4811,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5908
 #: (title)
+#, fuzzy
 msgid "Commit the parent folder"
-msgstr ""
+msgstr "Otvoriť hlavný adresár"
 
 #: source/TortoiseSVN_en.xml:5909
 #: (para)
@@ -4726,13 +4867,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5971
 #: (para)
+#, fuzzy
 msgid "Update your working copy."
-msgstr ""
+msgstr "Označiť pracovnú kópiu ako %s"
 
 #: source/TortoiseSVN_en.xml:5965
 #: (para)
+#, fuzzy
 msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr ""
+msgstr "Rovnako ako <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:5977
 #: (para)
@@ -4741,18 +4884,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5978
 #: (para) source/TortoiseSVN_en.xml:5980
+#, fuzzy
 msgid "Commit the changes."
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: source/TortoiseSVN_en.xml:5979
 #: (para)
+#, fuzzy
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr ""
+msgstr "Zobrazené revízie: %ld (od revízie %ld do revízie %ld) - Vybrané revízie: %ld"
 
 #: source/TortoiseSVN_en.xml:5974
 #: (para)
+#, fuzzy
 msgid "Solution B) <placeholder-1/>"
-msgstr ""
+msgstr "Rovnako ako <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:5984
 #: (title)
@@ -4766,23 +4912,25 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5997
 #: (title)
+#, fuzzy
 msgid "Undo Changes"
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: source/TortoiseSVN_en.xml:5999
 #: (primary)
 msgid "revert"
-msgstr ""
+msgstr "vrátiť"
 
 #: source/TortoiseSVN_en.xml:6002
 #: (primary)
 msgid "undo"
-msgstr ""
+msgstr "späť"
 
 #: source/TortoiseSVN_en.xml:6017
 #: (title)
+#, fuzzy
 msgid "Revert dialog"
-msgstr ""
+msgstr "Vrátenie zlyhalo"
 
 #: source/TortoiseSVN_en.xml:6004
 #: (para)
@@ -4809,12 +4957,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11149
 #: (glossterm)
 msgid "Cleanup"
-msgstr ""
+msgstr "Vyčistiť"
 
 #: source/TortoiseSVN_en.xml:6042
 #: (primary)
 msgid "cleanup"
-msgstr ""
+msgstr "vyčistiť"
 
 #: source/TortoiseSVN_en.xml:6044
 #: (para)
@@ -4828,8 +4976,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6066
 #: (title)
+#, fuzzy
 msgid "Use Commit Timestamps"
-msgstr ""
+msgstr "Posledná odovzdaná revízia:"
 
 #: source/TortoiseSVN_en.xml:6067
 #: (para)
@@ -4838,13 +4987,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6077
 #: (title)
+#, fuzzy
 msgid "Project Settings"
-msgstr ""
+msgstr "Nastavenia Proxy"
 
 #: source/TortoiseSVN_en.xml:6079
 #: (primary)
 msgid "properties"
-msgstr ""
+msgstr "vlastnosti"
 
 #: source/TortoiseSVN_en.xml:6083
 #: (title)
@@ -4858,13 +5008,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6103
 #: (title)
+#, fuzzy
 msgid "Subversion Properties"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:6108
 #: (title)
+#, fuzzy
 msgid "Subversion property page"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:6106
 #: (para)
@@ -4878,8 +5030,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6135
 #: (title)
+#, fuzzy
 msgid "Adding properties"
-msgstr ""
+msgstr "Pridaj vlastnosť"
 
 #: source/TortoiseSVN_en.xml:6133
 #: (para)
@@ -4928,8 +5081,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6193
 #: (title)
+#, fuzzy
 msgid "Commit properties"
-msgstr ""
+msgstr "Pridaj vlastnosť"
 
 #: source/TortoiseSVN_en.xml:6194
 #: (para)
@@ -4938,8 +5092,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6200
 #: (title)
+#, fuzzy
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "Spravovať vlastnosti Subversion"
 
 #: source/TortoiseSVN_en.xml:6201
 #: (para)
@@ -4948,8 +5103,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6209
 #: (title)
+#, fuzzy
 msgid "Automatic property setting"
-msgstr ""
+msgstr "Vlastnosť revízie (revprop)"
 
 #: source/TortoiseSVN_en.xml:6210
 #: (para)
@@ -4958,8 +5114,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6218
 #: (title)
+#, fuzzy
 msgid "TortoiseSVN Properties"
-msgstr ""
+msgstr "Pridaj vlastnosť"
 
 #: source/TortoiseSVN_en.xml:6224
 #: (para)
@@ -5034,12 +5191,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6341
 #: (primary)
 msgid "branch"
-msgstr ""
+msgstr "vetva"
 
 #: source/TortoiseSVN_en.xml:6344
 #: (primary)
 msgid "tag"
-msgstr ""
+msgstr "značka"
 
 #: source/TortoiseSVN_en.xml:6350
 #: (para)
@@ -5058,13 +5215,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6376
 #: (title)
+#, fuzzy
 msgid "Creating a Branch or Tag"
-msgstr ""
+msgstr "Prepnúť do Vetvy / značky"
 
 #: source/TortoiseSVN_en.xml:6381
 #: (title)
+#, fuzzy
 msgid "The Branch/Tag Dialog"
-msgstr ""
+msgstr "Kopíruj (Vetvu / značku)"
 
 #: source/TortoiseSVN_en.xml:6377
 #: (para)
@@ -5084,8 +5243,9 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6412
 #: (term) source/TortoiseSVN_en.xml:10932
 #: (listitem)
+#, fuzzy
 msgid "HEAD revision in the repository"
-msgstr ""
+msgstr "&HEAD revízia úložiska"
 
 #: source/TortoiseSVN_en.xml:6414
 #: (para)
@@ -5095,7 +5255,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6423
 #: (term)
 msgid "Specific revision in the repository"
-msgstr ""
+msgstr "Špecifická revízia v úložisku"
 
 #: source/TortoiseSVN_en.xml:6425
 #: (para)
@@ -5106,7 +5266,7 @@ msgstr ""
 #: (term) source/TortoiseSVN_en.xml:10934
 #: (listitem)
 msgid "Working copy"
-msgstr ""
+msgstr "Pracovná kópia"
 
 #: source/TortoiseSVN_en.xml:6440
 #: (para)
@@ -5135,13 +5295,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6474
 #: (title)
+#, fuzzy
 msgid "To Checkout or to Switch..."
-msgstr ""
+msgstr "Prepnúť do Vetvy / značky"
 
 #: source/TortoiseSVN_en.xml:6477
 #: (primary)
 msgid "switch"
-msgstr ""
+msgstr "prepnúť"
 
 #: source/TortoiseSVN_en.xml:6479
 #: (para)
@@ -5170,8 +5331,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6536
 #: (title)
+#, fuzzy
 msgid "The Switch Dialog"
-msgstr ""
+msgstr "TortoiseSVN Switch..."
 
 #: source/TortoiseSVN_en.xml:6490
 #: (para)
@@ -5201,12 +5363,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6584
 #: (title)
 msgid "Merging"
-msgstr ""
+msgstr "Zlučovanie"
 
 #: source/TortoiseSVN_en.xml:6587
 #: (primary)
 msgid "merge"
-msgstr ""
+msgstr "zlúčiť"
 
 #: source/TortoiseSVN_en.xml:6589
 #: (para)
@@ -5235,8 +5397,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6632
 #: (title)
+#, fuzzy
 msgid "Merging a Range of Revisions"
-msgstr ""
+msgstr "Zobraziť &všetky revízie"
 
 #: source/TortoiseSVN_en.xml:6633
 #: (para)
@@ -5245,8 +5408,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6640
 #: (title)
+#, fuzzy
 msgid "The Merge Dialog"
-msgstr ""
+msgstr "TortoiseSVN Zlúčiť..."
 
 #: source/TortoiseSVN_en.xml:6653
 #: (para)
@@ -5371,8 +5535,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6873
 #: (title)
+#, fuzzy
 msgid "Previewing Merge Results"
-msgstr ""
+msgstr "Rozšírené nastavenia zlučovania"
 
 #: source/TortoiseSVN_en.xml:6874
 #: (para)
@@ -5396,8 +5561,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6903
 #: (title)
+#, fuzzy
 msgid "Ignoring Ancestry"
-msgstr ""
+msgstr "Zanedbať pôvod"
 
 #: source/TortoiseSVN_en.xml:6904
 #: (para)
@@ -5471,13 +5637,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7014
 #: (title)
+#, fuzzy
 msgid "Getting a Lock"
-msgstr ""
+msgstr "Je nutný zámok"
 
 #: source/TortoiseSVN_en.xml:7023
 #: (title)
+#, fuzzy
 msgid "The Locking Dialog"
-msgstr ""
+msgstr "Veľkosť a poloha dialogových okien"
 
 #: source/TortoiseSVN_en.xml:7015
 #: (para)
@@ -5491,8 +5659,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7049
 #: (title)
+#, fuzzy
 msgid "Releasing a Lock"
-msgstr ""
+msgstr "Je nutný zámok"
 
 #: source/TortoiseSVN_en.xml:7050
 #: (para)
@@ -5506,13 +5675,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7074
 #: (title)
+#, fuzzy
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "Stav vzdialeného textu"
 
 #: source/TortoiseSVN_en.xml:7077
 #: (title)
+#, fuzzy
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "Skontrolovať &zmeny"
 
 #: source/TortoiseSVN_en.xml:7075
 #: (para)
@@ -5551,8 +5722,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7127
 #: (title)
+#, fuzzy
 msgid "The Locking Hook Scripts"
-msgstr ""
+msgstr "Nastaviť pripnuté skripty"
 
 #: source/TortoiseSVN_en.xml:7128
 #: (para)
@@ -5582,7 +5754,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7156
 #: (primary)
 msgid "patch"
-msgstr ""
+msgstr "záplata"
 
 #: source/TortoiseSVN_en.xml:7160
 #: (para)
@@ -5596,8 +5768,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7176
 #: (title)
+#, fuzzy
 msgid "Creating a Patch File"
-msgstr ""
+msgstr "Vybrať 'diff' súbor "
 
 #: source/TortoiseSVN_en.xml:7177
 #: (para)
@@ -5606,8 +5779,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7191
 #: (title)
+#, fuzzy
 msgid "The Create Patch dialog"
-msgstr ""
+msgstr "V&ytvoriť úložisko tu..."
 
 #: source/TortoiseSVN_en.xml:7194
 #: (para)
@@ -5626,8 +5800,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7220
 #: (title)
+#, fuzzy
 msgid "Applying a Patch File"
-msgstr ""
+msgstr "Vybrať 'diff' súbor "
 
 #: source/TortoiseSVN_en.xml:7221
 #: (para)
@@ -5672,7 +5847,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7285
 #: (primary)
 msgid "blame"
-msgstr ""
+msgstr "obviniť"
 
 #: source/TortoiseSVN_en.xml:7288
 #: (primary)
@@ -5696,13 +5871,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7309
 #: (title)
+#, fuzzy
 msgid "Blame for Files"
-msgstr ""
+msgstr "Vyberte prehliadač súborov porovnania"
 
 #: source/TortoiseSVN_en.xml:7312
 #: (title)
+#, fuzzy
 msgid "The Annotate / Blame Dialog"
-msgstr ""
+msgstr "Rušenie TortoiseSVN Obviniť..."
 
 #: source/TortoiseSVN_en.xml:7310
 #: (para)
@@ -5722,7 +5899,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7335
 #: (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #: source/TortoiseSVN_en.xml:7333
 #: (para)
@@ -5753,7 +5930,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:7403
 #: (term)
 msgid "Blame Differences"
-msgstr ""
+msgstr "Obviniť rozdiely"
 
 #: source/TortoiseSVN_en.xml:7379
 #: (para)
@@ -5763,7 +5940,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7389
 #: (term)
 msgid "Blame Revisions"
-msgstr ""
+msgstr "Obviniť revízie"
 
 #: source/TortoiseSVN_en.xml:7391
 #: (para)
@@ -5777,8 +5954,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7419
 #: (term)
+#, fuzzy
 msgid "Compare and Blame with Working BASE"
-msgstr ""
+msgstr "Porovnať a &obviniť s pracovným základom"
 
 #: source/TortoiseSVN_en.xml:7421
 #: (para)
@@ -5793,7 +5971,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7439
 #: (title) source/TortoiseSVN_en.xml:7457
 msgid "The Repository Browser"
-msgstr ""
+msgstr "Prezeranie úložiska"
 
 #: source/TortoiseSVN_en.xml:7441
 #: (primary)
@@ -5802,8 +5980,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7444
 #: (primary)
+#, fuzzy
 msgid "server-side actions"
-msgstr ""
+msgstr "&Povoliť Proxy Server"
 
 #: source/TortoiseSVN_en.xml:7450
 #: (para)
@@ -5857,18 +6036,19 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7539
 #: (title)
+#, fuzzy
 msgid "Revision Graphs"
-msgstr ""
+msgstr "Spracuvava sa revízia %d z %d..."
 
 #: source/TortoiseSVN_en.xml:7544
 #: (primary)
 msgid "graph"
-msgstr ""
+msgstr "graf"
 
 #: source/TortoiseSVN_en.xml:7548
 #: (title)
 msgid "A Revision Graph"
-msgstr ""
+msgstr "Graf revízií"
 
 #: source/TortoiseSVN_en.xml:7546
 #: (para)
@@ -5888,7 +6068,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7578
 #: (term)
 msgid "Added file/folder"
-msgstr ""
+msgstr "Pridaný súbor/adresár"
 
 #: source/TortoiseSVN_en.xml:7580
 #: (para)
@@ -5898,7 +6078,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7587
 #: (term)
 msgid "Deleted file/folder"
-msgstr ""
+msgstr "Odstránený súbor/adresár"
 
 #: source/TortoiseSVN_en.xml:7589
 #: (para)
@@ -5907,8 +6087,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7596
 #: (term)
+#, fuzzy
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Analyzovanie informácií o revíziách..."
 
 #: source/TortoiseSVN_en.xml:7598
 #: (para)
@@ -5918,7 +6099,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7607
 #: (term)
 msgid "Normal file/folder"
-msgstr ""
+msgstr "Normálny súbor/adresár"
 
 #: source/TortoiseSVN_en.xml:7609
 #: (para)
@@ -5962,13 +6143,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7668
 #: (title)
+#, fuzzy
 msgid "Exporting a Subversion Working Copy"
-msgstr ""
+msgstr "Označiť pracovnú kópiu ako %s"
 
 #: source/TortoiseSVN_en.xml:7670
 #: (primary)
 msgid "export"
-msgstr ""
+msgstr "exportovať"
 
 #: source/TortoiseSVN_en.xml:7672
 #: (para)
@@ -5992,18 +6174,20 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7721
 #: (title)
+#, fuzzy
 msgid "Relocating a working copy"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:7723
 #: (primary)
 msgid "relocate"
-msgstr ""
+msgstr "premiestniť"
 
 #: source/TortoiseSVN_en.xml:7728
 #: (title)
+#, fuzzy
 msgid "The Relocate Dialog"
-msgstr ""
+msgstr "Upozornenie premiesnenia"
 
 #: source/TortoiseSVN_en.xml:7726
 #: (para)
@@ -6103,7 +6287,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7852
 #: (term)
 msgid "bugtraq:url"
-msgstr ""
+msgstr "bugtraq:url"
 
 #: source/TortoiseSVN_en.xml:7854
 #: (para)
@@ -6128,7 +6312,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7893
 #: (term)
 msgid "bugtraq:message"
-msgstr ""
+msgstr "bugtraq:message"
 
 #: source/TortoiseSVN_en.xml:7895
 #: (para)
@@ -6158,7 +6342,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7945
 #: (term)
 msgid "bugtraq:number"
-msgstr ""
+msgstr "bugtraq:number"
 
 #: source/TortoiseSVN_en.xml:7947
 #: (para)
@@ -6233,12 +6417,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8057
 #: (title)
 msgid "TortoiseSVN's Settings"
-msgstr ""
+msgstr "TortoiseSVN Nastavenia"
 
 #: source/TortoiseSVN_en.xml:8059
 #: (primary)
 msgid "settings"
-msgstr ""
+msgstr "nastavenia"
 
 #: source/TortoiseSVN_en.xml:8061
 #: (para)
@@ -6247,13 +6431,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8068
 #: (title)
+#, fuzzy
 msgid "General Settings"
-msgstr ""
+msgstr "Nastavenia Proxy"
 
 #: source/TortoiseSVN_en.xml:8070
 #: (primary)
 msgid "sounds"
-msgstr ""
+msgstr "zvuky"
 
 #: source/TortoiseSVN_en.xml:8074
 #: (title)
@@ -6268,7 +6453,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8082
 #: (term)
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #: source/TortoiseSVN_en.xml:8084
 #: (para)
@@ -6278,7 +6463,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8091
 #: (term)
 msgid "Automatically check for newer versions every week"
-msgstr ""
+msgstr "Každý týždeň automaticky kontrolovať nové verzie"
 
 #: source/TortoiseSVN_en.xml:8093
 #: (para)
@@ -6288,22 +6473,22 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8104
 #: (term)
 msgid "System sounds"
-msgstr ""
+msgstr "Systémové zvuky"
 
 #: source/TortoiseSVN_en.xml:8110
 #: (para)
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: source/TortoiseSVN_en.xml:8115
 #: (para)
 msgid "Notice"
-msgstr ""
+msgstr "Poznámka"
 
 #: source/TortoiseSVN_en.xml:8120
 #: (para)
 msgid "Warning"
-msgstr ""
+msgstr "Varovanie"
 
 #: source/TortoiseSVN_en.xml:8106
 #: (para)
@@ -6313,17 +6498,18 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8132
 #: (term)
 msgid "Global ignore pattern"
-msgstr ""
+msgstr "Globálna šablóna vylúčenia"
 
 #: source/TortoiseSVN_en.xml:8135
 #: (primary)
 msgid "exclude pattern"
-msgstr ""
+msgstr "vylúčené cesty"
 
 #: source/TortoiseSVN_en.xml:8138
 #: (primary)
+#, fuzzy
 msgid "global ignore"
-msgstr ""
+msgstr "Globálna šablóna &vylúčenia:"
 
 #: source/TortoiseSVN_en.xml:8140
 #: (para)
@@ -6347,8 +6533,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8178
 #: (term)
+#, fuzzy
 msgid "Set filedates to the \"last commit time\""
-msgstr ""
+msgstr "Nastaviť čas súborov na \"&čas posledného odovzdania\""
 
 #: source/TortoiseSVN_en.xml:8180
 #: (para)
@@ -6358,7 +6545,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8194
 #: (term)
 msgid "Subversion configuration file"
-msgstr ""
+msgstr "Konfiguračný súbor Subversion"
 
 #: source/TortoiseSVN_en.xml:8196
 #: (para)
@@ -6368,7 +6555,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8221
 #: (term)
 msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr ""
+msgstr "Použiť adresár \"_svn\" namiesto \".svn\""
 
 #: source/TortoiseSVN_en.xml:8223
 #: (para)
@@ -6387,8 +6574,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8246
 #: (title)
+#, fuzzy
 msgid "Look and Feel Settings"
-msgstr ""
+msgstr "Vzhľad a pocit::Farby"
 
 #: source/TortoiseSVN_en.xml:8250
 #: (title) source/TortoiseSVN_en.xml:8316
@@ -6407,8 +6595,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8280
 #: (term)
+#, fuzzy
 msgid "Unchecked (default)"
-msgstr ""
+msgstr "Obnoviť základné"
 
 #: source/TortoiseSVN_en.xml:8282
 #: (para)
@@ -6442,8 +6631,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8312
 #: (title)
+#, fuzzy
 msgid "Icon Overlay Settings"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:8314
 #: (para)
@@ -6463,7 +6653,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8343
 #: (term)
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 #: source/TortoiseSVN_en.xml:8345
 #: (para)
@@ -6483,7 +6673,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8372
 #: (term)
 msgid "Shell"
-msgstr ""
+msgstr "Šel"
 
 #: source/TortoiseSVN_en.xml:8374
 #: (para)
@@ -6503,7 +6693,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8394
 #: (term)
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 #: source/TortoiseSVN_en.xml:8396
 #: (para)
@@ -6557,8 +6747,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8453
 #: (title)
+#, fuzzy
 msgid "Icon Set Selection"
-msgstr ""
+msgstr "Vzhlad a pocit::Sada ikon"
 
 #: source/TortoiseSVN_en.xml:8457
 #: (title)
@@ -6572,8 +6763,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8466
 #: (title)
+#, fuzzy
 msgid "TortoiseSVN Dialog Settings 1"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:8470
 #: (title)
@@ -6587,8 +6779,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8478
 #: (term)
+#, fuzzy
 msgid "Default number of log messages"
-msgstr ""
+msgstr "Prednastavený &počet správ denníka"
 
 #: source/TortoiseSVN_en.xml:8480
 #: (para)
@@ -6597,8 +6790,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8494
 #: (term)
+#, fuzzy
 msgid "Font for log messages"
-msgstr ""
+msgstr "&Písmo správ denníka:"
 
 #: source/TortoiseSVN_en.xml:8496
 #: (para)
@@ -6607,8 +6801,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8505
 #: (term)
+#, fuzzy
 msgid "Short date / time format in log messages"
-msgstr ""
+msgstr "Krátky formát &dátumu/času v správach denníka"
 
 #: source/TortoiseSVN_en.xml:8507
 #: (para)
@@ -6617,8 +6812,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8514
 #: (term)
+#, fuzzy
 msgid "Progress Dialog"
-msgstr ""
+msgstr "Veľkosť a poloha dialogových okien"
 
 #: source/TortoiseSVN_en.xml:8516
 #: (para)
@@ -6647,8 +6843,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8562
 #: (term)
+#, fuzzy
 msgid "Use URL of WC as the default \"From:\" URL"
-msgstr ""
+msgstr "Použiť URL adresu &pracovnej kópie ako predvolenú pre \"Z:\" URL"
 
 #: source/TortoiseSVN_en.xml:8564
 #: (para)
@@ -6657,8 +6854,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8578
 #: (title)
+#, fuzzy
 msgid "TortoiseSVN Dialog Settings 2"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:8581
 #: (title)
@@ -6668,7 +6866,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8587
 #: (term)
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Vnoriť sa do neverziovaných adresárov"
 
 #: source/TortoiseSVN_en.xml:8589
 #: (para)
@@ -6678,7 +6876,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8603
 #: (term)
 msgid "Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "Použiť automatické doplňovanie ciest súborov a kľúčových slov"
 
 #: source/TortoiseSVN_en.xml:8605
 #: (para)
@@ -6687,8 +6885,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8615
 #: (term)
+#, fuzzy
 msgid "Timeout in seconds to stop the autocompletion parsing"
-msgstr ""
+msgstr "Časový limi&t pre analýzu automatického doplňovania"
 
 #: source/TortoiseSVN_en.xml:8617
 #: (para)
@@ -6697,8 +6896,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8626
 #: (term)
+#, fuzzy
 msgid "Only use spellchecker when tsvn:projectlanguage is set"
-msgstr ""
+msgstr "Použiť kontrolu &pravopisu iba keď nastavený parameter tsvn:projectlanguage"
 
 #: source/TortoiseSVN_en.xml:8628
 #: (para)
@@ -6708,7 +6908,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8636
 #: (term)
 msgid "Max. items to keep in the log message history"
-msgstr ""
+msgstr "Maximálny počet záznamov, ktoré majú byť uchované v pamäti správ"
 
 #: source/TortoiseSVN_en.xml:8638
 #: (para)
@@ -6727,8 +6927,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8660
 #: (term)
+#, fuzzy
 msgid "Contact the repository on startup"
-msgstr ""
+msgstr "&Pripojiť uložisko pri spustení"
 
 #: source/TortoiseSVN_en.xml:8662
 #: (para)
@@ -6738,7 +6939,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8672
 #: (term)
 msgid "Sort items numerically"
-msgstr ""
+msgstr "Usporiadať číselne"
 
 #: source/TortoiseSVN_en.xml:8674
 #: (para)
@@ -6747,8 +6948,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8686
 #: (title)
+#, fuzzy
 msgid "TortoiseSVN Colour Settings"
-msgstr ""
+msgstr "Panel nastavenia farieb"
 
 #: source/TortoiseSVN_en.xml:8690
 #: (title)
@@ -6762,8 +6964,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8698
 #: (term)
+#, fuzzy
 msgid "Possible or real conflict / obstructed"
-msgstr ""
+msgstr "možné alebo skutočné konflikty / prekážky"
 
 #: source/TortoiseSVN_en.xml:8700
 #: (para)
@@ -6778,17 +6981,19 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8711
 #: (term)
 msgid "Added files"
-msgstr ""
+msgstr "Pridané súbory"
 
 #: source/TortoiseSVN_en.xml:8713
 #: (para)
+#, fuzzy
 msgid "Items added to the repository."
-msgstr ""
+msgstr "Importuje adresár do úložiska"
 
 #: source/TortoiseSVN_en.xml:8719
 #: (term)
+#, fuzzy
 msgid "Missing / deleted / replaced"
-msgstr ""
+msgstr "chýbajúce / zmazené / nahradené"
 
 #: source/TortoiseSVN_en.xml:8721
 #: (para)
@@ -6798,7 +7003,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8729
 #: (term)
 msgid "Merged"
-msgstr ""
+msgstr "Zlúčené"
 
 #: source/TortoiseSVN_en.xml:8731
 #: (para)
@@ -6807,8 +7012,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8738
 #: (term)
+#, fuzzy
 msgid "Modified / copied"
-msgstr ""
+msgstr "zmenené / skopírované"
 
 #: source/TortoiseSVN_en.xml:8740
 #: (para)
@@ -6818,7 +7024,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8748
 #: (term)
 msgid "Deleted node"
-msgstr ""
+msgstr "Vymazaný uzol"
 
 #: source/TortoiseSVN_en.xml:8750
 #: (para)
@@ -6828,7 +7034,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8756
 #: (term)
 msgid "Added node"
-msgstr ""
+msgstr "Pridaný uzlol"
 
 #: source/TortoiseSVN_en.xml:8758
 #: (para)
@@ -6838,7 +7044,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8765
 #: (term)
 msgid "Renamed node"
-msgstr ""
+msgstr "Premenovaný uzol"
 
 #: source/TortoiseSVN_en.xml:8767
 #: (para)
@@ -6848,7 +7054,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8773
 #: (term)
 msgid "Replaced node"
-msgstr ""
+msgstr "Nahradený uzol"
 
 #: source/TortoiseSVN_en.xml:8775
 #: (para)
@@ -6857,13 +7063,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8786
 #: (title)
+#, fuzzy
 msgid "Network Settings"
-msgstr ""
+msgstr "Nastavenia Proxy"
 
 #: source/TortoiseSVN_en.xml:8788
 #: (primary)
+#, fuzzy
 msgid "proxy server"
-msgstr ""
+msgstr "&Povoliť Proxy Server"
 
 #: source/TortoiseSVN_en.xml:8792
 #: (title)
@@ -6892,8 +7100,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8827
 #: (title)
+#, fuzzy
 msgid "External Program Settings"
-msgstr ""
+msgstr "Vyhľadaj externý porovnávací program"
 
 #: source/TortoiseSVN_en.xml:8830
 #: (title)
@@ -6912,13 +7121,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8843
 #: (title)
+#, fuzzy
 msgid "Diff Viewer"
-msgstr ""
+msgstr "Externý program::Prezerač rozdielov"
 
 #: source/TortoiseSVN_en.xml:8856
 #: (term) source/TortoiseSVN_en.xml:8942
+#, fuzzy
 msgid "%base"
-msgstr ""
+msgstr "základ"
 
 #: source/TortoiseSVN_en.xml:8858
 #: (para)
@@ -6937,8 +7148,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8872
 #: (term) source/TortoiseSVN_en.xml:8959
+#, fuzzy
 msgid "%mine"
-msgstr ""
+msgstr "Moje"
 
 #: source/TortoiseSVN_en.xml:8874
 #: (para)
@@ -6987,8 +7199,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8934
 #: (title)
+#, fuzzy
 msgid "Merge Tool"
-msgstr ""
+msgstr "Externý program::Spájací nástroj"
 
 #: source/TortoiseSVN_en.xml:8944
 #: (para)
@@ -7002,8 +7215,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8975
 #: (term)
+#, fuzzy
 msgid "%theirs"
-msgstr ""
+msgstr "Ich"
 
 #: source/TortoiseSVN_en.xml:8977
 #: (para)
@@ -7022,8 +7236,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8991
 #: (term)
+#, fuzzy
 msgid "%merged"
-msgstr ""
+msgstr "Zlúčené"
 
 #: source/TortoiseSVN_en.xml:8993
 #: (para)
@@ -7061,8 +7276,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9027
 #: (title)
+#, fuzzy
 msgid "Diff/Merge Advanced Settings"
-msgstr ""
+msgstr "Rozšírené nastavenia rozdiely/zlúčenie"
 
 #: source/TortoiseSVN_en.xml:9031
 #: (title)
@@ -7081,8 +7297,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9046
 #: (title)
+#, fuzzy
 msgid "Unified Diff Viewer"
-msgstr ""
+msgstr "Extrerný program::Prezerač unifikovaného porovnania"
 
 #: source/TortoiseSVN_en.xml:9048
 #: (para)
@@ -7096,8 +7313,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9073
 #: (title)
+#, fuzzy
 msgid "Saved Data Settings"
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:9076
 #: (title)
@@ -7112,7 +7330,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9085
 #: (term)
 msgid "URL history"
-msgstr ""
+msgstr "História URL"
 
 #: source/TortoiseSVN_en.xml:9087
 #: (para)
@@ -7122,7 +7340,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9097
 #: (term)
 msgid "Log messages"
-msgstr ""
+msgstr "Správy denníka"
 
 #: source/TortoiseSVN_en.xml:9099
 #: (para)
@@ -7132,7 +7350,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9107
 #: (term)
 msgid "Dialog sizes and positions"
-msgstr ""
+msgstr "Veľkosť a poloha dialogových okien"
 
 #: source/TortoiseSVN_en.xml:9109
 #: (para)
@@ -7142,7 +7360,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9116
 #: (term)
 msgid "Authentication data"
-msgstr ""
+msgstr "Auhentifikáčné data"
 
 #: source/TortoiseSVN_en.xml:9118
 #: (para)
@@ -7156,8 +7374,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9135
 #: (title)
+#, fuzzy
 msgid "Registry Settings"
-msgstr ""
+msgstr "Nastavenia Proxy"
 
 #: source/TortoiseSVN_en.xml:9137
 #: (primary)
@@ -7176,8 +7395,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9156
 #: (term)
+#, fuzzy
 msgid "Cache Tray Icon"
-msgstr ""
+msgstr "Prebuduj zásobu ikonky pre šel."
 
 #: source/TortoiseSVN_en.xml:9158
 #: (para)
@@ -7186,18 +7406,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9170
 #: (title)
+#, fuzzy
 msgid "Subversion Working Folders"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:9172
 #: (primary)
+#, fuzzy
 msgid ".svn folder"
-msgstr ""
+msgstr "Pridaj &adresár..."
 
 #: source/TortoiseSVN_en.xml:9175
 #: (primary)
+#, fuzzy
 msgid "_svn folder"
-msgstr ""
+msgstr "Pridaj &adresár..."
 
 #: source/TortoiseSVN_en.xml:9177
 #: (para)
@@ -7222,27 +7445,29 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9209
 #: (title)
 msgid "Wishlist"
-msgstr ""
+msgstr "Zoznam prianí"
 
 #: source/TortoiseSVN_en.xml:9210
 #: (para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
-msgstr ""
+msgstr "Aj keď TortoiseSVN a TortoiseMerge sú zdarma, môžete pomôcť vývojárom poslaním záplaty, či aktívne prispievať do vývoja. Takisto môžete pomôcť vývojárom povzbudenín pri nekonečných hodinách, ktoré trávime pred našimi počítačmi."
 
 #: source/TortoiseSVN_en.xml:9216
 #: (para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr ""
+msgstr "Pri práci na TortoiseSVN radi počúvame hudbu. A keďže trávime veľa hodín na projekte potrebujeme <emphasis>množtvo</emphasis> hudby. Preto sme zostavili zoznam prianí s našimi obľúbenými hudobnými CD a DVD: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Prosím pozrite aj zoznam lúdí, ktorí prispeli do projektu poslaním záplaty, alebo prekladov (napr. tento preklad má nasvedomí Oto BREZINA ;) - poznámka prekladateľa)."
 
 #: source/TortoiseSVN_en.xml:9230
 #: (title)
+#, fuzzy
 msgid "The SubWCRev Program"
-msgstr ""
+msgstr "Ukončiť program"
 
 #: source/TortoiseSVN_en.xml:9232
 #: (primary)
+#, fuzzy
 msgid "version extraction"
-msgstr ""
+msgstr "Aktuálna verzia:"
 
 #: source/TortoiseSVN_en.xml:9235
 #: (para)
@@ -7251,8 +7476,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9249
 #: (title)
+#, fuzzy
 msgid "The SubWCRev Command Line"
-msgstr ""
+msgstr "Parametre príkazového riadka TortoiseMerge"
 
 #: source/TortoiseSVN_en.xml:9250
 #: (para)
@@ -7279,21 +7505,22 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9287
 #: (title) source/TortoiseSVN_en.xml:9356
+#, fuzzy
 msgid "List of available command line switches"
-msgstr ""
+msgstr "Zoznam parametrov príkazového riadka"
 
 #: source/TortoiseSVN_en.xml:9293
 #: (entry) source/TortoiseSVN_en.xml:10944
 #: (title) source/TortoiseSVN_en.xml:11432
 #: (glossterm)
 msgid "Switch"
-msgstr ""
+msgstr "Prepnúť"
 
 #: source/TortoiseSVN_en.xml:9294
 #: (entry) source/TortoiseSVN_en.xml:9363
 #: source/TortoiseSVN_en.xml:10289
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: source/TortoiseSVN_en.xml:9299
 #: (entry)
@@ -7534,8 +7761,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9525
 #: (primary)
+#, fuzzy
 msgid "moving"
-msgstr ""
+msgstr "Moving %s"
 
 #: source/TortoiseSVN_en.xml:9527
 #: (para)
@@ -7555,7 +7783,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9561
 #: (primary)
 msgid "log message"
-msgstr ""
+msgstr "správa denníka"
 
 #: source/TortoiseSVN_en.xml:9563
 #: (para)
@@ -7564,8 +7792,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9569
 #: (title)
+#, fuzzy
 msgid "Hook-script on the server"
-msgstr ""
+msgstr "Vybrať  súbor hookskriptu"
 
 #: source/TortoiseSVN_en.xml:9570
 #: (para)
@@ -7584,8 +7813,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9596
 #: (title)
+#, fuzzy
 msgid "Project properties"
-msgstr ""
+msgstr "Pridaj vlastnosť"
 
 #: source/TortoiseSVN_en.xml:9597
 #: (para)
@@ -7664,8 +7894,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9708
 #: (title)
+#, fuzzy
 msgid "Use the merge dialog"
-msgstr ""
+msgstr "Rozšírené nastavenia zlučovania"
 
 #: source/TortoiseSVN_en.xml:9709
 #: (para)
@@ -7699,8 +7930,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9765
 #: (title)
+#, fuzzy
 msgid "Use svndumpfilter"
-msgstr ""
+msgstr "(Použiť štandardný jazyk)"
 
 #: source/TortoiseSVN_en.xml:9766
 #: (para)
@@ -7719,8 +7951,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9790
 #: (primary)
+#, fuzzy
 msgid "compare files"
-msgstr ""
+msgstr "pridané súbory"
 
 #: source/TortoiseSVN_en.xml:9792
 #: (para)
@@ -7754,8 +7987,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9853
 #: (title)
+#, fuzzy
 msgid "Use svn:externals"
-msgstr ""
+msgstr "Použiť adresár \"_svn\" namiesto \".svn\""
 
 #: source/TortoiseSVN_en.xml:9854
 #: (para)
@@ -7769,8 +8003,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9883
 #: (title)
+#, fuzzy
 msgid "Use a nested working copy"
-msgstr ""
+msgstr "Označiť pracovnú kópiu ako %s"
 
 #: source/TortoiseSVN_en.xml:9884
 #: (para)
@@ -7789,8 +8024,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9905
 #: (title)
+#, fuzzy
 msgid "Use a relative location"
-msgstr ""
+msgstr "(Použiť štandardný jazyk)"
 
 #: source/TortoiseSVN_en.xml:9906
 #: (para)
@@ -7820,8 +8056,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9949
 #: (title)
+#, fuzzy
 msgid "Create a shortcut to a repository"
-msgstr ""
+msgstr "Importuje adresár do úložiska"
 
 #: source/TortoiseSVN_en.xml:9951
 #: (primary)
@@ -7928,14 +8165,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10080
 #: (primary)
+#, fuzzy
 msgid "group policies"
-msgstr ""
+msgstr "<quote>Group policy object</quote> Objekt skupinovej politiky"
 
 #: source/TortoiseSVN_en.xml:10083
 #: (primary) source/TortoiseSVN_en.xml:11240
 #: (glossterm)
 msgid "GPO"
-msgstr ""
+msgstr "GPO"
 
 #: source/TortoiseSVN_en.xml:10085
 #: (para)
@@ -7954,13 +8192,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10109
 #: (title)
+#, fuzzy
 msgid "Redirect the upgrade check"
-msgstr ""
+msgstr "Skontoluj aktualizácie"
 
 #: source/TortoiseSVN_en.xml:10111
 #: (primary)
+#, fuzzy
 msgid "upgrade check"
-msgstr ""
+msgstr "Skontroluj úložisko"
 
 #: source/TortoiseSVN_en.xml:10113
 #: (para)
@@ -7969,8 +8209,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10119
 #: (title)
+#, fuzzy
 msgid "The upgrade dialog"
-msgstr ""
+msgstr "Veľkosť a poloha dialogových okien"
 
 #: source/TortoiseSVN_en.xml:10122
 #: (para)
@@ -8012,8 +8253,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10175
 #: (title)
+#, fuzzy
 msgid "Automating TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN Switch..."
 
 #: source/TortoiseSVN_en.xml:10177
 #: (para)
@@ -8027,18 +8269,19 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10195
 #: (title) source/TortoiseSVN_en.xml:10636
+#, fuzzy
 msgid "TortoiseSVN Commands"
-msgstr ""
+msgstr "TortoiseSVN Switch..."
 
 #: source/TortoiseSVN_en.xml:10197
 #: (primary)
 msgid "automation"
-msgstr ""
+msgstr "automatizácia"
 
 #: source/TortoiseSVN_en.xml:10200
 #: (primary)
 msgid "command line"
-msgstr ""
+msgstr "príkazový riadok"
 
 #: source/TortoiseSVN_en.xml:10202
 #: (para)
@@ -8102,13 +8345,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10282
 #: (title)
+#, fuzzy
 msgid "List of available commands and options"
-msgstr ""
+msgstr "Zoznam klávesových skratiek a príkazov"
 
 #: source/TortoiseSVN_en.xml:10288
 #: (entry)
 msgid "Command"
-msgstr ""
+msgstr "Príkaz"
 
 #: source/TortoiseSVN_en.xml:10295
 #: (entry)
@@ -8159,13 +8403,15 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10533
 #: source/TortoiseSVN_en.xml:10540
 #: source/TortoiseSVN_en.xml:10548
+#, fuzzy
 msgid "/path"
-msgstr ""
+msgstr "Cesta"
 
 #: source/TortoiseSVN_en.xml:10315
 #: (option)
+#, fuzzy
 msgid "/url"
-msgstr ""
+msgstr "&URL:"
 
 #: source/TortoiseSVN_en.xml:10313
 #: (entry)
@@ -8189,13 +8435,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10343
 #: (option)
+#, fuzzy
 msgid "path"
-msgstr ""
+msgstr "Cesta"
 
 #: source/TortoiseSVN_en.xml:10347
 #: (option)
+#, fuzzy
 msgid "/bugid:\"the bug id here\""
-msgstr ""
+msgstr "Chyba / &Prípad:"
 
 #: source/TortoiseSVN_en.xml:10337
 #: (entry)
@@ -8230,8 +8478,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10385
 #: (entry)
+#, fuzzy
 msgid "Creates a repository in <placeholder-1/>"
-msgstr ""
+msgstr "&HEAD revízia úložiska"
 
 #: source/TortoiseSVN_en.xml:10391
 #: (entry)
@@ -8255,8 +8504,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10422
 #: (entry)
+#, fuzzy
 msgid "Opens the settings dialog."
-msgstr ""
+msgstr "Panel hlavného nastavenia"
 
 #: source/TortoiseSVN_en.xml:10428
 #: (entry)
@@ -8290,8 +8540,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10472
 #: (entry)
+#, fuzzy
 msgid "Opens the help file."
 msgstr ""
+"Otvorí pomocníka\n"
+"Témy pomocníka"
 
 #: source/TortoiseSVN_en.xml:10478
 #: (entry)
@@ -8325,8 +8578,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10514
 #: (option)
+#, fuzzy
 msgid "/line:nnn"
-msgstr ""
+msgstr "Príkazový riadok"
 
 #: source/TortoiseSVN_en.xml:10506
 #: (entry)
@@ -8335,13 +8589,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10524
 #: (option)
+#, fuzzy
 msgid "/savepath:path"
-msgstr ""
+msgstr "Základna cesta:"
 
 #: source/TortoiseSVN_en.xml:10525
 #: (option)
+#, fuzzy
 msgid "/revision:xxx"
-msgstr ""
+msgstr "Spracuvava sa revízia %d z %d..."
 
 #: source/TortoiseSVN_en.xml:10521
 #: (entry)
@@ -8389,8 +8645,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10582
 #: (primary)
+#, fuzzy
 msgid "command line client"
-msgstr ""
+msgstr "Parametre príkazového riadka TortoiseMerge"
 
 #: source/TortoiseSVN_en.xml:10585
 #: (primary)
@@ -8436,7 +8693,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11140
 #: (glossterm)
 msgid "Checkout"
-msgstr ""
+msgstr "Získať"
 
 #: source/TortoiseSVN_en.xml:10639
 #: (screen)
@@ -8465,7 +8722,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11446
 #: (glossterm)
 msgid "Update"
-msgstr ""
+msgstr "Aktualizovať"
 
 #: source/TortoiseSVN_en.xml:10657
 #: (screen)
@@ -8494,7 +8751,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10680
 #: (title)
 msgid "Update to Revision"
-msgstr ""
+msgstr "Aktualizovať na revíziu"
 
 #: source/TortoiseSVN_en.xml:10681
 #: (screen)
@@ -8514,7 +8771,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11166
 #: (glossterm)
 msgid "Commit"
-msgstr ""
+msgstr "Odovzdať"
 
 #: source/TortoiseSVN_en.xml:10696
 #: (para)
@@ -8524,11 +8781,11 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10703
 #: (screen) source/TortoiseSVN_en.xml:10865
 #: source/TortoiseSVN_en.xml:10893
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn status -v PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10706
 #: (para) source/TortoiseSVN_en.xml:10794
@@ -8542,11 +8799,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10718
 #: (screen) source/TortoiseSVN_en.xml:11008
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn add PATH...\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10721
 #: (para)
@@ -8576,15 +8833,15 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11212
 #: (glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "Porovnať"
 
 #: source/TortoiseSVN_en.xml:10743
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn diff PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10746
 #: (para)
@@ -8599,7 +8856,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10763
 #: (title)
 msgid "Show Log"
-msgstr ""
+msgstr "Zobraz denník"
 
 #: source/TortoiseSVN_en.xml:10764
 #: (screen)
@@ -8639,7 +8896,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10804
 #: (title)
 msgid "Revision Graph"
-msgstr ""
+msgstr "Graf revízií"
 
 #: source/TortoiseSVN_en.xml:10805
 #: (para)
@@ -8657,8 +8914,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10820
 #: (title)
+#, fuzzy
 msgid "Repo Browser"
-msgstr ""
+msgstr "P&rehliadať úložisko"
 
 #: source/TortoiseSVN_en.xml:10821
 #: (screen)
@@ -8681,8 +8939,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10838
 #: (title)
+#, fuzzy
 msgid "Edit Conflicts"
-msgstr ""
+msgstr "&Upraviť konflikty"
 
 #: source/TortoiseSVN_en.xml:10839
 #: (para)
@@ -8692,20 +8951,20 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10846
 #: (title)
 msgid "Resolved"
-msgstr ""
+msgstr "Vyriešené"
 
 #: source/TortoiseSVN_en.xml:10847
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn resolved PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10852
 #: (title)
 msgid "Rename"
-msgstr ""
+msgstr "Premenovať"
 
 #: source/TortoiseSVN_en.xml:10853
 #: (screen)
@@ -8719,21 +8978,21 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11200
 #: (glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "Vymazať"
 
 #: source/TortoiseSVN_en.xml:10859
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10864
 #: (title) source/TortoiseSVN_en.xml:11379
 #: (glossterm)
 msgid "Revert"
-msgstr ""
+msgstr "Vrátiť"
 
 #: source/TortoiseSVN_en.xml:10868
 #: (para)
@@ -8747,24 +9006,25 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10881
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10887
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10892
 #: (title)
+#, fuzzy
 msgid "Get Lock"
-msgstr ""
+msgstr "Je nutný zámok"
 
 #: source/TortoiseSVN_en.xml:10896
 #: (para)
@@ -8791,21 +9051,23 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10914
 #: (title)
+#, fuzzy
 msgid "Release Lock"
-msgstr ""
+msgstr "Je nutný zámok"
 
 #: source/TortoiseSVN_en.xml:10915
 #: (screen)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "svn unlock PATH\n"
-msgstr ""
+msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:10920
 #: (title)
+#, fuzzy
 msgid "Branch/Tag"
-msgstr ""
+msgstr "Ve&tva/značka..."
 
 #: source/TortoiseSVN_en.xml:10921
 #: (screen)
@@ -8821,8 +9083,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10933
 #: (listitem)
+#, fuzzy
 msgid "Specific revision in repository"
-msgstr ""
+msgstr "&Špecifická revízia v úložisku"
 
 #: source/TortoiseSVN_en.xml:10928
 #: (para)
@@ -8842,7 +9105,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11293
 #: (glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "Zlúčiť"
 
 #: source/TortoiseSVN_en.xml:10952
 #: (screen)
@@ -8874,7 +9137,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11221
 #: (glossterm)
 msgid "Export"
-msgstr ""
+msgstr "Exportovať"
 
 #: source/TortoiseSVN_en.xml:10969
 #: (screen)
@@ -8908,7 +9171,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11339
 #: (glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "Premiestniť"
 
 #: source/TortoiseSVN_en.xml:10994
 #: (screen)
@@ -8921,7 +9184,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10999
 #: (title)
 msgid "Create Repository Here"
-msgstr ""
+msgstr "Vytvoriť úložisko tu"
 
 #: source/TortoiseSVN_en.xml:11000
 #: (screen)
@@ -8937,7 +9200,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11083
 #: (glossterm)
 msgid "Add"
-msgstr ""
+msgstr "Pridať"
 
 #: source/TortoiseSVN_en.xml:11011
 #: (para)
@@ -8956,7 +9219,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:11104
 #: (glossterm)
 msgid "Blame"
-msgstr ""
+msgstr "Obviniť"
 
 #: source/TortoiseSVN_en.xml:11028
 #: (screen)
@@ -8974,8 +9237,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11040
 #: (title)
+#, fuzzy
 msgid "Add to Ignore List"
-msgstr ""
+msgstr "Pridaj do zoznamu &ignorovaných"
 
 #: source/TortoiseSVN_en.xml:11041
 #: (screen)
@@ -8994,8 +9258,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11053
 #: (title)
+#, fuzzy
 msgid "Create Patch"
-msgstr ""
+msgstr "Vytvoriť záplatu"
 
 #: source/TortoiseSVN_en.xml:11054
 #: (screen)
@@ -9012,8 +9277,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11063
 #: (title)
+#, fuzzy
 msgid "Apply Patch"
-msgstr ""
+msgstr "Použiť zá&platu..."
 
 #: source/TortoiseSVN_en.xml:11064
 #: (para)
@@ -9022,23 +9288,26 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11081
 #: (title)
+#, fuzzy
 msgid "Glossary"
-msgstr ""
+msgstr "Register"
 
 #: source/TortoiseSVN_en.xml:11085
 #: (para)
+#, fuzzy
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr ""
+msgstr "Príkaz Subversion, ktorý sa používa na pridanie súboru, alebo adresára do pracovnej kópie. Nové objekty budú pridané do úložiska pri odovzdaní."
 
 #: source/TortoiseSVN_en.xml:11093
 #: (glossterm)
 msgid "BASE revision"
-msgstr ""
+msgstr "Hlavná revízia"
 
 #: source/TortoiseSVN_en.xml:11095
 #: (para)
+#, fuzzy
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "Aktuálna základová revízia súboru, alebo adresára vo vašej <emphasis>pracovnej kópií</emphasis>. Toto je revízia súboru, alebo adresára z času spustenia poslednej aktualizácie. Základná revízia nie je zhodná s hlavnou revíziou. "
 
 #: source/TortoiseSVN_en.xml:11106
 #: (para)
@@ -9048,17 +9317,17 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11116
 #: (glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #: source/TortoiseSVN_en.xml:11118
 #: (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB. Dobre otestovaná databáza pre úložiská, ktorá nemôže byť použitá na sieťovom zdielaní. Predvolená pre úložiská pred verziou 1.2."
 
 #: source/TortoiseSVN_en.xml:11125
 #: (glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "Vetva"
 
 #: source/TortoiseSVN_en.xml:11127
 #: (para)
@@ -9067,8 +9336,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11142
 #: (para)
+#, fuzzy
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Príkaz Suversion, ktorý vytvorí miestnu pracovnú kópiu v prázdnom adresáry stiahnutím verziovaných súborov z úložiska."
 
 #: source/TortoiseSVN_en.xml:11151
 #: (para)
@@ -9077,13 +9347,14 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11168
 #: (para)
+#, fuzzy
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Príkaz Subversion, ktorý posunie zmeny vašej miestnej pracovnej kópie späť do úložiska, vytvoriac novú revíziu."
 
 #: source/TortoiseSVN_en.xml:11176
 #: (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Konflikt"
 
 #: source/TortoiseSVN_en.xml:11178
 #: (para)
@@ -9093,102 +9364,112 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11188
 #: (glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: source/TortoiseSVN_en.xml:11190
 #: (para)
+#, fuzzy
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "V úložisku Subversion môžete vytvoriť kópiu jedného súboru, alebo celej adresárovej vetvy. Tieto sú implementované ako <quote>lacné kópie</quote>, ktoré sa správo trochu ako odkaz na pôvodný súbor, takže nezaberajú veľa miesta. Vytváranie kópií zachováva históriu jednotlivých kopírovaných objetov, takže môžete sledovať zmeny, ktoré boli vykonané pred vytvorením kópie."
 
 #: source/TortoiseSVN_en.xml:11202
 #: (para)
+#, fuzzy
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "Po vymazaní verziovaného súboru (a odovzdaní zmien) objekt už viacej nexistuje v úložisku v nasledových revíziách. Samozrejme však existuje v predchádzajúcich revíziach úložiska, takže k nemu môžete stále pristúpiť. Keď je nutné, môžete vytvoriť kópiu vymazeného objektu a <quote>vzkriesiť</quote> ho aj s jeho celou históriou."
 
 #: source/TortoiseSVN_en.xml:11214
 #: (para)
+#, fuzzy
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr ""
+msgstr "Skratka pre <quote>Show Differences</quote>. Veľmi užitočné keď chcete vidieť aké zmeny boli vykonané."
 
 #: source/TortoiseSVN_en.xml:11223
 #: (para)
+#, fuzzy
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr ""
+msgstr "Príkaz vytvorí kópiu verziovaného adresára, zhodnú s pracovnou kópiou, ale bez lokálneho <literal>.svn</literal> adresára."
 
 #: source/TortoiseSVN_en.xml:11231
 #: (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #: source/TortoiseSVN_en.xml:11233
 #: (para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "Súborový systém FS. Vlastný súborový systém Subversion pre úložiská. Môže byť použitý i na zdielom disku. Predvolený u verzie 1.2 a novších."
 
 #: source/TortoiseSVN_en.xml:11242
 #: (para)
 msgid "Group policy object"
-msgstr ""
+msgstr "<quote>Group policy object</quote> Objekt skupinovej politiky"
 
 #: source/TortoiseSVN_en.xml:11248
 #: (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "Hlavná revízia"
 
 #: source/TortoiseSVN_en.xml:11250
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr ""
+msgstr "Posledná revízia súboru, alebo adresára v <emphasis>úložisku</emphasis>."
 
 #: source/TortoiseSVN_en.xml:11258
 #: (para)
+#, fuzzy
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr ""
+msgstr "Príkaz Subversion k načítaniu celej adresárovej štruktúry do úložiska v jednej revízií."
 
 #: source/TortoiseSVN_en.xml:11265
 #: (glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "Zamknúť"
 
 #: source/TortoiseSVN_en.xml:11267
 #: (para)
+#, fuzzy
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "Keď zamknete verziovaný objekt, je v úložisku označený za neodovzdateľný, okrem pracovnej kópie z ktorej bol zamknutý."
 
 #: source/TortoiseSVN_en.xml:11275
 #: (glossterm)
 msgid "Log"
-msgstr ""
+msgstr "Záznam-denník"
 
 #: source/TortoiseSVN_en.xml:11277
 #: (para)
+#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr ""
+msgstr "Zobrazí históriurevízií súboru, alebo adresára. Tiež známa ako <quote>Záznam</quote>."
 
 #: source/TortoiseSVN_en.xml:11284
 #: (glossterm)
 msgid "History"
-msgstr ""
+msgstr "Historia"
 
 #: source/TortoiseSVN_en.xml:11286
 #: (para)
+#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr ""
+msgstr "Zobrazí históriurevízií súboru, alebo adresára. Tiež známa ako <quote>Denník</quote>."
 
 #: source/TortoiseSVN_en.xml:11295
 #: (para)
+#, fuzzy
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "Proces, ktorým sa zmeny z úložiska pridajú k vašej pracovnej kópií, bez porušenia akýchkoľvek zmien, ktoré ste vykonali. Niekedy tieto zmeny nemôžu byť pridané automaticky a pracovná kópia sa dostane do stavu konfliktu."
 
 #: source/TortoiseSVN_en.xml:11301
 #: (para)
+#, fuzzy
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "Zlučovanie sa deje automaticky pri aktualizovaní vašej pracovnej kópie. Príkazom TortoiseSVN Merge možete zlúčiť aj určené zmeny z iných vetiev."
 
 #: source/TortoiseSVN_en.xml:11309
 #: (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Záplata"
 
 #: source/TortoiseSVN_en.xml:11311
 #: (para)
@@ -9198,17 +9479,19 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11324
 #: (glossterm)
 msgid "Property"
-msgstr ""
+msgstr "Vlastnosť"
 
 #: source/TortoiseSVN_en.xml:11326
 #: (para)
+#, fuzzy
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "Okrem verziovania, Subversion umožňuje pridať aj verziované metadata - označované ako <quote>vlastnosti</quote> - ku každému verziovanému súboru a adresáru. Každá vlastnosť má meno a hodnotu, podobne ako kľúče windows registry. Subversion ma niekoľko špeciálnych vlastností pre vnútorné použite, ako je <literal>svn:eol-style</literal>. TortoiseSVN má nietoré tiež, ako je <literal>tsvn:logminsize</literal>. Možete pridávať vlastné vlastnosti s menom a hodnotou podľa vašej vôle."
 
 #: source/TortoiseSVN_en.xml:11341
 #: (para)
+#, fuzzy
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Keď sa premiestnilo vaše úložisko, pretože ste ho premiestnili na iné mieto na servery, alebo sa zmenilo doménové meno servera, potrebujete <quote>premiestniť</quote> vašu pracovnú kópiu, aby URL úložiska ukazovala na nové umiestnenie."
 
 #: source/TortoiseSVN_en.xml:11347
 #: (para)
@@ -9223,7 +9506,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11367
 #: (glossterm)
 msgid "Resolve"
-msgstr ""
+msgstr "Vyriešiť"
 
 #: source/TortoiseSVN_en.xml:11369
 #: (para)
@@ -9232,33 +9515,37 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11381
 #: (para)
+#, fuzzy
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "Subversion udržuje kópiu <quote>pôvodnej</quote> verzie každého súboru, tak ako bol pri poslednej aktualizácií pracovnej kópie. Ak ste urobili zmeny a rozhodli ste sa ich vrátiť, môžete použiť príkaz <quote>vrátiť</quote> na vrátenie sa k pôvodnej verzií."
 
 #: source/TortoiseSVN_en.xml:11390
 #: (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Revízia"
 
 #: source/TortoiseSVN_en.xml:11392
 #: (para)
+#, fuzzy
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "Pri každom oovzdaní zmien, vytvárate v úložisku novú <quote>revíziu</quote>. Každá revízia zodpovedá stavu stromu úložiska v danom čase v jeho histórií. Keď sa chcete vrátit v čase môžete si prezrieť úložisko ako bolo vo revízií N."
 
 #: source/TortoiseSVN_en.xml:11399
 #: (para)
+#, fuzzy
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "V inom zmysle revízia môže odkazovať-poukazovať na zmeny, ktoré boli spravené prei tvorbe danej revízie."
 
 #: source/TortoiseSVN_en.xml:11406
 #: (glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "Vlastnosť revízie (revprop)"
 
 #: source/TortoiseSVN_en.xml:11408
 #: (para)
+#, fuzzy
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "Tak ako súbory môžu mať vlastnosti, aj každá revízia v úložisku. Niektoré 'revpops' sú pridané automaticky pri vytvorení revízie. Menovite <literal>svn:date svn:author svn:log</literal>, ktoré reprezentujú dátum, čas, autora a záznam. Tieto vlastnosti môžu byť menené, ala niesú verziované, teda tieto zmeny sú trvalé a nemôžu byť vrátené."
 
 #: source/TortoiseSVN_en.xml:11420
 #: (glossterm)
@@ -9267,13 +9554,15 @@ msgstr "SVN"
 
 #: source/TortoiseSVN_en.xml:11422
 #: (para)
+#, fuzzy
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Často použivaná skratka pre Subversion"
 
 #: source/TortoiseSVN_en.xml:11425
 #: (para)
+#, fuzzy
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "Meno protokolu pre Subversion použitéuho v servery úložiska <quote>svnserve</quote>."
 
 #: source/TortoiseSVN_en.xml:11434
 #: (para)
@@ -9282,8 +9571,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11448
 #: (para)
+#, fuzzy
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Tento príkaz Subversion stiahne posledné zmeny z úložiska do vašej pracovnej kópie, zlučovaním zmien od ostatných so zmenami vo vašej pracovnej kópií."
 
 #: source/TortoiseSVN_en.xml:11456
 #: (glossterm)
@@ -9292,8 +9582,9 @@ msgstr "Pracovná kópia"
 
 #: source/TortoiseSVN_en.xml:11458
 #: (para)
+#, fuzzy
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "Toto je vaše <quote>pieskovisko</quote>, miesto kde môžete pracovať na verziovaných súboroch, ktoré sa sa typicky nachádza na pevnom disku. Pracovnú kópiu vytvárate príkazom <quote>Získať</quote> z úložiska, a zmeny môžete poslať do úložiska príkazom <quote>Odovzdať</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseSVN_en.xml:0

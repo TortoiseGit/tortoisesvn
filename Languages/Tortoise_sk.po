@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-24 23:41+0100\n"
+"PO-Revision-Date: 2006-11-01 23:48+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Slovak\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -903,7 +904,7 @@ msgstr "Akt&ualizovať na revíziu..."
 # Control-ID:1184,
 #: Control-ID:1184
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr "Po&užiť automatické dolňovanie ciest sáborov a kľúčových slov"
+msgstr "Po&užiť automatické doplňovanie ciest súborov a kľúčových slov"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -4728,7 +4729,7 @@ msgstr "Odstránené"
 # ID:126,
 #: ID:126
 msgid "Removed file/folder"
-msgstr "Odstráný súborfile/adresár"
+msgstr "Odstránený súbor/adresár"
 
 # ID:145,
 #: ID:145
@@ -5285,6 +5286,11 @@ msgstr ""
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "Vyberte adresár, pre ktorý sa má vykonať skript"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Vyberte adresár, na uloženie vybraného súboru"
 
 # ID:313,
 #: ID:197
@@ -6513,7 +6519,7 @@ msgstr "Doladenie TortoiseSVN"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "Dvoj cestný '&Diff'"
+msgstr "&Dvojcestné porovnanie"
 
 # ID:207,#:
 # Dlg-ID:164,
@@ -7448,8 +7454,8 @@ msgid ""
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory.\n"
-"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"Ak je prítonmá, spraví súbor spúštatelným. Táto vlastnosť nemôže byť nastavená na adresáry.\n"
+"Pokus o nerekurzívne použite zlyhá. Rekurzívne použite nastaví túto vlastnosť iba na súbory v adresáry."
 
 # ID:14,
 #: ID:14
