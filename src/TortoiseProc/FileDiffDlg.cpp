@@ -453,12 +453,23 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (m_arFileList.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
 			FileDiff fd = m_arFileList[pLVCD->nmcd.dwItemSpec];
-			if (fd.kind == svn_client_diff_summarize_kind_added)
+			switch (fd.kind)
+			{
+			case svn_client_diff_summarize_kind_added:
 				crText = m_colors.GetColor(CColors::Added);
-			if (fd.kind == svn_client_diff_summarize_kind_deleted)
+				break;
+			case svn_client_diff_summarize_kind_deleted:
 				crText = m_colors.GetColor(CColors::Deleted);
-			if (fd.propchanged)
-				crText = m_colors.GetColor(CColors::PropertyChanged);
+				break;
+			case svn_client_diff_summarize_kind_modified:
+				crText = m_colors.GetColor(CColors::Modified);
+				break;
+			case svn_client_diff_summarize_kind_normal:
+			default:
+				if (fd.propchanged)
+					crText = m_colors.GetColor(CColors::PropertyChanged);
+				break;
+			}
 		}
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;
