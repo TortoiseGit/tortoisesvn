@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7714
+# Based on Tortoise.pot r7877
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-12 14:35+0100\n"
+"PO-Revision-Date: 2006-11-02 17:15+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1102,6 +1102,10 @@ msgstr "Ignorer store/små bogstaver for forfattere"
 msgid "Authors:"
 msgstr "Forfattere:"
 
+#: ID:99,
+msgid "Auto Rename"
+msgstr "Auto-omdøb"
+
 #: ID:222,
 msgid "Auto-close for local operations"
 msgstr "Luk automatisk ved lokale handlinger"
@@ -1219,7 +1223,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1325,8 +1329,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Check den sti og/eller URL, som du har indtastet."
 
 #: ID:194,
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Marker de menupunkter, som du vil have vist i undermenuen i stedet for i den øverste kontekstmenu"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Marker de menupunkter, som du vil have vist i den øverste kontekstmenu i stedet for TortoiseSVN-undermenuen"
 
 #: ID:80,
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2909,6 +2913,10 @@ msgstr "Andre"
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
 
+#: ID:99,
+msgid "Overwrite"
+msgstr "Overskriv"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "Fo&rrige konflikt"
@@ -3665,6 +3673,10 @@ msgstr "Vælg den mappe der skal eksporteres til.\nDet kan være nødvendigt at 
 msgid "Select folder to run script for"
 msgstr "Vælg mappen, som scriptet skal køres i"
 
+#: ID:119,
+msgid "Select folder to save the selected files to"
+msgstr "Vælg mappen, som de valgte filer skal gemmes i"
+
 #: ID:197,
 msgid "Select hook script file"
 msgstr "Vælg fil med hook-script"
@@ -4120,6 +4132,11 @@ msgstr "Mappen %s\nindeholder ikke-versionerede og/eller ændrede fil(er). Vil d
 #, c-format
 msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
 msgstr "Mappen \n%s\nfindes ikke.\nVil du oprette den først?"
+
+#: ID:99,
+#, c-format
+msgid "The folder\n%s\nalready exists!"
+msgstr "Mappen\n%s\nfindes allerede!"
 
 #: ID:83,
 #, c-format
