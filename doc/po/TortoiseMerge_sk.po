@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2006-11-01 23:48+0100\n"
+"PO-Revision-Date: 2006-11-02 23:46+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -375,7 +375,7 @@ msgstr "Zoznam záplat"
 #: source/TortoiseMerge_en.xml:409
 #: (para)
 msgid "If TortoiseMerge is able to parse the patchfile it will show you a small window with all the files which have changes according to the patchfile. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr ""
+msgstr "Keď sa podarilo TortoiseMerge zanalyzovať záplatový súbor, zobrazí malé okno so všetkými súbormi, ktoré majú byť zmenené podľa záplaty. <placeholder-1/> Keď je meno súboru zobranené čiernou farbou, záplata môže byť bez problémov použitá. To znamená, že súbor nie je voči záplate zastaralý. Ale keď je meno súboru zobrazené červenou farbou, potom záplatu nemožno použiť priamo, pretože ste už daný súbor zmenili."
 
 # Patch Filelist
 #: source/TortoiseMerge_en.xml:423
@@ -387,7 +387,7 @@ msgstr "Ale netreba sa obávať. Keď pracujete so Subversion môžete získať 
 #: source/TortoiseMerge_en.xml:434
 #: (para)
 msgid "The patchfile window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr ""
+msgstr "Okno záplatového súboru má kontextové menu, ktoré umožňuje pezretie výsledok záplatania na vybranom súbore (použitá bez uloženia), na použitie a uloženie zmien pre vybraný súbor, alebo použitie a uloženie zmien pre <emphasis>všetky</emphasis> súbory v zozname. Dvojklik vedie k prezeraniu."
 
 # Patch Filelist
 #: source/TortoiseMerge_en.xml:442
@@ -502,7 +502,7 @@ msgstr "TortoiseMerge nielen <emphasis>zobrazuje</emphasis> rozdiely medzi súbo
 #: source/TortoiseMerge_en.xml:585
 #: (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr ""
+msgstr "Keď ste v dvojpanelovom zobrazení, môžete upravovať len súbor v pravom panely (<literal>Moje</literal>). Na použitie zmien z ľavého súboru (<literal>ich</literal>) použite <action>pravý klik</action> na zmenených riadkoch a vyberte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok <quote>ich</quote></guimenuitem></menuchoice>. Potom sú zmeny zľavého súboru pridané do suboru pravého."
 
 # Merging / Editing Conflicts
 #: source/TortoiseMerge_en.xml:597
@@ -1384,7 +1384,7 @@ msgstr "Prepnúť"
 #: source/TortoiseMerge_en.xml:1460
 #: (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Tak ako <quote>Aktualizovať na revíziu</quote> changes the time window of a working copy to look at a different point in history, so <quote>Prepnúť</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 
 #: source/TortoiseMerge_en.xml:1472
 #: (glossterm)

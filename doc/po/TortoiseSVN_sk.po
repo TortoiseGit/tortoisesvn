@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2006-10-30 00:22+0100\n"
+"PO-Revision-Date: 2005-11-02 23:46+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,9 +454,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:467
 #: (term)
-#, fuzzy
 msgid "Atomic commits"
-msgstr "Odovzdania podľa autorov"
+msgstr "Nedelitelné odovzdania"
 
 #: source/TortoiseSVN_en.xml:469
 #: (para)
@@ -900,9 +899,8 @@ msgstr "Prístup k %1 bol zamietnutý."
 
 #: source/TortoiseSVN_en.xml:1072
 #: (entry)
-#, fuzzy
 msgid "Schema"
-msgstr "%1 obsahuje nesprávnu schému."
+msgstr "Schéma"
 
 #: source/TortoiseSVN_en.xml:1073
 #: (entry)
@@ -958,9 +956,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1112
 #: (literal)
-#, fuzzy
 msgid "svn+ssh://"
-msgstr "&SSH klient:"
+msgstr "svn+ssh://"
 
 #: source/TortoiseSVN_en.xml:1114
 #: (entry)
@@ -1195,9 +1192,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1411
 #: (title)
-#, fuzzy
 msgid "Summary"
-msgstr "Súhrn aktualizácie"
+msgstr "Súhrn"
 
 #: source/TortoiseSVN_en.xml:1412
 #: (para)
@@ -1244,8 +1240,9 @@ msgstr "&Povoliť Proxy Server"
 #: source/TortoiseSVN_en.xml:1470
 #: (primary)
 msgid "Apache"
-msgstr ""
+msgstr "Apache"
 
+# Apache
 #: source/TortoiseSVN_en.xml:1472
 #: (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
@@ -1362,9 +1359,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1632
 #: (primary) source/TortoiseSVN_en.xml:2001
-#, fuzzy
 msgid "mod_authz_svn"
-msgstr "SVN MIME typ"
+msgstr "mod_authz_svn"
 
 #: source/TortoiseSVN_en.xml:1634
 #: (para)
@@ -1455,9 +1451,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1765
 #: (entry)
-#, fuzzy
 msgid "Setting"
-msgstr "Nastavenia vlastnosí..."
+msgstr "Nastavenie"
 
 #: source/TortoiseSVN_en.xml:1766
 #: (entry)
@@ -1471,9 +1466,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1774
 #: (systemitem)
-#, fuzzy
 msgid "http://MyServer/svn/"
-msgstr "SVN MIME typ"
+msgstr "http://MyServer/svn/"
 
 #: source/TortoiseSVN_en.xml:1772
 #: (entry)
@@ -1482,9 +1476,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1778
 #: (entry)
-#, fuzzy
 msgid "DAV svn"
-msgstr "SVN Autor"
+msgstr "DAV svn"
 
 #: source/TortoiseSVN_en.xml:1779
 #: (entry)
@@ -1510,9 +1503,8 @@ msgstr "SVN Autor"
 
 #: source/TortoiseSVN_en.xml:1795
 #: (filename)
-#, fuzzy
 msgid "D:\\SVN"
-msgstr "SVN"
+msgstr "D:\\SVN"
 
 #: source/TortoiseSVN_en.xml:1793
 #: (entry)
@@ -1962,7 +1954,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2302
 #: (primary)
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: source/TortoiseSVN_en.xml:2304
 #: (para)
@@ -2073,9 +2065,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2475
 #: (title)
-#, fuzzy
 msgid "Forcing SSL access"
-msgstr "Prístup k %1 bol zamietnutý."
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:2476
 #: (para)
@@ -2101,9 +2092,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2502
 #: (title)
-#, fuzzy
 msgid "Svnserve Based Server"
-msgstr "&Povoliť Proxy Server"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:2508
 #: (para)
@@ -2118,23 +2108,27 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2520
 #: (title)
 msgid "Installing svnserve"
-msgstr ""
+msgstr "Inštalácia svnserve"
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2524
 #: (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2532
 #: (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2538
 #: (para)
 msgid "Run the Subversion installer. If you run the installer on your server you can skip step 4."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2544
 #: (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb44.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
@@ -2142,12 +2136,10 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2561
 #: (title)
-#, fuzzy
 msgid "Running svnserve"
 msgstr ""
-"%1: %2\n"
-"Pokračovať v skripte?"
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2562
 #: (para)
 msgid ""
@@ -2156,16 +2148,19 @@ msgid ""
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The --daemon switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2573
 #: (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2578
 #: (para)
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2586
 #: (para)
 msgid ""
@@ -2174,6 +2169,7 @@ msgid ""
 "</screen> when prompted by the repo browser."
 msgstr ""
 
+# Installing svnserve
 #: source/TortoiseSVN_en.xml:2595
 #: (para)
 msgid ""
@@ -2189,12 +2185,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2626
 #: (title)
 msgid "Run svnserve as a Service"
-msgstr ""
+msgstr "Spustiť svnserver ako servis"
 
 #: source/TortoiseSVN_en.xml:2628
 #: (primary)
 msgid "svnservice"
-msgstr ""
+msgstr "svnservice"
 
 #: source/TortoiseSVN_en.xml:2630
 #: (para)
@@ -2235,9 +2231,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2702
 #: (title)
-#, fuzzy
 msgid "Authentication with svnserve"
-msgstr "Porovnať s URL"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:2703
 #: (para)
@@ -2329,9 +2324,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2837
 #: (title)
-#, fuzzy
 msgid "Repository Creation"
-msgstr "&Prezerať úložisko"
+msgstr "Vytvorenie úložiska"
 
 #: source/TortoiseSVN_en.xml:2838
 #: (para)
@@ -2345,9 +2339,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2852
 #: (primary) source/TortoiseSVN_en.xml:2893
-#, fuzzy
 msgid "Create"
-msgstr "Vytvoriť zá&platu..."
+msgstr "Vytvoriť"
 
 #: source/TortoiseSVN_en.xml:2853
 #: (secondary)
@@ -2393,9 +2386,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2903
 #: (para)
-#, fuzzy
 msgid "Open the windows explorer"
-msgstr "Otvor obrazok..."
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:2908
 #: (para)
@@ -2421,7 +2413,7 @@ msgstr "Importuje adresár do úložiska"
 #: source/TortoiseSVN_en.xml:2935
 #: (primary)
 msgid "Access"
-msgstr ""
+msgstr "Prístup"
 
 #: source/TortoiseSVN_en.xml:2938
 #: (primary)
@@ -2429,21 +2421,25 @@ msgstr ""
 msgid "UNC paths"
 msgstr "Zaradené cesty:"
 
+# Access
 #: source/TortoiseSVN_en.xml:2940
 #: (para)
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:2946
 #: (para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:2953
 #: (para)
 msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:2971
 #: (para)
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
@@ -2461,16 +2457,19 @@ msgstr "&Prezerať úložisko"
 msgid "backup"
 msgstr "&Archivuj pôvodný súbor"
 
+# Access
 #: source/TortoiseSVN_en.xml:2983
 #: (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:2990
 #: (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:3000
 #: (para)
 msgid ""
@@ -2479,6 +2478,7 @@ msgid ""
 "</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr ""
 
+# Access
 #: source/TortoiseSVN_en.xml:3010
 #: (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
@@ -2617,15 +2617,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3174
 #: (title)
-#, fuzzy
 msgid "Context Menus"
-msgstr "Kaskádne kontextové menu"
+msgstr "Kontextové Menu"
 
 #: source/TortoiseSVN_en.xml:3176
 #: (primary)
-#, fuzzy
 msgid "context menu"
-msgstr "Kaskádne kontextové menu"
+msgstr "kontextové menu"
 
 #: source/TortoiseSVN_en.xml:3180
 #: (title)
@@ -2672,9 +2670,8 @@ msgstr "Pravý pohlad:"
 #: source/TortoiseSVN_en.xml:3216
 #: (primary) source/TortoiseSVN_en.xml:6347
 #: source/TortoiseSVN_en.xml:7447
-#, fuzzy
 msgid "copy"
-msgstr "Kopírovať"
+msgstr "kopírovať"
 
 #: source/TortoiseSVN_en.xml:3220
 #: (title)
@@ -2695,7 +2692,7 @@ msgstr "Klávesové skratky"
 #: source/TortoiseSVN_en.xml:3237
 #: (term)
 msgid "F1"
-msgstr ""
+msgstr "F1"
 
 #: source/TortoiseSVN_en.xml:3239
 #: (para)
@@ -2706,8 +2703,9 @@ msgstr "&Témy pomocníka"
 #: source/TortoiseSVN_en.xml:3245
 #: (term)
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
+# F5
 #: source/TortoiseSVN_en.xml:3247
 #: (para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
@@ -2718,6 +2716,7 @@ msgstr ""
 msgid "Ctrl-A"
 msgstr "Ctrl-A"
 
+# F5
 #: source/TortoiseSVN_en.xml:3261
 #: (para)
 msgid "Select all. This can be used if you get an error message and want to copy and paste into an email. Use Ctrl-A to select the error message and then ..."
@@ -2734,6 +2733,7 @@ msgstr "Ctrl-C"
 msgid "... Copy the selected text."
 msgstr "Skopírovať vybrané riadky do schránky"
 
+# F5
 #: source/TortoiseSVN_en.xml:3231
 #: (para)
 msgid "Some common operations have well-know Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
@@ -2750,36 +2750,43 @@ msgstr "autentifikácia"
 msgid "Authentication Dialog"
 msgstr "&Uložiť autentifikáciu"
 
+# F5
 #: source/TortoiseSVN_en.xml:3296
 #: (para)
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3302
 #: (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3308
 #: (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3284
 #: (para)
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>$APPDATA\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/> There is one file for each server that you access, formatted as plain text, so you can use a text editor to check which server it applies to. If you want to make Subversion and TortoiseSVN (and any other Subversion client) forget your credentials for a particular server, you have to delete the corresponding file."
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3320
 #: (para)
 msgid "If you want to clear the authentication cache for <emphasis>all</emphasis> servers, you can do so from the <guilabel>General</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached auth data from the Subversion auth directories, as well as any auth data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3328
 #: (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
 msgstr ""
 
+# F5
 #: source/TortoiseSVN_en.xml:3334
 #: (para)
 msgid "If you have to authenticate against a Windows NT domain, enter your username including the domain name, like: <filename>MYDOMAIN/johnd</filename>."
@@ -2803,9 +2810,8 @@ msgstr "Úložisko"
 
 #: source/TortoiseSVN_en.xml:3352
 #: (title)
-#, fuzzy
 msgid "Repository Layout"
-msgstr "&Prezerať úložisko"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:3353
 #: (para)
@@ -2819,13 +2825,17 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3368
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-msgstr "Spojit vetvy do hlavného kmeňa"
+msgstr ""
+"\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
 
 #: source/TortoiseSVN_en.xml:3373
 #: (para)
@@ -2847,9 +2857,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3385
 #: (para)
-#, fuzzy
 msgid "...or by project:"
-msgstr "Usporiadané podľa &adresárov"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:3388
 #: (screen)
@@ -2937,9 +2946,8 @@ msgstr "Importovať"
 
 #: source/TortoiseSVN_en.xml:3490
 #: (primary)
-#, fuzzy
 msgid "temporary files"
-msgstr "pridané súbory"
+msgstr "dočasné súbory"
 
 #: source/TortoiseSVN_en.xml:3496
 #: (para)
@@ -3026,15 +3034,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3596
 #: (primary)
-#, fuzzy
 msgid "external repositories"
-msgstr "Externý program:"
+msgstr "externé úložiská"
 
 #: source/TortoiseSVN_en.xml:3599
 #: (primary)
-#, fuzzy
 msgid "externals"
-msgstr "Vynechať externé"
+msgstr "externé"
 
 #: source/TortoiseSVN_en.xml:3601
 #: (para)
@@ -3088,9 +3094,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3708
 #: (title)
-#, fuzzy
 msgid "Checking Out A Working Copy"
-msgstr "Získať pracovnú verziu z úložiska"
+msgstr "Získať pracovnú kópiu"
 
 #: source/TortoiseSVN_en.xml:3710
 #: (primary)
@@ -3104,9 +3109,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3727
 #: (title)
-#, fuzzy
 msgid "The Checkout dialog"
-msgstr "Získať a&dresár:"
+msgstr "Dialóg získania"
 
 #: source/TortoiseSVN_en.xml:3717
 #: (para)
@@ -3140,9 +3144,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3776
 #: (title)
-#, fuzzy
 msgid "Exporting"
-msgstr "Exportovanie..."
+msgstr "Exportovanie"
 
 #: source/TortoiseSVN_en.xml:3777
 #: (para)
@@ -3276,18 +3279,18 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:3974
 #: (term) source/TortoiseSVN_en.xml:4520
 msgid "Blue"
-msgstr ""
+msgstr "Modrá"
 
 #: source/TortoiseSVN_en.xml:3976
 #: (para)
 msgid "Committing a modification."
-msgstr ""
+msgstr "Odovzdávanie zmien"
 
 #: source/TortoiseSVN_en.xml:3982
 #: (term) source/TortoiseSVN_en.xml:4065
 #: source/TortoiseSVN_en.xml:4528
 msgid "Purple"
-msgstr ""
+msgstr "Ružová"
 
 #: source/TortoiseSVN_en.xml:3984
 #: (para)
@@ -3299,18 +3302,18 @@ msgstr "Nové meno prer %s"
 #: (term) source/TortoiseSVN_en.xml:4073
 #: source/TortoiseSVN_en.xml:4540
 msgid "Dark red"
-msgstr ""
+msgstr "Tvamo červená"
 
 #: source/TortoiseSVN_en.xml:3992
 #: (para)
 msgid "Committing a deletion or a replacement."
-msgstr ""
+msgstr "Odovzdanie vymazania a náhrady."
 
 #: source/TortoiseSVN_en.xml:3998
 #: (term) source/TortoiseSVN_en.xml:4100
 #: source/TortoiseSVN_en.xml:4568
 msgid "Black"
-msgstr ""
+msgstr "Čierna"
 
 #: source/TortoiseSVN_en.xml:4000
 #: (para)
@@ -3357,9 +3360,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4036
 #: (primary) source/TortoiseSVN_en.xml:9615
-#, fuzzy
 msgid "update"
-msgstr "Aktualizovať"
+msgstr "aktualizovať"
 
 #: source/TortoiseSVN_en.xml:4040
 #: (title)
@@ -3469,15 +3471,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4219
 #: (title)
-#, fuzzy
 msgid "Resolving Conflicts"
-msgstr "&Upraviť konflikty"
+msgstr "Riešiť konflikty"
 
 #: source/TortoiseSVN_en.xml:4244
 #: (term)
-#, fuzzy
 msgid "filename.ext.mine"
-msgstr "Vlož zoznam súborov"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:4246
 #: (para)
@@ -3486,9 +3486,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4255
 #: (term)
-#, fuzzy
 msgid "filename.ext.rOLDREV"
-msgstr "Vlož zoznam súborov"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:4257
 #: (para)
@@ -3497,9 +3496,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4266
 #: (term)
-#, fuzzy
 msgid "filename.ext.rNEWREV"
-msgstr "Vlož zoznam súborov"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:4268
 #: (para)
@@ -3673,9 +3671,8 @@ msgstr "Farby stavu a akcií"
 
 #: source/TortoiseSVN_en.xml:4489
 #: (primary)
-#, fuzzy
 msgid "modifications"
-msgstr "Skontrolovať zmeny"
+msgstr "zmeny"
 
 #: source/TortoiseSVN_en.xml:4493
 #: (title) source/TortoiseSVN_en.xml:10781
@@ -3793,7 +3790,6 @@ msgstr "Vyhľadaj &správy..."
 
 #: source/TortoiseSVN_en.xml:4676
 #: (primary)
-#, fuzzy
 msgid "log"
 msgstr "Záznam-denník"
 
@@ -4156,9 +4152,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5121
 #: (title)
-#, fuzzy
 msgid "Statistics Page"
-msgstr "Stana vlastností"
+msgstr "Stana štatístík"
 
 #: source/TortoiseSVN_en.xml:5122
 #: (para)
@@ -4755,9 +4750,8 @@ msgstr "premenovať"
 
 #: source/TortoiseSVN_en.xml:5812
 #: (primary)
-#, fuzzy
 msgid "move"
-msgstr "Opraviť presunutie"
+msgstr "presunúť"
 
 #: source/TortoiseSVN_en.xml:5820
 #: (title)
@@ -4884,9 +4878,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5978
 #: (para) source/TortoiseSVN_en.xml:5980
-#, fuzzy
 msgid "Commit the changes."
-msgstr "Uložiť zmeny"
+msgstr "Odovzdať zmeny"
 
 #: source/TortoiseSVN_en.xml:5979
 #: (para)
@@ -4896,9 +4889,8 @@ msgstr "Zobrazené revízie: %ld (od revízie %ld do revízie %ld) - Vybrané re
 
 #: source/TortoiseSVN_en.xml:5974
 #: (para)
-#, fuzzy
 msgid "Solution B) <placeholder-1/>"
-msgstr "Rovnako ako <placeholder-1/>."
+msgstr "riešenie B) <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5984
 #: (title)
@@ -4912,9 +4904,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5997
 #: (title)
-#, fuzzy
 msgid "Undo Changes"
-msgstr "Uložiť zmeny"
+msgstr "Vrátiť zmeny"
 
 #: source/TortoiseSVN_en.xml:5999
 #: (primary)
@@ -5081,9 +5072,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6193
 #: (title)
-#, fuzzy
 msgid "Commit properties"
-msgstr "Pridaj vlastnosť"
+msgstr "Odovzdať vlastnosti"
 
 #: source/TortoiseSVN_en.xml:6194
 #: (para)
@@ -5114,9 +5104,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6218
 #: (title)
-#, fuzzy
 msgid "TortoiseSVN Properties"
-msgstr "Pridaj vlastnosť"
+msgstr "TortoiseSVN Vlastnosti"
 
 #: source/TortoiseSVN_en.xml:6224
 #: (para)
@@ -5980,9 +5969,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7444
 #: (primary)
-#, fuzzy
 msgid "server-side actions"
-msgstr "&Povoliť Proxy Server"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:7450
 #: (para)
@@ -6431,9 +6419,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8068
 #: (title)
-#, fuzzy
 msgid "General Settings"
-msgstr "Nastavenia Proxy"
+msgstr "Hlavné Nastavenia"
 
 #: source/TortoiseSVN_en.xml:8070
 #: (primary)
@@ -7127,9 +7114,8 @@ msgstr "Externý program::Prezerač rozdielov"
 
 #: source/TortoiseSVN_en.xml:8856
 #: (term) source/TortoiseSVN_en.xml:8942
-#, fuzzy
 msgid "%base"
-msgstr "základ"
+msgstr "%base"
 
 #: source/TortoiseSVN_en.xml:8858
 #: (para)
@@ -7148,9 +7134,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8872
 #: (term) source/TortoiseSVN_en.xml:8959
-#, fuzzy
 msgid "%mine"
-msgstr "Moje"
+msgstr "%mine"
 
 #: source/TortoiseSVN_en.xml:8874
 #: (para)
@@ -7215,9 +7200,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8975
 #: (term)
-#, fuzzy
 msgid "%theirs"
-msgstr "Ich"
+msgstr "%theirs"
 
 #: source/TortoiseSVN_en.xml:8977
 #: (para)
@@ -7236,9 +7220,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8991
 #: (term)
-#, fuzzy
 msgid "%merged"
-msgstr "Zlúčené"
+msgstr "%merged"
 
 #: source/TortoiseSVN_en.xml:8993
 #: (para)
@@ -7374,9 +7357,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9135
 #: (title)
-#, fuzzy
 msgid "Registry Settings"
-msgstr "Nastavenia Proxy"
+msgstr "Nastavenia registrov"
 
 #: source/TortoiseSVN_en.xml:9137
 #: (primary)
@@ -7412,15 +7394,13 @@ msgstr "Cesta pracovnej kópie:"
 
 #: source/TortoiseSVN_en.xml:9172
 #: (primary)
-#, fuzzy
 msgid ".svn folder"
-msgstr "Pridaj &adresár..."
+msgstr ".svn adresár"
 
 #: source/TortoiseSVN_en.xml:9175
 #: (primary)
-#, fuzzy
 msgid "_svn folder"
-msgstr "Pridaj &adresár..."
+msgstr "_svn adresár"
 
 #: source/TortoiseSVN_en.xml:9177
 #: (para)
@@ -7459,9 +7439,8 @@ msgstr "Pri práci na TortoiseSVN radi počúvame hudbu. A keďže trávime veľ
 
 #: source/TortoiseSVN_en.xml:9230
 #: (title)
-#, fuzzy
 msgid "The SubWCRev Program"
-msgstr "Ukončiť program"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9232
 #: (primary)
@@ -7761,9 +7740,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9525
 #: (primary)
-#, fuzzy
 msgid "moving"
-msgstr "Moving %s"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9527
 #: (para)
@@ -7813,9 +7791,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9596
 #: (title)
-#, fuzzy
 msgid "Project properties"
-msgstr "Pridaj vlastnosť"
+msgstr "Vlastnosť projektu"
 
 #: source/TortoiseSVN_en.xml:9597
 #: (para)
@@ -7951,9 +7928,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9790
 #: (primary)
-#, fuzzy
 msgid "compare files"
-msgstr "pridané súbory"
+msgstr "porovnať súbory"
 
 #: source/TortoiseSVN_en.xml:9792
 #: (para)
@@ -8024,9 +8000,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9905
 #: (title)
-#, fuzzy
 msgid "Use a relative location"
-msgstr "(Použiť štandardný jazyk)"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9906
 #: (para)
@@ -8056,9 +8031,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9949
 #: (title)
-#, fuzzy
 msgid "Create a shortcut to a repository"
-msgstr "Importuje adresár do úložiska"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9951
 #: (primary)
@@ -8165,9 +8139,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10080
 #: (primary)
-#, fuzzy
 msgid "group policies"
-msgstr "<quote>Group policy object</quote> Objekt skupinovej politiky"
+msgstr "skupinová politika"
 
 #: source/TortoiseSVN_en.xml:10083
 #: (primary) source/TortoiseSVN_en.xml:11240
@@ -8192,15 +8165,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10109
 #: (title)
-#, fuzzy
 msgid "Redirect the upgrade check"
-msgstr "Skontoluj aktualizácie"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10111
 #: (primary)
-#, fuzzy
 msgid "upgrade check"
-msgstr "Skontroluj úložisko"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10113
 #: (para)
@@ -8209,9 +8180,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10119
 #: (title)
-#, fuzzy
 msgid "The upgrade dialog"
-msgstr "Veľkosť a poloha dialogových okien"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10122
 #: (para)
@@ -8253,9 +8223,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10175
 #: (title)
-#, fuzzy
 msgid "Automating TortoiseSVN"
-msgstr "TortoiseSVN Switch..."
+msgstr "Automatizácia TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:10177
 #: (para)
@@ -8403,15 +8372,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10533
 #: source/TortoiseSVN_en.xml:10540
 #: source/TortoiseSVN_en.xml:10548
-#, fuzzy
 msgid "/path"
-msgstr "Cesta"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10315
 #: (option)
-#, fuzzy
 msgid "/url"
-msgstr "&URL:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10313
 #: (entry)
@@ -8435,15 +8402,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10343
 #: (option)
-#, fuzzy
 msgid "path"
-msgstr "Cesta"
+msgstr "cesta"
 
 #: source/TortoiseSVN_en.xml:10347
 #: (option)
-#, fuzzy
 msgid "/bugid:\"the bug id here\""
-msgstr "Chyba / &Prípad:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10337
 #: (entry)
@@ -8504,9 +8469,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10422
 #: (entry)
-#, fuzzy
 msgid "Opens the settings dialog."
-msgstr "Panel hlavného nastavenia"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10428
 #: (entry)
@@ -8540,11 +8504,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10472
 #: (entry)
-#, fuzzy
 msgid "Opens the help file."
 msgstr ""
-"Otvorí pomocníka\n"
-"Témy pomocníka"
 
 #: source/TortoiseSVN_en.xml:10478
 #: (entry)
@@ -8578,9 +8539,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10514
 #: (option)
-#, fuzzy
 msgid "/line:nnn"
-msgstr "Príkazový riadok"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10506
 #: (entry)
@@ -8589,15 +8549,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10524
 #: (option)
-#, fuzzy
 msgid "/savepath:path"
-msgstr "Základna cesta:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10525
 #: (option)
-#, fuzzy
 msgid "/revision:xxx"
-msgstr "Spracuvava sa revízia %d z %d..."
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10521
 #: (entry)
@@ -8645,9 +8603,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10582
 #: (primary)
-#, fuzzy
 msgid "command line client"
-msgstr "Parametre príkazového riadka TortoiseMerge"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10585
 #: (primary)
@@ -8781,11 +8738,11 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10703
 #: (screen) source/TortoiseSVN_en.xml:10865
 #: source/TortoiseSVN_en.xml:10893
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn status -v PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10706
 #: (para) source/TortoiseSVN_en.xml:10794
@@ -8799,11 +8756,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10718
 #: (screen) source/TortoiseSVN_en.xml:11008
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn add PATH...\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10721
 #: (para)
@@ -8837,11 +8794,11 @@ msgstr "Porovnať"
 
 #: source/TortoiseSVN_en.xml:10743
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn diff PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10746
 #: (para)
@@ -8914,9 +8871,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10820
 #: (title)
-#, fuzzy
 msgid "Repo Browser"
-msgstr "P&rehliadať úložisko"
+msgstr "Prehliadanie úložiska"
 
 #: source/TortoiseSVN_en.xml:10821
 #: (screen)
@@ -8939,9 +8895,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10838
 #: (title)
-#, fuzzy
 msgid "Edit Conflicts"
-msgstr "&Upraviť konflikty"
+msgstr "Upraviť konflikty"
 
 #: source/TortoiseSVN_en.xml:10839
 #: (para)
@@ -8955,11 +8910,11 @@ msgstr "Vyriešené"
 
 #: source/TortoiseSVN_en.xml:10847
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn resolved PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10852
 #: (title)
@@ -8982,11 +8937,11 @@ msgstr "Vymazať"
 
 #: source/TortoiseSVN_en.xml:10859
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10864
 #: (title) source/TortoiseSVN_en.xml:11379
@@ -9006,25 +8961,24 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10881
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10887
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10892
 #: (title)
-#, fuzzy
 msgid "Get Lock"
-msgstr "Je nutný zámok"
+msgstr "Získať zámok"
 
 #: source/TortoiseSVN_en.xml:10896
 #: (para)
@@ -9051,23 +9005,21 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10914
 #: (title)
-#, fuzzy
 msgid "Release Lock"
-msgstr "Je nutný zámok"
+msgstr "Uvolniť zámok"
 
 #: source/TortoiseSVN_en.xml:10915
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn unlock PATH\n"
-msgstr "Cesta pracovnej kópie:"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:10920
 #: (title)
-#, fuzzy
 msgid "Branch/Tag"
-msgstr "Ve&tva/značka..."
+msgstr "Vetva/značka"
 
 #: source/TortoiseSVN_en.xml:10921
 #: (screen)
@@ -9083,9 +9035,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10933
 #: (listitem)
-#, fuzzy
 msgid "Specific revision in repository"
-msgstr "&Špecifická revízia v úložisku"
+msgstr "Špecifická revízia v úložisku"
 
 #: source/TortoiseSVN_en.xml:10928
 #: (para)
@@ -9237,9 +9188,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11040
 #: (title)
-#, fuzzy
 msgid "Add to Ignore List"
-msgstr "Pridaj do zoznamu &ignorovaných"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:11041
 #: (screen)
@@ -9258,7 +9208,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11053
 #: (title)
-#, fuzzy
 msgid "Create Patch"
 msgstr "Vytvoriť záplatu"
 
@@ -9277,9 +9226,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11063
 #: (title)
-#, fuzzy
 msgid "Apply Patch"
-msgstr "Použiť zá&platu..."
+msgstr "Použiť záplatu"
 
 #: source/TortoiseSVN_en.xml:11064
 #: (para)
@@ -9288,13 +9236,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11081
 #: (title)
-#, fuzzy
 msgid "Glossary"
 msgstr "Register"
 
 #: source/TortoiseSVN_en.xml:11085
 #: (para)
-#, fuzzy
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Príkaz Subversion, ktorý sa používa na pridanie súboru, alebo adresára do pracovnej kópie. Nové objekty budú pridané do úložiska pri odovzdaní."
 
@@ -9305,7 +9251,6 @@ msgstr "Hlavná revízia"
 
 #: source/TortoiseSVN_en.xml:11095
 #: (para)
-#, fuzzy
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "Aktuálna základová revízia súboru, alebo adresára vo vašej <emphasis>pracovnej kópií</emphasis>. Toto je revízia súboru, alebo adresára z času spustenia poslednej aktualizácie. Základná revízia nie je zhodná s hlavnou revíziou. "
 
@@ -9336,7 +9281,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11142
 #: (para)
-#, fuzzy
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Príkaz Suversion, ktorý vytvorí miestnu pracovnú kópiu v prázdnom adresáry stiahnutím verziovaných súborov z úložiska."
 
@@ -9347,7 +9291,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11168
 #: (para)
-#, fuzzy
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Príkaz Subversion, ktorý posunie zmeny vašej miestnej pracovnej kópie späť do úložiska, vytvoriac novú revíziu."
 
@@ -9368,25 +9311,21 @@ msgstr "Kopírovať"
 
 #: source/TortoiseSVN_en.xml:11190
 #: (para)
-#, fuzzy
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "V úložisku Subversion môžete vytvoriť kópiu jedného súboru, alebo celej adresárovej vetvy. Tieto sú implementované ako <quote>lacné kópie</quote>, ktoré sa správo trochu ako odkaz na pôvodný súbor, takže nezaberajú veľa miesta. Vytváranie kópií zachováva históriu jednotlivých kopírovaných objetov, takže môžete sledovať zmeny, ktoré boli vykonané pred vytvorením kópie."
 
 #: source/TortoiseSVN_en.xml:11202
 #: (para)
-#, fuzzy
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Po vymazaní verziovaného súboru (a odovzdaní zmien) objekt už viacej nexistuje v úložisku v nasledových revíziách. Samozrejme však existuje v predchádzajúcich revíziach úložiska, takže k nemu môžete stále pristúpiť. Keď je nutné, môžete vytvoriť kópiu vymazeného objektu a <quote>vzkriesiť</quote> ho aj s jeho celou históriou."
 
 #: source/TortoiseSVN_en.xml:11214
 #: (para)
-#, fuzzy
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr "Skratka pre <quote>Show Differences</quote>. Veľmi užitočné keď chcete vidieť aké zmeny boli vykonané."
+msgstr "Skratka pre <quote>Zobraziť rozdiely</quote>. Veľmi užitočné keď chcete vidieť aké zmeny boli vykonané."
 
 #: source/TortoiseSVN_en.xml:11223
 #: (para)
-#, fuzzy
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Príkaz vytvorí kópiu verziovaného adresára, zhodnú s pracovnou kópiou, ale bez lokálneho <literal>.svn</literal> adresára."
 
@@ -9417,7 +9356,6 @@ msgstr "Posledná revízia súboru, alebo adresára v <emphasis>úložisku</emph
 
 #: source/TortoiseSVN_en.xml:11258
 #: (para)
-#, fuzzy
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Príkaz Subversion k načítaniu celej adresárovej štruktúry do úložiska v jednej revízií."
 
@@ -9428,7 +9366,6 @@ msgstr "Zamknúť"
 
 #: source/TortoiseSVN_en.xml:11267
 #: (para)
-#, fuzzy
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "Keď zamknete verziovaný objekt, je v úložisku označený za neodovzdateľný, okrem pracovnej kópie z ktorej bol zamknutý."
 
@@ -9439,9 +9376,8 @@ msgstr "Záznam-denník"
 
 #: source/TortoiseSVN_en.xml:11277
 #: (para)
-#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr "Zobrazí históriurevízií súboru, alebo adresára. Tiež známa ako <quote>Záznam</quote>."
+msgstr "Zobrazí históriu revízií súboru, alebo adresára. Tiež známa ako <quote>História</quote>."
 
 #: source/TortoiseSVN_en.xml:11284
 #: (glossterm)
@@ -9450,19 +9386,16 @@ msgstr "Historia"
 
 #: source/TortoiseSVN_en.xml:11286
 #: (para)
-#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr "Zobrazí históriurevízií súboru, alebo adresára. Tiež známa ako <quote>Denník</quote>."
+msgstr "Zobrazí históriu revízií súboru, alebo adresára. Tiež známa ako <quote>Denník</quote>."
 
 #: source/TortoiseSVN_en.xml:11295
 #: (para)
-#, fuzzy
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Proces, ktorým sa zmeny z úložiska pridajú k vašej pracovnej kópií, bez porušenia akýchkoľvek zmien, ktoré ste vykonali. Niekedy tieto zmeny nemôžu byť pridané automaticky a pracovná kópia sa dostane do stavu konfliktu."
 
 #: source/TortoiseSVN_en.xml:11301
 #: (para)
-#, fuzzy
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Zlučovanie sa deje automaticky pri aktualizovaní vašej pracovnej kópie. Príkazom TortoiseSVN Merge možete zlúčiť aj určené zmeny z iných vetiev."
 
@@ -9483,13 +9416,11 @@ msgstr "Vlastnosť"
 
 #: source/TortoiseSVN_en.xml:11326
 #: (para)
-#, fuzzy
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "Okrem verziovania, Subversion umožňuje pridať aj verziované metadata - označované ako <quote>vlastnosti</quote> - ku každému verziovanému súboru a adresáru. Každá vlastnosť má meno a hodnotu, podobne ako kľúče windows registry. Subversion ma niekoľko špeciálnych vlastností pre vnútorné použite, ako je <literal>svn:eol-style</literal>. TortoiseSVN má nietoré tiež, ako je <literal>tsvn:logminsize</literal>. Možete pridávať vlastné vlastnosti s menom a hodnotou podľa vašej vôle."
 
 #: source/TortoiseSVN_en.xml:11341
 #: (para)
-#, fuzzy
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Keď sa premiestnilo vaše úložisko, pretože ste ho premiestnili na iné mieto na servery, alebo sa zmenilo doménové meno servera, potrebujete <quote>premiestniť</quote> vašu pracovnú kópiu, aby URL úložiska ukazovala na nové umiestnenie."
 
@@ -9515,7 +9446,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11381
 #: (para)
-#, fuzzy
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion udržuje kópiu <quote>pôvodnej</quote> verzie každého súboru, tak ako bol pri poslednej aktualizácií pracovnej kópie. Ak ste urobili zmeny a rozhodli ste sa ich vrátiť, môžete použiť príkaz <quote>vrátiť</quote> na vrátenie sa k pôvodnej verzií."
 
@@ -9526,13 +9456,11 @@ msgstr "Revízia"
 
 #: source/TortoiseSVN_en.xml:11392
 #: (para)
-#, fuzzy
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Pri každom oovzdaní zmien, vytvárate v úložisku novú <quote>revíziu</quote>. Každá revízia zodpovedá stavu stromu úložiska v danom čase v jeho histórií. Keď sa chcete vrátit v čase môžete si prezrieť úložisko ako bolo vo revízií N."
 
 #: source/TortoiseSVN_en.xml:11399
 #: (para)
-#, fuzzy
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "V inom zmysle revízia môže odkazovať-poukazovať na zmeny, ktoré boli spravené prei tvorbe danej revízie."
 
@@ -9543,7 +9471,6 @@ msgstr "Vlastnosť revízie (revprop)"
 
 #: source/TortoiseSVN_en.xml:11408
 #: (para)
-#, fuzzy
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "Tak ako súbory môžu mať vlastnosti, aj každá revízia v úložisku. Niektoré 'revpops' sú pridané automaticky pri vytvorení revízie. Menovite <literal>svn:date svn:author svn:log</literal>, ktoré reprezentujú dátum, čas, autora a záznam. Tieto vlastnosti môžu byť menené, ala niesú verziované, teda tieto zmeny sú trvalé a nemôžu byť vrátené."
 
@@ -9554,15 +9481,13 @@ msgstr "SVN"
 
 #: source/TortoiseSVN_en.xml:11422
 #: (para)
-#, fuzzy
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Často použivaná skratka pre Subversion"
 
 #: source/TortoiseSVN_en.xml:11425
 #: (para)
-#, fuzzy
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr "Meno protokolu pre Subversion použitéuho v servery úložiska <quote>svnserve</quote>."
+msgstr "Meno protokolu pre Subversion použitého v servery úložiska <quote>svnserve</quote>."
 
 #: source/TortoiseSVN_en.xml:11434
 #: (para)
@@ -9571,7 +9496,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11448
 #: (para)
-#, fuzzy
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "Tento príkaz Subversion stiahne posledné zmeny z úložiska do vašej pracovnej kópie, zlučovaním zmien od ostatných so zmenami vo vašej pracovnej kópií."
 
@@ -9582,7 +9506,6 @@ msgstr "Pracovná kópia"
 
 #: source/TortoiseSVN_en.xml:11458
 #: (para)
-#, fuzzy
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Toto je vaše <quote>pieskovisko</quote>, miesto kde môžete pracovať na verziovaných súboroch, ktoré sa sa typicky nachádza na pevnom disku. Pracovnú kópiu vytvárate príkazom <quote>Získať</quote> z úložiska, a zmeny môžete poslať do úložiska príkazom <quote>Odovzdať</quote>."
 
