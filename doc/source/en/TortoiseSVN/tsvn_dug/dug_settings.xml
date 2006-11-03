@@ -981,12 +981,18 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 				In the advanced settings, you can define a different diff and merge
 				program for every file extension. For instance you could associate
 				Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
+				You can also associate the <literal>svn:mime-type</literal> property
+				with a diff or merge program.
 			</para>
 			<para>
-				You need to specify just the extension with no leading dot or wildcard.
-				Use <literal>BMP</literal> to describe Windows bitmap files,
+				To associate using a file extension, you need to specify just the extension,
+				with the leading dot but with no wildcard spec.
+				Use <literal>.BMP</literal> to describe Windows bitmap files,
 				<emphasis>not</emphasis>
 				<literal>*.BMP</literal>.
+				To associate using the <literal>svn:mime-type</literal> property, specify
+				the mime type, including a slash, for example
+				<literal>text/xml</literal>.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-dug-settings-Patch">
