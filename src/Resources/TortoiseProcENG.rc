@@ -750,7 +750,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX
 CAPTION "Lock Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "&Enter a message describing why you lock the file(s).",IDC_LOCKTITLELABEL,7,7,289,8
+    LTEXT           "&Enter a message describing why you are locking the file(s).",IDC_LOCKTITLELABEL,7,7,289,8
     CONTROL         "Scintilla",IDC_LOCKMESSAGE,"Scintilla",WS_TABSTOP,7,17,289,39,WS_EX_STATICEDGE
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,60,289,85
     CONTROL         "&Steal the locks",IDC_STEALLOCKS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,150,117,10
