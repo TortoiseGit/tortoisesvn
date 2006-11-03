@@ -4,6 +4,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors(s):
+# 02.11.2006 Kari Granö <kari.grano@gmail.com>
 # 15.10.2006 Kari Granö <kari.grano@gmail.com>
 # 25.09.2006 Kari Granö <kari.grano@gmail.com>
 # 29.01.2006 Pekka Järvinen <pekka.jarvinen@gmail.com>
@@ -13,6 +14,10 @@
 # 01.06.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
 #
 # Comments:
+# 02.11.2006 Updated to r7877, added following refinements:
+#            Tag = leima, script = komentojono
+#            Fixes to conflicting shortcuts
+#            Various translation refinements
 # 15.10.2006 Refinements and (IMO) better translations for some terms:
 #            Blame = Selvitä tekijä, Relocate: Sijoita työkopio uudelleen, Resolve: Merkitse ratkaistuksi
 #			 Working copy = Työkopio, Patch = Paikka, Export = Vie, Import = Tuo (tietovarastoon)
@@ -35,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-15 16:59+0200\n"
+"PO-Revision-Date: 2006-11-03 00:00+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +49,6 @@ msgstr ""
 "X-Poedit-Language: Finnish\n"
 "X-Poedit-Country: FINLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Bookmarks: 625,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -760,7 +764,7 @@ msgstr "&Tietovarastoselain"
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
-msgstr "&Poista tämän version muutokset"
+msgstr "P&oista tämän version muutokset"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -1451,7 +1455,7 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "Apply &patch..."
-msgstr "Käytä &paikka..."
+msgstr "Käytä &paikkatiedosto..."
 
 # Control-ID:1294,
 #: Control-ID:1294
@@ -1533,6 +1537,11 @@ msgstr "Tekijät merkkien tasosta välittämättä"
 msgid "Authors:"
 msgstr "Tekijät:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Nimeä uudestaan automaattisesti"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1611,12 +1620,12 @@ msgstr "&Selaa..."
 # ID:115,
 #: ID:115
 msgid "Branch / tag created successfully!"
-msgstr "Haara / merkintä luotu onnistuneesti!"
+msgstr "Haara / leima luotu!"
 
 # ID:9,
 #: ID:9
 msgid "Branch/&tag..."
-msgstr "Luo &haara / merkintä..."
+msgstr "Luo &haara / leima..."
 
 # ID:16,
 #: ID:16
@@ -1673,7 +1682,7 @@ msgstr "&Luo hakemisto..."
 # ID:77,
 #: ID:77
 msgid "C&reate tag from revision"
-msgstr "Luo &merkintä tästä versiosta"
+msgstr "&Leimaa tämä versio"
 
 # ID:3697,
 #: ID:3697
@@ -1698,6 +1707,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1850,7 +1860,7 @@ msgstr "Tarkistetaan edessä olevia kopioita"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr "Tarkistetaan onko ohelmasta uutta versiota.."
+msgstr "Tarkistetaan onko ohjelmasta uudempaa versiota..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
@@ -2054,7 +2064,7 @@ msgstr "Valmis"
 # Dlg-ID:236,
 #: Dlg-ID:236
 msgid "Configure Hook Scripts"
-msgstr "Määritä koukkuskriptit"
+msgstr "Määritä koukkukomentojonot"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2113,7 +2123,7 @@ msgstr "Kopioi %s"
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
-msgstr "Kopioi (haara / merkintä)"
+msgstr "Kopioi (haara / leima)"
 
 # ID:101,
 #: ID:101
@@ -2246,7 +2256,7 @@ msgid ""
 "Patching is not possible!"
 msgstr ""
 "Tiedoston %s version %s haku epäonnistui.\n"
-"Paikkaaminen ei onnistu!"
+"Paikkaus ei onnistu!"
 
 # ID:64,
 #: ID:64
@@ -2309,7 +2319,7 @@ msgstr "Luo &paikkatiedosto..."
 # ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
-msgstr "Luo korjaustiedosto"
+msgstr "Luo paikkatiedosto"
 
 # Dlg-ID:178,
 #: Dlg-ID:178
@@ -3015,13 +3025,13 @@ msgstr "Yleistä"
 # ID:144,
 #: ID:144
 msgid "Generating patchfile..."
-msgstr "Luodaan korjaustiedostoa..."
+msgstr "Luodaan paikkatiedostoa..."
 
 # vai lukitus?
 # ID:16,
 #: ID:16
 msgid "Get loc&k..."
-msgstr "Hae &lukko..."
+msgstr "&Hae lukko..."
 
 # ID:89,
 #: ID:89
@@ -3066,7 +3076,7 @@ msgstr "Haetaan tietoja..."
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
-msgstr "Haetaan logitietoa.."
+msgstr "Haetaan lokia..."
 
 # ID:132,
 #: ID:119
@@ -3138,7 +3148,7 @@ msgstr "Apua"
 # Control-ID:1326,
 #: Control-ID:1326
 msgid "Hide the script while running"
-msgstr "Piilota skripti sen suorituksen aikana"
+msgstr "Piilota komentojono sen suorituksen ajaksi"
 
 # ID:2052,
 #: ID:2052
@@ -3157,7 +3167,7 @@ msgstr "Vihje: Paina F5-näppäintä päivittääksesi hakemistopuun. CTRL-F5 p�
 # Dlg-ID:103,
 #: Dlg-ID:103
 msgid "Hook Scripts"
-msgstr "Koukkuskriptit"
+msgstr "Koukkukomentojonot"
 
 # ID:198,
 #: ID:198
@@ -3521,7 +3531,7 @@ msgstr "Pidä &lukot"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
-msgstr "Viimeisin tietovarastoon toimitettu versio:"
+msgstr "Viimeisin versio:"
 
 # ID:11,
 #: ID:11
@@ -3546,7 +3556,7 @@ msgstr "Vasen näkymä:"
 # ID:188,
 #: Control-ID:65535
 msgid "Left image"
-msgstr "Vasen näkymä:"
+msgstr "Vasen kuva"
 
 # ID:19,
 #: ID:19
@@ -3633,7 +3643,7 @@ msgstr "Lukitus epäonnistui"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Lock owner:"
-msgstr "Lukonomistaja:"
+msgstr "Lukon omistaja:"
 
 # vai lukituksen?
 # ID:209,
@@ -3671,7 +3681,7 @@ msgstr "Loki"
 # Control-ID:1125,
 #: Dlg-ID:211
 msgid "Log History"
-msgstr "Lokihistoria"
+msgstr "Viimeisimmät viestit"
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
@@ -4191,6 +4201,11 @@ msgstr "Muut"
 msgid "Out of memory."
 msgstr "Muisti loppui."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Korvaa"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "&Edellinen ristiriita"
@@ -4223,7 +4238,7 @@ msgstr "Paikkaa kaikki"
 # ID:376,
 #: ID:376
 msgid "Patch selected"
-msgstr "Korjaa valitut"
+msgstr "Paikkaa valitut"
 
 # ID:157,#:
 # ID:157,
@@ -4282,7 +4297,7 @@ msgstr "Syötä päivä."
 # ID:3858,
 #: ID:83
 msgid "Please enter a hook script to execute."
-msgstr "Syötä suoritettava skripti."
+msgstr "Syötä suoritettava komentojono."
 
 # ID:3858,#:
 # ID:3858,
@@ -4300,7 +4315,7 @@ msgstr "Syötä numero"
 # ID:83,
 #: ID:83
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Syötä polku, jossa koukkuskripti suoritetaan."
+msgstr "Syötä polku, jossa koukkukomentojono suoritetaan."
 
 # ID:3858,#:
 # ID:3858,
@@ -4536,7 +4551,7 @@ msgstr "&RAM-asemat"
 # ID:114,
 #: ID:114
 msgid "R&evert to this revision"
-msgstr "&Palauta tähän versioon"
+msgstr "P&alauta tähän versioon"
 
 # ID:3697,
 #: ID:3697
@@ -4556,7 +4571,7 @@ msgstr "&Nimeä uudelleen..."
 # ID:8,
 #: ID:8
 msgid "Re&vert..."
-msgstr "&Palauta..."
+msgstr "P&alauta..."
 
 # ID:12,
 #: ID:12
@@ -4976,7 +4991,7 @@ msgstr "Oikea näkymä:"
 # ID:188,
 #: Control-ID:65535
 msgid "Right image"
-msgstr "Oikea näkymä:"
+msgstr "Oikea kuva"
 
 #: MenuEntry
 msgid "S&ettings"
@@ -5251,12 +5266,17 @@ msgstr ""
 # ID:197,
 #: ID:197
 msgid "Select folder to run script for"
-msgstr "Valitse kansio, jossa skripti suoritetaan"
+msgstr "Valitse kansio, jossa komentojono suoritetaan"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Valitse kansio, johon valitut tiedostot tallennetaan"
 
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
-msgstr "Valitse koukkuskriptitiedosto"
+msgstr "Valitse koukkukomentojono"
 
 # ID:78,
 #: ID:78
@@ -5410,7 +5430,7 @@ msgstr "Näytä &ikonipäällykset vain Resurssienhallinnassa"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show &unversioned files"
-msgstr "Näytä &versioimattomat tiedostot"
+msgstr "&Näytä versioimattomat tiedostot"
 
 #: MenuEntry
 msgid "Show File List"
@@ -5707,7 +5727,7 @@ msgstr "Subversion palvelintiedosto:"
 # Control-ID:1232,
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "&Vaihda työkopio uuteen haaraan / merkintään"
+msgstr "&Vaihda työkopio uuteen haaraan / leimaan"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -5716,7 +5736,7 @@ msgstr "Vaihda vasen<->oikea"
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
-msgstr "Vaihda haaraan / merkintään"
+msgstr "Vaihda haaraan / leimaan"
 
 # ID:3606,
 #: ID:3606
@@ -5799,7 +5819,7 @@ msgstr "TORTOISEIDIFF"
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "Työkopiosta tehtiin merkintä %s"
+msgstr "Työkopiosta tehtiin leima %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5918,6 +5938,18 @@ msgstr ""
 "ei ole olemassa.\n"
 "Haluatko luoda sen ensin?"
 
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Kansio\n"
+"%s\n"
+"on jo olemassa!"
+
 # ID:83,
 #: ID:83
 #, c-format
@@ -5925,7 +5957,7 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"Koukkuskripti palautti virheen:\n"
+"Koukkukomentojono palautti virheen:\n"
 "%s"
 
 # ID:7,
@@ -6655,7 +6687,7 @@ msgstr "Käytä &toista tekstilohkoa"
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Use &text viewer to view blames"
-msgstr "Käytä &tekstieditoria syiden katsomiseen"
+msgstr "Käytä &tekstieditoria tekijätietojen katsomiseen"
 
 # ID:195,
 #: ID:195
@@ -6843,7 +6875,7 @@ msgstr "Odota"
 # Control-ID:1327,
 #: Control-ID:1327
 msgid "Wait for the script to finish"
-msgstr "Odota skriptin päättymistä"
+msgstr "Odota komentojonon päättymistä"
 
 # ID:88,
 #: ID:88
