@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-23 19:12+0100\n"
+"PO-Revision-Date: 2006-11-04 20:24+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -386,8 +386,8 @@ msgstr "&Activar Servidor Proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Introduzca un mensaje que describa por qué bloquea el/los fichero(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Introduzca un mensaje que describa por qué está bloqueando el/los fichero(s)."
 
 #: MenuEntry
 msgid "&Exit"
@@ -1274,6 +1274,10 @@ msgstr "Autores sin importar mayús/minús"
 msgid "Authors:"
 msgstr "Autores:"
 
+#: ID:99
+msgid "Auto Rename"
+msgstr "Auto Renombrar"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1419,6 +1423,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -3621,6 +3626,11 @@ msgstr "Otros"
 msgid "Out of memory."
 msgstr "No hay memoria."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Sobreescribir"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "Conflicto p&revio"
@@ -4486,6 +4496,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Seleccione la carpeta donde ejecutar el script"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Seleccione la carpeta donde guardar los ficheros seleccionados"
+
 #: ID:197
 msgid "Select hook script file"
 msgstr "Seleccione fichero de script de gancho"
@@ -5070,6 +5085,18 @@ msgstr ""
 "%s\n"
 "no existe.\n"
 "¿Desea crearla primero?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"¡La carpeta\n"
+"%s\n"
+"ya existe!"
 
 # ID:83,
 #: ID:83
