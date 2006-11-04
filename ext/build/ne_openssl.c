@@ -1,6 +1,6 @@
 /* 
    neon SSL/TLS support using OpenSSL
-   Copyright (C) 2002-2005, Joe Orton <joe@manyfish.co.uk>
+   Copyright (C) 2002-2006, Joe Orton <joe@manyfish.co.uk>
    Portions are:
    Copyright (C) 1999-2000 Tommi Komulainen <Tommi.Komulainen@iki.fi>
 
@@ -37,10 +37,15 @@
 #include <openssl/x509v3.h>
 #include <openssl/rand.h>
 
+#ifdef NE_HAVE_TS_SSL
+#include <stdlib.h> /* for abort() */
+#include <pthread.h>
+#endif
+
 #include "ne_ssl.h"
 #include "ne_string.h"
 #include "ne_session.h"
-#include "ne_i18n.h"
+#include "ne_internal.h"
 
 #include "ne_private.h"
 #include "ne_privssl.h"
@@ -166,57 +171,45 @@ void ne_ssl_clicert_free(ne_ssl_client_cert *cc)
     ne_free(cc);
 }
 
-/* Map a server cert verification into a string. */
-static void verify_err(ne_session *sess, int failures)
-{
-    struct {
-	int bit;
-	const char *str;
-    } reasons[] = {
-	{ NE_SSL_NOTYETVALID, N_("certificate is not yet valid") },
-	{ NE_SSL_EXPIRED, N_("certificate has expired") },
-	{ NE_SSL_IDMISMATCH, N_("certificate issued for a different hostname") },
-	{ NE_SSL_UNTRUSTED, N_("issuer is not trusted") },
-	{ 0, NULL }
-    };
-    int n, flag = 0;
-
-    strcpy(sess->error, _("Server certificate verification failed: "));
-
-    for (n = 0; reasons[n].bit; n++) {
-	if (failures & reasons[n].bit) {
-	    if (flag) strncat(sess->error, ", ", sizeof sess->error);
-	    strncat(sess->error, _(reasons[n].str), sizeof sess->error);
-	    flag = 1;
-	}
-    }
-
-}
-
 /* Format an ASN1 time to a string. 'buf' must be at least of size
  * 'NE_SSL_VDATELEN'. */
-static void asn1time_to_string(ASN1_TIME *tm, char *buf)
+static time_t asn1time_to_timet(const ASN1_TIME *atm)
 {
-    BIO *bio;
+    struct tm tm = {0};
+    int i = atm->length;
     
-    strncpy(buf, _("[invalid date]"), NE_SSL_VDATELEN-1);
-    
-    bio = BIO_new(BIO_s_mem());
-    if (bio) {
-	if (ASN1_TIME_print(bio, tm))
-	    BIO_read(bio, buf, NE_SSL_VDATELEN-1);
-	BIO_free(bio);
-    }
+    if (i < 10)
+        return (time_t )-1;
+
+    tm.tm_year = (atm->data[0]-'0') * 10 + (atm->data[1]-'0');
+
+    /* Deal with Year 2000 */
+    if (tm.tm_year < 70)
+        tm.tm_year += 100;
+
+    tm.tm_mon = (atm->data[2]-'0') * 10 + (atm->data[3]-'0') - 1;
+    tm.tm_mday = (atm->data[4]-'0') * 10 + (atm->data[5]-'0');
+    tm.tm_hour = (atm->data[6]-'0') * 10 + (atm->data[7]-'0');
+    tm.tm_min = (atm->data[8]-'0') * 10 + (atm->data[9]-'0');
+    tm.tm_sec = (atm->data[10]-'0') * 10 + (atm->data[11]-'0');
+
+#ifdef HAVE_TIMEZONE
+    /* ANSI C time handling is... interesting. */
+    return mktime(&tm) - timezone;
+#else
+    return mktime(&tm);
+#endif
 }
 
-void ne_ssl_cert_validity(const ne_ssl_certificate *cert,
-                          char *from, char *until)
+void ne_ssl_cert_validity_time(const ne_ssl_certificate *cert,
+                               time_t *from, time_t *until)
 {
-    ASN1_TIME *notBefore = X509_get_notBefore(cert->subject);
-    ASN1_TIME *notAfter = X509_get_notAfter(cert->subject);
-    
-    if (from) asn1time_to_string(notBefore, from);
-    if (until) asn1time_to_string(notAfter, until);
+    if (from) {
+        *from = asn1time_to_timet(X509_get_notBefore(cert->subject));
+    }
+    if (until) {
+        *until = asn1time_to_timet(X509_get_notAfter(cert->subject));
+    }
 }
 
 /* Return non-zero if hostname from certificate (cn) matches hostname
@@ -238,7 +231,7 @@ static int match_hostname(char *cn, const char *hostname)
 	hostname = dot + 1;
 	cn += 2;
     }
-    return !strcasecmp(cn, hostname);
+    return !ne_strcasecmp(cn, hostname);
 }
 
 /* Check certificate identity.  Returns zero if identity matches; 1 if
@@ -309,7 +302,7 @@ static int check_identity(const char *hostname, X509 *cert, char **identity)
 	} while (idx >= 0);
 	
 	if (lastidx < 0) {
-            /* no commonNmae attributes at all. */
+            /* no commonName attributes at all. */
             ne_buffer_destroy(cname);
 	    return -1;
         }
@@ -432,7 +425,7 @@ static int check_certificate(ne_session *sess, SSL *ssl, ne_ssl_certificate *cha
         ret = NE_OK;
     } else {
         /* Set up the error string. */
-	verify_err(sess, failures);
+        ne__ssl_set_verify_err(sess, failures);
         ret = NE_ERROR;
         /* Allow manual override */
         if (sess->ssl_verify_fn && 
@@ -528,6 +521,25 @@ ne_ssl_context *ne_ssl_context_create(int mode)
     return ctx;
 }
 
+void ne_ssl_context_set_flag(ne_ssl_context *ctx, int flag, int value)
+{
+    long opts = SSL_CTX_get_options(ctx->ctx);
+
+    switch (flag) {
+    case NE_SSL_CTX_SSLv2:
+        if (value) { 
+            /* Enable SSLv2 support; clear the "no SSLv2" flag. */
+            opts &= ~SSL_OP_NO_SSLv2;
+        } else {
+            /* Disable it: set the flag. */
+            opts |= SSL_OP_NO_SSLv2;
+        }
+        break;
+    }
+
+    SSL_CTX_set_options(ctx->ctx, opts);
+}
+
 int ne_ssl_context_keypair(ne_ssl_context *ctx, const char *cert,
                            const char *key)
 {
@@ -569,9 +581,8 @@ void ne_ssl_context_destroy(ne_ssl_context *ctx)
 }
 
 /* For internal use only. */
-int ne__negotiate_ssl(ne_request *req)
+int ne__negotiate_ssl(ne_session *sess)
 {
-    ne_session *sess = ne_get_session(req);
     ne_ssl_context *ctx = sess->ssl_context;
     SSL *ssl;
     STACK_OF(X509) *chain;
@@ -687,7 +698,11 @@ void ne_ssl_trust_default_ca(ne_session *sess)
     char defaultcapath[MAX_PATH];
     X509_STORE *store = SSL_CTX_get_cert_store(sess->ssl_context->ctx);
     
+#ifdef NE_SSL_CA_BUNDLE
+    X509_STORE_load_locations(store, NE_SSL_CA_BUNDLE, NULL);
+#else
     X509_STORE_set_default_paths(store);
+#endif
     if (GetModuleFileNameA(NULL, defaultcapath, MAX_PATH))
     {
         char * sep = strrchr(defaultcapath, '\\');
@@ -949,4 +964,115 @@ int ne_ssl_cert_digest(const ne_ssl_certificate *cert, char *digest)
 
     p[-1] = '\0';
     return 0;
+}
+
+#ifdef NE_HAVE_TS_SSL
+/* Implementation of locking callbacks to make OpenSSL thread-safe.
+ * If the OpenSSL API was better designed, this wouldn't be necessary.
+ * It's not possible to implement the callbacks correctly using POSIX
+ * mutexes in any case, since the callback API is itself broken. */
+
+static pthread_mutex_t *locks;
+static size_t num_locks;
+
+/* Named to be obvious when it shows up in a backtrace. */
+static unsigned long thread_id_neon(void)
+{
+    /* POSIX does not expose an "unsigned long" thread identifier as
+     * required by OpenSSL.  So OpenSSL thread-safety cannot be
+     * implemented correctly using *the* Unix threading interface.
+     *
+     * This code will work where pthread_self() happens to return
+     * something which, when cast to unsigned long, can be treated as
+     * a unique identifier for the thread.  There's absolutely no
+     * guarantee of this in POSIX.  pthread_t could even be a
+     * structure - in which case this function will fail to compile.
+     * That's probably a good thing, since there's no way to make a
+     * unique ID out of said structure. */
+
+    return (unsigned long) pthread_self();
+}
+
+/* Another great API design win for OpenSSL: no return value!  So if
+ * the lock/unlock fails, all that can be done is to abort. */
+static void thread_lock_neon(int mode, int n, const char *file, int line)
+{
+    if (mode & CRYPTO_LOCK) {
+        if (pthread_mutex_lock(&locks[n])) {
+            abort();
+        }
+    }
+    else {
+        if (pthread_mutex_unlock(&locks[n])) {
+            abort();
+        }
+    }
+}
+
+#endif
+
+int ne__ssl_init(void)
+{
+    CRYPTO_malloc_init();
+    SSL_load_error_strings();
+    SSL_library_init();
+    OpenSSL_add_all_algorithms();
+
+#ifdef NE_HAVE_TS_SSL
+    /* If some other library has already come along and set up the
+     * thread-safety callbacks, then it must be presumed that the
+     * other library will have a longer lifetime in the process than
+     * neon.  If the library which has installed the callbacks is
+     * unloaded, then all bets are off. */
+    if (CRYPTO_get_id_callback() != NULL
+        || CRYPTO_get_locking_callback() != NULL) {
+        NE_DEBUG(NE_DBG_SOCKET, "ssl: OpenSSL thread-safety callbacks already installed.\n");
+        NE_DEBUG(NE_DBG_SOCKET, "ssl: neon will not replace existing callbacks.\n");
+    } else {
+        size_t n;
+
+        num_locks = CRYPTO_num_locks();
+
+        CRYPTO_set_id_callback(thread_id_neon);
+        CRYPTO_set_locking_callback(thread_lock_neon);
+
+        locks = malloc(num_locks * sizeof *locks);
+        for (n = 0; n < num_locks; n++) {
+            if (pthread_mutex_init(&locks[n], NULL)) {
+                NE_DEBUG(NE_DBG_SOCKET, "ssl: Failed to initialize pthread mutex.\n");
+                return -1;
+            }
+        }
+        
+        NE_DEBUG(NE_DBG_SOCKET, "ssl: Initialized OpenSSL thread-safety callbacks "
+                 "for %" NE_FMT_SIZE_T " locks.\n", num_locks);
+    }
+#endif
+
+    return 0;
+}
+
+void ne__ssl_exit(void)
+{
+    /* Cannot call ERR_free_strings() etc here in case any other code
+     * in the process using OpenSSL. */
+
+#ifdef NE_HAVE_TS_SSL
+    /* Only unregister the callbacks if some *other* library has not
+     * come along in the mean-time and trampled over the callbacks
+     * installed by neon. */
+    if (CRYPTO_get_locking_callback() == thread_lock_neon
+        && CRYPTO_get_id_callback() == thread_id_neon) {
+        size_t n;
+
+        CRYPTO_set_id_callback(NULL);
+        CRYPTO_set_locking_callback(NULL);
+
+        for (n = 0; n < num_locks; n++) {
+            pthread_mutex_destroy(&locks[n]);
+        }
+
+        free(locks);
+    }
+#endif
 }
