@@ -1038,7 +1038,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
+							// when creating the new folder, also trim any whitespace chars from it
+							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name.Trim())), input.m_sInputText))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
