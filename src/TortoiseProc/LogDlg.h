@@ -151,6 +151,7 @@ private:
 	UINT LogThread();
 	void Refresh();
 	BOOL DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
+	BOOL Open(bool bOpenWith, CString changedpath, long rev);
 	void EditAuthor(int index);
 	void EditLogMessage(int index);
 	void DoSizeV1(int delta);

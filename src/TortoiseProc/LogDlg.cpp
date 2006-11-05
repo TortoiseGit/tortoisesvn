@@ -1923,66 +1923,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				bOpenWith = true;
 			case ID_OPEN:
 				{
-					DialogEnableWindow(IDOK, FALSE);
-					SetPromptApp(&theApp);
-					theApp.DoWaitCursor(1);
-					CString filepath;
-					if (SVN::PathIsURL(m_path.GetSVNPathString()))
-					{
-						filepath = m_path.GetSVNPathString();
-					}
-					else
-					{
-						filepath = GetURLFromPath(m_path);
-						if (filepath.IsEmpty())
-						{
-							theApp.DoWaitCursor(-1);
-							CString temp;
-							temp.Format(IDS_ERR_NOURLOFFILE, filepath);
-							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-							TRACE(_T("could not retrieve the URL of the file!\n"));
-							EnableOKButton();
-							break;
-						}
-					}
-					filepath = GetRepositoryRoot(CTSVNPath(filepath));
-					filepath += changedpaths[0];
-
-					CProgressDlg progDlg;
-					progDlg.SetTitle(IDS_APPNAME);
-					CString sInfoLine;
-					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev1);
-					progDlg.SetLine(1, sInfoLine);
-					SetAndClearProgressInfo(&progDlg);
-					progDlg.ShowModeless(m_hWnd);
-
-					CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev1);
-					if (!Cat(CTSVNPath(filepath), SVNRev(rev1), rev1, tempfile))
-					{
-						progDlg.Stop();
-						SetAndClearProgressInfo((HWND)NULL);
-						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						EnableOKButton();
-						theApp.DoWaitCursor(-1);
-						break;
-					}
-					progDlg.Stop();
-					SetAndClearProgressInfo((HWND)NULL);
-					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-					if (!bOpenWith)
-					{
-						int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
-						if (ret <= HINSTANCE_ERROR)
-							bOpenWith = true;
-					}
-					if (bOpenWith)
-					{
-						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-						cmd += tempfile.GetWinPathString();
-						CAppUtils::LaunchApplication(cmd, NULL, false);
-					}
-					EnableOKButton();
-					theApp.DoWaitCursor(-1);
+					Open(bOpenWith,changedpaths[0],rev1);
 				}
 				break;
 			case ID_LOG:
@@ -2375,6 +2316,71 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
 	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
+}
+
+BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, long rev)
+{
+	DialogEnableWindow(IDOK, FALSE);
+	SetPromptApp(&theApp);
+	theApp.DoWaitCursor(1);
+	CString filepath;
+	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+	{
+		filepath = m_path.GetSVNPathString();
+	}
+	else
+	{
+		filepath = GetURLFromPath(m_path);
+		if (filepath.IsEmpty())
+		{
+			theApp.DoWaitCursor(-1);
+			CString temp;
+			temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+			TRACE(_T("could not retrieve the URL of the file!\n"));
+			EnableOKButton();
+			return FALSE;
+		}
+	}
+	filepath = GetRepositoryRoot(CTSVNPath(filepath));
+	filepath += changedpath;
+
+	CProgressDlg progDlg;
+	progDlg.SetTitle(IDS_APPNAME);
+	CString sInfoLine;
+	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev);
+	progDlg.SetLine(1, sInfoLine);
+	SetAndClearProgressInfo(&progDlg);
+	progDlg.ShowModeless(m_hWnd);
+
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev);
+	if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
+	{
+		progDlg.Stop();
+		SetAndClearProgressInfo((HWND)NULL);
+		CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		EnableOKButton();
+		theApp.DoWaitCursor(-1);
+		return FALSE;
+	}
+	progDlg.Stop();
+	SetAndClearProgressInfo((HWND)NULL);
+	SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+	if (!bOpenWith)
+	{
+		int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+		if (ret <= HINSTANCE_ERROR)
+			bOpenWith = true;
+	}
+	if (bOpenWith)
+	{
+		CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+		cmd += tempfile.GetWinPathString();
+		CAppUtils::LaunchApplication(cmd, NULL, false);
+	}
+	EnableOKButton();
+	theApp.DoWaitCursor(-1);
+	return TRUE;
 }
 
 void CLogDlg::EditAuthor(int index)
