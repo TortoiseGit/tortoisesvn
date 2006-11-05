@@ -61,6 +61,11 @@ END_MESSAGE_MAP()
 BOOL CEditPropertyValueDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+	CString resToken;
+	int curPos = 0;
+
+	// get the property values for user defined property files
+	m_ProjectProperties.ReadPropsPathList(m_pathList);
 
 	// fill the combobox control with all the
 	// known properties
@@ -78,6 +83,18 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("svn:needs-lock"));
 	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:mime-type"));
+	if ((!m_bFolder)||(m_bMultiple))
+	{
+		if (!m_ProjectProperties.sFPPath.IsEmpty())
+		{
+			resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+			while (resToken != "")
+			{
+				m_PropNames.AddString(resToken);
+				resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+			}
+		}
+	}
 
 	if ((m_bFolder)||(m_bMultiple))
 	{
@@ -94,9 +111,23 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:logminsize"));
 		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
+		m_PropNames.AddString(_T("tsvn:userfileproperties"));
+		m_PropNames.AddString(_T("tsvn:userdirproperties"));
 
 		m_PropNames.AddString(_T("webviewer:revision"));
 		m_PropNames.AddString(_T("webviewer:pathrevision"));
+
+		if (!m_ProjectProperties.sDPPath.IsEmpty())
+		{
+			curPos = 0;
+			resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+
+			while (resToken != "")
+			{
+				m_PropNames.AddString(resToken);
+				resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+			}
+		}
 	}
 	else
 		GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
@@ -246,6 +277,10 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_TSVNLOGFILELISTENGLISH;
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+		if (sName.Compare(_T("tsvn:userfileproperties"))==0)
+			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+		if (sName.Compare(_T("tsvn:userfolderproperties"))==0)
+			nText = IDS_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("webviewer:revision"))==0)
 			nText = IDS_TT_WEBVIEWERREVISION;
 		if (sName.Compare(_T("webviewer:pathrevision"))==0)
@@ -351,4 +386,6 @@ void CEditPropertyValueDlg::OnEnChangePropvalue()
 		m_bIsBinary = false;
 	}
 }
+
+
 

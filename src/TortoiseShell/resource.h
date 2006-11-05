@@ -174,6 +174,8 @@
 #define IDS_PROPBIN                     263
 #define IDS_TT_WEBVIEWERREVISION        264
 #define IDS_TT_WEBVIEWERPATHREVISION    265
+#define IDS_TT_USERFILEPROPERTIES       266
+#define IDS_TT_USERFOLDERPROPERTIES     267
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

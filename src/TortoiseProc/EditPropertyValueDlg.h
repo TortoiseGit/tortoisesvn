@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "Balloon.h"
+#include "ProjectProperties.h"
 
 #define	MAX_TT_LENGTH			10000
 
@@ -26,6 +27,7 @@
  * \ingroup TortoiseProc
  * Helper dialog to edit the Subversion properties.
  */
+
 class CEditPropertyValueDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CEditPropertyValueDlg)
@@ -46,6 +48,7 @@ public:
 	void			SetFolder() {m_bFolder = true;}
 	void			SetMultiple() {m_bMultiple = true;}
 	void			SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
+	void			SetPathList(const CTSVNPathList& pathlist) {m_pathList = pathlist;}
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -71,4 +74,6 @@ protected:
 	bool		m_bFolder;
 	bool		m_bMultiple;
 	bool		m_bIsBinary;
+	CTSVNPathList		m_pathList;
+	ProjectProperties	m_ProjectProperties;
 };

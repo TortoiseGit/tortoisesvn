@@ -357,7 +357,8 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 
 	CEditPropertyValueDlg dlg;
 	CString sName;
-	if ((bAdd==false)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
+
+	if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
 		PropValue& prop = m_properties[stdstring(sName)];
@@ -367,8 +368,10 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
 	}
 	else
+	{
+		dlg.SetPathList(m_pathlist);  // this is the problem
 		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
-
+	}
 
 	if (m_pathlist.GetCount() > 1)
 		dlg.SetMultiple();
@@ -401,7 +404,9 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 					CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 				else
+				{
 					m_bChanged = true;
+				}
 			}
 			prog.Stop();
 			Refresh();
@@ -509,4 +514,5 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 		}
 	}
 }
+
 

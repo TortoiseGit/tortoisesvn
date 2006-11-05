@@ -37,6 +37,8 @@ using namespace regex;
 #define PROJECTPROPNAME_LOCKMSGMINSIZE	  _T("tsvn:lockmsgminsize")
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
 #define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
+#define PROJECTPROPNAME_USERFILEPROPERTY  _T("tsvn:userfileproperties")
+#define PROJECTPROPNAME_USERDIRPROPERTY   _T("tsvn:userdirproperties")
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     _T("webviewer:revision")
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
@@ -156,6 +158,12 @@ public:
 	
 	/** The language identifier this project uses for log messages. */
 	LONG		lProjectLanguage;
+
+	/** holds user defined properties for files. */
+	CString		sFPPath;
+
+	/** holds user defined properties for directories. */
+	CString		sDPPath;
 
 	/** The url pointing to the web viewer. The string %REVISION% is replaced
 	 *  with the revision number, "HEAD", or a date */

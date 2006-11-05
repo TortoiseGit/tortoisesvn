@@ -45,6 +45,8 @@
        boxes by pressing Shift-Delete. (Tobias Schäfer)
 - NEW: Two new commands in the log dialog to compare/blame a revision
        with its previous one. See issue #286 for details. (Stefan)
+- NEW: Project properties to define user-defined properties which will be
+       shown in the properties combobox to choose from. (John Norris)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

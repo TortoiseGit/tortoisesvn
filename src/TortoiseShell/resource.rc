@@ -356,6 +356,10 @@ BEGIN
                             "webviewer:revision\nURL pointing to the web viewer for the repository for a specific revision.\nThe string %REVISION% in that URL is replaced with the revision number."
     IDS_TT_WEBVIEWERPATHREVISION 
                             "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\nThe string %REVISION% in the URL is replaced with the revision number,\nthe string %PATH% is replaced with the path to the file relative to the repository root."
+    IDS_TT_USERFILEPROPERTIES 
+                            "tsvn:userfileproperties\nNewline separated list of user defined properties for files which will\nbe shown in the property dialog to choose from."
+    IDS_TT_USERFOLDERPROPERTIES 
+                            "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
 END
 
 #endif    // English (U.S.) resources

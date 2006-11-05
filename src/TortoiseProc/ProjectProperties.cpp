@@ -68,6 +68,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundMinLockMsgSize = FALSE;
 	BOOL bFoundFileListEnglish = FALSE;
 	BOOL bFoundProjectLanguage = FALSE;
+	BOOL bFoundUserFileProps = FALSE;
+	BOOL bFoundUserDirProps = FALSE;
 	BOOL bFoundWebViewRev = FALSE;
 	BOOL bFoundWebViewPathRev = FALSE;
 
@@ -217,6 +219,18 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundProjectLanguage = TRUE;
 			}
+			if ((!bFoundUserFileProps)&&(sPropName.Compare(PROJECTPROPNAME_USERFILEPROPERTY)==0))
+			{
+				sFPPath = sPropVal;
+				sFPPath.Replace(_T("\r\n"), _T("\n"));
+				bFoundUserFileProps = TRUE;
+			}
+			if ((!bFoundUserDirProps)&&(sPropName.Compare(PROJECTPROPNAME_USERDIRPROPERTY)==0))
+			{
+				sDPPath = sPropVal;
+				sDPPath.Replace(_T("\r\n"), _T("\n"));
+				bFoundUserDirProps = TRUE;
+			}
 			if ((!bFoundWebViewRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
 			{
 				sWebViewerRev = sPropVal;
@@ -236,6 +250,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
+				| bFoundUserFileProps | bFoundUserDirProps
 				| bFoundWebViewRev | bFoundWebViewPathRev)
 				return TRUE;
 			return FALSE;
@@ -863,5 +878,6 @@ public:
 	}
 } PropTest;
 #endif
+
 
 
