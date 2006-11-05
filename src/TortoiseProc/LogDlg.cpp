@@ -931,6 +931,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+						temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
+						temp.LoadString(IDS_LOG_POPUP_BLAMEWITHPREVIOUS);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEWITHPREVIOUS, temp);
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 					}
 					if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
@@ -1184,6 +1188,24 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						diff.ShowCompare(url, rev2, url, rev1);
 					}
 					break;
+				case ID_COMPAREWITHPREVIOUS:
+					{
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev1 = pLogEntry->dwRev;
+						long rev2 = rev1-1;
+						m_bCancelled = FALSE;
+
+						SVNDiff diff(this, this->m_hWnd, true);
+						CTSVNPath url = m_path;
+						if (!PathIsURL(m_path.GetSVNPathString()))
+						{
+							url.SetFromSVN(GetURLFromPath(m_path));
+						}
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(url, rev2, url, rev1);
+					}
+					break;
 				case ID_BLAMECOMPARE:
 					{
 						//user clicked on the menu item "compare with working copy"
@@ -1198,12 +1220,31 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_BLAMETWO:
 					{
-						//user clicked on the menu item "compare revisions"
+						//user clicked on the menu item "compare and blame revisions"
 						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						long rev1 = pLogEntry->dwRev;
 						pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						long rev2 = pLogEntry->dwRev;
+						m_bCancelled = FALSE;
+
+						SVNDiff diff(this, this->m_hWnd, true);
+						CTSVNPath url = m_path;
+						if (!PathIsURL(m_path.GetSVNPathString()))
+						{
+							url.SetFromSVN(GetURLFromPath(m_path));
+						}
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(url, rev2, url, rev1, SVNRev(), false, true);
+					}
+					break;
+				case ID_BLAMEWITHPREVIOUS:
+					{
+						//user clicked on the menu item "Compare and Blame with previous revision"
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev1 = pLogEntry->dwRev;
+						long rev2 = rev1-1;
 						m_bCancelled = FALSE;
 
 						SVNDiff diff(this, this->m_hWnd, true);
