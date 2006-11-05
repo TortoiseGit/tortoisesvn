@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-21 21:55+0400\n"
+"PO-Revision-Date: 2006-11-05 16:16+0400\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,7 +281,7 @@ msgstr "&ბებკი ფაილის გამოყენება"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Autoclose:"
-msgstr "თვითდახურვა"
+msgstr "&თვითდახურვა"
 
 # Control-ID:1015,
 #: Control-ID:1015
@@ -440,8 +440,8 @@ msgstr "&პროქსი სერვერის ჩართვა"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&მიუთითეთ ფაილ(ებ)ის დაბლოკვის მიზეზი."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&მიუთითეთ ტექსტი ფაილ(ებ)ის დაბლოკვის მიზეზის ახსნით."
 
 #: MenuEntry
 msgid "&Exit"
@@ -450,7 +450,7 @@ msgstr "&გასვლა"
 # ID:79,
 #: ID:323
 msgid "&Export selection to..."
-msgstr "მონიშნულიე &ექსპორტი აქ..."
+msgstr "მონიშნულის &ექსპორტი აქ..."
 
 # Control-ID:1092,#:
 # Control-ID:1095,#:
@@ -614,7 +614,7 @@ msgstr "&შერწყმა"
 # ID:9,
 #: ID:9
 msgid "&Merge..."
-msgstr "&შერწყმა"
+msgstr "&შერწყმა..."
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -803,12 +803,12 @@ msgstr "&სიმბოლოებით ჩვენება"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Tab size:"
-msgstr "ტაბულაციის ზომა"
+msgstr "&ტაბულაციის ზომა"
 
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "&Timeout in seconds to stop the autocompletion parsing"
-msgstr "დაყოვნების ვადა თვიდასრულების შესაჩერებლად"
+msgstr "&დაყოვნების ვადა თვიდასრულების შესაჩერებლად"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1497,6 +1497,11 @@ msgstr "ავტორები მთავრულის გაუთვა�
 msgid "Authors:"
 msgstr "ავტორები:"
 
+# ID:101,
+#: ID:99
+msgid "Auto Rename"
+msgstr "თვითგადარქმევა"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1660,6 +1665,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1984,6 +1990,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "ძირეულ სამუშაო ასლთან შედარება &ავტორების ჩვენებით"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "შედარება წინა ვერსიასთან და ავტორები"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "&სამუშაო ასლთან შედარება"
@@ -1992,6 +2003,12 @@ msgstr "&სამუშაო ასლთან შედარება"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "&ძირითადთან შედარება"
+
+# ID:76,#:
+# ID:274,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "შედარება წინა ვერსიასთან"
 
 # ID:12,
 #: ID:12
@@ -4152,6 +4169,11 @@ msgstr "სხვა"
 msgid "Out of memory."
 msgstr "მეხსიერების უკმარისობა."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "ჩანაცვლება"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "&წინა კონფლიქტი"
@@ -5193,6 +5215,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "შერაჩიეთ დასტა სკრიპტისთვის"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "შერაჩიეთ დასტა შერჩეული ფაილების შესანახად"
+
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
@@ -5861,6 +5888,18 @@ msgstr ""
 "%s\n"
 "არ არსებობს.\n"
 "გნებავთ მისი შექმნა?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"დასტა\n"
+"%s\n"
+"უკვე არსებობს!"
 
 # ID:83,
 #: ID:83
