@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-04 20:24+0100\n"
+"PO-Revision-Date: 2006-11-05 17:35+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1708,6 +1708,10 @@ msgstr "Comparar revisiones &HEAD"
 msgid "Compare and &blame with working BASE"
 msgstr "Comparar y ver &autoría con la BASE de trabajo"
 
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Comparar y ver autoría con la revisión anterior"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Comparar con la copia de &trabajo"
@@ -1715,6 +1719,10 @@ msgstr "Comparar con la copia de &trabajo"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Comparar con b&ase"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Comparar con la revisión anterior"
 
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -6551,6 +6559,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Número del idioma en el que desea escribir sus mensajes de registro.\n"
 "TortoiseSVN intentará entonces cargar el módulo del corrector ortográfico apropiado si está disponible."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Indicar en cada linea una propiedad definida por el usuario para los ficheros,\n"
+"que se mostrará en el desplegable del diálogo de propiedades para poder elegirla."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Indicar en cada linea una propiedad definida por el usuario para las carpetas,\n"
+"que se mostrará en el desplegable del diálogo de propiedades para poder elegirla."
 
 # ID:15,
 #: ID:15
