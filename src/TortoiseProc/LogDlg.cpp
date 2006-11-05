@@ -1633,6 +1633,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
 					}
+					if (popup.GetDefaultItem(0,FALSE)==-1)
+						popup.SetDefaultItem(ID_OPEN, FALSE);
 				}
 			}
 			else
@@ -2248,6 +2250,10 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		if (DiffPossible(changedpath, rev1))
 		{
 			DoDiffFromLog(selIndex, rev1, rev2, false, false);
+		}
+		else
+		{
+			Open(false,changedpath->sPath,rev1);
 		}
 	}
 }
