@@ -145,6 +145,8 @@ Version 1.4.1
        urls with spaces in them. (Stefan)
 - BUG: The context menu entry "Select All" in the edit control in the
        commit dialog did not work. (Stefan)
+- BUG: It was possible to create a new folder in the repobrowser 
+       which name had a whitespace char at the end. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
@@ -219,8 +221,6 @@ Version 1.4.0
 - BUG: If the bugtraq:append property was set to 'false', the log message
        inserted from the history was not inserted correctly. (Stefan)
 - BUG: Creating and accessing BDB repositories did not work. (Stefan)
-- BUG: It was possible to create a new folder in the repobrowser 
-       which name had a whitespace char at the end. (Stefan)
 
 Version 1.4.0RC1
 - NEW: Command line param /bugid to prefill the bug ID
