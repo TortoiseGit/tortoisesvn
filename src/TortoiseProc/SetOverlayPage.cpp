@@ -163,7 +163,7 @@ int CSetOverlayPage::SaveData()
 				::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 			}
 		}
-		if ((m_dwCacheType==1)&&((DWORD)m_regUnversionedAsModified != (DWORD)m_bUnversionedAsModified))
+		if (m_dwCacheType==1)
 		{
 			// tell the cache to refresh everything
 			HANDLE hPipe = CreateFile( 
