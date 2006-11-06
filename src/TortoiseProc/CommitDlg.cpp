@@ -598,6 +598,9 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 
 LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 {
+	BringWindowToTop();
+	SetForegroundWindow();
+	SetActiveWindow();
 	// if multiple files/folders are dropped
 	// this handler is called for every single item
 	// separately.

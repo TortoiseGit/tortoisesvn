@@ -843,6 +843,10 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 	ftetc.tymed = TYMED_HGLOBAL; 
 	ftetc.cfFormat=CF_HDROP;
 	
+	BringWindowToTop();
+	SetForegroundWindow();
+	SetActiveWindow();
+	
 	m_DroppedPaths.Clear();
 	
 	if (pDataObj->GetData(&ftetc, &medium) == S_OK)
