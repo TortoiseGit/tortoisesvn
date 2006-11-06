@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-09-29 11:05+0900\n"
+"PO-Revision-Date: 2006-11-06 13:23+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -449,7 +449,7 @@ msgstr "プロキシサーバを有効にする(&E)"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "ファイルをロックする理由を入力してください(&E)。"
 
 # Control-ID:1031,
@@ -1513,6 +1513,11 @@ msgstr "作者名の大文字／小文字を区別しない"
 msgid "Authors:"
 msgstr "作者:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "名前の自動変更"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1677,6 +1682,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1811,8 +1817,8 @@ msgstr "入力したパス、もしくはURLをチェックしてください。
 
 # Control-ID:65535,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "トップレベルのコンテキストメニューの代わりに、サブメニューに表示したいものにチェック"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "TortoiseSVN のサブメニューの代わりに、トップコンテキストメニューに表示したいメニュー項目にチェック"
 
 # ID:80,
 #: ID:80
@@ -1999,6 +2005,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "作業BASEとの比較／注釈履歴を行う(&B)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "以前のリビジョンと比較／注釈履歴を行う(&B)"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "作業コピーと比較(&W)"
@@ -2007,6 +2018,11 @@ msgstr "作業コピーと比較(&W)"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "B&ase と比較"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "以前のリビジョンと比較(&C)"
 
 # ID:12,
 #: ID:12
@@ -3175,6 +3191,11 @@ msgstr "アイコン／デザイン／コード:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイを非表示にする"
 
+# ID:198,
+#: ID:198
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "有効にすると、選択したファイルに svn:needs-lock 属性が設定されている場合は \"ロックを取得\" をトップレベルメニューに表示します。"
+
 # ID:95,
 #: ID:95
 msgid ""
@@ -4161,6 +4182,11 @@ msgstr "Others"
 msgid "Out of memory."
 msgstr "メモリ不足です。"
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "上書き"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -4474,6 +4500,11 @@ msgstr "プロクシのタイムアウト(&T):"
 #: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "プロクシの設定"
+
+# Control-ID:1338,
+#: Control-ID:1338
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "svn:needs-lock が設定されている場合は、トップメニューに \"ロックを取得\" を表示する"
 
 # ID:246,
 #: ID:246
@@ -5203,6 +5234,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "スクリプトを実行するフォルダを選択"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "選択したファイルを保存するフォルダを選択してください"
+
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
@@ -5866,6 +5902,18 @@ msgstr ""
 "%s\n"
 "は存在していません。\n"
 "作成しますか？"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"フォルダ\n"
+"%s\n"
+"はすでに存在しています！"
 
 # ID:83,
 #: ID:83
@@ -7465,6 +7513,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "ログメッセージ内に記述したい言語番号を指定する。\n"
 "もし可能なら、TortoiseSVN は適切なスペルチェックモジュールをロードします。"
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"改行で分けられたファイルに対するユーザー定義属性のリスト。\n"
+"属性ダイアログ内で確認することができます。"
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"改行で分けられたフォルダに対するユーザー定義属性のリスト。\n"
+"属性ダイアログ内で確認することができます。"
 
 # ID:15,
 #: ID:15
