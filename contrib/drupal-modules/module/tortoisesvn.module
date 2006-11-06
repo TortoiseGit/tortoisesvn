@@ -238,24 +238,21 @@ function print_content_stat($i, $postat, $vars)
 
 
   // Calculate width of bars
+  $wt=round($wc*$tra/$total);
   $wa=round($wc*$acc/$total);
   $wf=round($wc*$fuz/$total);
   $wu=round($wc*$unt/$total);
 
-  // Calculate width. Do this before adjustments!
-  $wt = $wc-$wa-$wf-$wu;
-
-  // Calculate percentage done. 
-  $pt=number_format($tra/$total, 1)."%";
-
   // Adjustments
-  // make sure that each bar is at least 1px wide if it's value is > 0
+  // make sure that each bar is at least 2px wide if its value is > 0
+  if (($wt<2) && ($tra>0)) $wt=2;
   if (($wa<2) && ($acc>0)) $wa=2;
   if (($wf<2) && ($fuz>0)) $wf=2;
   if (($wu<2) && ($unt>0)) $wu=2;
 
-  // Adjust total width accordingly
-  if ($wa+$wf+$wu!=$wc){
+  // Adjust total width by determining the widest bar and
+  // subtracting the width of the shorter bars from it.
+  if ($wt+$wa+$wf+$wu!=$wc){
     // change bar with max width
     if ($wt>=wa && $wt>=$wf && $wt>=$wu){
       $wt = $wc-$wa-$wf-$wu;
@@ -268,7 +265,10 @@ function print_content_stat($i, $postat, $vars)
     }
   }
 
-  // if completeness was rounded up to 100% and 
+  // Calculate percentage done. 
+  $pt=number_format(100*$tra/$total, 1)."%";
+
+  // If completeness was rounded up to 100% and 
   // anything is missing, set completeness down to 99.9%
   if ( ($pt=="100.0%") && ($total>$tra) )
     $pt="99.9%";
