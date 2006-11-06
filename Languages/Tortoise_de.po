@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-03 09:47+0100\n"
+"PO-Revision-Date: 2006-11-06 09:13+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1640,6 +1640,10 @@ msgstr "&HEAD Revisionen vergleichen"
 msgid "Compare and &blame with working BASE"
 msgstr "Vergleiche und &Annotiere mit Arbeitskopie BASE"
 
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Vergleiche und Annotiere mit vorheriger Revision"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergleiche mit &Arbeitskopie"
@@ -1647,6 +1651,10 @@ msgstr "Vergleiche mit &Arbeitskopie"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Vergleiche mit B&asis"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Vergleiche mit vorheriger Revision"
 
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -6319,6 +6327,28 @@ msgstr ""
 "Setzen Sie diese Eigenschaft auf die vierstellige Nummer der Sprache, in\n"
 "der die Logmeldungen geschrieben werden sollen. TortoiseSVN lädt dann\n"
 "die entsprechende Rechtschreibprüfung, falls sie installiert ist."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Eine durch Zeilenumbrüche getrennte Liste von Eigenschaften für\n"
+"Dateien, die als Auswahl im Eigenschaftsdialog angezeigt wird."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Eine durch Zeilenumbrüche getrennte Liste von Eigenschaften für\n"
+"Ordner, die als Auswahl im Eigenschaftsdialog angezeigt wird."
 
 #: ID:15
 msgid ""
