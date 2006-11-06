@@ -228,7 +228,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// lock and not a write lock!
 				// So mark it for crawling, and let the crawler remove it
 				// later
-				CSVNStatusCache::Instance().AddFolderForCrawling(path);
+				CSVNStatusCache::Instance().AddFolderForCrawling(path.GetDirectory());
 				return CStatusCacheEntry();
 			}
 			else
