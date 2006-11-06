@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r7877
+# Based on Tortoise.pot r7931
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-02 17:15+0100\n"
+"PO-Revision-Date: 2006-11-06 15:58+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,7 +354,7 @@ msgid "&Enable Proxy Server"
 msgstr "&Aktiver proxyserver"
 
 #: Control-ID:1213,
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Indtast en besked som beskriver, hvorfor du låser filen/filerne."
 
 #: MenuEntry
@@ -1476,6 +1476,10 @@ msgstr "Sammenlign &HEAD-revisioner"
 msgid "Compare and &blame with working BASE"
 msgstr "Sammenlign med og vis &ansvar i forhold til basisfilen"
 
+#: ID:114,
+msgid "Compare and blame with previous revision"
+msgstr "Sammenling med og vis ansvar i forhold til forrige revision"
+
 #: ID:76,
 msgid "Compare with &working copy"
 msgstr "Sammenlign med &arbejdskopien"
@@ -1483,6 +1487,10 @@ msgstr "Sammenlign med &arbejdskopien"
 #: ID:138,
 msgid "Compare with b&ase"
 msgstr "Sammenlign med b&asisfilen"
+
+#: ID:114,
+msgid "Compare with previous revision"
+msgstr "Sammenlign med forrige version"
 
 #: ID:12,
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -5043,6 +5051,14 @@ msgstr "tsvn:logwidthmarker\nSæt denne værdi til det antal tegn, som logbesked
 #: ID:15,
 msgid "tsvn:projectlanguage\nSet this to the language number you want your log messages written in.\nTortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\nSæt denne til nummeret på det sprog, som du ønsker at skrive logbeskeder i.\nTortoiseSVN vil automatisk hente det tilsvarende modul til stavekontrol, hvis det findes."
+
+#: ID:17,
+msgid "tsvn:userfileproperties\nNewline separated list of user defined properties for files which will\nbe shown in the property dialog to choose from."
+msgstr "tsvn:userfileproperties\nEn liste adskilt af linjeskift af brugerdefinerede egenskaber for filer.\nDisse vil kunne vælges i dialogen \"Egenskaber\"."
+
+#: ID:17,
+msgid "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
+msgstr "tsvn:userfolderproperties\nEn liste adskilt af linjeskift af brugerdefinerede egenskaber for mapper.\nDisse vil kunne vælges i dialogen \"Egenskaber\"."
 
 #: ID:15,
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
