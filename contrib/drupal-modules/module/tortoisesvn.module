@@ -250,15 +250,14 @@ function print_content_stat($i, $postat, $vars)
   if (($wf<2) && ($fuz>0)) $wf=2;
   if (($wu<2) && ($unt>0)) $wu=2;
 
-  // Adjust total width by determining the widest bar and
-  // subtracting the width of the shorter bars from it.
+  // Make sure total width stays constant by determining the widest bar
+  // and subtracting the width of the shorter bars from it.
   if ($wt+$wa+$wf+$wu!=$wc){
-    // change bar with max width
     if ($wt>=wa && $wt>=$wf && $wt>=$wu){
       $wt = $wc-$wa-$wf-$wu;
     } else if ($wa>=$wt && $wa>=$wf && $wa>=$wu){
       $wa = $wc-$wt-$wf-$wu;
-    } else if ($wf>=$wt && $wf>=$wa && $wa>=$wu){
+    } else if ($wf>=$wt && $wf>=$wa && $wf>=$wu){
       $wf = $wc-$wt-$wa-$wu;
     } else{
       $wu = $wc-$wt-$wa-$wf;
