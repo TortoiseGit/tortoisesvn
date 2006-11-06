@@ -203,13 +203,13 @@ function print_blank_stat($i, $postat, $vars)
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
-if ($postat[0] > 0) {
-  echo "<td class=\"graph\">Error in po file</td>";
-} else {
-  echo "<td class=\"graph\">";
-  echo "<img src=\"siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
-  echo "</td>";
-}
+  if ($postat[0] > 0) {
+    echo "<td class=\"graph\">Error in po file</td>";
+  } else {
+    echo "<td class=\"graph\">";
+    echo "<img src=\"siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
+    echo "</td>";
+  }
   echo "<td class=\"download\"><a href=\"$reposurl\">$postat[6]</a></td>";
   echo "<td class=\"lang\">$fdate</td>";
 }
@@ -246,8 +246,8 @@ function print_content_stat($i, $postat, $vars)
   $wt = $wc-$wa-$wf-$wu;
 
   // Calculate percentage done. 
-  $pt=number_format(100*$wt/$wc, 1)."%";
-  
+  $pt=number_format($tra/$total, 1)."%";
+
   // Adjustments
   // make sure that each bar is at least 1px wide if it's value is > 0
   if (($wa<2) && ($acc>0)) $wa=2;
@@ -255,11 +255,22 @@ function print_content_stat($i, $postat, $vars)
   if (($wu<2) && ($unt>0)) $wu=2;
 
   // Adjust total width accordingly
-  $wt = $wc-$wa-$wf-$wu;
+  if ($wa+$wf+$wu!=$wc){
+    // change bar with max width
+    if ($wt>=wa && $wt>=$wf && $wt>=$wu){
+      $wt = $wc-$wa-$wf-$wu;
+    } else if ($wa>=$wt && $wa>=$wf && $wa>=$wu){
+      $wa = $wc-$wt-$wf-$wu;
+    } else if ($wf>=$wt && $wf>=$wa && $wa>=$wu){
+      $wf = $wc-$wt-$wa-$wu;
+    } else{
+      $wu = $wc-$wt-$wa-$wf;
+    }
+  }
 
   // if completeness was rounded up to 100% and 
   // anything is missing, set completeness down to 99.9%
-  if ( ($pt=="100.0%") && ($wa+$wf+$wu>0) )
+  if ( ($pt=="100.0%") && ($total>$tra) )
     $pt="99.9%";
 
   if ($pt=="100.0%") {
