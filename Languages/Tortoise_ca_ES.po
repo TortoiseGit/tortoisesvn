@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-10-27 19:52+0100\n"
+"PO-Revision-Date: 2006-11-03 16:58+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -156,7 +156,7 @@ msgstr "%ld de %ld"
 #: ID:563
 #, c-format
 msgid "%ld paths"
-msgstr "%ld paths"
+msgstr "%ld camins"
 
 # ID:226,
 #: ID:226
@@ -452,8 +452,8 @@ msgstr "&Habilita Servidor Proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Introdueix un missatge explicant el perquè del bloqueig d'un o varis fitxers."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Introdueix un missatge explicant el perquè del bloqueig del(s) fitxer(s)."
 
 #: MenuEntry
 msgid "&Exit"
@@ -513,7 +513,7 @@ msgstr "&De la URL:"
 # Control-ID:1259,
 #: Control-ID:1259
 msgid "&From WC at URL:"
-msgstr "&De la WC a la URL:"
+msgstr "&De la Còpia de Treball a la URL:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -644,7 +644,7 @@ msgstr "&Navega"
 # Control-ID:1049,
 #: Control-ID:1049
 msgid "&Network drives"
-msgstr "&Unitats de Xarxa"
+msgstr "&Unitats de xarxa"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -880,7 +880,7 @@ msgstr "&Compara Unificat"
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
-msgstr "&Discos Desconeguts"
+msgstr "&Unitats desconegudes"
 
 # ID:8,
 #: ID:8
@@ -900,7 +900,7 @@ msgstr "&Actualitza a revisió..."
 # Control-ID:1184,
 #: Control-ID:1184
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr "&Autocompleta paths de fitxers i paraules clau"
+msgstr "&Autocompleta camins de fitxers i paraules clau"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -1049,7 +1049,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Una llista de paths per la qual es mostren icones sobreposades .\n"
+"Una llista de camins per la qual es mostren icones sobreposades .\n"
 "Afegint un caracter \"*\" al final del camí tots els fitxers i subdirectoris dins d'aquest són també inclosos."
 
 # ID:194,
@@ -1059,8 +1059,8 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Una llista de paths per la qual no es mostren icones sobreposades .\n"
-"Afegint un caracter \"*\" al final del path, tots els fitxers i subdirectoris dins d'aquest són també inclosos. Una llista buida permetrà sobreposicions en tots els paths."
+"Una llista de camins per la qual no es mostren icones sobreposades .\n"
+"Afegint un caracter \"*\" al final del camí, tots els fitxers i subdirectoris dins d'aquest són també inclosos. Una llista buida permetrà sobreposicions en tots els camins."
 
 # ID:3843,#:
 # ID:3843,
@@ -1869,13 +1869,13 @@ msgstr "Neteja interrompuda per operacions, fitxers bloquejats, ..."
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
-msgstr "Deixa en blanc"
+msgstr "Esborra"
 
 # ID:196,
 #: ID:196
 #, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "Deixa en blanc %ld URLs guardades per%ld còpies de treball"
+msgstr "Deixa en blanc %ld URLs guardades per %ld còpies de treball"
 
 # ID:196,
 #: ID:196
@@ -2045,17 +2045,17 @@ msgstr "Configura Scripts tipus Hook"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
-msgstr "Configura el programa utilitzat per comparar diferents revisions de fitxers."
+msgstr "Configureu el programa utilitzat per comparar diferents revisions de fitxers."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Configura el programa utilitzat per resoldre fitxers en conflicte."
+msgstr "Configureu el programa utilitzat per resoldre fitxers en conflicte."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Configura el  programa visualitzador per fitxers diff de GNU (fitxers patch)."
+msgstr "Configureu el  programa visualitzador per fitxers diff de GNU (fitxers patch)."
 
 # ID:263,#:
 # Control-ID:65535,
@@ -2124,7 +2124,7 @@ msgstr "Copia del camí"
 # ID:209,
 #: ID:209
 msgid "Copy paths to clipboard"
-msgstr "Copia paths al portapapers"
+msgstr "Copia camins al portapapers"
 
 # ID:3603,
 #: ID:3603
@@ -2765,7 +2765,7 @@ msgstr "Excepcions:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exclude paths:"
-msgstr "No incloguis aquests paths:"
+msgstr "No incloguis aquests camins:"
 
 # ID:209,
 #: ID:209
@@ -2780,7 +2780,7 @@ msgstr "Exporta directori:"
 # ID:79,
 #: ID:79
 msgid "Export unversioned files too"
-msgstr "Exportar fitxers sense versionar també"
+msgstr "Exporta fitxers sense versionar també"
 
 # ID:79,
 #: ID:79
@@ -3122,7 +3122,7 @@ msgstr "Tipus de gràfic:"
 # Control-ID:1229,
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
-msgstr "A&maga paths modificats no relacionats"
+msgstr "A&maga camins modificats no relacionats"
 
 # Control-ID:1004,
 #: Control-ID:1004
@@ -3146,7 +3146,7 @@ msgstr ""
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Truc: Premeu F5 per refrescar la branca seleccionada i Ctrl-F5 per carregar també els seus fills"
+msgstr "Premeu F5 per refrescar la branca seleccionada i Ctrl-F5 per carregar també els seus fills"
 
 # Dlg-ID:103,
 #: Dlg-ID:103
@@ -3340,12 +3340,12 @@ msgstr "Importa el directori al repositori"
 # Control-ID:1266,
 #: Control-ID:1266
 msgid "Include ignored files"
-msgstr "Incloure fitxers ignorats"
+msgstr "Inclou fitxers ignorats"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "Incloure Paths:"
+msgstr "Inclou els camins:"
 
 # ID:76,
 #: ID:76
@@ -3590,12 +3590,12 @@ msgstr ""
 #: ID:207
 #: ID:221
 msgid "Lock"
-msgstr "Bloqueija"
+msgstr "Bloqueja"
 
 # Dlg-ID:191,
 #: Dlg-ID:191
 msgid "Lock Files"
-msgstr "Bloqueija Fixers"
+msgstr "Bloqueja Fixers"
 
 # ID:209,
 #: ID:209
@@ -3605,7 +3605,7 @@ msgstr "Bloqueig eliminat!"
 # ID:207,
 #: ID:207
 msgid "Lock comment"
-msgstr "Bloqueija comentari"
+msgstr "Bloqueja comentari"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3632,7 +3632,7 @@ msgstr "Bloqueig tret per %s"
 #: ID:263
 #, c-format
 msgid "Locked by %s"
-msgstr "Bloqueijat per %s"
+msgstr "Bloquejat per %s"
 
 # ID:89,
 #: ID:89
@@ -3646,7 +3646,7 @@ msgstr ""
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Bloqueija un fitxer pels altres usuaris i el fa editable per a tu."
+msgstr "Bloqueja un fitxer pels altres usuaris i el fa editable per a tu."
 
 # ID:126,
 #: ID:126
@@ -3807,7 +3807,7 @@ msgstr "Missatges"
 # ID:116,
 #: ID:116
 msgid "Messages, authors and paths"
-msgstr "Missatges, autors i paths"
+msgstr "Missatges, autors i camins"
 
 # ID:78,
 #: ID:78
@@ -4237,7 +4237,7 @@ msgstr "Camí"
 # ID:116,
 #: ID:116
 msgid "Paths"
-msgstr "Paths"
+msgstr "Camins"
 
 # ID:157,
 #: ID:157
@@ -5228,12 +5228,17 @@ msgid ""
 "You might need to create a new folder before performing this export."
 msgstr ""
 "Seleccioneu la carpeta a on voleu exportar.\n"
-"Potser volgueu crear una carpeta nova abans de fer la exportació."
+"Potser vulgueu crear una carpeta nova abans de fer la exportació."
 
 # ID:197,
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "Selecciona carpeta a on correr el script"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Selecciona carpeta a ondeser els fitxers seleccionats"
 
 # ID:197,
 #: ID:197
@@ -6026,7 +6031,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "El resultat de la fusió s'ha guardat a la còpia de treball a:"
+msgstr "El resultat de la fusió es desarà a la còpia de treball que hi ha a:"
 
 # ID:78,
 #: ID:78
@@ -6592,7 +6597,7 @@ msgstr "Sense títol"
 # Control-ID:1313,
 #: Control-ID:1313
 msgid "Unversioned files mark parent folder as modified"
-msgstr "Unversioned files mark parent folder as modified"
+msgstr "Els fitxers sense versionar marquen la carpeta contenidora com a modificada"
 
 # Dlg-ID:152,
 #: Dlg-ID:152
@@ -7265,7 +7270,7 @@ msgstr "incomplert"
 #: ID:195
 #: Control-ID:1002
 msgid "locked"
-msgstr "bloqueijat"
+msgstr "bloquejat"
 
 # ID:11,#:
 # Control-ID:65535,
@@ -7560,4 +7565,5 @@ msgstr "que apunta al repositori que es troba a la URL:"
 #: ID:245
 msgid "year"
 msgstr "any"
+
 
