@@ -406,9 +406,12 @@ bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 100*/)
 	return ret;
 }
 
-void CFolderCrawler::BlockPath(const CTSVNPath& path)
+void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
 {
 	ATLTRACE("block path %ws from being crawled\n", path.GetWinPath());
 	m_blockedPath = path;
-	m_blockReleasesAt = GetTickCount()+10000;
+	if (ticks == 0)
+		m_blockReleasesAt = GetTickCount()+10000;
+	else
+		m_blockReleasesAt = GetTickCount()+ticks;
 }
