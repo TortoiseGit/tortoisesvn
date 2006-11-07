@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-19 21:38+0100\n"
+"PO-Revision-Date: 2006-11-07 21:21+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -373,8 +373,8 @@ msgid "&Enable Proxy Server"
 msgstr "Activ&eer Proxy Server"
 
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Geef een reden voor het blokkeren van het bestand of de bestanden."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Geef een reden voor het blokkeren van bestand(en)."
 
 #: MenuEntry
 msgid "&Exit"
@@ -1215,6 +1215,10 @@ msgstr "Hoofd-/kleine letters negeren bij auteurs"
 msgid "Authors:"
 msgstr "Auteurs:"
 
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automatisch hernoemen"
+
 #: ID:222
 msgid "Auto-close for local operations"
 msgstr "Automatisch sluiten bij lokale handelingen"
@@ -1344,6 +1348,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1605,6 +1610,10 @@ msgstr "Vergelijk &HEAD revisies"
 msgid "Compare and &blame with working BASE"
 msgstr "Vergelijk en &verklaar met werkkopie (BASE)"
 
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Vergelijk en verklaar met vorige revisie"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergelijk met &werkkopie"
@@ -1612,6 +1621,10 @@ msgstr "Vergelijk met &werkkopie"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Vergelijk met &basis"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Vergelijk met vorige revisie"
 
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -3395,6 +3408,10 @@ msgstr "Anderen"
 msgid "Out of memory."
 msgstr "Geen geheugen beschikbaar."
 
+#: ID:99
+msgid "Overwrite"
+msgstr "Overschrijven"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "V&orig conflict"
@@ -4222,6 +4239,10 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Selecteer map om script op toe te passen"
 
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Selecteer map om de geselecteerde bestanden in op te slaan"
+
 #: ID:197
 msgid "Select hook script file"
 msgstr "Selecteer hook-script bestand"
@@ -4773,6 +4794,17 @@ msgstr ""
 "%s\n"
 "bestaat niet.\n"
 "Wilt u de map eerst aanmaken?"
+
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"De map\n"
+"%s\n"
+"bestaat al!"
 
 #: ID:83
 #, c-format
@@ -6132,6 +6164,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Stel deze eigenschap in met het gewenste taalnummer voor de logboekboodschappen.\n"
 "TortoiseSVN gebruikt dan de juiste module voor spellingscontrole (indien beschikbaar)."
+
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Lijst van zelfgedefinieerde eigenschappen voor bestanden die\n"
+"getoond wordt in de eigenschappen-dialoog (gescheiden door\n"
+"regelovergangen)."
+
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Lijst van zelfgedefinieerde eigenschappen voor mappen die\n"
+"getoond wordt in de eigenschappen-dialoog (gescheiden door\n"
+"regelovergangen)."
 
 #: ID:15
 msgid ""
