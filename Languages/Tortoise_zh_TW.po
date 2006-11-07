@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-31 09:36+0800\n"
+"PO-Revision-Date: 2006-11-07 09:29+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -442,7 +442,7 @@ msgstr "啟用 Proxy 伺服器(&E)"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "請輸入鎖定檔案的原因(&E)."
 
 # Control-ID:1031,
@@ -1999,6 +1999,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "與工作基礎版本比對並譴責(&B)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "與前一個版本比對並譴責"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "與工作複本比對(&W)"
@@ -2007,6 +2012,11 @@ msgstr "與工作複本比對(&W)"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "與基礎檔比對(&A)"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "與前一個版本比對"
 
 # ID:12,
 #: ID:12
@@ -7501,6 +7511,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "設定撰寫紀錄訊息時要使用的語系編號.\n"
 "TortoiseSVN會根據這個設定載入適當的拼字檢查模組.(如果有)."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"由使用者自行定義的性質, 以換行分隔.\n"
+"這些性質會出現在性質視窗中可供選擇."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"由使用者自行定義的性質, 以換行分隔.\n"
+"這些性質會出現在性質視窗中可供選擇."
 
 # ID:15,
 #: ID:15
