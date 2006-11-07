@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-03 16:58+0100\n"
+"PO-Revision-Date: 2006-11-06 18:13+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -2006,6 +2006,11 @@ msgstr "Compara revisions &HEAD"
 msgid "Compare and &blame with working BASE"
 msgstr "Compara i troba &autoria amb còpia BASE"
 
+# ID:114,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Compara i troba &autoria amb revisió prèvia"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
@@ -2015,6 +2020,10 @@ msgstr "Compara amb còpia de &treball"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Compara amb b&ase"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "&Compara amb revisió prèvia"
 
 # ID:12,
 #: ID:12
@@ -2498,7 +2507,7 @@ msgid ""
 "About"
 msgstr ""
 "Mostra informació del programa, número de versió i copyright\n"
-"Sobre"
+"Quant a"
 
 # ID:145,
 #: ID:145
@@ -7510,6 +7519,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Establiu-ho al número de  llenguatge en el que voleu que els missatges de log siguin escrits.\n"
 "TortoiseSVN carregarà el corrector ortogràfic corresponent si està disponible."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Llista (separada amb noves línies) de propietats definides pel usuari\n"
+"per fitxers que es mostraran al diàleg proprietari que es triï."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Llista (separada amb noves línies) de propietats definides pel usuari\n"
+"per carpetes que es mostraran al diàleg proprietari que es triï."
 
 # ID:15,
 #: ID:15

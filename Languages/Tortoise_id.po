@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-18 01:00+0700\n"
-"Last-Translator: Zaenal Mutaqin <ade999@gmail.com>\n"
+"PO-Revision-Date: 2006-11-07 05:58+0700\n"
+"Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -444,8 +444,8 @@ msgstr "&Hodupkan Server Proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Masukkan pesan yang menjelaskan mengapa anda ingin menunci file."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Masukkan pesan yang menjelaskan mengapa anda ingin mengunci file."
 
 #: MenuEntry
 msgid "&Exit"
@@ -1503,6 +1503,11 @@ msgstr "Pembuat sensitif huruf"
 msgid "Authors:"
 msgstr "Pembuat:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Ganti nama otomatis"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1667,6 +1672,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1992,6 +1998,11 @@ msgstr "Bandingkan revisi &HEAD"
 msgid "Compare and &blame with working BASE"
 msgstr "Bandingkan dan &blame dengan BASE pekerjaan"
 
+# ID:114,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Bandingkan dan &blame dengan revisi sebelumnya"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
@@ -2001,6 +2012,10 @@ msgstr "Bandingkan dengan copy &pekerjaan"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Bandingkan dengan b&ase"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "&Bandingkan dengan revisi sebelumnya"
 
 # ID:12,
 #: ID:12
@@ -4170,6 +4185,11 @@ msgstr "Lainnya"
 msgid "Out of memory."
 msgstr "Kekurangan memori."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Timpa"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "Konflik Se&belumnya"
@@ -5218,6 +5238,11 @@ msgid "Select folder to run script for"
 msgstr "Pilih folder untuk menjalan naskah"
 
 # ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Pilih folder untuk tempat penyimpanan file-file yang terpilih"
+
+# ID:197,
 #: ID:197
 msgid "Select hook script file"
 msgstr "Pilih file naskah hook"
@@ -5887,6 +5912,18 @@ msgstr ""
 "%s\n"
 "tidak ada.\n"
 "Anda ingin membuatnya terlebih dulu?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Target URL\n"
+"%s\n"
+"sudah ada!"
 
 # ID:83,
 #: ID:83
@@ -7477,6 +7514,29 @@ msgstr ""
 "Set ini ke nomor bahasa yang ingin ditulis pesan log.\n"
 "TortoiseSVN akan mengambil modul pemeriksa ejaan yang benar bila tersedia."
 
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Daftar properti yang didefinisikan pengguna yang dipisahkan dengan\n"
+"baris baru bagi file-file yang akan ditampilan pada dialog properti untuk dipilih."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Daftar properti yang didefinisikan pengguna yang dipisahkan\n"
+"oleh baris baru bagi folder-folder yang akan ditampilkan dalam dialog\n"
+"properti untuk dipilih."
+
 # ID:15,
 #: ID:15
 msgid ""
@@ -7531,4 +7591,5 @@ msgstr "yang merujuk ke repositori di URL:"
 #: ID:245
 msgid "year"
 msgstr "tahun"
+
 

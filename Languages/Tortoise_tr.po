@@ -4,17 +4,17 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Initial Author:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7804)
+# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7948)
 #
 # Authors:
 #
 #
 # Notlar:
-#  - Katkida bulunursaniz Authors kismina isminizi ve email'inizi giriniz.
+#  - Katkida bulunursaniz Authors kismina tercume ettiginiz versiyonu, isminizi ve email'inizi giriniz.
 #
 #
 # Su anki versiyon:
-# (v7804)
+# (v7948)
 #
 # Bazi kellimelerin tercumeleri:
 #
@@ -45,12 +45,14 @@
 # ReOpen - tekrar ac
 # Hook - yakalayici
 # Navigate - Dolas
+# Overwrite - Ustune yaz
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-10-22 01:13+0300\n"
+"PO-Revision-Date: 2006-11-07 07:07+0300\n"
 "Last-Translator: Aydogan Yolacan <id@yolatech.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -484,7 +486,7 @@ msgstr "&Proxy Sunucusunu kullan"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Dosyayı(ları) neden kitlediğinize dair bir açiklama mesajı giriniz."
 
 #: MenuEntry
@@ -1545,6 +1547,11 @@ msgstr "Yaratıcılar büyük-küçük harfe duyarlı"
 msgid "Authors:"
 msgstr "Yaratıcılar:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Otomatik Tekrar Adlandır"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1709,6 +1716,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -2033,6 +2041,11 @@ msgstr "&Baş revizyonları karşılaştır"
 msgid "Compare and &blame with working BASE"
 msgstr "Çalişan taban dosyası ile karşılaştır ve &sorumlusunu göster."
 
+# ID:114,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Bir önceki revizyon ile karşılaştır ve &sorumlusunu göster."
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
@@ -2042,6 +2055,10 @@ msgstr "&Çalışan kopya ile karşılaştır"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "&Taban ile karşılaştır"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Bir önceki revizyon ile karşılaştır"
 
 # ID:12,
 #: ID:12
@@ -4198,6 +4215,11 @@ msgstr "Diğerleri"
 msgid "Out of memory."
 msgstr "Yetersiz hafıza."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Üstüne yaz"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "Önce&ki çakişma"
@@ -5248,6 +5270,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Komut-dosyasını içinde çalıştırmak istediğiniz klasörü seçiniz"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Dosyasını kopyalamak istediğiniz klasörü seçiniz"
+
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
@@ -5916,6 +5943,18 @@ msgstr ""
 "%s\n"
 "Klasörü mevcut değil.\n"
 "Yaratmak istermisiniz?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"%s\n"
+"klasörü\n"
+"zaten mevcut!"
 
 # ID:83,
 #: ID:83
@@ -7507,6 +7546,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Bunu Günlük mesajlarınızın yazılmasını istediğiniz dilin numarasını ile işaretleyiniz.\n"
 "TortoiseSVN eğer mevcut ise uygun yazım denetleyicisi modülünü yükler."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Kullanıcının belirlediğil özellik/ayar diyaloğunda seçilebilen \n"
+"yeni satır ile ayrılmış liste formatındaki, dosya özellikleri."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Kullanıcının belirlediğil özellik/ayar diyaloğunda seçilebilen \n"
+"yeni satır ile ayrılmış liste formatındaki, klasör özellikleri."
 
 # ID:15,
 #: ID:15
