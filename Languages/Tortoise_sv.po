@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-10 13:34+0100\n"
+"PO-Revision-Date: 2006-11-07 16:43+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -384,7 +384,8 @@ msgstr "&Aktivera proxyserver"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+#, fuzzy
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Skriv ett meddelande som beskriver varför du låser filen/filerna. "
 
 #: MenuEntry
@@ -1268,6 +1269,10 @@ msgstr "Hantera användarnamn skiftlägesokänsligt"
 msgid "Authors:"
 msgstr "Skrivet av:"
 
+#: ID:99
+msgid "Auto Rename"
+msgstr "Automatiskt namnbyte"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1408,6 +1413,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1519,8 +1525,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Kontrollera sökvägen och/eller URL:en som du angivit."
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Markera de alternativ du vill ska visas i TSVNs undermeny istället för den översta högerknappsmenyn"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Markera de alternativ du vill ska visas i högerknappsmenyn istället för i TortoiseSVN undermeny"
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1685,6 +1691,10 @@ msgstr "Jämför &HEAD revisioner"
 msgid "Compare and &blame with working BASE"
 msgstr "Jämför med &arbetskopians BASE och visa ändringar per rad"
 
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Jämför med föregående revision och visa ändringar per rad"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Jämför med &arbetskopia"
@@ -1693,6 +1703,10 @@ msgstr "Jämför med &arbetskopia"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Jämför med &basrevision"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Jämför med föregående revision"
 
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -3582,6 +3596,11 @@ msgstr "Andras"
 msgid "Out of memory."
 msgstr "Slut på tillgängligt minne."
 
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Skriv över"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "&Föregående konflikt"
@@ -4444,6 +4463,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Välj mapp att köra skriptet för"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Välj mapp där de valda filerna skall sparas"
+
 # Hur översätta "diff"
 #: ID:197
 msgid "Select hook script file"
@@ -5033,6 +5057,18 @@ msgstr ""
 "%s\n"
 "finns inte.\n"
 "Vill du skapa den först?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Mappen\n"
+"%s\n"
+"finns redan!"
 
 # ID:83,
 #: ID:83
@@ -6457,6 +6493,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Sätt detta till språknumret du vill att dina logmeddeladnen skall fyllas i med.\n"
 "TortoiseSVN kommer sen att ladda in passande språkkontrollsmodul om den är tillgänglig."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"En nyradsseparerad lista med användardefinerade egenskaper för filer som visas\n"
+"som alternativ i egenskaper dialogen. "
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"En nyradsseparerad lista med användardefinerade egenskaper för mappar\n"
+"som visas som alternativ i egenskaper dialogen. "
 
 # ID:15,
 #: ID:15
