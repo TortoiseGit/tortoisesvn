@@ -1,4 +1,8 @@
 var objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination;
+// WdCompareTarget
+var wdCompareTargetSelected = 0;
+var wdCompareTargetCurrent = 1;
+var wdCompareTargetNew = 2;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
@@ -41,37 +45,7 @@ word.visible = true;
 destination = word.Documents.Open(sNewDoc);
     
 // Compare to the base document
-try
-{
-   destination.Compare(sBaseDoc, "", 2);
-// "" preserves the AuthorName Variant.
-// 2 is the CompareTarget Variant.  I do not know how to invoke
-// Word.WdCompareTarget.wdCompareTargetNew, so I use the value
-// instead.
-// AuthorName and CompareTarget do not need to be specified for this
-// function (already places comparison in a new document).
- 
-   WScript.Echo("Compare:\n" + sBaseDoc + "\n" + sNewDoc);
-
-// Let the user know Compare was used and on what files (not needed).
-// If this line is removed, and AuthorName and CompareTarget are
-// removed from Compare, there is no change to existing Compare code.
-
-}
-catch(e)
-{
-   destination.Merge(sBaseDoc, 2);
- 
-// 2 is the MergeTarget Variant.  I do not know how to invoke
-// Word.WdMergeTarget.wdMergeTargetNew, so I use the value instead.
-// MergeTarget does need to be specified for this function (places
-// merge in a new document).
-
-   WScript.Echo("Merge:\n" + sBaseDoc + "\n" + sNewDoc);
- 
-// Let the user know Merge was used and on what files (needed IMO).
-
-}
+destination.Compare(sBaseDoc, "", wdCompareTargetNew, true, true);
     
 // Show the comparison result
 if (Number(word.Version) < 12)
