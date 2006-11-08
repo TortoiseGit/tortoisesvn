@@ -1538,16 +1538,22 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		long rev1 = pLogEntry->dwRev;
-		long rev2 = rev1-1;
+		long rev2 = rev1;
 		bool bOneRev = true;
 		if (pos)
 		{
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-			if (pLogEntry)
+			while (pos)
 			{
-				rev2 = pLogEntry->dwRev;
-				bOneRev = false;
+				pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+				if (pLogEntry)
+				{
+					rev1 = max(rev1,(long)pLogEntry->dwRev);
+					rev2 = min(rev2,(long)pLogEntry->dwRev);
+					bOneRev = false;
+				}				
 			}
+			if (!bOneRev)
+				rev2--;
 			POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
 			while (pos)
 			{
@@ -1559,6 +1565,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 			// only one revision is selected in the log dialog top pane
 			// but multiple items could be selected  in the changed items list
+			rev2 = rev1-1;
+
 			POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
 			while (pos)
 			{

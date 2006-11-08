@@ -151,6 +151,8 @@ Version 1.4.1
        commit dialog did not work. (Stefan)
 - BUG: It was possible to create a new folder in the repobrowser 
        which name had a whitespace char at the end. (Stefan)
+- BUG: The log dialog used wrong revision numbers when calling "Show
+       differences" on multiple selected revisions. (Tobias Schäfer)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
