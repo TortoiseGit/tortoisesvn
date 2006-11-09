@@ -1,7 +1,7 @@
 <?php
 
-include("/var/www/vhosts/default/htdocs/includes/trans_data.inc");
-include("/var/www/vhosts/default/htdocs/includes/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
 $v['release']=variable_get('tsvn_version', '');
 $v['build']=variable_get('tsvn_build', '');
@@ -185,5 +185,14 @@ Please read <a href="http://mapcar.org/tsvn-snapshots/1.4.x/Readme.txt">Readme.t
 <ul>
 <li>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</li>
 </ul>
+
+<h1>Sourcecode</h1>
+TortoiseSVN is under the GPL license. That means you can get the whole sourcecode and build the program yourself.
+<br />
+The sourcecode is hosted on <a href="http://www.tigris.org">tigris.org</a> in our own Subversion repository. You can browse the sourcecode with your favorite webbrowser directly on the <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/">repository</a>. Use <em>guest</em> as the username and an empty password to log in.
+<br />
+If you have TortoiseSVN installed, you can check out the whole sourcecode by clicking on the tortoise icon below:
+<br />
+<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png"></a>
 
 <!--break-->

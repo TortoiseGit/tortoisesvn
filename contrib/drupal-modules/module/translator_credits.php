@@ -4,16 +4,14 @@
 //
 // Main page.  Lists all the translations
 
-//include("trans_data.inc");
-//include("trans_countries.inc");
-include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_data.inc");
-include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
 $vars['release']=variable_get('tsvn_version', '');
 $vars['build']=variable_get('tsvn_build', '');
 $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
 $vars['downloadurl2']=variable_get('tsvn_sf_append', '');
-$vars['reposurl']="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/";
+$vars['reposurl']=variable_get('tsvn_repos_trunk', '').'Languages/';
 $vars['flagpath']="/flags/world.small/";
 
 $basename="Tortoise";

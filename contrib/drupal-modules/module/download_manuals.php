@@ -1,7 +1,7 @@
 <?php
 
-include("/var/www/vhosts/default/htdocs/includes/trans_data.inc");
-include("/var/www/vhosts/default/htdocs/includes/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
 $v['release']=variable_get('tsvn_version', '');
 $v['sf_project']=variable_get('tsvn_sf_project', '');
