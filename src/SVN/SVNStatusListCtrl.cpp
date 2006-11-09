@@ -348,15 +348,20 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			// if all selected entries are files, we don't do a recursive status
 			// fetching. But if only one is a directory, we have to recurse.
 			bool recurse = false;
+			// We have set a filter. If all selected items were files or we fetch
+			// the status not recursively, then we have to include
+			// ignored items too - the user has selected them
+			bool bShowIgnoresRight = true;
 			for (int fcindex=0; fcindex<pathList.GetCount(); ++fcindex)
 			{
 				if (pathList[fcindex].IsDirectory())
 				{
 					recurse = true;
+					bShowIgnoresRight = false;
 					break;
 				}
 			}
-			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnores))
+			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnoresRight))
 			{
 				bRet = FALSE;
 			}

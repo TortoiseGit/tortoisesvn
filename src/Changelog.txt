@@ -153,6 +153,8 @@ Version 1.4.1
        which name had a whitespace char at the end. (Stefan)
 - BUG: The log dialog used wrong revision numbers when calling "Show
        differences" on multiple selected revisions. (Tobias Schäfer)
+- BUG: When selecting two or more ignored files for adding, an empty
+       error dialog was shown. (Stefan)
 
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
