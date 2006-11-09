@@ -1,181 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
-	<sect2 id="tsvn-dug-settings-main">
-		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
-		<title>General Settings</title>
-		<indexterm>
-			<primary>sounds</primary>
-		</indexterm>
-		<para>
-			<figure id="tsvn-dug-settings-dia-main">
-				<title>The Settings Dialog, General Page</title>
-				<graphic fileref="../images/SettingsMain.png"/>
-			</figure>
-			This dialog allows you to specify your preferred language,
-			and the Subversion-specific settings.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Language</term>
-				<listitem>
-					<para>
-						Selects your user interface language.
-						What else did you expect?
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Automatically check for newer versions every week</term>
-				<listitem>
-					<para>
-						If checked, TortoiseSVN will contact its download site once a week 
-						to see if there is a newer version of the program available.
-						Use <guibutton>Check now</guibutton> if you want an answer
-						right away. The new version will not be downloaded; you
-						simply receive an information dialog telling you that the
-						new version is available.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>System sounds</term>
-				<listitem>
-					<para>
-						TortoiseSVN has three custom sounds which are installed by default.
-						<itemizedlist>
-							<listitem>
-								<para>
-								Error
-								</para>
-								</listitem>
-							<listitem>
-								<para>
-								Notice
-								</para>
+<sect2 id="tsvn-dug-settings-main">
+	<?dbhh topicname="HIDD_SETTINGSMAIN"?>
+	<title>General Settings</title>
+	<indexterm>
+		<primary>sounds</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-dug-settings-dia-main">
+			<title>The Settings Dialog, General Page</title>
+			<graphic fileref="../images/SettingsMain.png"/>
+		</figure>
+		This dialog allows you to specify your preferred language,
+		and the Subversion-specific settings.
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term>Language</term>
+			<listitem>
+				<para>
+					Selects your user interface language.
+					What else did you expect?
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Automatically check for newer versions every week</term>
+			<listitem>
+				<para>
+					If checked, TortoiseSVN will contact its download site once a week 
+					to see if there is a newer version of the program available.
+					Use <guibutton>Check now</guibutton> if you want an answer
+					right away. The new version will not be downloaded; you
+					simply receive an information dialog telling you that the
+					new version is available.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>System sounds</term>
+			<listitem>
+				<para>
+					TortoiseSVN has three custom sounds which are installed by default.
+					<itemizedlist>
+						<listitem>
+							<para>
+							Error
+							</para>
 							</listitem>
-							<listitem>
-								<para>
-								Warning
-								</para>
-							</listitem>
-						</itemizedlist>
-						You can select different sounds (or turn these sounds
-						off completely) using the Windows Control Panel.
-						<guibutton>Configure</guibutton> is a shortcut to the Control Panel.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Global ignore pattern</term>
-				<listitem>
-					<indexterm>
-						<primary>exclude pattern</primary>
-					</indexterm>
-					<indexterm>
-						<primary>global ignore</primary>
-					</indexterm>
+						<listitem>
+							<para>
+							Notice
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+							Warning
+							</para>
+						</listitem>
+					</itemizedlist>
+					You can select different sounds (or turn these sounds
+					off completely) using the Windows Control Panel.
+					<guibutton>Configure</guibutton> is a shortcut to the Control Panel.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Global ignore pattern</term>
+			<listitem>
+				<indexterm>
+					<primary>exclude pattern</primary>
+				</indexterm>
+				<indexterm>
+					<primary>global ignore</primary>
+				</indexterm>
+				<para>
+					Global ignore patterns are used to prevent unversioned files from
+					showing up e.g. in the commit dialog. Files matching the
+					patterns are also ignored by an import.
+					Ignore files or directories by typing in the names or extensions.
+					Patterns are separated by spaces e.g.
+					<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+					The first two entries refer to directories, the 
+					other four to files.
+					These patterns use filename globbing. Read
+					<xref linkend="tsvn-dug-ignore-glob"/> for more information.
+				</para>
+				<para>
+					Note that the ignore patterns you specify here will also
+					affect other Subversion clients running on your PC, including
+					the command line client.
+				</para>
+				<caution>
 					<para>
-						Global ignore patterns are used to prevent unversioned files from
-						showing up e.g. in the commit dialog. Files matching the
-						patterns are also ignored by an import.
-						Ignore files or directories by typing in the names or extensions.
-						Patterns are separated by spaces e.g.
-						<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
-						The first two entries refer to directories, the 
-						other four to files.
-						These patterns use filename globbing. Read
-						<xref linkend="tsvn-dug-ignore-glob"/> for more information.
+					If you use the Subversion configuration file to set
+					a <literal>global-ignores</literal> pattern, it will
+					override the settings you make here. The Subversion
+					configuration file is accessed using the
+					<guibutton>Edit</guibutton> as described below.
 					</para>
-					<para>
-						Note that the ignore patterns you specify here will also
-						affect other Subversion clients running on your PC, including
-						the command line client.
-					</para>
-					<caution>
-						<para>
-						If you use the Subversion configuration file to set
-						a <literal>global-ignores</literal> pattern, it will
-						override the settings you make here. The Subversion
-						configuration file is accessed using the
-						<guibutton>Edit</guibutton> as described below.
-						</para>
-					</caution>
-					<para>
-						This ignore pattern will affect all your projects.
-						It is not versioned, so it will not affect other users.
-						By contrast you can also use the versioned
-						<literal>svn:ignore</literal> property to exclude
-						files or directories from version control. Read
-						<xref linkend="tsvn-dug-ignore"/>
-						for more information. 
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Set filedates to the "last commit time"</term>
-				<listitem>
-					<para>
-						This option tells TortoiseSVN to set the filedates to
-						the last commit time when doing a checkout or an update.
-						Otherwise TortoiseSVN will use the current date.
-						If you are developing software it is generally best
-						to use the current date because build systems normally
-						look at the datestamps to decide which files need
-						compiling. If you use "last commit time" and revert
-						to an older file revision, your project may not compile
-						as you expect it to.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Subversion configuration file</term>
-				<listitem>
-					<para>
-						Use <guibutton>Edit</guibutton> to edit the
-						Subversion configuration file directly.
-						Some settings cannot be modified directly by
-						TortoiseSVN, and need to be set here instead.
-						For more information about the Subversion
-						<filename>config</filename> file see the  
-						<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
-							<citetitle>Subversion Manual</citetitle>
-						</ulink>.
-						The section on
-						<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4">
-							<citetitle>Automatic Property Setting</citetitle>
-						</ulink>
-						is of particular interest, and that is configured here.
-						Note that Subversion can read configuration information
-						from several places, and you need to know which one
-						takes priority. Refer to
-						<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2">
-							<citetitle>Configuration and the Windows Registry</citetitle>
-						</ulink> to find out more.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Use "_svn" instead of ".svn" directories</term>
-				<listitem>
-					<para>
-						VS.NET when used with web projects can't handle the <literal>.svn</literal>
-						folders that Subversion uses to store its internal information.
-						This is not a bug in Subversion. The bug is in VS.NET and the frontpage
-						extensions it uses. Read <xref linkend="tsvn-dug-settings-asp-dot-net"/>
-						to find out more about this issue.
-					</para>
-					<para>
-						If you want to change the behaviour of Subversion and TortoiseSVN,
-						you can use this checkbox to set the environment variable which
-						controls this.
-					</para>
-					<para>
-						You should note that changing this option will not automatically
-						convert existing working copies to use the new admin directory.
-						You will have to do that yourself using a script (See our FAQ)
-						or simply check out a fresh working copy.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</sect2>
+				</caution>
+				<para>
+					This ignore pattern will affect all your projects.
+					It is not versioned, so it will not affect other users.
+					By contrast you can also use the versioned
+					<literal>svn:ignore</literal> property to exclude
+					files or directories from version control. Read
+					<xref linkend="tsvn-dug-ignore"/>
+					for more information. 
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Set filedates to the "last commit time"</term>
+			<listitem>
+				<para>
+					This option tells TortoiseSVN to set the filedates to
+					the last commit time when doing a checkout or an update.
+					Otherwise TortoiseSVN will use the current date.
+					If you are developing software it is generally best
+					to use the current date because build systems normally
+					look at the datestamps to decide which files need
+					compiling. If you use "last commit time" and revert
+					to an older file revision, your project may not compile
+					as you expect it to.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Subversion configuration file</term>
+			<listitem>
+				<para>
+					Use <guibutton>Edit</guibutton> to edit the
+					Subversion configuration file directly.
+					Some settings cannot be modified directly by
+					TortoiseSVN, and need to be set here instead.
+					For more information about the Subversion
+					<filename>config</filename> file see the  
+					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
+						<citetitle>Subversion Manual</citetitle>
+					</ulink>.
+					The section on
+					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4">
+						<citetitle>Automatic Property Setting</citetitle>
+					</ulink>
+					is of particular interest, and that is configured here.
+					Note that Subversion can read configuration information
+					from several places, and you need to know which one
+					takes priority. Refer to
+					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2">
+						<citetitle>Configuration and the Windows Registry</citetitle>
+					</ulink> to find out more.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Use "_svn" instead of ".svn" directories</term>
+			<listitem>
+				<para>
+					VS.NET when used with web projects can't handle the <literal>.svn</literal>
+					folders that Subversion uses to store its internal information.
+					This is not a bug in Subversion. The bug is in VS.NET and the frontpage
+					extensions it uses. Read <xref linkend="tsvn-dug-settings-asp-dot-net"/>
+					to find out more about this issue.
+				</para>
+				<para>
+					If you want to change the behaviour of Subversion and TortoiseSVN,
+					you can use this checkbox to set the environment variable which
+					controls this.
+				</para>
+				<para>
+					You should note that changing this option will not automatically
+					convert existing working copies to use the new admin directory.
+					You will have to do that yourself using a script (See our FAQ)
+					or simply check out a fresh working copy.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect2>
