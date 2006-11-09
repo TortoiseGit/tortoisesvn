@@ -13,7 +13,7 @@ HOME_DIR=/var/svnwc/l10n
 MSGFMT=msgfmt
 MSGMERGE=msgmerge
 SVNVERSION=svnversion
-CATALOGS_DIR="$HOME_DIR"/work/gui
+CATALOGS_DIR="$HOME_DIR/$1/gui"
 TEMP_DIR="$CATALOGS_DIR/tmp"
 
 WCREV=`$SVNVERSION $CATALOGS_DIR | sed -e 's/[MS]//g'`
