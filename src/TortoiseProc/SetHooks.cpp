@@ -160,7 +160,7 @@ void CSetHooks::OnBnClickedAddbutton()
 	CSetHooksAdv dlg;
 	if (dlg.DoModal() == IDOK)
 	{
-		CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline, dlg.cmd.bWait, !dlg.cmd.bShow);
+		CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline, dlg.cmd.bWait, dlg.cmd.bShow);
 		RebuildHookList();
 		SetModified();
 	}
