@@ -171,8 +171,8 @@ This will only build the english HTML helpf file for TortoiseSVN
 		<copy file="source/Pubdate.none" tofile="source/${lang.base}/pubdate.xml" overwrite="true" unless="${result.subwcrev=='0'}"/>
 
 		<!-- Delete CHM help context files to force re-creation -->
-		<delete file="source/TortoiseSVN.h" failonerror="false"/>
-		<delete file="source/TortoiseMerge.h" failonerror="false"/>
+		<delete file="source/TortoiseSVN.h" if="${file::exists('source/TortoiseSVN.h')}"/>
+		<delete file="source/TortoiseMerge.h" if="${file::exists('source/TortoiseMerge.h')}"/>
 
 		<!-- Store path to docbook stylesheets in helper stylesheets -->
 		<echo message="&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;" file="${path.user.xsl}/db_pdfdoc.xsl"/>
