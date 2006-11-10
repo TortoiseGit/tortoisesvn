@@ -158,7 +158,10 @@ Don't touch these lines:
 								Updates the working copy in <option>/path</option> to
 								HEAD. If the option <option>/rev</option> is given
 								then a dialog is shown to ask the user to which
-								revision the update should go.
+								revision the update should go. To avoid the dialog
+								specify a revision number <option>/rev:1234</option>.
+								Other options are <option>/nonrecursive</option> and
+								<option>/ignoreexternals</option>.
 							</entry>
 						</row>
 						<row>

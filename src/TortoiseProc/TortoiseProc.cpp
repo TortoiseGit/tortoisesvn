@@ -677,7 +677,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					return FALSE;
 				}
 			}
-			if (parser.HasKey(_T("rev")))
+			if ((parser.HasKey(_T("rev")))&&(!parser.HasVal(_T("rev"))))
 			{
 				CUpdateDlg dlg;
 				if (pathList.GetCount()>0)
@@ -697,6 +697,16 @@ BOOL CTortoiseProcApp::InitInstance()
 				else 
 					return FALSE;
 			}
+			else
+			{
+				if (parser.HasVal(_T("rev")))
+					rev = SVNRev(parser.GetVal(_T("rev")));
+				if (parser.HasKey(_T("nonrecursive")))
+					options = ProgOptNonRecursive;
+				if (parser.HasKey(_T("ignoreexternals")))
+					options |= ProgOptIgnoreExternals;
+			}
+
 			CSVNProgressDlg progDlg;
 			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			m_pMainWnd = &progDlg;
