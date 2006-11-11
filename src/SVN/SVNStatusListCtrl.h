@@ -206,6 +206,19 @@ public:
 		{
 			return differentrepo;
 		}
+		CString GetDisplayName() const
+		{
+			CString const& chopped = path.GetDisplayString(&basepath);
+			if (!chopped.IsEmpty())
+			{
+				return chopped;
+			}
+			else
+			{
+				// "Display name" must not be empty.
+				return path.IsDirectory() ? CString(".") : path.GetFileOrDirectoryName();
+			}
+		}
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:

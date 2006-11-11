@@ -1120,9 +1120,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	TCHAR buf[100];
 	int index = listIndex;
 	int nCol = 1;
-	CString entryname = entry->path.GetDisplayString(&entry->basepath);
-	if (entryname.IsEmpty())
-		entryname = entry->path.GetFileOrDirectoryName();
+	CString entryname = entry->GetDisplayName();
 	int icon_idx = 0;
 	if (entry->isfolder)
 		icon_idx = m_nIconFolder;
@@ -3994,14 +3992,10 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 
 	POSITION pos = GetFirstSelectedItemPosition();
 	int index;
-	CString entryname;
 	while ((index = GetNextSelectedItem(pos)) >= 0)
 	{
 		FileEntry * entry = GetListEntry(index);
-		entryname = entry->path.GetDisplayString(&entry->basepath);
-		if (entryname.IsEmpty())
-			entryname = entry->path.GetFileOrDirectoryName();
-		sClipboard += entryname;
+		sClipboard += entry->GetDisplayName();
 		if (dwCols & SVNSLC_COLEXT)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileExtension();
