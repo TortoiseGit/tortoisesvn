@@ -1,3 +1,92 @@
+Version 1.4.1
+- NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
+- NEW: TortoiseProc passes the parameter "/line:XXXX" to TortoiseBlame
+       to improve issue #214. (Stefan)
+- CHG: If a bug ID is specified multiple times in a log message, the log
+       dialog now shows each ID only once in the bug ID column. (Stefan)
+- CHG: The bug ID column in the log dialog is now shown if the
+       bugtraq:url is empty but the bugtraq:logregex is set. (Stefan)
+- CHG: When ignoring file(s) failed, the error message from Subversion is
+       shown in full instead of just the simple message telling that it
+       failed. (Stefan)
+- CHG: The root directory in the CSVNStatusListCtrl is shown as "." instead
+       of an empty string. (Kazutoshi Satoda)
+- BUG: When the bugtraq:message was set to "%BUGID%" only and the 
+       bugtraq:number was set to "true", the log message from the
+       'recent log messages' was inserted into the bug ID field instead of
+       the log message field in the commit dialog. (Stefan)
+- BUG: When saving a property over an existing and in-use file an exception
+       was thrown. (Stefan)
+- BUG: When columns were hidden in the various dialogs using the status
+       control, the redrawing on the right end was sometimes wrong.
+       See issue #293 for details. (Stefan)
+- BUG: The bugtraq:regex parsing was wrong if the group object was not
+       the last in the string. See issue #295 for details. (Stefan)
+- BUG: Showing the changes done in a revision of a renamed file in
+       the revision of the rename could fail for unified diffs. (Stefan)
+- BUG: The log dialog could crash when trying to show a log message with a
+       bug ID and an illegal regex string. (Stefan)
+- BUG: When the status fetching in the action dialog was cancelled a race
+       condition could occur which lead to a crash. (Stefan)
+- BUG: Fonts overlapped in the TSVNCacheWindow when larger than 15 points
+       (Masaru Tsuchiyama)
+- BUG: The actions from the context menu in the progress dialog could
+       use relative paths if the current directory was inside the
+       working copy. (Stefan)
+- BUG: The exporting options didn't always work correctly with externals.
+       See issue #302 for details. (Stefan)
+- BUG: Showing the log from some dialogs (e.g. the merge dialog at the bottom)
+       would throw an error because of a wrong peg revision. (Stefan)
+- BUG: The entry "copy to working copy..." was not available in the 
+       repository browser for non-HEAD revisions. (Stefan)
+- BUG: If a commit failed with an error, the commit dialog re-opened but
+       it didn't restore any manually added targets. (Tobias Schäfer)
+- BUG: The setting "Color code in-line changes" was always active. (Stefan)
+- BUG: Updating multiple selected items sometimes updated all of them
+       to the same revision even if they were from different 
+       repositories. (Stefan)
+- BUG: Properties which had values with non-English chars were not shown
+       correctly in the props dialog started from the repository browser
+       or the log dialog. (Stefan)
+- BUG: TortoiseMerge did not save UTF-16 files correctly. (Stefan)
+- BUG: The relocate warning was shown even if clearly a relocate was
+       needed and not a switch. (Stefan)
+- BUG: The warning about a file having still conflicts was 
+       shown twice. (Ivan Gerasimov)
+- BUG: Indexing error in settings dialog.
+       See issue #310 for details. (Stefan)
+- BUG: Wrong line numbers in TMerge. See issue #311 for details. (Stefan)
+- BUG: The column "SVN eol-style" could not be enabled. (Stefan)
+- BUG: TortoiseMerge could destroy lines when saving with the option
+       "ignore whitespace changes" activated. 
+       See issue #312 for details. (Stefan)
+- BUG: When renaming multiple files at once, the files could be renamed
+       to the wrong name if the file had multiple dots in its name. (Stefan)
+- BUG: The menu "properties" could not be configured to show on the
+       top level context menu. (Stefan)
+- BUG: The repository browser had problems with pathnames which contained
+       a '%' char. See issue #314 for details. (Stefan)
+- BUG: Showing the log for a deleted item in the log dialog did not work
+       because the selected revision was used instead of the previous
+       one. (Stefan)
+- BUG: Revert from the log dialog bottom pane if the URL contained non-ascii
+       characters always failed. (Stefan)
+- BUG: Reverting from the log dialog bottom pane for deleted items
+       was not working. (Stefan)
+- BUG: When exporting selected items from the changed-files dialog,
+       folders were skipped. (Stefan)
+- BUG: Browsing the repository from the merge/copy/... dialog with the
+       "..." button next to an url combobox did not work for file:///
+       urls with spaces in them. (Stefan)
+- BUG: The context menu entry "Select All" in the edit control in the
+       commit dialog did not work. (Stefan)
+- BUG: It was possible to create a new folder in the repobrowser 
+       which name had a whitespace char at the end. (Stefan)
+- BUG: The log dialog used wrong revision numbers when calling "Show
+       differences" on multiple selected revisions. (Tobias Schäfer)
+- BUG: When selecting two or more ignored files for adding, an empty
+       error dialog was shown. (Stefan)
+
 Version 1.4.0
 - NEW: Allow changing the alpha value in overlapped mode in TortoiseIDiff
        to be changed with Ctrl+Shift+Wheel. (Stefan)
