@@ -261,8 +261,9 @@ public:
 	 * \param revision	the revision that should be exported, which is only used 
 	 *					when exporting from a repository.
 	 * \param force		TRUE if existing files should be overwritten
+	 * \param eol		"", "CR", "LF" or "CRLF" - "" being the default
 	 */
-	BOOL Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force = TRUE, BOOL bIgnoreExternals = FALSE, HWND hWnd = NULL, BOOL extended = FALSE);
+	BOOL Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force = TRUE, BOOL bIgnoreExternals = FALSE, HWND hWnd = NULL, BOOL extended = FALSE, CString eol = CString());
 	/**
 	 * Switch working tree path to URL at revision
 	 *

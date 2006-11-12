@@ -519,7 +519,7 @@ BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force, BOOL bIgnoreExternals, HWND hWnd, BOOL extended)
+BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force, BOOL bIgnoreExternals, HWND hWnd, BOOL extended, CString eol)
 {
 	if (revision.IsWorking())
 	{
@@ -667,7 +667,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			force,
 			bIgnoreExternals,
 			TRUE,
-			NULL,
+			eol.IsEmpty() ? NULL : (LPCSTR)CStringA(eol),
 			m_pctx,
 			pool);
 		if(Err != NULL)
