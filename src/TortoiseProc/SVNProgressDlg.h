@@ -67,7 +67,6 @@ typedef enum
 class CSVNProgressDlg : public CResizableStandAloneDialog, SVN
 {
 public:
-	// These names collide with functions in SVN
 	typedef enum
 	{
 		SVNProgress_Checkout = 1,
