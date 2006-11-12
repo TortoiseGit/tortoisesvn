@@ -39,6 +39,20 @@ int		CSVNProgressDlg::m_nSortedColumn = -1;
 
 #define TRANSFERTIMER 100
 
+
+enum SVNProgressDlgContextMenuCommands
+{
+	ID_COMPARE,
+	ID_EDITCONFLICT,
+	ID_CONFLICTRESOLVE,
+	ID_CONFLICTUSETHEIRS,
+	ID_CONFLICTUSEMINE,
+	ID_LOG,
+	ID_OPEN,
+	ID_OPENWITH,
+	ID_EXPLORE
+};
+
 IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableStandAloneDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CSVNProgressDlg::IDD, pParent)

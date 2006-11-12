@@ -29,46 +29,6 @@
 #include "afxwin.h"
 #include "afxdtctl.h"
 
-#define ID_COMPARE		1
-#define ID_SAVEAS		2
-#define ID_COMPARETWO	3
-#define ID_UPDATE		4
-#define ID_COPY			5
-#define ID_REVERTREV	6
-#define ID_GNUDIFF1		7
-#define ID_GNUDIFF2		8
-#define ID_FINDENTRY	9
-#define ID_REVERT	   10
-#define	ID_REFRESH	   11
-#define ID_OPEN		   12
-#define ID_REPOBROWSE  13
-#define ID_DELETE	   14
-#define ID_IGNORE	   15
-#define	ID_LOG		   16
-#define ID_POPPROPS	   17
-#define ID_EDITAUTHOR  18
-#define ID_EDITLOG     19
-
-#define ID_DIFF			20
-#define ID_EDITCONFLICT	21
-#define ID_OPENWITH		22
-#define ID_COPYCLIPBOARD 23
-#define ID_CHECKOUT		24
-#define ID_CONFLICTUSETHEIRS 25
-#define ID_CONFLICTUSEMINE 26
-#define ID_REVERTTOREV	27
-#define ID_EXPLORE		28
-#define ID_BLAMECOMPARE 29
-#define ID_BLAMETWO     30
-#define ID_BLAMEDIFF    31
-#define ID_CONFLICTRESOLVE 32
-
-#define ID_VIEWREV      33
-#define ID_VIEWPATHREV  34
-#define ID_EXPORT		35
-#define ID_COMPAREWITHPREVIOUS 36
-#define ID_BLAMEWITHPREVIOUS 37
-
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
 #define LOGFILTER_PATHS    3

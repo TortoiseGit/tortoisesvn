@@ -41,27 +41,36 @@
 #include "BrowseFolder.h"
 #include "SVNDiff.h"
 
-#define ID_POPSAVEAS		1
-#define ID_POPSHOWLOG		2
-#define	ID_POPOPEN			3
-#define ID_POPDELETE		4
-#define ID_POPIMPORT		5
-#define ID_POPRENAME		6
-#define ID_POPCOPYTO		7
-#define ID_POPMKDIR			8
-#define ID_POPGNUDIFF		9
-#define ID_POPDIFF			10
-#define ID_POPREFRESH		11
-#define ID_POPBLAME			12
-#define ID_POPCOPYTOWC		13
-#define ID_POPIMPORTFOLDER  14
-#define ID_REVGRAPH			15
-#define ID_POPEXPORT		16
-//#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
-#define ID_POPCHECKOUT		18
-#define ID_POPOPENWITH		19
-#define ID_POPURLTOCLIPBOARD 20
-#define ID_BREAKLOCK		21
+
+enum RepoBrowserContextMenuCommands
+{
+	ID_OPEN,
+	ID_OPENWITH,
+	ID_SHOWLOG,
+	ID_REVGRAPH,
+	ID_BLAME,
+	ID_VIEWREV,
+	ID_VIEWPATHREV,
+	ID_EXPORT,
+	ID_CHECKOUT,
+	ID_REFRESH,
+	ID_SAVEAS,
+	ID_MKDIR,
+	ID_IMPORT,
+	ID_IMPORTFOLDER,
+	ID_BREAKLOCK,
+	ID_DELETE,
+	ID_RENAME,
+	ID_COPYTOWC,
+	ID_COPYTO,
+	ID_URLTOCLIPBOARD,
+	ID_PROPS,
+	ID_GNUDIFF,
+	ID_DIFF,
+
+};
+
+
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
 
@@ -312,14 +321,14 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				if (!bFolder)
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);			// "open"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);			// "open"
 					temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPENWITH, temp);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}				
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);			// "Show Log..."
 				if (url.Compare(m_treeRepository.m_strReposRoot)!=0)
 				{
 					temp.LoadString(IDS_MENUREVISIONGRAPH);
@@ -328,7 +337,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				if (!bFolder)
 				{
 					temp.LoadString(IDS_MENUBLAME);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);		// "Blame..."
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);		// "Blame..."
 				}
 				if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
 				{
@@ -349,25 +358,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				if (bFolder)
 				{
 					temp.LoadString(IDS_MENUEXPORT);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPEXPORT, temp);		// "Export"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);		// "Export"
 				}
 			}
 			if (bFolder)
 			{
 				temp.LoadString(IDS_MENUCHECKOUT);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCHECKOUT, temp);			// "Checkout.."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CHECKOUT, temp);			// "Checkout.."
 			}
 			if (uSelCount == 1)
 			{
 				if (bFolder)
 				{
 					temp.LoadString(IDS_REPOBROWSE_REFRESH);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPREFRESH, temp);		// "Refresh"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);		// "Refresh"
 				}
 				else
 				{
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSAVEAS, temp);		// "Save as..."
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
 				}
 				popup.AppendMenu(MF_SEPARATOR, NULL);				
 
@@ -376,13 +385,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					if (bFolder)
 					{
 						temp.LoadString(IDS_REPOBROWSE_MKDIR);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPMKDIR, temp);	// "create directory"
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MKDIR, temp);	// "create directory"
 
 						temp.LoadString(IDS_REPOBROWSE_IMPORT);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORT, temp);	// "Add/Import File"
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_IMPORT, temp);	// "Add/Import File"
 
 						temp.LoadString(IDS_REPOBROWSE_IMPORTFOLDER);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORTFOLDER, temp);	// "Add/Import Folder"
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_IMPORTFOLDER, temp);	// "Add/Import Folder"
 
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 					}
@@ -393,25 +402,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);		// "Remove"
 
 					temp.LoadString(IDS_REPOBROWSE_RENAME);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_RENAME, temp);		// "Rename"
 				} // if (GetRevision().IsHead()
 
 				temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTOWC, temp);			// "Copy To Working Copy..."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);			// "Copy To Working Copy..."
 
 				temp.LoadString(IDS_REPOBROWSE_COPY);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);			// "Copy To..."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTO, temp);			// "Copy To..."
 				
 				temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPURLTOCLIPBOARD, temp);	// "Copy URL to clipboard"
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_URLTOCLIPBOARD, temp);	// "Copy URL to clipboard"
 
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PROPS, temp);			// "Show Properties"
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -438,26 +447,26 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				if (bFolder1 == bFolder2)
 				{
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPGNUDIFF, temp);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);
 					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDIFF, temp);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 				}
 				temp.LoadString(IDS_MENULOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
 			} // if (uSelCount == 2) 
 			if (uSelCount >= 2)
 			{
 				if (GetRevision().IsHead())
 				{
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);		// "Remove"
 				}
 				if (!hasFolders)
 				{
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSAVEAS, temp);		// "Save as..."
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
 					temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTOWC, temp);		// "Copy To Working Copy..."
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);		// "Copy To Working Copy..."
 				}
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
@@ -465,12 +474,12 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			bool bOpenWith = false;
 			switch (cmd)
 			{
-			case ID_POPURLTOCLIPBOARD:
+			case ID_URLTOCLIPBOARD:
 				{
 					CStringUtils::WriteAsciiStringToClipboard(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(url)));
 				}
 				break;
-			case ID_POPSAVEAS:
+			case ID_SAVEAS:
 				{
 					bool bSavePathOK = false;
 					CTSVNPath tempfile;
@@ -570,7 +579,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPSHOWLOG:
+			case ID_SHOWLOG:
 				{
 					if (uSelCount == 2)
 					{
@@ -652,7 +661,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						ShellExecute(this->m_hWnd, _T("open"), weburl, NULL, NULL, SW_SHOWDEFAULT);					
 				}
 				break;
-			case ID_POPCHECKOUT:
+			case ID_CHECKOUT:
 				{
 					int selItem = m_treeRepository.GetFirstSelectedItem();
 					CString itemsToCheckout;
@@ -669,7 +678,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CAppUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
-			case ID_POPEXPORT:
+			case ID_EXPORT:
 				{
 					CExportDlg dlg;
 					dlg.m_URL = url;
@@ -701,9 +710,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					dlg.DoModal();
 				}
 				break;
-			case ID_POPOPENWITH:
+			case ID_OPENWITH:
 				bOpenWith = true;
-			case ID_POPOPEN:
+			case ID_OPEN:
 				{
 					if (GetRevision().IsHead() && (bOpenWith==false))
 					{
@@ -751,7 +760,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPDELETE:
+			case ID_DELETE:
 				{
 					DeleteSelectedEntries();
 					*pResult = 1; // mark HTREEITEM as deleted
@@ -768,7 +777,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					m_treeRepository.SetItemText(m_treeRepository.GetItemIndex(hSelItem), 6, _T(""));
 				}
 				break;
-			case ID_POPIMPORTFOLDER:
+			case ID_IMPORTFOLDER:
 				{
 					CString path;
 					CBrowseFolder folderBrowser;
@@ -811,7 +820,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPIMPORT:
+			case ID_IMPORT:
 				{
 					OPENFILENAME ofn;		// common dialog box structure
 					TCHAR szFile[MAX_PATH];  // buffer for file name
@@ -887,12 +896,12 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					delete [] pszFilters;
 				}
 				break;
-			case ID_POPRENAME:
+			case ID_RENAME:
 				{
 					m_treeRepository.BeginEdit(m_treeRepository.GetItemRow(m_treeRepository.GetItemIndex(hSelItem)), 0, VK_LBUTTON);
 				}
 				break;
-			case ID_POPCOPYTO:
+			case ID_COPYTO:
 				{
 					CRenameDlg dlg;
 					dlg.m_name = url;
@@ -926,7 +935,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPCOPYTOWC:
+			case ID_COPYTOWC:
 				{
 					bool bSavePathOK = false;
 					CTSVNPath tempfile;
@@ -1027,7 +1036,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPMKDIR:
+			case ID_MKDIR:
 				{
 					CRenameDlg dlg;
 					dlg.m_name = _T("");
@@ -1059,24 +1068,24 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 				}
 				break;
-			case ID_POPREFRESH:
+			case ID_REFRESH:
 				{
 					m_treeRepository.RefreshMe(hSelItem);
 				}
 				break;
-			case ID_POPGNUDIFF:
+			case ID_GNUDIFF:
 				{
 					SVNDiff diff(NULL, this->m_hWnd, true);
 					diff.ShowUnifiedDiff(url1, GetRevision(), url2, GetRevision());
 				}
 				break;
-			case ID_POPDIFF:
+			case ID_DIFF:
 				{
 					SVNDiff diff(NULL, this->m_hWnd, true);
 					diff.ShowCompare(url1, GetRevision(), url2, GetRevision(), SVNRev(), true);
 				}
 				break;
-			case ID_POPPROPS:
+			case ID_PROPS:
 				{
 					CPropDlg dlg;
 					dlg.m_rev = GetRevision();
@@ -1084,7 +1093,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					dlg.DoModal();
 				}
 				break;
-			case ID_POPBLAME:
+			case ID_BLAME:
 				{
 					CBlameDlg dlg;
 					dlg.EndRev = GetRevision();

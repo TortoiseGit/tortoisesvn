@@ -40,6 +40,15 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace Gdiplus;
 
+enum RevisionGraphContextMenuCommands
+{
+	ID_SHOWLOG,
+	ID_COMPAREREVS,
+	ID_COMPAREHEADS,
+	ID_UNIDIFFREVS,
+	ID_UNIDIFFHEADS
+};
+
 CRevisionGraphWnd::CRevisionGraphWnd()
 	: CWnd()
 	, m_SelectedEntry1(NULL)
