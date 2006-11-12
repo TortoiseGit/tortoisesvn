@@ -31,6 +31,7 @@
 #include "RenameDlg.h"
 #include "RevisionGraphDlg.h"
 #include "CheckoutDlg.h"
+#include "ExportDlg.h"
 #include "SVNProgressDlg.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
@@ -670,20 +671,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPEXPORT:
 				{
-					CCheckoutDlg dlg;
-					dlg.IsExport = TRUE;
+					CExportDlg dlg;
 					dlg.m_URL = url;
 					dlg.Revision = GetRevision();
 					if (dlg.DoModal()==IDOK)
 					{
-						CTSVNPath checkoutDirectory;
-						checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
+						CTSVNPath exportDirectory;
+						exportDirectory.SetFromWin(dlg.m_strExportDirectory, true);
 
 						CSVNProgressDlg progDlg;
 						int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
 						if (dlg.m_bNoExternals)
 							opts |= ProgOptIgnoreExternals;
-						progDlg.SetParams(CSVNProgressDlg::Export, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+						if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
+							opts |= ProgOptEolCRLF;
+						if (dlg.m_eolStyle.CompareNoCase(_T("CR"))==0)
+							opts |= ProgOptEolCR;
+						if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
+							opts |= ProgOptEolLF;
+						progDlg.SetParams(CSVNProgressDlg::Export, opts, CTSVNPathList(exportDirectory), dlg.m_URL, _T(""), dlg.Revision);
 						progDlg.DoModal();
 					}
 				}

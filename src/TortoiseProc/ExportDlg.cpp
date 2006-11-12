@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "CheckoutDlg.h"
+#include "ExportDlg.h"
 #include "RepositoryBrowser.h"
 #include "Messagebox.h"
 #include "PathUtils.h"
@@ -26,48 +26,50 @@
 #include "AppUtils.h"
 
 
-IMPLEMENT_DYNAMIC(CCheckoutDlg, CStandAloneDialog)
-CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCheckoutDlg::IDD, pParent)
+IMPLEMENT_DYNAMIC(CExportDlg, CStandAloneDialog)
+CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
+	: CStandAloneDialog(CExportDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
-	, m_strCheckoutDirectory(_T(""))
+	, m_strExportDirectory(_T(""))
 	, m_bNonRecursive(FALSE)
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
 {
 }
 
-CCheckoutDlg::~CCheckoutDlg()
+CExportDlg::~CExportDlg()
 {
 	if (m_pLogDlg)
 		delete m_pLogDlg;
 }
 
-void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
+void CExportDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
-	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strCheckoutDirectory);
+	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strExportDirectory);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
 	DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
+	DDX_Control(pDX, IDC_EOLCOMBO, m_eolCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CExportDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
 	ON_EN_CHANGE(IDC_CHECKOUTDIRECTORY, OnEnChangeCheckoutdirectory)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOW_LOG, OnBnClickedShowlog)
-	ON_EN_CHANGE(IDC_REVISION_NUM, &CCheckoutDlg::OnEnChangeRevisionNum)
+	ON_EN_CHANGE(IDC_REVISION_NUM, &CExportDlg::OnEnChangeRevisionNum)
+	ON_CBN_SELCHANGE(IDC_EOLCOMBO, &CExportDlg::OnCbnSelchangeEolcombo)
 END_MESSAGE_MAP()
 
-BOOL CCheckoutDlg::OnInitDialog()
+BOOL CExportDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
@@ -93,11 +95,21 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
+	m_tooltips.AddTool(IDC_EOLCOMBO, IDS_EXPORT_TT_EOL);
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTDIRECTORY)->m_hWnd, SHACF_FILESYSTEM);
 
+	// fill the combobox with the choices of eol styles
+	m_eolCombo.AddString(_T("default"));
+	m_eolCombo.AddString(_T("CRLF"));
+	m_eolCombo.AddString(_T("LF"));
+	m_eolCombo.AddString(_T("CR"));
+	m_eolCombo.SelectString(0, _T("default"));
+
 	if (!Revision.IsHead())
 	{
+		// if the revision is not HEAD, change the radio button and
+		// fill in the revision in the edit box
 		CString temp;
 		temp.Format(_T("%ld"), (LONG)Revision);
 		m_editRevision.SetWindowText(temp);
@@ -109,19 +121,21 @@ BOOL CCheckoutDlg::OnInitDialog()
 	return TRUE;
 }
 
-void CCheckoutDlg::OnOK()
+void CExportDlg::OnOK()
 {
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	CTSVNPath m_CheckoutDirectory;
-	m_CheckoutDirectory.SetFromWin(m_strCheckoutDirectory);
-	if (!m_CheckoutDirectory.IsValidOnWindows())
+	// check it the export path is a valid windows path
+	CTSVNPath ExportDirectory;
+	ExportDirectory.SetFromWin(m_strExportDirectory);
+	if (!ExportDirectory.IsValidOnWindows())
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_CHECKOUTDIRECTORY), IDS_ERR_NOVALIDPATH, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 
+	// check if the specified revision is valid
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
 		Revision = SVNRev(_T("HEAD"));
@@ -137,61 +151,55 @@ void CCheckoutDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
+	// we need an url to export from - local paths won't work
 	if (!SVN::PathIsURL(m_URL))
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
 		return;
 	}
 
-	if (m_URL.Left(7).CompareNoCase(_T("file://"))==0)
-	{
-		//check if the url is on a network share
-		CString temp = m_URL.Mid(7);
-		temp = temp.TrimLeft('/');
-		temp.Replace('/', '\\');
-		temp = temp.Left(3);
-		if (GetDriveType(temp)==DRIVE_REMOTE)
-		{
-			if (SVN::IsBDBRepository(m_URL))
-				// It's a network share, and the user tries to create a berkeley db on it.
-				// Show a warning telling the user about the risks of doing so.
-				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
-					return;
-		}
-	}
-
-	if (m_strCheckoutDirectory.IsEmpty())
+	if (m_strExportDirectory.IsEmpty())
 	{
 		return;			//don't dismiss the dialog
 	}
-	if (!PathFileExists(m_strCheckoutDirectory))
+
+	// if the export directory does not exist, where should we export to?
+	// We ask if the directory should be created...
+	if (!PathFileExists(m_strExportDirectory))
 	{
 		CString temp;
-		temp.Format(IDS_WARN_FOLDERNOTEXIST, (LPCTSTR)m_strCheckoutDirectory);
+		temp.Format(IDS_WARN_FOLDERNOTEXIST, (LPCTSTR)m_strExportDirectory);
 		if (CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 		{
-			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
+			CPathUtils::MakeSureDirectoryPathExists(m_strExportDirectory);
 		}
 		else
 			return;		//don't dismiss the dialog
 	}
-	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
+
+	// if the directory we should export to is not empty, show a warning:
+	// maybe the user doesn't want to overwrite the existing files.
+	if (!PathIsDirectoryEmpty(m_strExportDirectory))
 	{
 		CString message;
-		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),m_strCheckoutDirectory);
+		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),m_strExportDirectory);
 		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
 			return;		//don't dismiss the dialog
 	}
+	m_eolCombo.GetWindowText(m_eolStyle);
+	if (m_eolStyle.Compare(_T("default"))==0)
+		m_eolStyle.Empty();
+
 	UpdateData(FALSE);
 	CStandAloneDialog::OnOK();
 }
 
-void CCheckoutDlg::OnBnClickedBrowse()
+void CExportDlg::OnBnClickedBrowse()
 {
 	CAppUtils::BrowseRepository(m_URLCombo, this);
 }
 
-void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
+void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 {
 	//
 	// Create a folder browser dialog. If the user selects OK, we should update
@@ -205,29 +213,29 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 	if (browseFolder.Show(GetSafeHwnd(), strCheckoutDirectory) == CBrowseFolder::OK) 
 	{
 		UpdateData(TRUE);
-		m_strCheckoutDirectory = strCheckoutDirectory;
+		m_strExportDirectory = strCheckoutDirectory;
 		UpdateData(FALSE);
 	}
 }
 
-BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
+BOOL CExportDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
-void CCheckoutDlg::OnEnChangeCheckoutdirectory()
+void CExportDlg::OnEnChangeCheckoutdirectory()
 {
 	UpdateData(TRUE);
-	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
+	DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 }
 
-void CCheckoutDlg::OnBnClickedHelp()
+void CExportDlg::OnBnClickedHelp()
 {
 	OnHelp();
 }
 
-void CCheckoutDlg::OnBnClickedShowlog()
+void CExportDlg::OnBnClickedShowlog()
 {
 	UpdateData(TRUE);
 	m_URL = m_URLCombo.GetString();
@@ -249,7 +257,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
 	AfxGetApp()->DoWaitCursor(-1);
 }
 
-LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
+LPARAM CExportDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
 	CString temp;
 	temp.Format(_T("%ld"), lParam);
@@ -258,11 +266,15 @@ LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 	return 0;
 }
 
-void CCheckoutDlg::OnEnChangeRevisionNum()
+void CExportDlg::OnEnChangeRevisionNum()
 {
 	UpdateData();
 	if (m_sRevision.IsEmpty())
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+void CExportDlg::OnCbnSelchangeEolcombo()
+{
 }

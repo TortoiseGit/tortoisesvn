@@ -31,6 +31,7 @@
 #include "SVNProgressDlg.h"
 #include "ImportDlg.h"
 #include "CheckoutDlg.h"
+#include "ExportDlg.h"
 #include "UpdateDlg.h"
 #include "CommitDlg.h"
 #include "AddDlg.h"
@@ -961,20 +962,28 @@ BOOL CTortoiseProcApp::InitInstance()
 			if ((bURL)||(SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned))
 			{
 				// ask from where the export has to be done
-				CCheckoutDlg dlg;
+				CExportDlg dlg;
 				if (bURL)
 					dlg.m_URL = cmdLinePath.GetSVNPathString();
 				else
-					dlg.m_strCheckoutDirectory = cmdLinePath.GetWinPathString();
-				dlg.IsExport = TRUE;
+					dlg.m_strExportDirectory = cmdLinePath.GetWinPathString();
 				if (dlg.DoModal() == IDOK)
 				{
-					CTSVNPath checkoutPath(dlg.m_strCheckoutDirectory);
+					CTSVNPath exportPath(dlg.m_strExportDirectory);
 
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					m_pMainWnd = &progDlg;
-					progDlg.SetParams(CSVNProgressDlg::Export, dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0, CTSVNPathList(checkoutPath), dlg.m_URL, _T(""), dlg.Revision);
+					int options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0;
+					if (dlg.m_bNonRecursive)
+						options |= ProgOptNonRecursive;
+					if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
+						options |= ProgOptEolCRLF;
+					if (dlg.m_eolStyle.CompareNoCase(_T("CR"))==0)
+						options |= ProgOptEolCR;
+					if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
+						options |= ProgOptEolLF;
+					progDlg.SetParams(CSVNProgressDlg::Export, options, CTSVNPathList(exportPath), dlg.m_URL, _T(""), dlg.Revision);
 					progDlg.DoModal();
 				}
 			}

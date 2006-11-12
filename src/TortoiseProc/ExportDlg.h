@@ -26,21 +26,22 @@
 #include "LogDlg.h"
 #include "afxwin.h"
 
+
 /**
  * \ingroup TortoiseProc
- * Prompts the user for required information for a checkout command. The information
- * is the module name and the repository url.
+ * Prompts the user for required information for an export command. The information
+ * is the module name and the repository url. 
  */
-class CCheckoutDlg : public CStandAloneDialog //CStandAloneDialog
+class CExportDlg : public CStandAloneDialog //CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CCheckoutDlg)
+	DECLARE_DYNAMIC(CExportDlg)
 
 public:
-	CCheckoutDlg(CWnd* pParent = NULL);   ///< standard constructor
-	virtual ~CCheckoutDlg();
+	CExportDlg(CWnd* pParent = NULL);   ///< standard constructor
+	virtual ~CExportDlg();
 
-// Dialog Data
-	enum { IDD = IDD_CHECKOUT };
+	// Dialog Data
+	enum { IDD = IDD_EXPORT };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -55,20 +56,23 @@ protected:
 	afx_msg void OnBnClickedShowlog();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnEnChangeRevisionNum();
+	afx_msg void OnCbnSelchangeEolcombo();
 
 	DECLARE_MESSAGE_MAP()
 protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;
+	CComboBox		m_eolCombo;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;
+	CString			m_eolStyle;
 	SVNRev			Revision;
 	BOOL			m_bNonRecursive;
 	BOOL			m_bNoExternals;
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
-	CString			m_strCheckoutDirectory;
+	CString			m_strExportDirectory;
 	CFileDropEdit	m_cCheckoutEdit;
 	CLogDlg	*		m_pLogDlg;
 };

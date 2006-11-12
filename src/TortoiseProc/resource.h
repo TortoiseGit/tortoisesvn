@@ -99,6 +99,7 @@
 #define IDR_STATGRAPH                   235
 #define IDD_SETTINGSHOOKCONFIG          236
 #define IDI_HOOK                        237
+#define IDD_EXPORT                      238
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -568,6 +569,8 @@
 #define IDC_HOOKCMLABEL                 1336
 #define IDC_LOGINFO                     1337
 #define IDC_GETLOCKTOP                  1338
+#define IDC_EOLCOMBO                    1341
+#define IDC_EOLLABEL                    1342
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -581,6 +584,7 @@
 #define IDS_WARN_RELOCATEREALLYTITLE    1410
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
+#define IDS_EXPORT_TT_EOL               1505
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
 #define IDS_IMPORT_TT_TEMPFILES         1511
 #define IDS_PROC_RENAME                 1550
@@ -972,9 +976,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        238
+#define _APS_NEXT_RESOURCE_VALUE        239
 #define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1339
+#define _APS_NEXT_CONTROL_VALUE         1343
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

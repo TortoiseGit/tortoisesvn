@@ -42,7 +42,11 @@ typedef enum
 	ProgOptLockForce = 0x20,
 	ProgOptSwitchAfterCopy = 0x40,
 	ProgOptIncludeIgnored = 0x80,
-	ProgOptIgnoreAncestry = 0x100
+	ProgOptIgnoreAncestry = 0x100,
+	ProgOptEolDefault = 0x200,
+	ProgOptEolCRLF = 0x400,
+	ProgOptEolLF = 0x800,
+	ProgOptEolCR = 0x1000
 } ProgressOptions;
 
 typedef enum

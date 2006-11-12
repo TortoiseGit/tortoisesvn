@@ -960,13 +960,22 @@ UINT CSVNProgressDlg::ProgressThread()
 		}
 		break;
 	case Export:
-		ASSERT(m_targetPathList.GetCount() == 1);
-		sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-		sWindowTitle = m_url.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals))
 		{
-			ReportSVNError();
+			ASSERT(m_targetPathList.GetCount() == 1);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
+			sWindowTitle = m_url.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+			SetWindowText(sWindowTitle);
+			CString eol;
+			if (m_options & ProgOptEolCRLF)
+				eol = _T("CRLF");
+			if (m_options & ProgOptEolLF)
+				eol = _T("LF");
+			if (m_options & ProgOptEolCR)
+				eol = _T("CR");
+			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, NULL, FALSE, eol))
+			{
+				ReportSVNError();
+			}
 		}
 		break;
 	case Merge:
