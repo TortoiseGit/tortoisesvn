@@ -70,24 +70,21 @@ public:
 	// These names collide with functions in SVN
 	typedef enum
 	{
-		Checkout = 1,
-		Update = 2,
-		Enum_Update = 2,
-		Commit = 3,
-		Add = 4,
-		Revert = 5,
-		Enum_Revert = 5,
-		Resolve = 6,
-		Import = 7,
-		Switch = 8,
-		Export = 9,
-		Merge = 10,
-		Enum_Merge = 10,
-		Copy = 11,
-		Relocate = 12,
-		Rename = 13,
-		Lock = 14,
-		Unlock = 15
+		SVNProgress_Checkout = 1,
+		SVNProgress_Update = 2,
+		SVNProgress_Commit = 3,
+		SVNProgress_Add = 4,
+		SVNProgress_Revert = 5,
+		SVNProgress_Resolve = 6,
+		SVNProgress_Import = 7,
+		SVNProgress_Switch = 8,
+		SVNProgress_Export = 9,
+		SVNProgress_Merge = 10,
+		SVNProgress_Copy = 11,
+		SVNProgress_Relocate = 12,
+		SVNProgress_Rename = 13,
+		SVNProgress_Lock = 14,
+		SVNProgress_Unlock = 15
 	} Command;
 
 private:

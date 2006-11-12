@@ -623,7 +623,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					int opts = foldbrowse.m_bCheck ? ProgOptNonRecursive : ProgOptRecursive;
 					if (foldbrowse.m_bCheck2)
 						opts |= ProgOptIgnoreExternals;
-					progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(CTSVNPath(CString(checkoutpath))), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(CTSVNPath(CString(checkoutpath))), dlg.m_URL, _T(""), dlg.Revision);
 					progDlg.DoModal();
 				}
 			}
@@ -640,7 +640,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
 				if (dlg.m_bNoExternals)
 					opts |= ProgOptIgnoreExternals;
-				progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}
@@ -656,7 +656,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Import, dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : 0, pathList, dlg.m_url, dlg.m_sMessage);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Import, dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : 0, pathList, dlg.m_url, dlg.m_sMessage);
 				progDlg.DoModal();
 			}
 		}
@@ -711,7 +711,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CSVNProgressDlg progDlg;
 			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			m_pMainWnd = &progDlg;
-			progDlg.SetParams(CSVNProgressDlg::Update, options, pathList, _T(""), _T(""), rev);
+			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Update, options, pathList, _T(""), _T(""), rev);
 			progDlg.DoModal();
 		}
 		//#endregion
@@ -782,7 +782,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					pathList = dlg.m_pathList;
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-					progDlg.SetParams(CSVNProgressDlg::Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
 					progDlg.DoModal();
 					CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 					err = (DWORD)progDlg.DidErrorsOccur();
@@ -806,7 +806,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Add, 0, dlg.m_pathList);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, dlg.m_pathList);
 				progDlg.DoModal();
 			}
 		}
@@ -824,7 +824,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				int options = (dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
-				progDlg.SetParams(CSVNProgressDlg::Revert, options, dlg.m_pathList);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Revert, options, dlg.m_pathList);
 				progDlg.DoModal();
 			}
 		}
@@ -893,7 +893,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					CSVNProgressDlg progDlg(PWND);
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					m_pMainWnd = &progDlg;
-					progDlg.SetParams(CSVNProgressDlg::Resolve, 0, dlg.m_pathList);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Resolve, 0, dlg.m_pathList);
 					progDlg.DoModal();
 				}
 			}
@@ -944,7 +944,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Switch, 0, CTSVNPathList(cmdLinePath), dlg.m_URL, _T(""), dlg.Revision);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Switch, 0, CTSVNPathList(cmdLinePath), dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}
@@ -983,7 +983,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						options |= ProgOptEolCR;
 					if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 						options |= ProgOptEolLF;
-					progDlg.SetParams(CSVNProgressDlg::Export, options, CTSVNPathList(exportPath), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, options, CTSVNPathList(exportPath), dlg.m_URL, _T(""), dlg.Revision);
 					progDlg.DoModal();
 				}
 			}
@@ -1048,7 +1048,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
 					options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
-					progDlg.SetParams(CSVNProgressDlg::Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
 					progDlg.m_RevisionEnd = dlg.EndRev;
 					progDlg.DoModal();
 					repeat = dlg.m_bDryRun;
@@ -1070,7 +1070,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("copy %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)dlg.m_URL);
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-				progDlg.SetParams(CSVNProgressDlg::Copy, dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : 0, pathList, dlg.m_URL, dlg.m_sLogMessage, dlg.m_CopyRev);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Copy, dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : 0, pathList, dlg.m_URL, dlg.m_sLogMessage, dlg.m_CopyRev);
 				progDlg.DoModal();
 			}
 		}
@@ -1213,7 +1213,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						// operation.
 						CSVNProgressDlg progDlg;
 						progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-						progDlg.SetParams(CSVNProgressDlg::Rename, 0, pathList, destinationPath.GetWinPathString(), sMsg, SVNRev::REV_WC);
+						progDlg.SetParams(CSVNProgressDlg::SVNProgress_Rename, 0, pathList, destinationPath.GetWinPathString(), sMsg, SVNRev::REV_WC);
 						progDlg.DoModal();
 					}
 					else
@@ -1440,7 +1440,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CSVNProgressDlg progDlg;
 			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			m_pMainWnd = &progDlg;
-			progDlg.SetParams(CSVNProgressDlg::Add, 0, copiedFiles);
+			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, copiedFiles);
 			progDlg.DoModal();
 		}
 		//#endregion
@@ -2070,7 +2070,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (lockDlg.m_pathList.GetCount() != 0)
 				{
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
 					progDlg.DoModal();
 				}
 			}
@@ -2108,7 +2108,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (lockedList.GetCount())
 			{
 				CSVNProgressDlg progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, lockedList);
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, lockedList);
 				progDlg.DoModal();
 			}
 		} 

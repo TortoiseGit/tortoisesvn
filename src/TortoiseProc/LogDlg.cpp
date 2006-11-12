@@ -1084,7 +1084,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							else
 							{
 								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, rev);		//use the message as the second url
+								dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(m_path), url, url, rev);		//use the message as the second url
 								dlg.m_RevisionEnd = revend;
 								dlg.SetPegRevision(m_LogRevision);
 								dlg.DoModal();
@@ -1113,7 +1113,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							else
 							{
 								CSVNProgressDlg dlg;
-								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, SVNRev::REV_HEAD);		//use the message as the second url
+								dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(m_path), url, url, SVNRev::REV_HEAD);		//use the message as the second url
 								dlg.m_RevisionEnd = revend;
 								dlg.SetPegRevision(m_LogRevision);
 								dlg.DoModal();
@@ -1723,7 +1723,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						// a deleted path! Since the path isn't there anymore, merge
 						// won't work. So just do a copy url->wc
-						dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
+						dlg.SetParams(CSVNProgressDlg::SVNProgress_Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
 					}
 					else
 					{
@@ -1736,7 +1736,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							theApp.DoWaitCursor(-1);
 							break;		//exit
 						}
-						dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
+						dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
 						dlg.m_RevisionEnd = rev2;
 					}
 					CString msg;

@@ -689,7 +689,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							opts |= ProgOptEolCR;
 						if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 							opts |= ProgOptEolLF;
-						progDlg.SetParams(CSVNProgressDlg::Export, opts, CTSVNPathList(exportDirectory), dlg.m_URL, _T(""), dlg.Revision);
+						progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, opts, CTSVNPathList(exportDirectory), dlg.m_URL, _T(""), dlg.Revision);
 						progDlg.DoModal();
 					}
 				}

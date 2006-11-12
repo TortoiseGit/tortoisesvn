@@ -624,7 +624,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	bSecondResized = FALSE;
 	switch (m_Command)
 	{
-	case Checkout:			//no tempfile!
+	case SVNProgress_Checkout:			//no tempfile!
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
@@ -654,7 +654,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Import:			//no tempfile!
+	case SVNProgress_Import:			//no tempfile!
 		ASSERT(m_targetPathList.GetCount() == 1);
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 		sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
@@ -664,7 +664,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			ReportSVNError();
 		}
 		break;
-	case Update:
+	case SVNProgress_Update:
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
 		SetWindowText(sWindowTitle);
 		{
@@ -781,7 +781,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 		} 
 		break;
-	case Commit:
+	case SVNProgress_Commit:
 		{
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COMMIT);
 			SetWindowText(sWindowTitle);
@@ -864,7 +864,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Add:
+	case SVNProgress_Add:
 		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 		SetWindowText(sWindowTitle);
@@ -873,7 +873,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			ReportSVNError();
 		}
 		break;
-	case Revert:
+	case SVNProgress_Revert:
 		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
 		SetWindowText(sWindowTitle);
@@ -883,7 +883,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			break;
 		}
 		break;
-	case Resolve:
+	case SVNProgress_Resolve:
 		{
 			localoperation = true;
 			ASSERT(m_targetPathList.GetCount() == 1);
@@ -934,7 +934,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Switch:
+	case SVNProgress_Switch:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			SVNStatus st;
@@ -959,7 +959,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 		}
 		break;
-	case Export:
+	case SVNProgress_Export:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
@@ -978,7 +978,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Merge:
+	case SVNProgress_Merge:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
@@ -1015,7 +1015,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Copy:
+	case SVNProgress_Copy:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
@@ -1043,7 +1043,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Rename:
+	case SVNProgress_Rename:
 		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			if ((!m_targetPathList[0].IsUrl())&&(!m_url.IsUrl()))
@@ -1057,7 +1057,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Lock:
+	case SVNProgress_Lock:
 		{
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_LOCK);
 			SetWindowText(sWindowTitle);
@@ -1086,7 +1086,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
-	case Unlock:
+	case SVNProgress_Unlock:
 		{
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UNLOCK);
 			SetWindowText(sWindowTitle);
@@ -1251,7 +1251,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// We've double-clicked on a conflicted item - do a three-way merge on it
 		SVNDiff::StartConflictEditor(data->path);
 	}
-	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
+	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)))
 	{
 		// This is a modified file which has been merged on update
 		// Diff it against base
@@ -1518,7 +1518,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSEMINE, temp);
 							}
-							else if ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command))
+							else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command))
 								popup.SetDefaultItem(ID_COMPARE, FALSE);
 						}
 						if ((data->action == svn_wc_notify_add)||
