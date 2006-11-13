@@ -133,6 +133,8 @@ private:
 
 	void ResizeAllListCtrlCols(CListCtrl &list);
 
+	void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
+	void ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point);
 public:
 	CWnd *				m_pNotifyWindow;
 	ProjectProperties	m_ProjectProperties;
