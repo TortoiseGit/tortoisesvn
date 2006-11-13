@@ -157,7 +157,7 @@ function print_footer($vars)
 {
 ?>
 <p>
-<img src="siteicons/translated.png" alt="translated" title="translated" width="32" height="16"/> Translated <img src="siteicons/missingaccelerator.png" alt="missing accelerator keys" title="missing accelerator keys" width="32" height="16"/> Missing accelerator keys <img src="siteicons/fuzzy.png" alt="fuzzy" title="fuzzy" width="32" height="16"/> Fuzzy <img src="siteicons/untranslated.png" alt="untranslated" title="untranslated" width="32" height="16" /> Untranslated
+<img src="/siteicons/translated.png" alt="translated" title="translated" width="32" height="16"/> Translated <img src="/siteicons/missingaccelerator.png" alt="missing accelerator keys" title="missing accelerator keys" width="32" height="16"/> Missing accelerator keys <img src="/siteicons/fuzzy.png" alt="fuzzy" title="fuzzy" width="32" height="16"/> Fuzzy <img src="/siteicons/untranslated.png" alt="untranslated" title="untranslated" width="32" height="16" /> Untranslated
 </p>
 <p>
 Translations were made by many people, you find them on the <a href="translator_credits">translator credits page</a>.
@@ -213,7 +213,7 @@ function print_blank_stat($i, $postat, $vars)
     echo "<td class=\"graph\">Error in po file</td>";
   } else {
     echo "<td class=\"graph\">";
-    echo "<img src=\"siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
+    echo "<img src=\"/siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
     echo "</td>";
   }
   echo "<td class=\"download\"><a href=\"$reposurl\">$postat[6]</a></td>";
@@ -297,19 +297,19 @@ function print_content_stat($i, $postat, $vars)
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
   if ($wt > 0) 
-    echo "<img src=\"siteicons/translated.png\" alt=\"tr\" title=\"$title\" width=\"$wt\" height=\"16\"/>";
+    echo "<img src=\"/siteicons/translated.png\" alt=\"tr\" title=\"$title\" width=\"$wt\" height=\"16\"/>";
   if ($wa > 0) 
-    echo "<img src=\"siteicons/missingaccelerator.png\" alt=\"mh\" title=\"$title\" width=\"$wa\" height=\"16\"/>";
+    echo "<img src=\"/siteicons/missingaccelerator.png\" alt=\"mh\" title=\"$title\" width=\"$wa\" height=\"16\"/>";
   if ($wf > 0) 
-    echo "<img src=\"siteicons/fuzzy.png\" alt=\"fu\" title=\"$title\" width=\"$wf\" height=\"16\"/>";
+    echo "<img src=\"/siteicons/fuzzy.png\" alt=\"fu\" title=\"$title\" width=\"$wf\" height=\"16\"/>";
   if ($wu > 0) 
-    echo "<img src=\"siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
+    echo "<img src=\"/siteicons/untranslated.png\" alt=\"un\" title=\"$title\" width=\"$wu\" height=\"16\" />";
   echo "</td>";
   echo "<td class=\"download\"><a href=\"$reposurl\">$reposfile</a></td>";
   echo "<td class=\"lang\">$fdate</td>";
   if ($age>90) {
     $title = "Old translation. Last update on: ".$fdate." We need a maintainer!!";
-    echo "<td><img src=\"siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></td>";
+    echo "<td><img src=\"/siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></td>";
   } else {
     echo "<td>&nbsp;</td>";
   }
