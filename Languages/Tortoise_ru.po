@@ -21,6 +21,7 @@
 # help -- cправка
 # hook -- привязка
 # issue -- проблема (в системе отслеживания ошибок)
+# locatorbar -- полоса местоположения
 # locking (files) -- блокирование (файлов)
 # log -- журнал (было: лог)
 # merge -- слияние
@@ -37,13 +38,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7931: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 7998: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-07 13:25+0300\n"
+"PO-Revision-Date: 2006-11-13 10:24+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +53,7 @@ msgstr ""
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Poedit-Language: Russian\n"
 
 #: ID:10
 #: ID:126
@@ -1447,7 +1449,7 @@ msgstr "Изменённые файлы между %s, %s и %s, %s"
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
-msgstr "Измененных файлов: %d"
+msgstr "Изменённых файлов: %d"
 
 #: Control-ID:1242
 msgid "Changes made (double-click on file for diff):"
@@ -2296,6 +2298,14 @@ msgstr "Исключить пути:"
 #: ID:209
 msgid "Explore to"
 msgstr "Открыть в Проводнике"
+
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Экспорт"
+
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Папка &экспорта:"
 
 #: ID:94
 msgid "Export directory:"
@@ -3472,6 +3482,14 @@ msgstr "Остальные"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Нехватка памяти."
+
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Подменить значение свойства svn:eol-style.\n"
+"Файлы с неустановленным свойством не затрагиваются."
 
 #: ID:99
 msgid "Overwrite"
@@ -5491,7 +5509,7 @@ msgstr "Производится обновление и повторная бл
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
-msgstr "Использовать &увеличитель в полосе локатора"
+msgstr "Использовать &увеличитель в полосе местоположения"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
@@ -6014,6 +6032,10 @@ msgstr ""
 msgid "deleted"
 msgstr "удалён"
 
+#: Control-ID:1342
+msgid "eol style"
+msgstr "окончания строк"
+
 #: ID:79
 #, c-format
 msgid ""
@@ -6060,11 +6082,11 @@ msgstr "отсутствует / удалён / заменён"
 
 #: ID:10
 msgid "modified"
-msgstr "изменен"
+msgstr "изменён"
 
 #: Control-ID:65535
 msgid "modified / copied"
-msgstr "изменен / скопирован"
+msgstr "изменён / скопирован"
 
 # статистика: месяцы
 #: ID:245
@@ -6251,8 +6273,8 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Установите номер языка для сообщений журнала проекта.\n"
-"TortoiseSVN будет подгружать подходящуй модуль проверки орфографии, если найдёт."
+"Задайте в этом свойстве номер языка, на котором предполагается писать сообщения журнала.\n"
+"TortoiseSVN подгрузит соответствующий модуль проверки орфографии, если он будет доступен."
 
 #: ID:17
 msgid ""
