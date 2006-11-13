@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-06 09:13+0100\n"
+"PO-Revision-Date: 2006-11-13 16:16+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2290,6 +2290,14 @@ msgstr "Pfade &ausschließen:"
 msgid "Explore to"
 msgstr "Explorer öffnen"
 
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Export"
+
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Export&verzeichnis:"
+
 #: ID:94
 msgid "Export directory:"
 msgstr "Exportverzeichnis:"
@@ -3493,6 +3501,15 @@ msgstr "Andere"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Zu wenig Speicher."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Überschreibt die svn:eol-style Eigenschaft.\n"
+"Dateien, bei denen diese Eigenschaft nicht gesetzt ist, werden nicht beeinflusst."
 
 # ID:99,
 #: ID:99
@@ -6083,6 +6100,10 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "Gelöscht"
+
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol style"
 
 #: ID:79
 #, c-format
