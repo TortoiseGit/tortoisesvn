@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-07 16:43+0100\n"
+"PO-Revision-Date: 2006-11-13 13:08+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2362,6 +2362,14 @@ msgstr "Uteslut sökvägar:"
 msgid "Explore to"
 msgstr "Utforska till"
 
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Exportera"
+
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Exportera &mapp:"
+
 #: ID:94
 msgid "Export directory:"
 msgstr "Exportera mapp:"
@@ -3595,6 +3603,15 @@ msgstr "Andras"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Slut på tillgängligt minne."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Åsidosätt svn:eol-style egenskapen.\n"
+"Filer som inte har den egenskapen satt påverkas inte."
 
 # ID:99,
 #: ID:99
@@ -6248,6 +6265,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "borttagen"
+
+# Var används denna?
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol style"
 
 #: ID:79
 #, c-format
