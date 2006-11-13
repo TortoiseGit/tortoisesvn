@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-16 14:39+0200\n"
+"PO-Revision-Date: 2006-11-13 12:36+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -481,7 +481,7 @@ msgstr "&Включване на сървъра-посредник"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Въведете съобщение, обясняващо причината за заключването на файла/файловете."
 
 # Control-ID:1031,
@@ -1545,6 +1545,11 @@ msgstr "Нечувствителност към регистъра за авто
 msgid "Authors:"
 msgstr "Автори:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Автоматично преименуване"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1709,6 +1714,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -2033,6 +2039,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "Сравняване и &показване на отговорните спрямо работната база"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Сравняване и показване на отговорните спрямо предишна ревизия"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "&Сравняване с работно копие"
@@ -2041,6 +2052,11 @@ msgstr "&Сравняване с работно копие"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Сравняване с &база"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Сравняване с предишна ревизия"
 
 # ID:12,
 #: ID:12
@@ -2801,6 +2817,16 @@ msgstr "Пътища за изключване:"
 #: ID:209
 msgid "Explore to"
 msgstr "Отваряне в Windows Explorer на"
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "&Износ"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "&Директория за износ:"
 
 # ID:94,
 #: ID:94
@@ -4206,6 +4232,20 @@ msgstr "Други"
 msgid "Out of memory."
 msgstr "Недостиг на оперативна памет."
 
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Заменя стойността на свойството svn:eol-style.\n"
+"Файловете, за които това свойство не е установено, не са засегнати."
+
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Презапис"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -5252,6 +5292,11 @@ msgstr ""
 msgid "Select folder to run script for"
 msgstr "Изберете папка, за която да се изпълнят скриптове"
 
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Изберете папка, в която да се запишат файловете"
+
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
@@ -5915,6 +5960,18 @@ msgstr ""
 "%s\n"
 "не съществува.\n"
 "Бихте ли желали първо да бъде създадена?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Папката\n"
+"%s\n"
+"вече съществува!"
 
 # ID:83,
 #: ID:83
@@ -7240,6 +7297,11 @@ msgstr ""
 msgid "deleted"
 msgstr "изтрит"
 
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "знак за край на ред"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7511,6 +7573,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Установете това свойство на номера на езика, на който пишете Вашите съобщения за дневника.\n"
 "TortoiseSVN ще зареди модула за проверка на правописа за този език, ако е наличен."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Списък, с разделител нов ред, с дефинирани от потребителя свойства за файлове,\n"
+"които ще са налични за избор в диалоговия прозорец за свойства."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Списък, с разделител нов ред, с дефинирани от потребителя свойства за папки,\n"
+"които ще са налични за избор в диалоговия прозорец за свойства."
 
 # ID:15,
 #: ID:15
