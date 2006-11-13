@@ -40,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-03 00:00+0200\n"
+"PO-Revision-Date: 2006-11-11 23:47+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -469,7 +469,7 @@ msgstr "Käytä &välityspalvelinta"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Kerro, miksi lukitsit tiedostot."
 
 #: MenuEntry
@@ -2030,6 +2030,11 @@ msgstr "Vertaa &uusimpia (HEAD) versioita"
 msgid "Compare and &blame with working BASE"
 msgstr "&Vertaa ja selvitä tekijät kantaversion (BASE) kanssa"
 
+# ID:114,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "&Vertaa ja selvitä tekijät edelliseen versioon nähden"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
@@ -2039,6 +2044,10 @@ msgstr "Vertaa &työkopioon"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Vertaa kantaversion (&BASE) kanssa"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "&Vertaa edelliseen versioon"
 
 # ID:12,
 #: ID:12
@@ -7549,6 +7558,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Aseta tähän sen kielen numero, millä lokiviestit kirjoitetaan.\n"
 "TortoiseSVN käyttää kielen oikeinkirjoituksen tarkistusmoduulia, mikäli sellainen on saatavilla."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Rivinvaihdoin eroteltu lista käyttäjän määrittelemiä, tiedostoihin sovellettavia ominaisuuksia.\n"
+"Ominaisuudet näkyvät ja voidaan valita ominaisuusikkunan pudotusvalikosta."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Rivinvaihdoin eroteltu lista käyttäjän määrittelemiä, kansioihin sovellettavia ominaisuuksia.\n"
+"Ominaisuudet näkyvät ja voidaan valita ominaisuusikkunan pudotusvalikosta."
 
 # ID:15,
 #: ID:15
