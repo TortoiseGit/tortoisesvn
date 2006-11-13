@@ -3293,7 +3293,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	} // if (popup.CreatePopupMenu())
 }
 
-void CLogDlg::ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point)
+void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 {
 	int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 	if ((point.x == -1) && (point.y == -1))
