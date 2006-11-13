@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-06 18:13+0100\n"
+"PO-Revision-Date: 2006-11-13 16:14+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -2781,6 +2781,16 @@ msgstr "No incloguis aquests camins:"
 msgid "Explore to"
 msgstr "Explora a"
 
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Exporta"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Exporta &directory:"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -4190,6 +4200,15 @@ msgstr "Altres"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Out of memory."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Canvia la propietat svn:eol-style.\n"
+"Els fitxers que no tinguin questa propietat no queden afectats."
 
 # ID:99,
 #: ID:99
@@ -7242,6 +7261,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "suprimit"
+
+# ID:17,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "estil eol"
 
 # ID:79,
 #: ID:79
