@@ -1060,6 +1060,24 @@ BEGIN
     LTEXT           "eol style",IDC_EOLLABEL,13,97,79,8
 END
 
+IDD_REVGRAPHFILTER DIALOGEX 0, 0, 186, 118
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Revision Graph Filter"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,71,97,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,97,50,14
+    LTEXT           "Include only the following revision range:",IDC_STATIC,7,7,172,8
+    LTEXT           "Filter out the following paths (separate multiple paths with the '*' char):",IDC_STATIC,7,49,172,19
+    EDITTEXT        IDC_PATHFILTER,7,71,172,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FROMREV,30,19,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_FROMSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HOTTRACK,73,19,11,14
+    EDITTEXT        IDC_TOREV,124,19,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_TOSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HOTTRACK,168,19,11,14
+    LTEXT           "From:",IDC_STATIC,7,22,20,8
+    LTEXT           "To:",IDC_STATIC,98,22,12,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1587,6 +1605,17 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 192
     END
+
+    IDD_REVGRAPHFILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 84
+        VERTGUIDE, 98
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+        HORZGUIDE, 33
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -1608,6 +1637,7 @@ BEGIN
     BEGIN
         MENUITEM "Show &all revisions",         ID_VIEW_SHOWALLREVISIONS
         MENUITEM "Arranged by &path",           ID_VIEW_ARRANGEDBYPATH
+        MENUITEM "&Filter",                     ID_VIEW_FILTER
         MENUITEM SEPARATOR
         MENUITEM "Zoom &in\tCtrl-+",            ID_VIEW_ZOOMIN
         MENUITEM "Zoom &out\tCtrl--",           ID_VIEW_ZOOMOUT
@@ -1640,6 +1670,7 @@ END
 IDR_ACC_REVISIONGRAPH ACCELERATORS 
 BEGIN
     VK_ESCAPE,      ID_MENUEXIT,            VIRTKEY, NOINVERT
+    "A",            ID_VIEW_SHOWALLREVISIONS, VIRTKEY, CONTROL, NOINVERT
     "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
     "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
     VK_ADD,         ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
@@ -1654,7 +1685,7 @@ BEGIN
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, SHIFT, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "A",            ID_VIEW_SHOWALLREVISIONS, VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_VIEW_FILTER,         VIRTKEY, CONTROL, NOINVERT
 END
 
 

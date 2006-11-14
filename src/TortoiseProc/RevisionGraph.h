@@ -114,8 +114,9 @@ public:
 	BOOL						FetchRevisionData(CString path);
 	BOOL						AnalyzeRevisionData(CString path, bool bShowAll = false, bool bArrangeByPath = false);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
-	
-	
+	svn_revnum_t				GetHeadRevision() {return m_lHeadRevision;}
+	bool						SetFilter(svn_revnum_t minrev, svn_revnum_t maxrev, const CString& sPathFilter);
+
 	CString						GetLastErrorMessage();
 	static bool					IsParentOrItself(const char * parent, const char * child);
 	CPtrArray					m_arEntryPtrs;
@@ -156,6 +157,10 @@ private:
 	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
 	LONG						m_lHeadRevision;
+
+	std::set<std::string>		m_filterpaths;
+	svn_revnum_t				m_FilterMinRev;
+	svn_revnum_t				m_FilterMaxRev;
 
 	int							m_nRecurseLevel;
 	svn_error_t *				Err;			///< Global error object struct

@@ -320,6 +320,10 @@ msgid "&File"
 msgstr ""
 
 #: MenuEntry
+msgid "&Filter"
+msgstr ""
+
+#: MenuEntry
 msgid "&Find"
 msgstr ""
 
@@ -1166,7 +1170,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -2055,6 +2059,10 @@ msgstr ""
 msgid "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr ""
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr ""
@@ -2079,7 +2087,7 @@ msgstr ""
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr ""
 
-#: Control-ID:1200,
+#: Control-ID:1200,#: Control-ID:65535,
 msgid "From:"
 msgstr ""
 
@@ -2313,6 +2321,10 @@ msgstr ""
 
 #: Control-ID:1266,
 msgid "Include ignored files"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Include only the following revision range:"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2778,7 +2790,7 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -3379,6 +3391,10 @@ msgstr ""
 
 #: Dlg-ID:182,
 msgid "Revision Graph"
+msgstr ""
+
+#: Dlg-ID:239,
+msgid "Revision Graph Filter"
 msgstr ""
 
 #: Dlg-ID:228,
@@ -4228,7 +4244,7 @@ msgstr ""
 msgid "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
 msgstr ""
 
-#: Control-ID:1201,
+#: Control-ID:1201,#: Control-ID:65535,
 msgid "To:"
 msgstr ""
 

@@ -100,6 +100,7 @@
 #define IDD_SETTINGSHOOKCONFIG          236
 #define IDI_HOOK                        237
 #define IDD_EXPORT                      238
+#define IDD_REVGRAPHFILTER              239
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -571,6 +572,12 @@
 #define IDC_GETLOCKTOP                  1338
 #define IDC_EOLCOMBO                    1341
 #define IDC_EOLLABEL                    1342
+#define IDC_PATHFILTER                  1347
+#define IDC_FROMREV                     1348
+#define IDC_FROMSPIN                    1349
+#define IDC_TOREV                       1350
+#define IDC_SPIN3                       1351
+#define IDC_TOSPIN                      1351
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -971,14 +978,17 @@
 #define ID_VIEW_ZOOMALL                 32804
 #define ID_FILE_SAVEGRAPHAS32805        32805
 #define ID_FILE_SAVESTATGRAPHAS         32806
+#define ID_FILTER_EXCLUDEPATHS          32807
+#define ID_FILTER_EXCLUDEREVISIONS      32808
+#define ID_VIEW_FILTER                  32809
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        239
-#define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1343
+#define _APS_NEXT_RESOURCE_VALUE        240
+#define _APS_NEXT_COMMAND_VALUE         32810
+#define _APS_NEXT_CONTROL_VALUE         1352
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

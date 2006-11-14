@@ -30,6 +30,7 @@
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
+#include "RevGraphFilterDlg.h"
 #include ".\revisiongraphdlg.h"
 
 #ifdef _DEBUG
@@ -80,6 +81,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CStandAloneDialog)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
+	ON_COMMAND(ID_VIEW_FILTER, &CRevisionGraphDlg::OnViewFilter)
 END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
@@ -633,6 +635,27 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	::SetWindowPos(pNMHDR->hwndFrom, HWND_TOP, 0, 0, 0, 0,
 		SWP_NOACTIVATE|SWP_NOSIZE|SWP_NOMOVE|SWP_NOOWNERZORDER);
 	return TRUE;    // message was handled
+}
+
+void CRevisionGraphDlg::OnViewFilter()
+{
+	CRevGraphFilterDlg dlg;
+	dlg.SetMaxRevision(m_Graph.GetHeadRevision());
+	dlg.SetFilterString(m_sFilter);
+	if (dlg.DoModal()==IDOK)
+	{
+		// user pressed OK to dismiss the dialog, which means
+		// we have to accept the new filter settings and apply them
+		svn_revnum_t minrev, maxrev;
+		dlg.GetRevisionRange(minrev, maxrev);
+		m_sFilter = dlg.GetFilterString();
+		m_Graph.SetFilter(minrev, maxrev, m_sFilter);
+		InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
+		if (AfxBeginThread(WorkerThread, this)==NULL)
+		{
+			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		}
+	}
 }
 
 
