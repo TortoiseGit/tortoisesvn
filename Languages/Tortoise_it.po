@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-07 14:00+0100\n"
+"PO-Revision-Date: 2006-11-14 14:21+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -441,8 +441,8 @@ msgstr "&Abilita il server proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Inserisci un messaggio spiegando i motivi del blocco."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Inserisci un messaggio spiegando perché si stanno bloccando il/i file."
 
 # Control-ID:1031,
 #: MenuEntry
@@ -1508,6 +1508,11 @@ msgstr "Non fare differenza tra maiuscole e minuscole nei nomi degli autori"
 msgid "Authors:"
 msgstr "Autori:"
 
+# Dlg-ID:151,
+#: ID:99
+msgid "Auto Rename"
+msgstr "Rinomina automaticamente"
+
 # ID:222,
 #: ID:222
 msgid "Auto-close for local operations"
@@ -1672,6 +1677,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:99
 #: ID:563
 #: Control-ID:2
 msgid "Cancel"
@@ -1808,8 +1814,8 @@ msgstr "Controllare il percorso e/o la URL."
 
 # Control-ID:65535,
 #: ID:194
-msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Selezionare le voci di menu che si vogliono far apparire direttamente nel menu contestuale invece che nel sottomenu"
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "Selezionare le voci di menu che si vogliono far apparire direttamente nel menu contestuale invece che nel sottomenu di TortoiseSVN"
 
 # ID:80,
 #: ID:80
@@ -1996,6 +2002,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "Confronta e &biasima con la BASE"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Confronta e biasima con revisioni precedenti"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Confronta con la copia di &lavoro"
@@ -2004,6 +2015,11 @@ msgstr "Confronta con la copia di &lavoro"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Confronta con la b&ase"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Confronta con revisioni precedenti"
 
 # ID:12,
 #: ID:12
@@ -2763,6 +2779,16 @@ msgstr "Percorsi da escludere:"
 #: ID:209
 msgid "Explore to"
 msgstr "Esporta in..."
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Esporta..."
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Esporta &directory:"
 
 # ID:94,
 #: ID:94
@@ -4167,6 +4193,20 @@ msgstr "Altri"
 msgid "Out of memory."
 msgstr "Memoria insufficente."
 
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Ignora le impostazioni della proprietà svn:eol-style.\n"
+"I file che non sono dotati di questa proprietà non verranno influenzati."
+
+# ID:99,
+#: ID:99
+msgid "Overwrite"
+msgstr "Sovrascrivi"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -4706,9 +4746,8 @@ msgstr "Rinomina file / cartelle versionate"
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: ID:209
-#, fuzzy
 msgid "Repair move"
-msgstr "Ripara spostamento"
+msgstr "Ripara lo spostamento"
 
 # ID:3603,
 #: ID:3603
@@ -5218,6 +5257,11 @@ msgstr ""
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "Seleziona una cartella su cui eseguire lo script"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Seleziona una cartella in cui salvare i file selezionati"
 
 # ID:313,
 #: ID:197
@@ -5884,6 +5928,18 @@ msgstr ""
 "%s\n"
 "non esiste.\n"
 "Si desidera crearla?"
+
+# ID:102,
+#: ID:99
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"La cartella\n"
+"%s\n"
+"esiste già!"
 
 # ID:83,
 #: ID:83
@@ -7214,6 +7270,11 @@ msgstr ""
 msgid "deleted"
 msgstr "cancellato"
 
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol style"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7486,6 +7547,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Imposta qui il numero della lingua in cui vuoi vengano scritti i commenti.\n"
 "Se disponibilie, TortoiseSVN caricherà il controllore ortografico appropriato."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Lista, separata da caratteri di a capo, di proprietà definibili dall'utente per i file che verrà\n"
+"mostrata nella finestra di dialogo e da cui si potrà selezionare l'impostazione desiderata."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Lista, separata da caratteri di a capo, di proprietà definibili dall'utente per le cartelle che verrà\n"
+"mostrata nella finestra di dialogo e da cui si potrà selezionare l'impostazione desiderata."
 
 # ID:15,
 #: ID:15
