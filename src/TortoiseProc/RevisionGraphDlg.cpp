@@ -98,7 +98,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 	// set up the toolbar
 	// add the tool bar to the dialog
-	m_ToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_WRAPABLE| CBRS_SIZE_DYNAMIC);
+	m_ToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_WRAPABLE | TBSTYLE_TRANSPARENT | CBRS_SIZE_DYNAMIC);
 	m_ToolBar.LoadToolBar(IDR_REVGRAPHBAR);
 	m_ToolBar.ShowWindow(SW_SHOW);
 	m_ToolBar.SetBarStyle(CBRS_ALIGN_TOP | CBRS_TOOLTIPS | CBRS_FLYBY);
