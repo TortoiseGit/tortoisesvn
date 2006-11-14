@@ -2262,9 +2262,21 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
-								e->textstatus = svn_wc_status_deleted;
-								e->status = svn_wc_status_deleted;
-								SetEntryCheck(e,index,true);
+								if ((e->textstatus == svn_wc_status_unversioned)||
+									(e->textstatus == svn_wc_status_none)||
+									(e->textstatus == svn_wc_status_ignored))
+								{
+									if (GetCheck(index))
+										m_nSelected--;
+									m_nTotal--;
+									RemoveListEntry(index);
+								}
+								else
+								{
+									e->textstatus = svn_wc_status_deleted;
+									e->status = svn_wc_status_deleted;
+									SetEntryCheck(e,index,true);
+								}
 							}
 						}
 						SaveColumnWidths();
