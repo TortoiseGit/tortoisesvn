@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-07 09:29+0800\n"
+"PO-Revision-Date: 2006-11-14 10:23+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2778,6 +2778,16 @@ msgstr "除外路徑:"
 msgid "Explore to"
 msgstr "瀏覽至"
 
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "匯出"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "匯出目錄(&D):"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -4180,6 +4190,15 @@ msgstr "對方的"
 #: ID:3843
 msgid "Out of memory."
 msgstr "記憶體不足."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"覆寫 svn:eol-type 性質設定.\n"
+"沒有這個性質的檔案不會受到影響."
 
 # ID:99,
 #: ID:99
@@ -7239,6 +7258,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "刪除"
+
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol 類型"
 
 # ID:79,
 #: ID:79
