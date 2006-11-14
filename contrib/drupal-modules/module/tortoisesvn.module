@@ -307,7 +307,7 @@ function print_content_stat($i, $postat, $vars)
   echo "</td>";
   echo "<td class=\"download\"><a href=\"$reposurl\">$reposfile</a></td>";
   echo "<td class=\"lang\">$fdate</td>";
-  if ($age>90) {
+  if ( ($age>90) && ($vars['showold']==TRUE) ) {
     $title = "Old translation. Last update on: ".$fdate." We need a maintainer!!";
     echo "<td><img src=\"/siteicons/exclamation.png\" alt=\"!!OLD!!\" title=\"$title\" width=\"16\" height=\"16\"/></td>";
   } else {
