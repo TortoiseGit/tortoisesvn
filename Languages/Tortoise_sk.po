@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-06 11:28+0100\n"
+"PO-Revision-Date: 2006-11-14 22:55+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -476,6 +476,11 @@ msgstr "&Externé"
 #: MenuEntry
 msgid "&File"
 msgstr "&Súbor"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filter"
 
 #: MenuEntry
 msgid "&Find"
@@ -2812,6 +2817,16 @@ msgstr "Vylúčené cesty:"
 msgid "Explore to"
 msgstr "Exportovať do"
 
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Exportovať"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Exportovať &adresár"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2976,6 +2991,11 @@ msgstr ""
 "Farebná hĺbka:\t\t%d bit\n"
 "Zväčšenie:\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Odfiltrovať nasledovné cesty (oddeľte viacnásobné cesty pomocou znaku  '*'):"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -3012,6 +3032,7 @@ msgstr "Pre úplnú históriu vypnite \"Zastaviť na kopírovať/premenovať\""
 
 # Control-ID:1200,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Od:"
 
@@ -3385,6 +3406,11 @@ msgstr "Importuje adresár do úložiska"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Vrátane ignorovaných súborov"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Iba nasledovný rozsah revízií:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4239,6 +4265,15 @@ msgstr "Ostatný"
 msgid "Out of memory."
 msgstr "Nedostatok pamäte."
 
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Prepíše nastavnie vlastnosti svn:eol-style.\n"
+"Súbory, ktoré nemajú túto vlastnosť nastavenú, niesú dotknuté."
+
 # ID:99,
 #: ID:99
 msgid "Overwrite"
@@ -4972,6 +5007,11 @@ msgstr "Revízia / Autor:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Graf revízií"
+
+# Dlg-ID:182,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Filter grafu revízií"
 
 # Dlg-ID:228,
 #: Dlg-ID:228
@@ -6299,6 +6339,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Do:"
 
@@ -7321,6 +7362,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "vymazané"
+
+# ID:17,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "štýl ukončenia riadkov"
 
 # ID:79,
 #: ID:79
