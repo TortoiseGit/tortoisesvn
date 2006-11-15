@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-13 16:16+0100\n"
+"PO-Revision-Date: 2006-11-15 08:33+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -393,6 +393,10 @@ msgstr "&Extern"
 #: MenuEntry
 msgid "&File"
 msgstr "&Datei"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filter"
 
 #: MenuEntry
 msgid "&Find"
@@ -2426,6 +2430,11 @@ msgstr ""
 "Tiefe:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Die folgenden Pfade ausfiltern (mehrfache Pfade durch '*' trennen):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Suchen"
@@ -2458,6 +2467,7 @@ msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Wählen Sie \"Bei Kopien/Umbenennen anhalten\" ab, um eine vollständige Historie zu erhalten."
 
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Von:"
 
@@ -2798,6 +2808,11 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Ignorierte Dateien einschließen"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Nur den folgenden Revisionsbereich einschließen:"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -4091,6 +4106,10 @@ msgstr "Revision / Autor:"
 msgid "Revision Graph"
 msgstr "Revisionsgraph"
 
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Revisionsgraph filtern"
+
 #: Dlg-ID:228
 msgid "Revision Range"
 msgstr "Revisionsbereich"
@@ -5225,6 +5244,7 @@ msgstr ""
 "Dabei ist das Löschen von Verzeichnissen nicht erlaubt."
 
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Bis:"
 
