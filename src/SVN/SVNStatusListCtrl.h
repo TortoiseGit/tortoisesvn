@@ -276,6 +276,11 @@ public:
 	 */
 	void SetIgnoreRemoveOnly(bool bRemoveOnly = true) {m_bIgnoreRemoveOnly = bRemoveOnly;}
 	/**
+	 * The unversioned items are by default shown after all other files in the list.
+	 * If that behavior should be changed, set this value to false.
+	 */
+	void PutUnversionedLast(bool bLast) {m_bUnversionedLast = bLast;}
+	/**
 	 * Fetches the Subversion status of all files and stores the information
 	 * about them in an internal array.
 	 * \param sFilePath path to a file which contains a list of files and/or folders for which to
@@ -420,6 +425,12 @@ public:
 	 * Checks if the path already exists in the list.
 	 */
 	bool HasPath(CTSVNPath path);
+
+	/**
+	 * Forces the children to be checked when the parent folder is checked,
+	 * and the parent folder to be unchecked if one of its children is unchecked.
+	 */
+	void CheckChildrenWithParent(bool bCheck) {m_bCheckChildrenWithParent = bCheck;}
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -518,6 +529,7 @@ private:
 	bool *						m_pbCanceled;
 	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
+	bool						m_bUnversionedLast;
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
@@ -563,6 +575,7 @@ private:
 	CString						m_sColumnInfoContainer;
 	int							m_arColumnWidths[SVNSLC_NUMCOLUMNS];
 
+	bool						m_bCheckChildrenWithParent;
 	CSVNStatusListCtrlDropTarget * m_pDropTarget;
 
 	std::map<CString,bool> m_mapFilenameToChecked; ///< Remember manually de-/selected items

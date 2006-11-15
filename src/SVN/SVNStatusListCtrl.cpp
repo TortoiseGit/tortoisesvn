@@ -121,6 +121,8 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bShowIgnores(false)
 	, m_pDropTarget(NULL)
 	, m_bIgnoreRemoveOnly(false)
+	, m_bCheckChildrenWithParent(false)
+	, m_bUnversionedLast(true)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 }
@@ -511,7 +513,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
 
-		if ((wcFileStatus == svn_wc_status_unversioned) && svnPath.IsDirectory())
+		if (((wcFileStatus == svn_wc_status_unversioned)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
 		{
 			// we have an unversioned folder -> get all files in it recursively!
 			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), pIgnorePatterns);
@@ -676,8 +678,10 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 	while (filefinder.FindNextFileNoDots())
 	{
 		filename.SetFromWin(filefinder.GetFilePath(), filefinder.IsDirectory());
-		if ((!SVNConfig::MatchIgnorePattern(filename.GetFileOrDirectoryName(),pIgnorePatterns))&&
-			(!SVNConfig::MatchIgnorePattern(filename.GetSVNPathString(),pIgnorePatterns)))
+
+		bool bMatchIgnore = !!SVNConfig::MatchIgnorePattern(filename.GetFileOrDirectoryName(),pIgnorePatterns);
+		bMatchIgnore = bMatchIgnore || SVNConfig::MatchIgnorePattern(filename.GetSVNPathString(),pIgnorePatterns);
+		if (((bMatchIgnore)&&(m_bShowIgnores))||(!bMatchIgnore))
 		{
 			FileEntry * entry = new FileEntry();
 			entry->path = filename;
@@ -789,9 +793,11 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 
 		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
 
-		if ((wcFileStatus == svn_wc_status_unversioned)&&
-			(!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns))&&
-			(!SVNConfig::MatchIgnorePattern(entry->path.GetSVNPathString(),pIgnorePatterns)))
+		bool bMatchIgnore = !!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns);
+		bMatchIgnore = bMatchIgnore || SVNConfig::MatchIgnorePattern(entry->path.GetSVNPathString(),pIgnorePatterns);
+		if (((wcFileStatus == svn_wc_status_unversioned)&&(!bMatchIgnore))||
+			((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))||
+			((wcFileStatus == svn_wc_status_unversioned)&&(bMatchIgnore)&&(m_bShowIgnores)))
 		{
 			if (entry->isfolder)
 			{
@@ -1519,7 +1525,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 			}
 		}
 	}
-	if (entry->status == svn_wc_status_deleted)
+	if ((entry->status == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
 	{
 		// if a deleted folder gets checked, we have to check all
 		// children of that folder too.
@@ -1540,7 +1546,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 			{
 				if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
 				{
-					if (testEntry->status == svn_wc_status_deleted)
+					if ((testEntry->status == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
 					{
 						SetEntryCheck(testEntry,i,true);
 						m_nSelected++;
@@ -1619,14 +1625,17 @@ bool CSVNStatusListCtrl::IsEntryVersioned(const FileEntry* pEntry1)
 bool CSVNStatusListCtrl::BuildStatistics()
 {
 	bool bRefetchStatus = false;
-	// We partition the list of items so that it's arrange with all the versioned items first
-	// then all the unversioned items afterwards.
-	// Then we sort the versioned part of this, so that we can do quick look-ups in it
 	FileEntryVector::iterator itFirstUnversionedEntry;
 	itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
-	std::sort(m_arStatusArray.begin(), itFirstUnversionedEntry, EntryPathCompareNoCase);
-	// Also sort the unversioned section, to make the list look nice...
-	std::sort(itFirstUnversionedEntry, m_arStatusArray.end(), EntryPathCompareNoCase);
+	if (m_bUnversionedLast)
+	{
+		// We partition the list of items so that it's arrange with all the versioned items first
+		// then all the unversioned items afterwards.
+		// Then we sort the versioned part of this, so that we can do quick look-ups in it
+		std::sort(m_arStatusArray.begin(), itFirstUnversionedEntry, EntryPathCompareNoCase);
+		// Also sort the unversioned section, to make the list look nice...
+		std::sort(itFirstUnversionedEntry, m_arStatusArray.end(), EntryPathCompareNoCase);
+	}
 
 	// now gather some statistics
 	m_nUnversioned = 0;
@@ -1671,7 +1680,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
 					if (SVNStatus::IsImportant(entry->remotestatus))
 						break;
 					m_nUnversioned++;
-					if (!entry->inunversionedfolder)
+					if ((!entry->inunversionedfolder)&&(m_bUnversionedLast))
 					{
 						// check if the unversioned item is just
 						// a file differing in case but still versioned
