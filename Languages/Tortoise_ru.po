@@ -38,13 +38,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 7998: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8022: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-13 10:24+0300\n"
+"PO-Revision-Date: 2006-11-15 11:30+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -420,6 +420,10 @@ msgstr "В&нешняя"
 #: MenuEntry
 msgid "&File"
 msgstr "&Файл"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Фильтр"
 
 #: MenuEntry
 msgid "&Find"
@@ -2434,6 +2438,12 @@ msgstr ""
 "Глубина цвета:\t\t\t%d бит\n"
 "Увеличение:\t\t\t\t%d%%"
 
+# ? Исключить
+# ? (несколько путей разделите '*' )
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Отфильтровать следующие пути (при вводе нескольких путей - разделитель '*' ):                                                           "
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Найти"
@@ -2463,6 +2473,7 @@ msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Для получения полного списка разотметьте \"Остановиться на копировании/переименовании\""
 
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "С:"
 
@@ -2784,6 +2795,10 @@ msgstr "Импортирует папку в хранилище"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Включить игнорируемые файлы"
+
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Включить только следующий диапазон ревизий:"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -4072,6 +4087,10 @@ msgstr "Ревизия / Автор:"
 msgid "Revision Graph"
 msgstr "Граф Ревизий"
 
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Фильтр для графа ревизий"
+
 #: Dlg-ID:228
 msgid "Revision Range"
 msgstr "Ряд ревизий"
@@ -5173,6 +5192,7 @@ msgstr ""
 "фиксацию, не позволяющую производить удаление папок."
 
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "По:"
 
