@@ -786,6 +786,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREMOVE), HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, ShellMenuRemove);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, ShellMenuRevert);
+	if ((isFolder)&&(extended))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUDELUNVERSIONED), HMENU(MENUDELUNVERSIONED), INDEXMENU(MENUDELUNVERSIONED), idCmd++, IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, idCmdFirst, ShellMenuDelUnversioned);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, ShellMenuCleanup);
 	if ((isInSVN)&&(!isLocked)&&(!isAdded))
@@ -1178,6 +1180,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
 				break;
+			case ShellMenuDelUnversioned:
+				svnCmd += _T("delunversioned /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
 			case ShellMenuCleanup:
 				svnCmd += _T("cleanup /path:\"");
 				svnCmd += folder_;
@@ -1548,6 +1555,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case ShellMenuRevert:
 			MAKESTRING(IDS_MENUDESCREVERT);
+			break;
+		case ShellMenuDelUnversioned:
+			MAKESTRING(IDS_MENUDESCDELUNVERSIONED);
 			break;
 		case ShellMenuCleanup:
 			MAKESTRING(IDS_MENUDESCCLEANUP);
@@ -2012,6 +2022,12 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			resource = MAKEINTRESOURCE(IDI_REVERT);
 			SETSPACE(MENUREVERT);
 			PREPENDSVN(MENUREVERT);
+			break;
+		case ShellMenuDelUnversioned:
+			MAKESTRING(IDS_MENUDELUNVERSIONED);
+			resource = MAKEINTRESOURCE(IDI_DELUNVERSIONED);
+			SETSPACE(MENUDELUNVERSIONED);
+			PREPENDSVN(MENUDELUNVERSIONED);
 			break;
 		case ShellMenuCleanup:
 			MAKESTRING(IDS_MENUCLEANUP);

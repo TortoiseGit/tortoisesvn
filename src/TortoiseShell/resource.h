@@ -176,6 +176,8 @@
 #define IDS_TT_WEBVIEWERPATHREVISION    265
 #define IDS_TT_USERFILEPROPERTIES       266
 #define IDS_TT_USERFOLDERPROPERTIES     267
+#define IDS_MENUDELUNVERSIONED          268
+#define IDS_MENUDESCDELUNVERSIONED      269
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -206,6 +208,8 @@
 #define IDI_MENULINK                    5156
 #define IDI_MENUMULTIPLE                5157
 #define IDI_PROPERTIES                  5158
+#define IDI_ICON1                       5159
+#define IDI_DELUNVERSIONED              5159
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 #define IDC_EDITPROPERTIES              11021
@@ -214,7 +218,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5159
+#define _APS_NEXT_RESOURCE_VALUE        5160
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11022
 #define _APS_NEXT_SYMED_VALUE           5101

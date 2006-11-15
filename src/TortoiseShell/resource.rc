@@ -65,6 +65,7 @@ IDI_MENUFOLDER          ICON                    "..\\Resources\\tsvnmenufolder.i
 IDI_MENULINK            ICON                    "..\\Resources\\tsvnmenulink.ico"
 IDI_MENUMULTIPLE        ICON                    "..\\Resources\\tsvnmenumultiple.ico"
 IDI_PROPERTIES          ICON                    "..\\Resources\\menuproperties.ico"
+IDI_DELUNVERSIONED      ICON                    "D:\\Development\\SVN\\TortoiseSVN\\src\\Resources\\menudelunversioned.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -360,6 +361,8 @@ BEGIN
                             "tsvn:userfileproperties\nNewline separated list of user defined properties for files which will\nbe shown in the property dialog to choose from."
     IDS_TT_USERFOLDERPROPERTIES 
                             "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
+    IDS_MENUDELUNVERSIONED  "Delete unversioned items"
+    IDS_MENUDESCDELUNVERSIONED "Removes all unversioned and ignored items"
 END
 
 #endif    // English (U.S.) resources

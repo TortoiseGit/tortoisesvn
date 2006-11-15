@@ -49,6 +49,7 @@
 #define MENUUNLOCK			0x10000000
 #define MENUPROPERTIES		0x20000000
 #define MENUURLDIFF			0x40000000
+#define MENUDELUNVERSIONED	0x80000000
 
 /**
  * Since we need an own COM-object for every different

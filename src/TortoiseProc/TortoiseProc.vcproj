@@ -396,22 +396,6 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
-			<File
-				RelativePath=".\ExportDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\ExportDlg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\RevGraphFilterDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\RevGraphFilterDlg.h"
-				>
-			</File>
 			<Filter
 				Name="General"
 				>
@@ -1696,11 +1680,27 @@
 					>
 				</File>
 				<File
+					RelativePath=".\DeleteUnversionedDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\DeleteUnversionedDlg.h"
+					>
+				</File>
+				<File
 					RelativePath=".\EditPropertiesDlg.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\EditPropertiesDlg.h"
+					>
+				</File>
+				<File
+					RelativePath=".\ExportDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\ExportDlg.h"
 					>
 				</File>
 				<File
@@ -2033,6 +2033,14 @@
 				</File>
 				<File
 					RelativePath=".\PropDlg.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RevGraphFilterDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevGraphFilterDlg.h"
 					>
 				</File>
 				<File

@@ -37,6 +37,7 @@
 #include "AddDlg.h"
 #include "ResolveDlg.h"
 #include "RevertDlg.h"
+#include "DeleteUnversionedDlg.h"
 #include "RepoCreateDlg.h"
 #include "RenameDlg.h"
 #include "SwitchDlg.h"
@@ -141,7 +142,8 @@ typedef enum
 	cmdLock,
 	cmdUnlock,
 	cmdRebuildIconCache,
-	cmdProperties
+	cmdProperties,
+	cmdDelUnversioned,
 } TSVNCommand;
 
 static const struct CommandInfo
@@ -195,6 +197,7 @@ static const struct CommandInfo
 	{	cmdUnlock,			_T("unlock"),			true	},
 	{	cmdRebuildIconCache,_T("rebuildiconcache"),	false	},
 	{	cmdProperties,		_T("properties"),		true	},
+	{	cmdDelUnversioned,	_T("delunversioned"),	false	},
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -2137,7 +2140,42 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.DoModal();
 		}
 		//#endregion
-
+		//#region delunversioned
+		if (command == cmdDelUnversioned)
+		{
+			CDeleteUnversionedDlg dlg;
+			dlg.m_pathList = pathList;
+			if (dlg.DoModal() == IDOK)
+			{
+				if (dlg.m_pathList.GetCount() == 0)
+					return FALSE;
+				// now remove all items by moving them to the trashbin
+				dlg.m_pathList.RemoveChildren();
+				CString filelist;
+				for (INT_PTR i=0; i<dlg.m_pathList.GetCount(); ++i)
+				{
+					filelist += dlg.m_pathList[i].GetWinPathString();
+					filelist += _T("|");
+				}
+				filelist += _T("|");
+				int len = filelist.GetLength();
+				TCHAR * buf = new TCHAR[len+2];
+				_tcscpy_s(buf, len+2, filelist);
+				for (int i=0; i<len; ++i)
+					if (buf[i] == '|')
+						buf[i] = 0;
+				SHFILEOPSTRUCT fileop;
+				fileop.hwnd = EXPLORERHWND;
+				fileop.wFunc = FO_DELETE;
+				fileop.pFrom = buf;
+				fileop.pTo = NULL;
+				fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_ALLOWUNDO;
+				fileop.lpszProgressTitle = _T("deleting file");
+				SHFileOperation(&fileop);
+				delete [] buf;
+			}
+		}
+		//#endregion
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);

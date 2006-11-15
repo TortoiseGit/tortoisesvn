@@ -130,7 +130,8 @@ protected:
 		ShellMenuLock,
 		ShellMenuUnlock,
 		ShellMenuUnlockForce,
-		ShellMenuProperties
+		ShellMenuProperties,
+		ShellMenuDelUnversioned
 	};
 
 	FileState m_State;
