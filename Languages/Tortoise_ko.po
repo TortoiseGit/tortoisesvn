@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-10-27 17:23+0900\n"
+"PO-Revision-Date: 2006-11-15 16:34+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -438,7 +438,8 @@ msgstr "프록시 서버 사용(&E)"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+#, fuzzy
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "파일을 잠그는 이유를 기술하십시오.(&E)"
 
 # Control-ID:1031,
@@ -460,6 +461,10 @@ msgstr "외부(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "파일(&F)"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "필터(&F)"
 
 #: MenuEntry
 msgid "&Find"
@@ -1038,7 +1043,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"아이콘을 겹쳐 보일 경로들입니다.\n"
+"아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\n"
 "\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
 
 # ID:194,
@@ -1048,7 +1053,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"아이콘을 겹쳐 쓰지 않을 경로들입니다.\n"
+"아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\n"
 "\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\n"
 "비워둘 경우 모든 경로에 대해 아이콘을 겹치게 됩니다."
 
@@ -1993,6 +1998,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "꺼내온 버전(BASE)과 비교후 수정한 사람 보이기(&B)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "이전 버전과 비교 후 수정한 사람 보이기"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "작업사본과 비교(&W)"
@@ -2001,6 +2011,11 @@ msgstr "작업사본과 비교(&W)"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "작업하기 위해 꺼냈던 것과 비교(&A)"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "이전 리비전 비교"
 
 # ID:12,
 #: ID:12
@@ -2760,6 +2775,16 @@ msgstr "제외 경로:"
 msgid "Explore to"
 msgstr "탐색"
 
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "익스포트"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "디렉토리 익스포트(&D):"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2919,6 +2944,11 @@ msgstr ""
 "깊이:\t\t\t%d bit\n"
 "확대:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "다음 경로들은 제외합니다 ('*' 문자로 경로를 분리합니다.)"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "찾기"
@@ -2954,6 +2984,7 @@ msgstr "모든 로그를 보려면 \"복사/이름변경 시점에서 중지\"�
 
 # Control-ID:65535,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "시작:"
 
@@ -3323,6 +3354,11 @@ msgstr "현재 디렉토리를 저장소에 넣습니다."
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "무시되는 파일 포함"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "다음 리비전 구간만 포함:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4159,6 +4195,15 @@ msgstr "기타"
 msgid "Out of memory."
 msgstr "메모리 부족."
 
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"svn:eol-style 속성을 재지정합니다.\n"
+"이 속성이 없는 파일들에는 영향을 미치지 않습니다."
+
 # ID:99,
 #: ID:99
 msgid "Overwrite"
@@ -4484,7 +4529,7 @@ msgstr "프록시 설정"
 # Control-ID:1338,
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "svn:needs-lock이 속성이 설정되면 \"잠그기\"를 메뉴에 넣습니다."
+msgstr "svn:needs-lock 속성이 설정되면 \"잠그기\"를 메뉴에 넣습니다."
 
 # ID:246,
 #: ID:246
@@ -4889,6 +4934,11 @@ msgid "Revision Graph"
 msgstr "리비전 그래프"
 
 # ID:75,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "리비전 그래프 필터"
+
+# ID:75,
 #: Dlg-ID:228
 msgid "Revision Range"
 msgstr "리비전 범위"
@@ -5212,6 +5262,11 @@ msgstr ""
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "스크립트를 수행할 폴더를 선택하세요"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "선택된 파일을 저장할 폴더를 선택하세요"
 
 # ID:313,
 #: ID:197
@@ -6200,6 +6255,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "끝:"
 
@@ -7216,6 +7272,11 @@ msgstr ""
 msgid "deleted"
 msgstr "삭제됨"
 
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol style"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7359,7 +7420,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"개행으로 분리된 모듈 리스트입니다. 모듈은 상대 경로로 되어 있으며, 선택 사항으로 리비전 플래그와 URL을 포함할 수 있습니다. 예)\n"
+"한 줄에 하나씩 지정하는 외부 모듈 리스트입니다. 모듈은 상대 경로, 리비전 플래그(선택사항), URL로 되어 있습니다. 예)\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -7488,6 +7549,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "로그메시지가 쓰여지는 곳에 언어번호를 이 값으로 설정하면,\n"
 "TortoiseSVN이 언어에 적절한 구문검사기를 실행하게 됩니다."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"등록 정보에서 선택할 수 있는 파일에 대한 사용자 정의 속성에 대한\n"
+"리스트 입니다. 한 줄에 하나씩 기술합니다."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"등록 정보에서 선택할 수 있는 폴더에 대한 사용자 정의 속성에 대한\n"
+"리스트 입니다. 한 줄에 하나씩 기술합니다."
 
 # ID:15,
 #: ID:15
