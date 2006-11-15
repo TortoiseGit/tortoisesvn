@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-06 13:23+0900\n"
+"PO-Revision-Date: 2006-11-15 23:41+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -471,6 +471,10 @@ msgstr "外部(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "ファイル(&F)"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "フィルタ(&F)"
 
 #: MenuEntry
 msgid "&Find"
@@ -2784,6 +2788,16 @@ msgstr "除外するパス:"
 msgid "Explore to"
 msgstr "エクスプローラで開く"
 
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "エクスポート"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "エクスポート先ディレクトリ(&D):"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2942,6 +2956,11 @@ msgstr ""
 "色深度:\t\t%d bit\n"
 "ズーム:\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "次のパスを除外する ('*' 文字で複数のパスを分ける):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "検索"
@@ -2977,6 +2996,7 @@ msgstr "すべての履歴を表示するためには \"コピー／名前の変
 
 # Control-ID:65535,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "元:"
 
@@ -3346,6 +3366,11 @@ msgstr "ディレクトリをリポジトリにインポート"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "無視ファイルを含める"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "以下で指定するリビジョンの範囲のみを含める:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4182,6 +4207,15 @@ msgstr "Others"
 msgid "Out of memory."
 msgstr "メモリ不足です。"
 
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"svn:eol-style 属性の設定をオーバーライドする。\n"
+"この属性が設定されていないファイルには影響しません。"
+
 # ID:99,
 #: ID:99
 msgid "Overwrite"
@@ -4907,6 +4941,11 @@ msgstr "リビジョン／作者:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "リビジョングラフ"
+
+# ID:75,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "リビジョングラフフィルタ"
 
 # ID:75,
 #: Dlg-ID:228
@@ -6225,6 +6264,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "先:"
 
@@ -7241,6 +7281,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "削除"
+
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "改行コード"
 
 # ID:79,
 #: ID:79
