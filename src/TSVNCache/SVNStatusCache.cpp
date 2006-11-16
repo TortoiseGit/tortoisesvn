@@ -228,14 +228,20 @@ CSVNStatusCache::~CSVNStatusCache(void)
 void CSVNStatusCache::Refresh()
 {
 	m_shellCache.ForceRefresh();
-	for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
+	if (m_pInstance->m_directoryCache.size())
 	{
-		if (m_shellCache.IsPathAllowed(I->first.GetWinPath()))
-			I->second->RefreshMostImportant();
-		else
+		CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin();
+		for (/* no init */; I != m_pInstance->m_directoryCache.end(); ++I)
 		{
-			CSVNStatusCache::Instance().RemoveCacheForPath(I->first);
-			I = m_pInstance->m_directoryCache.begin();
+			if (m_shellCache.IsPathAllowed(I->first.GetWinPath()))
+				I->second->RefreshMostImportant();
+			else
+			{
+				CSVNStatusCache::Instance().RemoveCacheForPath(I->first);
+				I = m_pInstance->m_directoryCache.begin();
+				if (I == m_pInstance->m_directoryCache.end())
+					break;
+			}
 		}
 	}
 }
@@ -336,17 +342,21 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
-		ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
-		ATLASSERT(path.IsDirectory());
-		CCachedDirectory * newcdir = new CCachedDirectory(path);
-		if (newcdir)
+		// but only if it exists!
+		if (path.Exists())
 		{
-			CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
-			if (!path.IsEmpty())
-				watcher.AddPath(path);
-			return cdir;		
+			ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
+			ATLASSERT(path.IsDirectory());
+			CCachedDirectory * newcdir = new CCachedDirectory(path);
+			if (newcdir)
+			{
+				CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
+				if (!path.IsEmpty())
+					watcher.AddPath(path);
+				return cdir;		
+			}
+			m_bClearMemory = true;
 		}
-		m_bClearMemory = true;
 		return NULL;
 	}
 }
