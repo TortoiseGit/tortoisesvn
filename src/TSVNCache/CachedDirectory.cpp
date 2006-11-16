@@ -338,7 +338,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		// We leave the refreshing to the crawler.
 		if ((!bFetch)&&(m_entriesFileTime))
 		{
-			return m_ownStatus;
+			CSVNStatusCache::Instance().AddFolderForCrawling(path.GetDirectory());
+			return CStatusCacheEntry();
 		}
 		AutoLocker lock(m_critSec);
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
@@ -429,9 +430,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				else
 				{
 					ATLTRACE("svn_cli_stat error, assume none status\n");
-					svn_wc_status2_t st;
-					ZeroMemory(&st, sizeof(st));
-					st.text_status = svn_wc_status_none;
 					// Since we only assume a none status here due to svn_client_status()
 					// returning an error, make sure that this status times out soon.
 					CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
@@ -565,7 +563,13 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 					pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
 				}
 				else
+				{
+					// the child directory is not in the cache. Create a new entry for it in the cache which is
+					// initially 'unversioned'. But we added that directory to the crawling list above, which
+					// means the cache will be updated soon.
+					CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
 					pThis->m_childDirectories[svnPath] = s;
+				}
 			}
 		}
 		else
@@ -597,6 +601,8 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 				// Mark the directory as 'versioned' (status 'normal' for now).
 				// This initial value will be overwritten from below some time later
 				pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				// Make sure the entry is also in the cache
+				CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
 				// also mark the status in the status object as normal
 				status->text_status = svn_wc_status_normal;
 			}
@@ -607,6 +613,10 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 			// Mark the directory as 'versioned' (status 'normal' for now).
 			// This initial value will be overwritten from below some time later
 			pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+			// we have added a directory to the child-directory list of this
+			// directory. We now must make sure that this directory also has
+			// an entry in the cache.
+			CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
 			// also mark the status in the status object as normal
 			status->text_status = svn_wc_status_normal;
 		}
