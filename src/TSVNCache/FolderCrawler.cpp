@@ -363,6 +363,8 @@ void CFolderCrawler::WorkerThread()
 				}
 				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
 					continue;
+				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
+					continue;
 
 				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
 				{
