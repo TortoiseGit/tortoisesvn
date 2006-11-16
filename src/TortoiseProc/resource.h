@@ -579,6 +579,9 @@
 #define IDC_TOREV                       1350
 #define IDC_TOSPIN                      1351
 #define IDC_ITEMLIST                    1352
+#define IDC_REV1BTN                     1353
+#define IDC_BUTTON2                     1354
+#define IDC_REV2BTN                     1354
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -989,7 +992,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        241
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1353
+#define _APS_NEXT_CONTROL_VALUE         1355
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

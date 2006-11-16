@@ -28,6 +28,7 @@
 #include "StringUtils.h"
 #include "PathUtils.h"
 #include "BrowseFolder.h"
+#include "RevisionDlg.h"
 #include ".\filediffdlg.h"
 
 #define ID_COMPARE 1
@@ -58,6 +59,8 @@ void CFileDiffDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_FILELIST, m_cFileList);
 	DDX_Control(pDX, IDC_SWITCHLEFTRIGHT, m_SwitchButton);
+	DDX_Control(pDX, IDC_REV1BTN, m_cRev1Btn);
+	DDX_Control(pDX, IDC_REV2BTN, m_cRev2Btn);
 }
 
 
@@ -71,6 +74,8 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_EN_SETFOCUS(IDC_FIRSTURL, &CFileDiffDlg::OnEnSetfocusFirsturl)
 	ON_BN_CLICKED(IDC_SWITCHLEFTRIGHT, &CFileDiffDlg::OnBnClickedSwitchleftright)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, &CFileDiffDlg::OnHdnItemclickFilelist)
+	ON_BN_CLICKED(IDC_REV1BTN, &CFileDiffDlg::OnBnClickedRev1btn)
+	ON_BN_CLICKED(IDC_REV2BTN, &CFileDiffDlg::OnBnClickedRev2btn)
 END_MESSAGE_MAP()
 
 
@@ -138,8 +143,10 @@ BOOL CFileDiffDlg::OnInitDialog()
 	AddAnchor(IDC_DIFFSTATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SWITCHLEFTRIGHT, TOP_RIGHT);
 	AddAnchor(IDC_FIRSTURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_REV1BTN, TOP_RIGHT);
 	AddAnchor(IDC_DIFFSTATIC2, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SECONDURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_REV2BTN, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	
 	SetURLLabels();
@@ -744,13 +751,13 @@ void CFileDiffDlg::OnBnClickedSwitchleftright()
 
 void CFileDiffDlg::SetURLLabels()
 {
-	CString url1, url2;
-	url1.Format(_T("%s : revision %s"), m_path1.GetSVNPathString(), m_rev1.ToString());
-	url2.Format(_T("%s : revision %s"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), m_rev2.ToString());
+	m_cRev1Btn.SetWindowText(m_rev1.ToString());
+	m_cRev2Btn.SetWindowText(m_rev2.ToString());
 
-	GetDlgItem(IDC_FIRSTURL)->SetWindowText(url1);
-	GetDlgItem(IDC_SECONDURL)->SetWindowText(url2);
+	GetDlgItem(IDC_FIRSTURL)->SetWindowText(m_path1.GetSVNPathString());
+	GetDlgItem(IDC_SECONDURL)->SetWindowText(m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
 }
+
 BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
@@ -874,4 +881,54 @@ bool CFileDiffDlg::SortCompare(const FileDiff& Data1, const FileDiff& Data2)
 	if (!m_bAscending)
 		result = -result;
 	return result < 0;
+}
+
+void CFileDiffDlg::OnBnClickedRev1btn()
+{
+	if (m_bThreadRunning)
+		return;	// do nothing as long as the thread is still running
+
+	// show a dialog where the user can enter a revision
+	CRevisionDlg dlg(this);
+	dlg.AllowWCRevs(false);
+	*((SVNRev*)&dlg) = m_rev1;
+
+	if (dlg.DoModal() == IDOK)
+	{
+		m_rev1 = dlg;
+		m_cRev1Btn.SetWindowText(m_rev1.ToString());
+		m_cFileList.DeleteAllItems();
+		// start a new thread to re-fetch the diff
+		InterlockedExchange(&m_bThreadRunning, TRUE);
+		if (AfxBeginThread(DiffThreadEntry, this)==NULL)
+		{
+			InterlockedExchange(&m_bThreadRunning, FALSE);
+			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		}
+	}
+}
+
+void CFileDiffDlg::OnBnClickedRev2btn()
+{
+	if (m_bThreadRunning)
+		return;	// do nothing as long as the thread is still running
+
+	// show a dialog where the user can enter a revision
+	CRevisionDlg dlg(this);
+	dlg.AllowWCRevs(false);
+	*((SVNRev*)&dlg) = m_rev2;
+
+	if (dlg.DoModal() == IDOK)
+	{
+		m_rev2 = dlg;
+		m_cRev2Btn.SetWindowText(m_rev2.ToString());
+		m_cFileList.DeleteAllItems();
+		// start a new thread to re-fetch the diff
+		InterlockedExchange(&m_bThreadRunning, TRUE);
+		if (AfxBeginThread(DiffThreadEntry, this)==NULL)
+		{
+			InterlockedExchange(&m_bThreadRunning, FALSE);
+			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		}
+	}
 }

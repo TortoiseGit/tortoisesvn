@@ -94,6 +94,9 @@ private:
 
 	CBalloon			m_tooltips;
 
+	CButton				m_cRev1Btn;
+	CButton				m_cRev2Btn;
+
 	CXPImageButton		m_SwitchButton;
 	HICON				m_hSwitchIcon;
 	CColors				m_colors;
@@ -125,7 +128,6 @@ private:
 
 	static BOOL			m_bAscending;
 	static int			m_nSortedColumn;
-
-protected:
-public:
+	afx_msg void OnBnClickedRev1btn();
+	afx_msg void OnBnClickedRev2btn();
 };
