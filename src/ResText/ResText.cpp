@@ -122,17 +122,17 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if (bShowHelp)
 	{
-		_tcprintf(_T("usage:\n"));
-		_tcprintf(_T("\n"));
-		_tcprintf(_T("ResText extract <resource.dll> [<resource.dll> ...] <po-file> [-quiet] [-noupdate]\n"));
-		_tcprintf(_T("Extracts all strings from the resource dll and writes them to the po-file\n"));
-		_tcprintf(_T("-quiet: don't print progress messages\n"));
-		_tcprintf(_T("-noupdate: overwrite the po-file\n"));
-		_tcprintf(_T("\n"));
-		_tcprintf(_T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [langID] [-quiet]\n"));
-		_tcprintf(_T("Replaces all strings in the dst resource.dll with the po-file translations\n"));
-		_tcprintf(_T("-quiet: don't print progress messages\n"));
-		_tcprintf(_T("\n"));
+		_ftprintf(stdout, _T("usage:\n"));
+		_ftprintf(stdout, _T("\n"));
+		_ftprintf(stdout, _T("ResText extract <resource.dll> [<resource.dll> ...] <po-file> [-quiet] [-noupdate]\n"));
+		_ftprintf(stdout, _T("Extracts all strings from the resource dll and writes them to the po-file\n"));
+		_ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
+		_ftprintf(stdout, _T("-noupdate: overwrite the po-file\n"));
+		_ftprintf(stdout, _T("\n"));
+		_ftprintf(stdout, _T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [langID] [-quiet]\n"));
+		_ftprintf(stdout, _T("Replaces all strings in the dst resource.dll with the po-file translations\n"));
+		_ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
+		_ftprintf(stdout, _T("\n"));
 	}
 
 	return 0;

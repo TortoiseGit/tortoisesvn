@@ -45,24 +45,24 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 		// fill in the std::map with all translatable entries
 
 		if (!m_bQuiet)
-			_tcprintf(_T("Extracting StringTable..."));
+			_ftprintf(stdout, _T("Extracting StringTable..."));
 		EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
-			_tcprintf(_T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		if (!m_bQuiet)
-			_tcprintf(_T("Extracting Dialogs......."));
+			_ftprintf(stdout, _T("Extracting Dialogs......."));
 		EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
-			_tcprintf(_T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		if (!m_bQuiet)
-			_tcprintf(_T("Extracting Menus........."));
+			_ftprintf(stdout, _T("Extracting Menus........."));
 		EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
-			_tcprintf(_T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		// parse a probably existing file and update the translations which are
@@ -89,24 +89,24 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
 	// fill in the std::map with all translatable entries
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Extracting StringTable..."));
+		_ftprintf(stdout, _T("Extracting StringTable..."));
 	EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d Strings\n"), m_StringEntries.size());
+		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size());
 	nEntries = m_StringEntries.size();
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Extracting Dialogs......."));
+		_ftprintf(stdout, _T("Extracting Dialogs......."));
 	EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 	nEntries = m_StringEntries.size();
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Extracting Menus........."));
+		_ftprintf(stdout, _T("Extracting Menus........."));
 	EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 	nEntries = m_StringEntries.size();
 
 	// parse a probably existing file and update the translations which are
@@ -131,7 +131,17 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 	if (!CopyFile(lpszSrcLangDllPath, lpszDestLangDllPath, FALSE))
 		MYERROR;
 
-	m_hResDll = LoadLibraryEx (lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_DATAFILE);
+	int count = 0;
+	do
+	{
+		m_hResDll = LoadLibraryEx (lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_DATAFILE|LOAD_IGNORE_CODE_AUTHZ_LEVEL);
+		if (m_hResDll == NULL)
+			Sleep(100);
+		count++;
+	} while ((m_hResDll == NULL)&&(count < 5));
+
+	if (m_hResDll == NULL)
+		MYERROR;
 
 	sDestFile = std::wstring(lpszDestLangDllPath);
 
@@ -146,22 +156,22 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 	m_bDefaultMenuStrings = 0;
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Translating StringTable..."));
+		_ftprintf(stdout, _T("Translating StringTable..."));
 	EnumResourceNames(m_hResDll, RT_STRING, EnumResNameWriteCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d translated, %4d not translated\n"), m_bTranslatedStrings, m_bDefaultStrings);
+		_ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedStrings, m_bDefaultStrings);
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Translating Dialogs......."));
+		_ftprintf(stdout, _T("Translating Dialogs......."));
 	EnumResourceNames(m_hResDll, RT_DIALOG, EnumResNameWriteCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d translated, %4d not translated\n"), m_bTranslatedDialogStrings, m_bDefaultDialogStrings);
+		_ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedDialogStrings, m_bDefaultDialogStrings);
 
 	if (!m_bQuiet)
-		_tcprintf(_T("Translating Menus........."));
+		_ftprintf(stdout, _T("Translating Menus........."));
 	EnumResourceNames(m_hResDll, RT_MENU, EnumResNameWriteCallback, (long)this);
 	if (!m_bQuiet)
-		_tcprintf(_T("%4d translated, %4d not translated\n"), m_bTranslatedMenuStrings, m_bDefaultMenuStrings);
+		_ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedMenuStrings, m_bDefaultMenuStrings);
 
 	FreeLibrary(m_hResDll);
 	return TRUE;

@@ -39,7 +39,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 		return FALSE;
 
 	if (!m_bQuiet)
-		_tcprintf(_T("parsing file %s...\n"), szPath);
+		_ftprintf(stdout, _T("parsing file %s...\n"), szPath);
 
 	int nEntries = 0;
 	int nDeleted = 0;
@@ -151,7 +151,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 	RESOURCEENTRY emptyentry;
 	(*this)[std::wstring(_T(""))] = emptyentry;
 	if (!m_bQuiet)
-		_tcprintf(_T("%d Entries found, %d were already translated and %d got deleted\n"), nEntries, nTranslated, nDeleted);
+		_ftprintf(stdout, _T("%d Entries found, %d were already translated and %d got deleted\n"), nEntries, nTranslated, nDeleted);
 	return TRUE;
 }
 
@@ -211,6 +211,6 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	}
 	File.close();
 	if (!m_bQuiet)
-		_tcprintf(_T("File %s saved, containing %d entries\n"), szPath, nEntries);
+		_ftprintf(stdout, _T("File %s saved, containing %d entries\n"), szPath, nEntries);
 	return TRUE;
 }
