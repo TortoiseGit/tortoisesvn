@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-15 08:33+0100\n"
+"PO-Revision-Date: 2006-11-16 09:56+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1964,6 +1964,14 @@ msgstr "Datum"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "A&nzahl der angezeigten Meldungen"
+
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Nicht versionierte Objekte löschen"
+
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Nicht versionierte Objekte löschen"
 
 #: ID:73
 #: ID:264
@@ -3932,6 +3940,11 @@ msgstr ""
 "Die Einträge\n"
 "%s\n"
 "wurden aus der 'Ignorieren' Liste entfernt."
+
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Entfernt alle nicht versionierten und ignorierten Objekte"
 
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
