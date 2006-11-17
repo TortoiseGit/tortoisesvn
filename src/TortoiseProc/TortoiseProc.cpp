@@ -165,7 +165,7 @@ static const struct CommandInfo
 	{	cmdCommit,			_T("commit"),			true	},
 	{	cmdAdd,				_T("add"),				true	},
 	{	cmdRevert,			_T("revert"),			true	},
-	{	cmdCleanup,			_T("cleanup"),			false	},
+	{	cmdCleanup,			_T("cleanup"),			true	},
 	{	cmdResolve,			_T("resolve"),			true	},
 	{	cmdRepoCreate,		_T("repocreate"),		false	},
 	{	cmdSwitch,			_T("switch"),			false	},
@@ -842,43 +842,46 @@ BOOL CTortoiseProcApp::InitInstance()
 			progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO1)));
 			progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
 			progress.ShowModeless(PWND);
-			SVN svn;
-			if (!svn.CleanUp(cmdLinePath))
+			for (int i=0; i<pathList.GetCount(); ++i)
 			{
-				progress.Stop();
-				CString errorMessage;
-				errorMessage.Format(IDS_ERR_CLEANUP, (LPCTSTR)svn.GetLastErrorMessage());
-				CMessageBox::Show(EXPLORERHWND, errorMessage, _T("TortoiseSVN"), MB_ICONERROR);
-			}
-			else
-			{
-				// after the cleanup has finished, crawl the path downwards and send a change
-				// notification for every directory to the shell. This will update the
-				// overlays in the left treeview of the explorer.
-				CDirFileEnum crawler(cmdLinePath.GetWinPathString());
-				CString sPath;
-				bool bDir = false;
-				CTSVNPathList updateList;
-				while (crawler.NextFile(sPath, &bDir))
+				SVN svn;
+				if (!svn.CleanUp(pathList[i]))
 				{
-					if ((bDir) && (!g_SVNAdminDir.IsAdminDirPath(sPath)))
+					progress.Stop();
+					CString errorMessage;
+					errorMessage.Format(IDS_ERR_CLEANUP, (LPCTSTR)svn.GetLastErrorMessage());
+					CMessageBox::Show(EXPLORERHWND, errorMessage, _T("TortoiseSVN"), MB_ICONERROR);
+					break;
+				}
+				else
+				{
+					// after the cleanup has finished, crawl the path downwards and send a change
+					// notification for every directory to the shell. This will update the
+					// overlays in the left treeview of the explorer.
+					CDirFileEnum crawler(pathList[i].GetWinPathString());
+					CString sPath;
+					bool bDir = false;
+					CTSVNPathList updateList;
+					while (crawler.NextFile(sPath, &bDir))
 					{
-						updateList.AddPath(CTSVNPath(sPath));
+						if ((bDir) && (!g_SVNAdminDir.IsAdminDirPath(sPath)))
+						{
+							updateList.AddPath(CTSVNPath(sPath));
+						}
+					}
+					updateList.AddPath(pathList[i]);
+					CShellUpdater::Instance().AddPathsForUpdate(updateList);
+					CShellUpdater::Instance().Flush();
+					updateList.SortByPathname(true);
+					for (INT_PTR i=0; i<updateList.GetCount(); ++i)
+					{
+						SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[i].GetWinPath(), NULL);
+						ATLTRACE("notify change for path %ws\n", updateList[i].GetWinPath());
 					}
 				}
-				updateList.AddPath(cmdLinePath);
-				CShellUpdater::Instance().AddPathsForUpdate(updateList);
-				CShellUpdater::Instance().Flush();
-				updateList.SortByPathname(true);
-				for (INT_PTR i=0; i<updateList.GetCount(); ++i)
-				{
-					SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[i].GetWinPath(), NULL);
-					ATLTRACE("notify change for path %ws\n", updateList[i].GetWinPath());
-				}
-				
-				progress.Stop();
-				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 			}
+			progress.Stop();
+			CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 		}
 		//#endregion
 		//#region resolve

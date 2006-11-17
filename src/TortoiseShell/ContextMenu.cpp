@@ -788,7 +788,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, ShellMenuRevert);
 	if ((isFolder)&&(extended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDELUNVERSIONED), HMENU(MENUDELUNVERSIONED), INDEXMENU(MENUDELUNVERSIONED), idCmd++, IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, idCmdFirst, ShellMenuDelUnversioned);
-	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+	if ((isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, ShellMenuCleanup);
 	if ((isInSVN)&&(!isLocked)&&(!isAdded))
 	{
@@ -1186,8 +1186,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuCleanup:
+				tempfile = WriteFileListToTempFile();
 				svnCmd += _T("cleanup /path:\"");
-				svnCmd += folder_;
+				svnCmd += tempfile;
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuResolve:
