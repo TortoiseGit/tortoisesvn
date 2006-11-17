@@ -85,6 +85,11 @@
 - CHG: The tab order in the commit dialog was changed.
        See issue #291 for details. (Stefan)
 
+Version 1.4.2
+- BUG: Checking out from the repository browser would default to HEAD
+       instead of the revision shown in the repository browser.
+       See issue #290 for details. (Stefan)
+
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
 - NEW: TortoiseProc passes the parameter "/line:XXXX" to TortoiseBlame

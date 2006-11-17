@@ -672,7 +672,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					} while (selItem != RVI_INVALID);
 					itemsToCheckout.TrimRight('*');
 					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revstart:%ld"), 
+					sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revision:%ld"), 
 						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, (LONG)GetRevision());
 
 					CAppUtils::LaunchApplication(sCmd, NULL, false);
