@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-14 22:55+0100\n"
+"PO-Revision-Date: 2006-11-18 17:48+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2419,6 +2419,16 @@ msgstr "Dátum"
 msgid "Default &number of log messages"
 msgstr "Prednastavený &počet správ denníka"
 
+# Control-ID:65535,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Vymazať neverziované objekty"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Vymazať neverziované objekty"
+
 # ID:73,#:
 # ID:264,
 #: ID:73
@@ -3188,6 +3198,13 @@ msgstr "Typ grafu:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "&Skry zmeny na neprislúchajúcich cestách"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "Hlavná revízia"
 
 # Control-ID:1004,
 #: Control-ID:1004
@@ -4786,6 +4803,11 @@ msgstr ""
 "Odstránené vzory súbor\n"
 "%s\n"
 "zo zoznamu vylúčenia."
+
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Vymazať všetky neverziované a ignorované objekty"
 
 # ID:15,
 #: ID:15
