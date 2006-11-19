@@ -2486,6 +2486,8 @@ BEGIN
                             "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folder\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
     IDS_REPOBROWSE_MULTIMOVE 
                             "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folder\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
+    IDS_REPOBROWSE_MOVETRUNK 
+                            "You are trying to move the trunk folder!\nAre you absolutely sure that you want to move\nthe trunk folder?"
 END
 
 STRINGTABLE 

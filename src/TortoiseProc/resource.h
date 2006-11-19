@@ -584,7 +584,6 @@
 #define IDC_REV2BTN                     1354
 #define IDC_ACTIONLABEL                 1356
 #define IDC_GROUPBOX                    1359
-#define IDC_EDIT3                       1360
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -641,6 +640,7 @@
 #define IDS_REPOBROWSE_MULTIIMPORT      1670
 #define IDS_REPOBROWSE_MULTICOPY        1671
 #define IDS_REPOBROWSE_MULTIMOVE        1672
+#define IDS_REPOBROWSE_MOVETRUNK        1673
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
 #define IDS_DLGTITLE_ADD_DIFF_TOOL      1750

@@ -991,6 +991,27 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					SVN svn;
 					svn.SetPromptApp(&theApp);
 					CWaitCursorEx wait_cursor;
+					// check if the user moves the trunk folder
+					// we assume that this would only happen accidentally, and so we ask
+					// then the user if that's really, really what he wants to do
+					for (int checktrunkindex = 0; checktrunkindex < urlList.GetCount(); ++checktrunkindex)
+					{
+						if (urlList[checktrunkindex].GetSVNPathString().Right(5).CompareNoCase(_T("trunk"))==0)
+						{
+							if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MOVETRUNK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+							{
+								wait_cursor.Hide();
+								ReleaseStgMedium(&medium);
+								return;
+							}
+							else
+								break;
+						}
+					}
+					// moving multiple items at once can not be done in one single revision:
+					// every item moved creates a separate revision.
+					// since this can be done in one revision if done in the working copy,
+					// we ask the user if that's really what he wants or not
 					if (urlList.GetCount() > 1)
 					{
 						if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTIMOVE, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
