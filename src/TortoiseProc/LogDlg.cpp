@@ -1384,7 +1384,7 @@ void CLogDlg::EditAuthor(int index)
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	CString value = RevPropertyGet(name, url, pLogEntry->dwRev);
 	value.Replace(_T("\n"), _T("\r\n"));
-	CInputDlg dlg;
+	CInputDlg dlg(this);
 	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
 	dlg.m_sInputText = value;
 	dlg.m_sTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
@@ -1425,7 +1425,7 @@ void CLogDlg::EditLogMessage(int index)
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	CString value = RevPropertyGet(name, url, pLogEntry->dwRev);
 	value.Replace(_T("\n"), _T("\r\n"));
-	CInputDlg dlg;
+	CInputDlg dlg(this);
 	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
 	dlg.m_sInputText = value;
 	dlg.m_sTitle.LoadString(IDS_LOG_MESSAGEEDITTITLE);
