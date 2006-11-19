@@ -519,6 +519,13 @@ public:
 	 * \return The root url or an empty string
 	 */
 	CString GetRepositoryRoot(const CTSVNPath& url);
+	/**
+	 * Finds the repository root of a given url, and the UUID of the repository.
+	 * \param url [in] the url to get the root and UUID from
+	 * \param sUUID [out] the UUID of the repository
+	 * \return the root url or an empty string
+	 */
+	CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID);
 
 	/**
 	 * Checks if a file:/// url points to a BDB repository.

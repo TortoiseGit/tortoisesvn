@@ -1568,6 +1568,36 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	return CString(returl);
 }
 
+CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
+{
+	const char * returl;
+	const char * uuid;
+	svn_ra_session_t *ra_session;
+
+	SVNPool localpool(pool);
+
+	// empty the sUUID first
+	sUUID.Empty();
+
+	// make sure the url is canonical.
+	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(), localpool);
+
+	/* use subpool to create a temporary RA session */
+	Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool);
+	if (Err)
+		return _T("");
+
+	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	if (Err)
+		return _T("");
+
+	Err = svn_ra_get_uuid(ra_session, &uuid, localpool);
+	if (Err == NULL)
+		sUUID = CString(uuid);
+
+	return CString(returl);
+}
+
 svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
 {
 	svn_ra_session_t *ra_session;
