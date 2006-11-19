@@ -95,6 +95,11 @@ public:
 	 */
 	HTREEITEM FindUrl(const CString& url);
 
+	/**
+	 * Returns the UUID of the repository
+	 */
+	CString GetUUID() {return m_sUUID;}
+
 	void SortNumerical(bool bNum) {m_bSortNumerical = bNum;}
 
 public:
@@ -109,6 +114,7 @@ public:
 	virtual void OnBeginDrag();
 	
 	CString		m_strReposRoot;
+	CString		m_sUUID;
 protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreTranslateMessage(MSG* pMsg);

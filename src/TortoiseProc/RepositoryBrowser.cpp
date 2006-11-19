@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 
 #include "MessageBox.h"
-#include "InputDlg.h"
+#include "InputLogDlg.h"
 #include "LogDlg.h"
 #include "PropDlg.h"
 #include "Blame.h"
@@ -189,7 +189,7 @@ UINT CRepositoryBrowser::InitThread()
 
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, FALSE);
-	m_treeRepository.m_strReposRoot = m_treeRepository.m_svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
+	m_treeRepository.m_strReposRoot = m_treeRepository.m_svn.GetRepositoryRootAndUUID(CTSVNPath(m_InitialSvnUrl.GetPath()), m_treeRepository.m_sUUID);
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
 	PostMessage(WM_AFTERINIT);
 	DialogEnableWindow(IDOK, TRUE);
@@ -789,10 +789,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CTSVNPath svnPath(path);
 						CWaitCursorEx wait_cursor;
 						CString filename = svnPath.GetFileOrDirectoryName();
-						CInputDlg input(this);
+						CInputLogDlg input(this);
 						SetupInputDlg(&input);
-						if (m_ProjectProperties.sLogTemplate.IsEmpty())
-							input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
+						CString sHint;
+						sHint.Format(IDS_INPUT_IMPORTFOLDER, (LPCTSTR)svnPath.GetSVNPathString(), (LPCTSTR)(url+_T("/")+filename));
+						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
 							CProgressDlg progDlg;
@@ -802,7 +803,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							progDlg.SetLine(1, sInfoLine);
 							svn.SetAndClearProgressInfo(&progDlg);
 							progDlg.ShowModeless(m_hWnd);
-							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, FALSE))
+							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.GetLogMessage(), FALSE, FALSE))
 							{
 								progDlg.Stop();
 								svn.SetAndClearProgressInfo((HWND)NULL);
@@ -863,10 +864,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CString filename = path.GetFileOrDirectoryName();
-						CInputDlg input(this);
+						CInputLogDlg input(this);
 						SetupInputDlg(&input);
-						if (m_ProjectProperties.sLogTemplate.IsEmpty())
-							input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
+						CString sHint;
+						sHint.Format(IDS_INPUT_IMPORTFILEFULL, path.GetWinPath(), (LPCTSTR)(url+_T("/")+filename));
+						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
 							CProgressDlg progDlg;
@@ -876,7 +878,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							progDlg.SetLine(1, sInfoLine);
 							svn.SetAndClearProgressInfo(&progDlg);
 							progDlg.ShowModeless(m_hWnd);
-							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
+							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.GetLogMessage(), FALSE, TRUE))
 							{
 								progDlg.Stop();
 								svn.SetAndClearProgressInfo((HWND)NULL);
@@ -912,13 +914,14 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						SVN svn;
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
-						CInputDlg input(this);
+						CInputLogDlg input(this);
 						SetupInputDlg(&input);
-						if (m_ProjectProperties.sLogTemplate.IsEmpty())
-							input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+						CString sHint;
+						sHint.Format(IDS_INPUT_COPY, (LPCTSTR)url, (LPCTSTR)dlg.m_name);
+						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
+							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.GetLogMessage()))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1047,14 +1050,15 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						SVN svn;
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
-						CInputDlg input(this);
+						CInputLogDlg input(this);
 						SetupInputDlg(&input);
-						if (m_ProjectProperties.sLogTemplate.IsEmpty())
-							input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
+						CString sHint;
+						sHint.Format(IDS_INPUT_MKDIR, (LPCTSTR)(url+_T("/")+dlg.m_name.Trim()));
+						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
 							// when creating the new folder, also trim any whitespace chars from it
-							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name.Trim())), input.m_sInputText))
+							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name.Trim())), input.GetLogMessage()))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1209,25 +1213,27 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	SVN svn;
 	svn.SetPromptApp(&theApp);
 	CWaitCursorEx wait_cursor;
-	CInputDlg dlg(this);
-	dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-	CStringUtils::RemoveAccelerators(dlg.m_sHintText);
-	dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-	CStringUtils::RemoveAccelerators(dlg.m_sTitle);
-	if (m_ProjectProperties.sLogTemplate.IsEmpty())
-		dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
-	CStringUtils::RemoveAccelerators(dlg.m_sInputText);
-	dlg.m_pProjectProperties = &m_ProjectProperties;
+
+	// create a list of items to remove from the selected items
+	int selItem = m_treeRepository.GetFirstSelectedItem();
+	CTSVNPathList itemsToRemove;
+	do
+	{
+		itemsToRemove.AddPath(CTSVNPath(m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem))));
+		selItem = m_treeRepository.GetNextSelectedItem(selItem);
+	} while (selItem != RVI_INVALID);
+
+	CInputLogDlg dlg(this);
+	dlg.SetProjectProperties(&m_ProjectProperties);
+	CString sHint;
+	if (itemsToRemove.GetCount() == 1)
+		sHint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)itemsToRemove[0].GetSVNPathString());
+	else
+		sHint.Format(IDS_INPUT_REMOVEMORE, itemsToRemove.GetCount());
+	dlg.SetActionText(sHint);
 	if (dlg.DoModal()==IDOK)
 	{
-		int selItem = m_treeRepository.GetFirstSelectedItem();
-		CTSVNPathList itemsToRemove;
-		do
-		{
-			itemsToRemove.AddPath(CTSVNPath(m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem))));
-			selItem = m_treeRepository.GetNextSelectedItem(selItem);
-		} while (selItem != RVI_INVALID);
-		if (!svn.Remove(itemsToRemove, TRUE, dlg.m_sInputText))
+		if (!svn.Remove(itemsToRemove, TRUE, dlg.GetLogMessage()))
 		{
 			wait_cursor.Hide();
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1240,14 +1246,10 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	}
 }
 
-void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg)
+void CRepositoryBrowser::SetupInputDlg(CInputLogDlg * dlg)
 {
-	dlg->m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-	CStringUtils::RemoveAccelerators(dlg->m_sHintText);
-	dlg->m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-	CStringUtils::RemoveAccelerators(dlg->m_sTitle);
-	dlg->m_pProjectProperties = &m_ProjectProperties;
-	dlg->m_bUseLogWidth = true;
+	dlg->SetProjectProperties(&m_ProjectProperties);
+	dlg->SetUUID(m_treeRepository.GetUUID());
 }
 
 BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
@@ -1293,17 +1295,14 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 			return;
 	}
 
-	CInputDlg input(this);
+	CInputLogDlg input(this);
 	SetupInputDlg(&input);
-	if (m_ProjectProperties.sLogTemplate.IsEmpty())
-	{
-		input.m_sInputText.LoadString(IDS_INPUT_ADDFILEFOLDERMSG);
-		input.m_sInputText += _T("\r\n\r\n");
-		for (int i=0; i<droppedPaths.GetCount(); ++i)
-		{
-			input.m_sInputText += droppedPaths[i].GetWinPathString() + _T("\r\n");
-		}
-	}
+	CString sHint;
+	if (droppedPaths.GetCount() == 1)
+		sHint.Format(IDS_INPUT_IMPORTFILEFULL, droppedPaths[0].GetWinPath(), (LPCTSTR)(url + _T("/") + droppedPaths[0].GetFileOrDirectoryName()));
+	else
+		sHint.Format(IDS_INPUT_IMPORTFILES, droppedPaths.GetCount());
+	input.SetActionText(sHint);
 	
 	if (input.DoModal() == IDOK)
 	{
@@ -1313,7 +1312,7 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 			CString filename = droppedPaths[importindex].GetFileOrDirectoryName();
 			if (!svn.Import(droppedPaths[importindex], 
 				CTSVNPath(url+_T("/")+filename), 
-				input.m_sInputText, TRUE, TRUE))
+				input.GetLogMessage(), TRUE, TRUE))
 			{
 				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return;

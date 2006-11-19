@@ -54,6 +54,7 @@
 #include "RevisionGraphDlg.h"
 #include "FileDiffDlg.h"
 #include "InputDlg.h"
+#include "InputLogDlg.h"
 #include "EditPropertiesDlg.h"
 #include "EditPropertyValueDlg.h"
 #include "BrowseFolder.h"
@@ -1108,16 +1109,19 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				// Delete using URL's, not wc paths
 				svn.SetPromptApp(&theApp);
-				CInputDlg dlg;
-				dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-				CStringUtils::RemoveAccelerators(dlg.m_sHintText);
-				dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-				CStringUtils::RemoveAccelerators(dlg.m_sTitle);
-				dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
-				CStringUtils::RemoveAccelerators(dlg.m_sInputText);
+				CInputLogDlg dlg;
+				CString sUUID;
+				svn.GetRepositoryRootAndUUID(pathList[0], sUUID);
+				dlg.SetUUID(sUUID);
+				CString sHint;
+				if (pathList.GetCount() == 1)
+					sHint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)pathList[0].GetSVNPathString());
+				else
+					sHint.Format(IDS_INPUT_REMOVEMORE, pathList.GetCount());
+				dlg.SetActionText(sHint);
 				if (dlg.DoModal()==IDOK)
 				{
-					if (!svn.Remove(pathList, TRUE, dlg.m_sInputText))
+					if (!svn.Remove(pathList, TRUE, dlg.GetLogMessage()))
 					{
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return FALSE;
@@ -1197,15 +1201,17 @@ BOOL CTortoiseProcApp::InitInstance()
 						// rename an URL.
 						// Ask for a commit message, then rename directly in
 						// the repository
-						CInputDlg input;
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CStringUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CStringUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+						CInputLogDlg input;
+						CString sUUID;
+						SVN svn;
+						svn.GetRepositoryRootAndUUID(cmdLinePath, sUUID);
+						input.SetUUID(sUUID);
+						CString sHint;
+						sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)cmdLinePath.GetSVNPathString(), (LPCTSTR)destinationPath.GetSVNPathString());
+						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
-							sMsg = input.m_sInputText;
+							sMsg = input.GetLogMessage();
 						}
 						else
 						{

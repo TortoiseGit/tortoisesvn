@@ -1091,6 +1091,19 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,222,203,50,14
 END
 
+IDD_INPUTLOGDLG DIALOGEX 0, 0, 306, 182
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Enter Log Message"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ACTIONLABEL,7,7,292,24,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Recent messages",IDC_HISTORY,15,47,143,14
+    CONTROL         "Scintilla",IDC_INPUTTEXT,"Scintilla",WS_TABSTOP,15,68,276,78,WS_EX_STATICEDGE
+    PUSHBUTTON      "&OK",IDOK,190,161,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,249,161,50,14
+    GROUPBOX        "Message",IDC_GROUPBOX,7,35,292,120
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1638,6 +1651,18 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 217
     END
+
+    IDD_INPUTLOGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 299
+        VERTGUIDE, 15
+        VERTGUIDE, 66
+        VERTGUIDE, 73
+        VERTGUIDE, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -2027,6 +2052,12 @@ BEGIN
     IDS_INPUT_ADDFOLDERLOGMSG "Added a folder remotely"
     IDS_INPUT_ADDFILEFOLDERMSG "Added items remotely"
     IDS_INPUT_RENAMELOGMSG  "Renamed remotely"
+    IDS_INPUT_IMPORTFOLDER  "Import folder %s\r\nto %s"
+    IDS_INPUT_IMPORTFILE    "Import file to\r\n%s"
+    IDS_INPUT_COPY          "Copy %s\r\nto %s"
+    IDS_INPUT_MKDIR         "Create new directory:\r\n%s"
+    IDS_INPUT_REMOVEONE     "Remove %s"
+    IDS_INPUT_REMOVEMORE    "Remove %ld items"
 END
 
 STRINGTABLE 
@@ -2706,6 +2737,16 @@ BEGIN
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
     IDS_SETTINGS_GETLOCKTOP_TT 
                             "If activated, the menu entry ""Get Lock"" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_INPUT_IMPORTFILEFULL "Import file %s\r\nto %s"
+    IDS_INPUT_IMPORTFILES   "Import %ld items"
+    IDS_INPUT_RENAME        "Rename item from %s\r\nto %s"
+    IDS_INPUT_MOVE          "Move %s\r\nto %s"
+    IDS_INPUT_COPYMORE      "Copy %ld items to\r\n%s"
+    IDS_INPUT_MOVEMORE      "Move %ld items to\r\n%s"
 END
 
 #endif    // English (U.S.) resources

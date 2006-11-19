@@ -86,6 +86,9 @@
        of a submenu in the commit dialog. See issue #285 for details. (Stefan)
 - CHG: The tab order in the commit dialog was changed.
        See issue #291 for details. (Stefan)
+- CHG: When doing actions (e.g. move/copy/...) in the repository browser,
+       the dialog asking for the log message indicates clearly what action
+       is done. See issue #296 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD

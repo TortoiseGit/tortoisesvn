@@ -102,6 +102,7 @@
 #define IDD_EXPORT                      238
 #define IDD_REVGRAPHFILTER              239
 #define IDD_DELUNVERSIONED              240
+#define IDD_INPUTLOGDLG                 241
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -580,8 +581,10 @@
 #define IDC_TOSPIN                      1351
 #define IDC_ITEMLIST                    1352
 #define IDC_REV1BTN                     1353
-#define IDC_BUTTON2                     1354
 #define IDC_REV2BTN                     1354
+#define IDC_ACTIONLABEL                 1356
+#define IDC_GROUPBOX                    1359
+#define IDC_EDIT3                       1360
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -700,6 +703,18 @@
 #define IDS_INPUT_ADDFOLDERLOGMSG       2007
 #define IDS_INPUT_ADDFILEFOLDERMSG      2008
 #define IDS_INPUT_RENAMELOGMSG          2009
+#define IDS_INPUT_IMPORTFOLDER          2010
+#define IDS_INPUT_IMPORTFILE            2011
+#define IDS_INPUT_COPY                  2012
+#define IDS_INPUT_MKDIR                 2013
+#define IDS_INPUT_REMOVEONE             2014
+#define IDS_INPUT_REMOVEMORE            2015
+#define IDS_INPUT_IMPORTFILEFULL        2016
+#define IDS_INPUT_IMPORTFILES           2017
+#define IDS_INPUT_RENAME                2018
+#define IDS_INPUT_MOVE                  2019
+#define IDS_INPUT_COPYMORE              2020
+#define IDS_INPUT_MOVEMORE              2021
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102
@@ -990,9 +1005,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        241
+#define _APS_NEXT_RESOURCE_VALUE        242
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1355
+#define _APS_NEXT_CONTROL_VALUE         1361
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

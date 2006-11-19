@@ -26,7 +26,7 @@
 #include "LogDlg.h"
 #include "TSVNPath.h"
 
-class CInputDlg;
+class CInputLogDlg;
 
 /**
  * \ingroup TortoiseProc
@@ -70,7 +70,7 @@ protected:
 
 	void OnFilesDropped(int iItem, int iSubItem, const CTSVNPathList& droppedPaths);
 	void DeleteSelectedEntries();
-	void SetupInputDlg(CInputDlg * dlg);
+	void SetupInputDlg(CInputLogDlg * dlg);
 	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 
 	static UINT InitThreadEntry(LPVOID pVoid);

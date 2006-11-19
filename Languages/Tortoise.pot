@@ -211,7 +211,7 @@ msgstr ""
 msgid "&CD-ROM"
 msgstr ""
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr ""
 
@@ -468,7 +468,7 @@ msgstr ""
 msgid "&Next Difference"
 msgstr ""
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "&Properties..."
 msgstr ""
 
-#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
+#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
 msgid "&Recent messages"
 msgstr ""
 
@@ -1492,9 +1492,19 @@ msgstr ""
 msgid "Copied remotely"
 msgstr ""
 
+#: ID:127,
+#, c-format
+msgid "Copy %ld items to\r\n%s"
+msgstr ""
+
 #: ID:103,
 #, c-format
 msgid "Copy %s"
+msgstr ""
+
+#: ID:126,
+#, c-format
+msgid "Copy %s\r\nto %s"
 msgstr ""
 
 #: Dlg-ID:142,
@@ -1635,6 +1645,11 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
+msgstr ""
+
+#: ID:126,
+#, c-format
+msgid "Create new directory:\r\n%s"
 msgstr ""
 
 #: ID:8,
@@ -1895,7 +1910,7 @@ msgstr ""
 msgid "Enlarge the window to full size"
 msgstr ""
 
-#: Dlg-ID:135,
+#: Dlg-ID:135,#: Dlg-ID:241,
 msgid "Enter Log Message"
 msgstr ""
 
@@ -2318,8 +2333,28 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
+#: ID:127,
+#, c-format
+msgid "Import %ld items"
+msgstr ""
+
 #: Control-ID:1056,
 msgid "Import &message"
+msgstr ""
+
+#: ID:127,
+#, c-format
+msgid "Import file %s\r\nto %s"
+msgstr ""
+
+#: ID:126,
+#, c-format
+msgid "Import file to\r\n%s"
+msgstr ""
+
+#: ID:126,
+#, c-format
+msgid "Import folder %s\r\nto %s"
 msgstr ""
 
 #: ID:120,
@@ -2605,7 +2640,7 @@ msgstr ""
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr ""
 
-#: ID:76,
+#: ID:76,#: Control-ID:1359,
 msgid "Message"
 msgstr ""
 
@@ -2651,6 +2686,16 @@ msgstr ""
 
 #: Control-ID:1136,
 msgid "Most active author:"
+msgstr ""
+
+#: ID:127,
+#, c-format
+msgid "Move %ld items to\r\n%s"
+msgstr ""
+
+#: ID:127,
+#, c-format
+msgid "Move %s\r\nto %s"
 msgstr ""
 
 #: ID:98,
@@ -3231,6 +3276,16 @@ msgstr ""
 msgid "Remote text status"
 msgstr ""
 
+#: ID:126,
+#, c-format
+msgid "Remove %ld items"
+msgstr ""
+
+#: ID:126,
+#, c-format
+msgid "Remove %s"
+msgstr ""
+
 #: ID:15,
 msgid "Remove from &ignore list"
 msgstr ""
@@ -3267,6 +3322,11 @@ msgstr ""
 #: ID:97,
 #, c-format
 msgid "Rename %s"
+msgstr ""
+
+#: ID:127,
+#, c-format
+msgid "Rename item from %s\r\nto %s"
 msgstr ""
 
 #: Control-ID:65535,
@@ -3576,7 +3636,7 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr ""
 
-#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1014,#: Control-ID:1064,#: Control-ID:1212,
+#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1014,#: Control-ID:1064,#: Control-ID:1212,#: Control-ID:1064,
 msgid "Scintilla"
 msgstr ""
 
