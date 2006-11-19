@@ -42,7 +42,8 @@ using namespace Gdiplus;
 
 enum RevisionGraphContextMenuCommands
 {
-	ID_SHOWLOG,
+	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
+	ID_SHOWLOG = 1,
 	ID_COMPAREREVS,
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,

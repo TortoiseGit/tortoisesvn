@@ -48,7 +48,8 @@ const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
 enum LogDlgContextMenuCommands
 {
-	ID_COMPARE,
+	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
+	ID_COMPARE = 1,
 	ID_SAVEAS,
 	ID_COMPARETWO,
 	ID_UPDATE,

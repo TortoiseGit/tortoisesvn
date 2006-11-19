@@ -44,7 +44,8 @@
 
 enum RepoBrowserContextMenuCommands
 {
-	ID_OPEN,
+	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
+	ID_OPEN = 1,
 	ID_OPENWITH,
 	ID_SHOWLOG,
 	ID_REVGRAPH,
