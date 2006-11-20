@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-16 11:19+0100\n"
+"PO-Revision-Date: 2006-11-20 12:13+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1721,10 +1721,29 @@ msgstr "Kopiert"
 msgid "Copied remotely"
 msgstr "Datei im Projektarchiv kopiert"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopiere %ld Objekte nach\r\n"
+"%s"
+
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiere %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopiere %s\r\n"
+"nach %s"
 
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1906,6 +1925,15 @@ msgstr "Projektarchiv hier erstellen"
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
 msgstr "Erstelle Kopie im Projektarchiv aus:"
+
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Erzeuge neues Verzeichnis:\r\n"
+"%s"
 
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2232,6 +2260,7 @@ msgid "Enlarge the window to full size"
 msgstr "Vergrößert das Fenster auf Bildschirmgröße"
 
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Logmeldung eingeben"
 
@@ -2808,9 +2837,41 @@ msgstr "Ignoriere &Zeilenenden (empfohlen)"
 msgid "Import"
 msgstr "Importieren"
 
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Importiere %ld Objekte"
+
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Import &Meldung"
+
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Importiere Datei %s\r\n"
+"nach %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Importiere Datei nac\r\n"
+"%s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Importiere Ordner %s\r\n"
+"nach %s"
 
 #: ID:120
 #, c-format
@@ -3216,6 +3277,7 @@ msgid "Merging requires different revisions or different URLs in 'From:' and 'To
 msgstr "Zusammenführen erfordert unterschiedliche Revisionen oder URLs in 'Von:' und 'Bis:'"
 
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Meldung"
 
@@ -3265,6 +3327,26 @@ msgstr "Weitere Farben..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Die meisten Übertragungen:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Verschiebe %ld Objekte nach\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Verschiebe %s\r\n"
+"nach %s"
 
 #: ID:98
 #, c-format
@@ -3922,6 +4004,16 @@ msgstr "Status Projektarchiv"
 msgid "Remote text status"
 msgstr "Inhalt Projektarchiv"
 
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Lösche %ld Objekte"
+
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Löschen %s"
+
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Aus &Ignorieren Liste entfernen"
@@ -3966,6 +4058,16 @@ msgstr "Umbenennen"
 #, c-format
 msgid "Rename %s"
 msgstr "%s Umbenennen"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Objekt von %s\r\n"
+"in %s umbenennen"
 
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5842,6 +5944,16 @@ msgstr ""
 "Sie versuchen mittels file:/// auf ein Projektarchiv zuzugreifen, das auf einer Netzwerkfreigabe liegt.\n"
 "<b>Dies kann zur Zerstörung des Projektarchivs führen!</b>\n"
 "Möchten Sie dies wirklich tun?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Sie sind dabei, den 'trunk' Ordner zu verschieben!\n"
+"Sind Sie sich absolut sicher, dass Sie das tun wollen?"
 
 # ID:16,
 #: ID:16
