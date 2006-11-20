@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-13 16:14+0100\n"
+"PO-Revision-Date: 2006-11-17 16:41+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -475,6 +475,11 @@ msgstr "&Extern"
 #: MenuEntry
 msgid "&File"
 msgstr "&Fitxer"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filtre"
 
 #: MenuEntry
 msgid "&Find"
@@ -2128,7 +2133,7 @@ msgstr "Copia el missatge d'error al portapapers"
 # ID:76,
 #: ID:76
 msgid "Copy from path"
-msgstr "Copia del camí"
+msgstr "Còpia del camí"
 
 # ID:209,
 #: ID:209
@@ -2391,6 +2396,16 @@ msgstr "Data"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "&Número per defecte de missatges de log"
+
+# Control-ID:65535,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Suprimeix items sense versionar"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Suprimeix items sense versionar"
 
 # ID:73,#:
 # ID:264,
@@ -2953,6 +2968,11 @@ msgstr ""
 "Profunditat:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Filtra els següents camins (separeu els múltiples camins amb el caràcter '*'):"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -2989,6 +3009,7 @@ msgstr "Per a un històric complet deseleccioneu \"Atura còpia/canvi de nom\""
 
 # Control-ID:1200,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "De:"
 
@@ -3142,6 +3163,13 @@ msgstr "Tipus de gràfic:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "A&maga camins modificats no relacionats"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 # Control-ID:1004,
 #: Control-ID:1004
@@ -3360,6 +3388,11 @@ msgstr "Importa el directori al repositori"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Inclou fitxers ignorats"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Inclou només el següent rang de revisions:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4722,6 +4755,11 @@ msgstr ""
 "%s\n"
 "de la llista d'gnorats."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Suprimeix tots els items sense versionar i ignorats"
+
 # ID:15,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4940,6 +4978,11 @@ msgstr "Revisió / Autor:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr " Gràfic de revisions"
+
+# Dlg-ID:182,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Filtre del Gràfic de Revisions"
 
 # Dlg-ID:228,
 #: Dlg-ID:228
@@ -6261,6 +6304,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "A:"
 
