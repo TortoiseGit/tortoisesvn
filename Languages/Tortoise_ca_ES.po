@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-17 16:41+0100\n"
+"PO-Revision-Date: 2006-11-20 15:54+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -2104,11 +2104,31 @@ msgstr "Copiat(s)"
 msgid "Copied remotely"
 msgstr "Copiat(s) remotament"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Copia %ld items a\r\n"
+"%s"
+
 # ID:103,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Copia %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Copia %s\r\n"
+"a %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2322,6 +2342,16 @@ msgstr "Crea Repositori"
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
 msgstr "Crea còpia al repositori des de:"
+
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Crea un nou directori:\r\n"
+"%s"
 
 # ID:8,
 #: ID:8
@@ -2714,6 +2744,7 @@ msgstr "Engrandeix la finestra al tamany màxim"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Introdueix Texte del Log"
 
@@ -3368,10 +3399,46 @@ msgstr "Ignora &finals de línea (recomanat)"
 msgid "Import"
 msgstr "Importa"
 
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Importa %ld items"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Importa &missatge"
+
+# ID:120,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Importa fitxer %s\r\n"
+"a %s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Importa fitxer a\r\n"
+"%s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Importa carpeta %s\r\n"
+"a %s"
 
 # ID:120,
 #: ID:120
@@ -3843,6 +3910,7 @@ msgstr "Fusionar requereix diferents revisions o diferents URLs a 'De:' i 'Cap a
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Missatge"
 
@@ -3904,6 +3972,26 @@ msgstr "Més colors..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Autor més actiu:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Mou %ld items a\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Mou %s\r\n"
+"a %s"
 
 # ID:98,
 #: ID:98
@@ -4723,6 +4811,18 @@ msgid "Remote text status"
 msgstr "Estat remot del text"
 
 # ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Suprimeix %ld items"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Suprimeix %s"
+
+# ID:15,
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Treu de la llista d'&ignorats"
@@ -4775,6 +4875,16 @@ msgstr "Canvia el nom"
 #, c-format
 msgid "Rename %s"
 msgstr "Canvia el nom %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Canvia el nom de l'item de %s\r\n"
+"a %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6982,6 +7092,18 @@ msgstr ""
 "Això podria provocar una corrupció greu del repositori!\n"
 "Esteu segur de que voleu fer això?"
 
+# ID:105,
+#: ID:105
+#, fuzzy
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Esteu intentant moure la carpeta tronc!\n"
+"Teniu la seguretat de voler moure\n"
+"la carpeta tronc?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -7122,7 +7244,7 @@ msgid ""
 "Do you want to commit anyway?"
 msgstr ""
 "La còpia de treball sembla que es troba a un camí d'etiquetes!\n"
-"S'ha de Canviar a una branca o al tronc principal abans de fer una entrega.\n"
+"S'ha de canviar a una branca o al tronc principal abans de fer una entrega.\n"
 "\n"
 "Voleu entregar de totes maneres?"
 

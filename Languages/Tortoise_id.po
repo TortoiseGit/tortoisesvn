@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-07 05:58+0700\n"
+"PO-Revision-Date: 2006-11-20 22:04+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -467,6 +467,11 @@ msgstr "&Eksternal"
 #: MenuEntry
 msgid "&File"
 msgstr "&File"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Saring"
 
 #: MenuEntry
 msgid "&Find"
@@ -2091,11 +2096,31 @@ msgstr "Dicopy"
 msgid "Copied remotely"
 msgstr "Dicopy secara remote"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Salin %ld item ke\r\n"
+"%s"
+
 # ID:103,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Copy %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Menyalin %s\r\n"
+"ke %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2310,6 +2335,16 @@ msgstr "Buat Repositori"
 msgid "Create copy in the repository from:"
 msgstr "Buat copy dalam repositori dari:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Membuat direktori baru:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2383,6 +2418,16 @@ msgstr "Tanggal"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Standar &jumlah pesan log"
+
+# Control-ID:65535,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Hapus Item-Item Tidak Berversi"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Hapus item-item tidak berversi"
 
 # ID:73,#:
 # ID:264,
@@ -2691,6 +2736,7 @@ msgstr "Lebarkan jendele ke ukuran penuh"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Masukkan Pesan Log"
 
@@ -2772,6 +2818,16 @@ msgstr "Kecualikan path:"
 #: ID:209
 msgid "Explore to"
 msgstr "Eksplorasi ke"
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Ekspor"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Ekspor &direktori:"
 
 # ID:94,
 #: ID:94
@@ -2935,6 +2991,11 @@ msgstr ""
 "Kedalaman:\t\t\t%d bit\n"
 "Pembesaran:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Saring path-path berikut (pisahkan multipel path dengan karakter '*'):"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -2971,6 +3032,7 @@ msgstr "Untuk histori lengkap jangan piilih \"Hentikan copy/ganti nama\""
 
 # Control-ID:1200,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Dari:"
 
@@ -3124,6 +3186,13 @@ msgstr "Tipe grafik:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "Sembuny&ikan path yang diubah tidak terkait"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 # Control-ID:1004,
 #: Control-ID:1004
@@ -3322,10 +3391,46 @@ msgstr "Abaikan a&khir baris (direkomendasikan)"
 msgid "Import"
 msgstr "Impor"
 
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Impor %ld item"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Impor pe&san"
+
+# ID:120,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Mengimpor file %s\r\n"
+"ke %s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Mengimpor file ke\r\n"
+"%s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Mengimpor folder %s\r\n"
+"ke %s"
 
 # ID:120,
 #: ID:120
@@ -3342,6 +3447,11 @@ msgstr "Mengimpor direktori ke repositori"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Sertakan file diabaikan"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Ikutkan hanya rentang revisi berikut:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3794,6 +3904,7 @@ msgstr "Menggabung revisi berbeda yang dibutuhkan atau URL berbeda dalam 'Dari:'
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Pesan"
 
@@ -3855,6 +3966,26 @@ msgstr "Warna lengkap..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Pembuat paling aktif:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Pindahkan %ld item ke\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Pindahkan %s\r\n"
+"ke %s"
 
 # ID:98,
 #: ID:98
@@ -4184,6 +4315,15 @@ msgstr "Lainnya"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Kekurangan memori."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Timpa seting properti svn:eol-style.\n"
+"File-file yang properti ininya tidak diatur tidak terpengaruh."
 
 # ID:99,
 #: ID:99
@@ -4664,6 +4804,18 @@ msgid "Remote text status"
 msgstr "Status teks remote"
 
 # ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Copot %ld item"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Copot %s"
+
+# ID:15,
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Hapus dari daftar aba&ikan"
@@ -4696,6 +4848,11 @@ msgstr ""
 "%s\n"
 "dari daftar abaikan."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Copot semua item yang tidak diversi dan diabaikan."
+
 # ID:15,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4711,6 +4868,16 @@ msgstr "Ganti nama"
 #, c-format
 msgid "Rename %s"
 msgstr "Ganti nama %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Ganti nama item dari %s\r\n"
+"ke %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4914,6 +5081,11 @@ msgstr "Revisi / Pembuat:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Grafik Revisi"
+
+# Dlg-ID:182,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Saringan Grafik Revisi"
 
 # Dlg-ID:228,
 #: Dlg-ID:228
@@ -6235,6 +6407,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Ke:"
 
@@ -6912,6 +7085,17 @@ msgstr ""
 "Ini bisa membawa kerusakan parah pada repositori!\n"
 "Anda benar-benar ingin melakukan itu?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Anda sedang mencoba memindahkan folder trunk!\n"
+"Apakah Anda yakin dengan pasti bahwa Anda ingin\n"
+"memindahkan folder trunk tersebut?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -7236,6 +7420,11 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "dihapus"
+
+# ID:17,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "gaya eol"
 
 # ID:79,
 #: ID:79
