@@ -432,6 +432,9 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	case SB_THUMBPOSITION:
 		nVScrollPos = nPos;
 		break;
+	case SB_THUMBTRACK:
+		nVScrollPos = nPos;
+		break;
 	default:
 		return;
 	}
@@ -474,6 +477,9 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 		nHScrollPos -= (rect.right-rect.left);
 		break;
 	case SB_THUMBPOSITION:
+		nHScrollPos = nPos;
+		break;
+	case SB_THUMBTRACK:
 		nHScrollPos = nPos;
 		break;
 	default:

@@ -95,6 +95,9 @@
        values: cursor up = 0alpha, cursor down = 255alpha, 
        cursor left/right = 127alpha.
        See issue #299 for details. (Stefan)
+- CHG: Moving the sliders in TortoiseIDiff moves the image right away, 
+       without waiting for the mouse-up event.
+       See issue #301 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD
