@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-14 21:50+0700\n"
+"PO-Revision-Date: 2006-11-20 22:16+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2143,9 +2143,8 @@ msgstr "Catatan bahwa pemeriksaan setiap path merupakan operasi yang mahal, teru
 # Indonesian#: source/TortoiseSVN_en.xml:2055(para)
 #: source/TortoiseSVN_en.xml:2048
 #: (para)
-#, fuzzy
 msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr "Otentikasi dan otorisasi adalah proses terpisah. Jika pengguna ingin mendapatkan akses ke path repositori, dia harus memenuhi <emphasis>keduanya</emphasis>, otentikasi umum memerlukan dan kebutuhan otorisasi file akses."
+msgstr "Otentikasi dan otorisasi adalah proses terpisah. Jika seorang pengguna ingin mendapatkan akses ke suatu path repositori, dia harus memenuhi <emphasis>keduanya</emphasis>, kebutuhan-kebutuhan otentikasi biasa dan kebutuhan-kebutuhan otorisasi file akses."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2063(title)
 #: source/TortoiseSVN_en.xml:2056
@@ -2168,14 +2167,12 @@ msgstr "domaincontroller"
 # Indonesian#: source/TortoiseSVN_en.xml:2070(para)
 #: source/TortoiseSVN_en.xml:2063
 #: (para)
-#, fuzzy
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr "Seperti Anda mungkin mengetahuinya Anda perlu membuat entri nama pengguna/kata sandi dalam file <filename>passwd</filename> untuk setiap pengguna secara terpisah. Dan jika (untuk alasan keamanan) Anda ingin pengguna Anda secara periodik mengubah kata sandinya Anda harus membuat perubahan secara manual."
+msgstr "Seperti Anda mungkin telah mengetahui bahwa Anda perlu membuat entri nama pengguna/kata sandi dalam file <filename>passwd</filename> untuk setiap pengguna secara terpisah. Dan jika (untuk alasan keamanan) Anda ingin pengguna Anda secara periodik mengubah kata sandinya Anda harus membuat perubahan secara manual."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2077(para)
 #: source/TortoiseSVN_en.xml:2070
 #: (para)
-#, fuzzy
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
 msgstr "Tapi ada solusi untuk masalah itu - setidaknya jika Anda mengakses repositori dari dalam LAN dengan kontroler domain windows: mod_auth_sspi!"
 
@@ -2188,21 +2185,18 @@ msgstr "SSPI"
 # Indonesian#: source/TortoiseSVN_en.xml:2085(para)
 #: source/TortoiseSVN_en.xml:2078
 #: (para)
-#, fuzzy
 msgid "The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
 msgstr "Modul original SSPI ditawarkan oleh Syneapps termasuk kode sumber. Tapi pengembangan untuk itu telah dihentikan. Tapi jangan putus asa, komunitas telah mengambil dan meningkatkannya. Ia mempunyai rumah baru di <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2096(para)
 #: source/TortoiseSVN_en.xml:2089
 #: (para)
-#, fuzzy
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr "Download modul, copy file <filename>mod_auth_sspi.so</filename> ke dalam folder modul Apache."
+msgstr "Unduh modul tersebut, salin file <filename>mod_auth_sspi.so</filename> ke dalam folder modules Apache."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2102(para)
 #: source/TortoiseSVN_en.xml:2096
 #: (para)
-#, fuzzy
 msgid ""
 "Edit the Apache config file: add the line <screen>\n"
 "LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
@@ -2210,7 +2204,7 @@ msgid ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 msgstr ""
-"Edit file konfig Apache: tambah baris <screen>\n"
+"Edit file konfig Apache: tambahkan baris <screen>\n"
 "LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
 "</screen> ke seksi LoadModule. Pastikan Anda menyisipkan baris ini <emphasis>sebelum</emphasis> baris <screen>\n"
 "LoadModule auth_module modules/mod_auth.so\n"
@@ -2219,7 +2213,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2115(para)
 #: source/TortoiseSVN_en.xml:2109
 #: (para)
-#, fuzzy
 msgid ""
 "To make the Subversion location use this type of authentication you have to change the line <screen>\n"
 "AuthType Basic\n"
@@ -2243,50 +2236,47 @@ msgstr ""
 "SSPIAuth On\n"
 "SSPIAuthoritative On\n"
 "SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOmitDomain on\n"
+"SSPIUsernameCase lower\n"
+"SSPIPerRequestAuth on\n"
 "SSPIOfferBasic On\n"
 "</screen> di dalam blok &lt;Location /svn&gt;. Jika Anda tidak mempunyai kontroler domain, biarkan nama kontrol domain sebagai &lt;domaincontroller&gt;."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2138(para)
 #: source/TortoiseSVN_en.xml:2135
 #: (para)
-#, fuzzy
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
 msgstr "Catatan bahwa jika Anda mengotentikasi menggunakan SSPI, maka Anda tidak memerlukan baris <filename>AuthUserFile</filename> untuk mendefinisikan file kata sandi lagi. Sebaliknya Apache mengotentikasi nama pengguna dan kata sandi Anda terhadap domain windows Anda. Anda juga perlu memutahirkan daftar pengguna dalam <filename>svnaccessfile</filename> Anda untuk merujuk <literal>DOMAIN\\username</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2149(para)
 #: source/TortoiseSVN_en.xml:2145
 #: (para)
-#, fuzzy
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
 msgstr "File Subversion AuthzSVNAccessFile adalah sensitif huruf dalam hubungannya dengan nama-nama pengguna (\"JUser\" berbeda dari \"juser\")."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2154(para)
 #: source/TortoiseSVN_en.xml:2149
 #: (para)
-#, fuzzy
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
 msgstr "Dalam dunia Microsoft, Windows domain dan nama pengguna tidak sensitif huruf. Meskipun demikian, beberapa administrator jaringan seperti untuk membuat akun pengguna dalam CamelCase (contoh. \"JUser\")."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2160(para)
 #: source/TortoiseSVN_en.xml:2154
 #: (para)
-#, fuzzy
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr "Perbedaan ini bisa menggigit Anda ketika menggunakan otentikasi SSPI karena windows domain dan nama-nama pengguna yang dioper ke Subversion dalam kasus yang sama dengan tipe pengguna dalam prompt. Internet Explorer sering mengoper nama pengguna ke Apache secara otomatis menggunakan apapun jenis huruf akun yang dibuat."
+msgstr "Perbedaan ini bisa mengganggu Anda ketika menggunakan otentikasi SSPI karena windows domain dan nama-nama pengguna yang dioper ke Subversion dalam huruf yang sama seperti yang diketik oleh pengguna dalam promp. Internet Explorer sering mengoper nama pengguna ke Apache secara otomatis menggunakan apapun jenis huruf akun yang dibuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2169(para)
 #: source/TortoiseSVN_en.xml:2162
 #: (para)
-#, fuzzy
 msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
 msgstr "Hasil akhir adalah bahwa Anda memerlukan setidaknya dua entri dalam AuthzSVNAccessFile untuk setiap pengguna -- entri huruf kecil dan entri dalam huruf sama dengan yang dioper Internet Explorer ke Apache. Anda juga perlu untuk melatih pengguna Anda untuk mengetik dalam mandatnya menggunakan huruf kecil ketika mengakses repositori via TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2178(para)
 #: source/TortoiseSVN_en.xml:2170
 #: (para)
-#, fuzzy
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr "Kesalahan Apache dan log Access adalah teman terbaik Anda dalam mengatasi masalah seperti ini karena mereka akan membantu Anda memeriksa string nama pengguna yang dioper ke dalam modul Subversion's AuthzSVNAccessFile. Anda perlu bereksperiman dengan format pasti dari string pengguna dalam svnaccessfile (contoh. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) agar semuanya bekerja."
+msgstr "Log Kesalahan dan Akses Apache adalah teman terbaik Anda dalam mengatasi masalah seperti ini karena mereka akan membantu Anda memeriksa string nama pengguna yang dioper ke dalam modul Subversion's AuthzSVNAccessFile. Anda perlu bereksperiman dengan format pasti dari string pengguna dalam svnaccessfile (contoh. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) agar semuanya bekerja."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2190(title)
 #: source/TortoiseSVN_en.xml:2182
@@ -2297,7 +2287,6 @@ msgstr "SSL dan InternetExplorer"
 # Indonesian#: source/TortoiseSVN_en.xml:2191(para)
 #: source/TortoiseSVN_en.xml:2183
 #: (para)
-#, fuzzy
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
 msgstr "Jika Anda mengamankan server Anda dengan SSL dan menggunakan otentikasi terhadap windows domain Anda akan menemukan bahwa melihat repositori dengan Internet Explorer tidak bekerja lagi. Jangan khawatir - ini hanya Internet Explorer tidak bisa mengotentikasi. Browsers lainnya tidak mempunyai masalah itu dan TortoiseSVN dan klien Subversion lain masih bisa mengotentikasi."
 
