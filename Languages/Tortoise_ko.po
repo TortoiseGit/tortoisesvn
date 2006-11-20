@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-15 16:34+0900\n"
+"PO-Revision-Date: 2006-11-20 13:59+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -438,7 +438,6 @@ msgstr "프록시 서버 사용(&E)"
 
 # Control-ID:1213,
 #: Control-ID:1213
-#, fuzzy
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "파일을 잠그는 이유를 기술하십시오.(&E)"
 
@@ -1229,7 +1228,7 @@ msgid ""
 msgstr ""
 "다음 파일 패턴\n"
 "%s\n"
-"을/를 무시 목록에 추가하였습니다. "
+"(을)를 무시 목록에 추가하였습니다. "
 
 # ID:8,#:
 # ID:73,#:
@@ -2090,11 +2089,31 @@ msgstr "복사됨"
 msgid "Copied remotely"
 msgstr "원격 복사됨"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"%ld 개의 아이템을\r\n"
+"%s (으)로 복사합니다"
+
 # ID:80,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "복사 %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"%s (을)를\r\n"
+"%s (으)로 복사합니다"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2309,6 +2328,16 @@ msgstr "저장소 생성"
 msgid "Create copy in the repository from:"
 msgstr "서버에 직접 사본 만들기. 원본:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"새 디렉토리 생성:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2380,6 +2409,17 @@ msgstr "날짜"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "로그 메시지 기본 개수(&N)"
+
+# ID:11,#:
+# ID:73,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "버전관리 대상이 아닌 아이템 삭제"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "버전관리 대상이 아닌 아이템 삭제"
 
 # ID:11,#:
 # ID:73,
@@ -2691,6 +2731,7 @@ msgstr "윈도우를 최대 크기로 늘입니다."
 # ID:126,#:
 # Control-ID:1065,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "로그 메시지를 입력하세요"
 
@@ -3137,6 +3178,13 @@ msgstr "그래프 종류:"
 msgid "H&ide unrelated changed paths"
 msgstr "관련없는 변경된 경로를 숨기기(&I)"
 
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
+
 # ID:12,#:
 # Control-ID:1004,
 #: Control-ID:1004
@@ -3334,10 +3382,46 @@ msgstr "줄바꿈 문자 무시(권장)(&E)"
 msgid "Import"
 msgstr "임포트"
 
+# Control-ID:1021,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "%ld 개를 임포트함"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "임포트 메시지(&M)"
+
+# ID:119,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"%s 파일을\r\n"
+"%s (으)로 임포트 함"
+
+# ID:119,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"%s (으)로\r\n"
+"파일을 임포트함"
+
+# ID:119,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"%s 폴더를\r\n"
+"%s (으)로 임포트함"
 
 # ID:119,
 #: ID:120
@@ -3806,6 +3890,7 @@ msgstr "'시작:' 과 '끝:'에는 다른 리비전 혹은 URL이 들어 있어�
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "메시지"
 
@@ -3867,6 +3952,26 @@ msgstr "다른 색깔..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "가장 활동이 많은 작성자:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"%ld 개의 아이템을\r\n"
+"%s (으)로 옮깁니다"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"%s (을)를\r\n"
+"%s (으)로 옮깁니다"
 
 # ID:97,
 #: ID:98
@@ -4682,6 +4787,18 @@ msgstr "원격 상태"
 msgid "Remote text status"
 msgstr "원격 상태"
 
+# Control-ID:1021,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "%ld 아이템을 삭제함"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "%s 삭제"
+
 # ID:13,
 #: ID:15
 msgid "Remove from &ignore list"
@@ -4712,7 +4829,12 @@ msgid ""
 msgstr ""
 "다음 파일 패턴\n"
 "%s\n"
-"을/를 무시 목록에서 제거하였습니다. "
+"(을)를 무시 목록에서 제거하였습니다. "
+
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "버전관리 대상이 아닌 것과 무시목록에 있는 아이템을 지웁니다"
 
 # ID:13,
 #: ID:15
@@ -4729,6 +4851,16 @@ msgstr "이름 바꾸기"
 #, c-format
 msgid "Rename %s"
 msgstr "%s 이름 바꾸기"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"%s 에서 \r\n"
+"%s (으)로 이름을 바꿉니다."
 
 # ID:126,
 #: Control-ID:65535
@@ -6949,6 +7081,17 @@ msgstr ""
 "네트워크 공유 드라이브에 있는 저장소에 file:/// 로 접근하고 있습니다. \n"
 "이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
 "계속 하시겠습니까?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Trunk 폴더를 옮기려고 합니다\n"
+"정말 Trunk 폴더를 옮기는 것이\n"
+"확실합니까?"
 
 # ID:16,
 #: ID:16
