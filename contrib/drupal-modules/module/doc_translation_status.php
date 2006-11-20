@@ -14,6 +14,7 @@ $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
 $vars['downloadurl2']=variable_get('tsvn_sf_append', '');
 $vars['reposurl']=variable_get('tsvn_repos_trunk', '').'doc/po/';
 $vars['flagpath']="/flags/world.small/";
+$vars['showold']=TRUE;
 
 $basename="Tortoise";
 $template=$basename.".pot";
@@ -43,74 +44,62 @@ If you want to download the po file from the repository, either use <strong>gues
 <?php
 }
 
-function print_d_all_stats($data, $vars)
-{
-  $i=0;
-  foreach ($data as $key => $postat)
-  // Check if the translation exists (empty column in array_merge_recursive)
-  if ($postat[8] <> '')
-  {
-      $i++;
-      print_single_stat($i, $postat, $vars);
-  }
-}
-
 //------------------------------------
 //
 // The program starts here
 //
 
 // Merge translation and country information into one array
-$TortoiseSVN = array_merge_recursive($TortoiseSVN, $countries);
+$TortoiseSVN = array_merge_recursive($countries, $TortoiseSVN);
 
 // Convert Data into a list of columns
 foreach ($TortoiseSVN as $key => $row) {
-   $errors[$key] = $row[0];
-   $total[$key] = $row[1];
-   $transl[$key] = $row[2];
-   $fuzzy[$key] = $row[3];
-   $untrans[$key] = $row[4];
-   $accel[$key] = $row[5];
-   $name[$key] = $row[6];
-   $fdate[$key] = $row[7];
-   $potfile[$key] = $row[8];
-   $country[$key] = $row[11];
+   $potfile[$key] = $row[0];
+   $country[$key] = $row[3];
+   $errors[$key] = $row[5];
+   $total[$key] = $row[6];
+   $transl[$key] = $row[7];
+   $fuzzy[$key] = $row[8];
+   $untrans[$key] = $row[9];
+   $accel[$key] = $row[10];
+   $name[$key] = $row[11];
+   $fdate[$key] = $row[12];
 }
 
 // Add $TortoiseSVN as the last parameter, to sort by the common key
-array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseSVN);
+array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $TortoiseSVN);
 
 print_d_header($vars);
 
 // Print Alphabetical statistics
 print_table_header('TortoiseSVN', 'TortoiseSVN', $TortoiseSVN['zzz'], $vars);
-print_d_all_stats($TortoiseSVN, $vars);
+print_all_stats($TortoiseSVN, $vars);
 print_table_footer();
 
 // Merge translation and country information into one array
-$TortoiseMerge = array_merge_recursive($TortoiseMerge, $countries);
+$TortoiseMerge = array_merge_recursive($countries, $TortoiseMerge);
 
 // Convert Data into a list of columns
 foreach ($TortoiseMerge as $key => $row) {
-   $merrors[$key] = $row[0];
-   $mtotal[$key] = $row[1];
-   $mtransl[$key] = $row[2];
-   $mfuzzy[$key] = $row[3];
-   $muntrans[$key] = $row[4];
-   $maccel[$key] = $row[5];
-   $mname[$key] = $row[6];
-   $mfdate[$key] = $row[7];
-   $mpotfile[$key] = $row[8];
-   $mcountry[$key] = $row[11];
+   $mpotfile[$key] = $row[0];
+   $mcountry[$key] = $row[3];
+   $merrors[$key] = $row[5];
+   $mtotal[$key] = $row[6];
+   $mtransl[$key] = $row[7];
+   $mfuzzy[$key] = $row[8];
+   $muntrans[$key] = $row[9];
+   $maccel[$key] = $row[10];
+   $mname[$key] = $row[11];
+   $mfdate[$key] = $row[12];
 }
 
 // Add $TortoiseMerge as the last parameter, to sort by the common key
 array_multisort($mpotfile, $mcountry, $mtransl, $muntrans, $mfuzzy, $maccel, $TortoiseMerge);
 
 print_table_header('TortoiseMerge', 'TortoiseMerge', $TortoiseMerge['zzz'], $vars);
-print_d_all_stats($TortoiseMerge, $vars);
+print_all_stats($TortoiseMerge, $vars);
 print_table_footer();
 
-
 print_footer($vars);
+
 ?>

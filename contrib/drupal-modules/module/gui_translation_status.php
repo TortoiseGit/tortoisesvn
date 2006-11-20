@@ -14,7 +14,7 @@ $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
 $vars['downloadurl2']=variable_get('tsvn_sf_append', '');
 $vars['reposurl']=variable_get('tsvn_repos_trunk', '').'Languages/';
 $vars['flagpath']="/flags/world.small/";
-
+$vars['showold']=TRUE;
 $basename="Tortoise";
 $template=$basename.".pot";
 
@@ -47,25 +47,24 @@ If you want to download the po file from the repository, either use <strong>gues
 
 
 // Merge translation and country information into one array
-$TortoiseGUI = array_merge_recursive($TortoiseGUI, $countries);
+$TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
 
 // Convert Data into a list of columns
 foreach ($TortoiseGUI as $key => $row) {
-   $errors[$key] = $row[0];
-   $total[$key] = $row[1];
-   $transl[$key] = $row[2];
-   $fuzzy[$key] = $row[3];
-   $untrans[$key] = $row[4];
-   $accel[$key] = $row[5];
-   $name[$key] = $row[6];
-   $fdate[$key] = $row[7];
-   $potfile[$key] = $row[8];
-   $country[$key] = $row[11];
+   $potfile[$key] = $row[0];
+   $country[$key] = $row[3];
+   $errors[$key] = $row[5];
+   $total[$key] = $row[6];
+   $transl[$key] = $row[7];
+   $fuzzy[$key] = $row[8];
+   $untrans[$key] = $row[9];
+   $accel[$key] = $row[10];
+   $name[$key] = $row[11];
+   $fdate[$key] = $row[12];
 }
 
 // Add $TortoiseGUI as the last parameter, to sort by the common key
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
-
 
 print_header($vars);
 
@@ -80,6 +79,6 @@ print_table_header('toplist', 'Languages by translation status', $TortoiseGUI['z
 print_all_stats($TortoiseGUI, $vars);
 print_table_footer();
 
-
 print_footer($vars);
+
 ?>

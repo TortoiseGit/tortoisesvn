@@ -178,7 +178,7 @@ function print_table_header($name, $summary, $postat, $vars)
 <th class="lang">Nr.</th>
 <th class="lang">Download Win32 Installer (<?php echo $vars['release'] ?>)</th>
 <th class="lang">ISO code</th>
-<th colspan="2" class="trans">Total=<?php echo $postat[1] ?></th>
+<th colspan="2" class="trans">Total=<?php echo $postat[6] ?></th>
 <th class="graph">Graph</th>
 <th class="download">Download .po file</th>
 <th colspan="2" class="download">Last update</th>
@@ -197,26 +197,30 @@ function print_table_footer()
 
 function print_blank_stat($i, $postat, $vars)
 {
-  $tl = $postat[1];
+  $tl = $postat[6];
   $wc=$vars['wc'];
-  $reposurl = $vars['reposurl'].$postat[6];
-  $fdate=date("Y-m-d",$postat[7]);
-  $flagimg=$vars['flagpath'].$postat[10].".png";
-  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[10] flag\"/>";
+  $reposurl = $vars['reposurl'].$postat[11];
+  $fdate=date("Y-m-d",$postat[12]);
+  $flagimg=$vars['flagpath'].$postat[2].".png";
+  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[3] flag\"/>";
+  $flagtag="<a href=\"$dlfile\">$flagtag&nbsp;$postat[3]</a>";
+  $dltag="<a href=\"$reposurl\">$postat[11]</a>";
+
+  if ($postat[5] > 0) {
+    // Error while running msgfmt on existing .po file
+    $graphtag="Error in po file</td>";
+  } else {
+    // .pot File
+    $graphtag="<img src=\"/siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
+  }
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\">$flagtag&nbsp;$postat[11]</a></td>";
+  echo "<td class=\"lang\">$flagtag</td>";
   echo "<td class=\"lang\">&nbsp;</td>";
   echo "<td class=\"trans\">$tl</td>";
   echo "<td class=\"trans\">0.0%</td>";
-  if ($postat[0] > 0) {
-    echo "<td class=\"graph\">Error in po file</td>";
-  } else {
-    echo "<td class=\"graph\">";
-    echo "<img src=\"/siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";
-    echo "</td>";
-  }
-  echo "<td class=\"download\"><a href=\"$reposurl\">$postat[6]</a></td>";
+  echo "<td class=\"graph\">$graphtag</td>";
+  echo "<td class=\"download\">$dltag</td>";
   echo "<td class=\"lang\">$fdate</td>";
 }
 
@@ -226,21 +230,22 @@ function print_content_stat($i, $postat, $vars)
   $build=$vars['build'];
   $wc=$vars['wc'];
 
-  $total=$postat[1];
-  $tra=$postat[2];
-  $fuz=$postat[3];
-//  $unt=abs($postat[1]-$postat[2]-$postat[3]);
-  $unt=$postat[4];
-  $acc=$postat[5];
-  $reposfile=$postat[6].'.po';
+  $lang_cc=$postat[2];
+  $lang_name=$postat[3];
+  $total=$postat[6];
+  $tra=$postat[7];
+  $fuz=$postat[8];
+  $unt=$postat[9];
+  $acc=$postat[10];
+  $reposfile=$postat[11].'.po';
   $reposurl=$vars['reposurl'].$reposfile;
-  $fdate=$postat[7];
-  $age=(strtotime("now") - strtotime($postat[7])) / 86400;
-  $lang=$postat[10];
+  $fdate=$postat[12];
+  $age=(strtotime("now") - strtotime($fdate)) / 86400;
 
-  $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$lang.".exe".$vars['downloadurl2'];
-  $flagimg=$vars['flagpath'].$postat[10].".png";
-  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[10] flag\"/>";
+  $dlfile=$vars['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$lang_cc.".exe".$vars['downloadurl2'];
+  $flagimg=$vars['flagpath'].$lang_cc.".png";
+  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$lang_name flag\"/>";
+  $flagtag="<a href=\"$dlfile\">$flagtag&nbsp;$lang_name</a>";
 
 
   // Calculate width of bars
@@ -291,8 +296,8 @@ function print_content_stat($i, $postat, $vars)
   $tra=$tra+$fuz;
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\"><a href=\"$dlfile\">$flagtag&nbsp;$postat[11]</a></td>";
-  echo "<td class=\"lang\">$lang</td>";
+  echo "<td class=\"lang\">$flagtag</td>";
+  echo "<td class=\"lang\">$lang_cc</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
   echo "<td class=\"graph\">";
@@ -317,15 +322,27 @@ function print_content_stat($i, $postat, $vars)
 
 function print_single_stat($i, $postat, $vars)
 {
-  if ($postat[0] > 0){
-    echo "<tr class=\"error\">\n";
-    print_blank_stat($i, $postat, $vars);
-  }
-  else if ($postat[8] == 1) {
+
+/*
+  echo "<tr class=\"ok\">\n";
+  echo "<td>$i</td> <td><pre>";
+	print_r($postat);
+	echo"</pre></td>";
+*/
+
+  if ($postat[0] == 1) {
+    // $postat[0] == 1 
+    // -> It's the .pot file
     echo "<tr class=\"ok\">\n";
     print_blank_stat($i, $postat, $vars);
-  }
-  else {
+
+  } elseif ($postat[5] > 0) {
+    // $postat[5] > 0 
+    // -> Error while running msgfmt on existing .po file
+    echo "<tr class=\"error\">\n";
+    print_blank_stat($i, $postat, $vars);
+
+  } else {
     echo "<tr class=\"ok\">\n";
     print_content_stat($i, $postat, $vars);
   }
@@ -336,10 +353,12 @@ function print_all_stats($data, $vars)
 {
   $i=0;
   foreach ($data as $key => $postat)
-  {
+    // $postat[5] == '' 
+    // -> Non existant .po file. Only country information, no stats
+    if (isset($postat[5])) {
       $i++;
       print_single_stat($i, $postat, $vars);
-  }
+    }
 }
 
 ?>
