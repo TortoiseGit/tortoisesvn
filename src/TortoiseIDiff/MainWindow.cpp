@@ -374,6 +374,15 @@ LRESULT CMainWindow::DoCommand(int id)
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_LINKIMAGESTOGETHER, (LPARAM)&tbi);
 		}
 		break;
+	case ID_VIEW_ALPHA0:
+		picWindow1.SetSecondPicAlpha(0);
+		break;
+	case ID_VIEW_ALPHA255:
+		picWindow1.SetSecondPicAlpha(255);
+		break;
+	case ID_VIEW_ALPHA127:
+		picWindow1.SetSecondPicAlpha(127);
+		break;
 	case ID_VIEW_FITIMAGESINWINDOW:
 		{
 			picWindow1.FitImageInWindow();
