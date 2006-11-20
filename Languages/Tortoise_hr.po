@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-03 17:47+0100\n"
+"PO-Revision-Date: 2006-11-20 20:15+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -482,6 +482,11 @@ msgstr "&Vanjski"
 #: MenuEntry
 msgid "&File"
 msgstr "&Datoteka"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filter"
 
 #: MenuEntry
 msgid "&Find"
@@ -2023,6 +2028,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "Usporedi s radnom osnovom  i &okrivi"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Usporedi s radnom osnovom i okrivi"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Usporedi s &radnom kopijom"
@@ -2031,6 +2041,11 @@ msgstr "Usporedi s &radnom kopijom"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Usporedi s o&snovom"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Usporedi sa prijašnjom revizijom"
 
 # ID:12,
 #: ID:12
@@ -2106,11 +2121,31 @@ msgstr "Kopirano"
 msgid "Copied remotely"
 msgstr "Kopirano na daljinu"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopiraj %ld datoteka u\r\n"
+"%s"
+
 # ID:80,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiraj %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopiram %s\r\n"
+"u %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2325,6 +2360,16 @@ msgstr "Izradi skladište"
 msgid "Create copy in the repository from:"
 msgstr "Izradi kopiju u skladištu iz:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Stvori novu mapu:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2396,6 +2441,17 @@ msgstr "Datum"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Zadana vrijednost &broja poruka dnevnika"
+
+# ID:73,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Obriši stavke bez verzija"
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Obriši stavke bez verzija"
 
 # ID:73,
 #: ID:73
@@ -2707,6 +2763,7 @@ msgstr "Povećaj prozor do kraja"
 # ID:126,#:
 # Control-ID:1065,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Upiši poruku dnevnika"
 
@@ -2790,6 +2847,16 @@ msgstr "Izostavi staze:"
 #: ID:209
 msgid "Explore to"
 msgstr "Istraži do"
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Izvezi"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Direktorij za &izvoz:"
 
 # ID:94,
 #: ID:94
@@ -2951,6 +3018,11 @@ msgstr ""
 "Dubina:\t\t\t%d bita\n"
 "Zoom:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Izdvoji slijedeće staze (odvojene znakom \"*\"):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Pronađi"
@@ -2986,6 +3058,7 @@ msgstr "Za cjelokupni dnevnik maknite oznaku \"Zaustavi se na kopiranom/preimeno
 
 # Control-ID:65535,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Od:"
 
@@ -3137,6 +3210,13 @@ msgstr "Vrsta grafa:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "S&akrij nepovezane promijenjene staze"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "GLAVNO"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -3338,10 +3418,46 @@ msgstr "Zanemari završetke &linija (preporučeno)"
 msgid "Import"
 msgstr "Uvezi"
 
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Uvezi %ld stavaka"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Uvezi &poruku"
+
+# ID:144,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Uvozim datoteku %s\r\n"
+"u %s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Uvozim datoteku u\r\n"
+"%s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Uvozim mapu %s\r\n"
+"u %s"
 
 # ID:144,
 #: ID:120
@@ -3358,6 +3474,11 @@ msgstr "Uvoz direktorija u skladište"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Uključi zanemarene datoteke"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Uključi samo slijedeći raspon revizija:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3817,6 +3938,7 @@ msgstr "Stapanje zahtijeva različite revizije ili različite URL-ove u 'Od:' i 
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Poruka"
 
@@ -3880,6 +4002,26 @@ msgstr "Više boja..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Najaktivniji autor:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Premjesti %ld datoteka u\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Premjesti %s\r\n"
+"u %s"
 
 # ID:97,
 #: ID:98
@@ -4210,6 +4352,15 @@ msgstr "Ostali"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Program je ostao bez memorije."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Prepisuje preko svojstva svn:eol-style.\n"
+"Ne utječe na datoteke koje nemaju postavljeno ovo svojstvo."
 
 # ID:99,
 #: ID:99
@@ -4693,6 +4844,18 @@ msgstr "Udaljeni status"
 msgid "Remote text status"
 msgstr "Udaljeni status teksta"
 
+# ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Ukloni %ld stavke(aka)"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Ukloni %s"
+
 # ID:13,
 #: ID:15
 msgid "Remove from &ignore list"
@@ -4726,6 +4889,11 @@ msgstr ""
 "%s\n"
 "s popisa zanemarenih."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Uklanja iz liste sve datoteke koje nisu pod upravljanjem i ignorirane datoteke"
+
 # ID:13,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4741,6 +4909,16 @@ msgstr "Promijeni ime"
 #, c-format
 msgid "Rename %s"
 msgstr "Preimenuj %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Promjena imena sa %s\r\n"
+"na %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -4950,6 +5128,13 @@ msgstr "Revizija / autor:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Graf revizija"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Filter za graf revizija"
 
 # ID:75,
 #: Dlg-ID:228
@@ -6279,6 +6464,7 @@ msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Prema:"
 
@@ -6971,6 +7157,17 @@ msgstr ""
 "Takav postupak može uzrokovati ozbiljna oštećenja skladišta!\n"
 "Da li zaista to želite učiniti?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Pokušavate maknuti trunk mapu!\n"
+"Da li ste apsolutno sigurni da želite\n"
+"maknuti trunk mapu ?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -7296,6 +7493,12 @@ msgstr ""
 msgid "deleted"
 msgstr "obrisano"
 
+# ID:14,
+#: Control-ID:1342
+#, fuzzy
+msgid "eol style"
+msgstr "SVN vrsta kraja linija"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7568,6 +7771,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Postavite to na broj jezika za koji želite da se koristi prilikom upisa poruke dnevnika.\n"
 "TortoiseSVN tada može učitati odgovarajući modul za provjeru pravopisa, ukoliko takav postoji."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Lista korisničkih svojstva za datoteke koja će\n"
+"biti prikazana u dijalogu za izbor svojstava."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Lista korisničkih svojstva za mape koja će\n"
+"biti prikazana u dijalogu za izbor svojstava."
 
 # ID:15,
 #: ID:15
