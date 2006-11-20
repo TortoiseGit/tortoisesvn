@@ -97,6 +97,8 @@
        See issue #299 for details. (Stefan)
 - CHG: Moving the sliders in TortoiseIDiff moves the image right away, 
        without waiting for the mouse-up event.
+       Zooming in/out with mousewheel tries to keep the pixel where the
+       mouse pointer is at the same position.
        See issue #301 for details. (Stefan)
 
 Version 1.4.2

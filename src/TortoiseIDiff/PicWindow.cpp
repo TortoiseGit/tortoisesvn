@@ -540,7 +540,6 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 	{
 		// control means adjusting the scale factor
 		Zoom(zDelta>0);
-		SetupScrollBars();
 		InvalidateRect(*this, NULL, FALSE);
 		SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
 		PositionChildren();
@@ -571,16 +570,38 @@ void CPicWindow::GetClientRect(RECT * pRect)
 void CPicWindow::SetZoom(double dZoom)
 {
 	// Set the interpolation mode depending on zoom
-	if(dZoom < 1.0){	// Zoomed out, use high quality bicubic
+	if (dZoom < 1.0)
+	{	// Zoomed out, use high quality bicubic
 		picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
 	}
-	else if(!((int)(dZoom*100.0)%100)){	// "Even" zoom sizes should be shown w-o any interpolation
+	else if (!((int)(dZoom*100.0)%100))
+	{	// "Even" zoom sizes should be shown w-o any interpolation
 		picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
 	}
-	else{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
+	else
+	{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
 		picture.SetInterpolationMode(InterpolationModeBilinear);
 	}
 
+	// adjust the scrollbar positions according to the new zoom and the
+	// mouse position: if possible, keep the pixel where the mouse pointer
+	// is at the same position after the zoom
+	POINT cpos;
+	GetCursorPos(&cpos);
+	ScreenToClient(*this, &cpos);
+	RECT clientrect;
+	GetClientRect(&clientrect);
+	if (PtInRect(&clientrect, cpos))
+	{
+		// the mouse pointer is over our window
+		nHScrollPos = int(double(nHScrollPos + cpos.x)*(dZoom/picscale))-cpos.x;
+		nVScrollPos = int(double(nVScrollPos + cpos.y)*(dZoom/picscale))-cpos.y;
+		if ((bLinked)&&(pTheOtherPic))
+		{
+			pTheOtherPic->nHScrollPos = nHScrollPos;
+			pTheOtherPic->nVScrollPos = nVScrollPos;
+		}
+	}
 	picscale = dZoom;
 	SetupScrollBars();
 	PositionChildren();
@@ -592,28 +613,34 @@ void CPicWindow::Zoom(bool in)
 	double zoomFactor;
 
 	// Find correct zoom factor	and quantize picscale
-	if(!in && picscale <= 0.2){
+	if (!in && picscale <= 0.2)
+	{
 		picscale = 0.1;
 		zoomFactor = 0;
 	}
-	else if((in && picscale < 1.0) || (!in && picscale <= 1.0)){
+	else if ((in && picscale < 1.0) || (!in && picscale <= 1.0))
+	{
 		picscale = 0.1 * RoundDouble(picscale/0.1, 0);	// Quantize to 0.1
 		zoomFactor = 0.1;
 	}
-	else if((in && picscale < 2.0) || (!in && picscale <= 2.0)){
+	else if ((in && picscale < 2.0) || (!in && picscale <= 2.0))
+	{
 		picscale = 0.25 * RoundDouble(picscale/0.25, 0);	// Quantize to 0.25
 		zoomFactor = 0.25;
 	}
-	else{
+	else
+	{
 		picscale = RoundDouble(picscale,0);
 		zoomFactor = 1;
 	}
 
 	// Set zoom
-	if(in){
+	if (in)
+	{
 		SetZoom(picscale+zoomFactor);
 	}
-	else{
+	else
+	{
 		SetZoom(picscale-zoomFactor);
 	}
 }
@@ -625,10 +652,12 @@ double CPicWindow::RoundDouble(double doValue, int nPrecision)
 
 	doComplete5 = doValue * pow(doBase, (double) (nPrecision + 1));
 
-	if(doValue < 0.0){
+	if (doValue < 0.0)
+	{
 		doComplete5 -= 5.0;
 	}
-	else{
+	else
+	{
 		doComplete5 += 5.0;
 	}
 
