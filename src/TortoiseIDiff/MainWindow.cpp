@@ -71,8 +71,7 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 	HDWP hdwp = BeginDeferWindowPos(2);
 	if (bOverlap)
 	{
-		if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT-tbHeight, SWP_SHOWWINDOW);
-		if (hdwp) hdwp = DeferWindowPos(hdwp, hTrackbar, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
+		SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-tbHeight, SWP_SHOWWINDOW);
 	}
 	else
 	{
@@ -123,37 +122,12 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			RECT rect;
 			GetClientRect(hwnd, &rect);
 			nSplitterPos = (rect.right-rect.left)/2;
-			// create a slider control
-			hTrackbar = CreateTrackbar(*this, 0, 255);
-			ShowWindow(hTrackbar, SW_HIDE);
-			picWindow1.SetAlphaSlider(hTrackbar);
 			CreateToolbar();
 		}
 		break;
 	case WM_COMMAND:
 		{
 			return DoCommand(LOWORD(wParam));
-		}
-		break;
-	case WM_HSCROLL:
-		{
-			if (bOverlap)
-			{
-				if (LOWORD(wParam) == TB_THUMBTRACK)
-				{
-					// while tracking, only redraw after 50 milliseconds
-					::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
-				}
-				else
-					picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
-			}
-		}
-		break;
-	case WM_TIMER:
-		{
-			if ((wParam == TIMER_ALPHASLIDER)&&(bOverlap))
-				picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
-			KillTimer(*this, TIMER_ALPHASLIDER);
 		}
 		break;
 	case WM_PAINT:
@@ -269,37 +243,21 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			LPNMHDR pNMHDR = (LPNMHDR)lParam;
 			if (pNMHDR->code == TTN_GETDISPINFO)
 			{
-				if ((HWND)wParam == hTrackbar)
-				{
-					LPTOOLTIPTEXT lpttt; 
+				LPTOOLTIPTEXT lpttt; 
 
-					lpttt = (LPTOOLTIPTEXT) lParam; 
-					lpttt->hinst = hResource; 
+				lpttt = (LPTOOLTIPTEXT) lParam; 
+				lpttt->hinst = hResource; 
 
-					// Specify the resource identifier of the descriptive 
-					// text for the given button. 
-					TCHAR stringbuf[MAX_PATH] = {0};
-					_stprintf_s(stringbuf, MAX_PATH, _T("%ld alpha"), (BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
-					lpttt->lpszText = stringbuf;
-				}
-				else
-				{
-					LPTOOLTIPTEXT lpttt; 
-
-					lpttt = (LPTOOLTIPTEXT) lParam; 
-					lpttt->hinst = hResource; 
-
-					// Specify the resource identifier of the descriptive 
-					// text for the given button. 
-					TCHAR stringbuf[MAX_PATH] = {0};
-					MENUITEMINFO mii;
-					mii.cbSize = sizeof(MENUITEMINFO);
-					mii.fMask = MIIM_TYPE;
-					mii.dwTypeData = stringbuf;
-					mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
-					GetMenuItemInfo(GetMenu(*this), lpttt->hdr.idFrom, FALSE, &mii);
-					lpttt->lpszText = stringbuf;
-				}
+				// Specify the resource identifier of the descriptive 
+				// text for the given button. 
+				TCHAR stringbuf[MAX_PATH] = {0};
+				MENUITEMINFO mii;
+				mii.cbSize = sizeof(MENUITEMINFO);
+				mii.fMask = MIIM_TYPE;
+				mii.dwTypeData = stringbuf;
+				mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
+				GetMenuItemInfo(GetMenu(*this), lpttt->hdr.idFrom, FALSE, &mii);
+				lpttt->lpszText = stringbuf;
 			}
 		}
 		break;
@@ -372,14 +330,12 @@ LRESULT CMainWindow::DoCommand(int id)
 			CheckMenuItem(hMenu, ID_VIEW_OVERLAPIMAGES, uCheck);
 
 			ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
-			ShowWindow(hTrackbar, bOverlap ? SW_SHOW : SW_HIDE);
 			if (bOverlap)
 			{
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
 				picWindow1.SetSecondPicAlpha(127);
-				SendMessage(hTrackbar, TBM_SETPOS, (WPARAM)1, (LPARAM)127);
 			}
 			else
 			{
@@ -683,31 +639,6 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, L
 	}
 
 	return 0;
-}
-
-HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
-{ 
-	HWND hwndTrack = CreateWindowEx( 
-		0,									// no extended styles 
-		TRACKBAR_CLASS,						// class name 
-		_T("Trackbar Control"),				// title (caption) 
-		WS_CHILD | WS_VISIBLE | TBS_HORZ | TBS_TOOLTIPS,	// style 
-		10, 10,								// position 
-		200, 30,							// size 
-		hwndParent,							// parent window 
-		(HMENU)TRACKBAR_ID,					// control identifier 
-		hResource,							// instance 
-		NULL								// no WM_CREATE parameter 
-		); 
-
-	SendMessage(hwndTrack, TBM_SETRANGE, 
-		(WPARAM) TRUE,						// redraw flag 
-		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
-	SendMessage(hwndTrack, TBM_SETTIPSIDE, 
-		(WPARAM) TBTS_TOP,						// redraw flag 
-		(LPARAM) 0);		// min. & max. positions 
-
-	return hwndTrack; 
 }
 
 bool CMainWindow::OpenDialog()

@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+#include "commctrl.h"
 #include "BaseWindow.h"
 #include "TortoiseIDiff.h"
 #include "Picture.h"
@@ -24,11 +25,15 @@
 #define HEADER_HEIGHT 30
 
 #define ID_ANIMATIONTIMER 100
+#define TIMER_ALPHASLIDER 101
 
 #define LEFTBUTTON_ID	101
 #define RIGHTBUTTON_ID	102
 #define PLAYBUTTON_ID	103
 
+#define TRACKBAR_ID 101
+#define SLIDER_HEIGHT 30
+#define SLIDER_WIDTH 30
 
 
 /**
@@ -82,10 +87,10 @@ public:
 	/// Sets the alpha blending value
 	void SetSecondPicAlpha(BYTE a) 
 	{
+		SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
 		alpha = a; 
 		InvalidateRect(*this, NULL, FALSE);
 	}
-	void SetAlphaSlider(HWND hWnd) {hwndAlphaSlider = hWnd;}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
 	/// Sets the zoom factor of the image
@@ -125,13 +130,17 @@ protected:
 	/// Positions the buttons
 	void				PositionChildren();
 	/// Rounds a double to a given precision
-	double RoundDouble(double doValue, int nPrecision);
+	double				RoundDouble(double doValue, int nPrecision);
 	/// advance to the next image in the file
-	void NextImage();
+	void				NextImage();
 	/// go back to the previous image in the file
-	void PrevImage();
+	void				PrevImage();
 	/// starts/stops the animation
-	void Animate(bool bStart);
+	void				Animate(bool bStart);
+	/// Creates the trackbar (the alpha blending slider control)
+	HWND				CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax);
+	/// Moves the alpha slider trackbar to the correct position
+	void				PositionTrackBar();
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
@@ -163,5 +172,6 @@ protected:
 	HICON				hPlay;
 	HICON				hStop;
 	bool				bPlaying;
+	RECT				m_inforect;
 };
 

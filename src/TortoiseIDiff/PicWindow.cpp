@@ -53,11 +53,27 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 	return false;
 }
 
+void CPicWindow::PositionTrackBar()
+{
+	if (pSecondPic)
+	{
+		MoveWindow(hwndAlphaSlider, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom-m_inforect.top+8, true);
+		ShowWindow(hwndAlphaSlider, SW_SHOW);
+	}
+	else
+	{
+		ShowWindow(hwndAlphaSlider, SW_HIDE);
+	}
+}
+
 LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
 	case WM_CREATE:
+		// create a slider control
+		hwndAlphaSlider = CreateTrackbar(hwnd, 0, 255);
+		ShowWindow(hwndAlphaSlider, SW_HIDE);
 		break;
 	case WM_SETFOCUS:
 	case WM_KILLFOCUS:
@@ -69,12 +85,26 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		Paint(hwnd);
 		break;
 	case WM_SIZE:
+		PositionTrackBar();
 		SetupScrollBars();
 		break;
 	case WM_VSCROLL:
-		OnVScroll(LOWORD(wParam), HIWORD(wParam));
-		if (bLinked)
-			pTheOtherPic->OnVScroll(LOWORD(wParam), HIWORD(wParam));
+		if ((pSecondPic)&&((HWND)lParam == hwndAlphaSlider))
+		{
+			if (LOWORD(wParam) == TB_THUMBTRACK)
+			{
+				// while tracking, only redraw after 50 milliseconds
+				::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
+			}
+			else
+				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+		}
+		else
+		{
+			OnVScroll(LOWORD(wParam), HIWORD(wParam));
+			if (bLinked)
+				pTheOtherPic->OnVScroll(LOWORD(wParam), HIWORD(wParam));
+		}
 		break;
 	case WM_HSCROLL:
 		OnHScroll(LOWORD(wParam), HIWORD(wParam));
@@ -138,15 +168,46 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_TIMER:
 		{
-			if (wParam == ID_ANIMATIONTIMER)
+			switch (wParam)
 			{
-				nCurrentFrame++;
-				if (nCurrentFrame > picture.GetNumberOfFrames(0))
-					nCurrentFrame = 1;
-				long delay = picture.SetActiveFrame(nCurrentFrame);
-				delay = max(100, delay);
-				SetTimer(*this, ID_ANIMATIONTIMER, delay, NULL);
-				InvalidateRect(*this, NULL, FALSE);
+			case ID_ANIMATIONTIMER:
+				{
+					nCurrentFrame++;
+					if (nCurrentFrame > picture.GetNumberOfFrames(0))
+						nCurrentFrame = 1;
+					long delay = picture.SetActiveFrame(nCurrentFrame);
+					delay = max(100, delay);
+					SetTimer(*this, ID_ANIMATIONTIMER, delay, NULL);
+					InvalidateRect(*this, NULL, FALSE);
+				}
+				break;
+			case TIMER_ALPHASLIDER:
+				{
+					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+					KillTimer(*this, TIMER_ALPHASLIDER);
+				}
+				break;
+			}
+		}
+		break;
+	case WM_NOTIFY:
+		{
+			LPNMHDR pNMHDR = (LPNMHDR)lParam;
+			if (pNMHDR->code == TTN_GETDISPINFO)
+			{
+				if ((HWND)wParam == hwndAlphaSlider)
+				{
+					LPTOOLTIPTEXT lpttt; 
+
+					lpttt = (LPTOOLTIPTEXT) lParam; 
+					lpttt->hinst = hResource; 
+
+					// Specify the resource identifier of the descriptive 
+					// text for the given button. 
+					TCHAR stringbuf[MAX_PATH] = {0};
+					_stprintf_s(stringbuf, MAX_PATH, _T("%ld alpha"), (BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+					lpttt->lpszText = stringbuf;
+				}
 			}
 		}
 		break;
@@ -679,64 +740,66 @@ void CPicWindow::Paint(HWND hwnd)
 				DeleteDC(secondhdc);
 
 			}
+			int sliderwidth = 0;
+			if (pSecondPic)
+				sliderwidth = SLIDER_WIDTH;
+			m_inforect.left = rect.left+4+sliderwidth;
+			m_inforect.top = rect.top;
+			m_inforect.right = rect.right+sliderwidth;
+			m_inforect.bottom = rect.bottom;
+
+			TCHAR infostring[8192];
+			if (pSecondPic)
+			{
+				_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+					(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFO),
+					pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
+					picture.GetFileSizeAsText().c_str(),
+					picture.GetWidth(), picture.GetHeight(),
+					picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+					picture.GetColorDepth(),
+					(UINT)(GetZoom()*100.0),
+					pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
+					pSecondPic->GetFileSizeAsText().c_str(),
+					pSecondPic->GetWidth(), pSecondPic->GetHeight(),
+					pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
+					pSecondPic->GetColorDepth());
+			}
+			else
+			{
+				_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+					(TCHAR const *)ResString(hResource, IDS_IMAGEINFO),
+					picture.GetFileSizeAsText().c_str(), 
+					picture.GetWidth(), picture.GetHeight(),
+					picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+					picture.GetColorDepth(),
+					(UINT)(GetZoom()*100.0));
+			}
+			// set the font
+			HFONT hFont = CreateFont(-MulDiv(8, GetDeviceCaps(memDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
+			HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
+			// find out how big the rectangle for the text has to be
+			DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
+
+			// the text should be drawn with a four pixel offset to the window borders
+			m_inforect.top = rect.bottom - (m_inforect.bottom-m_inforect.top) - 4;
+			m_inforect.bottom = rect.bottom-4;
 			if (bShowInfo)
 			{
-				RECT inforect;
-				inforect.left = rect.left+4;
-				inforect.top = rect.top;
-				inforect.right = rect.right;
-				inforect.bottom = rect.bottom;
-
-				TCHAR infostring[8192];
-				if (pSecondPic)
-				{
-					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-						(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFO),
-						pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
-						picture.GetFileSizeAsText().c_str(),
-						picture.GetWidth(), picture.GetHeight(),
-						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-						picture.GetColorDepth(),
-						(UINT)(GetZoom()*100.0),
-						pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
-						pSecondPic->GetFileSizeAsText().c_str(),
-						pSecondPic->GetWidth(), pSecondPic->GetHeight(),
-						pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
-						pSecondPic->GetColorDepth());
-				}
-				else
-				{
-					_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-						(TCHAR const *)ResString(hResource, IDS_IMAGEINFO),
-						picture.GetFileSizeAsText().c_str(), 
-						picture.GetWidth(), picture.GetHeight(),
-						picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-						picture.GetColorDepth(),
-						(UINT)(GetZoom()*100.0));
-				}
-				// set the font
-				HFONT hFont = CreateFont(-MulDiv(8, GetDeviceCaps(memDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
-				HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
-				// find out how big the rectangle for the text has to be
-				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
-
-				// the text should be drawn with a four pixel offset to the window borders
-				inforect.top = rect.bottom - (inforect.bottom-inforect.top) - 4;
-				inforect.bottom = rect.bottom-4;
-
 				// first draw an edge rectangle
 				RECT edgerect;
-				edgerect.left = inforect.left-4;
-				edgerect.top = inforect.top-4;
-				edgerect.right = inforect.right+4;
-				edgerect.bottom = inforect.bottom+4;
+				edgerect.left = m_inforect.left-4;
+				edgerect.top = m_inforect.top-4;
+				edgerect.right = m_inforect.right+4;
+				edgerect.bottom = m_inforect.bottom+4;
 				::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &edgerect, NULL, 0, NULL);
 				DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
 
 				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
-				DrawText(memDC, infostring, -1, &inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
+				DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
 				SelectObject(memDC, (HGDIOBJ)hFontOld);
 				DeleteObject(hFont);
+				PositionTrackBar();
 			}
 		}
 		else
@@ -839,4 +902,29 @@ void CPicWindow::PositionChildren()
 bool CPicWindow::HasMultipleImages()
 {
 	return (((nDimensions > 1)||(nFrames > 1))&&(pSecondPic == NULL));
+}
+
+HWND CPicWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
+{ 
+	HWND hwndTrack = CreateWindowEx( 
+		0,									// no extended styles 
+		TRACKBAR_CLASS,						// class name 
+		_T("Trackbar Control"),				// title (caption) 
+		WS_CHILD | WS_VISIBLE | TBS_VERT | TBS_TOOLTIPS | TBS_NOTICKS,	// style 
+		10, 10,								// position 
+		200, 30,							// size 
+		hwndParent,							// parent window 
+		(HMENU)TRACKBAR_ID,					// control identifier 
+		hResource,							// instance 
+		NULL								// no WM_CREATE parameter 
+		); 
+
+	SendMessage(hwndTrack, TBM_SETRANGE, 
+		(WPARAM) TRUE,						// redraw flag 
+		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
+	SendMessage(hwndTrack, TBM_SETTIPSIDE, 
+		(WPARAM) TBTS_TOP,						// redraw flag 
+		(LPARAM) 0);		// min. & max. positions 
+
+	return hwndTrack; 
 }

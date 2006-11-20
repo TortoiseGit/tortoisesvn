@@ -89,6 +89,9 @@
 - CHG: When doing actions (e.g. move/copy/...) in the repository browser,
        the dialog asking for the log message indicates clearly what action
        is done. See issue #296 for details. (Stefan)
+- CHG: The alpha slider in TortoiseIDiff got moved down to the infobox
+       and made smaller to faster change from 0 to 255 alpha.
+       See issue #299 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD
