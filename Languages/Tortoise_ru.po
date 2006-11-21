@@ -38,13 +38,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8041: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8062: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-17 10:32+0300\n"
+"PO-Revision-Date: 2006-11-21 19:51+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1732,10 +1732,28 @@ msgstr "Скопировано"
 msgid "Copied remotely"
 msgstr "Скопировано удаленно"
 
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Копирование %ld элеметов в\r\n"
+"%s"
+
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Копирование %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Копирование %s\r\n"
+"в %s"
 
 # Заголовок окна
 #: Dlg-ID:142
@@ -1919,6 +1937,15 @@ msgstr "Создание хранилища"
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
 msgstr "Создать копию в хранилище из:"
+
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Создание новой папки:\r\n"
+"%s"
 
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2243,6 +2270,7 @@ msgstr "Увеличить окно до полного размера"
 
 # Заголовок окна
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Ввод сообщения журнала"
 
@@ -2793,9 +2821,41 @@ msgstr "Игнорировать &завершения строк(рекомен
 msgid "Import"
 msgstr "Импорт"
 
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Импорт %ld элементов"
+
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&Сообщение импорта"
+
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Импорт файла %s\r\n"
+"в %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Импорт файла в\r\n"
+"%s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Импорт папки %s\r\n"
+"в %s"
 
 #: ID:120
 #, c-format
@@ -3198,6 +3258,7 @@ msgid "Merging requires different revisions or different URLs in 'From:' and 'To
 msgstr "Для слияния необходимы различные ревизии или различные URL в полях 'С:' и 'По:'"
 
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Сообщение"
 
@@ -3245,6 +3306,24 @@ msgstr "Другие цвета..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Наиболее активный автор:"
+
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Перемещение %ld элеметов в\r\n"
+"%s"
+
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Перемещение %s\r\n"
+"в %s"
 
 #: ID:98
 #, c-format
@@ -3895,6 +3974,16 @@ msgstr "Удаленное состояние"
 msgid "Remote text status"
 msgstr "Удаленное состояние текста"
 
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Удаление %ld элементов"
+
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Удаление %s"
+
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Удалить из списка &игнорирования"
@@ -3939,6 +4028,15 @@ msgstr "Переименование"
 #, c-format
 msgid "Rename %s"
 msgstr "Переименовать %s"
+
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Перемещение элемента из %s\r\n"
+"в %s"
 
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5784,6 +5882,16 @@ msgstr ""
 "Вы пытаетесь обратится к хранилищу посредством file:/// на сетевом диске.\n"
 "Это может привести к сильному повреждению хранилища!\n"
 "Вы действительно хотите это сделать?"
+
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Вы пытаетесь переместить папку trunk!\n"
+"Вы абсолютно уверены в том, что вам необходимо\n"
+"переместить именно её?"
 
 #: ID:16
 msgid ""
