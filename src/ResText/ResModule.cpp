@@ -1291,7 +1291,14 @@ BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR 
 	CResModule* lpResModule = (CResModule*)lParam;
 
 
-	lpResModule->m_hUpdateRes = BeginUpdateResource(lpResModule->sDestFile.c_str(), FALSE);
+	int count = 0;
+	do 
+	{
+		lpResModule->m_hUpdateRes = BeginUpdateResource(lpResModule->sDestFile.c_str(), FALSE);
+		if (lpResModule->m_hUpdateRes == NULL)
+			Sleep(100);
+	} while ((lpResModule->m_hUpdateRes == NULL)&&(count < 5));
+
 	if (lpszType == RT_STRING)
 	{
 		if (IS_INTRESOURCE(lpszName))
