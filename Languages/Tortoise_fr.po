@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-29 20:22+0100\n"
+"PO-Revision-Date: 2006-11-21 01:28+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -387,7 +387,7 @@ msgstr "Utilis&er un serveur proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
+msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Entrez un message décrivant pourquoi vous verrouillez le(s) fichier(s)."
 
 #: MenuEntry
@@ -406,6 +406,10 @@ msgstr "&Externe"
 #: MenuEntry
 msgid "&File"
 msgstr "&Fichier"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filtrer"
 
 #: MenuEntry
 msgid "&Find"
@@ -1693,6 +1697,10 @@ msgstr "Comparer les révisions &HEAD"
 msgid "Compare and &blame with working BASE"
 msgstr "Comparer et &condamner avec la BASE de travail"
 
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Comparer et condamner avec la révision précédente"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Comparaison avec la copie de travai&l"
@@ -1700,6 +1708,10 @@ msgstr "Comparaison avec la copie de travai&l"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Comparer avec la b&ase"
+
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Comparer avec la révision précédente"
 
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -1762,10 +1774,29 @@ msgstr "Copié"
 msgid "Copied remotely"
 msgstr "Copié à distance"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Copier %ld éléments vers\r\n"
+"%s"
+
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Copier %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Copier %s\r\n"
+"vers %s"
 
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1953,6 +1984,15 @@ msgstr "Créer un référentiel ici..."
 msgid "Create copy in the repository from:"
 msgstr "Créer une copie dans le référentiel depuis :"
 
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Créer un nouveau répertoire : \r\n"
+"%s"
+
 #: ID:8
 msgid "Create repositor&y here..."
 msgstr "Créer un ré&férentiel ici..."
@@ -2013,6 +2053,14 @@ msgstr "Date"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "&Nombre par défaut de commentaires"
+
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Supprimer les éléments non versionnés"
+
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Supprimer les éléments non versionnés"
 
 #: ID:73
 #: ID:264
@@ -2276,6 +2324,7 @@ msgid "Enlarge the window to full size"
 msgstr "Agrandir la fenêtre à la taille de l'écran"
 
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Entrer un commentaire"
 
@@ -2348,6 +2397,14 @@ msgstr "Chemins exclus :"
 #: ID:209
 msgid "Explore to"
 msgstr "Explorer vers"
+
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Exporter"
+
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Exporter le &répertoire :"
 
 #: ID:94
 msgid "Export directory:"
@@ -2479,6 +2536,11 @@ msgstr ""
 "Profondeur :\t\t\t%d bit\n"
 "Zoom :\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Filtrer les chemins suivants (séparer les chemins avec le caractère '*') :"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Rechercher"
@@ -2511,6 +2573,7 @@ msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Pour l'historique complet, déselectionnez \"Arrêt à la copie/renommage\""
 
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Du :"
 
@@ -2650,6 +2713,13 @@ msgstr "Type de graphique :"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "Cacher les chem&ins changés sans relation"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 #: Control-ID:1004
 msgid "Help"
@@ -2834,9 +2904,41 @@ msgstr "Ignor&er les fins de lignes (recommandé)"
 msgid "Import"
 msgstr "Importer"
 
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Importer %d éléments"
+
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Co&mmentaire de l'import"
+
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Importer le fichier %s\r\n"
+"vers %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Importer le fichier vers\r\n"
+"%s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Importer le répertoire %s\r\n"
+"vers %s"
 
 #: ID:120
 #, c-format
@@ -2851,6 +2953,11 @@ msgstr "Importe le répertoire dans un référentiel"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Inclure les fichiers ignorés"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Inclure seulement la plage de révisions suivante :"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -3260,6 +3367,7 @@ msgid "Merging requires different revisions or different URLs in 'From:' and 'To
 msgstr "La fusion nécessite des révisions ou des URLs différentes dans 'De :' et 'À :'"
 
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Commentaire"
 
@@ -3311,6 +3419,26 @@ msgstr "Plus de couleurs..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Auteur le plus actif :"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Déplacer %ld éléments vers\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Déplacer %s\r\n"
+"vers %s"
 
 #: ID:98
 #, c-format
@@ -3583,6 +3711,15 @@ msgstr "Autres"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Plus de mémoire."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Remplace le réglage de la propriété svn:eol-style.\n"
+"Les fichiers sans cette propriété définie ne sont pas affectés."
 
 # ID:99,
 #: ID:99
@@ -3970,6 +4107,16 @@ msgstr "Statut distant"
 msgid "Remote text status"
 msgstr "Statut des propriétés textes distantes"
 
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Supprimer %d éléments"
+
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Supprimer %s"
+
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Retirer de la liste des &ignorés"
@@ -3997,6 +4144,11 @@ msgstr ""
 "%s\n"
 "ont été retirés de la liste des ignorés."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Supprime "
+
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Retire le fichier ou le filtre de fichier de la liste des ignorés"
@@ -4009,6 +4161,16 @@ msgstr "Renommer"
 #, c-format
 msgid "Rename %s"
 msgstr "Renommer %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Renommer l'élément %s\r\n"
+"en %s"
 
 #: Control-ID:65535
 msgid "Renamed node"
@@ -4170,6 +4332,10 @@ msgstr "Révision / Auteur :"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Graphique de révision "
+
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Filtre du graphique de révision "
 
 #: Dlg-ID:228
 msgid "Revision Range"
@@ -4645,7 +4811,7 @@ msgstr "Affiche %ld noeuds"
 #: ID:115
 #, c-format
 msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "Affiche %ld révisions, depuis la révision %ld à la révision %ld - %ld révisions sélectionnées"
+msgstr "Affiche %ld révision(s), de la révision %ld à la révision %ld - %ld révision(s) sélectionnée(s)"
 
 # ID:272,
 #: ID:272
@@ -5333,6 +5499,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Au :"
 
@@ -5921,6 +6088,17 @@ msgstr ""
 "Ceci peut créer une grave corruption du référentiel !\n"
 "Voulez vous vraiment faire ceci ?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Vous essayez de déplacer le répertoire trunk !\n"
+"Êtes-vous absolument certain de vouloir déplacer\n"
+"le répertoire trunk ?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -6226,6 +6404,10 @@ msgstr ""
 msgid "deleted"
 msgstr "effacé"
 
+#: Control-ID:1342
+msgid "eol style"
+msgstr "Style de fin de ligne"
+
 #: ID:79
 #, c-format
 msgid ""
@@ -6474,6 +6656,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Mettez ceci au numéro de la langue dans laquelle vous souhaitez écrire vos commentaires.\n"
 "TortoiseSVN chargera le module de correction orthographique approprié s'il est disponible."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Liste de propriétés définies par l'utilisateur (séparées par des sauts de ligne) qui seront proposées\n"
+"à la sélection dans la boîte de dialogue de propriétés pour les fichiers."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Liste de propriétés définies par l'utilisateur (séparées par des sauts de ligne) qui seront proposées\n"
+"à la sélection dans la boîte de dialogue de propriétés pour les dossiers."
 
 # ID:15,
 #: ID:15
