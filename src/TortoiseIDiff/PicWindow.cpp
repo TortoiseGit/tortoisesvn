@@ -120,6 +120,31 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_LBUTTONDOWN:
 		SetFocus(*this);
+		ptPanStart.x = GET_X_LPARAM(lParam);
+		ptPanStart.y = GET_Y_LPARAM(lParam);
+		startVScrollPos = nVScrollPos;
+		startHScrollPos = nHScrollPos;
+		break;
+	case WM_MOUSEMOVE:
+		{
+			if (wParam & MK_LBUTTON)
+			{
+				// pan the image
+				int xPos = GET_X_LPARAM(lParam); 
+				int yPos = GET_Y_LPARAM(lParam); 
+				nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
+				nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
+				SetupScrollBars();
+				InvalidateRect(*this, NULL, TRUE);
+				if (bLinked)
+				{
+					pTheOtherPic->nHScrollPos = nHScrollPos;
+					pTheOtherPic->nVScrollPos = nVScrollPos;
+					pTheOtherPic->SetupScrollBars();
+					InvalidateRect(*pTheOtherPic, NULL, TRUE);
+				}
+			}
+		}
 		break;
 	case WM_DROPFILES:
 		{

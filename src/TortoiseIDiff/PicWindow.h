@@ -36,6 +36,13 @@
 #define SLIDER_WIDTH 30
 
 
+#ifndef GET_X_LPARAM
+#define GET_X_LPARAM(lp)                        ((int)(short)LOWORD(lp))
+#endif
+#ifndef GET_Y_LPARAM
+#define GET_Y_LPARAM(lp)                        ((int)(short)HIWORD(lp))
+#endif
+
 /**
  * The image view window.
  * Shows an image and provides methods to scale the image or alpha blend it
@@ -158,6 +165,9 @@ protected:
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position
 	int					nHScrollPos;		///< horizontal scroll position
+	POINT				ptPanStart;			///< the point of the last mouseclick
+	int					startVScrollPos;	///< the vertical scroll position when panning starts
+	int					startHScrollPos;	///< the horizontal scroll position when panning starts
 	// image frames/dimensions
 	UINT				nDimensions;
 	UINT				nCurrentDimension;
