@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-14 10:23+0800\n"
+"PO-Revision-Date: 2006-11-21 10:05+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,10 @@ msgstr "外部(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "檔案(&F)"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "過濾條件(&F)"
 
 #: MenuEntry
 msgid "&Find"
@@ -2091,11 +2095,31 @@ msgstr "已複製"
 msgid "Copied remotely"
 msgstr "遠端複製完成"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"複製 %ld 項至\r\n"
+" %s"
+
 # ID:80,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "複製 %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"複製 %s\r\n"
+"至 %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2310,6 +2334,16 @@ msgstr "建立檔案庫"
 msgid "Create copy in the repository from:"
 msgstr "建立分支/標記於伺服器端:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"建立目錄:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2381,6 +2415,18 @@ msgstr "日期"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "預設的紀錄訊息數目(&N)"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "刪除無版本控制的檔案"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "刪除無版本控制的檔案"
 
 # ID:11,#:
 # ID:73,#:
@@ -2694,6 +2740,7 @@ msgstr "將視窗放到最大"
 # ID:126,#:
 # Control-ID:1065,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "輸入紀錄訊息"
 
@@ -2946,6 +2993,11 @@ msgstr ""
 "色深:\t\t\t%d bit\n"
 "比例:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "濾出下列路徑 (以 '*' 分隔多個路徑)"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "搜尋"
@@ -2981,6 +3033,7 @@ msgstr "要列出完整歷程紀錄請勿選擇\"複製/重新命名時停止\""
 
 # Control-ID:65535,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "從:"
 
@@ -3132,6 +3185,13 @@ msgstr "圖型類別:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "隱藏無關的異動路徑(&H)"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -3332,10 +3392,46 @@ msgstr "(建議)忽略換行(&E)"
 msgid "Import"
 msgstr "匯入"
 
+# Control-ID:1021,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "匯入 %ld 項"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "匯入訊息(&M)"
+
+# ID:144,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"匯入檔案 %s\r\n"
+"至 %s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"匯入檔案至\r\n"
+" %s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"匯入資料夾 %s \r\n"
+" 至 %s"
 
 # ID:144,
 #: ID:120
@@ -3352,6 +3448,11 @@ msgstr "匯入目錄至檔案庫"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "包含忽略的檔案"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "僅包括下列版本區間:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3801,6 +3902,7 @@ msgstr "合併時, '從:' 和 '到:' 的 URL 或是版本不可以相同"
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "訊息"
 
@@ -3861,6 +3963,26 @@ msgstr "其它顏色..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "最活躍作者:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"移動 %ld 項至\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"移動 %s\r\n"
+"至 %s"
 
 # ID:97,
 #: ID:98
@@ -4675,6 +4797,18 @@ msgstr "遠端狀態"
 msgid "Remote text status"
 msgstr "遠端文字狀態"
 
+# Control-ID:1021,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "移除 %ld 項"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "移除 %s"
+
 # ID:13,
 #: ID:15
 msgid "Remove from &ignore list"
@@ -4707,6 +4841,11 @@ msgstr ""
 "%s\n"
 "檔名樣式."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "移除所有無版本控制和忽略的項目"
+
 # ID:13,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4722,6 +4861,16 @@ msgstr "重新命名"
 #, c-format
 msgid "Rename %s"
 msgstr "重新命名 %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"變更項目名稱 %s\r\n"
+"至 %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -4925,6 +5074,11 @@ msgstr "版本 / 作者:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "版本圖"
+
+# ID:75,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "版本圖過濾條件"
 
 # ID:75,
 #: Dlg-ID:228
@@ -6243,6 +6397,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "到:"
 
@@ -6937,6 +7092,17 @@ msgstr ""
 "協定存取檔案庫.\n"
 "這可能造成嚴重的檔案庫損壞!\n"
 "確定要這樣做嗎?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"你正嘗試移動主幹資料夾!\n"
+"你確定真的要移動主幹資料\n"
+"夾嗎?"
 
 # ID:16,
 #: ID:16
