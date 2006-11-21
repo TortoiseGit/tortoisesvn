@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-18 17:48+0100\n"
+"PO-Revision-Date: 2006-11-20 13:25+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2125,11 +2125,31 @@ msgstr "Skopírované"
 msgid "Copied remotely"
 msgstr "Vzdialene skopírované"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopírovať %ld objektov do\r\n"
+"%s"
+
 # ID:103,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopíruj %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopírovať %s\r\n"
+"do %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2344,6 +2364,16 @@ msgstr "Vytvoriť úložisko"
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
 msgstr "Vytvoriť kópiu v úložisku z:"
+
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Vytvoriť nový adresár:\r\n"
+"%s"
 
 # ID:8,
 #: ID:8
@@ -2744,6 +2774,7 @@ msgstr "Zväčšiť okno na plnú veľkosť"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Zadaj správu denníka"
 
@@ -3403,10 +3434,47 @@ msgstr "Ignorovať &konce riadkov (doporučené)"
 msgid "Import"
 msgstr "Importovať"
 
+# &Ignoruj položky
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Importovať %ld objektov"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Importovať &správu"
+
+# ID:120,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Importovať súbor %s\r\n"
+"do %s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Importovať súbor do\r\n"
+"%s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Importovať adresár %s\r\n"
+"do %s"
 
 # ID:120,
 #: ID:120
@@ -3887,6 +3955,7 @@ msgstr "Zlučovanie vyžaduje rozdielne revízie, alebo rozdielne URL adresy v Z
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Správa"
 
@@ -3949,6 +4018,26 @@ msgstr "Viac farieb..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Najaktívnejší autor:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Presunúť %ld objektov do\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Presunúť %s\r\n"
+"do %s"
 
 # ID:98,
 #: ID:98
@@ -4771,6 +4860,19 @@ msgstr "Vzdialený stav"
 msgid "Remote text status"
 msgstr "Stav vzdialeného textu"
 
+# &Ignoruj položky
+# ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Odstrániť %ld objektov"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Odstrániť %s"
+
 # ID:15,
 #: ID:15
 msgid "Remove from &ignore list"
@@ -4824,6 +4926,16 @@ msgstr "Premenovanie"
 #, c-format
 msgid "Rename %s"
 msgstr "Premenovat %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Premenovať objekt z %s\r\n"
+"na %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -7048,6 +7160,17 @@ msgstr ""
 "Snažíte sa pristúpiť k sieťovému úložisku pomocou file:/// \n"
 "Toto može viesť vážnemu poškodeniu úložiska!\n"
 "Naozaj to chcete?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Pokúšate sa presunúť kmeňový adresár!\n"
+"Ste si naozaj istý, že chcete presunúť\n"
+"kmeňový adresár?"
 
 # ID:16,
 #: ID:16
