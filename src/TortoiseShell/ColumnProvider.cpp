@@ -46,7 +46,7 @@ extern void Unescape(char * psz);
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
 	PreserveChdir preserveChdir;
-	if (dwIndex > 7)
+	if (dwIndex > 8)
 		return S_FALSE;
 
 	ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
