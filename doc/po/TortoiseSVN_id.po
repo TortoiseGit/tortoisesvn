@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-20 22:16+0700\n"
+"PO-Revision-Date: 2006-11-22 19:17+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2293,21 +2293,18 @@ msgstr "Jika Anda mengamankan server Anda dengan SSL dan menggunakan otentikasi 
 # Indonesian#: source/TortoiseSVN_en.xml:2205(para)
 #: source/TortoiseSVN_en.xml:2197
 #: (para)
-#, fuzzy
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
 msgstr "mendefinisikan direktif &lt;Location /path&gt; terpisah dalam file konfig apache, dan tambah <literal>SSPIBasicPreferred On</literal>. Ini akan membolehkan IE untuk mengotentikasi lagi, tapi browser lain dan Subversion tidak akan bisa untuk mengotentikasi terhadap lokasi itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2216(para)
 #: source/TortoiseSVN_en.xml:2207
 #: (para)
-#, fuzzy
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
 msgstr "Menawarkan browsing dengan otentikasi tidak dienkripsi (tanpa SSL) juga. Sangat aneh IE tidak mempunyai masalah dengan otentikasi jika koneksi tidak diamankan dengan SSL."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2224(para)
 #: source/TortoiseSVN_en.xml:2215
 #: (para)
-#, fuzzy
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
@@ -2315,16 +2312,15 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want ntlm authentication you have to use keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
 msgstr ""
-"Dakan penyiapan ssl \"standar\" sering ada pernyataan berikut dalam hist ssl virtual apache: <screen>\n"
+"Dalam penyiapan ssl \"standar\" sering ada pernyataan berikut dalam host ssl virtual apache: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
 "             nokeepalive ssl-unclean-shutdown \\\n"
 "             downgrade-1.0 force-response-1.0\n"
-"</screen> Ada alasan baik untuk konfigurasi ini, lihat <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Tapi jika Anda menginginkan otentikasi ntlm Anda harus menggunakan keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> Jika Anda membuang komentar seluruh \"SetEnvIf\" Anda harus bisa untuk mengotentikasi IE dengan otentikasi windows di atas SSL terhadap apache pada Win32 dengan menyertakan mod_auth_sspi."
+"</screen> (Dulu ?) Ada alasan baik untuk konfigurasi ini, lihat <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Tapi jika Anda menginginkan otentikasi ntlm Anda harus menggunakan keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> Jika Anda membuang komentar seluruh \"SetEnvIf\" Anda seharusnya bisa untuk mengotentikasi IE dengan otentikasi windows di atas SSL terhadap apache pada Win32 dengan menyertakan mod_auth_sspi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2200(para)
 #: source/TortoiseSVN_en.xml:2192
 #: (para)
-#, fuzzy
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
 msgstr "Jika Anda masih ingin menggunakan IE untuk melihat repositori Anda bisa: <placeholder-1/>"
 
@@ -2343,28 +2339,25 @@ msgstr "Otentikasi multipel"
 # Indonesian#: source/TortoiseSVN_en.xml:2254(para)
 #: source/TortoiseSVN_en.xml:2246
 #: (para)
-#, fuzzy
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
 msgstr "Ini juga mungkin untuk mempunyai lebih dari satu sumber otentikasi untuk repositori Subversion Anda. Untuk melakukan ini, Anda perlu untuk membuat setiap tipe otentikasi non-authoritative, agar Apache memeriksa sumber multipel untuk nama pengguna/kata sandi yang sama."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2261(para)
 #: source/TortoiseSVN_en.xml:2252
 #: (para)
-#, fuzzy
 msgid "A common scenario is to use both Windows domain authentication and a <literal>passwd</literal> file, so that you can provide SVN access to users who don't have a Windows domain login."
 msgstr "Skenario umum adalah menggunakan keduanya, otentikasi Windows domain dan file <literal>passwd</literal>, agar Anda bisa menyediakan akses SVN ke pengguna yang tidak mempunyai login Windows domain."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2268(para)
 #: source/TortoiseSVN_en.xml:2259
 #: (para)
-#, fuzzy
 msgid ""
 "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\n"
 "AuthAthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
-"Untuk menghidupkan keduanya, otentikasi Windows domain dan file passwd, tambah entri berikut di dalam <literal>&lt;Location&gt;</literal> blok dari file konfig Apache Anda: <screen>\n"
+"Untuk menghidupkan baik otentikasi Windows domain maupun file passwd, tambahkan entri berikut di dalam blok <literal>&lt;Location&gt;</literal> dari file konfig Apache Anda: <screen>\n"
 "AuthAthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
@@ -2372,7 +2365,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2279(para)
 #: source/TortoiseSVN_en.xml:2270
 #: (para)
-#, fuzzy
 msgid ""
 "Here is an example of the full Apache configuration for combined Windows domain &amp; <literal>passwd</literal> file authentication: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -2439,28 +2431,24 @@ msgstr "SSL"
 # Indonesian#: source/TortoiseSVN_en.xml:2313(para)
 #: source/TortoiseSVN_en.xml:2304
 #: (para)
-#, fuzzy
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
 msgstr "Server apache tidak mempunyai dukungan SSL terinstalasi secara standar karena batasan ekspor-Amerika. Tapi Anda bisa dengan mudah mendownload modul yang diperlukan dari suatu tempat lain dan menginstalasinya sendiri."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2321(para)
 #: source/TortoiseSVN_en.xml:2311
 #: (para)
-#, fuzzy
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
 msgstr "Pertama Anda perlu file yang dibutuhkan untuk menghidupkan SSL. Anda bisa menemukan itu dalam paket yang tersedia di <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Cukup unzip paket dan lalu copy <filename>mod_ssl.so</filename> ke folder <filename>modules</filename> dari Apache dan file <filename>openssl.exe</filename> ke folder <filename>bin</filename>. Juga copy file <filename>conf/ssl.conf</filename> ke folder <filename>conf</filename> Apache."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2337(para)
 #: source/TortoiseSVN_en.xml:2327
 #: (para)
-#, fuzzy
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
 msgstr "Buka file <filename>ssl.conf</filename> dalam folder conf Apache dengan editor teks."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2344(para)
 #: source/TortoiseSVN_en.xml:2334
 #: (para)
-#, fuzzy
 msgid ""
 "Place a comment char (<literal>#</literal>) in front of the following lines: <screen>\n"
 "DocumentRoot \"c:/apache/htdocs\"\n"
@@ -2481,7 +2469,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2357(para)
 #: source/TortoiseSVN_en.xml:2347
 #: (para)
-#, fuzzy
 msgid ""
 "change the line <screen>\n"
 "SSLCertificateFile conf/ssl.crt/server.crt\n"
@@ -2514,7 +2501,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2385(para)
 #: source/TortoiseSVN_en.xml:2375
 #: (para)
-#, fuzzy
 msgid ""
 "Delete the lines <screen>\n"
 "&lt;IfDefine SSL&gt;\n"
@@ -2531,7 +2517,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2397(para)
 #: source/TortoiseSVN_en.xml:2387
 #: (para)
-#, fuzzy
 msgid ""
 "Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n"
 "#LoadModule ssl_module modules/mod_ssl.so\n"
@@ -2544,14 +2529,12 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2406(para)
 #: source/TortoiseSVN_en.xml:2396
 #: (para)
-#, fuzzy
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
 msgstr "Openssl memerlukan file konfig. Anda bisa mendownload yang bekerja dari <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Simpan file ke <filename>bin/openssl.cnf</filename>. Harap dicatat: file mempunyai tipe <filename>*.cnf</filename>. Windows memperlakukan file tersebut dalam cara khusus tapi ia benar-benar file teks!"
 
 # Indonesian#: source/TortoiseSVN_en.xml:2420(para)
 #: source/TortoiseSVN_en.xml:2410
 #: (para)
-#, fuzzy
 msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
 "bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
@@ -2564,7 +2547,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2436(para)
 #: source/TortoiseSVN_en.xml:2425
 #: (para)
-#, fuzzy
 msgid ""
 "Normally the <filename>privkey.pem</filename> file is created automatically, but if it isn't you need to type this command to generate it: <screen>\n"
 "bin\\openssl genrsa -out privkey.pem 2048\n"
@@ -2577,7 +2559,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2444(para)
 #: source/TortoiseSVN_en.xml:2433
 #: (para)
-#, fuzzy
 msgid ""
 "Next type the commands <screen>\n"
 "bin\\openssl rsa -in privkey.pem -out my-server.key\n"
@@ -2606,7 +2587,6 @@ msgstr "Mulai lagi layanan apache."
 # Indonesian#: source/TortoiseSVN_en.xml:2478(para)
 #: source/TortoiseSVN_en.xml:2467
 #: (para)
-#, fuzzy
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 msgstr "Arahkan browser Anda ke <systemitem class=\"url\">https://namaserver/svn/project</systemitem> ..."
 
@@ -2619,14 +2599,12 @@ msgstr "Memaksa akses SSL"
 # Indonesian#: source/TortoiseSVN_en.xml:2487(para)
 #: source/TortoiseSVN_en.xml:2476
 #: (para)
-#, fuzzy
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
 msgstr "Ketika Anda telah menyiapkan SSL untuk membuat repositori Anda lebih aman, Anda mungkin ingin mematikan akses normal via non-ssl (http) dan hanya membolehkan akses https. Untuk melakukan ini, Anda harus menambah direktif lain ke Subversion &lt;Location&gt; blok: <literal>SSLRequireSSL</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2494(para)
 #: source/TortoiseSVN_en.xml:2483
 #: (para)
-#, fuzzy
 msgid ""
 "An example &lt;Location&gt; block would look like this: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -2663,14 +2641,12 @@ msgstr "Server Berbasis Svnserve"
 # Indonesian#: source/TortoiseSVN_en.xml:2519(para)
 #: source/TortoiseSVN_en.xml:2508
 #: (para)
-#, fuzzy
 msgid "There may be situations where it's not possible to use Apache as your server. Fortunately, Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection."
-msgstr "Mungkin ada situasi dimana tidak mungkin untuk menggunakan Apache sebagai server Anda. Kebetulan, Subversion menyertakan Svnserve - server sendiri yang ringan yang menggunakan protokol bebas melalui koneksi umum TCP/IP."
+msgstr "Mungkin ada situasi dimana tidak mungkin untuk menggunakan Apache sebagai server Anda. Untungnya, Subversion menyertakan Svnserve - server berdikari yang ringan yang menggunakan protokol kustom melalui koneksi umum TCP/IP."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2525(para)
 #: source/TortoiseSVN_en.xml:2514
 #: (para)
-#, fuzzy
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server."
 msgstr "Dalam banyak kasus svnserve lebih mudah disiapkan dan berjalan lebih cepat daripada server berbasis Apache."
 
@@ -2683,28 +2659,24 @@ msgstr "Menginstalasi svnserve"
 # Indonesian#: source/TortoiseSVN_en.xml:2535(para)
 #: source/TortoiseSVN_en.xml:2524
 #: (para)
-#, fuzzy
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 msgstr "Dapatkan versi terbaru Subversion dari <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2543(para)
 #: source/TortoiseSVN_en.xml:2532
 #: (para)
-#, fuzzy
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
 msgstr "Jika Anda sudah mempunyai versi Subversion terinstalasi, dan svnserve berjalan, Anda perlu menghentikannya sebelum melanjutkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2550(para)
 #: source/TortoiseSVN_en.xml:2538
 #: (para)
-#, fuzzy
 msgid "Run the Subversion installer. If you run the installer on your server you can skip step 4."
 msgstr "Jalankan instalator Subversion. Jika Anda menjalankan instalator pada server Anda bisa melewati langkah ke-4."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2556(para)
 #: source/TortoiseSVN_en.xml:2544
 #: (para)
-#, fuzzy
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb44.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
 msgstr "Buka windows-explorer, pergi ke direktori instalasi Subversion (biasanya <filename>C:\\Program Files\\Subversion</filename>) dan dalam <filename>bin</filename> directory, cari file <filename>svnserve.exe</filename>, <filename>libdb44.dll</filename>, <filename>libeay32.dll</filename> dan <filename>ssleay32.dll</filename> - copy file ini ke dalam direktori pada server Anda contoh. <filename>c:\\svnserve</filename>"
 
@@ -2717,7 +2689,6 @@ msgstr "Menjalankan svnserve"
 # Indonesian#: source/TortoiseSVN_en.xml:2574(para)
 #: source/TortoiseSVN_en.xml:2562
 #: (para)
-#, fuzzy
 msgid ""
 "Now that svnserve is installed, you need it running on your server. The simplest approach is to run the following from a DOS shell or create a windows shortcut: <screen>\n"
 "svnserve.exe --daemon\n"
@@ -2730,21 +2701,18 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2585(para)
 #: source/TortoiseSVN_en.xml:2573
 #: (para)
-#, fuzzy
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 msgstr "Jika Anda belum membuat repositori, ikuti instruksi yang diberikan dengan penyiapan server Apache <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2590(para)
 #: source/TortoiseSVN_en.xml:2578
 #: (para)
-#, fuzzy
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
 msgstr "Untuk menguji apakah svnserve bekerja, gunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> untuk melihat repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2598(para)
 #: source/TortoiseSVN_en.xml:2586
 #: (para)
-#, fuzzy
 msgid ""
 "Assuming your repository is located in <filename>c:\\repos\\TestRepo</filename>, and your server is called <filename>localhost</filename>, enter: <screen>\n"
 "svn://localhost/repos/TestRepo\n"
@@ -2757,7 +2725,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2607(para)
 #: source/TortoiseSVN_en.xml:2595
 #: (para)
-#, fuzzy
 msgid ""
 "You can also increase security and save time entering Url's with svnserve by using the --root switch to set the root location and restrict access to a specified directory on the server: <screen>\n"
 "svnserve.exe --daemon --root drive:\\path\\to\\repository\n"
@@ -2788,14 +2755,12 @@ msgstr "svnservice"
 # Indonesian#: source/TortoiseSVN_en.xml:2644(para)
 #: source/TortoiseSVN_en.xml:2630
 #: (para)
-#, fuzzy
 msgid "If you are concerned about always having a user logged in on your server, or worried about someone shutting down svnserve or forgetting to restart it after a reboot, it is possible to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service, in previous versions it can be installed using a wrapper."
-msgstr "Jika Anda khawarir tentang pengguna masuk dalam server Anda, atau cemas mengenai seseorang mematikan svnserve atau lupa untuk memulai lagi setelah reboot, dimungkinkan untuk menjalankan svnserve sebagai layanan windows. Dimulai dengan Subversion 1.4, svnserve bisa diinstalasi sebagai layanan murni windows, dalam versi sebelumnya bisa diinstalasi menggunakan pembungkus."
+msgstr "Jika Anda khawatir tentang pengguna masuk dalam server Anda, atau cemas mengenai seseorang mematikan svnserve atau lupa untuk memulai lagi setelah penghidupan ulang, dimungkinkan untuk menjalankan svnserve sebagai layanan windows. Dimulai dengan Subversion 1.4, svnserve bisa diinstalasi sebagai layanan murni windows, dalam versi sebelumnya bisa diinstalasi menggunakan pembungkus."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2653(para)
 #: source/TortoiseSVN_en.xml:2638
 #: (para)
-#, fuzzy
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
@@ -2810,7 +2775,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2663(para)
 #: source/TortoiseSVN_en.xml:2648
 #: (para)
-#, fuzzy
 msgid ""
 "Microsoft now recommend services to be run as under either the Local Service or Network Service account. Refer to <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. To create the service under the Local Service account, append the following to the example above. <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
@@ -2823,21 +2787,18 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2679(para)
 #: source/TortoiseSVN_en.xml:2664
 #: (para)
-#, fuzzy
 msgid "To install svnserve using a wrapper, one written specifically for svnserve is <literal>SvnService</literal>. Magnus Norddahl adapted some skeleton code from Microsoft, and further improvements have been made by Daniel Thompson. Daniel's version is available for download from <ulink url=\"http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip\"><citetitle>tigris.org</citetitle></ulink>."
-msgstr "Untuk menginstalasi svnserve menggunakan pembungkus, satu ditulis terutama untuk svnserve adalah <literal>SvnService</literal>. Magnus Norddahl mengadaptasi beberapa kode dari Microsoft, dan peningkatan selanjutnya sudah dibuat oleh Daniel Thompson. Versi Daniel tersedia untuk didownload dari <ulink url=\"http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip\"><citetitle>tigris.org</citetitle></ulink>."
+msgstr "Untuk menginstalasi svnserve menggunakan pembungkus, yang ditulis terutama untuk svnserve adalah <literal>SvnService</literal>. Magnus Norddahl mengadaptasi beberapa kerangka kode dari Microsoft, dan peningkatan selanjutnya sudah dibuat oleh Daniel Thompson. Versi Daniel tersedia untuk diunduh dari <ulink url=\"http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip\"><citetitle>tigris.org</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2689(para)
 #: source/TortoiseSVN_en.xml:2674
 #: (para)
-#, fuzzy
 msgid "More generic tools like <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> will also work. Note that you will still need to run svnserve with the --daemon switch."
 msgstr "Piranti lebih umum seperti <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> juga akan bekerja. Catatan bahwa Anda masih perlu untuk menjalankan svnserve dengan saklar --daemon."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2697(para)
 #: source/TortoiseSVN_en.xml:2682
 #: (para)
-#, fuzzy
 msgid "Finally, if you have access to the Windows 2000/XP/2003 resource kit you can use <ulink url=\"http://support.microsoft.com/kb/q137890/\"><citetitle>SrvAny</citetitle></ulink> from Microsoft. This is the official Microsoft way of running programs as services, but it is a bit messy (requires registry editing) and if you stop the service it will kill svnserve immediately without letting it clean up. If you don't want to install the entire reskit, you can download <emphasis>just</emphasis> the SrvAny components from <ulink url=\"http://www.petri.co.il/software/srvany.zip\"><citetitle>Daniel Petri</citetitle></ulink>."
 msgstr "Akhirnya, jika Anda mempunyai akses ke kit resource Windows 2000/XP/2003 Anda bisa menggunakan <ulink url=\"http://support.microsoft.com/kb/q137890/\"><citetitle>SrvAny</citetitle></ulink> dari Microsoft. Ini adalah cara resmi Microsoft menjalankan program sebagai layanan, tapi ini lebih berantakan (memerlukan pengeditan registri) dan jika Anda menghentikan layanan ia akan mematikan svnserve dengan segera tanpa membolehkan pembersihan. Jika Anda tidak ingin menginstalasi keseluruhan reskit, Anda bisa mendownload <emphasis>cukup</emphasis> komponen SrvAny dari <ulink url=\"http://www.petri.co.il/software/srvany.zip\"><citetitle>Daniel Petri</citetitle></ulink>."
 
@@ -2850,21 +2811,18 @@ msgstr "Otentikasi dengan svnserve"
 # Indonesian#: source/TortoiseSVN_en.xml:2719(para)
 #: source/TortoiseSVN_en.xml:2703
 #: (para)
-#, fuzzy
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> Url to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
 msgstr "Penyiapan standar svnserve menyediakan akses hanya-baca anonim. Ini berarti bahwa Anda bisa menggunakan URL <filename>svn://</filename> untuk checkout dan memutahirkan, atau menggunakan repo-browser dalam TortoiseSVN untuk melihat repositori, tapi Anda tidak akan bisa mengkomit setiap perubahan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2726(para)
 #: source/TortoiseSVN_en.xml:2709
 #: (para)
-#, fuzzy
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
 msgstr "Untuk menghidupkan akses tulis ke repositori, Anda perlu mengedit file <filename>conf/svnserve.conf</filename> dalam direktori repositori Anda. File ini mengontrol konfigurasi dari svnserve daemon, dan juga berisi dokumentasi berguna."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2732(para)
 #: source/TortoiseSVN_en.xml:2715
 #: (para)
-#, fuzzy
 msgid ""
 "You can enable anonymous write access by simply setting: <screen>\n"
 "[general]\n"
@@ -2874,12 +2832,11 @@ msgstr ""
 "Anda bisa menghidupkan akses tulis anonim dengan menyeting: <screen>\n"
 "[general]\n"
 "anon-access = write\n"
-"</screen> Tetapi, Anda tidak akan mengetahui siapa yang telah membuat perubahan ke repositori, karena properti <literal>svn:author</literal> akan kosong. Anda juga tidak akan bisa mengontrol siapa yang membuat perubahan ke repositori. Disini bagaimanapun penyiapan yang riskan!"
+"</screen> Tetapi, Anda tidak akan mengetahui siapa yang telah membuat perubahan ke repositori, karena properti <literal>svn:author</literal> akan kosong. Anda juga tidak akan bisa mengontrol siapa yang membuat perubahan ke repositori. Ini adalah sesuatu penyiapan yang riskan!"
 
 # Indonesian#: source/TortoiseSVN_en.xml:2744(para)
 #: source/TortoiseSVN_en.xml:2726
 #: (para)
-#, fuzzy
 msgid ""
 "One way to overcome this is to create a password database: <screen>\n"
 "[general]\n"
@@ -2906,7 +2863,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2773(para)
 #: source/TortoiseSVN_en.xml:2754
 #: (para)
-#, fuzzy
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 msgstr "Jika Anda memelihara multipel repositori menggunakan database kata sandi sama, kegunaan otentikasi akan membuatnya lebih mudah bagi pengguna, karena TortoiseSVN bisa menyimpan mandat Anda agar Anda hanya perlu memasukannya sekali. Informasi lebih jauh bisa ditemukan dalam buku Subversion, terutama dalam seksi <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Buat file 'users' dan realm</citetitle></ulink> dan <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 
@@ -2919,28 +2875,24 @@ msgstr "Mengotentikasi dengan svn+ssh"
 # Indonesian#: source/TortoiseSVN_en.xml:2792(para)
 #: source/TortoiseSVN_en.xml:2773
 #: (para)
-#, fuzzy
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through."
 msgstr "Cara lain untuk mengotentikasi pengguna dengan server berbasis svnserve adalah dengan menggunakan secure shell (SSH) untuk menjembatani permintaan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2797(para)
 #: source/TortoiseSVN_en.xml:2778
 #: (para)
-#, fuzzy
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
 msgstr "Dengan pendekatan ini, svnserve tidak berjalan sebagai proses daemon, sebaliknya, secure shell memulai svnserve bagi Anda, menjalankannya sebagai pengguna terotentikasi SSH. Untuk menghidupkan ini, Anda memerlukan secure shell daemon pada server Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2804(para)
 #: source/TortoiseSVN_en.xml:2784
 #: (para)
-#, fuzzy
 msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.net/faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Search for <quote>SSH</quote>."
-msgstr "Ini diluar lingkup dari dokumentasi ini unruk merinci instalasi dan penyiapan secure shell, tetapi Anda bisa mencari informasi lebih jauh dalam <ulink url=\"http://tortoisesvn.net/faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Search for <quote>SSH</quote>."
+msgstr "Ini di luar lingkup dari dokumentasi ini unruk merinci instalasi dan penyiapan secure shell, tetapi Anda bisa mencari informasi lebih jauh dalam <ulink url=\"http://tortoisesvn.net/faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Search for <quote>SSH</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2813(para)
 #: source/TortoiseSVN_en.xml:2793
 #: (para)
-#, fuzzy
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
 msgstr "Informasi selanjutnya mengenai svnserve bisa ditemukan dalam <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Buku SVN</citetitle></ulink>."
 
@@ -2953,7 +2905,6 @@ msgstr "Otorisasi berbasis-path dengan svnserve"
 # Indonesian#: source/TortoiseSVN_en.xml:2822(para)
 #: source/TortoiseSVN_en.xml:2802
 #: (para)
-#, fuzzy
 msgid ""
 "Starting with Subversion 1.3, svnserve supports the same <literal>mod_authz_svn</literal> path-based authorization scheme that is available with the Apache server. You need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory and add a line referring to your authorization file. <screen>\n"
 "[general]\n"
@@ -2968,14 +2919,12 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2845(para)
 #: source/TortoiseSVN_en.xml:2824
 #: (para)
-#, fuzzy
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
 msgstr "Tidak masalah protokol yang Anda gunakan untuk mengakses repositori Anda, Anda selalu perlu untuk membuat setidaknya satu repositori. Ini bisa dikerjakan dengan klien baris perintah Subversion atau dengan TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2851(para)
 #: source/TortoiseSVN_en.xml:2829
 #: (para)
-#, fuzzy
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
 msgstr "Jika Anda belum membuat repositori Subversion, inilah waktu untuk membuatnya sekarang."
 
@@ -2988,14 +2937,12 @@ msgstr "Pembuatan Repositori"
 # Indonesian#: source/TortoiseSVN_en.xml:2860(para)
 #: source/TortoiseSVN_en.xml:2838
 #: (para)
-#, fuzzy
 msgid "You can create a repository with the FSFS backend or with the old but stable Berkeley Database (BDB) format. The FSFS format is faster and it now works on network shares and Windows 98 without problems. The BDB format is more stable because it has been tested longer. Read <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A\"><citetitle>Chapter 5, Repository Data-Stores</citetitle></ulink> in the SVN book for more information."
-msgstr "Anda bisas membuat repositori dengan latar belakang FSFS atau dengan format lama tapi stabil Berkeley Database (BDB). Format FSFS lebih cepat dan sekarang bekerja pada jaringan berbagi dan Windows 98 tanpa masalah. Format BDB lebih stabil karena sudah diuji lebih lama. Baca <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A\"><citetitle>Bab 5, Penyimpanan-Data Repositori</citetitle></ulink> dalam buku SVN untuk informasi lebih jauh."
+msgstr "Anda bisa membuat repositori dengan ujung belakang FSFS atau dengan format lama tapi stabil Berkeley Database (BDB). Format FSFS lebih cepat dan sekarang bekerja pada jaringan berbagi dan Windows 98 tanpa masalah. Format BDB lebih stabil karena sudah diuji lebih lama. Baca <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A\"><citetitle>Bab 5, Penyimpanan-Data Repositori</citetitle></ulink> dalam buku SVN untuk informasi lebih jauh."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2872(title)
 #: source/TortoiseSVN_en.xml:2850
 #: (title)
-#, fuzzy
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Pembuatan Repositori dengan Klien Baris Perintah"
 
@@ -3014,21 +2961,18 @@ msgstr "Klien Baris Perintah"
 # Indonesian#: source/TortoiseSVN_en.xml:2879(para)
 #: source/TortoiseSVN_en.xml:2857
 #: (para)
-#, fuzzy
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
 msgstr "Buat folder kosong dengan nama SVN (contoh <filename>D:\\SVN\\</filename>), yang akan digunakan sebagai akar dari semua repositori Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2886(para)
 #: source/TortoiseSVN_en.xml:2864
 #: (para)
-#, fuzzy
 msgid "Create another folder <filename>MyNewRepository</filename> inside <filename>D:\\SVN\\</filename>."
 msgstr "Buat folder lain <filename>MyNewRepository</filename> di dalam <filename>D:\\SVN\\</filename>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2893(para)
 #: source/TortoiseSVN_en.xml:2871
 #: (para)
-#, fuzzy
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type bdb MyNewRepository\n"
@@ -3036,7 +2980,7 @@ msgid ""
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "</screen>"
 msgstr ""
-"Buka prompt perintah (atau Kotak-DOS), ubah menjadi <filename>D:\\SVN\\</filename> dan ketik <screen>\n"
+"Buka promp perintah (atau Kotak-DOS), ubah ke dalam <filename>D:\\SVN\\</filename> dan ketik <screen>\n"
 "svnadmin create --fs-type bdb MyNewRepository\n"
 "</screen> atau <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
@@ -3045,7 +2989,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:2906(para)
 #: source/TortoiseSVN_en.xml:2884
 #: (para)
-#, fuzzy
 msgid "Now you've got a new repository located at <filename>D:\\SVN\\MyNewRepository</filename>."
 msgstr "Sekarang Anda sudah mendapatkan repositori baru ditempatkan di <filename>D:\\SVN\\MyNewRepository</filename>."
 
@@ -3076,16 +3019,14 @@ msgstr "Buat folder baru dan beri nama, misalnya <filename>SVNRepository</filena
 # Indonesian#: source/TortoiseSVN_en.xml:2936(para)
 #: source/TortoiseSVN_en.xml:2914
 #: (para)
-#, fuzzy
 msgid "<action>Right-click</action> on the newly created folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
 msgstr "<action>Klik-Kanan</action> pada folder yang baru dibuat dan pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Buat Repositori disini...</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2944(para)
 #: source/TortoiseSVN_en.xml:2922
 #: (para)
-#, fuzzy
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
-msgstr "Repositori kemudian dibuat di dalam folder baru. <emphasis>Jangan edit file itu oleh Anda sendiri!!!</emphasis>. Jika Anda mendapatkan kesalahan pastikan bahwa folder kosong dan tidak terkunci penulisan."
+msgstr "Repositori kemudian dibuat di dalam folder baru. <emphasis>Jangan edit file itu oleh Anda sendiri!!!</emphasis>. Jika Anda mendapatkan kesalahan pastikan bahwa folder kosong dan tidak dilindung tulis."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2955(title)
 #: source/TortoiseSVN_en.xml:2933
@@ -3108,30 +3049,26 @@ msgstr "Path UNC"
 # Indonesian#: source/TortoiseSVN_en.xml:2962(para)
 #: source/TortoiseSVN_en.xml:2940
 #: (para)
-#, fuzzy
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
-msgstr "Untuk mengakses repositori lokal Anda memerlukan path ke folder itu. Cukung diingat bahwa Subversion mengharapkan semua path repositori dalam bentuk <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Catatan kegunaan dari garis miring maju."
+msgstr "Untuk mengakses repositori lokal Anda memerlukan path ke folder itu. Ingatlah bahwa Subversion mengharapkan semua path repositori dalam bentuk <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Perlu dicatat penggunaan dari garis miring maju."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2969(para)
 #: source/TortoiseSVN_en.xml:2946
 #: (para)
-#, fuzzy
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
 msgstr "Untuk mengakses repositori yang ditempatkan pada jaringan berbagi Anda bisa menggunakan pemetaan drive, atau Anda bisa menggunakan path UNC. Untuk path UNC, bentuknya adalah <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Catatan bahwa hanya ada 2 garis miring didepannya disini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2976(para)
 #: source/TortoiseSVN_en.xml:2953
 #: (para)
-#, fuzzy
 msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
 msgstr "Sebelum SVN 1.2, path UNC harus diberikan dalam bentuk lebih kabur <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. Bentuk ini masih didukung, tapi tidak direkomendasikan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2983(para)
 #: source/TortoiseSVN_en.xml:2971
 #: (para)
-#, fuzzy
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
-msgstr "Jangan buat atau akses repositori Berkeley DB pada jaringan berbagi. Ia <emphasis>tidak bisa</emphasis> berada pada sistem file remote. Bahkan tidak pula jika Anda mempunyai pemetaan drive jaringan ke huruf drive. Jika Anda mencoba untuk menggunakan Berkeley DB pada jaringan berbagai, hasilnya tidak bisa diprediksi - Anda mungkin segera melihat kesalahan misterius, atau mungkin berbulan-bulan sebelum Anda menemukan bahwa database repositori Anda sudah rusak."
+msgstr "Jika Anda benar-benar membutuhkan mengakses suatu repositori melalui suatu bagi pakai jaringan, buatlah repositori tersebut dengan format fsfs. Jika Anda memerlukan untuk menyediakan akses server juga, Anda akan memerlukan server Subversion 1.1 atau yang lebih tinggi."
 
 #: source/TortoiseSVN_en.xml:2979
 #: (title)
@@ -3146,21 +3083,18 @@ msgstr "backup"
 # Indonesian#: source/TortoiseSVN_en.xml:3008(para)
 #: source/TortoiseSVN_en.xml:2983
 #: (para)
-#, fuzzy
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
 msgstr "Apapun tipe repositori yang Anda gunakan, adalah sangat penting bahwa Anda memelihara cadangan reguler, dan bahwa Anda memverifikasi cadangan. Jika server gagal, Anda mungkin bisa mengakses versi terbaru dari file Anda, tapi tanpa repositori semua histori Anda hilang selamanya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3015(para)
 #: source/TortoiseSVN_en.xml:2990
 #: (para)
-#, fuzzy
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
 msgstr "Cara yang paling sederhana (tapi tidak direkomendasikan) adalah cukup mengcopy folder repositori ke dalam media cadangan. Tetapi, Anda harus benar-benar yakin bahwa tidak ada proses yang sedang mengakses data. Dalam konteks ini, akses berarti <emphasis>setiap</emphasis> akses. Repositori BDB ditulis bahkan saat operasi hanya terlihat saat pembacaan, seperti mendapatkan status. Jika repositori Anda diakses selama peng-copy-an, (web browser dibiarkan terbuka, WebSVN, dll.) cadangan akan sia-sia."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3025(para)
 #: source/TortoiseSVN_en.xml:3000
 #: (para)
-#, fuzzy
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
@@ -3168,12 +3102,11 @@ msgid ""
 msgstr ""
 "Metode yang direkomendasikan untuk dijalankan <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> untuk membuat cadangan dari repositori Anda dalam cara yang aman. Kemudian mencadangkan. Opsi <literal>--clean-logs</literal> tidak diperlukan, tapi menghapus file log mubazir saat Anda mecadangkan repositori BDB, yang bisa menghemat beberapa ruang."
+"</screen> untuk membuat cadangan dari repositori Anda dalam cara yang aman. Kemudian mencadangkan. Opsi <literal>--clean-logs</literal> tidak diperlukan, tapi menghapus file log redundan saat Anda mecadangkan repositori BDB, yang bisa menghemat beberapa ruang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3035(para)
 #: source/TortoiseSVN_en.xml:3010
 #: (para)
-#, fuzzy
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 msgstr "Piranti <literal>svnadmin</literal> diinstalasi secara otomatis saat Anda menginstalasi klien baris perintah Subversion. Jika Anda menginstalasi piranti baris perintah pada Windows PC, cara terbaik adalah mendownload versi instalator Windows. Ia dikompres lebih efisien daripada versi <filename>.zip</filename>, maka download lebih kecil, dan menjaga seting path untuk Anda. Anda bisa mendownload versi terbaru dari kien baris perintah Subversion dari <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
@@ -3192,14 +3125,12 @@ msgstr "hooks"
 # Indonesian#: source/TortoiseSVN_en.xml:3053(para)
 #: source/TortoiseSVN_en.xml:3029
 #: (para)
-#, fuzzy
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Naskah hook adalah program yang dipicu oleh beberapa event repositori, seperti pembuatan revisi baru atau modifikasi dari properti tidak berversi. Setiap hook menangani informasi cukup untuk memberitahu apa event itu, apa sasara operasinya, dan nama pengguna dari orang yang memicu event. Tergantung pada output hook atau status hasil, program hook bisa melanjutkan tindakan, atau menghentikannya, atau menundanya dalam beberapa cara. Silahkan rujuk ke bab pada <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Naskah Hook</citetitle></ulink> dalam Buku Subversion untuk perincian lengkap mengenai hook yang diimplementasikan."
+msgstr "Naskah hook adalah program yang dipicu oleh beberapa peristiwa repositori, seperti pembuatan revisi baru atau modifikasi dari properti tidak berversi. Setiap hook diberi informasi cukup untuk memberitahu apa peristiwa itu, apa sasaran operasinya, dan nama pengguna dari orang yang memicu peristiwa. Tergantung pada output hook atau status hasil, program hook bisa melanjutkan tindakan, atau menghentikannya, atau menundanya dalam beberapa cara. Silahkan rujuk ke bab pada <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Naskah Hook</citetitle></ulink> dalam Buku Subversion untuk perincian lengkap mengenai hook yang diimplementasikan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3068(para)
 #: source/TortoiseSVN_en.xml:3044
 #: (para)
-#, fuzzy
 msgid ""
 "Sample hook scripts can be found in the <filename>hooks</filename> directory of the repository. These sample scripts are suitable for Unix/Linux servers but need to be modified if your server is Windows based. The hook can be a batch file or an executable. The sample below shows a batch file which might be used to implement a pre-revprop-change hook. <screen>\n"
 "rem Only allow log messages to be changed.\n"
@@ -3230,21 +3161,18 @@ msgstr "link checkout"
 # Indonesian#: source/TortoiseSVN_en.xml:3092(para)
 #: source/TortoiseSVN_en.xml:3068
 #: (para)
-#, fuzzy
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TSVN users."
 msgstr "Jika Anda ingin membuat repositori Subversion Anda tersedia bagi yang lain Anda mungkin ingin menyertakan link dari website Anda. Satu cara untuk membuat ini lebih bisa diakses adalah menyertakan <firstterm>link checkout</firstterm> untuk pengguna TSVN lain."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3098(para)
 #: source/TortoiseSVN_en.xml:3074
 #: (para)
-#, fuzzy
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
 msgstr "Ketika Anda menginstalasi TortoiseSVN, ia meregister protokol <literal>tsvn:</literal> baru. Ketika pengguna TSVN mengklik pada link itu, dialog checkout akan dibuka secara otomatis dengan URL repositori yang sudah terisi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3104(para)
 #: source/TortoiseSVN_en.xml:3080
 #: (para)
-#, fuzzy
 msgid ""
 "To include such a link in your own html page, you need to add code which looks something like this: <screen>\n"
 "&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n"
@@ -3257,7 +3185,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:3111(para)
 #: source/TortoiseSVN_en.xml:3087
 #: (para)
-#, fuzzy
 msgid ""
 "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n"
 "&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
@@ -3278,23 +3205,20 @@ msgstr "Bimbingan Penggunaan Harian"
 # Indonesian#: source/TortoiseSVN_en.xml:3131(para)
 #: source/TortoiseSVN_en.xml:3106
 #: (para)
-#, fuzzy
 msgid "This document describes day to day usage of the TortoiseSVN client. It is <emphasis>not</emphasis> an introduction to version control systems, and <emphasis>not</emphasis> an introduction to Subversion (SVN). It is more like a place you may turn to when you know approximately what you want to do, but don't quite remember how to do it."
-msgstr "Dokumen ini menjelaskan dari hari ke hari penggunaan klien TortoiseSVN. Ini <emphasis>bukan</emphasis> pengenalan ke sistem kontrol versi, dan <emphasis>bukan</emphasis> pengenalan pada Subversion (SVN). Ini lebih mirip tempat Anda kembali ketika Anda mengetahui secara tepat apa yang ingin Anda lakukan, tapi tidak begitu ingat bagaimana melakukannya."
+msgstr "Dokumen ini menjelaskan penggunaan dari hari ke hari klien TortoiseSVN. Ini <emphasis>bukan</emphasis> pengenalan ke sistem kontrol versi, dan <emphasis>bukan</emphasis> pengenalan pada Subversion (SVN). Ini lebih mirip tempat Anda kembali ketika Anda mengetahui secara tepat apa yang ingin Anda lakukan, tapi tidak begitu ingat bagaimana melakukannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3139(para)
 #: source/TortoiseSVN_en.xml:3114
 #: (para)
-#, fuzzy
 msgid "If you need an introduction to version control with Subversion, then we recommend you read the fantastic book: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion: The Definitive Guide</citetitle></ulink>."
 msgstr "Jika Anda memerlukan pengenalan terhadap kontrol versi dengan Subversion, maka kami merekomendasikan Anda untuk membaca buku fantastik: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion: Petunjuk Definitif</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3147(para)
 #: source/TortoiseSVN_en.xml:3121
 #: (para)
-#, fuzzy
 msgid "This document is also a work in progress, just as TortoiseSVN and Subversion are. If you find any mistakes, please report them to the mailing list so we can update the documentation. Some of the screenshots in the Daily Use Guide (DUG) might not reflect the current state of the software. Please forgive us. We're working on TortoiseSVN in our free time."
-msgstr "Dokumen ini juga pekerjaan dalam kemajuan, seperti halnya TortoiseSVN dan Subversion. Jika Anda menemukan kesalahan, silahkan melaporkannya ke daftar mailing agar kami bisa memutahirkan dokumentasi. Beberapa foto layar dalam Petunjuk Penggunaan Harian (DUG) mungkin tidak merefleksikan kondisi software saat ini. Tolong maafkan kami. Kami sedang bekerja pada TortoiseSVN dalam waktu bebas kami."
+msgstr "Dokumen ini juga pekerjaan yang sedang berjalan, seperti halnya TortoiseSVN dan Subversion. Jika Anda menemukan kesalahan, silahkan melaporkannya ke milis agar kami bisa memutahirkan dokumentasi. Beberapa foto layar dalam Petunjuk Penggunaan Harian (DUG) mungkin tidak merefleksikan kondisi software saat ini. Tolong maafkan kami. Kami sedang bekerja pada TortoiseSVN dalam waktu bebas kami."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3159(para)
 #: source/TortoiseSVN_en.xml:3132
@@ -3341,7 +3265,6 @@ msgstr "Explorer menampilkan lapisan ikon"
 # Indonesian#: source/TortoiseSVN_en.xml:3188(para)
 #: source/TortoiseSVN_en.xml:3161
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN are the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
 msgstr "<placeholder-1/> Salah satu fitur yang paling terlihat dari TortoiseSVN adalah lapisan ikon yang muncul pada file dalam copy pekerjaan Anda. Ini memperlihatkan kepada Anda file mana yang sudah dimodifikasi. Lihat <xref linkend=\"tsvn-dug-wcstatus-1\"/> untuk mengetahui apa perbedaan lapisan yang mewakili."
 
@@ -3366,7 +3289,6 @@ msgstr "Menu konteks untuk direktori dibawah kontrol versi"
 # Indonesian#: source/TortoiseSVN_en.xml:3205(para)
 #: source/TortoiseSVN_en.xml:3178
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
 msgstr "<placeholder-1/> Semua perintah TortoiseSVN dijalankan dari menu konteks dari windows explorer. Kebanyakan terlihat secara langsung, ketika Anda <action>mengklik kanan</action> pada file atau folder. Perintah yang tersedia tergantung pada apakah file atau folder atau folder leluhurnya dibawah kontrol versi atau tidak. Anda juga bisa melihat menu TortoiseSVN sebagai bagian dari menu file Explorer."
 
@@ -3379,7 +3301,6 @@ msgstr "Menu file Explorer untuk jalan pintas dalam folder berversi"
 # Indonesian#: source/TortoiseSVN_en.xml:3217(para)
 #: source/TortoiseSVN_en.xml:3189
 #: (para)
-#, fuzzy
 msgid "In some cases you may see several TortoiseSVN entries. This is not a bug! <placeholder-1/> This example is for an unversioned shortcut within a versioned folder, and in the Explorer file menu there are <emphasis>three</emphasis> entries for TortoiseSVN. One is for the folder, one for the shortcut itself, and the third for the object the shortcut is pointing to. To help you distinguish between them, the icons have an indicator in the lower right corner to show whether the menu entry is for a file, a folder, a shortcut or for multiple selected items."
 msgstr "Dalam beberapa kasus Anda mungkin melihat beberapa entri TortoiseSVN. Ini bukan bug! <placeholder-1/> Contoh ini adalah untuk jalan pintas tidak berversi di dalam folder berversi, dan dalam menu file Explorer ada <emphasis>tiga</emphasis> entri untuk TortoiseSVN. Satu untuk folder, satu untuk jalan pintas sendiri, dan ketiga untuk obyek yang dirujuk jalan pintas. Untuk membantu Anda membedakannya, ikon mempunyai indikator di pojok kanan dibawahnya untuk memperlihatkan apakah entri menu untuk file, folder, jalan pintas atau item multipel yang dipilih."
 
@@ -3423,7 +3344,6 @@ msgstr "Menu drag kanan untuk direktori dibawah kontrol versi"
 # Indonesian#: source/TortoiseSVN_en.xml:3247(para)
 #: source/TortoiseSVN_en.xml:3218
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
 msgstr "<placeholder-1/> Perintah lain yang tersedia sebgagi pengendali drag, ketika Anda <action>men-drag kanan</action> file atau folder ke lokasi baru di dalam copy pekerjaan atau ketika Anda <action>men-drag kanan</action> file atau folder tidak-berversi ke dalam direktori yang dibawah kontrol versi."
 
@@ -3454,9 +3374,8 @@ msgstr "F5"
 # Indonesian#: source/TortoiseSVN_en.xml:3277(para)
 #: source/TortoiseSVN_en.xml:3247
 #: (para)
-#, fuzzy
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
-msgstr "Segarkan tampilan saat ini. Ini barangkali perintah satu- tombol paling berguna. Sebagai contoh ... Dalam Explorer ini akan menyegarkan lapisan ikon pada copy pekerjaan Anda. Dalam dialog komit akan memindai ulang copy pekerjaan untuk melihat apa yang perlu dikomit. Dalam dialog Log Revisi akan menghubungi repositori lagi untuk memeriksa perubahan paling baru."
+msgstr "Segarkan tampilan saat ini. Ini barangkali perintah satu-tombol yang paling berguna. Sebagai contoh ... Dalam Explorer ini akan menyegarkan lapisan ikon pada copy pekerjaan Anda. Dalam dialog komit akan memindai ulang copy pekerjaan untuk melihat apa yang perlu dikomit. Dalam dialog Log Revisi akan menghubungi repositori lagi untuk memeriksa perubahan paling baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3290(term)
 #: source/TortoiseSVN_en.xml:3259
