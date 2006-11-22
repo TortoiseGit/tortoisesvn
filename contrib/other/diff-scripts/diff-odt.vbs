@@ -34,15 +34,18 @@ End If
 On Error Goto 0
 'Create the DesktopSet 
 Set objDesktop = objServiceManager.createInstance("com.sun.star.frame.Desktop")
+Set objUriTranslator = objServiceManager.createInstance("com.sun.star.uri.ExternalUriReferenceTranslator")
 'Adjust the paths for OO
 sBaseDoc=Replace(sBaseDoc, "\", "/")
 sBaseDoc=Replace(sBaseDoc, ":", "|")
 sBaseDoc=Replace(sBaseDoc, " ", "%20")
 sBaseDoc="file:///"&sBaseDoc
+sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc)
 sNewDoc=Replace(sNewDoc, "\", "/")
 sNewDoc=Replace(sNewDoc, ":", "|")
 sNewDoc=Replace(sNewDoc, " ", "%20")
 sNewDoc="file:///"&sNewDoc
+sNewDoc=objUriTranslator.translateToInternal(sNewDoc)
 
 'Open the %base document
 Dim oPropertyValue(0)
@@ -61,4 +64,5 @@ dispatcher.executeDispatch Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyVal
 oPropertyValue(0).Name = "URL"
 oPropertyValue(0).Value = sBaseDoc
 dispatcher.executeDispatch Frame, ".uno:CompareDocuments", "", 0, oPropertyValue
+
 
