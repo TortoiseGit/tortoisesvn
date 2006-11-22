@@ -1,17 +1,29 @@
 #
-# Romanian Translation for TortoiseSVN
+# Romanian Translation for TortoiseSVN.
 # Copyright (C) 2004-2006 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
+# This file is distributed under the same license as the subversion package.
 #
 # Authors:
 # Seby Rusu <sebyrusu@yahoo.com>, 2006.
+#
+#
+# Dictionary:
+# repository - depozit (could also use "depozitar", but I'm not reffering to a person)
+# revision - revizie
+# commit - transmite (could use "incredinteaza", but sounds a bit strange)
+# update - actualizeaza (better than "improspateaza")
+# merge - imbina (could also use "fuzioneaza", "uneste")
+# working copy - copia de lucru
+# folder - dosar (could also use "director")
+# browse - rasfoieste
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-16 17:02+0200\n"
+"PO-Revision-Date: 2006-11-21 18:09+0200\n"
 "Last-Translator: sebyrusu <sebyrusu@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +71,7 @@ msgstr "%1 conţine o cale invalidă."
 #: ID:3867,
 #, c-format
 msgid "%1 could not be created because the directory is full."
-msgstr "%1 nu a putut fi creat deoarece directorul este plin."
+msgstr "%1 nu a putut fi creat deoarece dosarul este plin."
 
 #: ID:3867,#:
 #: ID:3867,
@@ -71,7 +83,7 @@ msgstr "%1 nu a putut fi deschis deoarece sunt prea multe fişiere deschise."
 #: ID:3867,
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 nu a putut fi şters deoarece este directorul curent."
+msgstr "%1 nu a putut fi şters deoarece este dosarul curent."
 
 #: ID:3868,#:
 #: ID:3868,
@@ -150,22 +162,22 @@ msgstr ""
 #: ID:151,
 #, c-format
 msgid "%s : Working Copy"
-msgstr ""
+msgstr "%s : Copia de lucru"
 
 #: ID:357,
 #, c-format
 msgid "%s, at %s"
-msgstr ""
+msgstr "%s, la %s"
 
 #: ID:145,
 #, c-format
 msgid "%s\\Export (%d) of %s"
-msgstr ""
+msgstr "%s\\Exportă (%d) din %s"
 
 #: ID:145,
 #, c-format
 msgid "%s\\Export of %s"
-msgstr ""
+msgstr "%s\\Exportă %s"
 
 #: ID:145,
 #, c-format
@@ -173,6 +185,8 @@ msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Sunteţi sigur(ă) că vreţi să ştergeţi?"
 
 #: ID:7,
 #, c-format
@@ -194,6 +208,22 @@ msgid ""
 "Vertical Resolution:\t\t%.1f dpi\n"
 "Depth:\t\t\t%d bit"
 msgstr ""
+"%s\n"
+"Dimensiune fişier:\t\t\t%s\n"
+"Lăţime (orizontal):\t\t\t%ld pixel\n"
+"Înălţime (vertical):\t\t\t%ld pixel\n"
+"Rezoluţie orizontală:\t%.1f dpi\n"
+"Rezoluţie verticală:\t\t%.1f dpi\n"
+"Adâncime:\t\t\t%d bit\n"
+"Mărire:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"Dimensiune fişier:\t\t\t%s\n"
+"Lăţime (orizontal):\t\t\t%ld pixel\n"
+"Înălţime (vertical):\t\t\t%ld pixel\n"
+"Rezoluţie orizontală:\t%.1f dpi\n"
+"Rezoluţie verticală:\t\t%.1f dpi\n"
+"Adâncime:\t\t\t%d bit"
 
 #: ID:69,
 #, c-format
@@ -203,7 +233,7 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"este un director şi nu un fişier!\n"
+"este un dosar şi nu un fişier!\n"
 "TortoiseMerge nu poate compara directoare."
 
 #: MenuEntry
@@ -223,7 +253,7 @@ msgstr "&Adaugă..."
 #: Control-ID:1090,#:
 #: Control-ID:1093,
 msgid "&Advanced..."
-msgstr ""
+msgstr "&Avansat..."
 
 #: Control-ID:1013,
 msgid "&Apply unified diff"
@@ -231,15 +261,15 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "&Autoclose:"
-msgstr ""
+msgstr "Închide &Automat:"
 
 #: Control-ID:1015,
 msgid "&Backup original file"
-msgstr ""
+msgstr "Co&pie de siguranţă pentru fişierul original"
 
 #: Control-ID:1128,
 msgid "&Berkeley database (BDB)"
-msgstr ""
+msgstr "&Baza de date Berkeley (BDB)"
 
 #: ID:114,
 msgid "&Blame differences"
@@ -256,11 +286,11 @@ msgstr ""
 
 #: ID:138,
 msgid "&Browse repository"
-msgstr ""
+msgstr "&Răsfoieşte depozitul"
 
 #: Control-ID:1011,
 msgid "&Browse..."
-msgstr ""
+msgstr "&Răsfoieşte..."
 
 #: Control-ID:1051,
 msgid "&CD-ROM"
@@ -281,7 +311,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "&Compare revisions"
-msgstr ""
+msgstr "&Compară reviziile"
 
 #: Control-ID:1019,
 msgid "&Compare whitespaces"
@@ -289,11 +319,11 @@ msgstr ""
 
 #: Control-ID:1239,
 msgid "&Configure"
-msgstr ""
+msgstr "&Configurează"
 
 #: Control-ID:1227,
 msgid "&Contact the repository on startup"
-msgstr ""
+msgstr "&Contactează depozitul la pornire"
 
 #: Control-ID:1073,
 msgid "&Convert files when diffing against BASE"
@@ -309,16 +339,16 @@ msgstr ""
 
 #: ID:101,
 msgid "&Copy to..."
-msgstr ""
+msgstr "&Copiază în..."
 
 #: Control-ID:1097,
 msgid "&Custom"
-msgstr ""
+msgstr "&Personalizat"
 
 #: Control-ID:1269,#:
 #: Control-ID:1096,
 msgid "&Default"
-msgstr ""
+msgstr "Pre&definit"
 
 #: ID:11,
 msgid "&Delete"
@@ -330,7 +360,7 @@ msgstr "&Şterge..."
 
 #: ID:12,
 msgid "&Diff"
-msgstr ""
+msgstr "&Diferenţiază"
 
 #: ID:17,
 msgid "&Diff with URL"
@@ -365,16 +395,16 @@ msgstr "&Introduceţi un mesaj în care explicaţi de ce blocaţi fişierul (fi�
 
 #: MenuEntry
 msgid "&Exit"
-msgstr ""
+msgstr "&Ieşire"
 
 #: ID:323,
 msgid "&Export selection to..."
-msgstr ""
+msgstr "&Exportă selecţia în..."
 
 #: Control-ID:1092,#:
 #: Control-ID:1095,
 msgid "&External"
-msgstr ""
+msgstr "&Extern"
 
 #: MenuEntry#:
 #: MenuEntry
@@ -383,31 +413,31 @@ msgstr "&Fişier"
 
 #: MenuEntry
 msgid "&Filter"
-msgstr ""
+msgstr "&Filtrează"
 
 #: MenuEntry
 msgid "&Find"
-msgstr ""
+msgstr "&Caută"
 
 #: MenuEntry
 msgid "&Find..."
-msgstr ""
+msgstr "&Caută..."
 
 #: MenuEntry
 msgid "&Fit Images in window"
-msgstr ""
+msgstr "&Potriveşte imaginile în fereastră"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
-msgstr ""
+msgstr "Unităţi &fixe"
 
 #: Control-ID:65535,
 msgid "&Font for log messages:"
-msgstr ""
+msgstr "&Font pentru mesajele de jurnal:"
 
 #: Control-ID:65535,
 msgid "&Font:"
-msgstr ""
+msgstr "&Font:"
 
 #: ID:501,#:
 #: Control-ID:65535,
@@ -424,23 +454,23 @@ msgstr ""
 
 #: MenuEntry
 msgid "&Go To Line..."
-msgstr ""
+msgstr "&Sari la linia..."
 
 #: Control-ID:1115,#:
 #: Control-ID:1032,
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "Revizia &HEAD"
 
 #: Control-ID:1032,#:
 #: Control-ID:1019,#:
 #: Control-ID:1034,#:
 #: Control-ID:1032,
 msgid "&HEAD revision"
-msgstr ""
+msgstr "revizia &HEAD"
 
 #: Control-ID:1182,
 msgid "&HEAD revision in the repository"
-msgstr ""
+msgstr "revizia &HEAD din depozit"
 
 #: MenuEntry#:
 #: Control-ID:57670,#:
@@ -459,12 +489,12 @@ msgstr "&Ascunde"
 
 #: Control-ID:1170,
 msgid "&Icon Set:"
-msgstr ""
+msgstr "Setul de &Iconiţe:"
 
 #: ID:15,
 #, c-format
 msgid "&Ignore %d items"
-msgstr ""
+msgstr "&Ignoră %d elemente"
 
 #: Control-ID:1021,
 msgid "&Ignore whitespace changes"
@@ -472,15 +502,15 @@ msgstr ""
 
 #: MenuEntry
 msgid "&Image Info"
-msgstr ""
+msgstr "&Informaţii de imagine"
 
 #: ID:9,
 msgid "&Import..."
-msgstr ""
+msgstr "&Importă..."
 
 #: Control-ID:1016,
 msgid "&Jump to first difference when loading"
-msgstr ""
+msgstr "&Sari la prima diferenţă la încărcare"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -489,11 +519,11 @@ msgstr "&Limba:"
 
 #: Control-ID:1065,
 msgid "&Limit search to modified lines"
-msgstr ""
+msgstr "&Limitează căutarea la liniile modificate"
 
 #: MenuEntry
 msgid "&Link images together"
-msgstr ""
+msgstr "&Leagă imaginile împreună"
 
 #: Control-ID:1172,
 msgid "&List View"
@@ -501,15 +531,15 @@ msgstr ""
 
 #: Control-ID:1309,
 msgid "&Load..."
-msgstr ""
+msgstr "&Încarcă..."
 
 #: Control-ID:1,
 msgid "&Merge"
-msgstr ""
+msgstr "&Îmbină"
 
 #: ID:9,
 msgid "&Merge..."
-msgstr ""
+msgstr "&Îmbină..."
 
 #: Control-ID:1012,
 msgid "&Merging"
@@ -517,15 +547,15 @@ msgstr ""
 
 #: Control-ID:1129,
 msgid "&Native filesystem (FSFS)"
-msgstr ""
+msgstr "Sistem de fişiere &nativ (FSFS)"
 
 #: MenuEntry
 msgid "&Navigate"
-msgstr ""
+msgstr "&Navighează"
 
 #: Control-ID:1049,
 msgid "&Network drives"
-msgstr ""
+msgstr "U&nităţi de reţea"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -534,11 +564,11 @@ msgstr "&Nou "
 
 #: Control-ID:1208,
 msgid "&Next 100"
-msgstr ""
+msgstr "&Următoarele 100"
 
 #: MenuEntry
 msgid "&Next Difference"
-msgstr ""
+msgstr "&Diferenţa Următoare"
 
 #: Control-ID:1,#:
 #: Control-ID:1,
@@ -555,7 +585,7 @@ msgstr "&Deschide Ctrl-O"
 
 #: MenuEntry
 msgid "&Overlap images"
-msgstr ""
+msgstr "&Suprapune imaginile"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -572,7 +602,7 @@ msgstr "&Port:"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr ""
+msgstr "Diferenţa &Anterioară"
 
 #: Control-ID:11021,
 msgid "&Properties..."
@@ -581,7 +611,7 @@ msgstr "&Proprietăţi..."
 #: Control-ID:1246,#:
 #: Control-ID:1246,
 msgid "&Recent messages"
-msgstr ""
+msgstr "Mesaje &recente"
 
 #: ID:376,
 msgid "&Redo"
@@ -598,7 +628,7 @@ msgstr "&Redenumeşte"
 
 #: Control-ID:1316,
 msgid "&Reopen commit dialog after a commit failed"
-msgstr ""
+msgstr "&Redeschide dialogul de încredinţare după o încredinţare eşuată"
 
 #: ID:13,
 msgid "&Repo-browser"
@@ -613,7 +643,7 @@ msgstr ""
 #: Control-ID:1035,#:
 #: Control-ID:1033,
 msgid "&Revision"
-msgstr ""
+msgstr "&Revizie"
 
 #: Control-ID:65535,
 msgid "&SSH client:"
@@ -630,11 +660,11 @@ msgstr "&Salvează autentificare"
 
 #: MenuEntry
 msgid "&Save graph as..."
-msgstr ""
+msgstr "&Salvează graficul ca..."
 
 #: ID:322,
 msgid "&Save list of selected files to..."
-msgstr ""
+msgstr "&Salvează lista de fişiere selectate în..."
 
 #: Control-ID:1308,
 msgid "&Save..."
@@ -642,7 +672,7 @@ msgstr "&Salvează..."
 
 #: ID:9,
 msgid "&Settings"
-msgstr ""
+msgstr "&Setări"
 
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
@@ -726,7 +756,7 @@ msgstr ""
 
 #: ID:8,
 msgid "&Update"
-msgstr ""
+msgstr "Act&ualizează"
 
 #: ID:76,
 msgid "&Update item to revision"
@@ -738,7 +768,7 @@ msgstr ""
 
 #: Control-ID:1184,
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "&Utilizează completarea automată a căilor de fişiere şi a cuvintelor cheie"
 
 #: Control-ID:65535,#:
 #: Control-ID:1005,#:
@@ -757,11 +787,11 @@ msgstr ""
 
 #: Control-ID:1066,
 msgid "&Whole word"
-msgstr ""
+msgstr "&Cuvânt întreg"
 
 #: Control-ID:1183,
 msgid "&Working copy"
-msgstr ""
+msgstr "&Copia de lucru"
 
 #: ID:17,#:
 #: ID:564,
@@ -778,7 +808,7 @@ msgstr ""
 
 #: ID:314,
 msgid "(not found)"
-msgstr ""
+msgstr "(negăsit)"
 
 #: ID:208,
 msgid "(property change only)"
@@ -811,7 +841,7 @@ msgstr "..."
 #: ID:151,
 #, c-format
 msgid ": Revision %d"
-msgstr ""
+msgstr ": Revizia %d"
 
 #: ID:151,
 msgid ": working base"
@@ -819,7 +849,7 @@ msgstr ""
 
 #: ID:151,
 msgid ": working copy"
-msgstr ""
+msgstr ": copia de lucru"
 
 #: ID:145,
 msgid ""
@@ -882,11 +912,11 @@ msgstr "&Despre"
 
 #: ID:101,
 msgid "A&dd folder..."
-msgstr "A&daugă director..."
+msgstr "A&daugă dosar..."
 
 #: ID:73,
 msgid "Abort"
-msgstr ""
+msgstr "Renunţă"
 
 #: Dlg-ID:136,
 msgid "About TortoiseMerge"
@@ -898,11 +928,11 @@ msgstr "About TortoiseSVN"
 
 #: ID:82,
 msgid "Accept once"
-msgstr ""
+msgstr "Acceptă o singură dată"
 
 #: ID:82,
 msgid "Accept permanently"
-msgstr ""
+msgstr "Acceptă permanent"
 
 #: ID:3867,#:
 #: ID:3867,
@@ -913,15 +943,15 @@ msgstr "Accesul la %1 a fost refuzat."
 #: ID:77,#:
 #: ID:319,
 msgid "Action"
-msgstr ""
+msgstr "Acţiune"
 
 #: ID:117,
 msgid "Actions"
-msgstr ""
+msgstr "Acţiuni"
 
 #: ID:3826,
 msgid "Activate Task List"
-msgstr ""
+msgstr "Activează Lista de Sarcini"
 
 #: ID:209,#:
 #: Dlg-ID:155,
@@ -939,7 +969,7 @@ msgstr "Adaugă '%s' în dicţionar"
 
 #: ID:16,
 msgid "Add (as replacement)..."
-msgstr ""
+msgstr "Adaugă (ca înlocuitor)..."
 
 #: ID:563,
 msgid "Add Properties"
@@ -947,11 +977,11 @@ msgstr "Adaugă Proprietăţi"
 
 #: ID:110,
 msgid "Add extension specific diff program"
-msgstr ""
+msgstr "Adaugă program de diferenţiere specific unei extensii"
 
 #: ID:110,
 msgid "Add extension specific merge program"
-msgstr ""
+msgstr "Adaugă program de îmbinare specific unei extensii"
 
 #: ID:13,
 msgid "Add to &ignore list"
@@ -963,14 +993,14 @@ msgstr "Adaugă"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "Adaugă/Editează Program de Diferenţiere/Îmbinare specific unei extensii"
 
 #: ID:73,#:
 #: ID:264,#:
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Added"
-msgstr ""
+msgstr "Adăugat"
 
 #: ID:126,
 msgid "Added a file remotely"
@@ -1013,18 +1043,20 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
+"Ajustează setările\n"
+"Setări"
 
 #: Dlg-ID:170,
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "Setări de Diferenţiere/Îmbinare Avansate"
 
 #: ID:110,
 msgid "Advanced diff settings"
-msgstr ""
+msgstr "Setări de diferenţiere avansate"
 
 #: ID:110,
 msgid "Advanced merge settings"
-msgstr ""
+msgstr "Setări de îmbinare avansate"
 
 #: ID:3841,#:
 #: ID:3841,
@@ -1041,7 +1073,7 @@ msgstr "Toate Fişierele (*.*)|*.*||"
 #: ID:3868,
 #, c-format
 msgid "An attempt was made to access %1 past its end."
-msgstr ""
+msgstr "S-a încercat accesarea %1 dincolo de limitele sale."
 
 #: ID:3868,#:
 #: ID:3868,
@@ -1065,6 +1097,12 @@ msgid ""
 "%base\tthe base file\n"
 "%mine\tthe modified file"
 msgstr ""
+"Program de diferenţiere extern folosit\n"
+"pentru compararea diferitelor revizii ale fişierelor\n"
+"<hr=100%>\n"
+"Puteţi specifica următorii parametri pentru cale:\n"
+"%baza\tfişierul de bază\n"
+"%mina\tfişierul modificat"
 
 #: ID:79,
 #, c-format
@@ -1137,6 +1175,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
 msgstr ""
+"Aplică proprietăţile recursiv pentru toate fişierele/dosarele.\n"
+"Proprietăţile bugtraq: şi tsvn: sunt aplicate doar dosarelor."
 
 #: ID:13,
 msgid "Apply &patch..."
@@ -1209,7 +1249,7 @@ msgstr "Autori:"
 
 #: ID:99,
 msgid "Auto Rename"
-msgstr ""
+msgstr "Redenumeşte automat"
 
 #: ID:222,
 msgid "Auto-close for local operations"
@@ -1236,11 +1276,11 @@ msgstr ""
 #: ID:438,#:
 #: ID:438,
 msgid "Automatic"
-msgstr ""
+msgstr "Automat"
 
 #: Control-ID:1073,
 msgid "Automatically check for &newer versions every week"
-msgstr ""
+msgstr "Caută automat versiuni &noi în fiecare săptămână"
 
 #: Control-ID:1157,
 msgid "Average"
@@ -1248,7 +1288,7 @@ msgstr ""
 
 #: Control-ID:1001,
 msgid "B&rowse..."
-msgstr ""
+msgstr "&Răsfoieşte..."
 
 #: ID:246,
 msgid "Bar Graph"
@@ -1268,7 +1308,7 @@ msgstr ""
 
 #: Control-ID:1003,
 msgid "Br&owse..."
-msgstr ""
+msgstr "Răsfoieşte..."
 
 #: ID:115,
 msgid "Branch / tag created successfully!"
@@ -1284,11 +1324,11 @@ msgstr ""
 
 #: Control-ID:1009,
 msgid "Bro&wse..."
-msgstr ""
+msgstr "Răs&foieşte..."
 
 #: Control-ID:1007,
 msgid "Brows&e..."
-msgstr ""
+msgstr "Răsfoi&eşte..."
 
 #: ID:78,
 msgid "Browse for the external diff program"
@@ -1296,7 +1336,7 @@ msgstr ""
 
 #: Control-ID:1069,
 msgid "Browse..."
-msgstr ""
+msgstr "Răsfoieşte..."
 
 #: Control-ID:1119,
 msgid "Bug-&ID / Issue-Nr:"
@@ -1312,11 +1352,11 @@ msgstr ""
 
 #: Control-ID:1215,
 msgid "C&heck now"
-msgstr ""
+msgstr "Verifică acum"
 
 #: ID:101,
 msgid "C&reate folder..."
-msgstr ""
+msgstr "C&rează dosar..."
 
 #: ID:77,
 msgid "C&reate tag from revision"
@@ -1563,7 +1603,7 @@ msgstr ""
 #: ID:209,#:
 #: Control-ID:1083,
 msgid "Commit"
-msgstr ""
+msgstr "Transmite"
 
 #: Control-ID:1262,
 msgid "Commit threshold:"
@@ -1991,7 +2031,7 @@ msgstr ""
 
 #: ID:145,
 msgid "Do you really want to move this file or folder?"
-msgstr "Sunteţi sigur(ă) că doriţi să mutaţi fişierul sau directorul?"
+msgstr "Sunteţi sigur(ă) că doriţi să mutaţi fişierul sau dosarul?"
 
 #: ID:119,
 #, c-format
@@ -3247,7 +3287,7 @@ msgstr "Deschide fişier imagine"
 
 #: ID:282,
 msgid "Open parent folder"
-msgstr "Deschide directorul părinte"
+msgstr "Deschide dosarul părinte"
 
 #: ID:113,
 msgid "Open with..."
