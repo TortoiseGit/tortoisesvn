@@ -125,7 +125,10 @@ BOOL CMergeDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
-	if ((m_URLCombo.GetString().IsEmpty())||bRepeating||!m_URLFrom.IsEmpty())
+	// Only set the "From" Url if there is no url history available, if we're repeating and want
+	// to set the previous string, or if the URL was set via commandline (and is different than
+	// the wc path URL).
+	if ((m_URLCombo.GetString().IsEmpty())||bRepeating||(m_URLFrom.Compare(url)))
 		m_URLCombo.SetWindowText(m_URLFrom);
 	m_URLCombo2.SetURLHistory(TRUE);
 	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
