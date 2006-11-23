@@ -1133,8 +1133,11 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount,
 	}
 	if (newDialog)
 	{
+		LONG * exStyle = (LONG*)&newDialog[(*wordcount)];
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
 		newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
+		if (m_bRTL)
+			*exStyle |= WS_EX_RTLREADING;
 	}
 	else
 	{

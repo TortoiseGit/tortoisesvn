@@ -75,6 +75,7 @@ public:
 	BOOL	CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszDestLangDllPath, LPCTSTR lpszPOFilePath);
 	void	SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet; m_StringEntries.SetQuiet(bQuiet);}
 	void	SetLanguage(WORD wLangID) {m_wTargetLang = wLangID;}
+	void	SetRTL(bool bRTL = true) {m_bRTL = bRTL;}
 
 private:
 	static  BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
@@ -101,6 +102,8 @@ private:
 	CPOFile			m_StringEntries;
 	std::wstring	sDestFile;
 	BOOL			m_bQuiet;
+
+	bool			m_bRTL;
 
 	int				m_bTranslatedStrings;
 	int				m_bDefaultStrings;

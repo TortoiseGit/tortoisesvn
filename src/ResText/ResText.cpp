@@ -35,6 +35,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	bool bShowHelp = true;
 	bool bQuiet = false;
 	bool bNoUpdate = false;
+	bool bRTL = false;
 	//parse the command line
 	std::vector<stdstring> arguments;
 	std::vector<stdstring> switches;
@@ -62,6 +63,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			bQuiet = true;
 		if (_tcscmp(I->c_str(), _T("noupdate"))==0)
 			bNoUpdate = true;
+		if (_tcscmp(I->c_str(), _T("rtl"))==0)
+			bRTL = true;
 	}
 	std::vector<stdstring>::iterator arg = arguments.begin();
 
@@ -114,6 +117,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			CResModule module;
 			module.SetQuiet(bQuiet);
 			module.SetLanguage(wLang);
+			module.SetRTL(bRTL);
 			if (!module.CreateTranslatedResources(sSrcDllFile.c_str(), sDstDllFile.c_str(), sPoFile.c_str()))
 				return -1;
 			bShowHelp = false;
@@ -129,9 +133,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		_ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
 		_ftprintf(stdout, _T("-noupdate: overwrite the po-file\n"));
 		_ftprintf(stdout, _T("\n"));
-		_ftprintf(stdout, _T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [langID] [-quiet]\n"));
+		_ftprintf(stdout, _T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [langID] [-quiet][-rtl]\n"));
 		_ftprintf(stdout, _T("Replaces all strings in the dst resource.dll with the po-file translations\n"));
 		_ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
+		_ftprintf(stdout, _T("-rtl  : change the controls to RTL reading\n"));
 		_ftprintf(stdout, _T("\n"));
 	}
 
