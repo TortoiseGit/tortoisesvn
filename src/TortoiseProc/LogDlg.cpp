@@ -2761,7 +2761,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 	// calculate some information the context menu commands can use
 	CString pathURL = GetURLFromPath(m_path);
-	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 	SVNRev revSelected = pSelLogEntry->dwRev;
 	SVNRev revPrevious = svn_revnum_t(revSelected)-1;
 	if ((pSelLogEntry->pArChangedPaths)&&(pSelLogEntry->pArChangedPaths->GetCount() <= 2))
@@ -2774,26 +2775,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		}
 	}
 	SVNRev revSelected2;
-	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	if (pos)
 	{
-		// the selection mark might not be the second item selected but the first
-		// if the selection mark is *not* the first selected one, then the first
-		// selected one is to be used as the second revision.
-		if (pos != (POSITION)m_LogList.GetSelectionMark())
-		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-			revSelected2 = pLogEntry->dwRev;
-		}
-		else
-		{
-			m_LogList.GetNextSelectedItem(pos);
-			if (pos)
-			{
-				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-				revSelected2 = pLogEntry->dwRev;
-			}
-		}
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		revSelected2 = pLogEntry->dwRev;
 	}
 	SVNRev revLowest, revHighest;
 	{
