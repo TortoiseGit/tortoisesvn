@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-23 10:11-0300\n"
+"PO-Revision-Date: 2006-11-23 10:47-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -821,7 +821,7 @@ msgstr "&Tamanho da Tabulação:"
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "&Timeout in seconds to stop the autocompletion parsing"
-msgstr "&Timeout em segundos para interromper a interpretação do autocompletar"
+msgstr "&Timeout, em segundos, para interromper a interpretação do autocompletar"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -910,7 +910,7 @@ msgstr "At&ualizar para a Revisão..."
 # Control-ID:1184,
 #: Control-ID:1184
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr "&Use autocompletar para caminhos de arquivo e palavras-chave"
+msgstr "&Usar autocompletar para caminhos de arquivo e palavras-chave"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -2114,6 +2114,8 @@ msgid ""
 "Copy %ld items to\r\n"
 "%s"
 msgstr ""
+"Copiar %ld itens para\r\n"
+"%s"
 
 # ID:80,
 #: ID:103
@@ -2474,7 +2476,7 @@ msgstr "O disco de destino está cheio."
 # ID:3825,
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
-msgstr "Dimensóes e posições dos diálogos"
+msgstr "Dimensões e posições dos diálogos"
 
 # ID:146,
 #: ID:146
@@ -3201,8 +3203,9 @@ msgstr "Ocultar cam&inhos alterados não relacionados"
 # Control-ID:1354,
 #: Control-ID:1353
 #: Control-ID:1354
+#, fuzzy
 msgid "HEAD"
-msgstr ""
+msgstr "HEAD"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -3465,7 +3468,7 @@ msgstr "Incluir arquivos ignorados"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include only the following revision range:"
-msgstr ""
+msgstr "Incluir somente o seguinte intervalo de revisões:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3987,6 +3990,8 @@ msgid ""
 "Move %ld items to\r\n"
 "%s"
 msgstr ""
+"Mover %ld itens para\r\n"
+"%s"
 
 # ID:127,
 #: ID:127
@@ -3995,6 +4000,8 @@ msgid ""
 "Move %s\r\n"
 "to %s"
 msgstr ""
+"Mover %s\r\n"
+"para %s"
 
 # ID:97,
 #: ID:98
@@ -4644,7 +4651,7 @@ msgstr "Valor da Propriedade:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
-msgstr "&Timeout do proxy em segundos:"
+msgstr "&Timeout do proxy, em segundos:"
 
 # Control-ID:1080,
 #: Control-ID:1080
@@ -4855,7 +4862,7 @@ msgstr ""
 # ID:17,
 #: ID:17
 msgid "Removes all unversioned and ignored items"
-msgstr ""
+msgstr "Remove todos os itens sem controle de versão ou ignorados"
 
 # ID:13,
 #: ID:15
@@ -4880,6 +4887,8 @@ msgid ""
 "Rename item from %s\r\n"
 "to %s"
 msgstr ""
+"Renomear item de %s\r\n"
+"para %s"
 
 # ID:126,
 #: Control-ID:65535
