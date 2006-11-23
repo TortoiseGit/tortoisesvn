@@ -109,6 +109,8 @@ Version 1.4.2
        See issue #290 for details. (Stefan)
 - BUG: The column "SVN Author" was not available to choose from. (Stefan)
 - BUG: The URL in the merge dialog was not shown unescaped. (Stefan)
+- BUG: The slider in the log dialog could sometimes get out of bounds.
+       See issue #324 for details. (Stefan)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
