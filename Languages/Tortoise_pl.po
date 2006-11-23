@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-10-24 11:50+0100\n"
+"PO-Revision-Date: 2006-11-22 15:25+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -447,8 +447,8 @@ msgstr "Użyj serwera Pro&xy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-msgid "&Enter a message describing why you lock the file(s)."
-msgstr "&Wprowadż komunikat opisujący dlaczego blokujesz plik(i)."
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "&Wprowadź komunikat opisujący dlaczego blokujesz plik(i)."
 
 # Control-ID:1031,
 #: MenuEntry
@@ -469,6 +469,10 @@ msgstr "&Zewn."
 #: MenuEntry
 msgid "&File"
 msgstr "&Plik"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filtr"
 
 #: MenuEntry
 msgid "&Find"
@@ -2016,6 +2020,11 @@ msgid "Compare and &blame with working BASE"
 msgstr "Porównaj i adnotuj z &BAZĄ roboczą"
 
 # ID:76,
+#: ID:114
+msgid "Compare and blame with previous revision"
+msgstr "Porównaj i adnotuj z poprzednią wersją"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Porównaj z &kopią roboczą"
@@ -2024,6 +2033,11 @@ msgstr "Porównaj z &kopią roboczą"
 #: ID:138
 msgid "Compare with b&ase"
 msgstr "Porównaj z &bazą"
+
+# ID:76,
+#: ID:114
+msgid "Compare with previous revision"
+msgstr "Porównaj z poprzednią wersją"
 
 # ID:12,
 #: ID:12
@@ -2100,11 +2114,31 @@ msgstr "Skopiowano"
 msgid "Copied remotely"
 msgstr "Skopiowano zdalnie"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopiuj %ld elementów do\r\n"
+"%s"
+
 # ID:80,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiowanie %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopiuj %s\r\n"
+"do %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2319,6 +2353,16 @@ msgstr "Stwórz repozytorium"
 msgid "Create copy in the repository from:"
 msgstr "Twórz kopię w repozytorium z:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Utwórz nowy katalog:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2391,6 +2435,18 @@ msgstr "Data"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Domyślna &liczba komunikatów w logu:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Usuń niewersjonowane elementy"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Usuń niewersjonowane elementy"
 
 # ID:11,#:
 # ID:73,#:
@@ -2706,6 +2762,7 @@ msgstr "Powiększ okno do pełnego rozmiaru"
 # ID:126,#:
 # Control-ID:1065,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Wprowadź tekst komunikatu w logu"
 
@@ -2789,6 +2846,16 @@ msgstr "Pomiń ścieżki:"
 #: ID:209
 msgid "Explore to"
 msgstr "Eksploruj do"
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Eksport"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Katalog &docelowy eksportu:"
 
 # ID:94,
 #: ID:94
@@ -2949,6 +3016,11 @@ msgstr ""
 "Głębia koloru:\t\t\t%d bitów\n"
 "Powiększenie:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Odfiltruj następujące ścieżki (oddzielaj poszczególne ścieżki znakiem '*'):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Znajdź"
@@ -2984,6 +3056,7 @@ msgstr "Aby uzyskać kompletną historię, wyłącz opcję \"Zatrzymaj na kopii/
 
 # Control-ID:65535,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Z:"
 
@@ -3135,6 +3208,13 @@ msgstr "Typ wykresu:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "Ukryj n&iepowiązane zmienione ścieżki"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "Główna wersja (HEAD)"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -3337,11 +3417,47 @@ msgstr "Pomiń znaki &końca linii (zalecane)"
 msgid "Import"
 msgstr "Importuj"
 
+# Control-ID:1021,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Importuj %ld elementów"
+
 # Control-ID:1056,
 # Ewentualnie może też być 'importuj komunikat'.
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&Komunikat importu"
+
+# ID:144,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Importuj plik %s\r\n"
+"do %s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Importuj plik do\r\n"
+"%s"
+
+# ID:144,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Importuj folder %s\r\n"
+"do %s"
 
 # ID:144,
 #: ID:120
@@ -3358,6 +3474,11 @@ msgstr "Importuje katalog do repozytorium"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Dołącz pliki ignorowane"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Uwzględnij tylko następujący zakres wersji:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3809,6 +3930,7 @@ msgstr "Scalanie wymaga różnych wersji lub różnych URLi w 'Z:' i 'Do:'"
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Komunikat"
 
@@ -3870,6 +3992,26 @@ msgstr "Więcej kolorów..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Najbardziej aktywny użytkownik:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Przenieś %ld elementów do\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Przenieś %s\r\n"
+"do %s"
 
 # ID:97,
 #: ID:98
@@ -4199,6 +4341,15 @@ msgstr "Innych"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Brak pamięci."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Ignoruj ustwienie właściwości svn:eol-style.\n"
+"Pliki które nie mają ustawionej tej właściwości nie podlegają tej opcji."
 
 # ID:99,
 #: ID:99
@@ -4682,6 +4833,18 @@ msgstr "Status zdalny"
 msgid "Remote text status"
 msgstr "Zdalny status zawartości"
 
+# Control-ID:1021,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Usuń %ld elementów"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Usuń %s"
+
 # ID:13,
 #: ID:15
 msgid "Remove from &ignore list"
@@ -4714,6 +4877,11 @@ msgstr ""
 "%s\n"
 "z listy ignorowanych."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Usuwa wszystkie nie wersjonowane i ukryte elementy"
+
 # ID:13,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4729,6 +4897,16 @@ msgstr "Zmień nazwę"
 #, c-format
 msgid "Rename %s"
 msgstr "Zmień nazwę %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Zmień nazwę elementu z %s\r\n"
+"na %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -4932,6 +5110,11 @@ msgstr "Wersja / Autor:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Pokaż wykres wersji"
+
+# ID:75,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Filtr grafu wersji"
 
 # ID:75,
 #: Dlg-ID:228
@@ -5260,6 +5443,11 @@ msgstr ""
 #: ID:197
 msgid "Select folder to run script for"
 msgstr "Wyberz folder dla którego uruchomić hook-skrypt"
+
+# ID:197,
+#: ID:119
+msgid "Select folder to save the selected files to"
+msgstr "Wybierz folder do którego zachować wybrane pliki"
 
 # ID:313,
 #: ID:197
@@ -6250,6 +6438,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Do:"
 
@@ -6952,6 +7141,17 @@ msgstr ""
 "Może to doprowadzić do poważnego uszkodzenia repozytorium!\n"
 "Czy na pewno chcesz to zrobić?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Próbujesz przenieść folder TRUNK!\n"
+"Czy jesteś absolutnie pewny że chcesz przenieść\n"
+"folder TRUNK?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -7274,6 +7474,11 @@ msgstr ""
 msgid "deleted"
 msgstr "Usunięto"
 
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "styl znaków końca linii"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7552,6 +7757,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "Wstaw tu numer języka, w którym są pisane komunikaty w logu.\n"
 "TortoiseSVN użyje odpowiedniego modułu sprawdzania pisowni, o ile będzie dostępny."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"Rozdzielana znakami nowej linii lista właściwości dla plików definowanych przez użytkownika która\n"
+"będzie pokazywana w oknie właściwości do wyboru."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"Rozdzielana znakami nowej linii lista właściwości dla folderów definowanych przez użytkownika która\n"
+"będzie pokazywana w oknie właściwości do wyboru."
 
 # ID:15,
 #: ID:15
