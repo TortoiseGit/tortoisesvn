@@ -2777,11 +2777,22 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	if (pos)
 	{
-		m_LogList.GetNextSelectedItem(pos);
-		if (pos)
+		// the selection mark might not be the second item selected but the first
+		// if the selection mark is *not* the first selected one, then the first
+		// selected one is to be used as the second revision.
+		if (pos != (POSITION)m_LogList.GetSelectionMark())
 		{
 			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			revSelected2 = pLogEntry->dwRev;
+		}
+		else
+		{
+			m_LogList.GetNextSelectedItem(pos);
+			if (pos)
+			{
+				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+				revSelected2 = pLogEntry->dwRev;
+			}
 		}
 	}
 	SVNRev revLowest, revHighest;
