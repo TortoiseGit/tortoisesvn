@@ -115,7 +115,10 @@ BOOL CMergeDlg::OnInitDialog()
 				m_URLFrom = CUnicodeUtils::GetUnicode(urla);
 			m_URLTo = CUnicodeUtils::GetUnicode(urla);
 		}
-		GetDlgItem(IDC_WCURL)->SetWindowText(url);
+		CStringA urla = CUnicodeUtils::GetUTF8(url);
+		CPathUtils::Unescape(urla.GetBuffer());
+		urla.ReleaseBuffer();
+		GetDlgItem(IDC_WCURL)->SetWindowText(CUnicodeUtils::GetUnicode(urla));
 		m_tooltips.AddTool(IDC_WCURL, url);
 		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath.GetWinPath());
 		m_tooltips.AddTool(IDC_WCPATH, m_wcPath.GetWinPathString());
