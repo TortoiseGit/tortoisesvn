@@ -4,6 +4,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors(s):
+# 24.11.2006 Kari Granö <kari.grano@gmail.com>
 # 02.11.2006 Kari Granö <kari.grano@gmail.com>
 # 15.10.2006 Kari Granö <kari.grano@gmail.com>
 # 25.09.2006 Kari Granö <kari.grano@gmail.com>
@@ -14,6 +15,7 @@
 # 01.06.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
 #
 # Comments:
+# 24.11.2006 Updated to r8110
 # 02.11.2006 Updated to r7877, added following refinements:
 #            Tag = leima, script = komentojono
 #            Fixes to conflicting shortcuts
@@ -40,7 +42,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-14 00:35+0200\n"
+"PO-Revision-Date: 2006-11-24 01:02+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -493,6 +495,11 @@ msgstr "&Ulkoinen"
 #: MenuEntry
 msgid "&File"
 msgstr "&Tiedosto"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Suodata"
 
 #: MenuEntry
 msgid "&Find"
@@ -2123,11 +2130,31 @@ msgstr "Kopioitu"
 msgid "Copied remotely"
 msgstr "Kopioitu etänä"
 
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopioi %ld tiedostoa paikkaan\r\n"
+"%s"
+
 # ID:103,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopioi %s"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopioi %s\r\n"
+"tiedostoon %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2340,6 +2367,16 @@ msgstr "Luo tietovarasto"
 msgid "Create copy in the repository from:"
 msgstr "Luo kopio tietovarastossa:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Luo uusi hakemisto:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2411,6 +2448,17 @@ msgstr "Päivä"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Lokiviestien &oletuslukumäärä"
+
+# ID:73,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Poista versioimattomat tiedostot"
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Poista versioimattomat tiedostot"
 
 # ID:73,
 #: ID:73
@@ -2713,6 +2761,7 @@ msgstr "Suurenna ikkuna koko ruudun kokoiseksi"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Syötä lokiviesti"
 
@@ -2967,6 +3016,11 @@ msgstr ""
 "Syvyys:\t\t\t%d bittiä\n"
 "Zoomi:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Suodata pois seuraavat polut (erota useat polut merkillä '*'):"
+
 # ID:77,
 #: Dlg-ID:139
 msgid "Find"
@@ -3004,6 +3058,7 @@ msgstr "Poista valinta \"Pysähdy kopioon/uudelleennimentään\" nähdäksesi t�
 # vai lähettäjä?
 # Control-ID:1200,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Mistä:"
 
@@ -3157,6 +3212,13 @@ msgstr "Graafin tyyppi:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "&Piilota tarpeettomat muuttuneet polut"
+
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -3358,10 +3420,46 @@ msgstr "Älä välitä &rivinvaihdoista (suositus)"
 msgid "Import"
 msgstr "Tuo tietovarastoon"
 
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "Tuo %ld tiedostoa"
+
 # Control-ID:65535,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&Tuontiviesti"
+
+# ID:103,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Tuo tiedosto %s\r\n"
+"paikkaan %s"
+
+# ID:103,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Tuo tiedosto\r\n"
+"paikkaan %s"
+
+# ID:103,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Tuo kansio %s\r\n"
+"paikkaan %s"
 
 # ID:103,
 #: ID:120
@@ -3378,6 +3476,11 @@ msgstr "Tuo kansion tietovarastoon"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Ota mukaan ohitetut tiedostot"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Ota mukaan vain seuraava versioväli:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3833,6 +3936,7 @@ msgstr "Yhdistäminen vaatii eri versioita tai eri URL:ia 'Mistä:'- ja 'Mihin'-
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Viesti"
 
@@ -3893,6 +3997,26 @@ msgstr "Lisää värejä..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Aktiivisin tekijä:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Siirrä %ld tiedostoa paikkaan\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Siirrä %s\r\n"
+"paikkaan %s"
 
 # ID:98,
 #: ID:98
@@ -4710,6 +4834,18 @@ msgid "Remote text status"
 msgstr "Etätekstin tila"
 
 # ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Poista %ld tiedostoa"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Poista %s"
+
+# ID:15,
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Poista &ohitettujen listasta"
@@ -4741,6 +4877,11 @@ msgstr ""
 "%s\n"
 "vastaavat tiedostot poistettu ohituslistasta."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Poistaa kaikki versioimattomat ja ohitetut tiedostot"
+
 # ID:15,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4756,6 +4897,16 @@ msgstr "Uudelleennimeä"
 #, c-format
 msgid "Rename %s"
 msgstr "Uudelleennimeä %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Uudelleennimeä tiedosto nimestä %s\r\n"
+"nimeen %s"
 
 # Dlg-ID:151,
 #: Control-ID:65535
@@ -4965,6 +5116,13 @@ msgstr "Versio / Tekijä:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Versiograafi"
+
+# ID:15,#:
+# ID:269,#:
+# Dlg-ID:182,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Versiograafisuodatin"
 
 # ID:75,
 #: Dlg-ID:228
@@ -6286,6 +6444,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Mihin:"
 
@@ -6980,6 +7139,16 @@ msgstr ""
 "Yrität käyttää jaetulla verkkolevyllä olevaa tietovarastoa file:///-protokollalla.\n"
 "Tämä voi johtaa tietovaraston korruptoitumiseen!\n"
 "Haluatko todella tehdä sen?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"Olet siirtämässä päähaaraa (trunk-hakemistoa)!\n"
+"Oletko täysin varma että haluat siirtää trunk-hakemiston?"
 
 # ID:16,
 #: ID:16
