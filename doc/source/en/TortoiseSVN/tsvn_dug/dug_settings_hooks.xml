@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
+<sect2 id="tsvn-dug-settings-hooks">
+	<?dbhh topicname="HIDD_SETTINGSHOOKS"?>
+	<?dbhh topicname="HIDD_SETTINGSHOOKCONFIG"?>
+	<title>Hook Scripts</title>
+	<indexterm>
+		<primary>client hooks</primary>
+	</indexterm>
+	<indexterm>
+		<primary>hook scripts</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-dug-settings-dia-hooks">
+			<title>The Settings Dialog, Hook Scripts Page</title>
+			<graphic fileref="../images/SettingsHooks.png"/>
+		</figure>
+		This dialog allows you to set up hook scripts which will be
+		executed automatically when certain Subversion actions are performed.
+	</para>
+	<para>
+		One application for such hooks might be to call a program like
+		<literal>SubWCRev.exe</literal> to update version numbers after a commit,
+		and perhaps to trigger a rebuild.
+	</para>
+	<para>
+		For various security and implementation reasons, hook scripts are defined
+		locally on a machine, rather than as project properties. You define what
+		happens, no matter what someone else commits to the repository. Of course
+		you can always choose to call a script which is itself under version control.
+	</para>
+	<para>
+		<figure id="tsvn-dug-settings-dia-hook-edit">
+			<title>The Settings Dialog, Configure Hook Scripts</title>
+			<graphic fileref="../images/SettingsHookEdit.png"/>
+		</figure>
+		To add a new hook script, simply click <guibutton>Add</guibutton>
+		and fill in the details.
+	</para>
+	<para>
+		There are currently six types of hook script available
+		<variablelist>
+			<varlistentry>
+				<term>Start-commit</term>
+				<listitem>
+					<para>
+						Called before the commit dialog is shown.
+						You might want to use this if the hook modifies a versioned
+						file and affects the list of files that need to be committed.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Pre-commit</term>
+				<listitem>
+					<para>
+						Called after the user clicks <guibutton>OK</guibutton>
+						in the commit dialog, and before the actual commit begins.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Post-commit</term>
+				<listitem>
+					<para>
+						Called after the commit finishes (whether successful or not).
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Start-update</term>
+				<listitem>
+					<para>
+						Called before the update-to-revision dialog is shown.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Pre-update</term>
+				<listitem>
+					<para>
+						Called before the actual Subversion update begins.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Post-update</term>
+				<listitem>
+					<para>
+						Called after the update finishes (whether successful or not).
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
+		A hook is defined for a particular working copy path. You only need to
+		specify the top level path; if you perform an operation in a sub-folder,
+		TortoiseSVN will automatically search upwards for a matching path.
+	</para>
+	<para>
+		Next you must specify the command line to execute, starting with the path
+		to the hook script or executable.
+		This could be a batch file, an executable file or any other file which
+		has a valid windows file association, eg. a perl script.
+	</para>
+	<para>
+		The command line can include several parameters which get filled in
+		by TortoiseSVN. The parameters available depend upon which hook is called.
+		<variablelist>
+			<varlistentry>
+				<term>Start-commit</term>
+				<listitem>
+					<para>
+						<literal>%PATHS%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Pre-commit</term>
+				<listitem>
+					<para>
+						<literal>%PATHS%</literal>
+						<literal>%SELECTEDPATHS%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Post-commit</term>
+				<listitem>
+					<para>
+						<literal>%SELECTEDPATHS%</literal>
+						<literal>%REVISION%</literal>
+						<literal>%ERROR%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Start-update</term>
+				<listitem>
+					<para>
+						<literal>%PATHS%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Pre-update</term>
+				<listitem>
+					<para>
+						<literal>%PATHS%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Post-update</term>
+				<listitem>
+					<para>
+						<literal>%PATHS%</literal>
+						<literal>%REVISION%</literal>
+						<literal>%ERROR%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
+		The meaning of each of these variables is described here:
+		<variablelist>
+			<varlistentry>
+				<term>%PATHS%</term>
+				<listitem>
+					<para>
+						The paths which were selected when the operation was
+						started, eg. the paths selected in Explorer when
+						invoking the Commit dialog.
+						If multiple paths were selected they are separated
+						by a <literal>*</literal> character.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>%SELECTEDPATHS%</term>
+				<listitem>
+					<para>
+						The paths which were selected within the Commit dialog.
+						If multiple paths were selected they are separated
+						by a <literal>*</literal> character.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>%REVISION%</term>
+				<listitem>
+					<para>
+						The repository revision after a commit completes.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>%ERROR%</term>
+				<listitem>
+					<para>
+						Empty if the operation was successful, or the error message
+						if the operation was unsuccessful.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
+		If you want the Subversion operation to hold off until the hook has completed,
+		check <guilabel>Wait for the script to finish</guilabel>.
+	</para>
+	<para>
+		Normally you will want to hide ugly DOS boxes when the script runs,
+		so <guilabel>Hide the script while running</guilabel> is checked by default.
+		For debugging, you may want to watch what happens in the DOS window.
+	</para>
+</sect2>
