@@ -237,6 +237,9 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLSVNNEEDSLOCK;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
+	nCol++;
+	temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
+	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
 	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
 	CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
@@ -1288,6 +1291,12 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	BOOL bFoundSVNNeedsLock = (entry->present_props.Find(_T("svn:needs-lock"))!=-1);
 	CString strSVNNeedsLock = (bFoundSVNNeedsLock) ? _T("*") : _T("");
 	SetItemText(index, nCol++, strSVNNeedsLock);
+	// SVNSLC_COLCOPYFROM
+	if (m_sURL.Compare(entry->copyfrom_url.Left(m_sURL.GetLength()))==0)
+		temp = entry->copyfrom_url.Mid(m_sURL.GetLength());
+	else
+		temp = entry->copyfrom_url;
+	SetItemText(index, nCol++, temp);
 
 	SetCheck(index, entry->checked);
 	if (entry->checked)
@@ -2972,6 +2981,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
+			temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
+			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			if ((cmd >= 1)&&(cmd < SVNSLC_NUMCOLUMNS))
@@ -4009,6 +4020,11 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		temp.LoadString(IDS_STATUSLIST_COLDATE);
 		sClipboard += _T("\t")+temp;
 	}
+	if (dwCols & SVNSLC_COLCOPYFROM)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
+		sClipboard += _T("\t")+temp;
+	}
 	sClipboard += _T("\r\n");
 
 	POSITION pos = GetFirstSelectedItemPosition();
@@ -4184,6 +4200,14 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp = datebuf;
 			else
 				temp.Empty();
+			sClipboard += _T("\t")+temp;
+		}
+		if (dwCols & SVNSLC_COLCOPYFROM)
+		{
+			if (m_sURL.Compare(entry->copyfrom_url.Left(m_sURL.GetLength()))==0)
+				temp = entry->copyfrom_url.Mid(m_sURL.GetLength());
+			else
+				temp = entry->copyfrom_url;
 			sClipboard += _T("\t")+temp;
 		}
 		sClipboard += _T("\r\n");
