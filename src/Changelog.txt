@@ -102,6 +102,8 @@
        Zooming in/out with mousewheel tries to keep the pixel where the
        mouse pointer is at the same position.
        See issue #301 for details. (Stefan)
+- CHG: All URL comboboxes now have the last used URL filled in instead
+       of leaving them empty. See issue #303 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD

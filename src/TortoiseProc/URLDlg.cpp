@@ -50,6 +50,7 @@ BOOL CURLDlg::OnInitDialog()
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo.SetCurSel(0);
 	m_URLCombo.SetFocus();
 
 	RECT rect;

@@ -53,6 +53,7 @@ BOOL CRelocateDlg::OnInitDialog()
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo.SetCurSel(0);
 
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_sFromUrl);
 	m_URLCombo.SetWindowText(m_sFromUrl);

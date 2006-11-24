@@ -71,6 +71,7 @@ BOOL CImportDlg::OnInitDialog()
 			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
 		m_URLCombo.EnableWindow(FALSE);
 	}
+	m_URLCombo.SetCurSel(0);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
