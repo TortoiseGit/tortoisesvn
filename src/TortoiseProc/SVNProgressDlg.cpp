@@ -566,7 +566,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
 void CSVNProgressDlg::ReportSVNError()
 {
-	ReportError(m_pSvn->GetLastErrorMessage(MAX_PATH));
+	ReportError(m_pSvn->GetLastErrorMessage());
 }
 
 void CSVNProgressDlg::ReportError(const CString& sError)
