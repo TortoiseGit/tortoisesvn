@@ -68,6 +68,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_pThread(NULL)
 	, m_options(ProgOptNone)
 	, m_dwCloseOnEnd(0)
+	, m_bFinishedItemAdded(false)
 {
 
 	m_pSvn = this;
@@ -280,7 +281,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			if (!m_basePath.IsEmpty())
 				m_FinishedRevMap[m_basePath.GetSVNApiPath()] = rev;
 			m_RevisionEnd = rev;
-
+			m_bFinishedItemAdded = true;
 		}
 		break;
 	case svn_wc_notify_commit_postfix_txdelta:
@@ -637,6 +638,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	iFirstResized = 0;
 	bSecondResized = FALSE;
+	m_bFinishedItemAdded = false;
 	switch (m_Command)
 	{
 	case SVNProgress_Checkout:			//no tempfile!
@@ -1132,6 +1134,17 @@ UINT CSVNProgressDlg::ProgressThread()
 	KillTimer(TRANSFERTIMER);
 	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(m_sTotalBytesTransferred);
 	GetDlgItem(IDC_PROGRESSBAR)->ShowWindow(SW_HIDE);
+
+	if (!m_bFinishedItemAdded)
+	{
+		// there's no "finished: xxx" line at the end. We add one here to make
+		// sure the user sees that the command is actually finished.
+		NotificationData * data = new NotificationData();
+		data->bAuxItem = true;
+		data->sActionColumnText.LoadString(IDS_PROGRS_FINISHED);
+		m_arData.push_back(data);
+		AddItemToList(data);
+	}
 
 	m_bCancelled = TRUE;
 	InterlockedExchange(&m_bThreadRunning, FALSE);

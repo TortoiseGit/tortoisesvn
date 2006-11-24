@@ -240,6 +240,7 @@ private:
 	CColors		m_Colors;
 
 	bool		m_bLockWarning;
+	bool		m_bFinishedItemAdded;
 
 private:
 	// In preparation for removing SVN as base class
