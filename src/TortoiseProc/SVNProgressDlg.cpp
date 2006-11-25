@@ -1279,7 +1279,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// We've double-clicked on a conflicted item - do a three-way merge on it
 		SVNDiff::StartConflictEditor(data->path);
 	}
-	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)))
+	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
 	{
 		// This is a modified file which has been merged on update
 		// Diff it against base
@@ -1529,7 +1529,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					NotificationData * data = m_arData[selIndex];
 					if ((data)&&(!data->path.IsDirectory()))
 					{
-						if (data->action == svn_wc_notify_update_update)
+						if (data->action == svn_wc_notify_update_update || data->action == svn_wc_notify_resolved)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
@@ -1546,7 +1546,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSEMINE, temp);
 							}
-							else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command))
+							else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
 								popup.SetDefaultItem(ID_COMPARE, FALSE);
 						}
 						if ((data->action == svn_wc_notify_add)||
@@ -1719,6 +1719,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								else
 								{
 									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									CString sAction;
+									sAction.LoadString(IDS_SVNACTION_RESOLVE);
+									m_ProgList.SetItemText(selIndex, 0, sAction);
+									data->action = svn_wc_notify_resolved;
+									data->bConflictedActionItem = false;
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
@@ -1752,6 +1757,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								else
 								{
 									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									CString sAction;
+									sAction.LoadString(IDS_SVNACTION_RESOLVE);
+									m_ProgList.SetItemText(selIndex, 0, sAction);
+									data->action = svn_wc_notify_resolved;
+									data->bConflictedActionItem = false;
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
@@ -1771,6 +1781,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								else
 								{
 									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+									CString sAction;
+									sAction.LoadString(IDS_SVNACTION_RESOLVE);
+									m_ProgList.SetItemText(selIndex, 0, sAction);
+									data->action = svn_wc_notify_resolved;
+									data->bConflictedActionItem = false;
 									m_ProgList.Invalidate();
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
