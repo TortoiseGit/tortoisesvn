@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-20 15:54+0100\n"
+"PO-Revision-Date: 2006-11-24 20:20+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr "%1 conté un esquema incorrecte."
 #: ID:3867
 #, c-format
 msgid "%1 contains an invalid path."
-msgstr "%1 conté un camí no vàlid."
+msgstr "%1 conté un path no vàlid."
 
 # ID:3867,#:
 # ID:3867,
@@ -126,7 +126,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "No es troba el fitxer.\n"
-"Si us plau verifiqueu que el camí i el nom són correctes."
+"Si us plau verifiqueu que el path i el nom són correctes."
 
 # ID:357,
 #: ID:357
@@ -156,7 +156,7 @@ msgstr "%ld de %ld"
 #: ID:563
 #, c-format
 msgid "%ld paths"
-msgstr "%ld camins"
+msgstr "%ld paths"
 
 # ID:226,
 #: ID:226
@@ -905,7 +905,7 @@ msgstr "&Actualitza a revisió..."
 # Control-ID:1184,
 #: Control-ID:1184
 msgid "&Use autocompletion of filepaths and keywords"
-msgstr "&Autocompleta camins de fitxers i paraules clau"
+msgstr "&Autocompleta paths de fitxers i paraules clau"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -1054,8 +1054,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Una llista de camins per la qual es mostren icones sobreposades .\n"
-"Afegint un caracter \"*\" al final del camí tots els fitxers i subdirectoris dins d'aquest són també inclosos."
+"Una llista de paths per la qual es mostren icones sobreposades .\n"
+"Afegint un caracter \"*\" al final del path tots els fitxers i subdirectoris dins d'aquest són també inclosos."
 
 # ID:194,
 #: ID:194
@@ -1064,8 +1064,8 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Una llista de camins per la qual no es mostren icones sobreposades .\n"
-"Afegint un caracter \"*\" al final del camí, tots els fitxers i subdirectoris dins d'aquest són també inclosos. Una llista buida permetrà sobreposicions en tots els camins."
+"Una llista de paths per la qual no es mostren icones sobreposades .\n"
+"Afegint un caracter \"*\" al final del path, tots els fitxers i subdirectoris dins d'aquest són també inclosos. Una llista buida permetrà sobreposicions en tots els paths."
 
 # ID:3843,#:
 # ID:3843,
@@ -1331,7 +1331,7 @@ msgstr ""
 "Un programa extern utilitzat\n"
 "per comparar diferents revisions de fitxers\n"
 "<hr=100%>\n"
-"Podeu especificar els següents paràmetres al camí:\n"
+"Podeu especificar els següents paràmetres al path:\n"
 "%base\tfitxer base\n"
 "%mine\tfitxer modificat"
 
@@ -1351,7 +1351,7 @@ msgstr ""
 "Un programa extern utilitzat\n"
 "per comparar diferents revisions de fitxers\n"
 "<hr=100%>\n"
-"Pots especificar els següents paràmetres al camí:\n"
+"Pots especificar els següents paràmetres al path:\n"
 "%merged\tfitxer amb conflicte, lloc on desar\n"
 "%theirs\t\tfitxer tal com és al repositori\n"
 "%mine\t\tel teu fitxer, amb els canvis que has fet\n"
@@ -1462,12 +1462,12 @@ msgstr "Disposició &Vertical"
 
 #: MenuEntry
 msgid "Arranged by &path"
-msgstr "Arranjats per &camí"
+msgstr "Arranjats per &path"
 
 # ID:2050,
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
-msgstr "Arranja els nodes ordenats per camí"
+msgstr "Arranja els nodes ordenats per path"
 
 # ID:77,
 #: ID:77
@@ -1818,7 +1818,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "Check the path and/or URL you've entered."
-msgstr "Comprova el  camí i/o la URL que has introduit."
+msgstr "Comprova el  path i/o la URL que has introduit."
 
 # ID:194,
 #: ID:194
@@ -2153,12 +2153,12 @@ msgstr "Copia el missatge d'error al portapapers"
 # ID:76,
 #: ID:76
 msgid "Copy from path"
-msgstr "Còpia del camí"
+msgstr "Còpia del path"
 
 # ID:209,
 #: ID:209
 msgid "Copy paths to clipboard"
-msgstr "Copia camins al portapapers"
+msgstr "Copia paths al portapapers"
 
 # ID:3603,
 #: ID:3603
@@ -2183,6 +2183,11 @@ msgstr "Copia a la còpia de treball"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Copia a la còpia de treball..."
+
+# ID:76,
+#: ID:208
+msgid "Copy-from URL"
+msgstr "Copia- d'una URL"
 
 # ID:98,
 #: ID:98
@@ -2820,7 +2825,7 @@ msgstr "Excepcions:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exclude paths:"
-msgstr "No incloguis aquests camins:"
+msgstr "No incloguis aquests paths:"
 
 # ID:209,
 #: ID:209
@@ -3002,7 +3007,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
-msgstr "Filtra els següents camins (separeu els múltiples camins amb el caràcter '*'):"
+msgstr "Filtra els següents paths (separeu els múltiples paths amb el caràcter '*'):"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -3020,6 +3025,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "Finalitzat!"
 
@@ -3193,7 +3199,7 @@ msgstr "Tipus de gràfic:"
 # Control-ID:1229,
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
-msgstr "A&maga camins modificats no relacionats"
+msgstr "A&maga paths modificats no relacionats"
 
 # Control-ID:1353,#:
 # Control-ID:1354,
@@ -3464,7 +3470,7 @@ msgstr "Inclou només el següent rang de revisions:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "Inclou els camins:"
+msgstr "Inclou els paths:"
 
 # ID:76,
 #: ID:76
@@ -3608,13 +3614,13 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Sembla que estàs intentant  <b>tornar a situar</b> la teva còpia de treball a un camí diferent dins del mateix repositori.\n"
+"Sembla que estàs intentant  <b>tornar a situar</b> la teva còpia de treball a un path diferent dins del mateix repositori.\n"
 "\n"
 "De: %s\n"
 "Cap a: %s\n"
 "\n"
-"És necessari tornar a situar només si el camí <b>cap a</b> un repositori ha canviat.\n"
-"Per canviar el  camí <b>dins</b> d'un repositori executa la instrucció Canvia.\n"
+"És necessari tornar a situar només si el path <b>cap a</b> un repositori ha canviat.\n"
+"Per canviar el  path <b>dins</b> d'un repositori executa la instrucció Canvia.\n"
 "\n"
 "Si fas la operació de Tornar a Situar incorrectament <b>corromprà la teva copia de treball!</b>\n"
 "Si no estàs segur sobre el que cal fer mira la part de la documentació que fa referència a,  <i>tornar a situar</i> (relocate).\n"
@@ -3927,7 +3933,7 @@ msgstr "Missatges"
 # ID:116,
 #: ID:116
 msgid "Messages, authors and paths"
-msgstr "Missatges, autors i camins"
+msgstr "Missatges, autors i paths"
 
 # ID:78,
 #: ID:78
@@ -4381,12 +4387,12 @@ msgstr "Fitxers Pedaç (*.diff, *.patch)|*.diff;*.patch|Tots (*.*)|*.*||"
 #: ID:77
 #: ID:198
 msgid "Path"
-msgstr "Camí"
+msgstr "Path"
 
 # ID:116,
 #: ID:116
 msgid "Paths"
-msgstr "Camins"
+msgstr "Paths"
 
 # ID:157,
 #: ID:157
@@ -4443,7 +4449,7 @@ msgstr "Introdueix un número."
 # ID:83,
 #: ID:83
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Introdueix un camí a on aplicar el script de hook."
+msgstr "Introdueix un path a on aplicar el script de hook."
 
 # ID:3858,#:
 # ID:3858,
@@ -4497,9 +4503,9 @@ msgid ""
 "to that copy path. Use the Switch command to do that."
 msgstr ""
 "Atenció:\n"
-"La teva còpia de treball segueix en el camí anterior. Si vols que els teus següents canvis\n"
+"La teva còpia de treball segueix en el path anterior. Si vols que els teus següents canvis\n"
 "estiguin en la còpia acabada de crear has d'executar Canviar\n"
-"al camí de la còpia. Utilitza el comandament Canvia per fer-ho."
+"al path de la còpia. Utilitza el comandament Canvia per fer-ho."
 
 # ID:3858,#:
 # ID:3858,
@@ -5275,7 +5281,7 @@ msgstr "Desa canvis a %1?"
 # ID:232,
 #: ID:232
 msgid "Save client certificate path"
-msgstr "Desa camí del certificat del client"
+msgstr "Desa path del certificat del client"
 
 # ID:76,
 #: ID:76
@@ -6185,10 +6191,10 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"El camí/URL introduit sembla que no és acceptat pel Windows!\n"
+"El path/URL introduit sembla que no és acceptat pel Windows!\n"
 "Podeu provar-lo igualment, però pot donar un error més endevant.\n"
 "\n"
-"Un pedaç vàlid al Windows no ha de tenir '<>|\"?*:' ni cap dels següents noms de dispositu:\n"
+"Un path vàlid al Windows no ha de tenir '<>|\"?*:' ni cap dels següents noms de dispositu:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -6202,12 +6208,12 @@ msgid ""
 "<i>%s</i>\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
-"El camí\n"
+"El path\n"
 "<i>%s</i>\n"
-"sembla que no es correspon amb el camí del fitxer de pedaç.\n"
-"Però TortoiseMerge ha trobat que el camí\n"
+"sembla que no es correspon amb el path del fitxer de pedaç.\n"
+"Però TortoiseMerge ha trobat que el path\n"
 "<i>%s</i>\n"
-"és millor. Voleu utilitzar el camí sugerit?"
+"és millor. Voleu utilitzar el path sugerit?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6359,8 +6365,8 @@ msgid ""
 "A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Això no és un camí vàlid!\n"
-"Un camí vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms:\n"
+"Això no és un path vàlid!\n"
+"Un path vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -6456,9 +6462,9 @@ msgstr ""
 "TortoiseIDiff: El visor de diferències gràfic per a TortoiseSVN\n"
 "\n"
 "Els comandaments disponibles són:\n"
-"/left:\"camí de la imatge esquerra\"\n"
+"/left:\"path de la imatge esquerra\"\n"
 "/lefttitle:\"títol per mostrar a la imatge esquerra\"\n"
-"/right:\"camí de la imatge de la dreta\"\n"
+"/right:\"path de la imatge de la dreta\"\n"
 "/righttitle:\"títol per mostrar a la imatge dreta\""
 
 # ID:7,#:
@@ -6700,7 +6706,7 @@ msgid ""
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
 msgstr ""
-"No s'ha pogut reconstruir el camí de la còpia de treball!\n"
+"No s'ha pogut reconstruir el path de la còpia de treball!\n"
 "Això pot passar si el fitxer ha sigut canviat de nom.\n"
 "Inicieu el diàleg de log només amb aquest fitxer concret i revertiu els canvis\n"
 "des del panell superior del diàleg de log."
@@ -6972,12 +6978,12 @@ msgid ""
 "/patchpath:<path to folder>"
 msgstr ""
 "Les comandes vàlides són:\n"
-"/base:<camí del fitxer base>\n"
-"/theirs:<camí del seu fitxer>\n"
-"/mine:<camí del meu fitxer>\n"
-"/merged:<camí del fitxer fusionat resultant>\n"
-"/diff:<camí del fitxer diff unificat>\n"
-"/patchpath:<camí de la carpeta>"
+"/base:<path del fitxer base>\n"
+"/theirs:<path del seu fitxer>\n"
+"/mine:<path del meu fitxer>\n"
+"/merged:<path del fitxer fusionat resultant>\n"
+"/diff:<path del fitxer diff unificat>\n"
+"/patchpath:<path de la carpeta>"
 
 # ID:11,
 #: ID:11
@@ -6993,7 +6999,7 @@ msgstr "Versió"
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
-msgstr "Visualitza revisió pel camí al visor &web"
+msgstr "Visualitza revisió pel path al visor &web"
 
 # ID:114,
 #: ID:114
@@ -7039,7 +7045,7 @@ msgstr "Còpia de Treball"
 # Control-ID:1335,
 #: Control-ID:1335
 msgid "Working Copy Path:"
-msgstr "Camí de la còpia de Treball"
+msgstr "Path de la còpia de Treball"
 
 # ID:80,
 #: ID:80
@@ -7094,7 +7100,6 @@ msgstr ""
 
 # ID:105,
 #: ID:105
-#, fuzzy
 msgid ""
 "You are trying to move the trunk folder!\n"
 "Are you absolutely sure that you want to move\n"
@@ -7243,7 +7248,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"La còpia de treball sembla que es troba a un camí d'etiquetes!\n"
+"La còpia de treball sembla que es troba a un path d'etiquetes!\n"
 "S'ha de canviar a una branca o al tronc principal abans de fer una entrega.\n"
 "\n"
 "Voleu entregar de totes maneres?"
@@ -7578,7 +7583,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Una llista d'especificadors de mòdul separada per retorns de línea, consistent cadascuna en un camí relatiu del directori, flags opcionals de revisió, i una URL. Per exemple\n"
+"Una llista d'especificadors de mòdul separada per retorns de línea, consistent cadascuna en un path relatiu del directori, flags opcionals de revisió, i una URL. Per exemple\n"
 "foo\t\thttp://exemple.com/repos/zig\n"
 "foo/bar -r 1234\thttp://exemple.com/repos/zag"
 
