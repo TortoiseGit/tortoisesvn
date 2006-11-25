@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-07 21:21+0100\n"
+"PO-Revision-Date: 2006-11-25 21:28+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,6 +392,10 @@ msgstr "&Extern"
 #: MenuEntry
 msgid "&File"
 msgstr "&Bestand"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr "&Filter"
 
 #: MenuEntry
 msgid "&Find"
@@ -1685,10 +1689,28 @@ msgstr "Gekopieerd"
 msgid "Copied remotely"
 msgstr "Op afstand gekopiëerd"
 
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"Kopiëer %ld zaken naar\r\n"
+"%s"
+
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "Kopieer %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"Kopiëer %s\r\n"
+"naar %s"
 
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1733,6 +1755,10 @@ msgstr "Kopiëer naar werkkopie"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Kopiëer naar werkkopie..."
+
+#: ID:208
+msgid "Copy-from URL"
+msgstr "Kopiëer van URL"
 
 #: ID:98
 #, c-format
@@ -1870,6 +1896,15 @@ msgstr "Maak archief"
 msgid "Create copy in the repository from:"
 msgstr "Maak een kopie in het archief van:"
 
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"Maak nieuwe map:\r\n"
+"%s"
+
 #: ID:8
 msgid "Create repositor&y here..."
 msgstr "Maak hier een &archief..."
@@ -1928,6 +1963,14 @@ msgstr "Datum"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "&Standaard aantal logboek-boodschappen"
+
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "Verwijder  bestanden zonder versiebeheer"
+
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "Verwijder  bestanden zonder versiebeheer"
 
 #: ID:73
 #: ID:264
@@ -2183,6 +2226,7 @@ msgid "Enlarge the window to full size"
 msgstr "Maximaliseer het venster"
 
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Geef logboodschap"
 
@@ -2251,6 +2295,14 @@ msgstr "Te negeren paden:"
 #: ID:209
 msgid "Explore to"
 msgstr "Verkennen naar"
+
+#: Dlg-ID:238
+msgid "Export"
+msgstr "Exporteer"
+
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "Export&map:"
 
 #: ID:94
 msgid "Export directory:"
@@ -2378,6 +2430,10 @@ msgstr ""
 "Kleurdiepte:\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "Filter de volgende paden (paden scheiden met het '*' teken):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "Zoeken"
@@ -2391,6 +2447,7 @@ msgstr ""
 "Zoeken"
 
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "Gereed!"
 
@@ -2407,6 +2464,7 @@ msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Deactiveer \"Stoppen bij kopie/hernoemd bestand\" voor de volledige historie"
 
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "Van:"
 
@@ -2535,6 +2593,11 @@ msgstr "Soort grafiek:"
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "&Verberg ongerelateerde wijzigingspaden"
+
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
 
 #: Control-ID:1004
 msgid "Help"
@@ -2703,9 +2766,41 @@ msgstr "Negeer &regeleinden (aanbevolen)"
 msgid "Import"
 msgstr "Importeren"
 
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "%ld zaken importeren"
+
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&Boodschap importeren"
+
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"Bestand %s\r\n"
+"importeren in %s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"Bestand importeren in\r\n"
+"%s"
+
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"Map %s\r\n"
+"importeren in %s"
 
 #: ID:120
 #, c-format
@@ -2719,6 +2814,10 @@ msgstr "Plaatst de map in een archief"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Genegeerde bestanden meenemen"
+
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "Alleen het volgende revisiebereik gebruiken:"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -3098,6 +3197,7 @@ msgid "Merging requires different revisions or different URLs in 'From:' and 'To
 msgstr "Voor samenvoegen zijn verschillende revisies of URLs nodig in 'Van:' en 'Tot:'"
 
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "Boodschap"
 
@@ -3145,6 +3245,24 @@ msgstr "Meer kleuren..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Meest actieve auteur:"
+
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"Verplaats %ld zaken naar\r\n"
+"%s"
+
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"Verplaats %s\r\n"
+"naar %s"
 
 #: ID:98
 #, c-format
@@ -3407,6 +3525,14 @@ msgstr "Anderen"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Geen geheugen beschikbaar."
+
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"Overrule de svn:eol-style eigenschap.\n"
+"Bestanden zonder deze eigenschap worden niet geraakt."
 
 #: ID:99
 msgid "Overwrite"
@@ -3781,6 +3907,16 @@ msgstr "Remote status"
 msgid "Remote text status"
 msgstr "Remote tekst status"
 
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "Verwijder %ld zaken"
+
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "Verwijder %s"
+
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Verwijder uit &negeerlijst"
@@ -3808,6 +3944,10 @@ msgstr ""
 "%s\n"
 "verwijderd uit de negeerlijst."
 
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "Verwijdert alle bestanden die niet onder versiebeheer zijn"
+
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
@@ -3820,6 +3960,15 @@ msgstr "Hernoemen"
 #, c-format
 msgid "Rename %s"
 msgstr "Hernoem %s"
+
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"Hernoem van %s\r\n"
+"naar %s"
 
 #: Control-ID:65535
 msgid "Renamed node"
@@ -3980,6 +4129,10 @@ msgstr "Revisie / Auteur:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Revisie schema"
+
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "Revisie schema filter"
 
 #: Dlg-ID:228
 msgid "Revision Range"
@@ -5078,6 +5231,7 @@ msgstr ""
 "doen en daarbij is het verwijderen van mappen niet toegestaan."
 
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "Tot:"
 
@@ -5644,6 +5798,16 @@ msgstr ""
 "Dit kan leiden tot ernstige beschadiging van het archief!\n"
 "Wilt u dit echt doen?"
 
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"U probeert de basislijn te verplaatsen!\n"
+"Weet u echt zeker dat u de basislijn wilt\n"
+"verplaatsen?"
+
 #: ID:16
 msgid ""
 "You can't set this property on folders, only on files!\n"
@@ -5927,6 +6091,10 @@ msgstr ""
 #: ID:10
 msgid "deleted"
 msgstr "verwijderd"
+
+#: Control-ID:1342
+msgid "eol style"
+msgstr "eol style"
 
 #: ID:79
 #, c-format
