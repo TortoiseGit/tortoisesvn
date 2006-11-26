@@ -142,6 +142,7 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 	CBrowseFolder browser;
 	CString sPath;
 	browser.SetInfo(CString(MAKEINTRESOURCE(IDS_SETTINGS_HOOKS_SELECTFOLDERPATH)));
+	browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 	if (browser.Show(m_hWnd, sPath) == CBrowseFolder::OK)
 	{
 		m_sPath = sPath;
