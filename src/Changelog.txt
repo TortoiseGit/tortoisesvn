@@ -118,6 +118,8 @@ Version 1.4.2
 - BUG: The URL in the merge dialog was not shown unescaped. (Stefan)
 - BUG: The slider in the log dialog could sometimes get out of bounds.
        See issue #324 for details. (Stefan)
+- BUG: The revert dialog showed also modified files from externals, which
+       were not reverted later even if they were selected. (Stefan)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
