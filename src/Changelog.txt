@@ -120,6 +120,8 @@ Version 1.4.2
        See issue #324 for details. (Stefan)
 - BUG: The revert dialog showed also modified files from externals, which
        were not reverted later even if they were selected. (Stefan)
+- BUG: Reopening the commit dialog after a failed commit did not always
+       restore the state of all selected items. (Tobias Schäfer)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
