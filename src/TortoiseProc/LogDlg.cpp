@@ -1632,6 +1632,7 @@ void CLogDlg::OnBnClickedStatbutton()
 	dlg.m_parAuthors = &m_arAuthorsFiltered;
 	dlg.m_parDates = &m_arDatesFiltered;
 	dlg.m_parFileChanges = &m_arFileChangesFiltered;
+	dlg.m_path = m_path;
 	dlg.DoModal();
 		
 }

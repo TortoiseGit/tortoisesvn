@@ -119,6 +119,14 @@ BOOL CStatGraphDlg::OnInitDialog()
 	m_Skipper.SetPos(10);
 	m_Skipper.SetPageSize(5);
 
+	// set the dialog title to "Statistics - path/to/whatever/we/show/the/statistics/for"
+	CString sTitle;
+	GetWindowText(sTitle);
+	if(m_path.IsDirectory())
+		SetWindowText(sTitle + _T(" - ") + m_path.GetWinPathString());
+	else
+		SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
+
 	m_hGraphBarIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hGraphBarStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hGraphLineIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
