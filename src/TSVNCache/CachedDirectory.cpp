@@ -251,8 +251,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			{
 				// This directory knows its own status
 				// but is it still versioned?
-				
-				CTSVNPath svnFilePath(dirEntry->m_directoryPath);
+
+				// CTSVNPath has a default copy constructor, but we *don't* want to use
+				// that one here, because some internal data (here: the m_bHasAdminDirKnown flag)
+				// must be not used. It could have been changed and must be checked again.
+				// That's why we use the CString constructor, which resets all those flags.
+				CTSVNPath svnFilePath(dirEntry->m_directoryPath.GetWinPathString());
 				if (!svnFilePath.HasAdminDir())
 				{
 					CSVNStatusCache::Instance().AddFolderForCrawling(svnFilePath);
@@ -607,7 +611,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 				status->text_status = svn_wc_status_normal;
 			}
 		}
-		if (status->text_status == svn_wc_status_external)
+		else if (status->text_status == svn_wc_status_external)
 		{
 			CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
 			// Mark the directory as 'versioned' (status 'normal' for now).
@@ -619,6 +623,11 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 			CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
 			// also mark the status in the status object as normal
 			status->text_status = svn_wc_status_normal;
+		}
+		else
+		{
+			if (svnPath.IsDirectory())
+				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
 		}
 	}
 
