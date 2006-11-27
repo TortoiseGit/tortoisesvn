@@ -38,13 +38,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8062: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8136: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-21 19:51+0300\n"
+"PO-Revision-Date: 2006-11-27 17:29+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -833,6 +833,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1522,6 +1523,7 @@ msgstr "Проверка на наличие новых версий TortoiseSVN
 
 # Заголовок окна
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "Извлечение"
 
@@ -1800,6 +1802,10 @@ msgstr "Копировать в рабочую копию"
 msgid "Copy to working copy..."
 msgstr "Копировать в рабочую копию..."
 
+#: ID:208
+msgid "Copy-from URL"
+msgstr "Скопировано-из URL"
+
 #: ID:98
 #, c-format
 msgid "Copy: New name for %s"
@@ -2005,6 +2011,14 @@ msgstr "Дата"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "&Количество сообщений журнала по умолчанию"
+
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "URL по умолчанию:"
+
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "Путь по умолчанию:"
 
 # Заголовок окна
 #: Dlg-ID:240
@@ -2494,6 +2508,7 @@ msgstr ""
 "Найти"
 
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "Закончено!"
 
@@ -3192,13 +3207,13 @@ msgstr "Внешний вид::Набор значков"
 # высочайшая? :)
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "Младшая ревизия: %ld - Старшая ревизия: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "Младшая показанная ревизия: %ld - Старшая показанная ревизия: %ld"
 
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "Младшая ревизия: %ld - Старшая ревизия: %ld - HEAD-ревизия: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "Младшая показанная ревизия: %ld - Старшая показанная ревизия: %ld - HEAD-ревизия: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
@@ -4956,6 +4971,14 @@ msgstr "Размер куска кода на соответствует кол�
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Начало \"@@\" куска кода ожидался на строке %d !"
+
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "Путь, по которому будет производиться извлечение, если ничего другого не указано"
+
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "URL, из которого будет производиться извлечение, если ничего другого не указано"
 
 #: ID:68
 #, c-format
