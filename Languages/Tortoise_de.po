@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-27 09:52+0100\n"
+"PO-Revision-Date: 2006-11-27 12:08+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -807,6 +807,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1504,6 +1505,7 @@ msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Überprüfe, ob eine neue Version von TortoiseSVN zur Verfügung steht..."
 
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "Auschecken"
 
@@ -1997,6 +1999,14 @@ msgstr "Datum"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "A&nzahl der angezeigten Meldungen"
+
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "Standard-URL:"
+
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "Standardpfad:"
 
 #: Dlg-ID:240
 msgid "Delete Unversioned Items"
@@ -5009,6 +5019,16 @@ msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschte
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
+
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "Der Standardpfad in den ausgecheckt wird, wenn nichts anderes angegeben wird"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "Die Standard-URL von der ausgecheckt wird, wenn nichts anderes angegeben wird"
 
 #: ID:68
 #, c-format
