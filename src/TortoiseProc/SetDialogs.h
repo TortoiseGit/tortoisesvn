@@ -72,6 +72,10 @@ private:
 	CComboBox		m_cAutoClose;
 	CRegDWORD		m_regUseWCURL;
 	BOOL			m_bUseWCURL;
+	CRegString		m_regDefaultCheckoutPath;
+	CString			m_sDefaultCheckoutPath;
+	CRegString		m_regDefaultCheckoutUrl;
+	CString			m_sDefaultCheckoutUrl;
 
 	BOOL			m_bInitialized;
 
@@ -81,4 +85,5 @@ public:
 	virtual BOOL OnApply();
 	afx_msg void OnChange();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
+	afx_msg void OnBnClickedBrowsecheckoutpath();
 };

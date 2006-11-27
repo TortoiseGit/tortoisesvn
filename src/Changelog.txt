@@ -70,6 +70,8 @@
 - NEW: The progress dialog indicates when the command is finished,
        even for those who don't show usually a 'finished' line.
        See issue #313 for details. (Stefan)
+- NEW: Default checkout path and url can be specified.
+       See issue #315 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

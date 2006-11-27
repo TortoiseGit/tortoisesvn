@@ -706,7 +706,7 @@ msgstr ""
 msgid "- %d"
 msgstr ""
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1002,#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr ""
 
@@ -1290,7 +1290,7 @@ msgstr ""
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr ""
 
-#: Dlg-ID:133,
+#: Dlg-ID:133,#: Control-ID:65535,
 msgid "Checkout"
 msgstr ""
 
@@ -1707,6 +1707,14 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Default &number of log messages"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Default URL:"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Default path:"
 msgstr ""
 
 #: Dlg-ID:240,
@@ -4122,6 +4130,14 @@ msgstr ""
 #: ID:63,
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
+msgstr ""
+
+#: ID:196,
+msgid "The default path to checkout to if nothing else is specified"
+msgstr ""
+
+#: ID:197,
+msgid "The default url to checkout from if nothing else is specified"
 msgstr ""
 
 #: ID:68,

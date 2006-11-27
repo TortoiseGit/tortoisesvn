@@ -577,29 +577,61 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			//
 			// Get the directory supplied in the command line. If there isn't
-			// one then we should use the current working directory instead.
+			// one then we should use first the default checkout path
+			// specified in the settings dialog, and fall back to the current 
+			// working directory instead if no such path was specified.
 			CTSVNPath checkoutDirectory;
+			CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 			if (cmdLinePath.IsEmpty())
 			{
-				DWORD len = ::GetCurrentDirectory(0, NULL);
-				TCHAR * tszPath = new TCHAR[len];
-				::GetCurrentDirectory(len, tszPath);
-				checkoutDirectory.SetFromWin(tszPath, true);
-				delete tszPath;
+				if (CString(regDefCheckoutPath).IsEmpty())
+				{
+					DWORD len = ::GetCurrentDirectory(0, NULL);
+					TCHAR * tszPath = new TCHAR[len];
+					::GetCurrentDirectory(len, tszPath);
+					checkoutDirectory.SetFromWin(tszPath, true);
+					delete tszPath;
+				}
+				else
+				{
+					checkoutDirectory.SetFromWin(CString(regDefCheckoutPath));
+				}
 			}
 			else
 			{
 				checkoutDirectory = cmdLinePath;
 			}
 
-			//
-			// Create a checkout dialog and display it. If the user clicks OK,
-			// we should create an SVN progress dialog, set it as the main
-			// window and then display it.
-			//
 			CCheckoutDlg dlg;
-			dlg.m_strCheckoutDirectory = cmdLinePath.GetDirectory().GetWinPathString();
+			dlg.m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
 			dlg.m_URL = parser.GetVal(_T("url"));
+			// if there is no url specified on the command line, check if there's one
+			// specified in the settings dialog to use as the default and use that
+			CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
+			if (!CString(regDefCheckoutUrl).IsEmpty())
+			{
+				// if the URL specified is a child of the default URL, we also
+				// adjust the default checkout path
+				// e.g.
+				// Url specified on command line: http://server.com/repos/project/trunk/folder
+				// Url specified as default     : http://server.com/repos/project/trunk
+				// checkout path specified      : c:\work\project
+				// -->
+				// checkout path adjusted       : c:\work\project\folder
+				CTSVNPath clurl = CTSVNPath(dlg.m_URL);
+				CTSVNPath defurl = CTSVNPath(CString(regDefCheckoutUrl));
+				if (defurl.IsAncestorOf(clurl))
+				{
+					// the default url is the parent of the specified url
+					if (CTSVNPath::CheckChild(CTSVNPath(CString(regDefCheckoutPath)), CTSVNPath(dlg.m_strCheckoutDirectory)))
+					{
+						dlg.m_strCheckoutDirectory = CString(regDefCheckoutPath) + clurl.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
+						dlg.m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+					}
+				}
+				if (dlg.m_URL.IsEmpty())
+					dlg.m_URL = regDefCheckoutUrl;
+			}
 			if (dlg.m_URL.Left(5).Compare(_T("tsvn:"))==0)
 			{
 				dlg.m_URL = dlg.m_URL.Mid(5);

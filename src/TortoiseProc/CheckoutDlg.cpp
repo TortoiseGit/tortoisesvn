@@ -189,6 +189,25 @@ void CCheckoutDlg::OnOK()
 void CCheckoutDlg::OnBnClickedBrowse()
 {
 	CAppUtils::BrowseRepository(m_URLCombo, this);
+
+	CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
+	CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
+	if (!CString(regDefCheckoutUrl).IsEmpty())
+	{
+		m_URL = m_URLCombo.GetString();
+		CTSVNPath url = CTSVNPath(m_URL);
+		CTSVNPath defurl = CTSVNPath(CString(regDefCheckoutUrl));
+		if (defurl.IsAncestorOf(url))
+		{
+			if (CTSVNPath::CheckChild(CTSVNPath(CString(regDefCheckoutPath)), CTSVNPath(m_strCheckoutDirectory)))
+			{
+				// the default url is the parent of the specified url
+				m_strCheckoutDirectory = CString(regDefCheckoutPath) + url.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
+				m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+				UpdateData(FALSE);
+			}
+		}
+	}
 }
 
 void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
