@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-11-24 20:20+0100\n"
+"PO-Revision-Date: 2006-11-27 16:03+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -991,6 +991,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1842,6 +1843,7 @@ msgstr "Comprovant si una nova versió de TortoiseSVN és disponible..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "Obté"
 
@@ -2431,6 +2433,18 @@ msgstr "Data"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "&Número per defecte de missatges de log"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "URL per defecte:"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "Path per defecte:"
 
 # Control-ID:65535,
 #: Dlg-ID:240
@@ -3833,14 +3847,14 @@ msgstr "Look and Feel::Col·lecció d'icones"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "Revisió més baixa: %ld - Revisió més alta: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "Revisió més baixa mostrada: %ld - Revisió més alta mostrada: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "Revisió més baixa: %ld - Revisió més alta: %ld - Revisió HEAD: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "Revisió més baixa mostrada: %ld - Revisió més alta mostrada: %ld - Revisió HEAD: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -6019,6 +6033,16 @@ msgstr "El tamany del troç no correspon al nombre de línies afegides/esborrade
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "L'inici del troç \"@@\" s'esperava a la línea %d !"
+
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "El path per defecte d'on obtenir si no s'especifica res més"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "La URL per defecte d'on obtenir  si no s'especifica res més"
 
 # ID:68,
 #: ID:68
