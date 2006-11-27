@@ -1730,18 +1730,37 @@ bool CSVNStatusListCtrl::BuildStatistics()
 	return !bRefetchStatus;
 }
 
-void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax)
+void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly)
 {
 	rMin = LONG_MAX;
 	rMax = 0;
-	for (int i=0; i < (int)m_arStatusArray.size(); ++i)
-	{
-		const FileEntry * entry = m_arStatusArray[i];
 
-		if ((entry)&&(entry->Revision))
+	if ((bShownOnly)||(bCheckedOnly))
+	{
+		for (int i=0; i<GetItemCount(); ++i)
 		{
-			rMin = min(rMin, entry->Revision);
-			rMax = max(rMax, entry->Revision);
+			const FileEntry * entry = GetListEntry(i);
+
+			if ((entry)&&(entry->last_commit_rev))
+			{
+				if ((!bCheckedOnly)||(entry->IsChecked()))
+				{
+					rMin = min(rMin, entry->last_commit_rev);
+					rMax = max(rMax, entry->last_commit_rev);
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int i=0; i < (int)m_arStatusArray.size(); ++i)
+		{
+			const FileEntry * entry = m_arStatusArray[i];
+			if ((entry)&&(entry->last_commit_rev))
+			{
+				rMin = min(rMin, entry->last_commit_rev);
+				rMax = max(rMax, entry->last_commit_rev);
+			}
 		}
 	}
 	if (rMin == LONG_MAX)

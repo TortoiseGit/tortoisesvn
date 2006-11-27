@@ -113,6 +113,9 @@
        of leaving them empty. See issue #303 for details. (Stefan)
 - CHG: The items in the revert dialog are now unchecked by default
        to avoid accidental reverts. See issue #305 for details. (Stefan)
+- CHG: The min/max revision in the check-for-modifications dialog only
+       covers the items which are shown, not the whole working copy.
+       See issue #316 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD

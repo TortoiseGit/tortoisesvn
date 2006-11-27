@@ -256,7 +256,7 @@ public:
 		bool					isfolder;				///< TRUE if entry refers to a folder
 		bool					isNested;				///< TRUE if the folder from a different repository and/or path
 		bool					isConflicted;			///> TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
-		svn_revnum_t			Revision;				///< the last committed revision
+		svn_revnum_t			Revision;				///< the base revision
 		CString					present_props;			///< cacheable properties present in BASE
 		friend class CSVNStatusListCtrl;
 	};
@@ -374,8 +374,13 @@ public:
 
 	/** fills in \a lMin and \a lMax with the lowest/highest revision of all
 	 * files/folders in the working copy.
+	 * \param bShownOnly if true, the min/max revisions are calculated only for shown items
+	 * \param bCheckedOnly if true, the min/max revisions are calculated only for items 
+	 *                   which are checked.
+	 * \remark Since an item can only be checked if it is visible/shown in the list control
+	 *         bShownOnly is automatically set to true if bCheckedOnly is true
 	 */
-	void GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax);
+	void GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly);
 
 	/**
 	 * Returns the parent directory of all entries in the control.

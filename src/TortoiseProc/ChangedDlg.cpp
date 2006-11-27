@@ -55,6 +55,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_BN_CLICKED(IDC_SHOWUNMODIFIED, OnBnClickedShowUnmodified)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_BN_CLICKED(IDC_SHOWIGNORED, &CChangedDlg::OnBnClickedShowignored)
 END_MESSAGE_MAP()
 
@@ -63,6 +64,8 @@ BOOL CChangedDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 	
 	GetWindowText(m_sTitle);
+
+	m_tooltips.Create(this);
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
@@ -124,18 +127,8 @@ UINT CChangedDlg::ChangedStatusThread()
 	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
 	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
 	m_FileListCtrl.Show(dwShow);
-	LONG lMin, lMax;
-	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax);
-	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
-	{
-		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
-		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
-	}
-	else
-	{
-		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
-		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
-	}
+	UpdateStatistics();
+
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
 	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
@@ -188,6 +181,7 @@ void CChangedDlg::OnBnClickedShowunversioned()
 	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
 	m_FileListCtrl.Show(dwShow);
 	m_regAddBeforeCommit = m_bShowUnversioned;
+	UpdateStatistics();
 }
 
 void CChangedDlg::OnBnClickedShowUnmodified()
@@ -199,6 +193,7 @@ void CChangedDlg::OnBnClickedShowUnmodified()
 	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
 	m_FileListCtrl.Show(dwShow);
 	m_regAddBeforeCommit = m_bShowUnversioned;
+	UpdateStatistics();
 }
 
 void CChangedDlg::OnBnClickedShowignored()
@@ -219,8 +214,15 @@ LRESULT CChangedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 	return 0;
 }
 
+LRESULT CChangedDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
+{
+	UpdateStatistics();
+	return 0;
+}
+
 BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 {
+	m_tooltips.RelayEvent(pMsg);
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		switch (pMsg->wParam)
@@ -241,4 +243,20 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
-
+void CChangedDlg::UpdateStatistics()
+{
+	LONG lMin, lMax;
+	CString temp;
+	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax, true, false);
+	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
+	{
+		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
+		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+	}
+	else
+	{
+		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
+		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+	}
+	m_tooltips.AddTool(IDC_SUMMARYTEXT, m_FileListCtrl.GetStatisticsString());
+}

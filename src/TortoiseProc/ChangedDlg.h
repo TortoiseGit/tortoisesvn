@@ -22,6 +22,7 @@
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
+#include "Balloon.h"
 
 
 /**
@@ -50,12 +51,14 @@ protected:
 	afx_msg void			OnBnClickedShowUnmodified();
 	afx_msg void			OnBnClickedShowignored();
 	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+	afx_msg LRESULT			OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()
 
 private:
 	static UINT				ChangedStatusThreadEntry(LPVOID pVoid);
 	UINT					ChangedStatusThread();
+	void					UpdateStatistics();
 
 public: 
 	CTSVNPathList			m_pathList;
@@ -70,5 +73,6 @@ private:
 	CString					m_sTitle;
 	bool					m_bCanceled;
 	BOOL					m_bShowIgnored;
+	CBalloon				m_tooltips;
 };
 
