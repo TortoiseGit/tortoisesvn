@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-21 10:05+0800\n"
+"PO-Revision-Date: 2006-11-28 12:01+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -987,6 +987,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1835,6 +1836,7 @@ msgstr "正在檢查是否有更新版本的 TortoiseSVN..."
 
 # ID:8,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "取出"
 
@@ -2175,6 +2177,11 @@ msgstr "複製至工作複本"
 msgid "Copy to working copy..."
 msgstr "複製至工作複本..."
 
+# ID:76,
+#: ID:208
+msgid "Copy-from URL"
+msgstr "複製來源路徑"
+
 # ID:97,
 #: ID:98
 #, c-format
@@ -2415,6 +2422,20 @@ msgstr "日期"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "預設的紀錄訊息數目(&N)"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "預設 URL:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "預設路徑:"
 
 # ID:11,#:
 # ID:73,#:
@@ -3013,6 +3034,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "完成!"
 
@@ -3822,13 +3844,13 @@ msgstr "視覺樣式::圖示集"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
 msgstr "最低版本: %ld - 最高版本: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
 msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
 # ID:3866,#:
@@ -5996,6 +6018,16 @@ msgstr "區塊大小與加入/移除的行數不符!"
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "區塊起始標記 \"@@\" 應該位於第 %d 行!"
+
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "未指定路徑時的預設取出路徑"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "未指定 URL 時預設的取出 URL"
 
 # ID:68,
 #: ID:68
