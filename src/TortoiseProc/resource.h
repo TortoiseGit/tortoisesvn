@@ -861,6 +861,8 @@
 #define IDS_PROGRS_CONFLICTSOCCURED     3501
 #define IDS_PROGRS_DRYRUN               3502
 #define IDS_PROGRS_FINISHED             3503
+#define IDS_PROGRS_TITLEFAILED          3504
+#define IDS_PROGRS_INFOFAILED           3505
 #define IDS_PROGRS_TITLE_RENAME         3530
 #define IDS_PROGRS_TITLE_LOCK           3531
 #define IDS_PROGRS_TITLE_UNLOCK         3532

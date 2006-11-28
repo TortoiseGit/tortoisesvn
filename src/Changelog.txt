@@ -116,6 +116,8 @@
 - CHG: The min/max revision in the check-for-modifications dialog only
        covers the items which are shown, not the whole working copy.
        See issue #316 for details. (Stefan)
+- CHG: The progress dialog clearly indicates a failed operation in the
+       title and the status text. See issue #318 for details. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD

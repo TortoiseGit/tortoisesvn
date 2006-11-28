@@ -631,6 +631,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString temp;
 	CString sWindowTitle;
 	bool localoperation = false;
+	bool bFailed = false;
 
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, TRUE);
@@ -660,12 +661,14 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (m_ProgList.GetItemCount()!=0)
 					{
 						ReportSVNError();
+						bFailed = true;
 					}
 					// if the checkout fails with the peg revision set to the checkout revision,
 					// try again with HEAD as the peg revision.
 					else if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
+						bFailed = true;
 					}
 				}
 			}
@@ -679,6 +682,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
 		{
 			ReportSVNError();
+			bFailed = true;
 		}
 		break;
 	case SVNProgress_Update:
@@ -755,6 +759,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString temp;
 					temp.Format(IDS_ERR_HOOKFAILED, error);
 					ReportError(error);
+					bFailed = true;
 					break;
 				}
 			}
@@ -772,6 +777,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, bRecursive, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
+						bFailed = true;
 						break;
 					}
 				}
@@ -779,6 +785,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			else if (!m_pSvn->Update(m_targetPathList, m_Revision, bRecursive, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 			if (CHooks::Instance().PostUpdate(m_targetPathList, bRecursive, m_RevisionEnd, exitcode, error))
@@ -788,6 +795,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString temp;
 					temp.Format(IDS_ERR_HOOKFAILED, error);
 					ReportError(error);
+					bFailed = true;
 					break;
 				}
 			}
@@ -855,6 +863,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString temp;
 					temp.Format(IDS_ERR_HOOKFAILED, error);
 					ReportError(error);
+					bFailed = true;
 					break;
 				}
 			}
@@ -862,6 +871,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
+				bFailed = true;
 				// if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
 				// that means a folder deletion couldn't be committed.
 				if ((m_Revision != 0)&&(m_pSvn->Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
@@ -876,6 +886,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString temp;
 					temp.Format(IDS_ERR_HOOKFAILED, error);
 					ReportError(error);
+					bFailed = true;
 					break;
 				}
 			}
@@ -888,6 +899,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		if (!m_pSvn->Add(m_targetPathList, false, FALSE, TRUE))
 		{
 			ReportSVNError();
+			bFailed = true;
 		}
 		break;
 	case SVNProgress_Revert:
@@ -897,6 +909,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
 		{
 			ReportSVNError();
+			bFailed = true;
 			break;
 		}
 		break;
@@ -934,6 +947,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				TCHAR error[10000] = {0};
 				pE->GetErrorMessage(error, 10000);
 				ReportError(error);
+				bFailed = true;
 				pE->Delete();
 			}
 			if (bMarkers)
@@ -968,6 +982,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, true))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 			m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath()] = rev;
@@ -992,6 +1007,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, NULL, FALSE, eol))
 			{
 				ReportSVNError();
+				bFailed = true;
 			}
 		}
 		break;
@@ -1019,6 +1035,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						m_targetPathList[0], true, true, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 					{
 						ReportSVNError();
+						bFailed = true;
 					}
 				}
 			}
@@ -1028,6 +1045,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					true, true, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 				{
 					ReportSVNError();
+					bFailed = true;
 				}
 			}
 		}
@@ -1040,6 +1058,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Copy(m_targetPathList[0], m_url, m_Revision, m_sMessage))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 			if (m_options & ProgOptSwitchAfterCopy)
@@ -1047,6 +1066,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, true))
 				{
 					ReportSVNError();
+					bFailed = true;
 					break;
 				}
 			}
@@ -1070,6 +1090,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Move(m_targetPathList[0], m_url, m_Revision, m_sMessage))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 		}
@@ -1081,6 +1102,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 			if (m_bLockWarning)
@@ -1093,10 +1115,12 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (!m_pSvn->Update(m_targetPathList, SVNRev::REV_HEAD, false, true))
 					{
 						ReportSVNError();
+						bFailed = true;
 					}
 					if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 					{
 						ReportSVNError();
+						bFailed = true;
 						break;
 					}
 				}
@@ -1110,12 +1134,16 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Unlock(m_targetPathList, m_options & ProgOptLockForce))
 			{
 				ReportSVNError();
+				bFailed = true;
 				break;
 			}
 		}
 		break;
 	}
-	temp.LoadString(IDS_PROGRS_TITLEFIN);
+	if (bFailed)
+		temp.LoadString(IDS_PROGRS_TITLEFAILED);
+	else
+		temp.LoadString(IDS_PROGRS_TITLEFIN);
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	SetWindowText(sWindowTitle);
 
@@ -1123,6 +1151,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	DialogEnableWindow(IDOK, TRUE);
 
 	CString info = BuildInfoString();
+	if (bFailed)
+		info.LoadString(IDS_PROGRS_INFOFAILED);
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	ResizeColumns();
 	int count = m_ProgList.GetItemCount();

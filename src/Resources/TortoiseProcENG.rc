@@ -2767,6 +2767,12 @@ BEGIN
     IDS_INPUT_MOVEMORE      "Move %ld items to\r\n%s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_TITLEFAILED  "Failed!"
+    IDS_PROGRS_INFOFAILED   "The operation failed."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
