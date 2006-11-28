@@ -90,7 +90,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	GetDlgItem(IDC_URLLABEL)->SetWindowText(m_sLabel);
 
 	// set head revision as default revision
-	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	SetRevision(SVNRev::REV_HEAD);
 
 	AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
@@ -111,7 +111,18 @@ BOOL CSwitchDlg::OnInitDialog()
 
 void CSwitchDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this, !m_bFolder);
+	UpdateData();
+	SVNRev rev;
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+	{
+		rev = SVNRev::REV_HEAD;
+	}
+	else
+		rev = SVNRev(m_rev);
+	if (!rev.IsValid())
+		rev = SVNRev::REV_HEAD;
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev, !m_bFolder);
+	SetRevision(rev);
 }
 
 void CSwitchDlg::OnOK()
@@ -150,4 +161,16 @@ void CSwitchDlg::OnEnChangeRevisionNum()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+void CSwitchDlg::SetRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		m_rev = rev.ToString();
+		UpdateData(FALSE);
+	}
 }

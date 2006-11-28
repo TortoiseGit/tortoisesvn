@@ -66,6 +66,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CheckData();
+	void SetStartRevision(const SVNRev& rev);
+	void SetEndRevision(const SVNRev& rev);
 
 	CLogDlg *	m_pLogDlg;
 	CLogDlg *	m_pLogDlg2;

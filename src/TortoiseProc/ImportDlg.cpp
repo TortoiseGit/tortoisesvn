@@ -132,7 +132,8 @@ void CImportDlg::OnOK()
 
 void CImportDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this);
+	SVNRev rev(SVNRev::REV_HEAD);
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
 
 BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)

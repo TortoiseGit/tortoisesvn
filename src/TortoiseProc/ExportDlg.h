@@ -58,6 +58,8 @@ protected:
 	afx_msg void OnEnChangeRevisionNum();
 	afx_msg void OnCbnSelchangeEolcombo();
 
+	void		SetRevision(const SVNRev& rev);
+
 	DECLARE_MESSAGE_MAP()
 protected:
 	CBalloon		m_tooltips;

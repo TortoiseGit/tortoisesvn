@@ -144,20 +144,8 @@ BOOL CMergeDlg::OnInitDialog()
 	// correct radio button
 	if ((bRepeating)||(!StartRev.IsHead() || !EndRev.IsHead()))
 	{
-		if (StartRev.IsHead())
-			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
-		else
-		{
-			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
-			m_sStartRev = StartRev.ToString();
-		}
-		if (EndRev.IsHead())
-			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-		else
-		{
-			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-			m_sEndRev = EndRev.ToString();
-		}
+		SetStartRevision(StartRev);
+		SetEndRevision(EndRev);
 		if (m_bUseFromURL)
 			DialogEnableWindow(IDC_URLCOMBO2, FALSE);
 		else
@@ -280,8 +268,11 @@ void CMergeDlg::OnBnClickedUidiffbutton()
 
 void CMergeDlg::OnBnClickedBrowse()
 {
-	if (CAppUtils::BrowseRepository(m_URLCombo, this, !!m_bFile))
+	if (!CheckData())
+		return;
+	if (CAppUtils::BrowseRepository(m_URLCombo, this, StartRev, !!m_bFile))
 	{
+		SetStartRevision(StartRev);
 		if (m_bUseFromURL)
 		{
 			CString strUrl;
@@ -294,7 +285,10 @@ void CMergeDlg::OnBnClickedBrowse()
 
 void CMergeDlg::OnBnClickedBrowse2()
 {
-	CAppUtils::BrowseRepository(m_URLCombo2, this, !!m_bFile);
+	if (!CheckData())
+		return;
+	CAppUtils::BrowseRepository(m_URLCombo2, this, EndRev, !!m_bFile);
+	SetEndRevision(EndRev);
 }
 
 void CMergeDlg::OnBnClickedFindbranchstart()
@@ -462,3 +456,26 @@ BOOL CMergeDlg::PreTranslateMessage(MSG* pMsg)
 	return CStandAloneDialogTmpl<CDialog>::PreTranslateMessage(pMsg);
 }
 
+void CMergeDlg::SetStartRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+		m_sStartRev = rev.ToString();
+		UpdateData(FALSE);
+	}
+}
+
+void CMergeDlg::SetEndRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		m_sEndRev = rev.ToString();
+		UpdateData(FALSE);
+	}
+}

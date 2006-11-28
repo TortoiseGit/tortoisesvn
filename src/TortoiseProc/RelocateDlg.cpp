@@ -64,7 +64,8 @@ BOOL CRelocateDlg::OnInitDialog()
 
 void CRelocateDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this);
+	SVNRev rev(SVNRev::REV_HEAD);
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
 
 void CRelocateDlg::OnOK()

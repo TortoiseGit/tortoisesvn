@@ -57,6 +57,8 @@ protected:
 	afx_msg void OnEnChangeRevisionNum();
 
 	DECLARE_MESSAGE_MAP()
+
+	void		SetRevision(const SVNRev& rev);
 protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;

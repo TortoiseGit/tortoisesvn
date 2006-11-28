@@ -78,15 +78,7 @@ BOOL CExportDlg::OnInitDialog()
 	m_URLCombo.SetCurSel(0);
 
 	// set radio buttons according to the revision
-	if (Revision.IsHead())
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	else
-	{
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		CString sRev;
-		sRev.Format(_T("%ld"), (LONG)Revision);
-		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
-	}
+	SetRevision(Revision);
 
 	m_editRevision.SetWindowText(_T(""));
 
@@ -196,7 +188,18 @@ void CExportDlg::OnOK()
 
 void CExportDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this);
+	SVNRev rev;
+	UpdateData();
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+	{
+		rev = SVNRev::REV_HEAD;
+	}
+	else
+		rev = SVNRev(m_sRevision);
+	if (!rev.IsValid())
+		rev = SVNRev::REV_HEAD;
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+	SetRevision(rev);
 }
 
 void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
@@ -277,4 +280,17 @@ void CExportDlg::OnEnChangeRevisionNum()
 
 void CExportDlg::OnCbnSelchangeEolcombo()
 {
+}
+
+void CExportDlg::SetRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		CString sRev;
+		sRev.Format(_T("%ld"), (LONG)rev);
+		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
+	}
 }

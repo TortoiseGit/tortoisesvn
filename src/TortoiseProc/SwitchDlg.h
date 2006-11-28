@@ -60,6 +60,8 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnChangeRevisionNum();
 
+	void		SetRevision(const SVNRev& rev);
+
 	DECLARE_MESSAGE_MAP()
 
 	CString			m_rev;

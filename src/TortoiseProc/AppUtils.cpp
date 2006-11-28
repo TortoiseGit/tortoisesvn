@@ -720,7 +720,7 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	return bFoundMarker;
 }
 
-bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFile /* = true */ )
+bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool bFile /* = true */ )
 {
 	CString strUrl;
 	combo.GetWindowText(strUrl);
@@ -735,11 +735,13 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFil
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
-			CRepositoryBrowser browser(strUrl, pParent, bFile);
+			SVNUrl url(strUrl, rev);
+			CRepositoryBrowser browser(url, pParent, bFile);
 			if (browser.DoModal() == IDOK)
 			{
 				combo.SetCurSel(-1);
 				combo.SetWindowText(browser.GetPath());
+				rev = browser.GetRevision();
 				return true;
 			}
 		}
@@ -764,11 +766,13 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, bool bFil
 		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
-		CRepositoryBrowser browser(strUrl, pParent, bFile);
+		SVNUrl url(strUrl, rev);
+		CRepositoryBrowser browser(url, pParent, bFile);
 		if (browser.DoModal() == IDOK)
 		{
 			combo.SetCurSel(-1);
 			combo.SetWindowText(browser.GetPath());
+			rev = browser.GetRevision();
 			return true;
 		}
 	}

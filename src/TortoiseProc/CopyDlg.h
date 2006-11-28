@@ -66,7 +66,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	virtual BOOL Cancel() {return m_bCancelled;}
-
+	void		SetRevision(const SVNRev& rev);
 public:
 	CString	m_URL;
 	CTSVNPath m_path;

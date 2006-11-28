@@ -76,15 +76,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_URLCombo.SetCurSel(0);
 
 	// set radio buttons according to the revision
-	if (Revision.IsHead())
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	else
-	{
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		CString sRev;
-		sRev.Format(_T("%ld"), (LONG)Revision);
-		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
-	}
+	SetRevision(Revision);
 
 	m_editRevision.SetWindowText(_T(""));
 
@@ -188,7 +180,20 @@ void CCheckoutDlg::OnOK()
 
 void CCheckoutDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this);
+	SVNRev rev;
+	UpdateData();
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+	{
+		rev = SVNRev(_T("HEAD"));
+	}
+	else
+		rev = SVNRev(m_sRevision);
+
+	if (!rev.IsValid())
+		rev = SVNRev::REV_HEAD;
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+	SetRevision(rev);
+
 
 	CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
 	CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
@@ -284,4 +289,17 @@ void CCheckoutDlg::OnEnChangeRevisionNum()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+void CCheckoutDlg::SetRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		CString sRev;
+		sRev.Format(_T("%ld"), (LONG)rev);
+		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
+	}
 }

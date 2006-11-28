@@ -82,20 +82,8 @@ BOOL CCopyDlg::OnInitDialog()
 
 	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
-	if (m_CopyRev.IsHead())
-	{
-		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
-		DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
-	}
-	else
-	{
-		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-		DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
-		CString temp;
-		temp.Format(_T("%ld"), (LONG)m_CopyRev);
-		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
-	}
-	
+	SetRevision(m_CopyRev);
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 	
@@ -243,7 +231,18 @@ void CCopyDlg::OnOK()
 
 void CCopyDlg::OnBnClickedBrowse()
 {
-	CAppUtils::BrowseRepository(m_URLCombo, this, !!m_bFile);
+	CString sRevText;
+	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
+	SVNRev rev;
+	if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
+		rev = SVNRev(SVNRev::REV_HEAD);
+	else if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYWC)
+		rev = SVNRev(SVNRev::REV_HEAD);
+	else
+		rev = SVNRev(sRevText);
+
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev, !!m_bFile);
+	SetRevision(rev);
 }
 
 void CCopyDlg::OnBnClickedHelp()
@@ -385,4 +384,21 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		}
 	}
 	return 0;
+}
+
+void CCopyDlg::SetRevision(const SVNRev& rev)
+{
+	if (rev.IsHead())
+	{
+		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
+		DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
+	}
+	else
+	{
+		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
+		DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
+		CString temp;
+		temp.Format(_T("%ld"), (LONG)rev);
+		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+	}
 }
