@@ -223,7 +223,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		<!-- the next line is split in two because we need the newline in the string -->
 		<foreach item="String" in="${languagelines}" delim="
 " property="langline">
-			<call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}"/>
+			<call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}" failonerror="false"/>
 		</foreach>
 	</target>
 	
@@ -239,25 +239,25 @@ NAnt build script for the TortoiseSVN language pack installers
 		/>
 		<echo message="Building ${langweb} dlls and installer" />
 		<!-- create the dlls -->
-		<exec program="${ResTextFileName}">
+		<exec program="${ResTextFileName}" failonerror="false">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseProcLang.dll" />
 			<arg value="..\bin\TortoiseProc${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<exec program="${ResTextFileName}">
+		<exec program="${ResTextFileName}" failonerror="false">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseMergeLang.dll" />
 			<arg value="..\bin\TortoiseMerge${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<exec program="${ResTextFileName}">
+		<exec program="${ResTextFileName}" failonerror="false">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseBlameLang.dll" />
 			<arg value="..\bin\TortoiseBlame${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<exec program="${ResTextFileName}">
+		<exec program="${ResTextFileName}" failonerror="false">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseIDiffLang.dll" />
 			<arg value="..\bin\TortoiseIDiff${langCC}.dll" />
@@ -296,7 +296,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		</if>
 		<copy file="LanguagePack.in" tofile="LanguagePack.nsi" failonerror="false" unless="${environment::variable-exists('MajorVersion')}"/>
 		
-		<exec program="MakeNSIS">
+		<exec program="MakeNSIS" failonerror="false">
 			<arg value="/V1" />
 			<arg value="LanguagePack.nsi" />
 		</exec>
