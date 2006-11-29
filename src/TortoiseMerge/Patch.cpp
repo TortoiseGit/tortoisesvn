@@ -199,9 +199,14 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				sLine =sLine.Trim();
 				//at the end of the filepath there's a revision number...
 				int bracket = sLine.ReverseFind('(');
+				if (bracket < 0)
+					// some patchfiles can have another '(' char, especially ones created in chinese OS
+					bracket = sLine.ReverseFind(0xff08);
 				CString num = sLine.Mid(bracket);		//num = "(revision xxxxx)"
 				num = num.Mid(num.Find(' '));
 				num = num.Trim(_T(" )"));
+				// here again, check for the 'chinese' bracket
+				num = num.Trim(0xff09);
 				chunks->sRevision = num;
 				chunks->sFilePath = sLine.Left(bracket-1).Trim();
 				if (chunks->sFilePath.Find('\t')>=0)
@@ -223,9 +228,14 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				sLine =sLine.Trim();
 				//at the end of the filepath there's a revision number...
 				int bracket = sLine.ReverseFind('(');
+				if (bracket < 0)
+					// some patchfiles can have another '(' char, especially ones created in chinese OS
+					bracket = sLine.ReverseFind(0xff08);
 				CString num = sLine.Mid(bracket);		//num = "(revision xxxxx)"
 				num = num.Mid(num.Find(' '));
 				num = num.Trim(_T(" )"));
+				// here again, check for the 'chinese' bracket
+				num = num.Trim(0xff09);
 				chunks->sRevision2 = num;
 				chunks->sFilePath2 = sLine.Left(bracket-1).Trim();
 				if (chunks->sFilePath2.Find('\t')>=0)
