@@ -452,7 +452,7 @@ bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 	LPCTSTR pP2 = ((LPCTSTR)sP2)+(length-1);
 	while(length-- > 0)
 	{
-		if((*pP1--) != (*pP2--))
+		if(_totlower(*pP1--) != _totlower(*pP2--))
 		{
 			return false;
 		}
@@ -508,6 +508,24 @@ bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 		// Assume we've got a fwdslash path and make sure that the RHS has one
 		rhs.EnsureFwdslashPathSet();
 		return ArePathStringsEqualWithCase(m_sFwdslashPath, rhs.m_sFwdslashPath);
+	}
+}
+
+bool CTSVNPath::IsEquivalentToWithoutCase(const CTSVNPath& rhs) const
+{
+	// Try and find a slash direction which avoids having to convert
+	// both filenames
+	if(!m_sBackslashPath.IsEmpty())
+	{
+		// *We've* got a \ path - make sure that the RHS also has a \ path
+		rhs.EnsureBackslashPathSet();
+		return ArePathStringsEqual(m_sBackslashPath, rhs.m_sBackslashPath);
+	}
+	else
+	{
+		// Assume we've got a fwdslash path and make sure that the RHS has one
+		rhs.EnsureFwdslashPathSet();
+		return ArePathStringsEqual(m_sFwdslashPath, rhs.m_sFwdslashPath);
 	}
 }
 

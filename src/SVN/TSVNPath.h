@@ -127,6 +127,7 @@ public:
 	 * Checks if two paths are equal. The slashes are taken care of.
 	 */
 	bool IsEquivalentTo(const CTSVNPath& rhs) const;
+	bool IsEquivalentToWithoutCase(const CTSVNPath& rhs) const;
 	bool operator==(const CTSVNPath& x) const {return IsEquivalentTo(x);}
 	
 	/**
