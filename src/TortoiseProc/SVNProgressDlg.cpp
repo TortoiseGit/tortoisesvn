@@ -69,6 +69,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_options(ProgOptNone)
 	, m_dwCloseOnEnd(0)
 	, m_bFinishedItemAdded(false)
+	, m_bLastVisible(false)
 {
 
 	m_pSvn = this;
@@ -104,6 +105,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_WM_TIMER()
 	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -136,7 +138,12 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 		// scroll bar is visible.
 		int count = m_ProgList.GetCountPerPage();
 		if (iInsertedAt <= (m_ProgList.GetTopIndex() + count + 2))
+		{
 			m_ProgList.EnsureVisible(iInsertedAt, false);
+			m_bLastVisible = true;
+		}
+		else if (IsIconic() == 0)
+			m_bLastVisible = false;
 	}
 }
 BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
@@ -1936,4 +1943,15 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 	}
 
 	*pResult = 0;
+}
+
+void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CResizableStandAloneDialog::OnSize(nType, cx, cy);
+	if ((nType == SIZE_RESTORED)&&(m_bLastVisible))
+	{
+		int count = m_ProgList.GetItemCount();
+		if (count > 0)
+			m_ProgList.EnsureVisible(count-1, false);
+	}
 }
