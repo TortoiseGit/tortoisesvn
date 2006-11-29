@@ -2117,7 +2117,7 @@ msgid ""
 "Copy %s\r\n"
 "to %s"
 msgstr ""
-"复制 %s\n"
+"复制 %s\r\n"
 "到 %s"
 
 # Dlg-ID:142,
@@ -2424,7 +2424,7 @@ msgstr "默认的日志信息数目(&N)"
 # ID:73,
 #: Control-ID:65535
 msgid "Default URL:"
-msgstr "默认　URL："
+msgstr "默认 URL："
 
 # ID:11,#:
 # ID:73,
@@ -4325,7 +4325,7 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr ""
 "覆写 svn:eol-style 属性设置。\n"
-"没有次属性的文件不受影响。"
+"没有此属性的文件不受影响。"
 
 # ID:99,
 #: ID:99
@@ -7371,7 +7371,8 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\n"
 "用换行分隔的两个正则表达式，\n"
-"第一个正则表达式用于查找问题标题中的字符串，第二个正则表达式用于从字符串获取问题编号。"
+"第一个正则表达式用于查找问题标题中的字符串，\n"
+"第二个正则表达式用于从字符串获取问题编号。"
 
 # ID:14,
 #: ID:14
@@ -7791,4 +7792,5 @@ msgstr "对应版本库URL："
 #: ID:245
 msgid "year"
 msgstr "年"
+
 
