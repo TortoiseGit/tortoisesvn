@@ -1149,6 +1149,26 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 	return ret;
 }
 
+COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
+{
+	// if the color is already dark (grayscale below 127),
+	// then lighten the color by 'scale', otherwise darken it
+	int Gray  = (((int)GetRValue(col)) + GetGValue(col) + GetBValue(col))/3;
+	if (Gray > 127)
+	{
+		long red   = MulDiv(GetRValue(col),(255-scale),255);
+		long green = MulDiv(GetGValue(col),(255-scale),255);
+		long blue  = MulDiv(GetBValue(col),(255-scale),255);
+
+		return RGB(red, green, blue);
+	}
+	long R = MulDiv(255-GetRValue(col),scale,255)+GetRValue(col);
+	long G = MulDiv(255-GetGValue(col),scale,255)+GetGValue(col);
+	long B = MulDiv(255-GetBValue(col),scale,255)+GetBValue(col);
+
+	return RGB(R, G, B);
+}
+
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
 	if (nLineIndex >= GetLineCount())
@@ -1171,8 +1191,16 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
 		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
-			crBkgnd = (~crBkgnd)&0x00FFFFFF;
-			crText = (~crText)&0x00FFFFFF;
+			if (m_bFocused)
+			{
+				crBkgnd = IntenseColor(70, crBkgnd);
+				crText = IntenseColor(70, crText);
+			}
+			else
+			{
+				crBkgnd = IntenseColor(30, crBkgnd);
+				crText = IntenseColor(30, crText);
+			}
 		}
 	}
 	else
@@ -1370,11 +1398,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			pDC->FillSolidRect(frect, crBkgnd);
 	}
 	COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
-	if (nLineIndex == m_nDiffBlockStart)
+	if ((nLineIndex == m_nDiffBlockStart)||(nLineIndex == m_nSelBlockStart))
 	{
 		pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
 	}		
-	if (nLineIndex == m_nDiffBlockEnd)
+	if ((nLineIndex == m_nDiffBlockEnd)||(nLineIndex == m_nSelBlockEnd))
 	{
 		pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
 	}

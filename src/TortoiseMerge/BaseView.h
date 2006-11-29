@@ -163,6 +163,7 @@ protected:
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();
 	void			RefreshViews();
+	COLORREF		IntenseColor(long scale, COLORREF col);
 
 	virtual BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
 	virtual	void	OnContextMenu(CPoint point, int nLine);
