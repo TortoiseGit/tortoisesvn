@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-27 16:17+0100\n"
+"PO-Revision-Date: 2006-11-29 09:35+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1348,13 +1348,13 @@ msgstr "Bug-ID:"
 msgid "C&heck now"
 msgstr "&Jetzt prüfen"
 
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "E&rstelle Verzweigung/Markierung von Revision"
+
 #: ID:101
 msgid "C&reate folder..."
 msgstr "Ordner &anlegen..."
-
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "E&rstelle Markierung von Revision"
 
 #: ID:3697
 msgid "CAP"
@@ -2422,6 +2422,10 @@ msgstr "Konnte Dokument nicht öffnen."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Konnte Dokument nicht speichern."
+
+#: ID:220
+msgid "Failed!"
+msgstr "Fehlgeschlagen!"
 
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -5161,6 +5165,10 @@ msgid ""
 msgstr ""
 "Die alte Datei stimmt nicht mit der neuen Datei überein.\n"
 "Umbenennen von Dateien wird (noch) nicht unterstützt!"
+
+#: ID:220
+msgid "The operation failed."
+msgstr "Die Operation ist fehlgeschlagen."
 
 #: ID:64
 #, c-format
