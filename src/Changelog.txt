@@ -134,6 +134,9 @@ Version 1.4.2
        were not reverted later even if they were selected. (Stefan)
 - BUG: Reopening the commit dialog after a failed commit did not always
        restore the state of all selected items. (Tobias Schäfer)
+- BUG: Reverted files dissapeared from the list even if "show unmodified files"
+       was set in the check-for-modifications dialog.
+       See issue #325 for details. (Stefan)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
