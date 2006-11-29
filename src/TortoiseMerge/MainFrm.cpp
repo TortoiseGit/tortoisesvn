@@ -1224,17 +1224,17 @@ void CMainFrame::Search(SearchDirection srchDir)
 			if (StringFound(left))
 			{
 				m_pwndLeftView->SetFocus();
-				m_pwndLeftView->SelectLines(m_nSearchIndex);
+				m_pwndLeftView->HiglightLines(m_nSearchIndex);
 			}
 			else if (StringFound(right))
 			{
 				m_pwndRightView->SetFocus();
-				m_pwndRightView->SelectLines(m_nSearchIndex);
+				m_pwndRightView->HiglightLines(m_nSearchIndex);
 			}
 			else if (StringFound(bottom))
 			{
 				m_pwndBottomView->SetFocus();
-				m_pwndBottomView->SelectLines(m_nSearchIndex);
+				m_pwndBottomView->HiglightLines(m_nSearchIndex);
 			}
 		}
 		else

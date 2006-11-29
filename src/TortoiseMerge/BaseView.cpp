@@ -1733,6 +1733,15 @@ void CBaseView::SetupDiffBars(int start, int end)
 	}
 }
 
+void CBaseView::HiglightLines(int start, int end /* = -1 */)
+{
+	m_nDiffBlockStart = start;
+	if (end < 0)
+		end = start;
+	m_nDiffBlockEnd = end;
+	Invalidate();
+}
+
 void CBaseView::SetupSelection(int start, int end)
 {
 	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))

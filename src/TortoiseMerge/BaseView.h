@@ -61,6 +61,7 @@ public:
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
+	void			HiglightLines(int start, int end = -1);
 	inline BOOL		IsHidden() const  {return m_bIsHidden;}
 	inline void		SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
 	inline BOOL		IsModified() const  {return m_bModified;}
