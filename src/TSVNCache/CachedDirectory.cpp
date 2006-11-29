@@ -179,13 +179,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	CString strCacheKey;
 	bool bThisDirectoryIsUnversioned = false;
 	bool bRequestForSelf = false;
-	if(path.IsEquivalentTo(m_directoryPath))
+	if(path.IsEquivalentToWithoutCase(m_directoryPath))
 	{
 		bRequestForSelf = true;
 	}
 
 	// In all most circumstances, we ask for the status of a member of this directory.
-	ATLASSERT(m_directoryPath.IsEquivalentTo(path.GetContainingDirectory()) || bRequestForSelf);
+	ATLASSERT(m_directoryPath.IsEquivalentToWithoutCase(path.GetContainingDirectory()) || bRequestForSelf);
 
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
@@ -548,7 +548,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 		if(svnPath.IsDirectory())
 		{
-			if(!svnPath.IsEquivalentTo(pThis->m_directoryPath))
+			if(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))
 			{
 				if (pThis->m_bRecursive)
 				{
@@ -597,7 +597,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		// part of another working copy (nested layouts).
 		// So we have to make sure that such an 'unversioned' folder really
 		// is unversioned.
-		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentTo(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
 		{
 			if (svnPath.HasAdminDir())
 			{
@@ -758,8 +758,8 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 			CTSVNPath filePath(m_directoryPath);
 			filePath.AppendPathString(itMembers->first);
 			std::set<CTSVNPath>::iterator refr_it;
-			if ((!filePath.IsEquivalentTo(m_directoryPath))&&
-				(((refr_it = refreshedpaths.lower_bound(filePath)) == refreshedpaths.end()) || !filePath.IsEquivalentTo(*refr_it)))
+			if ((!filePath.IsEquivalentToWithoutCase(m_directoryPath))&&
+				(((refr_it = refreshedpaths.lower_bound(filePath)) == refreshedpaths.end()) || !filePath.IsEquivalentToWithoutCase(*refr_it)))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{

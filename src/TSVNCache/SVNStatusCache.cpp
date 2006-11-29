@@ -308,7 +308,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 		dirtoremove = itMap->second;
 	if (dirtoremove == NULL)
 		return;
-	ATLASSERT(path.IsEquivalentTo(dirtoremove->m_directoryPath));
+	ATLASSERT(path.IsEquivalentToWithoutCase(dirtoremove->m_directoryPath));
 	RemoveCacheForDirectory(dirtoremove);
 }
 
@@ -383,7 +383,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	long now = (long)GetTickCount();
 	if(now-m_mostRecentExpiresAt < 0)
 	{
-		if(path.IsEquivalentTo(m_mostRecentPath))
+		if(path.IsEquivalentToWithoutCase(m_mostRecentPath))
 		{
 			return m_mostRecentStatus;
 		}

@@ -387,7 +387,7 @@ void CFolderCrawler::WorkerThread()
 				AutoLocker lock(m_critSec);
 				if (m_bItemsAddedSinceLastCrawl)
 				{
-					if (m_foldersToUpdate.back().IsEquivalentTo(workingPath))
+					if (m_foldersToUpdate.back().IsEquivalentToWithoutCase(workingPath))
 					{
 						m_foldersToUpdate.pop_back();
 						m_bItemsAddedSinceLastCrawl = false;
