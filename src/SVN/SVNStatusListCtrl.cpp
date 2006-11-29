@@ -1451,6 +1451,14 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	pHeader->GetItem(m_nSortedColumn, &HeaderItem);
 	HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
 	pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+
+	// the checked state of the list control items must be restored
+	for (int i=0; i<GetItemCount(); ++i)
+	{
+		FileEntry * entry = GetListEntry(i);
+		SetCheck(i, entry->IsChecked());
+	}
+
 	m_bBlock = FALSE;
 }
 
