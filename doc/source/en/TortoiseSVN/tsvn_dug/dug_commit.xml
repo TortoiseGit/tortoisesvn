@@ -128,6 +128,21 @@
 			from the other windows to include within the same atomic commit.
 		</para>
 	</tip>
+	<tip>
+		<title>Repairing External Renames</title>
+		<para>
+			Sometimes files get renamed outside of Subversion, and they show up
+			in the file list as a missing file and an unversioned file. To avoid
+			losing the history you need to notify Subversion about the connection.
+			Simply select both the old name (missing) and the new name (unversioned)
+			and use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Repair Move</guimenuitem>
+			</menuchoice>
+			to pair the two files as a rename.
+		</para>
+	</tip>
 	<para>
 		Be sure to enter a log message which describes the changes you are
 		committing. This will help you to see what happened and when, as you

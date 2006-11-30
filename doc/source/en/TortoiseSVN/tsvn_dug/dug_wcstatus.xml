@@ -314,6 +314,21 @@
 				all files in your working copy.
 			</para>
 		</tip>
+		<tip>
+			<title>Repairing External Renames</title>
+			<para>
+				Sometimes files get renamed outside of Subversion, and they show up
+				in the file list as a missing file and an unversioned file. To avoid
+				losing the history you need to notify Subversion about the connection.
+				Simply select both the old name (missing) and the new name (unversioned)
+				and use
+				<menuchoice>
+					<guimenu>Context Menu</guimenu>
+					<guimenuitem>Repair Move</guimenuitem>
+				</menuchoice>
+				to pair the two files as a rename.
+			</para>
+		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-diffing">
 		<title>Viewing Diffs</title>
