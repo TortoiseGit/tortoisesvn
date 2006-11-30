@@ -38,13 +38,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8136: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8175: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-27 17:29+0300\n"
+"PO-Revision-Date: 2006-11-30 12:43+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1367,13 +1367,13 @@ msgstr "ID ошибки / N проблемы:"
 msgid "C&heck now"
 msgstr "&Проверить"
 
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "С&оздать ответвление/метку из ревизии"
+
 #: ID:101
 msgid "C&reate folder..."
 msgstr "С&оздать папку..."
-
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "С&оздать метку из ревизии"
 
 #: ID:3697
 msgid "CAP"
@@ -1730,6 +1730,10 @@ msgstr "Копи&ровать"
 msgid "Copied"
 msgstr "Скопировано"
 
+#: ID:208
+msgid "Copied from URL"
+msgstr "Скопировано из URL"
+
 #: ID:126
 msgid "Copied remotely"
 msgstr "Скопировано удаленно"
@@ -1801,10 +1805,6 @@ msgstr "Копировать в рабочую копию"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Копировать в рабочую копию..."
-
-#: ID:208
-msgid "Copy-from URL"
-msgstr "Скопировано-из URL"
 
 #: ID:98
 #, c-format
@@ -2431,6 +2431,11 @@ msgstr "Не удалось открыть документ."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Не удалось сохранить документ."
+
+# Вот незадача :)
+#: ID:220
+msgid "Failed!"
+msgstr "Неудача!"
 
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -5107,6 +5112,10 @@ msgid ""
 msgstr ""
 "Старый файл не соответствует новому.\n"
 "Переименование (пока что) не поддерживается!"
+
+#: ID:220
+msgid "The operation failed."
+msgstr "Операция завершена неудачно."
 
 #: ID:64
 #, c-format
