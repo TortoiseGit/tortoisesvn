@@ -3082,7 +3082,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					CString strWinPath = m_path.GetWinPathString();
 					int rfind = strWinPath.ReverseFind('.');
 					if (rfind > 0)
-						revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)strWinPath.Left(rfind), revSelected, (LPCTSTR)strWinPath.Mid(rfind));
+						revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)strWinPath.Left(rfind), (LONG)revSelected, (LPCTSTR)strWinPath.Mid(rfind));
 					else
 						revFilename.Format(_T("%s-%ld"), (LPCTSTR)strWinPath, revSelected);
 					_tcscpy_s(szFile, MAX_PATH, revFilename);
