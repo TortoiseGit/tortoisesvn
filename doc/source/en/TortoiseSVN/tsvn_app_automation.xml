@@ -239,6 +239,11 @@ Don't touch these lines:
 							<entry>
 								Opens the merge dialog. The path specifies the
 								target directory.
+								Three additional options can be set:
+								<option>/revstart:xxx</option>, 
+								<option>/revend:xxx</option> and
+								<option>/mergefrom:URL</option>.
+								These pre-fill the relevant fields in the merge dialog.
 							</entry>
 						</row>
 						<row>
