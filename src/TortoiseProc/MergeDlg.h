@@ -65,7 +65,7 @@ protected:
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
-	BOOL CheckData();
+	BOOL CheckData(bool bShowErrors = true);
 	void SetStartRevision(const SVNRev& rev);
 	void SetEndRevision(const SVNRev& rev);
 

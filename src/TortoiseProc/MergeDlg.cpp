@@ -168,7 +168,7 @@ BOOL CMergeDlg::OnInitDialog()
 	return TRUE;
 }
 
-BOOL CMergeDlg::CheckData()
+BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 {
 	if (!UpdateData(TRUE))
 		return FALSE;
@@ -181,7 +181,8 @@ BOOL CMergeDlg::CheckData()
 	}
 	if (!StartRev.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		if (bShowErrors)
+			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return FALSE;
 	}
 
@@ -192,7 +193,8 @@ BOOL CMergeDlg::CheckData()
 	}
 	if (!EndRev.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		if (bShowErrors)
+			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return FALSE;
 	}
 
@@ -208,7 +210,8 @@ BOOL CMergeDlg::CheckData()
 
 	if ( (LONG)StartRev == (LONG)EndRev && m_URLFrom==m_URLTo)
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_HEAD1), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
+		if (bShowErrors)
+			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_HEAD1), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
 		return FALSE;
 	}
 
@@ -268,8 +271,9 @@ void CMergeDlg::OnBnClickedUidiffbutton()
 
 void CMergeDlg::OnBnClickedBrowse()
 {
-	if (!CheckData())
-		return;
+	CheckData(false);
+	if ((!StartRev.IsValid())||(StartRev == 0))
+		StartRev = SVNRev::REV_HEAD;
 	if (CAppUtils::BrowseRepository(m_URLCombo, this, StartRev, !!m_bFile))
 	{
 		SetStartRevision(StartRev);
@@ -285,8 +289,11 @@ void CMergeDlg::OnBnClickedBrowse()
 
 void CMergeDlg::OnBnClickedBrowse2()
 {
-	if (!CheckData())
-		return;
+	CheckData(false);
+
+	if ((!EndRev.IsValid())||(EndRev == 0))
+		EndRev = SVNRev::REV_HEAD;
+
 	CAppUtils::BrowseRepository(m_URLCombo2, this, EndRev, !!m_bFile);
 	SetEndRevision(EndRev);
 }
