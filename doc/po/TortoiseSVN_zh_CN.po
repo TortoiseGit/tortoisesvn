@@ -4572,7 +4572,7 @@ msgstr "导入"
 
 #: source/TortoiseSVN_en.xml:3490(primary)
 msgid "temporary files"
-msgstr ""
+msgstr "临时文件"
 
 #: source/TortoiseSVN_en.xml:3496(para)
 msgid ""
@@ -6826,7 +6826,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5357(title)
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Comparing Folders"
 
 #: source/TortoiseSVN_en.xml:5359(primary)
 msgid "compare revisions"
@@ -11984,7 +11984,7 @@ msgstr "$WCREV$"
 
 #: source/TortoiseSVN_en.xml:9694(entry)
 msgid "Replaced with the highest commit revision in the working copy."
-msgstr ""
+msgstr "用工作拷贝中最高的提交版本来替换"
 
 #: source/TortoiseSVN_en.xml:9700(entry)
 msgid "$WCDATE$"
@@ -12039,6 +12039,7 @@ msgstr "$WCMODS?TText:FText$"
 #: source/TortoiseSVN_en.xml:9737(entry)
 msgid "Replaced with TText if there are local modifications, or FText if not."
 msgstr ""
+"若本地存在修改，就用正确提示文本 TText 替换，否则用失败提示文本 FText 替换。"
 
 #: source/TortoiseSVN_en.xml:9743(entry)
 msgid "$WCURL$"
@@ -12740,7 +12741,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10316(para)
 msgid "Move the file to somewhere safe, not inside your working copy."
-msgstr ""
+msgstr "把文件移动到其它安全的位置，不在你的工作拷贝的目录内。"
 
 #: source/TortoiseSVN_en.xml:10322(para)
 msgid ""
@@ -13010,15 +13011,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10567(para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
-msgstr ""
+msgstr "<option>/closeonend:0</option> 不自动关闭对话框"
 
 #: source/TortoiseSVN_en.xml:10571(para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> 如果没发生错误则自动关闭对话框"
 
 #: source/TortoiseSVN_en.xml:10575(para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr ""
+msgstr "<option>/closeonend:2</option> 如果没发生错误和冲突则自动关闭对话框"
 
 #: source/TortoiseSVN_en.xml:10579(para)
 msgid ""
@@ -13048,7 +13049,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10607(title)
 msgid "List of available commands and options"
-msgstr ""
+msgstr "有效命令及选项列表"
 
 #: source/TortoiseSVN_en.xml:10613(entry)
 msgid "Command"
@@ -13056,19 +13057,19 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10620(entry)
 msgid "Shows the About-dialog. This is also shown if no command is given."
-msgstr ""
+msgstr "显示关于对话框。如果没有给命令也会显示。"
 
 #: source/TortoiseSVN_en.xml:10631(option)
 msgid "/revstart:xxx"
-msgstr ""
+msgstr "/revstart:xxx"
 
 #: source/TortoiseSVN_en.xml:10632(option)
 msgid "/revend:xxx"
-msgstr ""
+msgstr "/revend:xxx"
 
 #: source/TortoiseSVN_en.xml:10633(option)
 msgid "/strict"
-msgstr ""
+msgstr "/strict"
 
 #: source/TortoiseSVN_en.xml:10627(entry)
 msgid ""
@@ -13103,11 +13104,11 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10876(option)
 #: source/TortoiseSVN_en.xml:10893(option)
 msgid "/path"
-msgstr ""
+msgstr "/path"
 
 #: source/TortoiseSVN_en.xml:10640(option)
 msgid "/url"
-msgstr ""
+msgstr "/url"
 
 #: source/TortoiseSVN_en.xml:10638(entry)
 msgid ""
@@ -13123,7 +13124,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10655(option)
 msgid "/rev"
-msgstr ""
+msgstr "/rev"
 
 #: source/TortoiseSVN_en.xml:10658(option)
 msgid "/rev:1234"
@@ -13147,11 +13148,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10671(option)
 msgid "path"
-msgstr ""
+msgstr "path"
 
 #: source/TortoiseSVN_en.xml:10675(option)
 msgid "/bugid:\"the bug id here\""
-msgstr ""
+msgstr "/bugid:\"the bug id here\""
 
 #: source/TortoiseSVN_en.xml:10665(entry)
 msgid ""
@@ -13184,7 +13185,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10767(option)
 #: source/TortoiseSVN_en.xml:10886(option)
 msgid "/noquestion"
-msgstr ""
+msgstr "/noquestion"
 
 #: source/TortoiseSVN_en.xml:10703(entry)
 msgid ""
@@ -13195,11 +13196,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10713(entry)
 msgid "Creates a repository in <placeholder-1/>"
-msgstr ""
+msgstr "在<placeholder-1/>创建一个版本库。"
 
 #: source/TortoiseSVN_en.xml:10719(entry)
 msgid "Opens the switch dialog. The path specifies the target directory."
-msgstr ""
+msgstr "打开选项对话框。路径参数指定目标目录。"
 
 #: source/TortoiseSVN_en.xml:10726(entry)
 msgid ""
@@ -13210,7 +13211,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10735(entry)
 msgid "Opens the merge dialog. The path specifies the target directory."
-msgstr ""
+msgstr "打开合并对话框。路径参数指定目标目录。"
 
 #: source/TortoiseSVN_en.xml:10742(entry)
 msgid ""
@@ -13220,11 +13221,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10750(entry)
 msgid "Opens the settings dialog."
-msgstr ""
+msgstr "打开设置对话框。"
 
 #: source/TortoiseSVN_en.xml:10756(entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
-msgstr ""
+msgstr "从版本控制里移除<placeholder-1/>中的文件。"
 
 #: source/TortoiseSVN_en.xml:10763(entry)
 msgid ""
@@ -13327,11 +13328,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10859(entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "创建<placeholder-1/>下的补丁文件。"
 
 #: source/TortoiseSVN_en.xml:10866(entry)
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "显示<placeholder-1/>目录下的版本变化图。"
 
 #: source/TortoiseSVN_en.xml:10873(entry)
 msgid ""
@@ -13402,7 +13403,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10946(title)
 msgid "Conventions and Basic Rules"
-msgstr ""
+msgstr "约定和基本规则"
 
 #: source/TortoiseSVN_en.xml:10947(para)
 msgid ""
@@ -13438,6 +13439,8 @@ msgid ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
+"\n"
+"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 
 #: source/TortoiseSVN_en.xml:10977(para)
 msgid ""
@@ -13469,6 +13472,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] PATH\n"
 
 #: source/TortoiseSVN_en.xml:10996(para)
 msgid ""
@@ -13501,6 +13507,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 
 #: source/TortoiseSVN_en.xml:11020(para)
 msgid ""
@@ -13529,6 +13538,8 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 msgstr ""
+"\n"
+"svn status -v PATH\n"
 
 #: source/TortoiseSVN_en.xml:11041(para) source/TortoiseSVN_en.xml:11129(para)
 msgid ""
@@ -13552,6 +13563,8 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 msgstr ""
+"\n"
+"svn add PATH...\n"
 
 #: source/TortoiseSVN_en.xml:11056(para)
 msgid ""
@@ -13568,6 +13581,8 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
+"\n"
+"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 
 #: source/TortoiseSVN_en.xml:11067(para) source/TortoiseSVN_en.xml:11273(para)
 #: source/TortoiseSVN_en.xml:11356(para)
@@ -13585,7 +13600,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11077(title)
 #: source/TortoiseSVN_en.xml:11547(glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "差异"
 
 #: source/TortoiseSVN_en.xml:11078(screen)
 #, no-wrap
@@ -13593,6 +13608,8 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 msgstr ""
+"\n"
+"svn diff PATH\n"
 
 #: source/TortoiseSVN_en.xml:11081(para)
 msgid ""
@@ -13623,6 +13640,10 @@ msgid ""
 "  or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 msgstr ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  或者\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
 
 #: source/TortoiseSVN_en.xml:11104(para)
 msgid ""
@@ -13645,6 +13666,10 @@ msgid ""
 "  or\n"
 "svn status -u -v PATH\n"
 msgstr ""
+"\n"
+"svn status -v PATH\n"
+"  或者\n"
+"svn status -u -v PATH\n"
 
 #: source/TortoiseSVN_en.xml:11122(para)
 msgid ""
@@ -13656,7 +13681,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11139(title)
 msgid "Revision Graph"
-msgstr ""
+msgstr "版本图"
 
 #: source/TortoiseSVN_en.xml:11140(para)
 msgid ""
@@ -13684,6 +13709,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn list [-r rev] -v URL\n"
 
 #: source/TortoiseSVN_en.xml:11160(para)
 msgid ""
@@ -13720,6 +13748,8 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 msgstr ""
+"\n"
+"svn resolved PATH\n"
 
 #: source/TortoiseSVN_en.xml:11187(title)
 msgid "Rename"
@@ -13731,6 +13761,8 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 msgstr ""
+"\n"
+"svn rename CURR_PATH NEW_PATH\n"
 
 #: source/TortoiseSVN_en.xml:11193(title)
 #: source/TortoiseSVN_en.xml:11535(glossterm)
@@ -13743,6 +13775,8 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 msgstr ""
+"\n"
+"svn delete PATH\n"
 
 #: source/TortoiseSVN_en.xml:11199(title)
 #: source/TortoiseSVN_en.xml:11714(glossterm)
@@ -13800,6 +13834,8 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 msgstr ""
+"\n"
+"svn lock -m \"LockMessage\" [--force] PATH...\n"
 
 #: source/TortoiseSVN_en.xml:11239(para)
 msgid ""
@@ -13823,6 +13859,8 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 msgstr ""
+"\n"
+"svn unlock PATH\n"
 
 #: source/TortoiseSVN_en.xml:11255(title)
 msgid "Branch/Tag"
@@ -13838,10 +13876,16 @@ msgid ""
 "  or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 msgstr ""
+"\n"
+"svn copy -m \"LogMessage\" URL URL\n"
+"  或\n"
+"svn copy -m \"LogMessage\" URL@rev URL@rev\n"
+"  或\n"
+"svn copy -m \"LogMessage\" PATH URL\n"
 
 #: source/TortoiseSVN_en.xml:11268(listitem)
 msgid "Specific revision in repository"
-msgstr ""
+msgstr "指定版本库中的版本"
 
 #: source/TortoiseSVN_en.xml:11263(para)
 msgid ""
@@ -13857,6 +13901,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn switch [-r rev] URL PATH\n"
 
 #: source/TortoiseSVN_en.xml:11286(title)
 #: source/TortoiseSVN_en.xml:11628(glossterm)
@@ -13869,6 +13916,8 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 msgstr ""
+"\n"
+"svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 
 #: source/TortoiseSVN_en.xml:11290(para)
 msgid ""
@@ -13882,6 +13931,8 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 msgstr ""
+"\n"
+"svn diff From_URL@revN To_URL@revM\n"
 
 #: source/TortoiseSVN_en.xml:11297(para)
 msgid ""
@@ -13892,7 +13943,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11303(title)
 #: source/TortoiseSVN_en.xml:11556(glossterm)
 msgid "Export"
-msgstr ""
+msgstr "输出"
 
 #: source/TortoiseSVN_en.xml:11304(screen)
 #, no-wrap
@@ -13900,6 +13951,8 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 msgstr ""
+"\n"
+"svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 
 #: source/TortoiseSVN_en.xml:11307(para)
 msgid ""
@@ -13929,7 +13982,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11328(title)
 #: source/TortoiseSVN_en.xml:11674(glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "重新定位"
 
 #: source/TortoiseSVN_en.xml:11329(screen)
 #, no-wrap
@@ -13942,7 +13995,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11334(title)
 msgid "Create Repository Here"
-msgstr ""
+msgstr "在当前位置创建版本库"
 
 #: source/TortoiseSVN_en.xml:11335(screen)
 #, no-wrap
@@ -13952,6 +14005,10 @@ msgid ""
 "  or\n"
 "svnadmin create --fs-type bdb PATH\n"
 msgstr ""
+"\n"
+"svnadmin create --fs-type fsfs PATH\n"
+"  或\n"
+"svnadmin create --fs-type bdb PATH\n"
 
 #: source/TortoiseSVN_en.xml:11342(title)
 #: source/TortoiseSVN_en.xml:11418(glossterm)
@@ -13970,6 +14027,8 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 msgstr ""
+"\n"
+"svn import -m LogMessage PATH URL\n"
 
 #: source/TortoiseSVN_en.xml:11362(title)
 #: source/TortoiseSVN_en.xml:11439(glossterm)
@@ -13996,7 +14055,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11375(title)
 msgid "Add to Ignore List"
-msgstr ""
+msgstr "加入忽略列表"
 
 #: source/TortoiseSVN_en.xml:11376(screen)
 #, no-wrap
@@ -14006,6 +14065,10 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 msgstr ""
+"\n"
+"svn propget svn:ignore PATH &gt; tempfile\n"
+"{编辑新的忽略内容到tempfile文件中}\n"
+"svn propset svn:ignore -F tempfile PATH\n"
 
 #: source/TortoiseSVN_en.xml:11381(para)
 msgid ""
@@ -14024,6 +14087,8 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patchfile\n"
 msgstr ""
+"\n"
+"svn diff PATH &gt; patchfile\n"
 
 #: source/TortoiseSVN_en.xml:11392(para)
 msgid ""
@@ -14096,7 +14161,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11460(glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "分支"
 
 #: source/TortoiseSVN_en.xml:11462(para)
 msgid ""
@@ -14371,7 +14436,7 @@ msgstr "SVN"
 
 #: source/TortoiseSVN_en.xml:11757(para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Subversion的常见缩写形式。"
 
 #: source/TortoiseSVN_en.xml:11760(para)
 msgid ""
