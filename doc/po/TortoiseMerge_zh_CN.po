@@ -9,6 +9,7 @@
 #
 # Dictionary:
 # BASE revision     基础版本
+# blame             追溯
 # checkout          检出
 # default           默认
 # HEAD revision     最新版本
@@ -27,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-24 00:01 +0000\n"
-"PO-Revision-Date: 2006-11-29 17:32+0800\n"
+"PO-Revision-Date: 2006-11-30 14:38+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +290,7 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:231(title)
 msgid "TortoiseMerge's History"
-msgstr "TortoiseMerge的历史"
+msgstr "TortoiseMerge 的历史"
 
 #: source/TortoiseMerge_en.xml:232(para)
 msgid ""
@@ -302,6 +303,12 @@ msgid ""
 "citetitle></ulink> because we were working on those files and had sometimes "
 "changed those files already."
 msgstr ""
+"当我们开发 <ulink url=\"http://tortoisesvn.tigris.org"
+"\"><citetitle>TortoiseSVN</citetitle></ulink> 时发现，只要用户发送补丁增强这"
+"个项目，或者只是修正问题，我们就需要为应用这些补丁付出许多工作量。并且很多时"
+"候，这些补丁是过时的，不能使用命令行工具 <ulink url=\"http://unxutils."
+"sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></"
+"ulink> 打补丁，因为我们正在修改这些文件，有时候已经修改了。"
 
 #: source/TortoiseMerge_en.xml:247(para)
 msgid ""
@@ -310,6 +317,9 @@ msgid ""
 "guimenuitem></menuchoice> implemented: we preferred users to send us the "
 "whole files because with those it was easier to apply patches."
 msgstr ""
+"这也是最初的 TortoiseSVN 没有实现 <menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>创建补丁</guimenuitem></menuchoice> 的主要理由：我们期望"
+"用户发送给我们整个文件，这样容易打补丁。"
 
 #: source/TortoiseMerge_en.xml:257(para)
 msgid ""
@@ -318,6 +328,9 @@ msgid ""
 "cut a long story short: We decided that if no-one else could provide such a "
 "tool we would have to write our own. That's when TortoiseMerge was born."
 msgstr ""
+"于是我们花费了大量时间，在互联网搜索一个打补丁的图形工具，但是我们没有发现这"
+"样的工具。长话短说：既然没有人提供这样的工具，我们决定自行编写。就在那时，"
+"TortoiseMerge 出世了。"
 
 #: source/TortoiseMerge_en.xml:264(para)
 msgid ""
@@ -326,10 +339,13 @@ msgid ""
 "the GNU diff. Also it reduces the size of the executable since TortoiseSVN "
 "and TortoiseMerge can both use the same dll's."
 msgstr ""
+"因为 TortoiseSVN 已经使用了 Subversion 库，它内置了一个很好的差异比较工具。很"
+"自然的，我们使用这个库代替 GNU diff。而且因为 TortoiseSVN 和 TortoiseMerge 使"
+"用了同样的dll，可执行文件也变小了。"
 
 #: source/TortoiseMerge_en.xml:274(title)
 msgid "Using TortoiseMerge"
-msgstr "使用TortoiseMerge"
+msgstr "使用 TortoiseMerge"
 
 #: source/TortoiseMerge_en.xml:283(title)
 msgid "Open Files"
@@ -354,6 +370,8 @@ msgid ""
 "merge files, or whether you want to apply a patchfile. Depending on what you "
 "choose, the corresponding edit boxes and browse buttons are activated."
 msgstr ""
+"你要作的第一件事，就是决定是否比较/合并文件，或者是否使用补丁。根据你的选择，"
+"相应的编辑框和浏览按钮被激活。"
 
 #: source/TortoiseMerge_en.xml:304(title)
 msgid "Viewing / Merging"
@@ -369,6 +387,11 @@ msgid ""
 "views with the menu command <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Two-way Diff</guimenuitem></menuchoice>"
 msgstr ""
+"如果你要比较/合并文件，必须设置两个路径，或三个路径，即<literal>基础</"
+"literal>， <literal>我的</literal> 与 <literal>别人的</literal>。如果你只选择"
+"两个文件，那么 TortoiseMerge 会使用两窗口方式或者单窗口方式，来显示这两个文件"
+"的差异。你可以使用菜单命令 <menuchoice><guimenu>视图</guimenu><guimenuitem>两"
+"路差异</guimenuitem></menuchoice>来切换这两种方式。"
 
 #: source/TortoiseMerge_en.xml:319(title)
 msgid "One Pane View"
@@ -376,7 +399,7 @@ msgstr "单窗口方式"
 
 #: source/TortoiseMerge_en.xml:323(title)
 msgid "Two Pane View"
-msgstr "双窗口方式"
+msgstr "两窗口方式"
 
 #: source/TortoiseMerge_en.xml:331(para)
 msgid ""
@@ -385,6 +408,8 @@ msgid ""
 "the colors used here. Removed parts are indicated with a dark brown vertical "
 "line in the string. Check out the screenshot above to see how this works."
 msgstr ""
+"用不同的颜色来显示修改行。增加的部分使用浅色，当然你可以配置使用什么颜色。删"
+"除部分使用深褐色删除线显示。使用屏幕快照察看它们的如何工作。"
 
 #: source/TortoiseMerge_en.xml:341(para)
 msgid ""
@@ -393,6 +418,8 @@ msgid ""
 "long line into several lines, or you sometimes compact several lines "
 "together into one."
 msgstr ""
+"代码重构经常意味着许多空白字符(空格，制表，新行)变化，但是没有实际上的代码改"
+"变。举例来说，你可以将一个很长的行拆分为几行，或者将几行合并为一行。"
 
 #: source/TortoiseMerge_en.xml:340(listitem)
 msgid ""
@@ -401,6 +428,9 @@ msgid ""
 "that no real code change is there and you don't have to check the changed "
 "block further. <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> 这些改变在视图的左边用白色圆形符号标记。如果你看到了这些符"
+"号，就立即知道这里没有实际代码改变，不需要进一步检查这个代码块。<placeholder-"
+"2/>"
 
 #: source/TortoiseMerge_en.xml:326(para)
 msgid ""
@@ -414,6 +444,8 @@ msgid ""
 "differences in a three pane view. This view is also used if you need to "
 "resolve conflicted files."
 msgstr ""
+"如果你要比较/合并三个文件，TortoiseMerge 将会使用三窗口方式显示差异。这个视图"
+"也用来解决冲突文件。"
 
 #: source/TortoiseMerge_en.xml:362(title)
 msgid "Three Pane View"
@@ -429,6 +461,11 @@ msgid ""
 "literal> with possible conflicts. If you hover the mouse over the pane "
 "title, a tooltip will show the filenames used for the diff in each pane."
 msgstr ""
+"左窗口显示<literal>他人的</literal>文件与<literal>基础</literal>文件的差异，"
+"右窗口显示<literal>我的</literal>文件与<literal>基础</literal>文件的差异。底"
+"部窗口显示<literal>基础</literal>，<literal>我的</literal>，<literal>他人的</"
+"literal>，文件的合并结果，以及可能的冲突。如果你的鼠标在这些窗口的标题栏逗"
+"留，工具提示会显示是哪些文件的差异比较。"
 
 #: source/TortoiseMerge_en.xml:376(para)
 msgid ""
@@ -443,6 +480,10 @@ msgid ""
 "<emphasis>you</emphasis> made, and <literal>Theirs</literal> is the file "
 "with all the changes <emphasis>someone else</emphasis> made to the file."
 msgstr ""
+"基础文件是最旧的版本，<literal>你的</literal>，<literal>他人的</literal>，都"
+"是从这个文件开始修改的。<literal>我的</literal>表示<emphasis>你</emphasis>对"
+"基础文件的修改结果，<literal>他人的</literal>是<emphasis>其他人</emphasis>对"
+"基础文件的修改结果。"
 
 #: source/TortoiseMerge_en.xml:394(title)
 msgid "Applying Patches"
@@ -454,6 +495,7 @@ msgid ""
 "patchfile itself and the path to the folder where the patchfile should be "
 "applied."
 msgstr ""
+"如果你想应用一个补丁文件，你要设置补丁文件的路径，以及在哪个路径打补丁。"
 
 #: source/TortoiseMerge_en.xml:401(para)
 msgid ""
@@ -462,6 +504,8 @@ msgid ""
 "copy. Other formats like patchfiles generated by CVS are currently not "
 "supported!"
 msgstr ""
+"当前仅支持<emphasis>标准差异格式</emphasis>。并且是在 Subversion 工作副本中生"
+"成的补丁。其它格式，例如 CVS 生成的补丁文件不受支持！"
 
 #: source/TortoiseMerge_en.xml:414(title)
 msgid "Patch Filelist"
@@ -1622,6 +1666,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:0(None)
 msgid "translator-credits"
 msgstr ""
+"Dongsheng Song <dongsheng.song@gmail.com>\n"
 "xingyu.wang <xingyu.wang@gmail.com>\n"
 "Stan J <thinkernel@yeah.net>"
 
