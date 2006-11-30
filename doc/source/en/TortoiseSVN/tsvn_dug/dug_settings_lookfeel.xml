@@ -14,6 +14,16 @@
 		appear in the submenu.
 	</para>
 	<para>
+		There is a special case for <guilabel>Get Lock</guilabel>. You can of
+		course promote it to the top level using the list above, but as most
+		files don't need locking this just adds clutter. However, a file with
+		the <literal>svn:needs-lock</literal> property needs this action every
+		time it is edited, so in that case it is very useful to have at the top
+		level. Checking the box here means that when a file is selected which has
+		the <literal>svn:needs-lock</literal> property set,
+		<guilabel>Get Lock</guilabel> will always appear at the top level.
+	</para>
+	<para>
 		If you have a very large number of files in your working copy
 		folders, it can take a long time before the context menu appears
 		when you <action>right click</action> on a folder. This is because
