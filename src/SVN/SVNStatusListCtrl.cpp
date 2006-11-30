@@ -125,6 +125,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bUnversionedLast(true)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
+	m_critSec.Init();
 }
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
@@ -136,6 +137,7 @@ CSVNStatusListCtrl::~CSVNStatusListCtrl()
 
 void CSVNStatusListCtrl::ClearStatusArray()
 {
+	Locker lock(m_critSec);
 	for (size_t i=0; i < m_arStatusArray.size(); i++)
 	{
 		delete m_arStatusArray[i];
@@ -157,6 +159,7 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
 
 void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus /* = SVNSLC_POPALL */, bool bHasCheckboxes /* = true */)
 {
+	Locker lock(m_critSec);
 	m_sColumnInfoContainer = sColumnInfoContainer;
 	CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer, dwColumns);
 	m_dwColumns = regColInfo;
@@ -271,6 +274,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 
 BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bShowIgnores /* = false */)
 {
+	Locker lock(m_critSec);
 	int refetchcounter = 0;
 	BOOL bRet = TRUE;
 	Invalidate();
@@ -855,6 +859,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
 
 void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFolders /* = true */)
 {
+	Locker lock(m_critSec);
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	CWinApp * pApp = AfxGetApp();
@@ -985,6 +990,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bool bShowFolders /* = true */)
 {
+	Locker lock(m_critSec);
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	CWinApp * pApp = AfxGetApp();
@@ -1306,6 +1312,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 
 void CSVNStatusListCtrl::Sort()
 {
+	Locker lock(m_critSec);
 	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), SortCompare);
 	SaveColumnWidths();
 	Show(m_dwShow, 0, m_bShowFolders);
@@ -1513,6 +1520,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 {
+	Locker lock(m_critSec);
 	FileEntry * entry = GetListEntry(index);
 	ASSERT(entry != NULL);
 	if (entry == NULL)
@@ -1584,6 +1592,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 
 void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 {
+	Locker lock(m_critSec);
 	FileEntry * entry = GetListEntry(index);
 	ASSERT(entry != NULL);
 	if (entry == NULL)
@@ -1740,6 +1749,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
 
 void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly)
 {
+	Locker lock(m_critSec);
 	rMin = LONG_MAX;
 	rMax = 0;
 
@@ -1798,6 +1808,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			const CTSVNPath& filepath = entry->path;
 			svn_wc_status_kind wcStatus = entry->status;
 			// entry is selected, now show the popup menu
+			Locker lock(m_critSec);
 			CMenu popup;
 			if (popup.CreatePopupMenu())
 			{
@@ -2972,6 +2983,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			ClientToScreen(&rect);
 			point = rect.CenterPoint();
 		}
+		Locker lock(m_critSec);
 		CMenu popup;
 		if (popup.CreatePopupMenu())
 		{
@@ -3107,6 +3119,7 @@ void CSVNStatusListCtrl::HideColumn(int col)
 
 void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	Locker lock(m_critSec);
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	if (m_bBlock)
@@ -3382,6 +3395,7 @@ BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 
 void CSVNStatusListCtrl::RemoveListEntry(int index)
 {
+	Locker lock(m_critSec);
 	DeleteItem(index);
 	delete m_arStatusArray[m_arListArray[index]];
 	m_arStatusArray.erase(m_arStatusArray.begin()+m_arListArray[index]);
@@ -3856,6 +3870,7 @@ void CSVNStatusListCtrl::OnDestroy()
 
 void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
+	Locker lock(m_critSec);
 	CDropFiles dropFiles; // class for creating DROPFILES struct
 
 	int index;

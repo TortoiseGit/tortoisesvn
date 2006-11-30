@@ -115,6 +115,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+typedef CComCritSecLock<CComCriticalSection> Locker;
 
 /**
  * \ingroup SVN
@@ -589,7 +590,9 @@ private:
 	bool						m_bCheckChildrenWithParent;
 	CSVNStatusListCtrlDropTarget * m_pDropTarget;
 
-	std::map<CString,bool> m_mapFilenameToChecked; ///< Remember manually de-/selected items
+	std::map<CString,bool>		m_mapFilenameToChecked; ///< Remember manually de-/selected items
+	CComCriticalSection			m_critSec;
+
 };
 
 class CSVNStatusListCtrlDropTarget : public CIDropTarget
