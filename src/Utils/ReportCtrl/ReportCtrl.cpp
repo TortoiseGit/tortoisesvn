@@ -2965,11 +2965,29 @@ BOOL CReportCtrl::SortItems(INT iSubItem, BOOL bAscending)
 	if(m_dwStyle&RVS_TREEMASK)
 	{
 		LPTREEITEM lptiFocus = GetTreeFocus();
-
+		
 		TreeSort(iSubItem, &m_tiRoot, bAscending, TRUE);
 
 		BuildTree();
 		SetTreeFocus(lptiFocus);
+		if(m_iFocusRow>=0)
+		{
+			// make sure the focused item is visible after sorting
+			INT iFirst = GetScrollPos32(SB_VERT), iLast;
+			INT iRow = m_iFocusRow;
+
+			GetVisibleRows(true, &iFirst, &iLast);
+
+			if(iRow<iFirst)
+				ScrollWindow(SB_VERT, iRow);
+
+			if(iRow>iLast)
+			{
+				iLast = iRow;
+				GetVisibleRows(true, &iFirst, &iLast, TRUE);
+				ScrollWindow(SB_VERT, iFirst);
+			}
+		}
 	}
 	else
 	{
