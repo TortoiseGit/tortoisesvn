@@ -139,6 +139,9 @@ Version 1.4.2
        See issue #325 for details. (Stefan)
 - BUG: After sorting the working copy items by a column in the commit dialog,
        the checked state was not adjusted to the new ordering. (Stefan)
+- BUG: Calling "Save revision to..." in the file list of the log dialog
+       appended the revision number to the file name instead of inserting it
+       before the file extension. (Tobias Schäfer)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)

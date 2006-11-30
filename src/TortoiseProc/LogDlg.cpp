@@ -3609,7 +3609,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					ZeroMemory(szFile, sizeof(szFile));
 					CString revFilename;
 					temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
-					int rfind = changedpaths[0].ReverseFind('.');
+					int rfind = temp.ReverseFind('.');
 					if (rfind > 0)
 						revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
 					else
