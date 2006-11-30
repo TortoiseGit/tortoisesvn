@@ -917,6 +917,7 @@ void CLogDlg::CopySelectionToClipBoard()
 					sPaths += sCopyFrom;
 				}
 			}
+			sPaths.Trim();
 			sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
 				(LPCTSTR)sRev, pLogEntry->dwRev,
 				(LPCTSTR)sAuthor, (LPCTSTR)pLogEntry->sAuthor,
