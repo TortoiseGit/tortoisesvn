@@ -2754,7 +2754,7 @@ BEGIN
     IDS_SETTINGS_HOOKS_WAITCOL "Wait"
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
     IDS_SETTINGS_GETLOCKTOP_TT 
-                            "If activated, the menu entry ""Get Lock"" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+                            "If activated, the menu entry ""Get Lock"" is always shown in the top level menu\n if the selected file has the svn:needs-lock property set"
 END
 
 STRINGTABLE 
