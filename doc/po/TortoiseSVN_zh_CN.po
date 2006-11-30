@@ -2,19 +2,27 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
+# Dongsheng Song <dongsheng.song@gmail.com>
 # Xingyu.Wang <xingyu.wang@gmail.com>
 # Stan J <thinkernel@yeah.net>
 #
 # Dictionary:
-# repository        版本库
-# checkout          检出
-# revert            恢复
-# undo              撤销
-# revision          版本
-# HEAD revision     最新版本
 # BASE revision     基础版本
-# working copy      工作拷贝
+# blame             追溯
+# checkout          检出
+# default           默认
+# HEAD revision     最新版本
+# remove            删除
+# rename            改名
+# repository        版本库
+# revert            恢复
+# revision          版本
+# undo              撤销
 # unified diff      标准差异
+# unversioned       未版本管理的
+# versioned         版本管理的
+# working copy      工作副本
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
@@ -2758,7 +2766,6 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2109(para)
-#, fuzzy
 msgid ""
 "To make the Subversion location use this type of authentication you have to "
 "change the line <screen>\n"
@@ -2776,17 +2783,19 @@ msgid ""
 "</screen> within the &lt;Location /svn&gt; block. If you don't have a domain "
 "controller, leave the name of the domain control as &lt;domaincontroller&gt;."
 msgstr ""
-"为了让Subversion使用这种认证模式，你需要修改 &lt;Location /svn&gt;的这几行"
-"<screen>\n"
+"为了让 Subversion Location 使用此认证类型，你需要将这一行<screen>\n"
 "AuthType Basic\n"
-"</screen> to <screen>\n"
+"</screen> 修改为 <screen>\n"
 "AuthType SSPI\n"
-"</screen> also you need to add <screen>\n"
+"</screen> 并且在 &lt;Location /svn&gt; 中增加 <screen>\n"
 "SSPIAuth On\n"
 "SSPIAuthoritative On\n"
 "SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOmitDomain on\n"
+"SSPIUsernameCase lower\n"
+"SSPIPerRequestAuth on\n"
 "SSPIOfferBasic On\n"
-"</screen>。如果你没有域控制器，可以将域控制器的名称置为&lt;"
+"</screen>。 如果你没有域控制器，可以将域控制器的名称置为 &lt;"
 "domaincontroller&gt;。"
 
 #: source/TortoiseSVN_en.xml:2135(para)
@@ -5259,13 +5268,12 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4067(para)
 msgid "New item added to your WC."
-msgstr "新增到你的WC(工作复本，译注)中的项。"
+msgstr "新项已经增加到你的工作副本中。"
 
 #: source/TortoiseSVN_en.xml:4075(para)
-#, fuzzy
 msgid ""
 "Redundant item deleted from your WC, or missing item replaced in your WC."
-msgstr "从你的工作复本中删除多余的项，或是你的工作复本中丢失的项被替换。"
+msgstr "你的工作副本中删除了多余项，或是你的工作副本中丢失的项被替换。"
 
 #: source/TortoiseSVN_en.xml:4082(term) source/TortoiseSVN_en.xml:4548(term)
 msgid "Green"
@@ -5859,7 +5867,6 @@ msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "对话框使用颜色代码来高亮显示状态。"
 
 #: source/TortoiseSVN_en.xml:4588(para)
-#, fuzzy
 msgid ""
 "From the context menu of the dialog you can show a diff of the changes. "
 "Check the local changes <emphasis>you</emphasis> made using "
@@ -5868,11 +5875,11 @@ msgid ""
 "others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show "
 "Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr ""
-"在对话框的右键菜单中你可以可选择显示两个改动之间的差别。使用 "
-"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>Compare with Base</"
-"guimenuitem></menuchoice>检查<emphasis>你</emphasis>所作的本地修改。使用"
-"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>Show Differences as "
-"Unified Diff</guimenuitem></menuchoice>检查版本库中别人作的修改。"
+"在对话框的上下文菜单中你可以显示改变的差异。使用 <menuchoice><guimenu>上下文"
+"菜单</guimenu><guimenuitem>与基础版本比较</guimenuitem></menuchoice>检查"
+"<emphasis>你</emphasis>所作的本地修改。使用<menuchoice><guimenu>上下文菜单</"
+"guimenu><guimenuitem>使用标准差异格式显示差异</guimenuitem></menuchoice>检查"
+"版本库中别人作的修改。"
 
 #: source/TortoiseSVN_en.xml:4601(para)
 msgid ""
@@ -5901,7 +5908,6 @@ msgstr ""
 "文本编辑器或是IDE中。"
 
 #: source/TortoiseSVN_en.xml:4619(para)
-#, fuzzy
 msgid ""
 "The columns are customizable. If you <action>right click</action> on any "
 "column header you will see a context menu allowing you to select which "
@@ -5913,15 +5919,13 @@ msgid ""
 "One has a solid vertical dividing line and the other has two thin vertical "
 "lines. Only the solid drag pointer works."
 msgstr ""
-"在底部面板中显示的列是可定制的。如果你<action>右击</action>任何一列的头部，你"
-"就会看到一个上下文菜单，允许你选择哪一列要显示。还可以在鼠标移动到列边界时通"
-"过拖动手把来改变列的宽度。这些定制的内容都会被保留下来，下一次你会见到相㺾的"
-"列。由于实现细节上的问题，你可能会看到两个不同的拖动图标，这取决于你的鼠标在"
-"边界上的不同位置。一种是单竖线的一种是双细竖线的。只有在单线条的拖动指针出现"
-"时才有效。"
+"这些列是可定制的。如果你<action>右击</action>任何一列的头部，你就会看到一个上"
+"下文菜单，允许你选择哪一列要显示。还可以在鼠标移动到列边界时通过拖动把手来改"
+"变列的宽度。这些定制的内容都会被保留下来，下一次你会见到相同的头部。由于实现"
+"细节上的问题，你可能会看到两个不同的拖动图标，这取决于你的鼠标在边界上的不同"
+"位置。一种是粗竖线的，另一种是双细竖线的。只有在粗竖线出现时拖动指针才有效。"
 
 #: source/TortoiseSVN_en.xml:4633(para)
-#, fuzzy
 msgid ""
 "If you want a flat view of your working copy, i.e. showing all files and "
 "folders at every level of the folder hierarchy, then the <guilabel>Check for "
@@ -5929,11 +5933,6 @@ msgid ""
 "check the <guilabel>Show unmodified files</guilabel> checkbox to show all "
 "files in your working copy."
 msgstr ""
-"If you want a flat view of your working copy, i.e. showing all files and "
-"folders at every level of the folder hierarchy, then the <guilabel>Check for "
-"Modifications</guilabel> dialog is the easiest way to achieve that. Just "
-"check the <guilabel>Show unmodified files</guilabel> checkbox to show all "
-"files in your working copy."
 
 #: source/TortoiseSVN_en.xml:4644(title)
 msgid "Viewing Diffs"
@@ -6087,15 +6086,13 @@ msgstr ""
 "表，你可以单独地查看每个文件所做的修改。"
 
 #: source/TortoiseSVN_en.xml:4771(para)
-#, fuzzy
 msgid ""
 "Blame the selected revision, and the file in your working BASE and compare "
 "the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-"
 "diffs\"/> for more detail."
 msgstr ""
-"评审选中的版本，and the file in your working BASE and compare the results "
-"using a visual diff tool. 请参考<xref linkend=\"tsvn-dug-blame-diffs\"/>以获"
-"得详情。"
+"评审选中的版本，和你的工作基础文件，使用可视化差异工具显示结果。参阅 <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> 以获得更多信息。"
 
 #: source/TortoiseSVN_en.xml:4778(para)
 msgid ""
@@ -6125,14 +6122,13 @@ msgstr ""
 "用。"
 
 #: source/TortoiseSVN_en.xml:4802(para)
-#, fuzzy
 msgid ""
 "Create a branch/tag from a selected revision. This is useful e.g. if you "
 "forgot to create a tag and already committed some changes which weren't "
 "supposed to get into that release."
 msgstr ""
-"在选中的版本上建立一个分支/标记。这个选项很有用。比如：如果你提交了某些你不想"
-"使其进入发行版的修改，却忘记了为此建立标记。"
+"从选中的版本建立一个分支/标记。这个选项很有用。比如：如果你提交了某些你不想使"
+"其进入发行版的修改，却忘记了为此建立标记。"
 
 #: source/TortoiseSVN_en.xml:4810(para)
 msgid ""
@@ -6845,17 +6841,15 @@ msgid "The Compare Revisions Dialog"
 msgstr "修订版本版本比较对话框"
 
 #: source/TortoiseSVN_en.xml:5364(para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> When you select two trees within the repository browser, or "
 "when you select two revisions of a folder in the log dialog, you can "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare revisions</"
 "guimenuitem></menuchoice>."
 msgstr ""
-"如果希望比较两个不同目录树下的同一个文件，比如主干和分支，可以使用版本库浏览"
-"器打开两个目录树，在两个目录树下选择同一个文件，然后使用 "
-"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</"
-"guimenuitem></menuchoice>。"
+"<placeholder-1/> 当你在版本库浏览器中选择了两个树，或者在日志对话框中选择了一"
+"个文件夹的两个版本，就可以使用<menuchoice><guimenu>上下文菜单</"
+"guimenu><guimenuitem>比较版本</guimenuitem></menuchoice>。"
 
 #: source/TortoiseSVN_en.xml:5376(para)
 msgid ""
@@ -7161,14 +7155,13 @@ msgid "release the right mouse button"
 msgstr "松开鼠标右键"
 
 #: source/TortoiseSVN_en.xml:5632(para)
-#, fuzzy
 msgid ""
 "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Add files "
 "to this WC</guimenuitem></menuchoice>. The files will then be copied to the "
 "working copy and added to version control."
 msgstr ""
-"在工作拷贝上选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</"
-"guimenuitem></menuchoice>。"
+"选择<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>SVN 增加文件到工作"
+"副本</guimenuitem></menuchoice>。这些文件会被复制到工作副本，加入版本控制。"
 
 #: source/TortoiseSVN_en.xml:5611(para)
 msgid ""
@@ -7437,13 +7430,12 @@ msgid "select the files or directories you want to move"
 msgstr "选择你要移动的文件或目录"
 
 #: source/TortoiseSVN_en.xml:5856(para)
-#, fuzzy
 msgid ""
 "in the popup menu select <menuchoice><guimenu>Context Menu</"
 "guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
 msgstr ""
-"在工作拷贝上选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</"
-"guimenuitem></menuchoice>。"
+"在弹出菜单选择<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>SVN 移动"
+"文件</guimenuitem></menuchoice>。"
 
 #: source/TortoiseSVN_en.xml:5835(para)
 msgid ""
@@ -7786,16 +7778,14 @@ msgstr ""
 "的关于选择文件/目录的相关信息。"
 
 #: source/TortoiseSVN_en.xml:6103(title)
-#, fuzzy
 msgid "Subversion Properties"
-msgstr "工程（Project）属性"
+msgstr "Subversion 属性"
 
 #: source/TortoiseSVN_en.xml:6108(title)
 msgid "Subversion property page"
-msgstr ""
+msgstr "Subversion 属性页"
 
 #: source/TortoiseSVN_en.xml:6106(para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> You can read and set the Subversion properties from the "
 "Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</"
@@ -7803,11 +7793,10 @@ msgid ""
 "status lists, from <menuchoice><guimenu>Context menu</"
 "guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
-"如果希望比较某个文件的两个历史版本，比如同一个文件的第100版和第200版，可以用"
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>显示日志</"
-"guimenuitem></menuchoice>列出这个文件的历史版本纪录。选择希望比较的两个版本，"
-"然后使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</"
-"guimenuitem></menuchoice>。"
+"<placeholder-1/> 你可以在 Windows 属性对话框读写 Subversion 属性。也可以从"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>属性</guimenuitem></"
+"menuchoice>，或者 <menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>属性"
+"</guimenuitem></menuchoice>，来读写 Subversion 属性。"
 
 #: source/TortoiseSVN_en.xml:6123(para)
 msgid ""
@@ -7824,9 +7813,8 @@ msgstr ""
 "citetitle></ulink>。"
 
 #: source/TortoiseSVN_en.xml:6135(title)
-#, fuzzy
 msgid "Adding properties"
-msgstr "工程（Project）属性"
+msgstr "增加属性"
 
 #: source/TortoiseSVN_en.xml:6133(para)
 msgid ""
@@ -7839,16 +7827,14 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6145(para)
-#, fuzzy
 msgid ""
 "If you want to apply a property to many items at once, select the files/"
 "folders in explorer, then select <menuchoice><guimenu>Context menu</"
 "guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
 msgstr ""
-"如果希望比较两个不同目录树下的同一个文件，比如主干和分支，可以使用版本库浏览"
-"器打开两个目录树，在两个目录树下选择同一个文件，然后使用 "
-"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</"
-"guimenuitem></menuchoice>。"
+"如果你想一次性设置许多文件的属性，在资源管理器中选择文件/文件夹，然后选择"
+"<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>属性</guimenuitem></"
+"menuchoice>。"
 
 #: source/TortoiseSVN_en.xml:6153(para)
 msgid ""
@@ -7856,6 +7842,8 @@ msgid ""
 "folder in the hierarchy below the current folder, check the "
 "<guilabel>Recursive</guilabel> checkbox."
 msgstr ""
+"如果你想设置当前文件夹内的<emphasis>全部</emphasis>文件和文件夹，选中"
+"<guilabel>递归</guilabel>检查框。"
 
 #: source/TortoiseSVN_en.xml:6158(para)
 msgid ""
@@ -7902,17 +7890,17 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6193(title)
 msgid "Commit properties"
-msgstr ""
+msgstr "提交属性"
 
 #: source/TortoiseSVN_en.xml:6194(para)
 msgid ""
 "Subversion properties are versioned. After you change or add a property you "
 "have to commit your changes."
-msgstr ""
+msgstr "Subversion 属性是受版本控制的。在你改变或增加属性后必须提交。"
 
 #: source/TortoiseSVN_en.xml:6200(title)
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "属性冲突"
 
 #: source/TortoiseSVN_en.xml:6201(para)
 msgid ""
@@ -7920,10 +7908,12 @@ msgid ""
 "changed the same property, Subversion generates a <filename>.prej</filename> "
 "file. Delete this file after you have resolved the conflict."
 msgstr ""
+"如果因为其他用户已经提交了同样的属性，提交时出现冲突，Subversion 会产生一个 "
+"<filename>.prej</filename> 文件。在你解决冲突后，请删除此文件。"
 
 #: source/TortoiseSVN_en.xml:6209(title)
 msgid "Automatic property setting"
-msgstr ""
+msgstr "自动属性设置"
 
 #: source/TortoiseSVN_en.xml:6210(para)
 msgid ""
@@ -7934,7 +7924,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6218(title)
 msgid "TortoiseSVN Properties"
-msgstr "TortoiseSVN属性"
+msgstr "TortoiseSVN 属性"
 
 #: source/TortoiseSVN_en.xml:6224(para)
 msgid ""
@@ -8008,6 +7998,8 @@ msgid ""
 "TortoiseSVN has a few special properties of its own, and these begin with "
 "<literal>tsvn:</literal>. <placeholder-1/>"
 msgstr ""
+"TortoiseSVN 有自己专用的几个属性，它们都有<literal>tsvn:</literal>前缀。"
+"<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6302(para) source/TortoiseSVN_en.xml:8023(para)
 msgid ""
@@ -8016,10 +8008,13 @@ msgid ""
 "for <literal>true</literal> and <literal>no</literal> as a synonym for "
 "<literal>false</literal>."
 msgstr ""
+"一些 <literal>tsvn:</literal> 属性需要 <literal>true/false</literal> 值。它也"
+"理解 <literal>yes</literal> 是 <literal>true</literal> 的同义词，"
+"<literal>no</literal> 是  <literal>false</literal>的同义词。"
 
 #: source/TortoiseSVN_en.xml:6309(title)
 msgid "Set the tsvn: properties on folders"
-msgstr ""
+msgstr "设置文件夹的 tsvn: 属性"
 
 #: source/TortoiseSVN_en.xml:6310(para)
 msgid ""
@@ -9322,13 +9317,12 @@ msgstr ""
 "内容。这个搜索不包含日志信息－你可以在日志对话框里搜索日志信息。"
 
 #: source/TortoiseSVN_en.xml:7373(para)
-#, fuzzy
 msgid ""
 "You can also jump to a specific line number using <menuchoice><guimenu>Edit</"
 "guimenu><guimenuitem>Go To Line...</guimenuitem></menuchoice>."
 msgstr ""
-"在工作拷贝上选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</"
-"guimenuitem></menuchoice>。"
+"你也可以使用 <menuchoice><guimenu>编辑</guimenu><guimenuitem>转到行 ...</"
+"guimenuitem></menuchoice> 来跳到指定行。"
 
 #: source/TortoiseSVN_en.xml:7382(title) source/TortoiseSVN_en.xml:7407(term)
 msgid "Blame Differences"
@@ -9346,22 +9340,19 @@ msgstr ""
 "告结合起来。"
 
 #: source/TortoiseSVN_en.xml:7393(term)
-#, fuzzy
 msgid "Blame Revisions"
-msgstr "基础版本（BASE revision）"
+msgstr "追溯版本"
 
 #: source/TortoiseSVN_en.xml:7395(para)
-#, fuzzy
 msgid ""
 "In the top pane, select 2 revisions, then select "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</"
 "guimenuitem></menuchoice>. This will fetch the blame data for the 2 "
 "revisions, then use the diff viewer to compare the two blame files."
 msgstr ""
-"如果想要把以前的某个版本变成最新版本，<action>右键点击</action>选中的版本（范"
-"围），然后选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>恢复到此版"
-"本</guimenuitem></menuchoice>。就能够撤销被选中版本后面<emphasis>所有</"
-"emphasis>的变更。"
+"在顶部窗口，选择两个版本，然后选择<menuchoice><guimenu>上下文菜单</"
+"guimenu><guimenuitem>追溯版本</guimenuitem></menuchoice>。它将取出两个版本的"
+"追溯数据，然后使用差异察看器比较这两个追溯文件。"
 
 #: source/TortoiseSVN_en.xml:7409(para)
 msgid ""
@@ -9411,7 +9402,7 @@ msgstr "版本库浏览器"
 
 #: source/TortoiseSVN_en.xml:7448(primary)
 msgid "server-side actions"
-msgstr ""
+msgstr "服务器端动作"
 
 #: source/TortoiseSVN_en.xml:7454(para)
 msgid ""
@@ -9605,9 +9596,8 @@ msgstr ""
 "cut off)。"
 
 #: source/TortoiseSVN_en.xml:7600(term)
-#, fuzzy
 msgid "Branch tip revision"
-msgstr "基础版本（BASE revision）"
+msgstr "分支最新版本"
 
 #: source/TortoiseSVN_en.xml:7602(para)
 msgid ""
@@ -9758,17 +9748,15 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7714(para)
-#, fuzzy
 msgid ""
 "And of course you can export directly from the repository too. Use the "
 "Repository Browser to navigate to the relevant subtree in your repository, "
 "then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Export</"
 "guimenuitem></menuchoice>."
 msgstr ""
-"如果希望比较两个不同目录树下的同一个文件，比如主干和分支，可以使用版本库浏览"
-"器打开两个目录树，在两个目录树下选择同一个文件，然后使用 "
-"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</"
-"guimenuitem></menuchoice>。"
+"当然，你也可以直接从版本库导出。使用版本库浏览器浏览有关子树，然后使用"
+"<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>导出</guimenuitem></"
+"menuchoice>。"
 
 #: source/TortoiseSVN_en.xml:7725(title)
 msgid "Relocating a working copy"
@@ -10084,7 +10072,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8030(title) source/TortoiseSVN_en.xml:8132(title)
 msgid "Set the Properties on Folders"
-msgstr ""
+msgstr "设置文件夹的属性"
 
 #: source/TortoiseSVN_en.xml:8031(para) source/TortoiseSVN_en.xml:8133(para)
 msgid ""
@@ -10114,10 +10102,9 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8063(primary)
 msgid "webview"
-msgstr ""
+msgstr "webview"
 
 #: source/TortoiseSVN_en.xml:8066(primary)
-#, fuzzy
 msgid "repoviewer"
 msgstr "版本库浏览器"
 
@@ -10138,9 +10125,8 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8088(term)
-#, fuzzy
 msgid "webviewer:revision"
-msgstr "修订版本"
+msgstr "webviewer:revision"
 
 #: source/TortoiseSVN_en.xml:8090(para)
 msgid ""
@@ -10154,7 +10140,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8107(term)
 msgid "webviewer:pathrevision"
-msgstr ""
+msgstr "webviewer:pathrevision"
 
 #: source/TortoiseSVN_en.xml:8109(para)
 msgid ""
@@ -11060,13 +11046,12 @@ msgid "Modified / copied"
 msgstr "已修改/已复制"
 
 #: source/TortoiseSVN_en.xml:8842(para)
-#, fuzzy
 msgid ""
 "Add with history, or paths copied in the repository. Also used in the log "
 "dialog for entries which include copied items."
 msgstr ""
-"<fuzzy位置>5.26.2.5. TortoiseSVN Colour Settings</fuzzy位置>或同历史一起被添"
-"加，或在版本库中复制了路径。同样使用在包含复制条目的那些信息对话框中。"
+"已经增加(现在只是修改)，或者在版本库中复制。也在包含复制条目的日志对话框中使"
+"用。"
 
 #: source/TortoiseSVN_en.xml:8850(term)
 msgid "Deleted node"
@@ -11110,7 +11095,7 @@ msgstr "网络设置"
 
 #: source/TortoiseSVN_en.xml:8890(primary)
 msgid "proxy server"
-msgstr ""
+msgstr "代理服务器"
 
 #: source/TortoiseSVN_en.xml:8894(title)
 msgid "The Settings Dialog, Network Page"
@@ -11255,7 +11240,6 @@ msgstr ""
 "filename>"
 
 #: source/TortoiseSVN_en.xml:9001(para)
-#, fuzzy
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine\n"
@@ -11268,15 +11252,15 @@ msgid ""
 "\t%base %mine\n"
 "</screen>"
 msgstr ""
-"例如，使用ExamDiff Pro：Pro: <screen>\n"
+"例如，使用 ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine\n"
-"</screen> 或使用KDiff3： <screen>\n"
+"</screen> 或者使用 KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> 或使用WinMerge： <screen>\n"
+"</screen> 或者使用 WinMerge: <screen>\n"
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> 或使用Araxis： <screen>\n"
+"</screen> 或者使用 Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"        %base %mine\n"
+"\t%base %mine\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:9020(para)
@@ -11357,7 +11341,6 @@ msgstr ""
 "中。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9111(para)
-#, fuzzy
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
@@ -11369,14 +11352,14 @@ msgid ""
 "\t/title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen>"
 msgstr ""
-"例如，使用Perforce Merge： <screen>\n"
+"例如，使用 Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> 或使用KDiff3： <screen>\n"
+"</screen> 或者使用 KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"        --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> 或使用Araxis： <screen>\n"
+"\t--L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> 或者使用 Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"        /title3:%yname %theirs %base %mine %merged /a2\n"
+"\t/title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:9129(title)
@@ -11388,7 +11371,6 @@ msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr "高级差异比较设置/高级合并设置的对话框"
 
 #: source/TortoiseSVN_en.xml:9131(para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> In the advanced settings, you can define a different diff "
 "and merge program for every file extension. For instance you could associate "
@@ -11398,10 +11380,9 @@ msgid ""
 msgstr ""
 "<placeholder-1/> 在高级设置中，你可以为每种文件类型都定义一个不同的差异比较/"
 "合并程序。例如，你可以指定Photoshop作为.jpg文件的 <quote>比较</quote> 程"
-"序 :-)"
+"序 :-) 也可以按照 <literal>svn:mime-type</literal> 属性指定差异/合并程序。"
 
 #: source/TortoiseSVN_en.xml:9142(para)
-#, fuzzy
 msgid ""
 "To associate using a file extension, you need to specify just the extension, "
 "with the leading dot but with no wildcard spec. Use <literal>.BMP</literal> "
@@ -11410,8 +11391,10 @@ msgid ""
 "specify the mime type, including a slash, for example <literal>text/xml</"
 "literal>."
 msgstr ""
-"无需任何通配符，你仅需指定文件的扩展名。使用 <literal>.BMP</literal> 来描述"
-"Windows位图文件，而 <emphasis>不是</emphasis><literal>*.BMP</literal>。"
+"无需任何通配符，你仅需指定文件的扩展名，包含开始的点，但是没有任何通配符。使"
+"用 <literal>.BMP</literal> 来描述Windows位图文件，而 <emphasis>不是</"
+"emphasis><literal>*.BMP</literal>。如果使用<literal>svn:mime-type</literal>属"
+"性，要指定多媒体文件类型，包含斜线，例如<literal>text/xml</literal>。"
 
 #: source/TortoiseSVN_en.xml:9154(title)
 msgid "Unified Diff Viewer"
@@ -11617,26 +11600,23 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9314(primary)
 msgid "client hooks"
-msgstr ""
+msgstr "客户端钩子"
 
 #: source/TortoiseSVN_en.xml:9317(primary)
-#, fuzzy
 msgid "hook scripts"
 msgstr "钩子脚本"
 
 #: source/TortoiseSVN_en.xml:9321(title)
-#, fuzzy
 msgid "The Settings Dialog, Hook Scripts Page"
-msgstr "设置对话框，颜色页面"
+msgstr "设置对话框，钩子脚本页"
 
 #: source/TortoiseSVN_en.xml:9319(para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> This dialog allows you to set up hook scripts which will be "
 "executed automatically when certain Subversion actions are performed."
 msgstr ""
-"<placeholder-1/> 这个对话框允许你指定自己喜欢的语言，同时也可做那些与"
-"Subversion相关的特殊设置。"
+"<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动作执行时，自动执行的"
+"钩子脚本。"
 
 #: source/TortoiseSVN_en.xml:9327(para)
 msgid ""
@@ -11654,9 +11634,8 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9340(title)
-#, fuzzy
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr "设置对话框，颜色页面"
+msgstr "设置对话框，配置钩子脚本页面"
 
 #: source/TortoiseSVN_en.xml:9338(para)
 msgid ""
@@ -11665,9 +11644,8 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9350(term) source/TortoiseSVN_en.xml:9418(term)
-#, fuzzy
 msgid "Start-commit"
-msgstr "提交"
+msgstr "开始提交"
 
 #: source/TortoiseSVN_en.xml:9352(para)
 msgid ""
@@ -11677,9 +11655,8 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9360(term) source/TortoiseSVN_en.xml:9426(term)
-#, fuzzy
 msgid "Pre-commit"
-msgstr "提交"
+msgstr "提交之前"
 
 #: source/TortoiseSVN_en.xml:9362(para)
 msgid ""
@@ -11688,44 +11665,40 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9369(term) source/TortoiseSVN_en.xml:9435(term)
-#, fuzzy
 msgid "Post-commit"
-msgstr "提交"
+msgstr "提交之后"
 
 #: source/TortoiseSVN_en.xml:9371(para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
+msgstr "在提交结束后调用(无论成功或失败)"
 
 #: source/TortoiseSVN_en.xml:9377(term) source/TortoiseSVN_en.xml:9445(term)
-#, fuzzy
 msgid "Start-update"
-msgstr "更新"
+msgstr "开始更新"
 
 #: source/TortoiseSVN_en.xml:9379(para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "在更新到版本对话框显示之前调用"
 
 #: source/TortoiseSVN_en.xml:9385(term) source/TortoiseSVN_en.xml:9453(term)
-#, fuzzy
 msgid "Pre-update"
-msgstr "更新"
+msgstr "更新之前"
 
 #: source/TortoiseSVN_en.xml:9387(para)
 msgid "Called before the actual Subversion update begins."
-msgstr ""
+msgstr "在 Subversion 更新实际开始之前调用"
 
 #: source/TortoiseSVN_en.xml:9393(term) source/TortoiseSVN_en.xml:9461(term)
-#, fuzzy
 msgid "Post-update"
-msgstr "更新"
+msgstr "更新之后"
 
 #: source/TortoiseSVN_en.xml:9395(para)
 msgid "Called after the update finishes (whether successful or not)."
-msgstr ""
+msgstr "在更新之后调用(无论成功或失败)"
 
 #: source/TortoiseSVN_en.xml:9346(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "现在有六种钩子脚本类型可用 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9402(para)
 msgid ""
@@ -11749,25 +11722,25 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9464(literal)
 #: source/TortoiseSVN_en.xml:9476(term)
 msgid "%PATHS%"
-msgstr ""
+msgstr "%PATHS%"
 
 #: source/TortoiseSVN_en.xml:9430(literal)
 #: source/TortoiseSVN_en.xml:9438(literal)
 #: source/TortoiseSVN_en.xml:9488(term)
 msgid "%SELECTEDPATHS%"
-msgstr ""
+msgstr "%SELECTEDPATHS%"
 
 #: source/TortoiseSVN_en.xml:9439(literal)
 #: source/TortoiseSVN_en.xml:9465(literal)
 #: source/TortoiseSVN_en.xml:9498(term)
 msgid "%REVISION%"
-msgstr ""
+msgstr "%REVISION%"
 
 #: source/TortoiseSVN_en.xml:9440(literal)
 #: source/TortoiseSVN_en.xml:9466(literal)
 #: source/TortoiseSVN_en.xml:9506(term)
 msgid "%ERROR%"
-msgstr ""
+msgstr "%ERROR%"
 
 #: source/TortoiseSVN_en.xml:9413(para)
 msgid ""
@@ -11791,7 +11764,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9500(para)
 msgid "The repository revision after a commit completes."
-msgstr ""
+msgstr "在提交完成后的版本库的版本"
 
 #: source/TortoiseSVN_en.xml:9508(para)
 msgid ""
@@ -11923,22 +11896,22 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9612(title) source/TortoiseSVN_en.xml:9681(title)
 msgid "List of available command line switches"
-msgstr ""
+msgstr "列出可用的命令行开关"
 
 #: source/TortoiseSVN_en.xml:9618(entry)
 #: source/TortoiseSVN_en.xml:11279(title)
 #: source/TortoiseSVN_en.xml:11767(glossterm)
 msgid "Switch"
-msgstr ""
+msgstr "切换"
 
 #: source/TortoiseSVN_en.xml:9619(entry) source/TortoiseSVN_en.xml:9688(entry)
 #: source/TortoiseSVN_en.xml:10614(entry)
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: source/TortoiseSVN_en.xml:9624(entry)
 msgid "-n"
-msgstr ""
+msgstr "-n"
 
 #: source/TortoiseSVN_en.xml:9625(entry)
 msgid ""
@@ -11949,7 +11922,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9633(entry)
 msgid "-m"
-msgstr ""
+msgstr "-m"
 
 #: source/TortoiseSVN_en.xml:9634(entry)
 msgid ""
@@ -11960,7 +11933,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9642(entry)
 msgid "-d"
-msgstr ""
+msgstr "-d"
 
 #: source/TortoiseSVN_en.xml:9643(entry)
 msgid ""
@@ -11970,7 +11943,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9650(entry)
 msgid "-f"
-msgstr ""
+msgstr "-f"
 
 #: source/TortoiseSVN_en.xml:9651(entry)
 msgid ""
@@ -11981,7 +11954,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9659(entry)
 msgid "-e"
-msgstr ""
+msgstr "-e"
 
 #: source/TortoiseSVN_en.xml:9660(entry)
 msgid ""
@@ -11999,15 +11972,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9676(title)
 msgid "Keyword Substitution"
-msgstr ""
+msgstr "关键字替换"
 
 #: source/TortoiseSVN_en.xml:9687(entry)
 msgid "Keyword"
-msgstr ""
+msgstr "关键字"
 
 #: source/TortoiseSVN_en.xml:9693(entry)
 msgid "$WCREV$"
-msgstr ""
+msgstr "$WCREV$"
 
 #: source/TortoiseSVN_en.xml:9694(entry)
 msgid "Replaced with the highest commit revision in the working copy."
@@ -12015,11 +11988,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9700(entry)
 msgid "$WCDATE$"
-msgstr ""
+msgstr "$WCDATE$"
 
 #: source/TortoiseSVN_en.xml:9705(literal)
 msgid "yyyy-mm-dd hh:mm:ss"
-msgstr ""
+msgstr "yyyy-mm-dd hh:mm:ss"
 
 #: source/TortoiseSVN_en.xml:9701(entry)
 msgid ""
@@ -12029,7 +12002,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9709(entry)
 msgid "$WCNOW$"
-msgstr ""
+msgstr "$WCNOW$"
 
 #: source/TortoiseSVN_en.xml:9710(entry)
 msgid ""
@@ -12039,7 +12012,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9717(entry)
 msgid "$WCRANGE$"
-msgstr ""
+msgstr "$WCRANGE$"
 
 #: source/TortoiseSVN_en.xml:9718(entry)
 msgid ""
@@ -12052,7 +12025,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9729(entry)
 msgid "$WCMIXED?TText:FText$"
-msgstr ""
+msgstr "$WCMIXED?TText:FText$"
 
 #: source/TortoiseSVN_en.xml:9730(entry)
 msgid ""
@@ -12061,7 +12034,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9736(entry)
 msgid "$WCMODS?TText:FText$"
-msgstr ""
+msgstr "$WCMODS?TText:FText$"
 
 #: source/TortoiseSVN_en.xml:9737(entry)
 msgid "Replaced with TText if there are local modifications, or FText if not."
@@ -12069,7 +12042,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9743(entry)
 msgid "$WCURL$"
-msgstr ""
+msgstr "$WCURL$"
 
 #: source/TortoiseSVN_en.xml:9744(entry)
 msgid ""
@@ -12084,7 +12057,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9758(title)
 msgid "Keyword Example"
-msgstr ""
+msgstr "关键字例子"
 
 #: source/TortoiseSVN_en.xml:9759(para)
 msgid ""
@@ -12743,11 +12716,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10290(title)
 msgid "Ignore files which are already versioned"
-msgstr ""
+msgstr "忽略已经版本控制的文件"
 
 #: source/TortoiseSVN_en.xml:10292(primary)
 msgid "unversion"
-msgstr ""
+msgstr "没有版本控制"
 
 #: source/TortoiseSVN_en.xml:10294(para)
 msgid ""
@@ -12778,7 +12751,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10333(para)
 msgid "Move the file back to its original location."
-msgstr ""
+msgstr "将文件移到原始位置"
 
 #: source/TortoiseSVN_en.xml:10338(para)
 msgid ""
@@ -12834,7 +12807,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10394(title)
 msgid "Administrators"
-msgstr ""
+msgstr "管理员"
 
 #: source/TortoiseSVN_en.xml:10396(para)
 msgid ""
@@ -12844,11 +12817,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10403(title)
 msgid "Deploy TortoiseSVN via group policies"
-msgstr ""
+msgstr "通过组策略部署 TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:10405(primary)
 msgid "group policies"
-msgstr ""
+msgstr "组策略"
 
 #: source/TortoiseSVN_en.xml:10408(primary)
 #: source/TortoiseSVN_en.xml:11575(glossterm)
@@ -12884,11 +12857,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10434(title)
 msgid "Redirect the upgrade check"
-msgstr ""
+msgstr "重定向升级检查"
 
 #: source/TortoiseSVN_en.xml:10436(primary)
 msgid "upgrade check"
-msgstr ""
+msgstr "升级检查"
 
 #: source/TortoiseSVN_en.xml:10438(para)
 msgid ""
@@ -12899,7 +12872,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10444(title)
 msgid "The upgrade dialog"
-msgstr ""
+msgstr "升级对话框"
 
 #: source/TortoiseSVN_en.xml:10447(para)
 msgid ""
@@ -12934,11 +12907,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10478(title)
 msgid "Setting the SVN_ASP_DOT_NET_HACK environment variable"
-msgstr ""
+msgstr "设置 SVN_ASP_DOT_NET_HACK 环境变量"
 
 #: source/TortoiseSVN_en.xml:10480(primary)
 msgid "SVN_ASP_DOT_NET_HACK"
-msgstr ""
+msgstr "SVN_ASP_DOT_NET_HACK"
 
 #: source/TortoiseSVN_en.xml:10482(para)
 msgid ""
@@ -12961,7 +12934,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10500(title)
 msgid "Automating TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN 自动操作"
 
 #: source/TortoiseSVN_en.xml:10502(para)
 msgid ""
@@ -12981,15 +12954,15 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10520(title)
 #: source/TortoiseSVN_en.xml:10971(title)
 msgid "TortoiseSVN Commands"
-msgstr ""
+msgstr "TortoiseSVN 命令"
 
 #: source/TortoiseSVN_en.xml:10522(primary)
 msgid "automation"
-msgstr ""
+msgstr "自动化"
 
 #: source/TortoiseSVN_en.xml:10525(primary)
 msgid "command line"
-msgstr ""
+msgstr "命令行"
 
 #: source/TortoiseSVN_en.xml:10527(para)
 msgid ""
@@ -13161,9 +13134,8 @@ msgid "/nonrecursive"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10660(option)
-#, fuzzy
 msgid "/ignoreexternals"
-msgstr "使用svn:externals"
+msgstr "/ignoreexternals"
 
 #: source/TortoiseSVN_en.xml:10653(entry)
 msgid ""
@@ -13264,7 +13236,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10776(option)
 #: source/TortoiseSVN_en.xml:10778(option)
 msgid "/path2"
-msgstr ""
+msgstr "/path2"
 
 #: source/TortoiseSVN_en.xml:10772(entry)
 msgid ""
@@ -13289,7 +13261,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10800(entry)
 msgid "Opens the help file."
-msgstr ""
+msgstr "打开帮助文件"
 
 #: source/TortoiseSVN_en.xml:10806(entry)
 msgid ""
@@ -13300,7 +13272,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10818(option)
 #: source/TortoiseSVN_en.xml:10820(option)
 msgid "/rev:xxx"
-msgstr ""
+msgstr "/rev:xxx"
 
 #: source/TortoiseSVN_en.xml:10813(entry)
 msgid ""
@@ -13319,15 +13291,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10837(option)
 msgid "startrev"
-msgstr ""
+msgstr "startrev"
 
 #: source/TortoiseSVN_en.xml:10838(option)
 msgid "endrev"
-msgstr ""
+msgstr "endrev"
 
 #: source/TortoiseSVN_en.xml:10842(option)
 msgid "/line:nnn"
-msgstr ""
+msgstr "/line:nnn"
 
 #: source/TortoiseSVN_en.xml:10834(entry)
 msgid ""
@@ -13340,11 +13312,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10852(option)
 msgid "/savepath:path"
-msgstr ""
+msgstr "/savepath:path"
 
 #: source/TortoiseSVN_en.xml:10853(option)
 msgid "/revision:xxx"
-msgstr ""
+msgstr "/revision:xxx"
 
 #: source/TortoiseSVN_en.xml:10849(entry)
 msgid ""
@@ -13375,9 +13347,8 @@ msgid ""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10891(entry)
-#, fuzzy
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "显示选中的单个文件的版本日志。"
+msgstr "显示 <placeholder-1/> 给出的路径之属性对话框。"
 
 #: source/TortoiseSVN_en.xml:10900(para)
 msgid ""
@@ -13396,15 +13367,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10915(title)
 msgid "Command Line Interface Cross Reference"
-msgstr ""
+msgstr "命令行交叉索引"
 
 #: source/TortoiseSVN_en.xml:10917(primary)
 msgid "command line client"
-msgstr ""
+msgstr "命令行客户端"
 
 #: source/TortoiseSVN_en.xml:10920(primary)
 msgid "CLI"
-msgstr ""
+msgstr "CLI"
 
 #: source/TortoiseSVN_en.xml:10923(para)
 msgid ""
@@ -13459,7 +13430,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10973(title)
 #: source/TortoiseSVN_en.xml:11475(glossterm)
 msgid "Checkout"
-msgstr ""
+msgstr "检出"
 
 #: source/TortoiseSVN_en.xml:10974(screen)
 #, no-wrap
@@ -13489,7 +13460,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10991(title)
 #: source/TortoiseSVN_en.xml:11781(glossterm)
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: source/TortoiseSVN_en.xml:10992(screen)
 #, no-wrap
@@ -13521,7 +13492,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11015(title)
 msgid "Update to Revision"
-msgstr ""
+msgstr "更新到版本"
 
 #: source/TortoiseSVN_en.xml:11016(screen)
 #, no-wrap
@@ -13540,7 +13511,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11030(title)
 #: source/TortoiseSVN_en.xml:11501(glossterm)
 msgid "Commit"
-msgstr ""
+msgstr "提交"
 
 #: source/TortoiseSVN_en.xml:11031(para)
 msgid ""
@@ -13642,7 +13613,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11098(title)
 msgid "Show Log"
-msgstr ""
+msgstr "显示日志"
 
 #: source/TortoiseSVN_en.xml:11099(screen)
 #, no-wrap
@@ -13704,7 +13675,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11155(title)
 msgid "Repo Browser"
-msgstr ""
+msgstr "版本库浏览器"
 
 #: source/TortoiseSVN_en.xml:11156(screen)
 #, no-wrap
@@ -13730,7 +13701,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11173(title)
 msgid "Edit Conflicts"
-msgstr ""
+msgstr "编辑冲突"
 
 #: source/TortoiseSVN_en.xml:11174(para)
 msgid ""
@@ -13741,7 +13712,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11181(title)
 msgid "Resolved"
-msgstr ""
+msgstr "已解决"
 
 #: source/TortoiseSVN_en.xml:11182(screen)
 #, no-wrap
@@ -13752,7 +13723,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11187(title)
 msgid "Rename"
-msgstr ""
+msgstr "改名"
 
 #: source/TortoiseSVN_en.xml:11188(screen)
 #, no-wrap
@@ -13764,7 +13735,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11193(title)
 #: source/TortoiseSVN_en.xml:11535(glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: source/TortoiseSVN_en.xml:11194(screen)
 #, no-wrap
@@ -13776,7 +13747,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11199(title)
 #: source/TortoiseSVN_en.xml:11714(glossterm)
 msgid "Revert"
-msgstr ""
+msgstr "恢复"
 
 #: source/TortoiseSVN_en.xml:11203(para)
 msgid ""
@@ -13800,6 +13771,8 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 msgstr ""
+"\n"
+"svn revert [-R] PATH...\n"
 
 #: source/TortoiseSVN_en.xml:11222(screen)
 #, no-wrap
@@ -13807,10 +13780,12 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 msgstr ""
+"\n"
+"svn cleanup PATH\n"
 
 #: source/TortoiseSVN_en.xml:11227(title)
 msgid "Get Lock"
-msgstr ""
+msgstr "获得锁"
 
 #: source/TortoiseSVN_en.xml:11231(para)
 msgid ""
@@ -13840,7 +13815,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11249(title)
 msgid "Release Lock"
-msgstr ""
+msgstr "释放锁"
 
 #: source/TortoiseSVN_en.xml:11250(screen)
 #, no-wrap
@@ -13851,7 +13826,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11255(title)
 msgid "Branch/Tag"
-msgstr ""
+msgstr "分支/标记"
 
 #: source/TortoiseSVN_en.xml:11256(screen)
 #, no-wrap
@@ -13886,7 +13861,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11286(title)
 #: source/TortoiseSVN_en.xml:11628(glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "合并"
 
 #: source/TortoiseSVN_en.xml:11287(screen)
 #, no-wrap
@@ -13962,6 +13937,8 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 msgstr ""
+"\n"
+"svn switch --relocate From_URL To_URL\n"
 
 #: source/TortoiseSVN_en.xml:11334(title)
 msgid "Create Repository Here"
@@ -13997,7 +13974,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11362(title)
 #: source/TortoiseSVN_en.xml:11439(glossterm)
 msgid "Blame"
-msgstr ""
+msgstr "追溯"
 
 #: source/TortoiseSVN_en.xml:11363(screen)
 #, no-wrap
@@ -14006,6 +13983,9 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 msgstr ""
+"\n"
+"svn blame -r N:M -v PATH\n"
+"svn log -r N:M PATH\n"
 
 #: source/TortoiseSVN_en.xml:11367(para)
 msgid ""
@@ -14153,7 +14133,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11511(glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "冲突"
 
 #: source/TortoiseSVN_en.xml:11513(para)
 msgid ""
@@ -14166,7 +14146,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11523(glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "复制"
 
 #: source/TortoiseSVN_en.xml:11525(para)
 msgid ""
@@ -14232,7 +14212,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11600(glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "锁"
 
 #: source/TortoiseSVN_en.xml:11602(para)
 msgid ""
@@ -14242,7 +14222,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11610(glossterm)
 msgid "Log"
-msgstr ""
+msgstr "日志"
 
 #: source/TortoiseSVN_en.xml:11612(para)
 msgid ""
@@ -14252,7 +14232,7 @@ msgstr "显示一个文件或是文件夹的版本历史。也就是<quote>历�
 
 #: source/TortoiseSVN_en.xml:11619(glossterm)
 msgid "History"
-msgstr ""
+msgstr "历史"
 
 #: source/TortoiseSVN_en.xml:11621(para)
 msgid ""
@@ -14293,7 +14273,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11659(glossterm)
 msgid "Property"
-msgstr ""
+msgstr "属性"
 
 #: source/TortoiseSVN_en.xml:11661(para)
 msgid ""
@@ -14334,7 +14314,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11702(glossterm)
 msgid "Resolve"
-msgstr ""
+msgstr "解决"
 
 #: source/TortoiseSVN_en.xml:11704(para)
 msgid ""
@@ -14355,7 +14335,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11725(glossterm)
 msgid "Revision"
-msgstr "修订版本"
+msgstr "版本"
 
 #: source/TortoiseSVN_en.xml:11727(para)
 msgid ""
@@ -14373,7 +14353,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11741(glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "版本属性(revprop)"
 
 #: source/TortoiseSVN_en.xml:11743(para)
 msgid ""
@@ -14387,7 +14367,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11755(glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #: source/TortoiseSVN_en.xml:11757(para)
 msgid "A frequently-used abbreviation for Subversion."
@@ -14432,6 +14412,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:0(None)
 msgid "translator-credits"
 msgstr ""
+"Dongsheng Song <dongsheng.song@gmail.com>\n"
 "rocksun <daijun@gmail.com>\n"
 "Stan <thinkernel@yeah.net>\n"
 "xingyu.wang <xingyu.wang@gmail.com>\n"
