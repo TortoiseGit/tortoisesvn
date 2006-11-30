@@ -1,19 +1,35 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
+# Dongsheng Song <dongsheng.song@gmail.com>
 # NetCobra <netcobra@gmail.com>
 # Cecil Sheng <zcecil@csie.org>
 # Xingyu.Wang <xingyu.wang@gmail.com>
 #
 # Dictionary:
-# <DICTIONARY>
+# BASE revision     基础版本
+# blame             追溯
+# checkout          检出
+# default           默认
+# HEAD revision     最新版本
+# remove            删除
+# rename            改名
+# repository        版本库
+# revert            恢复
+# revision          版本
+# undo              撤销
+# unified diff      标准差异
+# unversioned       无版本控制的
+# versioned         版本控制的
+# working copy      工作拷贝
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-28 15:32+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"POT-Creation-Date: 2006-11-30 16:06+0800\n"
+"PO-Revision-Date: 2006-11-30 19:24+0800\n"
+"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -704,7 +720,7 @@ msgstr "删除(&R)"
 # Dlg-ID:151,
 #: ID:101,
 msgid "&Rename"
-msgstr "重命名(&R)"
+msgstr "改名(&R)"
 
 # Control-ID:1316,
 #: Control-ID:1316,
@@ -781,7 +797,7 @@ msgstr "偷取此锁定(&S)"
 # Control-ID:1130,
 #: Control-ID:1130,
 msgid "&Stop on copy/rename"
-msgstr "复制/重命名时终止(&S)"
+msgstr "复制/改名时终止(&S)"
 
 # Control-ID:1173,
 #: Control-ID:1173,
@@ -1478,7 +1494,7 @@ msgstr "作者："
 # Dlg-ID:151,
 #: ID:99,
 msgid "Auto Rename"
-msgstr "自动重命名"
+msgstr "自动改名"
 
 # ID:222,
 #: ID:222,
@@ -2059,6 +2075,11 @@ msgstr "复制(&Y)"
 msgid "Copied"
 msgstr "已复制"
 
+# ID:76,
+#: ID:208,
+msgid "Copied from URL"
+msgstr "复制自路径"
+
 # ID:126,
 #: ID:126,
 msgid "Copied remotely"
@@ -2143,11 +2164,6 @@ msgstr "复制至工作拷贝…"
 #: ID:101,
 msgid "Copy to working copy..."
 msgstr "复制至工作拷贝…"
-
-# ID:76,
-#: ID:208,
-msgid "Copy-from URL"
-msgstr "复制自路径"
 
 # ID:97,
 #: ID:98,
@@ -3336,7 +3352,7 @@ msgid ""
 "control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"设置后，未进行版本控制的文件夹中的文件将出现在“状态控制”中。\n"
+"设置后，无版本控制的文件夹中的文件将出现在“状态控制”中。\n"
 "“状态控制”用于类似提交对话框等地方。"
 
 # ID:196,
@@ -4133,7 +4149,7 @@ msgid ""
 msgstr ""
 "从上次提交以来没有任何文件修改或\n"
 "加入。TortoiseSVN 没有可执行的操\n"
-"作。要查看未进行版本控制的文件吗？"
+"作。要查看无版本控制的文件吗？"
 
 # ID:3843,#:
 # ID:3843,
@@ -4689,7 +4705,7 @@ msgstr "可移动磁盘(&M)"
 # ID:11,
 #: ID:11,
 msgid "Re&name..."
-msgstr "重命名(&N)..."
+msgstr "改名(&N)..."
 
 # ID:77,
 #: ID:8,
@@ -4704,7 +4720,7 @@ msgstr "在你卡住之前, 请先阅读日常使用指南…"
 # Control-ID:1073,
 #: Control-ID:1260,
 msgid "Recurse into unversioned folders"
-msgstr "递归处理未进行版本控制的文件夹"
+msgstr "递归处理无版本控制的文件夹"
 
 # Control-ID:1018,
 #: ID:563,
@@ -4804,13 +4820,13 @@ msgstr "远程文字状态："
 #: ID:126,
 #, c-format
 msgid "Remove %ld items"
-msgstr "移除 %ld 项"
+msgstr "删除 %ld 项"
 
 # ID:97,
 #: ID:126,
 #, c-format
 msgid "Remove %s"
-msgstr "移除 %s"
+msgstr "删除 %s"
 
 # ID:13,
 #: ID:15,
@@ -4847,7 +4863,7 @@ msgstr ""
 # ID:17,
 #: ID:17,
 msgid "Removes all unversioned and ignored items"
-msgstr "移除所有未进行版本控制和忽略的项目"
+msgstr "删除所有无版本控制或忽略的项目"
 
 # ID:13,
 #: ID:15,
@@ -4857,13 +4873,13 @@ msgstr "将选定的文件或文件匹配列表从忽略列表删除"
 # Dlg-ID:151,
 #: Dlg-ID:151,
 msgid "Rename"
-msgstr "重命名"
+msgstr "改名"
 
 # ID:97,
 #: ID:97,
 #, c-format
 msgid "Rename %s"
-msgstr "重命名 %s"
+msgstr "改名 %s"
 
 # ID:127,
 #: ID:127,
@@ -4878,17 +4894,17 @@ msgstr ""
 # ID:126,
 #: Control-ID:65535,
 msgid "Renamed node"
-msgstr "重命名的节点"
+msgstr "改名的节点"
 
 # ID:126,
 #: ID:126,
 msgid "Renamed remotely"
-msgstr "远程重命名完成"
+msgstr "远程改名完成"
 
 # ID:11,
 #: ID:11,
 msgid "Renames files / folders inside version control"
-msgstr "重命名版本控制树中的文件/文件夹"
+msgstr "改名版本控制树中的文件/文件夹"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -4989,7 +5005,7 @@ msgstr "解决有冲突的文件"
 # ID:73,
 #: Control-ID:1254,
 msgid "Restore Default"
-msgstr "回复默认值"
+msgstr "恢复默认值"
 
 # ID:3826,
 #: ID:3826,
@@ -5165,7 +5181,7 @@ msgstr "SVN 作者"
 # Control-ID:1073,
 #: ID:16,
 msgid "SVN Copy and rename versioned file here"
-msgstr "SVN 复制并重命名版本控制的文件到当前位置"
+msgstr "SVN 复制并改名版本控制的文件到当前位置"
 
 # Control-ID:1073,
 #: ID:13,
@@ -5190,7 +5206,7 @@ msgstr "SVN 锁定属主"
 # Control-ID:1073,
 #: ID:17,
 msgid "SVN Move and rename versioned files here"
-msgstr "SVN 复制并重命名版本控制的文件到当前位置"
+msgstr "SVN 复制并改名版本控制的文件到当前位置"
 
 # Control-ID:1073,
 #: ID:12,
@@ -5552,7 +5568,7 @@ msgstr "仅在资源管理器中显示图标覆盖(&O)"
 # Control-ID:1073,
 #: Control-ID:1073,
 msgid "Show &unversioned files"
-msgstr "显示非版本控制的文件(&U)"
+msgstr "显示无版本控制的文件(&U)"
 
 # Control-ID:1073,
 #: MenuEntry
@@ -5614,7 +5630,7 @@ msgstr "显示未修改的文件"
 # Control-ID:1073,
 #: Control-ID:1073,
 msgid "Show unversioned files"
-msgstr "显示非版本控制的文件"
+msgstr "显示无版本控制的文件"
 
 # ID:198,
 #: ID:198,
@@ -5997,7 +6013,7 @@ msgstr "没有指定时默认要取出的路径"
 # ID:197,
 #: ID:197,
 msgid "The default url to checkout from if nothing else is specified"
-msgstr "没有指定时默认要取出的Url"
+msgstr "没有指定时默认要取出的URL"
 
 # ID:68,
 #: ID:68,
@@ -6278,9 +6294,9 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"工作拷贝已更动！\n"
+"工作拷贝已修改！\n"
 "<hr=100%>\n"
-"请先提交你的变更或复原你的改动。"
+"请先提交或撤销你的修改。"
 
 # ID:81,
 #: ID:81,
@@ -6580,7 +6596,7 @@ msgstr "TortoiseSVN 合并..."
 # ID:101,
 #: ID:221,
 msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN 重命名/移动..."
+msgstr "TortoiseSVN 改名/移动..."
 
 # ID:77,
 #: ID:77,
@@ -6614,7 +6630,7 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
-"TortoiseSVN 检测到类似的文件名，要同时重命名\n"
+"TortoiseSVN 检测到类似的文件名。你要同时改名\n"
 "文件 %s 吗？"
 
 # Control-ID:1162,
