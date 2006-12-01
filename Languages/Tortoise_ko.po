@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-20 13:59+0900\n"
+"PO-Revision-Date: 2006-12-01 21:53+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -979,6 +979,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1639,15 +1640,15 @@ msgstr "Bug-ID / Issue-Nr:"
 msgid "C&heck now"
 msgstr "지금 확인(&H)"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "리비전으로부터 태그/브랜치 생성(&R)"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "폴더 생성(&R)"
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "이 리비전으로부터 태그 생성(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -1829,6 +1830,7 @@ msgstr "TortoiseSVN 새 버전이 있는지 확인합니다."
 
 # ID:8,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "체크아웃"
 
@@ -2083,6 +2085,11 @@ msgstr "복사(&Y)"
 #: ID:73
 msgid "Copied"
 msgstr "복사됨"
+
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "복사된 원본 경로"
 
 # ID:126,
 #: ID:126
@@ -2409,6 +2416,18 @@ msgstr "날짜"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "로그 메시지 기본 개수(&N)"
+
+# ID:11,#:
+# ID:73,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "기본 URL:"
+
+# ID:11,#:
+# ID:73,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "기본 경로:"
 
 # ID:11,#:
 # ID:73,
@@ -2916,6 +2935,14 @@ msgstr "문서 열기에 실패함."
 msgid "Failed to save document."
 msgstr "문서 저장 실패."
 
+# ID:63,#:
+# ID:74,#:
+# ID:77,#:
+# ID:207,
+#: ID:220
+msgid "Failed!"
+msgstr "실패하였습니다"
+
 # Control-ID:1217,
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -3005,6 +3032,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "완료!"
 
@@ -3810,13 +3838,13 @@ msgstr "모양::아이콘 모음"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
 msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
 msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리비전: %ld"
 
 # ID:3866,#:
@@ -5989,6 +6017,16 @@ msgstr "chunk 크기가 추가/제거된 라인수와 일치하지 않습니다.
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "chunk의 시작인  @@ 가 있어야합니다. 행 번호 %d !"
 
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "아무것도 지정되지 않을 경우 체크아웃해 올 기본 경로"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "아무것도 지정되지 않을 경우 체크아웃해 올 기본 URL"
+
 # ID:68,
 #: ID:68
 #, c-format
@@ -6132,6 +6170,12 @@ msgid ""
 msgstr ""
 "이전 파일이 새 파일과 맞지 않습니다.\n"
 "파일들의 이름을 바꾸는 것은 아직 지원하지 않습니다."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "명령이 실패하였습니다"
 
 # ID:64,
 #: ID:64
