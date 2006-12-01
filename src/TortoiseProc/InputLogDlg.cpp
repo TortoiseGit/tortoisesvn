@@ -105,6 +105,15 @@ void CInputLogDlg::OnOK()
 {
 	UpdateData();
 	m_sLogMsg = m_cInput.GetText();
+	
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), m_sUUID);
+
+	CHistoryDlg dlg;
+	dlg.LoadHistory(reg, _T("logmsgs"));
+	dlg.AddString(m_sLogMsg);
+	dlg.SaveHistory();
+
 	CResizableStandAloneDialog::OnOK();
 }
 
