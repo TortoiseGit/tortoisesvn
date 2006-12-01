@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
+#include "LogDlg.h"
 #include "SVNRev.h"
 
 /**
@@ -59,6 +60,8 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnChangeRevisionNum();
+	afx_msg void OnBnClickedLog();
+	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 
 	void		SetRevision(const SVNRev& rev);
 
@@ -69,6 +72,8 @@ protected:
 	BOOL			m_bFolder;
 	CString			m_sTitle;
 	CString			m_sLabel;
+	CLogDlg *		m_pLogDlg;
+
 public:
 	CString			m_path;
 	CString			m_URL;

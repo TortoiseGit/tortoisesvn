@@ -30,11 +30,14 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, Revision(_T("HEAD"))
+	, m_pLogDlg(NULL)
 {
 }
 
 CSwitchDlg::~CSwitchDlg()
 {
+	if (m_pLogDlg)
+		delete m_pLogDlg;
 }
 
 void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
@@ -49,6 +52,8 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_EN_CHANGE(IDC_REVISION_NUM, &CSwitchDlg::OnEnChangeRevisionNum)
+	ON_BN_CLICKED(IDC_LOG, &CSwitchDlg::OnBnClickedLog)
+	ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CSwitchDlg::OnRevSelected)
 END_MESSAGE_MAP()
 
 void CSwitchDlg::SetDialogTitle(const CString& sTitle)
@@ -99,6 +104,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
 	AddAnchor(IDC_REVISION_N, TOP_LEFT);
 	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
+	AddAnchor(IDC_LOG, TOP_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -173,4 +179,35 @@ void CSwitchDlg::SetRevision(const SVNRev& rev)
 		m_rev = rev.ToString();
 		UpdateData(FALSE);
 	}
+}
+
+void CSwitchDlg::OnBnClickedLog()
+{
+	UpdateData(TRUE);
+	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+		return;
+	if (!m_path.IsEmpty())
+	{
+		delete m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+		int limit = (int)(LONG)reg;
+		m_pLogDlg->SetSelect(true);
+		m_pLogDlg->m_pNotifyWindow = this;
+		m_pLogDlg->m_wParam = 0;
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->SetParams(CTSVNPath(m_path), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg->ContinuousSelection(true);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+	}
+	AfxGetApp()->DoWaitCursor(-1);
+}
+
+LPARAM CSwitchDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
+{
+	CString temp;
+	temp.Format(_T("%ld"), lParam);
+	GetDlgItem(IDC_REVISION_NUM)->SetWindowText(temp);
+	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+	return 0;
 }
