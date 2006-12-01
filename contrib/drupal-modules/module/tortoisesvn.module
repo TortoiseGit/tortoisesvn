@@ -280,7 +280,7 @@ function print_content_stat($i, $postat, $vars)
 
   // If completeness was rounded up to 100% and 
   // anything is missing, set completeness down to 99.9%
-  if ( ($pt=="100.0%") && ($total>$tra) )
+  if ( ($pt=="100.0%") && (($total>$tra) || ($acc>0)) )
     $pt="99.9%";
 
   if ($pt=="100.0%") {
