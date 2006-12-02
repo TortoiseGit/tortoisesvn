@@ -1333,8 +1333,8 @@ msgid ""
 "Berkeley DB. A well tested database backend for repositories, that cannot be "
 "used on network shares. Default for pre 1.2 repositories."
 msgstr ""
-"Berkeley DB（BDB）。 一个经过广泛测试的版本库的数据库后端，它不能用于网络共"
-"享。是 1.2 版本以前的版本库的默认后端。"
+"伯克利 DB（BDB）。 一个经过广泛测试的版本库的数据库后端，不能使用网络文件"
+"系统(例如 NFS 或 SMBFS)。是 1.2 版本及以前的版本库之默认后端。"
 
 #: source/TortoiseMerge_en.xml:1151(glossterm)
 msgid "Branch"
@@ -1473,8 +1473,8 @@ msgid ""
 "FS Filesystem. A proprietary Subversion filesystem backend for repositories. "
 "Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr ""
-"FS 文件系统。一个专用于 Subversion 版本库的文件系统后端，可以使用网络共享存"
-"储。是1.2 版本及其后版本的版本库之默认后端。"
+"FS 文件系统。一个专用于 Subversion 版本库的文件系统后端，可以使用网络文件系统"
+"(例如 NFS 或 SMBFS)。是 1.2 版本及其后的版本库之默认后端。"
 
 #: source/TortoiseMerge_en.xml:1266(glossterm)
 msgid "GPO"
