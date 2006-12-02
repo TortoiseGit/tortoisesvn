@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-20 13:25+0100\n"
+"PO-Revision-Date: 2006-12-02 20:35+0100\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -993,6 +993,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1665,15 +1666,15 @@ msgstr "Chyba / Prípad:"
 msgid "C&heck now"
 msgstr "S&kontroluj teraz"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "Vytvo&r vetvu/značku z revízie"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "Vytvo&r adresár..."
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "Vytvo&r značku z revízie"
 
 # ID:3697,
 #: ID:3697
@@ -1857,6 +1858,7 @@ msgstr "Kontrola prístupnosti novšej verzie TortoiseSVN..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "Získať"
 
@@ -2119,6 +2121,12 @@ msgstr "&Kopíruj"
 #: ID:73
 msgid "Copied"
 msgstr "Skopírované"
+
+# Kopíruj z cesty
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "Skópírovné z URL"
 
 # ID:126,
 #: ID:126
@@ -2448,6 +2456,18 @@ msgstr "Dátum"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Prednastavený &počet správ denníka"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "Predvolená URL:"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "Predvolená cesta:"
 
 # Control-ID:65535,
 #: Dlg-ID:240
@@ -2961,6 +2981,15 @@ msgstr "Otváranie dokumentu zlyhalo."
 msgid "Failed to save document."
 msgstr "Ukladanie dokumentu zlyhalo."
 
+# ID:63,#:
+# ID:74,#:
+# ID:77,#:
+# ID:207,#:
+# ID:319,
+#: ID:220
+msgid "Failed!"
+msgstr "Zlihanie!"
+
 # Control-ID:1217,
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -3053,6 +3082,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "Ukončené!"
 
@@ -3299,8 +3329,12 @@ msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek v dialógový
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Keď je aktívne, položka \"Uzamknúť\" je zobrazovaná na vrchu menu keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+" if the selected file has the svn:needs-lock property set"
+msgstr ""
+"Keď je aktívne, položka \"Uzamknúť\" je vždy zobrazovaná na vrchu menu\n"
+"keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 # ID:95,
 #: ID:95
@@ -3871,14 +3905,14 @@ msgstr "Vzhlad a pocit::Sada ikon"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "Najnižšia revízia: %ld - Najvyššia revízia: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "Najnižšia zobrazená revízia: %ld - Najvyššia zobrazená revízia: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "Najnižšia revízia: %ld - Najvyššia revízia: %ld - HEAD revízia: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "Najnižšia zobrazená revízia: %ld - Najvyššia zobrazená revízia: %ld - HEAD revízia: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -5618,9 +5652,9 @@ msgstr "Zobraziť &rozdiely"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "Zobraziť &denník"
 
@@ -6072,6 +6106,16 @@ msgstr "Veľkosť bloku nezodpovedá počtu pridaných/vymazaných riadkov!"
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Na riadku %d bol očakávaný začiatok dávky \"@@\"!"
 
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "Predvolená cesta na získanie pokiaľ nie je určená iná"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "Predvolená URL na získanie pokiaľ nie je určená iná"
+
 # ID:68,
 #: ID:68
 #, c-format
@@ -6218,6 +6262,12 @@ msgid ""
 msgstr ""
 "Starý a nový súbor sa nezhodujú.\n"
 "Premenovanie súborov nie je (ešte) podporované!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "Úkon zlihal."
 
 # ID:64,
 #: ID:64
