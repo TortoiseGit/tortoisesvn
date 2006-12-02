@@ -157,6 +157,7 @@ protected:
 	bool isPatchFile;
 	bool isShortcut;
 	bool isNeedsLock;
+	bool isPatchFileInClipboard;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider

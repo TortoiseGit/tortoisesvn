@@ -51,6 +51,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isPatchFile = false;
 	isShortcut = false;
 	isNeedsLock = false;
+	isPatchFileInClipboard = false;
 	stdstring statuspath;
 	svn_wc_status_kind fetchedstatus = svn_wc_status_unversioned;
 	// get selected files/folders
@@ -274,6 +275,27 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				if (g_ShellCache.HasSVNAdminDir(child.toString().c_str(), FALSE))
 					isInVersionedFolder = true;
 				GlobalUnlock(medium.hGlobal);
+
+				// if the item is a versioned folder, check if there's a patchfile
+				// in the clipboard to be used in "Apply Patch"
+				UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+				if (cFormat)
+				{
+					if (OpenClipboard(NULL))
+					{
+						UINT enumFormat = 0;
+						do 
+						{
+							if (enumFormat == cFormat)
+							{
+								// yes, there's a patchfile in the clipboard
+								isPatchFileInClipboard = true;
+								break;
+							}
+						} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+						CloseClipboard();
+					}
+				}
 			}
 
 
@@ -1402,6 +1424,43 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuApplyPatch:
+				if ((isPatchFileInClipboard)&&(!isPatchFile))
+				{
+					// if there's a patchfile in the clipboard, we save it
+					// to a temporary file and tell TortoiseMerge to use that one
+					UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+					if ((cFormat)&&(OpenClipboard(NULL)))
+					{ 
+						HGLOBAL hglb = GetClipboardData(cFormat); 
+						LPCSTR lpstr = (LPCSTR)GlobalLock(hglb); 
+
+						DWORD len = GetTempPath(0, NULL);
+						TCHAR * path = new TCHAR[len+1];
+						TCHAR * tempF = new TCHAR[len+100];
+						GetTempPath (len+1, path);
+						GetTempFileName (path, TEXT("tsm"), 0, tempF);
+						std::wstring sTempFile = std::wstring(tempF);
+						delete path;
+						delete tempF;
+
+						FILE * outFile;
+						size_t patchlen = strlen(lpstr);
+						_tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
+						if(outFile)
+						{
+							size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
+							if (size == patchlen)
+							{
+								isPatchFile = true;
+								files_.clear();
+								files_.push_back(sTempFile);
+							}
+							fclose(outFile);
+						}
+						GlobalUnlock(hglb); 
+						CloseClipboard(); 
+					} 
+				}
 				if (isPatchFile)
 				{
 					svnCmd = _T(" /diff:\"");
