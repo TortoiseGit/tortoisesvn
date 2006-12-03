@@ -84,6 +84,7 @@ BOOL CChangedDlg::OnInitDialog()
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWIGNORED, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_INFOLABEL, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	SetPromptParentWindow(m_hWnd);
@@ -258,5 +259,9 @@ void CChangedDlg::UpdateStatistics()
 		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
-	m_tooltips.AddTool(IDC_SUMMARYTEXT, m_FileListCtrl.GetStatisticsString());
+	temp = m_FileListCtrl.GetStatisticsString();
+	m_tooltips.AddTool(IDC_SUMMARYTEXT, temp);
+	temp.Replace(_T(" = "), _T("="));
+	temp.Replace(_T("\n"), _T(", "));
+	GetDlgItem(IDC_INFOLABEL)->SetWindowText(temp);
 }
