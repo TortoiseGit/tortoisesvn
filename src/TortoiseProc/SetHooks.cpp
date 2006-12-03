@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CSetHooks, CPropertyPage)
 	ON_BN_CLICKED(IDC_HOOKREMOVEBUTTON, &CSetHooks::OnBnClickedRemovebutton)
 	ON_BN_CLICKED(IDC_HOOKEDITBUTTON, &CSetHooks::OnBnClickedEditbutton)
 	ON_BN_CLICKED(IDC_HOOKADDBUTTON, &CSetHooks::OnBnClickedAddbutton)
+	ON_BN_CLICKED(IDC_HOOKCOPYBUTTON, &CSetHooks::OnBnClickedHookcopybutton)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_HOOKLIST, &CSetHooks::OnLvnItemchangedHooklist)
 	ON_NOTIFY(NM_DBLCLK, IDC_HOOKLIST, &CSetHooks::OnNMDblclkHooklist)
 END_MESSAGE_MAP()
@@ -171,6 +172,7 @@ void CSetHooks::OnLvnItemchangedHooklist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	UINT count = m_cHookList.GetSelectedCount();
 	GetDlgItem(IDC_HOOKREMOVEBUTTON)->EnableWindow(count > 0);
 	GetDlgItem(IDC_HOOKEDITBUTTON)->EnableWindow(count == 1);
+	GetDlgItem(IDC_HOOKCOPYBUTTON)->EnableWindow(count == 1);
 	*pResult = 0;
 }
 
@@ -186,4 +188,27 @@ BOOL CSetHooks::OnApply()
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
+}
+
+void CSetHooks::OnBnClickedHookcopybutton()
+{
+	if (m_cHookList.GetSelectedCount() > 1)
+		return;
+	POSITION pos = m_cHookList.GetFirstSelectedItemPosition();
+	if (pos)
+	{
+		CSetHooksAdv dlg;
+		int index = m_cHookList.GetNextSelectedItem(pos);
+		dlg.key.htype = CHooks::GetHookType((LPCTSTR)m_cHookList.GetItemText(index, 0));
+		dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
+		dlg.cmd.bWait = (m_cHookList.GetItemText(index, 3).Compare(_T("true"))==0);
+		dlg.cmd.bShow = (m_cHookList.GetItemText(index, 4).Compare(_T("show"))==0);
+		hookkey key = dlg.key;
+		if (dlg.DoModal() == IDOK)
+		{
+			CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline, dlg.cmd.bWait, dlg.cmd.bShow);
+			RebuildHookList();
+			SetModified();
+		}
+	}
 }

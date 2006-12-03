@@ -54,6 +54,7 @@ protected:
 	afx_msg void OnBnClickedAddbutton();
 	afx_msg void OnLvnItemchangedHooklist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkHooklist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedHookcopybutton();
 
 	DECLARE_MESSAGE_MAP()
 

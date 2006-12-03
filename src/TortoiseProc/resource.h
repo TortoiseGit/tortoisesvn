@@ -587,7 +587,8 @@
 #define IDC_CHECKOUTPATH                1361
 #define IDC_BROWSECHECKOUTPATH          1362
 #define IDC_CHECKOUTURL                 1363
-#define IDC_BUTTON1                     1366
+#define IDC_BUTTON1                     1367
+#define IDC_HOOKCOPYBUTTON              1367
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1017,7 +1018,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        242
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1367
+#define _APS_NEXT_CONTROL_VALUE         1368
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
