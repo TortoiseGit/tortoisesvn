@@ -1763,8 +1763,11 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
 			{
 				if ((!bCheckedOnly)||(entry->IsChecked()))
 				{
-					rMin = min(rMin, entry->last_commit_rev);
-					rMax = max(rMax, entry->last_commit_rev);
+					if (entry->last_commit_rev >= 0)
+					{
+						rMin = min(rMin, entry->last_commit_rev);
+						rMax = max(rMax, entry->last_commit_rev);
+					}
 				}
 			}
 		}
@@ -1776,8 +1779,11 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
 			const FileEntry * entry = m_arStatusArray[i];
 			if ((entry)&&(entry->last_commit_rev))
 			{
-				rMin = min(rMin, entry->last_commit_rev);
-				rMax = max(rMax, entry->last_commit_rev);
+				if (entry->last_commit_rev >= 0)
+				{
+					rMin = min(rMin, entry->last_commit_rev);
+					rMax = max(rMax, entry->last_commit_rev);
+				}
 			}
 		}
 	}
