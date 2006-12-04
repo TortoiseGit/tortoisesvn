@@ -5428,59 +5428,59 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7981(term)
 msgid "bugtraq:label"
-msgstr ""
+msgstr "bugtraq:label"
 
 #: source/TortoiseSVN_en.xml:7983(para)
 msgid "This text is shown by TortoiseSVN on the commit dialog to label the edit box where you enter the issuenumber. If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in mind though that the window will not be resized to fit this label, so keep the size of the label below 20-25 characters."
-msgstr ""
+msgstr "是TortoiseSVN的提交对话框中用来输入问题单号码的输入项，如果没有设置，将会显示<literal>Bug-ID / Issue-Nr:</literal>，要记住窗口不会为适应标签而改变大小，所以请保持标签的小于20-25个字符。"
 
 #: source/TortoiseSVN_en.xml:7995(term)
 msgid "bugtraq:number"
-msgstr ""
+msgstr "bugtraq:number"
 
 #: source/TortoiseSVN_en.xml:7997(para)
 msgid "If set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "如果设置为<literal>true</literal>，问题单号文本框只能输入数字，一个例外是逗号，所以你可以使用逗号分割输入的多个号码。合法的值包括<literal>true/false</literal>，<emphasis> 如果没有设置，默认是<literal>true</literal>。</emphasis>"
 
 #: source/TortoiseSVN_en.xml:7937(para)
 msgid "In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-1/>"
-msgstr ""
+msgstr "在最简单的方法里，TortoiseSVN为用户显示了一个单独的bug ID输入字段，然后后面预计会追加一个用户输入日志信息的行。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:8019(term)
 msgid "bugtraq:logregex"
-msgstr ""
+msgstr "bugtraq:logregex"
 
 #: source/TortoiseSVN_en.xml:8021(para)
 msgid "<emphasis> This property activates the Bugtracking System in <literal>Regex</literal> mode. </emphasis> It contains one or two regular expressions, separated by a newline."
-msgstr ""
+msgstr "<emphasis>这个属性会以<literal>正则表达式</literal>模式激活问题追踪系统。</emphasis>它会包含一个或两个正则表达式，以新行作为分割。"
 
 #: source/TortoiseSVN_en.xml:8028(para)
 msgid "If only one expression is set, then the bare bug ID's must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
-msgstr ""
+msgstr "如果只是设置了一个表达式，然后bug ID必须匹配正则表达式的组，例如<literal>[Ii]ssue(?:s)? #?(\\d+)</literal>。"
 
 #: source/TortoiseSVN_en.xml:8033(para)
 msgid "If two expressions are set, then the first expression is used to find a string which relates to the bug ID but may contain more than just the bug ID (e.g. \"Issue #123\" or \"resolves issue 123\"). The second expression is then used to extract the bare bug ID from the string extracted with the first expression. An example:"
-msgstr ""
+msgstr "如果设置了两个表达式，则第一个表达式用来用来查找bug ID相关的字符串，可能会不仅仅包含bug ID（例如\"Issue #123\" or \"resolves issue 123\"）。第二个表达式则用来从第一个表达式抽取的字符串中抽取bug的ID，例如："
 
 #: source/TortoiseSVN_en.xml:8041(para)
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr ""
+msgstr "如果你希望捕获日志中所有形式为\"issue #XXX\"和\"issue #890, #789\"字符串，你可以使用如下的正则表达式：<literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal>，而第二个表达式为<literal>(\\d+)</literal>。"
 
 #: source/TortoiseSVN_en.xml:8047(para)
 msgid "If you are unfamiliar with regular expressions, take a look at the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "如果你不熟悉正则表达式，可以看一下<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>上的在线文档和教程。"
 
 #: source/TortoiseSVN_en.xml:8010(para)
 msgid "In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr ""
+msgstr "在使用<literal>正则表达式</literal>的方法中，TortoiseSVN不会显示一个单独的输入框，而是标记用户输入的日志信息，认为这些标志可以被问题追踪工具识别。这是在用户编写日志信息的时候完成的，这也意味着bug ID可以出现在日志信息的任何位置！这种方法非常灵活，也是TortoiseSVN项目本身使用的方法。"
 
 #: source/TortoiseSVN_en.xml:8058(para)
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
-msgstr ""
+msgstr "如果同时设置了<literal>bugtraq:message</literal>和<literal>bugtraq:logregex</literal>属性，<literal>日志正则表达式</literal>会优先使用。"
 
 #: source/TortoiseSVN_en.xml:8063(para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr ""
+msgstr "即使你的问题追踪工具没有pre-commit钩子来解析日志信息，你仍然可以使用这个功能将日志信息中的问题单转化为链接！"
 
 #: source/TortoiseSVN_en.xml:8076(title)
 #: source/TortoiseSVN_en.xml:8178(title)
@@ -5490,7 +5490,7 @@ msgstr "设置文件夹的属性"
 #: source/TortoiseSVN_en.xml:8077(para)
 #: source/TortoiseSVN_en.xml:8179(para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "为了系统能够工作，这个属性必须设置到文件夹上。当你提交文件或文件夹，属性会从文件夹上读取。如果没有发现属性，TortoiseSVN会向上级查找，直到发现一个没有版本化的文件夹或根目录（例如<literal>C:\\</literal>）才会停止，如果你能够确定每个用户只从<filename>trunk/</filename>检出，而不是其他目录，你可以直接在<filename>trunk/</filename>上使用这个属性，而不必每个子目录都设置。如果你不能确定，你必须为每个子目录设置这些属性。一个深级目录的设置会覆盖高级目录（离<filename>trunk/</filename>更近的）。"
 
 #: source/TortoiseSVN_en.xml:8098(para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
