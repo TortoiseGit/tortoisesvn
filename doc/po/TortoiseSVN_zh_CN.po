@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-30 23:42 +0000\n"
-"PO-Revision-Date: 2006-12-03 21:51+0800\n"
+"PO-Revision-Date: 2006-12-04 09:14+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4668,19 +4668,19 @@ msgstr "分支用来维护独立的开发支线，在一些阶段，你可能需
 
 #: source/TortoiseSVN_en.xml:6643(para)
 msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink> which gives a full description, and many examples of how it is used."
-msgstr ""
+msgstr "在你开始使用之前，请先理解分支与合并是怎么工作的，因为它很复杂。强烈建议你阅读<ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>的<ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>分支与合并</citetitle></ulink>章节，它给出了全面的描述，和许多使用举例。"
 
 #: source/TortoiseSVN_en.xml:6656(para)
 msgid "An important point to remember is that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. For example if you want to merge the changes made in revision N then you have to compare revision N with revision (N-1). Novices often ask <quote>Why do I have to subtract 1 from the start revision.</quote> Think of the underlying Diff process and it will become clearer. TO make this easier, when you use <guibutton>Show Log</guibutton> to select a range of revisions to merge, TortoiseSVN makes this adjustment for you automatically."
-msgstr ""
+msgstr "十分关键之处是Subversion的合并与差异关系很密切。合并工作的基础是在版本库对两个分支产生一个差异列表，然后对你的工作副本应用这些差异。举例说明，如果你需要合并版本N的修改，那么你要与版本N-1比较。新手经常问<quote>为什么我需要从开始版本减一</quote>。考虑底层的差异处理，这个问题就会清楚了。为了容易操作，当你使用<guibutton>显示日志</guibutton>选择一个版本范围合并的时候，TortoiseSVN 自动为你做这个调整。"
 
 #: source/TortoiseSVN_en.xml:6669(para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr ""
+msgstr "通常来说，在没有修改的工作副本上执行合并是一个好想法。如果你在工作副本上做了修改，请先提交。如果合并没有按照你的想法执行，你可能需要撤销这些修改，命令<guilabel>恢复</guilabel> 会丢弃包含你执行合并之前的<emphasis>所有</emphasis>修改。"
 
 #: source/TortoiseSVN_en.xml:6676(para)
 msgid "There are two common use cases for merging which are handled in slightly different ways, as described below."
-msgstr ""
+msgstr "这里有两个处理稍微不同的用例，如下所述。"
 
 #: source/TortoiseSVN_en.xml:6681(title)
 msgid "Merging a Range of Revisions"
@@ -4688,7 +4688,7 @@ msgstr "合并指定版本范围"
 
 #: source/TortoiseSVN_en.xml:6682(para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "这个方法覆盖了你已经在分支(或者最新版本）上做出了一个或多个修改，并且你想将这些修改应用到不同分支的情况。"
 
 #: source/TortoiseSVN_en.xml:6689(title)
 msgid "The Merge Dialog"
@@ -4696,11 +4696,11 @@ msgstr "合并对话框"
 
 #: source/TortoiseSVN_en.xml:6702(para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr ""
+msgstr "在<guilabel>从:</guilabel>域输入文件夹在分支或标记中的完整URL，它包含了你想应用到工作副本的修改。你也可以点击<guibutton>...</guibutton>浏览版本库，找到渴望的分支。如果你以前已经从这个分支合并过，可以直接从包含历史的下拉列表选择以前使用的URL。"
 
 #: source/TortoiseSVN_en.xml:6715(para)
 msgid "Because you are porting a range of revisions from the same branch into your working copy, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr ""
+msgstr "因为你要将同一分支的版本范围合并到工作副本，所以要确保<guilabel>使用 \"从:\" URL</guilabel> 检查框选中。"
 
 #: source/TortoiseSVN_en.xml:6723(para)
 msgid ""
@@ -4715,6 +4715,16 @@ msgid ""
 "         ...\n"
 "</screen> If you now want to merge all the changes from MyBranch into the trunk you have to choose 36 as the <guilabel>From Revision</guilabel>, not 37 as you might think. If you select revision 37 as the start point, then the difference engine compares the end point with revision 37, and will miss the changes made in revision 37 itself. If that sounds complicated, don't worry, there is an easier way in TortoiseSVN ..."
 msgstr ""
+"在<guilabel>从版本</guilabel>域输入开始版本号。它是在你要执行合并的<emphasis>修改</emphasis>之前的版本号。切记为了合并，Subversion将会创建一个差异，所以开始点务必准确。 例如，你的日志象这样： <screen>\n"
+"版本 注释\n"
+"39. Working on MyBranch\n"
+"38. Working on trunk\n"
+"37. Working on MyBranch\n"
+"36. Create branch MyBranch\n"
+"35. Working on trunk\n"
+"34. Working on trunk\n"
+"         ...\n"
+"</screen>如果你要将 MyBranch 的修改合并到 trunk，应该选择36作为<guilabel>开始版本</guilabel>，而不是象你想的是37。如果你选择37作为开始点，那么差异引擎将会比较结束点与版本37比较，这就丢失了版本37做的修改。如果这听起来很复杂，不要担心，在TortoiseSVN中有更简单的方法 ..."
 
 #: source/TortoiseSVN_en.xml:6751(para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
