@@ -35,7 +35,7 @@ $countries = array(
 "sl"    => array("0","01","sl","Slovenian","Goran Kavrecic, Martin Srebotnjak"),
 "sv"    => array("0","01","sv","Swedish","Johan Stenqvist, Johan Appelgren"),
 "tr"    => array("0","00","tr","Turkish","Aydogan Yolacan"),
-"zh_CN" => array("0","10","zh_CN","Chinese, simplified","Cecil Sheng, Ken Chew, Cobra Net, Xingyu Wang, Lixinfeng"),
+"zh_CN" => array("0","10","zh_CN","Chinese, simplified","Dongsheng Song, Cecil Sheng, Ken Chew, Cobra Net, Xingyu Wang, Lixinfeng"),
 "zh_TW" => array("0","00","zh_TW","Chinese, traditional","Cecil Sheng"),
 "zzz"   => array("1","00","gb","Empty Catalog (English)","Stefan Küng, Simon Large, Lübbe Onken")
 );
