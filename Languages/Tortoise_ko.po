@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-12-01 21:53+0900\n"
+"PO-Revision-Date: 2006-12-04 13:53+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3277,8 +3277,12 @@ msgstr "\"다른 이름으로 저장\" 혹은 \"열기\" 대화 상자에서는 
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "svn:needs-lock 속성이 있는 파일을 선택하면 컨텍스트 메뉴에 \"잠그기\"를 추가합니다."
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+" if the selected file has the svn:needs-lock property set"
+msgstr ""
+"선택된 파일에 svn:needs-lock 속성이 있으면\n"
+"컨텍스트 메뉴에 \"잠그기\"를 추가합니다."
 
 # ID:95,
 #: ID:95
@@ -5567,9 +5571,9 @@ msgstr "바뀐점 보기(&D)"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "로그 보기(&L)"
 
