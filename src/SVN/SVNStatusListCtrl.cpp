@@ -242,6 +242,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 	nCol++;
 	temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
+	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLCOPYFROM;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
 	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
