@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-11-30 10:28+0100\n"
+"PO-Revision-Date: 2006-12-05 09:24+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2723,8 +2723,12 @@ msgstr ""
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Aktivieren Sie diese Option, damit die Funktion \"Sperre holen\" im obersten Menü angezeigt wird, falls die svn:needs-lock der Datei gesetzt ist."
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+" if the selected file has the svn:needs-lock property set"
+msgstr ""
+"Aktivieren Sie diese Option, damit die Funktion \"Sperre holen\" im obersten\n"
+"Menü angezeigt wird, falls die svn:needs-lock der Datei gesetzt ist."
 
 #: ID:95
 msgid ""
@@ -4632,9 +4636,9 @@ msgstr "Zeige &Unterschiede"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "Zeige &Log"
 
