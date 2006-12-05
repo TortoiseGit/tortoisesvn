@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-11-28 12:01+0800\n"
+"PO-Revision-Date: 2006-12-05 11:44+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1646,15 +1646,15 @@ msgstr "Bug編號 / 問題編號:"
 msgid "C&heck now"
 msgstr "立即檢查(&H)"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "從版本建立標記(&R)"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "建立資料夾(&R)..."
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "從版本建立標記(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -2092,6 +2092,11 @@ msgstr "複製(&Y)"
 msgid "Copied"
 msgstr "已複製"
 
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "複製來源路徑"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
@@ -2176,11 +2181,6 @@ msgstr "複製至工作複本"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "複製至工作複本..."
-
-# ID:76,
-#: ID:208
-msgid "Copy-from URL"
-msgstr "複製來源路徑"
 
 # ID:97,
 #: ID:98
@@ -2946,6 +2946,13 @@ msgstr "開啟文件失敗."
 msgid "Failed to save document."
 msgstr "儲存文件失敗."
 
+# ID:63,#:
+# ID:74,#:
+# ID:77,
+#: ID:220
+msgid "Failed!"
+msgstr "失敗!"
+
 # Control-ID:1217,
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -3279,7 +3286,9 @@ msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中�
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+" if the selected file has the svn:needs-lock property set"
 msgstr "勾選此選項時, 如果選擇的檔案有設定 svn:needs-lock 性質, 「取得鎖定」選項會出現在最上層選單中."
 
 # ID:95,
@@ -5570,9 +5579,9 @@ msgstr "顯示差異(&D)"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
@@ -6174,6 +6183,12 @@ msgid ""
 msgstr ""
 "舊檔案與新檔案不符.\n"
 "尚不支援檔案改名功能!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "操作失敗."
 
 # ID:64,
 #: ID:64
