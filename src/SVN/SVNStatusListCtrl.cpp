@@ -2070,13 +2070,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
 							}
 						}
-						if ((!entry->IsFolder())&&((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty())))
+					}
+					if ((!entry->IsFolder())&&((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty())))
+					{
+						if (m_dwContextMenus & SVNSLC_POPUNLOCKFORCE)
 						{
-							if (m_dwContextMenus & SVNSLC_POPUNLOCKFORCE)
-							{
-								temp.LoadString(IDS_MENU_UNLOCKFORCE);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
-							}
+							temp.LoadString(IDS_MENU_UNLOCKFORCE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
 						}
 					}
 

@@ -145,6 +145,9 @@ Version 1.4.2
 - BUG: Calling "Save revision to..." in the file list of the log dialog
        appended the revision number to the file name instead of inserting it
        before the file extension. (Tobias Schäfer)
+- CHG: The "break lock" entry is shown in the change-for-modifications context
+       menu for added files too if it has a remote lock. This is a workaround
+       for http://subversion.tigris.org/issues/show_bug.cgi?id=2507. (Stefan)
 
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
