@@ -1229,10 +1229,17 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 				}
 			}
 		}
+		CString deleted;
+		deleted.LoadString(IDS_SVNACTION_DELETE);
 
 		if (DiffPossible(changedpath, rev1))
+			// diffs with renamed files are possible
 			DoDiffFromLog(selIndex, rev1, rev2, false, false);
+		else if (changedpath->sAction.Compare(deleted) == 0)
+			// deleted files must be opened from the revision before the deletion
+			Open(false,changedpath->sPath,rev1-1);
 		else
+			// added files must be opened with the actual revision
 			Open(false,changedpath->sPath,rev1);
 	}
 }
