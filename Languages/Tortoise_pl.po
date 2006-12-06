@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-22 15:25+0100\n"
+"PO-Revision-Date: 2006-12-06 20:07+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -995,6 +995,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1662,15 +1663,15 @@ msgstr "ID błędu / Nr zgłoszenia:"
 msgid "C&heck now"
 msgstr "&Sprawdź teraz"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "Utwórz rozgałęzienie/&obraz z wersji"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "U&twórz folder..."
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "Utwórz &obraz z wersji"
 
 # ID:3697,
 #: ID:3697
@@ -1852,6 +1853,7 @@ msgstr "Sprawdzanie, czy jest dostępna nowsza wersja TortoiseSVN..."
 
 # ID:8,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "Pobierz..."
 
@@ -2108,6 +2110,11 @@ msgstr "&Kopiuj"
 #: ID:73
 msgid "Copied"
 msgstr "Skopiowano"
+
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "Skopiowane z URL"
 
 # ID:126,
 #: ID:126
@@ -2435,6 +2442,20 @@ msgstr "Data"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "Domyślna &liczba komunikatów w logu:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "Domyślny URL:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "Domyślna ścieżka:"
 
 # ID:11,#:
 # ID:73,#:
@@ -2947,6 +2968,14 @@ msgstr "Nie udało się otworzyć dokumentu."
 msgid "Failed to save document."
 msgstr "Nie udało się zapisać dokumentu."
 
+# ID:63,#:
+# ID:74,#:
+# ID:77,#:
+# ID:207,
+#: ID:220
+msgid "Failed!"
+msgstr "Niepowodzenie!"
+
 # Control-ID:1217,
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -3036,6 +3065,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "Zakończono!"
 
@@ -3280,8 +3310,12 @@ msgstr "Włączenie opcji zapobiega pojawianiu się ikon nakładkowych w oknach 
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Jeżeli włączone, pozycja menu \"Zablokuj\" jest pokazana w głównym menu jeżeli wybrany plik ma ustawioną właściwość svn:needs-lock"
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+" if the selected file has the svn:needs-lock property set"
+msgstr ""
+"Jeżeli włączone, pozycja menu \"Zablokuj\" jest pokazana w głównym menu\n"
+" jeżeli wybrany plik ma ustawioną właściwość svn:needs-lock"
 
 # ID:95,
 #: ID:95
@@ -3850,14 +3884,14 @@ msgstr "Wygląd i działanie::Zestaw ikon"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "Najniższa pokazana wersja: %ld - Najwyższa pokazana wersja: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld - Główna (HEAD) wersja: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "Najniższa pokazana wersja: %ld - Najwyższa pokazana wersja: %ld - Główna (HEAD) wersja: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -5586,9 +5620,9 @@ msgstr "Pokaż &różnice"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "Pokaż &log"
 
@@ -6038,6 +6072,16 @@ msgstr "Rozmiar bloku nie pokrywa się z liczbą dodanych/usuniętych linii!"
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "W linii %d spodziewano się wystąpienia sekwencji startowej \"@@\"!"
 
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "Domyślna ścieżka do pobrania jeśli nic innego nie jest wyspecyfikowane"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "Domyślny url do pobrania jeśli nic innego nie jest wyspecyfikowane"
+
 # ID:68,
 #: ID:68
 #, c-format
@@ -6183,6 +6227,12 @@ msgid ""
 msgstr ""
 "Stary plik nie pokrywa się z nowym plikiem.\n"
 "Opcja zmiany nazw plików nie jest (na razie) dostępna!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "Operacja zakończona niepowodzeniem."
 
 # ID:64,
 #: ID:64
@@ -7006,6 +7056,112 @@ msgstr "Przerwane przez uzytkownika."
 #: ID:69
 msgid "Username:"
 msgstr "Użytkownik:"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "V   +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "V   +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "V   +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "V C +A"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "V C +C"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "V C +D"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "V C +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "V C +G"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "V C +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "V C +Q"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "V C +R"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "V C +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "V C +T"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57637; ''
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "V C +V"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "V C +X"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "V C +Z"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "V CS+S"
+msgstr ""
 
 # ID:313,
 #: ID:313
