@@ -63,6 +63,13 @@ typedef struct tagDialogInfo
 	LPCTSTR faceName;
 	BOOL    dialogEx;
 } DIALOGINFO, * LPDIALOGINFO;
+// MENU resource
+typedef struct tagMenuEntry
+{
+	WORD            wID;
+	std::wstring	reference;
+	std::wstring	msgstr;
+} MENUENTRY, * LPMENUENTRY;
 
 class CResModule
 {
@@ -87,6 +94,8 @@ private:
 	BOOL	ReplaceString(UINT nID, WORD wLanguage);
 	BOOL	ReplaceDialog(UINT nID, WORD wLanguage);
 	BOOL	ReplaceMenu(UINT nID, WORD wLanguage);
+	BOOL	ExtractAccelerator(UINT nID);
+	BOOL	ReplaceAccelerator(UINT nID, WORD wLanguage);
 
 	const WORD*	ParseMenuResource(const WORD * res);
 	const WORD*	CountMemReplaceMenuResource(const WORD * res, size_t * wordcount, WORD * newMenu);
@@ -100,6 +109,8 @@ private:
 	HMODULE			m_hResDll;
 	HANDLE			m_hUpdateRes;
 	CPOFile			m_StringEntries;
+	std::map<WORD, MENUENTRY> m_MenuEntries;
+	std::map<WORD, MENUENTRY>::iterator pME_iter;
 	std::wstring	sDestFile;
 	BOOL			m_bQuiet;
 
@@ -111,6 +122,8 @@ private:
 	int				m_bDefaultDialogStrings;
 	int				m_bTranslatedMenuStrings;
 	int				m_bDefaultMenuStrings;
-	
+	int				m_bTranslatedAcceleratorStrings;
+	int				m_bDefaultAcceleratorStrings;
+
 	WORD			m_wTargetLang;
 };

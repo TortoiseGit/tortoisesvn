@@ -16,6 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+
+# msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys
+# Format is: "VACS+X" where:
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, leave msgstr as ""
+
 #: ID:10,#: ID:126,#: ID:126,#: ID:126,
 msgid " "
 msgstr ""
@@ -4704,6 +4720,95 @@ msgstr ""
 
 #: ID:69,
 msgid "Username:"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778; '&Fit Images in window'
+msgid "V   +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772; '&Overlap images'
+msgid "V   +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779; 'Ori&ginal size'
+msgid "V   +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796; 'Show &all revisions'
+msgid "V C +A"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634; '&Copy'
+msgid "V C +C"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775; 'Two-way &Diff'
+msgid "V C +D"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771; '&Find...'
+msgid "V C +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779; '&Go To Line...'
+msgid "V C +G"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773; '&Open'
+msgid "V C +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665; 'E&xit'
+msgid "V C +Q"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794; 'Reload'
+msgid "V C +R"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603; '&Save Ctrl-S'
+msgid "V C +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774; '&Whitespaces'
+msgid "V C +T"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57637; ''
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793; 'Arrange &Vertical'
+msgid "V C +V"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635; ''
+msgid "V C +X"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643; '&Undo\tCtrl+Z'
+msgid "V C +Z"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604; 'Save &As...'
+msgid "V CS+S"
 msgstr ""
 
 #: ID:313,

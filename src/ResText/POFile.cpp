@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-200s - Stefan Kueng
 
@@ -87,6 +87,15 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 				{
 					//reference
 					resEntry.reference = I->c_str();
+					std::wstring temp = I->c_str();
+					int i_offsetID = temp.find(_T("ID:"));
+					int iID = 0;
+					if (i_offsetID > 0 && ((int)temp.length() >= (i_offsetID + 4))) 
+					{
+						temp = temp.substr(i_offsetID + 3, temp.length() - i_offsetID - 3);
+						_stscanf(temp.c_str(), _T("%d"), &iID);
+					}
+					resEntry.menuID = (WORD)iID;
 					type = 0;
 				}
 				if (_tcsncmp(I->c_str(), _T("#,"), 2)==0)
@@ -187,6 +196,22 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File << _T("\"MIME-Version: 1.0\\n\"\n");
 	File << _T("\"Content-Type: text/plain; charset=UTF-8\\n\"\n");
 	File << _T("\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
+	File << _T("\n");
+	File << _T("# msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys\n");
+	File << _T("# Format is: \"VACS+X\" where:\n");
+	File << _T("#    V = Virtual key (or blank if not used) - nearly always set!\n");
+	File << _T("#    A = Alt key     (or blank if not used)\n");
+	File << _T("#    C = Ctrl key    (or blank if not used)\n");
+	File << _T("#    S = Shift key   (or blank if not used)\n");
+	File << _T("#    X = upper case character\n");
+	File << _T("# e.g. \"V CS+Q\" == Ctrl + Shift + 'Q'\n");
+	File << _T("\n");
+	File << _T("# ONLY Accelerator Keys with corresponding alphanumeric characters can be\n");
+	File << _T("# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.\n");
+	File << _T("\n");
+	File << _T("# ONLY change the msgstr field. Do NOT change any other.\n");
+	File << _T("# If you do not want to change an Accelerator Key, leave msgstr as \"\"\n");
+	File << _T("\n");
 
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
 	{

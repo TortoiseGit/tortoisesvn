@@ -45,24 +45,30 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 		// fill in the std::map with all translatable entries
 
 		if (!m_bQuiet)
-			_ftprintf(stdout, _T("Extracting StringTable..."));
+			_ftprintf(stdout, _T("Extracting StringTable...."));
 		EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
 			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		if (!m_bQuiet)
-			_ftprintf(stdout, _T("Extracting Dialogs......."));
+			_ftprintf(stdout, _T("Extracting Dialogs........"));
 		EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
 			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		if (!m_bQuiet)
-			_ftprintf(stdout, _T("Extracting Menus........."));
+			_ftprintf(stdout, _T("Extracting Menus.........."));
 		EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
 		if (!m_bQuiet)
 			_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+		nEntries = m_StringEntries.size();
+		if (!m_bQuiet)
+			_ftprintf(stdout, _T("Extracting Accelerators..."));
+		EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (long)this);
+		if (!m_bQuiet)
+			_ftprintf(stdout, _T("%4d Accelerators\n"), m_StringEntries.size()-nEntries);
 		nEntries = m_StringEntries.size();
 
 		// parse a probably existing file and update the translations which are
@@ -89,24 +95,31 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
 	// fill in the std::map with all translatable entries
 
 	if (!m_bQuiet)
-		_ftprintf(stdout, _T("Extracting StringTable..."));
+		_ftprintf(stdout, _T("Extracting StringTable...."));
 	EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
 		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size());
 	nEntries = m_StringEntries.size();
 
 	if (!m_bQuiet)
-		_ftprintf(stdout, _T("Extracting Dialogs......."));
+		_ftprintf(stdout, _T("Extracting Dialogs........"));
 	EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
 		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
 	nEntries = m_StringEntries.size();
 
 	if (!m_bQuiet)
-		_ftprintf(stdout, _T("Extracting Menus........."));
+		_ftprintf(stdout, _T("Extracting Menus.........."));
 	EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
 	if (!m_bQuiet)
 		_ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
+	nEntries = m_StringEntries.size();
+
+	if (!m_bQuiet)
+		_ftprintf(stdout, _T("Extracting Accelerators..."));
+	EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (long)this);
+	if (!m_bQuiet)
+		_ftprintf(stdout, _T("%4d Accelerators\n"), m_StringEntries.size()-nEntries);
 	nEntries = m_StringEntries.size();
 
 	// parse a probably existing file and update the translations which are
@@ -154,6 +167,8 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 	m_bDefaultDialogStrings = 0;
 	m_bTranslatedMenuStrings = 0;
 	m_bDefaultMenuStrings = 0;
+	m_bTranslatedAcceleratorStrings = 0;
+	m_bDefaultAcceleratorStrings = 0;
 
 	if (!m_bQuiet)
 		_ftprintf(stdout, _T("Translating StringTable..."));
@@ -172,6 +187,12 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 	EnumResourceNames(m_hResDll, RT_MENU, EnumResNameWriteCallback, (long)this);
 	if (!m_bQuiet)
 		_ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedMenuStrings, m_bDefaultMenuStrings);
+
+	if (!m_bQuiet)
+		_ftprintf(stdout, _T("Translating Accelerators......."));
+	EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameWriteCallback, (long)this);
+	if (!m_bQuiet)
+		_ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedAcceleratorStrings, m_bDefaultAcceleratorStrings);
 
 	FreeLibrary(m_hResDll);
 	return TRUE;
@@ -538,7 +559,15 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 			RESOURCEENTRY entry = m_StringEntries[wstr];
 			entry.reference = _T("#: MenuEntry");
 
+			TCHAR szTempBuf[1024];
+			_stprintf(szTempBuf, _T("#: MenuEntry; ID:%d"), id);
+			MENUENTRY menu_entry;
+			menu_entry.wID = id;
+			menu_entry.reference = szTempBuf;
+			menu_entry.msgstr = wstr;
+
 			m_StringEntries[wstr] = entry;
+			m_MenuEntries[id] = menu_entry;
 			delete [] pBuf;
 		}
 	} while (!(flags & MF_END));
@@ -602,6 +631,251 @@ const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, size_t * w
 		}
 	} while (!(flags & MF_END));
 	return res;
+}
+
+BOOL CResModule::ExtractAccelerator(UINT nID)
+{
+	HRSRC		hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_ACCELERATOR);
+	HGLOBAL		hglAccTable;
+	WORD		fFlags, wAnsi, wID;
+	const WORD*	p;
+	bool		bEnd(false);
+
+	if (!hrsrc)
+		MYERROR;
+
+	hglAccTable = LoadResource(m_hResDll, hrsrc);
+
+	if (!hglAccTable)
+		goto DONE_ERROR;
+
+	p = (const WORD*)LockResource(hglAccTable);
+
+	if (p == NULL)
+		MYERROR;
+
+	/*
+	struct ACCELTABLEENTRY 
+	{
+		WORD fFlags;		FVIRTKEY, FSHIFT, FCONTROL, FALT, 0x80 - Last in a table
+		WORD wAnsi;			ANSI character
+		WORD wId;			Keyboard accelerator passed to windows
+		WORD padding;		# bytes added to ensure aligned to DWORD boundary
+	};
+	*/
+
+	do 
+	{
+		fFlags = GET_WORD(p);
+		p++;
+		wAnsi = GET_WORD(p);
+		p++;
+		wID = GET_WORD(p);
+		p++;
+		p++;  // Skip over padding
+
+		if ((fFlags & 0x80) == 0x80) 
+		{				// 0x80
+			bEnd = true;
+		}
+
+		if ((wAnsi < 0x30) ||
+			(wAnsi > 0x5A) ||
+			(wAnsi >= 0x3A && wAnsi <= 0x40))
+			continue;
+
+		TCHAR * pBuf = new TCHAR[7];
+		ZeroMemory(pBuf, 7 * sizeof(TCHAR));
+
+		// EXACTLY 5 characters long "ACS+X"
+		// V = Virtual key (or blank if not used)
+		// A = Alt key     (or blank if not used)
+		// C = Ctrl key    (or blank if not used)
+		// S = Shift key   (or blank if not used)
+		// X = upper case character
+		// e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+		if ((fFlags & FVIRTKEY) == FVIRTKEY) 		// 0x01
+			_tcscat(pBuf, _T("V"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((fFlags & FALT) == FALT) 				// 0x10
+			_tcscat(pBuf, _T("A"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((fFlags & FCONTROL) == FCONTROL) 		// 0x08
+			_tcscat(pBuf, _T("C"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((fFlags & FSHIFT) == FSHIFT) 			// 0x04
+			_tcscat(pBuf, _T("S"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		_stprintf(pBuf, _T("%s+%c"), pBuf, wAnsi);
+
+		std::wstring wstr = std::wstring(pBuf);
+		RESOURCEENTRY AKey_entry = m_StringEntries[wstr];
+
+		TCHAR szTempBuf[1024];
+		ZeroMemory(szTempBuf, 1024 * sizeof(TCHAR));
+		std::wstring wmenu = _T("");
+		pME_iter = m_MenuEntries.find(wID);
+		if (pME_iter != m_MenuEntries.end()) 
+		{
+			wmenu = pME_iter->second.msgstr;
+		}
+		_stprintf(szTempBuf, _T("#: Corresponding Menu ID:%d; '%s'"), wID, wmenu.c_str());
+		AKey_entry.reference = std::wstring(szTempBuf);
+		_stprintf(szTempBuf, _T("#. Accelerator Entry for Menu ID:%d; '%s'"), wID, wmenu.c_str());
+		AKey_entry.automaticcomments.push_back(std::wstring(szTempBuf));
+
+		m_StringEntries[wstr] = AKey_entry;
+		delete [] pBuf;
+	} while (!bEnd);
+
+	UnlockResource(hglAccTable);
+	FreeResource(hglAccTable);
+	return TRUE;
+
+DONE_ERROR:
+	UnlockResource(hglAccTable);
+	FreeResource(hglAccTable);
+	MYERROR;
+}
+
+BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
+{
+	LPACCEL		lpaccelNew;			// pointer to new accelerator table
+	HACCEL		haccelOld;			// handle to old accelerator table
+	int			cAccelerators;		// number of accelerators in table
+	HGLOBAL		hglAccTableNew;
+	const WORD*	p;
+	int			i;
+
+	haccelOld = LoadAccelerators(m_hResDll, MAKEINTRESOURCE(nID));
+
+	if (haccelOld == NULL)
+		MYERROR;
+
+	cAccelerators = CopyAcceleratorTable(haccelOld, NULL, 0);
+
+	lpaccelNew = (LPACCEL) LocalAlloc(LPTR, cAccelerators * sizeof(ACCEL));
+
+	if (lpaccelNew == NULL)
+		MYERROR;
+
+	CopyAcceleratorTable(haccelOld, lpaccelNew, cAccelerators);
+
+	// Find the accelerator that the user modified
+	// and change its flags and virtual-key code
+	// as appropriate.
+
+	BYTE xfVirt;
+	WORD xkey;
+	for (i = 0; i < cAccelerators; i++) 
+	{
+		m_bDefaultAcceleratorStrings++;
+		if ((lpaccelNew[i].key < 0x30) ||
+			(lpaccelNew[i].key > 0x5A) ||
+			(lpaccelNew[i].key >= 0x3A && lpaccelNew[i].key <= 0x40))
+			continue;
+
+		TCHAR * pBuf = new TCHAR[7];
+		ZeroMemory(pBuf, 7 * sizeof(TCHAR));
+
+		// get original key combination
+		if ((lpaccelNew[i].fVirt & FVIRTKEY) == FVIRTKEY) 		// 0x01
+			_tcscat(pBuf, _T("V"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((lpaccelNew[i].fVirt & FALT) == FALT) 				// 0x10
+			_tcscat(pBuf, _T("A"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((lpaccelNew[i].fVirt & FCONTROL) == FCONTROL) 		// 0x08
+			_tcscat(pBuf, _T("C"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		if ((lpaccelNew[i].fVirt & FSHIFT) == FSHIFT) 			// 0x04
+			_tcscat(pBuf, _T("S"));
+		else
+			_tcscat(pBuf, _T(" "));
+
+		_stprintf(pBuf, _T("%s+%c"), pBuf, lpaccelNew[i].key);
+
+		// Is it there?
+		std::map<std::wstring, RESOURCEENTRY>::iterator pAK_iter = m_StringEntries.find(pBuf);
+		if (pAK_iter != m_StringEntries.end()) 
+		{
+			m_bTranslatedAcceleratorStrings++;
+			xfVirt = 0;
+			xkey = 0;
+			std::wstring wtemp = pAK_iter->second.msgstr;
+			if (wtemp.size() != 6)
+				continue;
+			if (wtemp.compare(0, 1, _T("V")) == 0)
+				xfVirt |= FVIRTKEY;
+			else if (wtemp.compare(0, 1, _T(" ")) != 0)
+				continue;	// not a space - user must have made a mistake when translating
+			if (wtemp.compare(1, 1, _T("A")) == 0)
+				xfVirt |= FALT;
+			else if (wtemp.compare(1, 1, _T(" ")) != 0)
+				continue;	// not a space - user must have made a mistake when translating
+			if (wtemp.compare(2, 1, _T("C")) == 0)
+				xfVirt |= FCONTROL;
+			else if (wtemp.compare(2, 1, _T(" ")) != 0)
+				continue;	// not a space - user must have made a mistake when translating
+			if (wtemp.compare(3, 1, _T("S")) == 0)
+				xfVirt |= FSHIFT;
+			else if (wtemp.compare(3, 1, _T(" ")) != 0)
+				continue;	// not a space - user must have made a mistake when translating
+			if (wtemp.compare(4, 1, _T("+")) == 0)
+			{
+				_stscanf(wtemp.substr(5, 1).c_str(), _T("%c"), &xkey);
+				lpaccelNew[i].fVirt = xfVirt;
+				lpaccelNew[i].key = xkey;
+			}
+		}
+	}
+
+	// Create the new accelerator table
+	hglAccTableNew = LocalAlloc(LPTR, cAccelerators * 4 * sizeof(WORD));
+	p = (WORD *)hglAccTableNew;
+	lpaccelNew[cAccelerators-1].fVirt |= 0x80;
+	for (i = 0; i < cAccelerators; i++) 
+	{
+		memcpy((void *)p, &lpaccelNew[i].fVirt, 1);
+		p++;
+		memcpy((void *)p, &lpaccelNew[i].key, sizeof(WORD));
+		p++;
+		memcpy((void *)p, &lpaccelNew[i].cmd, sizeof(WORD));
+		p++;
+		p++;
+	}
+
+	if (!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, MAKEINTRESOURCE(nID),
+		(m_wTargetLang ? m_wTargetLang : wLanguage), hglAccTableNew /* haccelNew*/, cAccelerators * 4 * sizeof(WORD)))
+	{
+		goto DONE_ERROR;
+	}
+
+	if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+	{
+		goto DONE_ERROR;
+	}
+
+	LocalFree(lpaccelNew);
+	return TRUE;
+
+DONE_ERROR:
+	LocalFree(lpaccelNew);
+	MYERROR;
 }
 
 BOOL CResModule::ExtractDialog(UINT nID)
@@ -1276,6 +1550,15 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
 				return FALSE;
 		}
 	}
+	else if (lpszType == RT_ACCELERATOR)
+	{
+		if (IS_INTRESOURCE(lpszName))
+		{
+			if (!lpResModule->ExtractAccelerator(LOWORD(lpszName)))
+				return FALSE;
+		}
+	}
+
 	return TRUE;
 }
 
@@ -1323,6 +1606,14 @@ BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR 
 			bRes = lpResModule->ReplaceDialog(LOWORD(lpszName), wLanguage);
 		}
 	}
+	else if (lpszType == RT_ACCELERATOR)
+	{
+		if (IS_INTRESOURCE(lpszName))
+		{
+			bRes = lpResModule->ReplaceAccelerator(LOWORD(lpszName), wLanguage);
+		}
+	}
+
 	if (!EndUpdateResource(lpResModule->m_hUpdateRes, !bRes))
 		MYERROR;
 	return bRes;
