@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8175
+# Based on Tortoise.pot r8206
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-01 12:32+0100\n"
+"PO-Revision-Date: 2006-12-06 13:06+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2343,8 +2343,8 @@ msgid "If activated, prevents the overlays from showing in \"save as..\" or \"op
 msgstr "Hvis valgt, så vises overdækningerne ikke i dialogerne \"gem som..\" eller \"åbn\""
 
 #: ID:198,
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Hvis valgt, så vises menupunktet \"Tag lås\" i den øverste kontekstmenu, hvis den valgte fil har egenskaben svn:needs-lock sat"
+msgid "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n if the selected file has the svn:needs-lock property set"
+msgstr "Hvis valgt, så vises menupunktet \"Tag lås\" altid i den øverste kontekstmenu,\nhvis den valgte fil har egenskaben svn:needs-lock sat"
 
 #: ID:95,
 msgid "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
@@ -3908,7 +3908,7 @@ msgstr "Vis &alle revisioner"
 msgid "Show &differences"
 msgstr "Vis &forskelle"
 
-#: ID:12,#: ID:101,#: Control-ID:1016,#: Control-ID:1228,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,#: Control-ID:1228,
+#: ID:12,#: ID:101,#: Control-ID:1016,#: Control-ID:1228,#: Control-ID:1132,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,#: Control-ID:1228,
 #Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Show &log"
 msgstr "Vis &log"
