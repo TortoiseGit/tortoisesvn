@@ -27,8 +27,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-30 23:42 +0000\n"
-"PO-Revision-Date: 2006-12-06 01:14+0800\n"
-"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
+"PO-Revision-Date: 2006-12-06 23:46+0800\n"
+"Last-Translator: rocksun <daijun@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-Basepath: ..\\\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Bookmarks: 1148,1702,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 1148,1702,1454,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: source/TortoiseSVN_en.xml:4(title)
 #: source/TortoiseSVN_en.xml:2894(secondary)
@@ -5531,7 +5531,7 @@ msgstr "webviewer:pathrevision"
 
 #: source/TortoiseSVN_en.xml:8155(para)
 msgid "Set this property to the url of your repoviewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the url will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "设置"
 
 #: source/TortoiseSVN_en.xml:8202(title)
 msgid "TortoiseSVN's Settings"
@@ -5672,7 +5672,7 @@ msgstr "<placeholder-1/> 该页面允许你指定：在TortoiseSVN的主上下�
 
 #: source/TortoiseSVN_en.xml:8405(para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr ""
+msgstr "<guilabel>获得锁</guilabel>会有一个特别的情况，你可以将其提升到顶级带但，但是大多数文件不需要锁定，这样做只是添加了混乱。然而，一个标记为<literal>svn:needs-lock</literal>属性的文件每次编辑前都需要那个操作，所以这个菜单会进入顶级菜单会比较方便。选定这个选项，会使设置<literal>svn:needs-lock</literal>属性的文件的<guilabel>Get Lock</guilabel>出现在顶级菜单中。"
 
 #: source/TortoiseSVN_en.xml:8415(para)
 msgid "If you have a very large number of files in your working copy folders, it can take a long time before the context menu appears when you <action>right click</action> on a folder. This is because Subversion fetches the status for all files when you ask for folder status. To avoid this delay you can uncheck the <guilabel>Fetch status for context menu</guilabel> box. Be warned that the context menu for folders will not always be correct, and may include items which should not really be there. For example, you will see <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> for an <literal>Added</literal> folder, which will not work because the folder is not yet in the repository."
@@ -7069,6 +7069,9 @@ msgid ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
 "</screen> Of course you need to include the real repository URL."
 msgstr ""
+"如果你经常需要从某个位置打开版本库浏览器，你可以使用TortoiseProc创建一个到这个路径的快捷方式，只需要创建一个新的快捷方式，将目标设置为：<screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
+"</screen>，当然你需要包含一个真实的版本库URL。"
 
 #: source/TortoiseSVN_en.xml:10352(title)
 msgid "Ignore files which are already versioned"
@@ -7080,11 +7083,11 @@ msgstr "没有版本控制"
 
 #: source/TortoiseSVN_en.xml:10356(para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
-msgstr ""
+msgstr "如果你不小心添加了一些应该被忽略的文件，你如何将它们从版本控制中去除而不会丢失它们？或许你有自己的IDE配置文件，不是项目的一部分，但将会花费很多时间使之按照自己的方式工作。"
 
 #: source/TortoiseSVN_en.xml:10363(para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
-msgstr ""
+msgstr "如果你还没有提交，你只需要<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice>来取消添加，你需要将这个文件添加到忽略列表，这样它们才不会被再次误添加近来。"
 
 #: source/TortoiseSVN_en.xml:10378(para)
 msgid "Move the file to somewhere safe, not inside your working copy."
@@ -7092,7 +7095,7 @@ msgstr "把文件移动到其它安全的位置，不在你的工作拷贝的目
 
 #: source/TortoiseSVN_en.xml:10384(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and you can mark it for deletion from the repository."
-msgstr ""
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交</guimenuitem></menuchoice>父目录，TortoiseSVN会查看遗失文件和你从版本库标记删除的文件。"
 
 #: source/TortoiseSVN_en.xml:10395(para)
 msgid "Move the file back to its original location."
@@ -7100,11 +7103,11 @@ msgstr "将文件移到原始位置"
 
 #: source/TortoiseSVN_en.xml:10400(para)
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
-msgstr ""
+msgstr "将文件添加到忽略文件，所以你不必再为此烦心。"
 
 #: source/TortoiseSVN_en.xml:10373(para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
-msgstr ""
+msgstr "如果文件已经存在于版本库，你需要做更多的工作。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10412(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export</guimenuitem></menuchoice> the folder to somewhere safe, not inside your working copy."
@@ -7120,15 +7123,15 @@ msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交</guimenuit
 
 #: source/TortoiseSVN_en.xml:10440(para)
 msgid "Move the exported folder back to its original location in your working copy."
-msgstr ""
+msgstr "将导出的文件拷贝回工作拷贝原来的位置。"
 
 #: source/TortoiseSVN_en.xml:10446(para)
 msgid "Add the folder to the ignore list so you don't get into the same trouble again."
-msgstr ""
+msgstr "将文件添加到忽略文件，所以你不必再为此烦心。"
 
 #: source/TortoiseSVN_en.xml:10407(para)
 msgid "If you need to remove a whole folder/hierarchy from version control, the procedure is different again. <placeholder-1/>"
-msgstr ""
+msgstr "如果你需要将整个目录从版本控制中删除，过程会有一点区别。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10456(title)
 msgid "Administrators"
@@ -7136,7 +7139,7 @@ msgstr "管理员"
 
 #: source/TortoiseSVN_en.xml:10458(para)
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr ""
+msgstr "附录包含了将TortoiseSVN部署到多个客户端电脑时可能发生问题的解决方案。"
 
 #: source/TortoiseSVN_en.xml:10465(title)
 msgid "Deploy TortoiseSVN via group policies"
@@ -7153,15 +7156,15 @@ msgstr "GPO"
 
 #: source/TortoiseSVN_en.xml:10472(para)
 msgid "The TortoiseSVN installer comes as an msi file, which means you should have no problems adding that msi file to the group policies of your domain controller."
-msgstr ""
+msgstr "TortoiseSVN安装程序使用msi文件，意味着你必须能够将msi文件添加到你的域控制器的组策略中。"
 
 #: source/TortoiseSVN_en.xml:10477(para)
 msgid "A good walkthrough on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
-msgstr ""
+msgstr "你可以从微软的知识库文章314934中看到如何做的方法：<ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>。"
 
 #: source/TortoiseSVN_en.xml:10484(para)
 msgid "Versions 1.3.0 and later of TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because those versions need the new CRT and MFC dlls, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 8 from Microsoft on each computer you want to install TortoiseSVN as per user."
-msgstr ""
+msgstr "TortoiseSVN的1.3和之后的版本，必须安装在<emphasis>电脑配置</emphasis>下，而不是<emphasis>用户配置</emphasis>。这是因为那些版本需要新的CRT和MFC的dll，只能部署在<emphasis>每电脑</emphasis>，而不是<emphasis>每用户</emphasis>。如果你必须以每用户防是安装TortoiseSVN，你必须在每个需要安装TortoiseSVN电脑上为每个用户安装MFC和CRT包。"
 
 #: source/TortoiseSVN_en.xml:10496(title)
 msgid "Redirect the upgrade check"
@@ -7173,7 +7176,7 @@ msgstr "升级检查"
 
 #: source/TortoiseSVN_en.xml:10500(para)
 msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, a dialog shows up informing the user about that."
-msgstr ""
+msgstr "TortoiseSVN会每隔几天检查是否有新版本可以下载，如果有新版本存在，会给用户显示相关信息的对话框。"
 
 #: source/TortoiseSVN_en.xml:10506(title)
 msgid "The upgrade dialog"
@@ -7181,7 +7184,7 @@ msgstr "升级对话框"
 
 #: source/TortoiseSVN_en.xml:10509(para)
 msgid "If you're responsible for a lot of users in your domain, you might want your users to use only versions you have approved and not have them install always the latest version. You probably don't want that upgrade dialog to show up so your users don't go and upgrade immediately."
-msgstr ""
+msgstr "如果你为你的域中的许多用户负责，你或许希望所有的用户使用你允许的版本，而不是最新的版本，你可能不希望显示升级对话框而使得用户立刻升级。"
 
 #: source/TortoiseSVN_en.xml:10515(para)
 msgid ""
@@ -7191,6 +7194,11 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the upgrade dialog. You can write there whatever you want. Just note that the space in the upgrade dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the upgrade dialog. You can also just point the user to a webpage instead of the msi file directly. The URL is opened with the default web browser, so if you specify a webpage, that page is opened and shown to the user. If you specify the msi package, the browser will ask the user to save the msi file locally."
 msgstr ""
+"Versions 1.4.0和之后的TortoiseSVN允许你重定向你的升级检查到本地服务器，你可以设置注册表<filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename>（字符串值）指向本地网的文本文件。这个文本文件必须是下面的格式：screen>\n"
+"1.4.1.6000\n"
+"A new version of TortoiseSVN is available for you to download!\n"
+"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
+"</screen>文件的第一行是版本串，你必须确定这与TortoiseSVN安装包的信息完全一致。第二行是自定义字符，显示在省级对话框，你可以在里面写任何信息，只是要注意升级对话框中的数据长度是有限制的，过长的信息会被截断。第三行是最新安装包的位置，当用户选择升级时就会打开这个URL。你可以将文件指向网页，而不是msi文件，如果你指向了msi包，浏览器会询问用户在本地保存msi文件。"
 
 #: source/TortoiseSVN_en.xml:10540(title)
 msgid "Setting the SVN_ASP_DOT_NET_HACK environment variable"
@@ -7202,7 +7210,7 @@ msgstr "SVN_ASP_DOT_NET_HACK"
 
 #: source/TortoiseSVN_en.xml:10544(para)
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the SVN_ASP_DOT_NET_HACK environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
-msgstr ""
+msgstr "1.4及之后的版本，TortoiseSVN安装包不会支持用户在环境变量中使用SVN_ASP_DOT_NET_HACK，因为这样导致许多问题，也会使一直安装<emphasis>任何事情</emphasis>，而不管是什么的用户感到迷惑。"
 
 #: source/TortoiseSVN_en.xml:10551(para)
 msgid ""
@@ -7210,6 +7218,9 @@ msgid ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
+"但是这个选项只是对用户隐藏了，你仍然可以通过设置ASPDOTNETHACK属性为TRUE强制TortoiseSVN安装程序设置这个环境变量。例如，你可以这样启动安装脚本：<screen>\n"
+"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:10562(title)
 msgid "Automating TortoiseSVN"
@@ -7217,11 +7228,11 @@ msgstr "TortoiseSVN 操作"
 
 #: source/TortoiseSVN_en.xml:10564(para)
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
-msgstr ""
+msgstr "因为所有的命令使用命令行参数控制，你可以使用特定的批处理脚本或从其它程序（例如你喜欢的文本编辑器）启动。"
 
 #: source/TortoiseSVN_en.xml:10570(para)
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
-msgstr ""
+msgstr "请记住TortoiseSVN是一个GUI客户端，这个自动化指导为你展示了让TortoiseSVN对话框显示并收集客户输入，如果你希望编写不需要输入的脚本，你应该使用官方的Subversion命令行客户端。"
 
 #: source/TortoiseSVN_en.xml:10582(title)
 #: source/TortoiseSVN_en.xml:11038(title)
@@ -7238,7 +7249,7 @@ msgstr "命令行"
 
 #: source/TortoiseSVN_en.xml:10589(para)
 msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>. All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
-msgstr ""
+msgstr "TortoiseSVN的GUI程序叫做<literal>TortoiseProc.exe</literal>。所有的命令通过参数<option>/command:abcd</option>指定，其中<literal>abcd</literal>是必须的命令名。大多数此类命令至少需要一个路径参数，使用<option>/path:\"some\\path\"</option>指定。在下面的命令表格中，命令引用的是<option>/command:abcd</option>参数，余下的代表了<option>/path:\"some\\path\"</option>参数。"
 
 #: source/TortoiseSVN_en.xml:10598(para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
