@@ -300,7 +300,9 @@ void CMergeDlg::OnBnClickedBrowse2()
 
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
-	UpdateData(TRUE);
+	CheckData(false);
+	if ((!StartRev.IsValid())||(StartRev == 0))
+		StartRev = SVNRev::REV_HEAD;
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
 	CString url;
@@ -321,7 +323,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
-		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+		m_pLogDlg->SetParams(CTSVNPath(url), StartRev, StartRev, 1, limit, TRUE, FALSE);
 		m_pLogDlg->ContinuousSelection(true);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
@@ -330,7 +332,10 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 
 void CMergeDlg::OnBnClickedFindbranchend()
 {
-	UpdateData(TRUE);
+	CheckData(false);
+
+	if ((!EndRev.IsValid())||(EndRev == 0))
+		EndRev = SVNRev::REV_HEAD;
 	if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
 		return;
 	CString url;
@@ -354,7 +359,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->SetSelect(true);
 		m_pLogDlg2->m_pNotifyWindow = this;
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
-		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+		m_pLogDlg2->SetParams(CTSVNPath(url), EndRev, EndRev, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->ContinuousSelection(true);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 	}
