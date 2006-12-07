@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-30 23:42 +0000\n"
-"PO-Revision-Date: 2006-12-06 23:46+0800\n"
+"PO-Revision-Date: 2006-12-08 00:12+0800\n"
 "Last-Translator: rocksun <daijun@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6280,7 +6280,7 @@ msgstr "每次你检出一个工作拷贝，合并那些更改的文件，或仅
 
 #: source/TortoiseSVN_en.xml:9258(para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr ""
+msgstr "如果你希望从列表中删除单独的提条目，你可以直接操作，只需要点中下拉列表，，将鼠标移动到你希望删除的条目上，然后输入<action>SHIFT+DELETE</action>。"
 
 #: source/TortoiseSVN_en.xml:9267(term)
 msgid "Log messages"
@@ -7253,19 +7253,19 @@ msgstr "TortoiseSVN的GUI程序叫做<literal>TortoiseProc.exe</literal>。所�
 
 #: source/TortoiseSVN_en.xml:10598(para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "因为一些命令需要一个目标路径的列表（例如提交一些特定的文件），<option>/path</option>参数可以接收多个路径，使用<literal>*</literal>分割。"
 
 #: source/TortoiseSVN_en.xml:10603(para)
 msgid "Since TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program, you <emphasis>must</emphasis> add the <option>/notempfile</option> parameter! If you don't, the command won't work and the file you pass with the <option>/path</option> parameter will be deleted!"
-msgstr ""
+msgstr "因为TortoiseSVN使用临时文件来在shell扩展之间传递多个参数，你<emphasis>必须</emphasis>添加<option>/notempfile</option>参数！如果你不这样做，命令不会执行，使用参数<option>/path</option>传递的文件会被删除。"
 
 #: source/TortoiseSVN_en.xml:10610(para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batchfile or from the TortoiseSVN context menu."
-msgstr ""
+msgstr "进度对话框用来显示提交，更新等命令，结束后通常需要用户点<guibutton>确认</guibutton>按钮才退出，这个可以通过检查对应的对话框选项中设置。但是使用那个设置会关闭进度窗口，无论你是使用批处理文件还是用TortoiseSVN右键菜单。"
 
 #: source/TortoiseSVN_en.xml:10618(para)
 msgid "To specify a different location of the configuration file, use the param <option>/configdir:\"path\\to\\config\\dir\"</option>. This will override the default path, including any registry setting."
-msgstr ""
+msgstr "为了指定另外一个的配置文件，可以使用<option>/configdir:\"path\\to\\config\\dir\"</option>参数，这将会覆盖默认的路径和注册表设置。"
 
 #: source/TortoiseSVN_en.xml:10629(para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
@@ -7281,19 +7281,19 @@ msgstr "<option>/closeonend:2</option> 如果没发生错误和冲突则自动�
 
 #: source/TortoiseSVN_en.xml:10641(para)
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr ""
+msgstr "<option>/closeonend:3</option>如果没有错误、冲突和合并，会自动关闭"
 
 #: source/TortoiseSVN_en.xml:10645(para)
 msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr ""
+msgstr "<option>/closeonend:4</option>如果没有错误、冲突和合并，会自动关闭"
 
 #: source/TortoiseSVN_en.xml:10623(para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
-msgstr ""
+msgstr "如果想在进度对话框执行完毕后自动关闭，而又不必设置永久性的参数，可以传递<option>/closeonend</option>参数。"
 
 #: source/TortoiseSVN_en.xml:10650(para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
-msgstr ""
+msgstr "下面的列表列出了所有可以使用TortoiseProc.exe访问的命令，就像上面的描述，必须使用<literal>/command:abcd</literal>的形式，在列表中，因为节省空间的关系省略了<literal>/command</literal>的前缀。"
 
 #: source/TortoiseSVN_en.xml:10669(title)
 msgid "List of available commands and options"
@@ -7301,7 +7301,7 @@ msgstr "有效命令及选项列表"
 
 #: source/TortoiseSVN_en.xml:10675(entry)
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: source/TortoiseSVN_en.xml:10682(entry)
 msgid "Shows the About-dialog. This is also shown if no command is given."
@@ -7323,7 +7323,7 @@ msgstr "/strict"
 
 #: source/TortoiseSVN_en.xml:10689(entry)
 msgid "Opens the log dialog. The path specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
-msgstr ""
+msgstr "打开日志对话框，路径指定了日志显示的文件或目录，另外还有三个选项可以设置：<placeholder-1/>、<placeholder-2/>和<placeholder-3/>"
 
 #: source/TortoiseSVN_en.xml:10701(option)
 #: source/TortoiseSVN_en.xml:10716(option)
@@ -7359,11 +7359,11 @@ msgstr "/url"
 
 #: source/TortoiseSVN_en.xml:10700(entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
-msgstr ""
+msgstr "打开检出对话框，<placeholder-1/>指定了目标路径，而<placeholder-2/>制定了检出的URL。"
 
 #: source/TortoiseSVN_en.xml:10708(entry)
 msgid "Opens the import dialog. The path specifies the directory with the data to import."
-msgstr ""
+msgstr "打开导入对话框，路径制定了数据导入路径。"
 
 #: source/TortoiseSVN_en.xml:10717(option)
 msgid "/rev"
@@ -7371,11 +7371,11 @@ msgstr "/rev"
 
 #: source/TortoiseSVN_en.xml:10720(option)
 msgid "/rev:1234"
-msgstr ""
+msgstr "/rev:1234"
 
 #: source/TortoiseSVN_en.xml:10721(option)
 msgid "/nonrecursive"
-msgstr ""
+msgstr "/nonrecursive"
 
 #: source/TortoiseSVN_en.xml:10722(option)
 msgid "/ignoreexternals"
@@ -7383,7 +7383,7 @@ msgstr "/ignoreexternals"
 
 #: source/TortoiseSVN_en.xml:10715(entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
-msgstr ""
+msgstr "将工作拷贝的<placeholder-1/>更新到HEAD，如果给定参数<placeholder-2/>，就会弹出一个对话框询问用户需要更新到哪个修订版本。为了防止指定修订版本号<placeholder-3/>的对话框，需要选项<placeholder-4/>和<placeholder-5/>。"
 
 #: source/TortoiseSVN_en.xml:10733(option)
 msgid "path"
@@ -7395,19 +7395,19 @@ msgstr "/bugid:\"the bug id here\""
 
 #: source/TortoiseSVN_en.xml:10727(entry)
 msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
-msgstr ""
+msgstr "打开提交对话框，路经指定了目标路径或需要提交的文件列表，你也可以使用参数/logmsg给提交窗口传递预定义的日志信息，或者你不希望将日志传递给命令行，你也可以使用/logmsgfile:path，<placeholder-1/>指向了保存日志信息的文件。为了预先填入bug的ID（如果你设置了集成bug追踪属性），你可以使用<placeholder-2/>完成这个任务。"
 
 #: source/TortoiseSVN_en.xml:10743(entry)
 msgid "Adds the files in <placeholder-1/> to version control."
-msgstr ""
+msgstr "将<placeholder-1/>的文件添加到版本控制 。"
 
 #: source/TortoiseSVN_en.xml:10750(entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
-msgstr ""
+msgstr "恢复工作拷贝的本地修改，<placeholder-1/>说明恢复哪些条目。"
 
 #: source/TortoiseSVN_en.xml:10758(entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
-msgstr ""
+msgstr "清理中断和终止的操作，将工作拷贝的<placeholder-1/>解锁。"
 
 #: source/TortoiseSVN_en.xml:10768(option)
 #: source/TortoiseSVN_en.xml:10834(option)
@@ -7417,7 +7417,7 @@ msgstr "/noquestion"
 
 #: source/TortoiseSVN_en.xml:10765(entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
-msgstr ""
+msgstr "将<placeholder-1/>指定文件的冲突标示为解决，如果给定<placeholder-2/>，解决不会向用户确认操作。"
 
 #: source/TortoiseSVN_en.xml:10775(entry)
 msgid "Creates a repository in <placeholder-1/>"
@@ -7429,19 +7429,19 @@ msgstr "打开选项对话框。路径参数指定目标目录。"
 
 #: source/TortoiseSVN_en.xml:10788(entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the dir in <placeholder-3/>."
-msgstr ""
+msgstr "将<placeholder-1/>的工作拷贝导出到另一个目录，如果<placeholder-2/>指向另一个未版本化目录，对话框会询问要导出到<placeholder-3/>的URL。"
 
 #: source/TortoiseSVN_en.xml:10803(option)
 msgid "/mergefrom:URL"
-msgstr ""
+msgstr "/mergefrom:URL"
 
 #: source/TortoiseSVN_en.xml:10797(entry)
 msgid "Opens the merge dialog. The path specifies the target directory. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>. These pre-fill the relevant fields in the merge dialog."
-msgstr ""
+msgstr "打开合并对话框，路经指定了目标目录，可以设置另外三个参数：<placeholder-1/>、<placeholder-2/>和<placeholder-3/>，这些值将会预先填入相关的字段。"
 
 #: source/TortoiseSVN_en.xml:10809(entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from."
-msgstr ""
+msgstr "带来branch/tag对话框，<placeholder-1/>是branch/tag在工作拷贝中的出处。"
 
 #: source/TortoiseSVN_en.xml:10817(entry)
 msgid "Opens the settings dialog."
@@ -7453,7 +7453,7 @@ msgstr "从版本控制里移除<placeholder-1/>中的文件。"
 
 #: source/TortoiseSVN_en.xml:10830(entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
-msgstr ""
+msgstr "重命名<placeholder-1/>的文件，会在对话框中询问新文件，为了防止一个步骤中询问相似文件，传递<placeholder-2/>。"
 
 #: source/TortoiseSVN_en.xml:10843(option)
 #: source/TortoiseSVN_en.xml:10845(option)
@@ -7462,15 +7462,15 @@ msgstr "/path2"
 
 #: source/TortoiseSVN_en.xml:10839(entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
-msgstr ""
+msgstr "启动TortoiseSVN设置的外置比较程序，<placeholder-1/>指定了第一个文件，如果设置了<placeholder-2/>，比较程序会启动两个文件，如果省略<placeholder-3/>，比较程序会比较<placeholder-4/>和它的BASE。"
 
 #: source/TortoiseSVN_en.xml:10852(entry)
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
-msgstr ""
+msgstr "打开TortoiseSVN设置的冲突工具，在<placeholder-1/>中需要设置冲突文件的正确文件。"
 
 #: source/TortoiseSVN_en.xml:10860(entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
-msgstr ""
+msgstr "打开重定位对话框，<placeholder-1/>指定了重定位的工作拷贝路径。"
 
 #: source/TortoiseSVN_en.xml:10867(entry)
 msgid "Opens the help file."
@@ -7478,7 +7478,7 @@ msgstr "打开帮助文件"
 
 #: source/TortoiseSVN_en.xml:10873(entry)
 msgid "Opens the check-for-modifications dialog. The path specifies the working copy directory."
-msgstr ""
+msgstr "打开为修改检出对话框，路经指定了工作拷贝目录。"
 
 #: source/TortoiseSVN_en.xml:10885(option)
 #: source/TortoiseSVN_en.xml:10887(option)
@@ -7487,11 +7487,11 @@ msgstr "/rev:xxx"
 
 #: source/TortoiseSVN_en.xml:10880(entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD."
-msgstr ""
+msgstr "打开版本库浏览对话框，URL为工作拷贝<placeholder-1/>指向的或<placeholder-2/>直接指出的，另外一个选项是<placeholder-3/>，可以用来指定要显示的修订版本号，如果省略<placeholder-4/>，缺省是HEAD。"
 
 #: source/TortoiseSVN_en.xml:10893(entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the svn:ignore property to those files."
-msgstr ""
+msgstr "将<placeholder-1/>中的对象加入到忽略列表，也就是将这些文件添加到svn:ignore属性。"
 
 #: source/TortoiseSVN_en.xml:10904(option)
 msgid "startrev"
@@ -7507,7 +7507,7 @@ msgstr "/line:nnn"
 
 #: source/TortoiseSVN_en.xml:10901(entry)
 msgid "Opens the blame dialog for the file specified in <placeholder-1/>. If the options <placeholder-2/> and <placeholder-3/> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead. If the option <placeholder-4/> is set, TortoiseBlame will open with the specified line number showing."
-msgstr ""
+msgstr "打开<placeholder-1/>指定文件的追溯对话框，如果设置了<placeholder-2/>和<placeholder-3/>，对话框询问追溯范围的对话框不会显示，如果设置了<placeholder-4/>，TortoiseBlame会打开特定文件的某一行。"
 
 #: source/TortoiseSVN_en.xml:10919(option)
 msgid "/savepath:path"
@@ -7519,7 +7519,7 @@ msgstr "/revision:xxx"
 
 #: source/TortoiseSVN_en.xml:10916(entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
-msgstr ""
+msgstr "将<placeholder-1/>指定的工作拷贝或URL的文件保存到<placeholder-2/>，修订版本号在<placeholder-3/>，这样可以得到特定修订版本的文件。"
 
 #: source/TortoiseSVN_en.xml:10926(entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
@@ -7531,11 +7531,11 @@ msgstr "显示<placeholder-1/>目录下的版本变化图。"
 
 #: source/TortoiseSVN_en.xml:10940(entry)
 msgid "Locks a file. The 'lock' dialog is shown so the user can enter a comment for the lock. <placeholder-1/>"
-msgstr ""
+msgstr "锁定一个文件，显示‘锁定’对话框，用户可以输入锁定的注视 。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10948(entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. <placeholder-1/>"
-msgstr ""
+msgstr "重建windows的图标缓存，只有windows的图标缓存出了问题才需要这样做，一个副作用就是（不可避免）桌面的图标会重新组织。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10958(entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
@@ -7553,6 +7553,15 @@ msgid ""
 "                 /revstart:50 /revend:60 /notempfile /closeonend\n"
 "</screen>"
 msgstr ""
+"例子（必须在一行输入）：<screen>\n"
+"TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"                 /logmsg:\"test log message\" /notempfile /closeonend\n"
+"\n"
+"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /notempfile /closeonend\n"
+"\n"
+"TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
+"                 /revstart:50 /revend:60 /notempfile /closeonend\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:10982(title)
 msgid "Command Line Interface Cross Reference"
@@ -7568,15 +7577,15 @@ msgstr "CLI"
 
 #: source/TortoiseSVN_en.xml:10990(para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
-msgstr ""
+msgstr "有时候，本手册会参考Subversion的文档，会以命令行方式（CLI）描述Subversion术语，为了理解TortoiseSVN后台的操作，我们编辑了一份列表，用来展示命令行命令和对应的TortoiseSVN的GUI操作的关系。"
 
 #: source/TortoiseSVN_en.xml:10999(para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
-msgstr ""
+msgstr "即使有命令行对应TortoiseSVN的操作，请记住TortoiseSVN<emphasis>没有</emphasis>调用命令行，而是直接使用了Subversion库。"
 
 #: source/TortoiseSVN_en.xml:11005(para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr ""
+msgstr "如果你发现了TortoiseSVN的bug，我们会希望你能用命令行重现它，这样我们可以区分这是TSVN还是Subversion的问题，这个参考告诉你该找那个命令。"
 
 #: source/TortoiseSVN_en.xml:11013(title)
 msgid "Conventions and Basic Rules"
@@ -7584,15 +7593,15 @@ msgstr "约定和基本规则"
 
 #: source/TortoiseSVN_en.xml:11014(para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
-msgstr ""
+msgstr "在这个描述里，版本库位置URL使用<literal>URL</literal>显示，一个例子是<literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>，工作拷贝使用<literal>PATH</literal>显示，一个例子是<literal>C:\\TortoiseSVN\\trunk</literal>。"
 
 #: source/TortoiseSVN_en.xml:11024(para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
-msgstr ""
+msgstr "因为TortoiseSVN是一个Windows外壳扩展，它不能使用当前工作拷贝的概念，所有的工作拷贝必须使用绝对路径，而不是相对的。"
 
 #: source/TortoiseSVN_en.xml:11031(para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
-msgstr ""
+msgstr "特定项目是可选的，TortoiseSVN里这是通过多选项和单选项控制的，这些选项是在命令行定义的[方括号]里显示的。"
 
 #: source/TortoiseSVN_en.xml:11040(title)
 #: source/TortoiseSVN_en.xml:11542(glossterm)
@@ -7610,16 +7619,16 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11044(para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr ""
+msgstr "如果希望<guilabel>只检出顶级目录</guilabel>被选中，使用<literal>-N</literal>选项。"
 
 #: source/TortoiseSVN_en.xml:11048(para)
 #: source/TortoiseSVN_en.xml:11091(para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr ""
+msgstr "如果希望<guilabel>忽略外部</guilabel>被选中，使用<literal>--ignore-externals</literal>选型。"
 
 #: source/TortoiseSVN_en.xml:11052(para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
-msgstr ""
+msgstr "如果你正在检出特定的修订版本，在URL后使用<literal>-r</literal>指定。"
 
 #: source/TortoiseSVN_en.xml:11058(title)
 #: source/TortoiseSVN_en.xml:11848(glossterm)
@@ -7639,15 +7648,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11063(para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
-msgstr ""
+msgstr "更新多个项目在Subversion还不是原子操作，所以TortoiseSVN会首先找到版本库的HEAD修订版本，然后将所有项目更新到特定修订版本，防止出现混合修订版本的工作拷贝。"
 
 #: source/TortoiseSVN_en.xml:11070(para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
-msgstr ""
+msgstr "如果只有一个项目被选中更新，或选中的项目来自不同的版本库，TortoiseSVN只会更新到HEAD。"
 
 #: source/TortoiseSVN_en.xml:11075(para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
-msgstr ""
+msgstr "没有使用命令行选项，<guilabel>更新到修订版本</guilabel>也实现了更新命令，但提供了更多的选项。"
 
 #: source/TortoiseSVN_en.xml:11082(title)
 msgid "Update to Revision"
@@ -7666,7 +7675,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11087(para)
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr ""
+msgstr "如果希望<guilabel>只更新顶级目录</guilabel>，使用<literal>-N</literal>选项。"
 
 #: source/TortoiseSVN_en.xml:11097(title)
 #: source/TortoiseSVN_en.xml:11568(glossterm)
@@ -7675,7 +7684,7 @@ msgstr "提交"
 
 #: source/TortoiseSVN_en.xml:11098(para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
-msgstr ""
+msgstr "在TortoiseSVN，提交对话框使用Subversion命令，第一部分是检查工作拷贝哪些文件可能被提交，然后你可以检查列表，比较与BASE的区别，选择你希望提交包含的项目。"
 
 #: source/TortoiseSVN_en.xml:11105(screen)
 #: source/TortoiseSVN_en.xml:11267(screen)
