@@ -27,8 +27,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-30 23:42 +0000\n"
-"PO-Revision-Date: 2006-12-08 00:12+0800\n"
-"Last-Translator: rocksun <daijun@gmail.com>\n"
+"PO-Revision-Date: 2006-12-08 01:39+0800\n"
+"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5369,19 +5369,19 @@ msgstr "问题跟踪者"
 
 #: source/TortoiseSVN_en.xml:7856(para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr ""
+msgstr "在软件开发中，修改依赖于一个bug或问题编号是很常见的。bug跟踪系统的用户(问题跟踪者)喜欢在问题跟踪中将Subversion的修改与一个指定编号联系起来。因此很多问题跟踪者提供了一个预提交钩子脚本，分析日志，查找提交相关的bug编号。这稍微有些不可靠，因为它依赖于用户写完全的日志，预提交钩子才能正确分析。"
 
 #: source/TortoiseSVN_en.xml:7869(para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr ""
+msgstr "当用户输入日志信息时，一个定义良好，包含问题编号，与此提交相关的的行，会自动增加。这样减少了用户输入的问题编号不能比bug跟踪系统正确分析的风险。"
 
 #: source/TortoiseSVN_en.xml:7875(para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr ""
+msgstr "或者TortoiseSVN高亮显示日志消息中能被问题跟踪者识别的部分。这样，用户就知道日志消息能被正确解析。"
 
 #: source/TortoiseSVN_en.xml:7882(para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr ""
+msgstr "当用户浏览日志信息，TortoiseSVN在日志信息中创建指向每个bug标示的链接，它可以用浏览器打开。"
 
 #: source/TortoiseSVN_en.xml:7865(para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
@@ -5389,7 +5389,7 @@ msgstr "TortoiseSVN可以在两个方面帮助用户: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7890(para)
 msgid "You can integrate a Bugtracking Tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "你可以在TortoiseSVN中集成bug跟踪工具。为了使用这个特性，你要定义一些以<literal>bugtraq:</literal>开始的属性，它们只能在文件夹上设置 (<xref linkend=\"tsvn-dug-propertypage\"/>)。"
 
 #: source/TortoiseSVN_en.xml:7902(term)
 msgid "bugtraq:url"
@@ -5397,7 +5397,7 @@ msgstr "bugtraq:url"
 
 #: source/TortoiseSVN_en.xml:7904(para)
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
-msgstr ""
+msgstr "将这个属性设置为你的bug跟踪工具的地址。它必须编码并且包含<literal>%BUGID%</literal>。<literal>%BUGID%</literal>用你输入的问题编号替换。它允许TortoiseSVN 在日志对话框中显示链接，于是你可以在察看版本日志时直接进入bug跟踪工具。你可以不提供这个属性，但是这样TortoiseSVN就不能显示链接了，只能显示问题编号。例如TortoiseSVN 使用<literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>。"
 
 #: source/TortoiseSVN_en.xml:7922(term)
 msgid "bugtraq:warnifnoissue"
@@ -5409,7 +5409,7 @@ msgstr "如果你想TortoiseSVN给出空问题编号的警告，就设置为 <li
 
 #: source/TortoiseSVN_en.xml:7896(para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/>"
-msgstr ""
+msgstr "有两个方法集成TortoiseSVN 和问题跟踪。一个基于简单字符串，另一个基于<literal>正则表达式</literal>。它们的用法是：<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7943(term)
 msgid "bugtraq:message"
@@ -6280,7 +6280,7 @@ msgstr "每次你检出一个工作拷贝，合并那些更改的文件，或仅
 
 #: source/TortoiseSVN_en.xml:9258(para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr "如果你希望从列表中删除单独的提条目，你可以直接操作，只需要点中下拉列表，，将鼠标移动到你希望删除的条目上，然后输入<action>SHIFT+DELETE</action>。"
+msgstr "如果你希望从列表中删除单独的条目，可以点击下拉列表，移动鼠标到你要删除的项上，然后按组合键<action>SHIFT+DELETE</action>。"
 
 #: source/TortoiseSVN_en.xml:9267(term)
 msgid "Log messages"
@@ -6376,11 +6376,11 @@ msgstr "<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动�
 
 #: source/TortoiseSVN_en.xml:9389(para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
-msgstr ""
+msgstr "应用程序，例如钩子，可能调用如<literal>SubWCRev.exe</literal>这样的程序，来更新提交后的版本号，可能还会出发重新构建。"
 
 #: source/TortoiseSVN_en.xml:9394(para)
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr ""
+msgstr "由于各种安全理由和实现问题，钩子脚本在本地机器定义，而不是象工程属性那样。不管是谁提交，都可以定义它做什么事情。当然，你也可以选择调用一个受版本控制的脚本。"
 
 #: source/TortoiseSVN_en.xml:9402(title)
 msgid "The Settings Dialog, Configure Hook Scripts"
@@ -6388,7 +6388,7 @@ msgstr "设置对话框，配置钩子脚本页面"
 
 #: source/TortoiseSVN_en.xml:9400(para)
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
-msgstr ""
+msgstr "<placeholder-1/> 要增加钩子脚本，直接点击 <guibutton>增加</guibutton> ，然后输入脚本即可。"
 
 #: source/TortoiseSVN_en.xml:9412(term)
 #: source/TortoiseSVN_en.xml:9480(term)
@@ -6397,7 +6397,7 @@ msgstr "开始提交"
 
 #: source/TortoiseSVN_en.xml:9414(para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
-msgstr ""
+msgstr "在提交对话框之前调用。当钩子修改受版本控制的文件，影响了提交的文件列表的时候适用。"
 
 #: source/TortoiseSVN_en.xml:9422(term)
 #: source/TortoiseSVN_en.xml:9488(term)
@@ -6406,7 +6406,7 @@ msgstr "提交之前"
 
 #: source/TortoiseSVN_en.xml:9424(para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
-msgstr ""
+msgstr "在提交对话框点击<guibutton>确认</guibutton>之后，实际提交之前调用。"
 
 #: source/TortoiseSVN_en.xml:9431(term)
 #: source/TortoiseSVN_en.xml:9497(term)
@@ -6450,11 +6450,11 @@ msgstr "现在有六种钩子脚本类型可用 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9464(para)
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "为特定工作目录定义的钩子。你只要指定顶级路径；如果在子目录内执行提交，TortoiseSVN 会自动向上搜索匹配路径。"
 
 #: source/TortoiseSVN_en.xml:9469(para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "然后你要指定要执行的命令行，以钩子脚本或可执行文件的路径开始。它可以是批处理文件，可执行文件，或者有效的windows关联的其它文件类型，例如perl文件。"
 
 #: source/TortoiseSVN_en.xml:9483(literal)
 #: source/TortoiseSVN_en.xml:9491(literal)
@@ -6485,15 +6485,15 @@ msgstr "%ERROR%"
 
 #: source/TortoiseSVN_en.xml:9475(para)
 msgid "The command line can include several parameters which get filled in by TortoiseSVN. The parameters available depend upon which hook is called. <placeholder-1/>"
-msgstr ""
+msgstr "命令行可以包含被TortoiseSVN填写的几个参数。这些参数依赖于调用了什么脚本。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9540(para)
 msgid "The paths which were selected when the operation was started, eg. the paths selected in Explorer when invoking the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "当操作开始时选择的路径。例如当启动提交对话框是在资源管理器中选择的路径。如果选择了多个路径，它们用<literal>*</literal>自负隔开。"
 
 #: source/TortoiseSVN_en.xml:9552(para)
 msgid "The paths which were selected within the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "我们在提交对话框内选择的路径。如果选择了多个路径，那么它们用<literal>*</literal>字符分割。"
 
 #: source/TortoiseSVN_en.xml:9562(para)
 msgid "The repository revision after a commit completes."
@@ -6501,19 +6501,19 @@ msgstr "在提交完成后的版本库的版本"
 
 #: source/TortoiseSVN_en.xml:9570(para)
 msgid "Empty if the operation was successful, or the error message if the operation was unsuccessful."
-msgstr ""
+msgstr "如果操作成功，它是空的，否则操作失败时就显示错误信息。"
 
 #: source/TortoiseSVN_en.xml:9534(para)
 msgid "The meaning of each of these variables is described here: <placeholder-1/>"
-msgstr ""
+msgstr "每个变量的含义如下：<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9578(para)
 msgid "If you want the Subversion operation to hold off until the hook has completed, check <guilabel>Wait for the script to finish</guilabel>."
-msgstr ""
+msgstr "如果你想Subversion 操作直到钩子完成才结束，就选择<guilabel>等待脚本结束</guilabel>。"
 
 #: source/TortoiseSVN_en.xml:9582(para)
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default. For debugging, you may want to watch what happens in the DOS window."
-msgstr ""
+msgstr "通常脚本运行时，你会想隐藏丑陋的控制台窗口，所以默认选择<guilabel>运行时隐藏脚本</guilabel>。为了调试，你可能想观察控制台窗口的输出。"
 
 #: source/TortoiseSVN_en.xml:9590(title)
 msgid "Final Step"
@@ -6567,7 +6567,7 @@ msgstr "<literal>WorkingCopyPath</literal>是要检查的工作拷贝路径，�
 
 #: source/TortoiseSVN_en.xml:9658(para)
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
-msgstr ""
+msgstr "如果你想让SubWCRev执行关键字替换，象版本库版本，地址等字段保存到文本文件，就需要提供一个模版文件<literal>SrcVersionFile</literal>，输出文件<literal>DstVersionFile</literal>就是模版替换之后的版本。"
 
 #: source/TortoiseSVN_en.xml:9674(title)
 #: source/TortoiseSVN_en.xml:9743(title)
@@ -6592,7 +6592,7 @@ msgstr "-n"
 
 #: source/TortoiseSVN_en.xml:9687(entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr ""
+msgstr "如果给出这个开关，当工作副本包含本地修改时，SubWCRev 就会以ERRORLEVEL 7退出。它可以用来在有未提交的修改时阻止构建。"
 
 #: source/TortoiseSVN_en.xml:9695(entry)
 msgid "-m"
@@ -6600,7 +6600,7 @@ msgstr "-m"
 
 #: source/TortoiseSVN_en.xml:9696(entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr ""
+msgstr "如果给出这个开关，当工作副本包含混合版本时，SubWCRev 就会以ERRORLEVEL 8退出。它可以用来在部分更新本地目录时阻止构建。"
 
 #: source/TortoiseSVN_en.xml:9704(entry)
 msgid "-d"
@@ -6608,7 +6608,7 @@ msgstr "-d"
 
 #: source/TortoiseSVN_en.xml:9705(entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists."
-msgstr ""
+msgstr "如果给出这个开关，当目的文件存在时时，SubWCRev 就会以ERRORLEVEL 9退出。"
 
 #: source/TortoiseSVN_en.xml:9712(entry)
 msgid "-f"
@@ -6616,7 +6616,7 @@ msgstr "-f"
 
 #: source/TortoiseSVN_en.xml:9713(entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr ""
+msgstr "如果给出这个开关，SubWCRev 就会包含文件夹的最后修改版本。默认行为是取得版本号时只考虑文件。"
 
 #: source/TortoiseSVN_en.xml:9721(entry)
 msgid "-e"
@@ -6624,11 +6624,11 @@ msgstr "-e"
 
 #: source/TortoiseSVN_en.xml:9722(entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr ""
+msgstr "如果给出这个开关，SubWCRev 就会检查包含svn:externals的目录，但是只限于在同一版本库。默认行为是忽略外部引用。"
 
 #: source/TortoiseSVN_en.xml:9667(para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "有几个开关影响 SubWCRev工作。如果使用多个，必须用单个组指定，例如要用<literal>-nm</literal>，不能用<literal>-n -m</literal>。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9738(title)
 msgid "Keyword Substitution"
@@ -6656,7 +6656,7 @@ msgstr "yyyy-mm-dd hh:mm:ss"
 
 #: source/TortoiseSVN_en.xml:9763(entry)
 msgid "Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <placeholder-1/>"
-msgstr ""
+msgstr "用最高提交的版本的日期/时间替换。为了避免混淆，使用国际化格式，例如 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9771(entry)
 msgid "$WCNOW$"
