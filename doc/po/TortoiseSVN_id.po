@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-03 21:58+0700\n"
+"PO-Revision-Date: 2006-12-07 21:38+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9496,7 +9496,7 @@ msgstr "Kapan saja Anda melakukan checkout copy pekerjaan Anda, perubahan gabung
 #: source/TortoiseSVN_en.xml:9258
 #: (para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr ""
+msgstr "Jika Anda ingin mencopot suatu item tunggal dari salah satu kotak kombo, Anda dapat melakukannya di tempat. Cukup klik pada anak panah untuk menjatuhkan kotak kombo ke bawah, geser tetikus di atas item yang Anda inginkan supaya dicopot dan ketik <action>SHIFT+DELETE</action>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9250(term)
 #: source/TortoiseSVN_en.xml:9267
@@ -9689,7 +9689,7 @@ msgstr "komit"
 #: source/TortoiseSVN_en.xml:9414
 #: (para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
-msgstr ""
+msgstr "Dipanggil sebelum dialog komit ditampilkan. Anda mungkin ingin untuk menggunakan ini jika hook mengubah suatu file berversi dan mempengaruhi daftar file yang perlu dikomit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3826(primary)
 #: source/TortoiseSVN_en.xml:9422
@@ -9701,7 +9701,7 @@ msgstr "komit"
 #: source/TortoiseSVN_en.xml:9424
 #: (para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
-msgstr ""
+msgstr "Dipanggil setelah pengguna mengeklik <guibutton>OK</guibutton> di dalam dialog komit, dan sebelum komit yang sesungguhnya dimulai."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3826(primary)
 #: source/TortoiseSVN_en.xml:9431
@@ -9713,7 +9713,7 @@ msgstr "komit"
 #: source/TortoiseSVN_en.xml:9433
 #: (para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
+msgstr "Dipanggil setelah komit selesai (sukses maupun tidak)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4084(primary) source/TortoiseSVN_en.xml:9775(primary)
 #: source/TortoiseSVN_en.xml:9439
@@ -9725,7 +9725,7 @@ msgstr "mutahirkan"
 #: source/TortoiseSVN_en.xml:9441
 #: (para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "Dipanggil sebelum dialog mutahirkan-ke-revisi ditampilkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4084(primary) source/TortoiseSVN_en.xml:9775(primary)
 #: source/TortoiseSVN_en.xml:9447
@@ -9737,7 +9737,7 @@ msgstr "mutahirkan"
 #: source/TortoiseSVN_en.xml:9449
 #: (para)
 msgid "Called before the actual Subversion update begins."
-msgstr ""
+msgstr "Dipanggil sebelum pemutahiran Subversion yang sesungguhnya dimulai."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4084(primary) source/TortoiseSVN_en.xml:9775(primary)
 #: source/TortoiseSVN_en.xml:9455
@@ -9749,22 +9749,22 @@ msgstr "mutahirkan"
 #: source/TortoiseSVN_en.xml:9457
 #: (para)
 msgid "Called after the update finishes (whether successful or not)."
-msgstr ""
+msgstr "Dipanggil setelah pemutahiran selesai (sukses maupun tidak)."
 
 #: source/TortoiseSVN_en.xml:9408
 #: (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Sekarang ada enam jenis skrip hook yang tersedia <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9464
 #: (para)
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "Suatu hook didefinisikan untuk path copy pekerjaan tertentu. Anda hanya perlu menentukan path level atas; jika Anda melakukan suatu operasi di sub-folder, TortoiseSVN akan secara otomatis mencari path yang cocok ke arah atas."
 
 #: source/TortoiseSVN_en.xml:9469
 #: (para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "Berikutnya Anda harus menentukan baris perintah yang akan dilaksanakan, dimulai dengan path ke skrip hook atau yang dapat dieksekusi. Ini bisa saja suatu file batch, file yang dapat dieksekusi atau file lain apapun yang mengandung asosiasi file yang sah seperti skrip perl."
 
 #: source/TortoiseSVN_en.xml:9483
 #: (literal) source/TortoiseSVN_en.xml:9491
@@ -9800,7 +9800,7 @@ msgstr "%ERROR%"
 #: source/TortoiseSVN_en.xml:9475
 #: (para)
 msgid "The command line can include several parameters which get filled in by TortoiseSVN. The parameters available depend upon which hook is called. <placeholder-1/>"
-msgstr ""
+msgstr "Baris perintah dapat mengandung beberapa parameter yang akan diisi oleh TortoiseSVN. Ketersediaan parameter-parameter tersebut tergantung pada hook mana yang dipanggil."
 
 #: source/TortoiseSVN_en.xml:9540
 #: (para)
@@ -11320,7 +11320,7 @@ msgstr "Mengekspor copy pekerjaan dalam <placeholder-1/> ke direktori lain. Jika
 #: source/TortoiseSVN_en.xml:10803
 #: (option)
 msgid "/mergefrom:URL"
-msgstr ""
+msgstr "/mergefrom:URL"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10473(entry)
 #: source/TortoiseSVN_en.xml:10797
@@ -12822,5 +12822,4 @@ msgstr ""
 #: (None)
 msgid "translator-translation"
 msgstr "Terjemahan oleh"
-
 
