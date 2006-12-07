@@ -1,0 +1,6177 @@
+#
+# Farsi translation for TortoiseSVN
+# Copyright (C) 2004-2006 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+# Titto Agustine, 2006
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN\n"
+"POT-Creation-Date: 2004-06-28 14:09+0200\n"
+"PO-Revision-Date: 2006-12-05 09:24+0100\n"
+
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-Bookmarks: -1,1184,-1,-1,-1,-1,-1,-1,-1,-1\n"
+
+# A single space character
+#: ID:10,#:
+#: ID:126,#:
+#: ID:126,
+msgid " "
+msgstr " "
+
+#: ID:188,
+#, c-format
+msgid "! %d"
+msgstr "! %d"
+
+#: ID:357,
+#, fuzzy, c-format
+msgid "%.2f MBytes transferred"
+msgstr "انتقال داد MBytes %.2f%"
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 contained an unexpected object."
+msgstr ""
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 contains an incorrect schema."
+msgstr ""
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 contains an invalid path."
+msgstr "%1 شامل یک مسیربی اعتبار "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be created because the directory is full."
+msgstr ""
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be opened because there are too many open files."
+msgstr ""
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 could not be removed because it is the current directory."
+msgstr ""
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "%1 has a bad format."
+msgstr ""
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "%1 was not found."
+msgstr ""
+
+#: ID:3860,#:
+#: ID:3860,
+#, c-format
+msgid ""
+"%1: %2\n"
+"Continue running script?"
+msgstr ""
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid ""
+"%1\n"
+"Cannot find this file.\n"
+"Please verify that the correct path and file name are given."
+msgstr ""
+
+#: ID:357,
+#, c-format
+msgid "%I64d Bytes transferred"
+msgstr "انتقال داد Bytes %I64d ۶۴"
+
+#: ID:357,
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "انتقال داد Kbytes %I64d ۶۴"
+
+#: ID:169,
+#, c-format
+msgid "%d files selected, %d files total"
+msgstr "،جمع بایگانی بکند %d بایگانی می کندانتحاب شده %d"
+
+#: ID:7,
+#, c-format
+msgid "%ld of %ld"
+msgstr "%ld از %ld"
+
+#: ID:563,
+#, c-format
+msgid "%ld paths"
+msgstr "مسیرها %ld"
+
+#: ID:226,
+#, c-format
+msgid "%s - at revision: %d"
+msgstr ""
+
+#: ID:151,
+#, c-format
+msgid "%s : Remote file"
+msgstr ""
+
+#: ID:151,
+#, fuzzy, c-format
+msgid "%s : Working Base"
+msgstr "کاری Base"
+
+#: ID:151,
+#, fuzzy, c-format
+msgid "%s : Working Copy"
+msgstr "کاری Copy"
+
+#: ID:357,
+#, c-format
+msgid "%s, at %s"
+msgstr ""
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr ""
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export of %s"
+msgstr ""
+
+#: ID:145,
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove it anyway?"
+msgstr ""
+"%s\n"
+"شمامی خواهیدکه آن رابه هرصورت ؟بربدارید"
+
+#: ID:7,
+#, c-format
+msgid ""
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"%s\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit"
+msgstr ""
+
+#: ID:69,
+#, c-format
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"یک دفترراهنما،هیچ پرونده نیست ! دفترراهنماهانمی تواند diff N TortoiseMerge"
+
+#: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
+#, fuzzy
+msgid "&About TortoiseMerge..."
+msgstr "درباره TortoiseMerge &"
+
+#: ID:8,#:
+#: Control-ID:1098,#:
+#: Control-ID:1310,
+msgid "&Add..."
+msgstr "ﻥﺩﺭﻜ ﻩﻔﺎﻀﺍ ‘ﻥﺩﻭﺯﻔﺍ&"
+
+#: Control-ID:1090,#:
+#: Control-ID:1093,
+msgid "&Advanced..."
+msgstr "پیشرفته &"
+
+#: Control-ID:1013,
+msgid "&Apply unified diff"
+msgstr "متحدکرد diff تقاضا &"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "&Autoclose:"
+msgstr "&Autoclose:"
+
+#: Control-ID:1015,
+#, fuzzy
+msgid "&Backup original file"
+msgstr "اصلی Backup پرونده &"
+
+#: Control-ID:1128,
+#, fuzzy
+msgid "&Berkeley database (BDB)"
+msgstr ". ( BDB ) Berkeley پایگاه داده ها &"
+
+#: ID:114,
+#, fuzzy
+msgid "&Blame differences"
+msgstr ". Blame تفاوتهای &"
+
+#: ID:114,#:
+#: ID:322,
+#, fuzzy
+msgid "&Blame revisions"
+msgstr ". Blame تجدیدنظرهای &"
+
+#: ID:13,
+msgid "&Blame..."
+msgstr "ﺵﻨﺯﺭﺴ ‘ﻩﺎﻨﮔ‘ﻩﺎﺒﺘﺸﺍ ‘ﻥﺩﺭﻜ ﺭﺍﺩﻩﻜﻠ ‘ﻥﺩﺭﻜ ﻩﻠﮔ ‘ﻥﺩﺭﻜﺩﺎﻘﺘﻨﺍ ‘ﻥﺩﺭﻜ&"
+
+#: ID:138,
+#, fuzzy
+msgid "&Browse repository"
+msgstr ". Browse گنجینه &"
+
+#: Control-ID:1011,
+msgid "&Browse..."
+msgstr "ﻥﺩﻴﺭﭽ ‘ﻥﺩﻨﺍﻭﺨ ﺏﺎﺘﻜ ﺯﺍ ﻰﺘﺍﺭﺎﺒﻋ ﻩﺘﺨﻴﺭﮔ ﻩﺘﺴﺠ&"
+
+#: Control-ID:1051,
+msgid "&CD-ROM"
+msgstr "&CD-ROM"
+
+#: Control-ID:2,#:
+#: Control-ID:2,
+msgid "&Cancel"
+msgstr "ﻥﺩﺭﻜ ﺥﺴﻔ ‘ﻥﺩﺭﻜ ﻭﻐﻠ ‘ﻥﺩﺭﻜ ﻝﻁﺎﺒ&"
+
+#: ID:8,
+#, fuzzy
+msgid "&Clean up"
+msgstr "بالا Clean &"
+
+#: ID:8,
+msgid "&Commit..."
+msgstr "ﻥﺩﺭﭙﺴﺭﺴ ‘ﻥﺩﻭﻤﻨ ﻯﺭﻤﺍﻡﺎﺠﻨﺎﺒﺩﻬﻌﺘﻤ ‘(ﻩﺭﻴﻏﻭ ﺕﺍﺯﺎﺠﻤ) ﻯﺍﺭﺒ ﻥﺘﺸﺍﺩ ﻡﺍﺯﻋﺍ ‘ﻥﺩﺸ ﺏﻜﺘﺭﻤ ‘ﻥﺩﺭﭙﺴ&"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Compare revisions"
+msgstr ". Compare تجدیدنظرهای &"
+
+#: Control-ID:1019,
+msgid "&Compare whitespaces"
+msgstr "ﻥﺩﺭﻜ ﻩﺴﻴﺎﻘﻤ&"
+
+#: Control-ID:1239,
+msgid "&Configure"
+msgstr "&Configure"
+
+#: Control-ID:1227,
+#, fuzzy
+msgid "&Contact the repository on startup"
+msgstr ". startup در ( روی ) تماس گنجینه &"
+
+#: Control-ID:1073,
+#, fuzzy
+msgid "&Convert files when diffing against BASE"
+msgstr "بایگانی می کند BASE علیه Diffing چه موقع Convert &"
+
+#: MenuEntry
+msgid "&Copy"
+msgstr "ﻯﺭﺍﺩﺭﺒ ﻩﺨﺴﻨ ‘ﻩﺨﺴﻨ ‘ﺕﺸﻭﻨﻭﺭ&"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Copy to clipboard"
+msgstr "به تخته طراحی Copy &"
+
+#: ID:101,
+#, fuzzy
+msgid "&Copy to..."
+msgstr "به Copy &"
+
+#: Control-ID:1097,
+msgid "&Custom"
+msgstr "ﻰﺘﺩﺎﻋ ‘ﺕﺩﺎﻋ ﺏﺴﺤﺭﺒ‘ﻙﺭﻤﮔ ‘ﻰﻜﺭﻤﮔ ﻕﻭﻘﺤ (ﻊﻤﺠﺭﺩ) ‘ﻑﺭﻋ ‘ﺕﺩﺎﻋ ‘ﺕﻨﺴ ‘ﻡﺴﺭ&"
+
+#: Control-ID:1269,#:
+#: Control-ID:1096,
+msgid "&Default"
+msgstr "ﻯﺩﺍﺩ ﺭﺍﺭﻘ ‘ﺩﺍﺩ ﺭﺍﺭﻘ&"
+
+#: ID:11,
+msgid "&Delete"
+msgstr "ﻥﺩﺭﻜ ﻑﺫﺤ&"
+
+#: ID:101,
+msgid "&Delete..."
+msgstr "ﻥﺩﺭﻜ ﻑﺫﺤ&"
+
+#: ID:12,
+msgid "&Diff"
+msgstr "&Diff"
+
+#: ID:17,
+#, fuzzy
+msgid "&Diff with URL"
+msgstr ". URL با Diff &"
+
+#: Control-ID:1179,
+#, fuzzy
+msgid "&Dry run"
+msgstr "اجرامی کند Dry &"
+
+#: Control-ID:1031,#:
+#: MenuEntry#:
+#: MenuEntry
+msgid "&Edit"
+msgstr "ﻥﺘﺴﺍﺭﻴﻭ&"
+
+#: ID:12,
+#, fuzzy
+msgid "&Edit conflicts"
+msgstr ". Edit تضادهای &"
+
+#: Control-ID:1099,#:
+#: Control-ID:1282,
+msgid "&Edit..."
+msgstr "ﻥﺘﺴﺍﺭﻴﻭ&"
+
+#: Control-ID:1023,
+msgid "&Enable Proxy Server"
+msgstr "ﻥﺘﺨﺎﺴ ﺭﺩﺎﻘ ‘ﻥﺘﺨﺎﺴ ﺎﻨﺍﻭﺘﻥﺩﺍﺩ ﻯﺍﺭﻯﺭﮔﻴﺩ ﻰﮔﺩﻨﻴﺎﻤﻨﺒ ‘ﻩﻤﺎﻨﺘﻠﺎﻜﻭ ‘ﺕﻠﺎﻜﻭ ‘ﻩﺩﻨﻴﺎﻤﻨ ‘ﻝﻴﻜﻭﺩﻨﺯﻴﻤ ﺍﺭ ﭖﻭﺘ ﻩﻜ ﻰﻨﻜﻴﺯﺎﺒ(ﻯﺯﺎﺒ ﺭﺩ) ‘ﺭﻜﻭﻨ ‘ﻩﺩﻨﻨﻜ ﻙﻤﻜ ‘ﺭﺎﻜﺘﻤﺩﺨ ‘ﺭﺍﺫﮔﺘﻤﺩﺨ &"
+
+#: Control-ID:1213,
+msgid "&Enter a message describing why you are locking the file(s)."
+msgstr "واردنماییدیک توصیف کردن پیام چراشماداریدپرونده هاقفل می شوید &"
+
+#: MenuEntry
+msgid "&Exit"
+msgstr "ﻥﺩﺸ ﺝﺭﺎﺨ ‘ﺝﺭﺨﻤ ‘ﻭﺭﺭﺩ&"
+
+#: ID:323,
+#, fuzzy
+msgid "&Export selection to..."
+msgstr "به Export انتخاب &"
+
+#: Control-ID:1092,#:
+#: Control-ID:1095,
+msgid "&External"
+msgstr "ﻰﺠﺭﺎﺨ&"
+
+#: MenuEntry#:
+#: MenuEntry
+msgid "&File"
+msgstr "فایل &"
+
+#: MenuEntry
+msgid "&Filter"
+msgstr " ﻰﻔﺎﺼ&"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "ﺵﺒﺎﻴ ‘ﻑﻭﺸﻜﻤ ‘ﻩﺘﻔﺎﻴ ﺯﻴﭽ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ‘ﻥﺩﺭﻜ ﻑﺸﻜ ‘ﻥﺩﺍﺩ ﺹﻴﺨﺸﺘ ‘ﻥﺘﺴﺠ ‘ﻥﺘﻔﺎﻴ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ&"
+
+#: MenuEntry
+msgid "&Find..."
+msgstr "ﺵﺒﺎﻴ ‘ﻑﻭﺸﻜﻤ ‘ﻩﺘﻔﺎﻴ ﺯﻴﭽ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ‘ﻥﺩﺭﻜ ﻑﺸﻜ ‘ﻥﺩﺍﺩ ﺹﻴﺨﺸﺘ ‘ﻥﺘﺴﺠ ‘ﻥﺘﻔﺎﻴ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ&"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Fit Images in window"
+msgstr "درپنجره Fit تصویرهای &"
+
+#: Control-ID:1050,
+#, fuzzy
+msgid "&Fixed drives"
+msgstr "می راند Fixed &"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "&Font for log messages:"
+msgstr "برای پیام هاکنده : Font &"
+
+#: Control-ID:65535,
+msgid "&Font:"
+msgstr "ﺵﺒﺎﻴ ‘ﻑﻭﺸﻜﻤ ‘ﻩﺘﻔﺎﻴ ﺯﻴﭽ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ‘ﻥﺩﺭﻜ ﻑﺸﻜ ‘ﻥﺩﺍﺩ ﺹﻴﺨﺸﺘ ‘ﻥﺘﺴﺠ ‘ﻥﺘﻔﺎﻴ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ&"
+
+#: ID:501,#:
+#: Control-ID:65535,
+#, fuzzy
+msgid "&From URL:"
+msgstr "از : URL &"
+
+#: Control-ID:1259,
+#, fuzzy
+msgid "&From WC at URL:"
+msgstr ": URL ازدر WC &"
+
+#: Control-ID:65535,
+msgid "&From revision"
+msgstr "تجدیدنظراز &"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Go To Line..."
+msgstr ". Go به Line &"
+
+#: Control-ID:1115,#:
+#: Control-ID:1032,
+msgid "&HEAD Revision"
+msgstr "ﻥﺩﺸ ﻊﻘﺍﻭ ﻻﺎﺒﺭﺩ ‘ﻥﺩﺭﻜ ﻯﺭﺒﻫﺭ ‘ﺭﺒ ﻥﺘﺸﺍﺩ ﺕﺴﺎﻴﺭ ‘ﻥﺩﺭﻜﺭﺴﻯﺍﺭﺍﺩ ‘ﻩﺒ ﻥﺘﺸﺍﺫﮔﺭﺴﺭﻅﻨ ﺩﻴﺩﺠﺘ:(vt.) ‘ﻡﻬﻤ ‘ﻩﺩﻤﻋ ‘ﻰﻠﺼﺍ ‘ﺕﺨﺭﺩ&"
+
+#: Control-ID:1032,#:
+#: Control-ID:1019,#:
+#: Control-ID:1034,#:
+#: Control-ID:1032,
+#, fuzzy
+msgid "&HEAD revision"
+msgstr ". HEAD تجدیدنظر &"
+
+#: Control-ID:1182,
+msgid "&HEAD revision in the repository"
+msgstr "ﺭﺍﺩﺯﺍﺭ ‘ﻑﺭﻅ ‘ﺕﻭﺒﺎﺘ ﻕﻭﺩﻨﺼ ‘ﻥﺯﺨﻤ ‘ﺭﺎﺒﻨﺍﻥﺩﺸ ﻊﻘﺍﻭ ﻻﺎﺒﺭﺩ ‘ﻥﺩﺭﻜ ﻯﺭﺒﻫﺭ ‘ﺭﺒ ﻥﺘﺸﺍﺩ ﺕﺴﺎﻴﺭ ‘ﻥﺩﺭﻜﺭﺴﻯﺍﺭﺍﺩ ‘ﻩﺒ ﻥﺘﺸﺍﺫﮔﺭﺴﺭﻅﻨ ﺩﻴﺩﺠﺘ:(vt.) ‘ﻡﻬﻤ ‘ﻩﺩﻤﻋ ‘ﻰﻠﺼﺍ ‘ﺕﺨﺭﺩ"
+
+#: MenuEntry#:
+#: Control-ID:57670,#:
+#: MenuEntry
+msgid "&Help"
+msgstr "ﺭﻭﺩﺯﻤ ‘ﺭﻜﻭﻨ ‘ﺩﺩﻤ ‘ﺕﺩﻋﺎﺴﻤ‘ﻯﺭﺎﻴ ‘ﻙﻤﻜ ‘ﻥﺩﺭﻜ ﻩﺭﺎﭽﻥﺩﺭﻜﺭﺘﻬﺒ ‘ﻥﺩﻨﺎﺴﺭ ﺩﺩﻤ ‘ﻥﺩﺭﻜ&"
+
+#: MenuEntry
+msgid "&Help Topics"
+msgstr "ﻭﺩﺯﻤ ‘ﺭﻜﻭﻨ ‘ﺩﺩﻤ ‘ﺕﺩﻋﺎﺴﻤ‘ﻯﺭﺎﻴ ‘ﻙﻤﻜ ‘ﻥﺩﺭﻜ ﻩﺭﺎﭽﻥﺩﺭﻜﺭﺘﻬﺒ ‘ﻥﺩﻨﺎﺴﺭ ﺩﺩﻤ ‘ﻥﺩﺭﻜ"
+
+#: ID:3842,#:
+#: ID:3842,
+msgid "&Hide"
+msgstr "ﻥﺩﺯ ﻕﻻﺸ ﺕﺨﺴ (.ﺠﻤ) ‘ﻥﺩﻨﻜﺕﺴﻭﭙ ‘ﻥﺘﻔﻬﻨ ‘ﻥﺩﺸ ﻥﺎﻬﻨﭙ ‘ﻥﺘﺸﺍﺩ ﻩﺎﮔﻨ ﻰﻔﺨﻤ ‘ﻥﺩﻴﺸﻭﭙ&"
+
+#: Control-ID:1170,
+msgid "&Icon Set:"
+msgstr " ﺭﻰﺤﻴﺴﻤ ﻥﻴﺴﺩﻘﻤﺎﻴﻭ ﻡﻴﺭﻤﺎﻴﺡﻴﺴﻤ ﺕﺭﻀﺤ ﺭﻴﻭﺼﺘ ‘ﺭﻴﻭﺼﺘ ‘ﺭﻜﻴﭙ ‘ﺱﻴﺩﻨﺘ ‘ﻝﺎﺜﻤﺘ ‘ﻝﻴﺎﻤﺸﻩﺎﮔﺘﺴﺩ ‘ﻥﺩﻨﺎﺸﻨ ‘ﻩﻋﻭﻤﺠﻤ&"
+
+#: ID:15,
+#, c-format
+msgid "&Ignore %d items"
+msgstr "اقلام %d &Ignore"
+
+#: Control-ID:1021,
+#, fuzzy
+msgid "&Ignore whitespace changes"
+msgstr "&تغييراتيى whitespace ناديده بپندار"
+
+#: MenuEntry
+msgid "&Image Info"
+msgstr "اطلاعات تصویر &"
+
+#: ID:9,
+msgid "&Import..."
+msgstr "واردات &"
+
+#: Control-ID:1016,
+#, fuzzy
+msgid "&Jump to first difference when loading"
+msgstr "به اول تفاوت چه موقع بارگیری Jump &"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&Language:"
+msgstr "زبان.&"
+
+#: Control-ID:1065,
+#, fuzzy
+msgid "&Limit search to modified lines"
+msgstr "به خطهای تعدیل شده Limit جستجو &"
+
+#: MenuEntry
+msgid "&Link images together"
+msgstr "تصویرهای اتصال باهمدیگر &"
+
+#: Control-ID:1172,
+#, fuzzy
+msgid "&List View"
+msgstr ". List مشاهده &"
+
+#: Control-ID:1309,
+msgid "&Load..."
+msgstr "بار &"
+
+#: Control-ID:1,
+msgid "&Merge"
+msgstr "بار &"
+
+#: ID:9,
+msgid "&Merge..."
+msgstr "به تدریج ادغام می شود &"
+
+#: Control-ID:1012,
+msgid "&Merging"
+msgstr "الحاق &"
+
+#: Control-ID:1129,
+#, fuzzy
+msgid "&Native filesystem (FSFS)"
+msgstr ". ( FSFS filesystem ) محلی &"
+
+#: MenuEntry
+msgid "&Navigate"
+msgstr "جهت یابی می کند &"
+
+#: Control-ID:1049,
+msgid "&Network drives"
+msgstr "شبکه می راند &  "
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&New "
+msgstr "جدید &"
+
+#: Control-ID:1208,
+#, fuzzy
+msgid "&Next 100"
+msgstr "ﺭﺎﻨﻜ ‘ﺏﻨﺠ ‘ﺩﻌﺒ ‘ﺱﭙﺴ ‘ﻥﺍﺯﺍ ﺱﭙ ‘ﻥﻴﺭﺘ ﻙﻴﺩﺯﻨ ‘ﺭﻭﺎﺠﻤ ‘ﻰﺒﻨﺠ ‘ﻰﻴﻭﻠﻬﭙ ‘ﻩﺩﻨﻴﺍ ‘ﺭﮔﻴﺩ &‘ﺩﻌﺒ100"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Next Difference"
+msgstr "بعد Difference &"
+
+#: Control-ID:1,#:
+#: Control-ID:1,
+msgid "&OK"
+msgstr "ﺏﻴﻭﺼﺘ ‘ﻩﺯﺎﺠﺍ ‘ﻥﺩﺭﻜ ﺕﻘﻔﺍﻭﻤ‘ﻥﺩﺭﻜ ﺏﻴﻭﺼﺘ ‘ﺏﻭﺨ ﺭﺎﻴﺴﺒ ‘ﺏﻭﺨ ‘ﺕﺴﺍ ﺡﻴﺤﺼ& (okay)"
+
+#: MenuEntry
+msgid "&Open"
+msgstr "&ﻥﺩﺸ ﺯﺎﺒ ‘ﻥﺩﺭﻜ ﺯﺎﺒ ‘ﺭﺎﻜﺸﺍ ‘ﺩﺍﺯﺍ ‘ﺯﺎﺒ"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Open Ctrl-O"
+msgstr "&Open Ctrl-O"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Overlap images"
+msgstr ". Overlap تصویرهای &"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "&Password:"
+msgstr "ﺯﻤﺭ ﻡﺴﺍ ‘ﺯﻤﺭ ﻩﻤﻠﻜ&"
+
+#: ID:376,
+msgid "&Paste"
+msgstr "ﻥﺩﺯ ﺭﻴﻤﺨ ‘ﻩﺒ ﻥﺩﺯ ﺏﺴﭽ ‘ﻥﺩﻨﺎﺒﺴﭽ ‘ﻰﻨﻴﺭﻴﺸ ﻰﻋﻭﻨ ‘ﺭﻴﻤﺨ ﺎﻴ ﻝﮔ ‘ﺵﻴﺭﺴ ‘ﺏﺴﭽ ‘ﺭﻴﻤﺨ&"
+
+#: Control-ID:65535,
+msgid "&Port:"
+msgstr "ﺭﺩﻨﺒ ‘ﻩﺎﮔﺭﺩ&"
+
+#: MenuEntry
+msgid "&Previous Difference"
+msgstr "&Previous Difference"
+
+#: Control-ID:11021,
+msgid "&Properties..."
+msgstr "ﻥﻴﻌﻤ ﺹﺍﻭﺨ ﻰﺍﺭﺍﺩ ‘ﻥﻜﻤﺘﻤ ‘ﻙﻻﻤ ‘ﺭﺍﺩ ﻡﺎﻬﺴ&"
+
+#: Control-ID:1246,#:
+#: Control-ID:1246,
+#, fuzzy
+msgid "&Recent messages"
+msgstr ". Recent پیام ها &"
+
+#: ID:376,
+msgid "&Redo"
+msgstr "ﺩﺭﻜ ﻥﻴﺌﺯﺘ ﺍﺭ ﻕﺎﺘﺍ ﻩﺭﺎﺒﻭﺩ ‘ﻥﺩﺍﺩ ﻡﺎﺠﻨﺍ ﻩﺭﺎﺒﻭﺩ&"
+
+#: Control-ID:1100,#:
+#: Control-ID:1285,
+msgid "&Remove"
+msgstr "ﻥﺩﺭﻜ ﻝﺯﻋ ‘ﻥﺩﺭﻜ ﻊﻔﺭ ‘ﻥﺩﺭﻜ ﺕﺸﺍﺩﺭﺒ&"
+
+#: ID:101,
+#, fuzzy
+msgid "&Rename"
+msgstr "&Rename"
+
+#: Control-ID:1316,
+#, fuzzy
+msgid "&Reopen commit dialog after a commit failed"
+msgstr "شکست خورده شده commit بعدازیک Dialog commit Reopen &"
+
+#: ID:13,
+msgid "&Repo-browser"
+msgstr "&Repo-browser"
+
+#: ID:113,
+#, fuzzy
+msgid "&Revert changes from this revision"
+msgstr "این تجدیدنظرتغییرموقعیت می دهد Revert &"
+
+#: Control-ID:1033,#:
+#: Control-ID:1116,#:
+#: Control-ID:1035,#:
+#: Control-ID:1033,
+msgid "&Revision"
+msgstr "ﺭﻅﻨ ﺩﻴﺩﺠﺘ&"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "&SSH client:"
+msgstr ": SSH سرویس گیرنده &"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Save Ctrl-S"
+msgstr "&Save Ctrl-S"
+
+#: Control-ID:1023,#:
+#: Control-ID:1023,
+#, fuzzy
+msgid "&Save authentication"
+msgstr ". Save تاییداعتبار &"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Save graph as..."
+msgstr "چنانچه Save نمودار &"
+
+#: ID:322,
+msgid "&Save list of selected files to..."
+msgstr "انتحاب شده به بایگانی می کند Save لیست &"
+
+#: Control-ID:1308,
+msgid "&Save..."
+msgstr "ﻩﻜﻨﻴﺍ ﺯﺠﺒ ‘ﺯﺠﺒ ﻁﻘﻔ ‘ﻥﺩﺭﻜ ﺯﺍﺩﻨﺍﺱﭙ ‘ﻥﺘﺨﻭﺩﻨﺍ ‘ﻥﺘﺸﺍﺩ ﻩﺎﮔﻨ ‘ﻥﺩﻴﺸﺨﺒ ﻰﻴﺎﻫﺭ ‘ﻥﺩﺍﺩ ﺕﺭﺎﺠﻨ&"
+
+#: ID:9,
+msgid "&Settings"
+msgstr "ﻥﺩﻨﺎﺸﻨ ‘ﻩﻨﻴﻤﺯ ‘ﻁﻴﺤﻤ&"
+
+#: Control-ID:1185,
+#, fuzzy
+msgid "&Specific revision in repository"
+msgstr "درمخزن Specific تجدیدنظر &"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Status Bar"
+msgstr "وضعیت Bar &"
+
+#: Control-ID:1211,
+#, fuzzy
+msgid "&Steal the locks"
+msgstr "قفلها Steal &"
+
+#: Control-ID:1130,
+#, fuzzy
+msgid "&Stop on copy/rename"
+msgstr ". copy / rename در ( روی ) Stop &"
+
+#: Control-ID:1173,
+#, fuzzy
+msgid "&Symbol View"
+msgstr ". Symbol مشاهده &"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "&Tab size:"
+msgstr ": Tab اندازه &"
+
+#: Control-ID:1222,
+#, fuzzy
+msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgstr "تجزیه توقف می کند autocompletion درثانیه هاکه Timeout &"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "&To Revision"
+msgstr "به Revision &"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+#, fuzzy
+msgid "&To URL:"
+msgstr "به : URL &"
+
+#: Control-ID:1305,
+#, fuzzy
+msgid "&To URL: "
+msgstr "به : URL &"
+
+#: MenuEntry
+msgid "&Toolbar"
+msgstr "&Toolbar"
+
+#: Control-ID:1091,#:
+#: Control-ID:1094,
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
+
+#: ID:9,
+msgid "&TortoiseSVN"
+msgstr "&TortoiseSVN"
+
+#: Control-ID:65535,#:
+#: Control-ID:1058,#:
+#: Control-ID:65535,
+#, fuzzy
+msgid "&URL of repository:"
+msgstr "مخزن : URL &"
+
+#: Control-ID:1076,
+msgid "&URL:"
+msgstr "&URL:"
+
+#: ID:376,
+msgid "&Undo"
+msgstr "ﻥﺩﺭﻜ ﺯﺎﺒ ‘ﻥﺩﺭﻜ ﻭﺭﺒﺍﻰﺒ ‘ﻥﺩﺭﻜ ﻊﻴﺎﻀ ‘ﻥﺩﺭﻜﺏﺍﺭﺨ ‘ﻥﺩﺭﻜ ﻝﻁﺎﺒ ‘ﻥﺩﺭﻜ ﻰﺜﻨﺨ ‘ﻥﺩﺭﻜﺭﺜﺍﻰﺒ ‘ﻥﺩﻴﭽﺍﻭ&"
+
+#: MenuEntry
+msgid "&Undo\tCtrl+Z"
+msgstr "&Undo\tCtrl+Z"
+
+#: MenuEntry
+msgid "&Unified diff"
+msgstr "&Unified diff"
+
+#: Control-ID:1061,
+msgid "&Unknown drives"
+msgstr "ناشناخته می راند &"
+
+#: ID:8,
+msgid "&Update"
+msgstr "به روزآوری &"
+
+#: ID:76,
+msgid "&Update item to revision"
+msgstr "قلم به روزآوری به تجدیدنظر &"
+
+#: ID:11,
+msgid "&Update to revision..."
+msgstr "به روزآوری به تجدیدنظر &"
+
+#: Control-ID:1184,
+#, fuzzy
+msgid "&Use autocompletion of filepaths and keywords"
+msgstr "وکلمات کلیدی autocompletion استفاده &"
+
+#: Control-ID:65535,#:
+#: Control-ID:1005,#:
+#: Control-ID:65535,
+msgid "&Username:"
+msgstr "&Username:"
+
+#: MenuEntry#:
+#: MenuEntry
+msgid "&View"
+msgstr "مشاهده &"
+
+#: MenuEntry
+msgid "&Whitespaces"
+msgstr "&Whitespaces"
+
+#: Control-ID:1066,
+#, fuzzy
+msgid "&Whole word"
+msgstr ". Whole کلمه &"
+
+#: Control-ID:1183,
+#, fuzzy
+msgid "&Working copy"
+msgstr ". Working نسخه &"
+
+#: ID:17,#:
+#: ID:564,
+msgid "(binary value)"
+msgstr ") ارزش دوتایی ( ."
+
+#: ID:219,
+msgid "(dry run)"
+msgstr ") تمرین ( ."
+
+#: ID:208,
+msgid "(multiple targets selected)"
+msgstr ") هدفهای چندگانه ( انتخاب کردند"
+
+#: ID:314,
+msgid "(not found)"
+msgstr ") نه ( یافت "
+
+#: ID:208,
+msgid "(property change only)"
+msgstr ") تغییردارایی تنها ( ."
+
+#: ID:188,
+#, c-format
+msgid "+ %d"
+msgstr "+ %d"
+
+#: ID:188,
+#, c-format
+msgid "- %d"
+msgstr "- %d"
+
+#: Control-ID:1035,#:
+#: Control-ID:1036,#:
+#: Control-ID:1187,#:
+#: Control-ID:1104,#:
+#: Control-ID:1021,#:
+#: Control-ID:1022,#:
+#: Control-ID:1089,#:
+#: Control-ID:1324,#:
+#: Control-ID:1333,#:
+#: Control-ID:1002,#:
+#: Control-ID:1003,
+msgid "..."
+msgstr "..."
+
+#: ID:151,
+#, c-format
+msgid ": Revision %d"
+msgstr "%d تجدیدنظر "
+
+#: ID:151,
+msgid ": working base"
+msgstr "پایه کاری"
+
+#: ID:151,
+msgid ": working copy"
+msgstr "نسخه کاری"
+
+#: ID:145,
+#, fuzzy
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr "یک بسطپوسته است < / b > TortoiseSVN > B <جهانگردویندوزادغام شده است ( سوی ) منظورداردآن به N Thatright - click جهانگردرابازبکندو < / b > TortoiseSVN > B به کارمی بردلطفا < \" N به B شماتمام < ( جائیکه ) دوست داریدکه فهرست بافت راتربیت بکنندکجا n ) روی ( درپوشه ای شما دستورهاخواهیدیافت < / b > TortoiseSVN >خواند < / u راهنما > ! > U < N And   "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A hardware I/O error was reported while accessing %1."
+msgstr ""
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A locking violation occurred while accessing %1."
+msgstr ""
+
+#: ID:201,
+#, fuzzy
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+msgstr "یک نگارش جدیدتردردسترس است وانتقال نگارش جاری بروید ! // tortoisesvn . tigris . org : http لطفابه \""
+
+#: ID:195,
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr "نشان نشان داده شده اند overlays فهرست مسیرهاجداشدکه newline یک درون subdirs شمایک مستخدم زن درانتهای یک مسیر،آنوقت تمام پرونده هاو N Ifاضافه می نماییدکه همچنین مسیرشامل بوده شده اند "
+
+#: ID:194,
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr "نشان نشان داده نشده اند overlays فهرست مسیرهاجداشدکه هیچ newline یک درون subdirs شمایک مستخدم زن درانتهای یک مسیر،آنوقت تمام پرونده هاو N Ifاضافه می نماییدکه همچنین مسیرمانع شده اند درتمام مسیرهااجازه خواهدداد ( روی ) خالی N An فهرست  "
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "A required resource was unavailable."
+msgstr "یک منابع لازم خارج ازدسترس بود "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "A sharing violation occurred while accessing %1."
+msgstr "یک نقض شریک بودنی زمانیکه بادست یافتن ۱ رخ داد % "
+
+#: ID:79,
+#, fuzzy
+msgid ""
+"A viewer program for GNU diff files (patch files).\n"
+"If you don't have one use NotePad."
+msgstr "بایگانی بکند ( وصله ) بایگانی می کند diff GNU یک برنامه ببیننده برای به کاربرد NotePad شمانداریدیکی N If "
+
+#: ID:9,
+msgid "A&bout"
+msgstr "یک مسابقه &"
+
+#: ID:101,
+#, fuzzy
+msgid "A&dd folder..."
+msgstr ". Dd یک پوشه & "
+
+#: ID:73,
+msgid "Abort"
+msgstr "ناتمام بمانید"
+
+#: Dlg-ID:136,
+#, fuzzy
+msgid "About TortoiseMerge"
+msgstr "درباره TortoiseMerge"
+
+#: Dlg-ID:129,
+#, fuzzy
+msgid "About TortoiseSVN"
+msgstr "درباره TortoiseSVN"
+
+#: ID:82,
+msgid "Accept once"
+msgstr "یکی بپذیرید"
+
+#: ID:82,
+msgid "Accept permanently"
+msgstr "برای همیشه بپذیرید"
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Access to %1 was denied."
+msgstr "دست بیابیدبه ۱ انکارشد %"
+
+#: ID:77,#:
+#: ID:319,
+msgid "Action"
+msgstr "عمل"
+
+#: ID:117,
+msgid "Actions"
+msgstr "عملها "
+
+#: ID:3826,
+msgid "Activate Task List"
+msgstr "فعال کنید Task List   "
+
+#: ID:209,#:
+#: Dlg-ID:155,
+msgid "Add"
+msgstr "اضافه بنمایید"
+
+#: ID:101,
+msgid "Add &file..."
+msgstr "پرونده اضافه بنمایید &"
+
+#: ID:376,
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "به فرهنگ اضافه بنمایید '% s ( متعلق به ) مال "
+
+#: ID:16,
+msgid "Add (as replacement)..."
+msgstr ") چنانچه جایگزینی ( اضافه بنمایید"
+
+#: ID:563,
+msgid "Add Properties"
+msgstr "دارایی هااضافه بنمایید "
+
+#: ID:110,
+msgid "Add extension specific diff program"
+msgstr "برنامه اضافه بنمایید diff بسطخاص "
+
+#: ID:110,
+msgid "Add extension specific merge program"
+msgstr "برنامه اضافه بنمایید merge بسطخاص   "
+
+#: ID:13,
+msgid "Add to &ignore list"
+msgstr "اضافه کنیدفهرست نادیده بگیرد & "
+
+#: Control-ID:1279,
+msgid "Add..."
+msgstr "اضافه بنمایید"
+
+#: Dlg-ID:171,
+#, fuzzy
+msgid "Add/Edit Extension Specific Diff/Merge Program"
+msgstr ". Add / edit توسعه Specific Diff / Merge برنامه "
+
+#: ID:73,#:
+#: ID:264,#:
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "Added"
+msgstr "اضافه شده "
+
+#: ID:126,
+msgid "Added a file remotely"
+msgstr "ازراه دورپرونده اضافه شده "
+
+#: ID:126,
+msgid "Added a folder remotely"
+msgstr "ازراه دورپوشه اضافه شده "
+
+#: ID:126,
+msgid "Added items remotely"
+msgstr "ازراه دوراقلام اضافه شده "
+
+#: Control-ID:65535,
+msgid "Added node"
+msgstr "گره اضافه شده "
+
+#: ID:145,
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the ignore list."
+msgstr ""
+
+#: ID:263,
+msgid "Adding"
+msgstr "بااضافه کردن"
+
+#: ID:9,
+#, fuzzy
+msgid "Adds file(s) to Subversion control"
+msgstr "بایگانی می کند Subversion آگهی هابه کنترل "
+
+#: ID:13,
+#, fuzzy
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "فهرست رابایگانی می کند ' ignore به ' filemask آگهی هاانتحاب شده ی"
+
+#: ID:2049,
+msgid ""
+"Adjust the settings\n"
+"Settings"
+msgstr "تنطیم بشوید n آرایش ها "
+
+#: Dlg-ID:170,
+#, fuzzy
+msgid "Advanced Diff/Merge Settings"
+msgstr "پیشرفته Diff / Merge"
+
+#: ID:110,
+#, fuzzy
+msgid "Advanced diff settings"
+msgstr "آرایش ها diff پیشرفته "
+
+#: ID:110,
+msgid "Advanced merge settings"
+msgstr "پیشرفته آرایش هابه تدریج ادغام می شود"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "All Files (*.*)"
+msgstr "تمام فایل ها ( ."
+
+#: ID:157,#:
+#: ID:157,
+msgid "All Files (*.*)|*.*||"
+msgstr "All Files (*.*)|*.*||"
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to access %1 past its end."
+msgstr "یک کوشش ساخته شدکه ۱ گذشته پایانش دست بیابد %"
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to read from the writing %1."
+msgstr "یک کوشش ساخته شدکه ازنوشتن ۱ بخواند %"
+
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An attempt was made to write to the reading %1."
+msgstr "یک کوشش ساخته شدکه به خواندن ۱ بنویسد %  "
+
+#: ID:78,
+#, c-format
+msgid ""
+"An external diff program used\n"
+"for comparing different revisions of files\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%base\tthe base file\n"
+"%mine\tthe modified file"
+msgstr "برای مقایسه کردن تجدیدنظرهای متفاوت پرونده ها< n برنامه به کاربرد diff یک خارجی شمامی توانیدعاملهای دنباله رابه مسیرمشخص کنید : N % > Hr n ۱۰۰. Tthe پرونده تعدیل شده n % mine پایه Tthe پرونده % base N "
+
+#: ID:79,
+#, c-format
+msgid ""
+"An external merge program used\n"
+"to resolve conflicted files.\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%merged\tthe conflicted file, where to save\n"
+"%theirs\t\tthe file as it is in the repository\n"
+"%mine\t\tyour own file, with your changes\n"
+"%base\t\tthe original file without your changes"
+msgstr ""
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An invalid argument was encountered."
+msgstr "یک مباحثه بی اعتبارمواجه شد "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "An invalid file handle was associated with %1."
+msgstr "یک دسته پرونده بی اعتباروابسته با ۱ بود %"
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "An unexpected error occurred while reading %1."
+msgstr "یک اشتباه پیش بینی نشده زمانیکه باخواندن ۱ رخ داد %"
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "An unexpected error occurred while writing %1."
+msgstr "یک اشتباه پیش بینی نشده زمانیکه نوشتن ۱ رخ داد %"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An unknown error has occurred."
+msgstr "یک اشتباه ناشناخته رخ داده است    "
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+#, c-format
+msgid "An unknown error occurred while accessing %1."
+msgstr "یک اشتباه ناشناخته زمانیکه بادست یافتن ۱ رخ داد %     "
+
+#: ID:63,
+#, c-format
+msgid "An unknown line type was found in line %d !"
+msgstr "پیداشد % d یک نوع خطناشناخته درخط "
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "An unsupported operation was attempted."
+msgstr "یک کارکردبدون تکیه گاه کوشیده شد"
+
+#: ID:269,
+msgid "Analyze revision data..."
+msgstr "داده هاتجدیدنظرتجزیه کنید "
+
+#: ID:14,
+msgid "Applies a unified diff file to the working copy"
+msgstr "پرونده به نسخه کاری diff بایک واحد "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ". files / folders بابه طوربازگشتی دارایی هابه تمام دارایی هاتنهابه پوشه هادرخواست شده اند  "
+
+#: ID:13,
+msgid "Apply &patch..."
+msgstr "تقاضاوصله &     "
+
+#: Control-ID:1294,
+msgid "Apply property recursively"
+msgstr "به طوربازگشتی دارایی تقاضا "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Apply unified diff"
+msgstr "متحدکرد diff تقاضا "
+
+#: ID:145,
+#, fuzzy
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "بایگانی بکندچنانچه ؟حل بکند conflicted هستیدکه علامت بگذارند want شمامطمئن شما "
+
+#: ID:79,
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr ""
+
+#: MenuEntry
+#, fuzzy
+msgid "Arrange &Vertical"
+msgstr "تدارک بینید Vertical &"
+
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "تدارک دیده شده بوسیله مسیر & "
+
+#: ID:2050,
+#, fuzzy
+msgid "Arranges the nodes sorted by path"
+msgstr "گره هابوسیله مسیرجورکردند Arranges"
+
+#: ID:77,
+#, c-format
+msgid "At revision: %d"
+msgstr ""
+
+#: Dlg-ID:131,#:
+#: Dlg-ID:160,
+msgid "Authentication"
+msgstr "اثبات"
+
+#: Control-ID:1278,
+msgid "Authentication data"
+msgstr "داده هااثبات "
+
+#: ID:76,#:
+#: ID:207,#:
+#: ID:19,
+msgid "Author"
+msgstr "مولف "
+
+#: Control-ID:65535,
+msgid "Author:                        Stefan Kueng"
+msgstr "Author:                        Stefan Kueng"
+
+#: ID:116,
+msgid "Authors"
+msgstr "نویسنده ها "
+
+#: Control-ID:1265,
+msgid "Authors case insensitive"
+msgstr "موردنویسنده هاناحساس "
+
+#: Control-ID:65535,
+msgid "Authors:"
+msgstr "نویسنده ها : "
+
+#: ID:99,
+#, fuzzy
+msgid "Auto Rename"
+msgstr "اتومبیل Rename"
+
+#: ID:222,
+#, fuzzy
+msgid "Auto-close for local operations"
+msgstr "برای کارکردهای محلی ها Auto - close"
+
+#: ID:222,
+#, fuzzy
+msgid "Auto-close if no conflicts"
+msgstr "اگرهیچ تضاد Auto - close"
+
+#: ID:222,
+#, fuzzy
+msgid "Auto-close if no errors"
+msgstr "اگرهیچ اشتباه Auto - close"
+
+#: ID:222,
+#, fuzzy
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "اگرنه به تدریج ادغام نشود،اضافه بنمایدیاحذف بکند Auto - close"
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr "ازپرونده هابنامدکه شما N ( معمولاکلاس پیشنهادمی کندیاعضو ) واژه ها Autocompleteبصورت شمانوع یک پیام کنده تغییردهید "
+
+#: ID:438,#:
+#: ID:438,
+msgid "Automatic"
+msgstr "خودکار"
+
+#: Control-ID:1073,
+msgid "Automatically check for &newer versions every week"
+msgstr "بازبینی خودکاربه نگارش هاجدیدترهرهفته &     "
+
+#: Control-ID:1157,
+#, fuzzy
+msgid "Average"
+msgstr "میانگین به دست بیاورید   Powered by Pars Translator info@parstranslator.comMabnasoft , All rights reserved 1999-2006  "
+
+#: Control-ID:1001,
+msgid "B&rowse..."
+msgstr "B&rowse..."
+
+#: ID:246,
+#, fuzzy
+msgid "Bar Graph"
+msgstr "میله Graph"
+
+#: Control-ID:65535,
+msgid "Base file:"
+msgstr "پرونده پایه : "
+
+#: Dlg-ID:162,
+msgid "Blame"
+msgstr "سرزنش کنید"
+
+#: ID:13,
+msgid "Blames each line of a file on an author"
+msgstr "سرزنش هاهرخطازیک پرونده ) روی ( دریک نویسنده     "
+
+#: Control-ID:1003,
+msgid "Br&owse..."
+msgstr "Br&owse..."
+
+#: ID:115,
+msgid "Branch / tag created successfully!"
+msgstr "شعبه برچسب باموفقیت ایجادکرد ! /"
+
+#: ID:9,
+#, fuzzy
+msgid "Branch/&tag..."
+msgstr "برچسب & Branch /"
+
+#: ID:16,
+#, fuzzy
+msgid "Break loc&k"
+msgstr "بشکنید K loc &"
+
+#: Control-ID:1009,
+msgid "Bro&wse..."
+msgstr "Bro&wse..."
+
+#: Control-ID:1007,
+msgid "Brows&e..."
+msgstr "Brows&e..."
+
+#: ID:78,
+#, fuzzy
+msgid "Browse for the external diff program"
+msgstr "برنامه بررسی کنید diff برای خارجی "
+
+#: Control-ID:1069,
+msgid "Browse..."
+msgstr "بررسی کنید"
+
+#: Control-ID:1119,
+#, fuzzy
+msgid "Bug-&ID / Issue-Nr:"
+msgstr ": Issue - Nr شناسایی / & Bug -"
+
+#: ID:116,
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
+#: Control-ID:1119,
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
+
+#: Control-ID:1215,
+#, fuzzy
+msgid "C&heck now"
+msgstr "حالا Heck & C"
+
+#: ID:101,
+#, fuzzy
+msgid "C&reate folder..."
+msgstr ". Reate پوشه & C"
+
+#: ID:77,
+#, fuzzy
+msgid "C&reate tag from revision"
+msgstr "ازتجدیدنظر Reate برچسب & C"
+
+#: ID:3697,
+msgid "CAP"
+msgstr "کلاه "
+
+#: ID:82,
+#, c-format
+msgid ""
+"Can't copy \n"
+"%s\n"
+"to\n"
+"%s"
+msgstr "رونوشت بگیرد n % s به N n % s نمی تواند "
+
+#: ID:73,#:
+#: ID:99,#:
+#: ID:563,#:
+#: Control-ID:2,#:
+#: Control-ID:2,
+msgid "Cancel"
+msgstr "باطل کنید"
+
+#: ID:132,
+#, fuzzy
+msgid "Cancelling TortoiseSVN Blame..."
+msgstr ". TortoiseSVN Blame باباطل کردن "
+
+#: ID:270,
+msgid "Cancelling operation..."
+msgstr "باباطل کردن کارکرد "
+
+#: ID:68,
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "درپرونده نشان بدهد newlines بخاطرناسازگار diff نمی تواند "
+
+#: Control-ID:65535,
+msgid "Cascaded context menu"
+msgstr "فهرست بافت فروریخته شده"
+
+#: ID:82,
+msgid "Certificate expired or not yet valid"
+msgstr "گواهی یانه هنوزمعتبرمهلت منقضی شد "
+
+#: ID:82,
+#, c-format
+msgid "Certificate expired. Valid until: %s"
+msgstr ""
+
+#: ID:82,
+#, c-format
+msgid "Certificate not yet valid. Valid from: %s"
+msgstr ""
+
+#: ID:157,
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgstr "تصدیق ها "
+
+#: ID:3825,
+msgid "Change the window position"
+msgstr "موضع پنجره تغییربدهید "
+
+#: ID:3825,
+msgid "Change the window size"
+msgstr "اندازه پنجره تغییربدهید"
+
+#: Dlg-ID:199,
+msgid "Changed Files"
+msgstr "فایل های عوض شده "
+
+#: ID:324,
+#, c-format
+msgid "Changed files between %s, %s and %s, %s"
+msgstr "% s ، % s و % s ، % s پرونده های عوض شده مابین "
+
+#: ID:163,
+#, c-format
+msgid "Changed files: %d"
+msgstr ""
+
+#: Control-ID:1242,
+#, fuzzy
+msgid "Changes made (double-click on file for diff):"
+msgstr "ساخت : diff ( درپرونده به ( روی ) Double - click ( تغییرات "
+
+#: ID:8,
+msgid "Chec&kout..."
+msgstr "Chec&kout..."
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Check"
+msgstr "بررسی"
+
+#: Dlg-ID:174,
+msgid "Check For Updates"
+msgstr "به روزآوری های برای بررسی "
+
+#: Control-ID:1031,
+msgid "Check For Updates..."
+msgstr "به روزآوری های برای بررسی "
+
+#: ID:13,
+msgid "Check for modi&fications"
+msgstr ". modi بررسی به &"
+
+#: Control-ID:65535,
+msgid "Check for modifications"
+msgstr "بررسی برای اصلاحها "
+
+#: ID:9,
+msgid "Check out a working copy from a repository"
+msgstr "بررسی نماییدیک نسخه کاری ازیک گنجینه "
+
+#: Control-ID:1132,
+msgid "Check repository"
+msgstr "گنجینه بررسی "
+
+#: ID:95,
+msgid ""
+"Check the files which you want to\n"
+"delete before importing."
+msgstr "قبلاباواردکردن حذف کنید n بررسی پرونده هاکه شمامی خواهیدبه "
+
+#: ID:251,
+#, fuzzy
+msgid "Check the path and/or URL you've entered."
+msgstr "شماواردشده اید URL بررسی مسیرویا/"
+
+#: ID:194,
+#, fuzzy
+msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgstr "TortoiseSVN بررسی آنهاورودهای فهرست شمامی خواهیدکه درفهرست بافت بالابه جای ظاهربشوید submenu"
+
+#: ID:80,
+msgid "Check to use a less verbose date and time format in log messages"
+msgstr "بررسی که یک کمترتاریخ لفاظونظم زمان درپیام هاکنده به کارمی برد"
+
+#: ID:270,
+msgid "Checking for forward copies"
+msgstr "بررسی برای پیشرورونوشت می گیرد "
+
+#: Control-ID:65535,
+msgid "Checking if a newer version of TortoiseSVN is available..."
+msgstr "دردسترس است TortoiseSVN بررسی اگریک نگارش جدیدتر "
+
+#: Dlg-ID:133,
+msgid "Checkout"
+msgstr " ﻥﺘﻔﺭﮔ ﺕﻨﺎﻤﺍ ﻩﺒ ‘ﻰﺴﺭﺍﻭ"
+
+#: Control-ID:1074,
+#, fuzzy
+msgid "Checkout &directory:"
+msgstr "دفترراهنما : & Checkout"
+
+#: ID:146,
+msgid "Cleaning up."
+msgstr "تمیزکاری بالا "
+
+#: ID:79,
+msgid "Cleanup has finished"
+msgstr "پاکسازی تمام کرده است "
+
+#: ID:9,
+msgid "Cleanup interrupted operations, locked files, ..."
+msgstr "پاکسازی قطع کردکارکردها،پرونده ها،قفل بشود "
+
+#: Control-ID:1273,#:
+#: Control-ID:1275,#:
+#: Control-ID:1276,#:
+#: Control-ID:1279,
+msgid "Clear"
+msgstr "ﻥﺩﺭﻜ ﺹﻴﺨﺭﺘ ‘ﻥﺩﻭﺩﺯ ‘ﻑﺎﻔﺸ ‘ﺡﻀﺍﻭ"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "کپی کردنهای کاری ذخیره کرد %ld به URLs %ld پاکها "
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "کپی کردنهای کاری ذخیره کرد % ld پیام هاگزارش به % ld پاکها "
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "نام کاربرهاجفت می کند %ld و SSL ،تصدیق های %ld Username / password %ld پاکها "
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr "پاکهاتاییداعتبارذخیره شده خودتان باردیگربرای تمام مخزنهاواردبشوید username / password شماخواهیدداشت که N"
+
+#: ID:196,
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "محاوره ها % ld پاکهااندازه های ذخیره شده ووضعیتهااز "
+
+#: ID:170,
+msgid "Click here to select a recently typed message"
+msgstr "کلیک اینجابه انتخاب کردن یک اخیراپیام تایپ کرد \" "
+
+#: Control-ID:65535,
+msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
+msgstr "انشعاب فایل مبنی بربرنامه نویسی بکند diff درپیشرفته که مشخص بکندمتناوب ( روی ) کلیک "
+
+#: Control-ID:65535,
+msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
+msgstr "کلیک ) روی ( درپیشرفته که مشخص بکندادغام کردن متناوب انشعاب فایل مبنی بر برنامه نویسی بکند"
+
+#: ID:257,
+msgid "Clipboard"
+msgstr " ﺭﺍﺩ ﻩﺭﻴﮔ ﻡﺴﺭ ﻩﺘﺨﺘ‘ﺩﺭﺍﺩ ﺫﻏﺎﻜ ﻥﺘﺸﺍﺩ ﻩﺎﮔﻨ ﻯﺍﺭﺒ ﻯﺍﻩﺭﻴﮔ ﻩﻜ ﻰﻜﭽﻭﻜ ﻩﺘﺨﺘ"
+
+#: ID:222,
+msgid "Close manually"
+msgstr "بستن دستی "
+
+#: ID:3825,
+msgid "Close the active window and prompts to save the documents"
+msgstr "بستن پنجره فعال واعلانهاکه سندهاذخیره می نمایند "
+
+#: Control-ID:1068,
+msgid "Color co&de in-line changes"
+msgstr "تبدیل می کند in - line De شرکت رنگ & "
+
+#: Dlg-ID:138,
+msgid "Colors"
+msgstr "ﻥﺩﺭﻜﻥﻭﻠﻤ ‘ﻥﺩﺭﻜ ﮒﻨﺭ ‘ﻥﺩﺍﺩ ﮒﻨﺭ ﺭﻴﻴﻐﺘ ‘ﻩﺭﺸﺒ ‘ﻡﺎﻔ ‘ﮒﻨﺭ"
+
+#: ID:198,
+msgid "Command Line"
+msgstr "خطفرمان"
+
+#: Control-ID:1336,
+#, fuzzy
+msgid "Command Line To Execute:"
+msgstr "به خطفرمان : Execute"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Command failed."
+msgstr "فرمان خراب شده "
+
+#: ID:209,#:
+#: Control-ID:1083,
+msgid "Commit"
+msgstr "ﻥﺩﺭﭙﺴﺭﺴ ‘ﻥﺩﻭﻤﻨ ﻯﺭﻤﺍﻡﺎﺠﻨﺎﺒﺩﻬﻌﺘﻤ ‘(ﻩﺭﻴﻏﻭ ﺕﺍﺯﺎﺠﻤ) ﻯﺍﺭﺒ ﻥﺘﺸﺍﺩ ﻡﺍﺯﻋﺍ ‘ﻥﺩﺸ ﺏﻜﺘﺭﻤ ‘ﻥﺩﺭﭙﺴ"
+
+#: Control-ID:1262,
+#, fuzzy
+msgid "Commit threshold:"
+msgstr ": Commit آستانه "
+
+#: Control-ID:1110,
+msgid "Commit to:"
+msgstr "Commit to:"
+
+#: ID:244,
+#, fuzzy
+msgid "Commits by author"
+msgstr "بوسیله تالیف کردن Commits"
+
+#: ID:244,
+#, fuzzy
+msgid "Commits by date"
+msgstr "بوسیله تاریخ Commits"
+
+#: Control-ID:1135,
+#, fuzzy
+msgid "Commits each week:"
+msgstr "هرهفته : Commits"
+
+#: ID:9,
+#, fuzzy
+msgid "Commits your changes to the repository"
+msgstr "تغییراتتان به مخزن Commits"
+
+#: MenuEntry
+#, fuzzy
+msgid "Compare &HEAD revisions"
+msgstr "مقایسه کنید HEAD تجدیدنظرهای &"
+
+#: ID:114,
+#, fuzzy
+msgid "Compare and &blame with working BASE"
+msgstr "کاری سرزنش می کند BASE مقایسه کنیدوبا & "
+
+#: ID:114,
+msgid "Compare and blame with previous revision"
+msgstr "باتجدیدنظرقبلی مقایسه بکنیدوسرزنش کنید"
+
+#: ID:76,
+msgid "Compare with &working copy"
+msgstr "کپی کردن کاری مقایسه کنید &"
+
+#: ID:138,
+#, fuzzy
+msgid "Compare with b&ase"
+msgstr "مقایسه کنید Ase b &"
+
+#: ID:114,
+msgid "Compare with previous revision"
+msgstr "تجدیدنظرقبلی مقایسه کنید"
+
+#: ID:12,
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "مقایسه کردنهافایل بامتعهدگذشته تجدیدنظرکه شمارانشان بدهندتغییرات شمابسازید "
+
+#: ID:17,
+msgid "Compares the selected file with a file in the repository"
+msgstr "مقایسه کردنهافایل انتحاب شده بایک فایل درمخزن "
+
+#: ID:120,
+#, c-format
+msgid "Comparing %s to %s"
+msgstr "% s به % s بامتساوی قراردادن "
+
+#: ID:74,
+msgid "Completed"
+msgstr " ﻝﻤﺎﻜ ‘ﻡﺎﻤﺘ"
+
+#: Dlg-ID:236,
+#, fuzzy
+msgid "Configure Hook Scripts"
+msgstr "پیکربندی کنید Hook Scripts"
+
+#: Control-ID:65535,
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "پیکربندی کنیدبرنامه برای متساوی قراردادن تجدیدنظرهای متفاوت پرونده هااستفاده بکند "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Configure the program used to resolve conflicted files."
+msgstr "پرونده هادوباره حل بکند conflicted پیکربندی کنیدبرنامه سابقا "
+
+#: Control-ID:65535,
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "بایگانی بکند ( اصلاح ) بایگانی بکند diff GNU پیکربندی کنیدبرنامه مرورکننده برای "
+
+#: ID:263,#:
+#: Control-ID:65535,
+msgid "Conflicted"
+msgstr "ﺩﺭﻭﺨﺭﺒ ‘ﺩﺎﻀﺘ"
+
+#: ID:188,
+#, c-format
+msgid "Conflicts: %d"
+msgstr ""
+
+#: ID:73,
+msgid "Continue"
+msgstr "ﻥﺩﺭﻜ ﻝﺎﺒﻨﺩ ‘ﻥﺩﺍﺩ ﻩﻤﺍﺩﺍ"
+
+#: ID:376,
+msgid "Cop&y"
+msgstr "توهچل بیافتید Y &"
+
+#: ID:73,
+msgid "Copied"
+msgstr "ﻥﺩﺭﻜ ﻰﺴﻴﻭﻨﻭﺭ ‘ﻥﺩﺭﻜ ﻩﻴﭙﻜ ‘ﺩﻠﺠ ‘ﺕﺸﻭﻨﻭﺭ"
+
+#: ID:126,
+msgid "Copied remotely"
+msgstr "ازراه دوررونوشت گرفته شده "
+
+#: ID:103,
+#, c-format
+msgid "Copy %s"
+msgstr "کپی کنید % s"
+
+#: Dlg-ID:142,
+#, fuzzy
+msgid "Copy (Branch / Tag)"
+msgstr "کپی کنید ( Tag شعبه / )"
+
+#: ID:101,
+#, fuzzy
+msgid "Copy URL to clipboard"
+msgstr "به کلیپ بوردکپی کنید URL"
+
+#: ID:209,
+msgid "Copy all information to clipboard"
+msgstr "تمام اطلاعات به کلیپ بوردکپی کنید "
+
+#: ID:101,
+msgid "Copy error message to clipboard"
+msgstr "پیام خطابه کلیپ بوردکپی کنید"
+
+#: ID:76,
+msgid "Copy from path"
+msgstr "ازمسیرکپی کنید "
+
+#: ID:209,
+msgid "Copy paths to clipboard"
+msgstr "مسیرهابه کلیپ بوردکپی کنید "
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Copy the selection and put it on the Clipboard\n"
+"Copy"
+msgstr "بگذارید Copy n Clipboard انتخاب کپی کنیدوآن راروی "
+
+#: ID:114,
+msgid "Copy to clipboard"
+msgstr "به کلیپ بوردکپی کنید "
+
+#: ID:103,
+msgid "Copy to working copy"
+msgstr "به کپی کردن کاری کپی کنید "
+
+#: ID:101,
+msgid "Copy to working copy..."
+msgstr "به کپی کردن کاری کپی کنید "
+
+#: ID:98,
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "کپی کنید :% s نام جدیدبه "
+
+#: ID:80,
+#, c-format
+msgid "Copying %s"
+msgstr "% s بارونوشت گرفتن "
+
+#: ID:80,
+msgid "Copying..."
+msgstr "ﻥﺩﺭﻜ ﻰﺴﻴﻭﻨﻭﺭ ‘ﻥﺩﺭﻜ ﻩﻴﭙﻜ ‘ﺩﻠﺠ ‘ﺕﺸﻭﻨﻭﺭ"
+
+#: ID:188,
+msgid "Corrections"
+msgstr "ﺏﻴﺩﺎﺘ ‘ﻯﺭﻴﮔ ﻁﻠﻏ ‘ﺡﻻﺼﺍ ‘ﺡﻴﺤﺼﺘ"
+
+#: ID:81,
+#, c-format
+msgid "Could not add %s to the ignore list!"
+msgstr "لیست اضافه بنماید ! ignore به % s نمی توانست "
+
+#: ID:201,
+msgid "Could not check for a newer version!"
+msgstr "نمی توانست برای یک نگارش نوتربررسی بکند ! "
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not copy the files!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"نمی توانست پرونده هاکپی بکند !\n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+msgid "Could not get the status!"
+msgstr "نمی توانست وضعیت بگیرد ! "
+
+#: ID:69,
+#, c-format
+msgid ""
+"Could not open the file\n"
+"%s"
+msgstr "بازبکند n % s نمی توانست فایل "
+
+#: ID:82,
+#, c-format
+msgid "Could not remove %s from the ignore list"
+msgstr "لیست خارج بکند ignore از %s نمی توانست "
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not retrieve URL of the file!\n"
+"%s"
+msgstr ""
+"ازفایل بازیابی بکند ! URL نمی توانست \n"
+"%s"
+
+#: ID:66,
+#, c-format
+msgid ""
+"Could not retrieve revision %s of the file %s.\n"
+"Patching is not possible!"
+msgstr "بازیابی بکند %s ازفایل %s نمی توانست تجدیدنظر ممکن نیست! N Patching"
+
+#: ID:64,
+#, c-format
+msgid "Could not save the file %s!"
+msgstr "ذخیره بنماید ! % s نمی توانست فایل "
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"مرورکننده شروع بکند ! diff نمی توانست \n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start external diff program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"برنامه شروع بکند ! diff نمی توانست خارجی \n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:81,
+#, c-format
+msgid ""
+"Could not start external merge program!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"نمی توانست برنامه ادغام کردن خارجی شروع بکند ! \n"
+"<hr=100%%>\n"
+"%s"
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Could not start print job."
+msgstr "نمی توانست کارچاپی شروع بکند "
+
+#: ID:81,
+msgid "Could not start thread!"
+msgstr "نمی توانست نخ شروع بکند ! "
+
+#: ID:13,
+msgid "Create &patch..."
+msgstr "ایجادکنیداصلاح بنماید & "
+
+#: Dlg-ID:208,
+#, fuzzy
+msgid "Create Patch"
+msgstr "ایجادکنید Patch"
+
+#: Dlg-ID:178,
+#, fuzzy
+msgid "Create Repository"
+msgstr "ایجادکنید Repository"
+
+#: Control-ID:65535,
+msgid "Create copy in the repository from:"
+msgstr "کپی کردن درمخزن ایجادکنید : "
+
+#: ID:8,
+#, fuzzy
+msgid "Create repositor&y here..."
+msgstr "اینجاایجادکنید Y repositor &"
+
+#: ID:126,
+msgid "Created folder remotely"
+msgstr "ازراه دورفولدرایجادشده "
+
+#: ID:10,
+msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
+msgstr "کپی کردن درون مخزن برای شاخه هایابرچسب زدن استفاده کرد ' cheap یک ' Creates"
+
+#: ID:10,
+msgid "Creates a repository database at the current location"
+msgstr "موقعیت جاری ( به ) یک بانک اطلاعاتی مخزن در Creates"
+
+#: ID:14,
+msgid "Creates a unified diff file with all changes you made"
+msgstr "فایل باتمام تغییرات شماساختید diff یک واحد Creates"
+
+#: Control-ID:65535,
+msgid "Credits:"
+msgstr "ﻥﺩﺍﺩ ﺕﺒﺴﻨ ‘ﻥﺩﺭﻜ ﺩﺭﺍﻭ ﺭﺎﻜﻨﺎﺘﺴﺒ ﻥﻭﺘﺴﺭﺩ‘ﻥﺩﺭﻜ ﺩﺎﻘﺘﻋﺍ ‘ﻩﻴﺴﻨ ‘ﺭﺎﻜﻨﺎﺘﺴﺒ ﻥﻭﺘﺴ ‘ﻭﺭﺒﺍ ‘ﺭﺎﺒﺘﻋﺍ"
+
+#: ID:376,
+msgid "Cu&t"
+msgstr "Cu&t"
+
+#: Control-ID:1113,
+msgid "Current version is:"
+msgstr "نگارش جاری است : "
+
+#: ID:201,
+#, c-format
+msgid "Current version is: %s"
+msgstr ""
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Cut the selection and put it on the Clipboard\n"
+"Cut"
+msgstr "بگذارید Cut n Clipboard انتخاب بریدوآن راروی "
+
+#: Control-ID:1314,
+msgid "D&iff"
+msgstr "D&iff"
+
+#: ID:76,#:
+#: ID:208,#:
+#: ID:19,
+msgid "Date"
+msgstr "ﻥﺘﺸﺍﺫﮔ ﺥﻴﺭﺎﺘ ‘ﺥﻴﺭﺎﺘ"
+
+#: Control-ID:65535,
+msgid "Default &number of log messages"
+msgstr "پیش فرض عددپیام هاگزارش &"
+
+#: ID:73,#:
+#: ID:264,
+msgid "Deleted"
+msgstr "ﻥﺩﺭﻜ ﻑﺫﺤ"
+
+#: Control-ID:65535,
+msgid "Deleted node"
+msgstr "اتصال حذف شده "
+
+#: ID:11,
+msgid "Deletes files / folders from version control"
+msgstr "حذف کردنهافولدرهاازکنترل نگارش بایگانی می کند / "
+
+#: ID:263,
+msgid "Deleting"
+msgstr "باحذف کردن "
+
+#: ID:3859,#:
+#: ID:3859,
+msgid "Destination disk drive is full."
+msgstr "دیسک گردان مقصدکامل است"
+
+#: Control-ID:1277,
+msgid "Dialog sizes and positions"
+msgstr "اندازه های محاوره ووضعیتها "
+
+#: ID:146,
+#, fuzzy
+msgid "Diff With URL"
+msgstr ". Diff با URL"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Diff file:"
+msgstr ": Diff فایل "
+
+#: Control-ID:1302,
+msgid "Difference between"
+msgstr "تفاوت مابین "
+
+#: Control-ID:1022,
+msgid "Diffing"
+msgstr "ﻥﺘﺸﺍﺩ ﺕﻭﺎﻔﺘ ‘ﻥﺘﺸﺍﺩ ﻑﻻﺘﺨﺍ ‘ﻥﺘﺸﺍﺩ ﻕﺭﻔ"
+
+#: Control-ID:65535,
+msgid "Directory:"
+msgstr "فهرست :"
+
+#: ID:195,
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr "n همچنین غیرفعال این گزینه اگرشماواقعاکپی کردنهای مشغول کاربزرگ وتجربه خیلی دستیابی دیسک چه موقع بابررسی کردن کپی کردن کاری دارید "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Disk full while accessing %1."
+msgstr "دیسک کامل زمانیکه بادست یافتن ۱ %"
+
+#: ID:3860,#:
+#: ID:3860,
+#, c-format
+msgid "Dispatch exception: %1"
+msgstr "استثناءاعزام کنید : ۱ %"
+
+#: ID:3605,
+msgid ""
+"Display help for clicked on buttons, menus and windows\n"
+"Help"
+msgstr "راهنمانمایش بدهید n درتکمه ها،فهرست هاوویندوز ( روی ) راهنمابرای کلیک شده "
+
+#: ID:3605,
+msgid ""
+"Display help for current task or command\n"
+"Help"
+msgstr "راهنمانمایش بدهید n راهنمابرای کارجاری یافرمان "
+
+#: ID:3605,
+msgid ""
+"Display instructions about how to use help\n"
+"Help"
+msgstr "راهنمااستفاده بکند n دستورنمایش بدهیدچطورکه کمک "
+
+#: ID:3605,
+msgid ""
+"Display program information, version number and copyright\n"
+"About"
+msgstr "درباره نمایش بدهید n اطلاعات برنامه ،شماره نگارش وحق نشر"
+
+#: ID:145,
+msgid "Do you really want to move this file or folder?"
+msgstr "شماواقعامی خواهیداین پرونده یافولدر؟حرکت کنید "
+
+#: ID:119,
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr "بازبگردیدوبه این تجدیدنظر؟برگردید N % s شماواقعامی خواهیدکه تمام تغییرات در "
+
+#: ID:76,
+#, c-format
+msgid ""
+"Do you really want to revert all changes to\n"
+"%s\n"
+"which were made in this revision?"
+msgstr "بازبگردیدکه دراین تجدیدنظر؟ساخته شد N n % s شماواقعامی خواهیدکه تمام تغییرات به "
+
+#: ID:76,
+msgid "Do you want to proceed?"
+msgstr "شمامی خواهیدکه ؟پیش بروید"
+
+#: ID:313,
+msgid ""
+"Do you want to reload the documents to reflect the settings changes?\n"
+"Note: you will lose all changes you've made!"
+msgstr "شمابه بارگذاری مجددسندهارامی خواهیدکه معکوس کنیدتنظیم ها؟تبدیل بکند : N یادداشت تمام تغییرات شماخواهیدساخت lose شما "
+
+#: ID:313,
+msgid ""
+"Do you want to reload the documents?\n"
+"You will lose all changes you've made!"
+msgstr "شمابه بارگذاری مجددسندهارا؟می خواهید تمام تغییرات شماخواهیدساخت ! lose شما N"
+
+#: ID:563,
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "به طوربرگشت پذیری ؟خارج کنید % s شمامی خواهیدکه خصوصیت "
+
+#: ID:313,
+msgid "Do you want to save your changes?"
+msgstr "شمامی خواهیدکه تغییراتتان ؟ذخیره بنمایید "
+
+#: Control-ID:65535,
+msgid "Documentation - Simon Large"
+msgstr ". Simon Large مستندسازی "
+
+#: ID:73,#:
+#: ID:80,
+msgid "Don't show this message again"
+msgstr "این پیام باردیگرنشان ندهید "
+
+#: Control-ID:1079,
+msgid "Drive Types"
+msgstr "نوع هابرانید "
+
+#: MenuEntry
+msgid "E&xit"
+msgstr "E&xit"
+
+#: ID:9,
+msgid "E&xport..."
+msgstr "E&xport..."
+
+#: ID:3697,
+msgid "EXT"
+msgstr "EXT"
+
+#: Control-ID:1237,
+msgid "Edit"
+msgstr "ﻥﺘﺴﺍﺭﻴﻭ"
+
+#: ID:564,#:
+#: Dlg-ID:227,
+msgid "Edit Properties"
+msgstr "دارایی هاویرایش کنید "
+
+#: ID:113,
+msgid "Edit author"
+msgstr "تالیف کردن ویرایش کنید "
+
+#: ID:115,
+msgid "Edit author name"
+msgstr "نام تالیف کردن ویرایش کنید "
+
+#: ID:110,
+msgid "Edit extension specific diff program"
+msgstr "برنامه ویرایش کنید diff انشعاب خاص "
+
+#: ID:110,
+msgid "Edit extension specific merge program"
+msgstr "برنامه ادغام کردن انشعاب خاص ویرایش کنید "
+
+#: ID:113,#:
+#: ID:115,
+msgid "Edit log message"
+msgstr "پیام گزارش ویرایش کنید "
+
+#: Control-ID:1331,
+msgid "Edit..."
+msgstr "ﻥﺘﺴﺍﺭﻴﻭ"
+
+#: ID:79,
+msgid "Either the name or IP of the proxy server"
+msgstr "هم نام هم پروتکل اینترنت ازسرویس دهنده پراکسی"
+
+#: Control-ID:65535,
+msgid "Empty"
+msgstr "ﻰﻠﺎﺨ ‘ﻰﻬﺘ"
+
+#: Control-ID:1240,
+msgid "Enable &accelerators on the top level menu"
+msgstr "فعال سازی شتاب دهنده هاروی فهرست سطح بالا &"
+
+#: ID:196,
+msgid ""
+"Enable this if you want keyboard accelerators on the top level context menu too.\n"
+"Note that the context menu icons look nicer with this disabled."
+msgstr "همچنین فعال سازی این اگرشماشتاب دهنده های صفحه کلیدروی فهرست بافت سطح بالامی خواهید زیباترباغیرفعال شده این نگاه می کنند N آیکونهای فهرست بافت که یادداشت "
+
+#: ID:196,
+#, fuzzy
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr "طرح بریزد ! VS . NET2003 در ( روی ) فعال سازی این تنهااگرشماداریدکارکنیدباوب موجب بشود take شمابایددوباره شروع کنیدسیستم این راتنظیم به N"
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr "مجموعه است Projectlanguage خصوصیت : Tsvn n تنهااگر spellchecker فعال کردنها "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "End Revision"
+msgstr "پایان Revision"
+
+#: ID:3825,
+msgid "Enlarge the window to full size"
+msgstr "پنجره به اندازه طبیعی بزرگ کنید "
+
+#: Dlg-ID:135,
+#, fuzzy
+msgid "Enter Log Message"
+msgstr "واردنمایید Log پیام "
+
+#: ID:80,
+#, fuzzy
+msgid "Enter URL"
+msgstr "واردنمایید URL"
+
+#: ID:313,
+msgid "Enter a lock message (optional):"
+msgstr "واردنماییدیک پیام قفل ) اختیاری ( :"
+
+#: Control-ID:1065,
+msgid "Enter log &message:"
+msgstr "گزارش واردنماییدپیام : & "
+
+#: ID:126,
+msgid "Enter log message:"
+msgstr "پیام گزارش واردنمایید : "
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Erase everything\n"
+"Erase All"
+msgstr "پاک کنید Erase All n هرچیز "
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Erase the selection\n"
+"Erase"
+msgstr "پاک کنید Erase n انتخاب "
+
+#: ID:82,
+msgid "Error"
+msgstr "ﺎﻁﺨ"
+
+#: ID:145,
+#, fuzzy
+msgid "Error rebuilding Shell Icon Cache!"
+msgstr "دوباره سازی خطا ! Shell Icon نهان گاه"
+
+#: ID:81,
+#, c-format
+msgid "Error validating server certificate for %s:"
+msgstr ": % s اعتباربخشیدن گواهی سرویس دهنده خطابه "
+
+#: ID:70,
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"%s کلیدرجیستری ویندوز Reading / writing خطازمانیکه \n"
+"%s"
+
+#: Control-ID:65535,
+msgid "Exceptions:"
+msgstr "ﺩﺭ ‘ﺽﺍﺭﺘﻋﺍ ‘ﺀﺎﻨﺜﺘﺴﺍ"
+
+#: Control-ID:65535,
+msgid "Exclude paths:"
+msgstr "مسیرهامستثنی کنید :"
+
+#: ID:209,
+msgid "Explore to"
+msgstr "به کاوش کنید "
+
+#: Dlg-ID:238,
+msgid "Export"
+msgstr "ﺕﺍﺭﺩﺎﺼ ‘ﻩﺭﺩﺎﺼ ﻯﻻﺎﻜ ‘ﻥﺩﺭﺒ ﻥﻭﺭﻴﺒ ‘ﻥﺩﺭﻜ ﺭﺩﺎﺼ"
+
+#: Control-ID:1074,
+msgid "Export &directory:"
+msgstr "صادراتی دایرکتوری : & "
+
+#: ID:94,
+msgid "Export directory:"
+msgstr "دایرکتوری صادراتی :"
+
+#: ID:79,
+#, fuzzy
+msgid "Export unversioned files too"
+msgstr "بایگانی می کند unversioned همچنین صادراتی "
+
+#: ID:79,
+msgid "Exporting..."
+msgstr "ﺕﺍﺭﺩﺎﺼ ‘ﻩﺭﺩﺎﺼ ﻯﻻﺎﻜ ‘ﻥﺩﺭﺒ ﻥﻭﺭﻴﺒ ‘ﻥﺩﺭﻜ ﺭﺩﺎﺼ"
+
+#: ID:10,
+msgid "Exports a repository to a clean working copy without the svn administrative folders"
+msgstr "فولدرهای اداری svn صادرات یک مخزن به یک کپی کردن تمیزکاری بدون "
+
+#: ID:74,#:
+#: ID:207,
+msgid "Extension"
+msgstr "ﻰﻋﺭﻔ ﻥﻔﻠﺘ ‘ﻡﻴﻤﻌﺘ ‘ﺩﻴﺩﻤﺘ ‘ﻊﻴﺴﻭﺘ"
+
+#: Control-ID:65535,
+msgid "Extension or mime-type:"
+msgstr ": mime - type توسعه یا "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Extension/mime-type specific programs"
+msgstr "خاص Extension / mime - type برنامه های "
+
+#: ID:74,
+msgid "External"
+msgstr " ﻰﺠﺭﺎﺨ"
+
+#: Control-ID:65535,
+msgid "External Program:"
+msgstr "برنامه خارجی : "
+
+#: Dlg-ID:192,
+#, fuzzy
+msgid "External Programs::Diff Viewer"
+msgstr ". Diff Viewer برنامه های خارجی :: "
+
+#: Dlg-ID:193,
+#, fuzzy
+msgid "External Programs::Merge Tool"
+msgstr ". Merge برنامه های خارجی ابزار :: "
+
+#: Dlg-ID:194,
+msgid "External Programs::Unified Diff Viewer"
+msgstr "واحد Diff Viewer برنامه های خارجی :: "
+
+#: ID:74,
+msgid "Failed revert"
+msgstr "بازگشتن ناکام "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to create empty document."
+msgstr "ناکام که سندخالی ایجادمی کند "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to launch help."
+msgstr "ناکام که راهنماراه می اندازد "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to open document."
+msgstr "سندبازکردن ناکام "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Failed to save document."
+msgstr "ناکام که سندذخیره می نماید "
+
+#: Control-ID:1217,
+msgid "Fetch &status for context menu"
+msgstr "وضعیت برای فهرست بافت خارج کنید &"
+
+#: ID:313,
+msgid "Fetching file..."
+msgstr "فایل جذاب "
+
+#: ID:313,
+#, c-format
+msgid "Fetching revision %s of file:"
+msgstr "فایل : % s تجدیدنظرجذاب "
+
+#: ID:63,#:
+#: ID:74,#:
+#: ID:77,#:
+#: ID:207,#:
+#: ID:319,
+msgid "File"
+msgstr "ﻥﺩﺭﻜ ﻰﻨﺎﮔﻴﺎﺒ ‘ﻩﺩﻨﻭﺭﭙ"
+
+#: Control-ID:1138,
+msgid "File changes each week:"
+msgstr "فایل هرهفته تبدیل می کند : "
+
+#: ID:376,
+msgid "File diffs"
+msgstr ". diffs فایل "
+
+#: ID:211,
+msgid "File list is empty"
+msgstr "لیست فایل خالی است "
+
+#: ID:376,#:
+#: Dlg-ID:135,
+msgid "File patches"
+msgstr "فایل اصلاح می نماید "
+
+#: ID:7,
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr ": ( مسیرهای چندگانه جدابامستخدم زن ' ' ) مسیرهای دنباله Filter _ out"
+
+#: Dlg-ID:139,
+msgid "Find"
+msgstr "ﺵﺒﺎﻴ ‘ﻑﻭﺸﻜﻤ ‘ﻩﺘﻔﺎﻴ ﺯﻴﭽ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ‘ﻥﺩﺭﻜ ﻑﺸﻜ ‘ﻥﺩﺍﺩ ﺹﻴﺨﺸﺘ ‘ﻥﺘﺴﺠ ‘ﻥﺘﻔﺎﻴ ‘ﻥﺩﺭﻜ ﺍﺩﻴﭙ"
+
+#: ID:3603,
+msgid ""
+"Find the specified text\n"
+"Find"
+msgstr "پیداکنید Find n متن خاص "
+
+#: ID:77,
+msgid "Finished!"
+msgstr "ﺭﺎﻜ ﺕﺨﺍﺩﺭﭙ‘ﻥﺎﻴﺎﭙ ‘ﻰﻠﻴﻤﻜﺘ ﻯﺭﺎﻜ ﺕﺴﺩ ‘ﻥﻏﻭﺭﻭ ﮒﻨﺭ ﺕﺨﺍﺩﺭﭙ ‘ﻥﺩﺸ"
+
+#: Control-ID:1315,
+#, fuzzy
+msgid "Floppy drives (A: B:)"
+msgstr ": A ( دیسکت درایوها "
+
+#: ID:3585,
+#, fuzzy
+msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "فشارمی دهد F1 راهنمابرای ، . Ctrl - Scrollwheel به طورافقی طوماری با "
+
+#: ID:119,
+msgid "For complete history deselect \"Stop on copy/rename\""
+msgstr ". copy / rename در ( روی ) لغوانتخاب سوابق برای کامل Stop"
+
+#: Control-ID:1200,#:
+#: Control-ID:65535,
+msgid "From:"
+msgstr "ﺵﻴﭙ ﺯﺍ ‘ﻕﺒﺎﻁﻤ ‘ﻯﻭﺭ ﺯﺍ ‘ﻩﺠﻴﺘﻨﺭﺩ ‘ﻩﻁﺴﺍﻭﺒ ‘ﺯﺍ"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "ادغام می کند ( شروع وتجدیدنظرازمحدوده که URL )"
+
+#: ID:273,
+#, fuzzy
+msgid "GDI+ couldn't be initialized!"
+msgstr "مقداراولیه می دهد ! Gdi"
+
+#: ID:273,
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "نمی توانست یک مقصودنقش بیتی ایجادبکند Gdiاحتمالاشماحافظه ای کافی ندارید "
+
+#: ID:83,
+#, fuzzy
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr "نیازداشته شده است که نمودارتجدیدنظربعنوان تصویرذخیره بنماید Gdi"
+
+#: Dlg-ID:143,#:
+#: Dlg-ID:107,#:
+#: Control-ID:65535,
+msgid "General"
+msgstr "ﻰﻠﻜ ‘ﻡﺎﻋ"
+
+#: ID:144,
+#, fuzzy
+msgid "Generating patchfile..."
+msgstr ". patchfile مولد"
+
+#: ID:16,
+#, fuzzy
+msgid "Get loc&k..."
+msgstr "بگیرید K loc &"
+
+#: ID:89,
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr "> B < Needs - lock خصوصیت ' : ( متعلق به ) بابه دست آوردن یک قفل برای پرونده هابدون مال دیگران ازویرایش به آنهادرکپی کردنهاکاریشان بازنخواهدداشت > < / bاضافه بنماییدخصوصیت : ( متعلق به ) فعال سازی مال N لطفاجلوگیری ازدست یابی سختگیربه \"آنهاپرونده هانیازدارد commit به تمام پرونده هاآن جلوگیری ازدست یابی ،و Needs - lock 'مجموعه نشانه فقطخواندنی ،خواهدداشت وبابه دست آوردن یک file - system N Each فایل قفل فایل حکم آماده خواهدساخت آن کاربرهای دیگرلازم است خواهندکه کپی کردنهاکاریشان به روزبیاورندقبل از N یادداشت اینکه آنهاپرونده هاراچنانچه فقطخواندنی ببینند     "
+
+#: ID:119,
+#, c-format
+msgid "Getting file %s"
+msgstr "% s بابه دست آوردن فایل "
+
+#: ID:120,
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr ""
+
+#: ID:132,
+msgid "Getting file info..."
+msgstr "بابه دست آوردن اطلاعات فایل "
+
+#: ID:269,
+msgid "Getting information from repository..."
+msgstr "بابه دست آوردن اطلاعات ازمخزن "
+
+#: ID:120,
+msgid "Getting information..."
+msgstr "بابه دست آوردن اطلاعات "
+
+#: ID:132,
+msgid "Getting log info..."
+msgstr "بابه دست آوردن اطلاعات گزارش "
+
+#: ID:119,
+msgid "Getting unified diff"
+msgstr ". diff بابه دست آوردن واحد "
+
+#: Control-ID:65535,
+msgid "Global ignore &pattern:"
+msgstr "جهانی الگونادیده می گیرد : &"
+
+#: Dlg-ID:130,
+msgid "Go to line"
+msgstr "به خطبروید "
+
+#: ID:2051,
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Go to the next conflict\n"
+"next conflict"
+
+#: ID:2049,
+msgid ""
+"Go to the next difference\n"
+"next difference"
+msgstr "تفاوت بعدی بروید n به تفاوت بعدی "
+
+#: ID:2051,
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr "تضادقبلی بروید n به تضادقبلی "
+
+#: ID:2049,
+msgid ""
+"Go to the previous difference\n"
+"previous difference"
+msgstr "تفاوت قبلی بروید n به تفاوت قبلی "
+
+#: Control-ID:1134,
+msgid "Graph type:"
+msgstr "نوع نمودار :"
+
+#: Control-ID:1229,
+#, fuzzy
+msgid "H&ide unrelated changed paths"
+msgstr "بی ارتباط Ide مسیرهای متغیر & H"
+
+#: Control-ID:1004,
+msgid "Help"
+msgstr "ﺭﻭﺩﺯﻤ ‘ﺭﻜﻭﻨ ‘ﺩﺩﻤ ‘ﺕﺩﻋﺎﺴﻤ‘ﻯﺭﺎﻴ ‘ﻙﻤﻜ ‘ﻥﺩﺭﻜ ﻩﺭﺎﭽﻥﺩﺭﻜﺭﺘﻬﺒ ‘ﻥﺩﻨﺎﺴﺭ ﺩﺩﻤ ‘ﻥﺩﺭﻜ"
+
+#: Control-ID:1326,
+msgid "Hide the script while running"
+msgstr "پردازه زمانیکه اجرای مخفی بشوید "
+
+#: ID:2052,
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr "یانمایش هالیست پرونده اصلاح Hides n لیست پرونده اصلاح Hide / show"
+
+#: Control-ID:1127,
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "اشاره کنید :که تمام بچه هامنتقل بکند Ctrl - F5 چاپ که زیردرخت انتحاب شده دوباره تازه بکندوهمچنین F5"
+
+#: Dlg-ID:103,
+#, fuzzy
+msgid "Hook Scripts"
+msgstr "به قلاب بیاویزید Scripts"
+
+#: ID:198,
+msgid "Hook Type"
+msgstr "نوع به قلاب بیاویزید "
+
+#: Control-ID:1334,
+msgid "Hook Type:"
+msgstr "نوع به قلاب بیاویزید : "
+
+#: ID:82,
+#, c-format
+msgid "Hostname mismatch (%s)"
+msgstr ""
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Icon Overlays / Status Columns"
+msgstr "وضعیت Columns آیکون / "
+
+#: Control-ID:65535,
+msgid "Icons/Design/Code:     Luebbe Onken"
+msgstr "Icons/Design/Code:     Luebbe Onken"
+
+#: ID:194,
+msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgstr "اگرفعال کرد،پوششی هاراازنمایش درذخیره کردن چنانچه بازدارد یامحاوره هابازمی کنند "
+
+#: ID:198,
+#, fuzzy
+msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
+msgstr "ورودی فهرست درفهرست سطح بالانشان داده شده است اگرفایل Get Lock اگرفعال کرد، مجموعه است Needs - lock داردخصوصیت : svn انتحاب شده "
+
+#: ID:95,
+#, fuzzy
+msgid ""
+"If checked then a new folder is created in the repository.\n"
+"If not checked then the import goes directly to the specified URL."
+msgstr "اگربررسی کرددرآنوقت یک فولدرجدیددرمخزن ایجادشده است خاص برود URL نه بررسی کرددرآنوقت واردکردن مستقیمابه N If"
+
+#: ID:79,
+#, fuzzy
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr "diff ایجادبکندکه انجام بدهد BASE یک فایل موقت از TortoiseSVN اگربررسی کرد، باکلمات کلیدی توسعه بدهدوپایانهای خطتنظیم کردند   "
+
+#: ID:196,
+#, fuzzy
+msgid ""
+"If checked, the commit dialog will be started again automatically after an error,\n"
+"while preserving your last selection and log message."
+msgstr "زمانیکه باحفظ N محاوره باردیگرخودکاربعدازیک خطا، commit اگربررسی کرد، کردن گزارش وپیام آخرین انتخاب شروع خواهدشد "
+
+#: ID:195,
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr "اگر،غیرفعال کرددرآنوقت فهرست بافت سریع ترحاضرخواهدشد مقداری ورودی های فهرست بافت حاضرخواهندشدکه واقعااستفاده می کنند N But: N برای مثال نشان خواهددادحتی برای هم اکنون فولدرهااضافه بنماید Show Log ورودی     "
+
+#: ID:194,
+#, fuzzy
+msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+msgstr "یکباردرهفته بررسی بکنداگریک نگارش نوتردردسترس است TortoiseSVN اگرقادرساخت ،"
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr "ازرامقداراولیه بدهد : Merge اگرقادرساخت ،محاوره استفاده کرد URL ( بار ) به جای آخرین n کپی کردن انتحاب شده کاری URL با Url    "
+
+#: ID:195,
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr "اگرقادرساخت ،مخزن تماس گرفته شده است موقعیکه محاوره بالاشروع بکند بررسی دیگرمجبورهستید Repository در ( روی ) شماکلیک N"
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr "متعهدگذشته n به زمان آنها filetimes تعیین خواهدکرد TortoiseSVN اگرتعیین کنید، بودزمان فعلی استفاده بکند TortoiseSVN اگرهیچ مجموعه ، "
+
+#: ID:196,
+#, fuzzy
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr "فولدرهادرکنترل وضعیت unversioned اگرتعیین کنید،بایگانی بکنددرون نشان داده می شوندمحاوره استفاده شده است commit کنترل وضعیت برای مثال در N"
+
+#: ID:196,
+#, fuzzy
+msgid ""
+"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"i.e. they get the modified overlay icon."
+msgstr "وضعیت دایرکتوری بالاتر Unversioned اگر،تعیین کنیددرآنوقت پرونده ها یعنی آنهاآیکون تعدیل شده پوششی می گیرند n مشخص خواهدکردبطوریکه تعدیل شده "
+
+#: ID:196,
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr "اگرشماتغییراین مقدار،کپی کردنهامشغول کارموجودتان دیگرتشخیص بدهد ! شمابایدکپی کردنهاکاریتان باردیگرآزمایش بنمایید Nبخوانید docs شمامطمئن راجع به این ،نیستیددرآنوقت لطفا \" N Ifشمابدون قیدوشرطمطمئن شمامی خواهیدکه این ؟انجام بدهید N Are    "
+
+#: ID:251,
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "اگرشمابخواهیدکه قطع کنیدقفل ،محاوره برای بررسی استفاده بکند "
+
+#: ID:73,
+msgid "Ignore"
+msgstr "ﻥﺘﺨﺎﻨﺸﻨ ﺕﻴﻤﺴﺭﺒ ‘ﻥﺘﺴﻨﺍﺩ ﺱﺎﺴﺍ ﻰﺒ‘ﻥﺩﺭﻜ ﺩﺭ ‘ﻥﺩﻴﺸﻭﭙ ﻡﺸﭽ ‘ﻥﺘﺸﺍﺩﻨﭙﻩﺩﻴﺩﺎﻨ ‘ﻥﺩﺭﻜ ﻝﻫﺎﺠﺘ"
+
+#: Control-ID:1020,
+msgid "Ignore &all whitespaces"
+msgstr "نادیده بگیرید whitespaces تمام &"
+
+#: Control-ID:1067,
+msgid "Ignore &case changes"
+msgstr "نادیده بگیریدحالت تبدیل بکند &"
+
+#: Control-ID:1267,
+msgid "Ignore ancestry"
+msgstr "تبارنادیده بگیرید "
+
+#: Control-ID:1018,
+msgid "Ignore line &endings (recommended)"
+msgstr "خطپایانها & ) توصیه شده ( نادیده بگیرید"
+
+#: Dlg-ID:139,
+msgid "Import"
+msgstr "ﺕﺍﺩﺭﺍﻭ (ﻊﻤﺠﺭﺩ) ‘ﻩﺩﺭﺍﻭ ﻯﻻﺎﻜ ‘ﻩﺩﻴﺴﺭ ﻯﻻﺎﻜ ‘ﻥﺘﺸﺍﺩ ﺕﻴﻤﻫﺍ"
+
+#: Control-ID:1056,
+msgid "Import &message"
+msgstr "واردات پیام & "
+
+#: ID:120,
+#, c-format
+msgid "Importing file %s"
+msgstr "% s باواردکردن فایل "
+
+#: ID:10,
+msgid "Imports the directory to a repository"
+msgstr "واردات دایرکتوری به یک مخزن "
+
+#: Control-ID:1266,
+msgid "Include ignored files"
+msgstr "شامل بشویدپرونده هانادیده بگیرد "
+
+#: Control-ID:65535,
+msgid "Include only the following revision range:"
+msgstr "تنهامحدوده تجدیدنظردنباله راشامل بشوید : "
+
+#: Control-ID:65535,
+msgid "Include paths:"
+msgstr "مسیرهاشامل بشوید : "
+
+#: ID:76,
+msgid "Initial import"
+msgstr "واردکردن پاراف کنید "
+
+#: Control-ID:65535,
+msgid "Inline diff"
+msgstr ". diff درون برنامه ای "
+
+#: Dlg-ID:161,
+msgid "Input"
+msgstr "ﻩﺩﺸ ﻑﺭﺼﻤ ﻯﻭﺭﻴﻨ ‘ﺝﺭﺨ ‘ﻩﺩﺎﻬﻨ ﻥﺎﻴﻤﺒ ﻝﻭﭙ ‘ﺕﺸﺍﺫﮔ ﻥﻭﺭﺩ"
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Insert Clipboard contents\n"
+"Paste"
+msgstr "درج کنید Paste n Clipboard محتویات "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Insufficient memory to perform operation."
+msgstr "حافظه ناکافی که عمل انجام می دهد "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Internal application error."
+msgstr "خطابرنامه کاربردی میانی "
+
+#: ID:102,
+msgid "Invalid data object dropped!"
+msgstr "موضوع داده بی اعتبارفروبرد ! "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "Invalid filename."
+msgstr "نام فایل بی اعتبار "
+
+#: ID:82,
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr "عددتجدیدنظربی اعتبار ! تجدیدنظرهای معتبرهستند : ،دریکی ازتاریخهای N ،عدددهدهی های مثبت WC ، COMMITTED ، PREV ، BASE ، N HEADمثال دنباله تاسیس می کند : N    "
+
+#: ID:83,
+#, fuzzy
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr "! Nvalid عددتجدیدنظر تجدیدنظرهای معتبرهستند : مثال دنباله تاسیس می کند : N عدددهدهی های مثبت ،دریکی ازتاریخهای n N HEAD    "
+
+#: ID:145,
+#, fuzzy
+msgid ""
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
+msgstr "آن ممکن نیست که یک فایل بوسیله تغییرپذیرحالت تنهانامش اسم عوض بکند بشود MYFILE . txt MyFile . txt ،شمانمی توانیدآماده بسازید N برای مثال مستندسازی رابرای یک راه مشورت می کندکه اطراف این محدودیت کاربکند N Please"
+
+#: ID:88,
+#, c-format
+msgid ""
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"\n"
+"From: %s\n"
+"To: %s\n"
+"\n"
+"A relocate is only needed if the path <b>to</b> a repository has changed.\n"
+"Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
+"\n"
+"Improper use of relocate <b>will corrupt your working copy!</b>\n"
+"If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
+"Do you really want to relocate?"
+msgstr "کپی کردن کاریتان به یک مسیر < / b جابه جاساختن > > B به نظرمی آیدشماداریدبه < متفاوت درون همان مخزن سعی می نمایید از : n N: N به % sیک مخزن < / b به > > B تنهانیازداشته شده است اگرمسیر < A جابه جاساختن n N % sتبدیل کندیک مخزن توسطیک عمل سوییچ < / b داخل > > B به یک مسیرمتفاوت < N Changingانجام داده شده است < / b کپی کردن کاریتان رامعیوب خواهدبود > ! > B < Improper جابه جاساختن کاربرد n Nدرمن > < ( روی ) خودمان docs شمامطمئن نیستیدچه که انجام بدهیدلطفا،به \" N Ifمراجعه بکند < / i جابه جاساختن > شماواقعامی خواهیدکه جابجاکنید N Do "
+
+#: Control-ID:1203,
+msgid "Keep &locks"
+msgstr "محافظت کنیدبندد &"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Last commit revision:"
+msgstr "تجدیدنظر : commit آخرین "
+
+#: ID:11,
+msgid "Last saved revision of item"
+msgstr "آخرین تجدیدنظرجزءذخیره نمود "
+
+#: ID:12,
+#, fuzzy
+msgid "Launches the external diff / merge program to solve the conflicts"
+msgstr "برنامه ادغام بکندکه تضادهاحل بکند / diff آغازکردنهاخارجی "
+
+#: Control-ID:1137,
+msgid "Least active author:"
+msgstr "تالیف کردن فعال کمترین :"
+
+#: ID:188,
+msgid "Left View: "
+msgstr "مشاهده چپ :"
+
+#: Control-ID:65535,
+msgid "Left image"
+msgstr "تصویرچپ "
+
+#: ID:19,
+msgid "Line"
+msgstr " ﻩﺘﺸﺭ ‘ﻑﻴﺩﺭ ‘ﺭﻁﺴ ‘ﻁﺨ"
+
+#: ID:246,
+msgid "Line Graph"
+msgstr "خط Graph"
+
+#: Control-ID:65535,
+msgid "Line:"
+msgstr " ﻩﺘﺸﺭ ‘ﻑﻴﺩﺭ ‘ﺭﻁﺴ ‘ﻁﺨ"
+
+#: ID:269,
+#, c-format
+msgid "Line: %*ld"
+msgstr ""
+
+#: ID:3605,
+msgid ""
+"List Help topics\n"
+"Help Topics"
+msgstr "عنوانهای راهنما n عنوانهای راهنمالیست "
+
+#: Dlg-ID:130,
+msgid "Load Images"
+msgstr "تصویرهامنتقل کنید "
+
+#: ID:63,
+msgid "Local status"
+msgstr "وضعیت محلی "
+
+#: ID:94,
+#, fuzzy
+msgid ""
+"Location where the contents of the\n"
+"repository URL will be saved to."
+msgstr "مخزن به ذخیره نموده خواهدشد URL n محتویات ( جائیکه ) محل کجا "
+
+#: ID:207,#:
+#: ID:221,
+msgid "Lock"
+msgstr "ﻝﻔﻘ"
+
+#: Dlg-ID:191,
+msgid "Lock Files"
+msgstr "فایل هابندید "
+
+#: ID:209,
+msgid "Lock broken!"
+msgstr "شکسته بندید ! "
+
+#: ID:207,
+msgid "Lock comment"
+msgstr "توضیح بندید "
+
+#: Control-ID:65535,
+msgid "Lock creation date:"
+msgstr "تاریخ ایجادبندید :"
+
+#: ID:263,
+msgid "Lock failed"
+msgstr "خراب شده بندید "
+
+#: Control-ID:65535,
+msgid "Lock owner:"
+msgstr "صاحب بندید :"
+
+#: ID:209,
+#, c-format
+msgid "Lock stolen by %s"
+msgstr "بندید % s دزدی بوسیله"
+
+#: ID:263,
+#, c-format
+msgid "Locked by %s"
+msgstr "% s مسدودشده بوسیله"
+
+#: ID:89,
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr "جلوگیری ازدست یابی خراب شدبرای اینکه یک نگارش نوتروجوددارد ! شمامی خواهیدکه باردیگر؟به روزبیاوریدوسعی بنمایید N Do"
+
+#: ID:16,
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "قفلهایک فایل برای کاربرهای دیگروتولیدهاآن قابل ویرایش بوسیله خودتان "
+
+#: ID:126,
+msgid "Log"
+msgstr "ﻊﻴﺎﻘﻭ ﻥﺩﺭﻜ ﺕﺒﺜ"
+
+#: Dlg-ID:211,
+msgid "Log History"
+msgstr "تاریخ واردبشوید "
+
+#: Control-ID:1274,#:
+#: Dlg-ID:130,
+msgid "Log Messages"
+msgstr "پیامهاواردبشوید "
+
+#: Control-ID:65535,
+msgid "Log message"
+msgstr "پیام واردبشوید"
+
+#: Control-ID:65535,
+msgid "Log messages"
+msgstr "پیام هاواردبشوید "
+
+#: Dlg-ID:195,
+msgid "Look and Feel"
+msgstr ". Feel نگاه و "
+
+#: Dlg-ID:212,
+#, fuzzy
+msgid "Look and Feel::Colors"
+msgstr ". Colors :: Feel نگاه و"
+
+#: Dlg-ID:196,
+#, fuzzy
+msgid "Look and Feel::Dialogs 1"
+msgstr "Dialogs :: Feel نگاه و ۱ ."
+
+#: Dlg-ID:213,
+#, fuzzy
+msgid "Look and Feel::Dialogs 2"
+msgstr "Dialogs :: Feel نگاه و ۲ ."
+
+#: Dlg-ID:106,
+#, fuzzy
+msgid "Look and Feel::Icon Overlays"
+msgstr ". Icon :: Feel نگاه و "
+
+#: Dlg-ID:184,
+#, fuzzy
+msgid "Look and Feel::Icon Set"
+msgstr ". Icon Set :: Feel نگاه و "
+
+#: ID:238,
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld"
+msgstr "پائین ترین تجدیدنظر : %ld  Highest تجدیدنظر %ld"
+
+#: ID:238,
+#, c-format
+msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+msgstr "پائین ترین تجدیدنظر : %ld - Highest تجدیدنظر %ld - HEAD تجدیدنظر %ld"
+
+#: ID:3866,#:
+#: ID:3866,
+#, fuzzy
+msgid "Mail system DLL is invalid."
+msgstr "سیستم نامه بی اعتباراست DLL"
+
+#: ID:17,
+#, fuzzy
+msgid "Manage Subversion properties"
+msgstr "موفق بشوید Subversion مشخصات "
+
+#: MenuEntry
+msgid "Mark as &resolved"
+msgstr "مارک چنانچه دوباره حل کرد & "
+
+#: ID:282,
+msgid "Mark as resolved"
+msgstr "مارک چنانچه دوباره حل کرد "
+
+#: ID:2051,
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr "مارک چنانچه دوباره حل بکند n Subversion علامتهایک فایل چنانچه دوباره حل کردنددر "
+
+#: Control-ID:1064,
+msgid "Match &case"
+msgstr "مسابقه حالت &"
+
+#: Control-ID:1159,
+msgid "Max"
+msgstr "حداکثر "
+
+#: Control-ID:1317,
+msgid "Max. items to keep in the log message history"
+msgstr "حداکثر اقلام که درسوابق پیام گزارش محافظت می کند"
+
+#: Dlg-ID:141,#:
+#: Control-ID:65535,
+msgid "Merge"
+msgstr "ﻥﺩﺭﻜ ﻡﺎﻏﺩﺍ"
+
+#: ID:263,#:
+#: ID:263,
+msgid "Merged"
+msgstr "ﻥﺩﺸ ﻕﺭﻏ ‘ﻥﺩﺸﻙﻠﻬﺘﺴﻤ ‘ﻥﺘﻔﺭﻭﺭﻔ ‘ﻥﺩﺭﻜ ﺏﻴﻜﺭﺘ ‘ﻥﺩﺭﻜ ﺝﻭﺯﻤﻤ ‘ﻥﺩﺭﻜ ﻰﻜﻴ"
+
+#: ID:10,
+msgid "Merges a branch into the main trunk"
+msgstr "ادغام کردنهایک شاخه به ) سوی ( کابل اصلی کلی "
+
+#: Control-ID:65535,
+msgid "Merging"
+msgstr "ﻥﺩﺸ ﻕﺭﻏ ‘ﻥﺩﺸﻙﻠﻬﺘﺴﻤ ‘ﻥﺘﻔﺭﻭﺭﻔ ‘ﻥﺩﺭﻜ ﺏﻴﻜﺭﺘ ‘ﻥﺩﺭﻜ ﺝﻭﺯﻤﻤ ‘ﻥﺩﺭﻜ ﻰﻜﻴ"
+
+#: ID:83,
+#, fuzzy
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "نیازدارد ' : ' To و ' : ' From متفاوت در URLs الحاق تجدیدنظرهای متفاوت یا"
+
+#: ID:76,
+msgid "Message"
+msgstr "ﻡﺎﻴﭙ"
+
+#: Control-ID:1241,
+msgid "Message:"
+msgstr "ﻡﺎﻴﭙ"
+
+#: ID:116,
+msgid "Messages"
+msgstr "ﻡﺎﻐﻴﭙ ‘ﻥﺩﺭﻜ ﺕﻠﺎﺴﺭ ‘ﻥﺩﺍﺩ ﻡﺎﻐﻴﭙ ‘ﻡﺎﻴﭙ"
+
+#: ID:116,
+msgid "Messages, authors and paths"
+msgstr "پیام ها،تالیف کردنهاومسیرها "
+
+#: ID:78,
+msgid "Mime type"
+msgstr "نوع اجراکنید"
+
+#: Control-ID:1158,
+msgid "Min"
+msgstr "Min"
+
+#: ID:263,
+msgid "Mine"
+msgstr "ﻥﺩﻨﻜ ‘ﻥﺩﺸﺎﻴ ﻥﺩﺭﻜ ﺝﺍﺭﺨﺘﺴﺍ ‘ﻥﺩﺭﻜ ﺭﻔﺤ ﻥﺩﻌﻤ ‘ﺍﺭﻤ ‘ﻥﻤ ﻝﺎﻤ ‘ﻥﻤﺎﻤ"
+
+#: Control-ID:1023,
+msgid "Misc"
+msgstr "Misc"
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Mixed"
+msgstr "ﻩﺘﺨﻴﻤﺍ"
+
+#: ID:74,#:
+#: ID:264,
+msgid "Modified"
+msgstr "ﻥﺩﺭﻜ ﻝﻴﺩﻌﺘ ‘ﻥﺩﺭﻜ ﺡﻻﺼﺍ ‘ﻥﺩﺍﺩ ﺭﻴﻴﻐﺘ"
+
+#: ID:438,#:
+#: ID:438,
+msgid "More colors..."
+msgstr "رنگهای زیادتری "
+
+#: Control-ID:1136,
+msgid "Most active author:"
+msgstr "فعالترین تالیف کردن : "
+
+#: ID:98,
+#, c-format
+msgid "Move: New name for %s"
+msgstr "حرکت کنید :% s نام جدیدبه "
+
+#: ID:126,
+msgid "Moved remotely"
+msgstr "ازراه دورمتاثر "
+
+#: ID:80,
+#, c-format
+msgid "Moving %s"
+msgstr "% s متحرک "
+
+#: ID:80,
+msgid "Moving..."
+msgstr "متحرک"
+
+#: Control-ID:65535,
+msgid "My file:"
+msgstr "فایلم :"
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "N&ext Conflict"
+
+#: ID:3697,
+msgid "NUM"
+msgstr "NUM"
+
+#: ID:208,
+msgid "Needs lock"
+msgstr "قفل نیاز "
+
+#: ID:210,
+msgid "Nested"
+msgstr "ﻯﺍﻩﻨﺎﻴﺸﺍ ‘ﻭﺘﺭﺩﻭﺘ"
+
+#: Dlg-ID:102,
+msgid "Network"
+msgstr "ﻩﻜﺒﺸ"
+
+#: Dlg-ID:30721,#:
+#: Dlg-ID:30721,
+msgid "New"
+msgstr "ﺍﺩﻴﺩﺠ ‘ﻥﻴﻭﻨ ‘ﺍﺭﻴﺨﺍ ‘ﻭﻨ ‘ﺩﻴﺩﺠ ‘ﻩﺯﺎﺘ"
+
+#: Control-ID:1076,
+msgid "New &name:"
+msgstr "جدیدمی نامد : & "
+
+#: ID:97,
+#, c-format
+msgid "New name for %s"
+msgstr "% s نام جدیدبه "
+
+#: ID:98,
+msgid "New name:"
+msgstr "نام جدید :"
+
+#: ID:73,
+msgid "No"
+msgstr " ﺍﺩﺒﺍ ‘ﺭﻴﺨ ‘ﻑﻠﺎﺨﻤ‘ﻰﻔﻨﻤ ‘ﻩﻨ ﺥﺴﺎﭙ "
+
+#: ID:81,
+#, c-format
+msgid ""
+"No command specified!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgstr "هیچ فرمان مشخص شده ! استفاده شده است ومستقیما! Shell توسطانشعاب N TortoiseProc . exe % > Hr < N ۱۰۰فراخوانی نخواهید"
+
+#: ID:81,
+msgid "No command value specified!"
+msgstr "هیچ مقدارفرمان مشخص شده ! "
+
+#: ID:82,
+msgid "No differences found!"
+msgstr "هیچ تفاوت نیافت !"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "No error message is available."
+msgstr "هیچ پیام خطادردسترس نیست "
+
+#: ID:3867,#:
+#: ID:3868,#:
+#: ID:3868,
+msgid "No error occurred."
+msgstr "هیچ خطارخ نداد"
+
+#: ID:82,
+#, fuzzy
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "نه بایگانی نمی کندیافولدرهاتعدیل شده بودند نیست که بازبگردد ! TortoiseSVN آنجابرای "
+
+#: ID:77,
+#, fuzzy
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here..."
+msgstr "تبدیل نشدندیااضافه نموده نشدند commit گذشته N هیچ پرونده هاازوقتی که نیست که اینجاانجام بدهد TortoiseSVN برای n آنجا "
+
+#: ID:170,
+#, fuzzy
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr "تبدیل نشدندیااضافه نموده نشدند commit گذشته N هیچ پرونده هاازوقتی که نیست که اینجاانجام بدهد TortoiseSVN برای n آنجا بایگانی بکند unversioned شمامی خواهیددیدن N Do"
+
+#: ID:273,
+msgid "No graph available"
+msgstr "هیچ موجودنمودار "
+
+#: ID:273,
+#, c-format
+msgid "No image encoder found for %s."
+msgstr "نیافت % s هیچ کدکننده تصویربه "
+
+#: ID:188,
+msgid "No spell corrections"
+msgstr "هیچ تصحیحهای افسون"
+
+#: ID:196,
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "هیچ کش وضعیت فولدرهامی گیرندیک پوششی ،پرونده هایک پوششی نگیرد versioned تنها "
+
+#: ID:188,
+msgid "No thesaurus suggestions"
+msgstr "هیچ توصیه های لغت نامه "
+
+#: Control-ID:1271,
+msgid "None"
+msgstr "ﻻﺼﺍ ‘ﺍﺩﺒﺍ ‘ﻩﻨ ‘ﻩﺠﻭﭽﻴﻬﺒ ‘ﻡﺍﺩﻜﭽﻴﻫ ‘ﻙﻴﭽﻴﻫ ‘ﭺﻴﻫ"
+
+#: ID:264,#:
+#: Control-ID:65535,
+msgid "Normal"
+msgstr "ﺭﺎﺠﻨﻫ ‘ﻰﻠﻭﻤﻌﻤ ‘ﻯﺩﺎﻋ"
+
+#: ID:3857,#:
+#: ID:3857,
+#, fuzzy
+msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr "خارج شد ( INI یافایل ) نه تمامی ورودی های رجیستری ویندوزسیستم "
+
+#: ID:83,
+msgid "Not enough memory to complete operation."
+msgstr "حافظه ای کافی به کارکردکامل "
+
+#: ID:563,
+msgid "Not recursive"
+msgstr "نه بازگشتی "
+
+#: ID:88,
+msgid "Notice"
+msgstr "ﻰﻬﮔﺍ ‘ﺭﺎﻁﺨﺍ ‘ﻥﺩﺭﻜ ﻩﻀﺤﻻﻤ"
+
+#: Control-ID:1161,
+msgid "Number of authors:"
+msgstr "شماره نویسنده ها :"
+
+#: Control-ID:1160,
+msgid "Number of weeks:"
+msgstr "شماره هفته ها : "
+
+#: ID:73,#:
+#: Control-ID:1,#:
+#: Control-ID:1,
+msgid "OK"
+msgstr "ﺏﻴﻭﺼﺘ ‘ﻩﺯﺎﺠﺍ ‘ﻥﺩﺭﻜ ﺕﻘﻔﺍﻭﻤ‘ﻥﺩﺭﻜ ﺏﻴﻭﺼﺘ ‘ﺏﻭﺨ ﺭﺎﻴﺴﺒ ‘ﺏﻭﺨ ‘ﺕﺴﺍ ﺡﻴﺤﺼ (okay)"
+
+#: ID:3697,
+msgid "OVR"
+msgstr "OVR"
+
+#: ID:99,#:
+#: Control-ID:1202,#:
+#: Control-ID:1202,
+msgid "Omit e&xternals"
+msgstr "حذف کنید e &"
+
+#: ID:145,
+msgid "Omit externals"
+msgstr "ظواهرحذف کنید "
+
+#: ID:219,
+#, fuzzy
+msgid "One or more files are in a conflicted state."
+msgstr "ایالت هستند conflicted یک یاپرونده های زیادتری دریک "
+
+#: ID:99,#:
+#: Control-ID:1073,#:
+#: Control-ID:1073,
+msgid "Only check out the &top folder"
+msgstr "تنهاپوشه بالاآزمایش می نماید & "
+
+#: ID:169,
+#, fuzzy
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr "اجازه داده شده است ! N ( به طوراختیاری جداشدبوسیله ویرگولها ) تنهاشماره ها "
+
+#: Control-ID:1073,
+msgid "Only update the &top folder"
+msgstr "تنهاپوشه بالابه روزمی آورد & "
+
+#: Control-ID:1224,
+#, fuzzy
+msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
+msgstr "مجموعه است Projectlanguage به کارمی برد: Tsvn چه موقع Pellchecker s تنها &"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "Open"
+msgstr "ﻥﺩﺸ ﺯﺎﺒ ‘ﻥﺩﺭﻜ ﺯﺎﺒ ‘ﺭﺎﻜﺸﺍ ‘ﺩﺍﺯﺍ ‘ﺯﺎﺒ"
+
+#: ID:76,
+msgid "Open client certificate file"
+msgstr "پرونده گواهی مشتری باز "
+
+#: ID:3601,
+msgid "Open file"
+msgstr "پرونده باز "
+
+#: ID:7,
+msgid "Open image file..."
+msgstr "پرونده تصویرباز "
+
+#: ID:282,
+msgid "Open parent folder"
+msgstr "پوشه والدین باز "
+
+#: ID:113,
+msgid "Open with..."
+msgstr "بازبا "
+
+#: ID:3605,
+msgid ""
+"Opens Help\n"
+"Help Topics"
+msgstr "عنوانهای کمک n کمک بازها "
+
+#: ID:13,
+#, fuzzy
+msgid "Opens the repository browser to tweak the repository online"
+msgstr "که برخطگنجینه رامی کشد browser بازهاگنجینه "
+
+#: MenuEntry
+msgid "Ori&ginal size"
+msgstr ". Ginal اندازه & Ori"
+
+#: ID:245,
+msgid "Others"
+msgstr "ﻯﺭﮔﻴﺩ ‘ﺕﻭﺎﻔﺘﻤ ‘ﺭﮔﻴﺩ ﻉﻭﻨ ‘ﺭﻴﻏ ‘ﺭﮔﻴﺩ"
+
+#: ID:3843,#:
+#: ID:3843,
+msgid "Out of memory."
+msgstr ") با ( خارج ازحافظه "
+
+#: ID:95,
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr "رابی اعتبارکنید Eol - style آرایش دارایی : svnکه ندارنداین دارایی مجموعه تاثیرگذاشته نشده است N فایل های "
+
+#: ID:99,
+msgid "Overwrite"
+msgstr " ﻥﺘﺸﻭﻨ ﻯﺎﺠ ‘ﺕﺸﻭﻨ ﻯﺎﺠ"
+
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "P&revious Conflict"
+
+#: ID:76,
+msgid "PEM"
+msgstr "PEM"
+
+#: ID:76,
+msgid "PKCS12"
+msgstr "PKCS12"
+
+#: ID:69,
+msgid "Password:"
+msgstr "ﺯﻤﺭ ﻡﺴﺍ ‘ﺯﻤﺭ ﻩﻤﻠﻜ"
+
+#: ID:172,
+#, fuzzy
+msgid "Paste filename list"
+msgstr "فهرست بچسبانید filename"
+
+#: ID:376,
+msgid "Patch all"
+msgstr "تمام وصله کنید "
+
+#: ID:376,
+msgid "Patch selected"
+msgstr "انتخاب شده وصله کنید "
+
+#: ID:157,#:
+#: ID:157,
+#, fuzzy
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "، Diffوصله کنید ("
+
+#: ID:77,#:
+#: ID:198,
+msgid "Path"
+msgstr "ﺭﺴﻴﻤ"
+
+#: ID:116,
+msgid "Paths"
+msgstr "ﺭﺴﻴﻤ"
+
+#: ID:157,
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+
+#: ID:246,
+msgid "Pie Graph"
+msgstr "پای Graph"
+
+#: ID:3858,#:
+#: ID:3858,
+#, fuzzy
+msgid "Please enter a GUID."
+msgstr "واردبشوید GUID لطفایک \""
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a currency."
+msgstr "لطفایک ارزی واردبشوید \""
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a date and/or time."
+msgstr "لطفایک تاریخ ویازمان واردبشوید / \""
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a date."
+msgstr "لطفایک تاریخ واردبشوید \""
+
+#: ID:83,
+msgid "Please enter a hook script to execute."
+msgstr "لطفایک پردازه قلاب واردبشویدکه انجام بدهید \""
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter a number between %1 and %2."
+msgstr "لطفایک عددمابین \"۱ و %۲ واردبشوید %"
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a number."
+msgstr "لطفایک عددواردبشوید \""
+
+#: ID:83,
+msgid "Please enter a path where to apply the hook script to."
+msgstr "لطفایک مسیرواردبشویدکجا \" ) جائیکه ( که پردازه قلاب به مصرف کنید "
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a positive integer."
+msgstr "لطفایک عددصحیح مثبت واردبشوید \""
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter a time."
+msgstr "لطفایک زمان واردبشوید \""
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter an integer between %1 and %2."
+msgstr "لطفایک عددصحیح مابین \"۱ و %۲ واردبشوید %"
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter an integer between 0 and 255."
+msgstr "لطفایک عددصحیح مابین \"۰ و ۲۵۵ واردبشوید"
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please enter an integer."
+msgstr "لطفایک عددصحیح واردبشوید \""
+
+#: ID:3858,#:
+#: ID:3858,
+#, c-format
+msgid "Please enter no more than %1 characters."
+msgstr "لطفاکمتراز \"۱ کاراکترهاواردبشوید %"
+
+#: ID:251,
+#, fuzzy
+msgid "Please execute the \"Cleanup\" command."
+msgstr "انجام بدهید Cleanup لطفافرمان \""
+
+#: ID:78,
+msgid ""
+"Please note:\n"
+"your working copy remains on the previous path. If you want your next changes\n"
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
+msgstr "لطفاتوجه کنید : \"کپی کردن کاریتان روی مسیرقبلی باقی می ماند Nدرهم اکنون کپی کردن ایجادشده است درآنوقت شما n اگرشمابخواهیدبعداتبدیل بکند \" به آن مسیرکپی کردن راه بگزینید n لازم است که برروی که آن انجام می دهد Switch استفاده فرمان "
+
+#: ID:3858,#:
+#: ID:3858,
+msgid "Please select a button."
+msgstr "لطفادکمه برگزیده \""
+
+#: ID:83,
+msgid "Please select a hook type"
+msgstr "لطفانوع قلاب برگزیده \""
+
+#: ID:76,
+msgid "Please specify the certificate type"
+msgstr "لطفانوع گواهی رامشخص کنید \""
+
+#: ID:132,
+msgid "Please wait - this can take several minutes. Seriously!"
+msgstr "دقیقه چندین می توانید take لطفامنتظرباشیداین \"به طورجدی !"
+
+#: ID:13,
+msgid "Please wait while cancelling..."
+msgstr "لطفازمانیکه باباطل کردن منتظرباشید \""
+
+#: ID:319,
+msgid "Please wait while differences are obtained..."
+msgstr "لطفامنتظرباشیدتاموقعی که تفاوتهاکسب نموده شده اند \""
+
+#: ID:104,
+msgid "Please wait while the repository browser is initialized..."
+msgstr "لطفامنتظرباشیدتاموقعی که مرورگرمخزن مقداراولیه داده شده است \""
+
+#: ID:119,#:
+#: ID:146,#:
+#: ID:211,
+msgid "Please wait..."
+msgstr "لطفامنتظرباشید \""
+
+#: ID:569,
+msgid "Post-Commit Hook"
+msgstr "Post-Commit Hook"
+
+#: ID:570,
+msgid "Post-Update Hook"
+msgstr "Post-Update Hook"
+
+#: ID:569,
+msgid "Pre-Commit Hook"
+msgstr "Pre-Commit Hook"
+
+#: ID:570,
+msgid "Pre-Update Hook"
+msgstr "Pre-Update Hook"
+
+#: ID:376,
+msgid "Preview patched file"
+msgstr "پیش نمایش فایل اصلاح نمود "
+
+#: ID:132,
+#, c-format
+msgid "Processing revision %d of %d..."
+msgstr "% d از % d تجدیدنظرپردازش "
+
+#: ID:74,
+msgid "Program"
+msgstr "ﻥﺘﺸﻭﻨ ﻩﻤﺎﻨﺭﺒ ‘ﻩﻤﺎﻨﺭﺒ"
+
+#: ID:157,
+#, fuzzy
+msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
+msgstr "برنامه ها ( .. ( Exe All فایل های "
+
+#: Dlg-ID:134,#:
+#: Control-ID:65535,
+msgid "Progress"
+msgstr "ﻥﺩﺭﻜ ﺕﻔﺭﺸﻴﭙ ‘ﺕﻔﺭﺸﻴﭙ"
+
+#: ID:17,#:
+#: Dlg-ID:177,#:
+#: Dlg-ID:226,
+msgid "Properties"
+msgstr "ﻰﻴﺍﺭﺍﺩ ‘ﻙﻠﻭ ‘ﻰﮔﮊﻴﻭ ‘ﺕﻴﺼﺎﺨ"
+
+#: Control-ID:1287,
+msgid "Properties for"
+msgstr "مشخصات برای "
+
+#: ID:209,
+msgid "Properties..."
+msgstr "ﻰﻴﺍﺭﺍﺩ ‘ﻙﻠﻭ ‘ﻰﮔﮊﻴﻭ ‘ﺕﻴﺼﺎﺨ"
+
+#: ID:11,
+msgid "Property"
+msgstr "ﻰﻴﺍﺭﺍﺩ ‘ﻙﻠﻭ ‘ﻰﮔﮊﻴﻭ ‘ﺕﻴﺼﺎﺨ"
+
+#: Dlg-ID:107,
+msgid "Property Page"
+msgstr "صفحه دارایی "
+
+#: Control-ID:65535,
+msgid "Property Status:"
+msgstr "وضعیت دارایی :"
+
+#: Control-ID:1292,
+msgid "Property name:"
+msgstr "نام دارایی : "
+
+#: ID:207,
+msgid "Property status"
+msgstr "وضعیت دارایی "
+
+#: Control-ID:1293,
+msgid "Property value:"
+msgstr "مقداردارایی : "
+
+#: Control-ID:65535,
+msgid "Proxy &timeout in seconds:"
+msgstr "پراکسی انقضاءوقت درثانیه ها : & "
+
+#: Control-ID:1080,
+msgid "Proxy Settings"
+msgstr "پراکسی "
+
+#: Control-ID:1338,
+#, fuzzy
+msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
+msgstr "مجموعه است Needs - lock بگذارید: Svn درفهرست بالاچه موقع ( روی ) Get Lock"
+
+#: ID:246,
+#, c-format
+msgid "Q%d/%.2d"
+msgstr "Q%d/%.2d"
+
+#: ID:3605,
+#, fuzzy
+msgid ""
+"Quit the application; prompts to save documents\n"
+"Exit"
+msgstr "برنامه کاربردی ترک کنید مستندسازی می کند Exit n اعلانهابه ذخیره کردن "
+
+#: Control-ID:1073,
+#, fuzzy
+msgid "R&AM drives"
+msgstr "صبح می راند & R"
+
+#: ID:114,
+#, fuzzy
+msgid "R&evert to this revision"
+msgstr "به این تجدیدنظر Evert & R"
+
+#: ID:3697,
+msgid "REC"
+msgstr "REC"
+
+#: Control-ID:1048,
+msgid "Re&movable drives"
+msgstr "درباره گرداننده های قابل حرکت &"
+
+#: ID:11,
+msgid "Re&name..."
+msgstr "درباره نام & "
+
+#: ID:8,
+#, fuzzy
+msgid "Re&vert..."
+msgstr ". Vert درباره & "
+
+#: ID:12,
+#, fuzzy
+msgid "Read the 'Daily Use Guide' before you are stuck..."
+msgstr "استفاده بخوانیدقبل ازاینکه شماچسبانده شده اید Guide ' ' Daily"
+
+#: Control-ID:1260,
+#, fuzzy
+msgid "Recurse into unversioned folders"
+msgstr "فولدرها unversioned ( سوی ) به Recurse"
+
+#: ID:563,
+msgid "Recursive"
+msgstr "ﻰﺘﺸﮔﺯﺎﺒ"
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Redo the previously undone action\n"
+"Redo"
+msgstr "دوباره انجام بدهید Redo n عمل به طورقبلی انجام نشده "
+
+#: ID:3825,
+msgid "Reduce the window to an icon"
+msgstr "پنجره به یک آیکون ساده کنید "
+
+#: ID:101,#:
+#: ID:135,
+msgid "Refresh"
+msgstr "ﻥﺩﺭﻜ ﺕﻭﺍﺭﻁ ﺎﺒ ‘ﻥﺩﺭﻜ ﻥﺸﻭﺭ ‘ﻥﺩﺭﻭﺍﻥﻭﺭﻴﺒ ﻰﮔﺘﺴﺨ ﺯﺍ ‘ﻩﺒ ﻥﺩﺍﺩ ﻩﺯﺎﺘ ﻯﻭﺭﻴﻨ ‘ﻥﺩﺭﻜ ﻩﺯﺎﺘ"
+
+#: ID:82,
+msgid "Reject"
+msgstr "ﻥﺘﻔﺭﻴﺫﭙﻨ ‘ﻥﺩﺭﻜ ﺩﺭ"
+
+#: ID:16,
+#, fuzzy
+msgid "Release loc&k"
+msgstr ". K loc انتشار & "
+
+#: ID:16,
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "نگارش هامی بنددحتی اگرشماصاحب قفلها ) وقفه هابه آنها ( نیستید"
+
+#: ID:16,
+msgid "Releases locks on files so other users can edit them again."
+msgstr "نگارش ها ) روی ( درپرونده هامی بنددبنابراین کاربرهای دیگرمی توانندآنهاراباردیگر ویرایش بکنند"
+
+#: ID:12,
+msgid "Relo&cate..."
+msgstr "Relo&cate..."
+
+#: MenuEntry
+msgid "Reload"
+msgstr "بارگذاری مجدد "
+
+#: ID:2050,
+msgid ""
+"Reloads the opened files and reverts all changes.\n"
+"Reload"
+msgstr "بارگذاری مجددهاپرونده هابازشده وبازگشتنهاتمام تغییرات "
+
+#: Dlg-ID:157,
+msgid "Relocate"
+msgstr "ﻥﺩﺭﻜ"
+
+#: ID:89,
+#, fuzzy
+msgid "Relocate Warning"
+msgstr "جابجاکنید Warning"
+
+#: ID:80,
+msgid "Relocating..."
+msgstr "ﻥﺩﺭﻜ"
+
+#: ID:207,
+msgid "Remote property status"
+msgstr "وضعیت خصوصیت دور "
+
+#: ID:63,#:
+#: ID:207,
+msgid "Remote status"
+msgstr "وضعیت دور"
+
+#: ID:207,
+msgid "Remote text status"
+msgstr "وضعیت متن دور "
+
+#: ID:15,
+msgid "Remove from &ignore list"
+msgstr "خارج کنیدازلیست نادیده بگیرد & "
+
+#: Control-ID:1332,
+msgid "Remove..."
+msgstr "ﻥﺩﺭﻜ ﻝﺯﻋ ‘ﻥﺩﺭﻜ ﻊﻔﺭ ‘ﻥﺩﺭﻜ ﺕﺸﺍﺩﺭﺒ"
+
+#: Control-ID:65535,#:
+#: Control-ID:65535,
+msgid "Removed"
+msgstr "ﻥﺩﺭﻜ ﻝﺯﻋ ‘ﻥﺩﺭﻜ ﻊﻔﺭ ‘ﻥﺩﺭﻜ ﺕﺸﺍﺩﺭﺒ"
+
+#: ID:126,
+#, fuzzy
+msgid "Removed file/folder"
+msgstr ". file / folder تفاوت بسیارداشتن "
+
+#: ID:145,
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the ignore list."
+msgstr ""
+"لیست تفاوت بسیارداشتن الگوهای فایل \n"
+"%s\n"
+"لیست ignore از "
+
+#: ID:15,
+#, fuzzy
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "ازلیست اقلام نادیده گرفته filemask حذفهافایل یا"
+
+#: Dlg-ID:151,
+msgid "Rename"
+msgstr "اسم عوض کنید"
+
+#: ID:97,
+#, c-format
+msgid "Rename %s"
+msgstr "اسم عوض کنید % s"
+
+#: Control-ID:65535,
+msgid "Renamed node"
+msgstr "اتصال اسم عوض شده "
+
+#: ID:126,
+msgid "Renamed remotely"
+msgstr "ازراه دوراسم عوض شده "
+
+#: ID:11,
+msgid "Renames files / folders inside version control"
+msgstr " تغییرنامهاکنترل نگارش فولدرهاداخل بایگانی می کند /"
+
+#: ID:209,
+msgid "Repair move"
+msgstr "انتقال اصلاح کنید"
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Repeat the last action\n"
+"Repeat"
+msgstr "تکرارکنید Repeat n آخرین عمل "
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Replace specific text with different text\n"
+"Replace"
+msgstr "جایگزین کنید Replace n متن خاص بامتن متفاوت "
+
+#: Control-ID:65535,
+msgid "Replaced node"
+msgstr "اتصال جانشین شده "
+
+#: ID:74,
+msgid "Replacing"
+msgstr "ﻥﺩﺭﻜ ﻥﻴﺯﮔﻴﺎﺠ"
+
+#: Control-ID:65535,#:
+#: Control-ID:1055,#:
+#: Control-ID:65535,
+msgid "Repository"
+msgstr "ﺭﺍﺩﺯﺍﺭ ‘ﻑﺭﻅ ‘ﺕﻭﺒﺎﺘ ﻕﻭﺩﻨﺼ ‘ﻥﺯﺨﻤ ‘ﺭﺎﺒﻨﺍ"
+
+#: Dlg-ID:153,
+msgid "Repository Browser"
+msgstr "مرورگرمخزن "
+
+#: Control-ID:65535,
+msgid "Repository browser"
+msgstr "مرورگرمخزن "
+
+#: Control-ID:65535,
+msgid "Requests a username and a password"
+msgstr "درخواستهایک نام کاربرویک کلمه عبور "
+
+#: ID:8,
+msgid "Res&olved..."
+msgstr ". Olved درباره ها & "
+
+#: Dlg-ID:207,
+msgid "Resolve"
+msgstr "ﻥﺩﺍﺩ ﻯﺍﺭ ‘ﻥﺘﻔﺭﮔ ﻡﻴﻤﺼﺘ ‘ﻥﺘﺸﺍﺩ ﺭﺭﻘﻤ ‘ﻥﺩﺭﻜ ﻊﻔﺭ"
+
+#: ID:282,
+msgid "Resolve conflict using \"mine\""
+msgstr "کاربردتضادمال من دوباره حل کنید "
+
+#: ID:282,
+msgid "Resolve conflict using \"theirs\""
+msgstr "کاربردتضادمال ایشان دوباره حل کنید "
+
+#: ID:74,#:
+#: ID:209,
+msgid "Resolved"
+msgstr "ﻥﺩﺍﺩ ﻯﺍﺭ ‘ﻥﺘﻔﺭﮔ ﻡﻴﻤﺼﺘ ‘ﻥﺘﺸﺍﺩ ﺭﺭﻘﻤ ‘ﻥﺩﺭﻜ ﻊﻔﺭ"
+
+#: ID:282,
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"مصمم \n"
+"%s"
+
+#: ID:9,
+#, fuzzy
+msgid "Resolves conflicted files"
+msgstr "بایگانی می کند conflicted رفعها "
+
+#: Control-ID:1254,
+#, fuzzy
+msgid "Restore Default"
+msgstr "دوباره ذخیره کنید Default"
+
+#: ID:3826,
+msgid "Restore the window to normal size"
+msgstr "پنجره به اندازه عمومی دوباره ذخیره کنید "
+
+#: ID:73,
+msgid "Restored"
+msgstr "ﻥﺩﺭﻜ ﻡﻴﻤﺭﺘ ‘ﻥﺩﺭﻜ ﻩﺩﺎﻋﺍ"
+
+#: ID:73,
+msgid "Retry"
+msgstr "دوباره سعی کنید"
+
+#: Dlg-ID:175,
+msgid "Revert"
+msgstr "ﺕﺸﮔﺭﺒ ‘ﻥﺩﺍﺩ ﻩﺩﺎﻋﺍ ‘ﻥﺩﺭﻜ ﻉﻭﺠﺭ ‘ﻥﺘﺸﮔﺭﺒ"
+
+#: ID:114,
+msgid "Revert changes from these revisions"
+msgstr "بازبگردیداین تجدیدنظرهاتغییرموقعیت بدهند "
+
+#: ID:73,
+msgid "Reverted"
+msgstr "ﺕﺸﮔﺭﺒ ‘ﻥﺩﺍﺩ ﻩﺩﺎﻋﺍ ‘ﻥﺩﺭﻜ ﻉﻭﺠﺭ ‘ﻥﺘﺸﮔﺭﺒ"
+
+#: ID:9,
+msgid "Reverts all changes you made since the last update"
+msgstr "بازگشتنهاتمام تغییرات شماساختیداززمانیکه آخرین ) بار ( به روزمی آورد"
+
+#: ID:76,#:
+#: ID:208,#:
+#: Control-ID:65535,#:
+#: Control-ID:1306,#:
+#: ID:19,
+msgid "Revision"
+msgstr " ﺭﻅﻨ ﺩﻴﺩﺠﺘ"
+
+#: ID:119,
+#, c-format
+msgid "Revision %d"
+msgstr "% d تجدیدنظر "
+
+#: ID:269,#:
+#: ID:270,#:
+#: ID:272,
+#, c-format
+msgid "Revision %ld"
+msgstr "% ld تجدیدنظر "
+
+#: ID:120,
+#, c-format
+msgid "Revision %s"
+msgstr "% s تجدیدنظر "
+
+#: ID:15,
+msgid "Revision &graph"
+msgstr "تجدیدنظرنمودار &"
+
+#: Control-ID:65535,
+msgid "Revision / Author:"
+msgstr "تجدیدنظرمولف : / "
+
+#: Dlg-ID:182,
+#, fuzzy
+msgid "Revision Graph"
+msgstr "تجدیدنظر Graph"
+
+#: Dlg-ID:239,
+#, fuzzy
+msgid "Revision Graph Filter"
+msgstr " تجدیدنظر Graph"
+
+#: Dlg-ID:228,
+#, fuzzy
+msgid "Revision Range"
+msgstr "تجدیدنظر Range"
+
+#: ID:269,#:
+#: Control-ID:65535,
+msgid "Revision graph"
+msgstr "نمودارتجدیدنظر "
+
+#: ID:75,
+msgid "Revision: "
+msgstr " ﺭﻅﻨ ﺩﻴﺩﺠﺘ"
+
+#: ID:272,
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+
+#: ID:116,
+msgid "Revisions"
+msgstr "تجدیدنظرها "
+
+#: ID:188,
+msgid "Right View: "
+msgstr "مشاهده راست :"
+
+#: Control-ID:65535,
+msgid "Right image"
+msgstr "تصویرراست "
+
+#: MenuEntry
+msgid "S&ettings"
+msgstr "S&ettings"
+
+#: Control-ID:1132,
+msgid "S&tatistics"
+msgstr "S&tatistics"
+
+#: ID:9,
+#, fuzzy
+msgid "S&witch..."
+msgstr "جادوگر & S"
+
+#: ID:3697,
+msgid "SCRL"
+msgstr "SCRL"
+
+#: Control-ID:1081,
+msgid "SSH"
+msgstr "SSH"
+
+#: ID:12,
+#, fuzzy
+msgid "SVN Add files to this WC"
+msgstr "بایگانی می کند WC به این Svn Add"
+
+#: ID:16,
+#, fuzzy
+msgid "SVN Author"
+msgstr ". Svn مولف "
+
+#: ID:16,
+#, fuzzy
+msgid "SVN Copy and rename versioned file here"
+msgstr "پرونده اینجااسم عوض می کند versioned و Svn Copy"
+
+#: ID:13,
+#, fuzzy
+msgid "SVN Copy versioned files here"
+msgstr "اینجابایگانی می کند versioned Svn Copy"
+
+#: ID:14,
+#, fuzzy
+msgid "SVN Export all to here"
+msgstr "تمام به اینجا Svn Export"
+
+#: ID:14,
+#, fuzzy
+msgid "SVN Export to here"
+msgstr "به اینجا Svn Export"
+
+#: ID:16,
+#, fuzzy
+msgid "SVN Lock owner"
+msgstr ". Svn Lock صاحب"
+
+#: ID:17,
+#, fuzzy
+msgid "SVN Move and rename versioned files here"
+msgstr "اینجابایگانی بکند versioned واسم عوض می کند Svn Move"
+
+#: ID:12,
+#, fuzzy
+msgid "SVN Move versioned files here"
+msgstr "اینجابایگانی می کند versioned Svn Move"
+
+#: ID:11,
+msgid "SVN Revision"
+msgstr "SVN Revision"
+
+#: ID:11,
+#, fuzzy
+msgid "SVN Status"
+msgstr ". Svn وضعیت "
+
+#: ID:12,
+msgid "SVN URL"
+msgstr "SVN URL"
+
+#: ID:17,
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
+
+#: ID:14,
+msgid "SVN mime-type"
+msgstr "SVN mime-type"
+
+#: ID:12,
+#, fuzzy
+msgid "SVN short URL"
+msgstr "کوتاه Svn URL"
+
+#: MenuEntry
+#, fuzzy
+msgid "Save &As..."
+msgstr "صرفه جویی کنید As &"
+
+#: ID:101,
+msgid "Save &as..."
+msgstr "چنانچه صرفه جویی کنید &"
+
+#: ID:3841,#:
+#: ID:3841,
+#, fuzzy
+msgid "Save As"
+msgstr "صرفه جویی کنید As"
+
+#: ID:313,
+msgid "Save as..."
+msgstr "چنانچه صرفه جویی کنید "
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "Save changes to %1?"
+msgstr "تغییرات به ۱ ؟صرفه جویی کنید %"
+
+#: ID:232,
+msgid "Save client certificate path"
+msgstr "مسیرگواهی مشتری صرفه جویی کنید"
+
+#: ID:76,
+msgid "Save revision &to..."
+msgstr "تجدیدنظربه صرفه جویی کنید & "
+
+#: ID:3601,#:
+#: ID:3601,
+msgid ""
+"Save the modified file\n"
+"Save file"
+msgstr "صرفه جویی کنید Save پرونده n پرونده تعدیل شده را "
+
+#: Control-ID:1132,
+msgid "Save to clipboard"
+msgstr "به تخته طراحی صرفه جویی کنید "
+
+#: Dlg-ID:108,
+#, fuzzy
+msgid "Saved Data"
+msgstr "صرفه جویی شده Data"
+
+#: ID:103,
+#, c-format
+msgid "Saving file %s"
+msgstr "% s پرونده صرفه جویی "
+
+#: ID:103,
+msgid "Saving files"
+msgstr "صرفه جویی بایگانی می کند"
+
+#: ID:144,
+#, fuzzy
+msgid "Saving patchfile to:"
+msgstr ": patchfile صرفه جویی "
+
+#: Control-ID:1014,#:
+#: Control-ID:1017,#:
+#: Control-ID:1064,#:
+#: Control-ID:1212,
+msgid "Scintilla"
+msgstr "ﺭﺜﺍ ‘ﻩﻘﺭﺠ"
+
+#: ID:113,
+msgid "Search &log messages..."
+msgstr "جستجوپیام هاکنده &"
+
+#: Control-ID:65535,
+msgid "Search for:"
+msgstr "جستجو :"
+
+#: ID:7,
+msgid "Search string not found!"
+msgstr "رشته جستجونه یافت ! "
+
+#: ID:3867,#:
+#: ID:3867,
+#, c-format
+msgid "Seek failed on %1"
+msgstr "ناکام ) روی ( در ۱ جستجوکنید %"
+
+#: ID:376,
+#, fuzzy
+msgid "Select &All"
+msgstr "انتخاب کنید All &"
+
+#: Control-ID:1067,#:
+#: Control-ID:1067,
+#, fuzzy
+msgid "Select / deselect &all"
+msgstr "تمام انتخاب کنید & Deselect /"
+
+#: ID:13,
+msgid "Select File..."
+msgstr "فایل انتخاب کنید "
+
+#: Dlg-ID:173,
+#, fuzzy
+msgid "Select Revision"
+msgstr "انتخاب کنید Revision"
+
+#: ID:78,
+#, fuzzy
+msgid "Select SSH client"
+msgstr "انتخاب کنید SSH مشتری "
+
+#: ID:3585,
+msgid "Select an object on which to get Help"
+msgstr "یک هدف انتخاب کنیدکه که کمک بگیرد"
+
+#: ID:78,
+#, fuzzy
+msgid "Select diff application"
+msgstr "درخواست انتخاب کنید diff"
+
+#: ID:313,
+#, fuzzy
+msgid "Select diff file..."
+msgstr "پرونده انتخاب کنید diff"
+
+#: ID:99,
+msgid "Select directory to check out to"
+msgstr "دفترراهنماانتخاب کنیدکه به آزمایش بنماید "
+
+#: ID:276,
+msgid "Select end revision"
+msgstr "تجدیدنظرآخرین انتخاب کنید "
+
+#: ID:79,
+msgid ""
+"Select folder to export to.\n"
+"You might need to create a new folder before performing this export."
+msgstr "پوشه به صادرات به انتخاب کنید شماممکن بودلازم است که یک پوشه جدیدایجادکنیدقبل ازاینکه باانجام دادن این Nصادرات دارد"
+
+#: ID:197,
+msgid "Select folder to run script for"
+msgstr "پوشه انتخاب کنیدکه دستخطبرای اجرابکند "
+
+#: ID:119,
+msgid "Select folder to save the selected files to"
+msgstr "پوشه انتخاب کنیدکه صرفه جویی بکندانتحاب شده به بایگانی بکند "
+
+#: ID:197,
+msgid "Select hook script file"
+msgstr "پرونده دستخطقلاب انتخاب کنید "
+
+#: ID:78,
+msgid "Select merge application"
+msgstr "انتخاب کنیددرخواست به تدریج ادغام بشود "
+
+#: ID:276,
+msgid "Select revision range"
+msgstr "حدودتجدیدنظرانتخاب کنید"
+
+#: ID:276,
+msgid "Select start revision"
+msgstr "تجدیدنظرشروع انتخاب کنید "
+
+#: ID:79,
+msgid "Select text editor application"
+msgstr "درخواست ویرایشگرمتن انتخاب کنید "
+
+#: ID:79,
+#, fuzzy
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "درانتهای کارکردانتخاب کنید dialog رفتارپیشرفت "
+
+#: ID:3603,
+#, fuzzy
+msgid ""
+"Select the entire document\n"
+"Select All"
+msgstr "انتخاب کنید Select All n سندکامل را "
+
+#: Control-ID:65535,
+msgid "Select the type of repository you want to create:"
+msgstr "انتخاب بکنیدنوع گنجینه شمابخواهیدکه ایجادکنید :"
+
+#: ID:78,
+#, fuzzy
+msgid "Select viewer for diff-files"
+msgstr "انتخاب کنید diff - files بیننده به "
+
+#: ID:3866,#:
+#: ID:3866,
+msgid "Send Mail failed to send message."
+msgstr "نامه ناکام بفرستیدکه پیام بفرستد "
+
+#: ID:74,
+msgid "Sending content"
+msgstr "بافرستادن محتوا "
+
+#: Control-ID:65535,
+msgid "Server &address:"
+msgstr "خدمتگزارنشانی : & "
+
+#: Control-ID:1088,
+#, fuzzy
+msgid "Set filedates to the \"last commit &time\""
+msgstr "زمان ردیف بشوید commit به گذشته & filedates"
+
+#: ID:13,
+msgid "Setting properties..."
+msgstr "دارایی های آرایش "
+
+#: ID:107,
+msgid "Settings"
+msgstr "ﻥﺩﻨﺎﺸﻨ ‘ﻩﻨﻴﻤﺯ ‘ﻁﻴﺤﻤ"
+
+#: Control-ID:1132,
+msgid "Sh&ow log"
+msgstr "آخ کنده & Sh"
+
+#: Control-ID:1270,
+msgid "Shell"
+msgstr "(ﺕﺴﻭﭙ ﺯﺍ) ﻥﺩﺭﻭﺍﺭﺩ ﺍﺭﻩﻭﻴﻤ ﺯﻐﻤ ‘ﺯﺍ ﻥﺩﻨﻜ ﺕﺴﻭﭙ ‘ﻥﺩﺭﻜ ﻯﺭﻴﮔ ﺱﻭﺒﺴ ‘ﻥﻴﻤﺯ ﺭﺸﻘ"
+
+#: ID:145,
+#, fuzzy
+msgid "Shell Icon Cache was rebuilt!"
+msgstr "پوسته ازنوساخته شد ! Icon Cache"
+
+#: ID:101,
+#, fuzzy
+msgid "Sho&w properties"
+msgstr ". W دارایی های & Sho"
+
+#: Control-ID:1105,
+#, fuzzy
+msgid "Short &date/time format in log messages"
+msgstr "درپیام هاکنده Date / time کوتاه نظم &"
+
+#: ID:12,
+#, fuzzy
+msgid "Short URL of Subversion items"
+msgstr ". Subversion کوتاه اقلام URL"
+
+#: ID:115,#:
+#: Control-ID:1031,
+#, fuzzy
+msgid "Show &All"
+msgstr "نشان بدهید All &"
+
+#: ID:115,
+#, fuzzy
+msgid "Show &Range..."
+msgstr "نشان بدهید Range &"
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "تمام تجدیدنظرهانشان بدهید &"
+
+#: ID:113,
+msgid "Show &differences"
+msgstr "تفاوتهانشان بدهید &"
+
+#: ID:12,#:
+#: ID:101,#:
+#: Control-ID:1016,#:
+#: Control-ID:1228,#:
+#: Control-ID:1031,#:
+#: Control-ID:1034,#:
+#: Control-ID:1132,#:
+#: Control-ID:1228,
+msgid "Show &log"
+msgstr "کنده نشان بدهید &"
+
+#: Control-ID:1031,
+msgid "Show &log..."
+msgstr "گزارش نشان بدهید &"
+
+#: Control-ID:1088,
+msgid "Show &overlays only in explorer"
+msgstr "نشان بدهیدتنهادرمرورگرجای بگذارد &"
+
+#: Control-ID:1073,
+msgid "Show &unversioned files"
+msgstr "بایگانی بکند Unversioned نشان بدهید & "
+
+#: MenuEntry
+msgid "Show File List"
+msgstr "لیست فایل نشان بدهید "
+
+#: ID:113,
+msgid "Show differences as &unified diff"
+msgstr "متحدکرد diff تفاوتهانشان بدهیدبطوریکه &"
+
+#: Control-ID:1264,
+msgid "Show ignored files"
+msgstr "نشان بدهیدپرونده هانادیده بگیرد "
+
+#: Control-ID:1065,
+#, fuzzy
+msgid "Show li&ne diff bar"
+msgstr "نوارنشان بدهید diff Ne li &"
+
+#: Control-ID:1063,
+#, fuzzy
+msgid "Show linenumber&s"
+msgstr "نشان بدهید S linenumber &"
+
+#: ID:3713,
+#, fuzzy
+msgid ""
+"Show or hide the status bar\n"
+"Toggle StatusBar"
+msgstr "نشان بدهیدیامخفی بشوید Toggle StatusBar n خطوضعیت "
+
+#: ID:3713,
+#, fuzzy
+msgid ""
+"Show or hide the toolbar\n"
+"Toggle ToolBar"
+msgstr "نشان بدهیدیامخفی بشوید Toggle ToolBar n خطابزار "
+
+#: ID:2049,
+#, fuzzy
+msgid ""
+"Show special characters for whitespaces\n"
+"Show Whitespaces"
+msgstr "نشان بدهید N Show Whitespaces whitespaces حروف ویژه به "
+
+#: Control-ID:1209,
+#, fuzzy
+msgid "Show unmodified files"
+msgstr "بایگانی بکند unmodified نشان بدهید "
+
+#: Control-ID:1073,
+#, fuzzy
+msgid "Show unversioned files"
+msgstr "بایگانی بکند unversioned نشان بدهید "
+
+#: ID:198,
+msgid "Show/Hide"
+msgstr "Show/Hide"
+
+#: ID:272,
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "سرتکان می دهد % ld نمایش "
+
+#: ID:115,
+#, c-format
+msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
+msgstr "تجدیدنظرهاانتخاب کردند % ld % ld به تجدیدنظر % ld تجدیدنظرها،ازتجدیدنظر % ld نمایش "
+
+#: ID:272,
+#, c-format
+msgid "Showing graph for %s"
+msgstr "% s نمودارنمایش به "
+
+#: ID:15,
+#, fuzzy
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr ". copies / tags / branches نمایش هایک طرزنمایش ترسیمی از "
+
+#: ID:13,
+msgid "Shows all files which were changed since the last update, locally and in the repository"
+msgstr "نمایش هاتمام پرونده هاکه تبدیل شدنداززمانیکه آخرین ) بار ( ،به طورموضعی ودرمخزن به روزمی آورد "
+
+#: ID:2050,
+msgid "Shows all revisions where changes were made to this item"
+msgstr "نمایش هاتمام تجدیدنظرهاکجا ) جائیکه ( تغییرات به این جزءساخته شدند "
+
+#: ID:10,
+#, fuzzy
+msgid "Shows information about TortoiseSVN"
+msgstr ". TortoiseSVN اطلاعات نمایش هاراجع به "
+
+#: ID:17,
+#, fuzzy
+msgid "Shows the eol-style property value"
+msgstr "مقدارخصوصیت eol - style نمایش ها "
+
+#: ID:12,
+msgid "Shows the log for the selected file / folder"
+msgstr "نمایش هاگزارش برای فایل انتحاب شده فولدر / "
+
+#: ID:14,
+msgid "Shows the mime type of the versioned file"
+msgstr "فایل versioned نمایش هاشکلک نوع "
+
+#: ID:74,
+msgid "Size"
+msgstr "ﻩﺯﺍﺩﻨﺍ"
+
+#: ID:74,
+msgid "Skipped"
+msgstr "ﻥﺯﺒ ﺕﺴﺠ ‘ﻥﺩﺯ ﺕﺴﺠ ‘ﺕﺴﺠ"
+
+#: ID:263,
+msgid "Skipped missing target"
+msgstr "مقصدگم شده بیرون پریده شده "
+
+#: Control-ID:1300,
+msgid "Sort items numerically"
+msgstr "اقلام ازلحاظعددی مرتب کنید "
+
+#: ID:101,
+msgid "Sort numerical"
+msgstr "عددی مرتب کنید "
+
+#: ID:196,
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "باچندتااقلام شمامی خواهیدکه دراخیرترین محاوره پیام هاگزارش محافظت کنید "
+
+#: ID:79,
+msgid ""
+"Specify the files or folders which TortoiseSVN\n"
+"should ignore in <b>all</b> working copies.\n"
+"Separate the patterns with a space."
+msgstr "< / b تمام > > B بایستی که در < n TortoiseSVN پرونده هارایافولدرهامشخص کنیدکه کپی کردنهای کاری نادیده بگیرد الگوهابایک فاصله N Separate    "
+
+#: Control-ID:65535,
+msgid "Specify the revision range which you want to merge:"
+msgstr "محدوده تجدیدنظررامشخص بکنیدکه شمامی خواهیدکه ادغام کنید : "
+
+#: ID:3604,
+#, fuzzy
+msgid ""
+"Split the active window into panes\n"
+"Split"
+msgstr "بشکافید Split n شیشه پنجره ها ( سوی ) پنجره فعال به "
+
+#: ID:246,
+#, fuzzy
+msgid "Stacked Bar Graph"
+msgstr "پشته شده Bar Graph"
+
+#: ID:246,
+#, fuzzy
+msgid "Stacked Line Graph"
+msgstr "خطپشته شده Graph"
+
+#: ID:569,
+#, fuzzy
+msgid "Start Commit Hook"
+msgstr "شروع کنید Commit Hook"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Start Revision"
+msgstr "شروع کنید Revision"
+
+#: ID:569,
+#, fuzzy
+msgid "Start Update Hook"
+msgstr "به روزآوری شروع کنید Hook"
+
+#: ID:245,#:
+#: Dlg-ID:179,
+msgid "Statistics"
+msgstr "ﻡﺎﻘﺭﺍ ‘ﺭﺎﻤﺍ"
+
+#: ID:74,#:
+#: ID:77,#:
+#: ID:207,#:
+#: Control-ID:65535,
+msgid "Status"
+msgstr "ﻥﺀﺎﺸ ‘ﺕﻴﻌﻀﻭ"
+
+#: Control-ID:65535,
+msgid "Status and action colors"
+msgstr "وضعیت ورنگهای عمل "
+
+#: Control-ID:65535,
+msgid "Status cache"
+msgstr "کش وضعیت "
+
+#: ID:196,
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "کش وضعیت نگه داشت دریک فرآیندخارجی ،می تواندبه طوربرگشت پذیری پوششی رانشان دهد"
+
+#: ID:196,
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "کش وضعیت تنهابرای یکی فولدر،نه پوششی های برگشت پذیر "
+
+#: ID:11,
+#, fuzzy
+msgid "Status of item in SVN"
+msgstr ". SVN وضعیت جزءدر "
+
+#: ID:16,
+#, fuzzy
+msgid "Steal loc&k"
+msgstr "بدزدید K loc &"
+
+#: ID:313,
+msgid "Steal the lock"
+msgstr "قفل رابدزدید "
+
+#: Control-ID:65535,
+msgid "Stefan Küng, Lübbe Onken"
+msgstr ". Onken bbe L ng ، Stefan K"
+
+#: Control-ID:65535,
+msgid "Subversion"
+msgstr "ﻯﺭﺎﻜﺒﺍﺭﺨﻩﺒ ﻩﺘﺴﺒﺍﻭ ‘ﻯﺭﺎﻜﺒﺍﺭﺨ ‘ﺏﻴﺭﺨﺘ ‘ﻡﺍﺩﻬﻨﺍ ‘ﻰﻨﻭﮔﮊﺍﻭ ﻥﻭﺭﺩ"
+
+#: Control-ID:65535,
+msgid "Subversion configuration &file:"
+msgstr "پیکربندی براندازی بایگانی می کند : & "
+
+#: ID:79,
+msgid ""
+"Subversion reported an error while creating a repository!\n"
+"Make sure the folder is empty and not write protected."
+msgstr "براندازی یک خطازمانیکه باایجادکردن یک مخزن گزارش داد ! مطمئن فولدرخالی است وهیچ نوشتن حفاظت کرد N ساختن     "
+
+#: ID:81,
+#, c-format
+msgid ""
+"Subversion reported an error while doing a cleanup!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr "براندازی یک خطازمانیکه باانجام دادن یک پاکسازی گزارش داد ! % s N %% > Hr < N ۱۰۰    "
+
+#: Control-ID:65535,
+msgid "Subversion server file:"
+msgstr "فایل سرویس دهنده براندازی : "
+
+#: Control-ID:1232,
+msgid "Sw&itch working copy to new branch/tag"
+msgstr "می خارد branch / tag کپی کردن کاری به جدید & Sw"
+
+#: MenuEntry
+#, fuzzy
+msgid "Switch Left<->Right"
+msgstr "راست راه بگزینید > < Left"
+
+#: Dlg-ID:140,
+#, fuzzy
+msgid "Switch To Branch / Tag"
+msgstr "راه بگزینید Tag شعبه به / "
+
+#: ID:3606,
+#, fuzzy
+msgid ""
+"Switch back to the previous window pane\n"
+"Previous Pane"
+msgstr "راه بگزینید Previous Pane n پشت به شیشه پنجره پنجره قبلی "
+
+#: ID:2049,
+#, fuzzy
+msgid ""
+"Switch between single and double pane view\n"
+"Switch between single and double pane view"
+msgstr "مابین تکی Switch n مابین تکی راه بگزینیدومشاهده کردن شیشه پنجره دوبرابربکنیدومشاهده کردن شیشه پنجره دوبرابرکنید     "
+
+#: ID:2051,
+#, fuzzy
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr "چپ وراست مشاهده کردن راه بگزینید Switch n محتویات چپ وراست مشاهده کردن "
+
+#: ID:3825,
+msgid "Switch to the next document window"
+msgstr "به پنجره سندبعدی راه بگزینید"
+
+#: ID:3606,
+msgid ""
+"Switch to the next window pane\n"
+"Next Pane"
+msgstr "بعدراه بگزینید Pane n به شیشه پنجره پنجره ای بعدی "
+
+#: ID:3825,
+msgid "Switch to the previous document window"
+msgstr "به پنجره سندقبلی راه بگزینید "
+
+#: ID:9,
+msgid "Switch working copy to another branch / tag"
+msgstr "کپی کردن کاری به انشعابی دیگرراه بگزینیدبرچسب بزنید / "
+
+#: ID:325,
+msgid "Switches the comparison left<->right"
+msgstr "کلیدهامقایسه چپ راست > <"
+
+#: Control-ID:65535,
+msgid "System &sounds"
+msgstr "سیستم صدامی دهد &"
+
+#: ID:3857,#:
+#: ID:3857,
+#, fuzzy
+msgid "System registry entries have been removed and the INI file (if any) was deleted."
+msgstr "حذف شد ( خارج شده انداگرهیچ ) را INI ورودی های رجیستری ویندوزسیستم وفایل "
+
+#: ID:7,
+msgid "TORTOISEBLAME"
+msgstr "TORTOISEBLAME"
+
+#: ID:7,
+msgid "TORTOISEIDIFF"
+msgstr "TORTOISEIDIFF"
+
+#: ID:79,
+#, c-format
+msgid "Tagged the working copy to %s"
+msgstr "% s برچسب زده شده کپی کردن کاری به"
+
+#: Control-ID:65535,
+msgid "Text Status:"
+msgstr "وضعیت متن "
+
+#: ID:207,
+msgid "Text status"
+msgstr "وضعیت متن "
+
+#: ID:69,
+#, c-format
+msgid ""
+"The File\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+
+#: ID:80,
+#, fuzzy
+msgid "The Repository was successfully created."
+msgstr "باموفقیت ایجادشده بود Repository"
+
+#: ID:63,
+#, fuzzy
+msgid "The chunk size did not match the number of added/removed lines!"
+msgstr "خطوطمنطبق نکرد ! added / removed اندازه تکه شماره "
+
+#: ID:63,
+#, c-format
+msgid "The chunk start \"@@\" was expected in line %d !"
+msgstr "انتظارداشته شد % d شروع تکه درخط @@ "
+
+#: ID:68,
+#, fuzzy, c-format
+msgid ""
+"The diffing engine aborted because of an error:\n"
+"%s"
+msgstr "موتوربخاطریک خطاناقص گذاشت : diffing"
+
+#: ID:64,
+#, c-format
+msgid "The file %s does not exist!"
+msgstr "وجودندارد ! % s فایل "
+
+#: ID:64,
+#, c-format
+msgid "The file %s was not found in the patch file!"
+msgstr "درفایل اصلاح پیدانشد ! % s فایل "
+
+#: ID:65,
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr "دوبارپیداشد؟! ! N % s فایل فولدرغلطمصرف کنید ! n به patchfile اتفاق می افتداگرشمایک N معمولا     "
+
+#: ID:3857,#:
+#: ID:3857,
+msgid "The file is too large to open."
+msgstr "همچنین فایل بازکردن بزرگ است "
+
+#: ID:80,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"already exists! Do you want to overwrite it?"
+msgstr "قبلاوجوددارد ! N n % s فایل شمامی خواهیدکه آن را؟جانویسی کنید "
+
+#: ID:145,
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr "ویاتعدیل شده بایگانی می کند / unversioned N شامل % s فولدر شمامی خواهیدکه آن رابه هرصورت ؟خارج کنید  "
+
+#: ID:88,
+#, c-format
+msgid ""
+"The folder \n"
+"%s\n"
+"does not exist.\n"
+"Would you like to create it first?"
+msgstr ""
+
+#: ID:99,
+#, c-format
+msgid ""
+"The folder\n"
+"%s\n"
+"already exists!"
+msgstr "قبلاوجوددارد ! N n % s فولدر"
+
+#: ID:83,
+#, c-format
+msgid ""
+"The hook script returned an error:\n"
+"%s"
+msgstr ""
+"پردازه قلاب یک خطاحرکت معکوس کرد \n"
+"%s"
+
+#: ID:7,
+msgid "The image can not be shown."
+msgstr "تصویرنشان داده شده "
+
+#: ID:63,
+#, c-format
+msgid "The line \"====\" was expected in line %d !"
+msgstr "The line \"====\" was expected in line %d !"
+
+#: ID:63,
+#, fuzzy
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr "فهرست خط : پیدانشد !خالی است diff فایل نیست یا diff این هیچ N Either    "
+
+#: ID:63,
+#, c-format
+msgid "The line indicating the new file was expected in line %d !"
+msgstr "انتظارداشته شد % d نشان دادن خطفایل جدیددرخط "
+
+#: ID:63,
+#, c-format
+msgid "The line indicating the old file was expected in line %d !"
+msgstr "انتظارداشته شد % d نشان دادن خطفایل قدیم درخط "
+
+#: ID:251,
+msgid "The lock has already been broken from another working copy"
+msgstr "قفل قبلاازکپی کردن کاری دیگرشکسته شده است \" "
+
+#: ID:63,
+#, fuzzy
+msgid ""
+"The old file does not match the new file.\n"
+"Renaming of files is not (yet) supported!"
+msgstr "فایل قدیم فایل جدیدمنطبق نمی کند پشتیبانی شده نیست ! ( هنوز ) پرونده ها N Renaming    "
+
+#: ID:64,
+#, c-format
+msgid ""
+"The patch seems outdated! The file line\n"
+"%s\n"
+"and the patchline\n"
+"%s\n"
+"do not match!"
+msgstr ""
+
+#: ID:88,
+#, fuzzy
+msgid ""
+"The path/URL you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "درویندوزبودن ! ( روی ) غیرقانونی seems شماواردشده اید path / urlشمامی توانیدآن رابه هرصورت ،سعی بنماییداماشماممکن بودیک خطابعدابگیرید \" Nدرویندوزنباید؟دربردارد ' < > ( روی ) معتبر A مسیر n Nیایکی ازنام وسیله های دنباله : . Clock ،$ Nul ،کنسول ، Aux ، Prn ، Lpt1 - lpt9 com - com ، N ۹ ۱ "
+
+#: ID:314,
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "نتیجه ادغام کردن درکپی کردن کاری ذخیره شده است : "
+
+#: ID:78,
+msgid ""
+"The selected file appears to still have one or more conflict markers in it.\n"
+"Are you sure you want to mark the file resolved?"
+msgstr "فایل انتحاب شده ظاهرمی شودبه ساکت یکی یانشانگذارهای تضادزیادتری باآن دارد شمامطمئن شمامی خواهیدبه علامت فایل ؟دوباره حل بکند N Are "
+
+#: ID:102,
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"مقصد URL \n"
+"%s\n"
+"قبلا؟وجوددارد !"
+
+#: ID:88,
+#, c-format
+msgid ""
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
+"Are you sure you want to checkout/export into that folder?"
+msgstr ""
+
+#: ID:195,
+#, fuzzy
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr "زمان درثانیه هابعدازکدام تجزیه انتحاب شده توقفهابایگانی می کند اماشایدهیچ N موجودلیست ، autocompletion زیرین آماده خواهدساخت N A مقدار اسکن کردن تمام پرونده ها     "
+
+#: ID:82,
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr "ازهمان ریشه ایجادنشده اند URL ( متعلق به ) دوانتحاب شده مال ممکن نیست که پیام هاگزارش رامابین آنهانشان بدهد ! N آن  "
+
+#: ID:16,
+#, fuzzy
+msgid "The user who did the last commit"
+msgstr "انجام داد commit کاربرکه گذشته "
+
+#: ID:16,
+msgid "The user who owns the lock of the file"
+msgstr "کاربرکه قفل فایل دارامی باشد "
+
+#: ID:81,
+#, c-format
+msgid ""
+"The working copy has changed!\n"
+"<hr=100%>\n"
+"Please commit your changes first or revert."
+msgstr ""
+
+#: ID:81,
+msgid ""
+"The working copy is not up to date!\n"
+"Please Update first."
+msgstr "کپی کردن کاری جدیدترین نیست ! اول N Please به روزآوری "
+
+#: Control-ID:65535,
+msgid "Their file:"
+msgstr "فایلشان :"
+
+#: ID:263,
+msgid "Theirs"
+msgstr "ﺎﻬﻨﺍ ﻝﺎﻤ ‘ﻥﺎﺸﻴﺍ ﻝﺎﻤ ‘ﻥﺎﺸﺩﻭﺨ ‘ﻥﺎﺸ"
+
+#: ID:169,
+#, fuzzy
+msgid ""
+"There are changes inside one or more directories which you have included with svn:externals.\n"
+"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr "ظواهرشامل شوید : svn آنجاتغییرات درون یک یادایرکتوری های زیادتری هستندکه شمابا لیست گرفته نشده است commit به > < / b > B < N Those پرونده ها آنهاپرونده هاجداگانه نیازدارید commit شمابه  "
+
+#: ID:66,
+#, c-format
+msgid ""
+"There are still unresolved conflicts in line %d!\n"
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
+msgstr "هستند ! % d آنجاهنوزتضادهای حل نشده درخط شمابایستی که آن تضادهااول قبلاصرفه جویی دوباره حل کنید Nشمامی خواهیدکه فایل باتضادهاهنوزآنجا؟ذخیره بنمایید N Do،کلیک می کنیددرآنوقت شمامجبورهستیددستی تضادهادرویراستاری دیگر! YES شما N Ifدوباره حل کنید    "
+
+#: ID:82,
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "آنجانیست که اضافه بنماید svn تمام پرونده هاوفولدرهاهرکدام زیرکنترل نگارش هستندیاکاربرد نادیده گرفته شده اندخصوصیت نادیده بگیریدیاعمومی تنظیم پیکربندی نادیده بگیرد "
+
+#: ID:188,
+msgid "Thesaurus"
+msgstr "ﺕﺎﻋﻻﻁﺍ ﻩﻋﻭﻤﺠﻤ ‘ﺱﻭﻤﺎﻘ‘ﻊﻤﺎﺠ ﮒﻨﻫﺭﻔ (.ﺠﻤ) ‘ﻥﺯﺨﻤ ‘ﺭﺎﺒﻨﺍ ‘ﻩﻨﺍﺯﺨ ‘ﻩﻨﻴﺠﻨﮔ"
+
+#: ID:83,
+#, fuzzy
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr "معتبرنیست URL این هیچ اینجا URL یک N Please ورود "
+
+#: ID:82,
+#, fuzzy
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "این هیچ مسیرمعتبرنیست ! معتبرنباید؟دربردارد ' < > N A مسیر . Clock ،$ Nul ،کنسول ، Aux ، Prn ، Lpt1 - lpt9 com - com ، N ۹ ۱    "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
+msgstr "// www . Collab . Net / ( : Http ) CollabNet این محصول نرم افزارپیشرفته بوسیله شامل می شود"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Http ) OpenSSL Toolkit در use به OpenSSL این محصول نرم افزارپیشرفته بوسیله پروژه شامل می شود // www . openssl . org / ( :    "
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+msgstr "متصل شده است % s درفایل % s این برنامه به صادرکردن گم شده دارد % s این ماشین ممکن است یک نگارش ناسازگاراز "
+
+#: ID:3857,#:
+#: ID:3857,
+#, c-format
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "دراین سیستم پیدانشد ( روی ) نیازداردکه % s این برنامه فایل ،"
+
+#: ID:15,
+msgid "This property is only allowed on folders, not files."
+msgstr "این خصوصیت تنهااجازه داده شده است ) روی ( درفولدرها،نه بایگانی بکند "
+
+#: ID:15,
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "این خصوصیت نبایدخطوطچندگانه دارد تنهایک خطاجازه داده شده است "
+
+#: ID:224,
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr "مطمئن بشودکه تمام اقلام بچه N به طوربرگشت پذیری وکارمی کنداطراف این خطا، commit به محاوره بررسی شده است commit هم در n ازیک فولدرچهارخانه انجام بدهدکه حذف n Commit non - recursive نبایدیک TortoiseSVN ، N Otherwiseفهرست گیری اجازه ندهید     "
+
+#: Control-ID:1201,#:
+#: Control-ID:65535,
+msgid "To:"
+msgstr "ﺕﺴﺍﻰﺴﻴﻠﮔﻨﺍ ﺭﺩﺼﻤ ﺕﻤﻻﻋ ‘ﺭﺒ ﺎﻨﺒ ‘ﻕﺒﺎﻁﻤ ‘ﺏﺴﺤﺭﺒ ‘ﺭﺒﺍﺭﺒﺭﺩ"
+
+#: Control-ID:65535,
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "ادغام می کند ( آخرین وتجدیدنظرازمحدوده که URL )"
+
+#: ID:7,
+msgid "TortoiseBlame"
+msgstr "TortoiseBlame"
+
+#: ID:13,
+#, fuzzy
+msgid ""
+"TortoiseBlame can't be started directly!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+msgstr "مستقیماشروع می کند ! Tortoiseblame"
+
+#: ID:7,
+msgid "TortoiseIDiff"
+msgstr "TortoiseIDiff"
+
+#: ID:7,
+#, fuzzy
+msgid ""
+"TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
+"\n"
+"Available command line parameters are:\n"
+"/left:\"path to left picture\"\n"
+"/lefttitle:\"title to show for the left picture\"\n"
+"/right:\"path to right picture\"\n"
+"/righttitle:\"title to show for the right picture\""
+msgstr "هستند : N پارامترهای خطفرمان آماده n TortoiseSVN مرورکننده برای diff تصویر ترک کرد : n / lefttitle مسیرکه تصویر نشان می دهد : n / right عنوان که برای تصویرچپ : n / righttitle مسیربه تصویرراست عنوان که برای تصویرراست نشان می دهد  "
+
+#: ID:7,#:
+#: ID:3585,#:
+#: Dlg-ID:130,
+msgid "TortoiseMerge"
+msgstr "TortoiseMerge"
+
+#: ID:107,
+#, c-format
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+msgstr ""
+
+#: ID:107,
+#, c-format
+msgid ""
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+msgstr ""
+
+#: ID:80,#:
+#: Control-ID:65535,
+msgid "TortoiseSVN"
+msgstr "TortoiseSVN"
+
+#: ID:107,
+#, c-format
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
+
+#: ID:107,
+#, c-format
+msgid ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+
+#: ID:77,
+msgid "TortoiseSVN Add..."
+msgstr "TortoiseSVN Add..."
+
+#: ID:132,
+msgid "TortoiseSVN Blame"
+msgstr "TortoiseSVN Blame"
+
+#: ID:77,
+msgid "TortoiseSVN Checkout..."
+msgstr "TortoiseSVN Checkout..."
+
+#: ID:77,
+msgid "TortoiseSVN Commit..."
+msgstr "TortoiseSVN Commit..."
+
+#: ID:78,
+msgid "TortoiseSVN Copy..."
+msgstr "TortoiseSVN Copy..."
+
+#: ID:78,
+msgid "TortoiseSVN Export..."
+msgstr "TortoiseSVN Export..."
+
+#: ID:77,
+msgid "TortoiseSVN Import..."
+msgstr "TortoiseSVN Import..."
+
+#: ID:78,
+msgid "TortoiseSVN Merge..."
+msgstr "TortoiseSVN Merge..."
+
+#: ID:221,
+msgid "TortoiseSVN Rename/move"
+msgstr "TortoiseSVN Rename/move"
+
+#: ID:77,
+msgid "TortoiseSVN Resolve..."
+msgstr "TortoiseSVN Resolve..."
+
+#: ID:77,
+msgid "TortoiseSVN Revert..."
+msgstr "TortoiseSVN Revert..."
+
+#: ID:80,
+msgid "TortoiseSVN Settings"
+msgstr "TortoiseSVN Settings"
+
+#: ID:78,
+msgid "TortoiseSVN Switch..."
+msgstr "TortoiseSVN Switch..."
+
+#: ID:77,
+msgid "TortoiseSVN Update..."
+msgstr ". Tortoisesvn به روزآوری "
+
+#: ID:98,
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+
+#: Control-ID:1162,
+#, fuzzy
+msgid "Total commits analyzed:"
+msgstr "تجزیه کرد : commits جمع "
+
+#: Control-ID:1163,
+msgid "Total file changes:"
+msgstr "فایل جمع تبدیل می کند :"
+
+#: ID:357,
+#, c-format
+msgid "Transferring at %s"
+msgstr "% s بامنتقل نمودن در "
+
+#: ID:251,
+#, fuzzy
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "سعی بنمایید Cleanup یک اگرآن شمارالازم نیست کارنکندکه یک وارسی بی نمک انجام بدهید "
+
+#: ID:73,
+msgid "Try again"
+msgstr "باردیگرسعی بنمایید "
+
+#: ID:10,
+#, fuzzy
+msgid "Tweak TortoiseSVN"
+msgstr "بکشید TortoiseSVN"
+
+#: MenuEntry
+#, fuzzy
+msgid "Two-way &Diff"
+msgstr ". Diff دوطرفه &"
+
+#: ID:207,#:
+#: Dlg-ID:164,
+msgid "URL"
+msgstr "URL"
+
+#: Control-ID:1272,
+#, fuzzy
+msgid "URL history"
+msgstr ". Url سوابق"
+
+#: ID:12,
+#, fuzzy
+msgid "URL of Subversion items"
+msgstr ". Subversion اقلام Url"
+
+#: ID:144,#:
+#: Control-ID:65535,
+msgid "URL:"
+msgstr "URL:"
+
+#: ID:75,
+msgid "URL: "
+msgstr "URL: "
+
+#: ID:3866,#:
+#: ID:3866,
+msgid "Unable to load mail system support."
+msgstr "ناتوان که پشتیبانی سیستم نامه منتقل می کند"
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "Unable to read from %1, it is opened by someone else."
+msgstr "ناتوان که بخوانداز، ۱ آن توسطکسی دیگربازشده است %"
+
+#: ID:3865,#:
+#: ID:3865,
+msgid "Unable to read write-only property."
+msgstr "خصوصیت خواند write - only ناتوان که "
+
+#: ID:119,
+msgid ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
+msgstr "ناتوان که مسیرکپی کردن کاری بازسازی می کند ! می توانداتفاق بیافتداگرفایل اسم عوض شده است Nn دراین فایل خاص تنهاوسپس بازگشتن تغییرات ( روی ) محاوره گزارش N Please شروع ازشیشه پنجره بالادرمحاوره گزارش   "
+
+#: ID:3865,#:
+#: ID:3865,
+msgid "Unable to write read-only property."
+msgstr "ناتوان که خصوصیت فقطخواندنی می نویسد"
+
+#: ID:3859,#:
+#: ID:3859,
+#, c-format
+msgid "Unable to write to %1, it is read-only or opened by someone else."
+msgstr "ناتوان که بنویسدبه ، ۱ آن فقطخواندنی یابازشده بوسیله کسی دیگراست %"
+
+#: ID:3887,#:
+#: ID:3887,
+msgid "Uncheck"
+msgstr "Uncheck"
+
+#: ID:3603,
+msgid ""
+"Undo the last action\n"
+"Undo"
+msgstr "خنثی کنید Undo n آخرین عمل "
+
+#: ID:3859,#:
+#: ID:3859,
+msgid "Unexpected file format."
+msgstr "فرمت فایل پیش بینی نشده"
+
+#: MenuEntry
+#, fuzzy
+msgid "Unified &diff of HEAD revisions"
+msgstr ". HEAD تجدیدنظرهای Diff واحد & "
+
+#: ID:81,
+#, c-format
+msgid ""
+"Unknown certificate issuer.\n"
+"  Fingerprint: %s\n"
+"  Distinguished name: %s"
+msgstr ""
+
+#: ID:221,
+msgid "Unlock"
+msgstr "ﻥﺩﺭﻜﺯﺎﺒ ‘(ﻝﻔﻘ) ﻥﺩﻭﺸﮔ"
+
+#: ID:264,
+msgid "Unlock failed"
+msgstr "ناکام قفل بازکنید "
+
+#: ID:263,
+msgid "Unlocked"
+msgstr "ﻥﺩﺭﻜﺯﺎﺒ ‘(ﻝﻔﻘ) ﻥﺩﻭﺸﮔ"
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "Untitled"
+msgstr "ﺯﺎﻏﺍﺭﺴ ﻥﻭﺩﺒ ‘ﻥﺎﺸﻨ ﻰﺒ ‘ﻡﺎﻨ ﻰﺒ ‘ﻥﺍﻭﻨﻋ ﻥﻭﺩﺒ"
+
+#: Control-ID:1313,
+#, fuzzy
+msgid "Unversioned files mark parent folder as modified"
+msgstr "فولدروالدعلامت گذاری چنانچه تعدیل شده بایگانی می کند Unversioned"
+
+#: Dlg-ID:152,
+msgid "Update"
+msgstr "ﻥﺩﺭﻭﺍ ﺭﺩ ﻡﺎﮔﻨﻬﺒ"
+
+#: ID:74,
+msgid "Updated"
+msgstr "ﻥﺩﺭﻭﺍ ﺭﺩ ﻡﺎﮔﻨﻬﺒ"
+
+#: ID:11,
+msgid "Updates the working copy to a specific revision"
+msgstr "به روزرسانی هاکپی کردن کاری به یک تجدیدنظرخاص "
+
+#: ID:9,
+msgid "Updates the working copy to the current revision"
+msgstr "به روزرسانی هاکپی کردن کاری به تجدیدنظرجاری "
+
+#: ID:226,
+#, c-format
+msgid "Updating %s"
+msgstr "به روزدربیاورید % s"
+
+#: ID:283,
+msgid "Updating and retrying the lock..."
+msgstr "نوسازی وازنومحاکمه کردن قفل "
+
+#: Control-ID:1064,
+#, fuzzy
+msgid "Use &magnifier on locatorbar"
+msgstr ". locatorbar در ( روی ) استفاده عدسی &"
+
+#: Control-ID:1024,
+#, fuzzy
+msgid "Use &one-pane view as default for 2-file diff"
+msgstr ". Diff - file چنانچه پیش فرض به One - pane استفاده مشاهده کردن & ۲"
+
+#: ID:251,
+msgid "Use &other text block"
+msgstr "استفاده بلوک متنی دیگر & "
+
+#: Control-ID:1126,
+msgid "Use &text viewer to view blames"
+msgstr "استفاده مرورکننده متن به مشاهده کردن سرزنش می کند &"
+
+#: ID:195,
+msgid ""
+"Use '*' as a wildcard character when specifying an exception.\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr "استفاده بعنوان کاراکترجانشین چه موقع بامشخص کردن یک استثناء ' ' استفاده می کند ( ، ' ' ) جدا،ویرگولها N استثناءهای چندگانه به : N نمونه ، Ylan . com    "
+
+#: Control-ID:1230,
+#, fuzzy
+msgid "Use URL of &WC as the default \"From:\" URL"
+msgstr "چنانچه ازپیش فرض : WC استفاده از & URL"
+
+#: Control-ID:1064,
+#, fuzzy
+msgid "Use Unified Diff from clipboard"
+msgstr "واحداستفاده ازکلیپ بورد Diff"
+
+#: Control-ID:1073,
+#, fuzzy
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "ازاستفاده : است ( محدوده تجدیدنظرقابل انتخاب دربالای محاوره گزارش ) Url"
+
+#: Control-ID:1296,
+#, fuzzy
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "به جای _ svn استفاده . Svn دایرکتوری های "
+
+#: ID:251,
+msgid "Use both text blocks (this one first)"
+msgstr "استفاده هردوبلوک متنها ) این یک اول ( ."
+
+#: ID:251,
+msgid "Use both text blocks (this one last)"
+msgstr "استفاده هردوبلوک متنها ) این یک گذشته ( ."
+
+#: Control-ID:1066,
+#, fuzzy
+msgid "Use stri&keout for deleted lines"
+msgstr "برای خطوطحذف شده Keout stri استفاده &"
+
+#: MenuEntry
+msgid "Use text block from \"&mine\""
+msgstr "بلوک متن استفاده ازمال من & "
+
+#: MenuEntry
+msgid "Use text block from \"&theirs\""
+msgstr "بلوک متن استفاده ازمال ایشان & "
+
+#: MenuEntry
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "قبلامال ایشان Ine m بلوک متن استفاده از & "
+
+#: ID:2052,
+msgid ""
+"Use text block from \"mine\" before \"theirs\"\n"
+"Use \"mine\" text block then \"theirs\""
+msgstr "استفاده مال من بلوک متن سپس مال ایشان n بلوک متن استفاده ازمال من قبلامال ایشان "
+
+#: ID:2052,
+msgid ""
+"Use text block from \"mine\"\n"
+"Use \"mine\" text block"
+msgstr "استفاده مال من بلوک متن n بلوک متن استفاده ازمال من "
+
+#: MenuEntry
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "وارثهاقبلامال من t بلوک متن استفاده از & "
+
+#: ID:2052,
+msgid ""
+"Use text block from \"theirs\" before \"mine\"\n"
+"Use \"theirs\" text block then \"mine\""
+msgstr "استفاده مال ایشان بلوک متن سپس مال من n بلوک متن استفاده ازمال ایشان قبلامال من "
+
+#: ID:2052,
+msgid ""
+"Use text block from \"theirs\"\n"
+"Use \"theirs\" text block"
+msgstr "استفاده مال ایشان بلوک متن n بلوک متن استفاده ازمال ایشان "
+
+#: ID:251,
+#, fuzzy
+msgid "Use th&is text block"
+msgstr "بلوک متن است & Useth"
+
+#: ID:251,
+msgid "Use this &whole file"
+msgstr "استفاده این فایل همه &"
+
+#: ID:12,
+#, fuzzy
+msgid "Use this if the URL of the repository has changed"
+msgstr "مخزن تبدیل کرده است URL استفاده این اگر "
+
+#: ID:251,
+msgid "Use whole other &file"
+msgstr "استفاده همه دیگربایگانی می کند &"
+
+#: ID:74,
+msgid "User cancelled"
+msgstr "استفاده کننده باطل کرد "
+
+#: ID:69,
+msgid "Username:"
+msgstr "نام کاربر :"
+
+#: ID:313,
+#, fuzzy
+msgid ""
+"Valid command line options are:\n"
+"/base:<path to base file>\n"
+"/theirs:<path to their file>\n"
+"/mine:<path to your file>\n"
+"/merged:<path to resulting merged file>\n"
+"/diff:<path to unified diff file>\n"
+"/patchpath:<path to folder>"
+msgstr "اختیارخطدستورمعتبرهستند : / mine پرونده شان خود > N مسیربه < : / theirs N مسیربه پرونده پایه > < : / base N< : / diff N خودمسیربه نتیجه پرونده > < : / merged پرونده تان خود > N خودمسیربه < :مسیربه پوشه به تدریج ادغام شد > < : / patchpath N پرونده > diff مسیربه واحد  "
+
+#: ID:11,
+msgid "Value"
+msgstr "ﺭﺩﻘ ‘ﺵﺯﺭﺍ"
+
+#: Control-ID:1075,#:
+#: Control-ID:1075,
+msgid "Version"
+msgstr "ﻥﺘﻤ ‘ﻩﺨﺴﻨ ‘ﺭﻴﺴﻔﺘ ‘ﻩﻤﺠﺭﺘ ‘ﻩﮊﻴﻭ ﺡﺭﺸ"
+
+#: ID:114,
+#, fuzzy
+msgid "View revision for path in &webviewer"
+msgstr ". Webviewer تجدیدنظرمشاهده برای مسیردر &"
+
+#: ID:114,
+#, fuzzy
+msgid "View revision in &webviewer"
+msgstr ". Webviewer تجدیدنظرمشاهده در & "
+
+#: Control-ID:1084,#:
+#: Control-ID:1084,
+msgid "Visit our website"
+msgstr "وب سایتمان دیدارکنید "
+
+#: ID:198,
+msgid "Wait"
+msgstr "ﻥﺩﺭﻜ ﻰﺘﻤﺩﺨﺸﻴﭙ ‘ﻥﺩﺸ ﻝﻁﻌﻤ‘ﻥﺩﻴﺸﻜ ﺭﺎﻅﺘﻨﺍ ‘ﻥﺩﺸ ﺭﻅﺘﻨﻤ ‘ﻥﺩﻭﺒ ﻩﺍﺭﺒ ﻡﺸﭽ ‘ﻥﺩﺭﻜ ﺭﺒﺼ"
+
+#: Control-ID:1327,
+msgid "Wait for the script to finish"
+msgstr "برای دستخطمنتظرباشیدکه تمام بکند "
+
+#: ID:88,
+msgid "Warning"
+msgstr "ﺭﺍﺩﺸﻫ ‘ﺭﻴﮊﺍ‘ﺕﺭﺒﻋ ‘ﺭﻁﺨ ﻡﻻﻋﺍ ‘ﺭﻁﺨ ﮒﻨﺯ ‘ﻩﺭﺎﺸﺍ ‘ﺭﻴﺫﺤﺘ ‘ﺭﺎﻁﺨﺍ"
+
+#: ID:219,
+msgid "Warning!"
+msgstr "ﺭﺍﺩﺸﻫ ‘ﺭﻴﮊﺍ‘ﺕﺭﺒﻋ ‘ﺭﻁﺨ ﻡﻻﻋﺍ ‘ﺭﻁﺨ ﮒﻨﺯ ‘ﻩﺭﺎﺸﺍ ‘ﺭﻴﺫﺤﺘ ‘ﺭﺎﻁﺨﺍ"
+
+#: ID:146,
+#, fuzzy
+msgid "With URL:"
+msgstr "با : URL"
+
+#: Dlg-ID:158,
+#, fuzzy
+msgid "Working Copy"
+msgstr "کاری Copy"
+
+#: Control-ID:1335,
+#, fuzzy
+msgid "Working Copy Path:"
+msgstr "کاری : Copy Path"
+
+#: ID:80,
+#, c-format
+msgid ""
+"Working copy relocated to\n"
+"%s"
+msgstr "نقل مکان کرد n % s نسخه کاری به "
+
+#: ID:73,
+msgid "Yes"
+msgstr "ﻥﺘﻔﮔ ﻰﻠﺒ ‘ﻯﺭﺍ ‘ﻰﻠﺒ ‘ﻩﻠﺒ"
+
+#: ID:145,
+msgid "Yes to all"
+msgstr "بلی به تمام "
+
+#: ID:201,
+msgid "You already have the latest version installed."
+msgstr "شماقبلاآخرین نگارش نصب کرده اید \""
+
+#: ID:144,
+msgid ""
+"You are creating a repository on a network share.\n"
+"This is safe, but once the repository is created you must access it by some other means.\n"
+"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Create the repository anyway?"
+msgstr "شماداریدیک گنجینه ) روی ( دریک سهم شبکه ایجادمی کنید ایمن ،است امایکبارگنجینه شماراایجادشده است بایدآن رابوسیله مقداری وسیله ای دیگر Nدست بیابیددریک سهم شبکه ممکن است ( روی ) یک پرونده ازطریق گنجینه /// : N Accessingداده هایتان رافاسدبکند !گنجینه به هرصورت ؟ N Create "
+
+#: ID:88,
+msgid ""
+"You are trying to access a repository via file:/// on\n"
+"a shared network drive.\n"
+"This could lead to severe repository corruption!\n"
+"Do you really want to do that?"
+msgstr "یک n در ( روی ) شماداریدسعی می نماییدکه یک پرونده ازطریق گنجینه دست بیابید /// : شبکه شریک بوده شده براند می توانست به فسادگنجینه سخت هدایت بنماید ! Nشماواقعامی خواهیدکه آن انجام بدهید N Do "
+
+#: ID:16,
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr "شمانمی توانیداین دارایی ) روی ( درپوشه ها،تنها ) روی ( درپرونده هاردیف بشوید ! شما N درتمام پرونده هادرمدت ردیف بشویدکه پوشه ، ( روی ) شمامی خواهیدکه آن را N Ifفعال کنید checkbox را Cursive ' are باید   "
+
+#: ID:105,
+#, fuzzy
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr "شمابیشترازیک پرونده یاپوشه رونوشت گرفتید N file / folder هر TortoiseSVN ممکن نیست که آن دریکی گام ،انجام بدهدبنابراین N آن رابه طورجداگانه ،ایجادکردن یک تجدیدنظرجدیدبرای هرقلم رونوشت گرفته شده رونوشت خواهدگرفت به شماهنوزمی خواهیدکه این انجام بدهید Do n N   "
+
+#: ID:105,
+#, fuzzy
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr "شمابیشترازیک پرونده ریختیدیاپوشه که گنجینه رااضافه بکند N file / folder هر TortoiseSVN ممکن نیست که آن دریکی گام ،انجام بدهدبنابراین N آن به طورجداگانه ،ایجادکردن یک تجدیدنظرجدیدبرای هرقلم اضافه شده اضافه خواهدنمود به شماهنوزمی خواهیدکه این انجام بدهید Do n N    "
+
+#: ID:16,
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr "شمادارایی های تعدیل شده بدون صرفه جویی به آنهااول دارید شمامی خواهیدکه آنهاراحالا؟صرفه جویی کنید N Do "
+
+#: ID:251,
+msgid "You have to update your working copy first."
+msgstr "شمامجبورهستیدنسخه کاریتان اول به روزبیاورید "
+
+#: ID:169,
+#, fuzzy
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr "شمایک شماره صدورواردنشده اید ! بدون یک شماره صدور؟می خواهید commit شمامطمئن شمابه N Are   "
+
+#: ID:105,
+#, fuzzy
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr "شمابیشترازیک پرونده یاپوشه حرکت کردید N file / folder هر TortoiseSVN ممکن نیست که آن دریکی گام ،انجام بدهدبنابراین N آن به طورجداگانه ،ایجادکردن یک تجدیدنظرجدیدبرای هرقلم متاثرحرکت خواهدکرد به شماهنوزمی خواهیدکه این انجام بدهید Do n N    "
+
+#: ID:196,
+#, fuzzy
+msgid "You must restart your system for the changes to take effect."
+msgstr "سیستمتان برای تغییرات که اثربگیرند restart شماباید"
+
+#: ID:77,
+#, fuzzy
+msgid ""
+"You selected an unversioned file.\n"
+"The file will be added to version control when you commit."
+msgstr "پرونده انتخاب کردید unversioned شمایک اضافه خواهدشد commit پرونده کنترل نگارش چه موقع شما N    "
+
+#: ID:195,
+#, c-format
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+
+#: ID:338,
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr "شماپوشه هااضافه شده انتخاب کرده اید وصله شامل پرونده هادرمدت چنان پوشه هااضافه شده اضافه نخواهدنمود شمامی خواهیدکه به هرصورت پیش بروید N Do    "
+
+#: ID:170,
+#, fuzzy
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr "به طورقبلی شماواردشدپیام هاکنده صرفه جویی شده است اینجاکه آنهاراباردیگرخواندوواردکرد N Click "
+
+#: Control-ID:1112,
+msgid "Your version is:"
+msgstr "نگارش شمااست :    "
+
+#: ID:201,
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "%d.%d.%d.%d : نگارش شمااست "
+
+#: ID:78,
+#, fuzzy
+msgid ""
+"Your working copy appears to be on a tag path!\n"
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr "دریک مسیربرچسب بودن ! ( روی ) نسخه شماکاری appearsسویچ بزنید Committing شمااول بایستی که به یک شعبه یاتنه اصلی قبلا Nبه هرصورت می خواهید commit شمابه Do n N   "
+
+#: ID:88,
+#, fuzzy
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr "نسخه شماکاری اصلاحهای محلی دارد ! : N یادداشت دقیقا n بابه روزآوردن به تجدیدنظری دیگرآن اصلاحهاراگم نخواهدکردبنابراین نسخه کاری نگاه نخواهدکردبطوریکه آن بوددرتجدیدنظرشماداریدبه به روزببیاورید "
+
+#: MenuEntry
+#, fuzzy
+msgid "Zoo&m out"
+msgstr "خارج M باغ وحش &"
+
+#: MenuEntry
+#, fuzzy
+msgid "Zoom &in\tCtrl-+"
+msgstr "اوج بگیرید tctrl در- &"
+
+#: MenuEntry
+#, fuzzy
+msgid "Zoom &out\tCtrl--"
+msgstr "خارج بکند tctrl اوج بگیرید- & "
+
+#: ID:2051,
+#, c-format
+msgid "Zoom 100%"
+msgstr "%۱۰۰ اوج بگیرید"
+
+#: MenuEntry
+#, fuzzy
+msgid "Zoom i&n"
+msgstr "اوج می گیریم N من &"
+
+#: ID:2049,
+msgid "Zoom in"
+msgstr "اوج بگیرید"
+
+#: ID:2049,
+msgid "Zoom out"
+msgstr "خارج اوج بگیرید "
+
+#: ID:2051,
+msgid "Zoom to fit"
+msgstr "اوج بگیریدکه مناسب باشد "
+
+#: ID:10,
+msgid "added"
+msgstr "اضافه شده"
+
+#: Control-ID:65535,
+msgid "added files"
+msgstr "پرونده هااضافه شده "
+
+#: ID:3841,#:
+#: ID:3841,
+msgid "an unnamed file"
+msgstr "یک پرونده ناشناس "
+
+#: Control-ID:1304,
+msgid "and"
+msgstr "ﻰﻘﻁﻨﻤ ﺏﺭﻀ ‘"
+
+#: Control-ID:1085,#:
+#: Control-ID:1085,
+msgid "and support the developers"
+msgstr "وتوسعه دهنده هاراپشتیبانی می کنند "
+
+#: ID:245,
+msgid "author"
+msgstr "نویسنده"
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr "اوج ( به ) شناسایی در bugtracking به اشتباه اضافه کنیداگرشمابخواهید Set n : Bugtraqپیام کنده واردشده است nبه پیام کنده اضافه شده است n شناسایی bugtracking تخلف راست است که منظوردارد  "
+
+#: ID:14,
+#, fuzzy
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr "برچسب بزنیدکه برای جعبه ویرایش Label متن n : Bugtraqنشان بدهدکجا ) جائیکه ( استفاده کننده شماره صدورواردبشود "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline.\n"
+"The first expression is used to find a string referring to an issue,\n"
+"the second expression is used to extract the bare bug ID from that string."
+msgstr "جداشدند newline دومقرربیانی بوسیله یک n Logregex : Bugtraqبیان دومین عادت داشت N اول بیان عادت داشت بیابدیک اشاره بافته به یک صدور، Nشناسایی ساس لخت راازآن رشته استخراج بکند     "
+
+#: ID:14,
+#, c-format
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+
+#: ID:14,
+#, fuzzy
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr "referenced خودتان نشرداردکه bugtracking به اشتباه اگرسیستم Set n شماره : Bugtraqبوسیله شماره هانیست "
+
+#: ID:14,
+#, c-format
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+
+#: ID:145,
+msgid "cleaning up"
+msgstr "تمیزکاری بالا"
+
+#: ID:244,#:
+#: ID:245,
+msgid "commits"
+msgstr "ﻥﺩﺭﭙﺴﺭﺴ ‘ﻥﺩﻭﻤﻨ ﻯﺭﻤﺍﻡﺎﺠﻨﺎﺒﺩﻬﻌﺘﻤ ‘(ﻩﺭﻴﻏﻭ ﺕﺍﺯﺎﺠﻤ) ﻯﺍﺭﺒ ﻥﺘﺸﺍﺩ ﻡﺍﺯﻋﺍ ‘ﻥﺩﺸ ﺏﻜﺘﺭﻤ ‘ﻥﺩﺭﭙﺴ"
+
+#: ID:11,
+msgid "conflicted"
+msgstr "ﺩﺭﻭﺨﺭﺒ ‘ﺩﺎﻀﺘ"
+
+#: ID:208,
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+
+#: ID:10,
+msgid "deleted"
+msgstr "حذف شده "
+
+#: Control-ID:1342,
+#, fuzzy
+msgid "eol style"
+msgstr ". Eol سبک "
+
+#: ID:79,
+#, c-format
+msgid ""
+"exported\n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ". n % s به N n % s صادرشده "
+
+#: ID:13,
+msgid "external"
+msgstr "ﻰﺠﺭﺎﺨ"
+
+#: ID:13,
+msgid "ignored"
+msgstr "ﻥﺘﺨﺎﻨﺸﻨ ﺕﻴﻤﺴﺭﺒ ‘ﻥﺘﺴﻨﺍﺩ ﺱﺎﺴﺍ ﻰﺒ‘ﻥﺩﺭﻜ ﺩﺭ ‘ﻥﺩﻴﺸﻭﭙ ﻡﺸﭽ ‘ﻥﺘﺸﺍﺩﻨﭙﻩﺩﻴﺩﺎﻨ ‘ﻥﺩﺭﻜ ﻝﻫﺎﺠﺘ"
+
+#: ID:13,
+msgid "incomplete"
+msgstr "ﺏﻭﻴﻌﻤ ‘ﻩﺩﺸﻨ ﺭﭙ ‘ﻩﺩﺸﻨ ﻡﺎﺠﻨﺍ ‘ﺹﻘﺎﻨ ‘ﻡﺎﻤﺘ ﺎﻨ"
+
+#: ID:11,#:
+#: ID:195,#:
+#: Control-ID:1002,
+msgid "locked"
+msgstr "ﻥﺩﺸﺱﻭﺒﺤﻤ ‘ﻥﺩﺸ ﻡﻜﺤﻤﻭ ﻩﺘﺴﺒ ﻝﻔﻘ ﻩﻠﻴﺴﻭﺒ ‘ﻥﺩﺸ ﻝﻔﻘ ‘ﻥﺩﺭﺍﺫﮔ"
+
+#: ID:11,#:
+#: Control-ID:65535,
+msgid "merged"
+msgstr "ﻥﺩﺸ ﻕﺭﻏ ‘ﻥﺩﺸﻙﻠﻬﺘﺴﻤ ‘ﻥﺘﻔﺭﻭﺭﻔ ‘ﻥﺩﺭﻜ ﺏﻴﻜﺭﺘ ‘ﻥﺩﺭﻜ ﺝﻭﺯﻤﻤ ‘ﻥﺩﺭﻜ ﻰﻜﻴ"
+
+#: ID:10,
+msgid "missing"
+msgstr "ﺍﺩﻴﭙﺎﻨ ‘ﺩﻭﻘﻔﻤ ‘ﻡﮔ"
+
+#: Control-ID:65535,
+msgid "missing / deleted / replaced"
+msgstr "ﻥﺩﺭﻜ ﻥﻴﺯﮔﻴﺎﺠ ‘ﻥﺩﺭﻜ ﺎﺠﺒﺎﺠ ‘ﻥﺩﺭﻜ ﺽﻴﻭﻌﺘ ﺍﺭ ﻯﺯﻴﭽ/ﻥﺘﺸﺍﺩﺭﺒ ‘ﻥﺩﺭﻜ ﻑﺫﺤ ‘ﻥﺘﺨﺍﺩﻨﺍ/ﺍﺩﻴﭙﺎﻨ ‘ﺩﻭﻘﻔﻤ ‘ﻡﮔ"
+
+#: ID:10,
+msgid "modified"
+msgstr "ﻥﺩﺭﻜ ﺡﻻﺼﺍ ‘ﻥﺘﺴﺍﺭﻴﭙ"
+
+#: Control-ID:65535,
+msgid "modified / copied"
+msgstr "ﻯﺭﺍﺩﺭﺒ ﻩﺨﺴﻨ ‘ﻩﺨﺴﻨ ‘ﺕﺸﻭﻨﻭﺭ/ﺩﺭﻜ ﺡﻻﺼﺍ ‘ﻥﺘﺴﺍﺭﻴﭙ"
+
+#: ID:245,
+msgid "month"
+msgstr "ﺝﺭﺒ ‘ﻯﺭﻤﻘ ﻩﺎﻤ ‘ﻰﺴﻤﺸ ﻩﺎﻤ ‘ﻩﺎﻤ"
+
+#: ID:10,
+msgid "no description for this command is available"
+msgstr "هیچ توصیف این رادستوردردسترس نیست "
+
+#: ID:10,
+msgid "non-versioned"
+msgstr "non-versioned"
+
+#: ID:10,
+msgid "normal"
+msgstr "ﺭﺎﺠﻨﻫ ‘ﻰﻠﻭﻤﻌﻤ ‘ﻯﺩﺎﻋ"
+
+#: ID:11,
+msgid "obstructed"
+msgstr "ﻥﺩﺭﻜ ﻰﺸﺍﺭﺘﻠﺎﻜﺸﺍ ‘ﻥﺩﺭﻜ ﻊﻨﺎﻤﺩﺎﺠﻴﺍ ‘ﻥﺩﺸ ﻊﻨﺎﻤ ‘ﻥﺘﻔﺭﮔ ﺍﺭ ﻯﺯﻴﭽ ﻭﻠﺠ ‘ﻥﺩﺭﻜ ﺩﻭﺩﺴﻤ"
+
+#: ID:3869,#:
+#: ID:3869,
+msgid "pixels"
+msgstr "pixels"
+
+#: Control-ID:65535,
+msgid "possible or real conflict / obstructed"
+msgstr "تضادممکن یاواقعی بست / "
+
+#: ID:245,
+msgid "quarter of year"
+msgstr "ﻊﺒﺭﻩﻠﻴﺴﻭﺒ ‘ﺏﺒﺴﺒ ‘ﻩﺭﺎﺒﺭﺩ ‘ﻯﻭﺴﺭﺩ ‘ﺕﻬﺠ ﺭﺩ ‘ﻅﺎﺤﻠ ﺯﺍ ‘ﻑﺭﻁ ﺯﺍ ‘ﺎﺸﻨﻤ ﺯﺍ ‘ﺍﺩﺒﻤ ﺯﺍ ‘ﺯﺍﻰﻤﻭﺠﻨ ﻝﺎﺴ ‘ﻩﻨﺴ ‘ﻝﺎﺴ"
+
+#: ID:195,
+msgid "readonly"
+msgstr "readonly"
+
+#: ID:10,
+msgid "replaced"
+msgstr "جایگزین"
+
+#: ID:14,
+msgid ""
+"svn:eol-style\n"
+"One of 'native', 'LF', 'CR', 'CRLF'."
+msgstr "' native ،' ' LF ،' ' CR ،' ' CRLF یک از' n Eol - style : Svn"
+
+#: ID:14,
+msgid ""
+"svn:executable\n"
+"If present, make the file executable. This property cannot be set on a directory.\n"
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgstr "حاضر،اجرایی فایل آماده می سازد If n اجرایی : Svnاین خصوصیت یک فهرست گیری تحریک می کند کوشش ،خراب خواهدشدویک کوشش برگشت پذیرخصوصیت تنهاروی بچه ها non - recursive N Aفایل دایرکتوری تعیین خواهدکرد    "
+
+#: ID:14,
+msgid ""
+"svn:externals\n"
+"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
+msgstr "لیست مشخص کننده های پیمانه ،هریک ازمجزاکردکه تشکیل شده از A تعویض سطر n ظواهر : Svnپرچم می زند URL یک مسیردایرکتوری متصل به هم ،تجدیدنظراختیاری ،ویک : thttp foo / bar - r N // example . com / repos / zig : Thttp t Foo n برای مثال ۱۲۳۴ "
+
+#: ID:14,
+msgid ""
+"svn:ignore\n"
+"A newline separated list of file patterns to ignore."
+msgstr "لیست الگوهای فایل مجزابکندکه نادیده بگیرند A تعویض سطر n نادیده بگیرید : Svn"
+
+#: ID:14,
+#, fuzzy
+msgid ""
+"svn:keywords\n"
+"Keywords to be expanded. Valid keywords are:\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
+"Author, LastChangedBy\t\tThe last person to modify the file.\n"
+"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
+"Rev, LastChangedRevision\tThe last revision the object changed.\n"
+"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+msgstr "توسعه داده شده است Keywords n کلمات کلیدی : Svnکلمات کلیدی معتبرهستند : برای تجدیدنظرمرکزی مقصود URL tthe T t HeadURL ، N URLآخرین شخص که فایل اصلاح می کند Tthe t LastChangedBy ، N مولف مقصودآخرین تعدیل شده بود date / time Tthe t LastChangedDate ، N تاریخ آخرین تجدیدنظرمقصودتبدیل کرد tthe LastChangedRevision ، N Revاختصاری ازقبلی Ta t T t N Id ۴ کلمات کلیدی فشرده کرد   "
+
+#: ID:14,
+#, fuzzy
+msgid ""
+"svn:mime-type\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"Anything else is treated as binary."
+msgstr "شکلک نوع فایل n Mime - type : Svnخدمت بنماید Apache سابقاتعیین بکنداگرکه فایل ،ادغام بکندوازچطورکه آن چنانچه متن رفتارشده است ( یایک نوع شکلک غایب ' text /' ) با N A شروع نوع شکلک آنگاه چنانچه دودویی رفتارشده است N Anything "
+
+#: ID:16,
+#, fuzzy
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr "مثال ( این به مقداری Set n Needs - lock : Svnکه جلوگیری ازدست یابی برای این پرونده مجبورمی کند ' ' (آزمایش نمودیا N فقطخواندنی خواهدبودموقعیکه ،نشان دادن set _ to فایل Nکسب بکندقبل ازاینکه آنهامی توانند n به روزآوردکه یک کاربربایدیک قفل روی فایل تبدیل می کند commit آن راویرایش بکنندو     "
+
+#: ID:208,
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"راه گزیده شده به \r\n"
+"%s"
+
+#: ID:80,#:
+#: ID:103,#:
+#: ID:103,
+#, c-format
+msgid "to %s"
+msgstr "% s به "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr "به اشتباه اگرشمانبخواهیدلیست پرونده هامتغیر Set n Logfilelistenglish : Tsvnمحاوره چسبانده شده است commit در n درانگلیسی"
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr "درمستخدم زنهایک پیام گزارش بایددارندقبل از Minimum اندازه n Logminsize : Tsvnاجازه داده شده است commit اینکه یک     "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr "محاوره هادرج شده است commit که درجعبه هاپیام گزارش در String n Logtemplate : Tsvnاین بعنوان شابلونهای پیام گزارش برای کاربرهاکه پرمی کند N استفاده  "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr "این به شماره مستخدم زنهاپیام گزارش Set n Logwidthmarker : Tsvnنخواهدتوانست که پهنایش رافراتربرود محاوره هادرآن وضعیت نشان داده شده است commit ضعیف کردخطدر N Aپیش فرض ۸۰ مستخدم زن است  "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr "این به عددزبان شمانوشته پیام هاگزارشتان رامی خواهید Set n Projectlanguage : Tsvnسپس بارکاری پیمانه مقابله گراملائی مناسب اگرموجودخواهد N TortoiseSVN    "
+
+#: ID:17,
+#, fuzzy
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr "n لیست مشخصات تعریف شده توسطکاربربرای پرونده هامجزاکردکه Newline n با : Tsvnدرمحاوره خصوصیت نشان داده خواهدشدکه ازانتخاب بکند "
+
+#: ID:17,
+#, fuzzy
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr "n لیست مشخصات تعریف شده توسطکاربربرای فولدرهامجزاکردکه Newline n با : Tsvnدرمحاوره خصوصیت نشان داده خواهدشدکه ازانتخاب بکند "
+
+#: ID:15,
+#, fuzzy
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr "به بلی اگریک اخطارنشان داده خواهدشدموقعیکه هیچ انتشار Set n Warnifnoissue : Tsvnمحاوره واردنشده است commit در"
+
+#: ID:563,
+msgid "values are different"
+msgstr "مقدارهامتفاوت هستند "
+
+#: ID:17,
+#, c-format
+msgid ""
+"webviewer:pathrevision\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\n"
+"The string %REVISION% in the URL is replaced with the revision number,\n"
+"the string %PATH% is replaced with the path to the file relative to the repository root."
+msgstr "    "
+
+#: ID:17,
+#, c-format
+msgid ""
+"webviewer:revision\n"
+"URL pointing to the web viewer for the repository for a specific revision.\n"
+"The string %REVISION% in that URL is replaced with the revision number."
+msgstr ""
+
+#: ID:245,
+msgid "week"
+msgstr "هفته"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "which points to the repository at URL:"
+msgstr "کدام اشاره می کند:URL به گنجینه در "
+
+#: ID:245,
+msgid "year"
+msgstr "سال"
+
