@@ -1869,7 +1869,7 @@ BEGIN
                             "Select the behaviour of the progress dialog at the end of the operation."
     IDS_UTILS_SELECTTEXTVIEWER "Select text editor application"
     IDS_SETTINGS_CONVERTBASE_TT 
-                            "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+                            "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\nwith the keywords expanded and the line endings adjusted."
     IDS_PROC_WARNREVERT     "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
@@ -2196,7 +2196,7 @@ BEGIN
     IDS_SETTINGS_CHECKNEWER_TT 
                             "If enabled, TortoiseSVN checks once a week if a newer version is available"
     IDS_SETTINGS_ONLYEXPLORER_TT 
-                            "If activated, prevents the overlays from showing in ""save as.."" or ""open"" dialogs"
+                            "If activated, prevents the overlays from showing in ""save as..."" or ""open"" dialogs"
     IDS_SETTINGS_MENULAYOUT_TT 
                             "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
     IDS_SETTINGS_EXCLUDELIST_TT 
@@ -2760,7 +2760,7 @@ BEGIN
     IDS_SETTINGS_HOOKS_WAITCOL "Wait"
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
     IDS_SETTINGS_GETLOCKTOP_TT 
-                            "If activated, the menu entry ""Get Lock"" is always shown in the top level menu\n if the selected file has the svn:needs-lock property set"
+                            "If activated, the menu entry ""Get Lock"" is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
 END
 
 STRINGTABLE 
