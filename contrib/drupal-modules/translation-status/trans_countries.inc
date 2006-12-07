@@ -16,6 +16,7 @@ $countries = array(
 "de"    => array("0","11","de","German","Stefan Küng, Lübbe Onken"),
 "el"    => array("0","00","el","Greek","George Marselis"),
 "es"    => array("0","11","es","Spanish","Fernando P. Nájera Cano, Antonio Romero Lopez"),
+"fa"    => array("0","00","fa","Farsi (Persian)","Titto Agustine"),
 "fr"    => array("0","11","fr","French","Olivier Booklage, Philippe Torche, Jean-Christophe Gigogne, Jérémy Badier"),
 "fi"    => array("0","00","fi","Finnish","Pekka Järvinen"),
 "hr"    => array("0","11","hr","Croatian","Helix d.o.o: Dinko Srkoc, Mario Saric"),
