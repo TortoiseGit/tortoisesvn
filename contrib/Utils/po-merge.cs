@@ -1,3 +1,37 @@
+/******************************************************************************
+PO-MERGE - A simple po merge/update tool
+
+Copyright (C) 2006 - Dongsheng Song <dongsheng.song@gmail.com>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+
+Description:
+This program will replace the translation in old.po file with update.po file,
+write the result to new.po file. Only msgstr in old.po file be modified, msgid
+become unwound. Strings(msgstr) that are not found in the update.po are left
+untouched.
+
+The two input file(update.po & old.po)  must use UTF-8 enconding, the output
+file(new.po) enconding is UTF-8 too, without any byte-order-mark (BOM).
+
+Use:
+    po-merge update.po old.po new.po
+
+******************************************************************************/
+
 using System;
 using System.Collections;
 using System.IO;
@@ -26,6 +60,10 @@ class Program
         UpdateTranslation(args[1], args[2], msg);
     }
 
+    /*
+    Read translation entry from the file and return a Hashtable
+    with the msgid and msgstr.The msgid and msgstr are strings.
+    */
     private static Hashtable ParseTranslation(String filename) {
         Hashtable msg = new Hashtable(2047);
         StreamReader sr = new StreamReader(filename, Encoding.UTF8);
@@ -53,7 +91,7 @@ class Program
                 break;
 
             if (!line.StartsWith("msgid \"") || (line[line.Length - 1] != '\"')) {
-                Console.Error.WriteLine("parse error before msgid, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error before msgid, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
 
@@ -68,7 +106,7 @@ class Program
                 n++;
                 line = sr.ReadLine();
                 if (line == null) {
-                    Console.Error.WriteLine("parse msgid error, line " + n + ":\n\t" + line);
+                    Console.Error.WriteLine("parse msgid error, file {0}, line {1:d}:\n\t", filename, n);
                     throw new Exception("parse error");
                 }
 
@@ -80,7 +118,7 @@ class Program
             }
 
             if (!line.StartsWith("msgstr \"") || (line[line.Length - 1] != '\"')) {
-                Console.Error.WriteLine("parse error after msgid, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error after msgid, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
 
@@ -108,11 +146,13 @@ class Program
 
             msg[msgid] = msgstr;
 
+            // Console.WriteLine("msgid: [{0}]\nmsgstr: [{1}]\n", msgid, msgstr);
+
             if (line == null)
                 break;
 
             if (line.Length != 0 && line[0] != '#') {
-                Console.Error.WriteLine("parse error after msgstr, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error after msgstr, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
         }
@@ -122,6 +162,9 @@ class Program
         return msg;
     }
 
+    /*
+    Read translation entry from the file and update the msgid and msgstr, write to new file.
+    */
     private static void UpdateTranslation(String filename, String newfilename, Hashtable msg) {
         StreamReader sr = new StreamReader(filename, Encoding.UTF8);
         StreamWriter sw = new StreamWriter(newfilename, false);
@@ -154,7 +197,7 @@ class Program
             if (isFinished) break;
 
             if (!str.StartsWith("msgid \"") || (str[str.Length - 1] != '\"')) {
-                Console.Error.WriteLine("parse error before msgid, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error before msgid, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
 
@@ -170,7 +213,7 @@ class Program
                 line = sr.ReadLine();
                 if (line == null)
                 {
-                    Console.Error.WriteLine("parse msgid error, line " + n + ":\n\t" + line);
+                    Console.Error.WriteLine("parse msgid error, file {0}, line {1:d}:\n\t", filename, n);
                     throw new Exception("parse error");
                 }
 
@@ -183,7 +226,7 @@ class Program
             }
 
             if (!str.StartsWith("msgstr \"") || (str[str.Length - 1] != '\"')) {
-                Console.Error.WriteLine("parse error after msgid, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error after msgid, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
 
@@ -216,21 +259,23 @@ class Program
 
             str = (String) msg[msgid];
 
+            // Console.WriteLine("msgid: [{0}]\nmsgstr: [{1}]\nupdate: [{2}]\n", msgid, msgstr, str);
+
             if (str.Length > 0) {
                 if(msgid.Length != 0) {
                     mt ++;
                     tr ++;
                 }
-                sw.WriteLine("msgid \"" + msgid + "\"");
-                sw.WriteLine("msgstr \"" + str + "\"\n");
+                sw.WriteLine("msgid \"{0}\"", msgid);
+                sw.WriteLine("msgstr \"{0}\"\n", str);
             } else {
                 if(msgstr.Length == 0) {
                     ut ++;
                 } else {
                     tr++;
                 }
-                sw.WriteLine("msgid \"" + msgid + "\"");
-                sw.WriteLine("msgstr \"" + msgstr + "\"\n");
+                sw.WriteLine("msgid \"{0}\"", msgid);
+                sw.WriteLine("msgstr \"{0}\"\n", msgstr);
             }
 
             if (line == null) {
@@ -238,13 +283,13 @@ class Program
             }
 
             if (line.Length != 0 && line[0] != '#') {
-                Console.Error.WriteLine("parse error after msgstr, line " + n + ":\n\t" + line);
+                Console.Error.WriteLine("parse error after msgstr, file {0}, line {1:d}:\n\t", filename, n);
                 throw new Exception("parse error");
             }
         }
 
-        Console.Error.WriteLine("Total " + total + " messages, " + tr + " translated, "
-                + mt + " updated, " + ut + " untranslated.");
+        Console.Error.WriteLine("Total {0} messages, {1} translated, {2} updated, {3} untranslated.",
+                total, tr, mt, ut);
 
         sr.Close();
         sw.Close();
