@@ -124,7 +124,7 @@ class Program
 
     private static void UpdateTranslation(String filename, String newfilename, Hashtable msg) {
         StreamReader sr = new StreamReader(filename, Encoding.UTF8);
-        StreamWriter sw = new StreamWriter(newfilename, false, Encoding.UTF8);
+        StreamWriter sw = new StreamWriter(newfilename, false);
 
         int n = 0, total = 0, tr = 0, ut = 0, mt = 0;
         bool isFinished = false;
