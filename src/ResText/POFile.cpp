@@ -197,8 +197,9 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File << _T("\"Content-Type: text/plain; charset=UTF-8\\n\"\n");
 	File << _T("\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
 	File << _T("\n");
-	File << _T("# msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys\n");
-	File << _T("# Format is: \"VACS+X\" where:\n");
+	File << _T("# msgid/msgstr fields for Accelerator keys\n");
+	File << _T("# Format is: \"ID:xxxxxx:VACS+X\" where:\n");
+	File << _T("#    ID:xxxxx = the menu ID corresponding to the accelerator\n");
 	File << _T("#    V = Virtual key (or blank if not used) - nearly always set!\n");
 	File << _T("#    A = Alt key     (or blank if not used)\n");
 	File << _T("#    C = Ctrl key    (or blank if not used)\n");

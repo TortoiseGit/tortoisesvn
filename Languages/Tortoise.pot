@@ -17,8 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 
-# msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys
-# Format is: "VACS+X" where:
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
 #    V = Virtual key (or blank if not used) - nearly always set!
 #    A = Alt key     (or blank if not used)
 #    C = Ctrl key    (or blank if not used)
@@ -2275,6 +2276,111 @@ msgstr ""
 #: ID:82,
 #, c-format
 msgid "Hostname mismatch (%s)"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773; '&Open'
+msgid "ID:32773:V C +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635; ''
+msgid "ID:57635:V C +X"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636; '&Find'
+msgid "ID:57636:V C +F"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637; ''
+msgid "ID:57637:V C +V"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +Q"
 msgstr ""
 
 #: Control-ID:65535,
@@ -4724,95 +4830,6 @@ msgstr ""
 
 #: ID:69,
 msgid "Username:"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
-#: Corresponding Menu ID:32778; '&Fit Images in window'
-msgid "V   +F"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32772; '&Overlap images'
-#: Corresponding Menu ID:32772; '&Overlap images'
-msgid "V   +O"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
-#: Corresponding Menu ID:32779; 'Ori&ginal size'
-msgid "V   +S"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
-#: Corresponding Menu ID:32796; 'Show &all revisions'
-msgid "V C +A"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57634; '&Copy'
-#: Corresponding Menu ID:57634; '&Copy'
-msgid "V C +C"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
-#: Corresponding Menu ID:32775; 'Two-way &Diff'
-msgid "V C +D"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32809; '&Filter'
-#. Accelerator Entry for Menu ID:57636; '&Find'
-#. Accelerator Entry for Menu ID:32771; '&Find...'
-#: Corresponding Menu ID:32771; '&Find...'
-msgid "V C +F"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
-#: Corresponding Menu ID:32779; '&Go To Line...'
-msgid "V C +G"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
-#. Accelerator Entry for Menu ID:32773; '&Open'
-#: Corresponding Menu ID:32773; '&Open'
-msgid "V C +O"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57665; 'E&xit'
-#: Corresponding Menu ID:57665; 'E&xit'
-msgid "V C +Q"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32794; 'Reload'
-#: Corresponding Menu ID:32794; 'Reload'
-msgid "V C +R"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
-#: Corresponding Menu ID:57603; '&Save Ctrl-S'
-msgid "V C +S"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
-#: Corresponding Menu ID:32774; '&Whitespaces'
-msgid "V C +T"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57637; ''
-#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
-#: Corresponding Menu ID:32793; 'Arrange &Vertical'
-msgid "V C +V"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57635; ''
-#: Corresponding Menu ID:57635; ''
-msgid "V C +X"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
-#: Corresponding Menu ID:57643; '&Undo\tCtrl+Z'
-msgid "V C +Z"
-msgstr ""
-
-#. Accelerator Entry for Menu ID:57604; 'Save &As...'
-#: Corresponding Menu ID:57604; 'Save &As...'
-msgid "V CS+S"
 msgstr ""
 
 #: ID:313,

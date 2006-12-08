@@ -684,8 +684,22 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
 			(wAnsi >= 0x3A && wAnsi <= 0x40))
 			continue;
 
-		TCHAR * pBuf = new TCHAR[7];
-		ZeroMemory(pBuf, 7 * sizeof(TCHAR));
+		TCHAR * pBuf = new TCHAR[1024];
+		ZeroMemory(pBuf, 1024 * sizeof(TCHAR));
+
+		// include the menu ID in the msgid to make sure that 'duplicate'
+		// accelerator keys are listed in the po-file.
+		// without this, we would get entries like this:
+		//#. Accelerator Entry for Menu ID:32809; '&Filter'
+		//#. Accelerator Entry for Menu ID:57636; '&Find'
+		//#: Corresponding Menu ID:32771; '&Find'
+		//msgid "V C +F"
+		//msgstr "" 
+		//
+		// Since "filter" and "find" are most likely translated to words starting
+		// with different letters, we need to have a separate accelerator entry
+		// for each of those
+		_stprintf(pBuf, _T("ID:%d:"), wID);
 
 		// EXACTLY 5 characters long "ACS+X"
 		// V = Virtual key (or blank if not used)
@@ -783,8 +797,10 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
 			(lpaccelNew[i].key >= 0x3A && lpaccelNew[i].key <= 0x40))
 			continue;
 
-		TCHAR * pBuf = new TCHAR[7];
-		ZeroMemory(pBuf, 7 * sizeof(TCHAR));
+		TCHAR * pBuf = new TCHAR[1024];
+		ZeroMemory(pBuf, 1024 * sizeof(TCHAR));
+
+		_stprintf(pBuf, _T("ID:%d:"), lpaccelNew[i].cmd);
 
 		// get original key combination
 		if ((lpaccelNew[i].fVirt & FVIRTKEY) == FVIRTKEY) 		// 0x01
@@ -817,6 +833,7 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
 			xfVirt = 0;
 			xkey = 0;
 			std::wstring wtemp = pAK_iter->second.msgstr;
+			wtemp = wtemp.substr(wtemp.find_last_of(':')+1);
 			if (wtemp.size() != 6)
 				continue;
 			if (wtemp.compare(0, 1, _T("V")) == 0)
