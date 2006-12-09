@@ -890,10 +890,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							}
 							progDlg.Stop();
 							svn.SetAndClearProgressInfo((HWND)NULL);
-							CString sEscapedName = filename;
-							sEscapedName.Replace(_T("%"), _T("%25"));
-							sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
-							m_treeRepository.AddFile(url+_T("/")+sEscapedName);
+							m_treeRepository.AddFile(url+_T("/")+filename, false, true);
 						}
 					}
 					delete [] pszFilters;
@@ -1318,13 +1315,10 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return;
 			}
-			CString sEscapedName = filename;
-			sEscapedName.Replace(_T("%"), _T("%25"));
-			sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
 			if (droppedPaths[importindex].IsDirectory())
-				m_treeRepository.AddFolder(url+_T("/")+sEscapedName);
+				m_treeRepository.AddFolder(url+_T("/")+filename, false, false, true);
 			else
-				m_treeRepository.AddFile(url+_T("/")+sEscapedName);				
+				m_treeRepository.AddFile(url+_T("/")+filename, false, true);				
 		}
 	}
 
