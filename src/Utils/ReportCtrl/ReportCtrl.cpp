@@ -3675,6 +3675,7 @@ void CReportCtrl::BuildTree(LPTREEITEM lpti)
 
 void CReportCtrl::InsertTree(INT iSubItem, LPTREEITEM lptiParent, LPTREEITEM lptiInsertAfter, LPTREEITEM lpti, BOOL bAscending)
 {
+	INT compareresult;
 	LPTREEITEM lptiSibling = lptiParent->lptiChildren;
 
 	if(lptiSibling == NULL)
@@ -3701,26 +3702,25 @@ void CReportCtrl::InsertTree(INT iSubItem, LPTREEITEM lptiParent, LPTREEITEM lpt
 			{
 				INT iSubItem1 = lpti->iSubItem<0 ? iSubItem:lpti->iSubItem;
 				INT iSubItem2 = lptiSibling->iSubItem<0 ? iSubItem:lptiSibling->iSubItem;
-
-				if(
-					(bAscending && CompareItems(lpti->iItem, iSubItem1, lptiSibling->iItem, iSubItem2) <= 0) ||
-					(!bAscending && CompareItems(lpti->iItem, iSubItem1, lptiSibling->iItem, iSubItem2) >= 0)
-				) {
+				compareresult = CompareItems(lpti->iItem, iSubItem1, lptiSibling->iItem, iSubItem2);
+				if((bAscending && compareresult <= 0) || (!bAscending && compareresult >= 0)) 
+				{
 					lpti->lptiSibling = lptiSibling;
 					lptiParent->lptiChildren = lpti;
 					break;
 				}
 				else
 				{
+					// this 'sorting' algorithm sucks!
+					// but the items are in a list, not an array:
+					// I don't know how to improve this - binary search only works good
+					// with random access. But we only have a forward iterator.
 					while(lptiSibling->lptiSibling != NULL)
 					{
 						iSubItem1 = lpti->iSubItem<0 ? iSubItem:lpti->iSubItem;
 						iSubItem2 = lptiSibling->iSubItem<0 ? iSubItem:lptiSibling->iSubItem;
-
-						if(
-							(bAscending && CompareItems(lpti->iItem, iSubItem1, lptiSibling->lptiSibling->iItem, iSubItem2) <= 0) ||
-							(!bAscending && CompareItems(lpti->iItem, iSubItem1, lptiSibling->lptiSibling->iItem, iSubItem2) >= 0)
-						)
+						compareresult = CompareItems(lpti->iItem, iSubItem1, lptiSibling->lptiSibling->iItem, iSubItem2);
+						if((bAscending && compareresult <= 0) || (!bAscending && compareresult >= 0))
 							break;
 
 						lptiSibling = lptiSibling->lptiSibling;
