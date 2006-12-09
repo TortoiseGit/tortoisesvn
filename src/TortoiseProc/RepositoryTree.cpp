@@ -94,7 +94,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 
 // CRepositoryTree low level update functions
 
-HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init, bool bAlreadyUnescaped)
+HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init, bool bAlreadyUnescaped, bool checkexisting, HTREEITEM insertafter)
 {
 	CString folder_path;
 	if ((init)&&(!m_strReposRoot.IsEmpty()))
@@ -110,7 +110,9 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	}
 	AfxExtractSubString(folder_path, SVNUrl(folder, bAlreadyUnescaped), 0, '\t');
 
-	HTREEITEM hItem = FindUrl(folder_path);
+	HTREEITEM hItem = 0;
+	if (checkexisting)
+		hItem = FindUrl(folder_path);
 	if (hItem == 0)
 	{
 		HTREEITEM hParentItem = RVTI_ROOT;
@@ -132,7 +134,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			Expand(hParentItem, RVE_EXPAND);
  
 		CString folder_name = folder_path.Mid(parent_folder.GetLength()).TrimLeft('/');
-		hItem = CReportCtrl::InsertItem(folder_name, m_nIconFolder, -1, -1, hParentItem, RVTI_SORT);
+		hItem = CReportCtrl::InsertItem(folder_name, m_nIconFolder, -1, -1, hParentItem, insertafter);
 
 		InsertDummyItem(hItem);
 		SetItemData(GetItemIndex(hItem), 0);
@@ -167,13 +169,22 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	return hItem;
 }
 
-HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force, bool bAlreadyUnescaped)
+HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force, bool bAlreadyUnescaped, bool checkexisting, HTREEITEM insertafter)
 {
-	CString file_path;
-	AfxExtractSubString(file_path, SVNUrl(file, bAlreadyUnescaped), 0, '\t');
+	int pos = file.Find('\t');
+	CString file_path = pos >= 0 ? file.Left(pos) : file;
 
-	HTREEITEM hItem = FindUrl(file_path);
-	
+	if (!bAlreadyUnescaped)
+	{
+		CStringA fpa = CUnicodeUtils::GetUTF8(file_path);
+		CPathUtils::Unescape(fpa.GetBuffer());
+		fpa.ReleaseBuffer();
+		file_path = CUnicodeUtils::GetUnicode(fpa);
+	}
+
+	HTREEITEM hItem = 0;
+	if (checkexisting)
+		hItem = FindUrl(file_path);
 	if (hItem == 0)
 	{
 		HTREEITEM hParentItem = RVTI_ROOT;
@@ -195,7 +206,7 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force, bool bAlread
  
 		CString file_name = file_path.Mid(parent_folder.GetLength()).TrimLeft('/');
 		int icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(file_name);
-		hItem = CReportCtrl::InsertItem(file_name, icon_idx, -1, -1, hParentItem, RVTI_SORT);
+		hItem = CReportCtrl::InsertItem(file_name, icon_idx, -1, -1, hParentItem, insertafter);
 
 		SetItemData(GetItemIndex(hItem), 0);
 	}
@@ -401,6 +412,23 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 				}
 			}
 		}
+		CString sFolder = folder.GetSVNPathString() + _T("/");
+		// to speed things up when inserting items,
+		// * we first sort the list of files we got reversed to the actual
+		// sorting currently set.
+		// * then we insert them unsorted
+		// * and last, we sort the whole tree again
+		//
+		// we do this because the 'sorting' algorithm of the tree control
+		// is one of the worst I've seen: it is O(N^2) if it's already sorted
+		BOOL bAscending;
+		if (m_wndHeader.GetSortColumn(&bAscending)<0)
+			bAscending = true;
+		// sort the items list before we start inserting the items
+		if (bAscending)
+			std::sort(entries.GetData(), entries.GetData() + entries.GetSize(), SortDescendingString);		
+		else
+			std::sort(entries.GetData(), entries.GetData() + entries.GetSize());
 		for (int i = 0; i < entries.GetCount(); ++i)
 		{
 			TCHAR type = entries[i].GetAt(0);
@@ -409,13 +437,17 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 			switch (type)
 			{
 			case 'd':
-				AddFolder(folder.GetSVNPathString() + _T("/") + entry);
+				AddFolder(sFolder + entry, false, false, true, false, TVI_LAST);
 				break;
 			case 'f':
-				AddFile(folder.GetSVNPathString() + _T("/") + entry);
+				AddFile(sFolder + entry, false, true, false, TVI_LAST);
 				break;
 			}
 		}
+		// now sort the whole tree in one step
+		if (m_wndHeader.GetSortColumn(&bAscending)<0)
+			m_wndHeader.SetSortColumn(0, true);
+		ResortItems();
 		// Mark item as "successfully read"
 		SetItemData(GetItemIndex(hItem), 1);
 	}
@@ -962,14 +994,10 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
 									if (hItem)
 									{
-										CString sEscapedName = destUrlList[index].GetFileOrDirectoryName();
-										sEscapedName.Replace(_T("%"), _T("%25"));
-										sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
-
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+sEscapedName);
+											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, false, true);
 										else
-											AddFile(sDestUrl+_T("/")+sEscapedName);
+											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, true);
 										Refresh(hItem);
 									}
 								}
@@ -1046,13 +1074,10 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
 									if (hItem)
 									{
-										CString sEscapedName = destUrlList[index].GetFileOrDirectoryName();
-										sEscapedName.Replace(_T("%"), _T("%25"));
-										sEscapedName = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(sEscapedName)));
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+sEscapedName);
+											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, false, true);
 										else
-											AddFile(sDestUrl+_T("/")+sEscapedName);
+											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, true);
 										Refresh(hItem);
 									}
 								}
