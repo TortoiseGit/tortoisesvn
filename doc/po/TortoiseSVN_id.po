@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-09 15:03+0700\n"
+"PO-Revision-Date: 2006-12-09 21:44+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3716,84 +3716,72 @@ msgstr "Secara bawaan, file dan folder yang sama dengan pola abaikan-global <emp
 # Indonesian#: source/TortoiseSVN_en.xml:3570(para)
 #: source/TortoiseSVN_en.xml:3542
 #: (para)
-#, fuzzy
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. As before, the name of the folder you import does not appear in the repository, only the folder contents. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported."
-msgstr "Segera setelah Anda menekan <guibutton>OK</guibutton> TortoiseSVN mengimpor susunan direktori lengkap termasuk semua file kedalam repositori. Seperti sebelumnya, nama folder yang Anda impor tidak nampak dalam repositori, hanya isi foldernya. Proyek sekarang disimpan dalam repositori dibawah kontrol versi. Harap dicatat bahwa folder yang Anda impor <emphasis>TIDAK</emphasis> dibawah kontrol versi! Untuk mendapatkan <firstterm>copy pekerjaan </firstterm> terkontrol-versi Anda perlu untuk melakukan Checkout dari versi yang baru Anda impor."
+msgstr "Segera setelah Anda menekan <guibutton>OK</guibutton> TortoiseSVN mengimpor susunan direktori lengkap termasuk semua file ke dalam repositori. Seperti sebelumnya, nama folder yang Anda impor tidak nampak dalam repositori, hanya isi foldernya. Proyek sekarang disimpan dalam repositori dibawah kontrol versi. Harap dicatat bahwa folder yang Anda impor <emphasis>TIDAK</emphasis> dibawah kontrol versi! Untuk mendapatkan <firstterm>copy pekerjaan </firstterm> terkontrol-versi Anda perlu untuk melakukan Checkout dari versi yang baru Anda impor."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3583(title)
 #: source/TortoiseSVN_en.xml:3555
 #: (title)
-#, fuzzy
 msgid "Special Files"
 msgstr "File Khusus"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3585(primary)
 #: source/TortoiseSVN_en.xml:3557
 #: (primary)
-#, fuzzy
 msgid "special files"
 msgstr "file khusus"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3587(para)
 #: source/TortoiseSVN_en.xml:3559
 #: (para)
-#, fuzzy
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
 msgstr "Ada kalanya Anda perlu mempunyai file dibawah kontrol versi yang berisi data pengguna tertentu. Itu berarti Anda mempunyai file yang perlu dimodifikasi oleh setiap pengembang/pengguna untuk memenuhi setup lokalnya. Tapi memversi file demikian sulit karena setiap pengguna akan mengkomit perubahannya setiap kali ke repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3594(para)
 #: source/TortoiseSVN_en.xml:3566
 #: (para)
-#, fuzzy
 msgid "In such cases we suggest to use <literal>template</literal> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
 msgstr "Dalam kasus demikian kami sarankan untuk menggunakan file <literal>template</literal>. Anda membuat file yang berisi semua data yang diperlukan para pengembang Anda, menambahkan file itu ke kontrol versi dan membiarkan para pengembang memeriksa file ini. Lalu, setiap pengembang harus <emphasis>membuat copy</emphasis> dari file itu dan mengganti nama copy itu, Selanjutnya, mengubah copy tidak menjadi masalah lagi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3603(para)
 #: source/TortoiseSVN_en.xml:3574
 #: (para)
-#, fuzzy
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
 msgstr "Sebagai contoh, Anda bisa melihat naskah pembangunan TortoiseSVN. Itu disebut file yang dinamai <filename>TortoiseVars.bat</filename> yang tidak ada dalam repositori. Hanya file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> adalah file template dimana setiap pengembang harus membuat copy darinya dan mengganti nama file itu ke <filename>TortoiseVars.bat</filename>. Di dalam file itu, kami menambahkan komentar agar para pengguna akan melihat baris mana yang harus mereka edit dan ubah berdasarkan setup lokalnya agar bisa berjalan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3614(para)
 #: source/TortoiseSVN_en.xml:3585
 #: (para)
-#, fuzzy
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
 msgstr "Agar tidak mengganggu pengguna, kami juga menambahkan file <filename>TortoiseVars.bat</filename> ke daftar abaikan dari folder leluhurnya, contoh kami telah menyiapkan properti Subversion <literal>svn:ignore</literal> untuk menyertakan nama file itu. Dengan cara itu tidak akan ditampilkan sebagai tidak berversi pada setiap komit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3624(title)
 #: source/TortoiseSVN_en.xml:3594
 #: (title)
-#, fuzzy
 msgid "Referenced Projects"
 msgstr "Proyek Dirujuk"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3626(primary)
 #: source/TortoiseSVN_en.xml:3596
 #: (primary)
-#, fuzzy
 msgid "external repositories"
 msgstr "repositori eksternal"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3629(primary)
 #: source/TortoiseSVN_en.xml:3599
 #: (primary)
-#, fuzzy
 msgid "externals"
 msgstr "eksternal"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3631(para)
 #: source/TortoiseSVN_en.xml:3601
 #: (para)
-#, fuzzy
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties."
-msgstr "Kadang-kadang berguna untuk membangun copy pekerjaan yang dibuat dalam sejumlah check out berbeda. Sebagai contoh, Anda mungkin menginginkan subdirektori berbeda yang datang dari lokasi yang berbeda dalam repositori, atau barangkali dari repositori yang berbeda sekaligus. Jika Anda ingin setiap pengguna untuk mempunyai tata letak yang sama, Anda bisa mendefinisikan properti <literal>svn:externals</literal>."
+msgstr "Kadang-kadang adalah berguna untuk membangun copy pekerjaan yang dibuat dalam sejumlah check out berbeda. Sebagai contoh, Anda mungkin menginginkan subdirektori berbeda yang datang dari lokasi yang berbeda dalam repositori, atau barangkali dari repositori yang berbeda sekaligus. Jika Anda ingin setiap pengguna untuk mempunyai tata letak yang sama, Anda bisa mendefinisikan properti <literal>svn:externals</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3639(para)
 #: source/TortoiseSVN_en.xml:3609
 #: (para)
-#, fuzzy
 msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use foldernames with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
@@ -3801,32 +3789,29 @@ msgid ""
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a subfolder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another subfolder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested subfolder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Katakanlah Anda melakukan check out copy pekerjaan <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Pilih folder <filename>D:\\dev\\project1</filename>, <action>klik kanan</action> and choose <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Properti</guimenuitem></menuchoice> dari menu konteks. Dialog Properti muncul. Lalu pergi ke tab Subversion. Disana, Anda bisa mengeset properti. Pilih properti <literal>svn:externals</literal> dari kotak kombo dan Tulis dalam kotak edit url repositori dalam format <literal>nama url</literal> atau jika Anda ingin menetapkan revisi tertentu, <literal>nama -rREV url</literal> Anda bisa menambahkan multipel proyek eksternal, 1 per baris. Catatan bahwa URL harus diberi escape dengan benar atau tidak akan bekerja dengan baik. Sebagai contoh Anda harus menimpa setiap ruang dengan <literal>%20</literal>. Catatn bahwa tidak mungkin untuk menggunakan nama folder dengan ruang di dalamnya. Angap bahwa Anda sudah mengeset properti ini pada <filename>D:\\dev\\project1</filename>: <screen>\n"
+"Katakanlah Anda melakukan check out copy pekerjaan <filename>/project1</filename> ke <filename>D:\\dev\\project1</filename>. Pilih folder <filename>D:\\dev\\project1</filename>, <action>klik kanan</action> dan pilih <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Properti</guimenuitem></menuchoice> dari menu konteks. Dialog Properti muncul. Lalu pergi ke tab Subversion. Di sana, Anda bisa mengeset properti. Pilih properti <literal>svn:externals</literal> dari kotak kombo dan tulis dalam kotak edit url repositori dalam format <literal>nama url</literal> atau jika Anda ingin menetapkan revisi tertentu, <literal>nama -rREV url</literal> Anda bisa menambahkan multipel proyek eksternal, 1 per baris. Catatan bahwa URL harus diberi escape dengan benar atau tidak akan bekerja dengan baik. Sebagai contoh Anda harus menimpa setiap ruang dengan <literal>%20</literal>. Catatan bahwa tidak mungkin untuk menggunakan nama folder dengan ruang di dalamnya. Angap bahwa Anda sudah mengeset properti ini pada <filename>D:\\dev\\project1</filename>: <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
 "quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen> Sekarang klik <guibutton>Set</guibutton> dan komit perubahan Anda. Ketika Anda (atau pengguna lain) memutahirkan copy pekerjaan Anda, Subversion akan membuat subfolder <filename>D:\\dev\\project1\\sounds</filename> dan melakukan checkout proyek suara, subfolder lainnya <filename>D:\\dev\\project1\\quick graphs</filename> berisi proyek grafik, dan akhirnya subfolder berulang <filename>D:\\dev\\project1\\skins\\toolkit</filename> berisi revisi 21 dari proyek skin-maker."
+"</screen> Sekarang klik <guibutton>Set</guibutton> dan komit perubahan Anda. Ketika Anda (atau pengguna lain) memutahirkan copy pekerjaan Anda, Subversion akan membuat subfolder <filename>D:\\dev\\project1\\sounds</filename> dan melakukan checkout proyek sounds, subfolder lainnya <filename>D:\\dev\\project1\\quick graphs</filename> yang berisi proyek grafik, dan akhirnya subfolder bersarang <filename>D:\\dev\\project1\\skins\\toolkit</filename> yang berisi revisi 21 dari proyek skin-maker."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3679(para)
 #: source/TortoiseSVN_en.xml:3648
 #: (para) source/TortoiseSVN_en.xml:10257
-#, fuzzy
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
 msgstr "Jika proyek eksternal dalam repositori yang sama, setiap perubahan yang Anda buat disana akan disertakan dalam daftar komit saat Anda mengkomit ke proyek utama."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3684(para)
 #: source/TortoiseSVN_en.xml:3653
 #: (para) source/TortoiseSVN_en.xml:10262
-#, fuzzy
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
 msgstr "Jika proyek eksternal dalam repositori berbeda, setiap perubahan yang Anda buat ke proyek eksternal akan diberithu ketika Anda mengkomit ke proyek utama, tapi Anda harus mengkomit perubahan eksternal itu secara terpisah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3690(para)
 #: source/TortoiseSVN_en.xml:3659
 #: (para)
-#, fuzzy
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
-msgstr "Catatan bahwa jika Anda mengubah URL dalam properti <literal>svn:externals</literal>, maka ketika Anda memutahirkan copy pekerjaan Anda berikutnya, Subversion akan menghapus folder eksternal lama dan membuat checkout segar, maka Anda akan melihat file sedang <literal>Ditambahkan</literal>, daripada sedang <literal>Dimutahirkan</literal> seperti yang telah Anda duga. Situasi ini mungkin terjadi jika Anda merujuk tag dari proyek lain. Ketika versi baru dari proyek itu dirilis, Anda mengubah rujukan eksternal Anda untuk mengarah ke tag baru."
+msgstr "Catatan bahwa jika Anda mengubah URL dalam properti <literal>svn:externals</literal>, maka ketika Anda memutahirkan copy pekerjaan Anda berikutnya, Subversion akan menghapus folder eksternal lama dan membuat checkout segar, maka Anda akan melihat file sedang <literal>Ditambahkan</literal>, daripada sedang <literal>Dimutahirkan</literal> seperti yang mungkin Anda harapkan. Situasi ini mungkin terjadi jika Anda merujuk tag dari proyek lain. Ketika versi baru dari proyek itu dirilis, Anda mengubah rujukan eksternal Anda untuk mengarah ke tag baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3702(para)
 #: source/TortoiseSVN_en.xml:3670
