@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "stdafx.h"
+#include <dlgs.h>
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
 #include "AboutDlg.h"
@@ -242,7 +243,31 @@ BOOL CTortoiseMergeApp::InitInstance()
 			ofn.lpstrTitle = NULL;
 		else
 			ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY;
+
+		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
+		// check if there's a patchfile in the clipboard
+		UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+		if (cFormat)
+		{
+			if (OpenClipboard(NULL))
+			{
+				UINT enumFormat = 0;
+				do 
+				{
+					if (enumFormat == cFormat)
+					{
+						// yes, there's a patchfile in the clipboard
+						ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY | OFN_ENABLETEMPLATE | OFN_ENABLEHOOK | OFN_EXPLORER;
+
+						ofn.hInstance = AfxGetResourceHandle();
+						ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
+						ofn.lpfnHook = CreatePatchFileOpenHook;
+					}
+				} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+				CloseClipboard();
+			}
+		}
+
 		CString sFilter;
 		sFilter.LoadString(IDS_PATCHFILEFILTER);
 		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
@@ -330,4 +355,48 @@ void CTortoiseMergeApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
+}
+
+UINT_PTR CALLBACK 
+CTortoiseMergeApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM /*lParam*/)
+{
+	if(uiMsg ==	WM_COMMAND && LOWORD(wParam) == IDC_PATCH_TO_CLIPBOARD)
+	{
+		HWND hFileDialog = GetParent(hDlg);
+
+		// if there's a patchfile in the clipboard, we save it
+		// to a temporary file and tell TortoiseMerge to use that one
+		UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+		if ((cFormat)&&(OpenClipboard(NULL)))
+		{ 
+			HGLOBAL hglb = GetClipboardData(cFormat); 
+			LPCSTR lpstr = (LPCSTR)GlobalLock(hglb); 
+
+			DWORD len = GetTempPath(0, NULL);
+			TCHAR * path = new TCHAR[len+1];
+			TCHAR * tempF = new TCHAR[len+100];
+			GetTempPath (len+1, path);
+			GetTempFileName (path, TEXT("tsm"), 0, tempF);
+			std::wstring sTempFile = std::wstring(tempF);
+			delete path;
+			delete tempF;
+
+			FILE * outFile;
+			size_t patchlen = strlen(lpstr);
+			_tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
+			if(outFile)
+			{
+				size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
+				if (size == patchlen)
+				{
+					CommDlg_OpenSave_SetControlText(hFileDialog, edt1, sTempFile.c_str());   
+					PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
+				}
+				fclose(outFile);
+			}
+			GlobalUnlock(hglb); 
+			CloseClipboard(); 
+		} 
+	}
+	return 0;
 }

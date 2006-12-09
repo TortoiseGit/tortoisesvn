@@ -38,6 +38,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	files_.clear();
 	folder_.erase();	
 	isOnlyOneItemSelected = false;
+	isExtended = false;
 	isInSVN = false;
 	isConflicted = false;
 	isFolder = false;
@@ -737,7 +738,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	LoadLangDll();
-	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
+	isExtended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
 
 	//create the submenu
@@ -769,9 +770,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!extended))
+	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!isExtended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, ShellMenuDiff);
-	if ((isInSVN)&&(isOnlyOneItemSelected)&&(extended))
+	if ((isInSVN)&&(isOnlyOneItemSelected)&&(isExtended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUURLDIFF, IDI_DIFF, idCmdFirst, ShellMenuUrlDiff);
 
 	if (files_.size() == 2)	//compares the two selected files
@@ -808,7 +809,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREMOVE), HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, ShellMenuRemove);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, ShellMenuRevert);
-	if ((isFolder)&&(extended))
+	if ((isFolder)&&(isExtended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDELUNVERSIONED), HMENU(MENUDELUNVERSIONED), INDEXMENU(MENUDELUNVERSIONED), idCmd++, IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, idCmdFirst, ShellMenuDelUnversioned);
 	if ((isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, ShellMenuCleanup);
@@ -1424,7 +1425,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuApplyPatch:
-				if ((isPatchFileInClipboard)&&(!isPatchFile))
+				if ((isPatchFileInClipboard)&&(isExtended)&&(!isPatchFile))
 				{
 					// if there's a patchfile in the clipboard, we save it
 					// to a temporary file and tell TortoiseMerge to use that one

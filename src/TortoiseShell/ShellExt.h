@@ -144,6 +144,7 @@ protected:
 	stdstring	folder_;
 	std::vector<stdstring> files_;
 	bool isOnlyOneItemSelected;
+	bool isExtended;
 	bool isInSVN;
 	bool isIgnored;
 	bool isConflicted;

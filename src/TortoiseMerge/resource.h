@@ -22,6 +22,7 @@
 #define IDI_ICON1                       140
 #define IDI_WHITESPACELINE              140
 #define IDB_LOGOFLIPPED                 168
+#define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
 #define IDS_ERR_PATCH_NOINDEX           1000
@@ -64,7 +65,6 @@
 #define IDC_BKUNKNOWN                   1027
 #define IDC_FGUNKNOWN                   1028
 #define IDC_BKNORMAL                    1029
-#define IDC_URLCOMBO                    1029
 #define IDC_FINDCOMBO                   1029
 #define IDC_FGNORMAL                    1030
 #define IDC_FONTNAMES                   1030
@@ -131,6 +131,7 @@
 #define IDS_ERR_FILE_OPEN               1100
 #define IDS_ERR_FILE_BINARY             1101
 #define IDS_ERR_FILE_NOTAFILE           1102
+#define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
 #define IDS_SETTINGSTITLE               1702
