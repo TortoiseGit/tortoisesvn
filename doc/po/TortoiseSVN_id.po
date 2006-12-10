@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-09 21:44+0700\n"
+"PO-Revision-Date: 2006-12-10 20:16+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3816,35 +3816,30 @@ msgstr "Catatan bahwa jika Anda mengubah URL dalam properti <literal>svn:externa
 # Indonesian#: source/TortoiseSVN_en.xml:3702(para)
 #: source/TortoiseSVN_en.xml:3670
 #: (para)
-#, fuzzy
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr "Anda harus benar-benar mempertimbangkan menggunakan angka revisi eksplisit dalam semua definisi eksternal Anda. Melakukan itu berarti bahwa Anda bisa memutuskan untuk menarik snapshot berbeda dari informasi eksternal, dan memastikan snapshot mana yang ditarik. Disamping aspek yang masuk akal atas tidak dikejutkan oleh perubahan ke repositori pihak-ketiga yang mungkin Anda tidak mempunyai kontrol kepadanya, menggunakan angka revisi eksternal juga berarti bahwa ketika Anda mengembalikan copy pekerjaan Anda ke revisi sebelumnya, definisi eksternal Anda juga dipulihkan ke cara mereka dikunci dalam revisi sebelumnya itu, yang berarti bahwa copy pekerjaan eksternal akan dimutahirkan untuk menyamai cara <emphasis>mereka</emphasis> terlihat kembali ketika repositori Anda pada revisi sebelumnya itu. Untuk proyek software, ini bisa menjadi perbedaan antara pembangunan snapshot yang sukses dan gagal dari basis kode kompleks Anda."
+msgstr "Anda harus benar-benar mempertimbangkan menggunakan angka revisi eksplisit dalam semua definisi eksternal Anda. Dengan melakukan itu berarti bahwa Anda bisa memutuskan untuk menarik snapshot berbeda dari informasi eksternal, dan memastikan snapshot mana yang ditarik. Disamping supaya Anda tidak dikejutkan oleh perubahan ke repositori pihak ketiga yang mungkin Anda tidak mempunyai kontrol atasnya, menggunakan angka revisi eksternal juga berarti bahwa ketika Anda mengembalikan copy pekerjaan Anda ke revisi sebelumnya, definisi eksternal Anda juga dipulihkan ke cara mereka dikunci dalam revisi sebelumnya itu, yang berarti bahwa copy pekerjaan eksternal akan dimutahirkan untuk menyamai cara <emphasis>mereka</emphasis> terlihat kembali ketika repositori Anda pada revisi sebelumnya itu. Untuk proyek software, ini bisa menjadi perbedaan antara pembangunan snapshot yang sukses dan gagal dari basis kode kompleks Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3721(para)
 #: source/TortoiseSVN_en.xml:3688
 #: (para)
-#, fuzzy
 msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
-msgstr "URL dalam definisi<literal>svn:externals</literal> adalah absolut. Anda tidak bisa menggunakan URL relatif. Jika Anda merelokasikan copy pekerjaan Anda, atau jika repositori eksternal direlokasi, URL ini tidak akan dimutahirkan secara otomatis. Juga, jika Anda mencabangkan proyek yang mempunyai referensi eksternal di dalam repositori yang sama, URL dalam copy yang dicabangkan tidak akan berubahl Anda mungkin ingin mengubah rujukan trunk daripada merujuk ke cabang."
+msgstr "URL dalam definisi <literal>svn:externals</literal> adalah absolut. Anda tidak bisa menggunakan URL relatif. Jika Anda merelokasikan copy pekerjaan Anda, atau jika repositori eksternal direlokasi, URL ini tidak akan dimutahirkan secara otomatis. Juga, jika Anda mencabangkan proyek yang mempunyai referensi eksternal di dalam repositori yang sama, URL dalam copy yang dicabangkan tidak akan berubah; Anda mungkin ingin mengubah rujukan trunk ke rujukan cabang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3731(para)
 #: source/TortoiseSVN_en.xml:3697
 #: (para)
-#, fuzzy
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
 msgstr "Jika Anda memerlukan informasi lebih lengkap bagaimana TortoiseSVN menangani Properti baca <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3735(para)
 #: source/TortoiseSVN_en.xml:3701
 #: (para)
-#, fuzzy
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr "Untuk mencari tentang metode yang berbeda dari pengaksesan sub-proyek umum baca <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3742(title)
 #: source/TortoiseSVN_en.xml:3708
 #: (title)
-#, fuzzy
 msgid "Checking Out A Working Copy"
 msgstr "Melakukan Checkout Copy Pekerjaan"
 
@@ -3857,7 +3852,6 @@ msgstr "checkout"
 # Indonesian#: source/TortoiseSVN_en.xml:3747(para)
 #: source/TortoiseSVN_en.xml:3713
 #: (para)
-#, fuzzy
 msgid "To obtain a working copy you need to do a <firstterm>checkout</firstterm> from a repository."
 msgstr "Untuk mendapatkan copy pekerjaan Anda perlu melakukan <firstterm>checkout</firstterm> dari repositori."
 
@@ -3870,42 +3864,36 @@ msgstr "Dialog Checkout"
 # Indonesian#: source/TortoiseSVN_en.xml:3751(para)
 #: source/TortoiseSVN_en.xml:3717
 #: (para)
-#, fuzzy
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
-msgstr "Pilih direktori dalam windows explorer dimana Anda ingin menempatkan copy pekerjaan Anda. <action>Klik kanan</action> untuk menampilkan menu konteks dan pilih perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, Yang menampilkan kotak dialog berikut: <placeholder-1/> Jika Anda memasukan nama folder yang belum ada, maka direktori dengan nama itu akan dibuat."
+msgstr "Pilih suatu direktori dalam windows explorer dimana Anda ingin menempatkan copy pekerjaan Anda. <action>Klik kanan</action> untuk menampilkan menu konteks dan pilih perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, yang menampilkan kotak dialog berikut: <placeholder-1/> Jika Anda memasukan nama folder yang belum ada, maka direktori dengan nama itu akan dibuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3768(para)
 #: source/TortoiseSVN_en.xml:3734
 #: (para)
-#, fuzzy
 msgid "You should only check out into an empty directory. If you want to check out your source tree into the same directory that you imported from, Subversion will throw an error message because it will not overwrite the existing unversioned files with versioned ones. You will have to check out into a different directory or delete the existing sourcetree first."
-msgstr "Anda harus melakukan check out hanya ke dalam direktori kosong. Jika Anda ingin melakukan check out susunan sumber Anda ke dalam direktori yang sama dimana Anda mengimpornya, Subversion akan mengeluarkan pesasn kesalahan karena ia tidak akan menimpa file yang tidak berversi yang sudah ada dengan yang berversi. Anda harus melakukan check out ke dalam direktori yang berbeda atau menghapus susunan sumber yang sudah ada terlebih dulu."
+msgstr "Anda harus melakukan check out hanya ke dalam direktori kosong. Jika Anda ingin melakukan check out susunan sumber Anda ke dalam direktori yang sama dari mana Anda mengimpornya, Subversion akan mengeluarkan pesan kesalahan karena ia tidak akan menimpa file yang tidak berversi yang sudah ada dengan yang berversi. Anda harus melakukan check out ke dalam direktori yang berbeda atau menghapus susunan sumber yang sudah ada terlebih dulu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3778(para)
 #: source/TortoiseSVN_en.xml:3743
 #: (para)
-#, fuzzy
 msgid "If you want to check out the top level folder only and omit all sub-folders, use the <guilabel>Only check out the top folder</guilabel> checkbox."
 msgstr "Jika Anda ingin hanya melakukan check out folder tingkat atas dan mengabaikan semua sub-folders, gunakan kotak centang <guilabel>Hanya check out folder atas</guilabel>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3783(para)
 #: source/TortoiseSVN_en.xml:3747
 #: (para)
-#, fuzzy
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
 msgstr "Jika proyek berisi referensi ke proyek eksternal yang <emphasis>tidak</emphasis> ingin Anda checked out dalam waktu yang sama, gunakan kotak centang <guilabel>Abaikan eksternal</guilabel>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3790(para)
 #: source/TortoiseSVN_en.xml:3753
 #: (para)
-#, fuzzy
 msgid "If either of these options are checked, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
 msgstr "Jika opsi-opsi ini dicentang, Anda harus melakukan pemutahiran ke copy pekerjaan Anda menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mutahirkan ke Revisi...</guimenuitem></menuchoice> daripada <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mutahirkan</guimenuitem></menuchoice>. Pemutahiran standar akan menyertakan semua sub-folders dan semua eksternal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3805(para)
 #: source/TortoiseSVN_en.xml:3768
 #: (para)
-#, fuzzy
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
 msgstr "Direkomendasikan bahwa Anda melakukan check out hanya bagian <literal>trunk</literal> dari susunan direktori. Jika Anda menetapkan path leluhur dari susunan direktori dalam URL maka Anda akan berakhir dengan hard disk yang penuh karena Anda akan mendapatkan copy dari keseluruhan susunan repositori termasuk setiap cabang dan tag dari proyek Anda!"
 
@@ -3918,7 +3906,6 @@ msgstr "Mengekspor"
 # Indonesian#: source/TortoiseSVN_en.xml:3814(para)
 #: source/TortoiseSVN_en.xml:3777
 #: (para)
-#, fuzzy
 msgid "Sometimes you may want to create a local copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Read <xref linkend=\"tsvn-dug-export\"/> to find out how to do that."
 msgstr "Ada kalanya Anda ingin membuat copy lokal tanpa direktori <filename>.svn</filename>, contoh untuk membuat zipped tarball dari sumber Anda. Baca <xref linkend=\"tsvn-dug-export\"/> untuk menemukan bagaimana cara melakukannya."
 
@@ -3937,9 +3924,8 @@ msgstr "komit"
 # Indonesian#: source/TortoiseSVN_en.xml:3829(para)
 #: source/TortoiseSVN_en.xml:3791
 #: (para)
-#, fuzzy
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr "Mengirimkan perubahan yang Anda buatke copy pekerjaan Anda dikenal sebagai <firstterm>mengkomir</firstterm> perubahan. Tapi sebelum Anda mengkomit Anda harus memastikan bahwa copy pekerjaan Anda mutahir. Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mutahirkan</guimenuitem></menuchoice> secara langsung. Atau Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa Modifikasi</guimenuitem></menuchoice> pertama, untuk melihat file yang mana yang telah berubah secara lokal atau pada server."
+msgstr "Mengirimkan perubahan yang Anda buat ke copy pekerjaan Anda dikenal sebagai <firstterm>mengkomit</firstterm> perubahan. Tapi sebelum Anda mengkomit Anda harus memastikan bahwa copy pekerjaan Anda mutahir. Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mutahirkan</guimenuitem></menuchoice> secara langsung. Atau Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa Modifikasi</guimenuitem></menuchoice> pertama, untuk melihat file yang mana yang telah berubah secara lokal atau pada server."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3855(title)
 #: source/TortoiseSVN_en.xml:3816
@@ -3950,14 +3936,12 @@ msgstr "Dialog Komit"
 # Indonesian#: source/TortoiseSVN_en.xml:3846(para)
 #: source/TortoiseSVN_en.xml:3807
 #: (para)
-#, fuzzy
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr "Jika copy pekerjaan Anda mutahir dan disana tidak ada konflik, Anda siap untuk mengkomit perubahan Anda. Pilih file/folder mana saja yang ingin Anda komit, lalu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Komit...</guimenuitem></menuchoice>. <placeholder-1/>"
+msgstr "Jika copy pekerjaan Anda mutahir dan di sana tidak ada konflik, Anda siap untuk mengkomit perubahan Anda. Pilih file/folder mana saja yang ingin Anda komit, lalu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Komit...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3859(para)
 #: source/TortoiseSVN_en.xml:3820
 #: (para)
-#, fuzzy
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
 msgstr "Dialog komit akan memperlihatkan kepada Anda setiap file yang diubah, termasuk yang ditambahkan, dihapus dan file tidak berversi. Jika Anda tidak ingin file yang diubah dikomit, cukup jangan centang file itu. Jika Anda ingin menyertakan file tidak berversi, centang file itu untuk ditambahkan ke komit."
 
