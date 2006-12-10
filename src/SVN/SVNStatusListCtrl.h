@@ -223,7 +223,7 @@ public:
 			else
 			{
 				// "Display name" must not be empty.
-				return path.IsDirectory() ? CString(".") : path.GetFileOrDirectoryName();
+				return path.GetFileOrDirectoryName();
 			}
 		}
 	public:
