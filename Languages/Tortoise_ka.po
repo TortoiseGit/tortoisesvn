@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-05 16:16+0400\n"
+"PO-Revision-Date: 2006-12-11 14:52+0400\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,11 @@ msgstr "&გარე"
 #: MenuEntry
 msgid "&File"
 msgstr "&ფაილი"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "&Filter"
+msgstr "&ფილტრი"
 
 #: MenuEntry
 msgid "&Find"
@@ -975,6 +980,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1632,15 +1638,15 @@ msgstr "ბზიკის-ID / პრობლემის #"
 msgid "C&heck now"
 msgstr "&შემოწმება ახლავე"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "განშტოების/ჭდის &შექმნა ვერსიიდან"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "დასტის &შექმნა..."
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "ჭდის &შექმნა ვერსიიდან"
 
 # ID:3697,
 #: ID:3697
@@ -1822,6 +1828,7 @@ msgstr "TortoiseSVN–ის ახალი ვერსიის შემო�
 
 # ID:8,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "გადმოტანა"
 
@@ -2079,16 +2086,41 @@ msgstr "&კოპირება"
 msgid "Copied"
 msgstr "კოპირებულია"
 
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "კოპირება მისამართიდან"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
 msgstr "დაშორებული კოპირება"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Copy %ld items to\r\n"
+"%s"
+msgstr ""
+"%ld ელემენტის კოპირება\r\n"
+"%s"
 
 # ID:103,
 #: ID:103
 #, c-format
 msgid "Copy %s"
 msgstr "%s კოპირება"
+
+# ID:82,
+#: ID:126
+#, c-format
+msgid ""
+"Copy %s\r\n"
+"to %s"
+msgstr ""
+"%s - კოპირება\r\n"
+"აქ %s"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
@@ -2303,6 +2335,16 @@ msgstr "საცავის შექმნა"
 msgid "Create copy in the repository from:"
 msgstr "საცავში ასლის შექმნა აქედან:"
 
+# Control-ID:1074,
+#: ID:126
+#, c-format
+msgid ""
+"Create new directory:\r\n"
+"%s"
+msgstr ""
+"ახალი დასტის შექმნა:\r\n"
+"%s"
+
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
@@ -2374,6 +2416,26 @@ msgstr "თარიღი"
 #: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "ჟურნალის ჩანაწერთა &რაოდენობა"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "ნაგულისხმებია მისამართი:"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "ნაგულისხმებია გეზი:"
+
+# ID:73,
+#: Dlg-ID:240
+msgid "Delete Unversioned Items"
+msgstr "არავერსიული ელემენტების წაშლა"
+
+# Control-ID:1073,
+#: ID:17
+msgid "Delete unversioned items"
+msgstr "არავერსიული ელემენტების წაშლა"
 
 # ID:73,
 #: ID:73
@@ -2682,6 +2744,7 @@ msgstr "ფანჯრის მაქსიმიზება"
 
 # ID:126,
 #: Dlg-ID:135
+#: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "ჟურნალში შეტყობინების შეტანა"
 
@@ -2763,6 +2826,16 @@ msgstr "გამოტოვებული გეზები:"
 #: ID:209
 msgid "Explore to"
 msgstr "გახსნა"
+
+# ID:9,
+#: Dlg-ID:238
+msgid "Export"
+msgstr "ექსპორტი"
+
+# ID:94,
+#: Control-ID:1074
+msgid "Export &directory:"
+msgstr "&დასტის ექსპორტი:"
 
 # ID:94,
 #: ID:94
@@ -2855,6 +2928,15 @@ msgstr "დოკუმენტის გახსნა ვერ მოხე
 msgid "Failed to save document."
 msgstr "დოკუმენტის შენახვა ვერ მოხერხდა."
 
+# ID:63,#:
+# ID:74,#:
+# ID:77,#:
+# ID:207,#:
+# ID:319,
+#: ID:220
+msgid "Failed!"
+msgstr "არ შედგა!"
+
 # Control-ID:1217,
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
@@ -2926,6 +3008,11 @@ msgstr ""
 "სიღრმე:\t\t\t%d ბიტი\n"
 "მასშტაბი:\t\t\t%d%%"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr "შემდეგი გეზების გაფილტვრა (სხვადასხვა გეზის გამოყოფა '*' სიმბოლოთი):"
+
 #: Dlg-ID:139
 msgid "Find"
 msgstr "პოვნა"
@@ -2941,6 +3028,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "დასრულდა!"
 
@@ -2961,6 +3049,7 @@ msgstr "სრულის ისტორიისთვის ამორთ�
 
 # Control-ID:1200,
 #: Control-ID:1200
+#: Control-ID:65535
 msgid "From:"
 msgstr "აქედან:"
 
@@ -3115,6 +3204,13 @@ msgstr "გრაფიკის ტიპი:"
 msgid "H&ide unrelated changed paths"
 msgstr "დაუკავშირებელი შეცვლილი გეზების &დამალვა"
 
+# Control-ID:1353,#:
+# Control-ID:1354,
+#: Control-ID:1353
+#: Control-ID:1354
+msgid "HEAD"
+msgstr "HEAD"
+
 # Control-ID:1004,
 #: Control-ID:1004
 msgid "Help"
@@ -3160,6 +3256,132 @@ msgstr "ბმულის ტიპი:"
 msgid "Hostname mismatch (%s)"
 msgstr "სერვერის სახელი მცდარია (%s)"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr "ID:32771:V C +F"
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr "ID:32772:V   +O"
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "ID:32773:V C +O"
+msgstr "ID:32773:V C +O"
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr "ID:32774:V C +T"
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr "ID:32778:V   +F"
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr "ID:32779:V   +S"
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr "ID:32793:V C +V"
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr "ID:32794:V C +R"
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr "ID:32796:V C +A"
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809
+#: ; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601
+#: ; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr "ID:57601:V C +O"
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr "ID:57603:V C +S"
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr "ID:57604:V CS+S"
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "ID:57635:V C +X"
+msgstr "ID:57635:V C +X"
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636
+#: ; '&Find'
+msgid "ID:57636:V C +F"
+msgstr "ID:57636:V C +F"
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637
+#: ; ''
+msgid "ID:57637:V C +V"
+msgstr "ID:57637:V C +V"
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "ID:57665:V C +Q"
+msgstr "ID:57665:V C +Q"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
@@ -3172,13 +3394,17 @@ msgstr "პიქტოგრამები/დიზაინი/კოდი:
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "თუ მონიშნულია, კრძალავს პიქტოგრამებს დიალოგებში \"შენახვა როგორც...\" და \"გახსნა\""
+msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
+msgstr "თუ მონიშნულია, კრძალავს პიქტოგრამებს დიალოგებში \"შენახვა როგორც...\" ან \"გახსნა\""
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "თუ აქტიურია, მენიუს ელემეტი \"დაბლოკვა\" გამოჩნდება მენიუს ზედა დონეზე თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"if the selected file has the svn:needs-lock property set"
+msgstr ""
+"თუ აქტიურია, მენიუს ელემეტი \"დაბლოკვა\" ყოველთვის მენიუს ზედა დონეზე\n"
+"გამოჩნდება თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
 
 # ID:95,
 #: ID:95
@@ -3191,8 +3417,12 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "თუ ჩართულია, TortoiseSVN შესადარებლად სბაზო ვერსიის (BASE) დროებით ფაილს შექმნის სადაც საკვანძო სიტყვები მათი მნიშვნელობით შეიცვლება."
+msgid ""
+"If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
+"with the keywords expanded and the line endings adjusted."
+msgstr ""
+"თუ ჩართულია, TortoiseSVN შესადარებლად სბაზო ვერსიის (BASE) სხვაობის დროებით\n"
+"ფაილს შექმნის საკვანძო სიტყვებით და მართებული სტრიქონის დაბოლოებებით."
 
 # ID:196,
 #: ID:196
@@ -3312,10 +3542,46 @@ msgstr "სტრიქონის &ბოლოების იგნორი
 msgid "Import"
 msgstr "იმპორტი"
 
+# ID:15,
+#: ID:127
+#, c-format
+msgid "Import %ld items"
+msgstr "%ld ელემენტის იმპორტი"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&შეტყობინების იმპორტი"
+
+# ID:120,
+#: ID:127
+#, c-format
+msgid ""
+"Import file %s\r\n"
+"to %s"
+msgstr ""
+"%s ფაილის იმპორტი\r\n"
+"აქ %s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import file to\r\n"
+"%s"
+msgstr ""
+"ფაილის იმპორტი აქ\r\n"
+"%s"
+
+# ID:120,
+#: ID:126
+#, c-format
+msgid ""
+"Import folder %s\r\n"
+"to %s"
+msgstr ""
+"%s დასტის იმპორტი\r\n"
+"აქ %s"
 
 # ID:120,
 #: ID:120
@@ -3332,6 +3598,11 @@ msgstr "დასტის საცავში იმპორტირებ�
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "გამოტოვებული ფაილების ჩათვლით"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include only the following revision range:"
+msgstr "მხოლოდ შემდეგი ვერსიების რანგის გათვალისწინება:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3701,14 +3972,14 @@ msgstr "იერსახე::პიქტოგრამების ნაკ
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "უმცროსი ვერსია: %ld - უფროსი ვერსია: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "უმცროსი ნაჩვენები ვერსია: %ld - უფროსი ნაჩვენები ვერსია: %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "უმცროსი ვერსია: %ld - უფროსი ვერსია: %ld - სათაო (HEAD) ვერსია: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "უმცროსი ნაჩვენები ვერსია: %ld - უფროსი ნაჩვენები ვერსია: %ld - სათაო (HEAD) ვერსია: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -3768,7 +4039,7 @@ msgstr "შერწყმული"
 # ID:10,
 #: ID:10
 msgid "Merges a branch into the main trunk"
-msgstr "განშტოების შერწყმა მთავარ ხესთან"
+msgstr "განშტოების შერწყმა მთავარ მაგისტრალთან"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3782,6 +4053,7 @@ msgstr "შერწყმა საჭიროებს 'ვისგან:' 
 
 # ID:76,
 #: ID:76
+#: Control-ID:1359
 msgid "Message"
 msgstr "შეტყობინება"
 
@@ -3842,6 +4114,26 @@ msgstr "სხვა ფერები..."
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "ყველაზე აქტიური ავტორი:"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %ld items to\r\n"
+"%s"
+msgstr ""
+"%ld ელემენტის გადატანა აქ\r\n"
+"%s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Move %s\r\n"
+"to %s"
+msgstr ""
+"%s - გადატანა\r\n"
+"აქ %s"
 
 # ID:98,
 #: ID:98
@@ -4125,6 +4417,11 @@ msgstr "კლიენტის სერთიფიკატის ფაი�
 msgid "Open file"
 msgstr "ფაილის გახსნა"
 
+# ID:114,
+#: Control-ID:1132
+msgid "Open from clipboard"
+msgstr "გახსნა ბუფერიდან"
+
 # ID:3601,
 #: ID:7
 msgid "Open image file..."
@@ -4168,6 +4465,15 @@ msgstr "სხვა"
 #: ID:3843
 msgid "Out of memory."
 msgstr "მეხსიერების უკმარისობა."
+
+# ID:95,
+#: ID:95
+msgid ""
+"Override the svn:eol-style property setting.\n"
+"Files which don't have this property set are not affected."
+msgstr ""
+"ჩაანაცვლებს svn:eol-style პარამეტრის მნიშვნელობას.\n"
+"ფაილები ამ პარამეტრის გარეშე არ გათვალისწინდება."
 
 # ID:99,
 #: ID:99
@@ -4644,6 +4950,18 @@ msgid "Remote text status"
 msgstr "დაშორებული ტექსტის სტატუსი"
 
 # ID:15,
+#: ID:126
+#, c-format
+msgid "Remove %ld items"
+msgstr "%ld ელემენტის ამოღება"
+
+# ID:97,
+#: ID:126
+#, c-format
+msgid "Remove %s"
+msgstr "%s - ამოღება"
+
+# ID:15,
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "ამოშლა იგნორირებულთა სიიდან"
@@ -4675,6 +4993,11 @@ msgstr ""
 "%s\n"
 "იგნორირებულთა სიიდან."
 
+# ID:17,
+#: ID:17
+msgid "Removes all unversioned and ignored items"
+msgstr "ამოიღებს ყველა არავერსიულ და იგნორირებულ ელემენტს"
+
 # ID:15,
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -4690,6 +5013,16 @@ msgstr "გადარქმევა"
 #, c-format
 msgid "Rename %s"
 msgstr "გადარქმევა - %s"
+
+# ID:127,
+#: ID:127
+#, c-format
+msgid ""
+"Rename item from %s\r\n"
+"to %s"
+msgstr ""
+"%s ელემენტის გადარქმევა\r\n"
+"- %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -4893,6 +5226,11 @@ msgstr "ვერსია / ავტორი:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "ვერსიის დიაგრამა"
+
+# ID:269,
+#: Dlg-ID:239
+msgid "Revision Graph Filter"
+msgstr "ვერსიის დიაგრამის ფილტრი"
 
 # ID:75,
 #: Dlg-ID:228
@@ -5363,9 +5701,9 @@ msgstr "&სხვაობების ჩვენება"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "&ჟურნალის ჩვენება"
 
@@ -5528,6 +5866,11 @@ msgstr "ელემენტების ნუმერაციით სო�
 #: ID:101
 msgid "Sort numerical"
 msgstr "სორტირება ნუმერაციით"
+
+# Control-ID:1300,
+#: ID:197
+msgid "Sorts items numerical instead of alphabetical"
+msgstr "ელემენტების ნუმერაციით სორტირება ანბანურის ნაცვლად"
 
 # ID:196,
 #: ID:196
@@ -5811,6 +6154,16 @@ msgstr "კოდის ნაწილი არ შეესაბამებ
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "მოსალოდნელი იყო კოდის \"@@\" დასაწყისი სტრიქონში %d !"
 
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "განახლების ნაგულისხმები გეზი თუ სხვა არ მითითებულა"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "განახლების ნაგულისხმები მისამართი თუ სხვა არ მითითებულა"
+
 # ID:68,
 #: ID:68
 #, c-format
@@ -5956,6 +6309,12 @@ msgid ""
 msgstr ""
 "ძველი ფაილი ახალს არ შეესაბამება.\n"
 "გადარქმევა (ჯერ) რეალიზებული არაა!!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "ოპერაცია არ შედგა."
 
 # ID:64,
 #: ID:64
@@ -6211,6 +6570,7 @@ msgstr ""
 
 # Control-ID:1201,
 #: Control-ID:1201
+#: Control-ID:65535
 msgid "To:"
 msgstr "აქ:"
 
@@ -6892,6 +7252,17 @@ msgstr ""
 "ამან საცავის ძლიერი დაზიანება შეიძლება გამოიწვიოს!\n"
 "ნამდვილად გსურთ ამის გაკეთება?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You are trying to move the trunk folder!\n"
+"Are you absolutely sure that you want to move\n"
+"the trunk folder?"
+msgstr ""
+"თქვენ მაგისტრალური დასტის გადატანას ცდილობთ!\n"
+"აბსოლუტურად დარწმუნებული ხართ, რომ\n"
+"მაგისტრალური დასტის გადატანა გსურთ?"
+
 # ID:16,
 #: ID:16
 msgid ""
@@ -7215,6 +7586,11 @@ msgstr ""
 msgid "deleted"
 msgstr "წაშლილი"
 
+# ID:14,
+#: Control-ID:1342
+msgid "eol style"
+msgstr "სტრიქონთა დაბოლოება"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -7490,6 +7866,28 @@ msgstr ""
 "tsvn:projectlanguage\n"
 "მიუთითეთ ენის კოდური ნომერი ჟურნალის შეტყობინებებისთვის.\n"
 "TortoiseSVN მართლწერის შესაძლო შესაბამისი მოდულის ჩამოტვირთვას შეეცდება."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfileproperties\n"
+"Newline separated list of user defined properties for files which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfileproperties\n"
+"ფაილთა საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\n"
+"ახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
+
+# ID:17,
+#: ID:17
+msgid ""
+"tsvn:userfolderproperties\n"
+"Newline separated list of user defined properties for folders which will\n"
+"be shown in the property dialog to choose from."
+msgstr ""
+"tsvn:userfolderproperties\n"
+"დასტების საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\n"
+"ახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
 
 # ID:15,
 #: ID:15
