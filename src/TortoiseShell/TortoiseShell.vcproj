@@ -91,6 +91,7 @@
 				ModuleDefinitionFile=".\ShellExt.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseSVN.pdb"
+				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Debug/TortoiseSVN.lib"
 				TargetMachine="1"
 			/>
@@ -192,6 +193,7 @@
 				ModuleDefinitionFile=".\ShellExt.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseSVN.pdb"
+				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Debug64/TortoiseSVN.lib"
 				TargetMachine="17"
 			/>
@@ -299,6 +301,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Release/TortoiseSVN.lib"
 				TargetMachine="1"
 			/>
@@ -405,6 +408,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Release64/TortoiseSVN.lib"
 				TargetMachine="17"
 			/>
