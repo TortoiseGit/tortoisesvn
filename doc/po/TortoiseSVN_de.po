@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-06 09:44+0100\n"
+"PO-Revision-Date: 2006-12-11 15:00+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-Basepath: ..\\\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: German\n"
 
 #: source/TortoiseSVN_en.xml:4
 #: (title) source/TortoiseSVN_en.xml:2894
@@ -3475,12 +3476,12 @@ msgstr "Sie können auch aus anderen Ordnern Dateien in den Übertragen-Dialog z
 #: source/TortoiseSVN_en.xml:3914
 #: (title) source/TortoiseSVN_en.xml:4650
 msgid "Repairing External Renames"
-msgstr ""
+msgstr "Externes Umbenennen reparieren"
 
 #: source/TortoiseSVN_en.xml:3915
 #: (para) source/TortoiseSVN_en.xml:4651
 msgid "Sometimes files get renamed outside of Subversion, and they show up in the file list as a missing file and an unversioned file. To avoid losing the history you need to notify Subversion about the connection. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "Manchmal werden Dateien außerhalb von Subversion umbenannt, und sie werden in der Dateiliste als eine fehlende und eine nicht-versionierte Datei angezeigt. Damit sie die Historie der Datei nicht verlieren, müssen Sie Subversion über die Umbenennung informieren. Markieren Sie einfach beide, die alte (fehlende) und die neue (unversionierte) Datei und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Umbenennen reparieren</guimenuitem></menuchoice>, um die beiden Dateien zu einer Umbenennung zusammenzufassen."
 
 #: source/TortoiseSVN_en.xml:3928
 #: (para)
@@ -5120,17 +5121,17 @@ msgstr "Es gibt ein serverseitiges Aktionsskript hier: <ulink url=\"http://svn.c
 #: source/TortoiseSVN_en.xml:6017
 #: (title)
 msgid "Repairing File Renames"
-msgstr ""
+msgstr "Repairing External Renames"
 
 #: source/TortoiseSVN_en.xml:6018
 #: (para)
 msgid "Sometimes your friendly IDE will rename files for you as part of a refactoring exercise, and of course it doesn't tell Subversion. If you try to commit your changes, Subversion will see the old filename as missing and the new one as an unversioned file. You could just check the new filename to get it added in, but you would then lose the history tracing, as Subversion does not know the files are related."
-msgstr ""
+msgstr "Manchmal wird Ihre freundliche Entwicklungsumgebung beim Umarbeiten von Projekten Dateien für Sie umbenennen und Subversion nicht davon in Kenntnis setzen. Wenn Sie dann Ihre Änderungen übertragen wollen, zeigt Ihnen Subversion die alte Datei als fehlend und die neue als nicht versioniert an. Sie könnten jetzt einfach die neue Datei einchecken, aber Sie würden dadurch die Historie der Datei verlieren, da Subversion nicht weiß, dass die beiden Dateien zusammenhängen."
 
 #: source/TortoiseSVN_en.xml:6026
 #: (para)
 msgid "A better way is to notify Subversion that this change is actually a rename, and you can do this within the <guilabel>Commit</guilabel> and <guilabel>Check for Modifications</guilabel> dialogs. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "Besser ist es, wenn Sie Subversion mitteilen, dass diese Änderung eigentlich eine Umbenennung war. Sie können das in den <guilabel>Übertragen</guilabel> und <guilabel>Auf Änderung prüfen</guilabel> Dialogen tun. Markieren Sie einfach beide, die alte (fehlende) und die neue (unversionierte) Datei und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Umbenennen reparieren</guimenuitem></menuchoice>, um die beiden Dateien zu einer Umbenennung zusammenzufassen."
 
 #: source/TortoiseSVN_en.xml:6042
 #: (title)
@@ -7586,7 +7587,7 @@ msgstr "Jedes Mal, wenn Sie eine Arbeitskopie auschecken, Änderungen zusammenf�
 #: source/TortoiseSVN_en.xml:9258
 #: (para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr ""
+msgstr "Wenn Sie einen einzelnen Eintrag aus einem Kombinationsfeld löschen wollen, können Sie das direkt in der Liste tun. Klicken Sie auf den Pfeil, um das Kombinationsfeld zu öffnen, fahren Sie mit der Maus auf den zu löschenden Eintragund drücken Sie <action>Umsch+Löschen</action>."
 
 #: source/TortoiseSVN_en.xml:9267
 #: (term)
