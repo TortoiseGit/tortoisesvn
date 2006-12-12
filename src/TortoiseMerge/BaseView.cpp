@@ -635,7 +635,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 		other.Replace(_T("\t"), _T(""));
 		other.Replace(_T("\r"), _T(""));
 		other.Replace(_T("\n"), _T(""));
-		if (mine.Compare(other)==0)
+		if ((mine.Compare(other)==0)&&(!mine.IsEmpty()))
 			return true;
 	}
 	return false;
