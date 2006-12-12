@@ -1214,10 +1214,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, arChangedPaths, time_temp, filechanges, copies, actions))
-	{
-		return error;
-	}
+	svn->Log(rev, author_native, date_native, msg_native, arChangedPaths, time_temp, filechanges, copies, actions);
 	return error;
 }
 
@@ -2097,4 +2094,5 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 	}
 	return;
 }
+
 
