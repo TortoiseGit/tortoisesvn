@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-12-05 11:44+0800\n"
+"PO-Revision-Date: 2006-12-12 14:05+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3268,6 +3268,132 @@ msgstr "掛勾類型:"
 msgid "Hostname mismatch (%s)"
 msgstr "站臺名稱不符 (%s)"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr "ID:32771:V C +F"
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr "ID:32772:V   +O"
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "ID:32773:V C +O"
+msgstr "ID:32773:V C +O"
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr "ID:32774:V C +T"
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr "ID:32778:V   +F"
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr "ID:32779:V   +S"
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr "ID:32793:V C +V"
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr "ID:32794:V C +R"
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr "ID:32796:V C +A"
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809
+#: ; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601
+#: ; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr "ID:57601:V C +O"
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr "ID:57603:V C +S"
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr "ID:57604:V CS+S"
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "ID:57635:V C +X"
+msgstr "ID:57635:V C +X"
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636
+#: ; '&Find'
+msgid "ID:57636:V C +F"
+msgstr "ID:57636:V C +F"
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637
+#: ; ''
+msgid "ID:57637:V C +V"
+msgstr "ID:57637:V C +V"
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "ID:57665:V C +Q"
+msgstr "ID:57665:V C +Q"
+
 # Dlg-ID:106,
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
@@ -3281,14 +3407,14 @@ msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
 msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
 
 # ID:198,
 #: ID:198
 msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
-" if the selected file has the svn:needs-lock property set"
+"if the selected file has the svn:needs-lock property set"
 msgstr "勾選此選項時, 如果選擇的檔案有設定 svn:needs-lock 性質, 「取得鎖定」選項會出現在最上層選單中."
 
 # ID:95,
@@ -3302,7 +3428,9 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgid ""
+"If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
+"with the keywords expanded and the line endings adjusted."
 msgstr "勾選此選項時, TortoiseSVN 會建立工作基礎版本的暫存檔與展開關鍵字以及調整換行的版本進行差異比對."
 
 # ID:196,
@@ -4299,6 +4427,11 @@ msgstr "開啟用戶端憑證檔"
 #: ID:3601
 msgid "Open file"
 msgstr "開啟檔案"
+
+# ID:101,
+#: Control-ID:1132
+msgid "Open from clipboard"
+msgstr "自剪貼簿開啟"
 
 # ID:3601,
 #: ID:7
@@ -5743,6 +5876,11 @@ msgstr "依數字順序排序"
 # Control-ID:1300,
 #: ID:101
 msgid "Sort numerical"
+msgstr "依數字順序排序"
+
+# Control-ID:1300,
+#: ID:197
+msgid "Sorts items numerical instead of alphabetical"
 msgstr "依數字順序排序"
 
 # ID:196,
