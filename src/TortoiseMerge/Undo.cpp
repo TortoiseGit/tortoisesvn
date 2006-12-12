@@ -56,15 +56,6 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 		Undo(state, pBottom);
 		m_viewstates.pop_back();
 
-		if (m_viewstates.size() == 0)
-		{
-			if (pLeft)
-				pLeft->SetModified(false);
-			if (pRight)
-				pRight->SetModified(false);
-			if (pBottom)
-				pBottom->SetModified(false);
-		}
 		return true;
 	}
 	return false;
@@ -74,6 +65,8 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 {
 	if (pView)
 	{
+		int nLineStart = INT_MAX;
+		int nLineEnd = -1;
 		for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 		{
 			if (pView->m_arDiffLines)
@@ -86,18 +79,36 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
 		{
 			if (pView->m_arLineLines)
+			{
+				nLineStart = min(nLineStart, it->first);
+				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arLineLines->SetAt(it->first, it->second);
+			}
 		}
 		for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
 		{
 			if (pView->m_arLineStates)
+			{
+				nLineStart = min(nLineStart, it->first);
+				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arLineStates->SetAt(it->first, it->second);
+			}
 		}
 		for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
 		{
 			if (pView->m_arDiffLines)
+			{
+				nLineStart = min(nLineStart, it->first);
+				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arDiffLines->SetAt(it->first, it->second);
+			}
 		}
 		pView->DocumentUpdated();
+		pView->SetModified();
+		if (nLineEnd >= 0)
+		{
+			pView->GoToLine(nLineEnd, true);
+			pView->SelectLines(nLineStart, nLineEnd);
+		}
 	}
 }
