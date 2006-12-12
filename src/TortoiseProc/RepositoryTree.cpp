@@ -437,10 +437,10 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 			switch (type)
 			{
 			case 'd':
-				AddFolder(sFolder + entry, false, false, true, false, TVI_LAST);
+				AddFolder(sFolder + entry, false, false, false, false, TVI_LAST);
 				break;
 			case 'f':
-				AddFile(sFolder + entry, false, true, false, TVI_LAST);
+				AddFile(sFolder + entry, false, false, false, TVI_LAST);
 				break;
 			}
 		}
