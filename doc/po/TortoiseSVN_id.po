@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-10 20:16+0700\n"
+"PO-Revision-Date: 2006-12-12 21:44+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2763,11 +2763,11 @@ msgstr "Jika Anda khawatir tentang pengguna masuk dalam server Anda, atau cemas 
 #: (para)
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
-"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
 "\t--root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
 "</screen>"
 msgstr ""
-"Untuk menginstalasi sebagai layanan murni windows, jalankan perintah berikut semua pada satu baris untuk membuat layanan yang secara otomatis dijalankan ketika windows mulai. <screen>\n"
+"Untuk menginstalasi svnserver sebagai layanan murni windows, jalankan perintah berikut semuanya pada satu baris untuk membuat layanan yang secara otomatis dijalankan ketika windows mulai. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
 "\t--root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
 "</screen>"
@@ -2893,8 +2893,8 @@ msgstr "Ini di luar lingkup dari dokumentasi ini unruk merinci instalasi dan pen
 # Indonesian#: source/TortoiseSVN_en.xml:2813(para)
 #: source/TortoiseSVN_en.xml:2793
 #: (para)
-msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
-msgstr "Informasi selanjutnya mengenai svnserve bisa ditemukan dalam <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Buku SVN</citetitle></ulink>."
+msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version control with Subversion</citetitle></ulink>."
+msgstr "Informasi selanjutnya mengenai svnserve bisa ditemukan dalam <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version control with Subversion</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2821(title)
 #: source/TortoiseSVN_en.xml:2801
@@ -3211,8 +3211,8 @@ msgstr "Dokumen ini menjelaskan penggunaan dari hari ke hari klien TortoiseSVN. 
 # Indonesian#: source/TortoiseSVN_en.xml:3139(para)
 #: source/TortoiseSVN_en.xml:3114
 #: (para)
-msgid "If you need an introduction to version control with Subversion, then we recommend you read the fantastic book: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion: The Definitive Guide</citetitle></ulink>."
-msgstr "Jika Anda memerlukan pengenalan terhadap kontrol versi dengan Subversion, maka kami merekomendasikan Anda untuk membaca buku fantastik: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion: Petunjuk Definitif</citetitle></ulink>."
+msgid "If you need an introduction to version control with Subversion, then we recommend you read the fantastic book: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version control with Subversion</citetitle></ulink>."
+msgstr "Jika Anda memerlukan pengenalan terhadap kontrol versi dengan Subversion, maka kami merekomendasikan Anda untuk membaca buku fantastik: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version control with Subversion</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3147(para)
 #: source/TortoiseSVN_en.xml:3121
@@ -3948,9 +3948,8 @@ msgstr "Dialog komit akan memperlihatkan kepada Anda setiap file yang diubah, te
 # Indonesian#: source/TortoiseSVN_en.xml:3867(para)
 #: source/TortoiseSVN_en.xml:3827
 #: (para) source/TortoiseSVN_en.xml:4593
-#, fuzzy
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr "Item-item yang sudah ditukar ke path repositori yang berbeda juga ditunjukan menggunakan tanda <literal>(s)</literal>. Anda harus menukar sesuatu sementara bekerja pada cabang dan lupa untuk menukarnya kembali ke trunk. Ini adalah tanda peringatan Anda!"
+msgstr "Item-item yang sudah ditukar ke path repositori yang berbeda juga ditunjukan menggunakan tanda <literal>(s)</literal>. Anda mungkin telah menukar sesuatu sementara bekerja pada cabang dan lupa untuk menukarnya kembali ke trunk. Ini adalah tanda peringatan Anda!"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3874(title)
 #: source/TortoiseSVN_en.xml:3834
@@ -3961,14 +3960,12 @@ msgstr "Komit file atau folder?"
 # Indonesian#: source/TortoiseSVN_en.xml:3875(para)
 #: source/TortoiseSVN_en.xml:3835
 #: (para)
-#, fuzzy
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr "Ketika Anda mengkomit file, dialog komit hanya menampilkan file yang telah Anda pilih. Ketika Anda mengkomit folder dialog komit akan memilih file yang diubah secara otomatis. Jika Anda lupa tentang file baru yang Anda buat, mengkomit folder tetap akan menemukannya, Mengkomit folder <emphasis>tidak</emphasis> berarti bahwa setiap file ditandai sebagai diubahl Ini hanya memudahkan daripada melakukan pekerjaan berlebih bagi Anda."
+msgstr "Ketika Anda mengkomit file, dialog komit hanya menampilkan file yang telah Anda pilih. Ketika Anda mengkomit folder dialog komit akan memilih file yang diubah secara otomatis. Jika Anda lupa tentang file baru yang Anda buat, mengkomit folder akan membuat Anda menemukannya. Mengkomit folder <emphasis>tidak</emphasis> berarti bahwa setiap file ditandai sebagai diubah; ini hanya memudahkan hidup Anda dengan melakukan pekerjaan lebih bagi Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3886(para)
 #: source/TortoiseSVN_en.xml:3845
 #: (para)
-#, fuzzy
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
 msgstr "Jika Anda telah mengubah file yang sudah disertakan dari repositori yang berbeda menggunakan <literal>svn:externals</literal>, perubahan itu tidak bisa disertakan dalam komit atomis yang sama. Simbol peringatan dibawah daftar file memberitahu Anda jika ini sudah terjadi, dan tooltip menjelaskan bahwa file eksternal tersebut harus dikomit secara terpisah."
 
@@ -3981,44 +3978,38 @@ msgstr "Banyak file tidak berversi dalam dialog komit"
 # Indonesian#: source/TortoiseSVN_en.xml:3903(para)
 #: source/TortoiseSVN_en.xml:3860
 #: (para)
-#, fuzzy
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr "menambah file (atau ekstensi wildcard) ke daftar file untuk dikecualikan pada halaman seting. Ini akan mempengaruhi setiap copy pekerjaan yang Anda miliki."
+msgstr "menambah file (atau suatu ekstensi wildcard) ke daftar file untuk dikecualikan pada halaman seting. Ini akan mempengaruhi setiap copy pekerjaan yang Anda miliki."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3911(para)
 #: source/TortoiseSVN_en.xml:3867
 #: (para)
-#, fuzzy
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr "menambah file ke daftar <literal>svn:ignore</literal> menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tambah ke daftar abaikan</guimenuitem></menuchoice> Ini hanya akan mempengaruhi direktori dimana Anda mengeset properti <literal>svn:ignore</literal>. Menggunakan Dialog Properti SVN, Anda bisa mengubah properti <literal>svn:ignore</literal> untuk direktori."
+msgstr "menambah file ke daftar <literal>svn:ignore</literal> menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tambah ke daftar abaikan</guimenuitem></menuchoice> Ini hanya akan mempengaruhi direktori di mana Anda mengeset properti <literal>svn:ignore</literal>. Dengan menggunakan Dialog Properti SVN, Anda bisa mengubah properti <literal>svn:ignore</literal> untuk direktori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3896(para)
 #: source/TortoiseSVN_en.xml:3854
 #: (para)
-#, fuzzy
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "Jika Anda kira bahwa dialog komit TSVN memperlihatkan kepada Anda terlalu banyak file tidak berversi (contoh dihasilkan kompilator atau cadangan editor), ada beberapa cara untuk mengatasi ini. Anda bisa: <placeholder-1/> Baca <xref linkend=\"tsvn-dug-ignore\"/> untuk informasi lebih jauh."
+msgstr "Jika Anda mengira bahwa dialog komit TSVN memperlihatkan kepada Anda terlalu banyak file tidak berversi (contoh: yang dihasilkan kompilator atau cadangan editor), ada beberapa cara untuk mengatasi ini. Anda bisa: <placeholder-1/> Baca <xref linkend=\"tsvn-dug-ignore\"/> untuk informasi lebih jauh."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3928(para)
 #: source/TortoiseSVN_en.xml:3884
 #: (para)
-#, fuzzy
 msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr "<action>Mengklik ganda</action> pada setiap file yang diubah dalam dialog komit akan menjalankan piranti diff eksternal untuk memperlihatkan perubahan Anda. Menu konteks akan memberikan opsi lebih bagi Anda, seperi yang ditampilkan dalam foto layar. Anda juga bisa men-drag file dari sini ke dalam aplikasi lain seperti editor teks atau sebuah IDE."
+msgstr "<action>Mengklik ganda</action> pada setiap file yang diubah dalam dialog komit akan menjalankan piranti diff eksternal untuk memperlihatkan perubahan Anda. Menu konteks akan memberikan opsi lebih bagi Anda, seperi yang ditampilkan dalam foto layar. Anda juga bisa menggeret file dari sini ke dalam aplikasi lain seperti editor teks atau sebuah IDE."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3935(para)
 #: source/TortoiseSVN_en.xml:3891
 #: (para)
-#, fuzzy
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "Kolom yang ditampilkan di pane bawah bisa dikustimisasi. Jika Anda <action>mengklik kanan</action> pada setiap header kolom Anda akan melihat menu konteks yang membolehkan Anda untuk memilih kolom mana yang ditampilkan. Anda juga bisa mengubah panjang kolom dengan menggunakan kendali drag yang muncul ketika Anda memindahkan mouse melalui batas kolom. Kustomisasi ini tersimpan, maka Anda akan melihat heading yang sama nantinya. Catatan bahwa karena detil implementasi, Anda bisa melihat dua perbedaan ikon drag, tergantun gpada dimana persisnya Anda memposisikan mouse melalui batas. Satu mempunyai garis vertikal pemisah dan yang lain mempunyai dua garis. Hanya penunjuk drag tebal yang bekerja."
+msgstr "Kolom yang ditampilkan di pane bawah bisa diatur sesuai kesukaan Anda. Jika Anda <action>mengklik kanan</action> pada header kolom apa saja, Anda akan melihat suatu menu konteks yang membolehkan Anda untuk memilih kolom mana yang ditampilkan. Anda juga bisa mengubah panjang kolom dengan menggunakan kendali drag yang muncul ketika Anda memindahkan mouse melalui batas kolom. Kustomisasi ini tersimpan sehingga Anda akan melihat heading yang sama nantinya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3952(para)
 #: source/TortoiseSVN_en.xml:3902
 #: (para)
-#, fuzzy
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
-msgstr "Anda bisa men-drag file ke dalam dialog komit dari mana saja, selama copy pekerjaan di-check out dari repositori yang sama. Sebagai contoh, Anda mempunyai copy pekerjaan yang besar dengan beberapa explorer windows terbuka untuk melihat jarak folder dari hirarki. Jika Anda ingin menghindari komit dari folder tingkat atas (dengan panjang folder yang sulit memeriksa perubahan) Anda bisa membuka dialog komit untuk satu folder dan men-drag item dari jendela lain untuk disertakan di dalam komit atomis yang sama."
+msgstr "Anda bisa menggeret file ke dalam dialog komit dari mana saja, selama copy pekerjaan di-check out dari repositori yang sama. Sebagai contoh, Anda mempunyai copy pekerjaan yang besar dengan beberapa explorer windows terbuka untuk melihat jarak folder dari hirarki. Jika Anda ingin menghindari komit dari folder tingkat atas (dengan panjang folder yang sulit memeriksa perubahan) Anda bisa membuka dialog komit untuk satu folder dan menggeret item dari jendela lain untuk disertakan di dalam komit atomis yang sama."
 
 #: source/TortoiseSVN_en.xml:3914
 #: (title) source/TortoiseSVN_en.xml:4650
@@ -4033,9 +4024,8 @@ msgstr "Terkadang file-file diubah namanya di luar Subversion, dan mereka muncul
 # Indonesian#: source/TortoiseSVN_en.xml:3963(para)
 #: source/TortoiseSVN_en.xml:3928
 #: (para)
-#, fuzzy
 msgid "Be sure to enter a log message which describes the changes you are committing. This will help you to see what happened and when, as you browse through the project log messages at a later date. The message can be as long or as brief as you like; many projects have guidelines for what should be included, the language to use, and sometimes even a strict format."
-msgstr "Pastikan untuk memasukan log pesan yang menjelaskan perubahan yang Anda komit. Ini akan membantu Anda untuk melihat apa yang terjadi dan kapan, dimana Anda melihat pesan log proyek tanggal berikutnya. Pesan bisa sepenjang atau sesingkat yang Anda inginkanl banyak proyek mempunyai petunjuk untuk apa yang seharusnya disertakan, bahasa yang digunakan, dan ada kalanya bahkan format sempurna."
+msgstr "Pastikan untuk memasukkan log pesan yang menjelaskan perubahan yang Anda komit. Ini akan membantu Anda untuk melihat apa yang terjadi dan kapan saat Anda melihat pesan log proyek pada lain waktu. Pesan bisa sepanjang atau sesingkat yang Anda inginkan; banyak proyek mempunyai petunjuk untuk apa yang seharusnya disertakan, bahasa yang digunakan, dan ada kalanya bahkan format ketat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3971(para)
 #: source/TortoiseSVN_en.xml:3936
@@ -6314,7 +6304,7 @@ msgstr "<placeholder-1/> Anda bisa membaca dan mengeset properti Subversion dari
 #: source/TortoiseSVN_en.xml:6168
 #: (para)
 #, fuzzy
-msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>. For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Subversion Manual</citetitle></ulink>."
+msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>. For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Subversion Book</citetitle></ulink>."
 msgstr "Anda bisas menambahkan properti Anda sendiri, atau beberapa properti dengan arti khusus dalam Subversion. Ini dimulai dengan <literal>svn:</literal>. <literal>svn:externals</literal> adalah properti seperti itu; lihat bagaimana untuk menangani eksternal dalam <xref linkend=\"tsvn-dug-import-4\"/>. Untuk informasi lebih jauh mengenai properti dalam Subversion lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Manual Subversion</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6232(title)
@@ -6784,7 +6774,7 @@ msgstr "Dimana cabang digunakan untuk memelihara baris terpisah dari pengembanga
 #: source/TortoiseSVN_en.xml:6643
 #: (para)
 #, fuzzy
-msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink> which gives a full description, and many examples of how it is used."
+msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version control with Subversion</citetitle></ulink> which gives a full description, and many examples of how it is used."
 msgstr "Adalah penting untuk mengerti bagaimana mencabangkan dan menggabung pekerjaan dalam Subversion sebelum Anda mulai menggunakannya, karena ini bisa menjadi sedikit rumit. Sangat direkomendasikan bahwa Anda sudah membaca bab <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Pencabangan dan Penggabungan</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Buku Subversion</citetitle></ulink> yang menjelaskan secara lengkap, dan banyak contoh bagaimana penggunaannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6718(para)
@@ -6922,7 +6912,7 @@ msgstr "<placeholder-1/> Untuk menggabungkan revisi Anda perlu pergi ke copy pek
 #: source/TortoiseSVN_en.xml:6810
 #: (para)
 #, fuzzy
-msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
+msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version control with Subversion</citetitle></ulink>"
 msgstr "Ketika Anda sudah menguji perubahan dan mengkomit revisi ini, pesan log komit Anda akan <emphasis>selalu</emphasis> menyertakan angka revisi yang sudah dikirimkan dalam gabungan. Jika Anda ingin menerapkan gabungan lain waktu Anda akan memerlukan untuk mengetahui apa yang sudah Anda gabung, karena Anda tidak ingin mengirimkan perubahan lebih dari sekali. Sayangnya informasi gabungan tidak disimpan oleh Subversion. Untuk informasi lebih jauh mengenai ini, lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Buku Subversion</citetitle></ulink>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:6893(para)
@@ -8373,7 +8363,7 @@ msgstr "File konfigurasi Subversion"
 #: source/TortoiseSVN_en.xml:8343
 #: (para)
 #, fuzzy
-msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
+msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Book</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
 msgstr "Gunakan <guibutton>Edit</guibutton> untuk mengedit file konfigurasi Subversion secara langsung. Beberapa seting tidak bisa dimodifikasi secara langsung oleh TortoiseSVN, dan sebaliknya perlu di-set disini. Untuk informasi lebih jauh mengenai file <filename>konfig</filename> Subversion lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Manual Subversion</citetitle></ulink>. Pada seksi <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Seting Properti Otomatis</citetitle></ulink> adalah bagian yang menarik, dan yang dikonfigurasi disini. Catatan bahwa Subversion bisa membaca informasi konfigurasi dari beberapa tempat, dan Anda perlu mengetahui yang mana yang menjadi prioritas. Lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Konfigurasi dan Registri Windows</citetitle></ulink> untuk lebih jelasnya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8353(term)
@@ -9097,7 +9087,7 @@ msgstr "<placeholder-1/> Disini Anda bisa mengkonfigurasi server proxy Anda, jik
 #: source/TortoiseSVN_en.xml:8956
 #: (para)
 #, fuzzy
-msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Manual</citetitle></ulink> for details on how to use this file."
+msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Book</citetitle></ulink> for details on how to use this file."
 msgstr "Disini Anda perlu menyiapkan seting proxy per-repositori, Anda akan perlu untuk menggunakan file <literal>server</literal> Subversion untuk mengkonfigurasinya. Gunakan <guibutton>Edit</guibutton> untuk [pergi kesana secara langsung. Lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Manual Subversion</citetitle></ulink> untuk perincian bagaimana menggunakan file ini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8955(para)
