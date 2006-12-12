@@ -124,7 +124,7 @@ protected:
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
 
 	BOOL			IsLineRemoved(int nLineIndex);
-	bool			IsBlockWhitespaceOnly(int nLineIndex);
+	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
 
 	void			RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
 	void			RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
@@ -202,6 +202,7 @@ protected:
 	HICON			m_hRemovedIcon;
 	HICON			m_hConflictedIcon;
 	HICON			m_hWhitespaceBlockIcon;
+	HICON			m_hEqualIcon;
 
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[8];

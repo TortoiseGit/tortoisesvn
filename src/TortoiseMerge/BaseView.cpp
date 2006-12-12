@@ -88,6 +88,8 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hWhitespaceBlockIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_WHITESPACELINE),
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hEqualIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EQUALLINE),
+									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	EnableToolTips();
 	m_ToolTips.Create(this, TTS_ALWAYSTIP);
 	                     // TTS_ALWAYSTIP - show tip even when parent is not active
@@ -128,6 +130,7 @@ CBaseView::~CBaseView()
 	DestroyIcon(m_hRemovedIcon);
 	DestroyIcon(m_hConflictedIcon);
 	DestroyIcon(m_hWhitespaceBlockIcon);
+	DestroyIcon(m_hEqualIcon);
 }
 
 BEGIN_MESSAGE_MAP(CBaseView, CView)
@@ -544,7 +547,7 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 	return 0;
 }
 
-bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
+bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
 #define MAX_WHITESPACEBLOCK_SIZE	8
 	CDiffData::DiffStates origstateThis = (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex);
@@ -627,6 +630,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex)
 		CString other;
 		for (int i=nStartBlockOther; i<=nEndBlockOther; ++i)
 			other += m_arDiffDiffLines->GetAt(i);
+		bIdentical = mine.Compare(other)==0;
 		mine.Replace(_T(" "), _T(""));
 		mine.Replace(_T("\t"), _T(""));
 		mine.Replace(_T("\r"), _T(""));
@@ -983,10 +987,13 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		default:
 			break;
 		}
-
-		if (IsBlockWhitespaceOnly(nLineIndex))
+		bool bIdentical = false;
+		if (IsBlockWhitespaceOnly(nLineIndex, bIdentical))
 		{
-			icon = m_hWhitespaceBlockIcon;
+			if (bIdentical)
+				icon = m_hEqualIcon;
+			else
+				icon = m_hWhitespaceBlockIcon;
 		}
 
 		if (icon)
