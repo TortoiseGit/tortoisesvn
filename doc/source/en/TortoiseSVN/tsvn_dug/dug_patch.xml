@@ -65,6 +65,13 @@
 			<filename>.diff</filename> extension.
 			You are now ready to submit your patch file.
 		</para>
+		<para>
+			You can also save the patch to the clipboard instead of to a file.
+			You might want to do this so that you can paste it into an email for
+			review by others. Or if you have two working copies on one machine and
+			you want to transfer changes from one to the other, a patch on the
+			clipboard is a convenient way of doing this.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-patch-2">
 		<title>Applying a Patch File</title>
@@ -99,6 +106,9 @@
 			patch file to apply. By default only <filename>.patch</filename>
 			or <filename>.diff</filename>
 			files are shown, but you can opt for "All files".
+			If you previously saved a patch to the clipboard, you can use
+			<guibutton>Open from clipboard...</guibutton> in the file
+			open dialog.
 		</para>
 		<para>
 			Alternatively, if the patch file has a <filename>.patch</filename>
