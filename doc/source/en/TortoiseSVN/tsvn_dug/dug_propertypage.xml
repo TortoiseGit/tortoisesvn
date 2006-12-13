@@ -48,13 +48,13 @@
             </menuchoice>.
         </para>
         <para>
-            You can add your own properties, or some properties with a
-            special meaning in Subversion. These begin with <literal>svn:</literal>.
+            You can add your own properties, or some properties with a 
+            special meaning in Subversion. These begin with <literal>svn:</literal>. 
             <literal>svn:externals</literal> is such a property; see how to handle
             externals in <xref linkend="tsvn-dug-import-4"/>.
-            For more information about properties in Subversion see the
-            <ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3">
-                <citetitle>Subversion Book</citetitle>
+            For more information about properties in Subversion see the 
+            <ulink url="http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html">
+                <citetitle>Special Properties</citetitle>
             </ulink>.
         </para>
         <para>
@@ -119,23 +119,23 @@
         <important>
             <title>Commit properties</title>
             <para>
-                Subversion properties are versioned. After you change or add a
+                Subversion properties are versioned. After you change or add a 
                 property you have to commit your changes.
             </para>
         </important>
         <tip>
             <title>Conflicts on properties</title>
             <para>
-                If there's a conflict on committing the changes, because another
-                user has changed the same property, Subversion generates a
-                <filename>.prej</filename> file. Delete this file after you
+                If there's a conflict on committing the changes, because another 
+                user has changed the same property, Subversion generates a 
+                <filename>.prej</filename> file. Delete this file after you 
                 have resolved the conflict.
             </para>
         </tip>
         <tip>
             <title>Automatic property setting</title>
             <para>
-                You can configure Subversion to set properties automatically
+                You can configure Subversion to set properties automatically 
                 on files and folders when they are added to the repository.
                 Read <xref linkend="tsvn-dug-settings"/> for further information.
             </para>
@@ -236,7 +236,7 @@
             <title>Set the tsvn: properties on folders</title>
             <para>
                 These <literal>tsvn:</literal> properties must be set on
-                <emphasis>folders</emphasis> for the system to work.
+                <emphasis>folders</emphasis> for the system to work. 
                 When you commit a file or folder the properties are read from that folder.
                 If the properties are not found there, TortoiseSVN will search upwards
                 through the folder tree to find them until it comes to an unversioned
@@ -256,7 +256,7 @@
             </para>
         </important>
         <para>
-            TortoiseSVN can integrate with some bugtracking
+            TortoiseSVN can integrate with some bugtracking 
             tools. This uses properties, which start with <literal>bugtraq:</literal>.
             Read <xref linkend="tsvn-dug-bugtracker"/> for further information.
         </para>

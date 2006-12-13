@@ -109,8 +109,8 @@ svnserve.exe --daemon --root c:\repos
 <screen>
 svn://localhost/TestRepo
 </screen>
-			Note that the --root switch is also needed if your repository is located
-			on a different partition or drive than the location of svnserve
+			Note that the --root switch is also needed if your repository is located 
+			on a different partition or drive than the location of svnserve 
 			on your server.
 		</para>
 		<warning>
@@ -130,11 +130,11 @@ svn://localhost/TestRepo
 				<primary>svnservice</primary>
 			</indexterm>
 			<para>
-				If you are concerned about always having a user logged in on your
-				server, or worried about someone shutting down svnserve or
-				forgetting to restart it after a reboot, it is possible to run
+				If you are concerned about always having a user logged in on your 
+				server, or worried about someone shutting down svnserve or 
+				forgetting to restart it after a reboot, it is possible to run 
 				svnserve as a windows service. Starting with Subversion 1.4,
-				svnserve can be installed as a native windows service,
+				svnserve can be installed as a native windows service, 
 				in previous versions it can be installed using a wrapper.
 			</para>
 			<para>
@@ -142,7 +142,7 @@ svn://localhost/TestRepo
 				command all on one line to create a service which is automatically
 				started when windows starts.
 <screen>
-sc create svnserve binpath= "c:\svnserve\svnserve.exe --service
+sc create svnserve binpath= "c:\svnserve\svnserve.exe --service 
 	--root c:\repos" displayname= "Subversion" depend= tcpip start= auto
 </screen>
 			</para>
@@ -150,7 +150,7 @@ sc create svnserve binpath= "c:\svnserve\svnserve.exe --service
 				<para>
 					Microsoft now recommend services to be run as under either the
 					Local Service or Network Service account. Refer to
-					<ulink
+					<ulink 
 						url="http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx">
 						<citetitle>The Services and Service Accounts Security Planning Guide</citetitle>
 					</ulink>.
@@ -255,17 +255,17 @@ username = password
 		</para>
 		<tip>
 			<para>
-				If you maintain multiple repositories using the same password
-				database, the use of an authentication realm will make life
-				easier for users, as TortoiseSVN can cache your credentials
-				so that you only have to enter them once.  More information
-				can be found in the Subversion book, specifically in the
+				If you maintain multiple repositories using the same password 
+				database, the use of an authentication realm will make life 
+				easier for users, as TortoiseSVN can cache your credentials 
+				so that you only have to enter them once.  More information 
+				can be found in the Subversion book, specifically in the 
 				sections
-				<ulink url="http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1">
-					<citetitle>Create a 'users' file and realm</citetitle>
+				<ulink url="http://svnbook.red-bean.com/en/1.2/svn.serverconfig.svnserve.html">
+					<citetitle>Create a 'users' file and realm</citetitle> 
 				</ulink>
-				and
-				<ulink url="http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2">
+				and 
+				<ulink url="http://svnbook.red-bean.com/en/1.2/svn.serverconfig.netmodel.html">
 					<citetitle>Client Credentials Caching</citetitle>
 				</ulink>
 			</para>
@@ -296,7 +296,7 @@ username = password
 		<para>
 			Further information about svnserve can be found in the
 			<ulink url="http://svnbook.red-bean.com">
-				<citetitle>Version control with Subversion</citetitle>
+				<citetitle>Version Control with Subversion</citetitle>
 			</ulink>.
 		</para>
 	</sect2>

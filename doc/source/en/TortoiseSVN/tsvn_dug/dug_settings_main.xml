@@ -28,7 +28,7 @@
 			<term>Automatically check for newer versions every week</term>
 			<listitem>
 				<para>
-					If checked, TortoiseSVN will contact its download site once a week
+					If checked, TortoiseSVN will contact its download site once a week 
 					to see if there is a newer version of the program available.
 					Use <guibutton>Check now</guibutton> if you want an answer
 					right away. The new version will not be downloaded; you
@@ -81,7 +81,7 @@
 					Ignore files or directories by typing in the names or extensions.
 					Patterns are separated by spaces e.g.
 					<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
-					The first two entries refer to directories, the
+					The first two entries refer to directories, the 
 					other four to files.
 					These patterns use filename globbing. Read
 					<xref linkend="tsvn-dug-ignore-glob"/> for more information.
@@ -131,24 +131,24 @@
 			<term>Subversion configuration file</term>
 			<listitem>
 				<para>
-					Use <guibutton>Edit</guibutton> to edit the
+					Use <guibutton>Edit</guibutton> to edit the 
 					Subversion configuration file directly.
-					Some settings cannot be modified directly by
+					Some settings cannot be modified directly by 
 					TortoiseSVN, and need to be set here instead.
-					For more information about the Subversion
-					<filename>config</filename> file see the
-					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
-						<citetitle>Subversion Book</citetitle>
+					For more information about the Subversion 
+					<filename>config</filename> file see the 
+					<ulink url="http://svnbook.red-bean.com/en/1.2/svn.advanced.html">
+						<citetitle>Runtime Configuration Area</citetitle>
 					</ulink>.
-					The section on
-					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4">
+					The section on 
+					<ulink url="http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html">
 						<citetitle>Automatic Property Setting</citetitle>
 					</ulink>
 					is of particular interest, and that is configured here.
 					Note that Subversion can read configuration information
 					from several places, and you need to know which one
-					takes priority. Refer to
-					<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2">
+					takes priority. Refer to 
+					<ulink url="http://svnbook.red-bean.com/en/1.2/svn.advanced.html">
 						<citetitle>Configuration and the Windows Registry</citetitle>
 					</ulink> to find out more.
 				</para>

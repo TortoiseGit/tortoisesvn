@@ -15,12 +15,12 @@
 		It is important to understand how branching and merging works in
 		Subversion before you start using it, as it can become quite complex.
 		It is highly recommended that you read the chapter
-		<ulink url="http://svnbook.red-bean.com/en/1.1/ch04.html">
+		<ulink url="http://svnbook.red-bean.com/en/1.2/svn.branchmerge.html">
 			<citetitle>Branching and Merging</citetitle>
 		</ulink>
 		in the
 		<ulink url="http://svnbook.red-bean.com/">
-			<citetitle>Version control with Subversion</citetitle>
+			<citetitle>Version Control with Subversion</citetitle>
 		</ulink>
 		which gives a full description, and many examples of how it is used.
 	</para>
@@ -186,12 +186,12 @@ Rev Comments
 			know what you have already merged, as you do not want to port a
 			change more than once. Unfortunately merge information is not
 			stored by Subversion. For more information about this, refer to
-			<ulink url="http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1">
-				<citetitle>Tracking Merges Manually</citetitle>
+			<ulink url="http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html">
+				<citetitle>Best Practices for Merging</citetitle>
 			</ulink>
 			in the
 			<ulink url="http://svnbook.red-bean.com/">
-				<citetitle>Version control with Subversion</citetitle>
+				<citetitle>Version Control with Subversion</citetitle>
 			</ulink>
 		</para>
 		<para>
@@ -332,7 +332,7 @@ Rev Comments
 			difference between these two trees you would see a complete removal
 			followed by a complete add. To make Subversion use only path-based
 			differences rather than history-based differences, check the
-			<guilabel>Ignore ancestry</guilabel> box. Read more about this
+			<guilabel>Ignore ancestry</guilabel> box. Read more about this 
 			topic in the Subversion book,
 			<ulink url="http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4">
 				<citetitle>Noticing or Ignoring Ancestry</citetitle>
