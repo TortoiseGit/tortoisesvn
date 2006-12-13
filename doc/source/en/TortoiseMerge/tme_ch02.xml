@@ -212,7 +212,8 @@
 				<listitem>
 					<para>
 						<guibutton>Undo</guibutton>
-						This feature is not enabled yet.
+						implements a multi-level undo, allowing you to reverse
+						any changes you have made within TortoiseMerge.
 					</para>
 				</listitem>
 				<listitem>
@@ -299,6 +300,9 @@
 			lines added and deleted in <literal>Theirs</literal> and
 			<literal>Mine</literal>, and the number of unresolved
 			conflicts remaining.
+			You can also see which line-ending style is in use, what
+			encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether
+			there is a byte-order-mark (BOM) present in UTF-8 files.
 			The left side of the status bar is used to display hints when you
 			hover the mouse over a control.
 		</para>
