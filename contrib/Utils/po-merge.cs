@@ -261,7 +261,7 @@ class Program
 
             // Console.WriteLine("msgid: [{0}]\nmsgstr: [{1}]\nupdate: [{2}]\n", msgid, msgstr, str);
 
-            if (str.Length > 0) {
+            if (str != null && str.Length > 0) {
                 if(msgid.Length != 0) {
                     mt ++;
                     tr ++;
