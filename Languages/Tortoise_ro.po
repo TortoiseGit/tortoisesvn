@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-12 08:38+0100\n"
+"PO-Revision-Date: 2006-12-13 15:25+0200\n"
 "Last-Translator: sebyrusu <sebyrusu@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2134,7 +2134,7 @@ msgstr ""
 #: ID:113,#:
 #: ID:115,
 msgid "Edit log message"
-msgstr ""
+msgstr "Editare mesaj jurnal"
 
 #: Control-ID:1331,
 msgid "Edit..."
@@ -2176,7 +2176,7 @@ msgstr ""
 
 #: ID:3825,
 msgid "Enlarge the window to full size"
-msgstr ""
+msgstr "Măreşte fereastra la dimensiunea maximă"
 
 #: Dlg-ID:135,
 msgid "Enter Log Message"
@@ -2184,7 +2184,7 @@ msgstr ""
 
 #: ID:80,
 msgid "Enter URL"
-msgstr ""
+msgstr "Introduceţi URL"
 
 #: ID:313,
 msgid "Enter a lock message (optional):"
@@ -2203,12 +2203,16 @@ msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
+"Şterge tot\n"
+"Şterge Tot"
 
 #: ID:3603,
 msgid ""
 "Erase the selection\n"
 "Erase"
 msgstr ""
+"Şterge selecţia\n"
+"Şterge"
 
 #: ID:82,
 msgid "Error"
@@ -2221,7 +2225,7 @@ msgstr ""
 #: ID:81,
 #, c-format
 msgid "Error validating server certificate for %s:"
-msgstr ""
+msgstr "Eroare la validarea certificatului de server pentru %s:"
 
 #: ID:70,
 #, c-format
@@ -2229,34 +2233,36 @@ msgid ""
 "Error while reading/writing the registry key %s\n"
 "%s"
 msgstr ""
+"Eroare la citirea/scrierea cheii de registru %s\n"
+"%s"
 
 #: Control-ID:65535,
 msgid "Exceptions:"
-msgstr ""
+msgstr "Excepţii:"
 
 #: Control-ID:65535,
 msgid "Exclude paths:"
-msgstr ""
+msgstr "Căile de excludere:"
 
 #: ID:209,
 msgid "Explore to"
-msgstr ""
+msgstr "Navighează la"
 
 #: Dlg-ID:238,
 msgid "Export"
-msgstr ""
+msgstr "Exportă"
 
 #: Control-ID:1074,
 msgid "Export &directory:"
-msgstr ""
+msgstr "Exportă &director:"
 
 #: ID:94,
 msgid "Export directory:"
-msgstr ""
+msgstr "Exportă director:"
 
 #: ID:79,
 msgid "Export unversioned files too"
-msgstr ""
+msgstr "Exportă şi fişierele fără versiune"
 
 #: ID:79,
 msgid "Exporting..."
@@ -2264,16 +2270,16 @@ msgstr ""
 
 #: ID:10,
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr ""
+msgstr "Exportă depozitul într-o copie de lucru fără dosarele administrative SVN"
 
 #: ID:74,#:
 #: ID:207,
 msgid "Extension"
-msgstr ""
+msgstr "Extensie"
 
 #: Control-ID:65535,
 msgid "Extension or mime-type:"
-msgstr ""
+msgstr "Extensie sau tip mime:"
 
 #: Control-ID:65535,
 msgid "Extension/mime-type specific programs"
@@ -2281,11 +2287,11 @@ msgstr ""
 
 #: ID:74,
 msgid "External"
-msgstr ""
+msgstr "Extern"
 
 #: Control-ID:65535,
 msgid "External Program:"
-msgstr ""
+msgstr "Program Extern:"
 
 #: Dlg-ID:192,
 msgid "External Programs::Diff Viewer"
@@ -2306,22 +2312,22 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to create empty document."
-msgstr ""
+msgstr "Nu s-a crea un document gol."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to launch help."
-msgstr ""
+msgstr "Nu s-a putut lansa ajutorul."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to open document."
-msgstr ""
+msgstr "Documentul nu a putut fi deschis."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to save document."
-msgstr ""
+msgstr "Documentul nu a putut fi salvat."
 
 #: Control-ID:1217,
 msgid "Fetch &status for context menu"
@@ -2354,7 +2360,7 @@ msgstr ""
 
 #: ID:211,
 msgid "File list is empty"
-msgstr ""
+msgstr "Lista de fişiere este goală"
 
 #: ID:376,#:
 #: Dlg-ID:135,
@@ -2372,6 +2378,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Dimensiune fişier:\t\t\t%s\n"
+"Lăţime:\t\t\t%ld pixel\n"
+"Înălţime:\t\t\t%ld pixel\n"
+"Rezoluţie Orizontală:\t%.1f dpi\n"
+"Rezoluţie Verticală:\t\t%.1f dpi\n"
+"Adâncime:\t\t\t%d bit\n"
+"Mărire:\t\t\t%d%%"
 
 #: Control-ID:65535,
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -2379,25 +2392,27 @@ msgstr ""
 
 #: Dlg-ID:139,
 msgid "Find"
-msgstr ""
+msgstr "Caută"
 
 #: ID:3603,
 msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
+"Caută textul specificat\n"
+"Caută"
 
 #: ID:77,
 msgid "Finished!"
-msgstr ""
+msgstr "Terminat!"
 
 #: Control-ID:1315,
 msgid "Floppy drives (A: B:)"
-msgstr ""
+msgstr "Unităţi de dischetă (A: B:)"
 
 #: ID:3585,
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr ""
+msgstr "Pentru Ajutor, apăsaţi F1. Derulaţi orizontal cu Ctrl + rotiţa de derulare"
 
 #: ID:119,
 msgid "For complete history deselect \"Stop on copy/rename\""
@@ -2406,7 +2421,7 @@ msgstr ""
 #: Control-ID:1200,#:
 #: Control-ID:65535,
 msgid "From:"
-msgstr ""
+msgstr "De la:"
 
 #: Control-ID:65535,
 msgid "From: (start URL and revision of the range to merge)"
@@ -2414,11 +2429,11 @@ msgstr ""
 
 #: ID:273,
 msgid "GDI+ couldn't be initialized!"
-msgstr ""
+msgstr "GDI+ nu a putut fi iniţializat!"
 
 #: ID:273,
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr ""
+msgstr "GDI+ nu a putut crea un obiect bitmap. Probabil nu există destulă memorie."
 
 #: ID:83,
 msgid ""
@@ -2426,12 +2441,15 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
+"GDI+ este necesar pentru a salva graficul reviziei ca o imagine.\n"
+"Puteţi obţine GDI+ de la \n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #: Dlg-ID:143,#:
 #: Dlg-ID:107,#:
 #: Control-ID:65535,
 msgid "General"
-msgstr ""
+msgstr "Generalităţi"
 
 #: ID:144,
 msgid "Generating patchfile..."
@@ -2485,35 +2503,43 @@ msgstr ""
 
 #: Dlg-ID:130,
 msgid "Go to line"
-msgstr ""
+msgstr "Salt la linia"
 
 #: ID:2051,
 msgid ""
 "Go to the next conflict\n"
 "next conflict"
 msgstr ""
+"Salt la conflictul următor\n"
+"conflictul următor"
 
 #: ID:2049,
 msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
+"Salt la diferenţa următoare\n"
+"diferenţa următoare"
 
 #: ID:2051,
 msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
+"Salt la conflictul anterior\n"
+"conflictul anterior"
 
 #: ID:2049,
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
+"Salt la diferenţa anterioară\n"
+"diferenţa anterioară"
 
 #: Control-ID:1134,
 msgid "Graph type:"
-msgstr ""
+msgstr "Tipul graficului:"
 
 #: Control-ID:1229,
 msgid "H&ide unrelated changed paths"
@@ -2525,7 +2551,7 @@ msgstr "Ajutor"
 
 #: Control-ID:1326,
 msgid "Hide the script while running"
-msgstr ""
+msgstr "Ascunde scriptul în timpul rulării"
 
 #: ID:2052,
 msgid ""
@@ -2661,11 +2687,11 @@ msgstr ""
 
 #: Dlg-ID:139,
 msgid "Import"
-msgstr ""
+msgstr "Importă"
 
 #: Control-ID:1056,
 msgid "Import &message"
-msgstr ""
+msgstr "Importă &mesaj"
 
 #: ID:120,
 #, c-format
@@ -2714,7 +2740,7 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Internal application error."
-msgstr ""
+msgstr "Eroare internă."
 
 #: ID:102,
 msgid "Invalid data object dropped!"
@@ -2723,7 +2749,7 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Invalid filename."
-msgstr ""
+msgstr "Nume de fişier invalid."
 
 #: ID:82,
 msgid ""
@@ -2743,6 +2769,21 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Număr de revizie invalid! Reviziile valide sunt:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"numere zecimale pozitive,\n"
+"datele într-una dintre formele următoare:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #: ID:83,
 msgid ""
@@ -2762,6 +2803,21 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Număr de revizie invalid! Reviziile valide sunt:\n"
+"HEAD\n"
+"numerele zecimale pozitive,\n"
+"datele într-una dintre formele următoare:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #: ID:145,
 msgid ""
@@ -2769,6 +2825,9 @@ msgid ""
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
 "Please consult the documentation for a way to work around this limitation."
 msgstr ""
+"Nu este posibil să redenumiţi un fişier doar prin modificarea majusculelor.\n"
+"De exemplu, nu puteţi face ca MyFile.txt să devină MYFILE.txt.\n"
+"Vă rugăm consultaţi documentaţia pentru o modalitate de a depăşi această limitare."
 
 #: ID:88,
 #, c-format
@@ -2792,11 +2851,11 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Last commit revision:"
-msgstr ""
+msgstr "Ultima revizie transmisă:"
 
 #: ID:11,
 msgid "Last saved revision of item"
-msgstr ""
+msgstr "Ultima revizie salvată a obiectului"
 
 #: ID:12,
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -2804,7 +2863,7 @@ msgstr ""
 
 #: Control-ID:1137,
 msgid "Least active author:"
-msgstr ""
+msgstr "Cel mai puţin activ autor:"
 
 #: ID:188,
 msgid "Left View: "
@@ -2816,7 +2875,7 @@ msgstr ""
 
 #: ID:19,
 msgid "Line"
-msgstr ""
+msgstr "Linia"
 
 #: ID:246,
 msgid "Line Graph"
@@ -2824,12 +2883,12 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Line:"
-msgstr ""
+msgstr "Linia:"
 
 #: ID:269,
 #, c-format
 msgid "Line: %*ld"
-msgstr ""
+msgstr "Linia: %*ld"
 
 #: ID:3605,
 msgid ""
@@ -2839,7 +2898,7 @@ msgstr ""
 
 #: Dlg-ID:130,
 msgid "Load Images"
-msgstr ""
+msgstr "Încarcă Imaginile"
 
 #: ID:63,
 msgid "Local status"
@@ -2902,7 +2961,7 @@ msgstr ""
 
 #: ID:126,
 msgid "Log"
-msgstr ""
+msgstr "Jurnal"
 
 #: Dlg-ID:211,
 msgid "Log History"
@@ -2911,15 +2970,15 @@ msgstr ""
 #: Control-ID:1274,#:
 #: Dlg-ID:130,
 msgid "Log Messages"
-msgstr ""
+msgstr "Mesaje de jurnal"
 
 #: Control-ID:65535,
 msgid "Log message"
-msgstr ""
+msgstr "Mesaj de jurnal"
 
 #: Control-ID:65535,
 msgid "Log messages"
-msgstr ""
+msgstr "Mesaje de jurnal"
 
 #: Dlg-ID:195,
 msgid "Look and Feel"
@@ -2958,7 +3017,7 @@ msgstr ""
 #: ID:3866,#:
 #: ID:3866,
 msgid "Mail system DLL is invalid."
-msgstr ""
+msgstr "DLL-ul sistemului de mail este invalid."
 
 #: ID:17,
 msgid "Manage Subversion properties"
@@ -2966,25 +3025,27 @@ msgstr ""
 
 #: MenuEntry
 msgid "Mark as &resolved"
-msgstr ""
+msgstr "Marchează ca &rezolvat"
 
 #: ID:282,
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Marchează ca rezolvat"
 
 #: ID:2051,
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr ""
+"Marchează un fişiere ca rezolvat în Subversion\n"
+"Marchează ca rezolvat"
 
 #: Control-ID:1064,
 msgid "Match &case"
-msgstr ""
+msgstr "Foloseşte majus&cule"
 
 #: Control-ID:1159,
 msgid "Max"
-msgstr ""
+msgstr "Maxim"
 
 #: Control-ID:1317,
 msgid "Max. items to keep in the log message history"
@@ -2993,7 +3054,7 @@ msgstr ""
 #: Dlg-ID:141,#:
 #: Control-ID:65535,
 msgid "Merge"
-msgstr ""
+msgstr "Îmbină"
 
 #: ID:263,#:
 #: ID:263,
@@ -3014,27 +3075,27 @@ msgstr ""
 
 #: ID:76,
 msgid "Message"
-msgstr ""
+msgstr "Mesaj"
 
 #: Control-ID:1241,
 msgid "Message:"
-msgstr ""
+msgstr "Mesaj:"
 
 #: ID:116,
 msgid "Messages"
-msgstr ""
+msgstr "Mesaje"
 
 #: ID:116,
 msgid "Messages, authors and paths"
-msgstr ""
+msgstr "Mesaje, autori şi căi"
 
 #: ID:78,
 msgid "Mime type"
-msgstr ""
+msgstr "Tip Mime"
 
 #: Control-ID:1158,
 msgid "Min"
-msgstr ""
+msgstr "Minim"
 
 #: ID:263,
 msgid "Mine"
@@ -3052,16 +3113,16 @@ msgstr ""
 #: ID:74,#:
 #: ID:264,
 msgid "Modified"
-msgstr ""
+msgstr "Modificat"
 
 #: ID:438,#:
 #: ID:438,
 msgid "More colors..."
-msgstr ""
+msgstr "Mai multe culori..."
 
 #: Control-ID:1136,
 msgid "Most active author:"
-msgstr ""
+msgstr "Cel mai activ autor:"
 
 #: ID:98,
 #, c-format
@@ -3083,15 +3144,15 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "My file:"
-msgstr ""
+msgstr "Fişierul meu:"
 
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr ""
+msgstr "U&rmătorul Conflict"
 
 #: ID:3697,
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #: ID:208,
 msgid "Needs lock"
@@ -3141,12 +3202,12 @@ msgstr ""
 
 #: ID:82,
 msgid "No differences found!"
-msgstr ""
+msgstr "Nu s-au gpsit diferenţe!"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "No error message is available."
-msgstr ""
+msgstr "Nici un mesaj de eroare nu este disponibil."
 
 #: ID:3867,#:
 #: ID:3868,#:
@@ -3175,12 +3236,12 @@ msgstr ""
 
 #: ID:273,
 msgid "No graph available"
-msgstr ""
+msgstr "Nici un grafic nu este disponibil"
 
 #: ID:273,
 #, c-format
 msgid "No image encoder found for %s."
-msgstr ""
+msgstr "Nu s-a găsit nici un codificator de imagine pentru %s."
 
 #: ID:188,
 msgid "No spell corrections"
@@ -3206,7 +3267,7 @@ msgstr "Normal"
 #: ID:3857,#:
 #: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr ""
+msgstr "Nu au fost şterse toate înregistrările din regiştri (sau fişierul INI)."
 
 #: ID:83,
 msgid "Not enough memory to complete operation."
@@ -3214,7 +3275,7 @@ msgstr "Nu există suficientă memorie pentru a termina operaţia."
 
 #: ID:563,
 msgid "Not recursive"
-msgstr ""
+msgstr "Nerecursiv"
 
 #: ID:88,
 msgid "Notice"
@@ -3236,7 +3297,7 @@ msgstr "OK"
 
 #: ID:3697,
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 #: ID:99,#:
 #: Control-ID:1202,#:
@@ -3309,7 +3370,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "Ori&ginal size"
-msgstr ""
+msgstr "Dimensiune ori&ginală"
 
 #: ID:245,
 msgid "Others"
@@ -3328,7 +3389,7 @@ msgstr ""
 
 #: ID:99,
 msgid "Overwrite"
-msgstr ""
+msgstr "Suprascrie"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -3336,11 +3397,11 @@ msgstr "Conflict Ante&rior"
 
 #: ID:76,
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 #: ID:76,
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69,
 msgid "Password:"
@@ -3383,22 +3444,22 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a GUID."
-msgstr ""
+msgstr "Introduceţi un GUID."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a currency."
-msgstr ""
+msgstr "Introduceţi o monedă."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date and/or time."
-msgstr ""
+msgstr "Introduceţi data şi/sau ora."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date."
-msgstr ""
+msgstr "Introduceţi data."
 
 #: ID:83,
 msgid "Please enter a hook script to execute."
@@ -3408,12 +3469,12 @@ msgstr ""
 #: ID:3858,
 #, c-format
 msgid "Please enter a number between %1 and %2."
-msgstr ""
+msgstr "Introduceţi un număr între %1 şi %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a number."
-msgstr ""
+msgstr "Introduceţi un număr."
 
 #: ID:83,
 msgid "Please enter a path where to apply the hook script to."
@@ -3422,34 +3483,34 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a positive integer."
-msgstr ""
+msgstr "Introduceţi un întreg pozitiv."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a time."
-msgstr ""
+msgstr "Introduceţi ora."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter an integer between %1 and %2."
-msgstr ""
+msgstr "Introduceţi un număr întreg între %1 şi %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer between 0 and 255."
-msgstr ""
+msgstr "Introduceţi un număr întreg între 0 şi 255."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer."
-msgstr ""
+msgstr "Introduceţi un număr întreg."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter no more than %1 characters."
-msgstr ""
+msgstr "Nu introduceţi mai mult de %1 caractere."
 
 #: ID:251,
 msgid "Please execute the \"Cleanup\" command."
@@ -3466,7 +3527,7 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
-msgstr ""
+msgstr "Selectaţi un buton."
 
 #: ID:83,
 msgid "Please select a hook type"
@@ -3474,11 +3535,11 @@ msgstr ""
 
 #: ID:76,
 msgid "Please specify the certificate type"
-msgstr ""
+msgstr "Specificaţi tipul certificatului"
 
 #: ID:132,
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr ""
+msgstr "Vă rog aşteptaţi - poate dura câteva minute. Serios!"
 
 #: ID:13,
 msgid "Please wait while cancelling..."
@@ -3496,7 +3557,7 @@ msgstr ""
 #: ID:146,#:
 #: ID:211,
 msgid "Please wait..."
-msgstr ""
+msgstr "Vă rog aşteptaţi..."
 
 #: ID:569,
 msgid "Post-Commit Hook"
@@ -3534,7 +3595,7 @@ msgstr "Programe (*.exe)|*.exe|All Files (*.*)|*.*||"
 #: Dlg-ID:134,#:
 #: Control-ID:65535,
 msgid "Progress"
-msgstr ""
+msgstr "Progres"
 
 #: ID:17,#:
 #: Dlg-ID:177,#:
@@ -3556,23 +3617,23 @@ msgstr "Proprietate"
 
 #: Dlg-ID:107,
 msgid "Property Page"
-msgstr ""
+msgstr "Pagina de Proprietăţi"
 
 #: Control-ID:65535,
 msgid "Property Status:"
-msgstr ""
+msgstr "Starea Proprietăţii:"
 
 #: Control-ID:1292,
 msgid "Property name:"
-msgstr ""
+msgstr "Numele proprietăţii:"
 
 #: ID:207,
 msgid "Property status"
-msgstr ""
+msgstr "Starea proprietăţii"
 
 #: Control-ID:1293,
 msgid "Property value:"
-msgstr ""
+msgstr "Valoarea proprietăţii:"
 
 #: Control-ID:65535,
 msgid "Proxy &timeout in seconds:"
@@ -3580,7 +3641,7 @@ msgstr ""
 
 #: Control-ID:1080,
 msgid "Proxy Settings"
-msgstr ""
+msgstr "Setările de Proxy"
 
 #: Control-ID:1338,
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
@@ -3589,7 +3650,7 @@ msgstr ""
 #: ID:246,
 #, c-format
 msgid "Q%d/%.2d"
-msgstr ""
+msgstr "Q%d/%.2d"
 
 #: ID:3605,
 msgid ""
@@ -3599,7 +3660,7 @@ msgstr ""
 
 #: Control-ID:1073,
 msgid "R&AM drives"
-msgstr ""
+msgstr "Discuri R&AM"
 
 #: ID:114,
 msgid "R&evert to this revision"
@@ -3607,15 +3668,15 @@ msgstr ""
 
 #: ID:3697,
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #: Control-ID:1048,
 msgid "Re&movable drives"
-msgstr ""
+msgstr "Discuri &mobile"
 
 #: ID:11,
 msgid "Re&name..."
-msgstr ""
+msgstr "Rede&numeşte"
 
 #: ID:8,
 msgid "Re&vert..."
@@ -3646,11 +3707,11 @@ msgstr ""
 #: ID:101,#:
 #: ID:135,
 msgid "Refresh"
-msgstr ""
+msgstr "Reîmprospătează"
 
 #: ID:82,
 msgid "Reject"
-msgstr ""
+msgstr "Respinge"
 
 #: ID:16,
 msgid "Release loc&k"
@@ -3762,6 +3823,8 @@ msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
+"Repetă ultima acţiune\n"
+"Repetă"
 
 #: ID:3603,
 msgid ""
@@ -3801,7 +3864,7 @@ msgstr ""
 
 #: Dlg-ID:207,
 msgid "Resolve"
-msgstr ""
+msgstr "Rezolvă"
 
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
@@ -3927,7 +3990,7 @@ msgstr ""
 
 #: ID:116,
 msgid "Revisions"
-msgstr ""
+msgstr "Revizii"
 
 #: ID:188,
 msgid "Right View: "
@@ -3939,11 +4002,11 @@ msgstr ""
 
 #: MenuEntry
 msgid "S&ettings"
-msgstr ""
+msgstr "S&etări"
 
 #: Control-ID:1132,
 msgid "S&tatistics"
-msgstr ""
+msgstr "S&tatistici"
 
 #: ID:9,
 msgid "S&witch..."
@@ -3951,11 +4014,11 @@ msgstr ""
 
 #: ID:3697,
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 #: Control-ID:1081,
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: ID:12,
 msgid "SVN Add files to this WC"
@@ -4038,7 +4101,7 @@ msgstr "Salvează ca"
 #: ID:3857,
 #, c-format
 msgid "Save changes to %1?"
-msgstr ""
+msgstr "Salvez schimbările din %1?"
 
 #: ID:232,
 msgid "Save client certificate path"
@@ -4087,7 +4150,7 @@ msgstr "Scintilla"
 
 #: ID:113,
 msgid "Search &log messages..."
-msgstr ""
+msgstr "Caută mesaje de jurna&l..."
 
 #: Control-ID:65535,
 msgid "Search for:"
@@ -4105,16 +4168,16 @@ msgstr ""
 
 #: ID:376,
 msgid "Select &All"
-msgstr ""
+msgstr "Selecte&ază Tot"
 
 #: Control-ID:1067,#:
 #: Control-ID:1067,
 msgid "Select / deselect &all"
-msgstr ""
+msgstr "Selecte&ază / deselectează Tot"
 
 #: ID:13,
 msgid "Select File..."
-msgstr ""
+msgstr "Selectează Fişier..."
 
 #: Dlg-ID:173,
 msgid "Select Revision"
@@ -4366,7 +4429,7 @@ msgstr ""
 
 #: ID:10,
 msgid "Shows information about TortoiseSVN"
-msgstr ""
+msgstr "Afişează informaţii despre TortoiseSVN"
 
 #: ID:17,
 msgid "Shows the eol-style property value"
@@ -4483,7 +4546,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Stefan Küng, Lübbe Onken"
-msgstr ""
+msgstr "Stefan Küng, Lübbe Onken"
 
 #: Control-ID:65535,
 msgid "Subversion"
@@ -4625,7 +4688,7 @@ msgstr ""
 #: ID:64,
 #, c-format
 msgid "The file %s does not exist!"
-msgstr ""
+msgstr "Fişierul %s nu există!"
 
 #: ID:64,
 #, c-format
@@ -4644,7 +4707,7 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "The file is too large to open."
-msgstr ""
+msgstr "Fişierul este prea mare pentru a fi deschis."
 
 #: ID:80,
 #, c-format
@@ -4653,6 +4716,9 @@ msgid ""
 "%s\n"
 "already exists! Do you want to overwrite it?"
 msgstr ""
+"Fişierul\n"
+"%s\n"
+"există deja! Vreţi să îl suprascrieţi?"
 
 #: ID:145,
 #, c-format
@@ -4660,6 +4726,8 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"Dosarul %s\n"
+"fişiere fără versiune şi/sau modificate. Vreţi să îl şterg oricum?"
 
 #: ID:88,
 #, c-format
@@ -4669,6 +4737,10 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
+"Dosarul \n"
+"%s\n"
+"nu există.\n"
+"Vreţi să îl creez?"
 
 #: ID:99,
 #, c-format
@@ -4677,6 +4749,9 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
+"Dosarul\n"
+"%s\n"
+"există deja!"
 
 #: ID:83,
 #, c-format
@@ -4687,7 +4762,7 @@ msgstr ""
 
 #: ID:7,
 msgid "The image can not be shown."
-msgstr ""
+msgstr "Imaginea nu poate fi afişată."
 
 #: ID:63,
 #, c-format
@@ -5048,6 +5123,8 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
+"TortoiseSVN a detectat nume de fişiere asemănătoare. Vreţi ca şi fişierele:%s\n"
+"să fie redenumite?"
 
 #: Control-ID:1162,
 msgid "Total commits analyzed:"
@@ -5149,7 +5226,7 @@ msgstr ""
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unexpected file format."
-msgstr ""
+msgstr "Format de fişier incorect."
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
@@ -5178,11 +5255,11 @@ msgstr ""
 #: ID:3841,#:
 #: ID:3841,
 msgid "Untitled"
-msgstr ""
+msgstr "Fără nume"
 
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
-msgstr ""
+msgstr "Fişierele fără versiune marchează dosarul părinte ca modificat"
 
 #: Dlg-ID:152,
 msgid "Update"
@@ -5870,7 +5947,7 @@ msgstr ""
 
 #: ID:563,
 msgid "values are different"
-msgstr ""
+msgstr "valorile sunt diferite"
 
 #: ID:17,
 #, c-format
