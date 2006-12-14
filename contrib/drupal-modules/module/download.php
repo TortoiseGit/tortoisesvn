@@ -43,20 +43,23 @@ return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$n</a>";
 
 function print_langpack($i, $postat, $v, $w)
 {
+  $infobits=$postat[1];
+  $lang_cc=$postat[2];
+  $lang_name=$postat[3];
   
-  $flagimg=$v['flagpath']."$postat[10].png";
-  $dlfile32=get_langpack($postat[10], 'Setup', $v, $w['w32']);
-  $dlfile64=get_langpack($postat[10], 'Setup', $v, $w['x64']);
-  if ( ($postat[9] & "01") <> "0")   {
-   $t_ln="SpellChecker_".$postat[10].".exe";
+  $flagimg=$v['flagpath']."$lang_cc.png";
+  $dlfile32=get_langpack($lang_cc, 'Setup', $v, $w['w32']);
+  $dlfile64=get_langpack($lang_cc, 'Setup', $v, $w['x64']);
+  if ( ($infobits & "01") <> "0")   {
+   $t_ln="SpellChecker_".$lang_cc.".exe";
    $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
 	} else {
    $dlfilechecker="";
   }
   
-  if ( ($postat[9] & "10") <> "0")   {
-   $t_ts="TortoiseSVN-".$v['release'].'-'.$postat[10].".pdf";
-   $t_tm="TortoiseMerge-".$v['release'].'-'.$postat[10].".pdf";
+  if ( ($infobits & "10") <> "0")   {
+   $t_ts="TortoiseSVN-".$v['release'].'-'.$lang_cc.".pdf";
+   $t_tm="TortoiseMerge-".$v['release'].'-'.$lang_cc.".pdf";
    $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
    $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
   } else {
@@ -64,9 +67,9 @@ function print_langpack($i, $postat, $v, $w)
    $dlmanTMerge="";
   }
 
-  echo "<tr>";
+  echo "<tr class=\"ok\">";
   echo "<td>$i</td>";
-  echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$postat[11]</td>";
+  echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$lang_name</td>";
   echo "<td>$dlfile32</td>";
   echo "<td>$dlfile64</td>";
   echo "<td>$dlfilechecker</td>";
@@ -88,7 +91,9 @@ For detailed info on what's new, read the <?php echo get_changelog($v); ?> and t
 <p>
 This page points to installers for 32 bit and 64 bit operating systems. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
 </p>
-<?php print adsense_display("336x280",2,1) ?>
+<p>
+Note for x64 users: you can install both the 32 and 64-bit version side by side. This will enable the TortoiseSVN features also for 32-bit applications.
+</p>
 <p>
 <div class="table">
 <table>
@@ -118,34 +123,36 @@ This page points to installers for 32 bit and 64 bit operating systems. Please m
 </tr>
 </table>
 </p>
+<br />
+<?php print adsense_display("468x60",2,1) ?>
 <?php
 
 // Merge translation and country information into one array
-$TortoiseGUI = array_merge_recursive($TortoiseGUI, $countries);
+$TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
 
 // Convert Data into a list of columns
 foreach ($TortoiseGUI as $key => $row) {
-   $errors[$key] = $row[0];
-   $total[$key] = $row[1];
-   $transl[$key] = $row[2];
-   $fuzzy[$key] = $row[3];
-   $untrans[$key] = $row[4];
-   $accel[$key] = $row[5];
-   $name[$key] = $row[6];
-   $fdate[$key] = $row[7];
-   $potfile[$key] = $row[8];
-   $spellcheck[$key] = $row[9];
-   $country[$key] = $row[11];
+   $potfile[$key] = $row[0];
+   $country[$key] = $row[3];
+   $errors[$key] = $row[5];
+   $total[$key] = $row[6];
+   $transl[$key] = $row[7];
+   $fuzzy[$key] = $row[8];
+   $untrans[$key] = $row[9];
+   $accel[$key] = $row[10];
+   $name[$key] = $row[11];
+   $fdate[$key] = $row[12];
 }
 
 // Add $TortoiseGUI as the last parameter, to sort by the common key
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
 
+
 ?>
 <p>
 <h2>Language packs</h2>
 <div class="table">
-<table>
+<table class="translations">
 <tr>
 <th class="lang">&nbsp;</th>
 <th class="lang">Country</th>
@@ -156,13 +163,12 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 </tr>
 
 <?php
-$i=0;
-foreach ($TortoiseGUI as $key => $postat)
-{
-  $i++;
-  if ($postat[8] == "0")
-    print_langpack($i, $postat, $v, $w);
-}
+  $i=0;
+  foreach ($TortoiseGUI as $key => $postat)
+    if (isset($postat[5]) && ($postat[0] == "0") ) {
+      $i++;
+      print_langpack($i, $postat, $v, $w);
+    }
 ?>
 
 </table>
@@ -172,13 +178,13 @@ foreach ($TortoiseGUI as $key => $postat)
 
 <h1>Release Candidates</h1>
 <ul>
-<li>We maintain ongoing <a href="http://mapcar.org/tsvn-snapshots/1.4.x/">Release Candidates</a> as well. These contain the latest offical release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
-Please read <a href="http://mapcar.org/tsvn-snapshots/1.4.x/Readme.txt">Readme.txt</a> first.</li>
+<li>We maintain ongoing <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a> as well. These contain the latest offical release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
+Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Readme.txt</a> first.</li>
 </ul>
 
 <h1>Nightly Builds</h1>
 <ul>
-<li><a href="http://mapcar.org/tsvn-snapshots/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://mapcar.org/tsvn-snapshots/latest/NightlyBuild.txt">NightlyBuild.txt</a> first.</li>
+<li><a href="http://nightlybuilds.tortoisesvn.net/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://nightlybuilds.tortoisesvn.net/latest/NightlyBuild.txt">NightlyBuild.txt</a> first.</li>
 </ul>
 
 <h1>Older Releases</h1>
