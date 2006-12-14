@@ -208,7 +208,7 @@ function print_blank_stat($i, $postat, $vars)
 
   if ($postat[5] > 0) {
     // Error while running msgfmt on existing .po file
-    $graphtag="Error in po file</td>";
+    $graphtag="Error in po file";
   } else {
     // .pot File
     $graphtag="<img src=\"/siteicons/transparent.png\" alt=\"blank\" width=\"$wc\" height=\"16\"/>";

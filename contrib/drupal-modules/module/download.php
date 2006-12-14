@@ -46,30 +46,30 @@ function print_langpack($i, $postat, $v, $w)
   $infobits=$postat[1];
   $lang_cc=$postat[2];
   $lang_name=$postat[3];
-  
-  $flagimg=$v['flagpath']."$lang_cc.png";
+  $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$lang_name flag\"/>";
+
   $dlfile32=get_langpack($lang_cc, 'Setup', $v, $w['w32']);
   $dlfile64=get_langpack($lang_cc, 'Setup', $v, $w['x64']);
   if ( ($infobits & "01") <> "0")   {
-   $t_ln="SpellChecker_".$lang_cc.".exe";
-   $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
-	} else {
-   $dlfilechecker="";
+    $t_ln="SpellChecker_".$lang_cc.".exe";
+    $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
+    } else {
+    $dlfilechecker="";
   }
   
   if ( ($infobits & "10") <> "0")   {
-   $t_ts="TortoiseSVN-".$v['release'].'-'.$lang_cc.".pdf";
-   $t_tm="TortoiseMerge-".$v['release'].'-'.$lang_cc.".pdf";
-   $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
-   $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
+    $t_ts="TortoiseSVN-".$v['release'].'-'.$lang_cc.".pdf";
+    $t_tm="TortoiseMerge-".$v['release'].'-'.$lang_cc.".pdf";
+    $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
+    $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
   } else {
-   $dlmanTSVN="";
-   $dlmanTMerge="";
+    $dlmanTSVN="";
+    $dlmanTMerge="";
   }
 
   echo "<tr class=\"ok\">";
   echo "<td>$i</td>";
-  echo "<td><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;$lang_name</td>";
+  echo "<td>$flagtag&nbsp;$lang_name</td>";
   echo "<td>$dlfile32</td>";
   echo "<td>$dlfile64</td>";
   echo "<td>$dlfilechecker</td>";
@@ -94,7 +94,7 @@ This page points to installers for 32 bit and 64 bit operating systems. Please m
 <p>
 Note for x64 users: you can install both the 32 and 64-bit version side by side. This will enable the TortoiseSVN features also for 32-bit applications.
 </p>
-<p>
+
 <div class="table">
 <table>
 <tr>
@@ -122,7 +122,8 @@ Note for x64 users: you can install both the 32 and 64-bit version side by side.
 <td>MD5 checksum</td>
 </tr>
 </table>
-</p>
+</div>
+
 <br />
 <?php print adsense_display("468x60",2,1) ?>
 <?php
@@ -147,9 +148,8 @@ foreach ($TortoiseGUI as $key => $row) {
 // Add $TortoiseGUI as the last parameter, to sort by the common key
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
 
-
 ?>
-<p>
+
 <h2>Language packs</h2>
 <div class="table">
 <table class="translations">
@@ -172,8 +172,6 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 ?>
 
 </table>
-</p>
-
 </div>
 
 <h1>Release Candidates</h1>
@@ -199,6 +197,6 @@ The sourcecode is hosted on <a href="http://www.tigris.org">tigris.org</a> in ou
 <br />
 If you have TortoiseSVN installed, you can check out the whole sourcecode by clicking on the tortoise icon below:
 <br />
-<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png"></a>
+<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png" alt="Tortoise Icon"/></a>
 
 <!--break-->
