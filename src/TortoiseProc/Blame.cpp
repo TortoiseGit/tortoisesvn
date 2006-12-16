@@ -44,7 +44,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	CStringA infolineA;
 	CStringA fulllineA;
 
-	if ((m_lowestrev < 0)||(m_lowestrev > revision))
+	if (((m_lowestrev < 0)||(m_lowestrev > revision))&&(revision >= 0))
 		m_lowestrev = revision;
 	if (m_highestrev < revision)
 		m_highestrev = revision;
