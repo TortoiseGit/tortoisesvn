@@ -211,7 +211,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File << _T("# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.\n");
 	File << _T("\n");
 	File << _T("# ONLY change the msgstr field. Do NOT change any other.\n");
-	File << _T("# If you do not want to change an Accelerator Key, leave msgstr as \"\"\n");
+	File << _T("# If you do not want to change an Accelerator Key, copy msgid to msgstr\n");
 	File << _T("\n");
 
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
