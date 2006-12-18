@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-15 10:32+0100\n"
+"PO-Revision-Date: 2006-12-18 09:49+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6666,7 +6666,7 @@ msgstr "Projektarchivbetrachter"
 #: source/TortoiseSVN_en.xml:8137
 #: (para)
 msgid "There are several web-based repository viewers available for use with Subversion such as <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN provides a means to link with these viewers."
-msgstr ""
+msgstr "Es gibt mehrere Webbasierte Projektarchivbetrachter, die mit Subversion eingesetzt werden können, zum Beispiel: <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> und <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN bietet Ihnen eine Integrationsmöglichkeit mit diesen Betrachtern an."
 
 #: source/TortoiseSVN_en.xml:8149
 #: (para)
@@ -6681,7 +6681,7 @@ msgstr "webviewer:revision"
 #: source/TortoiseSVN_en.xml:8159
 #: (para)
 msgid "Set this property to the url of your repoviewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Setzen Sie diese Eigenschaft auf die URL Ihres Projektarchivbetrachters mit der Sie alle Änderungen einer bestimmten Revision sehen können. Sie muss korrekt URI codiert sein und <literal>%REVISION%</literal> enthalten. <literal>%REVISION%</literal> wird durch die gewünschte Revisionsnummer ersetzt. Dies ermöglicht TortoiseSVN im Log-Dialog ein Kontextmenü <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Betrachte Revision im Web-Browser</guimenuitem></menuchoice> anzuzeigen."
 
 #: source/TortoiseSVN_en.xml:8176
 #: (term)
@@ -6691,7 +6691,7 @@ msgstr "webviewer:pathrevision"
 #: source/TortoiseSVN_en.xml:8178
 #: (para)
 msgid "Set this property to the url of your repoviewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the url will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "Setzen Sie diese Eigenschaft auf die URL mit der Sie Änderungen an einer Datei in einer bestimmten Revision sehen können. Sie muss korrekt URI codiert sein sowie <literal>%REVISION%</literal> und <literal>%PATH%</literal> enthalten. <literal>%PATH%</literal> wird durch den Pfad relativ zur Projektarchivbasis ersetzt. Dies ermöglicht TortoiseSVN im Log-Dialog ein Kontextmenü <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Betrachte Revision eines Pfades im Web-Browser</guimenuitem> </menuchoice> anzuzeigen.Wenn Sie zum Beispiel im Log-Dialog auf eine Datei <literal>/trunk/src/file</literal> klicken, wird <literal>%PATH%</literal> in der URL durch <literal>/trunk/src/file</literal> ersetzt."
 
 #: source/TortoiseSVN_en.xml:8225
 #: (title)
