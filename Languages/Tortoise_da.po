@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8274
+# Based on Tortoise.pot r8340
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-11 12:31+0100\n"
+"PO-Revision-Date: 2006-12-19 13:43+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 
 # ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, leave msgstr as ""
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 
 #: ID:10,#: ID:126,#: ID:126,#: ID:126,
 msgid " "
@@ -1805,8 +1805,8 @@ msgid "Delete Unversioned Items"
 msgstr "Slet ikke-versionerede emner"
 
 #: ID:17,
-msgid "Delete unversioned items"
-msgstr "Slet ikke-versionerede emner"
+msgid "Delete unversioned items..."
+msgstr "Slet ikke-versionerede emner..."
 
 #: ID:73,#: ID:264,
 msgid "Deleted"
@@ -2351,107 +2351,107 @@ msgstr "Værtsnavnet passer ikke (%s)"
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 #: Corresponding Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
-msgstr ""
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlap images'
 #: Corresponding Menu ID:32772; '&Overlap images'
 msgid "ID:32772:V   +O"
-msgstr ""
+msgstr "ID:32772:V   +O"
 
 #. Accelerator Entry for Menu ID:32773; '&Open'
 #: Corresponding Menu ID:32773; '&Open'
 msgid "ID:32773:V C +O"
-msgstr ""
+msgstr "ID:32773:V C +O"
 
 #. Accelerator Entry for Menu ID:32774; '&Whitespaces'
 #: Corresponding Menu ID:32774; '&Whitespaces'
 msgid "ID:32774:V C +T"
-msgstr ""
+msgstr "ID:32774:V C +T"
 
 #. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
 #: Corresponding Menu ID:32775; 'Two-way &Diff'
 msgid "ID:32775:V C +D"
-msgstr ""
+msgstr "ID:32775:V C +D"
 
 #. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
 #: Corresponding Menu ID:32778; '&Fit Images in window'
 msgid "ID:32778:V   +F"
-msgstr ""
+msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
 #: Corresponding Menu ID:32779; 'Ori&ginal size'
 msgid "ID:32779:V   +S"
-msgstr ""
+msgstr "ID:32779:V   +S"
 
 #. Accelerator Entry for Menu ID:32779; '&Go To Line...'
 #: Corresponding Menu ID:32779; '&Go To Line...'
 msgid "ID:32779:V C +G"
-msgstr ""
+msgstr "ID:32779:V C +G"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
-msgstr ""
+msgstr "ID:32793:V C +V"
 
 #. Accelerator Entry for Menu ID:32794; 'Reload'
 #: Corresponding Menu ID:32794; 'Reload'
 msgid "ID:32794:V C +R"
-msgstr ""
+msgstr "ID:32794:V C +R"
 
 #. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
 #: Corresponding Menu ID:32796; 'Show &all revisions'
 msgid "ID:32796:V C +A"
-msgstr ""
+msgstr "ID:32796:V C +A"
 
 #. Accelerator Entry for Menu ID:32809; '&Filter'
 #: Corresponding Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
-msgstr ""
+msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601; '&Open Ctrl-O'
 msgid "ID:57601:V C +O"
-msgstr ""
+msgstr "ID:57601:V C +O"
 
 #. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
 #: Corresponding Menu ID:57603; '&Save Ctrl-S'
 msgid "ID:57603:V C +S"
-msgstr ""
+msgstr "ID:57603:V C +S"
 
 #. Accelerator Entry for Menu ID:57604; 'Save &As...'
 #: Corresponding Menu ID:57604; 'Save &As...'
 msgid "ID:57604:V CS+S"
-msgstr ""
+msgstr "ID:57604:V CS+S"
 
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
-msgstr ""
+msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 #: Corresponding Menu ID:57635; ''
 msgid "ID:57635:V C +X"
-msgstr ""
+msgstr "ID:57635:V C +X"
 
 #. Accelerator Entry for Menu ID:57636; '&Find'
 #: Corresponding Menu ID:57636; '&Find'
 msgid "ID:57636:V C +F"
-msgstr ""
+msgstr "ID:57636:V C +F"
 
 #. Accelerator Entry for Menu ID:57637; ''
 #: Corresponding Menu ID:57637; ''
 msgid "ID:57637:V C +V"
-msgstr ""
+msgstr "ID:57637:V C +V"
 
 #. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
 #: Corresponding Menu ID:57643; '&Undo\tCtrl+Z'
 msgid "ID:57643:V C +Z"
-msgstr ""
+msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 #: Corresponding Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
-msgstr ""
+msgstr "ID:57665:V C +Q"
 
 #: Control-ID:65535,
 msgid "Icon Overlays / Status Columns"
