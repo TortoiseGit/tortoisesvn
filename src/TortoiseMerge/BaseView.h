@@ -174,6 +174,8 @@ protected:
 
 	void			UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
 	void			UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
+	void			UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate);
+	void			UseBothRightFirst(viewstate &rightstate, viewstate &leftstate);
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;

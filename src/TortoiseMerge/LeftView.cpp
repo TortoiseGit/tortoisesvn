@@ -209,72 +209,12 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
 			break;
 		case ID_USEBOTHTHISLAST:
 			{
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
-					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
-				}
-
-				// your block is done, now insert their block
-				int index = m_nSelBlockEnd+1;
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-					m_pwndRight->m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
-					m_pwndRight->m_arLineLines->InsertAt(index, m_pwndRight->m_arLineLines->GetAt(i));
-					m_pwndRight->m_arLineStates->InsertAt(index++, CDiffData::DIFFSTATE_THEIRSADDED);
-				}
-				// adjust line numbers
-				index--;
-				for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-				{
-					long oldline = (long)m_pwndRight->m_arLineLines->GetAt(i);
-					if (oldline >= 0)
-						m_pwndRight->m_arLineLines->SetAt(i, oldline+(index-m_nSelBlockEnd));
-				}
-
-				// now insert an empty block in the left view
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					leftstate.addedlines.push_back(m_nSelBlockEnd+1);
-				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				RecalcAllVertScrollBars();
-				m_pwndLeft->SetModified();
-				m_pwndRight->SetModified();
+				UseBothRightFirst(rightstate, leftstate);
 			}
 			break;
 		case ID_USEBOTHTHISFIRST:
 			{
-				// get line number from just before the block
-				long linenumber = 0;
-				if (m_nSelBlockStart > 0)
-					linenumber = m_pwndRight->m_arLineLines->GetAt(m_nSelBlockStart-1);
-				linenumber++;
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					rightstate.addedlines.push_back(m_nSelBlockStart);
-					m_pwndRight->m_arDiffLines->InsertAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-					m_pwndRight->m_arLineStates->InsertAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
-					m_pwndRight->m_arLineLines->InsertAt(i, linenumber++);
-				}
-				// adjust line numbers
-				for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-				{
-					long oldline = (long)m_pwndRight->m_arLineLines->GetAt(i);
-					if (oldline >= 0)
-						m_pwndRight->m_arLineLines->SetAt(i, oldline+(m_nSelBlockEnd-m_nSelBlockStart)+1);
-				}
-
-				// now insert an empty block in both yours and theirs
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					leftstate.addedlines.push_back(m_nSelBlockStart);
-				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				RecalcAllVertScrollBars();
-				m_pwndLeft->SetModified();
-				m_pwndRight->SetModified();
+				UseBothLeftFirst(rightstate, leftstate);
 			}
 			break;
 		} // switch (cmd) 
