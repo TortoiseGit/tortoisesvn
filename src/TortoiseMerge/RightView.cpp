@@ -209,94 +209,12 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		break;
 		case ID_USEYOURANDTHEIRBLOCK:
 			{
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					bottomstate.difflines[i] = m_pwndBottom->m_arDiffLines->GetAt(i);
-					m_pwndBottom->m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
-					bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
-					m_pwndBottom->m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
-					rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
-					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
-				}
-
-				// your block is done, now insert their block
-				int index = m_nSelBlockEnd+1;
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-					m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
-					m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-					m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndLeft->m_arLineStates->GetAt(i));
-					leftstate.linestates[i] = m_pwndLeft->m_arLineStates->GetAt(i);
-					m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
-				}
-				// adjust line numbers
-				for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-				{
-					long oldline = (long)m_pwndBottom->m_arLineLines->GetAt(i);
-					if (oldline >= 0)
-						m_pwndBottom->m_arLineLines->SetAt(i, oldline+(index-m_nSelBlockEnd));
-				}
-
-				// now insert an empty block in both yours and theirs
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					leftstate.addedlines.push_back(m_nSelBlockStart);
-				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				RecalcAllVertScrollBars();
-				m_pwndBottom->SetModified();
-				m_pwndLeft->SetModified();
-				m_pwndRight->SetModified();
+				UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
 			}
 			break;
 		case ID_USETHEIRANDYOURBLOCK:
 			{
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					bottomstate.difflines[i] = m_pwndBottom->m_arDiffLines->GetAt(i);
-					m_pwndBottom->m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-					bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
-					m_pwndBottom->m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
-				}
-
-				// your block is done, now insert their block
-				int index = m_nSelBlockEnd+1;
-				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-				{
-					bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-					m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndRight->m_arDiffLines->GetAt(i));
-					m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-					m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndRight->m_arLineStates->GetAt(i));
-				}
-				// adjust line numbers
-				for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-				{
-					long oldline = (long)m_pwndBottom->m_arLineLines->GetAt(i);
-					if (oldline >= 0)
-						m_pwndBottom->m_arLineLines->SetAt(i, oldline+(index-m_nSelBlockEnd));
-				}
-
-				// now insert an empty block in both yours and theirs
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					leftstate.addedlines.push_back(m_nSelBlockStart);
-				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-					rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-				m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-				RecalcAllVertScrollBars();
-				m_pwndBottom->SetModified();
-				m_pwndLeft->SetModified();
-				m_pwndRight->SetModified();
+				UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
 			}
 			break;
 		case ID_USEBOTHTHISFIRST:

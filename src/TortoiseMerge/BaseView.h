@@ -171,6 +171,9 @@ protected:
 	 * Updates the status bar pane. Call this if the document changed.
 	 */
 	void			UpdateStatusBar();
+
+	void			UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
+	void			UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;
