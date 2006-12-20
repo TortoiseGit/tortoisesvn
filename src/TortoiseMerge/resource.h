@@ -21,7 +21,6 @@
 #define IDD_FIND                        139
 #define IDI_ICON1                       140
 #define IDI_WHITESPACELINE              140
-#define IDI_ICON2                       141
 #define IDI_EQUALLINE                   141
 #define IDB_LOGOFLIPPED                 168
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
@@ -124,6 +123,8 @@
 #define IDC_CHECK4                      1068
 #define IDC_USEBDIFF                    1068
 #define IDC_SEARCHTEXT                  1070
+#define IDC_BUTTON1                     1071
+#define IDC_BKMODIFIED                  1071
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDS_ERR_DIFF_NEWLINES           1081
@@ -213,7 +214,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        142
 #define _APS_NEXT_COMMAND_VALUE         32825
-#define _APS_NEXT_CONTROL_VALUE         1071
+#define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

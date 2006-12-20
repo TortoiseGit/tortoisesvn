@@ -25,6 +25,7 @@
 // CSetColorPage dialog
 #define INLINEADDED_COLOR			RGB(255, 255, 150)
 #define INLINEREMOVED_COLOR			RGB(200, 100, 100)
+#define MODIFIED_COLOR				RGB(220, 220, 255)
 
 IMPLEMENT_DYNAMIC(CSetColorPage, CPropertyPage)
 CSetColorPage::CSetColorPage()
@@ -32,6 +33,7 @@ CSetColorPage::CSetColorPage()
 	, m_bReloadNeeded(FALSE)
 	, m_regInlineAdded(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR)
 	, m_regInlineRemoved(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR)
+	, m_regModifiedBackground(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR)
 {
 }
 
@@ -71,7 +73,10 @@ void CSetColorPage::SaveData()
 		m_regInlineAdded = m_cBkInlineAdded.GetColor(TRUE);
 		if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor(TRUE))
 			m_bReloadNeeded = true;
-		m_regInlineRemoved = m_cBkInlineRemoved. GetColor(TRUE);
+		m_regInlineRemoved = m_cBkInlineRemoved.GetColor(TRUE);
+		if ((DWORD)m_regModifiedBackground != (DWORD)m_cBkModified.GetColor(TRUE))
+			m_bReloadNeeded = true;
+		m_regModifiedBackground = m_cBkModified.GetColor(TRUE);
 
 		cBk = m_cBkEmpty.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
@@ -102,6 +107,7 @@ void CSetColorPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BKADDED, m_cBkAdded);
 	DDX_Control(pDX, IDC_BKWHITESPACES, m_cBkInlineAdded);
 	DDX_Control(pDX, IDC_BKWHITESPACEDIFF, m_cBkInlineRemoved);
+	DDX_Control(pDX, IDC_BKMODIFIED, m_cBkModified);
 	DDX_Control(pDX, IDC_BKEMPTY, m_cBkEmpty);
 	DDX_Control(pDX, IDC_BKCONFLICTED, m_cBkConflict);
 }
@@ -160,6 +166,11 @@ BOOL CSetColorPage::OnInitDialog()
 	m_cBkInlineRemoved.SetColor((DWORD)m_regInlineRemoved);
 	m_cBkInlineRemoved.SetDefaultText(sDefaultText);
 	m_cBkInlineRemoved.SetCustomText(sCustomText);
+
+	m_cBkModified.SetDefaultColor(MODIFIED_COLOR);
+	m_cBkModified.SetColor((DWORD)m_regModifiedBackground);
+	m_cBkModified.SetDefaultText(sDefaultText);
+	m_cBkModified.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
 	m_cBkEmpty.SetDefaultColor(DIFFSTATE_EMPTY_DEFAULT_BG);

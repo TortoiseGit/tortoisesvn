@@ -40,6 +40,7 @@
 
 #define INLINEADDED_COLOR			RGB(255, 255, 150)
 #define INLINEREMOVED_COLOR			RGB(200, 100, 100)
+#define MODIFIED_COLOR				RGB(220, 220, 255)
 
 CBaseView * CBaseView::m_pwndLeft = NULL;
 CBaseView * CBaseView::m_pwndRight = NULL;
@@ -71,6 +72,7 @@ CBaseView::CBaseView()
 	m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
+	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
@@ -183,6 +185,7 @@ void CBaseView::DocumentUpdated()
 	m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
+	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -1290,9 +1293,6 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					{
 						tempdiff = diff;
 						int lineoffset = 0;
-						COLORREF fgAdded, fgRemoved;
-						fgAdded = RGB(100, 200, 100);
-						fgRemoved = RGB(200, 100, 100);
 						CString sDispTemp;
 						typedef struct  
 						{
@@ -1300,6 +1300,10 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 							COLORREF clr;
 						} graphrects;
 						std::deque<graphrects> rects;
+						// If we're here means we consider the lines modified, not
+						// removed/added. We use a different background color for
+						// modified lines:
+						crBkgnd = m_ModifiedBk;
 						while (tempdiff)
 						{
 							if (tempdiff->type == svn_diff__type_common)
