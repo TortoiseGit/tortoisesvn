@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Includes.wxi?>
   <Fragment Id="StructureFragment">
     <Directory Id="TARGETDIR" Name="SourceDir">
@@ -162,7 +162,7 @@
           <Component Id="C__ASPDOTNETHACK" Guid="$(var.GuidASPNETHack)" Win64="$(var.Win64YesNo)">
             <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="ASP.NET KeyPath" Value="ASP.NET" Type="string" />
             <!-- only used because this component needs a key path! -->
-            <Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" Part="all" System="yes" />
+            <Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" System="yes" />
           </Component>
 
           <Directory Id="D__Bin" Name="BIN" LongName="bin" >
@@ -475,19 +475,19 @@
 
           <Directory Id="D__Languages" Name="Language" LongName="Languages" >
 
+            <?if $(env.DictionaryENGB) = 1 ?>
             <Component Id="C__DictionaryENGB" Guid="$(var.GuidDictionaryENGB)" Win64="$(var.Win64YesNo)">
-              <?if $(env.DictionaryENGB) = 1 ?>
               <File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
               <File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
-              <?endif ?>
             </Component>
+            <?endif ?>
 
+            <?if $(env.DictionaryENUS) = 1 ?>
             <Component Id="C__DictionaryENUS" Guid="$(var.GuidDictionaryENUS)" Win64="$(var.Win64YesNo)">
-              <?if $(env.DictionaryENUS) = 1 ?>
               <File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
               <File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
-              <?endif ?>
             </Component>
+            <?endif ?>
 
           </Directory>
 

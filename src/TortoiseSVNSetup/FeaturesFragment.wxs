@@ -1,4 +1,4 @@
-<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Includes.wxi?>
   <Fragment Id="FeaturesFragment">
     <Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="INSTALLDIR" Title="TortoiseSVN" Absent="disallow" 
@@ -54,12 +54,17 @@
         <ComponentRef Id="C__iconsstraight" />
       </Feature>
 
+      <?if $(env.DictionaryENGB) = 1 ?>
       <Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
         <ComponentRef Id="C__DictionaryENGB" />
       </Feature>
+      <?endif ?>
+
+      <?if $(env.DictionaryENUS) = 1 ?>
       <Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
         <ComponentRef Id="C__DictionaryENUS" />
       </Feature>
+      <?endif ?>
 
       <Feature Id="ASPDOTNETHACKFEATURE" Level="1" Title="ASP.NET Hack" 
 				Description="Sets the SVN_ASP_DOT_NET_HACK environment variable.
