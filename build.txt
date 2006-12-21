@@ -30,51 +30,55 @@ C. If you plan to build 64 bit packages, install the package
      may work as well but has not been tested.
 
 Next you need to install some utilities/programs:
-- Install the java runtime. Get it from http://java.sun.com
-  or from this direct link:
-  http://java.sun.com/webapps/getjava/BrowserRedirect
-- Install Python 2.4. You can get it from here:
-  http://www.python.org/windows/
-- Set the path where you installed python to the PATH environement variable.
-- To translate the docs, you will also need the libxml2 python bindings.
-  Get them from here: http://users.skynet.be/sbi/libxml-python/
-- Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
-- Get the WiX Core Toolset from http://wix.sourceforge.net and unzip
-  them. (*). Then add it to the PATH environment variable.
-- Get WiX Votive from http://wix.sourceforge.net and install it.
-- Get NSIS from http://nsis.sourceforge.net and install it.
-- Install the latest Nant release. Get it from http://nant.sourceforge.net
-  At the time of this writing, you need to get the at least version 0.85 RC4.
-- Add the Nant bin folder to the PATH environment variable.
+- Java runtime            : http://java.sun.com, http://java.sun.com/webapps/getjava/BrowserRedirect
+- Python 2.4(*)           : http://www.python.org/windows/
+- libxml2 python bindings : http://users.skynet.be/sbi/libxml-python/
+- Perl                    : http://www.activestate.com/Products/ActivePerl/
+- WiX(*)                  : http://wix.sourceforge.net
+- NSIS                    : http://nsis.sourceforge.net
+- NAnt(*)                 : http://nant.sourceforge.net
+- WTL(+)                  : http://wtl.sourceforge.net/
+- gdiplus merge module(#) : http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
 
-You may have to logoff/logon to make the new environment variables take effect!
+(*) Add the paths of the binaries to the PATH environment variable
+    You may have to logoff/logon to make the new environment variables take effect!
+(+) Add the path to the include folder in the Visual Studio options,
+    Projects and Solutions->VC++ Directories, include files
+(#) Copy/Move the gdiplus.msm file to the %CommonProgramFiles%\Merge Modules directory
 
+
+Next you need to download some more:
+- OpenSSL source          : http://www.openssl.org/source/
+- ZLib source             : http://www.gzip.org/zlib/
+- tools collection        : http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip
+- dictionaries/thesauri   : http://lingucomponent.openoffice.org/
+
+Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   1.5 GB of free space left!!!
 - create a new folder in SVN called 'common'
-- Download the openssl source package from
-  http://www.openssl.org/source/ and unzip it to SVN\common, then rename
-  the folder from openssl-0.9.xx to openssl
-- Download the zlib source from 
-  http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
-- If you want to include the dictionary and thesaurus in the installer/languagepacks,
-  then you have to download those from http://lingucomponent.openoffice.org/
-  and put the files in SVN\common\Spell Note: the names of the files are important!
-  They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic.
-  Important: Only the thesaurus in the format for OO2 will work! Earlier versions
-  will crash TSVN!!
+- unzip the openssl sourcecode into 'common', and rename the folder to 'openssl'
+- unzip the zlib sourcecode into 'common' and rename the folder to 'zlib'
+- copy the dictionaries/thesauri to 'common\spell'.
+  note that the names of the files are important!
+  They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic (or whatever language you use).
+  Warning: only the thesaurus in the format for OO2 will work. Earlier versions will
+  crash TortoiseSVN!
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
-- Download the tools to build the TSVN docs from 
-  http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip and
-  unzip them into SVN\TortoiseSVN\Tools\
+- unzip the file 'tools.zip' into a folder, we suggest SVN\TortoiseSVN\Tools.
+  Note: the path to the tools folder must not have special chars in it or spaces.
+  If you checked out the TortoiseSVN source to such a location, you can store
+  the tools folder somewhere else.
 - Make a copy of the file default.build.user.tmpl in the TSVN root folder and
-  rename that copy to default.build.user Then simply adjust the paths as mentioned
+  rename that copy to default.build.user. Then simply adjust the paths as mentioned
   in that file.
-- To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
-  You can get that library from here: http://wtl.sourceforge.net/
-  Unzip it and then add the path of the wtl 'include' folder 
-  to the VS.NET 2005 include path.
+- Make a copy of the file doc\doc.build.user.tmpl and rename that copy to 
+  doc\doc.build.user. Then adjust the paths in that file according to your
+  setup.
+- The docs for certain languages need special tweaking. If there is a 'userconfig.template.xml'
+  file in doc\xsl\languagecode\, copy that file to 'userconfig.xml' and adjust the
+  paths in that file to your OS setup.
 
 
 Building 32 bit packages
@@ -181,5 +185,6 @@ Building 64 bit packages on x64
 	nant x64 release setup
 
   After the script finished, the packages can be found in .\bin .
+
 
 

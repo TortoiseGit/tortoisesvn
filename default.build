@@ -69,7 +69,7 @@
 		</nant>
 	</target>
 
-	<target name="docs" depends="VSNET,env">
+	<target name="docs" depends="VSNET,env,VersionInfo">
 		<description>
 			Builds the docs in all languages and all formats.
 		</description>
@@ -285,4 +285,5 @@
 		<echo />
     </target>
 </project>
+
 

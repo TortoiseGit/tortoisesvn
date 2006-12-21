@@ -233,7 +233,7 @@ All user/site specific configuration is stored in doc.build.user.
 					<property name="dir.target" value="${path::get-directory-name(file.target)}"/>
 					<mkdir dir="${dir.target}" unless="${directory::exists(dir.target)}"/>
 					<exec program="python"
-								commandline="xml2po.py -t ${lang.target}.mo -o ${file.target} ${file.base}"
+								commandline='xml2po.py -t "${lang.target}.mo" -o "${file.target}" "${file.base}"'
 								verbose="false"/>
 				</if>
 			</do>
@@ -395,4 +395,5 @@ All user/site specific configuration is stored in doc.build.user.
 	</target>
 
 </project>
+
 
