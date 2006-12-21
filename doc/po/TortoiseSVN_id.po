@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-17 13:44+0700\n"
+"PO-Revision-Date: 2006-12-21 16:42+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4334,7 +4334,6 @@ msgstr "Ini adalah file dimana klien Subversion Anda menerimanya dari server ket
 # Indonesian#: source/TortoiseSVN_en.xml:4276(para)
 #: source/TortoiseSVN_en.xml:4235
 #: (para)
-#, fuzzy
 msgid ""
 "Once in a while, you will get a <emphasis>conflict</emphasis> when you update your files from the repository. A conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
@@ -4344,39 +4343,35 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Suatu saat, Anda akan menghadapi <emphasis>konflik</emphasis> ketika Anda memutahirkan file dari repositori. Konflik terjadi saat dua atau lebih pengembang mengubah beberapa baris yang sama dari file. Karena Subversion tidak mengetahui proyek Anda, ia meninggalkan penyelesaikan konflik kepada para pengembang. Kapan saja konflik dilaporkan, Anda harus membuka file dalam pertanyaan, dan mencari baris yang dimulai dengan string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Area yang konflik ditandai seperi ini: <screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; nama file\n"
-"    perubahan Anda\n"
+"Suatu saat, Anda akan menghadapi <emphasis>konflik</emphasis> ketika Anda memutahirkan file dari repositori. Konflik terjadi saat dua atau lebih pengembang mengubah beberapa baris yang sama dari file. Karena Subversion tidak mengetahui proyek Anda, ia meninggalkan penyelesaikan konflik kepada para pengembang. Kapan saja konflik dilaporkan, Anda harus membuka file yang dipertanyakan, dan mencari baris yang dimulai dengan string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Area yang konflik ditandai seperi ini: <screen>\n"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    your changes\n"
 "=======\n"
-"    kode digabung dari repositori\n"
+"    code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Juga, untuk setiap file yang konflik Subversion menempatkan tiga file tambahan dalam direktori Anda: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:4332(para)
 #: source/TortoiseSVN_en.xml:4290
 #: (para)
-#, fuzzy
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr "Anda bisa menjalankan piranti editor gabung/konflik eksternal dengan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Konflik</guimenuitem></menuchoice> atau Anda bisa menggunakan editor lain untuk menyelesaikan konflik secara manual. Anda harus memutuskan seoerti apa kode seharusnya terlihat, lakukan perubahan yang diperlukan dan simpan file."
+msgstr "Anda bisa menjalankan piranti editor gabung/konflik eksternal dengan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Konflik</guimenuitem></menuchoice> atau Anda bisa menggunakan editor lain untuk menyelesaikan konflik secara manual. Anda harus memutuskan seperti apa kode seharusnya terlihat, lakukan perubahan yang diperlukan dan simpan file."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4344(para)
 #: source/TortoiseSVN_en.xml:4301
 #: (para)
-#, fuzzy
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
 msgstr "Selanjutnya jalankan perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diselesaikan</guimenuitem></menuchoice> dan komit modifikasi Anda ke repositori. Harap dicatat bahwa perintah Selesaikan tidak benar-benar menyelesaikan konflik. Ia hanya menghapus file <filename>filename.ext.mine</filename> dan <filename>filename.ext.r*</filename>, untuk membolehkan Anda mengkomit perubahan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4357(para)
 #: source/TortoiseSVN_en.xml:4314
 #: (para)
-#, fuzzy
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
 msgstr "Jika Anda mempunyai konflik dengan file biner, Subversion tidak mencoba untuk menggabung file itu sendiri. File lokal tetap tidak diubah (persis seperti perubahan terakhir Anda) dan Anda mempunyai file <filename>filename.ext.r*</filename>. Jika Anda ingin mengabaikan perubahan Anda dan membiarkan versi repositori, cukup gunakan perintah Pulihkan. Jika Anda ingin memelihara versi Anda dan menimpa versi repositori, gunakan perintah Diselesaikan, lalu komit versi Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4367(para)
 #: source/TortoiseSVN_en.xml:4324
 #: (para)
-#, fuzzy
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
 msgstr "Anda bisa menggunakan perintah Diselesaikan untuk multipel file jika Anda mengklik kanan pada folder leluhur dan memilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diselesaikan...</guimenuitem></menuchoice> Ini akan memunculkan dialog yang mendaftarkan semua file yang konflik dalam folder itu, dan Anda bisa memilih yang mana untuk ditandai sebagai diselesaikan."
 
@@ -4395,9 +4390,8 @@ msgstr "status"
 # Indonesian#: source/TortoiseSVN_en.xml:4385(para)
 #: source/TortoiseSVN_en.xml:4341
 #: (para)
-#, fuzzy
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr "Ketika Anda bekerja pada copy pekerjaan Anda sering perlu untuk mengetahui file mana yang telah Anda ubah/tambah/hapus atau ganti nama, atau bahkan file mana yang diubah dan dikomit orang lain."
+msgstr "Ketika Anda bekerja pada copy pekerjaan Anda, Anda sering perlu untuk mengetahui file mana yang telah Anda ubah/tambah/hapus atau ganti nama, atau bahkan file mana yang diubah dan dikomit orang lain."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4394(primary)
 #: source/TortoiseSVN_en.xml:4349
@@ -4414,105 +4408,90 @@ msgstr "ikon"
 # Indonesian#: source/TortoiseSVN_en.xml:4405(para)
 #: source/TortoiseSVN_en.xml:4360
 #: (para)
-#, fuzzy
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr "Sekarang bahwa Anda sudah melakukan check out copy pekerjaan dari repositori Subversion Anda bisa melihat file dalam windows explorer dengan ikon yang diubah. Ini adalah sala satu alasan mengapa TortoiseSVN sangat populer. TortoiseSVN menambahkan apa yang disebut lapisan ikon ke setiap file yang menimpa ikon file aslinya. Tergantung pada status Subversion terhadap file, lapisan ikon berbeda."
+msgstr "Sekarang bahwa Anda sudah melakukan check out copy pekerjaan dari repositori Subversion Anda bisa melihat file dalam windows explorer dengan ikon yang diubah. Ini adalah salah satu alasan mengapa TortoiseSVN sangat populer. TortoiseSVN menambahkan apa yang disebut lapisan ikon ke setiap file yang menimpa ikon file aslinya. Lapisan ikon berbeda tergantung pada status Subversion terhadap file."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4414(para)
 #: source/TortoiseSVN_en.xml:4368
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
-msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Melakukan check out copy pekerjaan Anda segar mempunyai tanda centang hijau sebagai lapisan. Itu berarti bahwa status Subversion adalah <literal>normal</literal>."
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Copy pekerjaan yang baru ter-check out mempunyai tanda centang hijau sebagai lapisan. Itu berarti bahwa status Subversion adalah <literal>normal</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4420(para)
 #: source/TortoiseSVN_en.xml:4373
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
 msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Segera setelah Anda mulai mengedit file, status berubah ke <literal>diubah</literal> dan lapisan ikon kemudian berubah ke tanda kata seru merah. Dengan cara itu Anda bisa melihat dengan mudah file mana yang diubah sejak terakhir Anda memutahirkan copy pekerjaan Anda dan perlu untuk dikomit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4428(para)
 #: source/TortoiseSVN_en.xml:4381
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
 msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Jika selama pemutahiran terjadi <literal>konflik</literal> maka ikon berubah ke tanda kata seru kuning."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4433(para)
 #: source/TortoiseSVN_en.xml:4386
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Read-only files have this overlay to indicate that you have to get a lock first before you can edit that file."
 msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Jika Anda telah mengeset properti <literal>svn:needs-lock</literal> pada file, Subversion membuat file itu hanya-baca sampai Anda mendapatkan kunci pada file itu. File hanya baca mempunyai lapisan ini untuk menunjukan bahwa Anda harus mengunci file Hanya-baca dulu sebelum Anda bisa mengedit file tersebut."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4440(para)
 #: source/TortoiseSVN_en.xml:4393
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
 msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Jika Anda memegang kunci pada file, dan status Subversion adalah <literal>normal</literal>, lapisan ikon ini mengingatkan kepada Anda bahwa Anda harus melepaskan kunci jika Anda tidak menggunakannya untuk membolehkan yang lain untuk mengkomit perubahan mereka ke file."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4447(para)
 #: source/TortoiseSVN_en.xml:4400
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
 msgstr "<graphic fileref=\"../images/DeletedIcon.png\"/> Ikon ini memperlihatkan kepada Anda bahwa beberapa file atau folder di dalam folder saat ini telah dijadwalkan untuk <literal>dihapus</literal> dari kontrol versi atau file dibawah kontrol versi hilang dalam folder."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4453(para)
 #: source/TortoiseSVN_en.xml:4406
 #: (para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control."
 msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Tanda plus memberitahu Anda bahwa file atau folder sudah dijadwalkan untuk <literal>ditambahkan</literal> ke kontrol versi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4458(para)
 #: source/TortoiseSVN_en.xml:4411
 #: (para)
-#, fuzzy
 msgid "Unlike TortoiseCVS (the CVS shell integration) no overlay icon for unversioned files is shown. We do this because the number of icon overlays are limited system wide and should be used economically."
-msgstr "Tidak seperti TortoiseCVS (integrasi shell CVS) tidak ada lapisan ikon untuk file tidak berversi yang ditampilkan. Kami melakukan ini karena jumlah lapisan ikon dibatasi luas sistem dan harus digunakan secara ekonomis."
+msgstr "Tidak seperti TortoiseCVS (integrasi shell CVS) tidak ada lapisan ikon untuk file tidak berversi yang ditampilkan. Kami melakukan ini karena jumlah lapisan ikon dibatasi pada luasan sistem dan harus digunakan secara ekonomis."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4464(para)
 #: source/TortoiseSVN_en.xml:4417
 #: (para)
-#, fuzzy
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If you are also using TortoiseCVS, then there are not enough overlay slots available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr "Kenyataannya, Anda mingkin menemukan bahwa tidak semua ikon ini digunakan pada sistem Anda. Ini dikarenakan jumlah lapisan yang dibolehkan oleh Windows dibatasi hanya 15. Windows menggunakan 4 dari itu, dan sisanya 11 bisa digunakan oleh aplikasi lain. Jika Anda juga menggunakan TortoiseCVS, maka slot lapisan ikon tidak cukup tersedia, maka TortoiseSVN mencoba menjadi <quote>Warga Yang Baik (TM)</quote> dan membatasi penggunaan lapisan untuk memberikan kesempatan bagi aplikasi lain."
+msgstr "Kenyataannya, Anda mungkin menemukan bahwa tidak semua ikon ini digunakan pada sistem Anda. Ini dikarenakan jumlah lapisan yang dibolehkan oleh Windows dibatasi hanya 15. Windows menggunakan 4 dari itu, dan sisanya 11 bisa digunakan oleh aplikasi lain. Jika Anda juga menggunakan TortoiseCVS, maka slot lapisan ikon tidak cukup tersedia, maka TortoiseSVN mencoba menjadi <quote>Warga Yang Baik (TM)</quote> dan membatasi penggunaan lapisan untuk memberikan kesempatan bagi aplikasi lain."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4475(para)
 #: source/TortoiseSVN_en.xml:4427
 #: (para)
-#, fuzzy
 msgid "<literal>Normal</literal>, <literal>Modified</literal> and <literal>Conflicted</literal> are always loaded and visible."
 msgstr "<literal>Normal</literal>, <literal>Diubah</literal> dan <literal>Konflik</literal> selalu dipanggil dan terlihat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4481(para)
 #: source/TortoiseSVN_en.xml:4435
 #: (para)
-#, fuzzy
 msgid "<literal>Deleted</literal> is loaded if possible, but falls back to <literal>Modified</literal> if there are not enough slots."
 msgstr "<literal>Dihapus</literal> diambil jika memungkinkan, tapi kembali ke <literal>Diubah</literal> jika slot tidak cukup."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4487(para)
 #: source/TortoiseSVN_en.xml:4442
 #: (para)
-#, fuzzy
 msgid "<literal>ReadOnly</literal> is loaded if possible, but falls back to <literal>Normal</literal> if there are not enough slots."
 msgstr "<literal>HanyaBaca</literal> diambil jika memungkinkan, tapi kembali ke <literal>Normal</literal> jika slot tidak cukup."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4493(para)
 #: source/TortoiseSVN_en.xml:4449
 #: (para)
-#, fuzzy
 msgid "<literal>Locked</literal> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
 msgstr "<literal>Dikunci</literal> hanya diambil jika ada lebih sedikit daripada 13 lapisan yang sudah diambil. Ia kembali ke <literal>Normal</literal> jika slot tidak cukup."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4501(para)
 #: source/TortoiseSVN_en.xml:4457
 #: (para)
-#, fuzzy
 msgid "<literal>Added</literal> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
 msgstr "<literal>Ditambahkan</literal> hanya diambil jika lebih sedikit dari 14 lapisan yang diambil. Ia kembali ke <literal>Diubah</literal> jika slot tidak cukup."
 
@@ -4531,21 +4510,18 @@ msgstr "Kolom Explorer"
 # Indonesian#: source/TortoiseSVN_en.xml:4514(para)
 #: source/TortoiseSVN_en.xml:4471
 #: (para)
-#, fuzzy
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
 msgstr "Informasi yang sama yang tersedia dari lapisan ikon (dan banyak lagi) bisa ditampilkan sebagai kolom tambahan dalam Tampilan Detil Windows Explorer."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4519(para)
 #: source/TortoiseSVN_en.xml:4476
 #: (para)
-#, fuzzy
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Cukup klik kanan pada salah satu heading kolom, pilih <guimenuitem>Selengkapnya...</guimenuitem> dari menu konteks yang ditampilkan. Dialog akan muncul dimana Anda bisas menetapkan kolom dan urutannya, yang ditampilkan dalam \"Tampilan Detil\". Gulung kebawah sampai entri dimulai dengan SVN masuk ke dalam tampilan. Centang satu yang ingin Anda tampilkan dan tutup dialog dengan menekan <guibutton>OK</guibutton>. Kolom akan ditambahkan ke kanan dari yang saat ini ditampilkan. Anda bisa mengurut ulang dengan drag dan drop, atau mengukur ulang itu, agar sesuai dengan kebutuhan Anda."
+msgstr "Cukup klik kanan pada salah satu judul kolom, pilih <guimenuitem>Selengkapnya...</guimenuitem> dari menu konteks yang ditampilkan. Dialog akan muncul dimana Anda bisa menetapkan kolom dan urutannya, yang ditampilkan dalam \"Tampilan Detil\". Gulung ke bawah sampai entri dimulai dengan SVN terlihat. Centang kolom-kolom yang ingin Anda tampilkan dan tutup dialog dengan menekan <guibutton>OK</guibutton>. Kolom akan ditambahkan ke kanan dari yang saat ini ditampilkan. Anda bisa mengurut ulang dengan drag dan drop, atau mengubah ukuran mereka, agar sesuai dengan kebutuhan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4532(para)
 #: source/TortoiseSVN_en.xml:4488
 #: (para)
-#, fuzzy
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
 msgstr "Jika Anda ingin tata letak saat ini ditampilkan dalam semua copy pekerjaan Anda, Anda mungkin menginginkan ini menjadi tampilan standar."
 
@@ -4570,14 +4546,12 @@ msgstr "Periksa Modifikasi"
 # Indonesian#: source/TortoiseSVN_en.xml:4548(para)
 #: source/TortoiseSVN_en.xml:4503
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr "<placeholder-1/> Ini sangat berguna untuk mengetahui file mana yang telah Anda ubah dan juga file yang diubah dan dikomit orang lain. Itulah dimana perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa Modifikasi...</guimenuitem></menuchoice> gunanya disediakan. Dialog ini akan memperlihatkan kepada Anda setiap file yang diubah dengan cara apapun dalam copy pekerjaan Anda, juga file tidak berversi yang mungkin Anda miliki."
+msgstr "<placeholder-1/> Ini sangat berguna untuk mengetahui file mana yang telah Anda ubah dan juga file yang diubah dan dikomit orang lain. Itulah dimana perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa Modifikasi...</guimenuitem></menuchoice> akan berguna. Dialog ini akan memperlihatkan kepada Anda setiap file yang diubah dengan cara apapun dalam copy pekerjaan Anda, juga file tidak berversi yang mungkin Anda miliki."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4565(para)
 #: source/TortoiseSVN_en.xml:4520
 #: (para)
-#, fuzzy
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr "Jika Anda mengklik <guibutton>Periksa Repositori</guibutton> maka Anda juga bisa melihat perubahan dalam repositori. Dengan cara itu Anda bisa memeriksa pemutahiran jika ada kemungkinan konflik. Anda juga bisa memutahirkan file yang dipilih dari repositori tanpa memutahirkan seluruh folder."
 
@@ -4590,7 +4564,6 @@ msgstr "Item yang diubah secara lokal."
 # Indonesian#: source/TortoiseSVN_en.xml:4586(para)
 #: source/TortoiseSVN_en.xml:4542
 #: (para)
-#, fuzzy
 msgid "Added items. Items which have been added with history have a <literal>+</literal> sign in the <guilabel>Text status</guilabel> column, and a tooltip shows where the item was copied from."
 msgstr "Item yang ditambahkan. Item yang telah ditambahkan dengan histori mempunyai tanda <literal>+</literal> dalam kolom <guilabel>Status Teks</guilabel>, dan tooltip yang menampilkan asal item itu dicopy."
 
@@ -4603,14 +4576,12 @@ msgstr "Item yang dihapus atau hilang."
 # Indonesian#: source/TortoiseSVN_en.xml:4605(para)
 #: source/TortoiseSVN_en.xml:4562
 #: (para)
-#, fuzzy
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <emphasis>may</emphasis> produce conflicts on update."
 msgstr "Item yang diubah secara lokal dan dalam repositori. Perubahan akan digabung saat memutahirkan. Ini <emphasis>bisa</emphasis> menghasilkan konflik saat pemutahiran."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4615(para)
 #: source/TortoiseSVN_en.xml:4572
 #: (para)
-#, fuzzy
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <emphasis>will</emphasis> produce conflicts on update."
 msgstr "Item yang diubah secara lokal dan dihapus dalam repositori, atau diubah dalam repositori dan dihapus secara lokal. Ini <emphasis>akan</emphasis> menghasilkan konflik saat pemutahiran."
 
