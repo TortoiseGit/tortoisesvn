@@ -92,6 +92,15 @@
 		each have their own column, so you can see how the branch develops.
 	</para>
 	<para>
+		Sometimes the revision graph contains more detail than you want to see.
+		<menuchoice>
+			<guimenu>View</guimenu>
+			<guimenuitem>Filter</guimenuitem>
+		</menuchoice>
+		opens a dialog which allows you to restrict the range of revisions
+		displayed, and to hide particular paths by name.
+	</para>
+	<para>
 		The revision date, author and comments are shown in a hint box whenever
 		the mouse hovers over a revision box.
 	</para>
