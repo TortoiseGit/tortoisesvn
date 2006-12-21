@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-21 16:42+0700\n"
+"PO-Revision-Date: 2006-12-21 18:42+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4600,44 +4600,38 @@ msgstr "Dialog menggunakan kode warna untuk menerangi status. <placeholder-1/>"
 # Indonesian#: source/TortoiseSVN_en.xml:4643(para)
 #: source/TortoiseSVN_en.xml:4600
 #: (para)
-#, fuzzy
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr "Dari menu konteks pada dialog Anda bisa menampilkan diff dari perubahan Memeriksa perubahan lokal yang sudah <emphasis>Anda</emphasis> buat menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan dengan Base</guimenuitem></menuchoice>. Memeriksa perubahan dalam repositori yang dibuat orang lain menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Tampilkan Perbedaan sebagai Unified Diff</guimenuitem></menuchoice>."
+msgstr "Dari menu konteks pada dialog Anda bisa menampilkan diff dari perubahan. Periksalah perubahan lokal yang sudah <emphasis>Anda</emphasis> buat dengan menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan dengan Base</guimenuitem></menuchoice>. Periksa perubahan dalam repositori yang dibuat orang lain dengan menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Tampilkan Perbedaan sebagai Unified Diff</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4657(para)
 #: source/TortoiseSVN_en.xml:4613
 #: (para)
-#, fuzzy
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
 msgstr "Anda juga bisa memulihkan perubahan dalam file individual. Jika Anda telah menghapus file secara tidak sengaja, ia akan ditampilkan sebagai <literal>Hilang</literal> dan Anda bisa menggunakan <literal>Pulihkan</literal> untuk mengembalikannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4663(para)
 #: source/TortoiseSVN_en.xml:4618
 #: (para)
-#, fuzzy
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
 msgstr "File tidak berversi dan abaikan bisa dikirimkan ke recycle bin dari sini menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Hapus</guimenuitem></menuchoice>. Jika Anda ingin menghapus file secara permanen (melewati recycle bin) tekan tombol <keycap>Shift</keycap> sementara mengklik <guilabel>Hapus</guilabel>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4673(para)
 #: source/TortoiseSVN_en.xml:4627
 #: (para)
-#, fuzzy
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
 msgstr "Jika Anda ingin memeriksa file secara detil, Anda bisa men-drag dari sini ke dalam aplikasi lain seperti editor teks atau IDE."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4677(para)
 #: source/TortoiseSVN_en.xml:4631
 #: (para)
-#, fuzzy
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "Kolom dikustomisasi. Jika Anda <action>mengklik kanan</action> pada setiap header kolom Anda akan melihat menu konteks yang membolehkan Anda untuk memilih kolom mana yang ditampilkan. Anda juga bisa mengubah panjang kolom dengan menggunakan kendali drag yang muncul ketika Anda memindahkan mouse melalui batas kolom. Kustomisasi ini disimpan, maka Anda akan melihat heading yang sama nantinya. Catatan bahwa karena detil implementasi, Anda bisa melihat dua ikon drag yang berbeda, tergantung pada dimana tepatnya Anda memposisikan mouse melalui batas. Satu mempunyai garis pemisah vertikal tebal dan yang lain mempunyai dua garis vertikal tipis. Hanya pointer tebal yang bekerja."
+msgstr "Kolom-kolom dapat disesuaikan dengan kebutuhan Anda. Jika Anda <action>mengklik kanan</action> pada setiap judul kolom, Anda akan melihat menu konteks yang membolehkan Anda untuk memilih kolom mana yang ditampilkan. Anda juga bisa mengubah panjang kolom dengan menggunakan kendali drag yang muncul ketika Anda memindahkan mouse melalui batas kolom. Kustomisasi ini tersimpan sehingga  Anda akan melihat heading yang sama nantinya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4692(para)
 #: source/TortoiseSVN_en.xml:4641
 #: (para)
-#, fuzzy
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr "Jika Anda ingin tampilat datar dari copy pekerjaan Anda, misalnya semua file dan folder pada setiap tingkat dari hirarki folder, maka dialog <guilabel>Periksa Modifikasi</guilabel> adalah cara termudah untuk melaksanakan itu. Cukup centang kotak centang <guilabel>Tampilkan file yang tidak diubah</guilabel> untuk menampilkan semua file dalam copy pekerjaan Anda."
+msgstr "Jika Anda ingin tampilan datar dari copy pekerjaan Anda, misalnya semua file dan folder pada setiap tingkat dari hirarki folder, maka dialog <guilabel>Periksa Modifikasi</guilabel> adalah cara termudah untuk melaksanakan itu. Cukup centang kotak centang <guilabel>Tampilkan file yang tidak diubah</guilabel> untuk menampilkan semua file dalam copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4703(title)
 #: source/TortoiseSVN_en.xml:4667
@@ -4654,21 +4648,18 @@ msgstr "diffing"
 # Indonesian#: source/TortoiseSVN_en.xml:4707(para)
 #: source/TortoiseSVN_en.xml:4671
 #: (para)
-#, fuzzy
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr "Anda sering ingin melihat ke dalam file Anda, melihat yang sudah Anda ubah. Anda bisa melaksanakan ini dengan memilih file yang sudah diubah dan memilih <guimenuitem>Diff</guimenuitem> dari menu konteks TortoiseSVN. Ini memulai peninjau-diff eksternal, yang akan membandingkan file saat ini dengan copy murni (revisi <literal>BASE</literal>), yang disimpan setelah checkout atau pemutahiran terakhir."
+msgstr "Seringkali Anda ingin melihat ke dalam file Anda, untuk melihat apa yang sudah Anda ubah. Anda bisa melaksanakan ini dengan memilih file yang sudah diubah dan memilih <guimenuitem>Diff</guimenuitem> dari menu konteks TortoiseSVN. Ini memulai peninjau-diff eksternal, yang akan membandingkan file saat ini dengan copy murni (revisi <literal>BASE</literal>), yang disimpan setelah checkout atau pemutahiran terakhir."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4717(para)
 #: source/TortoiseSVN_en.xml:4681
 #: (para)
-#, fuzzy
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Bahkan ketika tidak di dalam copy pekerjaan Anda atau ketika Anda mempunyai multipel versi file yang ada, Anda masih bisa menampilkan diff:"
 
 # Indonesian#: source/TortoiseSVN_en.xml:4722(para)
 #: source/TortoiseSVN_en.xml:4685
 #: (para)
-#, fuzzy
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Pilih dua file yang ingin Anda bandingkan dalam explorer (contoh menggunakan <keycap>Ctrl</keycap> dan mouse) dan pilih <guimenuitem>Diff</guimenuitem> dari menu konteks TortoiseSVN. File yang diklik terakhir (satu difokus, misalnya kotak bertitik) akan dianggap sebagai yang terakhir."
 
@@ -4693,23 +4684,20 @@ msgstr "histori"
 # Indonesian#: source/TortoiseSVN_en.xml:4741(para)
 #: source/TortoiseSVN_en.xml:4705
 #: (para)
-#, fuzzy
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
 msgstr "Untuk setiap perubahan yang Anda buat dan komit, Anda harus menyediakan pesan log untuk perubahan itu. Dengan cara itu nantinya Anda bisa menemukan perubahan apa yang telah dibuat dan mengapa, dan Anda mempunyai log detil atas proses pengembangan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4752(para)
 #: source/TortoiseSVN_en.xml:4717
 #: (para)
-#, fuzzy
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
 msgstr "Pane atas menampilkan daftar revisi dimana perubahan terhadap file/folder sudah dikomit. Ringkasan ini menyertakan tanggal dan jam, orang yang mengkomit revisi dan awal dari pesan log."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4757(para)
 #: source/TortoiseSVN_en.xml:4723
 #: (para)
-#, fuzzy
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr "Baris ditampilkan dalam warna biru menunjukan bahwa sesuatu telah dicopy ke baris pengembangan ini (mungkin dari cabang)."
+msgstr "Baris yang ditampilkan dalam warna biru menunjukan bahwa sesuatu telah dicopy ke baris pengembangan ini (mungkin dari cabang)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4763(para)
 #: source/TortoiseSVN_en.xml:4729
@@ -4720,14 +4708,12 @@ msgstr "Pane tengah menampilkan pesan log lengkap untuk revisi yang dipilih."
 # Indonesian#: source/TortoiseSVN_en.xml:4769(para)
 #: source/TortoiseSVN_en.xml:4735
 #: (para)
-#, fuzzy
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
 msgstr "Pane bawah menampilkan daftar semua file dan folder yang sudah diubah sebagai bagian dari revisi yang dipilih."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4747(para)
 #: source/TortoiseSVN_en.xml:4711
 #: (para)
-#, fuzzy
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
 msgstr "Dialog Log Revisi mengambil semua pesan log itu dan menampilkannya untuk Anda. Tampilan menjadi 3 pane. <placeholder-1/> Tapi ia lebih dari itu - ia menyediakan perintah menu konteks yang bisa Anda gunakan untuk mendapatkan bahkan lebih banyak informasi tentang histori proyek."
 
@@ -4758,14 +4744,12 @@ msgstr "Dari halaman properti"
 # Indonesian#: source/TortoiseSVN_en.xml:4799(para)
 #: source/TortoiseSVN_en.xml:4765
 #: (para)
-#, fuzzy
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
 msgstr "Dari dialog progres setelah pemutahiran selesai. Maka dialog Log hanya menampilkan revisi itu yang diubah sejak pemutahiran Anda yang terakhir"
 
 # Indonesian#: source/TortoiseSVN_en.xml:4781(para)
 #: source/TortoiseSVN_en.xml:4747
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
 msgstr "<placeholder-1/> Ada beberapa tempat dari dimana Anda bisa menampilkan dialog Log: <placeholder-2/>"
 
@@ -4784,84 +4768,72 @@ msgstr "Pane Atas Dialog Log Revisi dengan Menu Konteks"
 # Indonesian#: source/TortoiseSVN_en.xml:4819(para)
 #: source/TortoiseSVN_en.xml:4784
 #: (para)
-#, fuzzy
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
 msgstr "Membandingkan revisi yang dipilih dengan copy pekerjaan Anda. Piranti-Diff standar adalah TortoiseMerge yang disertakan dengan TortoiseSVN. Jika dialog log adalah untuk folder, ini akan memperlihatkan kepada Anda daftar dari file yang diubah, dan membolehkan Anda untuk meninjau ulang perubahan yang dibuat ke setiap file secara individu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4830(para)
 #: source/TortoiseSVN_en.xml:4794
 #: (para)
-#, fuzzy
 msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Blame revisi yang dipilih, dan file dalam BASE pekerjaan Anda dan membandingkan hasil menggunakan piranti diff visual. Baca <xref linkend=\"tsvn-dug-blame-diffs\"/> untuk detil lebih jauh."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4838(para)
 #: source/TortoiseSVN_en.xml:4801
 #: (para)
-#, fuzzy
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
 msgstr "Melihat perubahan yang dibuat dalam revisi yang dipilih sebagai fileUnified-Diff (GNU patch format). Ini memperlihatkan hanya perbedaan dengan beberapa baris dari konteks. Ini lebih sulit untuk dibaca daripada perbandingan file visual, tapi akan menampilkan semua perubahan file sekaligus dalam format yang kompak."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4848(para)
 #: source/TortoiseSVN_en.xml:4810
 #: (para)
-#, fuzzy
 msgid "Save the selected revision to a file so you have an older version of that file. This option is only available when you access the log for a file, and it saves a version of that one file only."
 msgstr "Menyimpan revisi yang dipilih ke file agar Anda mempunyai versi dari file itu. Opsi ini hanya tersedia saat Anda mengakses log untuk file, dan ia menyimpan versi hanya dari file itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4856(para)
 #: source/TortoiseSVN_en.xml:4818
 #: (para)
-#, fuzzy
 msgid "Open the repository browser to examine the selected folder. This option is only available when you access the log for a directory."
 msgstr "Membuka browser repositori untuk memeriksa folder yang dipilih. Opsi ini hanya tersedia saat Anda mengakses log untuk direktori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4863(para)
 #: source/TortoiseSVN_en.xml:4825
 #: (para)
-#, fuzzy
 msgid "Create a branch/tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
 msgstr "Membuat cabang/tag dari revisi yang dipilih. Ini berguna misalnya jika Anda lupa untuk membuat tag dan sudah mengkomit beberapa perubahan yang tidak seharusnya masuk ke dalam rilis itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4871(para)
 #: source/TortoiseSVN_en.xml:4833
 #: (para)
-#, fuzzy
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy will be inconsistent and you will be unable to commit any changes."
 msgstr "Memutahirkan copy pekerjaan Anda ke revisi yang dipilih. Berguna jika Anda ingin mempunyai copy pekerjaan Anda merefleksikan waktu yang lalu. Hal terbaik untuk memutahirkan seluruh direktori dalam copy pekerjaan Anda, buka hanya satu file, sebaliknya copy pekerjaan Anda menjadi tidak konsisten dan Anda tidak akan bisa mengkomit setiap perubahan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4881(para)
 #: source/TortoiseSVN_en.xml:4843
 #: (para)
-#, fuzzy
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
 msgstr "Memulihkan perubahan dimana Anda buat dalam revisi yang dipilih. Perubahan yang dipulihkan dalam copy pekerjaan Anda agar operasi ini <emphasis>tidak</emphasis> mempengaruhi repositori sama sekali! Catatan bahwa ini akan membatalkan perubahan yang dibuat hanya dalam revisi itu. Ia tidak menimpa copy pekerjaan Anda dengan seluruh file pada revisi sebelumnya. Ini berguna untuk membatalkan perubahan sebelumnya ketika perubahan lain yang tidak terkait pernah dibuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4894(para)
 #: source/TortoiseSVN_en.xml:4855
 #: (para)
-#, fuzzy
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
 msgstr "Memulihkan ke revisi sebelumnya. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4907(para)
 #: source/TortoiseSVN_en.xml:4868
 #: (para)
-#, fuzzy
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
 msgstr "Mengedit pesan log atau pembuat yang terlampir ke komit sebelumnya. Baca <xref linkend=\"tsvn-dug-showlog-4\"/> untuk mengetahui bagaimana ini bekerja."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4914(para)
 #: source/TortoiseSVN_en.xml:4875
 #: (para)
-#, fuzzy
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
 msgstr "Mencari pesan log untuk teks yang Anda masukan. Ini mencari pesan log yang Anda masukan dan juga ringkasan tindakan yang dibuat oleh Subversion (ditampilkan dalam pane bawah). Pencarian tidak sensitif huruf."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4810(para)
 #: source/TortoiseSVN_en.xml:4776
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> The top pane of the Log dialog has a context menu that allows you to <placeholder-2/>"
 msgstr "<placeholder-1/> Pane atas dari dialog Log mempunyai menu konteks yang membolehkan Anda untuk <placeholder-2/>"
 
@@ -4874,28 +4846,24 @@ msgstr "Menu Konteks Pane Atas untuk 2 Revisi yang Dipilih"
 # Indonesian#: source/TortoiseSVN_en.xml:4933(para)
 #: source/TortoiseSVN_en.xml:4894
 #: (para)
-#, fuzzy
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
 msgstr "Membandingkan dua revisi yang dipilih menggunkan piranti pembeda visual. Piranti-Diff standar adalah TortoiseMerge yang disertakan dengan TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4938(para)
 #: source/TortoiseSVN_en.xml:4899
 #: (para)
-#, fuzzy
 msgid "If you select this option for a folder, a further dialog pops up listing the changed files and offering you further diff options. Read more about the Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Jika Anda memilih opsi ini untuk folder, dialog selanjutnya muncul mendaftarkan file yang diubah dan menawarkan opsi diff berikutnya. Baca tengang dialog Membandingkan Revisi dalam <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Jika Anda memilih opsi ini untuk folder, dialog selanjutnya muncul mendaftarkan file yang diubah dan menawarkan opsi diff berikutnya. Baca tentang dialog Membandingkan Revisi dalam <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4946(para)
 #: source/TortoiseSVN_en.xml:4907
 #: (para)
-#, fuzzy
 msgid "Blame the two revisions and compare the results using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Blame dua revisi dan bandingkan hasil menggunakan piranti pembeda visual. Baca selengkapnya <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4953(para)
 #: source/TortoiseSVN_en.xml:4914
 #: (para)
-#, fuzzy
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
 msgstr "Melihat perbedaan antara dua revisi yang dipilih sebagai file Unified-Diff. Pekerjaan ini untuk file dan folder."
 
@@ -4914,14 +4882,12 @@ msgstr "Cari pesan log seperti dijelaskan di atas."
 # Indonesian#: source/TortoiseSVN_en.xml:4923(para)
 #: source/TortoiseSVN_en.xml:4884
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
 msgstr "<placeholder-1/> Jika Anda memilih dua revisi sekaligus (menggunakan <keycap>Ctrl</keycap>-modifier biasa), menu konteks berubah dan memberikan opsi lebih sedikit: <placeholder-2/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:4970(para)
 #: source/TortoiseSVN_en.xml:4931
 #: (para)
-#, fuzzy
 msgid "If you select multiple consecutive revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in that range of revisions. This is the easiest way to rollback a group of revisions in one go."
 msgstr "Jika Anda memilih multipel revisi berturut-turut (menggunakan <keycap>Ctrl</keycap> atau <keycap>Shift</keycap> modifiers biasa), menu konteks akan menyertakan entri untuk Memulihkan semua perubahan yang dibuat dalam jangkauan revisi itu. Ini merupakan cara termudah untuk melakukan rollback satu grup revisi sekali jalan."
 
@@ -4934,21 +4900,18 @@ msgstr "Pane Bawah Dialog Log dengan Menu Konteks"
 # Indonesian#: source/TortoiseSVN_en.xml:4987(para)
 #: source/TortoiseSVN_en.xml:4946
 #: (para)
-#, fuzzy
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
 msgstr "Menampilkan perbedaan yang dibuat dalam revisi yang dipilih untuk file yang dipilih. Menu konteks ini hanya tersedia untuk file yang ditampilkan sebagai <literal>Diubah</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4994(para)
 #: source/TortoiseSVN_en.xml:4953
 #: (para)
-#, fuzzy
 msgid "Blame the selected revision and the previous revision for the selected file, and show the differences using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Blame revisi yang dipilih dan revisi sebelumnya untuk file yang dipilih, dan menampilkan perbedaan menggunakan piranti diff visual. Baca selengkapnya <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5002(para)
 #: source/TortoiseSVN_en.xml:4960
 #: (para)
-#, fuzzy
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
 msgstr "Membuka file yang dipilih, baik dengan peninjau standar untuk tipe file itu, ataupun dengan program yang Anda sukai."
 
@@ -4973,14 +4936,12 @@ msgstr "Menampilkan log revisi untuk file tunggal yang dipilih."
 # Indonesian#: source/TortoiseSVN_en.xml:5024(para)
 #: source/TortoiseSVN_en.xml:4981
 #: (para)
-#, fuzzy
 msgid "Save the selected revision to a file so you have an older version of that file."
 msgstr "Menyimpan revisi yang dipilih ke file agar Anda mempunyai versi lama dari file itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4978(para)
 #: source/TortoiseSVN_en.xml:4938
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
 msgstr "<placeholder-1/> Pane bawah dari dialog Log juga mempunyai menu konteks yang membolehkan Anda untuk <placeholder-2/>"
 
@@ -4993,70 +4954,60 @@ msgstr "Mendapatkan pesan log lebih banyak"
 # Indonesian#: source/TortoiseSVN_en.xml:5039(para)
 #: source/TortoiseSVN_en.xml:4996
 #: (para)
-#, fuzzy
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
 msgstr "Untuk repositori besar disana mungkin ada ratusan atau bahkan ribuan perubahan dan mengambil itu semua bisa memerlukan waktu lama. Biasanya Anda hanya tertarik pada perubahan yang lebih baru. Standarnya, jumlah pesan log yang diambil dibatasi ke 100, tapi Anda bisa mengubah nilai ini dalam <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Seting</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
 
 # Indonesian#: source/TortoiseSVN_en.xml:5054(para)
 #: source/TortoiseSVN_en.xml:5011
 #: (para)
-#, fuzzy
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
 msgstr "Ketika kotak <guilabel>Hentikan copy/ganti nama</guilabel> dicentang, Tampilkan Log akan berhenti pada titik file atau folder yang dipilih dari mana saja di dalam repositori. Ini bisa berguna saat pencarian di cabang (atau tag) karena ia berhenti di akar dari cabang itu, dan memberikan indikasi cepat dari perubahan hanya dalam cabang itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5063(para)
 #: source/TortoiseSVN_en.xml:5020
 #: (para)
-#, fuzzy
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
-msgstr "Biasanya Anda ingin membiarkan opsi ini tidak dicentang. TortoiseSVN mengingat konndisi dari kotak centang, maka ia akan menghormati preferensi Anda."
+msgstr "Biasanya Anda ingin membiarkan opsi ini tidak dicentang. TortoiseSVN mengingat kondisi dari kotak centang, maka ia akan menghormati preferensi Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5068(para)
 #: source/TortoiseSVN_en.xml:5025
 #: (para)
-#, fuzzy
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr "Ketika dialog Tampilkan Log diminta dari dalam dialog Merge, standarnya kotak selalu dicentang. Ini dikarenakan penggabungan adalah yang palingn sering mencari perubahan pada cabang, dan kembali diluar akar dari cabang yang tidak masuk akal dalam kejadian itu."
+msgstr "Ketika dialog Tampilkan Log diminta dari dalam dialog Merge, secara bawaan kotak itu selalu dicentang. Ini dikarenakan penggabungan adalah paling sering mencari perubahan pada cabang, dan kembali diluar akar dari cabang tidak masuk akal dalam kejadian itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5075(para)
 #: source/TortoiseSVN_en.xml:5032
 #: (para)
-#, fuzzy
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr "Catatan bahwa Subversion saat ini mengimplementasi penggantian nama sebagai pasangan copy/hapus, maka mengganti nama file atau folder juga akan menyebabkan tampilan log berhenti jika opsi ini dicentang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5034(para)
 #: source/TortoiseSVN_en.xml:4991
 #: (para)
-#, fuzzy
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr "Dialog Log tidak selalu menampilkan semua perubahan yang dibuat untuk sejumlah alasan: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:5084(para)
 #: source/TortoiseSVN_en.xml:5041
 #: (para)
-#, fuzzy
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
 msgstr "Jika Anda ingin melihat log pesan lebih, klik <guibutton>100 Berikutnya</guibutton> untuk mengambil 100 pesan log berikutnya. Anda bisa mengulang ini sebanyak yang Anda butuhkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5089(para)
 #: source/TortoiseSVN_en.xml:5046
 #: (para)
-#, fuzzy
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
-msgstr "Disebelah tombol ini ada tombol multi-fungsi yang mengingat opsi terakhir yang Anda gunakan.Klik pada panah untuk melihat opsi lain yang ditawarkan."
+msgstr "Disebelah tombol ini ada tombol multi-fungsi yang mengingat opsi terakhir yang Anda gunakan. Klik pada panah untuk melihat opsi lain yang ditawarkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5093(para)
 #: source/TortoiseSVN_en.xml:5051
 #: (para)
-#, fuzzy
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
 msgstr "Gunakan <guibutton>Tampilkan Jangkauan ...</guibutton> jika Anda ingin meninjau jangkauan revisi tertentu. Dialog akan meminta Anda untuk memasukan awal dan akhir revisi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5098(para)
 #: source/TortoiseSVN_en.xml:5056
 #: (para)
-#, fuzzy
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
 msgstr "Gunakan <guibutton>Tampilkan Semua</guibutton> jika Anda ingin melihat <emphasis>semua</emphasis> pesan log dari HEAD kembali ke revisi 1."
 
@@ -5075,28 +5026,24 @@ msgstr "edit log/pembuat"
 # Indonesian#: source/TortoiseSVN_en.xml:5108(para)
 #: source/TortoiseSVN_en.xml:5066
 #: (para)
-#, fuzzy
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr "Ada kalanya Anda mungkin ingin mengubah pesan log yang pernah Anda masukan, mungkin karena ada kesalahan ejaan didalamnya atau Anda ingin meningkatkan pesan atau mengubahnya untuk alasan lain. Atau Anda ingin mengubah pembuat dari komit karena Anda lupa untuk menyiapkan otentikasi atau ..."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5115(para)
 #: source/TortoiseSVN_en.xml:5073
 #: (para)
-#, fuzzy
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr "Subversion membiarkan Anda mengubah kedua pesan log serta pembuat dari revisi kapan saja Anda inginkan. Tapi karena perubahan itu tidak bisa dibatalkan (perubahan itu tidak diversi) standarnya fitur ini dimatikan. Untuk membuat ini bekerja Anda harus menyiapkan hook pre-revprop-change. Silahkan rujuk ke bab pada <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Naskah Hook</citetitle></ulink> dalam Buku Subversion untuk perincian mengenai bagaimana untuk melakukannya. Baca <xref linkend=\"tsvn-repository-hooks\"/> untuk mencari beberapa catatan selanjutnya guna mengimplementasikan hook pada mesin Windows."
+msgstr "Subversion membiarkan Anda mengubah kedua pesan log serta pembuat dari revisi kapan saja Anda inginkan. Tapi karena perubahan itu tidak bisa dibatalkan (perubahan itu tidak diversi) standarnya fitur ini dimatikan. Untuk membuat ini bekerja Anda harus menyiapkan hook pre-revprop-change. Silahkan rujuk ke bab pada <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html\"><citetitle>Hook Scripts</citetitle></ulink> dalam Buku Subversion untuk perincian mengenai bagaimana untuk melakukannya. Baca <xref linkend=\"tsvn-repository-hooks\"/> untuk mencari beberapa catatan selanjutnya guna mengimplementasikan hook pada mesin Windows."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5130(para)
 #: source/TortoiseSVN_en.xml:5086
 #: (para)
-#, fuzzy
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr "Sekali Anda telah menyiapkan server Anda dengan hook yang dibutuhkan, Anda bisa mengubah pembuat dan pesan log dari setiap revisi, menggunakan menu konteks dari pane atas dari dialog Log."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5136(para)
 #: source/TortoiseSVN_en.xml:5092
 #: (para)
-#, fuzzy
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr "Karena properti revisi Subversion tidak diversi, membuat perubahan ke properti demikian (sebagai contoh, properti pesan komit <literal>svn:log</literal>) akan menimpa nilai sebelumnya dari properti itu <emphasis>selamanya</emphasis>."
 
@@ -5115,23 +5062,20 @@ msgstr "filter"
 # Indonesian#: source/TortoiseSVN_en.xml:5149(para)
 #: source/TortoiseSVN_en.xml:5106
 #: (para)
-#, fuzzy
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr "Jika Anda ingin membatasi pesan log untuk ditampilkan hanya yang menarik bagi Anda daripada menggulung melalui daftar ratusan, Anda bisa menggunakan kontrol filter di atas dari Dialog Log. Kontrol awal dan akhir tanggal membolehkan Anda untuk membatasi output ke jangkauan tanggal yang diketahui. Kotak pencarian membolehkan Anda untuk menampilkan hanya pesan yang berisi prasa tertentu."
+msgstr "Jika Anda ingin membatasi pesan log untuk ditampilkan hanya yang menarik bagi Anda daripada menggulung melalui daftar ratusan, Anda bisa menggunakan kontrol filter di atas dari Dialog Log. Kontrol awal dan akhir tanggal membolehkan Anda untuk membatasi output ke jangkauan tanggal yang diketahui. Kotak pencarian membolehkan Anda untuk menampilkan hanya pesan yang berisi frase tertentu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5158(para)
 #: source/TortoiseSVN_en.xml:5115
 #: (para)
-#, fuzzy
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr "Catatan bahwa filter ini bertindak pada pesan yang sudah diterima. Mereka tidak mengontrol pengambilan pesan dari repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5163(para)
 #: source/TortoiseSVN_en.xml:5119
 #: (para)
-#, fuzzy
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tri-state: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
-msgstr "Anda bisa juga menyaring nama path dalam pane bawah menggunakan kotak centang <guilabel>Sembunyikan perubahan path yang tidak terkait</guilabel>. Path terkait adalah path yang berisi path yang digunakan untuk menampilkan log. Jika Anda mengambil log untuk folder, itu berarti apapun dalam folder itu atau dibawahnya. Untuk file itu berarti hanya satu file itu. Kotak centang adalah tiga-kondisiL Anda bisa menampilkan semua path, menandai yang tidak terkait, atau menyembunyikan path tidak terkait sepenuhnya."
+msgstr "Anda bisa juga menyaring nama path dalam pane bawah menggunakan kotak centang <guilabel>Sembunyikan perubahan path yang tidak terkait</guilabel>. Path terkait adalah path yang berisi path yang digunakan untuk menampilkan log. Jika Anda mengambil log untuk folder, itu berarti apapun dalam folder itu atau dibawahnya. Untuk file itu berarti hanya satu file itu. Kotak centang adalah tiga-kondisi; Anda bisa menampilkan semua path, menandai yang tidak terkait, atau menyembunyikan path tidak terkait sepenuhnya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5178(title)
 #: source/TortoiseSVN_en.xml:5131
@@ -5148,7 +5092,6 @@ msgstr "statistik"
 # Indonesian#: source/TortoiseSVN_en.xml:5182(para)
 #: source/TortoiseSVN_en.xml:5135
 #: (para)
-#, fuzzy
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr "Tombol <guibutton>Statistik</guibutton> memunculkan kotak yang menampilkan beberapa informasi menarik tentang revisi yang ditampikan dalam dialog Log. Ini menampilkan berapa banyak pembuat sudah bekerja, berapa banyak komit yang telah dibuat, kemajuan dengan minggu, dan masih banyak lagi. Sekarang Anda bisa melihat sekaligus siap yang sudah bekerja paling keras dan siapa yang malas ;-)"
 
@@ -5161,7 +5104,6 @@ msgstr "Halaman Statistik"
 # Indonesian#: source/TortoiseSVN_en.xml:5193(para)
 #: source/TortoiseSVN_en.xml:5145
 #: (para)
-#, fuzzy
 msgid "This page gives you all the numbers you can think of, in particular the period and number of revisions covered, and some min/max/average values."
 msgstr "Halaman ini memberikan Anda semua angka yang bisa Anda pikirkan dalam periode dan jumlah revisi tertentu yang ditemukan, dan beberapa nilai min/max/rata-rata."
 
@@ -5186,14 +5128,12 @@ msgstr "Pie Chart Komit-per-Pembuat"
 # Indonesian#: source/TortoiseSVN_en.xml:5201(para)
 #: source/TortoiseSVN_en.xml:5153
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This graph shows you which authors have been active on the project as a simple histogram, stacked histogram or pie chart. <placeholder-2/>"
 msgstr "<placeholder-1/> Grafik ini memperlihatkan kepada Anda pembuat yang aktif pada proyek sebagai histogram sederhana, histogram bertumpuk atau pie chart. <placeholder-2/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:5214(para)
 #: source/TortoiseSVN_en.xml:5166
 #: (para)
-#, fuzzy
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a per centage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
 msgstr "Dimana ada beberapa pembuat utama dan banyak kontributor minor, jumlah segmen kecil bisa membuat grafik lebih sulit untuk dibaca. Penggulung di bawah membolehkan Anda untuk mengeset threshold (sebagai prosentase dari total komit) dibawah yang setiap aktivitas dikelompokan ke dalam kategori <emphasis>Lain-lain</emphasis>."
 
@@ -5212,28 +5152,24 @@ msgstr "Grafik Komit-per-Minggu"
 # Indonesian#: source/TortoiseSVN_en.xml:5225(para)
 #: source/TortoiseSVN_en.xml:5176
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
 msgstr "<placeholder-1/> Halaman ini memberikan gambaran grafis dari aktivitas proyek dalam batasan jumlah komit <emphasis>dan</emphasis> pembuat. Ini memberikan ide kapan proyek dikerjakan, dan siapa yang mengerjakannya pada waktu kapan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5235(para)
 #: source/TortoiseSVN_en.xml:5186
 #: (para)
-#, fuzzy
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
 msgstr "Ketika ada beberapa pembuat, Anda akan mendapatkan banyak baris pada grafik. Ada dua tampilan tersedia disini: <emphasis>normal</emphasis>, dimana setiap aktivitas pembuat relatif ke baris base, dan <emphasis>ditumpuk</emphasis>, dimana aktivitas pembuat relatif ke baris dibawahnya. Opsi terakhir menghindari baris saling silang, yang bisa membuat grafik mudah untuk dibaca, tapi kurang mudah bagi satu output pembuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5246(para)
 #: source/TortoiseSVN_en.xml:5196
 #: (para)
-#, fuzzy
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases usernames are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
 msgstr "Standarnya analisis adalah sensitif huruf, maka pengguna <literal>PeterEgan</literal> dan <literal>PeteRegan</literal> diperlakukan sebagai pembuat yang berbeda. Akan tetapi, dalam banyak hal nama pengguna tidak sensitif huruf, dan kadang-kadang dimasukkan secara tidak konsisten, maka mungkin Anda menginginkan <literal>DavidMorgan</literal> dan <literal>davidmorgan</literal> diperlakukan sebagai orang yang sama. Gunakan kotak centang <guilabel>Pembuat sensitif huruf</guilabel> untuk mengontrol bagaimana ini ditangani."
 
 # Indonesian#: source/TortoiseSVN_en.xml:5257(para)
 #: source/TortoiseSVN_en.xml:5206
 #: (para)
-#, fuzzy
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr "Catatan bahwa statistik mencakup periode yang sama dengan dialog Log. Jika itu hanya menampilkan satu revisi maka statistik tidak akan memberitahu lebih banyak."
 
@@ -5252,7 +5188,6 @@ msgstr "diff"
 # Indonesian#: source/TortoiseSVN_en.xml:5269(para)
 #: source/TortoiseSVN_en.xml:5218
 #: (para)
-#, fuzzy
 msgid "One of the commonest requirements in project development is to see what has changed. You might want to look at the differences between two revisions of the same file, or the differences between two separate files. TortoiseSVN provides a builtin tool named <application>TortoiseMerge</application> for viewing differences of text files. For viewing differences of image files, TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. Of course, you can use your own favourite diff program if you like."
 msgstr "Salah satu kebutuhan yang paling umum dalam pengembangan proyek adalah untuk melihat apa yang telah berubah. Anda mungkin ingin melihat perbedaan antara dua revisi dari file yang sama, atau perbedaan antara dua file terpisah. TortoiseSVN menyediakan piranti builtin yang dinamai <application>TortoiseMerge</application> untuk melihat perbedaan dari file teks. Untuk melihat perbedaan file gambar, TortoiseSVN juga mempunyai piranti bernama <application>TortoiseIDiff</application>. Tentunya, Anda bisa menggunakan program diff favorit Anda jika Anda inginkan."
 
@@ -5271,7 +5206,6 @@ msgstr "Perubahan lokal"
 # Indonesian#: source/TortoiseSVN_en.xml:5287(para)
 #: source/TortoiseSVN_en.xml:5236
 #: (para)
-#, fuzzy
 msgid "If you want to see what changes <emphasis>you</emphasis> have made in your working copy, just use the explorer context menu and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr "Jika Anda ingin melihat apa yang telah <emphasis>Anda</emphasis> ubah dalam copy pekerjaan Anda, cukup gunakan menu konteks explorer dan pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 
