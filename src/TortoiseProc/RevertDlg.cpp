@@ -104,8 +104,6 @@ UINT CRevertDlg::RevertThread()
 						// do not select all files, only the ones the user has selected directly
 						SVNSLC_SHOWDIRECTFILES);
 
-	DialogEnableWindow(IDOK, true);
-
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;
 	GetCursorPos(&pt);
