@@ -2823,6 +2823,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				}
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
