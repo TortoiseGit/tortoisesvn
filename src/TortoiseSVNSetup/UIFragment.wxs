@@ -617,7 +617,7 @@
         <Control Id="Text" Type="Text" X="35" Y="65" Width="300" Height="40">
           <Text>Please wait while the [Wizard] [Progress2] [ProductName]. This may take several minutes.</Text>
         </Control>
-        <Control Id="ActionText" Type="Text" X="70" Y="105" Width="265" Height="10">
+        <Control Id="ActionText" Type="Text" X="70" Y="105" Width="265" Height="13">
           <Subscribe Event="ActionText" Attribute="Text" />
         </Control>
         <Control Id="ProgressBar" Type="ProgressBar" X="35" Y="120" Width="300" Height="10" ProgressBlocks="yes" Text="Progress done">
