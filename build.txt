@@ -3,6 +3,8 @@ First, you need to install the compiler package.
 A. You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
    building of the full TortoiseSVN package. This is the recommended
    option, but it is not free :-(
+   If you want to build the msi make sure the "Tools for Redistributing
+   Applications" are installed.
 
 B. If you do not have access to VS.NET you can download the free
    Visual C++ 2005 Express Edition (only free for a limited period).
@@ -44,7 +46,7 @@ Next you need to install some utilities/programs:
     You may have to logoff/logon to make the new environment variables take effect!
 (+) Add the path to the include folder in the Visual Studio options,
     Projects and Solutions->VC++ Directories, include files
-(#) Copy/Move the gdiplus.msm file to the %CommonProgramFiles%\Merge Modules directory
+(#) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
 
 
 Next you need to download some more:
@@ -124,7 +126,7 @@ Building 32 bit packages
   > error C2065: 'SVN_FS_WANT_DB_MINOR' : undeclared identifier
   > error C2065: 'SVN_FS_WANT_DB_PATCH' : undeclared identifier
   This is expected and you don't have to worry about that. The reason for those
-  erros is that TortoiseSVN builds the Subversion library twice. Once with 
+  errors is that TortoiseSVN builds the Subversion library twice. Once with 
   all the ra-layers and all dbs, and once without those. The errors come
   from that 'raw' build, but from libraries which aren't used in that build
   anyway. Sure, the build script could just compile the libraries which
