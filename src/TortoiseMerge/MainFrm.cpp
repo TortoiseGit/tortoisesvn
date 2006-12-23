@@ -436,6 +436,8 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
 void CMainFrame::OnFileOpen()
 {
+	if (CheckForSave()==IDCANCEL)
+		return;
 	COpenDlg dlg;
 	if (dlg.DoModal()!=IDOK)
 	{
@@ -706,6 +708,8 @@ void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewOnewaydiff()
 {
+	if (CheckForSave()==IDCANCEL)
+		return;
 	m_bOneWay = !m_bOneWay;
 	LoadViews(TRUE);
 }
@@ -986,16 +990,8 @@ void CMainFrame::OnViewOptions()
 	dlg.DoModal();
 	if (dlg.IsReloadNeeded())
 	{
-		if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
-			((m_pwndRightView)&&(m_pwndRightView->IsModified())))
-		{
-			CString sTemp;
-			sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGESOPTIONS);
-			if (MessageBox(sTemp, 0, MB_YESNO | MB_ICONQUESTION)==IDNO)
-			{
-				return;
-			}
-		}
+		if (CheckForSave()==IDCANCEL)
+			return;
 		m_Data.LoadRegistry();
 		LoadViews();
 		return;
@@ -1359,16 +1355,8 @@ void CMainFrame::OnUpdateTextBlockSelection(CCmdUI *pCmdUI)
 
 void CMainFrame::OnFileReload()
 {
-	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
-		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
-	{
-		CString sTemp;
-		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
-		if (MessageBox(sTemp, 0, MB_YESNO | MB_ICONQUESTION)==IDNO)
-		{
-			return;
-		}
-	}
+	if (CheckForSave()==IDCANCEL)
+		return;
 	m_Data.LoadRegistry();
 	LoadViews();
 }
@@ -1635,4 +1623,22 @@ void CMainFrame::OnEditUndo()
 void CMainFrame::OnUpdateEditUndo(CCmdUI *pCmdUI)
 {
 	pCmdUI->Enable(CUndo::GetInstance().CanUndo());
+}
+
+int CMainFrame::CheckForSave()
+{
+	int ret = IDNO;
+	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
+		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+	{
+		CString sTemp;
+		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
+		ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+
+		if (ret == IDYES)
+		{
+			FileSave();
+		}
+	}
+	return ret;
 }

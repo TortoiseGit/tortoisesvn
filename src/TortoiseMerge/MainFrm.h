@@ -105,6 +105,11 @@ protected:
 	enum SearchDirection{SearchNext=0, SearchPrevious=1};	
 	void 			Search(SearchDirection);
 	int				FindSearchStart(int nDefault);
+	/// checks if there are modifications and asks the user to save them first
+	/// IDCANCEL is returned if the user wants to cancel.
+	/// If the user wanted to save the modifications, this method does the saving
+	/// itself.
+	int				CheckForSave();
 
 protected: 
 	CStatusBar		m_wndStatusBar;
