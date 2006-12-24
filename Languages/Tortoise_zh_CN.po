@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-23 19:40+0800\n"
+"PO-Revision-Date: 2006-12-24 22:19+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2874,6 +2874,12 @@ msgid "Export unversioned files too"
 msgstr "导出无版本控制信息的文件"
 
 # ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "正在导出 %s"
+
+# ID:79,
 #: ID:79
 msgid "Exporting..."
 msgstr "正在导出..."
@@ -3103,6 +3109,11 @@ msgstr ""
 "需要GDI+才能将版本图保存成图片格式。\n"
 "你可以从以下地址下载GDI+\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
+# ID:120,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "正在获取信息。请等待 ..."
 
 # Dlg-ID:143,#:
 # Dlg-ID:107,#:
@@ -7856,6 +7867,7 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
