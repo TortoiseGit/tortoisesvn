@@ -2781,6 +2781,13 @@ BEGIN
     IDS_PROGRS_INFOFAILED   "The operation failed."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_SVNPROGRESS_EXPORTING "Exporting %s"
+    IDS_SVNPROGRESS_EXPORTINGTO "to %s"
+    IDS_SVNPROGRESS_EXPORTINGWAIT "Gathering information. Please wait..."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

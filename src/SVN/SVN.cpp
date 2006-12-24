@@ -34,8 +34,8 @@
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "TempFile.h"
-#include "ShellFileOp.h"
 #include "SVNAdminDir.h"
+#include "MessageBox.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -536,37 +536,26 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 		// of the export with a progress bar - that's not possible with the
 		// Subversion API.
 		// BUG?: If a folder is marked as deleted, we export that folder too!
+		CProgressDlg progress;
+		progress.SetTitle(IDS_PROC_EXPORT_3);
+		progress.SetAnimation(IDR_MOVEANI);
+		progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
+		progress.SetTime(true);
+		progress.ShowModeless(hWnd);
+		std::map<CString, CString> copyMap;
 		if (extended)
 		{
+
 			CString srcfile;
-			CShellFileOp fop;
 			CDirFileEnum lister(srcPath.GetWinPathString());
-			fop.AddSourceFile(srcPath.GetWinPath());
-			fop.AddDestFile(destPath.GetWinPath());
+			copyMap[srcPath.GetWinPath()] = destPath.GetWinPath();
 			while (lister.NextFile(srcfile, NULL))
 			{
 				if (g_SVNAdminDir.IsAdminDirPath(srcfile))
 					continue;
-				if (!fop.AddSourceFile(srcfile))
-				{
-					Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-					return FALSE;
-				}
 				CString destination = destPath.GetWinPathString() + _T("\\") + srcfile.Mid(srcPath.GetWinPathString().GetLength());
 				destination.Replace(_T("\\\\"), _T("\\"));
-				if (!fop.AddDestFile(destination))
-				{
-					Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-					return FALSE;
-				}
-			}
-			fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION | (force ? FOF_NOCONFIRMATION : 0));
-			fop.SetProgressDlgTitle(IDS_PROC_EXPORT_3);
-			fop.Start();
-			if (fop.AnyOperationsAborted())
-			{
-				Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
-				return FALSE;
+				copyMap[srcfile] = destination;
 			}
 		}
 		else
@@ -574,15 +563,13 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			CTSVNPath statusPath;
 			svn_wc_status2_t * s;
 			SVNStatus status;
-			CShellFileOp fop;
 			if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, true, true, !!bIgnoreExternals))!=0)
 			{
 				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
 				{
 					CString src = statusPath.GetWinPathString();
-					fop.AddSourceFile(src);
 					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
-					fop.AddDestFile(destination);
+					copyMap[src] = destination;
 				}
 				while ((s = status.GetNextFileStatus(statusPath))!=0)
 				{
@@ -594,60 +581,8 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 						continue;
 					
 					CString src = statusPath.GetWinPathString();
-
-					// If we have nested externals, we can have something like this:
-					// folder					-> folder
-					// folder/nested/f1			-> folder/nested/f1
-					// then we have to make sure that
-					// folder/nested			-> folder/nested
-					// is also added
-					if ((!bIgnoreExternals)&&(s->entry)&&(s->entry->kind == svn_node_dir))
-					{
-						if (srcPath.IsAncestorOf(statusPath))
-						{
-							CTSVNPathList interlist;
-							CTSVNPath intermediate = statusPath.GetContainingDirectory();
-							while ((!intermediate.IsEquivalentTo(srcPath))&&(!intermediate.IsEmpty()))
-							{
-								interlist.AddPath(intermediate);
-								intermediate = intermediate.GetContainingDirectory();
-							}
-							interlist.SortByPathname();
-							for (int ii=0; ii<interlist.GetCount(); ++ii)
-							{
-								if (!fop.AddSourceFile(interlist[ii].GetWinPathString()))
-								{
-									Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-									return FALSE;
-								}
-								CString interdestination = destPath.GetWinPathString() + _T("\\") + interlist[ii].GetWinPathString().Mid(srcPath.GetWinPathString().GetLength());
-								if (!fop.AddDestFile(interdestination))
-								{
-									Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-									return FALSE;
-								}
-							}
-						}
-					}
-					if (!fop.AddSourceFile(src))
-					{
-						Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-						return FALSE;
-					}
 					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
-					if (!fop.AddDestFile(destination))
-					{
-						Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));
-						return FALSE;
-					}
-				}
-				fop.SetOperationFlags(FO_COPY, hWnd, FOF_MULTIDESTFILES | FOF_NOCONFIRMMKDIR | FOF_NO_CONNECTED_ELEMENTS | FOF_NORECURSION | (force ? FOF_NOCONFIRMATION : 0));
-				fop.SetProgressDlgTitle(IDS_PROC_EXPORT_3);
-				fop.Start();
-				if (fop.AnyOperationsAborted())
-				{
-					Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
-					return FALSE;
+					copyMap[src] = destination;
 				}
 			}
 			else
@@ -656,6 +591,69 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 				return FALSE;
 			}
 		} // else from if (extended)
+		size_t count = 0;
+		for (std::map<CString, CString>::iterator it = copyMap.begin(); (it != copyMap.end()) && (!progress.HasUserCancelled()); ++it)
+		{
+			progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, (LPCTSTR)it->first);
+			progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, (LPCTSTR)it->second);
+			progress.SetProgress(count, copyMap.size());
+			count++;
+			if (PathIsDirectory((LPCTSTR)it->first))
+				CPathUtils::MakeSureDirectoryPathExists((LPCTSTR)it->second);
+			else
+			{
+				if (!CopyFile((LPCTSTR)it->first, (LPCTSTR)it->second, !force))
+				{
+					DWORD lastError = GetLastError();
+					if ((lastError == ERROR_ALREADY_EXISTS)||(lastError == ERROR_FILE_EXISTS))
+					{
+						lastError = 0;
+						CString sQuestion, yes, no, yestoall;
+						sQuestion.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)it->second);
+						yes.LoadString(IDS_MSGBOX_YES);
+						no.LoadString(IDS_MSGBOX_NO);
+						yestoall.LoadString(IDS_PROC_YESTOALL);
+						UINT ret = CMessageBox::Show(hWnd, sQuestion, _T("TortoiseSVN"), 2, IDI_QUESTION, yes, no, yestoall);
+						if (ret == 3)
+							force = true;
+						if ((ret == 1)||(ret == 3))
+						{
+							if (!CopyFile((LPCTSTR)it->first, (LPCTSTR)it->second, FALSE))
+							{
+								lastError = GetLastError();
+							}
+						}
+					}
+					if (lastError)
+					{
+						LPVOID lpMsgBuf;
+						if (!FormatMessage( 
+							FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+							FORMAT_MESSAGE_FROM_SYSTEM | 
+							FORMAT_MESSAGE_IGNORE_INSERTS,
+							NULL,
+							lastError,
+							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+							(LPTSTR) &lpMsgBuf,
+							0,
+							NULL ))
+						{
+							return FALSE;
+						}
+						Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString((LPCTSTR)lpMsgBuf)));
+						LocalFree(lpMsgBuf);
+						return FALSE;
+					}
+				}
+			}
+		}
+		if (progress.HasUserCancelled())
+		{
+			progress.Stop();
+			Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
+			return FALSE;
+		}
+		progress.Stop();
 	}
 	else
 	{
