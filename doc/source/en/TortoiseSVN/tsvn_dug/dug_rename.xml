@@ -217,4 +217,30 @@
 			to pair the two files as a rename.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-rename-del-unversioned">
+		<title>Deleting Unversioned Files</title>
+		<para>
+			Usually you set your ignore list such that all generated files are ignored
+			in Subversion. But what if you want to clear all those ignored items to produce
+			a clean build? Usually you would set that in your makefile, but if you are
+			debugging the makefile, or changing the build system it is useful to have a way
+			of clearing the decks.
+		</para>
+		<para>
+			TortoiseSVN provides just such an option using
+			<menuchoice>
+				<guimenu>Extended Context Menu</guimenu>
+				<guimenuitem>Delete unversioned items...</guimenuitem>
+			</menuchoice>.
+			You have to hold the <keycap>Shift</keycap> while right clicking on a folder
+			in the explorer list pane (right pane) in order to see this in the extended
+			context menu.
+			This will produce a dialog which lists all unversioned files anywhere in your
+			working copy. You can then select or deselect items to be removed.
+		</para>
+		<para>
+			When such items are deleted, the recycle bin is used, so if you make a mistake
+			here and delete a file that should have been versioned, you can still recover it.
+		</para>
+	</sect2>
 </sect1>
