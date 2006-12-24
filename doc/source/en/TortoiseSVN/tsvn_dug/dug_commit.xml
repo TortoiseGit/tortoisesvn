@@ -127,6 +127,10 @@
 			you can open the commit dialog for one folder and drag in items
 			from the other windows to include within the same atomic commit.
 		</para>
+		<para>
+			You can drag unversioned files which reside within a working copy
+			into the commit dialog, and they will be SVN added automatically.
+		</para>
 	</tip>
 	<tip>
 		<title>Repairing External Renames</title>
