@@ -136,12 +136,14 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, TRUE);
+				UpdateWindow(*this);
 				if (bLinked)
 				{
 					pTheOtherPic->nHScrollPos = nHScrollPos;
 					pTheOtherPic->nVScrollPos = nVScrollPos;
 					pTheOtherPic->SetupScrollBars();
 					InvalidateRect(*pTheOtherPic, NULL, TRUE);
+					UpdateWindow(*pTheOtherPic);
 				}
 			}
 		}
