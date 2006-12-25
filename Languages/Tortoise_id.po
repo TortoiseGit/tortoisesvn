@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-21 22:09+0700\n"
+"PO-Revision-Date: 2006-12-25 16:42+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2606,15 +2606,6 @@ msgstr ""
 "Anda ingin mengambil ulang dokumen untuk merujuk perubahan seting?\n"
 "Catatan: anda akan kehilangan semua perubahan yang anda buat!"
 
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"Anda ingin mengambil ulang dokumen?\n"
-"Catatan: anda akan kehilangan semua perubahan yang anda buat!"
-
 # ID:563,
 #: ID:563
 #, c-format
@@ -2859,6 +2850,12 @@ msgid "Export unversioned files too"
 msgstr "Ekspor file tidak berversi juga"
 
 # ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Mengekspor %s"
+
+# ID:79,
 #: ID:79
 msgid "Exporting..."
 msgstr "Mengekspor"
@@ -3091,12 +3088,16 @@ msgstr ""
 "Anda bisa mendapatkan GDI+ dari\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:120,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Mengumpulkan informasi. Silakan tunggu..."
+
 # Dlg-ID:143,#:
 # Dlg-ID:107,#:
 # Control-ID:65535,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "Umum"
 
@@ -3626,10 +3627,10 @@ msgstr "Sertakan path:"
 msgid "Initial import"
 msgstr "Impor inisial"
 
-# Control-ID:65535,
+# ID:114,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Diff sebaris"
+msgid "Inline differences"
+msgstr "Perbedaan dalam-baris"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3821,6 +3822,11 @@ msgstr "Baris"
 #: ID:246
 msgid "Line Graph"
 msgstr "Grafik Baris"
+
+# ID:114,
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Perbedaan baris"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6516,6 +6522,15 @@ msgstr ""
 "Anda ingin menyimpan file yang masih konflik?\n"
 "Jika anda mengklik YA, maka anda harus menyelesaikan konflik dalam editor lain!"
 
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Ada perubahan-perubahan yang belum tersimpan!\n"
+"Apakah Anda ingin menyimpan perubahan anda?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -7836,6 +7851,7 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "ke %s"
