@@ -45,6 +45,14 @@ IDI_START               ICON                    "player_start.ico"
 IDI_STOP                ICON                    "player_stop.ico"
 IDI_VERTICAL            ICON                    "vertical.ico"
 IDI_LINK                ICON                    "link.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_PANCUR              CURSOR                  "pan.cur"
+IDC_PANDOWNCUR          CURSOR                  "pandown.cur"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -207,7 +215,7 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n"
+    "\r\0"
 END
 
 #endif    // APSTUDIO_INVOKED

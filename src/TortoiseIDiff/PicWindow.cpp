@@ -148,6 +148,42 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			}
 		}
 		break;
+	case WM_SETCURSOR:
+		{
+			// we show a hand cursor if the image can be dragged,
+			// and a hand-down cursor if the image is currently dragged
+			if ((*this == (HWND)wParam)&&(LOWORD(lParam)==HTCLIENT))
+			{
+				RECT rect;
+				GetClientRect(&rect);
+				LONG width = picture.m_Width;
+				LONG height = picture.m_Height;
+				if (pSecondPic)
+				{
+					width = max(width, pSecondPic->m_Width);
+					height = max(height, pSecondPic->m_Height);
+				}
+
+				bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
+				bool bPicHeigthBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
+				if (bPicHeigthBigger || bPicWidthBigger)
+				{
+					// only show the hand cursors if the image can be dragged
+					// an image can be dragged if it's bigger than the window it is shown in
+					if ((GetKeyState(VK_LBUTTON)&0x8000)||(HIWORD(lParam) == WM_LBUTTONDOWN))
+					{
+						SetCursor(curHandDown);
+					}
+					else
+					{
+						SetCursor(curHand);
+					}
+					return TRUE;
+				}
+			}
+			return DefWindowProc(hwnd, uMsg, wParam, lParam);
+		}
+		break;
 	case WM_DROPFILES:
 		{
 			HDROP hDrop = (HDROP)wParam;		

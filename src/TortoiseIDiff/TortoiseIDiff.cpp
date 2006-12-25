@@ -32,6 +32,8 @@
 // Global Variables:
 HINSTANCE hInst;								// current instance
 HINSTANCE hResource;							// the resource dll
+HCURSOR   curHand;
+HCURSOR   curHandDown;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -71,6 +73,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	};
 	InitCommonControlsEx(&used);
 
+	// load the cursors we need
+	curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
+	curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
+
 	CMainWindow mainWindow(hResource);
 
 
@@ -96,6 +102,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		return (int) msg.wParam;
 	}
 	langDLL.Close();
+	DestroyCursor(curHand);
+	DestroyCursor(curHandDown);
 	return 1;
 }
 
