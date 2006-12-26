@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-25 17:34+0700\n"
+"PO-Revision-Date: 2006-12-26 08:51+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6647,21 +6647,18 @@ msgstr "Dialog Penggabungan"
 # Indonesian#: source/TortoiseSVN_en.xml:6766(para)
 #: source/TortoiseSVN_en.xml:6796
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
 msgstr "Dalam field <guilabel>Dari:</guilabel> masukkan url folder lengkap dari cabang atau tag yang berisi perubahan yang ingin Anda kirimkan ke dalam copy pekerjaan. Anda juga bisa mengklik <guibutton>...</guibutton> untuk melihat repositori dan mencari cabang yang diinginkan. Jika Anda telah menggabung dari cabang ini sebelumnya, maka cukup gunakan daftar drop down yang menampilkan histori dari URL yang sebelumnya digunakan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6779(para)
 #: source/TortoiseSVN_en.xml:6809
 #: (para)
-#, fuzzy
 msgid "Because you are porting a range of revisions from the same branch into your working copy, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
 msgstr "Karena Anda mengirimkan jangkauan revisi dari cabang yang sama ke dalam copy pekerjaan Anda, pastikan kotak centang <guilabel>Use \"Dari:\" URL</guilabel> dicentang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6786(para)
 #: source/TortoiseSVN_en.xml:6817
 #: (para)
-#, fuzzy
 msgid ""
 "In the <guilabel>From Revision</guilabel> field enter the start revision number. This is the revision <emphasis>before</emphasis> the changes you want to merge. Remember that Subversion will create a diff file in order to perform the merge, so the start point has to be just before the first change you are interested in. For example, your log messages may look something like this: <screen>\n"
 "Rev Comments\n"
@@ -6688,35 +6685,30 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:6814(para)
 #: source/TortoiseSVN_en.xml:6845
 #: (para)
-#, fuzzy
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
 msgstr "Cara termudah untuk memilih jangkauan revisi yang Anda perlukan adalah mengklik <guibutton>Show Log</guibutton>, karena ini akan mendaftarkan perubahan terakhir dengan komentar lognya. Jika Anda ingin menggabung perubahan dari revisi tunggal, cukup pilih revisi itu. Jika Anda ingin menggabung perubahan dari beberapa revisi, lalu pilih jangkauan itu (menggunakan <keycap>Shift</keycap>-modifier biasa). Klik <guibutton>OK</guibutton> dan angka revisi <guilabel>Dari revisi</guilabel> dan <guilabel>Ke revisi</guilabel> dalam dialog Gabungan <emphasis>keduanya</emphasis> akan diisi untuk Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6827(para)
 #: source/TortoiseSVN_en.xml:6858
 #: (para)
-#, fuzzy
 msgid "When the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked, only one <guibutton>Show Log</guibutton> button is enabled. This is because the Show Log dialog sets both <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions, so you need to use the multiple selection method outlined above."
 msgstr "Ketika kotak centang <guilabel>Gunakan \"Dari:\" URL</guilabel> dicentang, hanya satu tombol <guibutton>Tampilkan Log</guibutton> dihidupkan. Ini dikarenakan dialog Tampilkan Log mengeset <guilabel>Dari:</guilabel> dan <guilabel>Ke:</guilabel> revisi, maka Anda perlu menggunakan metode pilihan multipel seperti dijelaskan di atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6835(para)
 #: source/TortoiseSVN_en.xml:6866
 #: (para)
-#, fuzzy
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
 msgstr "Jika Anda sudah mempunyai gabungan beberapa perubahan dari cabang ini, dengan harapan Anda sudah membuat catatan dari revisi terakhir yang digabung dalam pesan log ketika Anda mengkomit perubahan. Dalam hal itu, Anda bisa menggunakan <guibutton>Tampilkan Log</guibutton> untuk Copy Pekerjaan melacak pesan log itu. Gunakan titik akhir dari penggabungan terakhir seperti titik awal untuk penggabungan ini. Sebagai contoh, jika Anda sudah menggabung revisi 37 ke 39 terakhir kali, maka titik awal untuk penggabungan ini seharusnya revisi 39."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6849(para)
 #: source/TortoiseSVN_en.xml:6879
 #: (para)
-#, fuzzy
 msgid "If you have not used <guibutton>Show Log</guibutton> to select the revision range, then you will need to set the <guilabel>To Revision</guilabel> manually. Enter the last revision number in the range you want to merge. Often this will be the HEAD revision, although it doesn't need to be - you may just want to merge a single revision."
 msgstr "Jika Anda belum menggunakan <guibutton>Tampilkan Log</guibutton> untuk memilih jangkauan revisi, maka Anda perlu untuk mengeset <guilabel>Ke Revisi</guilabel> secara manual. Masukkan angka revisi terakhir dalam jangkauan yang ingin Anda gabung. Ini sering menjadi revisi HEAD, meskipun tidak perlu - Anda mungkin menginginkan untuk menggabung revisi tunggal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6858(para)
 #: source/TortoiseSVN_en.xml:6887
 #: (para)
-#, fuzzy
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
 msgstr "Jika orang lain boleh mengkomit perubahan maka hati-hati terhadap penggunaan revisi HEAD. Ia tidak boleh merujuk ke revisi yang Anda pikir benar jika orang lain mengkomit setetlah pemutahiran Anda yang terkahir."
 
@@ -6730,28 +6722,24 @@ msgstr "Klik <guibutton>OK</guibutton> untuk menyelesaikan penggabungan."
 # Indonesian#: source/TortoiseSVN_en.xml:6751(para)
 #: source/TortoiseSVN_en.xml:6781
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
 msgstr "<placeholder-1/> Untuk menggabungkan revisi Anda perlu pergi ke copy pekerjaan dari cabang yang ingin Anda terima perubahannya, biasanya trunk. Pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Gabung...</guimenuitem></menuchoice> dari menu konteks. <placeholder-2/> Penggabungan sekarang lengkap. Adalah ide yang baik untuk melihat penggabungan dan melihat jika itu seduai yang diharapkan. Penggabungan biasanya cukup rumit. Konflik sering muncul jika cabang sudah diambil jauh dari trunk."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6876(para)
 #: source/TortoiseSVN_en.xml:6904
 #: (para)
-#, fuzzy
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Best Practices for Merging</citetitle></ulink> in the Subversion book."
-msgstr "Ketika Anda sudah menguji perubahan dan mengkomit revisi ini, pesan log komit Anda akan <emphasis>selalu</emphasis> menyertakan angka revisi yang sudah dikirimkan dalam gabungan. Jika Anda ingin menerapkan gabungan lain waktu Anda akan memerlukan untuk mengetahui apa yang sudah Anda gabung, karena Anda tidak ingin mengirimkan perubahan lebih dari sekali. Sayangnya informasi gabungan tidak disimpan oleh Subversion. Untuk informasi lebih jauh mengenai ini, lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Buku Subversion</citetitle></ulink>"
+msgstr "Ketika Anda sudah menguji perubahan dan mengkomit revisi ini, pesan log komit Anda akan <emphasis>selalu</emphasis> menyertakan angka revisi yang sudah dikirimkan dalam gabungan. Jika Anda ingin menerapkan gabungan lain waktu Anda akan memerlukan untuk mengetahui apa yang sudah Anda gabung, karena Anda tidak ingin mengirimkan perubahan lebih dari sekali. Sayangnya informasi gabungan tidak disimpan oleh Subversion. Untuk informasi lebih jauh mengenai ini, lihat <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Best Practices for Merging</citetitle></ulink> dalam buku Subversion."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6893(para)
 #: source/TortoiseSVN_en.xml:6917
 #: (para)
-#, fuzzy
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
 msgstr "Manajemen cabang penting. Jika Anda ingin membiarkan cabang ini mutahir dengan trunk, Anda harus memastikan untuk sering menggabung agar cabang dan trunk tidak berselisih terlalu jauh. Tentu saja, Anda masih harus menghindari pengulangan penggabungan perubahan seperti dijelaskan di atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6901(para)
 #: source/TortoiseSVN_en.xml:6924
 #: (para)
-#, fuzzy
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder url for the merge."
 msgstr "Subversion tidak bisa menggabung file dengan folder dan sebaliknya - hanya folder dengan folder dan file dengan file. Jika Anda mengklik pada file dan membuka dialog gabung, maka Anda hrus memberikan path ke file dalam dialog itu. Jika Anda memilih folder dan muncul dialog, maka Anda harus menetapkan url folder untuk digabung."
 
@@ -6764,56 +6752,48 @@ msgstr "Menggabung Dua Pohon yang Berbeda"
 # Indonesian#: source/TortoiseSVN_en.xml:6912(para)
 #: source/TortoiseSVN_en.xml:6935
 #: (para)
-#, fuzzy
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
 msgstr "Metode ini mencakup hal saat Anda sudah membuat fitur cabang seperti dijelaskan dalam buku Subversion. Semua perubahan trunk sudah dikirimkan ke fitur cabang, minggu demi minggu, dan sekarang fitur menjadi lengkap yang ingin Anda gabung kembali ke trunk. Karena Anda sudah memelihara fitur cabang disinkronisasi dengan trunk, versi terbaru dari cabang dan trunk akan benar-benar sama kecuali untuk perubahan cabang Anda. Maka dalam kasus khusus ini, Anda ingin menggabung dengan membandingkan cabang dengan trunk."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6933(para)
 #: source/TortoiseSVN_en.xml:6956
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
 msgstr "Dalam field <guilabel>Dari:</guilabel> masukkan url folder lengkap dari <emphasis>trunk</emphasis>. Ini terdengar salah, tapi ingat bahwa trunk adalah titik awal dimana perubahan cabang ingin Anda tambahkan. Anda juga bisa mengklik <guibutton>...</guibutton> untuk melihat repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6944(para)
 #: source/TortoiseSVN_en.xml:6967
 #: (para)
-#, fuzzy
 msgid "Because you are comparing two different trees, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is <emphasis>not</emphasis> checked."
 msgstr "Karena Anda membandingkan dua susunan berbeda, pastikan kotak centang <guilabel>Gunakan \"Dari:\" URL</guilabel><emphasis>tidak</emphasis> dicentang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6951(para)
 #: source/TortoiseSVN_en.xml:6974
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>To:</guilabel> field enter the full folder url of the feature branch."
 msgstr "Dalam field <guilabel>Ke:</guilabel> masukkan url folder dari fitur cabang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6957(para)
 #: source/TortoiseSVN_en.xml:6980
 #: (para)
-#, fuzzy
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
 msgstr "Dalam kedua field <guilabel>Dari Revisi</guilabel> dan field <guilabel>Ke Revisi</guilabel>, masukkan angka revisi terakhir dimana dua susunan disinkronisasi. Jika Anda yakin tidak-ada yang lain melakukan komit Anda bisa menggunakan revisi HEAD dalam kedua kasus. Jika ada kesempatan dimana orang lain sudah melakukan komit sejak sinkronisasi, gunakan angka revisi tertenu untuk menghindari kehilangan komit terbaru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6967(para)
 #: source/TortoiseSVN_en.xml:6990
 #: (para)
-#, fuzzy
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision. Note that in this case you are not selecting a range of revisions, so the revision you select there is what will actually appear in the <guilabel>Revision</guilabel> field."
 msgstr "Anda juga bisas menggunakan <guibutton>Tampilkan Log</guibutton> untuk memilih revisi. Catatan bahwa dalam hal ini Anda tidak memilih jangkauan revisi, maka revisi yang Anda pilih disanan adalah apa yang akan sebenarnya terlihat dalam field <guilabel>Revisi</guilabel>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6922(para)
 #: source/TortoiseSVN_en.xml:6945
 #: (para)
-#, fuzzy
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
 msgstr "Untuk menggabung fitur cabang kembali ke dalam trunk Anda perlu pergi ke copy pekerjaan dari trunk. Pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Gabung...</guimenuitem></menuchoice> dari menu konteks. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:6982(para)
 #: source/TortoiseSVN_en.xml:7005
 #: (para)
-#, fuzzy
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
 msgstr "Dalam hal ini Anda tidak memerlukan fitur cabang lagi karena fitur baru sekarang terintegrasi ke dalam trunk. Fitur cabang berlebihan dan bisa dihapus dari repositori bila diperlukan."
 
@@ -6826,28 +6806,24 @@ msgstr "Meninjau Hasil Gabungan"
 # Indonesian#: source/TortoiseSVN_en.xml:6990(para)
 #: source/TortoiseSVN_en.xml:7014
 #: (para)
-#, fuzzy
 msgid "If you are uncertain about the merge operation, you may want to preview what will happen do before you allow it to change your working copy. There are three additional buttons to help you."
 msgstr "Jika Anda tidak yaknin mengenai operasi penggabungan, Anda mungkin ingin meninjau apa yang akan terjadi sebelum Anda membolehkan untuk mengubah copy pekerjaan Anda. Ada tiga tombol tambahan untuk membantu Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6995(para)
 #: source/TortoiseSVN_en.xml:7019
 #: (para)
-#, fuzzy
 msgid "<guibutton>Unified Diff</guibutton> creates the diff file (remember that merge is based on diff) and shows you which lines will be changed in your working copy files. As this is a unified diff (patch) file it is not always easy to read out of context, but for small scale changes it can be helpful as it shows all the changes in one hit."
 msgstr "<guibutton>Unified Diff</guibutton> membuat file diff (ingat bahwa gabungan didasarkan pada diff) dan memperlihatkan kepada Anda baris mana yang akan diubah dalam file copy pekerjaan Anda. Karena ini adalah file unified diff (patch), tidak selalu mudah untuk membaca kontkes, tapi untuk perubahan skala kecil bisa membantu karena menampilkan semuanya dalam satu kerja."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7003(para)
 #: source/TortoiseSVN_en.xml:7026
 #: (para)
-#, fuzzy
 msgid "<guibutton>Diff</guibutton> shows you a list of changed files. <action>Double click</action> on any of the listed files to start the diff viewer. Unlike the unified diff, this shows you the changes in their full contextual detail. As with the unified diff, the changes you see here are the changes between the <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions. It does not show how your working copy will be affected by applying that change."
 msgstr "<guibutton>Diff</guibutton> memperlihatkan kepada Anda daftar file yang diubah. <action>Klik ganda</action> pada setiap file yang terdaftar untuk memulai peninjau diff. Tidak seperti unified diff, ini memperlihatkan kepada Anda perubahan dalam detil lengkap kontekstualnya. Karena dengan unified diff, perubahan yang Anda lihat disini adalah perubahan antara <guilabel>Dari:</guilabel> dan <guilabel>Ke:</guilabel> revisi. Ia tidak memperlihatkan kepada Anda bagaimana copy pekerjaan akan dipengaruhi dengan penerapan perubahan itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7013(para)
 #: source/TortoiseSVN_en.xml:7035
 #: (para)
-#, fuzzy
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
 msgstr "<guibutton>Dry Run</guibutton> melakukan operasi penggabungan, tapi <emphasis>tidak</emphasis> mengubah copy pekerjaan sama sekali. Ia memperlihatkan kepada Anda daftar dari file yang akan diubah dengan penggabungan nyata, dan mencatat area itu ketika konflik terjadi."
 
@@ -6860,9 +6836,8 @@ msgstr "Mengabaikan Asal"
 # Indonesian#: source/TortoiseSVN_en.xml:7022(para)
 #: source/TortoiseSVN_en.xml:7044
 #: (para)
-#, fuzzy
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr "Biasanya Anda ingin gabungan menjadi perhatian histori file, maka perubahan itu relatif ke asal yang umum digabung. Kadang kala Anda mungkin perlu untuk menggabung file yang mungkin terkait, tapi tidak dalam repositori Anda. Sebagai contoh Anda mungkin telah mengimpor versi 1 dan 2 dari librari pihak ketiga ke dalam direktori terpisah. Meskipun secara logika terkait, Subversion tidak mengetahui ini karena ia hanya melihat tarballs yang Anda impor. Jika Anda mencoba untuk menggabung perbedaan antara dua susunan ini Anda akan melihat penghapusan lengkap diikuti dengan penambahan lengkap. Agar Subversion hanya menggunakan perbedaan berbasis-path daripada perbedaan berbasis-histori, centang kotak <guilabel>Abaikan asal</guilabel>. Baca selengkapnya topik ini dalam buku Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
+msgstr "Biasanya Anda ingin gabungan menjadi perhatian histori file, maka perubahan itu relatif ke asal yang umum digabung. Kadang kala Anda mungkin perlu untuk menggabung file yang mungkin terkait, tapi tidak dalam repositori Anda. Sebagai contoh Anda mungkin telah mengimpor versi 1 dan 2 dari librari pihak ketiga ke dalam direktori terpisah. Meskipun secara logika terkait, Subversion tidak mengetahui ini karena ia hanya melihat tarballs yang Anda impor. Jika Anda mencoba untuk menggabung perbedaan antara dua susunan ini Anda akan melihat penghapusan lengkap diikuti dengan penambahan lengkap. Agar Subversion hanya menggunakan perbedaan berbasis-path daripada perbedaan berbasis-histori, centang kotak <guilabel>Abaikan asal</guilabel>. Baca selengkapnya topik ini dalam buku Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7042(title)
 #: source/TortoiseSVN_en.xml:7064
@@ -6879,79 +6854,68 @@ msgstr "penguncian"
 # Indonesian#: source/TortoiseSVN_en.xml:7054(para)
 #: source/TortoiseSVN_en.xml:7076
 #: (para)
-#, fuzzy
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
 msgstr "Anda menggunakan file <quote>tidak bisa digabung</quote>, sebagai contoh, file grafik. Jika dua orang mengubah file yang sama, penggabungan tidak mungkinm, maka salah satu dari Anda akan kehilangan perubahannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7062(para)
 #: source/TortoiseSVN_en.xml:7084
 #: (para)
-#, fuzzy
 msgid "Your company has always used a locking VCS in the past and there has been a management decision that <quote>locking is best</quote>."
 msgstr "Perusahaan Anda selalu menggunakan penguncian VCS di masa lalu dan sudah menjadi keputusan manajemen bahwa <quote>penguncian adalah yang terbaik</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7046(para)
 #: source/TortoiseSVN_en.xml:7068
 #: (para)
-#, fuzzy
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
 msgstr "Subversion umumnya bekerja baik tanpa penguncian, menggunakan metode <quote>Copy-Ubah-Gabung</quote> seperti dijelaskan sebelumnya dalam <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. Akan tetapi ada sedikit turunan ketika Anda mungkin perlu untuk mengimplementasikan beberapa bentuk dari aturan penguncian. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7070(para)
 #: source/TortoiseSVN_en.xml:7092
 #: (para)
-#, fuzzy
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <filename>file:///</filename> access, then of course only your client needs to be updated."
 msgstr "Pertama Anda perlu memastikan server Subversion Anda dinaikan ke setidaknya versi 1.2. Versi sebelumnya tidak mendukung penguncian sama sekali. Jika Anda menggunakan akses <filename>file:///</filename>, maka tentunya hanya klien Anda yang perlu dimutahirkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7077(title)
 #: source/TortoiseSVN_en.xml:7099
 #: (title)
-#, fuzzy
 msgid "How Locking Works in Subversion"
 msgstr "Bagaimana Penguncian Bekerja dalam Subversion"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7078(para)
 #: source/TortoiseSVN_en.xml:7100
 #: (para)
-#, fuzzy
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
 msgstr "Standarnya, tidak ada yang dikunci dan setiap orang yang mempunyai akses komit bisa mengkomit perubahan ke file apapun kapan saja. Yang lain akan memutahirkan copy pekerjaannya secara periodik dan perubahan dalam repositori akan digabung dengan perubahan lokal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7084(para)
 #: source/TortoiseSVN_en.xml:7106
 #: (para)
-#, fuzzy
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr "Jika Anda <firstterm>Mendapat Kunci</firstterm> pada file, maka hanya Anda yang bisa mengkomit file itu. Mengkomit dengan semua pengguna lain akan diblok sampai Anda melepas kuncian. File terkunci tidak bisa diubah dengan cara apapun dalam repositori, ia tidak bisa dihapus atau diganti nama juga, kecuali aoleh pemilik kunci."
+msgstr "Jika Anda <firstterm>Mendapat Kunci</firstterm> pada file, maka hanya Anda yang bisa mengkomit file itu. Mengkomit dengan semua pengguna lain akan diblok sampai Anda melepas kuncian. File terkunci tidak bisa diubah dengan cara apapun dalam repositori, ia tidak bisa dihapus atau diganti nama juga, kecuali oleh pemilik kunci."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7091(para)
 #: source/TortoiseSVN_en.xml:7113
 #: (para)
-#, fuzzy
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
 msgstr "Akan tetapi, pengguna lain tidak perlu mengetahui bahwa Anda telah mengambil kunci. Kecuali mereka memeriksa status kunci secara reguler, pertama mereka akan mengetahuinya ketika komit mereka gagal, yang dalam banyak akasus tidak begitu berguna. Untuk memudahkan pengaturan kunci, ada properti baru Subversion <literal>svn:needs-lock</literal>. Bila properti ini di-set (ke nilai apapun) pada file, kapan saja filedi check out atau dimutahirkan, copy lokal dibuat hanya-baca <emphasis>kecuali</emphasis> copy pekerjaan itu menampung kuncian untuk file. Tindakan ini sebagai peringatan bahwa Anda tidak boleh mengedit file itu kecuali Anda mendapatkan kunci yang dibutuhkan. File yang diversi dan hanya-baca ditandai dengan lapisan khusus dalam TortoiseSVN untuk menunjukan bahwa Anda perlu mendapatkan kunci sebelum pengeditan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7108(para)
 #: source/TortoiseSVN_en.xml:7129
 #: (para)
-#, fuzzy
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
 msgstr "Kuncian direkam oleh lokasi copy pekerjaan juga oleh pemilik. Jika Anda mempunyai beberapa copy pekerjaan (di rumah, di tempat kerja) maka Anda hanya bisa menampung kunci dalam <emphasis>salah satu</emphasis> dari copy pekerjaan itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7114(para)
 #: source/TortoiseSVN_en.xml:7135
 #: (para)
-#, fuzzy
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
 msgstr "Jika salah satu dari co-worker Anda memerlukan kunci dan kemudian pergi berlibur tanpa melepaskannya, apa yang Anda lakukan? Subversion menyediakan dalam artian untuk memaksa kuncian. Pelepasan kunci yang dipegang oleh orang lain dirujuk sebagai <firstterm>Membongkar</firstterm> kunci, dan dipaksa untuk mendapatkan kunci yang sudah dipegang orang lain dirujuk sebagai <firstterm>Pencurian</firstterm> kunci. Umumnya ini bukan hal yang harus Anda lakukan jika Anda ingin tetap berteman dengan co-worker Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7124(para)
 #: source/TortoiseSVN_en.xml:7145
 #: (para)
-#, fuzzy
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr "Kuncian direkam dalam repositori, dan token kunci dibuat dalam copy pekerjaan Anda. Jika ada ketidak sesuaian, sebagai contoh jika orang lain telah membongkar kunci, kunci lokal menjadi tidak benar. Repositori selalu menjadi referensi definitif."
+msgstr "Kuncian direkam dalam repositori, dan token kunci dibuat dalam copy pekerjaan Anda. Jika ada ketidaksesuaian, sebagai contoh jika orang lain telah membongkar kunci, kunci lokal menjadi tidak benar. Repositori selalu menjadi referensi definitif."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7133(title)
 #: source/TortoiseSVN_en.xml:7154
@@ -6968,16 +6932,14 @@ msgstr "Dialog Penguncian"
 # Indonesian#: source/TortoiseSVN_en.xml:7134(para)
 #: source/TortoiseSVN_en.xml:7155
 #: (para)
-#, fuzzy
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr "Pilih file-fil dalam copy pekerjaan Anda yang ingin Anda perlukan kunci, lalu pilih perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dapatkan Kunci...</guimenuitem></menuchoice>. <placeholder-1/> Dialog muncul, membolehkan Anda untuk memasukan komentar, agar yang lain bisa melihat mengapa Anda mengunci file. Komentar bersifat opsional dan saat ini hanya digunakan dengan repositori berbasis Svnserve. Jika (dan <emphasis>hanya</emphasis> jika) Anda perlu mencuri kunci dari orang lain, centang kotak <guilabel>Curi kunci</guilabel>, lalu klik <guibutton>OK</guibutton>."
+msgstr "Pilih file-file dalam copy pekerjaan Anda yang ingin Anda perlukan kunci, lalu pilih perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dapatkan Kunci...</guimenuitem></menuchoice>. <placeholder-1/> Dialog muncul, membolehkan Anda untuk memasukan komentar, agar yang lain bisa melihat mengapa Anda mengunci file. Komentar bersifat opsional dan saat ini hanya digunakan dengan repositori berbasis Svnserve. Jika (dan <emphasis>hanya</emphasis> jika) Anda perlu mencuri kunci dari orang lain, centang kotak <guilabel>Curi kunci</guilabel>, lalu klik <guibutton>OK</guibutton>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7153(para)
 #: source/TortoiseSVN_en.xml:7175
 #: (para)
-#, fuzzy
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> subfolder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
-msgstr "Jika Anda memilih folder dan kemudian menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dapatkan Kunci...</guimenuitem></menuchoice> dialog penguncian akan dibuka dengan <emphasis>setiap</emphasis> file dalam <emphasis>setiap</emphasis> subfolder yang dipilih untuk penguncian. Jika Anda benar-benar ingin mengunci seluruh hirarki, cara melakukannya, tapi Anda menjadi sangat tidak populer dengan co-workers Anda jika Anda menguncinya dari keseluruhan proyek. Gunakan dengan hati-hati ..."
+msgstr "Jika Anda memilih folder dan kemudian menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dapatkan Kunci...</guimenuitem></menuchoice> dialog penguncian akan dibuka dengan <emphasis>setiap</emphasis> file dalam <emphasis>setiap</emphasis> subfolder yang dipilih untuk penguncian. Jika Anda benar-benar ingin mengunci seluruh hirarki, itulah cara melakukannya, tapi Anda akan menjadi sangat tidak populer dengan teman kerja Anda jika Anda mengunci keseluruhan proyek. Gunakan dengan hati-hati ..."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7169(title)
 #: source/TortoiseSVN_en.xml:7189
@@ -6988,14 +6950,12 @@ msgstr "Melepaskan Kunci"
 # Indonesian#: source/TortoiseSVN_en.xml:7170(para)
 #: source/TortoiseSVN_en.xml:7190
 #: (para)
-#, fuzzy
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr "Untuk memastikan Anda lupe melepaskan kunci yang tidak Anda perlukan lagi, file terkunci ditampilkan dalam dialog komit dan dipilih secara standar. Jika Anda melanjurkan dengan komit, kuncian yang Anda pegang pada file yang dipilih akan dihapus, bahkan jika file belum diubah. Jika Anda tidak ingin melepaskan kunci pada file tertentu, Anda bisa tidak mencentangnya (jika tidak diubah). Jika Anda ingin membiarkan kunci pada file yang telah Anda ubah, Anda harus menghidupkan kotak centang <guilabel>Biarkan kunci</guilabel> sebelum Anda mengkomit perubahan Anda."
+msgstr "Untuk memastikan Anda tidak lupa melepaskan kunci yang tidak Anda perlukan lagi, file terkunci ditampilkan dalam dialog komit dan dipilih secara standar. Jika Anda melanjurkan dengan komit, kuncian yang Anda pegang pada file yang dipilih akan dihapus, bahkan jika file belum diubah. Jika Anda tidak ingin melepaskan kunci pada file tertentu, Anda bisa tidak mencentangnya (jika tidak diubah). Jika Anda ingin membiarkan kunci pada file yang telah Anda ubah, Anda harus menghidupkan kotak centang <guilabel>Biarkan kunci</guilabel> sebelum Anda mengkomit perubahan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7182(para)
 #: source/TortoiseSVN_en.xml:7201
 #: (para)
-#, fuzzy
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
 msgstr "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lepaskan Kunci</guimenuitem></menuchoice> Tidak ada yang harus dimasukan selanjutnya maka TortoiseSVN akan menghubungi repositori dan melepaskan kunci. Anda juga bisa menggunakan perintah ini pada folder untuk melepaskan semua kunci secara rekursif."
 
@@ -7014,14 +6974,12 @@ msgstr "Dialog Pemeriksaan Modifikasi"
 # Indonesian#: source/TortoiseSVN_en.xml:7197(para)
 #: source/TortoiseSVN_en.xml:7215
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
 msgstr "<placeholder-1/> Untuk melihat kunci apa yang Anda dan lainnya pegang, Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa Modifikasi...</guimenuitem></menuchoice>. Secara lokal kunci yang dipegang segera tampil. Untuk memeriksa kunci yang dipegang orang lain (dan melihat jika kunci Anda rusak atau dicuri) Anda perlu untuk mengklik pada <guibutton>Periksa Repositori</guibutton>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7213(para)
 #: source/TortoiseSVN_en.xml:7230
 #: (para)
-#, fuzzy
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
 msgstr "Dari menu konteks disini, Anda juga bisa mendapatkan dan melepaskan kunci, juga pembongkaran dan pencurian kunci yang dipegang orang lain."
 
@@ -7034,9 +6992,8 @@ msgstr "Hindari Pembongkaran dan Pencurian Kunci"
 # Indonesian#: source/TortoiseSVN_en.xml:7220(para)
 #: source/TortoiseSVN_en.xml:7236
 #: (para)
-#, fuzzy
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr "Jika Anda membingkar atau mencuri kunci orang lain tanpa memberitahunya, Anda bisa menyebabkan kehiilangan pekerjaan. Jika Anda bekerja dengan tipe file tidak bisa digabung dan Anda mencuri kunci orang lain, sekali Anda melepaskan kunci mereka bebas memeriksanya dalam perubahan mereka dan menimpa punya Anda. Subversion tidak kehilangan data, tapi Anda kehilangan proteksi tim-kerja yang memberikan kunci kepada Anda."
+msgstr "Jika Anda membongkar atau mencuri kunci orang lain tanpa memberitahunya, Anda bisa menyebabkan kehiilangan pekerjaan. Jika Anda bekerja dengan tipe file tidak bisa digabung dan Anda mencuri kunci orang lain, sekali Anda melepaskan kunci mereka bebas memeriksanya dalam perubahan mereka dan menimpa punya Anda. Subversion tidak kehilangan data, tapi Anda kehilangan proteksi tim-kerja yang memberikan kunci kepada Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7233(title)
 #: source/TortoiseSVN_en.xml:7248
@@ -7047,49 +7004,42 @@ msgstr "Membuat File Tidak-Terkunci Hanya-Baca"
 # Indonesian#: source/TortoiseSVN_en.xml:7234(para)
 #: source/TortoiseSVN_en.xml:7249
 #: (para)
-#, fuzzy
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
 msgstr "Seperti telah disebutkan diatas, cara yang paling efektif untuk menggunakan kuncian adalah mengeset properti <literal>svn:needs-lock</literal> pada file. Lihat <xref linkend=\"tsvn-dug-propertypage\"/> untuk instruksi bagaimana mengeset properti. File dengan properti ini diset akan selalu di check out dan dimutahirkan dengan tanda hanya-baca di-set kecuali copy pekerjaan Anda memegang kunci. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Sebagai pengingat, TortoiseSVN menggunakan lapisan khusus untuk menunjukan ini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7247(para)
 #: source/TortoiseSVN_en.xml:7259
 #: (para)
-#, fuzzy
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
 msgstr "Jika Anda mengoperasikan aturan dimana setiap file harus dikunci lalu Anda bisa menemukannya lebih mudah untuk menggunakan fitur auto-props Subversion untuk mengeset properti secara otomatis setiap kali Anda menambah file. Baca selengkapnya <xref linkend=\"tsvn-dug-settings\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7256(title)
 #: source/TortoiseSVN_en.xml:7267
 #: (title)
-#, fuzzy
 msgid "The Locking Hook Scripts"
 msgstr "Naskah Hook Penguncian"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7257(para)
 #: source/TortoiseSVN_en.xml:7268
 #: (para)
-#, fuzzy
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
 msgstr "Ketika Anda membuat repositori baru dengan Subversion 1.2 atau lebih tinggi, empat template hook dibuat dalam direktori repositori <filename>hooks</filename>. Ini disebut sebelum dan setelah mendapatkan kunci, dan sebelum serta setelah melepaskan kunci."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7263(para)
 #: source/TortoiseSVN_en.xml:7274
 #: (para)
-#, fuzzy
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
 msgstr "Adalah ide yang baik untuk menginstalasi naskah hook <literal>setelah-kunci</literal> dan <literal>setelah-buka-kunci</literal> pada server yang mengirim email menunjukan file yang sedang dikunci. Dengan naskah itu ditempatnya, semua pengguna Anda bisa diberitahu jika seseorang mengunci/membuka kunci file. Anda bisa menemukan contoh naskah hook <filename>hooks/post-lock.tmpl</filename> dalam folder repositori Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7271(para)
 #: source/TortoiseSVN_en.xml:7282
 #: (para)
-#, fuzzy
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr "Mungkin Anda juga menggunakan hook untuk tidak membolehkan pemisahakan atau seting kuncian, atau barangkali membatasinya ke nama administrator. Atau mungkin Anda ingin mengirim email pemilik ketika salah satu dari kunciannya rusak atau dicuri."
+msgstr "Mungkin Anda juga menggunakan hook untuk tidak membolehkan pemisahakan atau seting kuncian, atau barangkali membatasinya ke nama administrator. Atau mungkin Anda ingin mengirim email kepada pemilik ketika salah satu dari kunciannya rusak atau dicuri."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7277(para)
 #: source/TortoiseSVN_en.xml:7288
 #: (para)
-#, fuzzy
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
 msgstr "Baca selengkapnya <xref linkend=\"tsvn-repository-hooks\"/>."
 
@@ -7108,14 +7058,12 @@ msgstr "patch"
 # Indonesian#: source/TortoiseSVN_en.xml:7289(para)
 #: source/TortoiseSVN_en.xml:7300
 #: (para)
-#, fuzzy
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr "Untuk membuka proyek sumber (seperti yang satu ini) setiap orang mempunyai akses baca ke repositori, dan setiap orang bisas melakukan kontribusi terhadap proyek. Lalu bagaimana kontribusi itu dikontrol? Jika setiap orang bisa mengkomit perubahan, proyek akan tidak stabil secara permanen dan mungkin rusak secara permanen. Dalam situasi ini perubahan diatur dengan mengirimkan file <firstterm>patch</firstterm> ke tim pengembangan, yang mempunyai akses tulis. Mereka bisa meninjau ulang dulu file patch, dan kemudian mengirimkannya ke repositori atau menolaknya kembali ke pembuat."
+msgstr "Untuk proyek sumber terbuka (seperti yang satu ini) setiap orang mempunyai akses baca ke repositori, dan setiap orang bisa melakukan kontribusi terhadap proyek. Lalu bagaimana kontribusi itu dikontrol? Jika setiap orang bisa mengkomit perubahan, proyek akan tidak stabil secara permanen dan mungkin rusak secara permanen. Dalam situasi ini perubahan diatur dengan mengirimkan file <firstterm>patch</firstterm> ke tim pengembangan, yang mempunyai akses tulis. Mereka bisa meninjau ulang dulu file patch, dan kemudian mengirimkannya ke repositori atau menolaknya kembali ke pembuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7300(para)
 #: source/TortoiseSVN_en.xml:7311
 #: (para)
-#, fuzzy
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
 msgstr "File Patch adalah file Unified-Diff yang menampilkan perbedaan antara copy pekerjaan Anda dan revisi base."
 
@@ -7128,7 +7076,6 @@ msgstr "Membuat File Patch"
 # Indonesian#: source/TortoiseSVN_en.xml:7306(para)
 #: source/TortoiseSVN_en.xml:7317
 #: (para)
-#, fuzzy
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
 msgstr "Pertama Anda perlu membuat <emphasis>dan menguji</emphasis> perubahan Anda. Kemudian daripada menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Komit...</guimenuitem></menuchoice> pada folder di atasnya, Anda pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Buat Patch...</guimenuitem></menuchoice>"
 
@@ -7141,21 +7088,18 @@ msgstr "Dialog Buat Patch"
 # Indonesian#: source/TortoiseSVN_en.xml:7323(para)
 #: source/TortoiseSVN_en.xml:7334
 #: (para)
-#, fuzzy
 msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
 msgstr "Sekarang Anda bisa memilih file yang ingin Anda sertakan dalam patch, seperti yang Anda inginkan dengan komit penuh. Ini akan menghasilkan file tunggal berisi ringkasan dari semua perubahan yang sudah Anda buat ke file yang dipilih sejak pemutahiran terakhir dari repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7334(para)
 #: source/TortoiseSVN_en.xml:7345
 #: (para)
-#, fuzzy
 msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
 msgstr "Anda bisa menghasilkan patch terpisah yang berisi perubahan ke set file yang berbeda. Tentunya, jika Anda membuat file patch, buat beberapa perubahan lagi ke file yang <emphasis>sama</emphasis> dan kemudian buat patch lain, file patch kedua akan menyertakan <emphasis>kedua</emphasis> set perubahan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7341(para)
 #: source/TortoiseSVN_en.xml:7351
 #: (para)
-#, fuzzy
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
 msgstr "Simpan file menggunakan nama file pilihan Anda. File patch bisa memiliki ekstensi yang Anda sukai, tapi konvensi seharusnya <filename>.patch</filename> atau ekstensi <filename>.diff</filename>. Sekarang Anda siap untuk mengirimkan file patch Anda."
 
@@ -7173,49 +7117,42 @@ msgstr "Menerapkan File Patch"
 # Indonesian#: source/TortoiseSVN_en.xml:7350(para)
 #: source/TortoiseSVN_en.xml:7368
 #: (para)
-#, fuzzy
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
 msgstr "File patch diterapkan ke copy pekerjaan Anda. Ini harus dikerjakan dari tingkat folder yang sama seperti yang digunakan untuk membuat patch. Jika Anda tidak yakin apa ini, lihat baris pertama dari file patch. Sebagai contoh, jika file pertama bekerja pada <filename>doc/source/english/chapter1.xml</filename> dan baris pertama dalam patchfile adalah <filename>Index: english/chapter1.xml</filename> maka Anda perlu menerapkan patch ke folder <filename>english</filename>. Akan tetapi, Anda lengkapi dalam copy pekerjaan yang benar, jika Anda mengambil tingkat folder yang salah, TSVN akan memberitahu dan menyarankan tingkat yang benar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7363(para)
 #: source/TortoiseSVN_en.xml:7382
 #: (para)
-#, fuzzy
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
 msgstr "Untuk menerapkan file patch ke copy pekerjaan Anda, Anda perlu mempunyai akses baca ke repositori. Alasan ini adalah bahwa program penggabung harus merujuk perubahan kembali ke revisi terhadap perubahan dibuat oleh pengembang secara remote."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7369(para)
 #: source/TortoiseSVN_en.xml:7389
 #: (para)
-#, fuzzy
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\". If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Dari menu konteks untuk folder itu, klik pada <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Terapkan Patch...</guimenuitem></menuchoice> Ini akan membawa dialog buka file yang membolehkan Anda untuk memilih file patch untuk diterapkan. Standarnya hanya file <filename>.patch</filename> atau <filename>.diff</filename> yang ditampilkan, tapi Anda bisa memilih \"Semua file\"."
+msgstr "Dari menu konteks untuk folder itu, klik pada <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Terapkan Patch...</guimenuitem></menuchoice> Ini akan membawa dialog buka file yang membolehkan Anda untuk memilih file patch untuk diterapkan. Standarnya hanya file <filename>.patch</filename> atau <filename>.diff</filename> yang ditampilkan, tapi Anda bisa memilih \"Semua file\". Jika Anda sebelumnya menyimpan suatu patch ke clipboard, Anda dapat menggunakan <guibutton>Buka dari clipboard</guibutton> dalam dialog buka file."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7380(para)
 #: source/TortoiseSVN_en.xml:7403
 #: (para)
-#, fuzzy
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
 msgstr "Alternatifnya, jika file patch mempunyai ekstensi <filename>.patch</filename> atau <filename>.diff</filename>, Anda bisa mengklik kanan padanya secara langsung dan pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Terapkan Patch...</guimenuitem></menuchoice>. Dalam hal ini Anda akan ditanya untuk memasukan lokasi copy pekerjaan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7390(para)
 #: source/TortoiseSVN_en.xml:7413
 #: (para)
-#, fuzzy
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
 msgstr "Dua metode ini menawarkan cara berbeda dalam melakukan hal yang sama. Dengan metode pertama Anda milih WC dan melihat file patch. Yang kedua Anda memilih file patch dan melihat ke WC."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7395(para)
 #: source/TortoiseSVN_en.xml:7418
 #: (para)
-#, fuzzy
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
 msgstr "Sekali Anda memilih file patch dan lokasi copy pekerjaan, TortoiseMerge dijalankan untuk menggabung perubahan dari file patch dengan copy pekerjaan Anda. Jendela kecil mendaftar file yang sudah diubah. Klik ganda pada setiap file untuk meninjau perubahan dan simpan file gabungan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7402(para)
 #: source/TortoiseSVN_en.xml:7425
 #: (para)
-#, fuzzy
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
 msgstr "Patfh pengembang remote sekarang sudah menerapkan ke copy pekerjaan Anda, maka Anda perlu mengkomit untuk membolehkan orang lain untuk mengakses perubahan dari repositori."
 
@@ -7246,14 +7183,12 @@ msgstr "sanjungan"
 # Indonesian#: source/TortoiseSVN_en.xml:7421(para)
 #: source/TortoiseSVN_en.xml:7444
 #: (para)
-#, fuzzy
 msgid "Sometimes you need to know not only what lines have changed, but also who exactly changed specific lines in a file. That's when the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blame...</guimenuitem></menuchoice> command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy."
 msgstr "Kadang kala Anda perlu mengetahui tidak hanya baris apa yang berubah, tapi juga siapa sebenarnya yang mengubah baris tertentu dalam file. Itulah ketika perintah, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blame...</guimenuitem></menuchoice> kadang-kadang juga dirujuk sebagai perintah <firstterm>anotasi</firstterm> dengan mudah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7432(para)
 #: source/TortoiseSVN_en.xml:7454
 #: (para)
-#, fuzzy
 msgid "This command lists, for every line in a file, the author and the revision the line was changed."
 msgstr "Perintah ini mendaftar, untuk setiap baris dalam sebuah file, pembuat dan revisi dimana baris diubah."
 
@@ -7272,21 +7207,18 @@ msgstr "Dialog Anotasi / Blame"
 # Indonesian#: source/TortoiseSVN_en.xml:7438(para)
 #: source/TortoiseSVN_en.xml:7460
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
 msgstr "<placeholder-1/> Jika Anda tidak tertarik dalam perubahan dari revisi sebelumnya Anda bisa men-set revisi dari dimana blame seharusnya dimulai. Set ini ke <literal>1</literal>, jika Anda ingin blame untuk <emphasis>setiap</emphasis> revisi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7448(para)
 #: source/TortoiseSVN_en.xml:7469
 #: (para)
-#, fuzzy
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
 msgstr "Standarnya file blame dilihat menggunakan <firstterm>TortoiseBlame</firstterm>, yang menerangi perbedaan revisi untuk memudahkan pembacaan. Jika Anda ingin mencetak atau mengedit file blame, pilih <guilabel>Gunakan Peninjau Teks untuk melihat blame</guilabel>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7454(para)
 #: source/TortoiseSVN_en.xml:7475
 #: (para)
-#, fuzzy
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
 msgstr "Sekali Anda menekan <guibutton>OK</guibutton> TortoiseSVN mulai mengambil data untuk dibuat file blame. Harap dicatat: Ini bisa memerlukan waktu beberapa menit untuk menyelesaikan, tergantung pada seberapa banyak file diubah dan tentunya koneksi jaringan Anda terhadap repositori. Sekali proses blame sudah selesai hasilnya ditulis ke dalam file temporal dan Anda bisa melihat hasil."
 
@@ -7299,37 +7231,32 @@ msgstr "TortoiseBlame"
 # Indonesian#: source/TortoiseSVN_en.xml:7463(para)
 #: source/TortoiseSVN_en.xml:7483
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
 msgstr "<placeholder-1/> TortoiseBlame, yang disertakan dengan TortoiseSVN, membuat file blame lebih mudah dibaca. Ketika Anda membawa mouse diatas baris dalam kolom info blame, semua baris dengan revisi sama ditampilkan dengan latar belakang lebih gelap. Baris dari revisi lain yang diubah oleh pembuat yang sama ditampilkan dengan latar belakang terang. Pewarnaan mungkin tidak bekerja dengan jelas jika Anda mempunyai layar yang di-set ke mode warna 256."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7476(para)
 #: source/TortoiseSVN_en.xml:7496
 #: (para)
-#, fuzzy
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
 msgstr "Jika Anda <action>mengklik kiri</action> pada sebuah baris, semua baris dengan revisi sama diterangi, dan baris dari revisi lain oleh pembuat yang sama diterangi dalam warna lebih terang. Penerangan ini lengket, membolehkan Anda untuk memindahkan mouse tanpa kehilangan penerangan. Klik pada revisi itu lagi untuk mematikan penerangan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7484(para)
 #: source/TortoiseSVN_en.xml:7503
 #: (para)
-#, fuzzy
 msgid "The revision comments (log message) are shown in a hint box whenever the mouse hovers over the blame info column. If you want to copy the log message for that revision, use the context menu which appears when you right click on the blame info column."
-msgstr "Komentar revisi ditampilkan dalam kotak petunjuk kapan saja mouse berjalan di atas kolom info blame."
+msgstr "Komentar revisi ditampilkan dalam kotak petunjuk kapan saja mouse berjalan di atas kolom info blame. Jika Anda ingin menyalin pesan log untuk revisi itu, gunakan menu konteks yang muncul jika Anda mengeklik kanan pada kolom info blame."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7488(para)
 #: source/TortoiseSVN_en.xml:7509
 #: (para)
-#, fuzzy
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
 msgstr "Anda bisa mencari di dalam laporan Blame menggunakan <menuchoice><guimenu>Edit</guimenu><guimenuitem>Cari...</guimenuitem></menuchoice>. Ini membolehkan Anda untuk mencari angka revisi, pembuat dan isi dari file itu sendiri. Log pesan tidak disertakan dalam pencarian - Anda harus menggunakan Dialog Log untuk mencarinya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7500(title)
 #: source/TortoiseSVN_en.xml:7519
 #: (para)
-#, fuzzy
 msgid "You can also jump to a specific line number using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Go To Line...</guimenuitem></menuchoice>."
-msgstr "XXX inserted for sync"
+msgstr "Anda juga dapat lompat ke suatu baris spesifik menggunakan <menuchoice><guimenu>Edit</guimenu><guimenuitem>Pergi Ke Baris...</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7500(title)
 #: source/TortoiseSVN_en.xml:7528
@@ -7341,49 +7268,42 @@ msgstr "Blame Perbedaan"
 # Indonesian#: source/TortoiseSVN_en.xml:7501(para)
 #: source/TortoiseSVN_en.xml:7529
 #: (para)
-#, fuzzy
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr "Salah satu batasan dari laporan Blame adalah bahwa ia hanya menampilkan file sebagaimana revisi biasanya, dan menampilkan orang terakhir yang mengubah setiap baris. Ada kalanya Anda ingin mengetahui perubahan apa yang dibuat, juga siapa yang membuatnya. Apa yang Anda perlukan disini adalah kombinasi dari diff dan laporan blame."
+msgstr "Salah satu batasan dari laporan Blame adalah bahwa ia hanya menampilkan file sebagaimana adanya dalam revisi tertentu, dan menampilkan orang terakhir yang mengubah setiap baris. Ada kalanya Anda ingin mengetahui perubahan apa yang dibuat, juga siapa yang membuatnya. Apa yang Anda perlukan disini adalah kombinasi dari diff dan laporan blame."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7513(term)
 #: source/TortoiseSVN_en.xml:7539
 #: (term)
-#, fuzzy
 msgid "Blame Revisions"
 msgstr "Revisi Blame"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7515(para)
 #: source/TortoiseSVN_en.xml:7541
 #: (para)
-#, fuzzy
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
 msgstr "Dalam pane atas, pilih 2 revisi, lalu pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Revisi Blame</guimenuitem></menuchoice>. Ini akan mengambil data blame untuk 2 revisi, lalu gunakan peninjau diff untuk membandingkan dua file blame."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7529(para)
 #: source/TortoiseSVN_en.xml:7555
 #: (para)
-#, fuzzy
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame differences</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
 msgstr "Pilih satu revisi dalam pane atas, lalu ambil satu file dalam pane bawah dan pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Perbedaan Blame</guimenuitem></menuchoice>. Ini akan mengambil data blame untuk revisi yang dipilih dan revisi sebelumnya, lalu gunakan peninjau diff untuk membandingkan dua file blame."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7543(term)
 #: source/TortoiseSVN_en.xml:7569
 #: (term)
-#, fuzzy
 msgid "Compare and Blame with Working BASE"
 msgstr "Bandingkan dan Blame dengan BASE Pekerjaan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7545(para)
 #: source/TortoiseSVN_en.xml:7571
 #: (para)
-#, fuzzy
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
 msgstr "Menampilkan log untuk file tunggal, dan dalam pane atas, pilih revisi tunggal, lalu pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan dan Blame dengan BASE Pekerjaan</guimenuitem></menuchoice>. Ini akan mengambil data blame untuk revisi yang dipilih, dan untuk file dalam BASE pekerjaan, kemudian gunakan peninjau diff untuk membandingkan dua file blame."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7509(para)
 #: source/TortoiseSVN_en.xml:7535
 #: (para)
-#, fuzzy
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
 msgstr "Dialog log revisi menyertakan beberapa opsi yang membolehkan Anda melakukan ini. <placeholder-1/>"
 
@@ -7408,70 +7328,60 @@ msgstr "tindakan sisi-server"
 # Indonesian#: source/TortoiseSVN_en.xml:7574(para)
 #: source/TortoiseSVN_en.xml:7600
 #: (para)
-#, fuzzy
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr "Kadang-kadang Anda perlu untuk bekerja secara langsung pada repositori, tanpa copy pekerjaan. Itulah kegunaan <firstterm>Browser Repositori</firstterm>. Seperti halnya explorer dan lapisan ikon membolehkan Anda untuk melihat copy pekerjaan Anda, agar Browser Repositori membolehkan Anda untuk melihat struktur dan status repositori. <placeholder-1/> Dengan Browser Repositori Anda bisa menjalankan perintah seperti copy, move, rename, ... secara langsung pada repositori."
+msgstr "Kadang-kadang Anda perlu untuk bekerja secara langsung pada repositori, tanpa copy pekerjaan. Itulah kegunaan <firstterm>Browser Repositori</firstterm>. Seperti halnya explorer dan lapisan ikon membolehkan Anda untuk melihat copy pekerjaan Anda, agar Browser Repositori membolehkan Anda untuk melihat struktur dan status repositori. <placeholder-1/> Dengan Browser Repositori Anda bisa menjalankan perintah seperti salin, pindah, ganti nama, ... secara langsung pada repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7587(para)
 #: source/TortoiseSVN_en.xml:7613
 #: (para)
-#, fuzzy
 msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
 msgstr "Di atas Jendela Browser Repositori Anda bisa memasukan URL repositori dan revisi yang ingin Anda lihat. Melihat revisi lebih lama berguna jika Anda ingin contohnya menghapus file sebelumnya. Gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Copy Ke...</guimenuitem></menuchoice> perintah untuk melakukan itu dan masukan path copy pekerjaan lengkap kemana Anda ingin menemukan file yang sudah dihapus."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7598(para)
 #: source/TortoiseSVN_en.xml:7625
 #: (para)
-#, fuzzy
 msgid "The main browser window looks much like any other tree browser. You can click on the column headings at the top to change the sort order. If you right click on the <literal>File</literal> heading you can turn <literal>Numerical Sort</literal> on or off. This provides a more intelligent handling of numbers than a plain ascii sort does, and is useful for getting version number tags in the correct order. The default state of this setting can be changed in the settings dialog."
 msgstr "Jendela utama browser terlihat seperti browser susunan lain. Anda bisa mengklik pada heading kolom di atas untuk mengubah urutan. Jika Anda mengklik kanan pada heading <literal>File</literal> Anda bisa membalikan <literal>Urutan Numerik</literal> hidup atau mati. Ini menyediakan penanganan pintar angka daripada pengurutan yang dilakukan ascii, dan berguna untuk mendapatkan tag angka versi dalam urutan yang benar. Keadaan standar dari seting ini bisa diubah dalam dialog seting."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7608(para)
 #: source/TortoiseSVN_en.xml:7635
 #: (para)
-#, fuzzy
 msgid "If you select two items, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool. This can be particularly useful for comparing two tags to see what changed."
 msgstr "Jika Anda memilih dua item, Anda bisa melihat perbedaan baik sebagai unified-diff, ataupun sebagai daftar file yang bisa di-diff secara visual menggunakan piranti diff standar. Ini bisa berguna untuk membandingkan dua tag untuk melihat apa yang berubah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7614(para)
 #: source/TortoiseSVN_en.xml:7641
 #: (para)
-#, fuzzy
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
 msgstr "Jika Anda memilih 2 tag yang dicopy dari akar yang sama (biasanya <literal>/trunk/</literal>), Anda bisa menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Tampilkan Log...</guimenuitem></menuchoice> untuk melihat daftar revisi diantara dua titik tag."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7623(para)
 #: source/TortoiseSVN_en.xml:7650
 #: (para)
-#, fuzzy
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr "Anda juga bisa menggunakan browser repositori untuk operasi drag-dan-drop. Jika Anda men-drag folder dari explorer kedalam repo browser, ia akan diimpor ke dalam repositori. Catatan bahwa jika Anda men-drag multipel item, mereka akan diimpor dalam komit yang terpisah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7629(para)
 #: source/TortoiseSVN_en.xml:7656
 #: (para)
-#, fuzzy
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <action>Ctrl left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
 msgstr "Jika Anda ingin memindahkan item didalam repositori, cukup <action>drag kiri</action> ke lokasi baru. Jika Anda ingin membuat copy daripada memindahkan item, sebaliknya <action>Ctrl drag kiri</action>. Ketika mengcopy, kursor mempunyai simbol <quote>plus</quote> didalamnya, seperti halnya Explorer."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7635(para)
 #: source/TortoiseSVN_en.xml:7662
 #: (para)
-#, fuzzy
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <action>ctrl right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
 msgstr "Jika Anda ingin mengcopy/memindahkan file atau folder ke lokasi lain dan juga memberikan nama baru pada waktu yang sama, Anda bisa <action>men-drag kanan</action> atau <action>ctrl drag kanan</action> item daripada menggunakan <action>drag kiri</action>. Dalam hal itu, dialog ganti nama ditampilkan dimana Anda bisa memasukan nama baru untuk file atau folder."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7642(para)
 #: source/TortoiseSVN_en.xml:7669
 #: (para)
-#, fuzzy
 msgid "Whenever you make changes in the repository using one of these methods, you will be presented with a log message entry dialog. If you dragged something by mistake, this is also your chance to cancel the action."
 msgstr "Kapan saja Anda membuat perubahan dalam repositori menggunakan salah satu dari metode ini, Anda akan disodorkan dengan dialog entri pesan log. Jika Anda men-drag sesuatu karena kesalahan, ini juga kesempatan Anda untuk membatalkan tindakan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7648(para)
 #: source/TortoiseSVN_en.xml:7674
 #: (para)
-#, fuzzy
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <action>CTRL+C</action>."
 msgstr "Ada kalanya ketika Anda mencoba untuk membuka path Anda akan mendapatkan pesan kesalahan dari detil item. Ini mungkin terjadi jika Anda menetapkan URL yang tidak benar, atau jika Anda tidak mempunyai perijinan akses, atau jika ada beberapa masalah server lain. Jika Anda perlu untuk mengcopy pesan ini untuk disertakan dalam email, klik kanan padanya dan gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Copy pesan kesalahan ke clipboard</guimenuitem></menuchoice>, atau cukup gunakan <action>CTRL+C</action>."
 
@@ -7490,30 +7400,26 @@ msgstr "grafik"
 # Indonesian#: source/TortoiseSVN_en.xml:7668(primary)
 #: source/TortoiseSVN_en.xml:7698
 #: (title)
-#, fuzzy
 msgid "A Revision Graph"
-msgstr "xxx inserted for sync"
+msgstr "Grafik Revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7670(para)
 #: source/TortoiseSVN_en.xml:7696
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
 msgstr "<placeholder-1/> Ada kalanya Anda perlu mengetahui darimana cabang dan tag diambil dari trunk, dan cara ideal untuk melihat informasi semacam ini adalah grafik atau struktur susunan. Itulah saatnya Anda menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grafik Revisi...</guimenuitem></menuchoice>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7684(para)
 #: source/TortoiseSVN_en.xml:7709
 #: (para)
-#, fuzzy
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
 msgstr "Perintah ini menganalisa histori revisi dan mencoba untuk membuat susunan memperlihatkan titik dimana copy diambil, dan ketika cabang/tag dihapus."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7690(para)
 #: source/TortoiseSVN_en.xml:7715
 #: (para)
-#, fuzzy
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <literal>Apache</literal> project which currently has over 300,000 revisions you could be waiting for some time."
-msgstr "Agar bisa membuat grafik, TortoiseSVN harus mengambil semua pesan log dari akar repositori. Ini bisa menghabiskan waktu beberapa menit bahkan dengan reposirori dari beberapa ribuan revisi, tergantung pada kecepatan server, bandwidth jaringan, dll. Jika Anda mencoba ini dengen sesuatu seperti proyek <literal>Apache</literal> yang saat ini mempunyai lebih dari 300,000 revisi Anda bisa menunggunya untuk beberapa waktu."
+msgstr "Agar bisa membuat grafik, TortoiseSVN harus mengambil semua pesan log dari akar repositori. Ini bisa menghabiskan waktu beberapa menit bahkan dengan repositori dari beberapa ribuan revisi, tergantung pada kecepatan server, bandwidth jaringan, dll. Jika Anda mencoba ini dengen sesuatu seperti proyek <literal>Apache</literal> yang saat ini mempunyai lebih dari 300,000 revisi Anda bisa menunggunya untuk beberapa waktu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7703(term)
 #: source/TortoiseSVN_en.xml:7728
@@ -7524,7 +7430,6 @@ msgstr "File/folder yang ditambahkan"
 # Indonesian#: source/TortoiseSVN_en.xml:7705(para)
 #: source/TortoiseSVN_en.xml:7730
 #: (para)
-#, fuzzy
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle."
 msgstr "Item-item yang sudah ditambahkan, atau dibuat dengan mengcopy file/folder lain ditampilkan menggunakan kotak bulat."
 
@@ -7537,7 +7442,6 @@ msgstr "File/folder yang dihapus"
 # Indonesian#: source/TortoiseSVN_en.xml:7715(para)
 #: source/TortoiseSVN_en.xml:7739
 #: (para)
-#, fuzzy
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off)."
 msgstr "Item-item yang dihapus seperti cabang yang tidak lagi diperlukan, ditampilkan menggunakan oktagon (kotak dengan sudut dipotong)."
 
@@ -7550,9 +7454,8 @@ msgstr "Revisi tip cabang"
 # Indonesian#: source/TortoiseSVN_en.xml:7725(para)
 #: source/TortoiseSVN_en.xml:7748
 #: (para)
-#, fuzzy
 msgid "Where a branch (or trunk or tag) has been modified since the last branch node, this is shown using an ellipse. This means that the latest revision on every branch is always shown on the graph."
-msgstr "Dimana cabang (atau trunk atau tag) sudah diubah sejak node cabang terakhir, ini ditampilkan menggunakan lingkaran. Ini berarti bahwa revisi terakhir pada setiap cabang selalu ditampilkan pada grafik."
+msgstr "Dimana cabang (atau trunk atau tag) sudah diubah sejak node cabang terakhir, ini ditampilkan menggunakan elips. Ini berarti bahwa revisi terakhir pada setiap cabang selalu ditampilkan pada grafik."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7735(term)
 #: source/TortoiseSVN_en.xml:7757
@@ -7569,14 +7472,12 @@ msgstr "Semua item lain ditampilkan menggunakan kotak biasa."
 # Indonesian#: source/TortoiseSVN_en.xml:7699(para)
 #: source/TortoiseSVN_en.xml:7724
 #: (para)
-#, fuzzy
 msgid "The revision graph shows several types of node: <placeholder-1/> Note that by default the graph only shows the points at which items were added or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr "Grafik revisi menampilkan beberapa tipe node: <placeholder-1/> Catatan bahwa standarnya hanya grafik yang menampilkan item yang mana yang ditambahkan atau dihapus. Menampilkan setiap revisi proyek akan membuat grafik besar untuk kasus non-trivial. Jika Anda benar-benar ingin melihat <emphasis>semua</emphasis> revisi dimana perubahan sudah dibuat, ada opsi untuk melakukan ini dalam menu <guilabel>Lihat</guilabel> dan pada toolbar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7750(para)
 #: source/TortoiseSVN_en.xml:7771
 #: (para)
-#, fuzzy
 msgid "There is also an option to arrange the graph <emphasis>by path</emphasis>. This attempts to sort the branches from the tags. Paths which contain no modifications after copying are assumed to be tags and are stacked in a single column. Branches (which contain modifications after creation) each have their own column, so you can see how the branch develops."
 msgstr "Juga ada opsi untuk mengatur grafik <emphasis>dengan path</emphasis>. Ini mencoba untuk mengurut cabang dari tag. Path yang tidak berisi modifikasi setelah mengcopy dianggap sebagai tag dan ditumpuk dalam kolom tunggal. Cabang (yang berisi modifikasi setelah pembuatan) masing-masing mempunyai kolomnya sendiri, dengan demikian Anda bisa melihat perkembangan cabang."
 
@@ -7588,7 +7489,6 @@ msgstr "Terkadang grafik revisi terlalu rinci dibandingkan dengan apa yang Anda 
 # Indonesian#: source/TortoiseSVN_en.xml:7758(para)
 #: source/TortoiseSVN_en.xml:7787
 #: (para)
-#, fuzzy
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
 msgstr "Tanggal revisi, pembuat dan komentar ditampilkan dalam kotak petunjuk kapan saja mouse melalui kotak revisi."
 
