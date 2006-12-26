@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-19 13:43+0100\n"
+"PO-Revision-Date: 2006-12-26 22:11+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2150,14 +2150,6 @@ msgstr ""
 "Wollen Sie die Dokumente neu laden, damit die geänderten Einstellungen wirksam werden?\n"
 "Hinweis: Sie werden alle Ihre Änderungen verlieren!"
 
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"Wollen Sie die Dokumente neu laden?\n"
-"Sie werden alle Ihre Änderungen verlieren!"
-
 #: ID:563
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
@@ -2362,6 +2354,11 @@ msgstr "Exportverzeichnis:"
 msgid "Export unversioned files too"
 msgstr "Exportiere alle Dateien"
 
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Exportiere %s"
+
 #: ID:79
 msgid "Exporting..."
 msgstr "Exportiere..."
@@ -2551,9 +2548,12 @@ msgstr ""
 "Sie können GDI+ hier erhalten\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Sammle Informationen. Bitte warten..."
+
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "Allgemein"
 
@@ -3051,8 +3051,8 @@ msgid "Initial import"
 msgstr "Erster Import"
 
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Unterschiede innerhalb einer Zeile"
+msgid "Inline differences"
+msgstr "Unterschiede innerhalb von Zeilen"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3226,6 +3226,10 @@ msgstr "Zeile"
 #: ID:246
 msgid "Line Graph"
 msgstr "Liniendiagramm"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Unterschiede zwischen Zeilen"
 
 #: Control-ID:65535
 msgid "Line:"
@@ -3466,6 +3470,7 @@ msgstr "Gemischt"
 
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "Verändert"
 
@@ -5471,6 +5476,14 @@ msgstr ""
 "Wollen Sie die Datei mitsamt den Konflikten speichern?\n"
 "Wenn Sie JA wählen, müssen Sie die Konflikte von Hand in einem anderen Editor auflösen!"
 
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Die Änderungen sind noch nicht gespeichert!\n"
+"Wollen Sie Ihre Änderungen speichern?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -6623,6 +6636,7 @@ msgstr ""
 
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "nach %s"
