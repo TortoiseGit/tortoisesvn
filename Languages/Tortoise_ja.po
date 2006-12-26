@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-20 23:24+0900\n"
+"PO-Revision-Date: 2006-12-27 00:11+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -994,6 +994,7 @@ msgstr "- %d"
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
+#: Control-ID:1362
 #: Control-ID:1324
 #: Control-ID:1333
 #: Control-ID:1002
@@ -1653,15 +1654,15 @@ msgstr "Bug-ID / Issue-Nr:"
 msgid "C&heck now"
 msgstr "今すぐチェック(&H)"
 
+# ID:77,
+#: ID:77
+msgid "C&reate branch/tag from revision"
+msgstr "リビジョンから分岐／タグを生成(&R)"
+
 # ID:101,
 #: ID:101
 msgid "C&reate folder..."
 msgstr "フォルダを作成(&R) ..."
-
-# ID:77,
-#: ID:77
-msgid "C&reate tag from revision"
-msgstr "リビジョンからタグを生成(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -1841,6 +1842,7 @@ msgstr "TortoiseSVN の最新のバージョンが利用可能かどうかをチ
 
 # ID:8,
 #: Dlg-ID:133
+#: Control-ID:65535
 msgid "Checkout"
 msgstr "チェックアウト"
 
@@ -2095,6 +2097,11 @@ msgstr "コピー(&Y)"
 #: ID:73
 msgid "Copied"
 msgstr "コピー"
+
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "URLからコピー"
 
 # ID:126,
 #: ID:126
@@ -2425,14 +2432,28 @@ msgstr "デフォルトのログメッセージ数(&N)"
 # ID:11,#:
 # ID:73,#:
 # ID:101,
+#: Control-ID:65535
+msgid "Default URL:"
+msgstr "デフォルト URL:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Default path:"
+msgstr "デフォルトパス:"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
 #: Dlg-ID:240
 msgid "Delete Unversioned Items"
 msgstr "バージョン管理外のファイルを削除する"
 
 # Control-ID:1073,
 #: ID:17
-msgid "Delete unversioned items"
-msgstr "バージョン管理外のファイルを削除する"
+msgid "Delete unversioned items..."
+msgstr "バージョン管理外の項目を削除する ..."
 
 # ID:11,#:
 # ID:73,#:
@@ -2596,15 +2617,6 @@ msgid ""
 msgstr ""
 "設定の変更を反映させるために、ドキュメントの再読み込みを行いますか？\n"
 "注意書き: 行った全ての変更が失われます！"
-
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"ドキュメントの再読み込みを行いますか？\n"
-"行った全ての変更が失われます！"
 
 # ID:145,
 #: ID:563
@@ -2852,6 +2864,12 @@ msgid "Export unversioned files too"
 msgstr "バージョン管理外のファイルも表示する"
 
 # ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "エクスポート %s"
+
+# ID:79,
 #: ID:79
 msgid "Exporting..."
 msgstr "エクスポート中 ..."
@@ -2930,6 +2948,13 @@ msgstr "ドキュメントを開くことができませんでした。"
 #: ID:3857
 msgid "Failed to save document."
 msgstr "ドキュメントを保存できませんでした。"
+
+# ID:63,#:
+# ID:74,#:
+# ID:77,
+#: ID:220
+msgid "Failed!"
+msgstr "失敗！"
 
 # Control-ID:1217,
 #: Control-ID:1217
@@ -3019,6 +3044,7 @@ msgstr ""
 
 # ID:77,
 #: ID:77
+#: ID:219
 msgid "Finished!"
 msgstr "終了！"
 
@@ -3069,10 +3095,14 @@ msgstr ""
 "GDI+ は以下から入手することができます。\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "情報を集めています。しばらくお待ちください ..."
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "一般"
 
@@ -3245,6 +3275,132 @@ msgstr "フックの種類:"
 msgid "Hostname mismatch (%s)"
 msgstr "ホスト名が合いません (%s)"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr "ID:32771:V C +F"
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr "ID:32772:V   +O"
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "ID:32773:V C +O"
+msgstr "ID:32773:V C +O"
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr "ID:32774:V C +T"
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr "ID:32778:V   +F"
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr "ID:32779:V   +S"
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr "ID:32793:V C +V"
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr "ID:32794:V C +R"
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr "ID:32796:V C +A"
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809
+#: ; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601
+#: ; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr "ID:57601:V C +O"
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr "ID:57603:V C +S"
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr "ID:57604:V CS+S"
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "ID:57635:V C +X"
+msgstr "ID:57635:V C +X"
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636
+#: ; '&Find'
+msgid "ID:57636:V C +F"
+msgstr "ID:57636:V C +F"
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637
+#: ; ''
+msgid "ID:57637:V C +V"
+msgstr "ID:57637:V C +V"
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "ID:57665:V C +Q"
+msgstr "ID:57665:V C +Q"
+
 # Dlg-ID:106,
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
@@ -3258,13 +3414,17 @@ msgstr "アイコン／デザイン／コード:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
 msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイを非表示にする"
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "有効にすると、選択したファイルに svn:needs-lock 属性が設定されている場合は \"ロックを取得\" をトップレベルメニューに表示します。"
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"if the selected file has the svn:needs-lock property set"
+msgstr ""
+"有効にすると、選択したファイルに svn:needs-lock 属性が設定されている場合は、\n"
+"常に \"ロックを取得\" メニューをトップレベルメニューに表示します。"
 
 # ID:95,
 #: ID:95
@@ -3277,8 +3437,12 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や、改行コードの調整を行うために、ベースファイルの一時コピーを作成する。"
+msgid ""
+"If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
+"with the keywords expanded and the line endings adjusted."
+msgstr ""
+"チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や\n"
+"改行コードの調整を行うために、ベースファイルの一時コピーを作成する。"
 
 # ID:196,
 #: ID:196
@@ -3468,10 +3632,9 @@ msgstr "含めるパス:"
 msgid "Initial import"
 msgstr "初期インポート"
 
-# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "行内の差分"
+msgid "Inline differences"
+msgstr "行内差分"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3664,6 +3827,10 @@ msgstr "行番号"
 msgid "Line Graph"
 msgstr "折れ線グラフ"
 
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "行差分"
+
 # Dlg-ID:143,
 #: Control-ID:65535
 msgid "Line:"
@@ -3824,14 +3991,14 @@ msgstr "外観::アイコンセット"
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld"
-msgstr "開始リビジョン: %ld - 最終リビジョン: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgstr "表示リビジョンの範囲: %ld - %ld"
 
 # ID:238,
 #: ID:238
 #, c-format
-msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "開始リビジョン: %ld - 最終リビジョン: %ld - 最新リビジョン: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgstr "表示リビジョンの範囲: %ld - %ld、 最新リビジョン: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -3953,6 +4120,7 @@ msgstr "ミックス"
 # ID:74,
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "変更"
 
@@ -4269,6 +4437,11 @@ msgstr "クライアントの証明書を開く"
 #: ID:3601
 msgid "Open file"
 msgstr "ファイルを開く"
+
+# ID:101,
+#: Control-ID:1132
+msgid "Open from clipboard"
+msgstr "クリップボードから開く"
 
 # ID:3601,
 #: ID:7
@@ -5549,9 +5722,9 @@ msgstr "差分を表示(&D)"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "ログを表示(&L)"
 
@@ -5715,6 +5888,11 @@ msgstr "項目を数字でソートする"
 msgid "Sort numerical"
 msgstr "数字でソートする"
 
+# Control-ID:1300,
+#: ID:197
+msgid "Sorts items numerical instead of alphabetical"
+msgstr "アルファベットの変わりに数字で項目をソートする"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5823,8 +6001,8 @@ msgstr "ロックを横取りする"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Stefan Kung, Lubbe Onken"
-msgstr "Stefan Kung, Lubbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -5999,6 +6177,16 @@ msgstr "チャンクのサイズは追加／削除した行数と合いません
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "\"@@\" で始まる部分は、行 %d だと思われます！"
 
+# ID:196,
+#: ID:196
+msgid "The default path to checkout to if nothing else is specified"
+msgstr "何も指定されない場合はデフォルトのパスにチェックアウトする"
+
+# ID:197,
+#: ID:197
+msgid "The default url to checkout from if nothing else is specified"
+msgstr "何も指定されない場合はデフォルトのURLにチェックアウトする"
+
 # ID:68,
 #: ID:68
 #, c-format
@@ -6143,6 +6331,12 @@ msgid ""
 msgstr ""
 "古いファイルは新しいファイルとマッチしません。\n"
 "ファイルの名前を変更する機能は（まだ）未サポートです！"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "The operation failed."
+msgstr "操作に失敗しました。"
 
 # ID:64,
 #: ID:64
@@ -6316,6 +6510,15 @@ msgstr ""
 "保存する前に、まずそれらの衝突を解消してください。\n"
 "衝突が存在する状態のままで、ファイルの保存を行ってもよろしいですか？\n"
 "「はい」をクリックすると、他のエディタを用いて手作業で編集する必要があります！"
+
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"保存されていない変更が存在します！\n"
+"変更を保存しますか？"
 
 # ID:82,
 #: ID:82
@@ -7647,6 +7850,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "%s へ"
@@ -7779,5 +7983,4 @@ msgstr "作業コピーを示すリポジトリのURL:"
 #: ID:245
 msgid "year"
 msgstr "年"
-
 
