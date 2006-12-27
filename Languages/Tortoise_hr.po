@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-19 13:39+0100\n"
+"PO-Revision-Date: 2006-12-27 10:41+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2628,15 +2628,6 @@ msgstr ""
 "Želite li iznova učitati dokumente kako bi odražavali promjene postavki?\n"
 "Napomena: sve učinjene izmjene biti će izgubljene!"
 
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"Želite li iznova učitati dokumente?\n"
-"Sve dosadašnje izmjene biti će izgubljene!"
-
 # ID:145,
 #: ID:563
 #, c-format
@@ -2886,6 +2877,12 @@ msgid "Export unversioned files too"
 msgstr "Izvezi i datoteke bez verzija"
 
 # ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Izvozim %s"
+
+# ID:79,
 #: ID:79
 msgid "Exporting..."
 msgstr "Izvozim,,,"
@@ -3114,10 +3111,14 @@ msgstr ""
 "možete ga preuzeti ovdje:\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Dohvaćam informacije. Molim pričekajte..."
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "Općenito"
 
@@ -3650,10 +3651,9 @@ msgstr "Uključi staze:"
 msgid "Initial import"
 msgstr "Početni uvoz"
 
-# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "&Objedinjena razlika"
+msgid "Inline differences"
+msgstr "Jednoredne razlike"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3850,6 +3850,10 @@ msgstr "Linija"
 #: ID:246
 msgid "Line Graph"
 msgstr "Linijski graf revizija"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Razlike u linijama"
 
 # Ovdje je Min umjesto Najmanje zato što na formi sa statistikama "Najmanje" ne stane.
 # Control-ID:1158,
@@ -4149,6 +4153,7 @@ msgstr "Miješano"
 # ID:74,
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "Izmijenjeno"
 
@@ -6569,6 +6574,16 @@ msgstr ""
 "Želite li snimiti datoteku s i dalje prisutnim sukobima?\n"
 "Ako kliknete DA, tada ćete trebati ručno razriješiti sukobe koristeći neki drugi alat za obradu!"
 
+# množina/jednina?
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Postoje izmjene koje nisu spremljene!\n"
+"Želite li snimiti vaše izmjene?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -7900,6 +7915,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "prema %s"
