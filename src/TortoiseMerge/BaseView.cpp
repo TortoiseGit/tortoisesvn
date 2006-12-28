@@ -2070,29 +2070,55 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	if (nChar==VK_PRIOR)
 	{
-		int nPageChars = GetScreenLines();
-		int nLineCount = GetLineCount();
-		int nNewTopLine = 0;
+		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
+			int nPageWidth = GetScreenChars();
+			if (m_pwndLeft)
+				m_pwndLeft->ScrollSide(-nPageWidth);
+			if (m_pwndRight)
+				m_pwndRight->ScrollSide(-nPageWidth);
+			if (m_pwndBottom)
+				m_pwndBottom->ScrollSide(-nPageWidth);
+		}
+		else
+		{
+			int nPageChars = GetScreenLines();
+			int nLineCount = GetLineCount();
+			int nNewTopLine = 0;
 
-		nNewTopLine = m_nTopLine - nPageChars + 1;
-		if (nNewTopLine < 0)
-			nNewTopLine = 0;
-		if (nNewTopLine >= nLineCount)
-			nNewTopLine = nLineCount - 1;
-		ScrollAllToLine(nNewTopLine);
+			nNewTopLine = m_nTopLine - nPageChars + 1;
+			if (nNewTopLine < 0)
+				nNewTopLine = 0;
+			if (nNewTopLine >= nLineCount)
+				nNewTopLine = nLineCount - 1;
+			ScrollAllToLine(nNewTopLine);
+		}
 	}
 	if (nChar==VK_NEXT)
 	{
-		int nPageChars = GetScreenLines();
-		int nLineCount = GetLineCount();
-		int nNewTopLine = 0;
+		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
+			int nPageWidth = GetScreenChars();
+			if (m_pwndLeft)
+				m_pwndLeft->ScrollSide(nPageWidth);
+			if (m_pwndRight)
+				m_pwndRight->ScrollSide(nPageWidth);
+			if (m_pwndBottom)
+				m_pwndBottom->ScrollSide(nPageWidth);
+		}
+		else
+		{
+			int nPageChars = GetScreenLines();
+			int nLineCount = GetLineCount();
+			int nNewTopLine = 0;
 
-		nNewTopLine = m_nTopLine + nPageChars - 1;
-		if (nNewTopLine < 0)
-			nNewTopLine = 0;
-		if (nNewTopLine >= nLineCount)
-			nNewTopLine = nLineCount - 1;
-		ScrollAllToLine(nNewTopLine);
+			nNewTopLine = m_nTopLine + nPageChars - 1;
+			if (nNewTopLine < 0)
+				nNewTopLine = 0;
+			if (nNewTopLine >= nLineCount)
+				nNewTopLine = nLineCount - 1;
+			ScrollAllToLine(nNewTopLine);
+		}
 	}
 	if (nChar==VK_HOME)
 	{
