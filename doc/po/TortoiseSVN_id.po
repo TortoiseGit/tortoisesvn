@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-12-26 08:51+0700\n"
+"PO-Revision-Date: 2007-01-01 02:29+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5177,14 +5177,14 @@ msgstr "Dimana ada beberapa pembuat utama dan banyak kontributor minor, jumlah s
 # Indonesian#: source/TortoiseSVN_en.xml:5224(title)
 #: source/TortoiseSVN_en.xml:5220
 #: (title)
-msgid "Commits by Week Page"
-msgstr "Halaman Komit per Minggu"
+msgid "Commits by date Page"
+msgstr "Halaman Komit menurut Tanggal"
 
 # Indonesian#: source/TortoiseSVN_en.xml:5227(title)
 #: source/TortoiseSVN_en.xml:5223
 #: (title)
-msgid "Commits-by-Week Graph"
-msgstr "Grafik Komit-per-Minggu"
+msgid "Commits-by-date Graph"
+msgstr "Grafik Komit-Menurut-Tanggal"
 
 # Indonesian#: source/TortoiseSVN_en.xml:5225(para)
 #: source/TortoiseSVN_en.xml:5221
@@ -7495,28 +7495,24 @@ msgstr "Tanggal revisi, pembuat dan komentar ditampilkan dalam kotak petunjuk ka
 # Indonesian#: source/TortoiseSVN_en.xml:7762(para)
 #: source/TortoiseSVN_en.xml:7791
 #: (para)
-#, fuzzy
 msgid "If you select two revisions (Use <action>Ctrl left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
 msgstr "Jika Anda memilih dua revisi (Gunakan <action>Ctrl klik kiri</action>), Anda bisa menggunakan menu konteks untuk menampilkan perbedaan antara revisi ini. Anda bisa memilih untuk menampilkan perbedaan sebagai titik pembuatan cabang, tapi biasanya Anda ingin menampilkan perbedaan di titik akhir cabang, seperti di revisi HEAD."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7769(para)
 #: source/TortoiseSVN_en.xml:7798
 #: (para)
-#, fuzzy
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
 msgstr "Anda bisa melihat perbedaan sebagai file Unified-Diff, yang menampilkan semua perbedaan dalam file tunggal dengan konteks minimal. Jika Anda memilih ke <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan Revisi</guimenuitem></menuchoice> Anda akan disodorkan dengan daftar file yang diubah. <action>Klik ganda</action> pada nama file utnuk mengambil kedua revisi dari file dan membandingkannya menggunakan piranti pembeda visual."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7782(para)
 #: source/TortoiseSVN_en.xml:7809
 #: (para)
-#, fuzzy
 msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
 msgstr "Jika Anda <action>mengklik kanan</action> pada revisi Anda bisa menggunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Tampilkan Log</guimenuitem></menuchoice> untuk melihat histori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7792(para)
 #: source/TortoiseSVN_en.xml:7818
 #: (para)
-#, fuzzy
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Karena Subversion tidak bisa menyediakan semua informasi yang dibutuhkan, jumlah tertentu dari interpretasi dibutuhkan, yang kadang-kadang bisa memberikan hasil aneh. Meskipun demikian, output untuk trunk akan membuat memberikan hasil yang berguna."
 
@@ -7535,16 +7531,14 @@ msgstr "ekspor"
 # Indonesian#: source/TortoiseSVN_en.xml:7805(para)
 #: source/TortoiseSVN_en.xml:7831
 #: (para)
-#, fuzzy
 msgid "Sometimes you may want a copy of your working tree without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source, or to export to a web server. Instead of making a copy and then deleting all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Exporting from a URL and exporting from a working copy are treated slightly differently."
-msgstr "Ada kalanya Anda ingin duplikat dari susunan pekerjaan Anda tanpa setiap direktori <filename>.svn</filename> itu, contoh. untuk membuat zipped tarball dari sumber Anda, atau untuk mengekspor ke web server. Daripada mengcopy dan kemudian menghapus semua direktori <filename>.svn</filename> itu secara manual, TortoiseSVN menawarkan perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ekspor...</guimenuitem></menuchoice>. Jika Anda menjalankan perintah ini pada copy pekerjaan Anda akan ditanya tempat untuk menyimpan copy pekerjaan <emphasis>bersih</emphasis> tanpa folder <filename>.svn</filename>. Standarnya, hanya file berversi yang diekspor, tapi Anda bisa menggunakan kotak centang <guilabel>Eksport file tidak berversi juga</guilabel> untuk menyertakan setiap file tiak berversi lain yang ada dalam WC Anda dan tidak dalam repositori. Rujukan eksternal menggunakan <literal>svn:externals</literal> bisa diabaikan bila diperlukan."
+msgstr "Ada kalanya Anda menginginkan salinan dari susunan pekerjaan Anda tanpa setiap direktori <filename>.svn</filename> itu, misalnya untuk membuat zipped tarball dari sumber Anda, atau untuk mengekspor ke web server. Daripada menyalin dan kemudian menghapus semua direktori <filename>.svn</filename> itu secara manual, TortoiseSVN menawarkan perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ekspor...</guimenuitem></menuchoice>. Mengekspor dari suatu URL dan mengekspor dari suatu copy pekerjaan diperlakukan secara sedikit berbeda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3552(title)
 #: source/TortoiseSVN_en.xml:7846
 #: (title)
-#, fuzzy
 msgid "The Export-from-URL Dialog"
-msgstr "Dialog Impor"
+msgstr "Dialog Ekspor-dari-URL"
 
 #: source/TortoiseSVN_en.xml:7844
 #: (para)
@@ -7554,30 +7548,26 @@ msgstr "<placeholder-1/> Jika Anda mengeksekusi perintah ini pada folder tidak b
 # Indonesian#: source/TortoiseSVN_en.xml:7851(title)
 #: source/TortoiseSVN_en.xml:7856
 #: (para)
-#, fuzzy
 msgid "Of course you can export directly from the repository too. Use the Repository Browser to navigate to the relevant subtree in your repository, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>. You will get the <guilabel>Export from URL</guilabel> dialog described above."
-msgstr "XXX inserted for sync"
+msgstr "Tentu saja Anda juga dapat mengekspor secara langsung dari repositori. Gunakan Browser Repositori untuk pergi ke anak pohon yang relevan dalam repositori Anda kemudian gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Ekspor</guimenuitem></menuchoice>. Anda akan mendapatkan dialog <guilabel>Eskpor dari URL</guilabel> yang dijelaskan di atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7805(para)
 #: source/TortoiseSVN_en.xml:7866
 #: (para)
-#, fuzzy
 msgid "If you execute this command on your working copy you'll be asked for a place to save the <emphasis>clean</emphasis> working copy without the <filename>.svn</filename> folders. By default, only the versioned files are exported, but you can use the <guilabel>Export unversioned files too</guilabel> checkbox to include any other unversioned files which exist in your WC and not in the repository. External references using <literal>svn:externals</literal> can be omitted if required."
-msgstr "Ada kalanya Anda ingin duplikat dari susunan pekerjaan Anda tanpa setiap direktori <filename>.svn</filename> itu, contoh. untuk membuat zipped tarball dari sumber Anda, atau untuk mengekspor ke web server. Daripada mengcopy dan kemudian menghapus semua direktori <filename>.svn</filename> itu secara manual, TortoiseSVN menawarkan perintah <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ekspor...</guimenuitem></menuchoice>. Jika Anda menjalankan perintah ini pada copy pekerjaan Anda akan ditanya tempat untuk menyimpan copy pekerjaan <emphasis>bersih</emphasis> tanpa folder <filename>.svn</filename>. Standarnya, hanya file berversi yang diekspor, tapi Anda bisa menggunakan kotak centang <guilabel>Eksport file tidak berversi juga</guilabel> untuk menyertakan setiap file tiak berversi lain yang ada dalam WC Anda dan tidak dalam repositori. Rujukan eksternal menggunakan <literal>svn:externals</literal> bisa diabaikan bila diperlukan."
+msgstr "Jika Anda menjalankan perintah ini pada copy pekerjaan Anda akan ditanya tempat untuk menyimpan copy pekerjaan <emphasis>bersih</emphasis> tanpa folder <filename>.svn</filename>. Bawaannya, hanya file berversi yang diekspor, tapi Anda bisa menggunakan kotak centang <guilabel>Eksport file tidak berversi juga</guilabel> untuk menyertakan setiap file tiak berversi lain yang ada dalam WC Anda dan tidak dalam repositori. Rujukan eksternal menggunakan <literal>svn:externals</literal> bisa diabaikan bila diperlukan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7826(para)
 #: source/TortoiseSVN_en.xml:7876
 #: (para)
-#, fuzzy
 msgid "Another way to export from a working copy is to <action>right drag</action> the working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. The second option includes the unversioned files as well."
 msgstr "Cara lain untuk mengekspor adalah dengan <action>mendrag kanan</action> folder copy pekerjaan ke lokasi lain dan pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>SVN Ekspor disini</guimenuitem></menuchoice> atau <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>SVN Eksport semua disini</guimenuitem></menuchoice>. Opsi kedua menyertakan file yang tidak berversi juga."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7840(para)
 #: source/TortoiseSVN_en.xml:7890
 #: (para)
-#, fuzzy
 msgid "When exporting from a working copy, if the target folder already contains a folder of the same name as the one you are exporting, you will be given the option to overwrite the existing content, or to create a new folder with an automatically generated name, eg. <literal>Target (1)</literal>."
-msgstr "Dan tentunya Anda bisa mengekspor secara langsung dari repositori juga. Gunakan Browser Repositori untuk navigasi ke sub-pohon relevan dalam repositori Anda, lalu gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Ekspor</guimenuitem></menuchoice>."
+msgstr "Saat mengekspor dari suatu copy pekerjaan, jika folder target sudah mengandung suatu folder bernama sama dengan folder yang sedang Anda ekspor, Anda akan diberi pilihan untuk menimpa isi yang telah ada, atau untuk membuat folder baru dengan nama yang dibuat secara otomatis, misal <literal>Target (1)</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7851(title)
 #: source/TortoiseSVN_en.xml:7899
@@ -7600,9 +7590,8 @@ msgstr "Dialog Relokasi"
 # Indonesian#: source/TortoiseSVN_en.xml:7856(para)
 #: source/TortoiseSVN_en.xml:7904
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr "<placeholder-1/> Jika repositori Anda mempunyai beberapa alasa mengubah lokasinya (IP/URL). Mungkin Anda macet dan tidak bisa mengkomit dan Anda tidak ingin melakukan checkout copy pekerjaan Anda lagi dari lokasi baru dan memindahkan semua data kembali ke dalam copy pekerjaan baru, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relokasi</guimenuitem></menuchoice> adalah perintah yang Anda cari. Dasarnya sangat sederhana: ia memindai semua file \"entri\" dalam folder <filename>.svn</filename> dan mengubah URL dari entri ke nilai baru."
+msgstr "<placeholder-1/> Jika repositori Anda, untuk beberapa alasan, mengubah lokasinya (IP/URL). Mungkin Anda macet dan tidak bisa mengkomit dan Anda tidak ingin melakukan checkout copy pekerjaan Anda lagi dari lokasi baru dan memindahkan semua data kembali ke dalam copy pekerjaan baru, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relokasi</guimenuitem></menuchoice> adalah perintah yang Anda cari. Dasarnya sangat sederhana: ia memindai semua file \"entri\" dalam folder <filename>.svn</filename> dan mengubah URL dari entri ke nilai baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7882(para)
 #: source/TortoiseSVN_en.xml:7930
@@ -7625,21 +7614,18 @@ msgstr "Path akar repositori dalam penyiapan server berubah."
 # Indonesian#: source/TortoiseSVN_en.xml:7876(para)
 #: source/TortoiseSVN_en.xml:7924
 #: (para)
-#, fuzzy
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr "<emphasis>Ini adalah operasi yang sangat jarang digunakan</emphasis>. Perintah relokasi <emphasis>hanya</emphasis> digunakan jika URL dari akar repositori berubah. Alasan yang mungkin adalah: <placeholder-1/> Dengan kata lin, Anda perlu untuk merelokasi saat copy pekerjaan Anda merujuk ke lokasi yang sama dalam repositori yang sama, tapi repositori itu sendiri sudah dipindahkan."
+msgstr "<emphasis>Ini adalah operasi yang sangat jarang digunakan</emphasis>. Perintah relokasi <emphasis>hanya</emphasis> digunakan jika URL dari akar repositori berubah. Alasan yang mungkin adalah: <placeholder-1/> Dengan kata lain, Anda perlu untuk merelokasi saat copy pekerjaan Anda merujuk ke lokasi yang sama dalam repositori yang sama, tapi repositori itu sendiri sudah dipindahkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7899(para)
 #: source/TortoiseSVN_en.xml:7947
 #: (para)
-#, fuzzy
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
 msgstr "Anda ingin memindahkan repositori Subversion ke lokasi berbeda. Dalam hal itu Anda harus melakukan checkout bersih dari lokasi repositori baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7906(para)
 #: source/TortoiseSVN_en.xml:7953
 #: (para)
-#, fuzzy
 msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
 msgstr "Anda ingin menukar ke cabang berbeda atau direktori di dalam repositori yang sama. Untuk melakukan itu Anda harus menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tukar...</guimenuitem></menuchoice>. Baca <xref linkend=\"tsvn-dug-switch-1\"/> untuk informasi selengkapnya."
 
@@ -7652,9 +7638,8 @@ msgstr "Ini tidak berlaku jika: <placeholder-1/>"
 # Indonesian#: source/TortoiseSVN_en.xml:7918(para)
 #: source/TortoiseSVN_en.xml:7965
 #: (para)
-#, fuzzy
 msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
-msgstr "Jika anga menggunakan relokasi dalam kasus di atas, ini <emphasis>akan merusak copy pekerjaan Anda</emphasis> dan Anda akan mendapatkan banyak pesan kesalahan yang tidak bisa dijelaskan saat memutahirkan, mengkomit, dll. Sekali itu terjadi, pembetulan hanya dengan checkout segar."
+msgstr "Jika anga menggunakan relokasi dalam kasus di atas, ini <emphasis>akan merusak copy pekerjaan Anda</emphasis> dan Anda akan mendapatkan banyak pesan kesalahan yang tidak bisa dijelaskan saat memutahirkan, mengkomit, dll. Saat itu terjadi, satu-satunya perbaikan yang dapat dilakukan adalah checkout segar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7927(title)
 #: source/TortoiseSVN_en.xml:7974
@@ -7683,42 +7668,36 @@ msgstr "pelacakisu"
 # Indonesian#: source/TortoiseSVN_en.xml:7937(para)
 #: source/TortoiseSVN_en.xml:7984
 #: (para)
-#, fuzzy
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr "Sudah sangat umum dalam Pengembangan Software untuk perubahan dikaitkan ke ID bug atau isu tertenti. Para pengguna dari sistem pelacakan bug (pelacak isu) ingin mengaitkan perubahan yang mereka lakukan dalam Subversion dengan ID tertentu dalam pelacak isu mereka. Kebanyakan pelacak isu menyediakan naskah hook pre-commit yang mengoper log pesan untuk mencari bug ID dimana komit dikaitkan. Ini cenderung merupakan kesalahan karena ia tergantung pada pengguna untuk menulis log pesan dengan benar agar naskah hook pre-commit bisa mengurainya dengan benar."
+msgstr "Sudah sangat umum dalam Pengembangan Software untuk perubahan dikaitkan ke ID bug atau isu tertentu. Para pengguna dari sistem pelacakan bug (pelacak isu) ingin mengaitkan perubahan yang mereka lakukan dalam Subversion dengan ID tertentu dalam pelacak isu mereka. Kebanyakan pelacak isu menyediakan naskah hook pre-commit yang mengoper log pesan untuk mencari bug ID dimana komit dikaitkan. Ini cenderung merupakan kesalahan karena ia tergantung pada pengguna untuk menulis log pesan dengan benar agar naskah hook pre-commit bisa mengurainya dengan benar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7951(para)
 #: source/TortoiseSVN_en.xml:7997
 #: (para)
-#, fuzzy
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr "Ketika pengguna memasukan log pesan, juga mendefinisikan baris termasuk nomor isu dikaitkan dengan komit bisa ditambahkan secara otomatis. Ini mengurangi resiko bahwa pengguna memasukan nomor isu dalam hal piranti pelacakan bug tidak bisa mengurai dengan benar."
+msgstr "Ketika pengguna memasukan log pesan, baris yang didefinisikan dengan baik yang termasuk didalamnya adalah nomor isu terkait dengan komit tersebut bisa ditambahkan secara otomatis. Ini mengurangi resiko bahwa pengguna memasukan nomor isu dalam hal piranti pelacakan bug tidak bisa mengurai dengan benar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7957(para)
 #: source/TortoiseSVN_en.xml:8003
 #: (para)
-#, fuzzy
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
 msgstr "Atau TortoiseSVN bisa menerangi bagian dari log pesan yang dimasukan yang dikenal oleh pelacak isu. Cara itu pengguna mengetahui bahwa log pesan bisa diurai dengan benar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7964(para)
 #: source/TortoiseSVN_en.xml:8010
 #: (para)
-#, fuzzy
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
 msgstr "Ketika pengguna melihat log pesan, TortoiseSVN membuat link dari setiap bug ID dalam log pesan yang memicu browser ke isu yang disebutkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7947(para)
 #: source/TortoiseSVN_en.xml:7993
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
 msgstr "TortoiseSVN bisa membantu pengguna dalam dua cara: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7971(para)
 #: source/TortoiseSVN_en.xml:8018
 #: (para)
-#, fuzzy
 msgid "You can integrate a Bugtracking Tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Anda bisa mengintegrasikan Piranti Bugtracking pilihan Anda dalam TortoiseSVN. Untuk melakukan ini, Anda harus mendefinisikan beberapa properti, yang dimulai dengan <literal>bugtraq:</literal>. Ini harus di-set pada Folder: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
@@ -7731,9 +7710,8 @@ msgstr "bugtraq:url"
 # Indonesian#: source/TortoiseSVN_en.xml:7985(para)
 #: source/TortoiseSVN_en.xml:8032
 #: (para)
-#, fuzzy
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
-msgstr "Set properti ini ke url dari piranti bugtracking Anda. Ini harus URI dikodekan dengan benar dan harus berisi <literal>%BUGID%</literal>. <literal>%BUGID%</literal> diganti dengan Issuenumber yang Anda masukan. Ini membolehkan TortoiseSVN untuk menampilkan link dalam dialog log, Dengan demikian saat Anda mencari pada log revisi Anda bisa melompat secara langsung ke piranti bugtracking Anda. Anda tidak harus melengkapi properti ini, tapi TortoiseSVN menampilkan hanya issuenumber dan tidak membuat link kepadanya. contoh proyek TortoiseSVN menggunakan <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
+msgstr "Set properti ini ke url dari piranti bugtracking Anda. Ini harus  dikode-URI-kan dengan benar dan harus berisi <literal>%BUGID%</literal>. <literal>%BUGID%</literal> diganti dengan Issuenumber yang Anda masukan. Ini membolehkan TortoiseSVN untuk menampilkan link dalam dialog log, Dengan demikian saat Anda mencari pada log revisi Anda bisa melompat secara langsung ke piranti bugtracking Anda. Anda tidak harus melengkapi properti ini, tapi TortoiseSVN menampilkan hanya issuenumber dan tidak membuat link kepadanya. contoh proyek TortoiseSVN menggunakan <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8003(term)
 #: source/TortoiseSVN_en.xml:8050
@@ -7744,14 +7722,12 @@ msgstr "bugtraq:warnifnoissue"
 # Indonesian#: source/TortoiseSVN_en.xml:8005(para)
 #: source/TortoiseSVN_en.xml:8052
 #: (para)
-#, fuzzy
 msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you because of an empty issuenumber textfield. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>false</literal> is assumed. </emphasis>"
-msgstr "Set ini menjadi <literal>true</literal>, jika Anda ingin TortoiseSVN memperingatkan Anda karena filed teks issuenumber kosong. Nilai yang benar adalah <literal>true/false</literal>. <emphasis> Jika tidak didefinisikan, dianggap <literal>false</literal>. </emphasis>"
+msgstr "Set ini menjadi <literal>true</literal>, jika Anda ingin TortoiseSVN memperingatkan Anda karena kotak teks issuenumber kosong. Nilai yang benar adalah <literal>true/false</literal>. <emphasis> Jika tidak didefinisikan, dianggap <literal>false</literal>. </emphasis>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:7977(para)
 #: source/TortoiseSVN_en.xml:8024
 #: (para)
-#, fuzzy
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/>"
 msgstr "Ada dua cara untuk mengintegrasikan TortoiseSVN dengan pelacak isu. Pertama berdasarkan string sederhana, kedua berdasarkan <literal>ekspresi regular</literal>. Properti yang digunakan oleh kedua pendekatan itu adalah: <placeholder-1/>"
 
@@ -7764,7 +7740,6 @@ msgstr "bugtraq:message"
 # Indonesian#: source/TortoiseSVN_en.xml:8026(para)
 #: source/TortoiseSVN_en.xml:8073
 #: (para)
-#, fuzzy
 msgid "<emphasis> This property activates the Bugtracking System in <literal>Input field</literal> mode. </emphasis> If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the logmessage. It must contain <literal>%BUGID%</literal>, which is replaced with the issuenumber on commit. This ensures that your commit log contains a reference to the issuenumber which is always in a consistent format and can be parsed by your Bugtracking tool to associate the issuenumber with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
 msgstr "<emphasis> Properti ini mengaktifkan Sistem Bugtracking dalam mode <literal>Field Input</literal>. </emphasis> Jika properti ini di-set, maka TortoiseSVN akan meminta Anda untuk memasukan nomor isu saat Anda mengkomit perubahan Anda. Ini digunakan untuk menambah baris di akhir dari log pesan . Ini harus berisi <literal>%BUGID%</literal>, yang diganti dengan issuenumber saat komit. Ini memastikan bahwa log komit Anda berisi referensi ke issuenumber yang selalu dalam format konsisten dan bisa diurai oleh piranti Bugtracking Anda untuk mengaitkan issuenumber dengan komit tertentu. contoh proyek the TortoiseSVN menggunakan <literal>Issue : %BUGID%</literal>, tapi ini tergantung pada Piranti Anda."
 
@@ -7777,7 +7752,6 @@ msgstr "bugtraq:append"
 # Indonesian#: source/TortoiseSVN_en.xml:8049(para)
 #: source/TortoiseSVN_en.xml:8096
 #: (para)
-#, fuzzy
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
 msgstr "Properti ini mendefinisikan jika bug-ID ditambahkan (true) ke akhir dari log pesan atau disisipkan (false) di awal dari log pesan. Nilai yang benar adalah <literal>true/false</literal>. <emphasis> Jika tidak didefinisikan, dianggap <literal>true</literal>, maka proyek yang sudah ada tidak terpisah. </emphasis>"
 
@@ -7790,9 +7764,8 @@ msgstr "bugtraq:label"
 # Indonesian#: source/TortoiseSVN_en.xml:8064(para)
 #: source/TortoiseSVN_en.xml:8111
 #: (para)
-#, fuzzy
 msgid "This text is shown by TortoiseSVN on the commit dialog to label the edit box where you enter the issuenumber. If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in mind though that the window will not be resized to fit this label, so keep the size of the label below 20-25 characters."
-msgstr "Teks ini ditampilkan oleh TortoiseSVN pada dialog komit ke label kotak edit dimana Anda memasukan issuenumber. Jika tidak di-set, <literal>Bug-ID / Issue-Nr:</literal> akan ditampilkan. Harap diingat meskipun jendela tidak akan dibesarkan ulang untuk memenuhi label ini, maka jaga ukuran label dibawah20-25 karakter."
+msgstr "Teks ini ditampilkan oleh TortoiseSVN pada dialog komit ke label kotak edit dimana Anda memasukan issuenumber. Jika tidak di-set, <literal>Bug-ID / Issue-Nr:</literal> akan ditampilkan. Harap diingat meskipun jendela tidak akan dibesarkan ulang untuk memenuhi label ini, maka jaga ukuran label dibawah 20-25 karakter."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8076(term)
 #: source/TortoiseSVN_en.xml:8123
@@ -7803,14 +7776,12 @@ msgstr "bugtraq:number"
 # Indonesian#: source/TortoiseSVN_en.xml:8078(para)
 #: source/TortoiseSVN_en.xml:8125
 #: (para)
-#, fuzzy
 msgid "If set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr "Jika di-set ke <literal>true</literal> hanya angka yang diijinkan dalam field teks issuenumber. Kekecualian adalah koma, maka Anda bisa memberi beberapa angka dipisahkan oleh koma. Nilai yang benar adalah <literal>true/false</literal>. <emphasis> Jika tidak didefinisikan, dianggap <literal>true</literal>. </emphasis>"
+msgstr "Jika di-set ke <literal>true</literal> hanya angka yang diizinkan dalam field teks issuenumber. Kekecualian adalah koma, maka Anda bisa memberi beberapa angka dipisahkan oleh koma. Nilai yang benar adalah <literal>true/false</literal>. <emphasis> Jika tidak didefinisikan, dianggap <literal>true</literal>. </emphasis>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8018(para)
 #: source/TortoiseSVN_en.xml:8065
 #: (para)
-#, fuzzy
 msgid "In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-1/>"
 msgstr "Dalam pendekatan sederhana, TortoiseSVN menampilkan kepada pengguna field input terpisah dimana bug ID bisa dimasukan. Lalu baris terpisah ditambahkan/prepended ke log pesan yang dimasukan pengguna. <placeholder-1/>"
 
@@ -7823,56 +7794,48 @@ msgstr "bugtraq:logregex"
 # Indonesian#: source/TortoiseSVN_en.xml:8103(para)
 #: source/TortoiseSVN_en.xml:8149
 #: (para)
-#, fuzzy
 msgid "<emphasis> This property activates the Bugtracking System in <literal>Regex</literal> mode. </emphasis> It contains one or two regular expressions, separated by a newline."
 msgstr "<emphasis> Properti ini mengaktifkan Sistem Bugtracking dalam mode <literal>Regex</literal>. </emphasis> Ini berisi satu atau dua ekspresi reguler, dipisahkan oleh baris baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8110(para)
 #: source/TortoiseSVN_en.xml:8156
 #: (para)
-#, fuzzy
 msgid "If only one expression is set, then the bare bug ID's must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
 msgstr "Jika hanya satu ekspresi yang di-set, maka bug ID harus sama dengan yang ada dalam grup dari srting regex. Contoh: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8115(para)
 #: source/TortoiseSVN_en.xml:8161
 #: (para)
-#, fuzzy
 msgid "If two expressions are set, then the first expression is used to find a string which relates to the bug ID but may contain more than just the bug ID (e.g. \"Issue #123\" or \"resolves issue 123\"). The second expression is then used to extract the bare bug ID from the string extracted with the first expression. An example:"
 msgstr "Jika dua ekspresi di-set, maka ekspresi pertama digunakan untuk mencari string yang terkait dengan bug ID tapi bisa berisi lebih dari hanya bug ID (contoh. \"Issue #123\" atau \"menyelesaikan issue 123\"). Ekspresi kedua digunakan untuk mengurai bug ID terbuka dari string yang diurai dengan ekspresi pertama. Contohnya:"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8123(para)
 #: source/TortoiseSVN_en.xml:8169
 #: (para)
-#, fuzzy
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr "Jika Anda ingin menangkap setiap pola \"issue #XXX\" dan \"issue #890, #789\" di dalam log pesan Anda bisa menggunakan string regex berikut: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> dan ekspresi kedua seperti <literal>(\\d+)</literal>"
+msgstr "Jika Anda ingin menangkap setiap pola \"issue #XXX\" dan \"issue #890, #789\" di dalam suatu log pesan, Anda bisa menggunakan string regex berikut: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> dan ekspresi kedua seperti <literal>(\\d+)</literal>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8129(para)
 #: source/TortoiseSVN_en.xml:8175
 #: (para)
-#, fuzzy
 msgid "If you are unfamiliar with regular expressions, take a look at the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 msgstr "Jika Anda tidak terbiasa dengan ekspresi reguler, lihat dokumentasi online dan tutorial di <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8092(para)
 #: source/TortoiseSVN_en.xml:8138
 #: (para)
-#, fuzzy
 msgid "In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
 msgstr "Dalam pendekatan dengan <literal>ekspresi reguler</literal>, TortoiseSVN tidak menampilkan field input terpisah tapi menandai bagian dari log pesan yang dimasukan pengguna yang dikenal oleh pelacak isu. Ini dikerjakan sementara pengguna menulis log pesan. Ini juga berarti bahwa bug ID bisa dimana saja di dalam log pesan! Metode ini lebih fleksibel, dan digunakan oleh proyek TortoiseSVN itu sendiri. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8140(para)
 #: source/TortoiseSVN_en.xml:8186
 #: (para)
-#, fuzzy
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
 msgstr "Jika <literal>bugtraq:message</literal> dan <literal>bugtraq:logregex</literal> properti keduanya di-set, <literal>logregex</literal> diproses lebih dulu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8145(para)
 #: source/TortoiseSVN_en.xml:8191
 #: (para)
-#, fuzzy
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
 msgstr "Meskipun Anda tidak mempunyai pelacak isu dengan hook pre-commit menguraikan log pesan Anda, Anda masih bisa menggunakan ini untuk kembali ke isu seperti disebutkan dalam log pesan ke dalam link!"
 
@@ -7885,14 +7848,12 @@ msgstr "Set Properti pada Folder"
 # Indonesian#: source/TortoiseSVN_en.xml:8159(para)
 #: source/TortoiseSVN_en.xml:8205
 #: (para) source/TortoiseSVN_en.xml:8307
-#, fuzzy
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Properti ini harus di-set pada folder agar sistem bekerja. Ketika Anda komit file atau folder, properti dibaca dari folder itu. Jika properti tidak ditemukan disana, TortoiseSVN akan mencari diatasnya melalui susunan folder untuk menemukannya sampai ke folder tidak berversi, atau akar susunan (contoh. <literal>C:\\</literal>) ditemukan. Jika Anda memastikan bahwa pengguna memeriksa hanya dari contoh <filename>trunk/</filename> dan bukan beberapa subfolder, maka itu cukup jika Anda mengeset properti pada <filename>trunk/</filename>. Jika Anda tidak yakin, Anda harus mengeset properti secara rekursif pada setiap subfolder. Seting properti lebih dalam dalam hirarki proyek menimpa seting pada tingkat lebih tinggi (lebih dekat ke <filename>trunk/</filename>)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8180(para)
 #: source/TortoiseSVN_en.xml:8226
 #: (para)
-#, fuzzy
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 msgstr "Integrasi pelacak isu ini tidak terbatas pada TortoiseSVN; ia bisa digunakan dengan setiap klien Subversion. Untuk informasi lebih jauh, baca <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Spesifikasi Integrgasi Issuetracker</citetitle> secar lengkap </ulink>."
 
@@ -7920,9 +7881,8 @@ msgstr "Ada beberapa pelihat repositori berbasis web yang dapat digunakan bersam
 # Indonesian#: source/TortoiseSVN_en.xml:7971(para)
 #: source/TortoiseSVN_en.xml:8254
 #: (para)
-#, fuzzy
 msgid "You can integrate a repoviewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Anda bisa mengintegrasikan Piranti Bugtracking pilihan Anda dalam TortoiseSVN. Untuk melakukan ini, Anda harus mendefinisikan beberapa properti, yang dimulai dengan <literal>bugtraq:</literal>. Ini harus di-set pada Folder: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Anda dapat menggabungkan suatu pelihat repo kesukaan Anda dalam TortoiseSVN. Untuk melakukannya, Anda harus menentukan beberapa properti yang menentukan hubungannya. Mereka harus diatur pada Folder (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:1232(primary) source/TortoiseSVN_en.xml:7665(primary)
 #: source/TortoiseSVN_en.xml:8262
@@ -7960,9 +7920,8 @@ msgstr "seting"
 # Indonesian#: source/TortoiseSVN_en.xml:8193(para)
 #: source/TortoiseSVN_en.xml:8334
 #: (para)
-#, fuzzy
 msgid "To find out what the different settings are for, just leave your mouse pointer a second on the editbox/checkbox... and a helpful tooltip will popup."
-msgstr "Untuk menemukan seting yang berbeda, cukup arahkan penunjuk mouse ke kotak edit/kotak centang... dan tooltip berguna akan muncul."
+msgstr "Untuk menemukan seting yang berbeda, cukup arahkan penunjuk mouse ke kotak edit/kotak centang... dan tooltip yang menolong akan muncul."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8200(title)
 #: source/TortoiseSVN_en.xml:8343
@@ -7985,7 +7944,6 @@ msgstr "Dialog Seting, Halaman Umum"
 # Indonesian#: source/TortoiseSVN_en.xml:8204(para)
 #: source/TortoiseSVN_en.xml:8347
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
 msgstr "<placeholder-1/> Dialog ini membolehkan Anda untuk menetapkan bahasa yang diinginkan, dan seting Subversion-tertentu."
 
@@ -8010,9 +7968,8 @@ msgstr "Secara otomatis memeriksa versi lebih baru setiap minggu"
 # Indonesian#: source/TortoiseSVN_en.xml:8225(para)
 #: source/TortoiseSVN_en.xml:8368
 #: (para)
-#, fuzzy
 msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr "Jika dicentang, TortoiseSVN akan menghubungi situs download-nya sekali dalam seminggu untuk melihat apakah disana ada versi program lebih baru yang tersedia. Gunakan <guibutton>Periksa sekarang</guibutton> jika Anda ingin jawabannya segera. Versi baru tidak akan didownloaded; Anda hanya menerima dialog informasi yang memberitahu bahwa versi baru tersedia."
+msgstr "Jika dicentang, TortoiseSVN akan menghubungi situs download-nya sekali dalam seminggu untuk melihat apakah disana ada versi program lebih baru yang tersedia. Gunakan <guibutton>Periksa sekarang</guibutton> jika Anda ingin jawabannya segera. Versi baru tidak akan diunduh. Anda hanya menerima dialog informasi yang memberitahu bahwa versi baru tersedia."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8237(term)
 #: source/TortoiseSVN_en.xml:8379
@@ -8041,7 +7998,6 @@ msgstr "Peringatan"
 # Indonesian#: source/TortoiseSVN_en.xml:8239(para)
 #: source/TortoiseSVN_en.xml:8381
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel. <guibutton>Configure</guibutton> is a shortcut to the Control Panel."
 msgstr "TortoiseSVN mempunyai tiga suara bebas yang terinstalasi secara standar. <placeholder-1/> Anda bisa memilih suara berbeda (atau mematikan suara ini sepenuhnya) menggunakan Panel Kontrol Windows. <guibutton>Konfigurasi</guibutton> adalah jalan pintas ke Panel Kontrol."
 
@@ -8066,28 +8022,24 @@ msgstr "abaikan global"
 # Indonesian#: source/TortoiseSVN_en.xml:8273(para)
 #: source/TortoiseSVN_en.xml:8415
 #: (para)
-#, fuzzy
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files. These patterns use filename globbing. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information."
-msgstr "Pola abaikan global digunakan untuk menjaga file tidak berversi muncul contoh dalam dialog komit. File yang sama denga pola juga diabaikan oleh impor. Mengabaikan file atau direktori dalam nama atau ekstensi. Pola dipisahkan dengan spasi contoh. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Dua entri pertama merujuk ke direktori, yang lainnya ke file. Pola ini menggunakan globbing nama file. Baca selengkapnya <xref linkend=\"tsvn-dug-ignore-glob\"/>."
+msgstr "Pola abaikan global digunakan untuk menjaga file tidak berversi muncul contoh dalam dialog komit. File yang sama dengan pola juga diabaikan oleh impor. Abaikan file atau direktori dengan mengetikkan nama atau ekstensi. Pola dipisahkan dengan spasi contoh. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Dua entri pertama merujuk ke direktori, yang lainnya ke file. Pola ini menggunakan globbing nama file. Baca selengkapnya <xref linkend=\"tsvn-dug-ignore-glob\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8284(para)
 #: source/TortoiseSVN_en.xml:8427
 #: (para)
-#, fuzzy
 msgid "Note that the ignore patterns you specify here will also affect other Subversion clients running on your PC, including the command line client."
-msgstr "Catatan bahwa pola abaikan yang Anda tetapkan disini juga akan mempengaruhi klien Subversion lain yang berjalanpada PC Anda, termasuk klien baris perintah."
+msgstr "Catatan bahwa pola abaikan yang Anda tetapkan disini juga akan mempengaruhi klien Subversion lain yang berjalan pada PC Anda, termasuk klien baris perintah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8290(para)
 #: source/TortoiseSVN_en.xml:8433
 #: (para)
-#, fuzzy
 msgid "If you use the Subversion configuration file to set a <literal>global-ignores</literal> pattern, it will override the settings you make here. The Subversion configuration file is accessed using the <guibutton>Edit</guibutton> as described below."
 msgstr "Jika Anda menggunakan file konfigurasi Subversion untuk mengeset pola <literal>abaikan-global</literal>, ia akan menimpa seting yang Anda buat disini. File konfigurasi Subversion diakses menggunakan <guibutton>Edit</guibutton> seperti dijelaskan dibawah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8298(para)
 #: source/TortoiseSVN_en.xml:8441
 #: (para)
-#, fuzzy
 msgid "This ignore pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
 msgstr "Pola abaikan ini akan mempengaruhi semua proyek Anda. Ini tidak diversi, maka ia tidak akan mempengaruhi pengguna lain. Kebalikannya Anda juga bisa menggunakan properti berversi <literal>svn:ignore</literal> untuk mengecualikan file atau direktori dari kontrol versi. Baca selengkapnya <xref linkend=\"tsvn-dug-ignore\"/>."
 
@@ -8100,9 +8052,8 @@ msgstr "Set tanggal file ke \"waktu komit terakhir\""
 # Indonesian#: source/TortoiseSVN_en.xml:8311(para)
 #: source/TortoiseSVN_en.xml:8455
 #: (para)
-#, fuzzy
 msgid "This option tells TortoiseSVN to set the filedates to the last commit time when doing a checkout or an update. Otherwise TortoiseSVN will use the current date. If you are developing software it is generally best to use the current date because build systems normally look at the datestamps to decide which files need compiling. If you use \"last commit time\" and revert to an older file revision, your project may not compile as you expect it to."
-msgstr "Opsi ini memberitahu TortoiseSVN untuk mengesetto tanggal file ke waktu komit terakhir saat melakukan checkout atau pemutahiran. Sebaliknya TortoiseSVN akan menggunakan tanggal saat ini. Jika Anda mengembangkan software biasanya cara terbaik untuk menggunakan tanggal saat ini karena sistem pembuatan umumnya melihat ke cap tanggal untuk memutuskan file mana yang perlu dikompilasi. Jika Anda menggunakan \"waktu komit terakhir\" dan memulihkan ke revisi file lebih lama, proyek Anda mungkin tidak dikompilasi seperti yang Anda harapkan."
+msgstr "Opsi ini memberitahu TortoiseSVN untuk mengeset tanggal file ke waktu komit terakhir saat melakukan checkout atau pemutahiran. Sebaliknya TortoiseSVN akan menggunakan tanggal saat ini. Jika Anda mengembangkan software biasanya cara terbaik untuk menggunakan tanggal saat ini karena sistem pembuatan umumnya melihat ke cap tanggal untuk memutuskan file mana yang perlu dikompilasi. Jika Anda menggunakan \"waktu komit terakhir\" dan memulihkan ke revisi file lebih lama, proyek Anda mungkin tidak dikompilasi seperti yang Anda harapkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8326(term)
 #: source/TortoiseSVN_en.xml:8469
@@ -8113,9 +8064,8 @@ msgstr "File konfigurasi Subversion"
 # Indonesian#: source/TortoiseSVN_en.xml:8328(para)
 #: source/TortoiseSVN_en.xml:8471
 #: (para)
-#, fuzzy
 msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
-msgstr "Gunakan <guibutton>Edit</guibutton> untuk mengedit file konfigurasi Subversion secara langsung. Beberapa seting tidak bisa dimodifikasi secara langsung oleh TortoiseSVN, dan sebaliknya perlu di-set disini. Untuk informasi lebih jauh mengenai file <filename>konfig</filename> Subversion lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Manual Subversion</citetitle></ulink>. Pada seksi <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Seting Properti Otomatis</citetitle></ulink> adalah bagian yang menarik, dan yang dikonfigurasi disini. Catatan bahwa Subversion bisa membaca informasi konfigurasi dari beberapa tempat, dan Anda perlu mengetahui yang mana yang menjadi prioritas. Lihat <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Konfigurasi dan Registri Windows</citetitle></ulink> untuk lebih jelasnya."
+msgstr "Gunakan <guibutton>Edit</guibutton> untuk mengedit file konfigurasi Subversion secara langsung. Beberapa seting tidak bisa dimodifikasi secara langsung oleh TortoiseSVN, dan sebaliknya perlu di-set disini. Untuk informasi lebih jauh mengenai file <filename>konfig</filename> Subversion lihat <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. Bagian <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html\"><citetitle>Automatic Property Setting</citetitle></ulink> adalah bagian yang menarik, dan itulah yang dikonfigurasi disini. Catatan bahwa Subversion bisa membaca informasi konfigurasi dari beberapa tempat, dan Anda perlu mengetahui yang mana yang menjadi prioritas. Lihat <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> untuk lebih jelasnya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8353(term)
 #: source/TortoiseSVN_en.xml:8496
@@ -8126,21 +8076,18 @@ msgstr "Gunakan direktori \"_svn\" daripada \".svn\""
 # Indonesian#: source/TortoiseSVN_en.xml:8355(para)
 #: source/TortoiseSVN_en.xml:8498
 #: (para)
-#, fuzzy
 msgid "VS.NET when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET and the frontpage extensions it uses. Read <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> to find out more about this issue."
 msgstr "VS.NET ketika digunakan dengan proyek web tidak bisa menangani folder <literal>.svn</literal> yang digunakan Subversion untuk menyimpan informasi internalnya. Ini bukan bug dalam Subversion. Bug ada dalam VS.NET dan ekstensi frontpage yang digunakannya. Baca <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> untuk keterangan mengenai isu ini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8363(para)
 #: source/TortoiseSVN_en.xml:8505
 #: (para)
-#, fuzzy
 msgid "If you want to change the behaviour of Subversion and TortoiseSVN, you can use this checkbox to set the environment variable which controls this."
 msgstr "Jika Anda ingin mengubah tingkah laku dari Subversion dan TortoiseSVN, Anda bisa menggunakan kotak centang ini untuk mengeset variabel lingkungan yang mengontrol ini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8368(para)
 #: source/TortoiseSVN_en.xml:8510
 #: (para)
-#, fuzzy
 msgid "You should note that changing this option will not automatically convert existing working copies to use the new admin directory. You will have to do that yourself using a script (See our FAQ) or simply check out a fresh working copy."
 msgstr "Anda harus mencatat bahwa perubahan opsi ini tidak akan mengubah copy pekerjaan yang sudah ada secara otomatis untuk menggunakan direktori admin baru. Anda harus melakukannya sendiri menggunakan naskah (lihat FAQ kami) atau cukup melakukan check out copy pekerjaan baru."
 
@@ -8159,7 +8106,6 @@ msgstr "Halaman Dialog Seting, Tampilan"
 # Indonesian#: source/TortoiseSVN_en.xml:8382(para)
 #: source/TortoiseSVN_en.xml:8523
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are unchecked and appear in the submenu."
 msgstr "<placeholder-1/> Halaman ini membolehkan Anda untuk menetapkan entri menu konteks mana yang ditampilkan TortoiseSVN dalam menu konteks utama, dan yang mana yang muncul dalam submenu TortoiseSVN. Standarnya hampir semua item dicentang dan terlihat dalam submenu."
 
@@ -8171,7 +8117,6 @@ msgstr "Ada kasus khusus untuk <guilabel>Dapatkan Kunci</guilabel>. Anda tentu s
 # Indonesian#: source/TortoiseSVN_en.xml:8392(para)
 #: source/TortoiseSVN_en.xml:8543
 #: (para)
-#, fuzzy
 msgid "If you have a very large number of files in your working copy folders, it can take a long time before the context menu appears when you <action>right click</action> on a folder. This is because Subversion fetches the status for all files when you ask for folder status. To avoid this delay you can uncheck the <guilabel>Fetch status for context menu</guilabel> box. Be warned that the context menu for folders will not always be correct, and may include items which should not really be there. For example, you will see <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> for an <literal>Added</literal> folder, which will not work because the folder is not yet in the repository."
 msgstr "Jika Anda mempunyai jumlah besar file dalam folder copy pekerjaan Anda, akan memerlukan waktu lama sebelum menu konteks muncul saat Anda <action>mengklik kanan</action> pada folder. Ini dikarenakan Subversion mengambil status untuk semua file ketika Anda meminta status folder. Untuk menghindari tenggang ini Anda bisa tidak mencentang kotak <guilabel>Ambil status untuk menu konteks</guilabel>. Harap berhati-hati bahwa menu konteks untuk folder tidak selalu benar, dan bisa menyertakan item yang seharusnya tidak ada disana. Sebagai contoh, Anda akan melihat <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tampilkan Log</guimenuitem></menuchoice> untuk folder yang <literal>Ditambahkan</literal>, yang tidak akan bekerja karena folder belum ada dalam repositori."
 
@@ -8184,317 +8129,272 @@ msgstr "Tidak dicentang (bawaan)"
 # Indonesian#: source/TortoiseSVN_en.xml:8416(para)
 #: source/TortoiseSVN_en.xml:8567
 #: (para)
-#, fuzzy
 msgid "In this state the menu items are all drawn by TortoiseSVN. No accelerator keys are shown."
 msgstr "Dalam kondisi ini item menu diambil semua oleh TortoiseSVN. Tidak ada kunci akselerator ditampilan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8423(term)
 #: source/TortoiseSVN_en.xml:8574
 #: (term)
-#, fuzzy
 msgid "Checked"
 msgstr "Dicentang"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8425(para)
 #: source/TortoiseSVN_en.xml:8576
 #: (para)
-#, fuzzy
 msgid "This activates the accelerators for TortoiseSVN commands, but of course these may conflict with the accelerators for anything else in the explorer context menu. Pressing the shortcut key multiple times will cycle through the matching context menu items. In this state, the menu items are drawn by Windows which makes the icons look ugly."
 msgstr "Ini mengaktifkan akselerator untuk perintah TortoiseSVN, tapi tentunya ini bisa konflik dengan akselerator untuk yang lainnya dalam menu konteks explorer. Menekan tombol jalan pintas beberapa kali akan mengulang melalui item menu konteks yang ditemukan. Dalam kondisi ini, item menu ditampilkan oleh Windows yang menjadikan ikon terlihat jelek."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8436(term)
 #: source/TortoiseSVN_en.xml:8587
 #: (term)
-#, fuzzy
 msgid "Indeterminate"
-msgstr "Menengah"
+msgstr "Tidak Ditentukan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8438(para)
 #: source/TortoiseSVN_en.xml:8589
 #: (para)
-#, fuzzy
 msgid "In this mode the accelerator keys are active and the menu items are drawn in text only mode without icons."
 msgstr "Dalam mode ini kunci akselerator aktif dan item menu diambil dalam mode hanya teks tanpa ikon."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8409(para)
 #: source/TortoiseSVN_en.xml:8560
 #: (para)
-#, fuzzy
 msgid "The option <guilabel>Enable accelerators on the top level menu</guilabel> has three states: <placeholder-1/>"
 msgstr "Opsi <guilabel>Hidupkan akselerator pada menu tingkat atas</guilabel> mempunyai tiga kondisi: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8446(title)
 #: source/TortoiseSVN_en.xml:8597
 #: (title)
-#, fuzzy
 msgid "Icon Overlay Settings"
 msgstr "Seting Lapisan Ikon"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8448(para)
 #: source/TortoiseSVN_en.xml:8599
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays. Network drives can be very slow, so by default icons are not shown for working copies located on network shares. You can even disable all icon overlays, but where's the fun in that?"
 msgstr "<placeholder-1/> Halaman ini membolehkan Anda untuk memilih item dimana TortoiseSVN akan menampilkan lapisan ikon. Drive jaringan bisa lambat, karenanya ikon standar tidak ditampilkan untuk copy pekerjaan yang ditempatkan pada jaringan berbagi. Anda bahkan bisa mematikan semua lapisan ikon, tapi dimana letak kesenangannya?"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8460(para)
 #: source/TortoiseSVN_en.xml:8609
 #: (para)
-#, fuzzy
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
 msgstr "USB Flash drive nampak menjadi kasus khusus dalam tipe drive yang diidentifikasi oleh peralatan itu sendiri. Beberapa nampak sebagai drive tetap, dan beberapa sebagai drive removable."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8465(para)
 #: source/TortoiseSVN_en.xml:8614
 #: (para)
-#, fuzzy
 msgid "By default, overlay icons will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays only in explorer</guilabel> box."
 msgstr "Standarnya, lapisan ikon akan muncul dalam semua dialog buka/simpan juga dalam Windows Explorer. Jika Anda menginginkan <emphasis>hanya</emphasis> ditampilkan dalam Windows Explorer, centang kotak <guilabel>Tampilkan lapisan ikon hanya dalam explorer</guilabel>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8480(term)
 #: source/TortoiseSVN_en.xml:8628
 #: (term)
-#, fuzzy
 msgid "Default"
-msgstr "Standar"
+msgstr "Bawaan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8482(para)
 #: source/TortoiseSVN_en.xml:8630
 #: (para)
-#, fuzzy
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>realtime</emphasis> but it can take a few seconds for the overlays to change."
 msgstr "Cache semua informasi status dalam proses terpisah (<filename>TSVNCache.exe</filename>). Proses itu mengawasi semua drive atas perubahan dan mengambil status lagi jika file di dalam copy pekerjaan diubah. Proses berjalan dengan setidaknya kemungkinan prioritas agar program lain tidak macet karenanya. Itu juga berarti bahwa informasi status tidak <emphasis>realtime</emphasis> tapi bisa memerlukan beberapa detik agar lapisan berubah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8492(para)
 #: source/TortoiseSVN_en.xml:8641
 #: (para)
-#, fuzzy
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left treeview usually change too."
 msgstr "Keuntungan: lapisan menampilkan status secara rekursif, contoh. jika kedalaman file di dalam copy pekerjaan diubah, semua folder sampai akar copy pekerjaan akan juga menampilkan lapisan yang diubah. Dan karena proses bisa mengirimkan pemberitahuan ke shell, lapisan pada treeview kiri biasanya berubah juga."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8500(para)
 #: source/TortoiseSVN_en.xml:8649
 #: (para)
-#, fuzzy
 msgid "Disadvantage: the process runs constantly, even if you're not working on your projects. It also uses around 10-50 MB of RAM depending on number and size of your working copies."
 msgstr "Kerugian: Proses berjalan secara konstan, bahkan jika Anda tidak bekerja pada proyek Anda. Ia juga menggunakan sekitar 10-50 MB dari RAM tergantung pada jumlah dan besarnya copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8508(term)
 #: source/TortoiseSVN_en.xml:8657
 #: (term)
-#, fuzzy
 msgid "Shell"
 msgstr "Shell"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8510(para)
 #: source/TortoiseSVN_en.xml:8659
 #: (para)
-#, fuzzy
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
 msgstr "Caching dikerjakan secara langsung di dalam dll ekstensi shell, tapi hanya untuk folder yang saat ini nampak. Setiap kali Anda membawa ke folder lain, informasi status diambil lagi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8516(para)
 #: source/TortoiseSVN_en.xml:8665
 #: (para)
-#, fuzzy
 msgid "Advantage: needs only very little memory (around 1 MB of RAM) and can show the status in <emphasis>realtime</emphasis>."
 msgstr "Keuntungan: hanya memerlukan sedikit memori (sekirar 1 MB dari RAM) dan bisa menampilkan status secara <emphasis>realtime</emphasis>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8520(para)
 #: source/TortoiseSVN_en.xml:8669
 #: (para)
-#, fuzzy
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
 msgstr "Kerugian: Karena hanya satu folder di-cache, lapisan tidak menampilkan status secara rekursif. Untuk copy pekerjaan besar, ia memerlukan banyak waktu untuk menampilkan folder dalam explorer daripada dengan cache standar. Juga kolom tipe-mime tidak tersedia."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8529(term)
 #: source/TortoiseSVN_en.xml:8679
 #: (term)
-#, fuzzy
 msgid "None"
 msgstr "Tidak ada"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8531(para)
 #: source/TortoiseSVN_en.xml:8681
 #: (para)
-#, fuzzy
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
 msgstr "Dengan seting ini, TortoiseSVN tidak mengambil status sama sekali dalam Explorer. Karena itu, file tidak mendapatkan lapisan dan folder hanya mendapatkan lapisan 'normal' jika mereka diversi. Tidak ada lapisan lain yang ditampilkan, dan juga tidak ada kolom ekstra tersedia."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8538(para)
 #: source/TortoiseSVN_en.xml:8688
 #: (para)
-#, fuzzy
 msgid "Advantage: uses absolutely no additional memory and does not slow down the Explorer at all while browsing."
 msgstr "Keuntungan: tidak menggunakan memori tambahan dan tidak memperlambat Explorer sama sekali ketika melihat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8542(para)
 #: source/TortoiseSVN_en.xml:8692
 #: (para)
-#, fuzzy
 msgid "Disadvantage: Status information of files and folders is not shown in Explorer. To see if your working copies are modified, you have to use the \"Check for modifications\" dialog."
 msgstr "Kerugian: Informasi status dari file dan folder yang ditampilkan dalam Explorer. Untuk melihat copy pekerjaan Anda dimodifikasi, Anda harus menggunakan dialog \"Periksa modifikasi\"."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8471(para)
 #: source/TortoiseSVN_en.xml:8620
 #: (para)
-#, fuzzy
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status in so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
 msgstr "Karena ini memerlukan waktu tidak sedikit untuk mengambil status dari copy pekerjaan, TortoiseSVN menggunakan cache untuk menyimpan status agar explorer tidak berputar-putar terlalu lama ketika menampilkan lapisan. Anda bisa memilih tipe dari cache yang harus digunakan TortoiseSVN tergantung pada sistem Anda dan ukuran copy pekerjaan disini: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8552(para)
 #: source/TortoiseSVN_en.xml:8701
 #: (para)
-#, fuzzy
 msgid "If you select the default option, you can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned."
 msgstr "Jika Anda memilih opsi standar, Anda juga bisa memilih untuk menandai folder sebagai diubah jika mereka berisi item-item tidak berversi. Ini bisa berguna untuk mengingatkan Anda bahwa Anda sudah membuat file baru yang belum diberi versi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8558(para)
 #: source/TortoiseSVN_en.xml:8706
 #: (para)
-#, fuzzy
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
 msgstr "<guilabel>Kecualikan Path</guilabel> digunakan untuk memberitahu TortoiseSVN path itu agar <emphasis>tidak</emphasis> ditampilkan lapisan ikon dan kolom status. Ini berguna jika Anda mempunyai beberapa copy pekerjaan besar yang berisi hanya librari yang tidak Anda ubah sama sekali dan karenanya tidak memerlukan lapisan. Sebagai contoh:"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8566(para)
 #: source/TortoiseSVN_en.xml:8714
 #: (para)
-#, fuzzy
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
 msgstr "<filename>f:\\development\\SVN\\Subversion</filename> akan mematikan lapisan <emphasis>hanya</emphasis> pada folder tertentu. Anda masih bisa melihat lapisan pada semua file dan folder di dalam folder itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8571(para)
 #: source/TortoiseSVN_en.xml:8719
 #: (para)
-#, fuzzy
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
 msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> akan mematikan lapisan pada <emphasis>semua</emphasis> file dan folder yang path-nya dimulai dengan <filename>f:\\development\\SVN\\Subversion</filename>. Itu berarti Anda tidak akan melihat lapisan untuk setiap file dan folder dibawah path."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8578(para)
 #: source/TortoiseSVN_en.xml:8726
 #: (para)
-#, fuzzy
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
 msgstr "Hal yang sama diterapkan ke <guilabel>Sertakan Paths</guilabel>. Kecuali bahwa untuk path itu lapisan ditampilkan bahkan jika lapisan dimatikan untuk tipe drive tertentu, atau dengan mengecualikan path yang ditetapkan di atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8584(para)
 #: source/TortoiseSVN_en.xml:8731
 #: (para)
-#, fuzzy
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
-msgstr "TSVNCache.exe juga menggunakan path ini untuk membatasi pemindaiannya. Jika Anda menginginkania melihat hanya folder tertentu, matikan tipe semua drive dan sertakan hanya folder yang akan dipindai secara khusus."
+msgstr "TSVNCache.exe juga menggunakan path ini untuk membatasi pemindaiannya. Jika Anda menginginkan ia melihat hanya folder tertentu, matikan tipe semua drive dan sertakan hanya folder yang akan dipindai secara khusus."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8591(title)
 #: source/TortoiseSVN_en.xml:8738
 #: (title)
-#, fuzzy
 msgid "Icon Set Selection"
 msgstr "Pilihan Set Ikon"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8595(title)
 #: source/TortoiseSVN_en.xml:8742
 #: (title)
-#, fuzzy
 msgid "The Settings Dialog, Icon Set Page"
 msgstr "Halaman Dialog Seting, Set Ikon"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8593(para)
 #: source/TortoiseSVN_en.xml:8740
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
 msgstr "<placeholder-1/> Anda bisa mengubah lapisan set ikon ke satu yang paling Anda sukai. Catatan bahwa jika Anda mengubah lapisan set, Anda harus memulai lagi komputer Anda agar perubahan bisa terlihat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8604(title)
 #: source/TortoiseSVN_en.xml:8751
 #: (title)
-#, fuzzy
 msgid "TortoiseSVN Dialog Settings 1"
 msgstr "Seting Dialog TortoiseSVN 1"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8608(title)
 #: source/TortoiseSVN_en.xml:8755
 #: (title)
-#, fuzzy
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr "Halaman 1 Dialog Seting, Dialog"
+msgstr "Dialog Setting, Dialog 1 Halaman"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8606(para)
 #: source/TortoiseSVN_en.xml:8753
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/> This dialog allows you to configure some of TortoiseSVN's dialogs the way you like them."
 msgstr "<placeholder-1/> Dialog ini membolehkan Anda untuk mengkonfigurasi beberapa dialog TortoiseSVN dengan cara yang Anda sukai."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8616(term)
 #: source/TortoiseSVN_en.xml:8763
 #: (term)
-#, fuzzy
 msgid "Default number of log messages"
-msgstr "Jumlah pesan log standar"
+msgstr "Jumlah pesan log bawaan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8618(para)
 #: source/TortoiseSVN_en.xml:8765
 #: (para)
-#, fuzzy
 msgid "Limits the number of log messages that TortoiseSVN fetches when you first select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> Useful for slow server connections. You can always use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to get more messages."
 msgstr "Batasi jumlah pesan log yang diambil TortoiseSVN saat pertama Anda memilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tampilkan Log</guimenuitem></menuchoice> Berguna untuk koneksi server lambat. Anda selalu bisa menggunakan <guibutton>Dapatkan Semua</guibutton> or <guibutton>100 Berikutnya</guibutton> untuk mendapatkan pesan lebih."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8633(term)
 #: source/TortoiseSVN_en.xml:8779
 #: (term)
-#, fuzzy
 msgid "Font for log messages"
 msgstr "Font untuk pesan log"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8635(para)
 #: source/TortoiseSVN_en.xml:8781
 #: (para)
-#, fuzzy
 msgid "Selects the font face and size used to display the log message itself in the middle pane of the Revision Log dialog, and when composing log messages in the Commit dialog."
-msgstr "Pilih tampilan font dan ukuran yang digunakan untuk ditampilkan pesan log sendiri dalam pane tengah pada dialog Log Revisi, dan ketika mengatur pesan log dalam dialog Komit."
+msgstr "Pilih tampilan font dan ukuran yang digunakan untuk ditampilkan pesan log sendiri dalam pane tengah pada dialog Log Revisi, dan ketika mengarang pesan log dalam dialog Komit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8644(term)
 #: source/TortoiseSVN_en.xml:8790
 #: (term)
-#, fuzzy
 msgid "Short date / time format in log messages"
-msgstr "Format tanggal / waktu dalam pesan log"
+msgstr "Format tanggal / waktu pendek dalam pesan log"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8646(para)
 #: source/TortoiseSVN_en.xml:8792
 #: (para)
-#, fuzzy
 msgid "If the standard long messages use up too much space on your screen use the short format."
 msgstr "Jika pesan log standar yang digunakan sampai terlalu banyak pada layar Anda menggunakan format pendek."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8653(term)
 #: source/TortoiseSVN_en.xml:8799
 #: (term)
-#, fuzzy
 msgid "Progress Dialog"
 msgstr "Dialog Progres"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8655(para)
 #: source/TortoiseSVN_en.xml:8801
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
 msgstr "TortoiseSVN bisa menutup semua dialog progres secara otomatis saat tindakan selesai tanpa kesalahan. Seting ini membolehkan Anda untuk memilih kondisi untuk penutupan dialog. Seting standar (direkomendasikan) adalah <guilabel>Tutup secara manual</guilabel> yang membolehkan Anda untuk meninjau semua pesan dan memeriksa apa yang terjadi. Akan tetapi, Anda boleh memutuskan bahwa Anda ingin mengabaikan beberapa tipe pesan dan dialog ditutup secara otomatis jika tidak ada perubahan kritis."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8667(para)
 #: source/TortoiseSVN_en.xml:8812
 #: (para)
-#, fuzzy
 msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that the progress dialog will close if there were simple updates, but if changes from the repository were merged with yours, or if any files were added or deleted, the dialog will remain open. It will also stay open if there were any conflicts or errors during the operation."
 msgstr "<guilabel>Otomatis-tutup jika tidak ada gabungan, tambahan atau penghapusan</guilabel> berarti bahwa dialog progres akan menutup jika ada pemutahiran simpel, tapi jika perubahan dari repositori digabung dengan punya Anda, atau jika setiap file ditambahkan atau dihapus, dialog akan tetap terbuka. Ini juga akan tetap terbuka jika ada konflik atau kesalahan selama operasi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8676(para)
 #: source/TortoiseSVN_en.xml:8820
 #: (para)
-#, fuzzy
 msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr "<guilabel>Otomatis-tutup jika tidak ada gabungan, tambahan atau penghapusan untuk operasi lokal</guilabel> berarti bahwa dialog progres akan menutup karena <guilabel>Otomatis-tutup jika tidak ada gabungan, tambahan atau penghapusan</guilabel> tapi hanya untuk operasi lokal seperti menambahkan file atau memulihkan perubahan. Untuk operasi remote dialog akan tetap terbuka."
+msgstr "<guilabel>Otomatis-tutup jika tidak ada gabungan, tambahan atau penghapusan untuk operasi lokal</guilabel> berarti bahwa dialog progres akan menutup karena <guilabel>Otomatis-tutup jika tidak ada gabungan, tambahan atau penghapusan</guilabel> tapi hanya untuk operasi lokal seperti menambahkan file atau memulihkan perubahan. Untuk operasi remote, dialog akan tetap terbuka."
 
 # Indonesian#: source/TortoiseSVN_en.xml:8685(para)
 #: source/TortoiseSVN_en.xml:8828
