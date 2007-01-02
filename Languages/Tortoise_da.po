@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8340
+# Based on Tortoise.pot r8386
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-19 13:43+0100\n"
+"PO-Revision-Date: 2007-01-02 10:15+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1904,10 +1904,6 @@ msgstr "Vil du fortsætte?"
 msgid "Do you want to reload the documents to reflect the settings changes?\nNote: you will lose all changes you've made!"
 msgstr "Ønsker du at genindlæse dokumenterne for at afspejle ændringerne i indstillingerne?\nBemærk: Du vil miste alle de ændringer, du har foretaget!"
 
-#: ID:313,
-msgid "Do you want to reload the documents?\nYou will lose all changes you've made!"
-msgstr "Ønsker du at genindlæse dokumenterne?\nBemærk: Du vil miste alle de ændringer, du har foretaget!"
-
 #: ID:563,
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
@@ -2080,6 +2076,11 @@ msgstr "Mappe til eksport:"
 msgid "Export unversioned files too"
 msgstr "Eksporter også ikke-versionerede filer"
 
+#: ID:284,
+#, c-format
+msgid "Exporting %s"
+msgstr "Eksporterer %s"
+
 #: ID:79,
 msgid "Exporting..."
 msgstr "Eksporterer..."
@@ -2231,7 +2232,11 @@ msgstr "GDI+ kunne ikke oprette bitmap-objekt. Der er formodentlig ikke hukommel
 msgid "GDI+ is required to save the revision graph as a picture.\nYou can get GDI+ from\n<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr "Der kræves GDI+ for at gemme revisionsgrafen som et billede.\nDu kan hente GDI+ fra\n<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
-#: Dlg-ID:143,#: Dlg-ID:107,#: Control-ID:65535,
+#: ID:284,
+msgid "Gathering information. Please wait..."
+msgstr "Henter informationer. Vent venligst..."
+
+#: Dlg-ID:143,#: Dlg-ID:107,
 msgid "General"
 msgstr "Generelt"
 
@@ -2593,7 +2598,7 @@ msgstr "Oprindelig import"
 
 #: Control-ID:65535,
 #, fuzzy
-msgid "Inline diff"
+msgid "Inline differences"
 msgstr "Vis sammenligning"
 
 #: Dlg-ID:161,
@@ -2672,6 +2677,11 @@ msgstr "Linje"
 #: ID:246,
 msgid "Line Graph"
 msgstr "Kurvediagram"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Line differences"
+msgstr "Linjeforskelle"
 
 #: Control-ID:65535,
 msgid "Line:"
@@ -2887,7 +2897,7 @@ msgstr "Diverse"
 msgid "Mixed"
 msgstr "Blandet"
 
-#: ID:74,#: ID:264,
+#: ID:74,#: ID:264,#: Control-ID:65535,
 msgid "Modified"
 msgstr "Ændret"
 
@@ -4521,6 +4531,10 @@ msgstr "Der findes ændringer nede i én eller flere mapper, som er inkluderet m
 msgid "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr "Der er stadig uløste konflikter i linje %d!\nDu bør først løse disse konflikter, før du gemmer.\nVil du gemme filen med de eksisterende konflikter?\nHvis du vælger JA, bliver du nødt til at løse konflikterne med et andet program!"
 
+#: ID:313,
+msgid "There are unsaved modifications!\nDo you want to save your changes?"
+msgstr "Der er ikke-gemte ændringer.\nØnsker du at gemme ændringerne?"
+
 #: ID:82,
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Der er intet at tilføje. Alle filer og mapper er enten allerede under versionskontrol eller er blevet udeladt på grund af brug af egenskaben svn:ignore eller den globale ignorer-indstilling."
@@ -5300,7 +5314,7 @@ msgstr "svn:needs-lock\nSæt denne til en værdi (fx '*') for at kræve låsning
 msgid "switched to\r\n%s"
 msgstr "skiftet til\r\n%s"
 
-#: ID:80,#: ID:103,#: ID:103,
+#: ID:80,#: ID:103,#: ID:103,#: ID:284,
 #, c-format
 msgid "to %s"
 msgstr "til %s"
