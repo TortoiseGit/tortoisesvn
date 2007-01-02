@@ -63,7 +63,7 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
 	m_addListCtrl.SetCancelBool(&m_bCancelled);
 
-	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_ADDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
