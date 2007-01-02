@@ -127,17 +127,20 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			}
 		}
 
-		DeleteDummyItem(hParentItem);
-		if ((hParentItem != RVTI_ROOT)&&(!init))
-			SetItemData(GetItemIndex(hParentItem), 1);
-		if (force && hParentItem != RVTI_ROOT)
-			Expand(hParentItem, RVE_EXPAND);
- 
 		CString folder_name = folder_path.Mid(parent_folder.GetLength()).TrimLeft('/');
-		hItem = CReportCtrl::InsertItem(folder_name, m_nIconFolder, -1, -1, hParentItem, insertafter);
+		if (!folder_name.IsEmpty())
+		{
+			DeleteDummyItem(hParentItem);
+			if ((hParentItem != RVTI_ROOT)&&(!init))
+				SetItemData(GetItemIndex(hParentItem), 1);
+			if (force && hParentItem != RVTI_ROOT)
+				Expand(hParentItem, RVE_EXPAND);
+ 
+			hItem = CReportCtrl::InsertItem(folder_name, m_nIconFolder, -1, -1, hParentItem, insertafter);
 
-		InsertDummyItem(hItem);
-		SetItemData(GetItemIndex(hItem), 0);
+			InsertDummyItem(hItem);
+			SetItemData(GetItemIndex(hItem), 0);
+		}
 	}
 	// insert other columns text
 	CString temp;
