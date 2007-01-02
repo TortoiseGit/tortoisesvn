@@ -1113,6 +1113,18 @@ BEGIN
     GROUPBOX        "Message",IDC_GROUPBOX,7,35,292,120
 END
 
+IDD_UNLOCK DIALOGEX 0, 0, 244, 155
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Unlock"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,73,134,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,134,50,14
+    PUSHBUTTON      "&Help",IDHELP,187,134,50,14
+    CONTROL         "",IDC_UNLOCKLIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,107
+    CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",BS_AUTO3STATE | WS_TABSTOP,7,119,230,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1679,6 +1691,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 175
     END
+
+    IDD_UNLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 148
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -2054,6 +2074,7 @@ BEGIN
                             "Please enter a path where to apply the hook script to."
     IDS_ERR_NOHOOKCOMMANDPECIFIED "Please enter a hook script to execute."
     IDS_ERR_HOOKFAILED      "The hook script returned an error:\n%s"
+    IDS_ERR_NOTHINGTOUNLOCK "There's nothing to unlock. No file has a lock in this working copy."
 END
 
 STRINGTABLE 

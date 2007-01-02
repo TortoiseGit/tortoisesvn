@@ -50,6 +50,7 @@
 #include "RepositoryBrowser.h"
 #include "BlameDlg.h"
 #include "LockDlg.h"
+#include "UnlockDlg.h"
 #include "CheckForUpdatesDlg.h"
 #include "RevisionGraphDlg.h"
 #include "FileDiffDlg.h"
@@ -2123,37 +2124,16 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region unlock
 		if (command == cmdUnlock)
 		{
-			// create a pathlist with all locked files in it
-			CTSVNPathList lockedList;
-			for (int i=0; i<pathList.GetCount(); ++i)
+			CUnlockDlg unlockDlg;
+			unlockDlg.m_pathList = pathList;
+			if (unlockDlg.DoModal()==IDOK)
 			{
-				if (pathList[i].IsDirectory())
+				if (unlockDlg.m_pathList.GetCount() != 0)
 				{
-					// a folder was selected. Get all files in it and add the ones
-					// with a lock to the locked list.
-					SVNStatus stat;
-					CTSVNPath retPath;
-					svn_wc_status2_t * status;
-					status = stat.GetFirstFileStatus(pathList[i], retPath);
-					do
-					{
-						if (status && status->entry && status->entry->lock_token)
-						{
-							if (status->entry->lock_token[0] != 0)
-								lockedList.AddPath(retPath);
-						}
-						if (status)
-							status = stat.GetNextFileStatus(retPath);
-					} while(status && !retPath.IsEmpty());
+					CSVNProgressDlg progDlg;
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, unlockDlg.m_pathList);
+					progDlg.DoModal();
 				}
-				else
-					lockedList.AddPath(pathList[i]);
-			}
-			if (lockedList.GetCount())
-			{
-				CSVNProgressDlg progDlg;
-				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, lockedList);
-				progDlg.DoModal();
 			}
 		} 
 		//#endregion

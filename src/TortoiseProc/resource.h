@@ -103,6 +103,7 @@
 #define IDD_REVGRAPHFILTER              239
 #define IDD_DELUNVERSIONED              240
 #define IDD_INPUTLOGDLG                 241
+#define IDD_UNLOCK                      242
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -557,6 +558,7 @@
 #define IDS_ERR_NOHOOKPATHSPECIFIED     1318
 #define IDS_ERR_NOHOOKCOMMANDPECIFIED   1319
 #define IDS_ERR_HOOKFAILED              1320
+#define IDS_ERR_NOTHINGTOUNLOCK         1321
 #define IDC_HOOKPATH                    1323
 #define IDC_HOOKBROWSE                  1324
 #define IDC_HOOKCOMMANDLINE             1325
@@ -589,6 +591,7 @@
 #define IDC_CHECKOUTURL                 1363
 #define IDC_HOOKCOPYBUTTON              1367
 #define IDC_INFOLABEL                   1368
+#define IDC_UNLOCKLIST                  1369
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1020,9 +1023,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        242
+#define _APS_NEXT_RESOURCE_VALUE        243
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1369
+#define _APS_NEXT_CONTROL_VALUE         1370
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
