@@ -3,6 +3,10 @@ var objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination;
 var wdCompareTargetSelected = 0;
 var wdCompareTargetCurrent = 1;
 var wdCompareTargetNew = 2;
+// WdViewType
+var wdMasterView = 5;
+var wdNormalView = 1;
+var wdOutlineView = 2;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
@@ -43,7 +47,13 @@ word.visible = true;
 
 // Open the new document
 destination = word.Documents.Open(sNewDoc);
-    
+
+if(((destination.ActiveWindow.View.Type == wdOutlineView) || (destination.ActiveWindow.View.Type == wdMasterView)) && (destination.Subdocuments.Count == 0))
+{
+    destination.ActiveWindow.View.Type = wdNormalView;
+}
+
+
 // Compare to the base document
 destination.Compare(sBaseDoc, "", wdCompareTargetNew, true, true);
     
