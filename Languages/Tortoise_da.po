@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-02 10:15+0100\n"
+"PO-Revision-Date: 2007-01-03 16:00+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1247,7 +1247,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -3069,7 +3069,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -3896,7 +3896,7 @@ msgstr "Søgning mislykkedes på %1"
 msgid "Select &All"
 msgstr "Vælg &alle"
 
-#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / deselect &all"
 msgstr "Vælg/fravælg &alle"
 
@@ -4539,6 +4539,10 @@ msgstr "Der er ikke-gemte ændringer.\nØnsker du at gemme ændringerne?"
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Der er intet at tilføje. Alle filer og mapper er enten allerede under versionskontrol eller er blevet udeladt på grund af brug af egenskaben svn:ignore eller den globale ignorer-indstilling."
 
+#: ID:83,
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "Der er intet at låse op. Der er ingen filer i arbejdskopien med en lås."
+
 #: ID:188,
 msgid "Thesaurus"
 msgstr "Opslagsværk"
@@ -4792,7 +4796,7 @@ msgstr "Unified &diff af HEAD-revisioner"
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr "Ukendt udsteder af certifikat.\n  Fingeraftryk: %s\n  Distinguished navn: %s"
 
-#: ID:221,
+#: ID:221,#: Dlg-ID:242,
 msgid "Unlock"
 msgstr "Lås op"
 
