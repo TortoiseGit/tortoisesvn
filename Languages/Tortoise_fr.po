@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-11-29 21:32+0100\n"
+"PO-Revision-Date: 2007-01-04 22:22+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1772,6 +1772,11 @@ msgstr "&Copier"
 msgid "Copied"
 msgstr "Copié"
 
+# ID:76,
+#: ID:208
+msgid "Copied from URL"
+msgstr "Copié depuis l'URL"
+
 #: ID:126
 msgid "Copied remotely"
 msgstr "Copié à distance"
@@ -1849,11 +1854,6 @@ msgstr "Copier vers la copie de travail"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Copier vers la copie de travail..."
-
-# ID:76,
-#: ID:208
-msgid "Copy-from URL"
-msgstr "Copié depuis l'URL"
 
 #: ID:98
 #, c-format
@@ -2074,8 +2074,8 @@ msgid "Delete Unversioned Items"
 msgstr "Supprimer les éléments non versionnés"
 
 #: ID:17
-msgid "Delete unversioned items"
-msgstr "Supprimer les éléments non versionnés"
+msgid "Delete unversioned items..."
+msgstr "Supprimer les éléments non versionnés..."
 
 #: ID:73
 #: ID:264
@@ -2211,14 +2211,6 @@ msgid ""
 msgstr ""
 "Voulez-vous recharger le document pour tenir compte du changement des options ?\n"
 "Note : vous allez perdre vos dernières modifications !"
-
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"Voulez-vous recharger les documents ?\n"
-"Vous allez perdre vos dernières modifications !"
 
 #: ID:563
 #, c-format
@@ -2429,6 +2421,11 @@ msgstr "Exporter répertoire :"
 msgid "Export unversioned files too"
 msgstr "Exporter aussi les fichiers non versionnés"
 
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Exporte %s"
+
 #: ID:79
 msgid "Exporting..."
 msgstr "Exportation..."
@@ -2623,9 +2620,13 @@ msgstr ""
 "Vous pouvez obtenir GDI+ depuis\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Obtention d'informations. Veuillez patienter..."
+
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "Général"
 
@@ -2782,6 +2783,132 @@ msgstr "Type de hook :"
 msgid "Hostname mismatch (%s)"
 msgstr "Nom de la machine en désaccords (%s)"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr "ID:32771:V C +F"
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr "ID:32772:V   +S"
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "ID:32773:V C +O"
+msgstr "ID:32773:V C +O"
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr "ID:32774:V C +T"
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr "ID:32778:V   +F"
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr "ID:32779:V   +S"
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr "ID:32793:V C +V"
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr "ID:32794:V C +R"
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr "ID:32796:V C +A"
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809
+#: ; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601
+#: ; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr "ID:57601:V C +O"
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr "ID:57603:V C +S"
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr "ID:57604:V CS+S"
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "ID:57635:V C +X"
+msgstr "ID:57635:V C +X"
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636
+#: ; '&Find'
+msgid "ID:57636:V C +F"
+msgstr "ID:57636:V C +F"
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637
+#: ; ''
+msgid "ID:57637:V C +V"
+msgstr "ID:57637:V C +V"
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "ID:57665:V C +Q"
+msgstr "ID:57665:V C +Q"
+
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Recouvrements d'icône / Colonnes de statut"
@@ -2791,13 +2918,17 @@ msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Icônes/Design/Code :    Luebbe Onken"
 
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Si activé, prévient le recouvrement dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
+msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
+msgstr "Si activé, empêche l'affichage du recouvrement dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
 
 # ID:198,
 #: ID:198
-msgid "If activated, the menu entry \"Get Lock\" is shown in the top level menu if the selected file has the svn:needs-lock property is set"
-msgstr "Si cela est activé, l'entrée du menu \"Obtenir un verrou\" est affichée dans le niveau supérieur du menu si le fichier sélectionné a la propriété svn:needs-lock définie."
+msgid ""
+"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"if the selected file has the svn:needs-lock property set"
+msgstr ""
+"Si activé, l'entrée du menu \"Obtenir un verrou\" est toujours affichée dans le niveau supérieur du menu\n"
+"si le fichier sélectionné a la propriété svn:needs-lock définie."
 
 #: ID:95
 msgid ""
@@ -2808,8 +2939,12 @@ msgstr ""
 "Si non sélectionné, alors l'importation ira directement dans l'URL spécifiée."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "Si sélectionné, TortoiseSVN crée un fichier temporaire du fichier BASE pour faire un diff avec les mot-clés développés et les fins de ligne ajustées."
+msgid ""
+"If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
+"with the keywords expanded and the line endings adjusted."
+msgstr ""
+"Si sélectionné, TortoiseSVN crée un fichier temporaire du fichier BASE pour faire une comparaison\n"
+"avec les mot-clés développés et les fins de ligne ajustées."
 
 # ID:196,
 #: ID:196
@@ -2988,8 +3123,8 @@ msgid "Initial import"
 msgstr "Import initial"
 
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Différenciation en ligne"
+msgid "Inline differences"
+msgstr "Différences en ligne"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3167,6 +3302,10 @@ msgstr "Ligne"
 #: ID:246
 msgid "Line Graph"
 msgstr "Gaphique en ligne"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Différences de ligne"
 
 #: Control-ID:65535
 msgid "Line:"
@@ -3426,6 +3565,7 @@ msgstr "Mélangé"
 
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "Modifié"
 
@@ -3695,6 +3835,11 @@ msgstr "Ouvrir fichier certificat du client"
 #: ID:3601
 msgid "Open file"
 msgstr "Ouvrir fichier"
+
+# ID:101,
+#: Control-ID:1132
+msgid "Open from clipboard"
+msgstr "Ouvrir depuis le presse-papiers"
 
 #: ID:7
 msgid "Open image file..."
@@ -4747,9 +4892,9 @@ msgstr "Voir les &différences"
 #: ID:101
 #: Control-ID:1016
 #: Control-ID:1228
+#: Control-ID:1132
 #: Control-ID:1031
 #: Control-ID:1034
-#: Control-ID:1132
 msgid "Show &log"
 msgstr "Voir le journa&l"
 
@@ -4892,6 +5037,11 @@ msgstr "Trier les éléments de manière numérique"
 #: ID:101
 msgid "Sort numerical"
 msgstr "Trier de manière numérique"
+
+# Control-ID:1300,
+#: ID:197
+msgid "Sorts items numerical instead of alphabetical"
+msgstr "Trier les éléments de manière numérique et non pas alphabétique"
 
 # ID:196,
 #: ID:196
@@ -5459,10 +5609,23 @@ msgstr ""
 "Voulez-vous enregistrer le fichier avec des conflits encore présents ?\n"
 "Si vous cliquez sur Oui, alors vous aurez à résoudre manuellement les conflits dans un autre éditeur !"
 
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Il y a des modifications non sauvegardées !\n"
+"Voulez-vous enregistrer vos modifications?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Il n'y a rien à ajouter. Tous les fichiers et tous les répertoires sont soit versionnés soit ignorés avec la propriété svn:ignore ou le filtre d'exclusion."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "Il n'y a rien à déverrouiller. Aucun fichier n'a de verrou dans cette copie de travail"
 
 #: ID:188
 msgid "Thesaurus"
@@ -5825,6 +5988,7 @@ msgstr ""
 "  Nom distingué : %s"
 
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Déverrouiller"
 
@@ -6634,6 +6798,7 @@ msgstr ""
 
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "vers %s"
