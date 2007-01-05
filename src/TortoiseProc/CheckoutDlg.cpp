@@ -74,6 +74,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	CStandAloneDialog::OnInitDialog();
 
 	m_sCheckoutDirOrig = m_strCheckoutDirectory;
+	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -310,6 +311,8 @@ void CCheckoutDlg::SetRevision(const SVNRev& rev)
 
 void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 {
+	if (!m_bAutoCreateTargetName)
+		return;
 	// find out what to use as the checkout directory name
 	UpdateData();
 	m_URLCombo.GetWindowText(m_URL);

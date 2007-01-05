@@ -67,6 +67,7 @@ protected:
 	CString			m_sRevision;
 	CComboBox		m_eolCombo;
 	CString			m_sExportDirOrig;
+	bool			m_bAutoCreateTargetName;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;

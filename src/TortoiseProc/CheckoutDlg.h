@@ -64,6 +64,7 @@ protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;
 	CString			m_sCheckoutDirOrig;
+	bool			m_bAutoCreateTargetName;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;

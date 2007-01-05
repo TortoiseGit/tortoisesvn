@@ -76,6 +76,7 @@ BOOL CExportDlg::OnInitDialog()
 	CStandAloneDialog::OnInitDialog();
 
 	m_sExportDirOrig = m_strExportDirectory;
+	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -301,6 +302,8 @@ void CExportDlg::SetRevision(const SVNRev& rev)
 
 void CExportDlg::OnCbnEditchangeUrlcombo()
 {
+	if (!m_bAutoCreateTargetName)
+		return;
 	// find out what to use as the checkout directory name
 	UpdateData();
 	m_URLCombo.GetWindowText(m_URL);
