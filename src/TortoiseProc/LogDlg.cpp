@@ -2745,7 +2745,7 @@ void CLogDlg::UpdateLogInfoLabel()
 		selectedrevs = m_LogList.GetSelectedCount();
 	}
 	CString sTemp;
-	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_arShownList.GetCount(), rev1, rev2, selectedrevs);
+	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_arShownList.GetCount(), rev2, rev1, selectedrevs);
 	m_sLogInfo = sTemp;
 	UpdateData(FALSE);
 }
