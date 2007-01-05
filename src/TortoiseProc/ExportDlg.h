@@ -57,6 +57,7 @@ protected:
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnEnChangeRevisionNum();
 	afx_msg void OnCbnSelchangeEolcombo();
+	afx_msg void OnCbnEditchangeUrlcombo();
 
 	void		SetRevision(const SVNRev& rev);
 
@@ -65,6 +66,7 @@ protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;
 	CComboBox		m_eolCombo;
+	CString			m_sExportDirOrig;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;

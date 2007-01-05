@@ -55,6 +55,7 @@ protected:
 	afx_msg void OnBnClickedShowlog();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnEnChangeRevisionNum();
+	afx_msg void OnCbnEditchangeUrlcombo();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -62,6 +63,7 @@ protected:
 protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;
+	CString			m_sCheckoutDirOrig;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;
