@@ -2219,6 +2219,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			SetTimer(LOGFILTER_TIMER, 1000, NULL);
 			return;
 		}
+		CWnd * focusWnd = GetFocus();
+		bool bSetFocusToFilterControl = ((focusWnd != GetDlgItem(IDC_DATEFROM))&&(focusWnd != GetDlgItem(IDC_DATETO)));
 		if (m_sFilterText.IsEmpty())
 		{
 			DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
@@ -2395,7 +2397,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		m_cFilterCancelButton.ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
-		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+		if (bSetFocusToFilterControl)
+			GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 		UpdateLogInfoLabel();
 	} // if (nIDEvent == LOGFILTER_TIMER)
 	DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
