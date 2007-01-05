@@ -88,7 +88,9 @@ protected:
 	afx_msg void OnBnClickedHidepaths();
 	afx_msg void OnBnClickedCheckStoponcopy();
 	afx_msg void OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	virtual void OnCancel();
+	afx_msg void OnDtnDropdownDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnDtnDropdownDateto(NMHDR *pNMHDR, LRESULT *pResult);
+virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
