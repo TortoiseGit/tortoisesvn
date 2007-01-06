@@ -2571,6 +2571,16 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 		m_LogList.Invalidate();
 		UpdateLogInfoLabel();
 	}
+	// the "next 100" button only makes sense if the log messages
+	// are sorted by revision in descending order
+	if ((m_nSortColumn)||(m_bAscending))
+	{
+		DialogEnableWindow(IDC_NEXTHUNDRED, false);
+	}
+	else
+	{
+		DialogEnableWindow(IDC_NEXTHUNDRED, true);
+	}
 	*pResult = 0;
 }
 
