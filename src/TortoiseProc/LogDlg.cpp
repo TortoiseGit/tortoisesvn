@@ -526,9 +526,11 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 			}
 			m_endrev = dlg.GetEndRevision();
 			m_startrev = dlg.GetStartRevision();
-			if ((m_endrev.IsNumber())&&(m_startrev.IsNumber()))
+			if (((m_endrev.IsNumber())&&(m_startrev.IsNumber()))||
+				(m_endrev.IsHead()||m_startrev.IsHead()))
 			{
-				if ((LONG)m_startrev < (LONG)m_endrev)
+				if (((LONG)m_startrev < (LONG)m_endrev)||
+					(m_endrev.IsHead()))
 				{
 					svn_revnum_t temp = m_startrev;
 					m_startrev = m_endrev;
@@ -804,7 +806,11 @@ UINT CLogDlg::LogThread()
 	{
 		m_startrev = r;
 	}
-	
+	if (m_endrev == SVNRev::REV_HEAD)
+	{
+		m_endrev = r;
+	}
+
 	if (m_limit != 0)
 	{
 		m_limitcounter = m_limit;
