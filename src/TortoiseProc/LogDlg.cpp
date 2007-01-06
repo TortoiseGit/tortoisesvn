@@ -192,6 +192,10 @@ BOOL CLogDlg::OnInitDialog()
 	// use the state of the "stop on copy/rename" option from the last time
 	m_bStrict = m_regLastStrict;
 	UpdateData(FALSE);
+	CString temp;
+	GetDlgItem(IDC_NEXTHUNDRED)->GetWindowText(temp);
+	temp.Format(temp, m_limit);
+	GetDlgItem(IDC_NEXTHUNDRED)->SetWindowText(temp);
 
 	// set the font to use in the log message view, configured in the settings dialog
 	CAppUtils::CreateFontForLogs(m_logFont);
@@ -225,7 +229,6 @@ BOOL CLogDlg::OnInitDialog()
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_LogList.DeleteColumn(c--);
-	CString temp;
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogList.InsertColumn(0, temp);
 	
