@@ -1627,13 +1627,17 @@ void CLogDlg::OnBnClickedStatbutton()
 		return;
 	if (m_arShownList.IsEmpty())
 		return;		// nothing is shown, so no statistics.
+	// the statistics dialog expects the log entries to be sorted by revision
+	SortByColumn(0, true);
+	CPtrArray shownlist;
+	RecalculateShownList(&shownlist);
 	// create arrays which are aware of the current filter
 	CStringArray m_arAuthorsFiltered;
 	CDWordArray m_arDatesFiltered;
 	CDWordArray m_arFileChangesFiltered;
-	for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+	for (INT_PTR i=0; i<shownlist.GetCount(); ++i)
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(shownlist.GetAt(i));
 		m_arAuthorsFiltered.Add(pLogEntry->sAuthor);
 		m_arDatesFiltered.Add(static_cast<DWORD>(pLogEntry->tmDate));
 		m_arFileChangesFiltered.Add(pLogEntry->dwFileChanges);
@@ -1644,7 +1648,9 @@ void CLogDlg::OnBnClickedStatbutton()
 	dlg.m_parFileChanges = &m_arFileChangesFiltered;
 	dlg.m_path = m_path;
 	dlg.DoModal();
-		
+	// restore the previous sorting
+	SortByColumn(m_nSortColumn, m_bAscending);
+	OnTimer(LOGFILTER_TIMER);
 }
 
 void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2211,6 +2217,160 @@ void CLogDlg::OnEnChangeSearchedit()
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
 }
 
+void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
+{
+	pShownlist->RemoveAll();
+	bool bRegex = false;
+	rpattern pat;
+	try
+	{
+		pat.init( (LPCTSTR)m_sFilterText, MULTILINE | NOCASE );
+		bRegex = true;
+	}
+	catch (bad_alloc) {}
+	catch (bad_regexpr) {}
+
+	CString sRev;
+	for (DWORD i=0; i<m_logEntries.size(); ++i)
+	{
+		if (bRegex)
+		{
+			match_results results;
+			match_results::backref_type br;
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+			{
+				br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sMessage), results );
+				if ((br.matched)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+			{
+				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
+
+				bool bGoing = true;
+				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
+				{
+					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+					br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
+					if ((br.matched)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+					br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
+					if ((br.matched)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+					br = pat.match( restring ((LPCTSTR)cpath->sAction), results);
+					if ((br.matched)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+				}
+				if (!bGoing)
+					continue;
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+			{
+				br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sAuthor), results );
+				if ((br.matched)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+			{
+				sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
+				br = pat.match( restring ((LPCTSTR)sRev), results );
+				if ((br.matched)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+		} // if (bRegex)
+		else
+		{
+			CString find = m_sFilterText.MakeLower();
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+			{
+				CString msg = m_logEntries[i]->sMessage;
+
+				msg = msg.MakeLower();
+				if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+			{
+				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
+
+				bool bGoing = true;
+				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
+				{
+					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+					CString path = cpath->sCopyFromPath;
+					path.MakeLower();
+					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+					path = cpath->sPath;
+					path.MakeLower();
+					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+					path = cpath->sAction;
+					path.MakeLower();
+					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+					{
+						pShownlist->Add(m_logEntries[i]);
+						bGoing = false;
+						continue;
+					}
+				}
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+			{
+				CString msg = m_logEntries[i]->sAuthor;
+				msg = msg.MakeLower();
+				if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+			{
+				sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
+				if ((sRev.Find(find) >= 0)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
+		} // else (from if (bRegex))	
+	} // for (DWORD i=0; i<m_logEntries.size(); ++i) 
+
+}
+
 void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == LOGFILTER_TIMER)
@@ -2234,160 +2394,13 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
+
 		// now start filter the log list
 		InterlockedExchange(&m_bNoDispUpdates, TRUE);
-		
-		m_arShownList.RemoveAll();
-		bool bRegex = false;
-		rpattern pat;
-		try
-		{
-			pat.init( (LPCTSTR)m_sFilterText, MULTILINE | NOCASE );
-			bRegex = true;
-		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr) {}
-		
-		CString sRev;
-		for (DWORD i=0; i<m_logEntries.size(); ++i)
-		{
-			if (bRegex)
-			{
-				match_results results;
-				match_results::backref_type br;
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
-				{
-					br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sMessage), results );
-					if ((br.matched)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
-				{
-					LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
-					
-					bool bGoing = true;
-					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
-					{
-						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
-						if ((br.matched)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-						br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
-						if ((br.matched)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-						br = pat.match( restring ((LPCTSTR)cpath->sAction), results);
-						if ((br.matched)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-					}
-					if (!bGoing)
-						continue;
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
-				{
-					br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sAuthor), results );
-					if ((br.matched)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
-				{
-					sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
-					br = pat.match( restring ((LPCTSTR)sRev), results );
-					if ((br.matched)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-			} // if (bRegex)
-			else
-			{
-				CString find = m_sFilterText.MakeLower();
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
-				{
-					CString msg = m_logEntries[i]->sMessage;
-					
-					msg = msg.MakeLower();
-					if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
-				{
-					LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
-					
-					bool bGoing = true;
-					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
-					{
-						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						CString path = cpath->sCopyFromPath;
-						path.MakeLower();
-						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-						path = cpath->sPath;
-						path.MakeLower();
-						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-						path = cpath->sAction;
-						path.MakeLower();
-						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
-						{
-							m_arShownList.Add(m_logEntries[i]);
-							bGoing = false;
-							continue;
-						}
-					}
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
-				{
-					CString msg = m_logEntries[i]->sAuthor;
-					msg = msg.MakeLower();
-					if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
-				{
-					sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
-					if ((sRev.Find(find) >= 0)&&(IsEntryInDateRange(i)))
-					{
-						m_arShownList.Add(m_logEntries[i]);
-						continue;
-					}
-				}
-			} // else (from if (bRegex))	
-		} // for (DWORD i=0; i<m_logEntries.size(); ++i) 
-		
+		RecalculateShownList(&m_arShownList);
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
+
+
 		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
@@ -2485,6 +2498,63 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	return pathList;
 }
 
+void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
+{
+	switch(nSortColumn)
+	{
+	case 0: // Revision
+		{
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscRevSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescRevSort());
+		}
+		break;
+	case 1: // action
+		{
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscActionSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescActionSort());
+		}
+		break;
+	case 2: // Author
+		{
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscAuthorSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescAuthorSort());
+		}
+		break;
+	case 3: // Date
+		{
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscDateSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescDateSort());
+		}
+		break;
+	case 4: // Message or bug id
+		if (m_bShowBugtraqColumn)
+		{
+			// no sorting!
+			break;
+		}
+		// fall through here
+	case 5: // Message
+		{
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescMessageSort());
+		}
+		break;
+	default:
+		ATLASSERT(0);
+		break;
+	}
+}
+
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	if (m_bThreadRunning)
@@ -2492,60 +2562,8 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	const int nColumn = pNMLV->iSubItem;
 	m_bAscending = nColumn == m_nSortColumn ? !m_bAscending : TRUE;
-	m_nSortColumn = nColumn;	
-	switch(m_nSortColumn)
-	{
-	    case 0: // Revision
-	        {
-	            if(m_bAscending)
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscRevSort());
-	            else
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescRevSort());
-	        }
-	        break;
-		case 1: // action
-			{
-				if(m_bAscending)
-					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscActionSort());
-				else
-					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescActionSort());
-			}
-			break;
-	    case 2: // Author
-	        {
-	            if(m_bAscending)
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscAuthorSort());
-	            else
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescAuthorSort());
-	        }
-	        break;
-	    case 3: // Date
-	        {
-	            if(m_bAscending)
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscDateSort());
-	            else
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescDateSort());
-	        }
-	        break;
-	    case 4: // Message or bug id
-			if (m_bShowBugtraqColumn)
-	        {
-				// no sorting!
-				break;
-	        }
-	        // fall through here
-		case 5: // Message
-			{
-				if(m_bAscending)
-					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());
-				else
-					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescMessageSort());
-			}
-			break;
-	    default:
-		    ATLASSERT(0);
-		    break;
-	}
+	m_nSortColumn = nColumn;
+	SortByColumn(m_nSortColumn, m_bAscending);
 	if ((!m_bShowBugtraqColumn)||(m_nSortColumn != 4))
 	{
 		SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);

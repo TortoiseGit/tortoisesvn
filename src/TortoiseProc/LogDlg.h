@@ -124,7 +124,9 @@ private:
 	void CopySelectionToClipBoard();
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
     void SortShownListArray();
+	void RecalculateShownList(CPtrArray * pShownlist);
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
+	void SortByColumn(int nSortColumn, bool bAscending);
 	bool IsSelectionContinuous();
 	void EnableOKButton();
 	void GetAll(bool bForceAll = false);
