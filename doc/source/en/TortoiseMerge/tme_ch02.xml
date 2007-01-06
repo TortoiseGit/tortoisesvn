@@ -438,6 +438,9 @@
 				<guilabel>Colour code in-line changes</guilabel>
 				uses the same scheme as the line diff bar to show the detailed
 				in-line changes within the main display panes.
+				Lines which have been heavily modified will not be shown using this
+				method as the results are simply confusing. In this case the line
+				will be shown as replaced (old line deleted, new line added).
 			</para>
 			<para>
 				<guilabel>Compare whitespaces</guilabel>
@@ -476,15 +479,33 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Added</term>
+					<listitem>
+						Lines which have been added.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Removed</term>
 					<listitem>
 						Lines which have been deleted.
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Added</term>
+					<term>Modified</term>
 					<listitem>
-						Lines which have been added.
+						Lines which have relatively small changes, and are shown using inline diff.
+						This colour is used for the <emphasis>unchanged</emphasis> portion of
+						the line content. Changed portions will be shown using the inline
+						added and deleted colours described below.
+						If <guilabel>Colour code in-line changes</guilabel> is not enabled,
+						this colour will not be used and changed lines will always be shown
+						as replacements.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Conflicted</term>
+					<listitem>
+						Where the same line has been changed in both files.
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -495,25 +516,15 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Conflicted</term>
+					<term>Inline added text</term>
 					<listitem>
-						Where the same line has been changed in both files.
+						When inline diffs are shown, added text is shown in this colour.
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Line with whitespace diff</term>
+					<term>Inline removed text</term>
 					<listitem>
-						Lines which contain whitespace differences other than
-						leading whitespace. Only appears when
-						<guilabel>Ignore leading whitespace</guilabel>
-						is selected.
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Whitespace diff</term>
-					<listitem>
-						In the case above, the actual whitespace difference is
-						highlighted using this color.
+						When inline diffs are shown, deleted text is shown in this colour.
 					</listitem>
 				</varlistentry>
 			</variablelist>
