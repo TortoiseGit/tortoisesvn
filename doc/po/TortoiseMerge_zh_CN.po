@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-24 00:01 +0000\n"
-"PO-Revision-Date: 2006-12-13 14:43+0800\n"
+"PO-Revision-Date: 2007-01-06 14:32+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -552,295 +552,310 @@ msgstr "　　<guilabel>忽略大小写变化</guilabel> 隐藏仅文本大小�
 
 #: source/TortoiseMerge_en.xml:707
 #: (para)
-msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes."
-msgstr "<guilabel>为改变的代码着色</guilabel>在主窗口，使用与行差异拉杆相同的方案显示代码改变的细节。"
+msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
+msgstr "<guilabel>为改变的嵌入代码着色</guilabel>在主窗口，使用与行差异拉杆相同的方案显示代码改变的细节。修改很多的行不会这样显示，因为它会让人糊涂。这时会用替换方式显示(旧行删除，新行增加)。"
 
-#: source/TortoiseMerge_en.xml:712
+#: source/TortoiseMerge_en.xml:715
 #: (para)
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
 msgstr "　　<guilabel>比较空白字符</guilabel> 将全部缩进变化，或行内空白字符的变化按照添加/删除的行显示（即 Subversion 处理变化的方式）。"
 
-#: source/TortoiseMerge_en.xml:717
+#: source/TortoiseMerge_en.xml:720
 #: (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
 msgstr "　　<guilabel>忽略空白字符变化</guilabel> 隐藏仅仅只是空白字符数量和类型的变化。例如，缩进，制表符变成了空格。在以前没有空白字符的地方增加空白字符，或者完全删除空白字符，仍旧视为变化。"
 
-#: source/TortoiseMerge_en.xml:725
+#: source/TortoiseMerge_en.xml:728
 #: (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
 msgstr "　　<guilabel>忽略全部空白字符</guilabel> 隐藏所有空白字符的变化。"
 
-#: source/TortoiseMerge_en.xml:731
+#: source/TortoiseMerge_en.xml:734
 #: (title)
 msgid "Colour Settings Page"
 msgstr "颜色设置页"
 
-#: source/TortoiseMerge_en.xml:734
+#: source/TortoiseMerge_en.xml:737
 #: (title)
 msgid "The Settings Color Page"
 msgstr "颜色设置页"
 
-#: source/TortoiseMerge_en.xml:737
+#: source/TortoiseMerge_en.xml:740
 #: (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
 msgstr "　　这个对话框允许你选择一个背景颜色代码，它们用于高亮被修改的行。"
 
-#: source/TortoiseMerge_en.xml:743
+#: source/TortoiseMerge_en.xml:746
 #: (term)
 msgid "Normal"
 msgstr "无变化"
 
-#: source/TortoiseMerge_en.xml:744
+#: source/TortoiseMerge_en.xml:747
 #: (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
 msgstr "这些行都没有改变过，或改变被隐藏了。"
 
-#: source/TortoiseMerge_en.xml:749
-#: (term)
-msgid "Removed"
-msgstr "删除"
-
-#: source/TortoiseMerge_en.xml:750
-#: (listitem)
-msgid "Lines which have been deleted."
-msgstr "这些行被删除了。"
-
-#: source/TortoiseMerge_en.xml:755
+#: source/TortoiseMerge_en.xml:752
 #: (term)
 msgid "Added"
 msgstr "新增"
 
-#: source/TortoiseMerge_en.xml:756
+#: source/TortoiseMerge_en.xml:753
 #: (listitem)
 msgid "Lines which have been added."
 msgstr "这些行是新增加的。"
 
-#: source/TortoiseMerge_en.xml:761
+#: source/TortoiseMerge_en.xml:758
 #: (term)
-msgid "Empty"
-msgstr "空白"
+msgid "Removed"
+msgstr "删除"
 
-#: source/TortoiseMerge_en.xml:762
+#: source/TortoiseMerge_en.xml:759
 #: (listitem)
-msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr "在另一个面板中增加了一些行，且这个面板中没有对应的行。"
+msgid "Lines which have been deleted."
+msgstr "这些行被删除了。"
 
-#: source/TortoiseMerge_en.xml:768
+#: source/TortoiseMerge_en.xml:764
+#: (term)
+msgid "Modified"
+msgstr "已修改"
+
+#: source/TortoiseMerge_en.xml:767
+#: (emphasis)
+msgid "unchanged"
+msgstr "未改变"
+
+#: source/TortoiseMerge_en.xml:770
+#: (guilabel)
+msgid "Colour code in-line changes"
+msgstr "着色改变的代码"
+
+#: source/TortoiseMerge_en.xml:765
+#: (listitem)
+msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
+msgstr "相对小的行改变，用嵌入差异显示。 <placeholder-1/> 部分着色。改变的部分用嵌入的增加和删除形式展现，其颜色下述。如果未启用 <placeholder-2/> ，不会使用此颜色，改变的行用替换形式显示。"
+
+#: source/TortoiseMerge_en.xml:776
 #: (term)
 msgid "Conflicted"
 msgstr "冲突"
 
-#: source/TortoiseMerge_en.xml:769
+#: source/TortoiseMerge_en.xml:777
 #: (listitem)
 msgid "Where the same line has been changed in both files."
 msgstr "两个文件都修改了这些行。"
 
-#: source/TortoiseMerge_en.xml:774
+#: source/TortoiseMerge_en.xml:782
 #: (term)
-msgid "Line with whitespace diff"
-msgstr "行内空白改变"
-
-#: source/TortoiseMerge_en.xml:778
-#: (guilabel)
-msgid "Ignore leading whitespace"
-msgstr "忽略行首的空白字符"
-
-#: source/TortoiseMerge_en.xml:775
-#: (listitem)
-msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr "除了行首空白字符外，在行内存在着空白字符改变。仅用于<placeholder-1/>时。"
+msgid "Empty"
+msgstr "空白"
 
 #: source/TortoiseMerge_en.xml:783
-#: (term)
-msgid "Whitespace diff"
-msgstr "空白差异"
-
-#: source/TortoiseMerge_en.xml:784
 #: (listitem)
-msgid "In the case above, the actual whitespace difference is highlighted using this color."
-msgstr "在上述情况中，使用这个颜色来高亮显示空白差异。"
+msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
+msgstr "在另一个面板中增加了一些行，且这个面板中没有对应的行。"
 
-#: source/TortoiseMerge_en.xml:794
+#: source/TortoiseMerge_en.xml:789
+#: (term)
+msgid "Inline added text"
+msgstr "增加的文本"
+
+#: source/TortoiseMerge_en.xml:790
+#: (listitem)
+msgid "When inline diffs are shown, added text is shown in this colour."
+msgstr "当显示嵌入差异时，用此颜色显示增加的文本。"
+
+#: source/TortoiseMerge_en.xml:795
+#: (term)
+msgid "Inline removed text"
+msgstr "删除的文本"
+
+#: source/TortoiseMerge_en.xml:796
+#: (listitem)
+msgid "When inline diffs are shown, deleted text is shown in this colour."
+msgstr "当显示嵌入差异时，用此颜色显示删除的文本。"
+
+#: source/TortoiseMerge_en.xml:805
 #: (title)
 msgid "keyboard shortcuts"
 msgstr "快捷键"
 
-#: source/TortoiseMerge_en.xml:796
+#: source/TortoiseMerge_en.xml:807
 #: (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "列出所有的快捷键和命令。"
 
-#: source/TortoiseMerge_en.xml:801
+#: source/TortoiseMerge_en.xml:812
 #: (title)
 msgid "Keyboard shortcuts"
 msgstr "快捷键"
 
-#: source/TortoiseMerge_en.xml:804
+#: source/TortoiseMerge_en.xml:815
 #: (term)
 msgid "Ctrl-Q"
 msgstr "Ctrl-Q"
 
-#: source/TortoiseMerge_en.xml:806
+#: source/TortoiseMerge_en.xml:817
 #: (para)
 msgid "Quit the program"
 msgstr "退出程序"
 
-#: source/TortoiseMerge_en.xml:812
+#: source/TortoiseMerge_en.xml:823
 #: (term)
 msgid "Ctrl-C"
 msgstr "Ctrl-C"
 
-#: source/TortoiseMerge_en.xml:814
+#: source/TortoiseMerge_en.xml:825
 #: (para)
 msgid "Copy the selected line(s) to the clipboard"
 msgstr "复制选定行到剪贴板"
 
-#: source/TortoiseMerge_en.xml:820
+#: source/TortoiseMerge_en.xml:831
 #: (term)
 msgid "Ctrl-F"
 msgstr "Ctrl-F"
 
-#: source/TortoiseMerge_en.xml:822
+#: source/TortoiseMerge_en.xml:833
 #: (para)
 msgid "Open the Find dialog for text searches"
 msgstr "打开文本查找对话框"
 
-#: source/TortoiseMerge_en.xml:828
+#: source/TortoiseMerge_en.xml:839
 #: (term)
 msgid "Ctrl-O"
 msgstr "Ctrl-O"
 
-#: source/TortoiseMerge_en.xml:830
+#: source/TortoiseMerge_en.xml:841
 #: (para)
 msgid "Open files to diff/merge"
 msgstr "打开需要比较/合并的文件"
 
-#: source/TortoiseMerge_en.xml:836
+#: source/TortoiseMerge_en.xml:847
 #: (term)
 msgid "Ctrl-S"
 msgstr "Ctrl-S"
 
-#: source/TortoiseMerge_en.xml:838
+#: source/TortoiseMerge_en.xml:849
 #: (para)
 msgid "Save the changes"
 msgstr "保存改变"
 
-#: source/TortoiseMerge_en.xml:844
+#: source/TortoiseMerge_en.xml:855
 #: (term)
 msgid "Ctrl-Shift-S"
 msgstr "Ctrl-Shift-S"
 
-#: source/TortoiseMerge_en.xml:846
+#: source/TortoiseMerge_en.xml:857
 #: (para)
 msgid "Save as..."
 msgstr "另存为..."
 
-#: source/TortoiseMerge_en.xml:852
+#: source/TortoiseMerge_en.xml:863
 #: (term)
 msgid "F7 or cursor-right"
 msgstr "F7 或鼠标右键"
 
-#: source/TortoiseMerge_en.xml:854
+#: source/TortoiseMerge_en.xml:865
 #: (para)
 msgid "Go to next difference"
 msgstr "跳转到下一个不同点"
 
-#: source/TortoiseMerge_en.xml:860
+#: source/TortoiseMerge_en.xml:871
 #: (term)
 msgid "Shift-F7 or cursor-left"
 msgstr "Shift-F7 或鼠标左键"
 
-#: source/TortoiseMerge_en.xml:862
+#: source/TortoiseMerge_en.xml:873
 #: (para)
 msgid "Go to previous difference"
 msgstr "跳转到上一个不同点"
 
-#: source/TortoiseMerge_en.xml:868
+#: source/TortoiseMerge_en.xml:879
 #: (term)
 msgid "Shift-cursor-right"
 msgstr "Shift-光标右键头"
 
-#: source/TortoiseMerge_en.xml:870
+#: source/TortoiseMerge_en.xml:881
 #: (para)
 msgid "Go to next conflict"
 msgstr "跳转到下一个不同点"
 
-#: source/TortoiseMerge_en.xml:876
+#: source/TortoiseMerge_en.xml:887
 #: (term)
 msgid "Shift-cursor-left"
 msgstr "Shift-光标左箭头"
 
-#: source/TortoiseMerge_en.xml:878
+#: source/TortoiseMerge_en.xml:889
 #: (para)
 msgid "Go to previous conflict"
 msgstr "跳转到上一个不同点"
 
-#: source/TortoiseMerge_en.xml:884
+#: source/TortoiseMerge_en.xml:895
 #: (term)
 msgid "Ctrl-D"
 msgstr "Ctrl-D"
 
-#: source/TortoiseMerge_en.xml:886
+#: source/TortoiseMerge_en.xml:897
 #: (para)
 msgid "Toggle between one-pane diff and two-pane diff"
 msgstr "切换单窗口方式或双窗口方式"
 
-#: source/TortoiseMerge_en.xml:892
+#: source/TortoiseMerge_en.xml:903
 #: (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
-#: source/TortoiseMerge_en.xml:894
+#: source/TortoiseMerge_en.xml:905
 #: (para)
 msgid "Reload the files and revert all changes made"
 msgstr "重新载入文件并放弃所做的任何改变"
 
-#: source/TortoiseMerge_en.xml:900
+#: source/TortoiseMerge_en.xml:911
 #: (term)
 msgid "Ctrl-T"
 msgstr "Ctrl-T"
 
-#: source/TortoiseMerge_en.xml:902
+#: source/TortoiseMerge_en.xml:913
 #: (para)
 msgid "Toggles between showing whitespaces or not"
 msgstr "切换是否显示空白字符"
 
-#: source/TortoiseMerge_en.xml:908
+#: source/TortoiseMerge_en.xml:919
 #: (term)
 msgid "Ctrl-wheelmouse"
 msgstr "Ctrl-鼠标滚轮"
 
-#: source/TortoiseMerge_en.xml:910
+#: source/TortoiseMerge_en.xml:921
 #: (para)
 msgid "Scroll the display left/right"
 msgstr "滚动左右两边的显示"
 
-#: source/TortoiseMerge_en.xml:919
+#: source/TortoiseMerge_en.xml:930
 #: (title)
 msgid "Automating TortoiseMerge"
 msgstr "TortoiseMerge 操作"
 
-#: source/TortoiseMerge_en.xml:921
+#: source/TortoiseMerge_en.xml:932
 #: (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
 msgstr "　　TortoiseMerge 可以通过命令行选项指定参数运行，而不必非通过<guilabel>打开</guilabel>对话框来选择文件。这便于其它程序调用 TortoiseMerge。"
 
-#: source/TortoiseMerge_en.xml:932
+#: source/TortoiseMerge_en.xml:943
 #: (title)
 msgid "TortoiseMerge Command Line Switches"
 msgstr "TortoiseMerge 命令行选项"
 
-#: source/TortoiseMerge_en.xml:934
+#: source/TortoiseMerge_en.xml:945
 #: (primary)
 msgid "automation"
 msgstr "自动"
 
-#: source/TortoiseMerge_en.xml:937
+#: source/TortoiseMerge_en.xml:948
 #: (primary)
 msgid "command line"
 msgstr "命令行"
 
-#: source/TortoiseMerge_en.xml:939
+#: source/TortoiseMerge_en.xml:950
 #: (para)
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
@@ -851,132 +866,132 @@ msgstr ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 
-#: source/TortoiseMerge_en.xml:959
+#: source/TortoiseMerge_en.xml:970
 #: (title)
 msgid "List of available command line options"
 msgstr "命令行选项列表"
 
-#: source/TortoiseMerge_en.xml:965
+#: source/TortoiseMerge_en.xml:976
 #: (entry)
 msgid "Command"
 msgstr "命令"
 
-#: source/TortoiseMerge_en.xml:966
+#: source/TortoiseMerge_en.xml:977
 #: (entry)
 msgid "Description"
 msgstr "描述"
 
-#: source/TortoiseMerge_en.xml:972
+#: source/TortoiseMerge_en.xml:983
 #: (entry)
 msgid "Shows a dialog box with the most important command line switches."
 msgstr "弹出一个显示常用命令行参数的对话框。"
 
-#: source/TortoiseMerge_en.xml:980
+#: source/TortoiseMerge_en.xml:991
 #: (option)
 msgid "?"
 msgstr "?"
 
-#: source/TortoiseMerge_en.xml:979
+#: source/TortoiseMerge_en.xml:990
 #: (entry)
 msgid "The same as <placeholder-1/>."
 msgstr "同 <placeholder-1/> 一样。"
 
-#: source/TortoiseMerge_en.xml:986
+#: source/TortoiseMerge_en.xml:997
 #: (emphasis)
 msgid "base"
 msgstr "基础版本文件"
 
-#: source/TortoiseMerge_en.xml:985
+#: source/TortoiseMerge_en.xml:996
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
 msgstr "指定三路比较的文件 <placeholder-1/>。这是所有参与比较文件的祖先，尽管它不在单独的窗口显示。对于两路比较，它是左边的文件。"
 
-#: source/TortoiseMerge_en.xml:995
+#: source/TortoiseMerge_en.xml:1006
 #: (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "基础版本文件名称。它代替文件路径在窗口标题栏显示。在三窗口方式时，它出现在窗口标题的提示中。"
 
-#: source/TortoiseMerge_en.xml:1005
+#: source/TortoiseMerge_en.xml:1016
 #: (emphasis)
 msgid "theirs"
 msgstr "他人的文件"
 
-#: source/TortoiseMerge_en.xml:1004
+#: source/TortoiseMerge_en.xml:1015
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
 msgstr "指定用于三窗口方式的 <placeholder-1/>，显示在左窗口。"
 
-#: source/TortoiseMerge_en.xml:1011
+#: source/TortoiseMerge_en.xml:1022
 #: (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
 msgstr "他人的文件名称。代替文件路径在窗口标题栏显示。"
 
-#: source/TortoiseMerge_en.xml:1019
+#: source/TortoiseMerge_en.xml:1030
 #: (emphasis)
 msgid "mine"
 msgstr "我的文件"
 
-#: source/TortoiseMerge_en.xml:1018
+#: source/TortoiseMerge_en.xml:1029
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
 msgstr "指定用于三窗口方式的 <placeholder-1/>，它显示在右窗口。对于双面板方式，是指右边的文件。"
 
-#: source/TortoiseMerge_en.xml:1026
+#: source/TortoiseMerge_en.xml:1037
 #: (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
 msgstr "我的文件名称。代替文件路径在窗口标题栏显示。"
 
-#: source/TortoiseMerge_en.xml:1034
+#: source/TortoiseMerge_en.xml:1045
 #: (emphasis)
 msgid "merged"
 msgstr "合并后的文件"
 
-#: source/TortoiseMerge_en.xml:1033
+#: source/TortoiseMerge_en.xml:1044
 #: (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "指定用于三窗口方式的 <placeholder-1/>。它是保存合并/解决冲突的结果的文件路径。如果没有指定，TortoiseMerge 将询问用户保存结果的路径。"
 
-#: source/TortoiseMerge_en.xml:1043
+#: source/TortoiseMerge_en.xml:1054
 #: (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
 msgstr "合并结果的文件名称。显示在窗口标题显示路径的地方。"
 
-#: source/TortoiseMerge_en.xml:1054
+#: source/TortoiseMerge_en.xml:1065
 #: (emphasis)
 msgid "very long"
 msgstr "很长"
 
-#: source/TortoiseMerge_en.xml:1050
+#: source/TortoiseMerge_en.xml:1061
 #: (entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patchfile, but that can take <placeholder-1/>."
 msgstr "使用补丁文件的路径。如果你不设置此路径，TortoiseMerge 将自己查找匹配补丁文件的路径，但会花费<placeholder-1/>时间。"
 
-#: source/TortoiseMerge_en.xml:1059
+#: source/TortoiseMerge_en.xml:1070
 #: (entry)
 msgid "The name of the original file to patch. Used for the view title."
 msgstr "对应补丁的原始文件。用于窗口标题。"
 
-#: source/TortoiseMerge_en.xml:1066
+#: source/TortoiseMerge_en.xml:1077
 #: (entry)
 msgid "The name of the resulting patched file. Used for the view title."
 msgstr "对应补丁的文件名称。用于窗口标题。"
 
-#: source/TortoiseMerge_en.xml:1073
+#: source/TortoiseMerge_en.xml:1084
 #: (entry)
 msgid "The path to the patch/diff file to apply to a directory."
 msgstr "将要应用补丁的目录"
 
-#: source/TortoiseMerge_en.xml:1079
+#: source/TortoiseMerge_en.xml:1090
 #: (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
 msgstr "强制 TortoiseMerge 以单窗口视图启动，忽略用户的配置。"
 
-#: source/TortoiseMerge_en.xml:1086
+#: source/TortoiseMerge_en.xml:1097
 #: (entry)
 msgid "Switches the left and right view of the specified two files to diff."
 msgstr "左右交换两个需要比较差异的文件。"
 
-#: source/TortoiseMerge_en.xml:1095
+#: source/TortoiseMerge_en.xml:1106
 #: (para)
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
@@ -987,357 +1002,357 @@ msgstr ""
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen>如果给出两个文件，它们会互相比较。如果给出三个文件，那么第一个文件视为基础文件，其它两个文件采用三路比较算法。"
 
-#: source/TortoiseMerge_en.xml:1111
+#: source/TortoiseMerge_en.xml:1122
 #: (title)
 msgid "Glossary"
 msgstr "词汇表"
 
-#: source/TortoiseMerge_en.xml:1113
+#: source/TortoiseMerge_en.xml:1124
 #: (glossterm)
 msgid "Add"
 msgstr "增加"
 
-#: source/TortoiseMerge_en.xml:1115
+#: source/TortoiseMerge_en.xml:1126
 #: (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "用于增加文件或目录到你的工作副本中的 Subversion 命令。当你提交时，这些新项目会增加到版本库中。"
 
-#: source/TortoiseMerge_en.xml:1123
+#: source/TortoiseMerge_en.xml:1134
 #: (glossterm)
 msgid "BASE revision"
 msgstr "基础版本"
 
-#: source/TortoiseMerge_en.xml:1125
+#: source/TortoiseMerge_en.xml:1136
 #: (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "<emphasis>工作拷贝</emphasis>中的文件或文件夹的当前基础版本。它是文件或文件夹上次检出、更新或提交后的版本。通常基础版本与最新版本并不相同。"
 
-#: source/TortoiseMerge_en.xml:1134
+#: source/TortoiseMerge_en.xml:1145
 #: (glossterm)
 msgid "Blame"
 msgstr "追溯"
 
-#: source/TortoiseMerge_en.xml:1136
+#: source/TortoiseMerge_en.xml:1147
 #: (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "这个命令只能用于文本文件，它显示每行由哪个版本最后修改，以及修改的作者。我们的 GUI 实现称之为 TortoiseBlame，当你将鼠标停靠在版本号上时，还会显示提交的日期/时间，和日志。"
 
-#: source/TortoiseMerge_en.xml:1146
+#: source/TortoiseMerge_en.xml:1157
 #: (glossterm)
 msgid "BDB"
 msgstr "BDB"
 
-#: source/TortoiseMerge_en.xml:1148
+#: source/TortoiseMerge_en.xml:1159
 #: (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "伯克利 DB（BDB）。 一个经过广泛测试的版本库的数据库后端，不能使用网络文件系统(例如 NFS 或 SMBFS)。是 1.2 版本及以前的版本库之默认后端。"
 
-#: source/TortoiseMerge_en.xml:1155
+#: source/TortoiseMerge_en.xml:1166
 #: (glossterm)
 msgid "Branch"
 msgstr "分支"
 
-#: source/TortoiseMerge_en.xml:1157
+#: source/TortoiseMerge_en.xml:1168
 #: (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "一个经常被开发者在特定时期跟踪两个独立路径时使用的术语，它描述了在版本控制系统中发生的事情。你可以从主开发线创建分支，从而开发新特性，不会使主开发线陷入不稳定状态。或者你创建一个稳定发布版的分支，仅用于修复问题，新的开发位于不稳定的主开发线。在 Subversion 中，分支用<quote>廉价拷贝</quote>实现。"
 
-#: source/TortoiseMerge_en.xml:1170
+#: source/TortoiseMerge_en.xml:1181
 #: (glossterm)
 msgid "Checkout"
 msgstr "检出"
 
-#: source/TortoiseMerge_en.xml:1172
+#: source/TortoiseMerge_en.xml:1183
 #: (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "此 Subversion 命令从版本库下载受版本控制的文件，在空目录创建本地工作副本。"
 
-#: source/TortoiseMerge_en.xml:1179
+#: source/TortoiseMerge_en.xml:1190
 #: (glossterm)
 msgid "Cleanup"
 msgstr "清理"
 
-#: source/TortoiseMerge_en.xml:1181
+#: source/TortoiseMerge_en.xml:1192
 #: (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
 msgstr "摘自 Subversion 手册：<quote> 递归的清理工作目录，删除锁，恢复未完成的工作。如果你遇到<literal>工作目录已经锁定</literal>错误，运行此命令删除过时的锁，使你的工作副本恢复到可用状态。</quote>注释：在此上下文中<quote>锁</quote>指的是本地文件系统中的锁，不是版本库的锁。"
 
-#: source/TortoiseMerge_en.xml:1196
+#: source/TortoiseMerge_en.xml:1207
 #: (glossterm)
 msgid "Commit"
 msgstr "提交"
 
-#: source/TortoiseMerge_en.xml:1198
+#: source/TortoiseMerge_en.xml:1209
 #: (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "此 Subversion 命令用于将你的本地修改传递到版本库中，创建新版本。"
 
-#: source/TortoiseMerge_en.xml:1206
+#: source/TortoiseMerge_en.xml:1217
 #: (glossterm)
 msgid "Conflict"
 msgstr "冲突"
 
-#: source/TortoiseMerge_en.xml:1208
+#: source/TortoiseMerge_en.xml:1219
 #: (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "当仓库的改变合并到本地修改时，有时会在相同的行修改。在这种情况下，Subversion 不能自动决定采用哪个版本，文件就处于冲突状态。你必须手工编辑文件，在你提交之前解决冲突。"
 
-#: source/TortoiseMerge_en.xml:1218
+#: source/TortoiseMerge_en.xml:1229
 #: (glossterm)
 msgid "Copy"
 msgstr "复制"
 
-#: source/TortoiseMerge_en.xml:1220
+#: source/TortoiseMerge_en.xml:1231
 #: (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "在 Subversion 版本库中，你可以创建单个文件或一个目录树的副本。此操作用<quote>廉价拷贝</quote>实现，它有些象符号连接到原始文件，几乎不耗费空间。创建的副本保留了历史，所以你可以跟踪副本创建之前的修改。"
 
-#: source/TortoiseMerge_en.xml:1230
+#: source/TortoiseMerge_en.xml:1241
 #: (glossterm)
 msgid "Delete"
 msgstr "删除"
 
-#: source/TortoiseMerge_en.xml:1232
+#: source/TortoiseMerge_en.xml:1243
 #: (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "当你删除一个受版本控制的项(并且提交了修改)，在那么在此提交版本后，它就消失于版本库中。当然，它仍旧包含在版本库的早期版本中，所以你还可以存取它。如果需要，你可以复制一个已删除项，包含历史的彻底<quote>复活</quote>它。"
 
-#: source/TortoiseMerge_en.xml:1242
+#: source/TortoiseMerge_en.xml:1253
 #: (glossterm)
 msgid "Diff"
 msgstr "差异"
 
-#: source/TortoiseMerge_en.xml:1244
+#: source/TortoiseMerge_en.xml:1255
 #: (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "<quote>显示差异</quote>的简写。当你想精确的察看变化时很有用。"
 
-#: source/TortoiseMerge_en.xml:1251
+#: source/TortoiseMerge_en.xml:1262
 #: (glossterm)
 msgid "Export"
 msgstr "导出"
 
-#: source/TortoiseMerge_en.xml:1253
+#: source/TortoiseMerge_en.xml:1264
 #: (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "此命令产生一个受版本控制的文件夹之副本，很像工作副本，只是没有本地的 <literal>.svn</literal> 文件夹。"
 
-#: source/TortoiseMerge_en.xml:1261
+#: source/TortoiseMerge_en.xml:1272
 #: (glossterm)
 msgid "FSFS"
 msgstr "FSFS"
 
-#: source/TortoiseMerge_en.xml:1263
+#: source/TortoiseMerge_en.xml:1274
 #: (para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS 文件系统。一个专用于 Subversion 版本库的文件系统后端，可以使用网络文件系统(例如 NFS 或 SMBFS)。是 1.2 版本及其后的版本库之默认后端。"
 
-#: source/TortoiseMerge_en.xml:1270
+#: source/TortoiseMerge_en.xml:1281
 #: (glossterm)
 msgid "GPO"
 msgstr "GPO"
 
-#: source/TortoiseMerge_en.xml:1272
+#: source/TortoiseMerge_en.xml:1283
 #: (para)
 msgid "Group policy object"
 msgstr "组策略对象"
 
-#: source/TortoiseMerge_en.xml:1278
+#: source/TortoiseMerge_en.xml:1289
 #: (glossterm)
 msgid "HEAD revision"
 msgstr "最新版本"
 
-#: source/TortoiseMerge_en.xml:1280
+#: source/TortoiseMerge_en.xml:1291
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "<emphasis>版本库</emphasis> 中的文件或文件夹的最新版本。"
 
-#: source/TortoiseMerge_en.xml:1286
+#: source/TortoiseMerge_en.xml:1297
 #: (glossterm)
 msgid "Import"
 msgstr "导入"
 
-#: source/TortoiseMerge_en.xml:1288
+#: source/TortoiseMerge_en.xml:1299
 #: (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "用于一次导入整个文件夹(包含子目录)的 Subversion 命令。"
 
-#: source/TortoiseMerge_en.xml:1295
+#: source/TortoiseMerge_en.xml:1306
 #: (glossterm)
 msgid "Lock"
 msgstr "加锁"
 
-#: source/TortoiseMerge_en.xml:1297
+#: source/TortoiseMerge_en.xml:1308
 #: (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "当你加锁一个版本控制项目，除了在发出加锁命令的工作目录，它在版本库中被标记为不可提交的。"
 
-#: source/TortoiseMerge_en.xml:1305
+#: source/TortoiseMerge_en.xml:1316
 #: (glossterm)
 msgid "Log"
 msgstr "日志"
 
-#: source/TortoiseMerge_en.xml:1307
+#: source/TortoiseMerge_en.xml:1318
 #: (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "显示文件或目录的版本历史。也称为<quote>历史</quote>。"
 
-#: source/TortoiseMerge_en.xml:1314
+#: source/TortoiseMerge_en.xml:1325
 #: (glossterm)
 msgid "History"
 msgstr "历史"
 
-#: source/TortoiseMerge_en.xml:1316
+#: source/TortoiseMerge_en.xml:1327
 #: (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "显示文件或目录的版本历史。也称为<quote>日志</quote>。"
 
-#: source/TortoiseMerge_en.xml:1323
+#: source/TortoiseMerge_en.xml:1334
 #: (glossterm)
 msgid "Merge"
 msgstr "合并"
 
-#: source/TortoiseMerge_en.xml:1325
+#: source/TortoiseMerge_en.xml:1336
 #: (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "将版本库中的修改增加到你的工作副本，不破坏本地的任何改变。有时这些修改不能自动协调，工作副本的状态称为冲突。"
 
-#: source/TortoiseMerge_en.xml:1331
+#: source/TortoiseMerge_en.xml:1342
 #: (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "当你更新工作副本时，自动发生合并。你可以使用 TortoiseSVN 的合并命令合并其它分支的指定修改。"
 
-#: source/TortoiseMerge_en.xml:1339
+#: source/TortoiseMerge_en.xml:1350
 #: (glossterm)
 msgid "Patch"
 msgstr "补丁"
 
-#: source/TortoiseMerge_en.xml:1341
+#: source/TortoiseMerge_en.xml:1352
 #: (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "如果工作副本只修改了文本文件，就可以使用 Subversion 的差异命令产生一个标准差异格式文件。这种文件类型通常称为<quote>补丁</quote>，可以应用到其他工作副本。没有提交权的人可以在修改后，发送补丁文件给一个认可的提交者来提交。或者不能确定此修改是否恰当，你可以发送补丁给其他人评审。"
 
-#: source/TortoiseMerge_en.xml:1354
+#: source/TortoiseMerge_en.xml:1365
 #: (glossterm)
 msgid "Property"
 msgstr "属性"
 
-#: source/TortoiseMerge_en.xml:1356
+#: source/TortoiseMerge_en.xml:1367
 #: (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "在版本控制文件和目录之外，Subversion 还允许你增加版本控制元数据 - 称为<quote>属性</quote> - 到你的版本控制文件和目录。每个属性都有名字和值，很像注册表键。Subversion 有内部使用的专用属性，例如 <literal>svn:eol-style</literal>。TortoiseSVN 也是如此，例如 <literal>tsvn:logminsize</literal>。你可以增加自己的属性，允许选择任意名称和取值。"
 
-#: source/TortoiseMerge_en.xml:1369
+#: source/TortoiseMerge_en.xml:1380
 #: (glossterm)
 msgid "Relocate"
 msgstr "重新定位"
 
-#: source/TortoiseMerge_en.xml:1371
+#: source/TortoiseMerge_en.xml:1382
 #: (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "如果你的版本库移动了，或许是你在服务器上将它移到其它目录，或者服务器域名改变了，你需要<quote>重新定位</quote>工作目录，让其版本库地址指向新的位置。"
 
-#: source/TortoiseMerge_en.xml:1377
+#: source/TortoiseMerge_en.xml:1388
 #: (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "注意：你只能在同一版本库中，工作副本引用相同的位置，仅版本库移动的情况下使用这个命令。 在其它情况下，或许你需要用<quote>切换</quote>命令。"
 
-#: source/TortoiseMerge_en.xml:1386
+#: source/TortoiseMerge_en.xml:1397
 #: (glossterm)
 msgid "Repository"
 msgstr "版本库"
 
-#: source/TortoiseMerge_en.xml:1388
+#: source/TortoiseMerge_en.xml:1399
 #: (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "版本库是存储和维护数据的中央部分。一个版本库的数据库或文件可以放在通过网络可访问的位置，或者存放在一个不需要通过网络就可以访问的地方。"
 
-#: source/TortoiseMerge_en.xml:1397
+#: source/TortoiseMerge_en.xml:1408
 #: (glossterm)
 msgid "Resolve"
 msgstr "解决"
 
-#: source/TortoiseMerge_en.xml:1399
+#: source/TortoiseMerge_en.xml:1410
 #: (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "当工作副本中的文件在合并后处于冲突状态时，这些冲突使用使用编辑器(或许是 TortoiseMerge)手工清理。这个步骤称为<quote>解决冲突</quote>。然后你就能标记这些冲突文件已经解决，允许提交这些文件。"
 
-#: source/TortoiseMerge_en.xml:1409
+#: source/TortoiseMerge_en.xml:1420
 #: (glossterm)
 msgid "Revert"
 msgstr "恢复"
 
-#: source/TortoiseMerge_en.xml:1411
+#: source/TortoiseMerge_en.xml:1422
 #: (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "当最后更新工作目录时，Subversion 为每个文件保留了一份本地<quote>原始</quote>副本。如果你做了修改，决定撤销，可以使用<quote>恢复</quote>命令得到原始副本。"
 
-#: source/TortoiseMerge_en.xml:1420
+#: source/TortoiseMerge_en.xml:1431
 #: (glossterm)
 msgid "Revision"
 msgstr "版本"
 
-#: source/TortoiseMerge_en.xml:1422
+#: source/TortoiseMerge_en.xml:1433
 #: (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "在你每次提交改变集时，就在版本库创建了一个新<quote>版本</quote>。每个版本都表示版本库历史上的确定状态点。如果你想回溯历史，可以使用版本 N 来检查版本库。"
 
-#: source/TortoiseMerge_en.xml:1429
+#: source/TortoiseMerge_en.xml:1440
 #: (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "换个说法，版本可以引用它创建时产生的改变集。"
 
-#: source/TortoiseMerge_en.xml:1436
+#: source/TortoiseMerge_en.xml:1447
 #: (glossterm)
 msgid "Revision Property (revprop)"
 msgstr "版本属性(revprop)"
 
-#: source/TortoiseMerge_en.xml:1438
+#: source/TortoiseMerge_en.xml:1449
 #: (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "正如文件可以有属性，版本库中的版本也有。当创建版本时，会自动创建版本属性，即：<literal>svn:date svn:author svn:log</literal>，分别描述了提交日期/时间，提交者，日志信息。这些信息可以编辑，但是没有版本，所以任何修改都是永久的，不能撤销。"
 
-#: source/TortoiseMerge_en.xml:1450
+#: source/TortoiseMerge_en.xml:1461
 #: (glossterm)
 msgid "SVN"
 msgstr "SVN"
 
-#: source/TortoiseMerge_en.xml:1452
+#: source/TortoiseMerge_en.xml:1463
 #: (para)
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "一个友好的 Subversion 缩写。"
 
-#: source/TortoiseMerge_en.xml:1455
+#: source/TortoiseMerge_en.xml:1466
 #: (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "被<quote>svnserve</quote>版本库服务器使用的专用协议名称。"
 
-#: source/TortoiseMerge_en.xml:1462
+#: source/TortoiseMerge_en.xml:1473
 #: (glossterm)
 msgid "Switch"
 msgstr "切换"
 
-#: source/TortoiseMerge_en.xml:1464
+#: source/TortoiseMerge_en.xml:1475
 #: (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "就像<quote>更新到版本</quote>改变了工作副本的时间窗口，可以察看历史上的不同时间点一样，<quote>切换</quote> 改变了工作副本的空间窗口，它可以指向版本库中的不同部分。当两个开发分支仅有少数文件不同时，它非常有用。你可以在两者之间切换工作副本，只有修改的文件内容被传送。"
 
-#: source/TortoiseMerge_en.xml:1476
+#: source/TortoiseMerge_en.xml:1487
 #: (glossterm)
 msgid "Update"
 msgstr "更新"
 
-#: source/TortoiseMerge_en.xml:1478
+#: source/TortoiseMerge_en.xml:1489
 #: (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "此命令从 Subversion 版本库下载最新的修改到你的工作副本，合并任何本地修改。"
 
-#: source/TortoiseMerge_en.xml:1486
+#: source/TortoiseMerge_en.xml:1497
 #: (glossterm)
 msgid "Working Copy"
 msgstr "工作副本"
 
-#: source/TortoiseMerge_en.xml:1488
+#: source/TortoiseMerge_en.xml:1499
 #: (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "这是一个本地 <quote>沙箱</quote>，你在受版本控制的文件上工作的区域，它通常位于你的本地硬盘上。你可以用<quote>检出</quote>从版本库创建工作副本，使用<quote>提交</quote>将你的改变传回版本库。"
