@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-10 23:04+0100\n"
+"PO-Revision-Date: 2007-01-07 23:43+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -559,8 +559,8 @@ msgstr "&Nuevo "
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "&Siguientes 100"
+msgid "&Next %ld"
+msgstr "&Siguientes %ld"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -2093,8 +2093,8 @@ msgid "Delete Unversioned Items"
 msgstr "Borrar ítems no versionados"
 
 #: ID:17
-msgid "Delete unversioned items"
-msgstr "Borrar ítems no versionados"
+msgid "Delete unversioned items..."
+msgstr "Borrar ítems no versionados..."
 
 #: ID:73
 #: ID:264
@@ -2230,14 +2230,6 @@ msgid ""
 msgstr ""
 "¿Desea recargar los documentos para reflejar los cambios en la configuración?\n"
 "Nota: ¡Perderá los cambios que haya realizado!"
-
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"¿Desea recargar los documentos?\n"
-"¡Perderá los cambios que haya realizado!"
 
 #: ID:563
 #, c-format
@@ -2453,6 +2445,11 @@ msgstr "Directorio de exportación:"
 msgid "Export unversioned files too"
 msgstr "Exportar también los ficheros no versionados"
 
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Exportando %s"
+
 #: ID:79
 msgid "Exporting..."
 msgstr "Exportando..."
@@ -2649,9 +2646,13 @@ msgstr ""
 "Puede obtener GDI+ desde\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Obteniendo información. Por favor, espere..."
+
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "General"
 
@@ -3150,8 +3151,8 @@ msgid "Initial import"
 msgstr "Importación inicial"
 
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Diff dentro de la línea"
+msgid "Inline differences"
+msgstr "Diferencias dentro de la línea"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3332,6 +3333,10 @@ msgstr "Línea"
 #: ID:246
 msgid "Line Graph"
 msgstr "Gráfico de líneas"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Diferencias de líneas"
 
 #: Control-ID:65535
 msgid "Line:"
@@ -3593,6 +3598,7 @@ msgstr "Mixto"
 
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "Modificado"
 
@@ -5662,10 +5668,23 @@ msgstr ""
 "Debe resolver esos conflictos primero, antes de que guardar.¿ Seguro que desea guardar el archivo con los conflictos ?\n"
 "Si pulsa SI, entoces deberá resolver los conflictos manualmente con otro editor !!!"
 
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"¡Hay modificaciones sin guardar!\n"
+"¿Desea guardar sus cambios?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "No hay nada que añadir. Todos los ficheros y carpetas o están bajo el control de versiones, o han sido ignorados utilizando la propiedad svn:ignore o el patrón global para ignorar."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "No hay nada que desbloquear.. Niingún fichero tiene bloqueo en esta copia de trabajo."
 
 # ID:188,
 #: ID:188
@@ -6033,6 +6052,7 @@ msgstr ""
 "  Nombre distinguido: %s"
 
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Desbloquear"
 
@@ -6856,6 +6876,7 @@ msgstr ""
 
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "a %s"
