@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-31 16:42+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
+"PO-Revision-Date: 2007-01-07 13:26+0100\n"
+"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -646,8 +646,8 @@ msgstr "&Nuovo"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "&Prossimi 100"
+msgid "&Next %ld"
+msgstr "&Prossimi %ld"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -6531,6 +6531,11 @@ msgstr ""
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Non vi è niente da aggiungere. Tutti i file e le cartelle o sono già versionati o sono stati esclusi usando la proprietà svn:ignore oppure utilizzando la proprietà \"ignora globalmente\"."
 
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "Non c'è niente da sbloccare. Nessun file è stato bloccato in questa copia di lavoro."
+
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
@@ -6962,6 +6967,7 @@ msgstr ""
 # ID:11,#:
 # Control-ID:1002,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Sblocca"
 
