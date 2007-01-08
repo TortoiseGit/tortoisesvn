@@ -93,23 +93,6 @@ CBaseView::CBaseView()
 	m_hEqualIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EQUALLINE),
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	EnableToolTips();
-	m_ToolTips.Create(this, TTS_ALWAYSTIP);
-	                     // TTS_ALWAYSTIP - show tip even when parent is not active
-
-	// TT 3 TT Step 3A : Create tool for rectangular area on view with specific text
-	CRect r2(50,50,200,200);  // Big Blue Rectangle
-	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK);
-
-	// TT 3 TT Step 3B : Create tool for rectangular area on view with callback text
-	CRect r3(0,0,50,50);      // Little Red Rectangle
-	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK);
-
-	// TT 3 TT Step 3C : Create tool for child window on view with specific text
-	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK); // rect NULL & ID passed in is 0
-
-	// ID_TOOLTIPS_BLUE_RECT, etc. are defined by their string resources
-
-	m_ToolTips.Activate(TRUE);
 }
 
 CBaseView::~CBaseView()
@@ -2017,7 +2000,14 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 
 	if (pNMHDR->idFrom == (UINT)m_hWnd)
 	{
-		strTipText = m_sFullFilePath;
+		if (m_sWindowName.Left(2).Compare(_T("* "))==0)
+		{
+			strTipText = m_sWindowName.Mid(2) + _T("\r\n") + m_sFullFilePath;
+		}
+		else
+		{
+			strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
+		}
 	}
 	else
 		return FALSE;
@@ -2054,6 +2044,14 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 		pTI->uFlags  |= TTF_ALWAYSTIP | TTF_IDISHWND;
 		pTI->uId = (UINT)m_hWnd;
 		pTI->lpszText = LPSTR_TEXTCALLBACK;
+
+		// we want multiline tooltips
+		CToolTipCtrl* pToolTip = AfxGetModuleThreadState()->m_pToolTip;
+		if (pToolTip->GetSafeHwnd() != NULL)
+		{
+			pToolTip->SetMaxTipWidth(INT_MAX);
+		}
+
 		return 1;
 	}
 	return -1;
@@ -2061,8 +2059,6 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 
 BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
 {
-	m_ToolTips.Activate(TRUE);
-	m_ToolTips.RelayEvent(pMsg);
 	return CView::PreTranslateMessage(pMsg);
 }
 
