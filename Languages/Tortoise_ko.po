@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-12-20 12:34+0900\n"
+"PO-Revision-Date: 2007-01-08 15:17+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -643,8 +643,8 @@ msgstr "새로 만들기(&N)"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "다음 100개(&N)"
+msgid "&Next %ld"
+msgstr "다음 %ld개(&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -2600,15 +2600,6 @@ msgstr ""
 "다시 읽어들이시겠습니까?\n"
 "주의: 바뀐 설정 내용이 모두 사라집니다."
 
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"다시 읽어들이시겠습니까?\n"
-"주의: 바뀐 내용이 모두 사라집니다."
-
 # ID:145,
 #: ID:563
 #, c-format
@@ -2856,6 +2847,12 @@ msgid "Export unversioned files too"
 msgstr "버전관리 대상이 아닌 파일도 익스포트"
 
 # ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "%s 익스포트 중"
+
+# ID:79,
 #: ID:79
 msgid "Exporting..."
 msgstr "익스포트 중..."
@@ -3083,10 +3080,14 @@ msgstr ""
 "GDI+는 다음 사이트에서 구할 수 있습니다.\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "정보 얻는 중, 기다리세요..."
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "일반"
 
@@ -3616,10 +3617,9 @@ msgstr "포함 경로:"
 msgid "Initial import"
 msgstr "최초 임포트"
 
-# Control-ID:1013,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "문자단위 차이보기"
+msgid "Inline differences"
+msgstr "세부사항 비교"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3811,6 +3811,10 @@ msgstr "행"
 #: ID:246
 msgid "Line Graph"
 msgstr "꺽은선 그래프"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "행별 비교"
 
 # Dlg-ID:143,
 #: Control-ID:65535
@@ -4101,6 +4105,7 @@ msgstr "Mixed"
 # ID:74,
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "수정됨"
 
@@ -6494,10 +6499,24 @@ msgstr ""
 "만약 충돌한 것을 그대로 유지하여 저장하고 싶으면\n"
 "'확인'을 누르고, 다른 에디터를 사용하여 수동으로 해결해야합니다."
 
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"바뀐 내용이 저장되지 않았습니다.\n"
+"저장하시겠습니까?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "추가할 것이 없습니다. 모든 파일과 폴더는 버전 컨트롤 중에 있거나, svn:ignore 속성 또는 환경설정의 전역 무시 목록에 등록되어 있습니다."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "잠금을 해제 할 파일이 없습니다. 작업사본내의 어떤 파일도 잠겨있지 않습니다."
 
 # ID:188,
 #: ID:188
@@ -6925,6 +6944,7 @@ msgstr ""
 # ID:11,#:
 # Control-ID:1002,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "잠금해제"
 
@@ -7824,6 +7844,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "%s"
