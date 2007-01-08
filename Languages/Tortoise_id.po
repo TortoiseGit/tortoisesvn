@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-25 16:42+0700\n"
+"PO-Revision-Date: 2007-01-08 18:50+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -651,8 +651,8 @@ msgstr "&Baru"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "100 &Berikutnya"
+msgid "&Next %ld"
+msgstr "%ld &Berikutnya"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -6536,6 +6536,11 @@ msgstr ""
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Tidak ada yang perlu ditambahkan. Semua file dan folder baik dibawah kontrol versi maupun yang diabaikan menggunakan properti svn:ignore atau seting konfligurasi abaikan global."
 
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "Tidak ada kunci yang dapat dibuka. Tidak ada file yang memiliki kunci dalam copy pekerjaan ini."
+
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
@@ -6955,6 +6960,7 @@ msgstr ""
 
 # ID:221,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Buka kunci"
 
