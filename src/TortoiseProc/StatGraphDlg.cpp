@@ -482,6 +482,13 @@ void CStatGraphDlg::ShowCommitsByDate()
 				switch(GetUnitType())
 				{
 				case Weeks:
+					if ((unit == 1)&&(lasttime.GetMonth() == 12))
+						// in some locales, the last week of a year can actually be
+						// the first week-of-the-year of the next year.
+						temp.Format(_T("%d/%.2d"), unit, (lasttime.GetYear()+1)%100);
+					else
+						temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+					break;
 				case Months:
 					temp.Format(_T("%d/%.2d"), unit, time.GetYear()%100);
 					break;
@@ -527,6 +534,13 @@ void CStatGraphDlg::ShowCommitsByDate()
 	switch(GetUnitType())
 	{
 	case Weeks:
+		if ((unit == 1)&&(lasttime.GetMonth() == 12))
+			// in some locales, the last week of a year can actually be
+			// the first week-of-the-year of the next year.
+			temp.Format(_T("%d/%.2d"), unit, (lasttime.GetYear()+1)%100);
+		else
+			temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+		break;
 	case Months:
 		temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
 		break;
