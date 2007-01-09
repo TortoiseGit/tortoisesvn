@@ -917,7 +917,18 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
       return FALSE;
    }
 
-   ShowWindow(app.wMain, nCmdShow);
+   CRegStdWORD pos(_T("Software\\TortoiseSVN\\TBlamePos"), 0);
+   CRegStdWORD width(_T("Software\\TortoiseSVN\\TBlameSize"), 0);
+   CRegStdWORD state(_T("Software\\TortoiseSVN\\TBlameState"), 0);
+   if (DWORD(pos) && DWORD(width))
+   {
+	   MoveWindow(app.wMain, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
+		   LOWORD(DWORD(width)), HIWORD(DWORD(width)), FALSE);
+   }
+   if (DWORD(state) == SW_MAXIMIZE)
+	   ShowWindow(app.wMain, SW_MAXIMIZE);
+   else
+	   ShowWindow(app.wMain, nCmdShow);
    UpdateWindow(app.wMain);
 
    //Create the tooltips
@@ -1071,8 +1082,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		break;
 	case WM_CLOSE:
-		::DestroyWindow(app.wEditor);
-		::PostQuitMessage(0);
+		{
+			CRegStdWORD pos(_T("Software\\TortoiseSVN\\TBlamePos"), 0);
+			CRegStdWORD width(_T("Software\\TortoiseSVN\\TBlameSize"), 0);
+			CRegStdWORD state(_T("Software\\TortoiseSVN\\TBlameState"), 0);
+			RECT rc;
+			GetWindowRect(app.wMain, &rc);
+			if ((rc.left >= 0)&&(rc.top >= 0))
+			{
+				pos = MAKELONG(rc.left, rc.top);
+				width = MAKELONG(rc.right-rc.left, rc.bottom-rc.top);
+			}
+			WINDOWPLACEMENT wp = {0};
+			wp.length = sizeof(WINDOWPLACEMENT);
+			GetWindowPlacement(app.wMain, &wp);
+			state = wp.showCmd;
+			::DestroyWindow(app.wEditor);
+			::PostQuitMessage(0);
+		}
 		return 0;
 	case WM_SETFOCUS:
 		::SetFocus(app.wBlame);
