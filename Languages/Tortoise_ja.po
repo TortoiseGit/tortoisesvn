@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-27 00:11+0900\n"
+"PO-Revision-Date: 2007-01-09 18:18+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -654,8 +654,8 @@ msgstr "新規(&N)"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "次の 100 (&N)"
+msgid "&Next %ld"
+msgstr "次の %ld (&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -6525,6 +6525,11 @@ msgstr ""
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "追加するものが何もありません。全てのファイルとフォルダがバージョン管理下にある、svn:ignore 属性で無視されている、もしくはグローバルに無視するよう設定されています。"
 
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "ロックを解除するものが何もありません。この作業コピー内にはロックされているファイルはありません。"
+
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
@@ -6955,6 +6960,7 @@ msgstr ""
 # ID:11,#:
 # Control-ID:1002,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "ロック解除"
 
