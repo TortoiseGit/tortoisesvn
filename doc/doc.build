@@ -88,7 +88,7 @@ All user/site specific configuration is stored in doc.build.user.
 			</fileset>
 		</copy>
 
-		<copy todir="${doc.target.work}/images" unless="${lang.base==lang.target}">
+		<copy todir="${doc.target.work}/images" unless="${lang.base==lang.target}" overwrite="true">
 			<fileset basedir="images/${lang.target}">
 				<include name="*"/>
 			</fileset>
