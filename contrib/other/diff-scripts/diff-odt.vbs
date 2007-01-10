@@ -32,6 +32,16 @@ If Err.Number <> 0 Then
 End If
 
 On Error Goto 0
+
+'Because this is a diff, TortoiseSVN marks the files as read-only.
+'However, OpenOffice will not compare any file with that flag set.
+'Make sure we un-set that flag.
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFile = objFSO.GetFile(sNewDoc)
+If objFile.Attributes = objFile.Attributes AND 1 Then
+    objFile.Attributes = objFile.Attributes XOR 1 
+End If
+
 'Create the DesktopSet 
 Set objDesktop = objServiceManager.createInstance("com.sun.star.frame.Desktop")
 Set objUriTranslator = objServiceManager.createInstance("com.sun.star.uri.ExternalUriReferenceTranslator")
@@ -64,5 +74,6 @@ dispatcher.executeDispatch Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyVal
 oPropertyValue(0).Name = "URL"
 oPropertyValue(0).Value = sBaseDoc
 dispatcher.executeDispatch Frame, ".uno:CompareDocuments", "", 0, oPropertyValue
+
 
 
