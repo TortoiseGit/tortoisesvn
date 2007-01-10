@@ -1502,13 +1502,16 @@ BOOL CTortoiseProcApp::InitInstance()
 			if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
 			{
 				// ask for a new name of the source item
-				CRenameDlg renDlg;
-				renDlg.m_name = pathList[0].GetFileOrDirectoryName();
-				if (renDlg.DoModal() != IDOK)
+				do 
 				{
-					return FALSE;
-				}
-				sNewName = renDlg.m_name;
+					CRenameDlg renDlg;
+					renDlg.m_name = pathList[0].GetFileOrDirectoryName();
+					if (renDlg.DoModal() != IDOK)
+					{
+						return FALSE;
+					}
+					sNewName = renDlg.m_name;
+				} while(sNewName.IsEmpty() || PathFileExists(droppath+_T("\\")+sNewName));
 			}
 			CProgressDlg progress;
 			if (progress.IsValid())
@@ -1532,6 +1535,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						name = sNewName;
 					progress.Stop();
 					CRenameDlg dlg;
+					dlg.m_name = name;
 					dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
 					if (dlg.DoModal() != IDOK)
 					{
@@ -1630,13 +1634,16 @@ BOOL CTortoiseProcApp::InitInstance()
 			if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
 			{
 				// ask for a new name of the source item
-				CRenameDlg renDlg;
-				renDlg.m_name = pathList[0].GetFileOrDirectoryName();
-				if (renDlg.DoModal() != IDOK)
+				do 
 				{
-					return FALSE;
-				}
-				sNewName = renDlg.m_name;
+					CRenameDlg renDlg;
+					renDlg.m_name = pathList[0].GetFileOrDirectoryName();
+					if (renDlg.DoModal() != IDOK)
+					{
+						return FALSE;
+					}
+					sNewName = renDlg.m_name;
+				} while(sNewName.IsEmpty() || PathFileExists(sDroppath+_T("\\")+sNewName));
 			}
 			CProgressDlg progress;
 			if (progress.IsValid())
