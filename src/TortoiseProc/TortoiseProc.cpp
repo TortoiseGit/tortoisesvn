@@ -591,7 +591,17 @@ BOOL CTortoiseProcApp::InitInstance()
 					TCHAR * tszPath = new TCHAR[len];
 					::GetCurrentDirectory(len, tszPath);
 					checkoutDirectory.SetFromWin(tszPath, true);
-					delete tszPath;
+					delete [] tszPath;
+					len = ::GetTempPath(0, NULL);
+					tszPath = new TCHAR[len];
+					::GetTempPath(len, tszPath);
+					if (_tcsncicmp(checkoutDirectory.GetWinPath(), tszPath, len-2 /* \\ and \0 */) == 0)
+					{
+						// if the current directory is set to a temp directory,
+						// we don't use that but leave it empty instead.
+						checkoutDirectory.Reset();
+					}
+					delete [] tszPath;
 				}
 				else
 				{
