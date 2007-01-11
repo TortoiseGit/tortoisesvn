@@ -131,12 +131,15 @@ void CCheckoutDlg::OnOK()
 		return;
 	}
 
+	bool bAutoCreateTargetName = m_bAutoCreateTargetName;
+	m_bAutoCreateTargetName = false;
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
 	if (!SVN::PathIsURL(m_URL))
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
+		m_bAutoCreateTargetName = bAutoCreateTargetName;
 		return;
 	}
 
@@ -153,7 +156,10 @@ void CCheckoutDlg::OnOK()
 				// It's a network share, and the user tries to create a berkeley db on it.
 				// Show a warning telling the user about the risks of doing so.
 				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
+				{
+					m_bAutoCreateTargetName = bAutoCreateTargetName;
 					return;
+				}
 		}
 	}
 
@@ -170,14 +176,20 @@ void CCheckoutDlg::OnOK()
 			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
 		}
 		else
+		{
+			m_bAutoCreateTargetName = bAutoCreateTargetName;
 			return;		//don't dismiss the dialog
+		}
 	}
 	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
 	{
 		CString message;
 		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),m_strCheckoutDirectory);
 		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+		{
+			m_bAutoCreateTargetName = bAutoCreateTargetName;
 			return;		//don't dismiss the dialog
+		}
 	}
 	UpdateData(FALSE);
 	CStandAloneDialog::OnOK();
@@ -235,6 +247,8 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 	{
 		UpdateData(TRUE);
 		m_strCheckoutDirectory = strCheckoutDirectory;
+		m_sCheckoutDirOrig = m_strCheckoutDirectory;
+		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 		UpdateData(FALSE);
 	}
 }
@@ -312,6 +326,8 @@ void CCheckoutDlg::SetRevision(const SVNRev& rev)
 void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 {
 	if (!m_bAutoCreateTargetName)
+		return;
+	if (m_sCheckoutDirOrig.IsEmpty())
 		return;
 	// find out what to use as the checkout directory name
 	UpdateData();

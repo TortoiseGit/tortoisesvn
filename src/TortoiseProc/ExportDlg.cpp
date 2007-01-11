@@ -144,6 +144,8 @@ void CExportDlg::OnOK()
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_NUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
+	bool bAutoCreateTargetName = m_bAutoCreateTargetName;
+	m_bAutoCreateTargetName = false;
 
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
@@ -152,12 +154,14 @@ void CExportDlg::OnOK()
 	if (!SVN::PathIsURL(m_URL))
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
+		m_bAutoCreateTargetName = bAutoCreateTargetName;
 		return;
 	}
 
 	if (m_strExportDirectory.IsEmpty())
 	{
-		return;			//don't dismiss the dialog
+		m_bAutoCreateTargetName = bAutoCreateTargetName;
+		return;
 	}
 
 	// if the export directory does not exist, where should we export to?
@@ -171,7 +175,10 @@ void CExportDlg::OnOK()
 			CPathUtils::MakeSureDirectoryPathExists(m_strExportDirectory);
 		}
 		else
-			return;		//don't dismiss the dialog
+		{
+			m_bAutoCreateTargetName = bAutoCreateTargetName;
+			return;
+		}
 	}
 
 	// if the directory we should export to is not empty, show a warning:
@@ -181,7 +188,10 @@ void CExportDlg::OnOK()
 		CString message;
 		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),m_strExportDirectory);
 		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
-			return;		//don't dismiss the dialog
+		{
+			m_bAutoCreateTargetName = bAutoCreateTargetName;
+			return;
+		}
 	}
 	m_eolCombo.GetWindowText(m_eolStyle);
 	if (m_eolStyle.Compare(_T("default"))==0)
@@ -222,6 +232,8 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 	{
 		UpdateData(TRUE);
 		m_strExportDirectory = strCheckoutDirectory;
+		m_sExportDirOrig = m_strExportDirectory;
+		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 		UpdateData(FALSE);
 	}
 }
@@ -303,6 +315,8 @@ void CExportDlg::SetRevision(const SVNRev& rev)
 void CExportDlg::OnCbnEditchangeUrlcombo()
 {
 	if (!m_bAutoCreateTargetName)
+		return;
+	if (m_sExportDirOrig.IsEmpty())
 		return;
 	// find out what to use as the checkout directory name
 	UpdateData();
