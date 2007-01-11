@@ -233,7 +233,7 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 		UpdateData(TRUE);
 		m_strExportDirectory = strCheckoutDirectory;
 		m_sExportDirOrig = m_strExportDirectory;
-		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
+		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 		UpdateData(FALSE);
 	}
 }
