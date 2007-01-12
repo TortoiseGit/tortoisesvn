@@ -221,7 +221,7 @@ BOOL CLogDlg::OnInitDialog()
 	if (m_hasWC)
 		m_ProjectProperties.ReadProps(m_path);
 
-	// the bugtraq issue id column is only shown if the bugtraq:url and bugtraq:regex is set
+	// the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
 	if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.sBugIDRe.IsEmpty()))
 		m_bShowBugtraqColumn = true;
 
