@@ -162,6 +162,8 @@ Version 1.4.2
        an empty-named directory was shown below the real directory. (Stefan)
 - BUG: The statistics by date were shown messed up if the log messages were
        not sorted by revision in the log dialog. (Stefan)
+- BUG: When the log dialog was maximized and restored again, the bottom 
+       splitter could not be moved correctly anymore. (Stefan)
 - CHG: The "break lock" entry is shown in the change-for-modifications context
        menu for added files too if it has a remote lock. This is a workaround
        for http://subversion.tigris.org/issues/show_bug.cgi?id=2507. (Stefan)

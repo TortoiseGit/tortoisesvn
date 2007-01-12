@@ -168,6 +168,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_CHECK_STOPONCOPY, &CLogDlg::OnBnClickedCheckStoponcopy)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATEFROM, &CLogDlg::OnDtnDropdownDatefrom)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATETO, &CLogDlg::OnDtnDropdownDateto)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -1895,26 +1896,6 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			DoSizeV2(pHdr->delta);
 		}
 		break;
-	case WM_WINDOWPOSCHANGED : 
-		{
-			CRect rcW;
-			GetWindowRect(rcW);
-			ScreenToClient(rcW);
-
-			SetSplitterRange();
-			
-			if (m_wndSplitter1 && rcW.Height()>0) Invalidate();
-			if (m_wndSplitter2 && rcW.Height()>0) Invalidate();
-			break;
-		}
-	case WM_SIZE:
-		{
-			// first, let the resizing take place
-			LRESULT res = CResizableDialog::DefWindowProc(message, wParam, lParam);
-			//set range
-			SetSplitterRange();
-			return res;
-		}
 	}
 
 	return CResizableDialog::DefWindowProc(message, wParam, lParam);
@@ -1930,13 +1911,11 @@ void CLogDlg::SetSplitterRange()
 		CRect rcMiddle;
 		GetDlgItem(IDC_MSGVIEW)->GetWindowRect(rcMiddle);
 		ScreenToClient(rcMiddle);
-		if (rcMiddle.Height() && rcMiddle.Width())
-			m_wndSplitter1.SetRange(rcTop.top+20, rcMiddle.bottom-20);
+		m_wndSplitter1.SetRange(rcTop.top+20, rcMiddle.bottom-20);
 		CRect rcBottom;
 		m_ChangedFileListCtrl.GetWindowRect(rcBottom);
 		ScreenToClient(rcBottom);
-		if (rcBottom.Height() && rcBottom.Width())
-			m_wndSplitter2.SetRange(rcMiddle.top+20, rcBottom.bottom-20);
+		m_wndSplitter2.SetRange(rcMiddle.top+20, rcBottom.bottom-20);
 	}
 }
 
@@ -3845,3 +3824,16 @@ void CLogDlg::OnDtnDropdownDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		SetWindowLongPtr(pCtrl->GetSafeHwnd(), GWL_STYLE, LONG_PTR(pCtrl->GetStyle() | MCS_NOTODAY));
 	*pResult = 0;
 }
+
+void CLogDlg::OnSize(UINT nType, int cx, int cy)
+{
+	__super::OnSize(nType, cx, cy);
+	if (nType == SIZE_MAXIMIZED)
+	{
+		DoSizeV1(0);
+		DoSizeV2(0);
+	}
+	//set range
+	SetSplitterRange();
+}
+
