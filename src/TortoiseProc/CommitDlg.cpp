@@ -137,6 +137,10 @@ BOOL CCommitDlg::OnInitDialog()
 		
 	GetWindowText(m_sWindowTitle);
 	
+	AdjustControlSize(IDC_SHOWUNVERSIONED);
+	AdjustControlSize(IDC_SELECTALL);
+	AdjustControlSize(IDC_KEEPLOCK);
+
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);

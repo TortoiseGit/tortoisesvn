@@ -73,6 +73,11 @@ BOOL CCheckoutDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	AdjustControlSize(IDC_NON_RECURSIVE);
+	AdjustControlSize(IDC_NOEXTERNALS);
+	AdjustControlSize(IDC_REVISION_HEAD);
+	AdjustControlSize(IDC_REVISION_N);
+
 	m_sCheckoutDirOrig = m_strCheckoutDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 

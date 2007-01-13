@@ -295,6 +295,9 @@ BOOL CLogDlg::OnInitDialog()
 	m_cFilterIcon.LoadBitmaps(IDB_LOGFILTER);
 	m_cFilterIcon.SizeToContent();
 	
+	AdjustControlSize(IDC_HIDEPATHS);
+	AdjustControlSize(IDC_CHECK_STOPONCOPY);
+
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
 	AddAnchor(IDC_DATEFROM, TOP_LEFT);

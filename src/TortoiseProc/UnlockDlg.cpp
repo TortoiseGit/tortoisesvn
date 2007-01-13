@@ -50,6 +50,8 @@ BOOL CUnlockDlg::OnInitDialog()
 	m_unlockListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOUNLOCK);
 	m_unlockListCtrl.SetCancelBool(&m_bCancelled);
 
+	AdjustControlSize(IDC_SELECTALL);
+
 	AddAnchor(IDC_UNLOCKLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);

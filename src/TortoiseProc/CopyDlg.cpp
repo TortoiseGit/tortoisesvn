@@ -78,6 +78,11 @@ BOOL CCopyDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	AdjustControlSize(IDC_COPYHEAD);
+	AdjustControlSize(IDC_COPYREV);
+	AdjustControlSize(IDC_COPYWC);
+	AdjustControlSize(IDC_DOSWITCH);
+
 	CTSVNPath path(m_path);
 
 	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));

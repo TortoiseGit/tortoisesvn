@@ -79,6 +79,10 @@ BOOL CChangedDlg::OnInitDialog()
 						SVNSLC_POPALL, false);
 	m_FileListCtrl.SetCancelBool(&m_bCanceled);
 	
+	AdjustControlSize(IDC_SHOWUNVERSIONED);
+	AdjustControlSize(IDC_SHOWUNMODIFIED);
+	AdjustControlSize(IDC_SHOWIGNORED);
+
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT, BOTTOM_RIGHT);

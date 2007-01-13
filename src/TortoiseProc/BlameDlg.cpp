@@ -43,7 +43,7 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
-	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
+	DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
 }
 
 
@@ -57,6 +57,8 @@ END_MESSAGE_MAP()
 BOOL CBlameDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
+
+	AdjustControlSize(IDC_USETEXTVIEWER);
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision

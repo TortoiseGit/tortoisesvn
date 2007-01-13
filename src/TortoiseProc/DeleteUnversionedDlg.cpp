@@ -64,6 +64,8 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	m_StatusList.SetSelectButton(&m_SelectAll);
 	m_StatusList.SetCancelBool(&m_bCancelled);
 
+	AdjustControlSize(IDC_SELECTALL);
+
 	AddAnchor(IDC_ITEMLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);

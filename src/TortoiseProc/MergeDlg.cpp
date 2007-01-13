@@ -90,6 +90,13 @@ BOOL CMergeDlg::OnInitDialog()
 
 	m_tooltips.Create(this);
 
+	AdjustControlSize(IDC_REVISION_HEAD1);
+	AdjustControlSize(IDC_REVISION_N1);
+	AdjustControlSize(IDC_IGNOREANCESTRY);
+	AdjustControlSize(IDC_USEFROMURL);
+	AdjustControlSize(IDC_REVISION_HEAD);
+	AdjustControlSize(IDC_REVISION_N);
+
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
 	CString url = svn.GetURLFromPath(CTSVNPath(m_wcPath));

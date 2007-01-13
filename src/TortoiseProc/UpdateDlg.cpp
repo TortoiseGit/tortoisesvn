@@ -58,6 +58,11 @@ BOOL CUpdateDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	AdjustControlSize(IDC_NEWEST);
+	AdjustControlSize(IDC_REVISION_N);
+	AdjustControlSize(IDC_NON_RECURSIVE);
+	AdjustControlSize(IDC_NOEXTERNALS);
+
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 	GetDlgItem(IDC_REVNUM)->SetFocus();
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))

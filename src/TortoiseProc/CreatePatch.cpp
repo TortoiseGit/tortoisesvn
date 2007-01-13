@@ -59,6 +59,8 @@ BOOL CCreatePatch::OnInitDialog()
 	m_PatchList.SetSelectButton(&m_SelectAll);
 	m_PatchList.SetCancelBool(&m_bCancelled);
 
+	AdjustControlSize(IDC_SELECTALL);
+
 	AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);

@@ -73,6 +73,8 @@ BOOL CLockDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_LOCKWARNING, IDS_WARN_SVNNEEDSLOCK);
 
+	AdjustControlSize(IDC_STEALLOCKS);
+
 	AddAnchor(IDC_LOCKTITLELABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOCKMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);

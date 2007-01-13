@@ -78,6 +78,11 @@ BOOL CExportDlg::OnInitDialog()
 	m_sExportDirOrig = m_strExportDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 
+	AdjustControlSize(IDC_NON_RECURSIVE);
+	AdjustControlSize(IDC_NOEXTERNALS);
+	AdjustControlSize(IDC_REVISION_HEAD);
+	AdjustControlSize(IDC_REVISION_N);
+
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
