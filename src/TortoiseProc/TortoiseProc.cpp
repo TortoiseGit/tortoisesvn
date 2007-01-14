@@ -940,10 +940,13 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				if (dlg.m_pathList.GetCount())
 				{
+					int options = 0;
 					CSVNProgressDlg progDlg(PWND);
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+					if (parser.HasKey(_T("skipcheck")))
+						options |= ProgOptSkipConflictCheck;
 					m_pMainWnd = &progDlg;
-					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Resolve, 0, dlg.m_pathList);
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Resolve, options, dlg.m_pathList);
 					progDlg.DoModal();
 				}
 			}

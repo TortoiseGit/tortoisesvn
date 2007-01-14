@@ -86,6 +86,8 @@
        directory from the URL. (Stefan)
 - NEW: Improved tooltips in the TortoiseMerge view header. (Stefan)
 - NEW: TortoiseBlame remembers its window position. (Stefan)
+- NEW: Performance improvement when resolving a file in TortoiseMerge.
+       See issue #328 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

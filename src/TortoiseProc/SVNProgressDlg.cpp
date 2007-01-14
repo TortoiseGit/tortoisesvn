@@ -928,34 +928,37 @@ UINT CSVNProgressDlg::ProgressThread()
 			SetWindowText(sWindowTitle);
 			// check if the file may still have conflict markers in it.
 			BOOL bMarkers = FALSE;
-			try
+			if ((m_options & ProgOptSkipConflictCheck) == 0)
 			{
-				for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
+				try
 				{
-					if (!m_targetPathList[fileindex].IsDirectory())
+					for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
 					{
-						CStdioFile file(m_targetPathList[fileindex].GetWinPath(), CFile::typeBinary | CFile::modeRead);
-						CString strLine = _T("");
-						while (file.ReadString(strLine))
+						if (!m_targetPathList[fileindex].IsDirectory())
 						{
-							if (strLine.Find(_T("<<<<<<<"))==0)
+							CStdioFile file(m_targetPathList[fileindex].GetWinPath(), CFile::typeBinary | CFile::modeRead);
+							CString strLine = _T("");
+							while (file.ReadString(strLine))
 							{
-								bMarkers = TRUE;
-								break;
+								if (strLine.Find(_T("<<<<<<<"))==0)
+								{
+									bMarkers = TRUE;
+									break;
+								}
 							}
+							file.Close();
 						}
-						file.Close();
 					}
+				} 
+				catch (CFileException* pE)
+				{
+					TRACE(_T("CFileException in Resolve!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					ReportError(error);
+					bFailed = true;
+					pE->Delete();
 				}
-			} 
-			catch (CFileException* pE)
-			{
-				TRACE(_T("CFileException in Resolve!\n"));
-				TCHAR error[10000] = {0};
-				pE->GetErrorMessage(error, 10000);
-				ReportError(error);
-				bFailed = true;
-				pE->Delete();
 			}
 			if (bMarkers)
 			{
