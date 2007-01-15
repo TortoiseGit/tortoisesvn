@@ -168,6 +168,8 @@ Version 1.4.2
        splitter could not be moved correctly anymore. (Stefan)
 - BUG: If the bugtraq:logregex was set but the bugtraq:url left empty, the
        bug-id column in the log dialog was shown but always left empty. (Stefan)
+- BUG: Exporting selected entries from the changed-files dialog exported
+       the wrong entries. (Stefan)
 - CHG: The "break lock" entry is shown in the change-for-modifications context
        menu for added files too if it has a remote lock. This is a workaround
        for http://subversion.tigris.org/issues/show_bug.cgi?id=2507. (Stefan)

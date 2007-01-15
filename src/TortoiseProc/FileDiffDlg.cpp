@@ -647,7 +647,7 @@ UINT CFileDiffDlg::ExportThread()
 	m_pProgDlg->ShowModeless(this);
 	for (INT_PTR i=0; (i<m_arSelectedFileList.GetCount())&&(!m_pProgDlg->HasUserCancelled()); ++i)
 	{
-		CFileDiffDlg::FileDiff fd = m_arFileList[i];
+		CFileDiffDlg::FileDiff fd = m_arSelectedFileList[i];
 		CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 		CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 		if ((fd.node == svn_node_dir)&&(fd.kind != svn_client_diff_summarize_kind_added))
