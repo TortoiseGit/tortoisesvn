@@ -1249,7 +1249,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			if ((pszDiffChars)&&
 				(CDiffData::DIFFSTATE_NORMAL != (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex))&&
 				!line.IsEmpty()&&
-				(pszDiffChars[0]!=0))
+				(pszDiffChars[0]!=0) &&
+				((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden())))
 			{
 				CString diffline;
 				ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
