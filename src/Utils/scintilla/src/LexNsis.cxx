@@ -120,7 +120,7 @@ static int calculateFoldNsis(unsigned int start, unsigned int end, int foldlevel
           return foldlevel;
   }
   else
-  { 
+  {
     if( style != SCE_NSIS_FUNCTIONDEF && style != SCE_NSIS_SECTIONDEF &&
         style != SCE_NSIS_SUBSECTIONDEF && style != SCE_NSIS_SECTIONGROUP &&
         style != SCE_NSIS_PAGEEX )
@@ -141,7 +141,7 @@ static int calculateFoldNsis(unsigned int start, unsigned int end, int foldlevel
 
   if( s[0] == '!' )
   {
-    if( NsisCmp(s, "!ifndef", bIgnoreCase) == 0 || NsisCmp(s, "!ifdef", bIgnoreCase ) == 0 || NsisCmp(s, "!macro", bIgnoreCase ) == 0 )
+    if( NsisCmp(s, "!ifndef", bIgnoreCase) == 0 || NsisCmp(s, "!ifdef", bIgnoreCase ) == 0 || NsisCmp(s, "!if", bIgnoreCase ) == 0 || NsisCmp(s, "!macro", bIgnoreCase ) == 0 )
       newFoldlevel++;
     else if( NsisCmp(s, "!endif", bIgnoreCase) == 0 || NsisCmp(s, "!macroend", bIgnoreCase ) == 0 )
       newFoldlevel--;
@@ -155,7 +155,7 @@ static int calculateFoldNsis(unsigned int start, unsigned int end, int foldlevel
     else if( NsisCmp(s, "SectionGroupEnd", bIgnoreCase ) == 0 || NsisCmp(s, "SubSectionEnd", bIgnoreCase ) == 0 || NsisCmp(s, "FunctionEnd", bIgnoreCase) == 0 || NsisCmp(s, "SectionEnd", bIgnoreCase ) == 0 || NsisCmp(s, "PageExEnd", bIgnoreCase ) == 0 )
       newFoldlevel--;
   }
-  
+
   return newFoldlevel;
 }
 
@@ -193,6 +193,9 @@ static int classifyWordNsis(unsigned int start, unsigned int end, WordList *keyw
 		return SCE_NSIS_IFDEFINEDEF;
 
   if( NsisCmp(s, "!else", bIgnoreCase ) == 0 ) // ||  NsisCmp(s, "!ifndef", bIgnoreCase) == 0 ||  NsisCmp(s, "!endif", bIgnoreCase) == 0 )
+		return SCE_NSIS_IFDEFINEDEF;
+
+  if( NsisCmp(s, "!if", bIgnoreCase ) == 0 )
 		return SCE_NSIS_IFDEFINEDEF;
 
   if( NsisCmp(s, "SectionGroup", bIgnoreCase) == 0 || NsisCmp(s, "SectionGroupEnd", bIgnoreCase) == 0 ) // Covers SectionGroup and SectionGroupEnd

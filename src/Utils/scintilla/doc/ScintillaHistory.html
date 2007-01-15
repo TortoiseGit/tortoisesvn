@@ -221,6 +221,11 @@
 	<li>Fabien Proriol</li>
 	<li>mimir</li>
 	<li>Nicola Civran</li>
+	<li>Snow</li>
+	<li>Mitchell Foral</li>
+	<li>Pieter Holtzhausen</li>
+	<li>Waldemar Augustyn</li>
+	<li>Jason Haslam</li>
     </ul>
     <p>
        Images used in GTK+ version
@@ -232,15 +237,103 @@
       </li>
     </ul>
     <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite172.zip?download">Release 1.72</a>
+    </h3>
+    <ul>
+	<li>
+	Released on 15 January 2007.
+	</li>
+	<li>
+	Performance of per-line data improved.
+	</li>
+	<li>
+	SC_STARTACTION flag set on the first modification notification in an undo 
+	transaction to help synchronize the container's undo stack with Scintilla's.
+	</li>
+	<li>
+	On GTK+ drag and drop defaults to move rather than copy.
+	</li>
+	<li>
+	Scintilla supports extending appearance of selection to right hand margin.
+	</li>
+	<li>
+	Incremental search available on GTK+.
+	</li>
+	<li>
+	Find in Files can optionally ignore binary files or directories that start with ".".
+	</li>
+	<li>
+	Lexer added for "D" language.
+	</li>
+	<li>
+	Export as HTML shows folding with underline lines and +/- symbols.
+	</li>
+	<li>
+	Ruby lexer interprets interpolated strings as expressions.
+	</li>
+	<li>
+	Lua lexer fixes some cases of numeric literals.
+	</li>
+	<li>
+	C++ folder fixes bug with "@" in doc comments.
+	</li>
+	<li>
+	NSIS folder handles !if and related commands.
+	</li>
+	<li>
+	Inno setup lexer adds styling for single and double quoted strings.
+	</li>
+	<li>
+	Matlab lexer handles backslashes in string literals correctly.
+	</li>
+	<li>
+	HTML lexer fixed to allow "?&gt;" in comments in Basic script.
+	</li>
+	<li>
+	Added key codes for Windows key and Menu key.
+	</li>
+	<li>
+	Lua script method scite.MenuCommand(x) performs a menu command.
+	</li>
+	<li>
+	SciTE bug fixed with box comment command near start of file setting selection to end of file.
+	</li>
+	<li>
+	SciTE on GTK+, fixed loop that occurred with automatic loading for an unreadable file.
+	</li>
+	<li>
+	SciTE asks whether to save files when Windows shuts down.
+	</li>
+	<li>
+	Save Session on Windows now defaults the extension to "ses".
+	</li>
+	<li>
+	Bug fixed with single character keywords.
+	</li>
+	<li>
+	Fixed infinite loop for SCI_GETCOLUMN for position beyond end of document.
+	</li>
+	<li>
+	Fixed failure to accept typing on Solaris/GTK+ when using default ISO-8859-1 encoding.
+	</li>
+	<li>
+	Fixed warning from Lua in SciTE when creating a new buffer when already have
+	maximum number of buffers open.
+	</li>
+	<li>
+	Crash fixed with "%%" at end of batch file.
+	</li>
+    </ul>
+    <h3>
        <a href="http://prdownloads.sourceforge.net/scintilla/scite171.zip?download">Release 1.71</a>
     </h3>
     <ul>
 	<li>
 	Released on 21 August 2006.
 	</li>
-	<li>
+	<!--li>
 	On GTK+ drag and drop defaults to move rather than copy.
-	</li>
+	</li-->
 	<li>
 	Double click notification includes line and position.
 	</li>

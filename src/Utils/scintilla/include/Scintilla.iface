@@ -442,6 +442,12 @@ get int GetSelAlpha=2477(,)
 # Set the alpha of the selection.
 set void SetSelAlpha=2478(int alpha,)
 
+# Is the selection end of line filled?
+get bool GetSelEOLFilled=2479(,)
+
+# Set the selection to have its end of line filled or not.
+set void SetSelEOLFilled=2480(bool filled,)
+
 # Set the foreground colour of the caret.
 set void SetCaretFore=2069(colour fore,)
 
@@ -1311,7 +1317,7 @@ fun void LineCopy=2455(,)
 # Move the caret inside current view if it's not there already.
 fun void MoveCaretInsideView=2401(,)
 
-# How many characters are on a line, not including end of line characters?
+# How many characters are on a line, including end of line characters?
 fun int LineLength=2350(int line,)
 
 # Highlight the characters at two positions.
@@ -1728,7 +1734,8 @@ val SC_MOD_CHANGEMARKER=0x200
 val SC_MOD_BEFOREINSERT=0x400
 val SC_MOD_BEFOREDELETE=0x800
 val SC_MULTILINEUNDOREDO=0x1000
-val SC_MODEVENTMASKALL=0x1FFF
+val SC_STARTACTION=0x2000
+val SC_MODEVENTMASKALL=0x2FFF
 
 # For compatibility, these go through the COMMAND notification rather than NOTIFY
 # and should have had exactly the same values as the EN_* constants.
@@ -1760,6 +1767,9 @@ val SCK_RETURN=13
 val SCK_ADD=310
 val SCK_SUBTRACT=311
 val SCK_DIVIDE=312
+val SCK_WIN=313
+val SCK_RWIN=314
+val SCK_MENU=315
 
 enu KeyMod=SCMOD_
 val SCMOD_NORM=0
@@ -1847,6 +1857,7 @@ val SCLEX_FREEBASIC=75
 val SCLEX_INNOSETUP=76
 val SCLEX_OPAL=77
 val SCLEX_SPICE=78
+val SCLEX_D=79
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -1893,6 +1904,26 @@ val SCE_C_WORD2=16
 val SCE_C_COMMENTDOCKEYWORD=17
 val SCE_C_COMMENTDOCKEYWORDERROR=18
 val SCE_C_GLOBALCLASS=19
+# Lexical states for SCLEX_D
+lex D=SCLEX_D SCE_D_
+val SCE_D_DEFAULT=0
+val SCE_D_COMMENT=1
+val SCE_D_COMMENTLINE=2
+val SCE_D_COMMENTDOC=3
+val SCE_D_COMMENTNESTED=4
+val SCE_D_NUMBER=5
+val SCE_D_WORD=6
+val SCE_D_WORD2=7
+val SCE_D_WORD3=8
+val SCE_D_TYPEDEF=9
+val SCE_D_STRING=10
+val SCE_D_STRINGEOL=11
+val SCE_D_CHARACTER=12
+val SCE_D_OPERATOR=13
+val SCE_D_IDENTIFIER=14
+val SCE_D_COMMENTLINEDOC=15
+val SCE_D_COMMENTDOCKEYWORD=16
+val SCE_D_COMMENTDOCKEYWORDERROR=17
 # Lexical states for SCLEX_TCL
 lex TCL=SCLEX_TCL SCE_TCL_
 val SCE_TCL_DEFAULT=0
