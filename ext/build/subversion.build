@@ -101,6 +101,7 @@
 					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}_${platform}\${fname}-nonet\**.obj" />
+                        <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
 					</sources>
 				</lib>
 			</do>
@@ -170,6 +171,7 @@
 					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}_${platform}\${fname}\**.obj" />
+                        <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
 					</sources>
 				</lib>
 			</do>
