@@ -237,6 +237,7 @@ public:
 		CString					lock_remoteowner;		///< the username which owns the lock in the repository
 		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
 		CString					lock_comment;			///< the message for the lock
+		CString					changelist;				///< the name of the changelist the item belongs to
 		CString					copyfrom_url;			///< the copied-from URL (if available, i.e. \a copied is true)
 		svn_revnum_t			copyfrom_rev;			///< the copied-from revision
 		CString					last_commit_author;		///< the author which last committed this item
@@ -504,6 +505,15 @@ private:
 	/// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
 	void FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored = false);
 
+	/// Enables/Disables group view and adds all groups to the list control.
+	/// If bForce is true, then groupview is enabled and the 'null' group is added.
+	bool PrepareGroups(bool bForce = false);
+	/// Returns the number of changelists the selection has
+	int GetNumberOfChangelistsInSelection();
+
+	/// Puts the item to the corresponding group
+	bool SetItemGroup(int item, int groupindex);
+
 	void CheckEntry(int index, int nListItems);
 	void UncheckEntry(int index, int nListItems);
 
@@ -548,6 +558,7 @@ private:
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;
+	std::map<CString, int>		m_changelists;
 	CTSVNPathList				m_ConflictFileList;
 	CTSVNPathList				m_StatusFileList;
 	CString						m_sLastError;

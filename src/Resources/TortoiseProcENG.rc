@@ -2402,8 +2402,9 @@ BEGIN
     IDS_STATUSLIST_CONTEXT_COPY "Copy paths to clipboard"
     IDS_STATUSLIST_CONTEXT_COPYEXT "Copy all information to clipboard"
     IDS_STATUSLIST_CONTEXT_REPAIRMOVE "Repair move"
-    IDS_STATUSLIST_LOCKBROKEN "Lock broken!"
-    IDS_STATUSLIST_LOCKSTOLEN "Lock stolen by %s"
+    IDS_STATUSLIST_CONTEXT_REMOVEFROMCS "Remove from changelist"
+    IDS_STATUSLIST_CONTEXT_CREATECS "Create and add to changelist"
+    IDS_STATUSLIST_CONTEXT_ADDTOCS "Add to changelist '%s'"
 END
 
 STRINGTABLE 
@@ -2538,11 +2539,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSLIST_NESTED   "Nested"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_FILEDIFF_FILE       "File"
     IDS_FILEDIFF_ACTION     "Action"
     IDS_FILEDIFF_WAIT       "Please wait while differences are obtained..."
@@ -2641,12 +2637,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_ACTIONS         "Actions"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STATUSLIST_BUSYMSG  "Please wait..."
-    IDS_STATUSLIST_EMPTYMSG "File list is empty"
 END
 
 STRINGTABLE 
@@ -2810,6 +2800,16 @@ BEGIN
     IDS_SVNPROGRESS_EXPORTINGWAIT "Gathering information. Please wait..."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_STATUSLIST_LOCKBROKEN "Lock broken!"
+    IDS_STATUSLIST_LOCKSTOLEN "Lock stolen by %s"
+    IDS_STATUSLIST_NESTED   "Nested"
+    IDS_STATUSLIST_BUSYMSG  "Please wait..."
+    IDS_STATUSLIST_EMPTYMSG "File list is empty"
+    IDS_STATUSLIST_UNASSIGNED_CHANGESET "(no changeset)"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -2830,6 +2830,42 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 IDB_CANCELNORMAL        BITMAP                  "cancel-normal.bmp"
 IDB_CANCELPRESSED       BITMAP                  "cancel-pressed.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CREATECHANGELIST DIALOGEX 0, 0, 186, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Changelist"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,70,45,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,45,50,14
+    LTEXT           "Enter a name for the changelist:",IDC_STATIC,7,7,172,8
+    EDITTEXT        IDC_NAME,7,20,172,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CREATECHANGELIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

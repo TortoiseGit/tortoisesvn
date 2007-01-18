@@ -875,7 +875,8 @@ UINT CSVNProgressDlg::ProgressThread()
 				}
 			}
 
-			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))
+			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
+				(m_Revision == 0), m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
 				bFailed = true;

@@ -143,6 +143,8 @@ public:
 	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
 
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
+
+	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
 	
 	CString BuildInfoString();
 	
@@ -227,6 +229,9 @@ private:
 	CString		m_sMessage;
 	SVNRev		m_Revision;
 	SVNRev		m_pegRev;
+
+	CString		m_changelist;
+	bool		m_keepchangelist;
 	
 	CTSVNPath	m_basePath;
 	StringRevMap m_UpdateStartRevMap;

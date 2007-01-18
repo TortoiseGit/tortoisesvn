@@ -153,6 +153,10 @@ public:
 	 */
 	BOOL Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
 	/**
+	 * Assigns the files/folders in \c pathList to a \c changelist.
+	 */
+	BOOL SetChangeList(const CTSVNPathList& pathList, const CString& changelist);
+	/**
 	 * Update working tree path to revision.
 	 * \param pathList the files/directories to update
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
@@ -172,11 +176,17 @@ public:
 	 *
 	 * \param path the file/directory to commit
 	 * \param message a log message describing the changes you made
+	 * \param changelist If \c changelist is non-empty, then use it as a restrictive 
+	 *                   filter on items that are committed; that is, don't commit 
+	 *                   anything unless it's a member of changelist \c changelist. 
+	 * \param keepchangelist After the commit completes successfully, remove \c changelist 
+	 *                       associations from the targets, unless \c keepchangelist is set.
 	 * \param recurse 
 	 * \param keep_locks if TRUE, the locks are not removed on commit
 	 * \return the resulting revision number.
 	 */
-	svn_revnum_t Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks);
+	svn_revnum_t Commit(const CTSVNPathList& pathlist, CString message, 
+		const CString& changelist, BOOL keepchangelist, BOOL recurse, BOOL keep_locks);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
