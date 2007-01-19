@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-06 20:26+0100\n"
+"PO-Revision-Date: 2007-01-19 08:55+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -967,6 +967,11 @@ msgstr "(proba)"
 msgid "(multiple targets selected)"
 msgstr "(višestruki ciljevi izabrani)"
 
+# ID:213,
+#: ID:213
+msgid "(no changeset)"
+msgstr "(nema skupa izmjena)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1206,6 +1211,12 @@ msgstr "Dodaj program za stapanje datoteka određene vrste"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Dodaj na popis &zanemarenih"
+
+# ID:13,
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "Dodaj na popis izmjena '%s'"
 
 # Control-ID:1098,
 #: Control-ID:1279
@@ -2353,6 +2364,11 @@ msgid "Create &patch..."
 msgstr "Izradi &zakrpu..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Napravi popis izmjena"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Izradi zakrpu"
@@ -2361,6 +2377,11 @@ msgstr "Izradi zakrpu"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Izradi skladište"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "Stvori i dodaj na popis izmjena"
 
 # ID:8,
 #: Control-ID:65535
@@ -2785,6 +2806,11 @@ msgstr "Upiši URL"
 msgid "Enter a lock message (optional):"
 msgstr "Upišite poruku zaključavanja (nije obavezno):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Upišite ime za popis izmjena:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3009,7 +3035,7 @@ msgid "File diffs"
 msgstr "Razlike datoteka"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Popis datoteka je prazan"
 
@@ -3910,7 +3936,7 @@ msgid "Lock Files"
 msgstr "Zaključaj datoteke"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Lokot slomljen!"
 
@@ -3936,7 +3962,7 @@ msgid "Lock owner:"
 msgstr "Vlasnik lokota:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Lokot je ukrao %s"
@@ -4231,7 +4257,7 @@ msgid "Needs lock"
 msgstr "Zahtijeva lokot"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Ugniježđeno"
 
@@ -4746,7 +4772,7 @@ msgstr "Molim pričekajte inicijalizaciju preglednika skladišta..."
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Molim pričekajte..."
 
@@ -5030,6 +5056,11 @@ msgstr "Ukloni %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Ukloni s popisa &zanemarenih"
+
+# ID:13,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Ukloni s popisa izmjena"
 
 # ID:8,#:
 # ID:74,
