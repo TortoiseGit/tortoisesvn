@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-09 15:09+0100\n"
+"PO-Revision-Date: 2007-01-19 09:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -782,6 +782,11 @@ msgstr "(Trockenlauf)"
 msgid "(multiple targets selected)"
 msgstr "(mehrere Ziele gewählt)"
 
+# ID:213,
+#: ID:213
+msgid "(no changeset)"
+msgstr "(keine Änderungen)"
+
 #: ID:314
 msgid "(not found)"
 msgstr "(nicht gefunden)"
@@ -973,6 +978,11 @@ msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "&Ignorieren"
+
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "Füge '%s' zur Änderungsliste hinzu"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1920,6 +1930,10 @@ msgstr "Thread konnte nicht gestartet werden!"
 msgid "Create &patch..."
 msgstr "Erzeuge &Patch..."
 
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Erzeuge Änderungsliste"
+
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Erzeuge Patch"
@@ -1927,6 +1941,11 @@ msgstr "Erzeuge Patch"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Projektarchiv hier erstellen"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "Anlegen und zur Änderungsliste hinzufügen"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -2278,6 +2297,11 @@ msgstr "URL eingeben"
 msgid "Enter a lock message (optional):"
 msgstr "Geben Sie eine optionale Sperrmeldung ein:"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Geben Sie einen Namen für die Änderungsliste ein:"
+
 #: Control-ID:1065
 msgid "Enter log &message:"
 msgstr "Log-&Meldung eingeben"
@@ -2454,7 +2478,7 @@ msgid "File diffs"
 msgstr "Dateiunterschiede"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Leere Dateiliste"
 
@@ -3273,7 +3297,7 @@ msgstr "Sperre"
 msgid "Lock Files"
 msgstr "Dateien sperren"
 
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Sperre aufgebrochen!"
 
@@ -3293,7 +3317,7 @@ msgstr "Sperren fehlgeschlagen"
 msgid "Lock owner:"
 msgstr "Eigner der Sperre:"
 
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Sperre von %s gestohlen "
@@ -3538,7 +3562,7 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr "Benötigt Sperre"
 
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Verschachtelt"
 
@@ -3944,7 +3968,7 @@ msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wi
 
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Bitte warten..."
 
@@ -4177,6 +4201,10 @@ msgstr "Löschen %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Aus &Ignorieren Liste entfernen"
+
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Lösche aus Änderungsliste"
 
 #: Control-ID:1332
 msgid "Remove..."
