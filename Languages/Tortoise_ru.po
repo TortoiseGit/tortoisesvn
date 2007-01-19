@@ -40,13 +40,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8442: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8501: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-09 16:50+0300\n"
+"PO-Revision-Date: 2007-01-19 13:04+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -810,6 +810,10 @@ msgstr "(Пробный запуск)"
 msgid "(multiple targets selected)"
 msgstr "(несколько целей выбрано)"
 
+#: ID:213
+msgid "(no changeset)"
+msgstr "(нет набора изменений)"
+
 #: ID:314
 msgid "(not found)"
 msgstr "(не найден)"
@@ -999,6 +1003,11 @@ msgstr "Добавить программу слияния для конкрет
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Добавить в список &игнорирования"
+
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "Добавить в список изменений '%s'"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1932,6 +1941,10 @@ msgstr "Невозможно запустить поток!"
 msgid "Create &patch..."
 msgstr "Создать за&платку..."
 
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Создать список изменений"
+
 # Заголовок окна
 #: Dlg-ID:208
 msgid "Create Patch"
@@ -1941,6 +1954,10 @@ msgstr "Создание заплатки"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Создание хранилища"
+
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "Создать и добавить в список изменений"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -2290,6 +2307,10 @@ msgstr "Введите URL"
 msgid "Enter a lock message (optional):"
 msgstr "Введите сообщение блокировки (не обязательно):"
 
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Введите имя для списка изменений:"
+
 #: Control-ID:1065
 msgid "Enter log &message:"
 msgstr "Введите &сообщение журнала:"
@@ -2465,7 +2486,7 @@ msgstr "Изменений файлов в неделю:"
 msgid "File diffs"
 msgstr "Файловые различия"
 
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Cписок файлов пуст"
 
@@ -3255,7 +3276,7 @@ msgstr "Блокировка"
 msgid "Lock Files"
 msgstr "Блокировка файлов"
 
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Блокировка прервана!"
 
@@ -3276,7 +3297,7 @@ msgstr "Блокировка не удалась"
 msgid "Lock owner:"
 msgstr "Блокировк. владеет:"
 
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "%s перехватил блокировку"
@@ -3516,7 +3537,7 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr "Необходима блокировка"
 
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Вложен"
 
@@ -3919,7 +3940,7 @@ msgstr "Подождите, пожалуйста, пока обозревате�
 
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Подождите, пожалуйста..."
 
@@ -4148,6 +4169,10 @@ msgstr "Удаление %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Удалить из списка &игнорирования"
+
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Удалить из списка изменений"
 
 #: Control-ID:1332
 msgid "Remove..."
