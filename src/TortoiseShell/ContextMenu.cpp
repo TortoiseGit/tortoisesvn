@@ -490,9 +490,6 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	if (!hIcon)
 		return NULL;
 
-	if (!hIcon)
-		return NULL;
-
 	RECT     rect;
 
 	rect.right = ::GetSystemMetrics(SM_CXMENUCHECK);
