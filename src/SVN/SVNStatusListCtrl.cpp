@@ -149,7 +149,6 @@ void CSVNStatusListCtrl::ClearStatusArray()
 	m_arStatusArray.clear();
 }
 
-
 CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
 {
 	if (index < 0)
@@ -169,13 +168,15 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_dwColumns = regColInfo;
 	m_dwContextMenus = dwContextMenus;
 	// set the extended style of the listcontrol
-	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
+	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image.
+	DWORD exStyle = LVS_EX_HEADERDRAGDROP /*| LVS_EX_FULLROWSELECT*/ | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
 	exStyle |= (bHasCheckboxes ? LVS_EX_CHECKBOXES : 0);
 	SetRedraw(false);
 	SetExtendedStyle(exStyle);
 
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
+
 	// clear all previously set header columns
 	DeleteAllItems();
 	int c = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
@@ -275,6 +276,65 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	SetRedraw(true);
 
 	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
+}
+
+bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
+{
+	SetTextBkColor(CLR_NONE);
+	COLORREF bkColor = GetBkColor();
+	// create a bitmap from the icon
+	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(nID), IMAGE_ICON, 128, 128, LR_DEFAULTCOLOR);
+	if (!hIcon)
+		return false;
+
+	RECT rect = {0};
+	rect.right = 128;
+	rect.bottom = 128;
+	HBITMAP bmp = NULL;
+
+	HWND desktop = ::GetDesktopWindow();
+	if (desktop)
+	{
+		HDC screen_dev = ::GetDC(desktop);
+		if (screen_dev)
+		{
+			// Create a compatible DC
+			HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+			if (dst_hdc)
+			{
+				// Create a new bitmap of icon size
+				bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
+				if (bmp)
+				{
+					// Select it into the compatible DC
+					HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+					// Fill the background of the compatible DC with the given colour
+					::SetBkColor(dst_hdc, bkColor);
+					::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+					// Draw the icon into the compatible DC
+					::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
+					::SelectObject(dst_hdc, old_dst_bmp);
+				}
+				::DeleteDC(dst_hdc);
+			}
+		}
+		::ReleaseDC(desktop, screen_dev); 
+	}
+
+	// Restore settings
+	DestroyIcon(hIcon);
+
+	if (bmp == NULL)
+		return false;
+
+	LVBKIMAGE lv;
+	lv.ulFlags = LVBKIF_TYPE_WATERMARK;
+	lv.hbm = bmp;
+	lv.xOffsetPercent = 100;
+	lv.yOffsetPercent = 100;
+	SetBkImage(&lv);
+	return true;
 }
 
 BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bShowIgnores /* = false */)
@@ -4500,3 +4560,4 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	}
 	return bHasGroups;
 }
+

@@ -277,6 +277,12 @@ public:
 	 */
 	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = (SVNSLC_POPALL ^ SVNSLC_POPCOMMIT), bool bHasCheckboxes = true);
 	/**
+	 * Sets a background image for the list control.
+	 * The image is shown in the right bottom corner.
+	 * \param nID the resource ID of the bitmap to use as the background
+	 */
+	bool SetBackgroundImage(UINT nID);
+	/**
 	 * Makes the 'ignore' context menu only ignore the files and not add the
 	 * folder which gets the svn:ignore property changed to the list.
 	 * This is needed e.g. for the Add-dialog, where the modified folder
@@ -603,7 +609,6 @@ private:
 
 	std::map<CString,bool>		m_mapFilenameToChecked; ///< Remember manually de-/selected items
 	CComCriticalSection			m_critSec;
-
 };
 
 class CSVNStatusListCtrlDropTarget : public CIDropTarget
