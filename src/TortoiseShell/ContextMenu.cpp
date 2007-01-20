@@ -486,7 +486,7 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	if (bitmap_it != bitmaps.end() && bitmap_it->first == uIcon)
 		return bitmap_it->second;
 
-	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
+	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 12, 12, LR_DEFAULTCOLOR);
 	if (!hIcon)
 		return NULL;
 
@@ -540,16 +540,8 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	}
 
 	// Fill the background of the compatible DC with the given colour
-	HBRUSH brush = ::CreateSolidBrush(transparentColor);
-	if (brush == NULL)
-	{
-		DestroyIcon(hIcon);
-		::DeleteDC(dst_hdc);
-		::ReleaseDC(desktop, screen_dev); 
-		return NULL;
-	}
-	::FillRect(dst_hdc, &rect, brush);
-	::DeleteObject(brush);
+	::SetBkColor(dst_hdc, transparentColor);
+	::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 
 	// Draw the icon into the compatible DC
 	::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
@@ -672,49 +664,50 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 		return NOERROR;
-	//check if our menu is requested for the start menu
-	TCHAR buf[MAX_PATH];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE))
+
+	int csidlarray[] = 
 	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	//check if our menu is requested for the trash bin folder
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_BITBUCKET, FALSE))
-	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	//check if our menu is requested for the virtual folder containing icons for the Control Panel applications
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_CONTROLS, FALSE))
-	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	//check if our menu is requested for the cookies folder
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_COOKIES, FALSE))
-	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	//check if our menu is requested for the internet folder
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_INTERNET, FALSE))
-	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	//check if our menu is requested for the printer folder
-	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_PRINTERS, FALSE))
-	{
-		if (_tcscmp(buf, folder_.c_str())==0)
-			return NOERROR;
-	}
-	
+		CSIDL_BITBUCKET,
+		CSIDL_CDBURN_AREA,
+		CSIDL_COMMON_FAVORITES,
+		CSIDL_COMMON_STARTMENU,
+		CSIDL_COMPUTERSNEARME,
+		CSIDL_CONNECTIONS,
+		CSIDL_CONTROLS,
+		CSIDL_COOKIES,
+		CSIDL_FAVORITES,
+		CSIDL_FONTS,
+		CSIDL_HISTORY,
+		CSIDL_INTERNET,
+		CSIDL_INTERNET_CACHE,
+		CSIDL_NETHOOD,
+		CSIDL_NETWORK,
+		CSIDL_PRINTERS,
+		CSIDL_PRINTHOOD,
+		CSIDL_RECENT,
+		CSIDL_SENDTO,
+		CSIDL_STARTMENU,
+		0
+	};
+	if (folder_.empty() || IsIllegalFolder(folder_, csidlarray))
+		return NOERROR;
+
 	//check if our menu is requested for a subversion admin directory
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
 		return NOERROR;
 
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
+	// On Vista, owner drawn menus force the context menu to the 'old' UI style.
+	// Since we like improved UIs, we don't want to do that so we simply
+	// don't draw the menus on Vista ourselves.
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+	if (fullver >= 0x0600)
+		ownerdrawn = 0;
+
 	//check if we already added our menu entry for a folder.
 	//we check that by iterating through all menu entries and check if 
 	//the dwItemData member points to our global ID string. That string is set
@@ -1031,11 +1024,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	MENUITEMINFO menuiteminfo;
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
-	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
 	if ((ownerdrawn==1)&&(fullver >= 0x0501))
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA;
 	else if (ownerdrawn == 0)
@@ -1843,7 +1831,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			ix = lpdis->rcItem.left + space;
 			SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
 
-			HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
+			HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 
 			if (hIcon == NULL)
 				return S_OK;
@@ -2266,6 +2254,36 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	}
 	return resource;
 }
+
+bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
+{
+	int i=0;
+	TCHAR buf[MAX_PATH];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
+	LPITEMIDLIST pidl = NULL;
+	while (cslidarray[i])
+	{
+		//if (SHGetSpecialFolderPath(NULL, buf, cslidarray[i], FALSE))
+		//{
+		//	if (_tcscmp(buf, folder.c_str())==0)
+		//		return true;
+		//}
+		++i;
+		pidl = NULL;
+		if (SHGetFolderLocation(NULL, cslidarray[i], NULL, 0, &pidl)!=S_OK)
+			continue;
+		if (!SHGetPathFromIDList(pidl, buf))
+		{
+			// not a file system path, definitely illegal for our use
+			CoTaskMemFree(pidl);
+			continue;
+		}
+		CoTaskMemFree(pidl);
+		if (_tcscmp(buf, folder.c_str())==0)
+			return true;
+	}
+	return false;
+}
+
 
 
 

@@ -180,6 +180,7 @@ private:
 	HBITMAP			IconToBitmap(UINT uIcon, COLORREF transparentColor);
 	int				GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
 	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
+	bool			IsIllegalFolder(std::wstring folder, int * cslidarray);
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();

@@ -210,9 +210,13 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 {
 	m_sFwdslashPath = sPath;
 	m_sFwdslashPath.Replace('\\', '/');
+
+	// We don't leave a trailing /
 	m_sFwdslashPath.TrimRight('/');	
 
-	// We don't leave a trailing / even on root dir paths, because SVN doesn't like it
+	// Subversion 1.5 fixed the problem with root paths, but now it expects a slash for root paths
+	if ((m_sFwdslashPath.GetLength() == 2)&&(m_sFwdslashPath[1] == ':'))
+		m_sFwdslashPath += _T("/");
 
 	//workaround for Subversions UNC-path bug
 	if (m_sFwdslashPath.Left(10).CompareNoCase(_T("file://///"))==0)
