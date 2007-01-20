@@ -537,8 +537,6 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
 #define MAX_WHITESPACEBLOCK_SIZE	8
 	CDiffData::DiffStates origstateThis = (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex);
-	if (origstateThis == CDiffData::DIFFSTATE_NORMAL)
-		return false;
 	if (!m_bOtherDiffChecked)
 	{
 		// find out what the 'other' file is
@@ -564,6 +562,12 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	}
 	if (m_arDiffDiffLines)
 	{
+		if (origstateThis == CDiffData::DIFFSTATE_NORMAL)
+		{
+			if (m_arDiffDiffLines->GetAt(nLineIndex).Compare(m_arDiffLines->GetAt(nLineIndex))==0)
+				return false;
+		}
+
 		// Go back at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
 		int nStartBlockThis = nLineIndex;
 		int nEndBlockThis = nLineIndex;
