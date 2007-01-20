@@ -97,15 +97,19 @@ stdstring ItemIDList::toString()
 		parentFolder = shellFolder;
 	}
 
+	shellFolder->Release();
 	if ((parentFolder != 0)&&(item_ != 0))
 	{
 		hr = parentFolder->GetDisplayNameOf(item_, SHGDN_NORMAL | SHGDN_FORPARSING, &name);
 		if (!SUCCEEDED(hr))
+		{
 			return ret;
+		}
 		hr = StrRetToStr (&name, item_, &szDisplayName);
 		if (!SUCCEEDED(hr))
 			return ret;
 	}
+	parentFolder->Release();
 	if (szDisplayName == NULL)
 	{
 		CoTaskMemFree(szDisplayName);
