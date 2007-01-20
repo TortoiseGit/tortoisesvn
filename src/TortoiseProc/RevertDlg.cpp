@@ -62,6 +62,7 @@ BOOL CRevertDlg::OnInitDialog()
 	m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_RevertList.SetSelectButton(&m_SelectAll);
 	m_RevertList.SetCancelBool(&m_bCancelled);
+	m_RevertList.SetBackgroundImage(IDI_REVERT);
 	
 	AdjustControlSize(IDC_SELECTALL);
 

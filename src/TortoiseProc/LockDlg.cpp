@@ -63,6 +63,7 @@ BOOL CLockDlg::OnInitDialog()
 	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK | SVNSLC_COLSVNNEEDSLOCK, _T("LockDlg"));
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
+	m_cFileList.SetBackgroundImage(IDI_LOCK);
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cEdit.Init(m_ProjectProperties);
 	m_cEdit.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));

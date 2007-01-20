@@ -62,6 +62,7 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
 	m_addListCtrl.SetCancelBool(&m_bCancelled);
+	m_addListCtrl.SetBackgroundImage(IDI_ADD);
 
 	AdjustControlSize(IDC_SELECTALL);
 

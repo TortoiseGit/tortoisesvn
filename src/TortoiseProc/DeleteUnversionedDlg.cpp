@@ -63,6 +63,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	m_StatusList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_StatusList.SetSelectButton(&m_SelectAll);
 	m_StatusList.SetCancelBool(&m_bCancelled);
+	m_StatusList.SetBackgroundImage(IDI_DELUNVERSIONED);
 
 	AdjustControlSize(IDC_SELECTALL);
 

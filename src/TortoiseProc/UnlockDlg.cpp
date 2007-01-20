@@ -49,6 +49,7 @@ BOOL CUnlockDlg::OnInitDialog()
 	m_unlockListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_unlockListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOUNLOCK);
 	m_unlockListCtrl.SetCancelBool(&m_bCancelled);
+	m_unlockListCtrl.SetBackgroundImage(IDI_UNLOCK);
 
 	AdjustControlSize(IDC_SELECTALL);
 

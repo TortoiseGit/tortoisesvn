@@ -56,6 +56,7 @@ BOOL CResolveDlg::OnInitDialog()
 	m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_resolveListCtrl.SetSelectButton(&m_SelectAll);
 	m_resolveListCtrl.SetCancelBool(&m_bCancelled);
+	m_resolveListCtrl.SetBackgroundImage(IDI_RESOLVE);
 
 	AdjustControlSize(IDC_SELECTALL);
 
