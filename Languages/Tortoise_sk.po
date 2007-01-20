@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-06 21:45+0100\n"
+"PO-Revision-Date: 2007-01-20 23:26+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -955,6 +955,11 @@ msgstr "(skušobný beh)"
 msgid "(multiple targets selected)"
 msgstr "(vybraných viacero cieĺov)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(žiaden zoznam zmien)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1196,6 +1201,12 @@ msgstr "Upraviť zlučovací program pre príponu"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Pridaj do zoznamu &ignorovaných"
+
+# ID:13,
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "Pridať priečinok do zoznamu zmien '%s'"
 
 # ID:8,#:
 # Control-ID:1098,#:
@@ -2359,6 +2370,11 @@ msgid "Create &patch..."
 msgstr "Vytvoriť zá&platu..."
 
 # Dlg-ID:208,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Vytvoriť zoznam zmien!"
+
+# Dlg-ID:208,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Vytvoriť záplatu"
@@ -2367,6 +2383,11 @@ msgstr "Vytvoriť záplatu"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Vytvoriť úložisko"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "Vytvoriť a pridať do zoznamu zmien"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2799,6 +2820,11 @@ msgstr "Zadaj URL"
 msgid "Enter a lock message (optional):"
 msgstr "Zadaj správu k zámku (nepovinné):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Zadajte meno zoznamu zmien"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -3027,7 +3053,7 @@ msgid "File diffs"
 msgstr "Rozdiely súboru"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Súbor je prázdny"
 
@@ -3929,7 +3955,7 @@ msgid "Lock Files"
 msgstr "Zamknúť súbory"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Zlomený zámok!"
 
@@ -3955,7 +3981,7 @@ msgid "Lock owner:"
 msgstr "Vlastník zámku:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "%s ukradol zámok"
@@ -4252,7 +4278,7 @@ msgid "Needs lock"
 msgstr "Je nutný zámok"
 
 # ID:210,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Vnorené"
 
@@ -4766,7 +4792,7 @@ msgstr "Prosím čakajte, prehliadač úložiska sa inicializuje..."
 # ID:211,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Prosím, čakajte..."
 
@@ -5053,6 +5079,11 @@ msgstr "Odstrániť %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Odstrániť zo zoznamu &ignorovaných"
+
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Odstrániť zoznam zmien"
 
 # ID:8,
 #: Control-ID:1332
