@@ -99,7 +99,7 @@ svn://localhost/repos/TestRepo
 			svnserve by using the --root switch to set the root
 			location and restrict access to a specified directory on the server:
 <screen>
-svnserve.exe --daemon --root drive:\path\to\repository
+svnserve.exe --daemon --root drive:\path\to\repository\root
 </screen>
 			Using the previous test as a guide, svnserve would now run as:
 <screen>
@@ -112,6 +112,11 @@ svn://localhost/TestRepo
 			Note that the --root switch is also needed if your repository is located 
 			on a different partition or drive than the location of svnserve 
 			on your server.
+		</para>
+		<para>
+			Svnserve will service any number of repositories. Just locate them somewhere
+			below the root folder you just defined, and access them using a URL relative
+			to that root.
 		</para>
 		<warning>
 			<para>
