@@ -131,6 +131,17 @@
 		</nant>
 	</target>
 
+	<target name="SubversionOnly" depends="VSNET,env">
+		<description>
+			Builds only the Subversion libraries
+		</description>
+		<nant target="build">
+			<buildfiles>
+				<include name="ext\build\subversion.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
 	<target name="TortoiseSVN" depends="VSNET,env">
 		<description>
 			Builds TortoiseSVN. The libraries must have been built
