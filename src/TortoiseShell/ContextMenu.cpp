@@ -689,8 +689,19 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		CSIDL_STARTMENU,
 		0
 	};
-	if (folder_.empty() || IsIllegalFolder(folder_, csidlarray))
+	if (IsIllegalFolder(folder_, csidlarray))
 		return NOERROR;
+
+	if (folder_.empty())
+	{
+		if (files_.size() == 0)
+			return NOERROR;
+		for (std::vector<stdstring>::const_iterator it = files_.begin(); it != files_.end(); ++it)
+		{
+			if (_tcsncmp(it->c_str(), _T("::{"), 3)==0)
+				return NOERROR;
+		}
+	}
 
 	//check if our menu is requested for a subversion admin directory
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
@@ -2262,11 +2273,6 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
 	LPITEMIDLIST pidl = NULL;
 	while (cslidarray[i])
 	{
-		//if (SHGetSpecialFolderPath(NULL, buf, cslidarray[i], FALSE))
-		//{
-		//	if (_tcscmp(buf, folder.c_str())==0)
-		//		return true;
-		//}
 		++i;
 		pidl = NULL;
 		if (SHGetFolderLocation(NULL, cslidarray[i], NULL, 0, &pidl)!=S_OK)
@@ -2278,6 +2284,8 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
 			continue;
 		}
 		CoTaskMemFree(pidl);
+		if (_tcslen(buf)==0)
+			continue;
 		if (_tcscmp(buf, folder.c_str())==0)
 			return true;
 	}
