@@ -208,7 +208,6 @@
 #define IDI_MENULINK                    5156
 #define IDI_MENUMULTIPLE                5157
 #define IDI_PROPERTIES                  5158
-#define IDI_ICON1                       5159
 #define IDI_DELUNVERSIONED              5159
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020

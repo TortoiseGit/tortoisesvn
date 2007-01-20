@@ -19,7 +19,6 @@
 #define IDB_TTF_BMP                     137
 #define IDD_SETCOLORPAGE                138
 #define IDD_FIND                        139
-#define IDI_ICON1                       140
 #define IDI_WHITESPACELINE              140
 #define IDI_EQUALLINE                   141
 #define IDB_LOGOFLIPPED                 168
