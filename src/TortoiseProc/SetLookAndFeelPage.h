@@ -61,6 +61,7 @@ public:
 private:
 	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
 
+	bool			m_bVista;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
 	CRegDWORD		m_regTopmenu;

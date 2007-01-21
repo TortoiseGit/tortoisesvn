@@ -32,6 +32,7 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
 	, m_bSimpleContext(TRUE)
 	, m_OwnerDrawn(1)
 	, m_bGetLockTop(FALSE)
+	, m_bVista(false)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_topmenu = m_regTopmenu;
@@ -81,7 +82,7 @@ int CSetLookAndFeelPage::SaveData()
 		m_regGetLockTop = m_bGetLockTop;
 		if (m_regGetLockTop.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		if (m_OwnerDrawn == 1)
+		if ((m_OwnerDrawn == 1)||(m_bVista))
 		{
 			m_regOwnerDrawn = 0;
 			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
@@ -107,10 +108,21 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+	if (fullver >= 0x0600)
+		m_bVista = true;
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_SIMPLECONTEXT, IDS_SETTINGS_SIMPLECONTEXT_TT);
-	m_tooltips.AddTool(IDC_ENABLEACCELERATORS, IDS_SETTINGS_OWNERDRAWN_TT);
+	if (!m_bVista)
+		m_tooltips.AddTool(IDC_ENABLEACCELERATORS, IDS_SETTINGS_OWNERDRAWN_TT);
+	else
+		GetDlgItem(IDC_ENABLEACCELERATORS)->ShowWindow(SW_HIDE);
 	m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
