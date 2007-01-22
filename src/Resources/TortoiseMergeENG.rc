@@ -182,7 +182,7 @@ BEGIN
     CONTROL         "Show linenumber&s",IDC_LINENUMBERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,40,236,10
     CONTROL         "Use &magnifier on locatorbar",IDC_MAGNIFIER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,50,236,10
     CONTROL         "Show li&ne diff bar",IDC_DIFFBAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,60,236,10
-    CONTROL         "Use stri&keout for deleted lines",IDC_STRIKEOUT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,70,236,10
+    CONTROL         "Use stri&keout for removed lines",IDC_STRIKEOUT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,70,236,10
     LTEXT           "&Tab size:",IDC_STATIC,15,84,54,8
     EDITTEXT        IDC_TABSIZE,80,81,41,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "&Font:",IDC_STATIC,15,99,52,8
