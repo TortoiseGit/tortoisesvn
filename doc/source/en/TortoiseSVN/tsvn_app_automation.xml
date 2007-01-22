@@ -240,9 +240,9 @@ Don't touch these lines:
 								Opens the merge dialog. The path specifies the
 								target directory.
 								Three additional options can be set:
-								<option>/revstart:xxx</option>, 
-								<option>/revend:xxx</option> and
-								<option>/mergefrom:URL</option>.
+								<option>/mergefrom:xxx</option>, 
+								<option>/mergeto:xxx</option> and
+								<option>/fromurl:URL</option>.
 								These pre-fill the relevant fields in the merge dialog.
 							</entry>
 						</row>
