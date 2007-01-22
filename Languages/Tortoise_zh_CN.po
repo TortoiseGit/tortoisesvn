@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-06 20:44+0800\n"
+"PO-Revision-Date: 2007-01-22 10:04+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -974,6 +974,11 @@ msgstr "（预检）"
 msgid "(multiple targets selected)"
 msgstr "（已选择多重目标）"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(无修改列表)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1216,6 +1221,12 @@ msgstr "根据扩展名指定合并程序"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "添加到忽略列表(&I)"
+
+# ID:13,
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "增加到修改列表“%s”"
 
 # Control-ID:1279,
 #: Control-ID:1279
@@ -2363,6 +2374,11 @@ msgid "Create &patch..."
 msgstr "创建补丁(&P)..."
 
 # Dlg-ID:208,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "创建修改列表"
+
+# Dlg-ID:208,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "创建补丁"
@@ -2371,6 +2387,11 @@ msgstr "创建补丁"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "在此创建版本库"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "创建且增加到修改列表"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2787,6 +2808,11 @@ msgstr "输入 URL"
 msgid "Enter a lock message (optional):"
 msgstr "输入锁定信息（任意）："
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "输入修改列表名称: "
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -3008,7 +3034,7 @@ msgid "File diffs"
 msgstr "文件差异比较"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "文件列表为空"
 
@@ -3902,7 +3928,7 @@ msgid "Lock Files"
 msgstr "锁定文件"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "锁定被破！"
 
@@ -3927,7 +3953,7 @@ msgid "Lock owner:"
 msgstr "锁定拥有者："
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "锁定被%s偷取"
@@ -4222,7 +4248,7 @@ msgid "Needs lock"
 msgstr "需要锁定"
 
 # ID:210,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "嵌套"
 
@@ -4733,7 +4759,7 @@ msgstr "请稍候，正在启动版本库浏览器"
 # ID:211,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "请稍候..."
 
@@ -5016,6 +5042,11 @@ msgstr "删除 %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "从忽略列表删除(&I)"
+
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "从修改列表删除"
 
 # Control-ID:1332,
 #: Control-ID:1332
