@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8512
+# Based on Tortoise.pot r8533
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-22 11:34+0100\n"
+"PO-Revision-Date: 2007-01-23 10:08+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -129,7 +129,7 @@ msgstr "%1 kunne ikke åbnes, fordi der er for mange åbne filer."
 #: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 kunne ikke slettes, fordi det er den aktuelle mappe."
+msgstr "%1 kunne ikke fjernes, fordi det er den aktuelle mappe."
 
 #: ID:3868,#: ID:3868,
 #, c-format
@@ -3069,7 +3069,7 @@ msgstr "Normal"
 
 #: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "Ikke alle indgange i registreringsdatabasen (eller INI-filen) blev slettet."
+msgstr "Ikke alle indgange i registreringsdatabasen (eller INI-filen) blev fjernet."
 
 #: ID:83,
 msgid "Not enough memory to complete operation."
@@ -4913,8 +4913,8 @@ msgid "Use both text blocks (this one last)"
 msgstr "Brug begge tekstblokke (denne sidst)"
 
 #: Control-ID:1066,
-msgid "Use stri&keout for deleted lines"
-msgstr "Brug overst&regning til slettede linjer"
+msgid "Use stri&keout for removed lines"
+msgstr "Brug overst&regning til fjernede linjer"
 
 msgid "Use text block from \"&mine\""
 msgstr "Brug tekstblok fra \"&min\""
