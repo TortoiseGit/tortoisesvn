@@ -283,7 +283,8 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 		for (; it != cdir->m_childDirectories.end(); )
 		{
 			CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
-			RemoveCacheForDirectory(childdir);
+			if (!cdir->m_directoryPath.IsEquivalentTo(childdir->m_directoryPath))
+				RemoveCacheForDirectory(childdir);
 			cdir->m_childDirectories.erase(it->first);
 			it = cdir->m_childDirectories.begin();
 		}
