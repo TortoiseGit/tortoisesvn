@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-11 09:15+0100\n"
+"PO-Revision-Date: 2007-01-23 09:46+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -810,6 +810,11 @@ msgstr "(provkör)"
 msgid "(multiple targets selected)"
 msgstr "(flera mål är markerade)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(ingen ändringslista)"
+
 #: ID:314
 msgid "(not found)"
 msgstr "(inte hittad)"
@@ -1008,6 +1013,11 @@ msgstr "Lägg till föreningsprogram för filändelse"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Lägg till på &undantagslistan"
+
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "Lägg till i ändringslistan '%s'"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1981,6 +1991,10 @@ msgstr "Kunde inte starta tråd!"
 msgid "Create &patch..."
 msgstr "Skapa &patch..."
 
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Skapa ändringslista"
+
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Skapa patch"
@@ -1988,6 +2002,11 @@ msgstr "Skapa patch"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Skapa arkiv här"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "Skapa och lägg till i ändringslista"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -2349,6 +2368,11 @@ msgstr "Skriv in URL"
 msgid "Enter a lock message (optional):"
 msgstr "Ange ett låsmeddelande (valfritt):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Ange namn för ändringslistan:"
+
 #: Control-ID:1065
 msgid "Enter log &message:"
 msgstr "Skriv logg&meddelande:"
@@ -2528,7 +2552,7 @@ msgid "File diffs"
 msgstr "Filskillnader"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Fillistan är tom"
 
@@ -2952,11 +2976,12 @@ msgstr ""
 "Annars sker importen på den angivna URL:en."
 
 #: ID:79
-#, fuzzy
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
-msgstr "Skapa en temporär fil av BASE för att göra järmförelsen med nyckelorden expanderade och radsluten justerade. "
+msgstr ""
+"Skapa en temporär fil av BASE för att göra järmförelsen med nyckelorden\n"
+"expanderade och radsluten justerade. "
 
 # ID:196,
 #: ID:196
@@ -3357,7 +3382,7 @@ msgid "Lock Files"
 msgstr "Lås filer"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Lås brutet!"
 
@@ -3381,7 +3406,7 @@ msgid "Lock owner:"
 msgstr "Ägare av låset:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Lås stulet av %s"
@@ -3642,7 +3667,7 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr "Behöver lås"
 
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Nestad"
 
@@ -4054,7 +4079,7 @@ msgstr "Var god vänta medans arkivsutforskaren initieras..."
 
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Vänta..."
 
@@ -4294,6 +4319,10 @@ msgstr "Ta bort %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Ta bort från &undantagslistan"
+
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Ta bort från ändringslista"
 
 #: Control-ID:1332
 msgid "Remove..."
@@ -6112,7 +6141,8 @@ msgid "Use both text blocks (this one last)"
 msgstr "Använd båda textblocken (den här sist)"
 
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+#, fuzzy
+msgid "Use stri&keout for removed lines"
 msgstr "Använd överstry&kning för borttagna rader"
 
 #: MenuEntry
