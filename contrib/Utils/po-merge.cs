@@ -44,13 +44,13 @@ class Program
                 "\n" +
                 "This program will replace the translation in old.po file with " +
                 "update.po file, write the result to new.po file.\n\n" +
-                "Only msgstr in old.po file be modified, msgid become unwound. " +
+                "Only msgstr in old.po file be modified, all msgid/msgstr become unwound. " +
                 "Strings(msgstr) that are not found in the update.po are left untouched.\n"
                 );
     }
 
     public static void Main(String[] args) {
-        if(args.Length != 3) {
+        if (args.Length != 3) {
             Usage();
             return;
         }
@@ -188,7 +188,7 @@ class Program
                 if (str.Length >= 8 && str[0] != '#')
                     break;
 
-                if(total == 0 && str.Equals("#, fuzzy"))
+                if (total == 0 && str.Equals("#, fuzzy"))
                     line = ""; // Remove PO file header fuzzy
 
                 sw.WriteLine(line);
@@ -254,22 +254,24 @@ class Program
                 msgstr += str.Substring(1, str.Length - 2);
             }
 
-            if(msgid.Length != 0)
+            if (msgid.Length > 0)
                 total++;
 
             str = (String) msg[msgid];
 
             // Console.WriteLine("msgid: [{0}]\nmsgstr: [{1}]\nupdate: [{2}]\n", msgid, msgstr, str);
-
-            if (str != null && str.Length > 0) {
-                if(msgid.Length != 0) {
-                    mt ++;
+            if (msgid.Length <= 0) {
+                sw.WriteLine("msgid \"{0}\"", msgid);
+                sw.WriteLine("msgstr \"{0}\"\n", msgstr);
+            } else if (str != null && str.Length > 0) {
+                if (msgid.Length != 0) {
+                    if (! msgstr.Equals(str)) mt ++;
                     tr ++;
                 }
                 sw.WriteLine("msgid \"{0}\"", msgid);
                 sw.WriteLine("msgstr \"{0}\"\n", str);
             } else {
-                if(msgstr.Length == 0) {
+                if (msgstr.Length == 0) {
                     ut ++;
                 } else {
                     tr++;
