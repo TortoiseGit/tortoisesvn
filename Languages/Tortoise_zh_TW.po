@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-09 10:52+0800\n"
+"PO-Revision-Date: 2007-01-23 09:28+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -951,6 +951,11 @@ msgstr "(試演)"
 msgid "(multiple targets selected)"
 msgstr "(已選擇多重目標)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(沒有變更列表)"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:314
@@ -1188,6 +1193,12 @@ msgstr "根據副檔名加入合併程式"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
+
+# ID:13,
+#: ID:209
+#, c-format
+msgid "Add to changelist '%s'"
+msgstr "加入變更列表 '%s'"
 
 # Control-ID:1098,
 #: Control-ID:1279
@@ -2327,6 +2338,11 @@ msgid "Create &patch..."
 msgstr "建立補綴(&P)..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "建立變更列表"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "建立補綴"
@@ -2335,6 +2351,11 @@ msgstr "建立補綴"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "建立檔案庫"
+
+# ID:209,
+#: ID:209
+msgid "Create and add to changelist"
+msgstr "建立並加入變更列表"
 
 # Control-ID:1073,
 #: Control-ID:65535
@@ -2766,6 +2787,11 @@ msgstr "輸入 URL"
 msgid "Enter a lock message (optional):"
 msgstr "輸入鎖定訊息(可不寫):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "輸入此變更列表的名稱:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2988,7 +3014,7 @@ msgid "File diffs"
 msgstr "檔案差異"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "檔案列表是空的"
 
@@ -3875,7 +3901,7 @@ msgid "Lock Files"
 msgstr "鎖定檔案"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "解除鎖定!"
 
@@ -3901,7 +3927,7 @@ msgid "Lock owner:"
 msgstr "鎖定持有人:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "鎖定被 %s 取得"
@@ -4191,7 +4217,7 @@ msgid "Needs lock"
 msgstr "需要鎖定"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "多層次"
 
@@ -4702,7 +4728,7 @@ msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "請稍候..."
 
@@ -4982,6 +5008,11 @@ msgstr "移除 %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "自忽略列表移除(&I)"
+
+# ID:13,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "自變更列表移除"
 
 # ID:8,
 #: Control-ID:1332
@@ -7078,7 +7109,7 @@ msgstr "使用兩個文字區塊(最後使用本區塊)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "用雙刪除線表示已刪除行(&K)"
 
 # ID:251,
