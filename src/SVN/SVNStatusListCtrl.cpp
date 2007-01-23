@@ -2186,35 +2186,34 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPY, temp);
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_COPYEXT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPYEXT, temp);
-					popup.AppendMenu(MF_SEPARATOR);
-					// changelist commands
-					
-					// if at least one file is part of a changelist, show "remove from changelist"
-					// if no file is part of a changelist, show "create changelist for items"
-					// if only one changelist is part of the selection, show "add to changelist X"
-					int numChangelists = GetNumberOfChangelistsInSelection();
-					if (numChangelists > 0)
+					if (m_dwContextMenus & SVNSLC_POPCHANGELISTS)
 					{
-						temp.LoadString(IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVEFROMCS, temp);
-					}
-					if (changelistSubMenu.CreateMenu())
-					{
-						temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
-						changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
-						if (m_changelists.size() > 0)
+						popup.AppendMenu(MF_SEPARATOR);
+						// changelist commands
+						int numChangelists = GetNumberOfChangelistsInSelection();
+						if (numChangelists > 0)
 						{
-							changelistSubMenu.AppendMenu(MF_SEPARATOR);
-							// find the changelist names
-							int cmdID = IDSVNLC_MOVETOCS;
-							for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
-							{
-								changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, cmdID, it->first);
-								cmdID++;
-							}
+							temp.LoadString(IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVEFROMCS, temp);
 						}
-						temp.LoadString(IDS_STATUSLIST_CONTEXT_MOVETOCS);
-						popup.AppendMenu(MF_POPUP|MF_STRING, (UINT_PTR)changelistSubMenu.GetSafeHmenu(), temp);
+						if (changelistSubMenu.CreateMenu())
+						{
+							temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
+							changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
+							if (m_changelists.size() > 0)
+							{
+								changelistSubMenu.AppendMenu(MF_SEPARATOR);
+								// find the changelist names
+								int cmdID = IDSVNLC_MOVETOCS;
+								for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+								{
+									changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, cmdID, it->first);
+									cmdID++;
+								}
+							}
+							temp.LoadString(IDS_STATUSLIST_CONTEXT_MOVETOCS);
+							popup.AppendMenu(MF_POPUP|MF_STRING, (UINT_PTR)changelistSubMenu.GetSafeHmenu(), temp);
+						}
 					}
 				}
 

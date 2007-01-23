@@ -55,7 +55,7 @@ BOOL CAddDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	// initialize the svn status list control
-	m_addListCtrl.Init(0, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT)); // adding and committing is useless in the add dialog
+	m_addListCtrl.Init(0, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCHANGELISTS)); // adding and committing is useless in the add dialog
 	m_addListCtrl.SetIgnoreRemoveOnly();	// when ignoring, don't add the parent folder since we're in the add dialog
 	m_addListCtrl.SetUnversionedRecurse(true);	// recurse into unversioned folders - user might want to add those too
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
