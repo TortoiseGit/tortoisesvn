@@ -83,7 +83,9 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 #define IDSVNLC_REPAIRMOVE		26
 #define IDSVNLC_REMOVEFROMCS	27
 #define IDSVNLC_CREATECS		28
-#define IDSVNLC_ADDTOCS			29
+// the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
+// the submenu items get command ID's sequent to this number
+#define IDSVNLC_MOVETOCS		29
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1908,6 +1910,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			// entry is selected, now show the popup menu
 			Locker lock(m_critSec);
 			CMenu popup;
+			CMenu changelistSubMenu;
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
@@ -2195,31 +2198,24 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVEFROMCS, temp);
 					}
-					if (numChangelists == 0)
+					if (changelistSubMenu.CreateMenu())
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
-					}
-					if (numChangelists == 1)
-					{
-						// find the changelist name
-						CString sChangelist;
-						POSITION pos = GetFirstSelectedItemPosition();
-						int index;
-						while ((index = GetNextSelectedItem(pos)) >= 0)
+						changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
+						if (m_changelists.size() > 0)
 						{
-							FileEntry * entry = GetListEntry(index);
-							if (!entry->changelist.IsEmpty())
+							changelistSubMenu.AppendMenu(MF_SEPARATOR);
+							// find the changelist names
+							int cmdID = IDSVNLC_MOVETOCS;
+							for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 							{
-								sChangelist = entry->changelist;
-								break;
+								changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, cmdID, it->first);
+								cmdID++;
 							}
 						}
-
-						temp.Format(IDS_STATUSLIST_CONTEXT_ADDTOCS, sChangelist);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADDTOCS, temp);
+						temp.LoadString(IDS_STATUSLIST_CONTEXT_MOVETOCS);
+						popup.AppendMenu(MF_POPUP|MF_STRING, (UINT_PTR)changelistSubMenu.GetSafeHmenu(), temp);
 					}
-
 				}
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -3144,13 +3140,18 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								grp.iGroupId = m_changelists.size()+1;
 								grp.uAlign = LVGA_HEADER_LEFT;
 								m_changelists[dlg.m_sName] = InsertGroup(-1, &grp);
-
+								
 								POSITION pos = GetFirstSelectedItemPosition();
 								int index;
 								while ((index = GetNextSelectedItem(pos)) >= 0)
 								{
 									FileEntry * e = GetListEntry(index);
 									e->changelist = dlg.m_sName;
+								}
+
+								for (index = 0; index < GetItemCount(); ++index)
+								{
+									FileEntry * e = GetListEntry(index);
 									if (m_changelists.find(e->changelist)!=m_changelists.end())
 										SetItemGroup(index, m_changelists[e->changelist]);
 									else
@@ -3164,25 +3165,24 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 					break;
-				case IDSVNLC_ADDTOCS:
+				default:
 					{
+						if (cmd < IDSVNLC_MOVETOCS)
+							break;
 						CTSVNPathList changelistItems;
 						FillListOfSelectedItemPaths(changelistItems);
 
 						// find the changelist name
 						CString sChangelist;
-						POSITION pos = GetFirstSelectedItemPosition();
-						int index;
-						while ((index = GetNextSelectedItem(pos)) >= 0)
+						int cmdID = IDSVNLC_MOVETOCS;
+						for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 						{
-							FileEntry * entry = GetListEntry(index);
-							if (!entry->changelist.IsEmpty())
+							if (cmd == cmdID)
 							{
-								sChangelist = entry->changelist;
-								break;
+								sChangelist = it->first;
 							}
+							cmdID++;
 						}
-
 						if (!sChangelist.IsEmpty())
 						{
 							SVN svn;
@@ -3208,9 +3208,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 					}
-					break;
-				default:
-					m_bBlock = FALSE;
 					break;
 				} // switch (cmd)
 				m_bBlock = FALSE;
