@@ -3492,7 +3492,44 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 	if (m_bBlock)
 		return;
 	if (pNMLV->iItem < 0)
+	{
+		if (!IsGroupViewEnabled())
+			return;
+		POINT pt;
+		GetCursorPos(&pt);
+		ScreenToClient(&pt);
+		int group = GetGroupFromPoint(&pt);
+		if (group < 0)
+			return;
+		// check/uncheck the whole group depending on the check-state 
+		// of the first item in the group
+		m_bBlock = true;
+		bool bCheck = false;
+		bool bFirst = false;
+		LVITEM lv;
+		for (int i=0; i<GetItemCount(); ++i)
+		{
+			ZeroMemory(&lv, sizeof(LVITEM));
+			lv.mask = LVIF_GROUPID;
+			lv.iItem = i;
+			GetItem(&lv);
+			if (lv.iGroupId == group)
+			{
+				FileEntry * entry = GetListEntry(i);
+				if (!bFirst)
+				{
+					bCheck = !GetCheck(i);
+					bFirst = true;
+				}
+				if (entry)
+				{
+					SetEntryCheck(entry, i, bCheck);
+				}
+			}
+		}
+		m_bBlock = false;
 		return;
+	}
 	FileEntry * entry = GetListEntry(pNMLV->iItem);
 	if (entry)
 	{
