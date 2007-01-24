@@ -40,13 +40,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8512: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8541: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-22 10:59+0300\n"
+"PO-Revision-Date: 2007-01-24 19:57+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -812,7 +812,7 @@ msgstr "(выбрано несколько целей)"
 
 #: ID:213
 msgid "(no changelist)"
-msgstr "(нет списка изменений)"
+msgstr "(без списка изменений)"
 
 #: ID:314
 msgid "(not found)"
@@ -873,6 +873,10 @@ msgstr ""
 "Для использования <b>TortoiseSVN</b> откройте Проводник и щелкните правой кнопкой мыши на любой папке\n"
 "для вызова контекстного меню, в котором можно найти все команды <b>TortoiseSVN</b>.\n"
 "И <u>читайте руководство!</u>"
+
+#: ID:209
+msgid "<new changelist>"
+msgstr "<новый список изменений>"
 
 #: ID:3867
 #, c-format
@@ -1003,11 +1007,6 @@ msgstr "Добавить программу слияния для конкрет
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Добавить в список &игнорирования"
-
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "Добавить в список изменений '%s'"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1954,10 +1953,6 @@ msgstr "Создание заплатки"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Создание хранилища"
-
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Создать и добавить в список изменений"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -3502,6 +3497,10 @@ msgid ""
 msgstr ""
 "Перемещение %s\r\n"
 "в %s"
+
+#: ID:209
+msgid "Move to changelist"
+msgstr "Переместить в список изменений"
 
 #: ID:98
 #, c-format
@@ -5910,7 +5909,7 @@ msgid "Use both text blocks (this one last)"
 msgstr "Использовать оба текстовых блока (этот в конце)"
 
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "Использовать за&чёркивание для удалённых строк"
 
 #: MenuEntry
