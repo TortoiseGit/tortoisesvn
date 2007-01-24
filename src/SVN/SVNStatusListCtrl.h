@@ -515,6 +515,9 @@ private:
 	/// Enables/Disables group view and adds all groups to the list control.
 	/// If bForce is true, then groupview is enabled and the 'null' group is added.
 	bool PrepareGroups(bool bForce = false);
+	/// Returns the group number to which the group header belongs
+	/// If the point is not over a group header, -1 is returned
+	int GetGroupFromPoint(POINT * ppt);
 	/// Returns the number of changelists the selection has
 	int GetNumberOfChangelistsInSelection();
 

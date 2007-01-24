@@ -83,9 +83,11 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 #define IDSVNLC_REPAIRMOVE		26
 #define IDSVNLC_REMOVEFROMCS	27
 #define IDSVNLC_CREATECS		28
+#define IDSVNLC_CHECKGROUP		29
+#define IDSVNLC_UNCHECKGROUP	30
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		29
+#define IDSVNLC_MOVETOCS		31
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1399,6 +1401,7 @@ bool CSVNStatusListCtrl::SetItemGroup(int item, int groupindex)
 	LVITEM i = {0};
 	i.mask = LVIF_GROUPID;
 	i.iItem = item;
+	i.iSubItem = 0;
 	i.iGroupId = groupindex;
 
 	return !!SetItem(&i);
@@ -1885,6 +1888,67 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
 		rMin = 0;
 }
 
+int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt)
+{
+	// the point must be relative to the upper left corner of the control
+
+	if (ppt == NULL)
+		return -1;
+	if (!IsGroupViewEnabled())
+		return -1;
+
+	POINT pt = *ppt;
+	pt.x = 10;
+	UINT flags = 0;
+	int nItem = -1;
+	while ((flags & LVHT_BELOW) == 0)
+	{
+		nItem = HitTest(pt, &flags);
+		if (flags & LVHT_ONITEM)
+		{
+			// the first item below the point
+
+			// check if the point is too much right (i.e. if the point
+			// is farther to the right than the width of the item)
+			RECT r;
+			GetItemRect(nItem, &r, LVIR_LABEL);
+			if (ppt->x > r.right)
+				return -1;
+
+			LVITEM lv = {0};
+			lv.mask = LVIF_GROUPID;
+			lv.iItem = nItem;
+			GetItem(&lv);
+			int groupID = lv.iGroupId;
+			// now we search upwards and check if the item above this one
+			// belongs to another group. If it belongs to the same group,
+			// we're not over a group header
+			while (pt.y >= 0)
+			{
+				pt.y -= 2;
+				nItem = HitTest(pt, &flags);
+				if ((flags & LVHT_ONITEM)&&(nItem >= 0))
+				{
+					// the first item below the point
+					LVITEM lv = {0};
+					lv.mask = LVIF_GROUPID;
+					lv.iItem = nItem;
+					GetItem(&lv);
+					if (lv.iGroupId != groupID)
+						return groupID;
+					else
+						return -1;
+				}
+			}
+			if (pt.y < 0)
+				return groupID;
+			return -1;
+		}
+		pt.y += 2;
+	};
+	return -1;
+}
+
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
@@ -1899,7 +1963,59 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			ClientToScreen(&rect);
 			point = rect.CenterPoint();
 		}
-		if (selIndex >= 0)
+		if (GetSelectedCount() == 0)
+		{
+			// nothing selected could mean the context menu is requested for
+			// a group header
+			POINT clientpoint = point;
+			ScreenToClient(&clientpoint);
+			if ((IsGroupViewEnabled())&&(GetGroupFromPoint(&clientpoint) >= 0))
+			{
+				CMenu popup;
+				if (popup.CreatePopupMenu())
+				{
+					CString temp;
+					temp.LoadString(IDS_STATUSLIST_CHECKGROUP);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CHECKGROUP, temp);
+					temp.LoadString(IDS_STATUSLIST_UNCHECKGROUP);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNCHECKGROUP, temp);
+					int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+					bool bCheck = false;
+					switch (cmd)
+					{
+					case IDSVNLC_CHECKGROUP:
+						bCheck = true;
+						// fall through here
+					case IDSVNLC_UNCHECKGROUP:
+						{
+							int group = GetGroupFromPoint(&clientpoint);
+							// go through all items and check/uncheck those assigned to the group
+							// but block the OnLvnItemChanged handler
+							m_bBlock = true;
+							LVITEM lv;
+							for (int i=0; i<GetItemCount(); ++i)
+							{
+								ZeroMemory(&lv, sizeof(LVITEM));
+								lv.mask = LVIF_GROUPID;
+								lv.iItem = i;
+								GetItem(&lv);
+								if (lv.iGroupId == group)
+								{
+									FileEntry * entry = GetListEntry(i);
+									if (entry)
+									{
+										SetEntryCheck(entry, i, bCheck);
+									}
+								}
+							}
+							m_bBlock = false;
+						}
+						break;
+					}
+				}
+			}
+		}
+		else if (selIndex >= 0)
 		{
 			FileEntry * entry = GetListEntry(selIndex);
 			ASSERT(entry != NULL);
