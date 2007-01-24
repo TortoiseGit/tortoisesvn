@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-23 09:11+0100\n"
+"PO-Revision-Date: 2007-01-24 11:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -848,6 +848,11 @@ msgstr ""
 "Dort finden Sie sämtliche <b>TortoiseSVN</b> Befehle.\n"
 "Und <u>lesen Sie das Handbuch!</u>"
 
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<neue Änderungsliste>"
+
 #: ID:3867
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
@@ -978,11 +983,6 @@ msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "&Ignorieren"
-
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "Füge '%s' zur Änderungsliste hinzu"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1941,11 +1941,6 @@ msgstr "Erzeuge Patch"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Projektarchiv hier erstellen"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Anlegen und zur Änderungsliste hinzufügen"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -3527,6 +3522,10 @@ msgid ""
 msgstr ""
 "Verschiebe %s\r\n"
 "nach %s"
+
+#: ID:209
+msgid "Move to changelist"
+msgstr "Verschiebe in Änderungsliste"
 
 #: ID:98
 #, c-format
