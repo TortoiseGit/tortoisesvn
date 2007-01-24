@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-23 12:06+0800\n"
+"PO-Revision-Date: 2007-01-24 14:24+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1059,6 +1059,11 @@ msgstr ""
 "在弹出的右键菜单中可以找到所有的 <b>TortoiseSVN</b> 命令。\n"
 "更详细的使用请<u>阅读手册</u>！"
 
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "(新修改列表)"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1221,12 +1226,6 @@ msgstr "根据扩展名指定合并程序"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "添加到忽略列表(&I)"
-
-# ID:13,
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "增加到修改列表“%s”"
 
 # Control-ID:1279,
 #: Control-ID:1279
@@ -2387,11 +2386,6 @@ msgstr "创建补丁"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "在此创建版本库"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "创建且增加到修改列表"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4205,6 +4199,11 @@ msgid ""
 msgstr ""
 "移动 %s\r\n"
 "到 %s"
+
+# ID:15,
+#: ID:209
+msgid "Move to changelist"
+msgstr "移动到修改列表"
 
 # ID:98,
 #: ID:98
