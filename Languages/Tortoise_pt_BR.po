@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-11 12:44-0300\n"
+"PO-Revision-Date: 2007-01-24 19:19-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -955,6 +955,11 @@ msgstr "(simulação)"
 msgid "(multiple targets selected)"
 msgstr "(múltiplos alvos selecionados)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(sem lista de alterações)"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:314
@@ -1029,6 +1034,12 @@ msgstr ""
 "Para usar o <b>TortoiseSVN</b>, por favor inicie o explorer e clique com o botão direito na pasta que desejar\n"
 "para aparecer o menu de contexto no qual você encontrará todos os comandos do <b>TortoiseSVN</b>.\n"
 "E não se esqueça de <u>ler o manual!</u>"
+
+# ID:209,
+#: ID:209
+#, fuzzy
+msgid "<new changelist>"
+msgstr "<nova lista de alterações>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1789,6 +1800,12 @@ msgstr "Verificar Atualizações"
 msgid "Check For Updates..."
 msgstr "Verificar Atualizações..."
 
+# ID:8,
+#: ID:213
+#, fuzzy
+msgid "Check Group"
+msgstr "Marcar Grupo"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2338,6 +2355,12 @@ msgid "Create &patch..."
 msgstr "&Criar correção..."
 
 # ID:13,
+#: Dlg-ID:243
+#, fuzzy
+msgid "Create Changelist"
+msgstr "Criar Lista de Alterações"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Criar correção"
@@ -2778,6 +2801,12 @@ msgstr "Inserir URL"
 msgid "Enter a lock message (optional):"
 msgstr "Insira uma mensagem de travamento (opcional):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Enter a name for the changelist:"
+msgstr "Digite um nome para a lista de alterações:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3000,7 +3029,7 @@ msgid "File diffs"
 msgstr "Diferenças entre arquivos"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Lista de arquivos vazia"
 
@@ -3896,7 +3925,7 @@ msgid "Lock Files"
 msgstr "Travar Arquivos"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Trava quebrada!"
 
@@ -3922,7 +3951,7 @@ msgid "Lock owner:"
 msgstr "Proprietário da trava:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Trava roubada por %s"
@@ -4170,6 +4199,12 @@ msgstr ""
 "Mover %s\r\n"
 "para %s"
 
+# ID:209,
+#: ID:209
+#, fuzzy
+msgid "Move to changelist"
+msgstr "Mover para a lista de alterações"
+
 # ID:97,
 #: ID:98
 #, c-format
@@ -4213,7 +4248,7 @@ msgid "Needs lock"
 msgstr "Requer trava"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Aninhado"
 
@@ -4725,7 +4760,7 @@ msgstr "Por favor, espere enquanto o navegador de repositório é inicializado..
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Por favor, aguarde..."
 
@@ -5005,6 +5040,12 @@ msgstr "Remover %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Remover da lista de &ignorados"
+
+# ID:13,
+#: ID:209
+#, fuzzy
+msgid "Remove from changelist"
+msgstr "Remover da lista de alterações"
 
 # ID:8,
 #: Control-ID:1332
@@ -6944,6 +6985,13 @@ msgstr "Impossível escrever para %1, é somente-leitura ou está aberto por out
 msgid "Uncheck"
 msgstr "Desmarcar"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+#, fuzzy
+msgid "Uncheck Group"
+msgstr "Desmarcar Grupo"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7103,8 +7151,9 @@ msgstr "Use ambos blocos de texto (este aqui último)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "Ta&char as linhas deletadas"
+#, fuzzy
+msgid "Use stri&keout for removed lines"
+msgstr "Usar hachura nas linhas deletadas"
 
 # ID:251,
 #: MenuEntry
