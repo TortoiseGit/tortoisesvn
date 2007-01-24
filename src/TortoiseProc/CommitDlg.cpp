@@ -394,9 +394,6 @@ UINT CCommitDlg::StatusThread()
 		GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	}
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
 	CString logmsg;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
 	DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= logmsg.GetLength());
@@ -443,6 +440,10 @@ UINT CCommitDlg::StatusThread()
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
 	InterlockedExchange(&m_bRunThread, FALSE);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
+	// force the cursor to normal
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 
