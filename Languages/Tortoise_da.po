@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8533
+# Based on Tortoise.pot r8550
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-23 10:08+0100\n"
+"PO-Revision-Date: 2007-01-25 18:00+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -807,6 +807,10 @@ msgstr ": arbejdskopi"
 msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
 msgstr "<b>TortoiseSVN</b> er en såkaldt shell-udvidelse.\nDet betyder, at den er integreret i Windows Stifinder.\nFor at bruge <b>TortoiseSVN</b> skal du åbne Windows Stifinder og højreklikke på en mappe\nfor at vise kontekstmenuen, hvor du finder alle kommandoerne i <b>TortoiseSVN</b>.\nHusk at <u>læse manualen!</u>"
 
+#: ID:209,
+msgid "<new changelist>"
+msgstr "<ny ændringsliste>"
+
 #: ID:3867,#: ID:3867,
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
@@ -919,12 +923,6 @@ msgstr "Tilføj filendelse-specifikt flet-program"
 #: ID:13,
 msgid "Add to &ignore list"
 msgstr "Føj til \"&ignorer\"-listen"
-
-#: ID:209,
-#, c-format
-#, fuzzy
-msgid "Add to changelist '%s'"
-msgstr "Føj '%s' til ændringsliste"
 
 #: Control-ID:1279,
 msgid "Add..."
@@ -1338,6 +1336,10 @@ msgstr "Check for opdateringer"
 msgid "Check For Updates..."
 msgstr "Check for opdateringer..."
 
+#: ID:213,
+msgid "Check Group"
+msgstr "Vælg gruppe"
+
 #: ID:13,
 msgid "Check for modi&fications"
 msgstr "Check &for ændringer"
@@ -1743,10 +1745,6 @@ msgstr "Opret korrekturark"
 #: Dlg-ID:178,
 msgid "Create Repository"
 msgstr "Opret versionsarkiv"
-
-#: ID:209,
-msgid "Create and add to changelist"
-msgstr "Opret og føj til ændringsliste"
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
@@ -2940,6 +2938,10 @@ msgstr "Flyt %ld emner til\r\n%s"
 #, c-format
 msgid "Move %s\r\nto %s"
 msgstr "Flyt %s\r\ntil %s"
+
+#: ID:209,
+msgid "Move to changelist"
+msgstr "Flyt til ændringsliste"
 
 #: ID:98,
 #, c-format
@@ -4803,6 +4805,10 @@ msgstr "Der kan ikke skrives til %1. Filen er enten skrivebeskyttet eller allere
 # Autogenereret, bruges formodentlig ikke
 msgid "Uncheck"
 msgstr "Fjern kryds"
+
+#: ID:213,
+msgid "Uncheck Group"
+msgstr "Fravælg gruppe"
 
 #: ID:3603,
 msgid "Undo the last action\nUndo"
