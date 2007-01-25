@@ -48,6 +48,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 	, m_bRunThread(FALSE)
 	, m_pThread(NULL)
 	, m_bKeepLocks(FALSE)
+	, m_bKeepChangeList(TRUE)
 {
 }
 
@@ -69,6 +70,7 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
 	DDX_Control(pDX, IDC_SPLITTER, m_wndSplitter);
+	DDX_Check(pDX, IDC_KEEPLISTS, m_bKeepChangeList);
 }
 
 
@@ -158,6 +160,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDC_EXTERNALWARNING, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_KEEPLOCK, BOTTOM_LEFT);
+	AddAnchor(IDC_KEEPLISTS, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -234,6 +237,8 @@ void CCommitDlg::OnOK()
 	CTSVNPathList itemsToRemove;
 	bool bCheckedInExternal = false;
 	bool bHasConflicted = false;
+	std::set<CString> checkedLists;
+	std::set<CString> uncheckedLists;
 	for (int j=0; j<nListItems; j++)
 	{
 		const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
@@ -259,6 +264,7 @@ void CCommitDlg::OnOK()
 			{
 				bCheckedInExternal = true;
 			}
+			checkedLists.insert(entry->GetChangeList());
 		}
 		else
 		{
@@ -266,8 +272,8 @@ void CCommitDlg::OnOK()
 				(entry->status != svn_wc_status_ignored))
 			{
 				nUnchecked++;
-
-				if ( m_bRecursive )
+				uncheckedLists.insert(entry->GetChangeList());
+				if (m_bRecursive)
 				{
 					// This algorithm is for the sake of simplicity of the complexity O(N²)
 					for (int k=0; k<nListItems; k++)
@@ -287,8 +293,8 @@ void CCommitDlg::OnOK()
 		}
 	}
 
-	// Now, do all the adds - make sure that the list is sorted into order, so that parents 
-	// are added before any children
+	// Now, do all the adds - make sure that the list is sorted so that parents 
+	// are added before their children
 	itemsToAdd.SortByPathname();
 	SVN svn;
 	svn.Add(itemsToAdd, FALSE);
@@ -298,7 +304,7 @@ void CCommitDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted))
+	if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted)||(!m_bRecursive))
 	{
 		//the next step: find all deleted files and check if they're 
 		//inside a deleted folder. If that's the case, then remove those
@@ -333,6 +339,13 @@ void CCommitDlg::OnOK()
 		m_ListCtrl.Block(FALSE);
 		//save only the files the user has checked into the temporary file
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
+	}
+	if ((m_bRecursive)&&(checkedLists.size() == 1))
+	{
+		// all checked items belong to the same changelist
+		// find out if there are any unchecked items which belong to that changelist
+		if (uncheckedLists.find(*checkedLists.begin()) == uncheckedLists.end())
+			m_sChangeList = *checkedLists.begin();
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
@@ -435,6 +448,10 @@ UINT CCommitDlg::StatusThread()
 		m_ListCtrl.Block(FALSE);
 	}
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
+	if (m_ListCtrl.HasChangeLists())
+		DialogEnableWindow(IDC_KEEPLISTS, true);
+	if (m_ListCtrl.HasLocks())
+		DialogEnableWindow(IDC_KEEPLOCK, true);
 	// we have the list, now signal the main thread about it
 	if (m_bRunThread)
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
@@ -965,6 +982,7 @@ void CCommitDlg::OnBnClickedHistory()
 	}
 	
 }
+
 void CCommitDlg::OnLvnItemchangedFilelist(NMHDR* /*pNMHDR*/, LRESULT *pResult)
 {
 	UpdateOKButton();

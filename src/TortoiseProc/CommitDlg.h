@@ -35,7 +35,7 @@
  * \ingroup TortoiseProc
  * Dialog to enter log messages used in a commit.
  */
-class CCommitDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface // CResizableStandAloneDialog
+class CCommitDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface
 {
 	DECLARE_DYNAMIC(CCommitDlg)
 
@@ -91,6 +91,8 @@ public:
 	CString				m_sLogMessage;
 	BOOL				m_bKeepLocks;
 	CString				m_sBugID;
+	CString				m_sChangeList;
+	BOOL				m_bKeepChangeList;
 
 private:
 	CWinThread*			m_pThread;

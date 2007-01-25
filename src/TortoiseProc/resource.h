@@ -245,6 +245,7 @@
 #define IDC_CHIST                       1125
 #define IDC_CHECK1                      1126
 #define IDC_USETEXTVIEWER               1126
+#define IDC_KEEPLISTS                   1126
 #define IDC_F5HINT                      1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129

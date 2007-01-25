@@ -828,6 +828,8 @@ BOOL CTortoiseProcApp::InitInstance()
 					sLogMsg = dlg.m_sLogMessage;
 					pathList = dlg.m_pathList;
 					CSVNProgressDlg progDlg;
+					if (!dlg.m_sChangeList.IsEmpty())
+						progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
 					progDlg.DoModal();
