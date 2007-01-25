@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-08 18:50+0700\n"
+"PO-Revision-Date: 2007-01-25 18:19+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -942,6 +942,11 @@ msgstr "(dry run)"
 msgid "(multiple targets selected)"
 msgstr "(multipel target dipilih)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(tidak ada daftar perubahan)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1020,6 +1025,11 @@ msgstr ""
 "Untuk menggunakan <b>TortoiseSVN</b> silahkan buka explorer dan klik-kanan pada setiap folder yang anda sukai\n"
 "untuk menampilkan menu konteks dimana anda akan menemukan semua perintah<b>TortoiseSVN</b>.\n"
 "Dan <u>baca manual!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<daftar perubahan baru>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1779,6 +1789,11 @@ msgstr "Periksa Pemutahiran"
 msgid "Check For Updates..."
 msgstr "Periksa Pemutahiran..."
 
+# Dlg-ID:133,
+#: ID:213
+msgid "Check Group"
+msgstr "Periksa Kelompok"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2328,6 +2343,11 @@ msgid "Create &patch..."
 msgstr "Buat &patch..."
 
 # Dlg-ID:208,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Buat Daftar Perubahan"
+
+# Dlg-ID:208,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Buat Patch"
@@ -2760,6 +2780,11 @@ msgstr "Masukkan URL"
 msgid "Enter a lock message (optional):"
 msgstr "Masukan pesan kunci (opsional):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Masukkan nama untuk daftar perubahan:"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -2985,7 +3010,7 @@ msgid "File diffs"
 msgstr "File diffs"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Daftar file kosong"
 
@@ -3880,7 +3905,7 @@ msgid "Lock Files"
 msgstr "Kunci file"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Kunci dibongkar!"
 
@@ -3905,7 +3930,7 @@ msgid "Lock owner:"
 msgstr "Pemilik kunci:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Kunci dicuri oleh %s"
@@ -4157,6 +4182,11 @@ msgstr ""
 "Pindahkan %s\r\n"
 "ke %s"
 
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Pindahkan ke daftar perubahan"
+
 # ID:98,
 #: ID:98
 #, c-format
@@ -4199,7 +4229,7 @@ msgid "Needs lock"
 msgstr "Memerlukan kunci"
 
 # ID:210,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Berulang"
 
@@ -4711,7 +4741,7 @@ msgstr "Harap menunggu sementara browser repositori diinisialisasi..."
 # ID:211,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Harap menunggu..."
 
@@ -4994,6 +5024,11 @@ msgstr "Copot %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Hapus dari daftar aba&ikan"
+
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Hapus dari daftar perubahan"
 
 # Control-ID:1332,
 #: Control-ID:1332
@@ -6927,6 +6962,12 @@ msgstr "Tidak bisa menulis ke %1, ia hanya-baca atau dibuka oleh orang lain."
 msgid "Uncheck"
 msgstr "Tidak dicentang"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "Menghilangkan Cawang Kelompok"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7079,7 +7120,7 @@ msgstr "Gunakan kedua blok teks (ini yang terakhir)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "Gunakan &coretan untuk baris yang dihapus"
 
 #: MenuEntry
