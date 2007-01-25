@@ -131,6 +131,8 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bIgnoreRemoveOnly(false)
 	, m_bCheckChildrenWithParent(false)
 	, m_bUnversionedLast(true)
+	, m_bHasChangeLists(false)
+	, m_bHasLocks(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
@@ -380,6 +382,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		m_bHasExternalsFromDifferentRepos = FALSE;
 		m_bHasExternals = FALSE;
 		m_bHasUnversionedItems = FALSE;
+		m_bHasLocks = false;
+		m_bHasChangeLists = false;
 		m_bShowIgnores = bShowIgnores;
 		m_nSortedColumn = 0;
 		m_bBlock = TRUE;
@@ -713,7 +717,10 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		if (pSVNStatus->entry->lock_owner)
 			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_owner);
 		if (pSVNStatus->entry->lock_token)
+		{
 			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_token);
+			m_bHasLocks = true;
+		}
 		if (pSVNStatus->entry->lock_comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_comment);
 
@@ -726,6 +733,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		{
 			entry->changelist = CUnicodeUtils::GetUnicode(pSVNStatus->entry->changelist);
 			m_changelists[entry->changelist] = -1;
+			m_bHasChangeLists = true;
 		}
 	}
 	else
@@ -2004,10 +2012,19 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									FileEntry * entry = GetListEntry(i);
 									if (entry)
 									{
+										bool bOldCheck = !!GetCheck(i);
 										SetEntryCheck(entry, i, bCheck);
+										if (bCheck != bOldCheck)
+										{
+											if (bCheck)
+												m_nSelected++;
+											else
+												m_nSelected--;
+										}
 									}
 								}
 							}
+							GetStatisticsString();
 							m_bBlock = false;
 						}
 						break;
@@ -3523,10 +3540,19 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 				if (entry)
 				{
+					bool bOldCheck = !!GetCheck(i);
 					SetEntryCheck(entry, i, bCheck);
+					if (bCheck != bOldCheck)
+					{
+						if (bCheck)
+							m_nSelected++;
+						else
+							m_nSelected--;
+					}
 				}
 			}
 		}
+		GetStatisticsString();
 		m_bBlock = false;
 		return;
 	}

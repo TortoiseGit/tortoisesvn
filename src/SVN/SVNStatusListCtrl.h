@@ -227,6 +227,10 @@ public:
 				return path.GetFileOrDirectoryName();
 			}
 		}
+		CString GetChangeList() const
+		{
+			return changelist;
+		}
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
@@ -324,17 +328,27 @@ public:
 	 * If during the call to GetStatus() some svn:externals are found from different
 	 * repositories than the first one checked, then this method returns TRUE.
 	 */
-	BOOL HasExternalsFromDifferentRepos() {return m_bHasExternalsFromDifferentRepos;}
+	BOOL HasExternalsFromDifferentRepos() const {return m_bHasExternalsFromDifferentRepos;}
 
 	/**
 	 * If during the call to GetStatus() some svn:externals are found then this method returns TRUE.
 	 */
-	BOOL HasExternals() {return m_bHasExternals;}
+	BOOL HasExternals() const {return m_bHasExternals;}
 
 	/**
 	 * If unversioned files are found (but not necessarily shown) TRUE is returned.
 	 */
 	BOOL HasUnversionedItems() {return m_bHasUnversionedItems;}
+
+	/**
+	 * If there are any locks in the working copy, TRUE is returned
+	 */
+	BOOL HasLocks() const {return m_bHasLocks;}
+
+	/**
+	 * If there are any changelists defined in the working copy, TRUE is returned
+	 */
+	BOOL HasChangeLists() const {return m_bHasChangeLists;}
 
 	/**
 	 * Returns the file entry data for the list control index.
@@ -565,6 +579,8 @@ private:
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
+	bool						m_bHasLocks;
+	bool						m_bHasChangeLists;
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;
