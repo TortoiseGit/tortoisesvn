@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-24 14:24+0800\n"
+"PO-Revision-Date: 2007-01-25 19:35+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1821,6 +1821,12 @@ msgstr "检查更新"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "检查更新..."
+
+# Dlg-ID:133,#:
+# Control-ID:65535,
+#: ID:213
+msgid "Check Group"
+msgstr "检出组"
 
 # ID:13,
 #: ID:13
@@ -6977,6 +6983,12 @@ msgstr "无法写入 %1, 它可能被设为只读或另有人打开。"
 #: ID:3887
 msgid "Uncheck"
 msgstr "取消选中"
+
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "取消检出组"
 
 # ID:3603,
 #: ID:3603
