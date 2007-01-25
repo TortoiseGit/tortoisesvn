@@ -54,6 +54,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 					= ::RegisterWindowMessage(_T("SVNSLNM_NEEDSREFRESH"));
 const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 					= ::RegisterWindowMessage(_T("SVNSLNM_ADDFILE"));
+const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
+					= ::RegisterWindowMessage(_T("SVNSLNM_CHECKCHANGED"));
 
 #define IDSVNLC_REVERT			 1
 #define IDSVNLC_COMPARE			 2
@@ -1619,6 +1621,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	GetStatisticsString();
 	m_bBlock = FALSE;
+	NotifyCheck();
 
 	return FALSE;
 }
@@ -2025,6 +2028,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 							}
 							GetStatisticsString();
+							NotifyCheck();
 							m_bBlock = false;
 						}
 						break;
@@ -2466,6 +2470,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								SaveColumnWidths();
 								Show(m_dwShow, 0, m_bShowFolders);
+								NotifyCheck();
 							}
 						}
 					}
@@ -2598,6 +2603,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
+						NotifyCheck();
 					}
 					break;
 				case IDSVNLC_DELETE:
@@ -3096,6 +3102,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
+						NotifyCheck();
 					}
 					break;
 				case IDSVNLC_LOCK:
@@ -3554,6 +3561,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		GetStatisticsString();
 		m_bBlock = false;
+		NotifyCheck();
 		return;
 	}
 	FileEntry * entry = GetListEntry(pNMLV->iItem);
@@ -3695,6 +3703,7 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 	m_bBlock = FALSE;
 	SetRedraw(TRUE);
 	GetStatisticsString();
+	NotifyCheck();
 }
 
 void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
@@ -4736,3 +4745,11 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	return bHasGroups;
 }
 
+void CSVNStatusListCtrl::NotifyCheck()
+{
+	CWnd* pParent = GetParent();
+	if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+	{
+		pParent->SendMessage(SVNSLNM_CHECKCHANGED, m_nSelected);
+	}
+}

@@ -150,6 +150,13 @@ public:
 	 */
 	static const UINT SVNSLNM_ADDFILE;
 
+	/**
+	 * Sent to the parent window (using ::SendMessage) when the user checks/unchecks
+	 * one or more items in the control. The WPARAM contains the number of
+	 * checked items in the control.
+	 */
+	static const UINT SVNSLNM_CHECKCHANGED;
+
 	CSVNStatusListCtrl();
 	~CSVNStatusListCtrl();
 
@@ -540,6 +547,9 @@ private:
 
 	void CheckEntry(int index, int nListItems);
 	void UncheckEntry(int index, int nListItems);
+
+	/// sends an SVNSLNM_CHECKCHANGED notification to the parent
+	void NotifyCheck();
 
 	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
 
