@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-25 18:10+0700\n"
+"PO-Revision-Date: 2007-01-25 18:17+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9873,28 +9873,24 @@ msgstr "Cara termudah untuk memulihkan perubahan dari revisi tunggal, atau dari 
 # Indonesian#: source/TortoiseSVN_en.xml:9814(para)
 #: source/TortoiseSVN_en.xml:10201
 #: (para)
-#, fuzzy
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
 msgstr "Pilih file atau folder yang ingin Anda pulihkan perubahannya. Jika Anda ingin memulihkan semua perubahan, ini haruslah folder tingkat atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9821(para)
 #: source/TortoiseSVN_en.xml:10208
 #: (para)
-#, fuzzy
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to show the revision(s) you are interested in."
 msgstr "Pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tampilkan Log</guimenuitem></menuchoice> untuk menampilkan daftar revisi, Anda mungkin perlu menggunakan <guibutton>Dapatkan Semua</guibutton> atau <guibutton>100 Berikutnya</guibutton> untuk menampilkan revisi yang menarik bagi Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9834(para)
 #: source/TortoiseSVN_en.xml:10221
 #: (para)
-#, fuzzy
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the shift key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
 msgstr "Pilih revisi yang ingin Anda pulihkan. Jika Anda ingin membatalkan sederetan revisi, pilih yang pertama dan tekan tombol shift sementara memilih yang terakhir. Catatan bahwa untuk multipel revisi, deretan harus tidak terpisah dengan tanpa jarak. <action>Klik kanan</action> pada revisi yang dipilih, lalu pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Pulihkan perubahan dari revisi ini</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9849(para)
 #: source/TortoiseSVN_en.xml:10236
 #: (para)
-#, fuzzy
 msgid "Or if you want to make an earlier revision the new HEAD revision, <action>right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert to this revision</guimenuitem></menuchoice>. This will discard <emphasis>all</emphasis> changes after the selected revision."
 msgstr "Atau jika Anda ingin membuat revisi sebelumnya untuk revisi HEAD baru, <action>klik kanan</action> pada revisi yang dipilih, lalu pilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Pulihkan ke revisi ini</guimenuitem></menuchoice>. Ini akan membatalkan <emphasis>semua</emphasis> perubahan setalah revisi yang dipilih."
 
