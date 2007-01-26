@@ -721,6 +721,7 @@ private:
 	apr_pool_t *				pool;			///< 'root' memory pool
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 	SVNPrompt					m_prompt;
+	CString						PostCommitErr;	///< error string from post commit hook script
 
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);

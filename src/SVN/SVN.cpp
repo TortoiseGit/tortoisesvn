@@ -163,7 +163,12 @@ struct log_msg_baton3
 
 CString SVN::GetLastErrorMessage(int wrap /* = 80 */)
 {
-	return GetErrorString(Err, wrap);
+	CString msg = GetErrorString(Err, wrap);
+	if (!PostCommitErr.IsEmpty())
+	{
+		msg += _T("\n") + CStringUtils::LinesWrap(PostCommitErr, wrap);
+	}
+	return msg;
 }
 
 CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
@@ -321,10 +326,18 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 		return FALSE;
 	}
 
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+	PostCommitErr.Empty();
+	if (commit_info)
 	{
-		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			for (int i=0; i<pathlist.GetCount(); ++i)
+				Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
 	}
 
 	for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
@@ -427,13 +440,22 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 		return 0;
 	}
 
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+	svn_revnum_t finrev = -1;
+	PostCommitErr.Empty();
+	if (commit_info)
 	{
-		Notify(CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
-		return commit_info->revision;
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			Notify(CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+			finrev = commit_info->revision;
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
 	}
 
-	return -1;
+	return finrev;
 }
 
 BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, CString logmsg)
@@ -456,8 +478,19 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	{
 		return FALSE;
 	}
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+
+	PostCommitErr.Empty();
+	if (commit_info)
+	{
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
+	}
 
 	return TRUE;
 }
@@ -479,8 +512,19 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 	{
 		return FALSE;
 	}
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+
+	PostCommitErr.Empty();
+	if (commit_info)
+	{
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
+	}
 
 	return TRUE;
 }
@@ -498,10 +542,19 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 	{
 		return FALSE;
 	}
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+
+	PostCommitErr.Empty();
+	if (commit_info)
 	{
-		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			for (int i=0; i<pathlist.GetCount(); ++i)
+				Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
 	}
 
 	return TRUE;
@@ -726,8 +779,20 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 	{
 		return FALSE;
 	}
-	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+
+	PostCommitErr.Empty();
+	if (commit_info)
+	{
+		if (SVN_IS_VALID_REVNUM(commit_info->revision))
+		{
+			Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+		}
+		if (commit_info->post_commit_err)
+		{
+			PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+		}
+	}
+
 	return TRUE;
 }
 
