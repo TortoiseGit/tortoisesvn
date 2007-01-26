@@ -230,6 +230,7 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 DAV svn
 SVNListParentPath on
 SVNParentPath D:\SVN
+#SVNIndexXSLT "/svnindex.xsl"
 AuthType Basic
 AuthName "Subversion repositories"
 AuthUserFile passwd
@@ -334,6 +335,13 @@ bin\htpasswd passwd &lt;username&gt;
 							</entry>
 						</row>
 						<row>
+							<entry>SVNIndexXSLT "/svnindex.xsl"</entry>
+							<entry>
+								Used to make the browsing with a webbrowser
+								more pretty.
+							</entry>
+						</row>						
+						<row>
 							<entry>AuthType Basic</entry>
 							<entry>
 								is to activate basic authentication, i.e.
@@ -413,6 +421,37 @@ Require valid-user
 						The format of the authorization-policy file used by
 						<literal>mod_authz_svn</literal> is described in
 						<xref linkend="tsvn-serversetup-mod_authz_svn"/>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						To make browsing the repository with a web browser
+						more 'pretty', uncomment the line
+<screen>
+#SVNIndexXSLT "/svnindex.xsl"
+</screen>
+						and put the files <filename>svnindex.xsl</filename>,
+						<filename>svnindex.css</filename> and 
+						<filename>menucheckout.ico</filename> in your document
+						root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>).
+						The directory is set with the <literal>DocumentRoot</literal> directive
+						in your Apache config file.
+					</para>
+					<para>
+						You can get those three files directly from our source repository
+						at
+						<ulink url="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex">
+							<citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle>
+						</ulink>. If you're asked for authentication for this link,
+						enter <literal>guest</literal> as username and leave the password
+						empty.
+					</para>
+					<para>
+						The xsl file from the TortoiseSVN repository has a nice
+						gimmick: if you browse the repository with your webbrowser, then
+						every folder in your repository has an icon on the right shown.
+						If you click on that icon, the TortoiseSVN checkout dialog
+						is started for this URL.
 					</para>
 				</listitem>
 			</itemizedlist>
