@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-19 08:55+0100\n"
+"PO-Revision-Date: 2007-01-26 08:53+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -969,7 +969,7 @@ msgstr "(višestruki ciljevi izabrani)"
 
 # ID:213,
 #: ID:213
-msgid "(no changeset)"
+msgid "(no changelist)"
 msgstr "(nema skupa izmjena)"
 
 # ID:314,
@@ -1046,6 +1046,11 @@ msgstr ""
 "Kako biste koristili <b>TortoiseSVN</b> molim otvorite explorer i kliknite desnom tipkom miša na bilo koju mapu\n"
 "kako bi se pojavio izbornik. Tamo možete naći sve naredbe programa <b>TortoiseSVN</b>.\n"
 "Također, ne zaboravite <u>pročitati priručnik!</u>"
+
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<novi skup izmjena>"
 
 # dok se pristupalo - prilikom pristupa
 # ID:3867,#:
@@ -1211,12 +1216,6 @@ msgstr "Dodaj program za stapanje datoteka određene vrste"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Dodaj na popis &zanemarenih"
-
-# ID:13,
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "Dodaj na popis izmjena '%s'"
 
 # Control-ID:1098,
 #: Control-ID:1279
@@ -1816,6 +1815,11 @@ msgstr "Provjeri nadogradnje"
 msgid "Check For Updates..."
 msgstr "Provjeri nadogradnje..."
 
+# ID:8,
+#: ID:213
+msgid "Check Group"
+msgstr "Označi grupu"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2377,11 +2381,6 @@ msgstr "Izradi zakrpu"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Izradi skladište"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Stvori i dodaj na popis izmjena"
 
 # ID:8,
 #: Control-ID:65535
@@ -3834,6 +3833,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Zadrži &lokote"
 
+# ID:13,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "Sačuvaj skup izmjena"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -4213,6 +4217,11 @@ msgid ""
 msgstr ""
 "Premjesti %s\r\n"
 "u %s"
+
+# ID:13,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Premjesti na skup izmjena"
 
 # ID:97,
 #: ID:98
@@ -7017,6 +7026,12 @@ msgstr "Nisam u mogućnosti zapisivati u %1, moguće je samo čitati ili to netk
 msgid "Uncheck"
 msgstr "Makni oznaku"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "Makni oznaku s grupe"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7174,8 +7189,8 @@ msgstr "Koristi oba bloka teksta (ovaj na kraju)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "Koristi pre&crtani tekst za obrisane redke"
+msgid "Use stri&keout for removed lines"
+msgstr "Koristi pre&crtani tekst za obrisane retke"
 
 # ID:251,
 #: MenuEntry
