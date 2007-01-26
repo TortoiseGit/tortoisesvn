@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-25 18:17+0700\n"
+"PO-Revision-Date: 2007-01-26 10:16+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9897,196 +9897,168 @@ msgstr "Atau jika Anda ingin membuat revisi sebelumnya untuk revisi HEAD baru, <
 # Indonesian#: source/TortoiseSVN_en.xml:9863(para)
 #: source/TortoiseSVN_en.xml:10249
 #: (para) source/TortoiseSVN_en.xml:10306
-#, fuzzy
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
 msgstr "Anda telah memulihkan perubahan di dalam copy pekerjaan Anda. Periksa hasil, lalu komit perubahan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9869(title)
 #: source/TortoiseSVN_en.xml:10255
 #: (title)
-#, fuzzy
 msgid "Use the merge dialog"
 msgstr "Gunakan dialog gabung"
 
 # Indonesian#: source/TortoiseSVN_en.xml:9870(para)
 #: source/TortoiseSVN_en.xml:10256
 #: (para)
-#, fuzzy
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
 msgstr "Untuk membatalkan deretan besar revisi, Anda bisa menggunakan dialog Gabung. Metode sebelumnya menggunakan penggabungan dibelakang layar; metode ini menggunakannya secara eksplisit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9877(para)
 #: source/TortoiseSVN_en.xml:10263
 #: (para)
-#, fuzzy
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr "Dalam copy pekerjaan Anda pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Gabung</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9886(para)
 #: source/TortoiseSVN_en.xml:10272
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
 msgstr "Dalam field <guilabel>Dari:</guilabel> masukkan url folder lengkap dari cabang atau tag yang berisi perubahan yang ingin Anda pulihkan dalam copy pekerjaan Anda. Ini harusnya muncul sebagai URL standar."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9894(para)
 #: source/TortoiseSVN_en.xml:10280
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
 msgstr "Dalam field <guilabel>Dari Revisi</guilabel> masukan angka revisi saat ini. Jika Anda yakin tidak ada orang lain melakukan perubahan, Anda bisa menggunakan revisi HEAD."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9901(para)
 #: source/TortoiseSVN_en.xml:10288
 #: (para)
-#, fuzzy
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
 msgstr "pastikan kotak centang <guilabel>Gunakan \"Dari:\" URL</guilabel> dicentang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9907(para)
 #: source/TortoiseSVN_en.xml:10294
 #: (para)
-#, fuzzy
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, ie. the one <emphasis>before</emphasis> the first revision to be reverted."
 msgstr "Dalam field <guilabel>Ke Revisi</guilabel> masukkan angka revisi yang ingin Anda pulihkan, contoh satu <emphasis>sebelum</emphasis> revisi pertama yang dipulihkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9925(title)
 #: source/TortoiseSVN_en.xml:10312
 #: (title)
-#, fuzzy
 msgid "Use svndumpfilter"
 msgstr "Gunakan svndumpfilter"
 
 # Indonesian#: source/TortoiseSVN_en.xml:9926(para)
 #: source/TortoiseSVN_en.xml:10313
 #: (para)
-#, fuzzy
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr "Karena TortoiseSVN tidak pernah kehilangan data, revisi yang <quote>di-roll back</quote> masih ada sebagai revisi langsung dalam repositori. Hanya revisi HEAD yang diubah ke keadaan sebelumnya. Jika Anda ingin membuat revisi hilang selamanya dari repositori Anda, menghapus semua jejak yang pernah ada, Anda harus menggunakan ukuran yang lebih ekstrim. Kecuali benar-benar ada alasan baik untuk melakukan ini, ini <emphasis>tidak direkomendasikan</emphasis>. Satu kemungkinan alasan bila seseorang mengkomit dokumen rahasia ke repositori umum."
+msgstr "Karena TortoiseSVN tidak pernah kehilangan data, revisi yang <quote>di-roll back</quote> masih ada sebagai revisi langsung dalam repositori. Hanya revisi HEAD yang diubah ke keadaan sebelumnya. Jika Anda ingin membuat revisi hilang selamanya dari repositori Anda, menghapus semua jejak yang pernah ada, Anda harus menggunakan cara yang lebih ekstrim. Kecuali benar-benar ada alasan baik untuk melakukan ini, ini <emphasis>tidak direkomendasikan</emphasis>. Satu kemungkinan alasan bila seseorang mengkomit dokumen rahasia ke repositori umum."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9937(para)
 #: source/TortoiseSVN_en.xml:10324
 #: (para)
-#, fuzzy
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
-msgstr "Satu-satunya cara untuk menghapus data dari repositori adalah menggunakan piranti baris perintah Subversion <literal>svnadmin</literal>. Anda bisa menemukan penjelasan bagaimana ini bekerja dalam <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Buku Subversion</citetitle></ulink>."
+msgstr "Satu-satunya cara untuk menghapus data dari repositori adalah menggunakan piranti baris perintah Subversion <literal>svnadmin</literal>. Anda bisa menemukan penjelasan bagaimana ini bekerja dalam <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9948(title)
 #: source/TortoiseSVN_en.xml:10335
 #: (title)
-#, fuzzy
 msgid "Compare two revisions of a file"
 msgstr "Bandingkan dua revisi file"
 
 # Indonesian#: source/TortoiseSVN_en.xml:9950(primary)
 #: source/TortoiseSVN_en.xml:10337
 #: (primary)
-#, fuzzy
 msgid "compare files"
 msgstr "bandingkan file"
 
 # Indonesian#: source/TortoiseSVN_en.xml:9952(para)
 #: source/TortoiseSVN_en.xml:10339
 #: (para)
-#, fuzzy
 msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr "Jika Anda ingin membandingkan dua revisi dalam histori file, misalnya revisi 100 dan 200 dari file yang smaa, cukup gunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tampilkan Log</guimenuitem></menuchoice> untuk mendaftar histori revisi untuk file itu. Ambil dua revisi yang ingin Anda bandingkan lalu gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan Revisi</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9966(para)
 #: source/TortoiseSVN_en.xml:10353
 #: (para)
-#, fuzzy
 msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr "Jika Anda ingin membandingkan file yang sama dalam susunan yang berbeda, misalnya trunk dan cabang, Anda bisa menggunakan browser repositori untuk membuka kedua susunan, pilih file dalam kedua tempat lalu gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan Revisi</guimenuitem></menuchoice>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9976(para)
 #: source/TortoiseSVN_en.xml:10363
 #: (para)
-#, fuzzy
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr "Jika Anda ingin membandingkan dua susunan untuk melihat apa yang berubah misalnya trunk dan rilis tag, Anda bisa menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grafik Revisi</guimenuitem></menuchoice> Pilih dua node untuk dibandingkan, lalu gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Bandingkan Revisi HEAD</guimenuitem></menuchoice>. Ini akan memperlihatkan kepada Anda daftar file yang diubah, dan Anda kemudian bisa memilih file individual untuk dilihat perubahannya secara terinci. Alternatifnya gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Unified Diff dari Revisi HEAD</guimenuitem></menuchoice> untuk melihat ringkasan dari semua perbedaan, dengan konteks minimal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10001(title)
 #: source/TortoiseSVN_en.xml:10386
 #: (title)
-#, fuzzy
 msgid "Include a common sub-project"
 msgstr "Sertakan sub-proyek umum"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10003(primary)
 #: source/TortoiseSVN_en.xml:10388
 #: (primary)
-#, fuzzy
 msgid "common projects"
 msgstr "proyek umum"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10005(para)
 #: source/TortoiseSVN_en.xml:10390
 #: (para)
-#, fuzzy
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
 msgstr "Ada kalanya Anda ingin menyertakan proyek lain dalam copy pekerjaan Anda, barangkali beberapa kode librari. Anda tidak ingin untuk membuat duplikasi dari kode ini dalam repositori Anda karena Anda akan kehilangan koneksi dengan kode original (dan dipelihara). Atau mungkin Anda mempunyai beberapa proyek yang berbagi kode sumber. Ada setidaknya 3 cara menghadapi ini."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10015(title)
 #: source/TortoiseSVN_en.xml:10400
 #: (title)
-#, fuzzy
 msgid "Use svn:externals"
 msgstr "Gunakan svn:externals"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10016(para)
 #: source/TortoiseSVN_en.xml:10401
 #: (para)
-#, fuzzy
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a subfolder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
 msgstr "Set properti <literal>svn:externals</literal> untuk folder dalam proyek Anda. Properti ini terdiri dari satu atau lebih baris; setiap baris mempunyai nama dari subfolder yang ingin Anda gunakan sebagai folder check out untuk kode umum, dan URL repositori yang ingin Anda check out dari sana. Untuk rincian lengkap lihat <xref linkend=\"tsvn-dug-import-4\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10025(para)
 #: source/TortoiseSVN_en.xml:10409
 #: (para)
-#, fuzzy
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr "Komit folder baru. Sekarang ketika Anda memutahirkan, Subversion akan menarik copy proyek itu dari repositorinya ke dalam copy pekerjaan Anda. Subfolder akan diperlakukan otomatis jika diperlukan. Setiap kali Anda memutahirkan copy pekerjaan utama Anda, Anda juga akan menerima versi terbaru dari semua proyek eksternal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10046(title)
 #: source/TortoiseSVN_en.xml:10430
 #: (title)
-#, fuzzy
 msgid "Use a nested working copy"
 msgstr "Gunakan copy pekerjaan berulang"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10047(para)
 #: source/TortoiseSVN_en.xml:10431
 #: (para)
-#, fuzzy
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr "Buat folder baru dalam proyek Anda untuk diisi kode umum, tapi jangan tambahkan ke Subversion"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10051(para)
 #: source/TortoiseSVN_en.xml:10435
 #: (para)
-#, fuzzy
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr "Pilih <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> untuk folder baru dan checkout copy dari kode umum kedalamnya. Anda sekarang mempunyai copy pekerjaan terpisah berulang dalam copy pekerjaan utama Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10061(para)
 #: source/TortoiseSVN_en.xml:10445
 #: (para)
-#, fuzzy
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr "Dua copy pekerjaan independen. Ketika Anda mengkomit perubahan ke leluhurnya, perubahak ke WC berulang diabaikan. Demikian juga ketika Anda memutahirkan leluhurnya, WC berulang tidak dimutahirkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10069(title)
 #: source/TortoiseSVN_en.xml:10452
 #: (title)
-#, fuzzy
 msgid "Use a relative location"
 msgstr "Gunakan lokasi relatif"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10070(para)
 #: source/TortoiseSVN_en.xml:10453
 #: (para)
-#, fuzzy
 msgid ""
 "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\n"
 "C:\\Projects\\Proj1\n"
@@ -10105,7 +10077,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10085(para)
 #: source/TortoiseSVN_en.xml:10468
 #: (para)
-#, fuzzy
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
 "SUBST X: \"D:\\Documents\\framework\"\n"
@@ -10122,28 +10093,24 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10103(para)
 #: source/TortoiseSVN_en.xml:10486
 #: (para)
-#, fuzzy
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr "Metode ini hanya akan bekerja dalam semua lingkungan PC, dan Anda perlu mendokumentasi pemetaan drive yang dibutuhkan agar tim Anda mengetahui dimana file misterius ini berada. Metode ini langsung untuk digunakan dalam lingkungan pengembangan tertutup dan tidak direkomendasikan untuk penggunaan umum."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10114(title)
 #: source/TortoiseSVN_en.xml:10496
 #: (title)
-#, fuzzy
 msgid "Create a shortcut to a repository"
 msgstr "Membuat jalan pintas ke repositori"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10116(primary)
 #: source/TortoiseSVN_en.xml:10498
 #: (primary)
-#, fuzzy
 msgid "shortcut"
 msgstr "jalan pintas"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10118(para)
 #: source/TortoiseSVN_en.xml:10500
 #: (para)
-#, fuzzy
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
@@ -10156,133 +10123,114 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10130(title)
 #: source/TortoiseSVN_en.xml:10512
 #: (title)
-#, fuzzy
 msgid "Ignore files which are already versioned"
 msgstr "Abaikan file yang sudah diversi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10132(primary)
 #: source/TortoiseSVN_en.xml:10514
 #: (primary)
-#, fuzzy
 msgid "unversion"
 msgstr "tidak memversi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10134(para)
 #: source/TortoiseSVN_en.xml:10516
 #: (para)
-#, fuzzy
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
 msgstr "Jika Anda secara tidak sengaja menambah beberapa file yang seharusnya diabaikan, bagaimana Anda mendapatkan dari kontrol versi tanpa kehilangannya? Mungkin Anda mempunyai file konfigurasi IDE Anda sendiri yang bukan bagian dari proyek, tapi memakan waktu lama untuk menyiapkan seperti yang Anda sukai."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10142(para)
 #: source/TortoiseSVN_en.xml:10523
 #: (para)
-#, fuzzy
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
 msgstr "Jika Anda belum mengkomit penambahan, maka yang harus Anda lakukan adalah menggunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pulihkan...</guimenuitem></menuchoice> untuk membatalkan penambahan. Kemudian Anda harus menambah file ke daftar abaikan agar mereka tidak ditambahkan lagi nantinya karena kesalahan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10158(para)
 #: source/TortoiseSVN_en.xml:10538
 #: (para)
-#, fuzzy
 msgid "Move the file to somewhere safe, not inside your working copy."
 msgstr "Pindahkan file ke tempat lain yang aman, tidak di dalam copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10164(para)
 #: source/TortoiseSVN_en.xml:10544
 #: (para)
-#, fuzzy
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and you can mark it for deletion from the repository."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Komit</guimenuitem></menuchoice> folder utama. TortoiseSVN akan melihat file itu hilang dan Anda bisa menandai untuk penghapusan dari repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10175(para)
 #: source/TortoiseSVN_en.xml:10555
 #: (para)
-#, fuzzy
 msgid "Move the file back to its original location."
 msgstr "Pindahkan file kembali ke lokasi original."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10180(para)
 #: source/TortoiseSVN_en.xml:10560
 #: (para)
-#, fuzzy
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
 msgstr "Tambah file ke daftar abaikan agar Anda tidak mendapat masalah yang sama lagi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10153(para)
 #: source/TortoiseSVN_en.xml:10533
 #: (para)
-#, fuzzy
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr "Jika file sudah dalam repositori, Anda harus bekerja agak keras. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10192(para)
 #: source/TortoiseSVN_en.xml:10572
 #: (para)
-#, fuzzy
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export</guimenuitem></menuchoice> the folder to somewhere safe, not inside your working copy."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ekspor</guimenuitem></menuchoice> folder ke tempat aman lain, bukan di dalam copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10201(para)
 #: source/TortoiseSVN_en.xml:10582
 #: (para)
-#, fuzzy
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> the folder from your working copy."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Hapus</guimenuitem></menuchoice> folder dari copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10210(para)
 #: source/TortoiseSVN_en.xml:10591
 #: (para)
-#, fuzzy
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the deleted folder to remove it from the repository."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Komit</guimenuitem></menuchoice> folder yang dihapus untuk menghapusnya dari repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10219(para)
 #: source/TortoiseSVN_en.xml:10600
 #: (para)
-#, fuzzy
 msgid "Move the exported folder back to its original location in your working copy."
 msgstr "Pindahkan folder yang diekspor kembali ke lokasi original dalam copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10225(para)
 #: source/TortoiseSVN_en.xml:10606
 #: (para)
-#, fuzzy
 msgid "Add the folder to the ignore list so you don't get into the same trouble again."
 msgstr "Tambah folder ke daftar abaikan agar Anda tidak mendapat masalah yang sama lagi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10187(para)
 #: source/TortoiseSVN_en.xml:10567
 #: (para)
-#, fuzzy
 msgid "If you need to remove a whole folder/hierarchy from version control, the procedure is different again. <placeholder-1/>"
 msgstr "Jika Anda perlu untuk menghapus seluruh folder/hirarki dari kontrol versi, prosedur berbeda lagi. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10235(title)
 #: source/TortoiseSVN_en.xml:10616
 #: (title)
-#, fuzzy
 msgid "Administrators"
 msgstr "Administrator"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10237(para)
 #: source/TortoiseSVN_en.xml:10618
 #: (para)
-#, fuzzy
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
 msgstr "Apendiks ini berisi solusi terhadap masalah/pertanyaan yang mungkin Anda punyai saat Anda Anda bertanggung jawab mendistribusikan TortoiseSVN ke multipel komputer klien."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10244(title)
 #: source/TortoiseSVN_en.xml:10625
 #: (title)
-#, fuzzy
 msgid "Deploy TortoiseSVN via group policies"
 msgstr "Mendistribusikan TortoiseSVN via aturan grup"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10246(primary)
 #: source/TortoiseSVN_en.xml:10627
 #: (primary)
-#, fuzzy
 msgid "group policies"
 msgstr "aturan grup"
 
@@ -10290,70 +10238,60 @@ msgstr "aturan grup"
 #: source/TortoiseSVN_en.xml:10630
 #: (primary) source/TortoiseSVN_en.xml:11802
 #: (glossterm)
-#, fuzzy
 msgid "GPO"
 msgstr "GPO"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10251(para)
 #: source/TortoiseSVN_en.xml:10632
 #: (para)
-#, fuzzy
 msgid "The TortoiseSVN installer comes as an msi file, which means you should have no problems adding that msi file to the group policies of your domain controller."
 msgstr "Instalator TortoiseSVN datang sebagai file msi, yang berarti Anda seharusnya tidak mempunyai masalah menambahkan file msi itu ke aturan grup dari kontroler domain Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10256(para)
 #: source/TortoiseSVN_en.xml:10637
 #: (para)
-#, fuzzy
 msgid "A good walkthrough on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
 msgstr "Langkah-langkah yang baik bagaimana melakukan itu bisa ditemukan dalam artikel basis pengetahuan 314934 dari Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10263(para)
 #: source/TortoiseSVN_en.xml:10644
 #: (para)
-#, fuzzy
 msgid "Versions 1.3.0 and later of TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because those versions need the new CRT and MFC dlls, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 8 from Microsoft on each computer you want to install TortoiseSVN as per user."
-msgstr "Versio 1.3.0 dan berikutnya dari TortoiseSVN harus diinstalasi dibawah <emphasis>Konfigurasi Komputer</emphasis> dan tidak dibawah <emphasis>Konfigurasi Pengguna</emphasis>. Ini dikarenakan versi itu memerlukan dll CRT dan MFC baru, yang hanya bisa didistribusikan <emphasis>per komputer</emphasis> dan tidak <emphasis>per pengguna</emphasis>. Jika Anda benar-benar harus menginstalasi TortoiseSVN pada basis per pengguna, maka pertama Anda harus menginstalasi paket MFC dan CRT versi 8 dari Microsoft pada setiap komputer yang ingin Anda instalasi TortoiseSVN sebagai per pengguna."
+msgstr "Versi 1.3.0 dan berikutnya dari TortoiseSVN harus diinstalasi di bawah <emphasis>Konfigurasi Komputer</emphasis> dan tidak dibawah <emphasis>Konfigurasi Pengguna</emphasis>. Ini dikarenakan versi itu memerlukan dll CRT dan MFC baru, yang hanya bisa didistribusikan <emphasis>per komputer</emphasis> dan tidak <emphasis>per pengguna</emphasis>. Jika Anda benar-benar harus menginstalasi TortoiseSVN pada basis per pengguna, maka pertama Anda harus menginstalasi paket MFC dan CRT versi 8 dari Microsoft pada setiap komputer yang ingin Anda instalasi TortoiseSVN sebagai per pengguna."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10276(title)
 #: source/TortoiseSVN_en.xml:10656
 #: (title)
-#, fuzzy
 msgid "Redirect the upgrade check"
 msgstr "Pengalihan pemeriksaan pemutahiran"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10278(primary)
 #: source/TortoiseSVN_en.xml:10658
 #: (primary)
-#, fuzzy
 msgid "upgrade check"
 msgstr "pemeriksaan pemutahiran"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10280(para)
 #: source/TortoiseSVN_en.xml:10660
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, a dialog shows up informing the user about that."
 msgstr "TortoiseSVN memeriksa apakah ada versi baru yang tersedia setiap beberapa hari. Jika ada versi baru tersedia, dialog muncul menginformasikan pengguna mengenai hal itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10286(title)
 #: source/TortoiseSVN_en.xml:10666
 #: (title)
-#, fuzzy
 msgid "The upgrade dialog"
 msgstr "Dialog pemutahiran"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10289(para)
 #: source/TortoiseSVN_en.xml:10669
 #: (para)
-#, fuzzy
 msgid "If you're responsible for a lot of users in your domain, you might want your users to use only versions you have approved and not have them install always the latest version. You probably don't want that upgrade dialog to show up so your users don't go and upgrade immediately."
 msgstr "Jika Anda bertanggung jawab untuk banyak pengguna dalam domain Anda, mungkin Anda ingin pengguna Anda untuk hanya menggunakan versi yang sudah Anda setujui dan tidak harus menginstalasi versi terbaru. Anda mungkin tidak ingin dialog pemutahiran muncul agar pengguna Anda tidak pergi dan memutahirkan dengan segera."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10296(para)
 #: source/TortoiseSVN_en.xml:10675
 #: (para)
-#, fuzzy
 msgid ""
 "Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade check to your intranet server. You can set the registry key <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value) to an URL pointing to a text file in your intranet. That textfile must have the following format: <screen>\n"
 "1.4.1.6000\n"
@@ -10370,28 +10308,24 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10322(title)
 #: source/TortoiseSVN_en.xml:10700
 #: (title)
-#, fuzzy
 msgid "Setting the SVN_ASP_DOT_NET_HACK environment variable"
 msgstr "Menyeting variabel lingkungan SVN_ASP_DOT_NET_HACK"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10324(primary)
 #: source/TortoiseSVN_en.xml:10702
 #: (primary)
-#, fuzzy
 msgid "SVN_ASP_DOT_NET_HACK"
 msgstr "SVN_ASP_DOT_NET_HACK"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10326(para)
 #: source/TortoiseSVN_en.xml:10704
 #: (para)
-#, fuzzy
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the SVN_ASP_DOT_NET_HACK environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
 msgstr "Sejak versi 1.4.0 dan selanjutnya, instalator TortoiseSVN tidak menyediakan opsi bagi pengguna untuk men-set variabel lingkungan SVN_ASP_DOT_NET_HACK lagi, karena menyebabkan banyak masalah dan membingungkan bagi pengguna yang selalu menginstalasi <emphasis>apapun</emphasis> tidak peduli apakah mereka mengetahui apa kegunaannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10333(para)
 #: source/TortoiseSVN_en.xml:10711
 #: (para)
-#, fuzzy
 msgid ""
 "But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the ASPDOTNETHACK property to TRUE. For example, you can start the installer like this: <screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
@@ -10404,175 +10338,150 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10344(title)
 #: source/TortoiseSVN_en.xml:10722
 #: (title)
-#, fuzzy
 msgid "Automating TortoiseSVN"
 msgstr "Mengotomasi TortoiseSVN"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10346(para)
 #: source/TortoiseSVN_en.xml:10724
 #: (para)
-#, fuzzy
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
 msgstr "Karena semua perintah TortoiseSVN dikontrol melalui parameter baris perintah, Anda bisa mengotomasinya dengan naskah batch atau memulai perintah dan dialog tertentu dari program lain (contoh. editor teks favorit Anda)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10353(para)
 #: source/TortoiseSVN_en.xml:10730
 #: (para)
-#, fuzzy
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
 msgstr "Ingat bahwa TortoiseSVN adalah klien GUI, dan petunjuk otomasi ini memperlihatkan kepada Anda bagaimana untuk membuat dialog TortoiseSVN muncul untuk mengumpulkan input pengguna. Jika Anda ingin menulis naskah yang tidak memerlukan input, sebaliknya Anda harus menggunakan klien baris perintah Subversion resmi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10366(title) source/TortoiseSVN_en.xml:10801(title)
 #: source/TortoiseSVN_en.xml:10742
 #: (title) source/TortoiseSVN_en.xml:11198
-#, fuzzy
 msgid "TortoiseSVN Commands"
 msgstr "Perintah TortoiseSVN"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10368(primary)
 #: source/TortoiseSVN_en.xml:10744
 #: (primary)
-#, fuzzy
 msgid "automation"
 msgstr "otomasi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10371(primary)
 #: source/TortoiseSVN_en.xml:10747
 #: (primary)
-#, fuzzy
 msgid "command line"
 msgstr "baris perintah"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10373(para)
 #: source/TortoiseSVN_en.xml:10749
 #: (para)
-#, fuzzy
 msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>. All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
 msgstr "Program GUI TortoiseSVN dipanggil <literal>TortoiseProc.exe</literal>. Semua perintah ditetapkan dengan parameter <option>/command:abcd</option> dimana <literal>abcd</literal> adalah nama perintah yang diperlukan. Kebanyakan dari perintah ini membutuhkan setidaknya satu argumen path, yang diberikan dengan <option>/path:\"some\\path\"</option>. Dalam tabel berikut perintah merujuk ke parameter <option>/command:abcd</option> dan the path merujuk ke parameter <option>/path:\"some\\path\"</option>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10383(para)
 #: source/TortoiseSVN_en.xml:10758
 #: (para)
-#, fuzzy
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
 msgstr "Karena beberapa perintah bisa mengambil daftar path sasaran (contoh, mengkomit beberapa file tertentu) parameter <option>/path</option> bisa mengambil beberapa path, dipisahkan dengan karakter <literal>*</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10388(para)
 #: source/TortoiseSVN_en.xml:10763
 #: (para)
-#, fuzzy
 msgid "Since TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program, you <emphasis>must</emphasis> add the <option>/notempfile</option> parameter! If you don't, the command won't work and the file you pass with the <option>/path</option> parameter will be deleted!"
 msgstr "Karena TortoiseSVN menggunakan file temporal untuk mengoper argumen multipel antara ekstensi shell dan program utama, Anda <emphasis>harus</emphasis> menambah parameter <option>/notempfile</option> ! Jika tidak, perintah tidak akan bekerja dan file yang Anda oper dengan parameter <option>/path</option> akan dihapus!"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10395(para)
 #: source/TortoiseSVN_en.xml:10770
 #: (para)
-#, fuzzy
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batchfile or from the TortoiseSVN context menu."
 msgstr "Dialog progres yang digunakan untuk komit, memutahirkan dan banyak perintah lainnya biasanya tetap terbuka sampai perintah selesai dan pengguna menekan tombol <guibutton>OK</guibutton>. Ini bisa diubah dengan mencentang opsi terkait dalam dialog seting. Tetapi menggunakan seting itu akan menutup dialog progres, tidak peduli apakah Anda memulai perintah dari file batch Anda atau dari menu konteks TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10403(para)
 #: source/TortoiseSVN_en.xml:10778
 #: (para)
-#, fuzzy
 msgid "To specify a different location of the configuration file, use the param <option>/configdir:\"path\\to\\config\\dir\"</option>. This will override the default path, including any registry setting."
 msgstr "Untuk menetapkan lokasi berbeda dari file konfigurasi, gunakan parameter <option>/configdir:\"path\\to\\config\\dir\"</option>. Ini akan menimpa path standar, termasuk setiap seting registri."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10413(para)
 #: source/TortoiseSVN_en.xml:10789
 #: (para)
-#, fuzzy
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
 msgstr "<option>/closeonend:0</option> jangan tutup dialog secara otomatis"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10417(para)
 #: source/TortoiseSVN_en.xml:10793
 #: (para)
-#, fuzzy
 msgid "<option>/closeonend:1</option> auto close if no errors"
 msgstr "<option>/closeonend:1</option> otomatis tutup jika tidak ada kesalahan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10421(para)
 #: source/TortoiseSVN_en.xml:10797
 #: (para)
-#, fuzzy
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
 msgstr "<option>/closeonend:2</option> otomatis tutup jika tidak ada kesalahan dan konflik"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10425(para)
 #: source/TortoiseSVN_en.xml:10801
 #: (para)
-#, fuzzy
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
 msgstr "<option>/closeonend:3</option> otomatis tutup jika tidak ada kesalahan, konflik dan gabungan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10429(para)
 #: source/TortoiseSVN_en.xml:10805
 #: (para)
-#, fuzzy
 msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
 msgstr "<option>/closeonend:4</option> otomatis tutup jika tidak ada kesalahan, konflik dan gabungan untuk operasi lokal"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10408(para)
 #: source/TortoiseSVN_en.xml:10783
 #: (para)
-#, fuzzy
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
 msgstr "Untuk menutup dialog progres di kahir perintah secara otomatis tanpa menggunakan seting permanen Anda bisa mengoper parameter <option>/closeonend</option><placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10434(para)
 #: source/TortoiseSVN_en.xml:10810
 #: (para)
-#, fuzzy
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
 msgstr "Tabel berikut mendaftarkan semua perintah yang bisa diakses menggunakan baris perintah TortoiseProc.exe. Seperti dijelaskan di atas, ini harus digunakan dalam bentuk <literal>/command:abcd</literal>. Dalam tabel, prefiks <literal>/command</literal> dihilangkan untuk menghemat ruang."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10453(title)
 #: source/TortoiseSVN_en.xml:10829
 #: (title)
-#, fuzzy
 msgid "List of available commands and options"
 msgstr "Daftar perintah dan opsi yang tersedia"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10459(entry)
 #: source/TortoiseSVN_en.xml:10835
 #: (entry)
-#, fuzzy
 msgid "Command"
 msgstr "Perintah"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10466(entry)
 #: source/TortoiseSVN_en.xml:10842
 #: (entry)
-#, fuzzy
 msgid "Shows the About-dialog. This is also shown if no command is given."
 msgstr "Menampilkan dialog Tentang. Ini juga ditampilkan jika tidak ada perintah yang diberikan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10477(option)
 #: source/TortoiseSVN_en.xml:10853
 #: (option) source/TortoiseSVN_en.xml:10961
-#, fuzzy
 msgid "/revstart:xxx"
 msgstr "/revstart:xxx"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10478(option)
 #: source/TortoiseSVN_en.xml:10854
 #: (option) source/TortoiseSVN_en.xml:10962
-#, fuzzy
 msgid "/revend:xxx"
 msgstr "/revend:xxx"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10479(option)
 #: source/TortoiseSVN_en.xml:10855
 #: (option)
-#, fuzzy
 msgid "/strict"
 msgstr "/strict"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10473(entry)
 #: source/TortoiseSVN_en.xml:10849
 #: (entry)
-#, fuzzy
 msgid "Opens the log dialog. The path specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
 msgstr "Membuka dialog log. Path menentukan file atau folder dimana log harus ditampilkan. Tiga opsi tambahan yang bisa di-set: <placeholder-1/>, <placeholder-2/> dan <placeholder-3/>"
 
@@ -10602,44 +10511,38 @@ msgstr "Membuka dialog log. Path menentukan file atau folder dimana log harus di
 #: source/TortoiseSVN_en.xml:11095
 #: source/TortoiseSVN_en.xml:11103
 #: source/TortoiseSVN_en.xml:11120
-#, fuzzy
 msgid "/path"
 msgstr "/path"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10486(option)
 #: source/TortoiseSVN_en.xml:10862
 #: (option)
-#, fuzzy
 msgid "/url"
 msgstr "/url"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10484(entry)
 #: source/TortoiseSVN_en.xml:10860
 #: (entry)
-#, fuzzy
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
 msgstr "Membuka dialog checkout. <placeholder-1/> menetapkan direktori sasaran dan <placeholder-2/> menetapkan URL yang di-checkout."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10492(entry)
 #: source/TortoiseSVN_en.xml:10868
 #: (entry)
-#, fuzzy
 msgid "Opens the import dialog. The path specifies the directory with the data to import."
 msgstr "Membuka dialog impor. Path menetapkan direktori dengan data yang diimpor."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10501(option)
 #: source/TortoiseSVN_en.xml:10877
 #: (option)
-#, fuzzy
 msgid "/rev"
 msgstr "/rev"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10501(option)
 #: source/TortoiseSVN_en.xml:10880
 #: (option)
-#, fuzzy
 msgid "/rev:1234"
-msgstr "/rev"
+msgstr "/rev:1234"
 
 #: source/TortoiseSVN_en.xml:10881
 #: (option)
@@ -10649,56 +10552,48 @@ msgstr "/nonrecursive"
 # Indonesian#: source/TortoiseSVN_en.xml:3629(primary)
 #: source/TortoiseSVN_en.xml:10882
 #: (option)
-#, fuzzy
 msgid "/ignoreexternals"
-msgstr "eksternal"
+msgstr "/ignoreexternals"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10499(entry)
 #: source/TortoiseSVN_en.xml:10875
 #: (entry)
-#, fuzzy
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
-msgstr "Memutahirkan copy pekerjaan dalam <placeholder-1/> ke HEAD. Jika opsi <placeholder-2/> diberikan maka dialog muncul untuk menanyakan kepada pengguna revisi yang harus dimutahirkan."
+msgstr "Memutahirkan copy pekerjaan dalam <placeholder-1/> ke HEAD. Jika opsi <placeholder-2/> diberikan maka dialog muncul untuk menanyakan kepada pengguna revisi yang harus dimutahirkan. Untuk menghindari dialog itu tentukan suatu nomor revisi <placeholder-3/>. Pilihan lain adalah <placeholder-4/> dan <placeholder-5/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10514(option)
 #: source/TortoiseSVN_en.xml:10893
 #: (option)
-#, fuzzy
 msgid "path"
 msgstr "path"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10518(option)
 #: source/TortoiseSVN_en.xml:10897
 #: (option)
-#, fuzzy
 msgid "/bugid:\"the bug id here\""
 msgstr "/bugid:\"id bug disini\""
 
 # Indonesian#: source/TortoiseSVN_en.xml:10508(entry)
 #: source/TortoiseSVN_en.xml:10887
 #: (entry)
-#, fuzzy
 msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
 msgstr "Membuka dialog komit. Path menetapkan direktori sasaran atau daftar file untuk dikomit. Anda juga bisa menetapkan saklar /logmsg untuk mengoper log pesan yang dibuat ke dialog komit. Atau, jika Anda tidak ingin mengoper log pesan pada baris perintah, gunakan /logmsgfile:path, dimana <placeholder-1/> merujuk ke file yang berisi log pesan. Untuk mengisi ulang kotak bug ID (seandainya Anda belum menyiapkan integrasi dengan pelacak bug dengan benar), Anda bisa menggunakan <placeholder-2/> untuk melakukannya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10524(entry)
 #: source/TortoiseSVN_en.xml:10903
 #: (entry)
-#, fuzzy
 msgid "Adds the files in <placeholder-1/> to version control."
 msgstr "Menambah file dalam <placeholder-1/> ke kontrol versi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10530(entry)
 #: source/TortoiseSVN_en.xml:10910
 #: (entry)
-#, fuzzy
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
 msgstr "Mengembalikan perubahan lokal dari copy pekerjaan. <placeholder-1/> memberitahu item mana yang dikembalikan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10538(entry)
 #: source/TortoiseSVN_en.xml:10918
 #: (entry)
-#, fuzzy
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
 msgstr "Membersihkan operasi yang diinterupsi atau dibatalkan dan membuka kuncian copy pekerjaan dalam <placeholder-1/>."
 
@@ -10706,35 +10601,30 @@ msgstr "Membersihkan operasi yang diinterupsi atau dibatalkan dan membuka kuncia
 #: source/TortoiseSVN_en.xml:10928
 #: (option) source/TortoiseSVN_en.xml:10994
 #: source/TortoiseSVN_en.xml:11113
-#, fuzzy
 msgid "/noquestion"
 msgstr "/noquestion"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10545(entry)
 #: source/TortoiseSVN_en.xml:10925
 #: (entry)
-#, fuzzy
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
 msgstr "Menandai file yang konflik yang ditetapkan dalam <placeholder-1/> sebagai terselsaikan. Jika <placeholder-2/> diberikan, maka penyelesaian dikerjakan tanpa menanyakan pengguna terlebih dulu jika itu benar-benar harus dilakukan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10555(entry)
 #: source/TortoiseSVN_en.xml:10935
 #: (entry)
-#, fuzzy
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Membuat repositori dalam <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10561(entry)
 #: source/TortoiseSVN_en.xml:10941
 #: (entry)
-#, fuzzy
 msgid "Opens the switch dialog. The path specifies the target directory."
 msgstr "Membuka dialog saklar. Path menetapkan direktori target."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10567(entry)
 #: source/TortoiseSVN_en.xml:10948
 #: (entry)
-#, fuzzy
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the dir in <placeholder-3/>."
 msgstr "Mengekspor copy pekerjaan dalam <placeholder-1/> ke direktori lain. Jika <placeholder-2/> merujuk ke direktori tidak berversi, dialog akan bertanya atas URL untuk mengekspor ke dir dalam <placeholder-3/>."
 
@@ -10746,189 +10636,162 @@ msgstr "/mergefrom:URL"
 # Indonesian#: source/TortoiseSVN_en.xml:10473(entry)
 #: source/TortoiseSVN_en.xml:10957
 #: (entry)
-#, fuzzy
 msgid "Opens the merge dialog. The path specifies the target directory. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>. These pre-fill the relevant fields in the merge dialog."
 msgstr "Membuka dialog log. Path menentukan file atau folder dimana log harus ditampilkan. Tiga opsi tambahan yang bisa di-set: <placeholder-1/>, <placeholder-2/> dan <placeholder-3/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10582(entry)
 #: source/TortoiseSVN_en.xml:10969
 #: (entry)
-#, fuzzy
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from."
 msgstr "Memunculkan dialog branch/tag. <placeholder-1/> adalah copy pekerjaan terhadap branch/tag."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10590(entry)
 #: source/TortoiseSVN_en.xml:10977
 #: (entry)
-#, fuzzy
 msgid "Opens the settings dialog."
 msgstr "Membuka dialog seting."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10596(entry)
 #: source/TortoiseSVN_en.xml:10983
 #: (entry)
-#, fuzzy
 msgid "Removes the file(s) in <placeholder-1/> from version control."
 msgstr "Menghapus file dalam <placeholder-1/> dari kontrol versi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10603(entry)
 #: source/TortoiseSVN_en.xml:10990
 #: (entry)
-#, fuzzy
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
 msgstr "Mengganti nama file dalam in <placeholder-1/>. Nama baru untuk file yang ditanyakan dengan dialog. Untuk menghindari pertanyaan mengenai penggantian nama yang mirip dalam satu langkah, operkan <placeholder-2/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10616(option) source/TortoiseSVN_en.xml:10618(option)
 #: source/TortoiseSVN_en.xml:11003
 #: (option) source/TortoiseSVN_en.xml:11005
-#, fuzzy
 msgid "/path2"
 msgstr "/path2"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10612(entry)
 #: source/TortoiseSVN_en.xml:10999
 #: (entry)
-#, fuzzy
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
 msgstr "Memulai program eksternal diff yang ditetapkan dalam seting TortoiseSVN. <placeholder-1/> menetapkan file pertama. Jika opasi <placeholder-2/> di-set, maka program diff dimulai dengan dua file itu. Jika <placeholder-3/> diabaikan, maka diff dikerjakan antara file dalam <placeholder-4/> dan BASE-nya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10625(entry)
 #: source/TortoiseSVN_en.xml:11012
 #: (entry)
-#, fuzzy
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
 msgstr "Memulai editor konflik dalam seting TortoiseSVN dengan file yang benar untuk file yang konflik dalam <placeholder-1/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10633(entry)
 #: source/TortoiseSVN_en.xml:11020
 #: (entry)
-#, fuzzy
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
 msgstr "Membuka dialog relokasi. <placeholder-1/> menetapkan path copy pekerjaan untuk direlokasi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10640(entry)
 #: source/TortoiseSVN_en.xml:11027
 #: (entry)
-#, fuzzy
 msgid "Opens the help file."
 msgstr "Membuka file bantuan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10646(entry)
 #: source/TortoiseSVN_en.xml:11033
 #: (entry)
-#, fuzzy
 msgid "Opens the check-for-modifications dialog. The path specifies the working copy directory."
 msgstr "Membuka dialog periksa-modifikasi. Path menetapkan direktori copy pekerjaan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10658(option) source/TortoiseSVN_en.xml:10660(option)
 #: source/TortoiseSVN_en.xml:11045
 #: (option) source/TortoiseSVN_en.xml:11047
-#, fuzzy
 msgid "/rev:xxx"
 msgstr "/rev:xxx"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10653(entry)
 #: source/TortoiseSVN_en.xml:11040
 #: (entry)
-#, fuzzy
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD."
 msgstr "Memulai dialog browser repositori, merujuk ke URL dari copy pekerjaan yang diberikan dalam <placeholder-1/> atau <placeholder-2/> merujuk secara langsung ke sebuah URL. Opsi tambahan <placeholder-3/> bisa digunakan untuk menetapkan revisi yang harus ditampilkan browser repositori. Jika <placeholder-4/> diabaikan, standarnya ke HEAD."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10666(entry)
 #: source/TortoiseSVN_en.xml:11053
 #: (entry)
-#, fuzzy
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the svn:ignore property to those files."
 msgstr "Menambah semua target dalam <placeholder-1/> ke daftar abaikan, contohnya menambah properti the svn:ignore ke file-file itu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10677(option)
 #: source/TortoiseSVN_en.xml:11064
 #: (option)
-#, fuzzy
 msgid "startrev"
 msgstr "startrev"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10678(option)
 #: source/TortoiseSVN_en.xml:11065
 #: (option)
-#, fuzzy
 msgid "endrev"
 msgstr "endrev"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10678(option)
 #: source/TortoiseSVN_en.xml:11069
 #: (option)
-#, fuzzy
 msgid "/line:nnn"
 msgstr "/line:nnn"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10674(entry)
 #: source/TortoiseSVN_en.xml:11061
 #: (entry)
-#, fuzzy
 msgid "Opens the blame dialog for the file specified in <placeholder-1/>. If the options <placeholder-2/> and <placeholder-3/> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead. If the option <placeholder-4/> is set, TortoiseBlame will open with the specified line number showing."
-msgstr "Membuka dialog blame untuk file yang ditetapkan dalam <placeholder-1/>. Jika opsi <placeholder-2/> dan <placeholder-3/> di-set, maka dialog menanyakan jangkauan blame yang tidak ditampilkan tapi seballiknya nilai revisi dari opsi itu digunakan."
+msgstr "Membuka dialog blame untuk file yang ditetapkan dalam <placeholder-1/>. Jika opsi <placeholder-2/> dan <placeholder-3/> di-set, maka dialog menanyakan jangkauan blame yang tidak ditampilkan tapi seballiknya nilai revisi dari opsi itu digunakan. Jika opsi <placeholder-4/> terset, TortoiseBlame akan membuka dengan nomor baris yang ditentukan ditampilkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10688(option)
 #: source/TortoiseSVN_en.xml:11079
 #: (option)
-#, fuzzy
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10689(option)
 #: source/TortoiseSVN_en.xml:11080
 #: (option)
-#, fuzzy
 msgid "/revision:xxx"
 msgstr "/revision:xxx"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10685(entry)
 #: source/TortoiseSVN_en.xml:11076
 #: (entry)
-#, fuzzy
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Menyimpan file dari URL atau path copy pekerjaan yang diberikan dalam <placeholder-1/> ke lokasi yang diberikan dalam <placeholder-2/>. Revisi diberikan dalam <placeholder-3/>. Ini bisa digunakan untuk memperoleh file dengan revisi tertentu."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10696(entry)
 #: source/TortoiseSVN_en.xml:11086
 #: (entry)
-#, fuzzy
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Membuat file patch untuk path yang diberikan dalam <placeholder-1/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10703(entry)
 #: source/TortoiseSVN_en.xml:11093
 #: (entry)
-#, fuzzy
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
 msgstr "Menampilkan grafik revisi untuk path yang diberikan dalam <placeholder-1/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10710(entry)
 #: source/TortoiseSVN_en.xml:11100
 #: (entry)
-#, fuzzy
 msgid "Locks a file. The 'lock' dialog is shown so the user can enter a comment for the lock. <placeholder-1/>"
 msgstr "Mengunci file. Dialog 'kunci' ditampilkan agar pengguna bisa memasukan komentar untuk penguncian. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10718(entry)
 #: source/TortoiseSVN_en.xml:11108
 #: (entry)
-#, fuzzy
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. <placeholder-1/>"
 msgstr "Membangun ulang ikon cache jendela. Gunakan ini bila ikon jendela rusak. Efek samping dari ini (yang tidak dapat dihindari) adalah bahwa ikon-ikon pada desktop diatur ulang. <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10703(entry)
 #: source/TortoiseSVN_en.xml:11118
 #: (entry)
-#, fuzzy
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
 msgstr "Menampilkan grafik revisi untuk path yang diberikan dalam <placeholder-1/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10730(para)
 #: source/TortoiseSVN_en.xml:11127
 #: (para)
-#, fuzzy
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
 "TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
@@ -10953,70 +10816,60 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10745(title)
 #: source/TortoiseSVN_en.xml:11142
 #: (title)
-#, fuzzy
 msgid "Command Line Interface Cross Reference"
 msgstr "Referensi Silang Interface Baris Perintah"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10747(primary)
 #: source/TortoiseSVN_en.xml:11144
 #: (primary)
-#, fuzzy
 msgid "command line client"
 msgstr "klien baris perintah"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10750(primary)
 #: source/TortoiseSVN_en.xml:11147
 #: (primary)
-#, fuzzy
 msgid "CLI"
 msgstr "CLI"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10753(para)
 #: source/TortoiseSVN_en.xml:11150
 #: (para)
-#, fuzzy
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr "Kadang-kadang manual ini mengarahkan Anda ke dokumentasi Subversion utama, yang menjelaskan Subversion dalam batas Interface Baris Perintah (CLI). Untuk membantu Anda mengerti apa yang dilakukan TortoiseSVN dibelakang layar, kami telah mengompilasi daftar yang memperlihatkan perintah mirip CLI untuk setiap operasi GUI dari TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10762(para)
 #: source/TortoiseSVN_en.xml:11159
 #: (para)
-#, fuzzy
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
 msgstr "Meskipun ada yang mirip CLI terhadap apa yang dilakukan TortoiseSVN, ingat bahwa TortoiseSVN <emphasis>tidak</emphasis> memanggil CLI tapi menggunakan librari Subversion secara langsung."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10768(para)
 #: source/TortoiseSVN_en.xml:11165
 #: (para)
-#, fuzzy
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
 msgstr "Jika Anda berpikir telah menemukan bug dalam TortoiseSVN, kami mungkin meminta Anda untuk mencoba membuat ulang menggunakan CLI, agar kami bisa membedakan isu TSVN dari isu Subversion. Referensi ini memberitahu Anda perintah mana yang dicoba."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10776(title)
 #: source/TortoiseSVN_en.xml:11173
 #: (title)
-#, fuzzy
 msgid "Conventions and Basic Rules"
 msgstr "Konvensi dan Aturan Dasar"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10777(para)
 #: source/TortoiseSVN_en.xml:11174
 #: (para)
-#, fuzzy
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr "Dalam penjelasan berikut, URL untuk lokasi repositori ditampilkan cukup sebagai <literal>URL</literal>, dan contohnya mungkin <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. Path copy pekerjaan cukup ditampilkan sebagai <literal>PATH</literal>, dan contohnya mungkin <literal>C:\\TortoiseSVN\\trunk</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10787(para)
 #: source/TortoiseSVN_en.xml:11184
 #: (para)
-#, fuzzy
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr "Karena TortoiseSVN adalah Ekstensi Shell Windows, ia tidak bisa menggunakan pengertian direktori pekerjaan saat ini. Semua path copy pekerjaan harus diberikan menggunakan path absolut, bukan path relatif."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10794(para)
 #: source/TortoiseSVN_en.xml:11191
 #: (para)
-#, fuzzy
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr "Item-item tertentu adalah opsional, dan ini sering dikontrol dengan kotak centang atau tombol radio dalam TortoiseSVN. Opsi-opsi ini ditampilkan dalam [kurung kotak] dalam definisi baris perintah."
 
@@ -11024,14 +10877,13 @@ msgstr "Item-item tertentu adalah opsional, dan ini sering dikontrol dengan kota
 #: source/TortoiseSVN_en.xml:11200
 #: (title) source/TortoiseSVN_en.xml:11702
 #: (glossterm)
-#, fuzzy
 msgid "Checkout"
 msgstr "Checkout"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10804(screen)
 #: source/TortoiseSVN_en.xml:11201
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
@@ -11042,21 +10894,18 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10807(para)
 #: source/TortoiseSVN_en.xml:11204
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "Jika <guilabel>Hanya checkout folder atas</guilabel> dicentang, gunakan saklar <literal>-N</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10811(para)
 #: source/TortoiseSVN_en.xml:11208
 #: (para) source/TortoiseSVN_en.xml:11251
-#, fuzzy
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "Jika <guilabel>Omit eksternals</guilabel> dicentang, gunakan saklar <literal>--ignore-externals</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10815(para)
 #: source/TortoiseSVN_en.xml:11212
 #: (para)
-#, fuzzy
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr "Jika Anda memeriksa revisi tertentu, tetapkan itu setelah URL menggunakan saklar <literal>-r</literal>."
 
@@ -11064,14 +10913,13 @@ msgstr "Jika Anda memeriksa revisi tertentu, tetapkan itu setelah URL menggunaka
 #: source/TortoiseSVN_en.xml:11218
 #: (title) source/TortoiseSVN_en.xml:12008
 #: (glossterm)
-#, fuzzy
 msgid "Update"
 msgstr "Mutahirkan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10822(screen)
 #: source/TortoiseSVN_en.xml:11219
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
@@ -11084,35 +10932,31 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10826(para)
 #: source/TortoiseSVN_en.xml:11223
 #: (para)
-#, fuzzy
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
 msgstr "Memutahirkan item-item multipel yang saat ini bukan operasi atomik dalam Subversion. Maka pertama TortoiseSVN mencari revisi HEAD dari repositori, dan kemudian memutahirkan semua item ke angka revisi tertentu untuk menghindari pembuatan revisi dari copy pekerjaan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10833(para)
 #: source/TortoiseSVN_en.xml:11230
 #: (para)
-#, fuzzy
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
 msgstr "Jika hanya satu item yang dipilih untuk memutahirkan atau item yang dipilih tidak semuanya dari repositori yang sama, TortoiseSVN hanya memutahirkan ke HEAD."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10838(para)
 #: source/TortoiseSVN_en.xml:11235
 #: (para)
-#, fuzzy
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr "Tidak ada opsi baris perintah yang digunakan disini. <guilabel>Mutahirkan ke revisi</guilabel> juga mengimplementasi perintah pemutahiran, tapi menawarkan opsi lebih."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10845(title)
 #: source/TortoiseSVN_en.xml:11242
 #: (title)
-#, fuzzy
 msgid "Update to Revision"
 msgstr "Mutahirkan ke Revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10846(screen)
 #: source/TortoiseSVN_en.xml:11243
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
@@ -11125,7 +10969,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10850(para)
 #: source/TortoiseSVN_en.xml:11247
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "Jika <guilabel>Hanya memutahirkan folder atas</guilabel> dicentang, gunakan saklar <literal>-N</literal>."
 
@@ -11133,14 +10976,12 @@ msgstr "Jika <guilabel>Hanya memutahirkan folder atas</guilabel> dicentang, guna
 #: source/TortoiseSVN_en.xml:11257
 #: (title) source/TortoiseSVN_en.xml:11728
 #: (glossterm)
-#, fuzzy
 msgid "Commit"
 msgstr "Komit"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10861(para)
 #: source/TortoiseSVN_en.xml:11258
 #: (para)
-#, fuzzy
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr "Dalam TortoiseSVN, dialog komit menggunakan beberapa perintah Subversion. Langkah pertama adalah pemeriksaan status yang memeriksa item-item dalam copy pekerjaan Anda yang bisa berpotensial untuk dikomit. Anda bisa meninjau ulang daftar, diff file terhadap BASE dan memilih item-item yang ingin Anda sertakan dalam komit."
 
@@ -11148,7 +10989,7 @@ msgstr "Dalam TortoiseSVN, dialog komit menggunakan beberapa perintah Subversion
 #: source/TortoiseSVN_en.xml:11265
 #: (screen) source/TortoiseSVN_en.xml:11427
 #: source/TortoiseSVN_en.xml:11455
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn status -v PATH\n"
@@ -11159,21 +11000,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10872(para)
 #: source/TortoiseSVN_en.xml:11268
 #: (para) source/TortoiseSVN_en.xml:11356
-#, fuzzy
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr "Jika <guilabel>Tampilkan file tidak berversi</guilabel> dicentang, TortoiseSVN juga akan menampilkan file-file dan folder tidak berversi dalam hirarki copy pekerjaan, memperhitungkan aturan pengabaian. Fitur tertentu ini tidak langsung sama dalam Subversion, karena perintah <literal>svn status</literal> tidak berasal dari folder tidak berversi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10880(para)
 #: source/TortoiseSVN_en.xml:11276
 #: (para)
-#, fuzzy
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr "Jika Anda memeriksa setiap file dan folder tidak berversi, item-item itu pertama akan ditambahkan ke copy pekerjaan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10884(screen) source/TortoiseSVN_en.xml:11177(screen)
 #: source/TortoiseSVN_en.xml:11280
 #: (screen) source/TortoiseSVN_en.xml:11570
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn add PATH...\n"
@@ -11184,14 +11023,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10887(para)
 #: source/TortoiseSVN_en.xml:11283
 #: (para)
-#, fuzzy
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr "Ketika Anda mengklik OK, komit Subversion dimulai. Jika Anda telah membiarkan semua kotak centang pilihan file dalam keadaan standar, TortoiseSVN menggunakan komit rekursif tunggal dari copy pekerjaan. Jika Anda tidak memilih beberapa file, maka komit non-rekursif (<literal>-N</literal>) harus digunakan, dan setiap path harus ditetapkan secara individual pada baris perintah komit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10895(screen)
 #: source/TortoiseSVN_en.xml:11291
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
@@ -11203,14 +11041,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11294
 #: (para) source/TortoiseSVN_en.xml:11500
 #: source/TortoiseSVN_en.xml:11583
-#, fuzzy
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "<literal>LogMessage</literal> disini memberikan isi dari kotak edit pesan log. Ini bisa kosong."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10902(para)
 #: source/TortoiseSVN_en.xml:11298
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr "Jika <guilabel>Biarkan kunci</guilabel> dicentang, gunakan saklar <literal>--no-unlock</literal>."
 
@@ -11218,14 +11054,13 @@ msgstr "Jika <guilabel>Biarkan kunci</guilabel> dicentang, gunakan saklar <liter
 #: source/TortoiseSVN_en.xml:11304
 #: (title) source/TortoiseSVN_en.xml:11774
 #: (glossterm)
-#, fuzzy
 msgid "Diff"
 msgstr "Diff"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10909(screen)
 #: source/TortoiseSVN_en.xml:11305
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn diff PATH\n"
@@ -11236,28 +11071,25 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10912(para)
 #: source/TortoiseSVN_en.xml:11308
 #: (para)
-#, fuzzy
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between fulltext files, so there is no direct CLI equivalent."
 msgstr "Jika Anda menggunakan Diff dari menu konteks utama, Anda melakukan diff file yang diubah terhadap revisi BASE-nya. Output dari perintah CLI di atas juga melakukan ini dan menghasilkan output dalam format unified-diff. Akan tetapi, ini bukan apa yang digunakan TortoiseSVN. TortoiseSVN menggunakan TortoiseMerge (atau program diff pilihan Anda) untuk menampilkan perbedaan secara visual antara file teks lengkap, agar tidak ada persamaan CLI langsung."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10922(para)
 #: source/TortoiseSVN_en.xml:11317
 #: (para)
-#, fuzzy
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
 msgstr "Anda juga bisa melakukan diff setiap 2 file menggunakan TortoiseSVN, apakah itu tidak terkontrol versi ataupun tidak. TortoiseSVN hanya memerlukan dua file ke dalam program diff yang dipilih dan membiarkan ia bekerja dimana perbedaan itu berada."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10931(title)
 #: source/TortoiseSVN_en.xml:11325
 #: (title)
-#, fuzzy
 msgid "Show Log"
 msgstr "Tampilkan Log"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10932(screen)
 #: source/TortoiseSVN_en.xml:11326
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
@@ -11272,21 +11104,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10937(para)
 #: source/TortoiseSVN_en.xml:11331
 #: (para)
-#, fuzzy
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
 msgstr "Standarnya, TortoiseSVN mencoba untuk mengambil 100 pesan log menggunakan metode --limit. Jika seting menginstruksikannya untuk menggunakan API lama, maka bentuk kedua digunakan untuk mengambil pesan log untuk 100 revisi repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10943(para)
 #: source/TortoiseSVN_en.xml:11337
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr "Jika <guilabel>Hentikan copy/ganti nama</guilabel> dicentang, gunakan saklar <literal>--stop-on-copy</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10950(screen)
 #: source/TortoiseSVN_en.xml:11344
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn status -v PATH\n"
@@ -11301,28 +11131,24 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10955(para)
 #: source/TortoiseSVN_en.xml:11349
 #: (para)
-#, fuzzy
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
 msgstr "Pemeriksaan status awal melihat hanya pada copy pekerjaan Anda. Jika Anda mengklik If <guibutton>Periksa repositori</guibutton> maka repositori juga diperiksa untuk melihat file mana yang diubah oleh pemutahiran, yang memerlukan sakalar <literal>-u</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10962(para)
 #: source/TortoiseSVN_en.xml:11366
 #: (title)
-#, fuzzy
 msgid "Revision Graph"
-msgstr "Jika <guilabel>Tampilkan file tidak berversi</guilabel> dicentang, TortoiseSVN juga akan menampilkan semua file dan folder tidak berversi dalam hirarki copy pekerjaan, memperhitungkan aturan abaikan. Fitur tertentu ini tidak mempunyai persamaan langsung dengan Subversion, karena perintah <literal>svn status</literal> tidak diturunkan ke dalam folder tidak berversi."
+msgstr "Grafik Revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10973(para)
 #: source/TortoiseSVN_en.xml:11367
 #: (para)
-#, fuzzy
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
 msgstr "Grafik revisi adalah hanya fitur TortoiseSVN. Tidak ada persamaan dalam klien baris perintah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:10977(para)
 #: source/TortoiseSVN_en.xml:11371
 #: (para)
-#, fuzzy
 msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
@@ -11337,14 +11163,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10988(title)
 #: source/TortoiseSVN_en.xml:11382
 #: (title)
-#, fuzzy
 msgid "Repo Browser"
 msgstr "Repo Browser"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10989(screen)
 #: source/TortoiseSVN_en.xml:11383
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
@@ -11357,42 +11182,37 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10993(para)
 #: source/TortoiseSVN_en.xml:11387
 #: (para)
-#, fuzzy
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
 msgstr "Anda bisa menggunakan <literal>svn info</literal> untuk memeriksa akar repositori, yang adalah tingkat atas ditampilkan dalam browser repositori. Anda tidak bisa menavigasi <literal>Naik</literal> di atas tingkat ini. Juga, perintah ini menghasilkan semua informasi penguncian yang ditampilkan dalam browser repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11000(para)
 #: source/TortoiseSVN_en.xml:11394
 #: (para)
-#, fuzzy
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
 msgstr "Pemanggilan <literal>svn list</literal> akan mendaftar isi direktori, berdasar URL dan revisi yang diberikan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11006(title)
 #: source/TortoiseSVN_en.xml:11400
 #: (title)
-#, fuzzy
 msgid "Edit Conflicts"
 msgstr "Edit Konflik"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11007(para)
 #: source/TortoiseSVN_en.xml:11401
 #: (para)
-#, fuzzy
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
 msgstr "Perintah ini tidak mempunyai persamaan CLI. Ia meminta TortoiseMerge atau piranti eksternal 3-cara diff/merge untuk melihat file terkait konflik dan mengurut baris mana yang digunakan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11014(title)
 #: source/TortoiseSVN_en.xml:11408
 #: (title)
-#, fuzzy
 msgid "Resolved"
 msgstr "Diselesaikan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11015(screen)
 #: source/TortoiseSVN_en.xml:11409
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn resolved PATH\n"
@@ -11403,14 +11223,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11020(title)
 #: source/TortoiseSVN_en.xml:11414
 #: (title)
-#, fuzzy
 msgid "Rename"
 msgstr "Ganti nama"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11021(screen)
 #: source/TortoiseSVN_en.xml:11415
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
@@ -11422,14 +11241,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11420
 #: (title) source/TortoiseSVN_en.xml:11762
 #: (glossterm)
-#, fuzzy
 msgid "Delete"
 msgstr "Hapus"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11027(screen)
 #: source/TortoiseSVN_en.xml:11421
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
@@ -11441,28 +11259,25 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11426
 #: (title) source/TortoiseSVN_en.xml:11941
 #: (glossterm)
-#, fuzzy
 msgid "Revert"
 msgstr "Pulihkan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11036(para)
 #: source/TortoiseSVN_en.xml:11430
 #: (para)
-#, fuzzy
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
 msgstr "Tahap pertama adalah pemeriksaan status yang memeriksa item dalam copy pekerjaan Anda yang berpotensi untuk dipulihkan. Anda bisa meninjau daftar, file diff terhadap BASE dan memilih item yang ingin Anda sertakan dalam pemulihan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11042(para)
 #: source/TortoiseSVN_en.xml:11436
 #: (para)
-#, fuzzy
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
 msgstr "Ketika Anda mengklik OK, pemulihan Subversion dimulai. Jika Anda membiarkan kotak centang semua pilihan file dalam keadaan standar, TortoiseSVN menggunakan pemulihan rekursif tunggal (<literal>-R</literal>) dari copy pekerjaan Anda. Jika Anda tidak memilih beberapa file, maka setiap path harus ditetapkan secara individual [pda baris perintah pemulihan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11050(screen)
 #: source/TortoiseSVN_en.xml:11443
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
@@ -11473,7 +11288,7 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11056(screen)
 #: source/TortoiseSVN_en.xml:11449
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
@@ -11484,21 +11299,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11061(title)
 #: source/TortoiseSVN_en.xml:11454
 #: (title)
-#, fuzzy
 msgid "Get Lock"
 msgstr "Dapatkan Kunci"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11065(para)
 #: source/TortoiseSVN_en.xml:11458
 #: (para)
-#, fuzzy
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
 msgstr "Tahap pertama adalah pemeriksaan status untuk memeriksa file copy pekerjaan Anda yang berpotensi untuk dikunci. Anda bisa memilih item-item yang ingin Anda kunci."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11070(screen)
 #: source/TortoiseSVN_en.xml:11463
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
@@ -11509,28 +11322,25 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11073(para)
 #: source/TortoiseSVN_en.xml:11466
 #: (para)
-#, fuzzy
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
 msgstr "<literal>LockMessage</literal> disini menyediakan isi dari kotak edit pesan kunci. Ini bisa kosong."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11077(para)
 #: source/TortoiseSVN_en.xml:11470
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
 msgstr "Jika <guilabel>Curi kunci</guilabel> dicentang, gunakan saklar <literal>--force</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11083(title)
 #: source/TortoiseSVN_en.xml:11476
 #: (title)
-#, fuzzy
 msgid "Release Lock"
 msgstr "Lepaskan Kunci"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11084(screen)
 #: source/TortoiseSVN_en.xml:11477
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn unlock PATH\n"
@@ -11541,14 +11351,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11089(title)
 #: source/TortoiseSVN_en.xml:11482
 #: (title)
-#, fuzzy
 msgid "Branch/Tag"
 msgstr "Cabang/Tag"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11090(screen)
 #: source/TortoiseSVN_en.xml:11483
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn copy -m \"LogMessage\" URL URL\n"
@@ -11567,21 +11376,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11097(para)
 #: source/TortoiseSVN_en.xml:11495
 #: (listitem)
-#, fuzzy
 msgid "Specific revision in repository"
-msgstr "Dialog Cabang/Tag melakukan copy ke repositori. Ada 3 opsi tombol radio: <placeholder-1/> yang terkait ke 3 varian baris perintah di atas."
+msgstr "Revisi spesifik dalam repositori"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11107(para) source/TortoiseSVN_en.xml:11190(para)
 #: source/TortoiseSVN_en.xml:11490
 #: (para)
-#, fuzzy
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
-msgstr "<literal>LogMessage</literal> disini menyediakan isi kotak edit pesan log. Ini bisa kosong."
+msgstr "Dialog Cabang/Tag melakukan penyalinan ke repositori. Ada 3 pilihan tombol radio: <placeholder-1/> yang terhubung ke 3 varian baris perintah di atas."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11114(screen)
 #: source/TortoiseSVN_en.xml:11507
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
@@ -11595,14 +11402,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11513
 #: (title) source/TortoiseSVN_en.xml:11855
 #: (glossterm)
-#, fuzzy
 msgid "Merge"
 msgstr "Gabung"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11121(screen)
 #: source/TortoiseSVN_en.xml:11514
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
@@ -11613,14 +11419,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11124(para)
 #: source/TortoiseSVN_en.xml:11517
 #: (para)
-#, fuzzy
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr "<guibutton>Dry run</guibutton> melakukan hal yang sama dengan merge dengan saklar <literal>--dry-run</literal>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11128(screen)
 #: source/TortoiseSVN_en.xml:11521
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
@@ -11631,7 +11436,6 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11131(para)
 #: source/TortoiseSVN_en.xml:11524
 #: (para)
-#, fuzzy
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
 msgstr "<guibutton>Unified diff</guibutton> menampilkan operasi diff yang akan digunakan untuk melakukan penggabungan."
 
@@ -11639,14 +11443,13 @@ msgstr "<guibutton>Unified diff</guibutton> menampilkan operasi diff yang akan d
 #: source/TortoiseSVN_en.xml:11530
 #: (title) source/TortoiseSVN_en.xml:11783
 #: (glossterm)
-#, fuzzy
 msgid "Export"
 msgstr "Ekspor"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11138(screen)
 #: source/TortoiseSVN_en.xml:11531
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
@@ -11657,28 +11460,24 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11141(para)
 #: source/TortoiseSVN_en.xml:11534
 #: (para)
-#, fuzzy
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
 msgstr "Formulir ini digunakan untuk mengakses dari folder tidak berversi, dan folder yang digunakan sebagai tujuan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11145(para)
 #: source/TortoiseSVN_en.xml:11538
 #: (para)
-#, fuzzy
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
 msgstr "Mengekspor copy pekerjaan ke lokasi berbeda dikerjakan tanpa menggunakan librari Subversion, maka tidak ada persamaan baris perintah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11150(para)
 #: source/TortoiseSVN_en.xml:11543
 #: (para)
-#, fuzzy
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
 msgstr "Apa yang dilakukan TortoiseSVN adalah mengcopy semmua file ke lokasi baru sementara memperlihatkan kepada Anda progres dari operasi. File/folder yang tidak berversi bisa diekspor juga secara opsional."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11155(para)
 #: source/TortoiseSVN_en.xml:11548
 #: (para)
-#, fuzzy
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "Dalam kedua kasus, jika <guilabel>Abaikan eksternal</guilabel> dicentang, gunakan saklar <literal>--ignore-externals</literal>."
 
@@ -11686,14 +11485,13 @@ msgstr "Dalam kedua kasus, jika <guilabel>Abaikan eksternal</guilabel> dicentang
 #: source/TortoiseSVN_en.xml:11555
 #: (title) source/TortoiseSVN_en.xml:11901
 #: (glossterm)
-#, fuzzy
 msgid "Relocate"
 msgstr "Relokasi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11163(screen)
 #: source/TortoiseSVN_en.xml:11556
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
@@ -11704,14 +11502,13 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11168(title)
 #: source/TortoiseSVN_en.xml:11561
 #: (title)
-#, fuzzy
 msgid "Create Repository Here"
 msgstr "Buat Repositori Disini"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11169(screen)
 #: source/TortoiseSVN_en.xml:11562
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
@@ -11727,21 +11524,19 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11569
 #: (title) source/TortoiseSVN_en.xml:11645
 #: (glossterm)
-#, fuzzy
 msgid "Add"
 msgstr "Tambah"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11180(para)
 #: source/TortoiseSVN_en.xml:11573
 #: (para)
-#, fuzzy
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
 msgstr "Jika Anda memilih folder, pertama TortoiseSVN memindainya secara rekursif untuk item-item yang bisa ditambahkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11187(screen)
 #: source/TortoiseSVN_en.xml:11580
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
@@ -11753,14 +11548,13 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11589
 #: (title) source/TortoiseSVN_en.xml:11666
 #: (glossterm)
-#, fuzzy
 msgid "Blame"
 msgstr "Blame"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11197(screen)
 #: source/TortoiseSVN_en.xml:11590
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn blame -r N:M -v PATH\n"
@@ -11773,21 +11567,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11201(para)
 #: source/TortoiseSVN_en.xml:11594
 #: (para)
-#, fuzzy
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a textfile, this information is not required."
 msgstr "Jika Anda menggunakan TortoiseBlame untuk melihat info blame, log file juga diperlukan untuk menampilkan pesan log dalam tooltip. Jika Anda melihat blame sebagai file teks, informasi ini tidak diperlukan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11209(title)
 #: source/TortoiseSVN_en.xml:11602
 #: (title)
-#, fuzzy
 msgid "Add to Ignore List"
 msgstr "Tambah ke Daftar Abaikan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11210(screen)
 #: source/TortoiseSVN_en.xml:11603
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn propget svn:ignore PATH &gt; tempfile\n"
@@ -11802,21 +11594,19 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11215(para)
 #: source/TortoiseSVN_en.xml:11608
 #: (para)
-#, fuzzy
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
 msgstr "Karena properti svn:ignore sering bernilai multi-baris, ia ditampikan disini sebagai sedang diubah via file teks daripada secara langsung pada baris perintah."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11222(title)
 #: source/TortoiseSVN_en.xml:11615
 #: (title)
-#, fuzzy
 msgid "Create Patch"
 msgstr "Buat Patch"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11223(screen)
 #: source/TortoiseSVN_en.xml:11616
 #: (screen)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "svn diff PATH &gt; patchfile\n"
@@ -11827,406 +11617,348 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:11226(para)
 #: source/TortoiseSVN_en.xml:11619
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN creates a patchfile in unified diff format by comparing the working copy with its BASE version."
 msgstr "TortoiseSVN membuat patchfile dalam format unified diff dengan membandingkan copy pekerjaan dengan revisi BASE-nya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11232(title)
 #: source/TortoiseSVN_en.xml:11625
 #: (title)
-#, fuzzy
 msgid "Apply Patch"
 msgstr "Terapkan Patch"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11233(para)
 #: source/TortoiseSVN_en.xml:11626
 #: (para)
-#, fuzzy
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
-msgstr "Menerapkan patch adalah urusan sulit kecuala patch dan copy pekerjaan ada pada revisi yang sama. Beruntung bagi Anda, Anda bisa menggunakan TortoiseMerge, yang tidak mempunyai kesamaan dengan Subversion."
+msgstr "Menerapkan patch adalah urusan sulit kecuali patch dan copy pekerjaan ada pada revisi yang sama. Beruntung bagi Anda, Anda bisa menggunakan TortoiseMerge, yang tidak mempunyai kesamaan dengan Subversion."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11250(title)
 #: source/TortoiseSVN_en.xml:11643
 #: (title)
-#, fuzzy
 msgid "Glossary"
 msgstr "Daftar Kata"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11254(para)
 #: source/TortoiseSVN_en.xml:11647
 #: (para)
-#, fuzzy
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Perintah Subversion yang digunakan untuk menambah file atau direktori ke copy pekerjaan Anda. Item baru ditambahkan ke repositori saat Anda komit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11262(glossterm)
 #: source/TortoiseSVN_en.xml:11655
 #: (glossterm)
-#, fuzzy
 msgid "BASE revision"
 msgstr "BASE revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11264(para)
 #: source/TortoiseSVN_en.xml:11657
 #: (para)
-#, fuzzy
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "Revisi base saat ini dari file atau folder dalam <emphasis>copy pekerjaan</emphasis>. Anda. Ini adalah revisi file atau folder terakhir, ketika checkout terakhir, memutahirkan atau komit yang sudah dijalankan. Revisi BASE biasanya tidak sama dengan revisi HEAD."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11275(para)
 #: source/TortoiseSVN_en.xml:11668
 #: (para)
-#, fuzzy
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "Perintah ini hanya untuk file teks, dan menambahkan catatan setiap baris untuk menampilkan revisi repositori dimana perubahan terakhir dilakukan, dan pembuat yang membuat perubahan itu. Implementasi GUI kami disebut TortoiseBlame dan ia juga menampilkan tanggal/jam komit dan log pesan ketika Anda membawa mouse ke angka revisi."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11285(glossterm)
 #: source/TortoiseSVN_en.xml:11678
 #: (glossterm)
-#, fuzzy
 msgid "BDB"
 msgstr "BDB"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11287(para)
 #: source/TortoiseSVN_en.xml:11680
 #: (para)
-#, fuzzy
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. database yang sudah teruji baik untuk jalan belakang pada repositori, yang tidak bisa digunkana pada jaringan berbagi. Standar untuk pre 1.2 repositori."
+msgstr "Berkeley DB. database yang sudah teruji baik untuk jalan belakang pada repositori, yang tidak bisa digunkan pada jaringan berbagi. Standar untuk pre 1.2 repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11295(glossterm)
 #: source/TortoiseSVN_en.xml:11687
 #: (glossterm)
-#, fuzzy
 msgid "Branch"
-msgstr "Cabang"
+msgstr "Branch (Cabang)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11297(para)
 #: source/TortoiseSVN_en.xml:11689
 #: (para)
-#, fuzzy
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Batasan yang sering digunakan dalam sistem kontrol revisi untuk menjelaskan apa yang terjadi ketika garpu pengembangan pada titik tertentu dan mengikuti 2 path terpisah. Anda bisas membuat cabang diluar baris pengembangan utama untuk mengembangkan fitur baru tanpa menyerempet barus utama yang tidak stabil. Atau Anda bisa mencabangkan rilis stabil ke mana Anda hanya membuat pembetulan bug, sementara pengembangan baru menempati batang tidak stabil. Dalam Subversion cabang diimplementasikan sebagai <quote>copy murah</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11312(para)
 #: source/TortoiseSVN_en.xml:11704
 #: (para)
-#, fuzzy
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Perintah Subversion yang membuat copy pekerjaan lokal dalam direktori kosong dengan mendownload file berversi dari repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11321(para)
 #: source/TortoiseSVN_en.xml:11713
 #: (para)
-#, fuzzy
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
 msgstr "Mengutip dari buku Subversion: <quote> Secara rekursif membersihkan copy pekerjaan, menghapus kuncian dan melanjutkan operasi yang belum selesai. Jika Anda pernah mendapatkan kesalahan <literal>copy pekerjaan dikunci</literal>, jalankan perintah ini untuk menghapus kuncian basi dan mendapatkan copy pekerjaan Anda kedalam kondisi yang berguna lagi. </quote> Catatan bahwa konteks <quote>kunci</quote> merujuk ke penguncian sistem file lokal, bukan penguncian repositori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11338(para)
 #: source/TortoiseSVN_en.xml:11730
 #: (para)
-#, fuzzy
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Perintah Subversion ini digunakan untuk mengoper perubahan dalam copy pekerjaan Anda kembali ke dalam repositori, membuat revisi repositori baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11346(glossterm)
 #: source/TortoiseSVN_en.xml:11738
 #: (glossterm)
-#, fuzzy
 msgid "Conflict"
-msgstr "Konflik"
+msgstr "Conflict (Konflik)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11348(para)
 #: source/TortoiseSVN_en.xml:11740
 #: (para)
-#, fuzzy
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "Ketika perubahan dari repositori digabung dengan perubahan lokal, ada kalanya perubahan itu terjadi pada baris yang sama. Dalam hal ini Subversion tidak bisa secara otomatis menentukan versi yang mana untuk digunakan dan file yang dinyatakan sebagai konflik. Anda harus mengedit file secara manual dan menyelesaikan konflik sebelum Anda bisa mengkomit perubahan selanjutnya."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11359(glossterm)
 #: source/TortoiseSVN_en.xml:11750
 #: (glossterm)
-#, fuzzy
 msgid "Copy"
 msgstr "Copy"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11361(para)
 #: source/TortoiseSVN_en.xml:11752
 #: (para)
-#, fuzzy
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "Dalam repositori Subversion Anda bisa membuat copy dari file tunggal atau susunan keseluruhan. Ini diimplementasikan sebagai <quote>copy murah</quote> yang bertindak sedikit mirip link ke original didalamnya hampir tidak ada ruang. Membuat copy menjaga sejarah dari item dalam copy, dengan demikian Anda bisa melacak perubahan yang dibuat sebelum copy dibuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11373(para)
 #: source/TortoiseSVN_en.xml:11764
 #: (para)
-#, fuzzy
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Ketika Anda menghapus item berversi (dan komit perubahan) item tidak lagi ada dalam repositori setelah revisi yang dikomit. Tapi tentunya masih ada dalam revisi repositori sebelumnya, dan Anda masih bisa mengaksesnya. Jika perlu, Anda bisa mengcopy item yang dihapus dan <quote>menghidupkannya</quote> sepenuhnya dengan histori."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11385(para)
 #: source/TortoiseSVN_en.xml:11776
 #: (para)
-#, fuzzy
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "Kependekan dari <quote>Tampilkan Perbedaan</quote>. Sangat berguna ketika Anda ingin melihat perubahan apa yang telah dibuat secara pasti."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11394(para)
 #: source/TortoiseSVN_en.xml:11785
 #: (para)
-#, fuzzy
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Perintah ini menghasilkan copy dari folder berversi, seperti copy pekerjaan, tapi tanpa folder <literal>.svn</literal> lokal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11401(glossterm)
 #: source/TortoiseSVN_en.xml:11793
 #: (glossterm)
-#, fuzzy
 msgid "FSFS"
 msgstr "FSFS"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11403(para)
 #: source/TortoiseSVN_en.xml:11795
 #: (para)
-#, fuzzy
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS Filesystem. Hak milik Subversion filesystem backend untuk repositori. Bisa digunakan pada jaringan berbagi. Standar untuk 1.2 dan repositori lebih baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11413(para)
 #: source/TortoiseSVN_en.xml:11804
 #: (para)
-#, fuzzy
 msgid "Group policy object"
 msgstr "Group policy object"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11419(glossterm)
 #: source/TortoiseSVN_en.xml:11810
 #: (glossterm)
-#, fuzzy
 msgid "HEAD revision"
 msgstr "HEAD revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11421(para)
 #: source/TortoiseSVN_en.xml:11812
 #: (para)
-#, fuzzy
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "Revisi terbaru dari file atau folder dalam <emphasis>repositori</emphasis>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11429(para)
 #: source/TortoiseSVN_en.xml:11820
 #: (para)
-#, fuzzy
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Perintah Subversion untuk mengimpor keseluruhan hirarki folder ke dalam revisi tunggal."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11436(glossterm)
 #: source/TortoiseSVN_en.xml:11827
 #: (glossterm)
-#, fuzzy
 msgid "Lock"
-msgstr "Kunci"
+msgstr "Lock (Kunci)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11438(para)
 #: source/TortoiseSVN_en.xml:11829
 #: (para)
-#, fuzzy
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "Ketika Anda membawa kuncian pada item berversi, Anda menandainya dalam repositori sebagai tidak bisa dikomit, kecuali dari copy pekerjaan dimana kuncian tersebut dibawa."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11446(glossterm)
 #: source/TortoiseSVN_en.xml:11837
 #: (glossterm)
-#, fuzzy
 msgid "Log"
 msgstr "Log"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11448(para)
 #: source/TortoiseSVN_en.xml:11839
 #: (para)
-#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "Menampilkan histori revisi dari file atau folder. Juga dikenal sebagai <quote>Histori</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11455(glossterm)
 #: source/TortoiseSVN_en.xml:11846
 #: (glossterm)
-#, fuzzy
 msgid "History"
 msgstr "Histori"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11457(para)
 #: source/TortoiseSVN_en.xml:11848
 #: (para)
-#, fuzzy
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "Menampilkan histori revisi dari file atau folder. Juga dikenal sebagai <quote>Log</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11466(para)
 #: source/TortoiseSVN_en.xml:11857
 #: (para)
-#, fuzzy
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Proses dimana perubahan dari repositori ditambahkan ke copy pekerjaan Anda tanpa mengganggu setiap perubahan yang sudah Anda buat secara lokal. Kadang kala perubahan ini tidak bisa disesuaikan secara otomatis dan copy pekerjaan dinyatakan dalam keadaan konflik."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11472(para)
 #: source/TortoiseSVN_en.xml:11863
 #: (para)
-#, fuzzy
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Penggabungan terjadi secara otomatis ketika Anda memutahirkan copy pekerjaan Anda. Anda juga bisa menggabung perubahan spesifik dari cabang lain menggunakan perintah Merge TortoiseSVN."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11480(glossterm)
 #: source/TortoiseSVN_en.xml:11871
 #: (glossterm)
-#, fuzzy
 msgid "Patch"
 msgstr "Patch"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11482(para)
 #: source/TortoiseSVN_en.xml:11873
 #: (para)
-#, fuzzy
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "Jika copy pekerjaan sudah berubah ke hanya file teks, ini memungkinkan untuk menggunakan perintah Diff Subversion untuk menghasilkan ringkasan file tunggal dari perubahan itu dalam format Unified Diff. File dari tipe ini sering dirujuk sebagai <quote>Patch</quote>, dan bisa diemail ke orang lain (atau daftar mailing) dan diterapkan ke copy pekerjaan lain. Seseorang tanpa akses komit bisa membuat perubahan dan mengirimkan file patch untuk pengkomit yang diotorisasi untuk menerapkan. Atau jika Anda tidak yakin mengenai perubahan Anda bisa mengirimkan patch untuk ditinjau orang lain."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11496(glossterm)
 #: source/TortoiseSVN_en.xml:11886
 #: (glossterm)
-#, fuzzy
 msgid "Property"
 msgstr "Properti"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11498(para)
 #: source/TortoiseSVN_en.xml:11888
 #: (para)
-#, fuzzy
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "Sebagai tambahan ke direktori dan file versi Anda, Subversion membolehkan Anda untuk menambahkan metadata yang diversi - dirujuk sebagai <quote>properties</quote> ke setiap direktori dan file yang diversi Anda. Setiap properti mempunyai nama dan nilai, mirip kunci registri. Subversion mempunyai beberapa properti khusus yang digunakan secara internal, seperti <literal>svn:eol-style</literal>. TortoiseSVN juga mempunyai beberapa, seperti <literal>tsvn:logminsize</literal>. Anda bisa menambah properti Anda sendiri dengan setiap nama dan nilai yang Anda pilih."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11513(para)
 #: source/TortoiseSVN_en.xml:11903
 #: (para)
-#, fuzzy
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Jika repositori Anda pindah, barangkali karena Anda telah memindahkannya ke direktori berbeda pada server Anda, atau nama domain server berubah, Anda perlu untuk <quote>merelokasi</quote> copy pekerjaan Anda agar URL repositorinya merujuk ke lokasi baru."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11519(para)
 #: source/TortoiseSVN_en.xml:11909
 #: (para)
-#, fuzzy
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Catatan: Anda hanya menggunakan perintah ini jika copy pekerjaan Anda merujuk ke lokasi yang sama dalam repositori yang sama, tapi repositori itu sendiri sudah dipindah. Dalam persoalan lain sebaliknya Anda mungkin memerlukan perintah <quote>Tukar</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11530(para)
 #: source/TortoiseSVN_en.xml:11920
 #: (para)
-#, fuzzy
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Repositori adalah pusat tempat dimana data disimpan dan dipelihara. Repositori bisa berupa tempat dimana database multipel atau file ditempatkan untuk distribusi melalui jaringan, atau repositori bisa berupa lokasi yang diakses secara langsung ke pengguna tanpa harus berjalan melalui jaringan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11539(glossterm)
 #: source/TortoiseSVN_en.xml:11929
 #: (glossterm)
-#, fuzzy
 msgid "Resolve"
 msgstr "Selesaikan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11541(para)
 #: source/TortoiseSVN_en.xml:11931
 #: (para)
-#, fuzzy
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "Ketika file dalam copy pekerjaan dibiarkan dalam kondisi konflik mengikuti gabungan, konflik itu harus diurut oleh manusia menggunakan editor (atau mungkin TortoiseMerge). Proses ini dirujuk sebagai <quote>Menyelesaikan Konflik</quote>. Ketika ini lengkap Anda bisa menandai file yang konflik sebagai sudah diselesaikan, yang membolehkannya dikomit."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11553(para)
 #: source/TortoiseSVN_en.xml:11943
 #: (para)
-#, fuzzy
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion memelihara copy <quote>murni</quote> lokal dari setiap file seperti setelah saat terakhir Anda memutahirkan copy pekerjaan Anda. Jika Anda telah membuat perubahan dan menentukan Anda ingin membatalkannya, Anda bisa menggunakan perintah <quote>pulihkan</quote> untuk kembali ke copy murni."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11564(para)
 #: source/TortoiseSVN_en.xml:11952
 #: (glossterm)
-#, fuzzy
 msgid "Revision"
-msgstr "XXX inserted for sync"
+msgstr "Revisi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11564(para)
 #: source/TortoiseSVN_en.xml:11954
 #: (para)
-#, fuzzy
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Setiap kali Anda mengkomit set perubahan, Anda membuat satu <quote>revisi</quote> baru dalam repositori. Setiap revisi menggambarkan keadaan dari susunan repositori pada titik tertentu dalam historinya. Jika Anda ingin kembalike waktu Anda bisa memeriksa repositori seperti pada revisi N."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11571(para)
 #: source/TortoiseSVN_en.xml:11961
 #: (para)
-#, fuzzy
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "Dengan kata lain, revisi bisa merujuk ke set dari perubahan yang dibuat ketika revisi itu dibuat."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11578(glossterm)
 #: source/TortoiseSVN_en.xml:11968
 #: (glossterm)
-#, fuzzy
 msgid "Revision Property (revprop)"
 msgstr "Revisi Properti (revprop)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11580(para)
 #: source/TortoiseSVN_en.xml:11970
 #: (para)
-#, fuzzy
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "Seperti halnya file bisa mempunyai properti, juga setiap revisi dalam repositori. Beberapa revprops khusus ditambahkan secara otomatis ke revisi yang dibuat, yaitu <literal>svn:date svn:author svn:log</literal> yang menggambarkan tanggal/jam komit, pengkomit dan log pesan masing-masing. Properti ini bisa diedit, tapi tidak diversi, maka setiap perubahan adalah permanen dan tidak bisa dibatalkan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11592(glossterm)
 #: source/TortoiseSVN_en.xml:11982
 #: (glossterm)
-#, fuzzy
 msgid "SVN"
 msgstr "SVN"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11594(para)
 #: source/TortoiseSVN_en.xml:11984
 #: (para)
-#, fuzzy
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Sering-digunakan kependekan dari Subversion."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11597(para)
 #: source/TortoiseSVN_en.xml:11987
 #: (para)
-#, fuzzy
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "Nama dari protokol bebas Subversion yang digunakan oleh server repositori <quote>svnserve</quote>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11606(para)
 #: source/TortoiseSVN_en.xml:11996
 #: (para)
-#, fuzzy
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "Seperti <quote>Mutahirkan-ke-revisi</quote> mengubah jendela waktu dari copy pekerjaan untuk melihat titik perbedaan dalam histori, maka <quote>Tukar</quote> mengubah jendela ruang dari copy pekerjaan agar merujuk ke bagian yang berbeda dari repositori. Ini kadang berguna ketika pekerjaan pada batang dan cabang dimana hanya sedikit file yang berbeda. Anda bisa menukar copy pekerjaan Anda antara dua dan hanya file yang berubah yang akan ditransfer."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11620(para)
 #: source/TortoiseSVN_en.xml:12010
 #: (para)
-#, fuzzy
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr "Perinah Subversion ini menarik perubahan terbaru dari repositori ke dalam copy pekerjaan Anda, menggabung setiap perubahan oleh orang lain dengan perubahan lokal dalam copy pekerjaan."
+msgstr "Perintah Subversion ini menarik perubahan terbaru dari repositori ke dalam copy pekerjaan Anda, menggabung setiap perubahan oleh orang lain dengan perubahan lokal dalam copy pekerjaan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:11457(glossterm)
 #: source/TortoiseSVN_en.xml:12018
 #: (glossterm)
-#, fuzzy
 msgid "Working Copy"
-msgstr "XXX inserted for sync"
+msgstr "Working Copy (Copy Pekerjaan)"
 
 # Indonesian#: source/TortoiseSVN_en.xml:11630(para)
 #: source/TortoiseSVN_en.xml:12020
 #: (para)
-#, fuzzy
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Ini adalah <quote>bak pasir</quote> lokal Anda, area dimana Anda bekerja pada file berversi, dan biasanya berada pada hard disk lokal Anda. Anda membuat copy pekerjaan dengan melakukan <quote>Checkout</quote> dari repositori, dan mengisi perubahan Anda kembali ke dalam repositori menggunakan <quote>Komit</quote>."
 
