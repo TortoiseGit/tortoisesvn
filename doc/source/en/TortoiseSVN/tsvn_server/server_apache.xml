@@ -923,6 +923,19 @@ SSLMutex  default
 			</listitem>
 			<listitem>
 				<para>
+					If you want that all the apache modules are aware of the
+					SSL ability, change the registry key
+					<filename>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Apache2\ImagePath</filename>
+					from <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -k runservice</filename>
+					to <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -D SSL -k runservice</filename>.
+				</para>
+				<para>
+					This will set an internal flag which apache modules can 
+					read the next time you start the apache service.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
 					Open the Apache config file
 					(<filename>httpd.conf</filename>) and uncomment the line
 <screen>
