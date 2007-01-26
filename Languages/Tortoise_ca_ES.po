@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2006-12-21 12:13+0100\n"
+"PO-Revision-Date: 2007-01-26 12:04+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -659,8 +659,8 @@ msgstr "&Nou"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "&Propers 100"
+msgid "&Next %ld"
+msgstr "&Propers %ld"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -951,6 +951,11 @@ msgstr "(simulació)"
 msgid "(multiple targets selected)"
 msgstr "(vàries destinacions seleccionades)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(sense changelist)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1029,6 +1034,11 @@ msgstr ""
 "Per utilitzar <b>TortoiseSVN</b> obre l'explorador i fes click amb el botó dret sobre qualsevol carpeta\n"
 "per tal de fer apareixer el  menú contextual on trobaràs totes les comandes del <b>TortoiseSVN</b>.\n"
 "I <u>llegeix el manual!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<nova changelist>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1787,6 +1797,11 @@ msgstr "Busca actualitzacions"
 msgid "Check For Updates..."
 msgstr "Busca actualitzacions..."
 
+# Dlg-ID:133,
+#: ID:213
+msgid "Check Group"
+msgstr "Comprova grup"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2336,6 +2351,11 @@ msgid "Create &patch..."
 msgstr "Crea &pedaç..."
 
 # Dlg-ID:208,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Crea Changelist"
+
+# Dlg-ID:208,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Crea Pedaç"
@@ -2614,15 +2634,6 @@ msgstr ""
 "Vols recarregar els documents per reflectir els canvis en la configuració?\n"
 "Nota: Perdràs tots els canvis que hagis fet!"
 
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"Vols recarregar els documents?\n"
-"Perdràs tots els canvis que hagis fet!"
-
 # ID:563,
 #: ID:563
 #, c-format
@@ -2777,6 +2788,11 @@ msgstr "Introdueix URL"
 msgid "Enter a lock message (optional):"
 msgstr "Introdueix un missatge pel bloqueig (opcional)"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Entreu un nom per a  la Changelist:"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -2865,6 +2881,12 @@ msgstr "Exporta directori:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Exporta fitxers sense versionar també"
+
+# ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "Exportant %s"
 
 # ID:79,
 #: ID:79
@@ -2996,7 +3018,7 @@ msgid "File diffs"
 msgstr "Diferències dels fitxers"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Llista de fitxers buida"
 
@@ -3099,12 +3121,16 @@ msgstr ""
 "Podeu obtenir GDI+ a\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:120,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Obtenint informació. Su us plau espereu..."
+
 # Dlg-ID:143,#:
 # Dlg-ID:107,#:
 # Control-ID:65535,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "General"
 
@@ -3634,10 +3660,10 @@ msgstr "Inclou els paths:"
 msgid "Initial import"
 msgstr "Importació Inicial"
 
-# Control-ID:65535,
+# ID:114,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Diff dins de la línea"
+msgid "Inline differences"
+msgstr "Diferències a la línea"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3788,6 +3814,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Manté &bloqueigs"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "Mantenir Changelist"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3827,6 +3858,11 @@ msgstr "Línea"
 #: ID:246
 msgid "Line Graph"
 msgstr "Gràfic de línies"
+
+# ID:114,
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Diferències de línea"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3880,7 +3916,7 @@ msgid "Lock Files"
 msgstr "Bloqueja Fixers"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Bloqueig eliminat!"
 
@@ -3905,7 +3941,7 @@ msgid "Lock owner:"
 msgstr "Propietari del Bloqueig:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Bloqueig tret per %s"
@@ -4157,6 +4193,11 @@ msgstr ""
 "Mou %s\r\n"
 "a %s"
 
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Mou a la Changelist"
+
 # ID:98,
 #: ID:98
 #, c-format
@@ -4199,7 +4240,7 @@ msgid "Needs lock"
 msgstr "Necessita Bloqueig"
 
 # ID:210,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Aniuat"
 
@@ -4711,7 +4752,7 @@ msgstr "Espereu mentre el navegador del repositori s'inicialitza..."
 # ID:211,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Espereu un moment..."
 
@@ -4995,6 +5036,11 @@ msgstr "Suprimeix %s"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "Treu de la llista d'&ignorats"
+
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Treu de la Changelist"
 
 # Control-ID:1332,
 #: Control-ID:1332
@@ -6523,10 +6569,24 @@ msgstr ""
 "Voleu desar el fitxer amb conflictes?\n"
 "Si cliqueu SÍ, llavors heu de resoldre els conflictes manualment en un altre editor!"
 
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Hi ha modificacions sense desar!\n"
+"Voleu desar els canvis?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "No hi ha res a afegir. Tots els fitxers i carpetes són sota control de versions o bé s'han ignorat utilitzant la propietat svn:ignore o el paràmetre d'ignoració global que hi ha a la configuració."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "No hi ha res a desbloquejar. Cap fitxer té un lock en aquesta còpia de treball."
 
 # ID:188,
 #: ID:188
@@ -6914,6 +6974,12 @@ msgstr "No es possible escriure a %1, es de només lectura o és oberta per alg�
 msgid "Uncheck"
 msgstr "Treu la marca"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "Treu la marca al Grup"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -6947,6 +7013,7 @@ msgstr ""
 
 # ID:221,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Desbloqueja"
 
@@ -7065,8 +7132,8 @@ msgstr "Utilitza els dos blocs de texte (aquest el darrer)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "Utilitza tat&xat  per a les línies esborrades"
+msgid "Use stri&keout for removed lines"
+msgstr "Utilitza &tatxat  per a les línies esborrades"
 
 #: MenuEntry
 msgid "Use text block from \"&mine\""
@@ -7842,6 +7909,7 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "a %s"
