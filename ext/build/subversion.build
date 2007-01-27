@@ -67,6 +67,7 @@
 					<arg value="/errorReport:prompt" />
 					<sources>
 						<include name="subversion\${fname}\**.c" />
+						<exclude name="subversion\libsvn_subr\win32_crash**.c" />
 					</sources>
 					<includedirs>
 						<include name="subversion" />
@@ -136,6 +137,7 @@
 					<arg value="/errorReport:prompt" />
 					<sources>
 						<include name="subversion\${fname}\**.c" />
+						<exclude name="subversion\libsvn_subr\win32_crash**.c" />
 					</sources>
 					<includedirs>
 						<include name="subversion" />
@@ -202,6 +204,7 @@
 			<arg value="/errorReport:prompt" />
 			<sources>
 				<include name="subversion\svn\*.c" />
+				<exclude name="subversion\libsvn_subr\win32_crash**.c" />
 			</sources>
 			<includedirs>
 				<include name="subversion" />
