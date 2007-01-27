@@ -1641,7 +1641,7 @@ void CLogDlg::OnBnClickedStatbutton()
 	if (m_arShownList.IsEmpty())
 		return;		// nothing is shown, so no statistics.
 	// the statistics dialog expects the log entries to be sorted by revision
-	SortByColumn(0, true);
+	SortByColumn(0, false);
 	CPtrArray shownlist;
 	RecalculateShownList(&shownlist);
 	// create arrays which are aware of the current filter
