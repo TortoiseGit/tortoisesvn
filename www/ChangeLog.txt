@@ -1,3 +1,41 @@
+Version 1.4.2
+- BUG: Checking out from the repository browser would default to HEAD
+       instead of the revision shown in the repository browser.
+       See issue #290 for details. (Stefan)
+- BUG: The column "SVN Author" was not available to choose from. (Stefan)
+- BUG: The URL in the merge dialog was not shown unescaped. (Stefan)
+- BUG: The slider in the log dialog could sometimes get out of bounds.
+       See issue #324 for details. (Stefan)
+- BUG: The revert dialog showed also modified files from externals, which
+       were not reverted later even if they were selected. (Stefan)
+- BUG: Reopening the commit dialog after a failed commit did not always
+       restore the state of all selected items. (Tobias Schäfer)
+- BUG: Reverted files dissapeared from the list even if "show unmodified files"
+       was set in the check-for-modifications dialog.
+       See issue #325 for details. (Stefan)
+- BUG: After sorting the working copy items by a column in the commit dialog,
+       the checked state was not adjusted to the new ordering. (Stefan)
+- BUG: Calling "Save revision to..." in the file list of the log dialog
+       appended the revision number to the file name instead of inserting it
+       before the file extension. (Tobias Schäfer)
+- BUG: When blaming a file not from revision 1 on, the blame viewer didn't
+       show the log info in the tooltips. (Stefan)
+- BUG: If the repobrowser is started with an url having a trailing slash,
+       an empty-named directory was shown below the real directory. (Stefan)
+- BUG: The statistics by date were shown messed up if the log messages were
+       not sorted by revision in the log dialog. (Stefan)
+- BUG: When the log dialog was maximized and restored again, the bottom 
+       splitter could not be moved correctly anymore. (Stefan)
+- BUG: If the bugtraq:logregex was set but the bugtraq:url left empty, the
+       bug-id column in the log dialog was shown but always left empty. (Stefan)
+- BUG: Exporting selected entries from the changed-files dialog exported
+       the wrong entries. (Stefan)
+- CHG: The "break lock" entry is shown in the change-for-modifications context
+       menu for added files too if it has a remote lock. This is a workaround
+       for http://subversion.tigris.org/issues/show_bug.cgi?id=2507. (Stefan)
+- CHG: The "next 100" button is disabled if the log messages are not sorted
+       by revision in descending order in the log dialog. (Stefan)
+
 Version 1.4.1
 - NEW: TortoiseMerge can now handle files with CR lineendings. (Stefan)
 - NEW: TortoiseProc passes the parameter "/line:XXXX" to TortoiseBlame
