@@ -8,15 +8,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef _UTILITY_H_
-#define _UTILITY_H_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
 
 #include "stdafx.h"
-#include <atlmisc.h> // CString
 
 
 ////////////////////////////// Class Definitions /////////////////////////////
@@ -28,6 +22,8 @@
 //
 namespace CUtility 
 {
+
+	BSTR AllocSysString(string s);
 
    //-----------------------------------------------------------------------------
    // getLastWriteFileTime
@@ -43,9 +39,12 @@ namespace CUtility
    //
    FILETIME 
    getLastWriteFileTime(
-      CString sFile
+      string sFile
       );
-   
+   FILETIME
+	   getLastWriteFileTime(
+	   WCHAR * wszFile
+	   );
    //-----------------------------------------------------------------------------
    // getAppName
    //    Returns the application module's file name
@@ -59,7 +58,7 @@ namespace CUtility
    // Remarks
    //    none
    //
-   CString 
+   string 
    getAppName();
 
    //-----------------------------------------------------------------------------
@@ -75,7 +74,7 @@ namespace CUtility
    // Remarks
    //    none
    //
-   CString 
+   string 
    getSaveFileName();
 	
    //-----------------------------------------------------------------------------
@@ -90,8 +89,7 @@ namespace CUtility
    //
    // Remarks
    //
-   CString 
+   string 
    getTempFileName();
 };
 
-#endif	// #ifndef _UTILITY_H_

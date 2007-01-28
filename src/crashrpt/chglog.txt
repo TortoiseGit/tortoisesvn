@@ -1,3 +1,7 @@
+01/28/2007 Stefan Kueng
+  Major Changes:
+    * Remove dependency on WTL/ATL, use only Win32 API and the std lib.
+
 05/23/2003 Stefan Kueng
   Major Changes:
     * the zlib part now is linked statically, so no additional zlib.dll

@@ -10,32 +10,15 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef _CRASHHANDLER_H_
-#define _CRASHHANDLER_H_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
 
 #include "crashrpt.h"      // defines LPGETLOGFILE callback
 #include "excprpt.h"       // bulk of crash report generation
 
 #ifndef TStrStrVector
-// STL generates various warnings.
-// 4100: unreferenced formal parameter
-// 4663: C++ language change: to explicitly specialize class template...
-// 4018: signed/unsigned mismatch
-// 4245: conversion from <a> to <b>: signed/unsigned mismatch
-#pragma warning(push, 3)
-#pragma warning(disable: 4100)
-#pragma warning(disable: 4663)
-#pragma warning(disable: 4018)
-#pragma warning(disable: 4245)
 #include <vector>
-#pragma warning(pop)
-#include <atlmisc.h>
 
-typedef std::pair<CString,CString> TStrStrPair;
+typedef std::pair<string,string> TStrStrPair;
 typedef std::vector<TStrStrPair> TStrStrVector;
 #endif // !defined TStrStrVector
 
@@ -373,22 +356,21 @@ protected:
    //
    static DWORD WINAPI CCrashHandler::DialogThreadExecute(LPVOID pParam);
 
-   CString LoadResourceString(UINT id);
+   string LoadResourceString(UINT id);
    LPTOP_LEVEL_EXCEPTION_FILTER  m_oldFilter;      // previous exception filter
    LPGETLOGFILE                  m_lpfnCallback;   // client crash callback
    int                           m_pid;            // process id
    TStrStrVector                 m_files;          // custom files to add
    TStrStrVector				 m_registryHives;  // custom registry hives to save
    TStrStrVector				 m_eventLogs;      // custom event logs to save
-   CString                       m_sTo;            // Email:To
-   CString                       m_sSubject;       // Email:Subject
+   string						 m_sTo;            // Email:To
+   string                        m_sSubject;       // Email:Subject
    HANDLE                        m_ipc_event;      // Event for dialog thread synchronization
-   CExceptionReport             *m_rpt;            // Exception report for dialog
+   CExceptionReport              *m_rpt;            // Exception report for dialog
    bool                          m_installed;      // True if already installed
    HMODULE                       m_hModule;        // Module handle for loading resource strings
-   CString						 m_userDataFile;   // file to save user input when m_sTo is empty
+   string						 m_userDataFile;   // file to save user input when m_sTo is empty
    bool                          m_wantDebug;      // user pushed Debug button
    BOOL							 m_bUseUI;		   // use an UI or print to the error output
 };
 
-#endif	// #ifndef _CRASHHANDLER_H_

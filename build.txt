@@ -7,7 +7,7 @@ A. You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
    Applications" are installed.
 
 B. If you do not have access to VS.NET you can download the free
-   Visual C++ 2005 Express Edition (only free for a limited period).
+   Visual C++ 2005 Express Edition.
    This will allow you to build the subversion libraries and the
    SubWCRev and TortoiseBlame programs only.
    - Install Visual C++ 2005 Express Edition.
@@ -39,13 +39,10 @@ Next you need to install some utilities/programs:
 - WiX(*)                  : http://wix.sourceforge.net
 - NSIS                    : http://nsis.sourceforge.net
 - NAnt(*)                 : http://nant.sourceforge.net
-- WTL(+)                  : http://wtl.sourceforge.net/
 - gdiplus merge module(#) : http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
 
 (*) Add the paths of the binaries to the PATH environment variable
     You may have to logoff/logon to make the new environment variables take effect!
-(+) Add the path to the include folder in the Visual Studio options,
-    Projects and Solutions->VC++ Directories, include files
 (#) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
 
 

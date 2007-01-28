@@ -23,16 +23,14 @@
 #include "zip.h"
 #endif // _zip_H
 
-#include <atlmisc.h>
-
 class CZLib  
 {
 public:
 	CZLib();
 	virtual ~CZLib();
 
-	BOOL Open(CString f_file, int f_nAppend = 0);
-   BOOL AddFile(CString f_file);
+	BOOL Open(string f_file, int f_nAppend = 0);
+   BOOL AddFile(string f_file);
 	void Close();
 protected:
 	zipFile m_zf;

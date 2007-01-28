@@ -47,71 +47,21 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // Dialog
 //
 
-IDD_MAINDLG DIALOGEX 0, 0, 270, 255
+IDD_MAINDLG DIALOGEX 0, 0, 270, 219
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",WS_DISABLED,0,0,272,32
-    EDITTEXT        IDC_EMAIL,20,128,230,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_DESCRIPTION,20,162,230,44,ES_MULTILINE | 
-                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
-    PUSHBUTTON      "&Senden",IDOK,152,232,50,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Beenden",IDCANCEL,205,232,50,14
-    CONTROL         "",IDC_HEADING_TEXT,"RICHEDIT",TCS_MULTISELECT | 
-                    WS_DISABLED,15,6,214,20
-    ICON            "",IDI_APPICON,234,6,20,20
-    LTEXT           "hier klicken.",IDC_LINK,154,212,39,8,NOT WS_GROUP
-    LTEXT           "Das Programm hat einen schweren Fehler verursacht. Ihre nicht gespeicherten Daten sind wahrscheinlich verloren.",
-                    IDC_STATIC,20,39,230,20
-    LTEXT           "Wir haben einen Fehlerreport erstellt welchen Sie uns zuschicken können. Wir werden diesen Report vertraulich und anonym behandeln.",
-                    IDC_STATIC,20,63,230,20
-    LTEXT           "Um uns zu helfen diesen Fehler zu beheben und die Software zu verbessern geben Sie bitte Ihre Email-Adresse ein und beschreiben Sie kurz was Sie gerade taten als dieser Fehler auftrat.",
-                    IDC_STATIC,20,87,230,29
-    LTEXT           "Um zu sehen was der Fehlerreport enthält",IDC_STATIC,20,
-                    213,132,8
-    LTEXT           "Ihre EMail-Addresse (optional):",IDC_STATIC,20,117,230,
-                    8
-    LTEXT           "Beschreiben Sie was Sie taten als der Fehler auftrat (optional):",
-                    IDC_STATIC,20,150,230,8
-    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,226,272,1
-    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,32,272,1
-    PUSHBUTTON      "S&peichern",IDC_SAVE,99,232,50,14
-    PUSHBUTTON      "&Debug",IDC_DEBUG,47,232,50,14
-END
-
-IDD_DETAILDLG DIALOGEX 0, 0, 318, 231
-STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Crash Report"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    CONTROL         "List4",IDC_FILE_LIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | 
-                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,3,3,312,68
-    GROUPBOX        "",IDC_STATIC,3,68,312,160
-    EDITTEXT        IDC_FILE_EDIT,4,103,310,124,ES_MULTILINE | ES_NOHIDESEL | 
-                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL,
-                    WS_EX_TRANSPARENT | WS_EX_STATICEDGE
-    LTEXT           "Name:",IDC_STATIC,6,78,22,8
-    LTEXT           "Beschreibung:",IDC_STATIC,6,89,46,8
-    CONTROL         "Static",IDC_NAME,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,
-                    56,78,253,8
-    CONTROL         "Static",IDC_DESCRIPTION,"Static",SS_LEFTNOWORDWRAP | 
-                    WS_GROUP,56,89,253,8
-END
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 187, 102
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    LTEXT           "original code by Michael Carruth",IDC_STATIC,7,32,173,
-                    10
-    DEFPUSHBUTTON   "OK",IDOK,69,81,50,14
-    LTEXT           "You are free to use, modify and distribute this library as you see fit subject to the terms of this",
-                    IDC_STATIC,7,7,173,18
-    LTEXT           "license.",IDC_LICENSE_LINK,125,15,25,8
-    LTEXT           "improved by Grant McDorman",IDC_STATIC,7,42,173,10
-    LTEXT           "this version by Stefan Kueng",IDC_STATIC,7,52,173,10
+    EDITTEXT        IDC_EMAIL,20,94,230,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,20,127,230,58,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "&Senden",IDOK,152,200,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Beenden",IDCANCEL,205,200,50,14
+    LTEXT           "Das Programm hat einen schweren Fehler verursacht. Ihre nicht gespeicherten Daten sind wahrscheinlich verloren.",IDC_STATIC,20,4,230,20
+    LTEXT           "Wir haben einen Fehlerreport erstellt welchen Sie uns zuschicken können. Wir werden diesen Report vertraulich und anonym behandeln.",IDC_STATIC,20,28,230,20
+    LTEXT           "Um uns zu helfen diesen Fehler zu beheben und die Software zu verbessern geben Sie bitte Ihre Email-Adresse ein und beschreiben Sie kurz was Sie gerade taten als dieser Fehler auftrat.",IDC_STATIC,20,52,230,29
+    LTEXT           "Ihre EMail-Addresse (optional):",IDC_STATIC,20,82,230,8
+    LTEXT           "Beschreiben Sie was Sie taten als der Fehler auftrat (optional):",IDC_STATIC,20,116,230,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,194,272,1
+    PUSHBUTTON      "S&peichern",IDC_SAVE,99,200,50,14
 END
 
 
@@ -129,29 +79,10 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 250
         VERTGUIDE, 255
-        BOTTOMMARGIN, 249
-        HORZGUIDE, 6
-        HORZGUIDE, 26
-        HORZGUIDE, 32
-        HORZGUIDE, 220
-        HORZGUIDE, 227
-        HORZGUIDE, 232
-    END
-
-    IDD_DETAILDLG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 88
-    END
-
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 95
+        BOTTOMMARGIN, 213
+        HORZGUIDE, 4
+        HORZGUIDE, 195
+        HORZGUIDE, 200
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -294,70 +225,21 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Dialog
 //
 
-IDD_MAINDLG DIALOGEX 0, 0, 270, 255
+IDD_MAINDLG DIALOGEX 0, 0, 270, 217
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",WS_DISABLED,0,0,272,32
-    EDITTEXT        IDC_EMAIL,20,128,230,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_DESCRIPTION,20,162,230,44,ES_MULTILINE | 
-                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
-    PUSHBUTTON      "&Send",IDOK,152,233,50,14,NOT WS_VISIBLE
-    PUSHBUTTON      "E&xit",IDCANCEL,205,233,50,14
-    CONTROL         "",IDC_HEADING_TEXT,"RICHEDIT",TCS_MULTISELECT | 
-                    WS_DISABLED,15,6,214,20
-    ICON            "",IDI_APPICON,234,6,20,20
-    LTEXT           "click here.",IDC_LINK,124,213,34,8,NOT WS_GROUP
-    LTEXT           "If you were in the middle of something, the information you were working on might be lost.",
-                    IDC_STATIC,20,39,230,20
-    LTEXT           "We have created an error report that you can send to us.  We will treat this report as confidential and anonymous.",
-                    IDC_STATIC,20,63,230,20
-    LTEXT           "To help us diagnose the cause of this error and improve this software, please enter your email address, describe what you were doing when this error occurred, and send this report to us.",
-                    IDC_STATIC,20,87,230,29
-    LTEXT           "To see what this report contains",IDC_STATIC,20,213,101,
-                    8
-    LTEXT           "Your EMail Address (optional):",IDC_STATIC,20,117,230,8
-    LTEXT           "Describe what you were doing when the error occurred (optional):",
-                    IDC_STATIC,20,150,230,8
-    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,226,272,1
-    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,32,272,1
-    PUSHBUTTON      "Sa&ve",IDC_SAVE,99,233,50,14
-    PUSHBUTTON      "&Debug",IDC_DEBUG,47,233,50,14
-END
-
-IDD_DETAILDLG DIALOGEX 0, 0, 318, 231
-STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Crash Report"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    CONTROL         "List4",IDC_FILE_LIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | 
-                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,3,3,312,68
-    GROUPBOX        "",IDC_STATIC,3,68,312,160
-    EDITTEXT        IDC_FILE_EDIT,4,103,310,124,ES_MULTILINE | ES_NOHIDESEL | 
-                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL,
-                    WS_EX_TRANSPARENT | WS_EX_STATICEDGE
-    LTEXT           "Name:",IDC_STATIC,6,78,22,8
-    LTEXT           "Description:",IDC_STATIC,6,89,38,8
-    CONTROL         "Static",IDC_NAME,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,
-                    56,78,253,8
-    CONTROL         "Static",IDC_DESCRIPTION,"Static",SS_LEFTNOWORDWRAP | 
-                    WS_GROUP,56,89,253,8
-END
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 187, 102
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    LTEXT           "original code by Michael Carruth",IDC_STATIC,7,32,173,
-                    10
-    DEFPUSHBUTTON   "OK",IDOK,69,81,50,14
-    LTEXT           "You are free to use, modify and distribute this library as you see fit subject to the terms of this",
-                    IDC_STATIC,7,7,173,18
-    LTEXT           "license.",IDC_LICENSE_LINK,125,15,25,8
-    LTEXT           "improved by Grant McDorman",IDC_STATIC,7,42,173,10
-    LTEXT           "this version by Stefan Kueng",IDC_STATIC,7,52,173,10
+    EDITTEXT        IDC_EMAIL,20,95,230,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,20,129,230,57,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "&Send",IDOK,152,198,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "E&xit",IDCANCEL,205,198,50,14
+    LTEXT           "If you were in the middle of something, the information you were working on might be lost.",IDC_STATIC,20,6,230,20
+    LTEXT           "We have created an error report that you can send to us.  We will treat this report as confidential and anonymous.",IDC_STATIC,20,30,230,20
+    LTEXT           "To help us diagnose the cause of this error and improve this software, please enter your email address, describe what you were doing when this error occurred, and send this report to us.",IDC_STATIC,20,54,230,29
+    LTEXT           "Your EMail Address (optional):",IDC_STATIC,20,84,230,8
+    LTEXT           "Describe what you were doing when the error occurred (optional):",IDC_STATIC,20,118,230,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,192,272,1
+    PUSHBUTTON      "Sa&ve",IDC_SAVE,99,198,50,14
 END
 
 
@@ -375,28 +257,10 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 250
         VERTGUIDE, 255
-        BOTTOMMARGIN, 249
+        BOTTOMMARGIN, 211
         HORZGUIDE, 6
-        HORZGUIDE, 26
-        HORZGUIDE, 32
-        HORZGUIDE, 227
-        HORZGUIDE, 233
-    END
-
-    IDD_DETAILDLG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 88
-    END
-
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 95
+        HORZGUIDE, 193
+        HORZGUIDE, 198
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -419,35 +283,8 @@ BEGIN
     "\0"
 END
 
-3 TEXTINCLUDE 
-BEGIN
-END
 
 #endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Accelerator
-//
-
-IDR_MAINFRAME ACCELERATORS 
-BEGIN
-    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
-    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
-    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
-    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
-    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
-    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
-    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
-END
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -488,13 +325,6 @@ BEGIN
     END
 END
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXT
-//
-
-IDR_LICENSE             TEXT                    "license.txt"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -625,6 +455,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
+
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

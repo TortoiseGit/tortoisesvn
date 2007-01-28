@@ -13,8 +13,6 @@
 
 CMailMsg::CMailMsg()
 {
-   m_sSubject        = _T("");
-   m_sMessage        = _T("");
    m_lpCmcLogon      = NULL;
    m_lpCmcSend       = NULL;
    m_lpCmcLogoff     = NULL;
@@ -32,7 +30,7 @@ CMailMsg::~CMailMsg()
       Uninitialize();
 }
 
-CMailMsg& CMailMsg::SetFrom(CString sAddress, CString sName)
+CMailMsg& CMailMsg::SetFrom(string sAddress, string sName)
 {
    if (m_bReady || Initialize())
    {
@@ -46,7 +44,7 @@ CMailMsg& CMailMsg::SetFrom(CString sAddress, CString sName)
    return *this;
 }
 
-CMailMsg& CMailMsg::SetTo(CString sAddress, CString sName)
+CMailMsg& CMailMsg::SetTo(string sAddress, string sName)
 {
    if (m_bReady || Initialize())
    {
@@ -60,7 +58,7 @@ CMailMsg& CMailMsg::SetTo(CString sAddress, CString sName)
    return *this;
 }
 
-CMailMsg& CMailMsg::SetCc(CString sAddress, CString sName)
+CMailMsg& CMailMsg::SetCc(string sAddress, string sName)
 {
    if (m_bReady || Initialize())
    {
@@ -70,7 +68,7 @@ CMailMsg& CMailMsg::SetCc(CString sAddress, CString sName)
    return *this;
 }
 
-CMailMsg& CMailMsg::SetBc(CString sAddress, CString sName)
+CMailMsg& CMailMsg::SetBc(string sAddress, string sName)
 {
    if (m_bReady || Initialize())
    {
@@ -80,7 +78,7 @@ CMailMsg& CMailMsg::SetBc(CString sAddress, CString sName)
    return *this;
 }
 
-CMailMsg& CMailMsg::AddAttachment(CString sAttachment, CString sTitle)
+CMailMsg& CMailMsg::AddAttachment(string sAttachment, string sTitle)
 {
    if (m_bReady || Initialize())
    {
@@ -193,13 +191,13 @@ int CMailMsg::MAPISend()
          if (m_from.size())
          {
             // set from
-			 if (cResolveName(hMapiSession, m_from.begin()->first, &pOriginator) == SUCCESS_SUCCESS) {
+			 if (cResolveName(hMapiSession, m_from.begin()->first.c_str(), &pOriginator) == SUCCESS_SUCCESS) {
 				buffersToFree.push_back(pOriginator);
 			 }
          }
          if (m_to.size())
          {
-			 if (cResolveName(hMapiSession, m_to.begin()->first, &pRecip) == SUCCESS_SUCCESS) {
+			 if (cResolveName(hMapiSession, m_to.begin()->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 				if (pFirstRecipient == NULL)
 					pFirstRecipient = &pRecipients[nIndex];
 				pRecip->ulRecipClass = MAPI_TO;
@@ -216,7 +214,7 @@ int CMailMsg::MAPISend()
 				 grecip.lpszName = 0;
 				 grecip.ulEIDSize = 0;
 				 grecip.ulReserved = 0;
-				 grecip.lpszAddress = (LPTSTR)(LPCTSTR)m_to.begin()->first;
+				 grecip.lpszAddress = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
 				 memcpy(&pRecipients[nIndex], &grecip, sizeof pRecipients[nIndex]);
 				 nIndex++;
 			 }
@@ -226,7 +224,7 @@ int CMailMsg::MAPISend()
             // set cc's
             for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
             {
-				if ( cResolveName(hMapiSession, p->first, &pRecip) == SUCCESS_SUCCESS) {
+				if ( cResolveName(hMapiSession, p->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
 						pFirstRecipient = &pRecipients[nIndex];
 					pRecip->ulRecipClass = MAPI_CC;
@@ -242,7 +240,7 @@ int CMailMsg::MAPISend()
             // set bcc
             for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
             {
-				if ( cResolveName(hMapiSession, p->first, &pRecip) == SUCCESS_SUCCESS) {
+				if ( cResolveName(hMapiSession, p->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
 						pFirstRecipient = &pRecipients[nIndex];
 					pRecip->ulRecipClass = MAPI_BCC;
@@ -262,19 +260,19 @@ int CMailMsg::MAPISend()
             pAttachments[nIndex].ulReserved        = 0;
             pAttachments[nIndex].flFlags           = 0;
             pAttachments[nIndex].nPosition         = 0;
-            pAttachments[nIndex].lpszPathName      = (LPTSTR)(LPCTSTR)p->first;
-            pAttachments[nIndex].lpszFileName      = (LPTSTR)(LPCTSTR)p->second;
+            pAttachments[nIndex].lpszPathName      = (LPTSTR)p->first.c_str();
+            pAttachments[nIndex].lpszFileName      = (LPTSTR)p->second.c_str();
             pAttachments[nIndex].lpFileType        = NULL;
          }
       }
 	  memset(&message, 0, sizeof message);
       message.ulReserved                        = 0;
-	  if (!m_sSubject.IsEmpty())
-	      message.lpszSubject                       = (LPTSTR)(LPCTSTR)m_sSubject;
+	  if (!m_sSubject.empty())
+	      message.lpszSubject                       = (LPTSTR)m_sSubject.c_str();
 	  else
 		  message.lpszSubject = "No Subject";
-	  if (!m_sMessage.IsEmpty())
-	      message.lpszNoteText                      = (LPTSTR)(LPCTSTR)m_sMessage;
+	  if (!m_sMessage.empty())
+	      message.lpszNoteText                      = (LPTSTR)m_sMessage.c_str();
 	  else
 		  message.lpszNoteText = "No Message Body";
       message.lpszMessageType                   = NULL;
@@ -295,8 +293,10 @@ int CMailMsg::MAPISend()
 		  m_lpMapiFreeBuffer(*iter);
 	  }
 if (SUCCESS_SUCCESS != status) {
-				CString txt;
-			txt.Format( "Message did not get sent due to error code %d.\r\n", status ); 
+				string txt;
+				TCHAR buf[MAX_PATH];
+				_tprintf_s(buf, "Message did not get sent due to error code %d.\r\n", status);
+				txt = buf;
 			switch (status)
 			{  
 			case MAPI_E_AMBIGUOUS_RECIPIENT:
@@ -342,7 +342,7 @@ if (SUCCESS_SUCCESS != status) {
 				txt += "Unknown error code.\r\n" ;
 				break;
 			}
-			::MessageBox(0, txt, "Error", MB_OK);
+			::MessageBox(0, txt.c_str(), "Error", MB_OK);
 }
 
       if (pRecipients)
@@ -380,9 +380,9 @@ BOOL CMailMsg::CMCSend()
       // set cc's
       for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
       {
-         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second;
+         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
          pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
-         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first;
+         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
          pRecipients[nIndex].role                = CMC_ROLE_CC;
          pRecipients[nIndex].recip_flags         = 0;
          pRecipients[nIndex].recip_extensions    = NULL;
@@ -391,26 +391,26 @@ BOOL CMailMsg::CMCSend()
       // set bcc
       for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
       {
-         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second;
+         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
          pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
-         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first;
+         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
          pRecipients[nIndex].role                = CMC_ROLE_BCC;
          pRecipients[nIndex].recip_flags         = 0;
          pRecipients[nIndex].recip_extensions    = NULL;
       }
    
       // set to
-      pRecipients[nIndex].name                   = (LPTSTR)(LPCTSTR)m_to.begin()->second;
+      pRecipients[nIndex].name                   = (LPTSTR)(LPCTSTR)m_to.begin()->second.c_str();
       pRecipients[nIndex].name_type              = CMC_TYPE_INDIVIDUAL;
-      pRecipients[nIndex].address                = (LPTSTR)(LPCTSTR)m_to.begin()->first;
+      pRecipients[nIndex].address                = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
       pRecipients[nIndex].role                   = CMC_ROLE_TO;
       pRecipients[nIndex].recip_flags            = 0;
       pRecipients[nIndex].recip_extensions       = NULL;
    
       // set from
-      pRecipients[nIndex+1].name                 = (LPTSTR)(LPCTSTR)m_from.begin()->second;
+      pRecipients[nIndex+1].name                 = (LPTSTR)(LPCTSTR)m_from.begin()->second.c_str();
       pRecipients[nIndex+1].name_type            = CMC_TYPE_INDIVIDUAL;
-      pRecipients[nIndex+1].address              = (LPTSTR)(LPCTSTR)m_from.begin()->first;
+      pRecipients[nIndex+1].address              = (LPTSTR)(LPCTSTR)m_from.begin()->first.c_str();
       pRecipients[nIndex+1].role                 = CMC_ROLE_ORIGINATOR;
       pRecipients[nIndex+1].recip_flags          = CMC_RECIP_LAST_ELEMENT;
       pRecipients[nIndex+1].recip_extensions     = NULL;
@@ -419,9 +419,9 @@ BOOL CMailMsg::CMCSend()
       for (p = m_attachments.begin(), nIndex = 0;
            p != m_attachments.end(); p++, nIndex++)
       {
-         pAttachments[nIndex].attach_title       = (LPTSTR)(LPCTSTR)p->second;
+         pAttachments[nIndex].attach_title       = (LPTSTR)(LPCTSTR)p->second.c_str();
          pAttachments[nIndex].attach_type        = NULL;
-         pAttachments[nIndex].attach_filename    = (LPTSTR)(LPCTSTR)p->first;
+         pAttachments[nIndex].attach_filename    = (LPTSTR)(LPCTSTR)p->first.c_str();
          pAttachments[nIndex].attach_flags       = 0;
          pAttachments[nIndex].attach_extensions  = NULL;
       }
@@ -429,15 +429,15 @@ BOOL CMailMsg::CMCSend()
 
       message.message_reference                 = NULL;
       message.message_type                      = NULL;
-	  if (m_sSubject.IsEmpty())
+	  if (m_sSubject.empty())
 		  message.subject = "No Subject";
 	  else
-	      message.subject                           = (LPTSTR)(LPCTSTR)m_sSubject;
+	      message.subject                           = (LPTSTR)(LPCTSTR)m_sSubject.c_str();
       message.time_sent                         = t_now;
-	  if (m_sMessage.IsEmpty())
+	  if (m_sMessage.empty())
 		  message.text_note = "No Body";
 	  else
-		  message.text_note                         = (LPTSTR)(LPCTSTR)m_sMessage;
+		  message.text_note                         = (LPTSTR)(LPCTSTR)m_sMessage.c_str();
       message.recipients                        = pRecipients;
       message.attachments                       = pAttachments;
       message.message_flags                     = 0;

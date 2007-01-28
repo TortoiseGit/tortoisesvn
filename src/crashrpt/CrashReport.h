@@ -54,9 +54,6 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  * \endcode
  *
  *
- * \par requirements
- * WTL\n
- *
  * \remark the dll is dynamically linked at runtime. So the main application
  * will still work even if the dll is not shipped. 
  *
