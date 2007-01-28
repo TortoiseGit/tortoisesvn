@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-09 18:18+0900\n"
+"PO-Revision-Date: 2007-01-28 17:46+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -958,6 +958,11 @@ msgstr "（動作チェック）"
 msgid "(multiple targets selected)"
 msgstr "（複数のターゲットを選択）"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "（変更リストは空です）"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:314
@@ -1032,6 +1037,11 @@ msgstr ""
 "<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックし、\n"
 "コンテキストメニューを表示させて <b>TortoiseSVN</b> の全コマンドを探してみてください。\n"
 "あと、 <u>マニュアルも読んでね！！</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<新しい変更リスト>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1788,6 +1798,11 @@ msgstr "更新をチェック"
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
 
+# ID:8,
+#: ID:213
+msgid "Check Group"
+msgstr "グループをチェックする"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2333,6 +2348,11 @@ msgid "Create &patch..."
 msgstr "パッチを作成(&P) ..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "変更リストを作成"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "パッチを作成"
@@ -2772,6 +2792,11 @@ msgstr "URLを入力"
 msgid "Enter a lock message (optional):"
 msgstr "ロックメッセージを入力（オプション）:"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "変更リストの名前を入力:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2994,7 +3019,7 @@ msgid "File diffs"
 msgstr "ファイルの差分"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "ファイルリストは空です"
 
@@ -3787,6 +3812,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "ロックを保持(&L)"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "変更リストを保存する"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3881,7 +3911,7 @@ msgid "Lock Files"
 msgstr "ファイルをロック"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "ロックは解除されました！"
 
@@ -3907,7 +3937,7 @@ msgid "Lock owner:"
 msgstr "ロック所持者:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "%s にロックを奪われました"
@@ -4155,6 +4185,11 @@ msgstr ""
 "%s を移動\r\n"
 "移動先: %s"
 
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "変更リストへ移動"
+
 # ID:97,
 #: ID:98
 #, c-format
@@ -4198,7 +4233,7 @@ msgid "Needs lock"
 msgstr "ロックが必要"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "入れ子"
 
@@ -4707,7 +4742,7 @@ msgstr "リポジトリブラウザが初期化されるまでしばらくお待
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
 
@@ -4987,6 +5022,11 @@ msgstr "%s を削除"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "無視リストから削除(&I)"
+
+# ID:13,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "変更リストから削除"
 
 # ID:8,
 #: Control-ID:1332
@@ -6923,6 +6963,12 @@ msgstr "%1 に書き込めません。読み取り専用か、他の誰かが開
 msgid "Uncheck"
 msgstr "未チェック"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "グループのチェックをはずす"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7085,7 +7131,7 @@ msgstr "両方のテキストブロックを利用（こちらを後にする）
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "削除された行に取り消し線を引く(&K)"
 
 # ID:251,
@@ -7279,7 +7325,7 @@ msgstr "全て「はい」"
 # ID:201,
 #: ID:201
 msgid "You already have the latest version installed."
-msgstr "最新バージョンがすでにインストールされています。"
+msgstr "最新バージョンがインストールされています。"
 
 # ID:144,
 #: ID:144
