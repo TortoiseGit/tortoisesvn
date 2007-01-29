@@ -345,7 +345,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
 		// but only if it exists!
-		if (path.Exists())
+		if (path.Exists() && m_shellCache.IsPathAllowed(path.GetWinPath()) && !g_SVNAdminDir.IsAdminDirPath(path.GetWinPath()))
 		{
 			ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
 			ATLASSERT(path.IsDirectory());
