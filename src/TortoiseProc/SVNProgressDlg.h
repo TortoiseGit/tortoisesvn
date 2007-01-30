@@ -108,6 +108,7 @@ private:
 		CString					sActionColumnText;	
 		CTSVNPath				path;
 		CTSVNPath				basepath;
+		CString					changelistname;
 
 		svn_wc_notify_action_t	action;
 		svn_node_kind_t			kind;
@@ -159,6 +160,7 @@ protected:
 		svn_wc_notify_state_t content_state, 
 		svn_wc_notify_state_t prop_state, LONG rev,
 		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+		const CString& changelistname,
 		svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL	Cancel();
 	virtual void	OnCancel();

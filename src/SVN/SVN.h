@@ -69,6 +69,7 @@ public:
 							svn_wc_notify_state_t content_state, 
 							svn_wc_notify_state_t prop_state, svn_revnum_t rev,
 							const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+							const CString& changelistname,
 							svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);

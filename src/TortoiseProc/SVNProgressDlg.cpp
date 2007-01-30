@@ -151,6 +151,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 							 svn_wc_notify_state_t content_state, 
 							 svn_wc_notify_state_t prop_state, LONG rev,
 							 const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+							 const CString& changelistname,
 							 svn_error_t * err, apr_pool_t * /*pool*/)
 {
 	bool bNoNotify = false;
@@ -164,6 +165,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	data->prop_state = prop_state;
 	data->rev = rev;
 	data->lock_state = lock_state;
+	data->changelistname = changelistname;
 	if ((lock)&&(lock->owner))
 		data->owner = CUnicodeUtils::GetUnicode(lock->owner);
 	data->sPathColumnText = path.GetUIPathString();
@@ -210,6 +212,23 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_commit_replaced:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
 		data->color = m_Colors.GetColor(CColors::Deleted);
+		break;
+	case svn_wc_notify_exists:
+		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
+		{
+			data->color = m_Colors.GetColor(CColors::Conflict);
+			data->bConflictedActionItem = true;
+			m_bConflictsOccurred = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
+		}
+		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
+		{
+			data->color = m_Colors.GetColor(CColors::Merged);
+			m_bMergesAddsDeletesOccurred = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
+		}
+		else
+			data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
 		break;
 	case svn_wc_notify_update_update:
 		// if this is an inoperative dir change, don't show the nofification.
@@ -338,6 +357,12 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		bDoAddData = false;
 		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
 			m_bLockWarning = true;
+		break;
+	case svn_wc_notify_changelist_set:
+		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTSET, data->changelistname);
+		break;
+	case svn_wc_notify_changelist_clear:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_CHANGELISTCLEAR);
 		break;
 	default:
 		break;
