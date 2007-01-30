@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-27 23:18+0800\n"
+"PO-Revision-Date: 2007-01-30 21:57+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1503,6 +1503,12 @@ msgstr "按照路径排序(&P)"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "按照路径排序"
+
+# ID:15,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "指派到修改列表 \"%s\""
 
 # ID:77,
 #: ID:77
@@ -3184,8 +3190,8 @@ msgstr "正在获取文件 %s"
 # ID:120,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "正在获取文件 %s  版本 %ld"
+msgid "Getting file %s, revision %s"
+msgstr "正在获取文件 %s  版本 %s"
 
 # ID:132,
 #: ID:132
@@ -5073,6 +5079,11 @@ msgstr "已删除"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "已删除的文件/文件夹"
+
+# ID:15,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "从修改列表删除"
 
 # ID:145,
 #: ID:145
@@ -7262,6 +7273,12 @@ msgstr "值"
 msgid "Version"
 msgstr "版本"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "已经版本控制"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7389,21 +7406,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"你复制了多个文件或文件夹。\n"
-"在一个操作步骤中无法实现该操作，所以 TortoiseSVN 将单独复制每一个文件/文件夹，\n"
-"并为每一个复制的文件/文件夹创建一个新的版本号。\n"
-"\n"
-"确定要继续执行该操作吗？"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7438,21 +7440,6 @@ msgid ""
 msgstr ""
 "你尚未输入问题编号！\n"
 "确定要进行提交吗？"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"你移动了多个文件或文件夹。\n"
-"在一个操作步骤中无法实现该操作，所以 TortoiseSVN 将单独移动每一个文件/文件夹，\n"
-"并为每一个移动的文件/文件夹创建一个新的版本号。\n"
-"\n"
-"确定要继续执行该操作吗？"
 
 # ID:196,
 #: ID:196
