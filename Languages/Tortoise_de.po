@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-26 08:56+0100\n"
+"PO-Revision-Date: 2007-01-30 14:14+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2608,8 +2608,8 @@ msgstr "Hole Datei: %s"
 
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Hole Datei %s, Revision %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Hole Datei %s, Revision %s"
 
 #: ID:132
 msgid "Getting file info..."
@@ -6202,21 +6202,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Sie haben mehr als eine Datei/Ordner kopiert.\n"
-"Es ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\n"
-"jedes Objekt einzeln kopieren und dafür jeweils eine Revision anlegen.\n"
-"\n"
-"Wollen Sie die Aktion trotzdem durchführen?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -6249,21 +6234,6 @@ msgid ""
 msgstr ""
 "Sie haben keine Bugtracker ID angegeben\n"
 "Sind Sie sicher, dass Sie ohne ID übertragen wollen?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Sie haben mehr als eine Datei/Ordner verschoben.\n"
-"Es ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\n"
-"jedes Objekt einzeln verschieben und dafür jeweils eine Revision anlegen.\n"
-"\n"
-"Wollen Sie die Aktion trotzdem durchführen?"
 
 # ID:196,
 #: ID:196
