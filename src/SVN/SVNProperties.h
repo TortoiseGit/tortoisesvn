@@ -19,11 +19,11 @@
 #pragma once
 
 #ifdef _MFC_VER
-#	include "SVNRev.h"
 #	include "SVNPrompt.h"
 #	include "ShellUpdater.h"
 #endif
 
+#include "SVNRev.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
 
@@ -93,7 +93,7 @@ public:
 	 * \param recurse TRUE if the property should be added to subdirectories/files as well
 	 * \return TRUE if the property is added successfully
 	 */
-	BOOL Add(const TCHAR * Name, std::string Value, BOOL recurse = false);
+	BOOL Add(const TCHAR * Name, std::string Value, BOOL recurse = false, const TCHAR * message = NULL);
 	/**
 	 * Removes an existing property from the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!
@@ -101,7 +101,7 @@ public:
 	 * \param recurse TRUE if the property should be deleted from subdirectories/files as well
 	 * \return TRUE if the property is removed successfully
 	 */
-	BOOL Remove(const TCHAR * Name, BOOL recurse = false);
+	BOOL Remove(const TCHAR * Name, BOOL recurse = false, const TCHAR * message = NULL);
 
 	/**
 	 * Checks if the property value is binary or text.
@@ -133,8 +133,8 @@ private:		//members
 	apr_array_header_t *		m_props;			
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;
-#ifdef _MFC_VER
 	SVNRev						m_rev;
+#ifdef _MFC_VER
 	SVNPrompt					m_prompt;
 #endif
 	svn_client_ctx_t 			m_ctx;
