@@ -72,6 +72,7 @@ public:
 
 	operator LONG () const;
 	operator svn_opt_revision_t * ();
+	operator const svn_opt_revision_t * () const;
 	enum
 	{
 		REV_HEAD = -1,			///< head revision
