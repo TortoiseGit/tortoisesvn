@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-23 09:28+0800\n"
+"PO-Revision-Date: 2007-01-30 09:45+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1031,6 +1031,11 @@ msgstr ""
 "以帶出右鍵選單. 從那裡就可以找到所有 <b>TortoiseSVN</b> 的指令\n"
 "並請<u>閱讀說明書!</u>"
 
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<新變更列表>"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1193,12 +1198,6 @@ msgstr "根據副檔名加入合併程式"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
-
-# ID:13,
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "加入變更列表 '%s'"
 
 # Control-ID:1098,
 #: Control-ID:1279
@@ -1791,6 +1790,11 @@ msgstr "檢查更新"
 msgid "Check For Updates..."
 msgstr "檢查更新..."
 
+# ID:8,
+#: ID:213
+msgid "Check Group"
+msgstr "選取群組"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2351,11 +2355,6 @@ msgstr "建立補綴"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "建立檔案庫"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "建立並加入變更列表"
 
 # Control-ID:1073,
 #: Control-ID:65535
@@ -3805,6 +3804,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "保持鎖定(&L)"
 
+# ID:13,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "保留變更列表"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -4173,6 +4177,11 @@ msgid ""
 msgstr ""
 "移動 %s\r\n"
 "至 %s"
+
+# ID:13,
+#: ID:209
+msgid "Move to changelist"
+msgstr "移至變更列表"
 
 # ID:97,
 #: ID:98
@@ -6946,6 +6955,12 @@ msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
 #: ID:3887
 msgid "Uncheck"
 msgstr "取消勾選"
+
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "取消選取群組"
 
 # ID:3603,
 #: ID:3603
