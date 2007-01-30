@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-30 14:13+0900\n"
+"PO-Revision-Date: 2007-01-30 23:15+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1465,6 +1465,12 @@ msgstr "경로별 정리(&P)"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "경로별로 정렬된 노드를 정리"
+
+# ID:209,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "변경 리스트로 할당 \"%s\""
 
 # ID:77,
 #: ID:77
@@ -3148,8 +3154,8 @@ msgstr "파일 읽는 중 %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "파일 읽는 중 %s, 리비전 %ld"
+msgid "Getting file %s, revision %s"
+msgstr "파일 읽는 중 %s, 리비전 %s"
 
 # ID:132,
 #: ID:132
@@ -5030,6 +5036,11 @@ msgstr "삭제됨"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "삭제된 파일/폴더"
+
+# ID:13,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "변경 리스트에서 제거됨"
 
 # ID:13,
 #: ID:145
@@ -7234,6 +7245,12 @@ msgstr "값"
 msgid "Version"
 msgstr "버전"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "버전관리됨"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7361,21 +7378,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"한 개 이상의 파일 혹은 폴더를 복사하였습니다.\n"
-"한 번의 커밋으로는 불가능하므로, 여러번 복사를 시켜야하며,\n"
-"각 복사 명령 마다 리비전이 올라가게 됩니다.\n"
-"\n"
-"계속 진행하시겠습니까?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7410,21 +7412,6 @@ msgid ""
 msgstr ""
 "이슈번호를 입력하지 않았습니다!\n"
 "이슈번호 없이 커밋하시겠습니까?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"한 개 이상의 파일 혹은 폴더를 이동하였습니다.\n"
-"한 번의 커밋으로는 불가능하므로, 여러번 이동을 시켜야하며,\n"
-"각 이동 명령 마다 리비전이 올라가게 됩니다.\n"
-"\n"
-"계속 진행하시겠습니까?"
 
 # ID:196,
 #: ID:196
