@@ -287,16 +287,19 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 	return _T("");
 }
 
-BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL recurse, BOOL bIgnoreExternals)
+BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, 
+				   SVNRev revision, BOOL recurse, BOOL bIgnoreExternals, 
+				   BOOL bAllow_unver_obstructions)
 {
 	SVNPool subpool(pool);
-	Err = svn_client_checkout2 (NULL,			// we don't need the resulting revision
+	Err = svn_client_checkout3 (NULL,			// we don't need the resulting revision
 								moduleName.GetSVNApiPath(),
 								destPath.GetSVNApiPath(),
 								pegrev,
 								revision,
 								recurse,
 								bIgnoreExternals,
+								bAllow_unver_obstructions,
 								m_pctx,
 								subpool );
 

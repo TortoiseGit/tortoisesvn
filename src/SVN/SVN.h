@@ -108,8 +108,18 @@ public:
 	 * \param pegrev the peg revision to use
 	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
 	 * \param bIgnoreExternals if TRUE, do not check out externals
+	 * \param bAllow_unver_obstructions if true then the checkout tolerates
+	 * existing unversioned items that obstruct added paths from @a URL.  Only
+	 * obstructions of the same type (file or dir) as the added item are
+	 * tolerated.  The text of obstructing files is left as-is, effectively
+	 * treating it as a user modification after the checkout.  Working
+	 * properties of obstructing items are set equal to the base properties.
+	 * If @a bAllow_unver_obstructions is false then the checkout will abort
+	 * if there are any unversioned obstructing items.
 	 */
-	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL recurse, BOOL bIgnoreExternals);
+	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, 
+		SVNRev revision, BOOL recurse, BOOL bIgnoreExternals, 
+		BOOL bAllow_unver_obstructions = TRUE);
 	/**
 	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
