@@ -403,14 +403,15 @@ BOOL SVN::SetChangeList(const CTSVNPathList& pathList, const CString& changelist
 	return TRUE;
 }
 
-BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals)
+BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals, BOOL bAllow_unver_obstructions)
 {
 	SVNPool(localpool);
-	Err = svn_client_update2(NULL,
+	Err = svn_client_update3(NULL,
 							MakePathArray(pathList),
 							revision,
 							recurse,
 							ignoreexternals,
+							bAllow_unver_obstructions,
 							m_pctx,
 							localpool);
 

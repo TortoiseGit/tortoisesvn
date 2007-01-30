@@ -109,7 +109,7 @@ public:
 	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
 	 * \param bIgnoreExternals if TRUE, do not check out externals
 	 * \param bAllow_unver_obstructions if true then the checkout tolerates
-	 * existing unversioned items that obstruct added paths from @a URL.  Only
+	 * existing unversioned items that obstruct added paths from @a moduleName.  Only
 	 * obstructions of the same type (file or dir) as the added item are
 	 * tolerated.  The text of obstructing files is left as-is, effectively
 	 * treating it as a user modification after the checkout.  Working
@@ -172,8 +172,17 @@ public:
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
 	 * \param recurse 
 	 * \param ignoreexternals if TRUE, don't update externals
+	 * \param bAllow_unver_obstructions if true then the update tolerates
+	 * existing unversioned items that obstruct added paths from @a pathList.  Only
+	 * obstructions of the same type (file or dir) as the added item are
+	 * tolerated.  The text of obstructing files is left as-is, effectively
+	 * treating it as a user modification after the update.  Working
+	 * properties of obstructing items are set equal to the base properties.
+	 * If @a bAllow_unver_obstructions is false then the update will abort
+	 * if there are any unversioned obstructing items.
 	 */
-	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals);
+	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, 
+		BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.
