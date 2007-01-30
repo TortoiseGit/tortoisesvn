@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-30 14:14+0100\n"
+"PO-Revision-Date: 2007-01-30 15:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -606,7 +606,7 @@ msgstr "&Umbenennen"
 # Control-ID:1316,
 #: Control-ID:1316
 msgid "&Reopen commit dialog after a commit failed"
-msgstr "Übertragen Dialog nach Fehler e&rneut öffnen"
+msgstr "Übertragen-Dialog nach Fehler e&rneut öffnen"
 
 #: ID:13
 msgid "&Repo-browser"
@@ -1208,6 +1208,11 @@ msgstr "Nach &Pfad geordnet"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Ordnet die Knoten nach Pfad"
+
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Der Änderungsliste '%s' zugewiesen"
 
 #: ID:77
 #, c-format
@@ -2541,7 +2546,7 @@ msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 # ID:119,
 #: ID:119
 msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "Wählen Sie \"Bei Kopien/Umbenennen anhalten\" ab, um eine vollständige Historie zu erhalten."
+msgstr "Wählen Sie <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> ab, um eine vollständige Historie zu erhalten."
 
 #: Control-ID:1200
 #: Control-ID:65535
@@ -2876,7 +2881,7 @@ msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Aktivieren Sie diese Option, damit die Funktion \"Sperre holen\" im obersten\n"
+"Aktivieren Sie diese Option, damit die Funktion <guilabel>Sperre holen</guilabel> im obersten\n"
 "Menü angezeigt wird, falls die svn:needs-lock Eigenschaft der Datei gesetzt ist."
 
 #: ID:95
@@ -2902,7 +2907,7 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\n"
 "while preserving your last selection and log message."
 msgstr ""
-"Aktivieren Sie diese Option, damit der Übertragen Dialog nach einem Fehler\n"
+"Aktivieren Sie diese Option, damit der Übertragen-Dialog nach einem Fehler\n"
 "automatisch wieder geöffnet wird. Ihre letzte Auswahl sowie die Logmeldung\n"
 "werden beibehalten."
 
@@ -2928,7 +2933,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Aktivieren Sie diese Option, damit im Zusammenführen Dialog anstelle\n"
+"Aktivieren Sie diese Option, damit im Zusammenführen-Dialog anstelle\n"
 "der zuletzt verwendeten URL die URL der Arbeitskopie als Vorgabe für\n"
 "die 'Von:' URL eingestellt wird."
 
@@ -2958,7 +2963,7 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr ""
 "Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\n"
-"im Statusfenster - zum Beispiel des Übertragen Dialogs - angezeigt werden."
+"im Statusfenster - zum Beispiel des Übertragen-Dialogs - angezeigt werden."
 
 # ID:196,
 #: ID:196
@@ -4070,7 +4075,7 @@ msgstr "Proxy Einstellungen"
 # Control-ID:1338,
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Zeige \"Sperre holen\" im obersten Menü an, wenn svn:needs-lock gesetzt ist"
+msgstr "Zeige <guilabel>Sperre holen</guilabel> im obersten Menü an, wenn svn:needs-lock gesetzt ist"
 
 # ID:246,
 #: ID:246
@@ -4225,6 +4230,10 @@ msgstr "Entfernt"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Datei / Ordner gelöscht"
+
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Aus Änderungsliste gelöscht"
 
 #: ID:145
 #, c-format
@@ -5839,7 +5848,7 @@ msgid ""
 msgstr ""
 "Kann den Pfad der Arbeitskopie nicht wieder herstellen!\n"
 "Das kann passieren, wenn die Datei umbenannt wurde.\n"
-"Bitte rufen Sie den Logdialog für diese Datei alleine auf\n"
+"Bitte rufen Sie den Log-Dialog für diese Datei alleine auf\n"
 "und machen Sie die Änderungen rückgängig."
 
 #: ID:3865
@@ -5973,7 +5982,7 @@ msgstr "Standard Diff aus de Zwischenablage verwenden"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Verwende 'Von:' URL (Der Revisionsbereich wird im oberen Log Dialog gewählt)"
+msgstr "Verwende 'Von:' URL (Der Revisionsbereich wird im oberen Log-Dialog gewählt)"
 
 # Control-ID:1296,
 #: Control-ID:1296
@@ -6089,6 +6098,10 @@ msgstr "Wert"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Version"
+
+#: ID:264
+msgid "Versioned"
+msgstr "Versioniert"
 
 # ID:114,
 #: ID:114
