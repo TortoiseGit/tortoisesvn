@@ -37,6 +37,8 @@ SVNConfig::SVNConfig(void)
 	if (err == 0)
 		err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
 
+	patterns = NULL;
+
 	if (err != 0)
 	{
 		svn_pool_destroy (pool);
@@ -51,24 +53,22 @@ SVNConfig::~SVNConfig(void)
 	svn_pool_destroy (parentpool);
 }
 
-BOOL SVNConfig::GetDefaultIgnores(apr_array_header_t** ppPatterns)
+BOOL SVNConfig::GetDefaultIgnores()
 {
 	svn_error_t * err;
-	apr_array_header_t *patterns = NULL;
+	patterns = NULL;
 	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
 	if (err)
 	{
-		ppPatterns = NULL;
 		return FALSE;
 	}
-	*ppPatterns = patterns;
 
 	return TRUE;
 }
 
-BOOL SVNConfig::MatchIgnorePattern(const CString& name, apr_array_header_t *patterns)
+BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 {
 	if (patterns == NULL)
 		return FALSE;
-	return svn_cstring_match_glob_list(CUnicodeUtils::GetUTF8(name), patterns);
+	return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
 }

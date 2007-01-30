@@ -505,9 +505,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							bool bShowIgnores
 							)
 {
-	apr_array_header_t* pIgnorePatterns = NULL;
-	//BUGBUG - Some error handling needed here
-	config.GetDefaultIgnores(&pIgnorePatterns);
+	config.GetDefaultIgnores();
 
 	CTSVNPath workingTarget(target);
 
@@ -599,13 +597,13 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		if (((wcFileStatus == svn_wc_status_unversioned)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
 		{
 			// we have an unversioned folder -> get all files in it recursively!
-			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), pIgnorePatterns);
+			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), &config);
 		}
 
 		// for folders, get all statuses inside it too
 		if(workingTarget.IsDirectory())
 		{
-			ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, pIgnorePatterns, bAllDirect);
+			ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, &config, bAllDirect);
 		}
 
 	} // if (s!=0)
@@ -760,7 +758,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
 void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 												const CTSVNPath& basePath,
-												apr_array_header_t *pIgnorePatterns)
+												SVNConfig * config)
 {
 	if (!m_bUnversionedRecurse)
 		return;
@@ -772,8 +770,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 	{
 		filename.SetFromWin(filefinder.GetFilePath(), filefinder.IsDirectory());
 
-		bool bMatchIgnore = !!SVNConfig::MatchIgnorePattern(filename.GetFileOrDirectoryName(),pIgnorePatterns);
-		bMatchIgnore = bMatchIgnore || SVNConfig::MatchIgnorePattern(filename.GetSVNPathString(),pIgnorePatterns);
+		bool bMatchIgnore = !!config->MatchIgnorePattern(filename.GetFileOrDirectoryName());
+		bMatchIgnore = bMatchIgnore || config->MatchIgnorePattern(filename.GetSVNPathString());
 		if (((bMatchIgnore)&&(m_bShowIgnores))||(!bMatchIgnore))
 		{
 			FileEntry * entry = new FileEntry();
@@ -786,7 +784,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			if (entry->isfolder)
 			{
 				if (!g_SVNAdminDir.HasAdminDir(entry->path.GetWinPathString(), true))
-					AddUnversionedFolder(entry->path, basePath, pIgnorePatterns);
+					AddUnversionedFolder(entry->path, basePath, config);
 			}
 		}
 	}
@@ -795,7 +793,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 
 void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& basePath,
 										  CStringA& strCurrentRepositoryUUID,
-										  CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns, bool bAllDirect)
+										  CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect)
 {
 	svn_wc_status2_t * s;
 
@@ -886,8 +884,8 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 
 		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
 
-		bool bMatchIgnore = !!SVNConfig::MatchIgnorePattern(entry->path.GetFileOrDirectoryName(),pIgnorePatterns);
-		bMatchIgnore = bMatchIgnore || SVNConfig::MatchIgnorePattern(entry->path.GetSVNPathString(),pIgnorePatterns);
+		bool bMatchIgnore = !!config->MatchIgnorePattern(entry->path.GetFileOrDirectoryName());
+		bMatchIgnore = bMatchIgnore || config->MatchIgnorePattern(entry->path.GetSVNPathString());
 		if (((wcFileStatus == svn_wc_status_unversioned)&&(!bMatchIgnore))||
 			((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))||
 			((wcFileStatus == svn_wc_status_unversioned)&&(bMatchIgnore)&&(m_bShowIgnores)))
@@ -895,7 +893,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			if (entry->isfolder)
 			{
 				// we have an unversioned folder -> get all files in it recursively!
-				AddUnversionedFolder(svnPath, basePath, pIgnorePatterns);
+				AddUnversionedFolder(svnPath, basePath, config);
 			}
 		}
 	} // while ((s = status.GetNextFileStatus(svnPath)) != NULL) 

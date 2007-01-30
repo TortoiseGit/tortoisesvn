@@ -29,12 +29,11 @@ public:
 	~SVNConfig(void);
 
 	/**
-	 * Returns an array of ignore patterns which then can be passed to
+	 * Reads the global ignore patterns which will be used later in
 	 * MatchIgnorePattern().
-	 * \param ppPatterns the returned array
 	 * \return TRUE if the function is successful
 	 */
-	BOOL GetDefaultIgnores(apr_array_header_t** ppPatterns);
+	BOOL GetDefaultIgnores();
 
 	/**
 	 * Checks if the \c name matches a pattern in the array of
@@ -43,10 +42,11 @@ public:
 	 * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
 	 * \return TRUE if the name matches a pattern, FALSE if it doesn't.
 	 */
-	static BOOL MatchIgnorePattern(const CString& name, apr_array_header_t *patterns);
+	BOOL MatchIgnorePattern(const CString& name);
 private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
 	svn_client_ctx_t 			ctx;
+	apr_array_header_t *		patterns;
 
 };

@@ -500,10 +500,10 @@ private:
 	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, bool recurse = true, bool bShowIgnores = false);
 
 	/// Create 'status' data for each item in an unversioned folder
-	void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, apr_array_header_t *pIgnorePatterns);
+	void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, SVNConfig * config);
 
 	/// Read the all the other status items which result from a single GetFirstStatus call
-	void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns, bool bAllDirect);
+	void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect);
 
 	/// Clear the status vector (contains custodial pointers)
 	void ClearStatusArray();
