@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-08 15:17+0900\n"
+"PO-Revision-Date: 2007-01-30 14:13+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -943,6 +943,11 @@ msgstr "(가상 실행)"
 msgid "(multiple targets selected)"
 msgstr "(복수의 대상이 선택됨)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(변경 리스트 없음)"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:314
@@ -1017,6 +1022,11 @@ msgstr ""
 "<b>TortoiseSVN</b>을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n"
 "단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 <b>TortoiseSVN</b> 명령이 있을 것입니다.\n"
 "그리고 <u>메뉴얼을 이용해 주세요!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<새로운 변경 리스트>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1774,6 +1784,11 @@ msgstr "업데이트 확인"
 msgid "Check For Updates..."
 msgstr "업데이트 확인..."
 
+# ID:8,
+#: ID:213
+msgid "Check Group"
+msgstr "그룹 선택"
+
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2321,6 +2336,11 @@ msgid "Create &patch..."
 msgstr "패치 생성(&P)..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "변경 리스트 생성"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "패치 생성"
@@ -2755,6 +2775,11 @@ msgstr "URL 입력"
 msgid "Enter a lock message (optional):"
 msgstr "잠금 알림 메시지 (선택사항):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "변경 리스트에 대한 이름:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2979,7 +3004,7 @@ msgid "File diffs"
 msgstr "파일 비교"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "파일 목록이 비어 있습니다"
 
@@ -3772,6 +3797,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "잠금 유지(&L)"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "변경 리스트 유지"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3866,7 +3896,7 @@ msgid "Lock Files"
 msgstr "잠금 파일"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "잠금 풀림!"
 
@@ -3892,7 +3922,7 @@ msgid "Lock owner:"
 msgstr "잠금 소유자:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
@@ -4140,6 +4170,11 @@ msgstr ""
 "%s (을)를\r\n"
 "%s (으)로 옮깁니다"
 
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "변경 리스트로 이동"
+
 # ID:97,
 #: ID:98
 #, c-format
@@ -4183,7 +4218,7 @@ msgid "Needs lock"
 msgstr "잠금이 요구됨"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "중첩됨"
 
@@ -4692,7 +4727,7 @@ msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
 
@@ -4975,6 +5010,11 @@ msgstr "%s 삭제"
 #: ID:15
 msgid "Remove from &ignore list"
 msgstr "무시 목록에서 제거(&I)"
+
+# ID:13,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "변경 리스트에서 제거"
 
 # ID:8,
 #: Control-ID:1332
@@ -6910,6 +6950,12 @@ msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 파일에
 msgid "Uncheck"
 msgstr "선택 해제"
 
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "그룹에서 선택 해제"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7069,7 +7115,7 @@ msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "지워진 행에는 줄 긋기(&K)"
 
 # ID:251,
