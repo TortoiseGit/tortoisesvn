@@ -311,7 +311,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 	return TRUE;
 }
 
-BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
+BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, CString message)
 {
 	// svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
 	// cleanups get run.  For example, after a failure do to an unforced delete on 
@@ -321,7 +321,9 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
 
-	Err = svn_client_delete2 (&commit_info, MakePathArray(pathlist), force,
+	Err = svn_client_delete3 (&commit_info, MakePathArray(pathlist), 
+							  force,
+							  keeplocal,
 							  m_pctx,
 							  subPool);
 	if(Err != NULL)
@@ -751,16 +753,17 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	return TRUE;
 }
 
-BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse, BOOL allow_unver_obstruction)
 {
 	SVNPool subpool(pool);
-	Err = svn_client_switch(NULL,
-							path.GetSVNApiPath(),
-							url.GetSVNApiPath(),
-							revision,
-							recurse,
-							m_pctx,
-							subpool);
+	Err = svn_client_switch2(NULL,
+							 path.GetSVNApiPath(),
+							 url.GetSVNApiPath(),
+							 revision,
+							 recurse,
+							 allow_unver_obstruction,
+							 m_pctx,
+							 subpool);
 	if(Err != NULL)
 	{
 		return FALSE;

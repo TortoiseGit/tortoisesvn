@@ -1169,7 +1169,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				dlg.SetActionText(sHint);
 				if (dlg.DoModal()==IDOK)
 				{
-					if (!svn.Remove(pathList, TRUE, dlg.GetLogMessage()))
+					if (!svn.Remove(pathList, TRUE, TRUE, dlg.GetLogMessage()))
 					{
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return FALSE;

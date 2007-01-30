@@ -137,8 +137,10 @@ public:
 	 * \param pathlist a list of files/directories to delete
 	 * \param force if TRUE, all files including those not versioned are deleted. If FALSE the operation
 	 * will fail if a directory contains unversioned files or if the file itself is not versioned.
+	 * \param if keeplocal is true, the file/dir is not removed from the working copy but only scheduled
+	 * for deletion in the repository. After the next commit, the file/dir will be unversioned.
 	 */
-	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, CString message = _T(""));
+	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal = TRUE, CString message = _T(""));
 	/**
 	 * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
@@ -314,9 +316,17 @@ public:
 	 * \param path the path of the working directory
 	 * \param url the url of the repository
 	 * \param revision the revision number to switch to
-	 * \param recurse 
+	 * \param recurse if TRUE, switch recursively
+	 * \param allow_unver_obstruction if true then the switch tolerates
+	 * existing unversioned items that obstruct added paths from @a path.  Only
+	 * obstructions of the same type (file or dir) as the added item are
+	 * tolerated.  The text of obstructing files is left as-is, effectively
+	 * treating it as a user modification after the switch.  Working
+	 * properties of obstructing items are set equal to the base properties.
+	 * If @a allow_unver_obstructions is false then the switch will abort
+	 * if there are any unversioned obstructing items.
 	 */
-	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse);
+	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse, BOOL allow_unver_obstruction = TRUE);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)

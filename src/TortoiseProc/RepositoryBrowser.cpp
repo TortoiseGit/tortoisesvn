@@ -1231,7 +1231,7 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	dlg.SetActionText(sHint);
 	if (dlg.DoModal()==IDOK)
 	{
-		if (!svn.Remove(itemsToRemove, TRUE, dlg.GetLogMessage()))
+		if (!svn.Remove(itemsToRemove, TRUE, TRUE, dlg.GetLogMessage()))
 		{
 			wait_cursor.Hide();
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
