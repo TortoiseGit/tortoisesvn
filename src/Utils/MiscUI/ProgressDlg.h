@@ -159,8 +159,14 @@ public:
 	 */
     bool IsValid() const { return m_bValid; }
 
-protected:
+	/**
+	 * After a call to Stop() to hide the progress dialog,
+	 * call EnsureValid() to recreate the dialog and fill in the
+	 * data again.
+	 */
 	bool EnsureValid();
+
+protected:
     IProgressDialog* m_pIDlg;
     bool      m_bValid;
     bool      m_isVisible;

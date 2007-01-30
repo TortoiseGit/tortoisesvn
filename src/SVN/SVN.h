@@ -205,11 +205,17 @@ public:
 	 * until a commit occurs.  This scheduling can be removed with
 	 * Revert().
 	 *
-	 * \param srcPath source path
+	 * \param srcPathList list of source paths to copy
 	 * \param destPath destination path
+	 * \param revision the revision of the source items
+	 * \param pegrev the peg revision
+	 * \param logmsg the log message to use if the copy is URL->URL
+	 * \param copy_as_child set to \c true for copying the source
+	 *                      as a child of the \c destPath if the name of
+	 *                      srcPathList and destPath are the same.
 	 * \return the new revision number
 	 */
-	BOOL Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, CString logmsg = _T(""));
+	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNRev revision, SVNRev pegrev, CString logmsg = CString(), bool copy_as_child = false);
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -226,11 +232,15 @@ public:
 	 * force is not set, the copy will fail. If force is set such items
 	 * will be removed.
 	 * 
-	 * \param srcPath source path
+	 * \param srcPathList source path list
 	 * \param destPath destination path
-	 * \param force 
+	 * \param force if true, the move doesn't fail if the source is modified
+	 * \param message the log message to use if the move is on an url
+	 * \param move_as_child set to \c true for moving the source
+	 *                      as a child of the \c destPath if the name of
+	 *                      srcPathList and destPath are the same.
 	 */
-	BOOL Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message = _T(""));
+	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, BOOL force, CString message = _T(""), bool move_as_child = false);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -726,8 +736,10 @@ private:
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 
-	// Convert a TSVNPathList into an array of SVN paths
+	/// Convert a TSVNPathList into an array of SVN paths
 	apr_array_header_t * MakePathArray(const CTSVNPathList& pathList);
+	/// Convert a TSVNPathList into an array of SVN copy paths
+	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
 
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);

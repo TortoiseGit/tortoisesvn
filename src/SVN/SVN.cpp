@@ -458,7 +458,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 	return finrev;
 }
 
-BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, CString logmsg)
+BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNRev revision, SVNRev pegrev, CString logmsg, bool copy_as_child)
 {
 	SVNPool subpool(pool);
 
@@ -468,10 +468,12 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 		m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
 	else
 		m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
-	Err = svn_client_copy3 (&commit_info,
-							srcPath.GetSVNApiPath(),
-							revision,
+
+
+	Err = svn_client_copy4 (&commit_info,
+							MakeCopyArray(srcPathList, revision, pegrev),
 							destPath.GetSVNApiPath(),
+							copy_as_child,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -495,17 +497,18 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	return TRUE;
 }
 
-BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message)
+BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, BOOL force, CString message /* = _T("")*/, bool move_as_child /* = false*/)
 {
 	SVNPool subpool(pool);
 
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_move4 (&commit_info,
-							srcPath.GetSVNApiPath(),
+	Err = svn_client_move5 (&commit_info,
+							MakePathArray(srcPathList),
 							destPath.GetSVNApiPath(),
 							force,
+							move_as_child,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -2061,12 +2064,29 @@ apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 {
 	apr_array_header_t *targets = apr_array_make (pool,pathList.GetCount(),sizeof(const char *));
 
-	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
+	for (int nItem = 0; nItem < pathList.GetCount(); nItem++)
 	{
 		const char * target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath());
 		(*((const char **) apr_array_push (targets))) = target;
 	}
 	return targets;
+}
+
+apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev)
+{
+	apr_array_header_t * sources = apr_array_make(pool, pathList.GetCount(),
+		sizeof(svn_client_copy_source_t *));
+
+	for (int nItem = 0; nItem < pathList.GetCount(); ++nItem)
+	{
+		const char *target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath());
+		svn_client_copy_source_t *source = (svn_client_copy_source_t*)apr_palloc(pool, sizeof(*source));
+		source->path = target;
+		source->revision = pegrev;
+		source->peg_revision = rev;
+		APR_ARRAY_PUSH(sources, svn_client_copy_source_t *) = source;
+	}
+	return sources;
 }
 
 void SVN::SetAndClearProgressInfo(HWND hWnd)

@@ -3182,7 +3182,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									if (MoveFile(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath()))
 									{
 										SVN svn;
-										if (!svn.Move(entry1->GetPath(), entry2->GetPath(), TRUE))
+										if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), TRUE))
 										{
 											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 										}

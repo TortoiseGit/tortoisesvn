@@ -560,7 +560,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							if (tempfile.IsDirectory())
 								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
 							CString sInfoLine;
-							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, (LONG)GetRevision());
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, GetRevision().ToString());
 							progDlg.SetLine(1, sInfoLine);
 							if (!svn.Cat(CTSVNPath(saveurl), GetRevision(), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
 							{
@@ -732,7 +732,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
 					CString sInfoLine;
-					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, url, (LONG)GetRevision());
+					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, url, GetRevision().ToString());
 					progDlg.SetLine(1, sInfoLine);
 					svn.SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
@@ -919,7 +919,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						input.SetActionText(sHint);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.GetLogMessage()))
+							if (!svn.Copy(CTSVNPathList(CTSVNPath(url)), CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage()))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1016,9 +1016,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							if (tempfile.IsDirectory())
 								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
 							CString sInfoLine;
-							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, (LONG)GetRevision());
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, GetRevision().ToString());
 							progDlg.SetLine(1, sInfoLine);
-							if (!svn.Copy(CTSVNPath(saveurl), savepath, GetRevision())||(progDlg.HasUserCancelled()))
+							if (!svn.Copy(CTSVNPathList(CTSVNPath(saveurl)), savepath, GetRevision(), GetRevision())||(progDlg.HasUserCancelled()))
 							{
 								progDlg.Stop();
 								svn.SetAndClearProgressInfo((HWND)NULL);

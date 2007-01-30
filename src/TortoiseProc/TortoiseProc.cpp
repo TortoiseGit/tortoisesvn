@@ -1308,7 +1308,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
 						(cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
 					{
-						if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+						if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 						{
 							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1330,7 +1330,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						{
 							// we couldn't find any other matching files
 							// just do the default...
-							if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+							if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 							{
 								TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1365,7 +1365,7 @@ BOOL CTortoiseProcApp::InitInstance()
 									progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, it->first);
 									progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, it->second);
 									progress.SetProgress(count, renmap.size());
-									if (!svn.Move(CTSVNPath(it->first), CTSVNPath(it->second), TRUE, sMsg))
+									if (!svn.Move(CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), TRUE, sMsg))
 									{
 										if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
 										{
@@ -1383,7 +1383,7 @@ BOOL CTortoiseProcApp::InitInstance()
 							else if (idret == IDNO)
 							{
 								// no, user wants to just rename the file he selected
-								if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+								if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 								{
 									TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1568,7 +1568,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					destPath.SetFromWin(droppath+_T("\\")+dlg.m_name);
 				} 
-				if (!svn.Move(pathList[nPath], destPath, FALSE))
+				if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, FALSE))
 				{
 					if (svn.Err && (svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE ||
 						svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
@@ -1580,7 +1580,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						temp += _T("\n") + sQuestion;
 						if (CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
 						{
-							if (!svn.Move(pathList[nPath], destPath, TRUE))
+							if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, TRUE))
 							{
 								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return FALSE;		//get out of here
@@ -1699,11 +1699,18 @@ BOOL CTortoiseProcApp::InitInstance()
 					{
 						return FALSE;
 					}
+					// rebuild the progress dialog
+					progress.EnsureValid();
+					progress.SetTitle(IDS_PROC_COPYING);
+					progress.SetAnimation(IDR_MOVEANI);
+					progress.SetTime(true);
+					progress.SetProgress(count, pathList.GetCount());
+					progress.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 					// Rebuild the destination path, with the new name
 					fullDropPath.SetFromUnknown(sDroppath);
 					fullDropPath.AppendPathString(dlg.m_name);
 				} 
-				if (!svn.Copy(sourcePath, fullDropPath, SVNRev::REV_WC, _T("")))
+				if (!svn.Copy(CTSVNPathList(sourcePath), fullDropPath, SVNRev::REV_WC, SVNRev()))
 				{
 					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

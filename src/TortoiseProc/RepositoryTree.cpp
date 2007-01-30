@@ -807,7 +807,7 @@ void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie
 	input.SetActionText(sHint);
 	if (input.DoModal() == IDOK)
 	{
-		if (!svn.Move(CTSVNPath(sOldUrl), CTSVNPath(sNewUrl), TRUE, input.GetLogMessage()))
+		if (!svn.Move(CTSVNPathList(CTSVNPath(sOldUrl)), CTSVNPath(sNewUrl), TRUE, input.GetLogMessage()))
 		{
 			wait_cursor.Hide();
 			CReportCtrl::EndEdit(FALSE, lpnmrvie);
@@ -919,7 +919,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 			GlobalUnlock(medium.hGlobal);
 			urls.Replace(_T("\r\n"), _T("*"));
 			CTSVNPathList urlList;
-			CTSVNPathList destUrlList;
+			CTSVNPath destUrl;
 			urlList.LoadFromAsteriskSeparatedString(urls);
 			// now check if the text dropped on us is a list of URL's
 			bool bAllUrls = true;
@@ -933,29 +933,26 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 			}
 			if (bAllUrls)
 			{
-				if (m_bRightDrag)
+				if ((m_bRightDrag)&&(urlList.GetCount() == 1))
 				{
 					// right drag, offer to rename the URL
-					for (int i=0; i<urlList.GetCount(); ++i)
+					CRenameDlg renDlg;
+					renDlg.m_name = urlList[0].GetFileOrDirectoryName();
+					renDlg.m_windowtitle.Format(IDS_PROC_NEWNAME, renDlg.m_name);
+					renDlg.m_label.LoadString(IDS_PROC_NEWNAMELABEL);
+					if (renDlg.DoModal()==IDOK)
 					{
-						CRenameDlg renDlg;
-						renDlg.m_name = urlList[i].GetFileOrDirectoryName();
-						renDlg.m_windowtitle.Format(IDS_PROC_NEWNAME, renDlg.m_name);
-						renDlg.m_label.LoadString(IDS_PROC_NEWNAMELABEL);
-						if (renDlg.DoModal()==IDOK)
-						{
-							CTSVNPath tempUrl = urlList[i];
-							tempUrl = tempUrl.GetContainingDirectory();
-							tempUrl.AppendPathString(renDlg.m_name);
-							destUrlList.AddPath(tempUrl);
-						}
-						else
-							return;
+						CTSVNPath tempUrl = urlList[0];
+						tempUrl = tempUrl.GetContainingDirectory();
+						tempUrl.AppendPathString(renDlg.m_name);
+						destUrl = tempUrl;
 					}
+					else
+						return;
 				}
 				else
 				{
-					destUrlList = urlList;
+					destUrl = CTSVNPath(sDestUrl);
 				}
 				if (grfKeyState & MK_CONTROL)
 				{
@@ -963,55 +960,34 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					SVN svn;
 					svn.SetPromptApp(&theApp);
 					CWaitCursorEx wait_cursor;
-					if (urlList.GetCount() > 1)
-					{
-						if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTICOPY, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
-						{
-							wait_cursor.Hide();
-							ReleaseStgMedium(&medium);
-							return;
-						}
-					}
 					CInputLogDlg input(this);
 					input.SetProjectProperties(m_pProjectProperties);
 					CString sHint;
 					if (urlList.GetCount() == 1)
-						sHint.Format(IDS_INPUT_COPY, (LPCTSTR)urlList[0].GetSVNPathString(), (LPCTSTR)(sDestUrl+_T("/")+destUrlList[0].GetFileOrDirectoryName()));
+						sHint.Format(IDS_INPUT_COPY, (LPCTSTR)urlList[0].GetSVNPathString(), (LPCTSTR)(sDestUrl+_T("/")+urlList[0].GetFileOrDirectoryName()));
 					else
 						sHint.Format(IDS_INPUT_COPYMORE, urlList.GetCount(), (LPCTSTR)sDestUrl);
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
-						for (int index=0; index<urlList.GetCount(); ++index)
+						if (!svn.Copy(urlList, destUrl, m_Revision, m_Revision, input.GetLogMessage(), true))
 						{
-							if (!FindUrl(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()))
+							wait_cursor.Hide();
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						else if (m_Revision.IsHead())
+						{
+							for (int index = 0; index < urlList.GetCount(); ++index)
 							{
-								if (!svn.Copy(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.GetLogMessage()))
+								HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
+								if (hItem)
 								{
-									wait_cursor.Hide();
-									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-									break;
+									if (IsFolder(hItem))
+										AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName(), false, false, true);
+									else
+										AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName(), false, true);
+									Refresh(hItem);
 								}
-								if (m_Revision.IsHead())
-								{
-									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
-									if (hItem)
-									{
-										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, false, true);
-										else
-											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, true);
-										Refresh(hItem);
-									}
-								}
-							}
-							else
-							{
-								wait_cursor.Hide();
-								CString sMsg;
-								sMsg.Format(IDS_REPOBROWSE_URLALREADYEXISTS, sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
-								CMessageBox::Show(m_hWnd, sMsg, _T("TortoiseSVN"), MB_ICONERROR);
-								break;
 							}
 						}
 					} // if (input.DoModal() == IDOK) 
@@ -1039,59 +1015,34 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 								break;
 						}
 					}
-					// moving multiple items at once can not be done in one single revision:
-					// every item moved creates a separate revision.
-					// since this can be done in one revision if done in the working copy,
-					// we ask the user if that's really what he wants or not
-					if (urlList.GetCount() > 1)
-					{
-						if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTIMOVE, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
-						{
-							wait_cursor.Hide();
-							ReleaseStgMedium(&medium);
-							return;
-						}
-					}
 					CInputLogDlg input(this);
 					input.SetProjectProperties(m_pProjectProperties);
 					CString sHint;
 					if (urlList.GetCount() == 1)
-						sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)urlList[0].GetSVNPathString(), (LPCTSTR)(sDestUrl+_T("/")+destUrlList[0].GetFileOrDirectoryName()));
+						sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)urlList[0].GetSVNPathString(), (LPCTSTR)(sDestUrl+_T("/")+urlList[0].GetFileOrDirectoryName()));
 					else
 						sHint.Format(IDS_INPUT_MOVEMORE, urlList.GetCount(), (LPCTSTR)sDestUrl);
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
-						for (int index=0; index<urlList.GetCount(); ++index)
+						if (!svn.Move(urlList, destUrl, TRUE, input.GetLogMessage(), true))
 						{
-							if (!FindUrl(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()))
+							wait_cursor.Hide();
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						else if (m_Revision.IsHead())
+						{
+							for (int index = 0; index < urlList.GetCount(); ++index)
 							{
-								if (!svn.Move(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.GetLogMessage()))
+								HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
+								if (hItem)
 								{
-									wait_cursor.Hide();
-									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-									break;
+									if (IsFolder(hItem))
+										AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName(), false, false, true);
+									else
+										AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName(), false, true);
+									Refresh(hItem);
 								}
-								if (m_Revision.IsHead())
-								{
-									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
-									if (hItem)
-									{
-										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, false, true);
-										else
-											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName(), false, true);
-										Refresh(hItem);
-									}
-								}
-							}
-							else
-							{
-								wait_cursor.Hide();
-								CString sMsg;
-								sMsg.Format(IDS_REPOBROWSE_URLALREADYEXISTS, sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
-								CMessageBox::Show(m_hWnd, sMsg, _T("TortoiseSVN"), MB_ICONERROR);
-								break;
 							}
 						}
 					} // if (input.DoModal() == IDOK) 

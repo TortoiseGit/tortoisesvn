@@ -1066,7 +1066,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Copy(m_targetPathList[0], m_url, m_Revision, m_sMessage))
+			if (!m_pSvn->Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1098,7 +1098,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				localoperation = true;
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Move(m_targetPathList[0], m_url, m_Revision, m_sMessage))
+			if (!m_pSvn->Move(m_targetPathList, m_url, m_Revision, m_sMessage))
 			{
 				ReportSVNError();
 				bFailed = true;

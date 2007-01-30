@@ -364,7 +364,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 
 			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
 			progDlg.ShowModeless(m_hWnd);
-			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev1);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), rev1.ToString());
 
 			CBlame blamer;
 			if (blame)
@@ -421,7 +421,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			}
 			SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			
-			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), (LONG)rev2);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), rev2.ToString());
 			if (blame)
 			{
 				if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2))
@@ -522,7 +522,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 
 			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
 			progDlg.ShowModeless(m_hWnd);
-			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev2);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), rev2.ToString());
 
 			tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);
 			if (blame)

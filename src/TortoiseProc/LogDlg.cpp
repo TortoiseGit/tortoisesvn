@@ -1355,7 +1355,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, long rev)
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_APPNAME);
 	CString sInfoLine;
-	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev);
+	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, SVNRev(rev).ToString());
 	progDlg.SetLine(1, sInfoLine);
 	SetAndClearProgressInfo(&progDlg);
 	progDlg.ShowModeless(m_hWnd);
@@ -3045,10 +3045,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				dlg.m_CopyRev = revSelected;
 				if (dlg.DoModal() == IDOK)
 				{
-					// should we show here a progress dialog? Copies are done really fast
+					// should we show a progress dialog here? Copies are done really fast
 					// and without much network traffic.
 					SVN svn;
-					if (!svn.Copy(CTSVNPath(pathURL), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_sLogMessage))
+					if (!svn.Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					else
 						CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
@@ -3159,7 +3159,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
 					CString sInfoLine;
-					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LONG)revSelected);
+					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
 					progDlg.SetLine(1, sInfoLine);
 					svn.SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
@@ -3186,7 +3186,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);
 				CString sInfoLine;
-				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LONG)revSelected);
+				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
 				progDlg.SetLine(1, sInfoLine);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
@@ -3691,7 +3691,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						SVNRev getrev = (sAction.Compare((*it)->sAction)==0) ? rev2 : rev1;
 
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)getrev);
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, getrev.ToString());
 						progDlg.SetLine(1, sInfoLine);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
