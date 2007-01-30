@@ -20,10 +20,6 @@
 
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
-		<if test="${platform == 'x64'}">
-			<copy file="..\build\config_win.c" tofile="subversion\libsvn_subr\config_win.c" overwrite="true" />
-		</if>
-		<copy file="..\build\cmdline.c" tofile="subversion\libsvn_subr\cmdline.c" overwrite="true" />
 		<copy file="subversion\svn_private_config.hw" tofile="subversion\svn_private_config.h" overwrite="true" />
 		<loadfile file="subversion\svn_private_config.hw" property="configfile">
 			<filterchain>
@@ -180,7 +176,7 @@
 				</lib>
 			</do>
 		</foreach>
-<!--
+
 		<mkdir dir="${configuration}_${platform}\svn" />
 		<rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res">
 			<includedirs>
@@ -256,7 +252,6 @@
 			<arg value=".\${configuration}_${platform}\svn.exe.intermediate.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\svn.exe;#1"' />
 		</exec>
-		-->
 	</target>
 
 </project>
