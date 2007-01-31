@@ -131,7 +131,7 @@ UINT CResolveDlg::ResolveThread()
 	{
 		CMessageBox::Show(m_hWnd, m_resolveListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
-	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED, SVNSLC_SHOWCONFLICTED);
+	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, SVNSLC_SHOWCONFLICTED);
 
 	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);

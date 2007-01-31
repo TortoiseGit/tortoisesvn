@@ -103,7 +103,7 @@ UINT CRevertDlg::RevertThread()
 	{
 		CMessageBox::Show(m_hWnd, m_RevertList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
-	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWDIRECTFILES, 
+	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES, 
 						// do not select all files, only the ones the user has selected directly
 						SVNSLC_SHOWDIRECTFILES);
 
