@@ -71,7 +71,7 @@ public:
 	void Command(int id);
 	void Notify(SCNotification *notification);
 
-	void SetAStyle(int style, COLORREF fore, COLORREF back=white, int size=-1, const char *face=0);
+	void SetAStyle(int style, COLORREF fore, COLORREF back=::GetSysColor(COLOR_WINDOW), int size=-1, const char *face=0);
 	void InitialiseEditor();
 	LONG GetBlameWidth();
 	void DrawBlame(HDC hDC);
