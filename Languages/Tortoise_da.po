@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8562
+# Based on Tortoise.pot r8613
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-30 11:15+0100\n"
+"PO-Revision-Date: 2007-02-01 10:30+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1099,6 +1099,12 @@ msgstr "Arrangeret efter &sti"
 #: ID:2050,
 msgid "Arranges the nodes sorted by path"
 msgstr "Arranger knuderne efter sti"
+
+#: ID:264,
+#, c-format
+#, fuzzy
+msgid "Assigned to changelist \"%s\""
+msgstr "Tildelt ændringslisten \"%s\""
 
 #: ID:77,
 #, c-format
@@ -2279,8 +2285,8 @@ msgstr "Henter filen %s"
 
 #: ID:120,
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Henter filen %s, revision %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Henter filen %s, revision %s"
 
 #: ID:132,
 msgid "Getting file info..."
@@ -3564,6 +3570,10 @@ msgstr "Fjernet"
 #: ID:126,
 msgid "Removed file/folder"
 msgstr "Fjernet fil/mappe"
+
+#: ID:264,
+msgid "Removed from changelist"
+msgstr "Fjernet fra ændringslisten"
 
 #: ID:145,
 #, c-format
@@ -4993,6 +5003,10 @@ msgstr "Værdi"
 msgid "Version"
 msgstr "Version"
 
+#: ID:264,
+msgid "Versioned"
+msgstr "Versioneret"
+
 #: ID:114,
 #, fuzzy
 msgid "View revision for path in &webviewer"
@@ -5069,10 +5083,6 @@ msgid "You can't set this property on folders, only on files!\nIf you want to se
 msgstr "Du kan ikke sætte denne egenskab på mapper, kun på filer.\nHvis du vil sætte den på alle filer i mappen,\nskal du afkrydse feltet 'rekursiv'."
 
 #: ID:105,
-msgid "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folder\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
-msgstr "Du kopierede mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil kopiere hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver kopieret emne.\n\nVil du stadig gøre dette?"
-
-#: ID:105,
 msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
 msgstr "Du har trukket mere end én fil eller mappe, som skal tilføjes versionsarkivet.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil tilføje hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver tilføjet emne.\n\nVil du stadig gøre dette?"
 
@@ -5087,10 +5097,6 @@ msgstr "Du skal først opdatere din arbejdskopi."
 #: ID:169,
 msgid "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 msgstr "Du har ikke indtastet et problemnummer!\nEr du sikker på at du vil arkivere uden et problemnummer?"
-
-#: ID:105,
-msgid "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folder\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
-msgstr "Du har flyttet mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil flytte hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver flyttet emne.\n\nVil du stadig gøre dette?"
 
 #: ID:196,
 msgid "You must restart your system for the changes to take effect."
