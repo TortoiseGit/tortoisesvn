@@ -143,6 +143,8 @@
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
 - BUG: Possible TSVNCache crash when removing/renaming folders. (Stefan)
+- BUG: The "Show Log" from the "update to revision", "merge" and "switch"
+       dialog didn't initialize correctly. (Stefan)
 
 Version 1.4.2
 - BUG: Checking out from the repository browser would default to HEAD
