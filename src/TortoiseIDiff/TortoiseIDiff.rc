@@ -45,6 +45,7 @@ IDI_START               ICON                    "player_start.ico"
 IDI_STOP                ICON                    "player_stop.ico"
 IDI_VERTICAL            ICON                    "vertical.ico"
 IDI_LINK                ICON                    "link.ico"
+IDI_ALPHATOGGLE         ICON                    "alphatoggle.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -159,6 +160,7 @@ BEGIN
     VK_DOWN,        ID_VIEW_ALPHA255,       VIRTKEY, NOINVERT
     VK_LEFT,        ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
     VK_RIGHT,       ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
+    VK_SPACE,       ID_VIEW_ALPHATOGGLE,    VIRTKEY, NOINVERT
 END
 
 

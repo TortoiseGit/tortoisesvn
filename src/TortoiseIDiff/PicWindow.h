@@ -27,9 +27,10 @@
 #define ID_ANIMATIONTIMER 100
 #define TIMER_ALPHASLIDER 101
 
-#define LEFTBUTTON_ID	101
-#define RIGHTBUTTON_ID	102
-#define PLAYBUTTON_ID	103
+#define LEFTBUTTON_ID			101
+#define RIGHTBUTTON_ID			102
+#define PLAYBUTTON_ID			103
+#define ALPHATOGGLEBUTTON_ID	104
 
 #define TRACKBAR_ID 101
 #define SLIDER_HEIGHT 30
@@ -58,7 +59,8 @@ public:
 		, nVScrollPos(0)
 		, picscale(1.0)
 		, pSecondPic(NULL)
-		, alpha(255)
+		, alphalive(0)
+		, alphalast(0)
 		, bShowInfo(true)
 		, nDimensions(0)
 		, nCurrentDimension(1)
@@ -90,12 +92,19 @@ public:
 
 	void StopTimer() {KillTimer(*this, ID_ANIMATIONTIMER);}
 	/// Returns the currently used alpha blending value (0-255)
-	BYTE GetSecondPicAlpha() {return alpha;}
+	BYTE GetSecondPicAlpha() {return alphalive;}
+	/// Returns the last alpha blending value (0-255)
+	BYTE GetSecondPicAlphaLast() {return alphalast;}
 	/// Sets the alpha blending value
-	void SetSecondPicAlpha(BYTE a) 
+	void SetSecondPicAlpha(BYTE a, bool saveundo) 
 	{
-		SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
-		alpha = a; 
+		alphalive = a;
+		if (hwndAlphaSlider)
+			SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
+		if (saveundo)
+		{
+			alphalast = a;
+		}
 		InvalidateRect(*this, NULL, FALSE);
 	}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
@@ -160,7 +169,8 @@ protected:
 	bool				bLinked;			///< if true, the two pic windows are linked together for scrolling/zooming/...
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
-	BYTE				alpha;				///< the alpha value for the transparency of the second picture
+	BYTE				alphalive;			///< the alpha value for the transparency live-preview of the second picture
+	BYTE				alphalast;			///< the alpha value previously used for the transparency of the second picture that the user can undo to
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position
@@ -177,11 +187,14 @@ protected:
 	HWND				hwndRightBtn;
 	HWND				hwndPlayBtn;
 	HWND				hwndAlphaSlider;
+	HWND				hwndAlphaToggleBtn;
 	HICON				hLeft;
 	HICON				hRight;
 	HICON				hPlay;
 	HICON				hStop;
+	HICON				hAlphaToggle;
 	bool				bPlaying;
 	RECT				m_inforect;
 };
+
 

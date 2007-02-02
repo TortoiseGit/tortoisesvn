@@ -335,7 +335,7 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
-				picWindow1.SetSecondPicAlpha(127);
+				picWindow1.SetSecondPicAlpha(127, true);
 			}
 			else
 			{
@@ -375,13 +375,27 @@ LRESULT CMainWindow::DoCommand(int id)
 		}
 		break;
 	case ID_VIEW_ALPHA0:
-		picWindow1.SetSecondPicAlpha(0);
+		picWindow1.SetSecondPicAlpha(0, true);
 		break;
 	case ID_VIEW_ALPHA255:
-		picWindow1.SetSecondPicAlpha(255);
+		picWindow1.SetSecondPicAlpha(255, true);
 		break;
 	case ID_VIEW_ALPHA127:
-		picWindow1.SetSecondPicAlpha(127);
+		picWindow1.SetSecondPicAlpha(127, true);
+		break;
+	case ID_VIEW_ALPHATOGGLE:
+		switch (picWindow1.GetSecondPicAlpha())
+		{
+		case 0:
+			picWindow1.SetSecondPicAlpha(255, false);
+			break;
+		case 255:
+			picWindow1.SetSecondPicAlpha(picWindow1.GetSecondPicAlphaLast(), false);
+			break;
+		default:
+			picWindow1.SetSecondPicAlpha(0, false);
+			break;
+		}
 		break;
 	case ID_VIEW_FITIMAGESINWINDOW:
 		{

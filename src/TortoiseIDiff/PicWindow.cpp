@@ -57,12 +57,15 @@ void CPicWindow::PositionTrackBar()
 {
 	if (pSecondPic)
 	{
-		MoveWindow(hwndAlphaSlider, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom-m_inforect.top+8, true);
+		MoveWindow(hwndAlphaSlider, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4+SLIDER_WIDTH, SLIDER_WIDTH, m_inforect.bottom-m_inforect.top-SLIDER_WIDTH+8, true);
 		ShowWindow(hwndAlphaSlider, SW_SHOW);
+		MoveWindow(hwndAlphaToggleBtn, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4, SLIDER_WIDTH, SLIDER_WIDTH, true);
+		ShowWindow(hwndAlphaToggleBtn, SW_SHOW);
 	}
 	else
 	{
 		ShowWindow(hwndAlphaSlider, SW_HIDE);
+		ShowWindow(hwndAlphaToggleBtn, SW_HIDE);
 	}
 }
 
@@ -97,7 +100,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
 			}
 			else
-				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0), true);
 		}
 		else
 		{
@@ -224,6 +227,23 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					return 0;
 				}
 				break;
+			case ALPHATOGGLEBUTTON_ID:
+				{
+					switch (GetSecondPicAlpha())
+					{
+					case 0:
+						SetSecondPicAlpha(255, false);
+						break;
+					case 255:
+						SetSecondPicAlpha(GetSecondPicAlphaLast(), false);
+						break;
+					default:
+						SetSecondPicAlpha(0, false);
+						break;
+					}
+					return 0;
+				}
+				break;
 			}
 			// pass the message to our parent
 			SendMessage(GetParent(*this), WM_COMMAND, wParam, lParam);
@@ -246,7 +266,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				break;
 			case TIMER_ALPHASLIDER:
 				{
-					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0), false);
 					KillTimer(*this, TIMER_ALPHASLIDER);
 				}
 				break;
@@ -581,16 +601,14 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 	if ((fwKeys & MK_SHIFT)&&(fwKeys & MK_CONTROL)&&(pSecondPic))
 	{
 		// ctrl+shift+wheel: change the alpha channel
-		int overflow = alpha;	// use an int to detect overflows
-		alpha -= (zDelta / 12);
+		int overflow = alphalive;	// use an int to detect overflows
+		alphalive -= (zDelta / 12);
 		overflow -= (zDelta / 12);
 		if (overflow > 255)
-			alpha = 255;
+			alphalive = 255;
 		if (overflow < 0)
-			alpha = 0;
-		if (hwndAlphaSlider)
-			SendMessage(hwndAlphaSlider, TBM_SETPOS, 1, alpha);
-		InvalidateRect(*this, NULL, FALSE);
+			alphalive = 0;
+		SetSecondPicAlpha(alphalive, true);
 	}
 	else if (fwKeys & MK_SHIFT)
 	{
@@ -826,7 +844,7 @@ void CPicWindow::Paint(HWND hwnd)
 				blender.AlphaFormat = 0;
 				blender.BlendFlags = 0;
 				blender.BlendOp = AC_SRC_OVER;
-				blender.SourceConstantAlpha = alpha;
+				blender.SourceConstantAlpha = alphalive;
 				AlphaBlend(memDC, 
 					rect.left,
 					rect.top,
@@ -943,7 +961,7 @@ bool CPicWindow::CreateButtons()
 								(LPCTSTR)NULL,
 								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
 								0, 0, 0, 0, 
-								*this,
+								(HWND)*this,
 								(HMENU)LEFTBUTTON_ID,
 								hResource, 
 								NULL);
@@ -978,6 +996,20 @@ bool CPicWindow::CreateButtons()
 	hPlay = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_START), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	hStop = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_STOP), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
+	hwndAlphaToggleBtn = CreateWindowEx(0, 
+								_T("BUTTON"), 
+								(LPCTSTR)NULL,
+								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+								0, 0, 0, 0, 
+								(HWND)*this,
+								(HMENU)ALPHATOGGLEBUTTON_ID,
+								hResource, 
+								NULL);
+	if (hwndAlphaToggleBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hAlphaToggle = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_ALPHATOGGLE), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndAlphaToggleBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaToggle);
+
 	return true;
 }
 
