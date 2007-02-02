@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-20 23:26+0100\n"
+"PO-Revision-Date: 2007-02-02 12:14+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -884,7 +884,7 @@ msgstr "&Späť\tCtrl+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "&Unifikované porovnanie"
+msgstr "&Unif. porov."
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -1037,6 +1037,11 @@ msgstr ""
 "Aby ste použili <b>TortoiseSVN</b> otvorte prosím explorer a vyberte pravým tlačítkom myši adresár.\n"
 "V kontextovom menu nájdete všetky príkazy <b>TortoiseSVN</b>.\n"
 "A <u>prečítajte si manuál!</u>"
+
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<nový zoznam zmien>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1201,12 +1206,6 @@ msgstr "Upraviť zlučovací program pre príponu"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Pridaj do zoznamu &ignorovaných"
-
-# ID:13,
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "Pridať priečinok do zoznamu zmien '%s'"
 
 # ID:8,#:
 # Control-ID:1098,#:
@@ -1492,6 +1491,12 @@ msgstr "Usporiadané podľa &adresárov"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Usporiadať uzly podľa cesty"
+
+# ID:15,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Prirarené k zoznamu zmien \"%s\""
 
 # ID:77,
 #: ID:77
@@ -1812,6 +1817,11 @@ msgstr "Skontoluj aktualizácie"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "Skontoluj aktualizácie..."
+
+# Dlg-ID:133,
+#: ID:213
+msgid "Check Group"
+msgstr "Skontrolovať skupinu"
 
 # ID:13,
 #: ID:13
@@ -2383,11 +2393,6 @@ msgstr "Vytvoriť záplatu"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Vytvoriť úložisko"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Vytvoriť a pridať do zoznamu zmien"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3133,7 +3138,7 @@ msgstr "Od:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "Z: (začiatočná URL adresa a revízia rozsahu k zlučeniu)"
+msgstr "Od: (prvá URL adresa, prvá revízia rozsahu k zlúčeniu)"
 
 # ID:273,
 #: ID:273
@@ -3202,8 +3207,8 @@ msgstr "Získavam súbor %s"
 # ID:120,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Získavam súbor %s, revízie %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Získavanie súboru %s revízie %s"
 
 # ID:132,
 #: ID:132
@@ -3858,6 +3863,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Zachovať &zámky"
 
+# ID:213,
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "Zachovať zoznam zmien"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -4235,6 +4245,11 @@ msgid ""
 msgstr ""
 "Presunúť %s\r\n"
 "do %s"
+
+# ID:15,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Presunúť do zoznamu zmien"
 
 # ID:98,
 #: ID:98
@@ -5100,6 +5115,11 @@ msgstr "Odstránené"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Odstránený súbor/adresár"
+
+# ID:15,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Ostrániť zo zoznamu zmien"
 
 # ID:145,
 #: ID:145
@@ -6722,7 +6742,7 @@ msgstr "Do:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "Po: (záverešná URL a adresa rozsahu zlučovania)"
+msgstr "Po: (posledná URL a adresa rozsahu zlučovania)"
 
 # ID:7,
 #: ID:7
@@ -7028,6 +7048,13 @@ msgstr "Nemožno zapísať do %1, je len na čítanie, alebo otvorený niekym in
 msgid "Uncheck"
 msgstr "Odznačiť"
 
+# Odznač
+# ID:3887,#:
+# ID:3887,
+#: ID:213
+msgid "Uncheck Group"
+msgstr "Odznačiť skupinu"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7183,7 +7210,7 @@ msgstr "Použiť oba bloky (tento posledný)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "Použiť &preškrtávanie pre vymazané riadky"
 
 # ID:251,
@@ -7302,6 +7329,12 @@ msgstr "Hodnota"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Verzia"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "Verziované"
 
 # ID:114,
 #: ID:114
@@ -7426,24 +7459,6 @@ msgstr ""
 "Ak ju chcete použiť na všetky súbory v tom adresáry,\n"
 "musíte vybrať zaškrtávacie políčko 'rekurzívne'."
 
-# Skopírovali ste viac súborov, alebo adresárov.\n
-# Toto nieje možné vykonať v jednom kroku, TortoiseSVN skopíruje každý súbor/adresár\n
-# samostatne vytvoriac novú revíziu pre každý skopírovaný objekt.\n
-# ID:105,
-#: ID:105
-msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Skopírovali ste viac súborov, alebo adresárov.\n"
-"Nie to však možné urobiť v jednom kroku. Takže TortoiseSVN skopíruje každý\n"
-"súbor/adresár samostatne vytvoriac novú revíziu pre každý skopírovaný objekt.\n"
-"\n"
-"Ešte stále to chcete?"
-
 # ID:105,
 #: ID:105
 msgid ""
@@ -7481,24 +7496,6 @@ msgid ""
 msgstr ""
 "Nezadali ste prípadové čislo!\n"
 "Chcete vykonať odovzdanie bez čísla prípadu?"
-
-# Presunuli ste viac súborov, alebo adresárov.\n
-# Nie to možné urobiť v jednom kroku, preto TortoiseSVN vytvorí novú revíziu\n
-# pre každý presunutý adresár, alebo súbor.\n
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Presunuli ste viac súborov, alebo adresárov.\n"
-"Nie to však možné urobiť v jednom kroku, takže TortoiseSVN presunie každý\n"
-"súbor/adresár samostatne vytvoriac novú revíziu pre každý presunutý objekt.\n"
-"\n"
-"Ešte stále to chcete?"
 
 # ID:196,
 #: ID:196
