@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-26 08:53+0100\n"
+"PO-Revision-Date: 2007-02-02 22:59+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1496,6 +1496,12 @@ msgstr "Razvrstano po &stazi"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Uređuje čvorove razvrstane po stazi"
+
+# ID:13,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Pridjeljeno skupu izmjena \"%s\""
 
 # ID:77,
 #: ID:77
@@ -3179,8 +3185,8 @@ msgstr "Dohvaćam datoteku %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Dohvaćam datoteku %s, revizija %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Dohvaćam datoteku %s, revizija %s"
 
 # ID:132,
 #: ID:132
@@ -5086,6 +5092,11 @@ msgstr "Uklonjeno"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Uklonjena datoteka/mapa"
+
+# ID:13,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Uklonjeno s popisa izmjena"
 
 # ID:145,
 #: ID:145
@@ -7308,6 +7319,13 @@ msgstr "Vrijednost"
 msgid "Version"
 msgstr "Verzija"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+#, fuzzy
+msgid "Versioned"
+msgstr "S vezijama"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7435,21 +7453,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Kopirali ste više od jedne datoteke ili mape.\n"
-"To nije moguće učiniti u jednom koraku tako da će TortoiseSVN kopirati svaku\n"
-"datoteku/mapu zasebno, izrađujući novu reviziju za svaku kopiranu stavku.\n"
-"\n"
-"Želite li još uvijek to učiniti?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7484,21 +7487,6 @@ msgid ""
 msgstr ""
 "Niste unijeli broj spornog pitanja!\n"
 "Jeste li sigurni da želite pohraniti bez tog broja?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Premjestili ste više od jedne datoteke ili mape.\n"
-"To nije moguće učiniti u jednom koraku tako da će TortoiseSVN premjestiti svaku\n"
-"datoteku/mapu zasebno, izrađujući novu reviziju za svaku premještenu stavku.\n"
-"\n"
-"Želite li još uvijek to učiniti?"
 
 # ID:196,
 #: ID:196
