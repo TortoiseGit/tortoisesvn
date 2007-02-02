@@ -1475,17 +1475,10 @@ void CLogDlg::EditLogMessage(int index)
 			int found = sShortMessage.Find(_T("\n\n"));
 			if (found >=0)
 			{
-				if (found <=80)
-					sShortMessage = sShortMessage.Left(found);
-				else
-				{
-					found = sShortMessage.Find(_T("\n"));
-					if ((found >= 0)&&(found <=80))
-						sShortMessage = sShortMessage.Left(found);
-				}
+				sShortMessage = sShortMessage.Left(found);
 			}
-			else if (sShortMessage.GetLength() > 80)
-				sShortMessage = sShortMessage.Left(77) + _T("...");
+			sShortMessage.Replace('\n', ' ');
+
 			pLogEntry->sShortMessage = sShortMessage;
 			// split multi line log entries and concatenate them
 			// again but this time with \r\n as line separators
