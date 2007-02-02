@@ -13,6 +13,7 @@
 # blame -- авторство (было: авторы файла)
 # branch -- ответвление
 # bugtracking system -- система отслеживания ошибок
+# changelist -- группа изменений
 # checkbox -- флажок
 # checkout -- извлечь
 # commit -- фиксировать
@@ -40,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8541: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8613: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-24 19:57+0300\n"
+"PO-Revision-Date: 2007-02-02 12:32+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -812,7 +813,7 @@ msgstr "(выбрано несколько целей)"
 
 #: ID:213
 msgid "(no changelist)"
-msgstr "(без списка изменений)"
+msgstr "(не в группе изменений)"
 
 #: ID:314
 msgid "(not found)"
@@ -876,7 +877,7 @@ msgstr ""
 
 #: ID:209
 msgid "<new changelist>"
-msgstr "<новый список изменений>"
+msgstr "<новая группа изменений>"
 
 #: ID:3867
 #, c-format
@@ -1230,6 +1231,11 @@ msgstr "Выстраивать по &пути"
 msgid "Arranges the nodes sorted by path"
 msgstr "Выстраивает узлы в зависимости от пути"
 
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Внесено в группу изменений \"%s\""
+
 # На?
 #: ID:77
 #, c-format
@@ -1486,6 +1492,10 @@ msgstr "Проверка обновлений"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "Проверить обновления..."
+
+#: ID:213
+msgid "Check Group"
+msgstr "Отметить группу"
 
 #: ID:13
 msgid "Check for modi&fications"
@@ -1942,7 +1952,7 @@ msgstr "Создать за&платку..."
 
 #: Dlg-ID:243
 msgid "Create Changelist"
-msgstr "Создать список изменений"
+msgstr "Создать группу изменений"
 
 # Заголовок окна
 #: Dlg-ID:208
@@ -2304,7 +2314,7 @@ msgstr "Введите сообщение блокировки (не обяза�
 
 #: Control-ID:65535
 msgid "Enter a name for the changelist:"
-msgstr "Введите имя для списка изменений:"
+msgstr "Введите имя для группы изменений:"
 
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -2608,8 +2618,8 @@ msgstr "Получение файла %s"
 
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Получение файла %s, ревизия %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Получение  ревизии %s файла %s"
 
 #: ID:132
 msgid "Getting file info..."
@@ -3192,6 +3202,10 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Сохранить &блокировки"
 
+#: Control-ID:1126
+msgid "Keep changelist"
+msgstr "Сохранить группу изменений"
+
 #: Control-ID:65535
 msgid "Last commit revision:"
 msgstr "Зафиксир. ревизия:"
@@ -3500,7 +3514,7 @@ msgstr ""
 
 #: ID:209
 msgid "Move to changelist"
-msgstr "Переместить в список изменений"
+msgstr "Переместить в группу изменений"
 
 #: ID:98
 #, c-format
@@ -4171,7 +4185,7 @@ msgstr "Удалить из списка &игнорирования"
 
 #: ID:209
 msgid "Remove from changelist"
-msgstr "Удалить из списка изменений"
+msgstr "Убрать из группы изменений"
 
 #: Control-ID:1332
 msgid "Remove..."
@@ -4184,6 +4198,10 @@ msgstr "Убранное"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Удален(а) файл/папка"
+
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Убрано из группы изменений"
 
 #: ID:145
 #, c-format
@@ -4202,7 +4220,7 @@ msgstr "Убирает все неверсированные и игнориру
 
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr "Удаляет файлы или маску файлов из листа игнорирования"
+msgstr "Удаляет файлы или маску файлов из списка игнорирования"
 
 # Заголовок окна
 #: Dlg-ID:151
@@ -5782,6 +5800,10 @@ msgstr "Невозможно записать в %1: он только-для-ч
 msgid "Uncheck"
 msgstr "Разотметить"
 
+#: ID:213
+msgid "Uncheck Group"
+msgstr "Разотметить группу"
+
 #: ID:3603
 msgid ""
 "Undo the last action\n"
@@ -6010,6 +6032,10 @@ msgstr "Значение"
 msgid "Version"
 msgstr "Версия"
 
+#: ID:264
+msgid "Versioned"
+msgstr "Версировано"
+
 #: ID:114
 msgid "View revision for path in &webviewer"
 msgstr "Посмотреть ревизию для пути в &веб-обозревателе"
@@ -6119,20 +6145,6 @@ msgstr ""
 
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Вы копируете более одного файла или папки.\n"
-"Это невозможно сделать за один шаг, поэтому TortoiseSVN будет копировать каждый файл/папку\n"
-"индивидуально, создавая новую ревизию для каждого скопированного объекта.\n"
-"\n"
-"Вы всё еще хотите это выполнить?"
-
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -6164,20 +6176,6 @@ msgid ""
 msgstr ""
 "Вы не ввели номер проблемы!\n"
 "Вы действительно хотите зафиксировать файл(ы) без номера проблемы?"
-
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Вы перемещаете более одного файла или папки.\n"
-"Это невозможно сделать за один шаг, поэтому TortoiseSVN будет перемещать каждый файл/папку\n"
-"индивидуально, создавая новую ревизию для каждого перемещённого объекта.\n"
-"\n"
-"Вы всё еще хотите это выполнить?"
 
 #: ID:196
 msgid "You must restart your system for the changes to take effect."
