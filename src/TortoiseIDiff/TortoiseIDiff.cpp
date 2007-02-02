@@ -93,7 +93,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		// Main message loop:
 		while (GetMessage(&msg, NULL, 0, 0))
 		{
-			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+			if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
 			{
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);

@@ -245,8 +245,6 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				}
 				break;
 			}
-			// pass the message to our parent
-			SendMessage(GetParent(*this), WM_COMMAND, wParam, lParam);
 		}
 		break;
 	case WM_TIMER:
