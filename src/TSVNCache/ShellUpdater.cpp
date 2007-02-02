@@ -115,6 +115,7 @@ void CShellUpdater::WorkerThread()
 			CTSVNPath workingPath;
 			if (!m_bRunning)
 				return;
+			Sleep(0);
 			{
 				AutoLocker lock(m_critSec);
 				if(m_pathsToUpdate.empty())
