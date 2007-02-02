@@ -207,7 +207,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 		// TransactNamedPipe is working in an overlapped operation.
 		// Wait for it to finish
-		DWORD dwWait = WaitForSingleObject(m_hEvent, 60000);
+		DWORD dwWait = WaitForSingleObject(m_hEvent, 10000);
 		if (dwWait == WAIT_OBJECT_0)
 		{
 			fSuccess = GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE);
@@ -216,12 +216,6 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		{
 			// the cache didn't respond!
 			fSuccess = FALSE;
-			// send the cache a message to close
-			HWND hWnd = FindWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME);
-			if (hWnd)
-			{
-				PostMessage(hWnd, WM_CLOSE, NULL, NULL);
-			}
 		}
 	}
 
