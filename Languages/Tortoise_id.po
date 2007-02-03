@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-31 10:44+0700\n"
+"PO-Revision-Date: 2007-02-04 04:16+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1795,11 +1795,6 @@ msgstr "Periksa Pemutahiran"
 msgid "Check For Updates..."
 msgstr "Periksa Pemutahiran..."
 
-# Dlg-ID:133,
-#: ID:213
-msgid "Check Group"
-msgstr "Periksa Kelompok"
-
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2495,6 +2490,11 @@ msgstr "Menghapus file / folder dari kontrol versi"
 #: ID:263
 msgid "Deleting"
 msgstr "Menghapus"
+
+# ID:209,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Hapus pilihan daftar perubahan"
 
 # ID:3859,#:
 # ID:3859,
@@ -3816,7 +3816,7 @@ msgstr "Biarkan &kunci"
 
 # ID:209,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "Simpan daftar perubahan"
 
 # Control-ID:65535,
@@ -5601,6 +5601,11 @@ msgstr "Pilih klien SSH"
 msgid "Select an object on which to get Help"
 msgstr "Pilih obyek yang ingin memperoleh Bantuan"
 
+# ID:209,
+#: ID:213
+msgid "Select changelist"
+msgstr "Pilih daftar perubahan"
+
 # ID:78,
 #: ID:78
 msgid "Select diff application"
@@ -6977,12 +6982,6 @@ msgstr "Tidak bisa menulis ke %1, ia hanya-baca atau dibuka oleh orang lain."
 #: ID:3887
 msgid "Uncheck"
 msgstr "Tidak dicentang"
-
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Menghilangkan Cawang Kelompok"
 
 # ID:3603,
 #: ID:3603
