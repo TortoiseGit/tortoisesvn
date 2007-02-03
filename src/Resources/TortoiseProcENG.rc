@@ -309,7 +309,7 @@ BEGIN
     GROUPBOX        "Message:",IDC_MESSAGEGROUP,6,30,287,99
     GROUPBOX        "Changes made (double-click on file for diff):",IDC_LISTGROUP,6,137,287,113
     CONTROL         "",IDC_SPLITTER,"Static",SS_OWNERDRAW,7,130,287,5,WS_EX_TRANSPARENT
-    CONTROL         "Keep changelist",IDC_KEEPLISTS,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,14,263,111,10
+    CONTROL         "Keep changelists",IDC_KEEPLISTS,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,14,263,111,10
 END
 
 IDD_MERGE DIALOGEX 0, 0, 396, 278
@@ -2808,8 +2808,8 @@ BEGIN
     IDS_STATUSLIST_BUSYMSG  "Please wait..."
     IDS_STATUSLIST_EMPTYMSG "File list is empty"
     IDS_STATUSLIST_UNASSIGNED_CHANGESET "(no changelist)"
-    IDS_STATUSLIST_CHECKGROUP "Check Group"
-    IDS_STATUSLIST_UNCHECKGROUP "Uncheck Group"
+    IDS_STATUSLIST_CHECKGROUP "Select changelist"
+    IDS_STATUSLIST_UNCHECKGROUP "Deselect changelist"
 END
 
 #endif    // English (U.S.) resources
