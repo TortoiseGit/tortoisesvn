@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-07 23:43+0100\n"
+"PO-Revision-Date: 2007-02-04 22:34+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -808,6 +808,11 @@ msgstr "(simular)"
 msgid "(multiple targets selected)"
 msgstr "(multiples destinos seleccionados)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(no hay lista de cambios)"
+
 #: ID:314
 msgid "(not found)"
 msgstr "(no encontrado)"
@@ -876,6 +881,11 @@ msgstr ""
 "Para usar <b>TortoiseSVN</b> por favor abra el Explorador y haga click con el botón derecho en cualquier carpeta que desee\n"
 "para que aparezca el menú contextual donde encontrará todos los comandos de <b>TortoiseSVN</b>.\n"
 "Y <u>¡lea el manual!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<nueva lista de cambios>"
 
 #: ID:3867
 #, c-format
@@ -1241,6 +1251,12 @@ msgstr "Organizados por &ruta"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Organiza los nodos ordenados por ruta"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Asignado a la lista de cambios \"%s\""
 
 #: ID:77
 #, c-format
@@ -1996,6 +2012,10 @@ msgstr "¡No se puede iniciar el thread!"
 msgid "Create &patch..."
 msgstr "Crear &parche..."
 
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Crear lista de cambios"
+
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Crear Parche"
@@ -2112,6 +2132,11 @@ msgstr "Elimina archivos / carpetas del control de versiones"
 #: ID:263
 msgid "Deleting"
 msgstr "Eliminando"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Deseleccionar lista de cambios"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -2368,6 +2393,11 @@ msgstr "Introduzca URL"
 msgid "Enter a lock message (optional):"
 msgstr "Introduzca un mensaje de bloqueo (opcional):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Introduzca un nombre para la lista de cambios:"
+
 #: Control-ID:1065
 msgid "Enter log &message:"
 msgstr "Introduzca &mensaje de registro:"
@@ -2549,7 +2579,7 @@ msgid "File diffs"
 msgstr "Diferencias de ficheros"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "la lista de ficheros está vacía"
 
@@ -2685,8 +2715,8 @@ msgstr "Obteniendo archivo %s"
 
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Obteniendo fichero %s, revisión %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Obteniendo el fichero %s, revisión %s"
 
 #: ID:132
 msgid "Getting file info..."
@@ -3299,6 +3329,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Mantener blo&queos"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Mantener listas de cambios"
+
 #: Control-ID:65535
 msgid "Last commit revision:"
 msgstr "Revisión última confirmación:"
@@ -3382,7 +3417,7 @@ msgid "Lock Files"
 msgstr "Bloquear Archivos"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "¡Bloqueo roto!"
 
@@ -3406,7 +3441,7 @@ msgid "Lock owner:"
 msgstr "Dueño del bloqueo:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Bloqueo robado por %s"
@@ -3633,6 +3668,11 @@ msgstr ""
 "Mover %s\r\n"
 "a %s"
 
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Mover a la lista de cambios"
+
 #: ID:98
 #, c-format
 msgid "Move: New name for %s"
@@ -3669,7 +3709,7 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr "Necesita bloqueo"
 
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Anidado"
 
@@ -4095,7 +4135,7 @@ msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
 
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Por favor, espere..."
 
@@ -4336,6 +4376,10 @@ msgstr "Eliminar %s"
 msgid "Remove from &ignore list"
 msgstr "Quitar de la lista de &ignorados"
 
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Quitar de la lista de cambios"
+
 #: Control-ID:1332
 msgid "Remove..."
 msgstr "Eliminar..."
@@ -4347,6 +4391,10 @@ msgstr "Eliminado"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Carpeta/archivo eliminada(o)"
+
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Quitado de la lista de cambios"
 
 #: ID:145
 #, c-format
@@ -4796,6 +4844,10 @@ msgstr "Seleccione cliente SSH"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Seleccione un objeto para obtener Ayuda acerca de él"
+
+#: ID:213
+msgid "Select changelist"
+msgstr "Seleccione lista de cambios"
 
 #: ID:78
 msgid "Select diff application"
@@ -6158,8 +6210,8 @@ msgstr "Utilizar ambos bloques de texto (este el último)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "Usar &tachado para las líneas borradas"
+msgid "Use stri&keout for removed lines"
+msgstr "Usar &tachado para las líneas eliminadas"
 
 #: MenuEntry
 msgid "Use text block from \"&mine\""
@@ -6258,6 +6310,10 @@ msgstr "Valor"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Versión"
+
+#: ID:264
+msgid "Versioned"
+msgstr "Versionado"
 
 # ID:114,
 #: ID:114
@@ -6377,21 +6433,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Ha copiado más de un fichero o carpeta.\n"
-"No es posible hacer eso en un único paso, por lo que TortoiseSVN copiará\n"
-"cada fichero/carpeta individualmente, creando una nueva revisión para cada ítem copiado.\n"
-"\n"
-"¿Aun así desea realizar la operación?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -6426,21 +6467,6 @@ msgid ""
 msgstr ""
 "No ha introducido un número de edición,\n"
 "¿ Esta seguro de efectuar la actualizacion sin número de edición ?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Ha movido más de un fichero o carpeta.\n"
-"No es posible hacer eso en un único paso, por lo que TortoiseSVN moverá\n"
-"cada fichero/carpeta individualmente, creando una nueva revisión para cada ítem movido.\n"
-"\n"
-"¿Aun así desea realizar la operación?"
 
 # ID:196,
 #: ID:196
