@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-12 21:33+0100\n"
+"PO-Revision-Date: 2007-02-04 13:51+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -774,6 +774,10 @@ msgstr "(proefrun)"
 msgid "(multiple targets selected)"
 msgstr "(meerdere doelen geselecteerd)"
 
+#: ID:213
+msgid "(no changelist)"
+msgstr "(geen werkset)"
+
 #: ID:314
 msgid "(not found)"
 msgstr "(niet gevonden)"
@@ -833,6 +837,10 @@ msgstr ""
 "Om <b>TortoiseSVN</b> te gebruiken opent u de verkenner en klikt u met de rechter muisknop op\n"
 "een folder om het contextmenu te tonen. Hierin vindt u alle <b>TortoiseSVN</b> commando's.\n"
 "Voor meer informatie: <u>Raadpleeg de handleiding!</u>"
+
+#: ID:209
+msgid "<new changelist>"
+msgstr "<nieuwe werkset>"
 
 #: ID:3867
 #, c-format
@@ -1183,6 +1191,11 @@ msgstr "Gerangschikt op &pad"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Sorteer de knopen op padnaam"
+
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Toegewezen aan werkset \"%s\""
 
 #: ID:77
 #, c-format
@@ -1886,6 +1899,10 @@ msgstr "Kon geen thread starten!"
 msgid "Create &patch..."
 msgstr "Maak &patch..."
 
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Maak werkset"
+
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Maak patch"
@@ -1998,6 +2015,10 @@ msgstr "Verwijdert bestanden/mappen uit versiebeheer"
 #: ID:263
 msgid "Deleting"
 msgstr "Verwijderen"
+
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Werkset deselecteren"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -2240,6 +2261,10 @@ msgstr "Geef URL"
 msgid "Enter a lock message (optional):"
 msgstr "Geef een blokkade-boodschap (optioneel):"
 
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Geef een naam voor de werkset:"
+
 #: Control-ID:1065
 msgid "Enter log &message:"
 msgstr "Geef &logboodschap:"
@@ -2413,7 +2438,7 @@ msgstr "Bestandswijzigingen per week:"
 msgid "File diffs"
 msgstr "Diff van twee bestanden"
 
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "Bestandslijst is leeg"
 
@@ -2537,8 +2562,8 @@ msgstr "Bestand %s ophalen"
 
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Ophalen %s, revisie %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Ophalen %s, revisie %s"
 
 #: ID:132
 msgid "Getting file info..."
@@ -3193,6 +3218,10 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "&Blokkades handhaven"
 
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Werksets bewaren"
+
 #: Control-ID:65535
 msgid "Last commit revision:"
 msgstr "Laatste commit revisie:"
@@ -3271,7 +3300,7 @@ msgstr "Blokkade"
 msgid "Lock Files"
 msgstr "Bestanden blokkeren"
 
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Blokkade verbroken!"
 
@@ -3291,7 +3320,7 @@ msgstr "Blokkeren mislukt"
 msgid "Lock owner:"
 msgstr "Blokkade-eigenaar:"
 
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Blokkade gestolen door %s"
@@ -3494,6 +3523,10 @@ msgstr ""
 "Verplaats %s\r\n"
 "naar %s"
 
+#: ID:209
+msgid "Move to changelist"
+msgstr "Verplaats naar werkset"
+
 #: ID:98
 #, c-format
 msgid "Move: New name for %s"
@@ -3528,7 +3561,7 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr "Heeft blokkade nodig"
 
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Genest"
 
@@ -3926,7 +3959,7 @@ msgstr "Even geduld a.u.b. De archief-verkenner wordt geïnitialiseerd..."
 
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Even geduld..."
 
@@ -4155,6 +4188,10 @@ msgstr "Verwijder %s"
 msgid "Remove from &ignore list"
 msgstr "Verwijder uit &negeerlijst"
 
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Verwijderen uit werkset"
+
 #: Control-ID:1332
 msgid "Remove..."
 msgstr "Verwijder..."
@@ -4166,6 +4203,10 @@ msgstr "Verwijderd"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Bestand/map verwijderd"
+
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Verwijderd uit werkset"
 
 #: ID:145
 #, c-format
@@ -4597,6 +4638,10 @@ msgstr "Selecteer een SSH Client"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Kies een object waarover u helpinformatie wilt"
+
+#: ID:213
+msgid "Select changelist"
+msgstr "Selecteer werkset"
 
 #: ID:78
 msgid "Select diff application"
@@ -5875,7 +5920,7 @@ msgid "Use both text blocks (this one last)"
 msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "Gebruik &doorhalen voor verwijderde regels"
 
 #: MenuEntry
@@ -5975,6 +6020,10 @@ msgstr "Waarde"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Versie"
+
+#: ID:264
+msgid "Versioned"
+msgstr "Onder beheer"
 
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -6083,20 +6132,6 @@ msgstr ""
 
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"U heeft meer dan één bestand of map gekopiëerd.\n"
-"Dat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\n"
-"los kopiëren, waarbij telkens een nieuwe revisie ontstaat.\n"
-"\n"
-"Wilt u hiermee doorgaan?"
-
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -6128,20 +6163,6 @@ msgid ""
 msgstr ""
 "U heeft geen issue nummer ingevuld.\n"
 "Weet u zeker dat u wilt vastleggen zonder een issue number?"
-
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"U heeft meer dan één bestand of map verplaatst.\n"
-"Dat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\n"
-"los verplaatsen, waarbij telkens een nieuwe revisie ontstaat.\n"
-"\n"
-"Wilt u hiermee doorgaan?"
 
 #: ID:196
 msgid "You must restart your system for the changes to take effect."
