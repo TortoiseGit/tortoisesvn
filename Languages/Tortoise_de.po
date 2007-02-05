@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-01-30 15:40+0100\n"
+"PO-Revision-Date: 2007-02-05 12:14+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1475,10 +1475,6 @@ msgstr "Auf Aktualisierungen prüfen"
 msgid "Check For Updates..."
 msgstr "Auf Aktualisierungen prüfen..."
 
-#: ID:213
-msgid "Check Group"
-msgstr "Gruppe auswählen"
-
 #: ID:13
 msgid "Check for modi&fications"
 msgstr "&Prüfe auf Änderungen"
@@ -2055,6 +2051,11 @@ msgstr "Löscht Dateien / Ordner aus der Versionskontrolle"
 #: ID:263
 msgid "Deleting"
 msgstr "Lösche"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Änderungsliste abwählen"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -3225,7 +3226,7 @@ msgstr "Sperren &behalten"
 
 # ID:213,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "Änderungsliste beibehalten"
 
 #: Control-ID:65535
@@ -4672,6 +4673,11 @@ msgstr "Wähle einen SSH Client"
 msgid "Select an object on which to get Help"
 msgstr "Wählen Sie ein Objekt, für welches Sie Hilfe möchten"
 
+# ID:213,
+#: ID:213
+msgid "Select changelist"
+msgstr "Änderungsliste wählen"
+
 #: ID:78
 msgid "Select diff application"
 msgstr "Vergleichsprogramm auswählen"
@@ -5863,10 +5869,6 @@ msgstr "Konnte auf %1 nicht schreiben, es ist entweder schreibgeschützt oder vo
 #: ID:3887
 msgid "Uncheck"
 msgstr "Abwählen"
-
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Gruppe abwählen"
 
 #: ID:3603
 msgid ""
