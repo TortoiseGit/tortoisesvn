@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-21 13:15+0200\n"
+"PO-Revision-Date: 2007-02-05 23:15+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1070,6 +1070,11 @@ msgstr ""
 "за да се покаже контекстното меню, където ще откриете всички команди на <b>TortoiseSVN</b>.\n"
 "И <u>прочетете ръководството!</u>"
 
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<нов списък с промени>"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1232,12 +1237,6 @@ msgstr "Добаване на специфична за този тип файл
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Добавяне в списъка за &игнориране"
-
-# ID:13,
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "&Добавяне към списъка с промени '%s'"
 
 # Control-ID:1098,
 #: Control-ID:1279
@@ -1514,6 +1513,12 @@ msgstr "Подреждане според &пътя"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Подреждане на възлите според пътя"
+
+# ID:13,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Добавен към списъка с промени \"%s\""
 
 # ID:77,
 #: ID:77
@@ -2382,7 +2387,7 @@ msgstr "Създаване на &кръпка..."
 # ID:13,
 #: Dlg-ID:243
 msgid "Create Changelist"
-msgstr "Създаване на списък с промени..."
+msgstr "Създаване на списък с промени"
 
 # ID:13,
 #: Dlg-ID:208
@@ -2393,11 +2398,6 @@ msgstr "Създаване на кръпка"
 #: Dlg-ID:178
 msgid "Create Repository"
 msgstr "Създаване на хранилище"
-
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Създаване и добавяне към списък с промени"
 
 # ID:113,
 #: Control-ID:65535
@@ -2538,6 +2538,11 @@ msgstr "Изтрива контролирани файлове / папки"
 #: ID:263
 msgid "Deleting"
 msgstr "Изтриване"
+
+# ID:13,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Размаркиране на списък с промени"
 
 # ID:3859,#:
 # ID:3859,
@@ -3198,8 +3203,8 @@ msgstr "Получаване на файл %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Получаване на файл %s, ревизия %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Получаване на файл %s, ревизия %s"
 
 # ID:132,
 #: ID:132
@@ -3849,6 +3854,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Без &отключване"
 
+# ID:13,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Запазване на списъците с промени"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -4218,6 +4228,11 @@ msgid ""
 msgstr ""
 "Преместване на %s\r\n"
 "в %s"
+
+# ID:13,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Преместване в списък с промени"
 
 # ID:97,
 #: ID:98
@@ -5074,6 +5089,11 @@ msgid "Removed file/folder"
 msgstr "Премахнат файл/папка"
 
 # ID:13,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Премахнат от списъка с промени"
+
+# ID:13,
 #: ID:145
 #, c-format
 msgid ""
@@ -5594,7 +5614,7 @@ msgstr "&Избиране на всички"
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Select / deselect &all"
-msgstr "Отбелязване / изчистистване на &всички"
+msgstr "Маркиране / размаркиране на &всички"
 
 # ID:13,
 #: ID:13
@@ -5615,6 +5635,11 @@ msgstr "Избор на SSH клиент"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Избор на обект, за който да се получи помощ"
+
+# ID:13,
+#: ID:213
+msgid "Select changelist"
+msgstr "Маркиране на списък с промени"
 
 # ID:78,
 #: ID:78
@@ -7152,8 +7177,8 @@ msgstr "Използване и на двата текстови блока (т�
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "За&черкване за изтритите редове"
+msgid "Use stri&keout for removed lines"
+msgstr "За&черкване на изтритите редове"
 
 # ID:251,
 #: MenuEntry
@@ -7270,6 +7295,12 @@ msgstr "Стойност"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Версия"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "Контролиран"
 
 # ID:114,
 #: ID:114
@@ -7399,20 +7430,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Копирахте повече от един файл или папка.\n"
-"Това не може да бъде извършено в една стъпка, затова TortoiseSVN ще копира всеки файл/папка\n"
-"по отделно, създавайки нова ревизия за всеки копиран обект.\n"
-"Все още ли желаете да направите това?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7446,20 +7463,6 @@ msgid ""
 msgstr ""
 "Не сте въвели номер на проблем.!\n"
 "Сигурни ли сте, че желаете да поверите без да задавате номер на проблем?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Преместихте повече от един файл или папка.\n"
-"Това не може да бъде извършено в една стъпка, затова TortoiseSVN ще премести всеки файл/папка\n"
-"по отделно, създавайки нова ревизия за всеки преместен обект.\n"
-"Все още ли желаете да направите това?"
 
 # ID:196,
 #: ID:196
@@ -7597,7 +7600,7 @@ msgstr "и"
 # Control-ID:1085,
 #: Control-ID:1085
 msgid "and support the developers"
-msgstr "и подпомогнете разработчиците"
+msgstr "и подкрепете разработчиците"
 
 # ID:76,
 #: ID:245
