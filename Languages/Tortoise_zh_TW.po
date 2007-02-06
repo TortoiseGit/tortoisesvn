@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-01-30 09:45+0800\n"
+"PO-Revision-Date: 2007-02-06 16:42+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1474,6 +1474,12 @@ msgstr "依路徑排列(&P)"
 msgid "Arranges the nodes sorted by path"
 msgstr "節點依路徑排列"
 
+# ID:13,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "指定為變更列表: %s"
+
 # ID:77,
 #: ID:77
 #, c-format
@@ -1789,11 +1795,6 @@ msgstr "檢查更新"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "檢查更新..."
-
-# ID:8,
-#: ID:213
-msgid "Check Group"
-msgstr "選取群組"
 
 # ID:13,
 #: ID:13
@@ -2496,6 +2497,11 @@ msgstr "從版本控制樹中刪除檔案/資料夾"
 msgid "Deleting"
 msgstr "正在刪除"
 
+# ID:13,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "取消選取變更列表"
+
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
@@ -3157,8 +3163,8 @@ msgstr "正在取得檔案 %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "正在取得檔案 %s, 版本 %ld"
+msgid "Getting file %s, revision %s"
+msgstr "正在取得檔案 %s, 版本 %s"
 
 # ID:132,
 #: ID:132
@@ -3806,7 +3812,7 @@ msgstr "保持鎖定(&L)"
 
 # ID:13,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "保留變更列表"
 
 # Control-ID:65535,
@@ -5039,6 +5045,11 @@ msgid "Removed file/folder"
 msgstr "已移除檔案/資料夾"
 
 # ID:13,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "已自變更列表移除"
+
+# ID:13,
 #: ID:145
 #, c-format
 msgid ""
@@ -5580,6 +5591,11 @@ msgstr "選擇 SSH 用戶端程式"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "選擇要查詢說明的物件"
+
+# ID:13,
+#: ID:213
+msgid "Select changelist"
+msgstr "選擇變更列表"
 
 # ID:78,
 #: ID:78
@@ -6956,12 +6972,6 @@ msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
 msgid "Uncheck"
 msgstr "取消勾選"
 
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "取消選取群組"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7241,6 +7251,12 @@ msgstr "值"
 msgid "Version"
 msgstr "版本"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "版本控制中"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7369,21 +7385,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"你一次複製了多個檔案或目錄.\n"
-"這些動作不能一次完成, TortoiseSVN 會單獨複製每個檔案/目錄,\n"
-"並為每個動作建立新的版號.\n"
-"\n"
-"確定要進行嗎?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7418,21 +7419,6 @@ msgid ""
 msgstr ""
 "你尚未輸入問題編號!\n"
 "確定要進行提交嗎?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"你一次移動了多個檔案或目錄.\n"
-"這些動作不能一次完成, TortoiseSVN 會單獨移動每個檔案/目錄,\n"
-"並為每個動作建立新的版號.\n"
-"\n"
-"確定要進行嗎?"
 
 # ID:196,
 #: ID:196
