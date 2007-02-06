@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-30 21:57+0800\n"
+"PO-Revision-Date: 2007-02-06 12:35+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1828,12 +1828,6 @@ msgstr "检查更新"
 msgid "Check For Updates..."
 msgstr "检查更新..."
 
-# Dlg-ID:133,#:
-# Control-ID:65535,
-#: ID:213
-msgid "Check Group"
-msgstr "检出组"
-
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2529,6 +2523,11 @@ msgstr "从版本控制树中删除文件/文件夹"
 #: ID:263
 msgid "Deleting"
 msgstr "正在删除"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "取消选定修改列表"
 
 # ID:3859,#:
 # ID:3859,
@@ -3841,7 +3840,7 @@ msgstr "保持锁定(&L)"
 
 # ID:213,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "保持修改列表"
 
 # Control-ID:65535,
@@ -5625,6 +5624,11 @@ msgstr "选择 SSH 用户端程序"
 msgid "Select an object on which to get Help"
 msgstr "选择要查询帮助的对象"
 
+# ID:213,
+#: ID:213
+msgid "Select changelist"
+msgstr "选择修改列表"
+
 # ID:78,
 #: ID:78
 msgid "Select diff application"
@@ -6999,12 +7003,6 @@ msgstr "无法写入 %1, 它可能被设为只读或另有人打开。"
 #: ID:3887
 msgid "Uncheck"
 msgstr "取消选中"
-
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "取消检出组"
 
 # ID:3603,
 #: ID:3603
