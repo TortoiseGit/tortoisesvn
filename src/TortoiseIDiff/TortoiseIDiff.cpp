@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "registry.h"
 #include "LangDll.h"
 #include "TortoiseIDiff.h"
+#include "AlphaControl.h"
 
 #ifndef WIN64
 #	pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'\"")
@@ -72,6 +73,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		ICC_STANDARD_CLASSES | ICC_BAR_CLASSES
 	};
 	InitCommonControlsEx(&used);
+	CAlphaControl::RegisterCustomControl();
 
 	// load the cursors we need
 	curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
@@ -106,6 +108,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	DestroyCursor(curHandDown);
 	return 1;
 }
+
+
 
 
 

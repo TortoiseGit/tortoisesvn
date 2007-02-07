@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "BaseWindow.h"
 #include "TortoiseIDiff.h"
 #include "Picture.h"
+#include "AlphaControl.h"
 
 #define HEADER_HEIGHT 30
 
@@ -60,7 +61,6 @@ public:
 		, picscale(1.0)
 		, pSecondPic(NULL)
 		, alphalive(0)
-		, alphalast(0)
 		, bShowInfo(true)
 		, nDimensions(0)
 		, nCurrentDimension(1)
@@ -93,19 +93,22 @@ public:
 	void StopTimer() {KillTimer(*this, ID_ANIMATIONTIMER);}
 	/// Returns the currently used alpha blending value (0-255)
 	BYTE GetSecondPicAlpha() {return alphalive;}
-	/// Returns the last alpha blending value (0-255)
-	BYTE GetSecondPicAlphaLast() {return alphalast;}
 	/// Sets the alpha blending value
-	void SetSecondPicAlpha(BYTE a, bool saveundo) 
+	void SetSecondPicAlpha(BYTE a) 
 	{
 		alphalive = a;
 		if (hwndAlphaSlider)
 			SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
-		if (saveundo)
-		{
-			alphalast = a;
-		}
 		InvalidateRect(*this, NULL, FALSE);
+	}
+	/// Toggle the alpha between the two markers in the alpha slider control
+	void ToggleAlpha()
+	{
+		UINT nLeft = (BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETLEFTPOS, 0, 0);
+		if(nLeft != GetSecondPicAlpha())
+			SetSecondPicAlpha(nLeft);
+		else
+			SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETRIGHTPOS, 0, 0));
 	}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
@@ -154,7 +157,7 @@ protected:
 	/// starts/stops the animation
 	void				Animate(bool bStart);
 	/// Creates the trackbar (the alpha blending slider control)
-	HWND				CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax);
+	HWND				CreateTrackbar(HWND hwndParent);
 	/// Moves the alpha slider trackbar to the correct position
 	void				PositionTrackBar();
 
@@ -170,7 +173,6 @@ protected:
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
 	BYTE				alphalive;			///< the alpha value for the transparency live-preview of the second picture
-	BYTE				alphalast;			///< the alpha value previously used for the transparency of the second picture that the user can undo to
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position
@@ -196,5 +198,7 @@ protected:
 	bool				bPlaying;
 	RECT				m_inforect;
 };
+
+
 
 

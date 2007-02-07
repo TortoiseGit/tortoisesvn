@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 	{
 	case WM_CREATE:
 		// create a slider control
-		hwndAlphaSlider = CreateTrackbar(hwnd, 0, 255);
+		hwndAlphaSlider = CreateTrackbar(hwnd);
 		ShowWindow(hwndAlphaSlider, SW_HIDE);
 		break;
 	case WM_SETFOCUS:
@@ -100,7 +100,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
 			}
 			else
-				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0), true);
+				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
 		}
 		else
 		{
@@ -229,18 +229,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				break;
 			case ALPHATOGGLEBUTTON_ID:
 				{
-					switch (GetSecondPicAlpha())
-					{
-					case 0:
-						SetSecondPicAlpha(255, false);
-						break;
-					case 255:
-						SetSecondPicAlpha(GetSecondPicAlphaLast(), false);
-						break;
-					default:
-						SetSecondPicAlpha(0, false);
-						break;
-					}
+					ToggleAlpha();
 					return 0;
 				}
 				break;
@@ -264,7 +253,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				break;
 			case TIMER_ALPHASLIDER:
 				{
-					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0), false);
+					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
 					KillTimer(*this, TIMER_ALPHASLIDER);
 				}
 				break;
@@ -606,7 +595,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 			alphalive = 255;
 		if (overflow < 0)
 			alphalive = 0;
-		SetSecondPicAlpha(alphalive, true);
+		SetSecondPicAlpha(alphalive);
 	}
 	else if (fwKeys & MK_SHIFT)
 	{
@@ -779,9 +768,14 @@ void CPicWindow::Paint(HWND hwnd)
 	HDC hdc;
 	RECT rect, fullrect;
 
+
 	::GetClientRect(*this, &fullrect);
 	hdc = BeginPaint(hwnd, &ps);
 	{
+		// Exclude the alpha control and button
+		if(pSecondPic)
+			ExcludeClipRect(hdc, 0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4);
+
 		CMemDC memDC(hdc);
 
 		GetClientRect(&rect);
@@ -1037,13 +1031,13 @@ bool CPicWindow::HasMultipleImages()
 	return (((nDimensions > 1)||(nFrames > 1))&&(pSecondPic == NULL));
 }
 
-HWND CPicWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
+HWND CPicWindow::CreateTrackbar(HWND hwndParent)
 { 
 	HWND hwndTrack = CreateWindowEx( 
 		0,									// no extended styles 
-		TRACKBAR_CLASS,						// class name 
+		sCAlphaControl,						// class name 
 		_T("Trackbar Control"),				// title (caption) 
-		WS_CHILD | WS_VISIBLE | TBS_VERT | TBS_TOOLTIPS | TBS_NOTICKS,	// style 
+		WS_CHILD | WS_VISIBLE,				// style 
 		10, 10,								// position 
 		200, 30,							// size 
 		hwndParent,							// parent window 
@@ -1051,13 +1045,6 @@ HWND CPicWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 		hResource,							// instance 
 		NULL								// no WM_CREATE parameter 
 		); 
-
-	SendMessage(hwndTrack, TBM_SETRANGE, 
-		(WPARAM) TRUE,						// redraw flag 
-		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
-	SendMessage(hwndTrack, TBM_SETTIPSIDE, 
-		(WPARAM) TBTS_TOP,						// redraw flag 
-		(LPARAM) 0);		// min. & max. positions 
 
 	return hwndTrack; 
 }
