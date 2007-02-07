@@ -765,10 +765,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCOMMIT), HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, ShellMenuCommit);
 	
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 
 	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!isExtended))
@@ -790,10 +790,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVISIONGRAPH), HMENU(MENUREVISIONGRAPH), INDEXMENU(MENUREVISIONGRAPH), idCmd++, IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, idCmdFirst, ShellMenuRevisionGraph);
 
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 
 	if (((isInSVN)&&(isConflicted))||(isInSVN && isFolder))
@@ -827,10 +827,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK, idCmdFirst, ShellMenuUnlockForce);
 
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 
 	if ((isInSVN)&&(((isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN))))
@@ -845,10 +845,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENURELOCATE), HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, ShellMenuRelocate);
 
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
@@ -1005,10 +1005,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 
 	if ((isInSVN)&&(!isAdded))
@@ -1019,10 +1019,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUPROPERTIES), HMENU(MENUPROPERTIES), INDEXMENU(MENUPROPERTIES), idCmd++, IDS_MENUPROPERTIES, IDI_PROPERTIES, idCmdFirst, ShellMenuProperties);
 
 	//---- separator 
-	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
+	if (indexSubMenu > lastSeparator )
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-		lastSeparator = idCmd++;
+		lastSeparator = indexSubMenu;
 	}
 	InsertSVNMenu(ownerdrawn, FALSE, subMenu, indexSubMenu++, idCmd++, IDS_MENUHELP, IDI_HELP, idCmdFirst, ShellMenuHelp);
 	InsertSVNMenu(ownerdrawn, FALSE, subMenu, indexSubMenu++, idCmd++, IDS_MENUSETTINGS, IDI_SETTINGS, idCmdFirst, ShellMenuSettings);
