@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-23 09:46+0100\n"
+"PO-Revision-Date: 2007-02-09 08:18+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -879,6 +879,11 @@ msgstr ""
 "valfri mapp, i menyn som visas så finns alla <b>TortoiseSVN</b> kommandon.\n"
 "<u>Glöm inte att läsa manualen!</u>"
 
+# ID:213,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<ny ändringslista>"
+
 #: ID:3867
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
@@ -1013,11 +1018,6 @@ msgstr "Lägg till föreningsprogram för filändelse"
 #: ID:13
 msgid "Add to &ignore list"
 msgstr "Lägg till på &undantagslistan"
-
-#: ID:209
-#, c-format
-msgid "Add to changelist '%s'"
-msgstr "Lägg till i ändringslistan '%s'"
 
 #: Control-ID:1279
 msgid "Add..."
@@ -1246,6 +1246,11 @@ msgstr "Sorterat efter &sökväg"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Sorterar noderna efter sökväg"
+
+#: ID:264
+#, fuzzy, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Hör till ändringslistan \"%s\""
 
 #: ID:77
 #, c-format
@@ -2003,11 +2008,6 @@ msgstr "Skapa patch"
 msgid "Create Repository"
 msgstr "Skapa arkiv här"
 
-# ID:209,
-#: ID:209
-msgid "Create and add to changelist"
-msgstr "Skapa och lägg till i ändringslista"
-
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
 msgstr "Skapa kopiera i arkivet från:"
@@ -2115,6 +2115,10 @@ msgstr "Tar bort filer / mappar ur arkivet"
 #: ID:263
 msgid "Deleting"
 msgstr "Tar bort"
+
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Avmarkera ändringslista"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -2688,8 +2692,8 @@ msgstr "Hämtar fil %s"
 
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Hämtar fil %s, revision %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Hämtar fil %s, revision %s"
 
 #: ID:132
 msgid "Getting file info..."
@@ -2800,9 +2804,8 @@ msgstr "Tips: Tryck F5 för att uppdatera valt underträd och Ctrl-F5 för att o
 
 # Dlg-ID:103,
 #: Dlg-ID:103
-#, fuzzy
 msgid "Hook Scripts"
-msgstr "Krok skript"
+msgstr "Hook skript"
 
 # ID:198,
 #: ID:198
@@ -3153,9 +3156,8 @@ msgstr "Första importen"
 
 # Hur översätta "difference"
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline differences"
-msgstr "&Jämför och visa ändringar per rad"
+msgstr "Skillnader inom rad"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3299,6 +3301,10 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Behåll &lås"
 
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Behåll ändringslistor"
+
 #: Control-ID:65535
 msgid "Last commit revision:"
 msgstr "Senaste revision:"
@@ -3334,9 +3340,8 @@ msgstr "Linjediagram"
 
 # Hur översätta "difference"
 #: Control-ID:65535
-#, fuzzy
 msgid "Line differences"
-msgstr "&Jämför och visa ändringar per rad"
+msgstr "Radskillnader"
 
 #: Control-ID:65535
 msgid "Line:"
@@ -3631,6 +3636,10 @@ msgid ""
 msgstr ""
 "Flytta %s\r\n"
 "till %s"
+
+#: ID:209
+msgid "Move to changelist"
+msgstr "Flytta till ändringslista"
 
 #: ID:98
 #, c-format
@@ -4084,26 +4093,22 @@ msgid "Please wait..."
 msgstr "Vänta..."
 
 #: ID:569
-#, fuzzy
 msgid "Post-Commit Hook"
-msgstr "\"Efter arkivering\" krok"
+msgstr "\"Efter arkivering\" hook"
 
 # ID:570,
 #: ID:570
-#, fuzzy
 msgid "Post-Update Hook"
-msgstr "\"Efter uppdatering\" krok"
+msgstr "\"Efter uppdatering\" hook"
 
 #: ID:569
-#, fuzzy
 msgid "Pre-Commit Hook"
-msgstr "\"Innan arkivering\" krok"
+msgstr "\"Innan arkivering\" hook"
 
 # ID:570,
 #: ID:570
-#, fuzzy
 msgid "Pre-Update Hook"
-msgstr "\"Innan uppdatering\" krok"
+msgstr "\"Innan uppdatering\" hook"
 
 # ID:376,
 #: ID:376
@@ -4335,6 +4340,10 @@ msgstr "Borttagen"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Fil / mapp togs bort"
+
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Togs bort från ändringslista"
 
 #: ID:145
 #, c-format
@@ -4783,6 +4792,10 @@ msgstr "Välj SSH klient"
 msgid "Select an object on which to get Help"
 msgstr "Markera ett objekt för att få hjälp"
 
+#: ID:213
+msgid "Select changelist"
+msgstr "Markera ändringslista"
+
 # Hur översätta "diff"
 #: ID:78
 msgid "Select diff application"
@@ -5129,9 +5142,8 @@ msgstr "Staplat linjediagram"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Commit Hook"
-msgstr "\"Börja arkivera\" krok"
+msgstr "\"Börja arkivera\" hook"
 
 #: Control-ID:65535
 msgid "Start Revision"
@@ -5139,9 +5151,8 @@ msgstr "Startrevision"
 
 # ID:569,
 #: ID:569
-#, fuzzy
 msgid "Start Update Hook"
-msgstr "\"Börja uppdatera\" krok"
+msgstr "\"Börja uppdatera\" hook"
 
 #: ID:245
 #: Dlg-ID:179
@@ -6245,6 +6256,10 @@ msgstr "Värde"
 msgid "Version"
 msgstr "Version"
 
+#: ID:264
+msgid "Versioned"
+msgstr "Versionshanterad"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -6360,21 +6375,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Du kopierade mer än en fil eller mapp.\n"
-"Det är inte möjligt att göra det i ett steg, så TortoiseSVN kommer att kopiera varje fil/mapp\n"
-"var och en för sig, vilket leder till en ny revision för varje objekt.\n"
-"\n"
-"Vill du fortfarande göra detta?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -6407,21 +6407,6 @@ msgid ""
 msgstr ""
 "Du har inte angivit något ärendenummer!\n"
 "Vill du arkivera utan ett ärendenummer?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Du flyttade mer än en fil eller mapp.\n"
-"Det är inte möjligt att göra det i ett steg, så TortoiseSVN kommer att flytta varje fil/mapp\n"
-"var och en för sig, vilket leder till en ny revision för flyttat objekt.\n"
-"\n"
-"Vill du fortfarande göra detta?"
 
 # ID:196,
 #: ID:196
