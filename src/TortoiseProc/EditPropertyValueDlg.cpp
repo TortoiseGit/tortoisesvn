@@ -109,6 +109,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:logtemplate"));
 		m_PropNames.AddString(_T("tsvn:logwidthmarker"));
 		m_PropNames.AddString(_T("tsvn:logminsize"));
+		m_PropNames.AddString(_T("tsvn:lockmsgminsize"));
 		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
 		m_PropNames.AddString(_T("tsvn:userfileproperties"));
@@ -255,6 +256,7 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_KEYWORDS;
 		if (sName.Compare(_T("svn:eol-style"))==0)
 			nText = IDS_TT_EOLSTYLE;
+
 		if (sName.Compare(_T("bugtraq:label"))==0)
 			nText = IDS_TT_BQLABEL;
 		if (sName.Compare(_T("bugtraq:logregex"))==0)
@@ -269,12 +271,15 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_BQWARNNOISSUE;
 		if (sName.Compare(_T("bugtraq:append"))==0)
 			nText = IDS_TT_BQAPPEND;
+
 		if (sName.Compare(_T("tsvn:logtemplate"))==0)
 			nText = IDS_TT_TSVNLOGTEMPLATE;
 		if (sName.Compare(_T("tsvn:logwidthmarker"))==0)
 			nText = IDS_TT_TSVNLOGWIDTHMARKER;
 		if (sName.Compare(_T("tsvn:logminsize"))==0)
 			nText = IDS_TT_TSVNLOGMINSIZE;
+		if (sName.Compare(_T("tsvn:lockmsgminsize"))==0)
+			nText = IDS_TT_TSVNLOCKMSGMINSIZE;
 		if (sName.Compare(_T("tsvn:logfilelistenglish"))==0)
 			nText = IDS_TT_TSVNLOGFILELISTENGLISH;
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
@@ -283,6 +288,7 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfolderproperties"))==0)
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+
 		if (sName.Compare(_T("webviewer:revision"))==0)
 			nText = IDS_TT_WEBVIEWERREVISION;
 		if (sName.Compare(_T("webviewer:pathrevision"))==0)
