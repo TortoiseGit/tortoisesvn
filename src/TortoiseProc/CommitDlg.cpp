@@ -97,6 +97,9 @@ BOOL CCommitDlg::OnInitDialog()
 
 	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
+	m_regKeepChangelists = CRegDWORD(_T("Software\\TortoiseSVN\\KeepChangeLists"), FALSE);
+	m_bKeepChangeList = m_regKeepChangelists;
+
 	UpdateData(FALSE);
 	
 	OnEnChangeLogmessage();
@@ -349,6 +352,7 @@ void CCommitDlg::OnOK()
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
+	m_regKeepChangelists = m_bKeepChangeList;
 	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())

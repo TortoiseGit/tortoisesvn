@@ -104,6 +104,7 @@ private:
 	volatile LONG		m_bRunThread;
 	CBalloon			m_tooltips;
 	CRegDWORD			m_regAddBeforeCommit;
+	CRegDWORD			m_regKeepChangelists;
 	ProjectProperties	m_ProjectProperties;
 	CButton				m_SelectAll;
 	CString				m_sWindowTitle;
