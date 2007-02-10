@@ -1404,6 +1404,8 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 
 bool CSVNStatusListCtrl::SetItemGroup(int item, int groupindex)
 {
+	if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL)
+		return false;
 	if (groupindex < 0)
 		return false;
 	LVITEM i = {0};
@@ -4710,6 +4712,9 @@ int CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
 
 bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 {
+	if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL)
+		return false;	// don't show groups
+
 	bool bHasGroups = (m_changelists.size() > 0)||(bForce);
 	RemoveAllGroups();
 	EnableGroupView(bHasGroups);
