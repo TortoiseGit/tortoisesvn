@@ -3176,7 +3176,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			bOpenWith = true;
 		case ID_OPEN:
 			{
-				//now first get the revision which is selected
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);
 				CString sInfoLine;
@@ -3185,15 +3184,22 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
 				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path, revSelected);
+				bool bSuccess = true;
 				if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
 				{
-					progDlg.Stop();
-					SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					EnableOKButton();
-					break;
+					bSuccess = false;
+					// try again, but with the selected revision as the peg revision
+					if (!Cat(m_path, revSelected, revSelected, tempfile))
+					{
+						progDlg.Stop();
+						SetAndClearProgressInfo((HWND)NULL);
+						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						EnableOKButton();
+						break;
+					}
+					bSuccess = true;
 				}
-				else
+				if (bSuccess)
 				{
 					progDlg.Stop();
 					SetAndClearProgressInfo((HWND)NULL);
