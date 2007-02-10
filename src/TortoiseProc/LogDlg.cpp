@@ -1361,6 +1361,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, long rev)
 	progDlg.ShowModeless(m_hWnd);
 
 	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev);
+	m_bCancelled = false;
 	if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 	{
 		progDlg.Stop();
