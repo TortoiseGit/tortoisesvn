@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-05 23:15+0200\n"
+"PO-Revision-Date: 2007-02-12 00:07+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -770,7 +770,7 @@ msgstr "&Показване на диалоговия прозорец за по
 # ID:13,
 #: ID:13
 msgid "&Repo-browser"
-msgstr "&Браузър на хранилища"
+msgstr "&Разглеждане на хранилища"
 
 # ID:113,
 #: ID:113
@@ -6260,6 +6260,27 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Хранилището е създадено успешно!"
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Пътят\n"
+"<i>%s</i>,\n"
+"споменат във файла с кръпки, не съществува.\n"
+"TortoiseMerge откри относителния път\n"
+"<i>%s</i>,\n"
+"който изглежда, че съответства на директорията, където налагате кръпката.\n"
+"Желаете ли да използвате предложения път? При отговор \"не\", TortoiseMerge ще се затвори."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6463,6 +6484,20 @@ msgstr ""
 "\n"
 "За да е валиден пътят под Windows, той не трябва да съдържа знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Пътят\n"
+"<i>%s</i>,\n"
+"споменат във файла с кръпки, не съществува.\n"
+"TortoiseMerge опита да наложи кръпката чрез премахване на представките, но не откри съвпадащ път."
 
 # ID:314,
 #: ID:314
@@ -7930,6 +7965,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "към %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Минимален брой знаци, които трябва да съдържа съобщението при заключване, за да се позволи заключване."
 
 # ID:15,
 #: ID:15
