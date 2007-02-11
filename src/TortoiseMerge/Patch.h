@@ -49,11 +49,22 @@ public:
 	CString		GetRevision2(int nIndex);
 	CString		GetErrorMessage() const  {return m_sErrorMessage;}
 	CString		CheckPatchPath(const CString& path);
+
+	/**
+	 * Returns TRUE if stripping prefixes from the paths in the patchfile
+	 * allows the patchfile to being applied. The variable m_nStrip is then set appropriately.
+	 * Returns FALSE if stripping prefixes doesn't help. The variable m_nStrip is set to 0.
+	 */
+	BOOL		StripPrefixes(const CString& path);
 protected:
 	void		FreeMemory();
 	BOOL		HasExpandedKeyWords(const CString& line);
 	int			CountMatches(const CString& path);
 	int			CountDirMatches(const CString& path);
+	/**
+	 * Strips the filename by removing m_nStrip prefixes.
+	 */
+	CString		Strip(const CString& filename);
 	struct Chunk
 	{
 		LONG					lRemoveStart;
@@ -76,4 +87,13 @@ protected:
 	CStdArray<Chunks*>			m_arFileDiffs;
 	CString						m_sErrorMessage;
 	CFileTextLines::UnicodeType m_UnicodeType;
+
+	/**
+	 * Defines how many prefixes are removed from the paths in the
+	 * patch file. This allows applying patches which contain absolute
+	 * paths or a prefix which differs in the patch and the working copy.
+	 * Example: A filename like "/home/ts/my-working-copy/dir/file.txt"
+	 * stripped by 4 prefixes is interpreted as "dir/file.txt"
+	 */
+	int							m_nStrip;
 };

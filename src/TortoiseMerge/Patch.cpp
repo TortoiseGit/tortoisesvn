@@ -33,6 +33,7 @@ static char THIS_FILE[] = __FILE__;
 
 CPatch::CPatch(void)
 {
+	m_nStrip = 0;
 }
 
 CPatch::~CPatch(void)
@@ -397,7 +398,8 @@ CString CPatch::GetFilename(int nIndex)
 	if (nIndex < m_arFileDiffs.GetCount())
 	{
 		Chunks * c = m_arFileDiffs.GetAt(nIndex);
-		return c->sFilePath;
+		CString filepath = Strip(c->sFilePath);
+		return filepath;
 	}
 	return _T("");
 }
@@ -421,7 +423,8 @@ CString CPatch::GetFilename2(int nIndex)
 	if (nIndex < m_arFileDiffs.GetCount())
 	{
 		Chunks * c = m_arFileDiffs.GetAt(nIndex);
-		return c->sFilePath2;
+		CString filepath = Strip(c->sFilePath2);
+		return filepath;
 	}
 	return _T("");
 }
@@ -682,4 +685,54 @@ int CPatch::CountDirMatches(const CString& path)
 			matches++;
 	}
 	return matches;
+}
+
+BOOL CPatch::StripPrefixes(const CString& path)
+{
+	int nSlashesMax = 0;
+	for (int i=0; i<GetNumberOfFiles(); i++)
+	{
+		CString filename = GetFilename(i);
+		filename.Replace('/','\\');
+		int nSlashes = filename.Replace('\\','/');
+		nSlashesMax = max(nSlashesMax,nSlashes);
+	}
+
+	for (int nStrip=1;nStrip<nSlashesMax;nStrip++)
+	{
+		m_nStrip = nStrip;
+		if ( CountMatches(path) > GetNumberOfFiles()/3 )
+		{
+			// Use current m_nStrip
+			return TRUE;
+		}
+	}
+
+	// Stripping doesn't help so reset it again
+	m_nStrip = 0;
+	return FALSE;
+}
+
+CString	CPatch::Strip(const CString& filename)
+{
+	CString s = filename;
+	if ( m_nStrip>0 )
+	{
+		// Remove windows drive letter "c:"
+		if ( s.GetLength()>2 && s[1]==':')
+		{
+			s = s.Mid(2);
+		}
+
+		for (int nStrip=1;nStrip<=m_nStrip;nStrip++)
+		{
+			// "/home/ts/my-working-copy/dir/file.txt"
+			//  "home/ts/my-working-copy/dir/file.txt"
+			//       "ts/my-working-copy/dir/file.txt"
+			//          "my-working-copy/dir/file.txt"
+			//                          "dir/file.txt"
+			s = s.Mid(s.FindOneOf(_T("/\\"))+1);
+		}
+	}
+	return s;
 }

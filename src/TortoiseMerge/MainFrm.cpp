@@ -505,6 +505,30 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		}
 		if (m_Patch.GetNumberOfFiles() > 0)
 		{
+			CString firstpath = m_Patch.GetFilename(0);
+			CString path=firstpath;
+			path.Replace('/','\\');
+			if ( !PathIsRelative(path) && !PathFileExists(path) )
+			{
+				// The absolute path mentioned in the patch does not exist. Lets
+				// try to find the correct relative path by stripping prefixes.
+				BOOL bFound = m_Patch.StripPrefixes(m_Data.m_sPatchPath);
+				CString strippedpath = m_Patch.GetFilename(0);
+				if (bFound)
+				{
+					CString msg;
+					msg.Format(IDS_WARNABSOLUTEPATHFOUND, (LPCTSTR)firstpath, (LPCTSTR)strippedpath);
+					if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDNO)
+						return FALSE;
+				}
+				else
+				{
+					CString msg;
+					msg.Format(IDS_WARNABSOLUTEPATHNOTFOUND, (LPCTSTR)firstpath);
+					CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONEXCLAMATION);
+					return FALSE;
+				}
+			}
 			CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
 			if (betterpatchpath.CompareNoCase(m_Data.m_sPatchPath)!=0)
 			{
