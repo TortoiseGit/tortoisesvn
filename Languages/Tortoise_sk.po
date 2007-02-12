@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-02 12:14+0100\n"
+"PO-Revision-Date: 2007-02-12 22:00+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1818,11 +1818,6 @@ msgstr "Skontoluj aktualizácie"
 msgid "Check For Updates..."
 msgstr "Skontoluj aktualizácie..."
 
-# Dlg-ID:133,
-#: ID:213
-msgid "Check Group"
-msgstr "Skontrolovať skupinu"
-
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2526,6 +2521,11 @@ msgstr "Odstráni súbory, adresáre zo správy verzií"
 #: ID:263
 msgid "Deleting"
 msgstr "Vymazávanie"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Odznačiť zoznam zmien"
 
 # ID:3859,#:
 # ID:3859,
@@ -3865,7 +3865,7 @@ msgstr "Zachovať &zámky"
 
 # ID:213,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "Zachovať zoznam zmien"
 
 # Control-ID:65535,
@@ -5663,6 +5663,11 @@ msgstr "Vzberte SSH klienta"
 msgid "Select an object on which to get Help"
 msgstr "Vybrať objekt, pre ktorý chcete pomoc"
 
+# ID:213,
+#: ID:213
+msgid "Select changelist"
+msgstr "Označíť zoznam zmien"
+
 # ID:78,
 #: ID:78
 msgid "Select diff application"
@@ -6293,6 +6298,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Uložisko bolo úspešne vytvorené."
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Cesta\n"
+"<i>%s</i>\n"
+"v záplatovom súbore nexistuje.\n"
+"TortoiseMerge našiel relátivnu cestu\n"
+"<i>%s</i>,\n"
+"ktorá vyzerá, že sa zhoduje lepšie.\n"
+"\n"
+"Chcete použiť navrhnutú cestu? Odpoveď nie ukončí TortoiseMerge."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6497,6 +6524,20 @@ msgstr ""
 "\n"
 "Platná adresa vo Windows nesmie obsahovať  '<>|\"?*:' a ani jedno z mien zariadení:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Cesta\n"
+"<i>%s</i>\n"
+"v záplatovom súbore nexistuje.\n"
+"TortoiseMerge sa pokúsil nájsť cestu vynechaním prefixov, ale nebola najdená zhoda."
 
 # ID:314,
 #: ID:314
@@ -7047,13 +7088,6 @@ msgstr "Nemožno zapísať do %1, je len na čítanie, alebo otvorený niekym in
 #: ID:3887
 msgid "Uncheck"
 msgstr "Odznačiť"
-
-# Odznač
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Odznačiť skupinu"
 
 # ID:3603,
 #: ID:3603
@@ -7985,6 +8019,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "na %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Minimálny počet znakov záznamu denníka, aby bolo povolené zamknutie."
 
 # ID:15,
 #: ID:15
