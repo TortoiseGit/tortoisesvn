@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-02-05 12:14+0100\n"
+"PO-Revision-Date: 2007-02-12 09:05+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5212,6 +5212,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Das Projektarchiv wurde erfolgreich erstellt."
 
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Der Pfad\n"
+"<i>%s</i>\n"
+"in der Patchdatei existiert nicht.\n"
+"TortoiseMerge hat den relativen Pfad\n"
+"<i>%s</i>\n"
+"gefunden, der mit dem Verzeichnis auf das Sie den Patch anwenden\n"
+"übereinzustimmen scheint.\n"
+"\n"
+"Soll der gefundene Pfad verwendet werden? Mit 'Nein' wird TortoiseMerge beendet."
+
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschter Linien überein!"
@@ -5394,6 +5416,20 @@ msgstr ""
 "Sie können es trotzdem versuchen, müssen aber mit Folgefehlern rechnen.\n"
 "Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Der Pfad\n"
+"<i>%s</i>\n"
+"in der Patchdatei existiert nicht.\n"
+"TortoiseMerge hat versucht den Patch anzuwenden indem es Pfadpräfixe entfernt hat, aber es konnte kein passender Pfad gefunden werden."
 
 #: ID:314
 #, c-format
@@ -6671,6 +6707,14 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "nach %s"
+
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Minimale Anzahl von Zeichen, die ein Logeintrag haben muss, damit einer Sperrung erlaubt wird."
 
 #: ID:15
 msgid ""
