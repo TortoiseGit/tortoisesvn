@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8613: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8683: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-02 12:32+0300\n"
+"PO-Revision-Date: 2007-02-12 11:36+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1493,10 +1493,6 @@ msgstr "Проверка обновлений"
 msgid "Check For Updates..."
 msgstr "Проверить обновления..."
 
-#: ID:213
-msgid "Check Group"
-msgstr "Отметить группу"
-
 #: ID:13
 msgid "Check for modi&fications"
 msgstr "Проверить на наличие изменени&й"
@@ -2069,6 +2065,10 @@ msgstr "Удаляет файлы/папки из управления верс�
 #: ID:263
 msgid "Deleting"
 msgstr "Удаление"
+
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Разотметить группу изменений"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -3203,8 +3203,8 @@ msgid "Keep &locks"
 msgstr "Сохранить &блокировки"
 
 #: Control-ID:1126
-msgid "Keep changelist"
-msgstr "Сохранить группу изменений"
+msgid "Keep changelists"
+msgstr "Сохранить группы изменений"
 
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -4642,6 +4642,10 @@ msgstr "Выбрать клиент SSH"
 msgid "Select an object on which to get Help"
 msgstr "Выберите объект, по которому надо получить справку"
 
+#: ID:213
+msgid "Select changelist"
+msgstr "Отметить группу изменений"
+
 #: ID:78
 msgid "Select diff application"
 msgstr "Выбрать приложение просмотра различий"
@@ -5155,6 +5159,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Хранилище создано успешно."
 
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Путь\n"
+"<i>%s</i>\n"
+"не существует в файле заплатки.\n"
+"TortoiseMerge обнаружила относительный путь\n"
+"<i>%s</i>,\n"
+"который, похоже, подходит для папки, к которой применяется заплатка.\n"
+"\n"
+"Желаете ли вы использовать предложенный путь?\n"
+"При ответе 'нет' работа TortoiseMerge будет завершена."
+
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Размер куска кода на соответствует количеству добавленных/удаленных строк!"
@@ -5332,6 +5358,20 @@ msgstr ""
 "\n"
 "Корректный путь в Windows не должен содержать '<>|\"?*:' или одно из следующих имён устройств:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Путь\n"
+"<i>%s</i>\n"
+"не существует в файле заплатки.\n"
+"TortoiseMerge пыталась найти место для применения заплатки\n"
+"путём обрезания префиксов, но не обнаружила ни одного подходящего пути."
 
 #: ID:314
 #, c-format
@@ -5799,10 +5839,6 @@ msgstr "Невозможно записать в %1: он только-для-ч
 #: ID:3887
 msgid "Uncheck"
 msgstr "Разотметить"
-
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Разотметить группу"
 
 #: ID:3603
 msgid ""
@@ -6586,6 +6622,14 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "в %s"
+
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Минимальное разрешенное количество символов в сообщении блокирования."
 
 #: ID:15
 msgid ""
