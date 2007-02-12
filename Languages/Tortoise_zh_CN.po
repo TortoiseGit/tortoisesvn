@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-06 12:35+0800\n"
+"PO-Revision-Date: 2007-02-12 09:17+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6256,6 +6256,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "版本库创建成功。"
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"补丁文件中的路径\n"
+"<i>%s</i>\n"
+"不存在。\n"
+"TortoiseMerge 找到了相对路径\n"
+"<i>%s</i>\n"
+"它看起来适宜使用此补丁。\n"
+"\n"
+"要使用建议的路径吗？回答“否”将退出 TortoiseMerge。"
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6458,6 +6480,20 @@ msgstr ""
 "\n"
 "正确Windows路径不能包含“<>|\"?*:”或以下设备名：\n"
 "com1－com9，lpt1－lpt9，prn，aux，con，nul，clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"补丁文件中的路径\n"
+"<i>%s</i>\n"
+"不存在。\n"
+"TortoiseMerge 尝试除去前缀，查找适宜使用补丁的路径，但是没有发现匹配路径。"
 
 # ID:314,
 #: ID:314
@@ -7912,6 +7948,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"在允许锁定之前必须输入的最短日志长度。"
 
 # ID:15,
 #: ID:15
