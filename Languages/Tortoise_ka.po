@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-11 14:52+0400\n"
+"PO-Revision-Date: 2007-02-13 14:38+0400\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -648,8 +648,8 @@ msgstr "&ახალი"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "&შემდეგი 100"
+msgid "&Next %ld"
+msgstr "&შემდეგი %ld"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -944,6 +944,11 @@ msgstr "(საცდელი)"
 msgid "(multiple targets selected)"
 msgstr "(არჩეულია რამდენიმე სამიზნე)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(ცვლილებათა სიის გარეშე)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1018,6 +1023,11 @@ msgstr ""
 "<b>TortoiseSVN</b>-ის გამოსაყენებლად გახსენით მიმომხილველი და თაგუნას მარჯვენა ღილაკით დაწკაპეთ ნებისმიერი დასტა.\n"
 "გამოჩნდება მენიუ სადაც იპოვნით <b>TortoiseSVN</b> ყველა ბრძანებას.\n"
 "ასევე, <u>წაიკითხეთ სახელმძღვანელო!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<ცვლილებათა ახალი სია>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1456,6 +1466,12 @@ msgstr "სორტირება &გეზით"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "კვანძების განთავსება გეზის მიხედვით"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "მიკუთვნებულია ცვლილებათა სსითვის \"%s\""
 
 # ID:77,
 #: ID:77
@@ -2321,6 +2337,11 @@ msgid "Create &patch..."
 msgstr "&ბებკის შექმნა..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "ცვლილებათა სიის შექმნა"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "ბებკის შექმნა"
@@ -2434,8 +2455,8 @@ msgstr "არავერსიული ელემენტების წ�
 
 # Control-ID:1073,
 #: ID:17
-msgid "Delete unversioned items"
-msgstr "არავერსიული ელემენტების წაშლა"
+msgid "Delete unversioned items..."
+msgstr "არავერსიული ელემენტების წაშლა..."
 
 # ID:73,
 #: ID:73
@@ -2457,6 +2478,11 @@ msgstr "ვერსიის კონტროლიდან ფაილე�
 #: ID:263
 msgid "Deleting"
 msgstr "წაშლა"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "ცვლილებეთა სიის მონიშვნის მოხსნა"
 
 # ID:3859,#:
 # ID:3859,
@@ -2593,15 +2619,6 @@ msgid ""
 msgstr ""
 "გსურთ პარამეტრების ცვლილებების დოკუმენტების განახლება?\n"
 "ყურადღება: თქვენ დაკარგავთ ყველა შეტანილ ცვლილებას!"
-
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
-msgstr ""
-"გსურთ დოკუმენტების განახლება?\n"
-"თქვენ დაკარგავთ ყველა შეტანილ ცვლილებას!"
 
 # ID:145,
 #: ID:563
@@ -2758,6 +2775,11 @@ msgstr "მისამართის მითითება"
 msgid "Enter a lock message (optional):"
 msgstr "დაბლოკვის შეტყობინების მითითება (არასავალდებულო):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "მიუთითეთ ცვლილებათა სიის სახელი:"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Enter log &message:"
@@ -2846,6 +2868,12 @@ msgstr "საექსპორტო დასტა:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "არავერსიული ფაილების ექსპორტი"
+
+# ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "ექსპორტი - %s"
 
 # ID:79,
 #: ID:79
@@ -2977,7 +3005,7 @@ msgid "File diffs"
 msgstr "ფაილების შედარება"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "ფაილთა სია ცარიელია"
 
@@ -3079,12 +3107,16 @@ msgstr ""
 "GDI+ შეგიძლიათ აქედან გადმოწეროთfrom\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:120,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "ინფორმაციის შეგროვება. გთხოვთ დაიცადოთ..."
+
 # Dlg-ID:143,#:
 # Dlg-ID:107,#:
 # Control-ID:65535,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "ზოგადი"
 
@@ -3120,8 +3152,8 @@ msgstr "ფაილის მიღება - %s"
 # ID:120,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "ფაილის მიღება - %s, ვერსია - %ld"
+msgid "Getting file %s, revision %s"
+msgstr "ფაილის მიღება - %s, ვერსია - %s"
 
 # ID:132,
 #: ID:132
@@ -3614,11 +3646,9 @@ msgstr "გეზის ჩათვლით:"
 msgid "Initial import"
 msgstr "პირველადი იმპორტი"
 
-# ID:274,#:
-# Control-ID:1180,
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "ხაზების სახვაობა"
+msgid "Inline differences"
+msgstr "სხვაობბები სტრიქონში"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3771,6 +3801,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "ბლოკირებების &შენარჩუნება"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "ცვლილებათა სიის შენარჩუნება"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3810,6 +3845,10 @@ msgstr "ხაზი"
 #: ID:246
 msgid "Line Graph"
 msgstr "ხაზოვანი დიაგრამა"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "სხვაობა სტრიქონებში"
 
 # ID:263,
 #: Control-ID:65535
@@ -3863,7 +3902,7 @@ msgid "Lock Files"
 msgstr "ფაილების დაბლოკვა"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "დაბლოკვა მოხსნილია!"
 
@@ -3888,7 +3927,7 @@ msgid "Lock owner:"
 msgstr "ბლოკის მფლობელი:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "ბლოკი გადაიხვეწა - %s"
@@ -4101,6 +4140,7 @@ msgstr "შერეული"
 # ID:74,
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "შეცვლილი"
 
@@ -4134,6 +4174,11 @@ msgid ""
 msgstr ""
 "%s - გადატანა\r\n"
 "აქ %s"
+
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "გადატანა ცვლილებათა სიაში"
 
 # ID:98,
 #: ID:98
@@ -4177,7 +4222,7 @@ msgid "Needs lock"
 msgstr "საჭიროებს დაბლოკვას"
 
 # ID:210,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "ჩადგმული"
 
@@ -4685,7 +4730,7 @@ msgstr "გთხოვთ დაელოდოთ სანამ საცა
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "გთხოვთ შეიცადოთ..."
 
@@ -4966,6 +5011,11 @@ msgstr "%s - ამოღება"
 msgid "Remove from &ignore list"
 msgstr "ამოშლა იგნორირებულთა სიიდან"
 
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "ამოღება ცვლილებათა სიიდან"
+
 # ID:8,
 #: Control-ID:1332
 msgid "Remove..."
@@ -4980,6 +5030,11 @@ msgstr "ამოღებული"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "ამოღებული ფაილი/დასტა"
+
+# ID:15,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "ამოღებულია ცვლილებათა სიიდან"
 
 # ID:145,
 #: ID:145
@@ -5518,6 +5573,11 @@ msgstr "SSH კლიენტის არჩევა"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "ობიექტის არჩევა დახმარებისთვის"
+
+# ID:78,
+#: ID:213
+msgid "Select changelist"
+msgstr "ცვლილებათა სიის მონიშვნა"
 
 # ID:78,
 #: ID:78
@@ -6143,6 +6203,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "საცავი წარმატებით შეიქმნა."
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"გეზი\n"
+"<i>%s</i>\n"
+"ბებკი ფაილში არ არსებობს.\n"
+"პროგრამამ ფარდობითი გეზი მოიძია\n"
+"<i>%s</i>\n"
+"რომელიც შესაძლოა გამოსაყენებელი ბებკის გეზს შეესაბამაბა.\n"
+"\n"
+"გნებავთ შემოთავაზებული ბებკის გამოყენება? პასუხი 'არა'-ს შემთხვევაში პროგრამა დასრულდება."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6353,6 +6435,20 @@ msgstr ""
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"გეზი\n"
+"<i>%s</i>\n"
+"ბებკი ფაილში არ არსებობს.\n"
+"პროგრამა შეეცადა ბებკის გამოყენებას პრეფიქსების დამუშავებით, მაგარამ შესაბამისი გეზი ვერ მოიძებნა."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "<i>%s</i>\n"
@@ -6489,10 +6585,24 @@ msgstr ""
 "ნამდვილად გსურთ კონფლიქტებიანი ფაილის შენახვა?\n"
 "თუ უპასუხებთ 'დიახ', კონფლიქტის მოგვარება ხელით სხვა რედაქტორში მოგიწევთ!"
 
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"არის ცვლილებები, რომლებიც არ შენახულა!\n"
+"გსურთ თქვენი შეტანილი ცვლილებების შენახვა?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "დასამატებელი არაფერია. ყველა ფაილი და დასტა ან ვერსიი კონტროლის პროცესშია ან გამოტოვებულია svn:ignore ან გლობალური გამოტოვების პარამეტრის გამოყენებით."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "არაფერია დაბლოკვის მოხსახსნელი. ამ სამუშაო ასლში დაბლოკილი ფაილი არაა."
 
 # ID:188,
 #: ID:188
@@ -6913,6 +7023,7 @@ msgstr ""
 
 # ID:221,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "დაბლოკვის მოხსნა"
 
@@ -7031,7 +7142,7 @@ msgstr "ორივე ტექსტური ბლოკის გამო
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "წაშლილი სტრიქონების გადა&ხაზვა"
 
 # ID:251,
@@ -7149,6 +7260,12 @@ msgstr "მნიშვნელობა"
 #: Control-ID:1075
 msgid "Version"
 msgstr "ვერსია"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "ვერსიული"
 
 # ID:114,
 #: ID:114
@@ -7277,21 +7394,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"თქვენ აკოპირებთ ერთზე მეტი ფაილს ან დასტას.\n"
-"ერთ ჯერზე ეს შეუძლებელია, ამიტომ TortoiseSVN ინდივიდუალურად დააკოპირებს\n"
-"თითოეულ ფაილს/დასტას და თითოეული დაკოპირებული ელემენტისთვის ახალ ვერსიას შექმნის.\n"
-"\n"
-"კვლავაც გსურთ ამის გაკეთება?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7326,21 +7428,6 @@ msgid ""
 msgstr ""
 "პრობლემის ნომერი არ მიგითითებიათ!\n"
 "ნამდვილად გსურთ ფაილ(ებ)ის ფიქსირება პრობლემის ნომრის გარეშე?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"თქვენ გადაგაქვთ ერთზე მეტი ფაილს ან დასტას.\n"
-"ერთ ჯერზე ეს შეუძლებელია, ამიტომ TortoiseSVN ინდივიდუალურად გადაიტანს\n"
-"თითოეულ ფაილს/დასტას და თითოეული გადატანილი ელემენტისთვის ახალ ვერსიას შექმნის.\n"
-"\n"
-"კვლავაც გსურთ ამის გაკეთება?"
 
 # ID:196,
 #: ID:196
@@ -7810,9 +7897,19 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "აქ - %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"სიმბოლოების მინიმალური რაოდენობა დაბლოკვის შეტყობინებაში დაბლოკვის ნებართვისთვის."
 
 # ID:15,
 #: ID:15
