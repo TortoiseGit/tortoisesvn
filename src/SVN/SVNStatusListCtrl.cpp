@@ -361,9 +361,9 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	for (size_t i=0; i < m_arStatusArray.size(); i++)
 	{
 		FileEntry * entry = m_arStatusArray[i];
-		if ( entry->status==svn_wc_status_unversioned && entry->checked )
+		if ( (entry->status==svn_wc_status_unversioned || entry->status==svn_wc_status_missing ) && entry->checked )
 		{
-			// The user manually selected an unversioned file. We remember
+			// The user manually selected an unversioned or missing file. We remember
 			// this so that the selection can be restored when refreshing.
 			CString path = entry->GetPath().GetSVNPathString();
 			m_mapFilenameToChecked[path] = true;

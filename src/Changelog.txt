@@ -143,6 +143,10 @@
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
 
+Version 1.4.4
+- BUG: When refreshing the status list control missing files lost their
+       check mark. (Tobias Schäfer)
+
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
 - BUG: Possible TSVNCache crash when removing/renaming folders. (Stefan)
