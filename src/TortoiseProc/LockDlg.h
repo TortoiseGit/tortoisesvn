@@ -52,6 +52,7 @@ private:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnChangeLockmessage();
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+	afx_msg void OnBnClickedSelectall();
 	void Refresh();
 
 	DECLARE_MESSAGE_MAP()
@@ -70,4 +71,5 @@ private:
 	ProjectProperties	m_ProjectProperties;
 	bool				m_bCancelled;
 	CBalloon			m_tooltips;
+	CButton				m_SelectAll;
 };

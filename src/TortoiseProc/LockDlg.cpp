@@ -47,6 +47,7 @@ void CLockDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_STEALLOCKS, m_bStealLocks);
 	DDX_Control(pDX, IDC_FILELIST, m_cFileList);
 	DDX_Control(pDX, IDC_LOCKMESSAGE, m_cEdit);
+	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
 
@@ -54,6 +55,7 @@ BEGIN_MESSAGE_MAP(CLockDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_EN_CHANGE(IDC_LOCKMESSAGE, OnEnChangeLockmessage)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
+	ON_BN_CLICKED(IDC_SELECTALL, &CLockDlg::OnBnClickedSelectall)
 END_MESSAGE_MAP()
 
 BOOL CLockDlg::OnInitDialog()
@@ -61,6 +63,7 @@ BOOL CLockDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK | SVNSLC_COLSVNNEEDSLOCK, _T("LockDlg"));
+	m_cFileList.SetSelectButton(&m_SelectAll);
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
 	m_cFileList.SetBackgroundImage(IDI_LOCK);
@@ -74,12 +77,16 @@ BOOL CLockDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_LOCKWARNING, IDS_WARN_SVNNEEDSLOCK);
 
+	m_SelectAll.SetCheck(BST_INDETERMINATE);
+
 	AdjustControlSize(IDC_STEALLOCKS);
+	AdjustControlSize(IDC_SELECTALL);
 
 	AddAnchor(IDC_LOCKTITLELABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOCKMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STEALLOCKS, BOTTOM_LEFT);
+	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -267,4 +274,17 @@ LRESULT CLockDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
 	Refresh();
 	return 0;
+}
+
+void CLockDlg::OnBnClickedSelectall()
+{
+	UINT state = (m_SelectAll.GetState() & 0x0003);
+	if (state == BST_INDETERMINATE)
+	{
+		// It is not at all useful to manually place the checkbox into the indeterminate state...
+		// We will force this on to the unchecked state
+		state = BST_UNCHECKED;
+		m_SelectAll.SetCheck(state);
+	}
+	m_cFileList.SelectAll(state == BST_CHECKED);
 }
