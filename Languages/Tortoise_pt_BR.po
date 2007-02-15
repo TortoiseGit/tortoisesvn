@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-24 19:19-0300\n"
+"PO-Revision-Date: 2007-02-15 14:44-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1482,6 +1482,12 @@ msgstr "Ordenado por &caminho"
 msgid "Arranges the nodes sorted by path"
 msgstr "Ordenado os nós por caminho"
 
+# ID:209,
+#: ID:264
+#, fuzzy, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Associar a lista de alterações \"%s\""
+
 # ID:77,
 #: ID:77
 #, c-format
@@ -1799,12 +1805,6 @@ msgstr "Verificar Atualizações"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "Verificar Atualizações..."
-
-# ID:8,
-#: ID:213
-#, fuzzy
-msgid "Check Group"
-msgstr "Marcar Grupo"
 
 # ID:13,
 #: ID:13
@@ -2510,6 +2510,11 @@ msgstr "Exclui arquivos / pastas do controle de versões"
 msgid "Deleting"
 msgstr "Excluindo"
 
+# ID:209,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Desmarcar lista de alterações"
+
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
@@ -3173,8 +3178,8 @@ msgstr "Obtendo arquivo %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Obtendo arquivo %s, revisão %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Obtendo arquivo %s, revisão %s"
 
 # ID:132,
 #: ID:132
@@ -3672,9 +3677,8 @@ msgid "Initial import"
 msgstr "Importação inicial"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline differences"
-msgstr "Diferenças na linha"
+msgstr "Diferenças em linha"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3827,6 +3831,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Manter &travas"
 
+# ID:209,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Manter listas de alterações"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3870,7 +3879,7 @@ msgstr "Gráfico em Linha"
 #: Control-ID:65535
 #, fuzzy
 msgid "Line differences"
-msgstr "Diferenças em linha"
+msgstr "Diferenças na linha"
 
 # Dlg-ID:143,
 #: Control-ID:65535
@@ -5064,6 +5073,12 @@ msgid "Removed file/folder"
 msgstr "Arquivo/diretório removido"
 
 # ID:13,
+#: ID:264
+#, fuzzy
+msgid "Removed from changelist"
+msgstr "Removido da lista de alterações"
+
+# ID:13,
 #: ID:145
 #, c-format
 msgid ""
@@ -5605,6 +5620,12 @@ msgstr "Selecionar cliente SSH"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Selecionar um objeto para o qual obter Ajuda"
+
+# ID:209,
+#: ID:213
+#, fuzzy
+msgid "Select changelist"
+msgstr "Selecionar lista de alterações"
 
 # ID:78,
 #: ID:78
@@ -6226,6 +6247,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "O repositório foi criado com sucesso."
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"O caminho\n"
+"<i>%s</i>\n"
+", no arquivo de correção, não existe.\n"
+"O TortoiseMerge encontrou o caminho relativo\n"
+"<i>%s</i>\n"
+"que se assemelha ao diretório ao qual você está aplicando a correção.\n"
+"\n"
+" Você deseja usar o caminho sugerido? Caso a resposta seja 'não', o TortoiseMerge será fechado."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6429,6 +6472,20 @@ msgstr ""
 "\n"
 "Um caminho válido no windows não pode conter '<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, fuzzy, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"O caminho\n"
+"<i>%s</i>\n"
+", no arquivo de correção, não existe.\n"
+"O TortoiseMerge tentou aplicar a correção, retirando prefixos, mas nenhum caminho semelhante foi encontrado."
 
 # ID:314,
 #: ID:314
@@ -6985,13 +7042,6 @@ msgstr "Impossível escrever para %1, é somente-leitura ou está aberto por out
 msgid "Uncheck"
 msgstr "Desmarcar"
 
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-#, fuzzy
-msgid "Uncheck Group"
-msgstr "Desmarcar Grupo"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7151,9 +7201,8 @@ msgstr "Use ambos blocos de texto (este aqui último)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-#, fuzzy
 msgid "Use stri&keout for removed lines"
-msgstr "Usar hachura nas linhas deletadas"
+msgstr "Usar ha&chura nas linhas removidas"
 
 # ID:251,
 #: MenuEntry
@@ -7270,6 +7319,13 @@ msgstr "Valor"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Versão"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+#, fuzzy
+msgid "Versioned"
+msgstr "Com controle de versão"
 
 # ID:114,
 #: ID:114
@@ -7398,22 +7454,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Você copiou mais do que um arquivo ou pasta.\n"
-"Não é possível fazer isso em um único passo, então o TortoiseSVN irá\n"
-"adicionar cada arquivo/pasta individualmente, criando uma nova revisão\n"
-"para cada item copiado.\n"
-"\n"
-"Você ainda deseja fazer isso?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7449,22 +7489,6 @@ msgid ""
 msgstr ""
 "Você não informou um número de ocorrência!\n"
 "Você tem certeza de que quer gravar sem um número de ocorrência?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Você moveu mais do que um arquivo ou pasta.\n"
-"Não é possível fazer isso em um único passo, então o TortoiseSVN irá\n"
-"mover cada arquivo/pasta individualmente, criando uma nova revisão para\n"
-"cada item movido.\n"
-"\n"
-"Você ainda deseja fazer isso?"
 
 # ID:196,
 #: ID:196
@@ -7934,6 +7958,16 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "para %s"
+
+# ID:15,
+#: ID:17
+#, fuzzy
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Tamanho mínimo, em caracteres, que uma mensagem de trava deve ter para que a trava seja permitida."
 
 # ID:15,
 #: ID:15
