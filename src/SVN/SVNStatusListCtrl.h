@@ -189,6 +189,7 @@ public:
 			, Revision(0)
 			, isConflicted(false)
 			, present_props(_T(""))
+			, needslock(false)
 		{
 		}
 		const CTSVNPath& GetPath() const
@@ -208,6 +209,10 @@ public:
 		const bool IsLocked() const
 		{
 			return !(lock_token.IsEmpty() && lock_remotetoken.IsEmpty());
+		}
+		const bool HasNeedsLock() const
+		{
+			return needslock;
 		}
 		const bool IsFolder() const
 		{
@@ -269,7 +274,8 @@ public:
 		bool					direct;					///< directly included (TRUE) or just a child of a folder
 		bool					isfolder;				///< TRUE if entry refers to a folder
 		bool					isNested;				///< TRUE if the folder from a different repository and/or path
-		bool					isConflicted;			///> TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
+		bool					isConflicted;			///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
+		bool					needslock;				///< TRUE if the svn:needs-lock property is set
 		svn_revnum_t			Revision;				///< the base revision
 		CString					present_props;			///< cacheable properties present in BASE
 		friend class CSVNStatusListCtrl;

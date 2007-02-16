@@ -163,21 +163,7 @@ UINT CLockDlg::StatusThread()
 		CSVNStatusListCtrl::FileEntry* entry = m_cFileList.GetListEntry(i);
 		if (entry == NULL)
 			break;
-		BOOL bFound = FALSE;
-		SVNProperties propsbase(entry->GetPath(),SVNRev::REV_BASE);
-		for (int i=0; i<propsbase.GetCount(); i++)
-		{
-			if (propsbase.GetItemName(i).compare(_T("svn:needs-lock"))==0)
-			{
-				stdstring szBASE = MultibyteToWide((char *)propsbase.GetItemValue(i).c_str());
-				if ( !szBASE.empty() )
-				{
-					bFound = TRUE;
-					break;
-				}
-			}
-		}
-		if ( !bFound )
+		if (entry->HasNeedsLock())
 		{
 			bShowWarning = TRUE;
 			break;
