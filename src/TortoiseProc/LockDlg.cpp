@@ -27,6 +27,7 @@
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
 CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLockDlg::IDD, pParent)
+	, m_bBlock(FALSE)
 	, m_bStealLocks(FALSE)
 	, m_pThread(NULL)
 	, m_bCancelled(false)
@@ -153,9 +154,6 @@ UINT CLockDlg::StatusThread()
 		CMessageBox::Show(m_hWnd, m_cFileList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
 
-	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
-	m_cFileList.Show(dwShow, dwShow, false);
-
 	// Check if any file doesn't have svn:needs-lock set in BASE. If at least
 	// one file is found then show the warning that this property should by set.
 	BOOL bShowWarning = FALSE;
@@ -196,6 +194,9 @@ UINT CLockDlg::StatusThread()
 		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_HIDE);
 		DialogEnableWindow(IDC_LOCKWARNING, FALSE);
 	}
+
+	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
+	m_cFileList.Show(dwShow, dwShow, false);
 
 	POINT pt;
 	GetCursorPos(&pt);
