@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-02 17:36+0900\n"
+"PO-Revision-Date: 2007-02-16 11:14+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1790,11 +1790,6 @@ msgstr "업데이트 확인"
 msgid "Check For Updates..."
 msgstr "업데이트 확인..."
 
-# ID:8,
-#: ID:213
-msgid "Check Group"
-msgstr "그룹 선택"
-
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2489,6 +2484,11 @@ msgstr "버전 컨트롤에서 파일과 폴더를 삭제"
 #: ID:263
 msgid "Deleting"
 msgstr "삭제"
+
+# Control-ID:1126,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "변경 리스트 선택하지 않음"
 
 # ID:3859,#:
 # ID:3859,
@@ -3805,7 +3805,7 @@ msgstr "잠금 유지(&L)"
 
 # Control-ID:1126,
 #: Control-ID:1126
-msgid "Keep changelist"
+msgid "Keep changelists"
 msgstr "변경 리스트 유지"
 
 # Control-ID:65535,
@@ -5584,6 +5584,11 @@ msgstr "SSH 클라이언트 선택"
 msgid "Select an object on which to get Help"
 msgstr "도움말을 보기 선택"
 
+# Control-ID:1126,
+#: ID:213
+msgid "Select changelist"
+msgstr "변경 리스트 선택"
+
 # ID:78,
 #: ID:78
 msgid "Select diff application"
@@ -6206,6 +6211,27 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "저장소가 성공적으로 생성되었습니다."
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"경로\n"
+"<i>%s</i>\n"
+"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
+"TortoiseMerge는 다음의 유사한 경로\n"
+"<i>%s</i>\n"
+"을(를) 찾았습니다. 이 경로가 패치를 적용할만한 대상으로 보입니다.\n"
+"위 경로를 대신 사용하시겠습니까? '아니오'를 누르시면 종료합니다."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6407,6 +6433,20 @@ msgstr ""
 "\n"
 "경로에는 '<>|\"?*:'을 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"경로\n"
+"<i>%s</i>\n"
+"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
+"TortoiseMerge는 경로의 앞부분을 제거하고 시도하여 보았으나, 적절한 경로가 발견되지 않았습니다."
 
 # ID:314,
 #: ID:314
@@ -6960,12 +7000,6 @@ msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 파일에
 #: ID:3887
 msgid "Uncheck"
 msgstr "선택 해제"
-
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "그룹에서 선택 해제"
 
 # ID:3603,
 #: ID:3603
@@ -7881,6 +7915,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "%s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"잠그기 위해서 가져야할 로그메시지의 최소 길이입니다."
 
 # ID:15,
 #: ID:15
