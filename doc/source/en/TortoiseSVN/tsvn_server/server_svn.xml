@@ -49,10 +49,15 @@
 						<filename>C:\Program Files\Subversion</filename>) and in the
 						<filename>bin</filename> directory, find the files
 						<filename>svnserve.exe</filename>,
+						<filename>intl3_svn.dll</filename>,
+						<filename>libapr.dll</filename>,
+						<filename>libapriconv.dll</filename>,
+						<filename>libapriutil.dll</filename>,
 						<filename>libdb44.dll</filename>,
 						<filename>libeay32.dll</filename> and
 						<filename>ssleay32.dll</filename>
-						- copy these files into a directory on your server e.g.
+						- copy these files, or just copy all of the <filename>bin</filename>
+						directory, into a directory on your server e.g.
 						<filename>c:\svnserve</filename>
 					</para>
 				</listitem>

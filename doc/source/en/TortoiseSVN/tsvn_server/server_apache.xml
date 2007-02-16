@@ -860,7 +860,7 @@ AuthzSVNAccessFile svnaccessfile.txt
 # NT Domain Logins.
 AuthType SSPI
 SSPIAuth On
-SSPIAuthoritative On
+SSPIAuthoritative Off
 SSPIDomain &lt;domaincontroller&gt;
 SSPIOfferBasic On
 
