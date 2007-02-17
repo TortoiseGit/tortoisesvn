@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-02 22:59+0100\n"
+"PO-Revision-Date: 2007-02-17 17:23+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1821,11 +1821,6 @@ msgstr "Provjeri nadogradnje"
 msgid "Check For Updates..."
 msgstr "Provjeri nadogradnje..."
 
-# ID:8,
-#: ID:213
-msgid "Check Group"
-msgstr "Označi grupu"
-
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
@@ -2516,6 +2511,11 @@ msgstr "Uklanja datoteke / mape iz upravljanja verzijama"
 #: ID:263
 msgid "Deleting"
 msgstr "Brisanje"
+
+# ID:13,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Isključi popis izmjena"
 
 # ID:3859,#:
 # ID:3859,
@@ -3841,8 +3841,8 @@ msgstr "Zadrži &lokote"
 
 # ID:13,
 #: Control-ID:1126
-msgid "Keep changelist"
-msgstr "Sačuvaj skup izmjena"
+msgid "Keep changelists"
+msgstr "Sačuvaj popis izmjena"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5651,6 +5651,11 @@ msgstr "Izaberi SSH klijent"
 msgid "Select an object on which to get Help"
 msgstr "Odaberi objekt za koji želiš dobiti pomoć"
 
+# ID:13,
+#: ID:213
+msgid "Select changelist"
+msgstr "Označi popis  izmjena"
+
 # ID:78,
 #: ID:78
 msgid "Select diff application"
@@ -6278,6 +6283,28 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Skladište je uspješno napravljeno."
 
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Staza\n"
+"<i>%s</i>\n"
+"u datoteci zakrpa ne postoji.\n"
+"TortoiseMerge je našao relativnu stazu do mape\n"
+"<i>%s</i>\n"
+"koja bi mogla biti odgovarati mapi iz zakrpe.\n"
+"\n"
+"Želite li umjesto nepostojeće koristiti predloženu stazu? Ako odgovorite 'ne', TortoiseMerge će završiti."
+
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6481,6 +6508,20 @@ msgstr ""
 "\n"
 "Ispravna staza na windows ne smije sadržavati '<>|\"?*:' kao i niti jedan od sljedećih naziva uređaja:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Staza\n"
+"<i>%s</i>\n"
+"u datoteci zakrpa ne postoji.\n"
+"TortoiseMerger je pokušap primjeniti zakrpu uklanjanjem prefiksa, ali staza ni taj način nije pronađena."
 
 # ID:314,
 #: ID:314
@@ -7037,12 +7078,6 @@ msgstr "Nisam u mogućnosti zapisivati u %1, moguće je samo čitati ili to netk
 msgid "Uncheck"
 msgstr "Makni oznaku"
 
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Makni oznaku s grupe"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7322,9 +7357,8 @@ msgstr "Verzija"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: ID:264
-#, fuzzy
 msgid "Versioned"
-msgstr "S vezijama"
+msgstr "Upravljano verzijama"
 
 # ID:114,
 #: ID:114
@@ -7959,6 +7993,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "prema %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Najmanji broj znakova koji poruka dnevnika mora sadržavati prije no što se dozvoli zaključavanje."
 
 # ID:15,
 #: ID:15
