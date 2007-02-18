@@ -804,7 +804,12 @@ UINT CLogDlg::LogThread()
 
 		// The URL is escaped because SVN::logReceiver
 		// returns the path in a native format
-		sUrl = SVNUrl::Unescape(sUrl);
+		CStringA urla = CUnicodeUtils::GetUTF8(sUrl);
+		char * urlabuf = new char[urla.GetLength()+1];
+		strcpy_s(urlabuf, urla.GetLength()+1, urla);
+		CPathUtils::Unescape(urlabuf);
+		sUrl = CUnicodeUtils::GetUnicode(urlabuf);
+		delete [] urlabuf;
 	}
 	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
 	

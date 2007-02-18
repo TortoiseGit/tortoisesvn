@@ -18,11 +18,16 @@
 //
 #pragma once
 
-#include "SVNUrl.h"
+#include "SVNRev.h"
 #include "HistoryCombo.h"
 
 class CRepositoryTree;
 
+class IRepo
+{
+public:
+	virtual bool ChangeToUrl(const CString& url, const SVNRev& rev) = 0;
+};
 
 /**
  * \ingroup TortoiseProc
@@ -49,15 +54,9 @@ public:
 	bool Create(CWnd* parent, UINT id, bool in_dialog = true);
 
 	/**
-	 * Associates a repository tree with this bar. If another tree was
-	 * previously associated, this connection is terminated.
-	 */
-	void AssocTree(CRepositoryTree *repo_tree);
-
-	/**
 	 * Show the given \a svn_url in the URL combo and the revision button.
 	 */
-	void ShowUrl(const SVNUrl& svn_url);
+	void ShowUrl(const CString& url, SVNRev rev);
 
 	/**
 	 * Show the given \a svn_url in the URL combo and the revision button,
@@ -65,12 +64,17 @@ public:
 	 * is given, the current values are used (which effectively refreshes
 	 * the tree).
 	 */
-	void GotoUrl(const SVNUrl& svn_url = SVNUrl());
+	void GotoUrl(const CString& url = CString(), SVNRev rev = SVNRev());
 
 	/**
 	 * Returns the current URL.
 	 */
-	SVNUrl GetCurrentUrl() const;
+	CString GetCurrentUrl() const;
+
+	/**
+	 * Returns the current revision
+	 */
+	SVNRev GetCurrentRev() const;
 
 	/**
 	 * Saves the URL history of the HistoryCombo.
@@ -82,6 +86,8 @@ public:
 	 */
 	void SetRevision(SVNRev rev);
 
+	void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
+
 protected:
 	afx_msg void OnCbnSelEndOK();
 	afx_msg void OnBnClicked();
@@ -90,8 +96,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-	CRepositoryTree	*m_pRepositoryTree;
-	SVNUrl m_SvnUrl;
+	CString m_url;
+	SVNRev m_rev;
+
+	IRepo * m_pRepo;
 
 	class CRepositoryCombo : public CHistoryCombo 
 	{

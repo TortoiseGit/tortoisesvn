@@ -24,7 +24,7 @@ public:
 	CHintListCtrl();
 	~CHintListCtrl();
 
-	void ShowText(const CString& sText);
+	void ShowText(const CString& sText, bool forceupdate = false);
 	void ClearText();
 
 private:

@@ -1910,7 +1910,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 			CString val = parser.GetVal(_T("rev"));
 			SVNRev rev(val);
-			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
+			CRepositoryBrowser dlg(url, rev);
 			dlg.m_ProjectProperties.ReadProps(cmdLinePath);
 			dlg.m_path = cmdLinePath;
 			dlg.DoModal();

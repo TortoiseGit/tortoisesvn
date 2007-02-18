@@ -1552,14 +1552,6 @@
 				RelativePath="..\Svn\SVNStatusListCtrl.h"
 				>
 			</File>
-			<File
-				RelativePath="..\Svn\SVNUrl.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Svn\SVNUrl.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Dialogs"
@@ -1776,6 +1768,14 @@
 				Name="Repository Browser"
 				>
 				<File
+					RelativePath=".\RepoDrags.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RepoDrags.h"
+					>
+				</File>
+				<File
 					RelativePath=".\RepositoryBar.cpp"
 					>
 				</File>
@@ -1789,14 +1789,6 @@
 				</File>
 				<File
 					RelativePath="RepositoryBrowser.h"
-					>
-				</File>
-				<File
-					RelativePath="RepositoryTree.cpp"
-					>
-				</File>
-				<File
-					RelativePath="RepositoryTree.h"
 					>
 				</File>
 			</Filter>

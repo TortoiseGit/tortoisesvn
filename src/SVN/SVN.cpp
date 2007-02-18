@@ -151,6 +151,13 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
+BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
+					 svn_filesize_t size, bool has_props, 
+					 svn_revnum_t created_rev, apr_time_t time, 
+					 const CString& author, const CString& locktoken, 
+					 const CString& lockowner, const CString& lockcomment, 
+					 bool is_dav_comment, apr_time_t lock_creationdate, 
+					 apr_time_t lock_expirationdate, const CString& absolutepath) {return TRUE;}
 #pragma warning(pop)
 
 struct log_msg_baton3
@@ -1219,6 +1226,30 @@ svn_error_t* SVN::summarize_func(const svn_client_diff_summarize_t *diff, void *
 	}
 	return SVN_NO_ERROR;
 }
+svn_error_t* SVN::listReceiver(void* baton, const char* path, 
+							   const svn_dirent_t *dirent, 
+							   const svn_lock_t *lock, 
+							   const char *abs_path, 
+							   apr_pool_t * /*pool*/)
+{
+	SVN * svn = (SVN *)baton;
+	SVN_ERR (svn->cancel(baton));
+	svn->ReportList(CUnicodeUtils::GetUnicode(path), 
+		dirent->kind,
+		dirent->size,
+		!!dirent->has_props,
+		dirent->created_rev,
+		dirent->time,
+		CUnicodeUtils::GetUnicode(dirent->last_author),
+		lock ? CUnicodeUtils::GetUnicode(lock->token) : CString(),
+		lock ? CUnicodeUtils::GetUnicode(lock->owner) : CString(),
+		lock ? CUnicodeUtils::GetUnicode(lock->comment) : CString(),
+		lock ? !!lock->is_dav_comment : false,
+		lock ? lock->creation_date : 0,
+		lock ? lock->expiration_date : 0,
+		CUnicodeUtils::GetUnicode(abs_path));
+	return NULL;
+}
 
 svn_error_t* SVN::logReceiver(void* baton, 
 								apr_hash_t* ch_paths, 
@@ -1516,6 +1547,25 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 #pragma warning(pop)
 
 	return SVN_NO_ERROR;
+}
+
+BOOL SVN::List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, bool recurse, bool fetchlocks)
+{
+	SVNPool subpool(pool);
+	
+	Err = svn_client_list(url.GetSVNApiPath(),
+						  pegrev,
+						  revision,
+						  recurse,
+						  SVN_DIRENT_ALL,
+						  fetchlocks,
+						  listReceiver,
+						  this,
+						  m_pctx,
+						  subpool);
+	if (Err != NULL)
+		return FALSE;
+	return TRUE;
 }
 
 BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive, BOOL escaped)

@@ -127,7 +127,7 @@ void CSwitchDlg::OnBnClickedBrowse()
 		rev = SVNRev(m_rev);
 	if (!rev.IsValid())
 		rev = SVNRev::REV_HEAD;
-	CAppUtils::BrowseRepository(m_URLCombo, this, rev, !m_bFolder);
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 	SetRevision(rev);
 }
 

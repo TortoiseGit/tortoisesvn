@@ -101,5 +101,5 @@ public:
 	static bool FormatTextInRichEditControl(CWnd * pWnd);
 	static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
 
-	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool bFile = true);
+	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 };

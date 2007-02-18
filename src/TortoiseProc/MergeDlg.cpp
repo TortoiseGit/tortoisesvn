@@ -281,7 +281,7 @@ void CMergeDlg::OnBnClickedBrowse()
 	CheckData(false);
 	if ((!StartRev.IsValid())||(StartRev == 0))
 		StartRev = SVNRev::REV_HEAD;
-	if (CAppUtils::BrowseRepository(m_URLCombo, this, StartRev, !!m_bFile))
+	if (CAppUtils::BrowseRepository(m_URLCombo, this, StartRev))
 	{
 		SetStartRevision(StartRev);
 		if (m_bUseFromURL)
@@ -301,7 +301,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 	if ((!EndRev.IsValid())||(EndRev == 0))
 		EndRev = SVNRev::REV_HEAD;
 
-	CAppUtils::BrowseRepository(m_URLCombo2, this, EndRev, !!m_bFile);
+	CAppUtils::BrowseRepository(m_URLCombo2, this, EndRev);
 	SetEndRevision(EndRev);
 }
 

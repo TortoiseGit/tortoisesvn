@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\issue_334\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -595,6 +595,9 @@
 #define IDC_HOOKCOPYBUTTON              1367
 #define IDC_INFOLABEL                   1368
 #define IDC_UNLOCKLIST                  1369
+#define IDC_REPOTREE                    1371
+#define IDC_LIST1                       1372
+#define IDC_REPOLIST                    1372
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -647,6 +650,8 @@
 #define IDS_REPOBROWSE_COPYTOWCPROGTITLE 1643
 #define IDS_REPOBROWSE_COPYTOWC_LINE1   1644
 #define IDS_REPOBROWSE_COPYTOWC_LINE2   1645
+#define IDS_REPOBROWSE_COPYDROP         1646
+#define IDS_REPOBROWSE_MOVEDROP         1647
 #define IDS_REPOBROWSE_INITWAIT         1660
 #define IDS_REPOBROWSE_MULTIIMPORT      1670
 #define IDS_REPOBROWSE_MULTICOPY        1671
@@ -1038,7 +1043,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        244
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1371
+#define _APS_NEXT_CONTROL_VALUE         1373
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

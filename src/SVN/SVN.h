@@ -74,6 +74,14 @@ public:
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
 	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
+	virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
+							svn_filesize_t size, bool has_props,
+							svn_revnum_t created_rev, apr_time_t time,
+							const CString& author, 
+							const CString& locktoken, const CString& lockowner,
+							const CString& lockcomment, bool is_dav_comment,
+							apr_time_t lock_creationdate, apr_time_t lock_expirationdate,
+							const CString& absolutepath);
 
 	struct SVNLock
 	{
@@ -519,6 +527,20 @@ public:
 	BOOL Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE, BOOL escaped = FALSE);
 
 	/**
+	 * Report the directory entry, and possibly children, for \c url at \c revision.
+	 * 
+	 * The actual node revision selected is determined by the path as it exists in \c pegrev.
+	 * If \c pegrev->kind is \c svn_opt_revision_unspecified, then it defaults to \c svn_opt_revision_head for urls
+	 * and svn_opt_revision_working for WC targets.
+	 * 
+	 * Report directory entries by invoking the virtual method ReportList().
+	 * 
+	 * If \c fetchlocks is true, include locks when reporting directory entries.
+	 * If \c recurse is true and url is a directory this will be a recursive operation.
+	 */
+	BOOL List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, bool recurse, bool fetchlocks);
+
+	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
 	 * if the URL of the repository server has changed.
 	 * \param path path to the working copy
@@ -793,6 +815,12 @@ private:
 					const char * date,
 					const char * line,
 					apr_pool_t * pool);
+	static svn_error_t* listReceiver(void* baton,
+					const char* path,
+					const svn_dirent_t *dirent, 
+					const svn_lock_t *lock, 
+					const char *abs_path, 
+					apr_pool_t *pool);
 
 	static void progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t *pool);
 	SVNProgress		m_SVNProgressMSG;

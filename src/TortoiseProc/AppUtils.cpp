@@ -720,7 +720,7 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	return bFoundMarker;
 }
 
-bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool bFile /* = true */ )
+bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev)
 {
 	CString strUrl;
 	combo.GetWindowText(strUrl);
@@ -735,8 +735,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
-			SVNUrl url(strUrl, rev);
-			CRepositoryBrowser browser(url, pParent, bFile);
+			CRepositoryBrowser browser(strUrl, rev, pParent);
 			if (browser.DoModal() == IDOK)
 			{
 				combo.SetCurSel(-1);
@@ -766,8 +765,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
-		SVNUrl url(strUrl, rev);
-		CRepositoryBrowser browser(url, pParent, bFile);
+		CRepositoryBrowser browser(strUrl, rev, pParent);
 		if (browser.DoModal() == IDOK)
 		{
 			combo.SetCurSel(-1);

@@ -55,6 +55,10 @@ public:
 	 */
 	int GetDirIconIndex() const;
 	/**
+	 * Returns the icon index for a directory that's open (e.g. for a tree control)
+	 */
+	int GetDirOpenIconIndex() const;
+	/**
 	 * Returns the icon index for a file which has no special icon associated.
 	 */
 	int GetDefaultIconIndex() const;

@@ -29,10 +29,12 @@ CHintListCtrl::~CHintListCtrl()
 {
 }
 
-void CHintListCtrl::ShowText(const CString& sText)
+void CHintListCtrl::ShowText(const CString& sText, bool forceupdate /* = false*/)
 {
 	m_sText = sText;
 	Invalidate();
+	if (forceupdate)
+		UpdateWindow();
 }
 
 void CHintListCtrl::ClearText()

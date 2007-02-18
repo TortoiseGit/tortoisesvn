@@ -77,6 +77,20 @@ int CSysImageList::GetDirIconIndex() const
 	return sfi.iIcon;
 }
 
+int CSysImageList::GetDirOpenIconIndex() const
+{
+	SHFILEINFO sfi;
+	ZeroMemory(&sfi, sizeof sfi);
+
+	SHGetFileInfo(
+		_T("Doesn't matter"),
+		FILE_ATTRIBUTE_DIRECTORY,
+		&sfi, sizeof sfi,
+		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | SHGFI_OPENICON);
+
+	return sfi.iIcon;
+}
+
 int CSysImageList::GetDefaultIconIndex() const
 {
 	SHFILEINFO sfi;

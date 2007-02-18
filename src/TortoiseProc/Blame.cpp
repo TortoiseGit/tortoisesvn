@@ -156,6 +156,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			DeleteFile(logfile);
 			logfile.Empty();
 		}
+		m_saveLog.Close();
 	}
 	m_progressDlg.Stop();
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)

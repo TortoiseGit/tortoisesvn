@@ -19,9 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RepositoryBar.h"
-#include "RepositoryTree.h"
 #include "RevisionDlg.h"
-#include ".\repositorybar.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
@@ -31,8 +29,8 @@ IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 #pragma warning(push)
 #pragma warning(disable: 4355)	// 'this' used in base member initializer list
 
-CRepositoryBar::CRepositoryBar() : m_pRepositoryTree(0)
-	, m_cbxUrl(this)
+CRepositoryBar::CRepositoryBar() : m_cbxUrl(this)
+	, m_pRepo(NULL)
 {
 }
 
@@ -137,55 +135,61 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 	return false;
 }
 
-void CRepositoryBar::AssocTree(CRepositoryTree *repo_tree)
+void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 {
-	if (m_pRepositoryTree != 0)
-		m_pRepositoryTree->m_pRepositoryBar = 0;
-
-	m_pRepositoryTree = repo_tree;
-
-	if (m_pRepositoryTree != 0)
-		m_pRepositoryTree->m_pRepositoryBar = this;
+	m_url = url;
+	m_rev = rev;
+	m_cbxUrl.SetWindowText(m_url);
+	m_btnRevision.SetWindowText(m_rev.ToString());
 }
 
-void CRepositoryBar::ShowUrl(const SVNUrl& svn_url)
+void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
 {
-	m_SvnUrl = svn_url;
-	m_cbxUrl.SetWindowText(svn_url.GetPath());
-	m_btnRevision.SetWindowText(svn_url.GetRevisionText());
-}
-
-void CRepositoryBar::GotoUrl(const SVNUrl& svn_url)
-{
-	SVNUrl new_url = svn_url;
+	CString new_url = url;
+	SVNRev new_rev = rev;
 
 	if (new_url.IsEmpty())
+	{
 		new_url = GetCurrentUrl();
-
-	if (m_pRepositoryTree != 0)
-		m_pRepositoryTree->ChangeToUrl(new_url);
-
-	ShowUrl(new_url);
+		new_rev = GetCurrentRev();
+	}
+	ShowUrl(new_url, new_rev);
+	if (m_pRepo)
+		m_pRepo->ChangeToUrl(new_url, new_rev);
 }
 
 void CRepositoryBar::SetRevision(SVNRev rev)
 {
-	m_btnRevision.SetWindowText(SVNUrl::GetTextFromRev(rev));
-	m_SvnUrl = SVNUrl(m_SvnUrl.GetPath(), rev);
+	m_btnRevision.SetWindowText(rev.ToString());
 }
 
-SVNUrl CRepositoryBar::GetCurrentUrl() const
+CString CRepositoryBar::GetCurrentUrl() const
 {
 	if (m_cbxUrl.m_hWnd != 0)
 	{
 		CString path, revision;
 		m_cbxUrl.GetWindowText(path);
 		m_btnRevision.GetWindowText(revision);
-		return SVNUrl(path, revision);
+		return path;
 	}
 	else
 	{
-		return m_SvnUrl;
+		return m_url;
+	}
+}
+
+SVNRev CRepositoryBar::GetCurrentRev() const
+{
+	if (m_cbxUrl.m_hWnd != 0)
+	{
+		CString path, revision;
+		m_cbxUrl.GetWindowText(path);
+		m_btnRevision.GetWindowText(revision);
+		return SVNRev(revision);
+	}
+	else
+	{
+		return m_rev;
 	}
 }
 
@@ -214,10 +218,10 @@ void CRepositoryBar::OnCbnSelEndOK()
 			CString path, revision;
 			m_cbxUrl.GetLBText(idx, path);
 			m_btnRevision.GetWindowText(revision);
-			m_SvnUrl = SVNUrl(path, revision);
-
-			if (m_pRepositoryTree != 0)
-				m_pRepositoryTree->ChangeToUrl(m_SvnUrl);
+			m_url = path;
+			m_rev = revision;
+			if (m_pRepo)
+				m_pRepo->ChangeToUrl(m_url, m_rev);
 		}
 	}
 }
@@ -234,7 +238,8 @@ void CRepositoryBar::OnBnClicked()
 	if (dlg.DoModal() == IDOK)
 	{
 		revision = dlg.GetEnteredRevisionString();
-		m_btnRevision.SetWindowText(SVNUrl::GetTextFromRev(SVNRev(revision)));
+		m_rev = SVNRev(revision);
+		m_btnRevision.SetWindowText(SVNRev(revision).ToString());
 		GotoUrl();
 	}
 }
@@ -302,7 +307,8 @@ void CRepositoryBar::OnDestroy()
 		CString path, revision;
 		m_cbxUrl.GetLBText(idx, path);
 		m_btnRevision.GetWindowText(revision);
-		m_SvnUrl = SVNUrl(path, revision, true);
+		m_url = path;
+		m_rev = revision;
 	}
 	CReBarCtrl::OnDestroy();
 }

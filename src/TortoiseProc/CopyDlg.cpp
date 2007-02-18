@@ -246,7 +246,7 @@ void CCopyDlg::OnBnClickedBrowse()
 	else
 		rev = SVNRev(sRevText);
 
-	CAppUtils::BrowseRepository(m_URLCombo, this, rev, !!m_bFile);
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 	SetRevision(rev);
 }
 

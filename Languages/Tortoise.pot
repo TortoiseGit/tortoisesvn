@@ -1561,6 +1561,10 @@ msgstr ""
 msgid "Copy from path"
 msgstr ""
 
+#: ID:103,
+msgid "Copy items to here"
+msgstr ""
+
 #: ID:209,
 msgid "Copy paths to clipboard"
 msgstr ""
@@ -2874,6 +2878,10 @@ msgstr ""
 msgid "Move %s\r\nto %s"
 msgstr ""
 
+#: ID:103,
+msgid "Move items to here"
+msgstr ""
+
 #: ID:209,
 msgid "Move to changelist"
 msgstr ""
@@ -3853,7 +3861,7 @@ msgstr ""
 msgid "Select &All"
 msgstr ""
 
-#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / deselect &all"
 msgstr ""
 
@@ -4311,11 +4319,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr ""
 
-#: ID:314,
-#, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%s</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
@@ -4424,11 +4427,6 @@ msgstr ""
 
 #: ID:88,
 msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-msgstr ""
-
-#: ID:314,
-#, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 
 #: ID:314,
