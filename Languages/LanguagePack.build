@@ -219,6 +219,18 @@ NAnt build script for the TortoiseSVN language pack installers
 			Builds the installers.
 		</description>
 		<call target="createecho2" />
+
+		<if test="${platform == 'x64'}">
+			<setenv>
+				<variable name="Platform" value="x64" />
+			</setenv>
+		</if>
+		<if test="${platform != 'x64'}">
+			<setenv>
+				<variable name="Platform" value="win32" />
+			</setenv>
+		</if>
+
 		<loadfile file="Languages.txt" property="languagelines" />
 		<!-- the next line is split in two because we need the newline in the string -->
 		<foreach item="String" in="${languagelines}" delim="
@@ -263,14 +275,6 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="..\bin\TortoiseIDiff${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<!-- create the files for the installer -->
-		<echo2 file="product.nsh">!define PRODUCT_NAME "TortoiseSVN ${langnative}"</echo2>
-		<echo2 file="product.nsh" append="true">!define CountryCode "${langISO}"</echo2>
-		<echo2 file="product.nsh" append="true">!define CountryID "${langCC}"</echo2>
-		<echo2 file="product.nsh" append="true">!define InstLang "${langUI}"</echo2>
-		<echo2 file="product.nsh" append="true" if="${langhelpfile == '1'}">!define LangHelp</echo2>
-		<echo2 file="product.nsh" append="true" if="${devrelease != '-dev'}">!define HelpFatal</echo2>
-		<echo2 file="product.nsh" append="true">!include "FindTSVN${platform}.nsh"</echo2>
 		<!-- create the mo files -->
 		<exec program="msgfmt" if="${file::exists('..\ext\Subversion\Subversion\po\${langISO}.po')}" failonerror="false" >
 			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
@@ -278,9 +282,26 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="subversion.mo" />
 			<arg value="-f" />
 		</exec>
-		<echo file="product.nsh" append="true" if="${file::exists('subversion.mo')}">!define MoFile "subversion.mo"</echo>
+		
+		<!--
+		Build the <Files></Files> parts for the spell checker files and thesauri.
+		-->
+		<property name="SpellCheckFiles" value="" />
+		<foreach item="File" property="filename">
+			<in>
+				<items>
+					<include name="..\..\Common\Spell_Thes\${langISO}*.*" />
+				</items>
+			</in>
+			<do>
+				<property name="SpellCheckFiles" value="&lt;File Id='${path::get-file-name(filename)}' Name='${path::get-file-name(filename)}' LongName='${path::get-file-name(filename)}' DiskId='1' Source='${filename}' Vital='no'&gt;&lt;/File&gt;${SpellCheckFiles}" />
+				<echo message="${filename}" />
+			</do>
+		</foreach> 
+		
+		<!-- create the files for the installer -->		
 		<if test="${environment::variable-exists('MajorVersion')}">
-			<loadfile file="LanguagePack.in" property="versionnsifile">
+			<loadfile file="LanguagePack.wxs" property="versionwxsfile">
 				<filterchain>
 					<replacetokens begintoken="$" endtoken="$">
 						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
@@ -289,17 +310,60 @@ NAnt build script for the TortoiseSVN language pack installers
 						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
 						<token key="DEVRELEASE" value="${devrelease}" />
 						<token key="PLATFORM" value="${platform}" />
+						<token key="LANGUI" value="${langUI}" />
+						<token key="COUNTRYCODE" value="${langISO}" />
+						<token key="COUNTRYID" value="${langCC}" />
+						<token key="LANGNATIVE" value="${langnative}" />
+						<token key="SPELLCHECKFILES" value="${SpellCheckFiles}" />
 					</replacetokens>
 				</filterchain>
 			</loadfile>
-			<echo file="LanguagePack.nsi" message="${versionnsifile}" />
+			<echo file="LanguagePack_${langISO}.wxs" message="${versionwxsfile}" />
 		</if>
-		<copy file="LanguagePack.in" tofile="LanguagePack.nsi" failonerror="false" unless="${environment::variable-exists('MajorVersion')}"/>
 		
-		<exec program="MakeNSIS" failonerror="false">
-			<arg value="/V1" />
-			<arg value="LanguagePack.nsi" />
+		<setenv>
+			<variable name="TSVNHelpFiles" value="" />
+			<variable name="TSVNMoFile" value="" />
+		</setenv>
+
+		<if test="${file::exists('subversion.mo')}">
+			<setenv>
+				<variable name="TSVNMoFile" value="${langISO}" />
+			</setenv>
+		</if>
+		<if test="${file::exists('..\doc\output\TortoiseSVN_${langISO}.chm')}">
+			<setenv>
+				<variable name="TSVNHelpFiles" value="${langISO}" />
+			</setenv>
+		</if>
+
+		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+
+		
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\bin\" />
+			<arg value="LanguagePack_${langISO}.wxs" />
+			<arg value="WixUI_LanguagePacks.wxs" />
 		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\bin\LanguagePack_${verstring}${devrelease}-${platform}-${langISO}.msi" />
+			<arg value="..\bin\LanguagePack_${langISO}.wixobj" />
+			<arg value="..\bin\WixUI_LanguagePacks.wixobj" />
+			<arg value="${environment::get-variable('WIXUI')}\WixUI.wixlib" />
+			<arg value="-loc" />
+			<arg value="${environment::get-variable('WIXUI')}\WixUI_en-us.wxl" />
+		</exec>
+		<delete>
+			<fileset>
+				<include name="..\bin\*.wixobj" />
+			</fileset>
+		</delete>
+
+		<delete file="LanguagePack_${langISO}.wxs" failonerror="false" />
 		<delete file="..\bin\TortoiseProc${langCC}.dll" failonerror="false" />
 		<delete file="..\bin\TortoiseMerge${langCC}.dll" failonerror="false" />
 		<delete file="..\bin\TortoiseBlame${langCC}.dll" failonerror="false" />

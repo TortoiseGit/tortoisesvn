@@ -145,6 +145,8 @@
        title and the status text. See issue #318 for details. (Stefan)
 - CHG: Unchecking directories in the status list control now doesn't uncheck
        recursively if there is only a property change. (Tobias Schäfer)
+- CHG: The language pack are now installed with msi installer files.
+       See issue #155 for details. (Stefan)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)

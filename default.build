@@ -172,7 +172,7 @@
 		</nant>
 	</target>
 
-	<target name="LanguagePacks" depends="VersionInfo">
+	<target name="LanguagePacks" depends="env,VersionInfo">
 		<description>
 			Builds all the language pack installers.
 		</description>
