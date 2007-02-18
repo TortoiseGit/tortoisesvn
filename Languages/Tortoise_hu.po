@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-12-08 17:17+0100\n"
-"Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
+"PO-Revision-Date: 2007-02-18 18:03+0100\n"
+"Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -647,8 +647,8 @@ msgstr "&Új"
 
 # Control-ID:1208,
 #: Control-ID:1208
-msgid "&Next 100"
-msgstr "A &következő 100"
+msgid "&Next %ld"
+msgstr "&Következő %ld"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -947,6 +947,11 @@ msgstr "(száraz futás)"
 msgid "(multiple targets selected)"
 msgstr "(több cél van kiválasztva)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(nincs változáslista)"
+
 # ID:314,
 #: ID:314
 msgid "(not found)"
@@ -1021,6 +1026,11 @@ msgstr ""
 "A <b>TortoiseSVN</b> használatához kattints jobb gombbal egy mappára, hogy\n"
 "feljöjjön a <b>TortoiseSVN</b> menüje a parancsokkal.\n"
 "És <u>olvasd el a leírástl!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<új változáslista>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1460,6 +1470,12 @@ msgstr "&Útvonal szerint rendezve"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Útvonal szerint rendezés"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "\"%s\" változáslistához rendelve"
 
 # ID:77,
 #: ID:77
@@ -2147,6 +2163,11 @@ msgstr "Hibaüzenet másolása a vágólapra"
 msgid "Copy from path"
 msgstr "Útvonalból másol"
 
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Elemek másolása ide"
+
 # ID:114,
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -2321,6 +2342,11 @@ msgid "Create &patch..."
 msgstr "&Folt készítése..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Változáslista Készítése"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Folt Készítése"
@@ -2435,8 +2461,8 @@ msgstr "Nem Verziókezelt Elemek Törlése"
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: ID:17
-msgid "Delete unversioned items"
-msgstr "Nem verziókezelt elemek törlése"
+msgid "Delete unversioned items..."
+msgstr "Nem verziókezelt elemek törlése..."
 
 # ID:73,
 #: ID:73
@@ -2458,6 +2484,11 @@ msgstr "Fájlok / Mappák törlölve a forráskezelésből"
 #: ID:263
 msgid "Deleting"
 msgstr "Törlés"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Változáslista kihagyása"
 
 # ID:3859,#:
 # ID:3859,
@@ -2592,15 +2623,6 @@ msgstr "Folytatod?"
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
-msgstr ""
-"Biztos hogy újratöltöd a dokumentumot?\n"
-"Az összes változtatásod elveszik!"
-
-# ID:313,
-#: ID:313
-msgid ""
-"Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
 msgstr ""
 "Biztos hogy újratöltöd a dokumentumot?\n"
 "Az összes változtatásod elveszik!"
@@ -2758,6 +2780,11 @@ msgstr "Írd be a címet:"
 msgid "Enter a lock message (optional):"
 msgstr "Írd be a zár-üzenetet (nem kötelező):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Adj meg a változáslistának egy nevet:"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2848,6 +2875,12 @@ msgstr "Mappa export:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Nem verziókezelt fájlokat is exportálja"
+
+# ID:79,
+#: ID:284
+#, c-format
+msgid "Exporting %s"
+msgstr "%s exportálása"
 
 # ID:79,
 #: ID:79
@@ -2977,7 +3010,7 @@ msgid "File diffs"
 msgstr "Fájlfoltok"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "A fájllista üres"
 
@@ -3079,11 +3112,15 @@ msgstr ""
 "A GDI+ letölthető az alábbi címről:\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
+# ID:269,
+#: ID:284
+msgid "Gathering information. Please wait..."
+msgstr "Információ beszerzése, kis türemlet..."
+
 # Dlg-ID:143,#:
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
-#: Control-ID:65535
 msgid "General"
 msgstr "Általános"
 
@@ -3119,8 +3156,8 @@ msgstr "%s fájl megszerzése"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "%s fájl %ld verziója"
+msgid "Getting file %s, revision %s"
+msgstr "%s fájl %s verziójának beszerzése"
 
 # ID:132,
 #: ID:132
@@ -3255,6 +3292,132 @@ msgstr "Hook Típus:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Számítógépnév eltérés (%s)"
+
+#. Accelerator Entry for Menu ID:32771; '&Find...'
+#: Corresponding Menu ID:32771
+#: ; '&Find...'
+msgid "ID:32771:V C +F"
+msgstr "ID:32771:V C +F"
+
+#. Accelerator Entry for Menu ID:32772; '&Overlap images'
+#: Corresponding Menu ID:32772
+#: ; '&Overlap images'
+msgid "ID:32772:V   +O"
+msgstr "ID:32772:V   +O"
+
+#. Accelerator Entry for Menu ID:32773; '&Open'
+#: Corresponding Menu ID:32773
+#: ; '&Open'
+msgid "ID:32773:V C +O"
+msgstr "ID:32773:V C +O"
+
+#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
+#: Corresponding Menu ID:32774
+#: ; '&Whitespaces'
+msgid "ID:32774:V C +T"
+msgstr "ID:32774:V C +T"
+
+#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#: Corresponding Menu ID:32775
+#: ; 'Two-way &Diff'
+msgid "ID:32775:V C +D"
+msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
+#: Corresponding Menu ID:32778
+#: ; '&Fit Images in window'
+msgid "ID:32778:V   +F"
+msgstr "ID:32778:V   +F"
+
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#: Corresponding Menu ID:32779
+#: ; 'Ori&ginal size'
+msgid "ID:32779:V   +S"
+msgstr "ID:32779:V   +S"
+
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#: Corresponding Menu ID:32779
+#: ; '&Go To Line...'
+msgid "ID:32779:V C +G"
+msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
+#: Corresponding Menu ID:32793
+#: ; 'Arrange &Vertical'
+msgid "ID:32793:V C +V"
+msgstr "ID:32793:V C +V"
+
+#. Accelerator Entry for Menu ID:32794; 'Reload'
+#: Corresponding Menu ID:32794
+#: ; 'Reload'
+msgid "ID:32794:V C +R"
+msgstr "ID:32794:V C +R"
+
+#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
+#: Corresponding Menu ID:32796
+#: ; 'Show &all revisions'
+msgid "ID:32796:V C +A"
+msgstr "ID:32796:V C +A"
+
+#. Accelerator Entry for Menu ID:32809; '&Filter'
+#: Corresponding Menu ID:32809
+#: ; '&Filter'
+msgid "ID:32809:V C +F"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#: Corresponding Menu ID:57601
+#: ; '&Open Ctrl-O'
+msgid "ID:57601:V C +O"
+msgstr "ID:57601:V C +O"
+
+#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#: Corresponding Menu ID:57603
+#: ; '&Save Ctrl-S'
+msgid "ID:57603:V C +S"
+msgstr "ID:57603:V C +S"
+
+#. Accelerator Entry for Menu ID:57604; 'Save &As...'
+#: Corresponding Menu ID:57604
+#: ; 'Save &As...'
+msgid "ID:57604:V CS+S"
+msgstr "ID:57604:V CS+S"
+
+#. Accelerator Entry for Menu ID:57634; '&Copy'
+#: Corresponding Menu ID:57634
+#: ; '&Copy'
+msgid "ID:57634:V C +C"
+msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57635; ''
+#: Corresponding Menu ID:57635
+#: ; ''
+msgid "ID:57635:V C +X"
+msgstr "ID:57635:V C +X"
+
+#. Accelerator Entry for Menu ID:57636; '&Find'
+#: Corresponding Menu ID:57636
+#: ; '&Find'
+msgid "ID:57636:V C +F"
+msgstr "ID:57636:V C +F"
+
+#. Accelerator Entry for Menu ID:57637; ''
+#: Corresponding Menu ID:57637
+#: ; ''
+msgid "ID:57637:V C +V"
+msgstr "ID:57637:V C +V"
+
+#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643
+#: ; '&Undo\tCtrl+Z'
+msgid "ID:57643:V C +Z"
+msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+#: Corresponding Menu ID:57665
+#: ; 'E&xit'
+msgid "ID:57665:V C +Q"
+msgstr "ID:57665:V C +Q"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3487,8 +3650,8 @@ msgid "Initial import"
 msgstr "Első import"
 
 #: Control-ID:65535
-msgid "Inline diff"
-msgstr "Soron belüli különbség"
+msgid "Inline differences"
+msgstr "Soron belüli eltérések"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -3641,6 +3804,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Zárak &megtartása"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Változáslista megtartása"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3682,6 +3850,10 @@ msgstr "Vonal"
 #: ID:246
 msgid "Line Graph"
 msgstr "Vonal-grafikon"
+
+#: Control-ID:65535
+msgid "Line differences"
+msgstr "Soreltérések"
 
 # Control-ID:1158,
 #: Control-ID:65535
@@ -3736,7 +3908,7 @@ msgid "Lock Files"
 msgstr "Fájlok Zárolása"
 
 # ID:209,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Eltört a zár!"
 
@@ -3761,7 +3933,7 @@ msgid "Lock owner:"
 msgstr "A zár tulajdonosa:"
 
 # ID:209,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "A zárt ellopta %s"
@@ -3975,6 +4147,7 @@ msgstr "Kevert"
 # ID:74,
 #: ID:74
 #: ID:264
+#: Control-ID:65535
 msgid "Modified"
 msgstr "Megváltoztatva"
 
@@ -4008,6 +4181,16 @@ msgid ""
 msgstr ""
 "%s áthelyezése\r\n"
 "ide: %s"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Elemek áthelyezése ide"
+
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Változáslistába helyezés"
 
 # ID:97,
 #: ID:98
@@ -4051,7 +4234,7 @@ msgid "Needs lock"
 msgstr "Zár szükséges"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Letelepedett"
 
@@ -4292,6 +4475,11 @@ msgstr "Kliens tanusítványfájl megnyitása"
 #: ID:3601
 msgid "Open file"
 msgstr "Fájl megnyitása"
+
+# ID:114,
+#: Control-ID:1132
+msgid "Open from clipboard"
+msgstr "Vágólapról megnyit"
 
 # ID:3601,
 #: ID:7
@@ -4558,7 +4746,7 @@ msgstr "Várj amíg elindítom a Tárház böngészőt..."
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Kérlek várj..."
 
@@ -4843,6 +5031,11 @@ msgstr "%s törlése"
 msgid "Remove from &ignore list"
 msgstr "El&távolít az elutasító listáról"
 
+# ID:15,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Eltávolít a változáslistáról"
+
 # ID:8,#:
 # ID:74,
 #: Control-ID:1332
@@ -4858,6 +5051,11 @@ msgstr "Eltávolítva"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Fájl/mappa eltávolítva"
+
+# ID:15,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Változáslistáról eltávolítva"
 
 # ID:145,
 #: ID:145
@@ -5412,6 +5610,11 @@ msgstr "Válassz SSH klienst"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Válassz egy elemet, aminek a súgója kell"
+
+# ID:78,
+#: ID:213
+msgid "Select changelist"
+msgstr "Válassz változáslistát"
 
 # ID:78,
 #: ID:78
@@ -6376,10 +6579,24 @@ msgstr ""
 "Biztos, hogy kimented?\n"
 "Ha igent nyomsz, akkor ezt később más programmal, kézzel kell megtenned!"
 
+# ID:313,
+#: ID:313
+msgid ""
+"There are unsaved modifications!\n"
+"Do you want to save your changes?"
+msgstr ""
+"Néhány változtatás nincs mentve!\n"
+"Mented a változtatásokat?"
+
 # ID:82,
 #: ID:82
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Nincs mit hozzáadni, mivel az összes mappa és fájl hozzá van már adva, vagy el van utasítva."
+
+# ID:83,
+#: ID:83
+msgid "There's nothing to unlock. No file has a lock in this working copy."
+msgstr "Nincs mit feloldani ebben a munkapéldányban."
 
 # ID:188,
 #: ID:188
@@ -6810,6 +7027,7 @@ msgstr ""
 
 # ID:221,
 #: ID:221
+#: Dlg-ID:242
 msgid "Unlock"
 msgstr "Felold"
 
@@ -6929,8 +7147,8 @@ msgstr "Mindkét szövegmezőt használja (ezt a mezőt utoljára)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
-msgstr "&Kitörölt sorok erőszakolása"
+msgid "Use stri&keout for removed lines"
+msgstr "&Kitörölt sorok kihúzása"
 
 # ID:251,
 #: MenuEntry
@@ -7018,112 +7236,6 @@ msgstr "Felhasználói megszakítása"
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
-#: Corresponding Menu ID:32778
-#: ; '&Fit Images in window'
-msgid "V   +F"
-msgstr "V   +F"
-
-#. Accelerator Entry for Menu ID:32772; '&Overlap images'
-#: Corresponding Menu ID:32772
-#: ; '&Overlap images'
-msgid "V   +O"
-msgstr "V   +O"
-
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
-#: Corresponding Menu ID:32779
-#: ; 'Ori&ginal size'
-msgid "V   +S"
-msgstr "V   +S"
-
-#. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
-#: Corresponding Menu ID:32796
-#: ; 'Show &all revisions'
-msgid "V C +A"
-msgstr "V C +A"
-
-#. Accelerator Entry for Menu ID:57634; '&Copy'
-#: Corresponding Menu ID:57634
-#: ; '&Copy'
-msgid "V C +C"
-msgstr "V C +C"
-
-#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
-#: Corresponding Menu ID:32775
-#: ; 'Two-way &Diff'
-msgid "V C +D"
-msgstr "V C +D"
-
-#. Accelerator Entry for Menu ID:32809; '&Filter'
-#. Accelerator Entry for Menu ID:57636; '&Find'
-#. Accelerator Entry for Menu ID:32771; '&Find...'
-#: Corresponding Menu ID:32771
-#: ; '&Find...'
-msgid "V C +F"
-msgstr "V C +F"
-
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
-#: Corresponding Menu ID:32779
-#: ; '&Go To Line...'
-msgid "V C +G"
-msgstr "V C +G"
-
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
-#. Accelerator Entry for Menu ID:32773; '&Open'
-#: Corresponding Menu ID:32773
-#: ; '&Open'
-msgid "V C +O"
-msgstr "V C +O"
-
-#. Accelerator Entry for Menu ID:57665; 'E&xit'
-#: Corresponding Menu ID:57665
-#: ; 'E&xit'
-msgid "V C +Q"
-msgstr "V C +Q"
-
-#. Accelerator Entry for Menu ID:32794; 'Reload'
-#: Corresponding Menu ID:32794
-#: ; 'Reload'
-msgid "V C +R"
-msgstr "V C +R"
-
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
-#: Corresponding Menu ID:57603
-#: ; '&Save Ctrl-S'
-msgid "V C +S"
-msgstr "V C +S"
-
-#. Accelerator Entry for Menu ID:32774; '&Whitespaces'
-#: Corresponding Menu ID:32774
-#: ; '&Whitespaces'
-msgid "V C +T"
-msgstr "V C +T"
-
-#. Accelerator Entry for Menu ID:57637; ''
-#. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
-#: Corresponding Menu ID:32793
-#: ; 'Arrange &Vertical'
-msgid "V C +V"
-msgstr "V C +V"
-
-#. Accelerator Entry for Menu ID:57635; ''
-#: Corresponding Menu ID:57635
-#: ; ''
-msgid "V C +X"
-msgstr "V C +X"
-
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
-#: Corresponding Menu ID:57643
-#: ; '&Undo\tCtrl+Z'
-msgid "V C +Z"
-msgstr "V C +Z"
-
-#. Accelerator Entry for Menu ID:57604; 'Save &As...'
-#: Corresponding Menu ID:57604
-#: ; 'Save &As...'
-msgid "V CS+S"
-msgstr "V CS+S"
-
 # ID:313,
 #: ID:313
 msgid ""
@@ -7153,6 +7265,12 @@ msgstr "Érték"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Verzió"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "Verziókezelve"
 
 # ID:114,
 #: ID:114
@@ -7280,21 +7398,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Egynél több fájlt/mappát másoltál.\n"
-"Ez jelenleg nem lehetséges, így a TortoiseSVN mindegyik fájlt/mappát\n"
-"egyesével másolja, mindegyiknek új verziót létrehozva.\n"
-"\n"
-"Biztos hogy ezt teszed?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7329,21 +7432,6 @@ msgid ""
 msgstr ""
 "Nem írtál be ügy-számot!\n"
 "Ügy-szám nélkül akarod beküldeni?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Egyszerre több fájlt/könyvtárt helyeztél át.\n"
-"Ez jelenleg nem lehetséges, így a TortoiseSVN mindegyik fájlt/mappát\n"
-"egyesével helyezi át, mindegyiknek új verziót létrehozva.\n"
-"\n"
-"Biztos hogy ezt teszed?"
 
 # ID:196,
 #: ID:196
@@ -7808,9 +7896,19 @@ msgstr ""
 # ID:103,
 #: ID:80
 #: ID:103
+#: ID:284
 #, c-format
 msgid "to %s"
 msgstr "%s-be"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:logmsgminsize\n"
+"A lehetséges legrövidebb hossz, zárolási indok megadásakor."
 
 # ID:15,
 #: ID:15
