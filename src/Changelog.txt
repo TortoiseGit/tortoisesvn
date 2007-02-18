@@ -143,6 +143,8 @@
        See issue #316 for details. (Stefan)
 - CHG: The progress dialog clearly indicates a failed operation in the
        title and the status text. See issue #318 for details. (Stefan)
+- CHG: Unchecking directories in the status list control now doesn't uncheck
+       recursively if there is only a property change. (Tobias Schäfer)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)

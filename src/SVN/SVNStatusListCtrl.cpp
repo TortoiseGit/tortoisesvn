@@ -1711,8 +1711,11 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 	// item was unchecked
 	if (entry->path.IsDirectory())
 	{
-		// disable all files within an unselected folder
-		SetCheckOnAllDescendentsOf(entry, false);
+		// disable all files within an unselected folder, except when unchecking a folder with property changes
+		if ( entry->status != svn_wc_status_modified )
+		{
+			SetCheckOnAllDescendentsOf(entry, false);
+		}
 	}
 	else if (entry->status == svn_wc_status_deleted)
 	{
