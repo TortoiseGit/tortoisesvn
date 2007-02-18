@@ -38,7 +38,7 @@ On Error Goto 0
 'Make sure we un-set that flag.
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.GetFile(sNewDoc)
-If objFile.Attributes = objFile.Attributes AND 1 Then
+If (objFile.Attributes AND 1)=1 Then
     objFile.Attributes = objFile.Attributes XOR 1 
 End If
 
