@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-12 21:17+0700\n"
+"PO-Revision-Date: 2007-02-18 20:46+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2170,6 +2170,11 @@ msgstr "Copy pesan kesalahan ke clipboard"
 msgid "Copy from path"
 msgstr "Copy dari path"
 
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Salin item ke sini"
+
 # ID:209,
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -4192,6 +4197,11 @@ msgid ""
 msgstr ""
 "Pindahkan %s\r\n"
 "ke %s"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Pindahkan item ke sini"
 
 # ID:209,
 #: ID:209
@@ -6232,28 +6242,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Repositori dibuat dengan sukses."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"Path\n"
-"<i>%s</i>\n"
-"dalam patchfile tidak ada.\n"
-"TortoiseMerge menemukan path relatif\n"
-"<i>%s</i>\n"
-"yang tampaknya cocok dengan direktori di mana Anda menerapkan patch.\n"
-"\n"
-"Apakah Anda ingin menggunakan path yang disarankan? Anda akan keluar dari TortoiseMerge dengan menjawab 'tidak'."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6457,20 +6445,6 @@ msgstr ""
 "\n"
 "Path yang benar pada windows tidak boleh berisi '<>|\"?*:' atau salah satu dari nama device:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr ""
-"Path\n"
-"<i>%s</i>\n"
-"dalam patchfile tidak ada.\n"
-"TortoiseMerge mencoba untuk menerapkan patch dengan menghilangkan prefiks namun tidak ada path yang cocok."
 
 # ID:314,
 #: ID:314
