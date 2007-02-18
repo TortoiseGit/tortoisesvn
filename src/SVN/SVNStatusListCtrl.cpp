@@ -735,7 +735,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			m_changelists[entry->changelist] = -1;
 			m_bHasChangeLists = true;
 		}
-		entry->needslock = (strstr(pSVNStatus->entry->present_props, "svn:needs-lock")!=NULL);
+		entry->needslock = (pSVNStatus->entry->present_props && (strstr(pSVNStatus->entry->present_props, "svn:needs-lock")!=NULL) );
 	}
 	else
 	{
