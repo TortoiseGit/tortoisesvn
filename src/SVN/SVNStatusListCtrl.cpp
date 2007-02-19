@@ -177,7 +177,10 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_dwContextMenus = dwContextMenus;
 	// set the extended style of the listcontrol
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
-	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
+	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
+	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
+	if (DWORD(regFullRowSelect))
+		exStyle |= LVS_EX_FULLROWSELECT;
 	exStyle |= (bHasCheckboxes ? LVS_EX_CHECKBOXES : 0);
 	SetRedraw(false);
 	SetExtendedStyle(exStyle);
