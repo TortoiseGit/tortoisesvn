@@ -88,6 +88,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_nSortedColumn(0)
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
+	, m_bCancelled(false)
 {
 }
 
@@ -103,6 +104,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 	, m_nSortedColumn(0)
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
+	, m_bCancelled(false)
 {
 }
 
@@ -266,6 +268,7 @@ UINT CRepositoryBrowser::InitThread()
 	}
 	m_InitialUrl.TrimRight('/');
 
+	m_bCancelled = false;
 	m_strReposRoot = GetRepositoryRootAndUUID(CTSVNPath(m_InitialUrl), m_sUUID);
 	CStringA urla = CUnicodeUtils::GetUTF8(m_strReposRoot);
 	char * urlabuf = new char[urla.GetLength()+1];
@@ -292,7 +295,7 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 		m_InitialUrl = m_barRepository.GetCurrentUrl();
 		m_initialRev = m_barRepository.GetCurrentRev();
 	}
-//	ChangeToUrl(m_InitialUrl, m_initialRev);
+
 	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev);
 	m_RepoList.ClearText();
 	m_bInitDone = TRUE;
@@ -858,6 +861,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	}
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
+	m_bCancelled = false;
 	if (!List(CTSVNPath(pTreeItem->url), GetRevision(), GetRevision(), recursive, true))
 	{
 		// error during list()
@@ -1149,6 +1153,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetActionText(sHint);
 	if (input.DoModal() == IDOK)
 	{
+		m_bCancelled = false;
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath)))),
 			targetUrl,
 			true, input.GetLogMessage()))
@@ -1184,6 +1189,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetActionText(sHint);
 	if (input.DoModal() == IDOK)
 	{
+		m_bCancelled = false;
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
 			targetUrl,
 			true, input.GetLogMessage()))
@@ -1323,6 +1329,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 		input.SetActionText(sHint);
 		if (input.DoModal() == IDOK)
 		{
+			m_bCancelled = false;
 			CWaitCursorEx wait_cursor;
 			BOOL bRet = FALSE;
 			if (dwEffect == DROPEFFECT_COPY)
@@ -1377,6 +1384,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 
 		if (input.DoModal() == IDOK)
 		{
+			m_bCancelled = false;
 			for (int importindex = 0; importindex<pathlist.GetCount(); ++importindex)
 			{
 				CString filename = pathlist[importindex].GetFileOrDirectoryName();
@@ -1442,6 +1450,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			point = rect.CenterPoint();
 		}
 	}
+	m_bCancelled = false;
 	CTSVNPathList urlList;
 	CTSVNPathList urlListEscaped;
 	int nFolders = 0;

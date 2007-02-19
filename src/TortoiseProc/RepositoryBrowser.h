@@ -157,6 +157,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual BOOL Cancel() {return m_bCancelled;}
 
 	afx_msg void OnBnClickedHelp();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -259,6 +260,8 @@ private:
 
 	int					oldy, oldx;
 	bool				bDragMode;
+
+	bool				m_bCancelled;
 };
 
 /**
