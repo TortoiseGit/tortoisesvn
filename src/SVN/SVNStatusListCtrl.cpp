@@ -2448,6 +2448,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									int index;
 									index = GetNextSelectedItem(pos);
 									FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+									BOOL bAdded = (fentry->textstatus == svn_wc_status_added);
 									fentry->status = svn_wc_status_normal;
 									fentry->propstatus = svn_wc_status_normal;
 									fentry->textstatus = svn_wc_status_normal;
@@ -2455,9 +2456,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									fentry->isConflicted = false;
 									if ((fentry->remotestatus <= svn_wc_status_normal)||(m_dwShow & SVNSLC_SHOWNORMAL))
 									{
-										if (fentry->textstatus == svn_wc_status_added)
+										if ( bAdded )
 										{
-											// reverting added items makes the unversioned, not 'normal'
+											// reverting added items makes them unversioned, not 'normal'
 											if (fentry->IsFolder())
 												fentry->propstatus = svn_wc_status_none;
 											else
