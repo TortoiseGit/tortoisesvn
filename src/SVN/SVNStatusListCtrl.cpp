@@ -1971,6 +1971,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
+	bool XPorLater = false;
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+	if (fullver >= 0x0501)
+		XPorLater = true;
+
 	if (pWnd == this)
 	{
 		int selIndex = GetSelectionMark();
@@ -1981,7 +1990,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			ClientToScreen(&rect);
 			point = rect.CenterPoint();
 		}
-		if (GetSelectedCount() == 0)
+		if ((GetSelectedCount() == 0)&&(XPorLater))
 		{
 			// nothing selected could mean the context menu is requested for
 			// a group header
@@ -2330,7 +2339,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPY, temp);
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_COPYEXT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPYEXT, temp);
-					if (m_dwContextMenus & SVNSLC_POPCHANGELISTS)
+					if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)&&(XPorLater))
 					{
 						popup.AppendMenu(MF_SEPARATOR);
 						// changelist commands
