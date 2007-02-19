@@ -180,6 +180,8 @@ protected:
 	afx_msg void	OnEnSetfocusInfotext();
 	afx_msg void	OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
+	afx_msg void	OnNcMButtonUp(UINT nHitTest, CPoint point);
+	afx_msg void	OnNcRButtonUp(UINT nHitTest, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -251,6 +253,10 @@ private:
 	bool		m_bLockWarning;
 	bool		m_bFinishedItemAdded;
 	bool		m_bLastVisible;
+
+	bool		m_bVertical;
+	bool		m_bHorizontal;
+	CRect		m_rcOrgWindowRect;
 private:
 	// In preparation for removing SVN as base class
 	// Currently needed to avoid ambiguities with the Command Enum
