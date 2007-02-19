@@ -349,5 +349,6 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 		tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 	}
 	m_strCheckoutDirectory = m_sCheckoutDirOrig+_T('\\')+name;
+	m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
 	UpdateData(FALSE);
 }
