@@ -351,8 +351,10 @@ void CFolderCrawler::WorkerThread()
 						m_foldersToUpdate.erase(std::unique(m_foldersToUpdate.begin(), m_foldersToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_foldersToUpdate.end());
 						m_bItemsAddedSinceLastCrawl = false;
 					}
-
-					workingPath = m_foldersToUpdate.front();
+					// create a new CTSVNPath object to make sure the cached flags are requested again.
+					// without this, a missing file/folder is still treated as missing even if it is available
+					// now when crawling.
+					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
 					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
 						m_foldersToUpdate.pop_front();
 				}
@@ -377,7 +379,7 @@ void CFolderCrawler::WorkerThread()
 				InvalidateRect(hWnd, NULL, FALSE);
 				CSVNStatusCache::Instance().WaitToRead();
 				// Now, we need to visit this folder, to make sure that we know its 'most important' status
-				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
+				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
 				if (cachedDir)
 					cachedDir->RefreshStatus(bRecursive);
 
