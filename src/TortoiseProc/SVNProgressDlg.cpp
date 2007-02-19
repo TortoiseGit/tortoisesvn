@@ -1764,81 +1764,34 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							break;
 						case ID_CONFLICTUSETHEIRS:
-							{
-								CTSVNPath directory = data->path.GetDirectory();
-								CTSVNPath theirs(directory);
-								SVNStatus stat;
-								stat.GetStatus(data->path);
-								if (stat.status->text_status != svn_wc_status_conflicted)
-									break;
-								if (stat.status && stat.status->entry)
-								{
-									if (stat.status->entry->conflict_new)
-									{
-										theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-									}
-								}
-								CopyFile(theirs.GetWinPath(), data->path.GetWinPath(), FALSE);
-								SVN svn;
-								if (!svn.Resolve(data->path, FALSE))
-								{
-									ReportSVNError();
-									DialogEnableWindow(IDOK, TRUE);
-									break;
-								}
-								else
-								{
-									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
-									CString sAction;
-									sAction.LoadString(IDS_SVNACTION_RESOLVE);
-									m_ProgList.SetItemText(selIndex, 0, sAction);
-									data->action = svn_wc_notify_resolved;
-									data->bConflictedActionItem = false;
-									m_ProgList.Invalidate();
-									CString msg;
-									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
-									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-								}
-							}
-							break;
 						case ID_CONFLICTUSEMINE:
 							{
 								CTSVNPath directory = data->path.GetDirectory();
-								CTSVNPath mine(directory);
+								CTSVNPath choice(directory);
 								SVNStatus stat;
 								stat.GetStatus(data->path);
 								if (stat.status->text_status != svn_wc_status_conflicted)
 									break;
 								if (stat.status && stat.status->entry)
 								{
-									if (stat.status->entry->conflict_wrk)
+									if ( cmd==ID_CONFLICTUSETHEIRS )
 									{
-										mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+										if (stat.status->entry->conflict_new)
+										{
+											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+										}
+									}
+									else
+									{
+										if (stat.status->entry->conflict_wrk)
+										{
+											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+										}
 									}
 								}
-								CopyFile(mine.GetWinPath(), data->path.GetWinPath(), FALSE);
-								SVN svn;
-								if (!svn.Resolve(data->path, FALSE))
-								{
-									ReportSVNError();
-									DialogEnableWindow(IDOK, TRUE);
-									break;
-								}
-								else
-								{
-									data->color = ::GetSysColor(COLOR_WINDOWTEXT);
-									CString sAction;
-									sAction.LoadString(IDS_SVNACTION_RESOLVE);
-									m_ProgList.SetItemText(selIndex, 0, sAction);
-									data->action = svn_wc_notify_resolved;
-									data->bConflictedActionItem = false;
-									m_ProgList.Invalidate();
-									CString msg;
-									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
-									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-								}
+								CopyFile(choice.GetWinPath(), data->path.GetWinPath(), FALSE);
 							}
-							break;
+							// Fall through
 						case ID_CONFLICTRESOLVE:
 							{
 								SVN svn;
