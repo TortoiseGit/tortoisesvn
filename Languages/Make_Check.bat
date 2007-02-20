@@ -9,7 +9,7 @@ set LotsOfBlanks="                              "
 
 rem Count all messages in PO Template file
 FOR /F "usebackq" %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
-FOR /F "usebackq tokens=2" %%p IN (`svn st -v Tortoise.pot`) DO SET version=%%p
+FOR /F "usebackq" %%p IN (`svnversion`) DO SET version=%%p
 
 copy Tortoise_*.po _Tortois_*.po /Y 2>NUL
 echo.
