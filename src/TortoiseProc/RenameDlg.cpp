@@ -43,6 +43,7 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 BOOL CRenameDlg::OnInitDialog()
@@ -76,4 +77,25 @@ void CRenameDlg::OnOK()
 			return;
 	}
 	CResizableDialog::OnOK();
+}
+
+void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	// don't allow the dialog to be changed in height
+	CRect rcWindowRect;
+	GetWindowRect(&rcWindowRect);
+	switch (fwSide)
+	{
+	case WMSZ_BOTTOM:
+	case WMSZ_BOTTOMLEFT:
+	case WMSZ_BOTTOMRIGHT:
+		pRect->bottom = pRect->top + rcWindowRect.Height();
+		break;
+	case WMSZ_TOP:
+	case WMSZ_TOPLEFT:
+	case WMSZ_TOPRIGHT:
+		pRect->top = pRect->bottom - rcWindowRect.Height();
+		break;
+	}
+	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }

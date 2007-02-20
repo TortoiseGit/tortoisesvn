@@ -544,7 +544,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 	if(status->entry)
 	{
-		svnPath.SetFromSVN(path, ((status->entry->kind == svn_node_dir)&&(status->text_status != svn_wc_status_ignored)));
+		svnPath.SetFromSVN(path, (status->entry->kind == svn_node_dir));
 
 		if(svnPath.IsDirectory())
 		{

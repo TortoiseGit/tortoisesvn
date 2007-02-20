@@ -220,6 +220,27 @@ protected:
 	//END_MESSAGE_MAP();
 
 };
-typedef CStandAloneDialogTmpl<CResizableDialog> CResizableStandAloneDialog;
+
+class CResizableStandAloneDialog : public CStandAloneDialogTmpl<CResizableDialog>
+{
+public:
+	CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);
+
+private:
+	DECLARE_DYNAMIC(CResizableStandAloneDialog)
+
+protected:
+	afx_msg void	OnSize(UINT nType, int cx, int cy);
+	afx_msg void	OnNcMButtonUp(UINT nHitTest, CPoint point);
+	afx_msg void	OnNcRButtonUp(UINT nHitTest, CPoint point);
+
+	DECLARE_MESSAGE_MAP()
+
+private:
+	bool		m_bVertical;
+	bool		m_bHorizontal;
+	CRect		m_rcOrgWindowRect;
+};
+
 typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;
 typedef CStandAloneDialogTmpl<CStateDialog> CStateStandAloneDialog;

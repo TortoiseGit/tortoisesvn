@@ -44,4 +44,6 @@ public:
 	CString m_name;
 	CString m_windowtitle;
 	CString m_label;
+public:
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };

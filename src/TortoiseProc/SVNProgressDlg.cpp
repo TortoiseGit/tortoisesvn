@@ -70,8 +70,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_dwCloseOnEnd(0)
 	, m_bFinishedItemAdded(false)
 	, m_bLastVisible(false)
-	, m_bVertical(false)
-	, m_bHorizontal(false)
 {
 
 	m_pSvn = this;
@@ -108,8 +106,6 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 	ON_WM_SIZE()
-	ON_WM_NCMBUTTONUP()
-	ON_WM_NCRBUTTONUP()
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -1940,64 +1936,4 @@ void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
 		if (count > 0)
 			m_ProgList.EnsureVisible(count-1, false);
 	}
-	if (nType == SIZE_RESTORED)
-	{
-		m_bVertical = m_bHorizontal = false;
-	}
-}
-
-void CSVNProgressDlg::OnNcMButtonUp(UINT nHitTest, CPoint point) 
-{
-	WINDOWPLACEMENT windowPlacement;
-	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
-	{
-		CRect rcWorkArea, rcWindowRect;
-		GetWindowRect(&rcWindowRect);
-		if (m_bVertical)
-		{
-			rcWindowRect.top = m_rcOrgWindowRect.top;
-			rcWindowRect.bottom = m_rcOrgWindowRect.bottom;
-		}
-		else if (SystemParametersInfo(SPI_GETWORKAREA, 0U, &rcWorkArea, 0U))
-		{
-			m_rcOrgWindowRect.top = rcWindowRect.top;
-			m_rcOrgWindowRect.bottom = rcWindowRect.bottom;
-			rcWindowRect.top = rcWorkArea.top;
-			rcWindowRect.bottom = rcWorkArea.bottom;
-		}
-		bool bVertical = !m_bVertical;
-		bool bHorizontal = m_bHorizontal;
-		MoveWindow(&rcWindowRect);
-		m_bVertical = bVertical;
-		m_bHorizontal = bHorizontal;
-	}
-	CResizableStandAloneDialog::OnNcMButtonUp(nHitTest, point);
-}
-
-void CSVNProgressDlg::OnNcRButtonUp(UINT nHitTest, CPoint point) 
-{
-	WINDOWPLACEMENT windowPlacement;
-	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
-	{
-		CRect rcWorkArea, rcWindowRect;
-		GetWindowRect(&rcWindowRect);
-		if (m_bHorizontal)
-		{
-			rcWindowRect.left = m_rcOrgWindowRect.left;
-			rcWindowRect.right = m_rcOrgWindowRect.right;
-		}
-		else if (SystemParametersInfo(SPI_GETWORKAREA, 0U, &rcWorkArea, 0U))
-		{
-			m_rcOrgWindowRect.left = rcWindowRect.left;
-			m_rcOrgWindowRect.right = rcWindowRect.right;
-			rcWindowRect.left = rcWorkArea.left;
-			rcWindowRect.right = rcWorkArea.right;
-		}
-		bool bVertical = m_bVertical;
-		bool bHorizontal = !m_bHorizontal;
-		MoveWindow(&rcWindowRect);
-		m_bVertical = bVertical;
-		m_bHorizontal = bHorizontal;
-	}
-	CResizableStandAloneDialog::OnNcRButtonUp(nHitTest, point);
 }
