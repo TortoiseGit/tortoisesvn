@@ -3515,6 +3515,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					}
 				}
 				// find the working copy path of the selected item from the URL
+				m_bCancelled = false;
 				CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
 
 				CString fileURL = changedpaths[0];
@@ -3623,6 +3624,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						break;
 					}
 				}
+				m_bCancelled = false;
 				CString sRoot = GetRepositoryRoot(CTSVNPath(filepath));
 				// if more than one entry is selected, we save them
 				// one by one into a folder the user has selected
@@ -3777,6 +3779,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						break;
 					}
 				}
+				m_bCancelled = false;
 				filepath = GetRepositoryRoot(CTSVNPath(filepath));
 				filepath += changedpaths[0];
 				svn_revnum_t logrev = rev1;
