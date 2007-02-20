@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-16 11:14+0900\n"
+"PO-Revision-Date: 2007-02-20 13:34+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6286,7 +6286,7 @@ msgid ""
 msgstr ""
 "파일 %s\n"
 "이(가) 두 번 발견되었습니다.\n"
-"흔히 패치 파일을 다른 폴더에 적용한 경우\n"
+"이 문제는 흔히 패치 파일을 잘못된 폴더에 적용한 경우\n"
 "발생하는 현상입니다."
 
 # ID:3857,#:
@@ -6443,9 +6443,9 @@ msgid ""
 "in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
-"경로\n"
+"패치 파일내의 경로\n"
 "<i>%s</i>\n"
-"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
+"이(가) 존재하지 않습니다.\n"
 "TortoiseMerge는 경로의 앞부분을 제거하고 시도하여 보았으나, 적절한 경로가 발견되지 않았습니다."
 
 # ID:314,
@@ -6573,8 +6573,8 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
-"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+"svn:externals로 설정된 디렉토리속에 변경 사항이 존재합니다.\n"
+"변경된 해당 파일들은 커밋시에 보이지 <b>않습니다</b>. 변경된 해당 파일들은 각각 커밋해야만 합니다."
 
 # ID:66,
 #: ID:66
@@ -7923,7 +7923,7 @@ msgid ""
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
 "tsvn:lockmsgminsize\n"
-"잠그기 위해서 가져야할 로그메시지의 최소 길이입니다."
+"잠그기 위해서 가져야 할 로그메시지의 최소 길이입니다."
 
 # ID:15,
 #: ID:15
@@ -7934,7 +7934,7 @@ msgid ""
 msgstr ""
 "tsvn:logfilelistenglish\n"
 "바뀐 파일 목록을 커밋 대화상자에 붙이기를 원치 않으면\n"
-"아니오로 설정해놓으십시오."
+"\"false\"로 설정해 놓으십시오."
 
 # ID:15,
 #: ID:15
@@ -7942,7 +7942,7 @@ msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
-"tsvn:로그 최소크기\n"
+"tsvn:logminsize\n"
 "적어도 로그 메시지는 로그 최소 크기만큼의 내용을 포함해야 커밋 가능합니다."
 
 # ID:15,
@@ -7952,7 +7952,7 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
-"tsvn:로그템플릿\n"
+"tsvn:logtemplate\n"
 "커밋 대화상자의 로그 메시지 편집창에 넣을 글.\n"
 "로그 메시지 템플릿으로 사용합니다."
 
@@ -7963,7 +7963,7 @@ msgid ""
 "Set this to the number of chars the log message should not exceed its width.\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
-"tsvn:로그 폭 표시기\n"
+"tsvn:logwidthmarker\n"
 "로그 메시지의 가로 폭이 넘지 않아야 할 값을 지정합니다.\n"
 "이 위치 이후로 음영이 보입니다. 기본값은 80 글자."
 
