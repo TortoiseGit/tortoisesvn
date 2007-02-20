@@ -1662,7 +1662,8 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 			}
 		}
 	}
-	if ((entry->status == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
+	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
+	if ( (entry->status == svn_wc_status_deleted) || (m_bCheckChildrenWithParent) || (bShift) )
 	{
 		// if a deleted folder gets checked, we have to check all
 		// children of that folder too.
@@ -1715,7 +1716,8 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 	if (entry->path.IsDirectory())
 	{
 		// disable all files within an unselected folder, except when unchecking a folder with property changes
-		if ( entry->status != svn_wc_status_modified )
+		bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
+		if ( (entry->status != svn_wc_status_modified) || (bShift) )
 		{
 			SetCheckOnAllDescendentsOf(entry, false);
 		}
