@@ -361,10 +361,9 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 					return TRUE;
 				}
 			}
-			CStandAloneDialogTmpl<CResizableDialog>::OnSetCursor(pWnd, nHitTest, message);
 		}
 	}
-	return FALSE;
+	return CStandAloneDialogTmpl<CResizableDialog>::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
@@ -2294,4 +2293,5 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		DialogEnableWindow(IDOK, TRUE);
 	}
 }
+
 
