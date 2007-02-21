@@ -88,7 +88,7 @@ Building 32 bit packages
     Windows Registry Editor Version 5.00
   
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
-    "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars.bat\""
+    "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars32.bat\""
   Next time you start the command prompt, that file will be executed automatically.
 
   Note that for the Express edition you need to sort out the vars for the platform SDK
@@ -183,6 +183,7 @@ Building 64 bit packages on x64
 	nant x64 release setup
 
   After the script finished, the packages can be found in .\bin .
+
 
 
 
