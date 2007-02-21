@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-01-26 12:04+0100\n"
+"PO-Revision-Date: 2007-02-21 11:50+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -1480,6 +1480,12 @@ msgstr "Arranjats per &path"
 msgid "Arranges the nodes sorted by path"
 msgstr "Arranja els nodes ordenats per path"
 
+# ID:209,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Assignat a la changelist \"%s\""
+
 # ID:77,
 #: ID:77
 #, c-format
@@ -1796,11 +1802,6 @@ msgstr "Busca actualitzacions"
 #: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "Busca actualitzacions..."
-
-# Dlg-ID:133,
-#: ID:213
-msgid "Check Group"
-msgstr "Comprova grup"
 
 # ID:13,
 #: ID:13
@@ -2177,6 +2178,11 @@ msgstr "Copia el missatge d'error al portapapers"
 msgid "Copy from path"
 msgstr "Còpia del path"
 
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Copia els items aquí"
+
 # ID:209,
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -2497,6 +2503,11 @@ msgstr "Esborra fitxers / carpetes del control de versions"
 #: ID:263
 msgid "Deleting"
 msgstr "Esborrant"
+
+# Control-ID:1126,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Desselecciona la changelist"
 
 # ID:3859,#:
 # ID:3859,
@@ -3166,8 +3177,8 @@ msgstr "Obtenint fitxer %s"
 # ID:120,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Obtenint  fitxer %s, revisió %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Obtenint fitxer %s, revisió %s"
 
 # ID:132,
 #: ID:132
@@ -3816,8 +3827,8 @@ msgstr "Manté &bloqueigs"
 
 # Control-ID:1126,
 #: Control-ID:1126
-msgid "Keep changelist"
-msgstr "Mantenir Changelist"
+msgid "Keep changelists"
+msgstr "Mantenir Changelists"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4192,6 +4203,11 @@ msgid ""
 msgstr ""
 "Mou %s\r\n"
 "a %s"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Move items aquí"
 
 # ID:209,
 #: ID:209
@@ -5058,6 +5074,11 @@ msgstr "Tret"
 msgid "Removed file/folder"
 msgstr "Fitxer/Carpeta tret"
 
+# ID:15,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Tret de la Changelist"
+
 # ID:145,
 #: ID:145
 #, c-format
@@ -5596,6 +5617,11 @@ msgstr "Selecciona client SSH"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Selecciona un objecte per obtenir-ne ajuda"
+
+# Control-ID:1126,
+#: ID:213
+msgid "Select changelist"
+msgstr "Selecciona Changelist"
 
 # ID:78,
 #: ID:78
@@ -6433,6 +6459,42 @@ msgstr ""
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"El path\n"
+"<i>%s</i>\n"
+"a la patchfile no existeix.\n"
+"TortoiseMerge ha trobat el path relatiu\n"
+"<i>%s</i>\n"
+"que sembla que concorda amb el directori on apliqueu el patch.\n"
+"\n"
+"Voleu utilitzar el path suggerit? Responent 'no' es tancarà TortoiseMerge."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"El path\n"
+"<i>%s</i>\n"
+"al fitxer de patch no existeix.\n"
+"TortoiseMerge ha tractat d'aplicar el patch treien prefixes però no s'ha trobat cap path coicident."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "<i>%s</i>\n"
@@ -6974,12 +7036,6 @@ msgstr "No es possible escriure a %1, es de només lectura o és oberta per alg�
 msgid "Uncheck"
 msgstr "Treu la marca"
 
-# ID:3887,#:
-# ID:3887,
-#: ID:213
-msgid "Uncheck Group"
-msgstr "Treu la marca al Grup"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -7247,6 +7303,12 @@ msgstr "Valor"
 msgid "Version"
 msgstr "Versió"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "Versionat"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7374,21 +7436,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Heu copiat més d0un fitxer o carpeta.\n"
-"No és possible fer-ho en un sol pas. TortoiseSVN copiarà cada fitxer/carpeta\n"
-"individualment, creant una nova revisió per a cada item copiat.\n"
-"\n"
-"Encara voleu fer això?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7422,21 +7469,6 @@ msgid ""
 msgstr ""
 "No heu introduit un número d'emissió!\n"
 "Esteu segur que voleu fer una entrega sense número d'emissió?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"Heu mogut més d'un fitxer o carpeta.\n"
-"No és possible fer-ho en un sol pas. TortoiseSVN mourà cada fitxer/carpeta\n"
-"individualment, creant una nova revisió per a cada item mogut.\n"
-"\n"
-"Encara voleu fer això?"
 
 # ID:196,
 #: ID:196
@@ -7913,6 +7945,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "a %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Mínim tamany en caràcters que un missatge de lock ha de tenir perquè un lock sigui permès."
 
 # ID:15,
 #: ID:15
