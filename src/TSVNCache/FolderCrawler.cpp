@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2007 - Will Dean, Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -355,6 +355,7 @@ void CFolderCrawler::WorkerThread()
 					// without this, a missing file/folder is still treated as missing even if it is available
 					// now when crawling.
 					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
+					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
 					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
 						m_foldersToUpdate.pop_front();
 				}
