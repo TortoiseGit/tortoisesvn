@@ -371,7 +371,7 @@ void CTSVNPath::Reset()
 
 CTSVNPath CTSVNPath::GetDirectory() const
 {
-	if(IsDirectory())
+	if ((IsDirectory())||(!Exists()))
 	{
 		return *this;
 	}
