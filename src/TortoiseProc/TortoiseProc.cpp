@@ -1887,6 +1887,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						// Add 'file:///' so the repository browser recognizes
 						// it as an URL to the local repository.
 						url = _T("file:///")+cmdLinePath.GetWinPathString();
+						url.Replace('\\', '/');
 					}
 				}
 			}
