@@ -126,9 +126,12 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem)
 		}
 	}
 
-	CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
-	delete pTreeItem;
-	m_RepoTree.SetItemData(hItem, 0);
+	if (hItem)
+	{
+		CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
+		delete pTreeItem;
+		m_RepoTree.SetItemData(hItem, 0);
+	}
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -651,7 +654,8 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 	if (pTreeItem == NULL)
 		return FALSE;
 
-	m_RepoList.ShowText(_T(" "), true);
+	if (!m_RepoList.HasText())
+		m_RepoList.ShowText(_T(" "), true);
 
 	RefreshNode(hItem);
 	FillList(&pTreeItem->children);
