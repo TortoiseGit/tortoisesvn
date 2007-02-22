@@ -45,6 +45,7 @@ void CSVNStatusCache::Create()
 	FILE * pFile = NULL;
 	// find the location of the cache
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
+	TCHAR path2[MAX_PATH];
 	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
 	{
 		_tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
@@ -54,7 +55,18 @@ void CSVNStatusCache::Create()
 				goto error;
 		}
 		_tcscat_s(path, MAX_PATH, _T("\\cache"));
-		_tfopen_s(&pFile, path, _T("rb"));
+		// in case the cache file is corrupt, we could crash while
+		// reading it! To prevent crashing every time once that happens,
+		// we make a copy of the cache file and use that copy to read from.
+		// if that copy is corrupt, the original file won't exist anymore
+		// and the second time we start up and try to read the file,
+		// it's not there anymore and we start from scratch without a crash.
+		_tcscpy_s(path2, MAX_PATH, path);
+		_tcscat_s(path2, MAX_PATH, _T("2"));
+		DeleteFile(path2);
+		CopyFile(path, path2, FALSE);
+		DeleteFile(path);
+		pFile = _tfsopen(path2, _T("rb"), _SH_DENYNO);
 		if (pFile)
 		{
 			LOADVALUEFROMFILE(value);
@@ -101,12 +113,12 @@ void CSVNStatusCache::Create()
 exit:
 	if (pFile)
 		fclose(pFile);
-	DeleteFile(path);
+	DeleteFile(path2);
 	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
 error:
 	fclose(pFile);
-	DeleteFile(path);
+	DeleteFile(path2);
 	if (m_pInstance)
 	{
 		m_pInstance->Stop();
