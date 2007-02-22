@@ -26,6 +26,7 @@ public:
 
 	void ShowText(const CString& sText, bool forceupdate = false);
 	void ClearText();
+	bool HasText() const {return !m_sText.IsEmpty();}
 
 private:
 	CString			m_sText;
