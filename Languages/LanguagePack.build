@@ -22,7 +22,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		<delete>
 			<fileset>
 				<include name="..\bin\Tortoise*.dll" />
-				<include name="..\bin\LanguagePack_${verstring}${devrelease}-${platform}-*.msi" />
+				<include name="..\bin\LanguagePack_*-${platform}-*.msi" />
 			</fileset>
 		</delete>
 	</target>
