@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-19 14:06+0100\n"
+"PO-Revision-Date: 2007-02-23 15:50+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6437,6 +6437,42 @@ msgstr ""
 "\n"
 "Egy helyes útvonal nem tartalmazhatja az alábbi karaktereket: '<>|\"?*:' és eszközneveket:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"A foltban lévő\n"
+"<i>%s</i>\n"
+"útvonal nem létezik.\n"
+"A TortoiseMerge talált egy útvonalat\n"
+"<i>%s</i>\n"
+"amely valószínűleg a foltban lévőnek felel meg.\n"
+"\n"
+"Szeretnéd ezt az útvonalat használni? A 'Nem'-re kattintva a TortoiseMerge kilép."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"A foltban szereplő\n"
+"<i>%s</i>\n"
+"útvonal nem létezett.\n"
+"A TortoiseMerge megpróbálta más könyvátakban is keresni a fájlt, de ott sem találta."
 
 # ID:314,
 #: ID:314
