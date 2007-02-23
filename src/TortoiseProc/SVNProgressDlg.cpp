@@ -62,7 +62,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_bLockWarning(false)
 	, m_bCancelled(FALSE)
 	, m_bThreadRunning(FALSE)
-	, m_bConflictsOccurred(FALSE)
+	, m_nConflicts(0)
 	, m_bErrorsOccurred(FALSE)
 	, m_bMergesAddsDeletesOccurred(FALSE)
 	, m_pThread(NULL)
@@ -218,7 +218,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		{
 			data->color = m_Colors.GetColor(CColors::Conflict);
 			data->bConflictedActionItem = true;
-			m_bConflictsOccurred = true;
+			m_nConflicts++;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
@@ -246,7 +246,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		{
 			data->color = m_Colors.GetColor(CColors::Conflict);
 			data->bConflictedActionItem = true;
-			m_bConflictsOccurred = true;
+			m_nConflicts++;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
@@ -289,7 +289,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			else
 				data->sPathColumnText.Format(IDS_PROGRS_ATREV, rev);
 
-			if ((m_bConflictsOccurred)&&(bEmpty))
+			if ((m_nConflicts>0)&&(bEmpty))
 			{
 				// We're going to add another aux item - let's shove this current onto the list first
 				// I don't really like this, but it will do for the moment.
@@ -1225,11 +1225,11 @@ UINT CSVNProgressDlg::ProgressThread()
 		dwAutoClose = m_dwCloseOnEnd;		// command line value has priority over setting value
 	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred))
+	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(m_nConflicts==0))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred))
+	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(!m_bMergesAddsDeletesOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(localoperation))
+	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 
 	//Don't do anything here which might cause messages to be sent to the window
@@ -1805,7 +1805,22 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_ProgList.SetItemText(selIndex, 0, sAction);
 									data->action = svn_wc_notify_resolved;
 									data->bConflictedActionItem = false;
+									m_nConflicts--;
 									m_ProgList.Invalidate();
+									
+									CString info = BuildInfoString();
+									GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+
+									if (m_nConflicts==0)
+									{
+										// When the last conflict is resolved we remove
+										// the warning which we assume is in the last line.
+										int nIndex = m_ProgList.GetItemCount()-1;
+										VERIFY(m_ProgList.DeleteItem(nIndex));
+
+										delete m_arData[nIndex];
+										m_arData.pop_back();
+									}
 									CString msg;
 									msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
 									CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);

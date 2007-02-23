@@ -240,7 +240,7 @@ private:
 	StringRevMap m_FinishedRevMap;
 	BOOL		m_bCancelled;
 	volatile LONG m_bThreadRunning;
-	bool		m_bConflictsOccurred;
+	int			m_nConflicts;
 	bool		m_bErrorsOccurred;
 	bool		m_bMergesAddsDeletesOccurred;
 	int			iFirstResized;

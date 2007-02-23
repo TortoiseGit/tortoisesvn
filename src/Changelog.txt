@@ -99,6 +99,8 @@
        See issue #334 for details. (Stefan)
 - NEW: Pressing SHIFT when un-/checking directories in the status list
        control makes the action recursive. (Tobias Schäfer)
+- NEW: Resolving conflicts in the progress dialog now updates the status
+       count and removes the warning if all are resolved. (Tobias Schäfer)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added
