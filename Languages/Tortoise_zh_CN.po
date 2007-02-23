@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-12 09:17+0800\n"
+"PO-Revision-Date: 2007-02-23 10:22+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2205,6 +2205,11 @@ msgstr "复制错误信息到剪贴板"
 msgid "Copy from path"
 msgstr "从路径复制"
 
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "复制项到此"
+
 # ID:209,
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -4215,6 +4220,11 @@ msgid ""
 msgstr ""
 "移动 %s\r\n"
 "到 %s"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "移动项到此"
 
 # ID:15,
 #: ID:209
@@ -6256,28 +6266,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "版本库创建成功。"
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"补丁文件中的路径\n"
-"<i>%s</i>\n"
-"不存在。\n"
-"TortoiseMerge 找到了相对路径\n"
-"<i>%s</i>\n"
-"它看起来适宜使用此补丁。\n"
-"\n"
-"要使用建议的路径吗？回答“否”将退出 TortoiseMerge。"
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6480,6 +6468,28 @@ msgstr ""
 "\n"
 "正确Windows路径不能包含“<>|\"?*:”或以下设备名：\n"
 "com1－com9，lpt1－lpt9，prn，aux，con，nul，clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"补丁文件中的路径\n"
+"<i>%s</i>\n"
+"不存在。\n"
+"TortoiseMerge 找到了相对路径\n"
+"<i>%s</i>\n"
+"它看起来适宜使用此补丁。\n"
+"\n"
+"要使用建议的路径吗？回答“否”将退出 TortoiseMerge。"
 
 # ID:314,
 #: ID:314
