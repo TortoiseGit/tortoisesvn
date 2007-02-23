@@ -439,7 +439,7 @@ BEGIN
     CONTROL         "Shell",IDC_CACHESHELL,"Button",BS_AUTORADIOBUTTON,114,56,63,10
     CONTROL         "None",IDC_CACHENONE,"Button",BS_AUTORADIOBUTTON,213,56,70,10
     CONTROL         "Unversioned files mark parent folder as modified",IDC_UNVERSIONEDASMODIFIED,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,70,268,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,70,265,10
     GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,86,274,61
     CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,98,130,10
     CONTROL         "Floppy drives (A: B:)",IDC_FLOPPY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,110,116,10
