@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-11-30 23:42 +0000\n"
-"PO-Revision-Date: 2007-02-23 10:53+0800\n"
+"PO-Revision-Date: 2007-02-24 10:34+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1368,9 +1368,8 @@ msgstr "使用Windwos资源管理器，来到Subversion的安装目录(通常是
 
 #: source/TortoiseSVN_en.xml:1648
 #: (para)
-#, fuzzy
 msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache modules directory."
-msgstr "从Subversion安装目录将<filename>/bin/libdb43.dll</filename>复制到Apache的模块目录。"
+msgstr "从Subversion安装目录将<filename>/bin/libdb*.dll</filename>和<filename>/bin/intl3_svn.dll</filename>复制到Apache的模块目录。"
 
 #: source/TortoiseSVN_en.xml:1656
 #: (para)
@@ -1398,7 +1397,6 @@ msgstr "配置"
 
 #: source/TortoiseSVN_en.xml:1690
 #: (para)
-#, fuzzy
 msgid ""
 "At the end of the Config file add the following lines: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -1419,13 +1417,14 @@ msgstr ""
 "DAV svn\n"
 "SVNListParentPath on\n"
 "SVNParentPath D:\\SVN\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "AuthType Basic\n"
 "AuthName \"Subversion repositories\"\n"
 "AuthUserFile passwd\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
 "Require valid-user\n"
 "&lt;/Location&gt;\n"
-"</screen>这个配置告诉Apache你的所有的Subversion版本库在物理上位于<filename>D:\\SVN</filename>，版本库对外的URL是: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>，访问需要文件<filename>passwd</filename>中的用户/密码限制。"
+"</screen>这个配置告诉 Apache 你的所有 Subversion 版本库位于<filename>D:\\SVN</filename>，版本库对外的URL是: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>。访问被文件<filename>passwd</filename>中的用户/密码限制。"
 
 #: source/TortoiseSVN_en.xml:1717
 #: (para)
@@ -1535,12 +1534,12 @@ msgstr "告诉Subversion需要查看的版本库位于<placeholder-1/>之下"
 #: source/TortoiseSVN_en.xml:1802
 #: (entry)
 msgid "SVNIndexXSLT \"/svnindex.xsl\""
-msgstr ""
+msgstr "SVNIndexXSLT \"/svnindex.xsl\""
 
 #: source/TortoiseSVN_en.xml:1803
 #: (entry)
 msgid "Used to make the browsing with a webbrowser more pretty."
-msgstr ""
+msgstr "使用它可以在用浏览器浏览时更好看。"
 
 #: source/TortoiseSVN_en.xml:1809
 #: (entry)
@@ -1629,16 +1628,19 @@ msgid ""
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
+"如果要使浏览器浏览仓库时更“漂亮”，请将下行去掉注释 <screen>\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
+"</screen>，将文件 <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> 和 <filename>menucheckout.ico</filename> 放到你的文档根目录中(通常是 <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>)。 这个目录在 Apache 配置文件中用 <literal>DocumentRoot</literal> 指示。"
 
 #: source/TortoiseSVN_en.xml:1904
 #: (para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. If you're asked for authentication for this link, enter <literal>guest</literal> as username and leave the password empty."
-msgstr ""
+msgstr "你可以直接在我们的代码库<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>中拿到这三个文件。如果访问这个链接需要认证，输入用户名称 <literal>guest</literal>，无需密码。"
 
 #: source/TortoiseSVN_en.xml:1913
 #: (para)
 msgid "The xsl file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your webbrowser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr ""
+msgstr "TortoiseSVN 版本库中的 xsl 文件有个特性：如果你用浏览器浏览版本库，那么每个版本库中的目录右边会有个图标。如果你点击此图标，那么 TortoiseSVN 会为此 URL 启动检出对话框。"
 
 #: source/TortoiseSVN_en.xml:1759
 #: (para)
@@ -2084,7 +2086,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2311
 #: (para)
-#, fuzzy
 msgid ""
 "Here is an example of the full Apache configuration for combined Windows domain &amp; <literal>passwd</literal> file authentication: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -2111,7 +2112,7 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
-"下面是结合使用Windows域&amp;<literal>passwd</literal>认证的完全配置: <screen>\n"
+"下面是组合使用 Windows 域&amp;<literal>passwd</literal> 文件认证的完整配置: <screen>\n"
 "&lt;Location /svn&gt;\n"
 "DAV svn\n"
 "SVNListParentPath on\n"
@@ -2123,7 +2124,7 @@ msgstr ""
 "# NT Domain Logins.\n"
 "AuthType SSPI\n"
 "SSPIAuth On\n"
-"SSPIAuthoritative On\n"
+"SSPIAuthoritative Off\n"
 "SSPIDomain &lt;domaincontroller&gt;\n"
 "SSPIOfferBasic On\n"
 "\n"
@@ -2381,9 +2382,8 @@ msgstr "运行Subversion安装程序，如果你在你的服务器上运行，�
 
 #: source/TortoiseSVN_en.xml:2598
 #: (para)
-#, fuzzy
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "打开资源管理器，进入Subversion的安装目录(通常是<filename>C:\\Program Files\\Subversion</filename>)的<filename>bin</filename>目录，复制<filename>svnserve.exe</filename>、<filename>libdb44.dll</filename>、<filename>libeay32.dll</filename>和<filename>ssleay32.dll</filename>到你的服务器目录，例如<filename>c:\\svnserve</filename>。"
+msgstr "打开资源管理器，进入Subversion的安装目录(通常是<filename>C:\\Program Files\\Subversion</filename>)的<filename>bin</filename>目录，找到文件<filename>svnserve.exe</filename>，<filename>intl3_svn.dll</filename>，<filename>libapr.dll</filename>，<filename>libapriconv.dll</filename>，<filename>libapriutil.dll</filename>，<filename>libdb*.dll</filename>，<filename>libeay32.dll</filename>和<filename>ssleay32.dll</filename>，复制这些文件，或所有<filename>bin</filename>目录内的文件到你的服务器目录，例如<filename>c:\\svnserve</filename>。"
 
 #: source/TortoiseSVN_en.xml:2620
 #: (title)
