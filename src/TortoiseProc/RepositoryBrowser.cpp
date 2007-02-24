@@ -1488,6 +1488,7 @@ CString CRepositoryBrowser::EscapeUrl(const CTSVNPath& url)
 
 void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 {
+	HTREEITEM hSelectedTreeItem = NULL;
 	if ((point.x == -1) && (point.y == -1))
 	{
 		if (pWnd == &m_RepoTree)
@@ -1530,7 +1531,21 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 	if ((pWnd == &m_RepoTree)||(urlList.GetCount() == 0))
 	{
-		HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+		UINT uFlags;
+		CPoint ptTree = point;
+		m_RepoTree.ScreenToClient(&ptTree);
+		HTREEITEM hItem = m_RepoTree.HitTest(ptTree, &uFlags);
+		// in case the right-clicked item is not the selected one,
+		// use the TVIS_DROPHILITED style to indicate on which item
+		// the context menu will work on
+		if ((hItem) && (uFlags & TVHT_ONITEM) && (hItem != m_RepoTree.GetSelectedItem()))
+		{
+			m_blockEvents = true;
+			hSelectedTreeItem = m_RepoTree.GetSelectedItem();
+			m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
+			m_blockEvents = false;
+			m_RepoTree.SetItemState(hItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
+		}
 		if (hItem)
 		{
 			CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
@@ -1683,6 +1698,23 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+
+		if (pWnd == &m_RepoTree)
+		{
+			UINT uFlags;
+			CPoint ptTree = point;
+			m_RepoTree.ScreenToClient(&ptTree);
+			HTREEITEM hItem = m_RepoTree.HitTest(ptTree, &uFlags);
+			// restore the previously selected item state
+			if ((hItem) && (uFlags & TVHT_ONITEM) && (hItem != m_RepoTree.GetSelectedItem()))
+			{
+				m_blockEvents = true;
+				m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_SELECTED, TVIS_SELECTED);
+				m_blockEvents = false;
+				m_RepoTree.SetItemState(hItem, 0, TVIS_DROPHILITED);
+			}
+		}
+
 		DialogEnableWindow(IDOK, FALSE);
 		bool bOpenWith = false;
 		switch (cmd)
