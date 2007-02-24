@@ -1292,6 +1292,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 	if (pathlist.GetCount() == 0)
 		return false;
 
+	CString targetName = pathlist[0].GetFileOrDirectoryName();
 	if (m_bRightDrag)
 	{
 		// right dragging means we have to show a context menu
@@ -1304,6 +1305,17 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
 			temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
+			if ((pathlist.GetCount() == 1)&&(PathIsURL(pathlist[0].GetSVNPathString())))
+			{
+				// these entries are only shown if *one* item was dragged, and if the
+				// item is not one dropped from e.g. the explorer but from the repository
+				// browser itself.
+				popup.AppendMenu(MF_SEPARATOR, 3);
+				temp.LoadString(IDS_REPOBROWSE_COPYRENAMEDROP);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, 4, temp);
+				temp.LoadString(IDS_REPOBROWSE_MOVERENAMEDROP);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, 5, temp);
+			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
 			switch (cmd)
 			{
@@ -1312,6 +1324,30 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 				break;
 			case 2: // move drop
 				dwEffect = DROPEFFECT_MOVE;
+				break;
+			case 4: // copy rename drop
+				{
+					dwEffect = DROPEFFECT_COPY;
+					CRenameDlg dlg;
+					dlg.m_name = targetName;
+					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+					CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+					if (dlg.DoModal() != IDOK)
+						return false;
+					targetName = dlg.m_name;
+				}
+				break;
+			case 5: // move rename drop
+				{
+					dwEffect = DROPEFFECT_MOVE;
+					CRenameDlg dlg;
+					dlg.m_name = targetName;
+					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+					CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+					if (dlg.DoModal() != IDOK)
+						return false;
+					targetName = dlg.m_name;
+				}
 				break;
 			}
 		}
@@ -1329,9 +1365,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 		if (pathlist.GetCount() == 1)
 		{
 			if (dwEffect == DROPEFFECT_COPY)
-				sHint.Format(IDS_INPUT_COPY, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+pathlist[0].GetFileOrDirectoryName()));
+				sHint.Format(IDS_INPUT_COPY, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
 			else
-				sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+pathlist[0].GetFileOrDirectoryName()));
+				sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
 		}
 		else
 		{
@@ -1347,9 +1383,15 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			CWaitCursorEx wait_cursor;
 			BOOL bRet = FALSE;
 			if (dwEffect == DROPEFFECT_COPY)
-				bRet = Copy(pathlist, target, GetRevision(), GetRevision(), input.GetLogMessage(), true);
+				if (pathlist.GetCount() == 1)
+					bRet = Copy(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), GetRevision(), GetRevision(), input.GetLogMessage(), false);
+				else
+					bRet = Copy(pathlist, target, GetRevision(), GetRevision(), input.GetLogMessage(), true);
 			else
-				bRet = Move(pathlist, target, TRUE, input.GetLogMessage(), true);
+				if (pathlist.GetCount() == 1)
+					bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), TRUE, input.GetLogMessage(), false);
+				else
+					bRet = Move(pathlist, target, TRUE, input.GetLogMessage(), true);
 			if (!bRet)
 			{
 				wait_cursor.Hide();
