@@ -2275,7 +2275,7 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
 	{
 		++i;
 		pidl = NULL;
-		if (SHGetFolderLocation(NULL, cslidarray[i], NULL, 0, &pidl)!=S_OK)
+		if (SHGetFolderLocation(NULL, cslidarray[i-1], NULL, 0, &pidl)!=S_OK)
 			continue;
 		if (!SHGetPathFromIDList(pidl, buf))
 		{
