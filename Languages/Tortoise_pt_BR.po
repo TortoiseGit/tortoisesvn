@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-15 14:44-0300\n"
+"PO-Revision-Date: 2007-02-24 19:00-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -339,6 +339,11 @@ msgstr "&Limpar"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Submeter..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Comparar URLs"
 
 # ID:76,
 #: MenuEntry
@@ -1037,7 +1042,6 @@ msgstr ""
 
 # ID:209,
 #: ID:209
-#, fuzzy
 msgid "<new changelist>"
 msgstr "<nova lista de alterações>"
 
@@ -2171,6 +2175,11 @@ msgstr "Copiar URL para a área de transferência"
 msgid "Copy all information to clipboard"
 msgstr "Copiar todas as informações para a área de transferência"
 
+# ID:16,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Copiar e renomear ítens para cá"
+
 # ID:257,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2180,6 +2189,11 @@ msgstr "Copiar mensagem de erro para a área de transferência"
 #: ID:76
 msgid "Copy from path"
 msgstr "Copiar a partir do caminho"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Copiar itens para cá"
 
 # ID:257,
 #: ID:209
@@ -2356,7 +2370,6 @@ msgstr "&Criar correção..."
 
 # ID:13,
 #: Dlg-ID:243
-#, fuzzy
 msgid "Create Changelist"
 msgstr "Criar Lista de Alterações"
 
@@ -2808,7 +2821,6 @@ msgstr "Insira uma mensagem de travamento (opcional):"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Enter a name for the changelist:"
 msgstr "Digite um nome para a lista de alterações:"
 
@@ -4072,6 +4084,11 @@ msgstr "Marcar como &resolvido"
 msgid "Mark as resolved"
 msgstr "Marcar como resolvido"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Marcar para comparação"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4208,9 +4225,18 @@ msgstr ""
 "Mover %s\r\n"
 "para %s"
 
+# ID:16,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Mover e renomear arquivos com controle de versão para cá"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Mover itens para cá%s"
+
 # ID:209,
 #: ID:209
-#, fuzzy
 msgid "Move to changelist"
 msgstr "Mover para a lista de alterações"
 
@@ -5052,7 +5078,6 @@ msgstr "Remover da lista de &ignorados"
 
 # ID:13,
 #: ID:209
-#, fuzzy
 msgid "Remove from changelist"
 msgstr "Remover da lista de alterações"
 
@@ -5074,7 +5099,6 @@ msgstr "Arquivo/diretório removido"
 
 # ID:13,
 #: ID:264
-#, fuzzy
 msgid "Removed from changelist"
 msgstr "Removido da lista de alterações"
 
@@ -5623,7 +5647,6 @@ msgstr "Selecionar um objeto para o qual obter Ajuda"
 
 # ID:209,
 #: ID:213
-#, fuzzy
 msgid "Select changelist"
 msgstr "Selecionar lista de alterações"
 
@@ -5965,11 +5988,6 @@ msgstr "Arquivo ausente ignorado"
 msgid "Sort items numerically"
 msgstr "Ordenar ítens numericamente"
 
-# ID:101,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Orgnizar numericamente"
-
 # Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
@@ -6247,28 +6265,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "O repositório foi criado com sucesso."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"O caminho\n"
-"<i>%s</i>\n"
-", no arquivo de correção, não existe.\n"
-"O TortoiseMerge encontrou o caminho relativo\n"
-"<i>%s</i>\n"
-"que se assemelha ao diretório ao qual você está aplicando a correção.\n"
-"\n"
-" Você deseja usar o caminho sugerido? Caso a resposta seja 'não', o TortoiseMerge será fechado."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6472,6 +6468,28 @@ msgstr ""
 "\n"
 "Um caminho válido no windows não pode conter '<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"O caminho\n"
+"<i>%s</i>\n"
+", no arquivo de correção, não existe.\n"
+"O TortoiseMerge encontrou o caminho relativo\n"
+"<i>%s</i>\n"
+"que se assemelha ao diretório ao qual você está aplicando a correção.\n"
+"\n"
+" Você deseja usar o caminho sugerido? Caso a resposta seja 'não', o TortoiseMerge será fechado."
 
 # ID:314,
 #: ID:314
@@ -7961,7 +7979,6 @@ msgstr "para %s"
 
 # ID:15,
 #: ID:17
-#, fuzzy
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
