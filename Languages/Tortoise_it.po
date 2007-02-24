@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-01-13 17:18+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
+"PO-Revision-Date: 2007-02-24 01:05+0100\n"
+"Last-Translator: Luca Berti <luca.berti@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -951,6 +951,11 @@ msgstr "(simulazione)"
 msgid "(multiple targets selected)"
 msgstr "(selezione multipla)"
 
+# ID:213,
+#: ID:213
+msgid "(no changelist)"
+msgstr "(nessun gruppo modifiche)"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:314
@@ -1026,6 +1031,11 @@ msgstr ""
 "per visualizzare il menu contestuale con tutti i comandi disponibili\n"
 " in <b>TortoiseSVN</b>.\n"
 "Inoltre si consiglia di <u>leggere il manuale!</u>"
+
+# ID:209,
+#: ID:209
+msgid "<new changelist>"
+msgstr "<nuovo gruppo modifiche>"
 
 # ID:3867,#:
 # ID:3867,
@@ -1466,6 +1476,12 @@ msgstr "Raggruppa per &percorso"
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
 msgstr "Ordina i nodi per percorso"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Assigned to changelist \"%s\""
+msgstr "Assegnato al gruppo modifiche \"%s\""
 
 # ID:77,
 #: ID:77
@@ -2156,6 +2172,11 @@ msgstr "Copia messaggio d'errore negli appunti"
 msgid "Copy from path"
 msgstr "Copia dal percorso"
 
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Copia elementi qui"
+
 # ID:101,
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -2328,6 +2349,11 @@ msgid "Create &patch..."
 msgstr "Crea &patch..."
 
 # ID:13,
+#: Dlg-ID:243
+msgid "Create Changelist"
+msgstr "Crea gruppo modifiche"
+
+# ID:13,
 #: Dlg-ID:208
 msgid "Create Patch"
 msgstr "Crea patch"
@@ -2476,6 +2502,11 @@ msgstr "Elimina file / cartelle dal versionamento"
 #: ID:263
 msgid "Deleting"
 msgstr "Eliminazione"
+
+# ID:213,
+#: ID:213
+msgid "Deselect changelist"
+msgstr "Deseleziona il gruppo modifiche"
 
 # ID:3859,#:
 # ID:3859,
@@ -2768,6 +2799,11 @@ msgstr "Inserire un URL"
 msgid "Enter a lock message (optional):"
 msgstr "Inserisci un messaggio riguardo il blocco (opzionale):"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Enter a name for the changelist:"
+msgstr "Inserire il nome del gruppo modifiche"
+
 # ID:126,#:
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2992,7 +3028,7 @@ msgid "File diffs"
 msgstr "Confronto di file"
 
 # ID:211,
-#: ID:211
+#: ID:213
 msgid "File list is empty"
 msgstr "La lista dei file è vuota"
 
@@ -3136,8 +3172,8 @@ msgstr "Ottenimento file %s"
 # ID:119,
 #: ID:120
 #, c-format
-msgid "Getting file %s, revision %ld"
-msgstr "Ottenimento del file %s, revisione %ld"
+msgid "Getting file %s, revision %s"
+msgstr "Ottenimento del file %s, revisione %s"
 
 # ID:132,
 #: ID:132
@@ -3785,6 +3821,11 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Mantieni &blocchi"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Keep changelists"
+msgstr "Mantieni gruppo modifiche"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
@@ -3881,7 +3922,7 @@ msgid "Lock Files"
 msgstr "Blocca i file"
 
 # Control-ID:65535,
-#: ID:209
+#: ID:213
 msgid "Lock broken!"
 msgstr "Blocco forzato!"
 
@@ -3907,7 +3948,7 @@ msgid "Lock owner:"
 msgstr "Bloccato da:"
 
 # ID:263,
-#: ID:209
+#: ID:213
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Blocco forzato da %s"
@@ -4155,6 +4196,16 @@ msgstr ""
 "Sposta %s\r\n"
 "in %s"
 
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Sposta elementi qui"
+
+# ID:209,
+#: ID:209
+msgid "Move to changelist"
+msgstr "Sposta nel gruppo modifiche"
+
 # ID:97,
 #: ID:98
 #, c-format
@@ -4198,7 +4249,7 @@ msgid "Needs lock"
 msgstr "Richiede blocco"
 
 # ID:73,
-#: ID:210
+#: ID:213
 msgid "Nested"
 msgstr "Annidato"
 
@@ -4708,7 +4759,7 @@ msgstr "Attendere che il Repository Browser venga inizializzato..."
 # ID:119,
 #: ID:119
 #: ID:146
-#: ID:211
+#: ID:213
 msgid "Please wait..."
 msgstr "Attendere prego..."
 
@@ -4993,6 +5044,11 @@ msgstr "Elimina %s"
 msgid "Remove from &ignore list"
 msgstr "Rimuovi dalla lista &ignora"
 
+# ID:13,
+#: ID:209
+msgid "Remove from changelist"
+msgstr "Rimuovi dal gruppo modifiche"
+
 # ID:8,
 #: Control-ID:1332
 msgid "Remove..."
@@ -5007,6 +5063,11 @@ msgstr "Rimosso"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "File/cartella rimossa"
+
+# ID:13,
+#: ID:264
+msgid "Removed from changelist"
+msgstr "Rimosso dal gruppo modifiche"
 
 # ID:13,
 #: ID:145
@@ -5549,6 +5610,11 @@ msgstr "Seleziona client SSH"
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Seleziona l'oggetto su cui si desidera ottenere aiuto"
+
+# ID:78,
+#: ID:213
+msgid "Select changelist"
+msgstr "Seleziona gruppo modifiche"
 
 # ID:78,
 #: ID:78
@@ -6381,6 +6447,42 @@ msgstr ""
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Il percorso\n"
+"<i>%s</i>\n"
+"nel file di patch non esiste.\n"
+"TortoiseMerge ha trovato il percorso\n"
+"<i>%s</i>\n"
+"che sembrerebbe corrispondere alla directory alla quale si sta cercando di applicare la patch.\n"
+"\n"
+"Si desidera utilizzare il percorso suggerito? Rispondere di no chiuderà TortoiseMerge."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Il percorso\n"
+"<i>%s</i>\n"
+"non esiste nel file di patch.\n"
+"TortoiseMerge ha tentato di applicare la patch cercando automaticamente la directory, ma non è stato possibile trovare nessun percorso corrispondente."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "<i>%s</i>\n"
@@ -7092,7 +7194,7 @@ msgstr "Usa entrambi i blocchi di testo (questo per ultimo)"
 
 # Control-ID:1066,
 #: Control-ID:1066
-msgid "Use stri&keout for deleted lines"
+msgid "Use stri&keout for removed lines"
 msgstr "&Barra le linee eliminate"
 
 # ID:251,
@@ -7210,6 +7312,12 @@ msgstr "Valore"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Versione"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:264
+msgid "Versioned"
+msgstr "Versionato"
 
 # ID:114,
 #: ID:114
@@ -7336,21 +7444,6 @@ msgstr ""
 # ID:105,
 #: ID:105
 msgid ""
-"You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-"individually, creating a new revision for every copied item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"È stato copiato più di un file o di una cartella.\n"
-"Non è possibile completare questa operazione in un solo passo, quindi TortoiseSVN copierà ogni file/cartella\n"
-"individualmente, creando una nuova revisione per ogni oggetto copiato.\n"
-"\n"
-"Si vuole procedere in questo modo?"
-
-# ID:105,
-#: ID:105
-msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item.\n"
@@ -7385,21 +7478,6 @@ msgid ""
 msgstr ""
 "Non è stato specificato un issue-number!\n"
 "Si è sicuri di voler inviare senza specificare tale numero?"
-
-# ID:105,
-#: ID:105
-msgid ""
-"You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-"individually, creating a new revision for every moved item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-"È stato spostato più di un file o di una cartella.\n"
-"Non è possibile completare questa operazione in un solo passo, quindi TortoiseSVN sposterà ogni file/cartella\n"
-"individualmente, creando una nuova revisione per ogni oggetto spostato.\n"
-"\n"
-"Si vuole procedere in questo modo?"
 
 # ID:196,
 #: ID:196
@@ -7868,6 +7946,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "verso %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:logmsgminsize\n"
+"La lungezza minima (in caratteri) che un messaggio di blocco deve avere prima che il blocco sia consentito."
 
 # ID:15,
 #: ID:15
