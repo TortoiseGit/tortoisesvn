@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-04 13:51+0100\n"
+"PO-Revision-Date: 2007-02-24 22:01+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -292,6 +292,10 @@ msgstr "&Schonen"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Vastleggen..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Vergelijk URLs"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -1743,6 +1747,10 @@ msgstr "URL naar klembord kopiëren"
 msgid "Copy all information to clipboard"
 msgstr "Kopiëer alle informatie naar klembord"
 
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Kopiëer en hernoem onderdeel hierheen"
+
 #: ID:101
 msgid "Copy error message to clipboard"
 msgstr "Kopiëer foutmelding naar klembord"
@@ -1750,6 +1758,10 @@ msgstr "Kopiëer foutmelding naar klembord"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopiëer van pad"
+
+#: ID:103
+msgid "Copy items to here"
+msgstr "Kopiëer onderdelen hierheen"
 
 #: ID:209
 msgid "Copy paths to clipboard"
@@ -3413,6 +3425,10 @@ msgstr "Markeer als &opgelost"
 msgid "Mark as resolved"
 msgstr "Markeer als opgelost"
 
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Markeer om te vergelijken"
+
 #: ID:2051
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -3522,6 +3538,14 @@ msgid ""
 msgstr ""
 "Verplaats %s\r\n"
 "naar %s"
+
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Verplaats en hernoem onderdeel hierheen"
+
+#: ID:103
+msgid "Move items to here"
+msgstr "Verplaats onderdelen hierheen"
 
 #: ID:209
 msgid "Move to changelist"
@@ -4917,10 +4941,6 @@ msgstr "Ontbrekend doel overgeslagen"
 msgid "Sort items numerically"
 msgstr "Sorteer onderdelen numeriek"
 
-#: ID:101
-msgid "Sort numerical"
-msgstr "Sorteer numeriek"
-
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "Sorteer onderdelen numeriek in plaats van alfabetisch"
@@ -5330,6 +5350,40 @@ msgstr ""
 "\n"
 "Een geldig pad onder Windows mag geen '<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Het pad\n"
+"<i>%s</i>\n"
+"in het patchbestand bestaat niet.\n"
+"TortoiseSVN heeft het relatieve pad\n"
+"<i>%s</i>\n"
+"gevonden, dat lijkt te passen bij de map waar u de patch probeert toe te passen.\n"
+"\n"
+"Wilt u dit voorgestelde pad gebruiken? Als u 'nee' antwoordt dan wordt TortoiseMerge afgesloten."
+
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Het pad\n"
+"<i>%s</i>\n"
+"uit het patchbestand bestaat niet.\n"
+"TortoiseMerge heeft geprobeerd de patch toe te passen door prefixes te negeren, maar er is geen passend pad gevonden."
 
 #: ID:314
 #, c-format
@@ -6569,6 +6623,14 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "naar %s"
+
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Minimumlengte van een blokkadeboodschap voordat een blokkade wordt toegestaan."
 
 #: ID:15
 msgid ""
