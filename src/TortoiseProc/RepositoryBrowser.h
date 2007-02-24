@@ -221,7 +221,7 @@ protected:
 	 * Subversion API calls.
 	 */
 	CString EscapeUrl(const CTSVNPath& url);
-
+	void InitRepo();
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();

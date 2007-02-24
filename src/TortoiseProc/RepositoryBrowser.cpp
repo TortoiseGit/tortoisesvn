@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -237,26 +237,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	return TRUE;
 }
 
-UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
+void CRepositoryBrowser::InitRepo()
 {
-	return ((CRepositoryBrowser*)pVoid)->InitThread();
-}
-
-//this is the thread function which calls the subversion function
-UINT CRepositoryBrowser::InitThread()
-{
-	// In this thread, we try to find out the repository root.
-	// Since this is a remote operation, it can take a while, that's
-	// Why we do this inside a thread.
-
-	// force the cursor to change
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
-
-	DialogEnableWindow(IDOK, FALSE);
-	DialogEnableWindow(IDCANCEL, FALSE);
-
 	// We don't know if the url passed to us points to a file or a folder,
 	// let's find out:
 	SVNInfo info;
@@ -279,6 +261,29 @@ UINT CRepositoryBrowser::InitThread()
 	CPathUtils::Unescape(urlabuf);
 	m_strReposRoot = CUnicodeUtils::GetUnicode(urlabuf);
 	delete [] urlabuf;
+}
+
+UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
+{
+	return ((CRepositoryBrowser*)pVoid)->InitThread();
+}
+
+//this is the thread function which calls the subversion function
+UINT CRepositoryBrowser::InitThread()
+{
+	// In this thread, we try to find out the repository root.
+	// Since this is a remote operation, it can take a while, that's
+	// Why we do this inside a thread.
+
+	// force the cursor to change
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
+
+	DialogEnableWindow(IDOK, FALSE);
+	DialogEnableWindow(IDCANCEL, FALSE);
+
+	InitRepo();
 
 	PostMessage(WM_AFTERINIT);
 	DialogEnableWindow(IDOK, TRUE);
@@ -618,6 +623,12 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		RecursiveRemove(hItem);
 		m_RepoTree.DeleteAllItems();
 		hItem = m_RepoTree.GetRootItem();
+		if (m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength())))
+		{
+			// if the repository root has changed, initialize all data from scratch
+			m_InitialUrl = url;
+			InitRepo();
+		}
 	}
 	if (hItem == NULL)
 	{
