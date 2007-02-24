@@ -240,10 +240,10 @@ protected:
 	CString				m_sUUID;
 
 private:
-	bool m_bStandAlone;
-	CString m_InitialUrl;
-	SVNRev m_initialRev;
-	bool m_bThreadRunning;
+	bool				m_bStandAlone;
+	CString				m_InitialUrl;
+	SVNRev				m_initialRev;
+	bool				m_bThreadRunning;
 	static const UINT	m_AfterInitMessage;
 
 	int					m_nIconFolder;
@@ -262,6 +262,9 @@ private:
 	bool				bDragMode;
 
 	bool				m_bCancelled;
+
+	svn_node_kind_t		m_diffKind;
+	CTSVNPath			m_diffURL;
 };
 
 /**

@@ -71,6 +71,7 @@ enum RepoBrowserContextMenuCommands
 	ID_PROPS,
 	ID_GNUDIFF,
 	ID_DIFF,
+	ID_PREPAREDIFF,
 
 };
 
@@ -89,6 +90,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
 	, m_bCancelled(false)
+	, m_diffKind(svn_node_none)
 {
 }
 
@@ -105,6 +107,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
 	, m_bCancelled(false)
+	, m_diffKind(svn_node_none)
 {
 }
 
@@ -1669,15 +1672,35 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
 			temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PROPS, temp);			// "Show Properties"
+
+			popup.AppendMenu(MF_SEPARATOR, NULL);
+
+			if (nFolders == 1)
+			{
+				temp.LoadString(IDS_REPOBROWSE_PREPAREDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PREPAREDIFF, temp);	// "Mark for comparison"
+			}
+
+			if ((nFolders == 1)&&(m_diffKind == svn_node_dir))
+			{
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);		// "Show differences as unified diff"
+
+				temp.LoadString(IDS_REPOBROWSE_SHOWDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);		// "Compare URLs"
+			}
+			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		if (urlList.GetCount() == 2)
 		{
 			if (nFolders == 2)
 			{
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);
-				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);		// "Show differences as unified diff"
+				temp.LoadString(IDS_REPOBROWSE_SHOWDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);		// "Compare URLs"
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			temp.LoadString(IDS_MENULOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
@@ -1719,6 +1742,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		bool bOpenWith = false;
 		switch (cmd)
 		{
+		case ID_PREPAREDIFF:
+			{
+				if (urlList.GetCount() == 1)
+				{
+					m_diffURL = urlList[0];
+					m_diffKind = nFolders ? svn_node_dir : svn_node_file;
+				}
+				else
+				{
+					m_diffURL.Reset();
+					m_diffKind = svn_node_none;
+				}
+			}
+			break;
 		case ID_URLTOCLIPBOARD:
 			{
 				CStringA url;
@@ -2324,16 +2361,26 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_GNUDIFF:
 			{
-				SVNDiff diff(NULL, this->m_hWnd, true);
-				diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-					CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+				m_bCancelled = false;
+				SVNDiff diff(this, this->m_hWnd, true);
+				if (urlList.GetCount() == 1)
+					diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
+				else
+					diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
 			}
 			break;
 		case ID_DIFF:
 			{
-				SVNDiff diff(NULL, this->m_hWnd, true);
-				diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-					CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
+				m_bCancelled = false;
+				SVNDiff diff(this, this->m_hWnd, true);
+				if (urlList.GetCount() == 1)
+					diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+									CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
+				else
+					diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+									CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
 			}
 			break;
 		case ID_PROPS:
