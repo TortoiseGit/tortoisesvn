@@ -32,7 +32,7 @@ const COLORREF lightBlue = RGB(0xA6, 0xCA, 0xF0);
 const int blockSize = 128 * 1024;
 
 #define BLAMESPACE 20
-#define HEADER_HEIGHT 20
+#define HEADER_HEIGHT 18
 
 #define MAX_LOG_LENGTH 2000
 

@@ -667,10 +667,8 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 {
 	if (hDC == NULL)
 		return;
-	if (m_font == NULL)
-		return;
 	RECT rc;
-	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
+	HFONT oldfont = (HFONT)::SelectObject(hDC, GetStockObject(DEFAULT_GUI_FONT));
 	GetClientRect(wHeader, &rc);
 
 	::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
