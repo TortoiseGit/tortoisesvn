@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-23 10:22+0800\n"
+"PO-Revision-Date: 2007-02-25 20:30+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -373,6 +373,10 @@ msgstr "清理(&C)"
 #: ID:8
 msgid "&Commit..."
 msgstr "提交(&C)..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "比较 URL(&C)"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -2194,6 +2198,11 @@ msgstr "复制 URL"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "复制所有信息到剪贴板"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "复制和改名项到此"
 
 # ID:101,
 #: ID:101
@@ -4082,6 +4091,11 @@ msgstr "标记为已解决(&R)"
 msgid "Mark as resolved"
 msgstr "标记为已解决"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "为比较标记"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4220,6 +4234,11 @@ msgid ""
 msgstr ""
 "移动 %s\r\n"
 "到 %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "移动和改名项到此"
 
 # ID:127,
 #: ID:103
@@ -5979,11 +5998,6 @@ msgstr "跳过丢失的目标项"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
-msgstr "按数字顺序排序"
-
-# ID:101,
-#: ID:101
-msgid "Sort numerical"
 msgstr "按数字顺序排序"
 
 # ID:197,
