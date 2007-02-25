@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-12 22:00+0100\n"
+"PO-Revision-Date: 2007-02-25 22:36+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -351,6 +351,10 @@ msgstr "&Vyčistiť"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Odovzdať ..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Porovnať URL"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -2190,6 +2194,11 @@ msgstr "Kopíruj URL do schránky"
 msgid "Copy all information to clipboard"
 msgstr "Skopíruj všetky infomácie do schránky"
 
+# ID:16,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Kopírovať a premenovať objekty sem"
+
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2200,6 +2209,11 @@ msgstr "Skopíruj chybové správy do schránky"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kópia z cesty"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Kopírovať objekty sem"
 
 # ID:209,
 #: ID:209
@@ -4107,6 +4121,11 @@ msgstr "Označiť ako &vyriešené..."
 msgid "Mark as resolved"
 msgstr "Označiť ako vyriešené"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Označiť pre porovnanie"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4245,6 +4264,16 @@ msgid ""
 msgstr ""
 "Presunúť %s\r\n"
 "do %s"
+
+# ID:17,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Presunúť a premenovať objekty sem"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Presunúť objekty sem"
 
 # ID:15,
 #: ID:209
@@ -6012,11 +6041,6 @@ msgstr "Preskočené chýbajúce ciele"
 msgid "Sort items numerically"
 msgstr "Usporiadať číselne"
 
-# ID:101,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Číselné triedenie"
-
 # Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
@@ -6298,28 +6322,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Uložisko bolo úspešne vytvorené."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"Cesta\n"
-"<i>%s</i>\n"
-"v záplatovom súbore nexistuje.\n"
-"TortoiseMerge našiel relátivnu cestu\n"
-"<i>%s</i>,\n"
-"ktorá vyzerá, že sa zhoduje lepšie.\n"
-"\n"
-"Chcete použiť navrhnutú cestu? Odpoveď nie ukončí TortoiseMerge."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6524,6 +6526,28 @@ msgstr ""
 "\n"
 "Platná adresa vo Windows nesmie obsahovať  '<>|\"?*:' a ani jedno z mien zariadení:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Cesta\n"
+"<i>%s</i>\n"
+"v záplatovom súbore nexistuje.\n"
+"TortoiseMerge našiel relátivnu cestu\n"
+"<i>%s</i>,\n"
+"ktorá vyzerá, že sa zhoduje lepšie.\n"
+"\n"
+"Chcete použiť navrhnutú cestu? Odpoveď nie ukončí TortoiseMerge."
 
 # ID:314,
 #: ID:314
