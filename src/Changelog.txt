@@ -158,6 +158,8 @@
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
        check mark. (Tobias Schäfer)
+- BUG: When selecting a revision range in the log dialog, the selection mark
+       was counted too instead of just the selected items. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

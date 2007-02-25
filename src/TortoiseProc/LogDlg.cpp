@@ -1175,10 +1175,11 @@ void CLogDlg::OnOK()
 		int selIndex = m_LogList.GetSelectionMark();
 		if (selIndex >= 0)
 		{	
-		    PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+		    PLOGENTRYDATA pLogEntry = NULL;
+			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			LONG lowerRev = pLogEntry->dwRev;
 			LONG higherRev = lowerRev;
-			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 			//int index = 0;
 			while (pos)
 			{
