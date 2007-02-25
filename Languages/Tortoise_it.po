@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-24 01:05+0100\n"
+"PO-Revision-Date: 2007-02-25 13:54+0100\n"
 "Last-Translator: Luca Berti <luca.berti@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -334,6 +334,11 @@ msgstr "&Pulisci"
 #: ID:8
 msgid "&Commit..."
 msgstr "In&via..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Confronta URL"
 
 # ID:76,
 #: MenuEntry
@@ -2161,6 +2166,11 @@ msgstr "Copia l'URL negli appunti"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "Copia tutte le informazioni negli appunti"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Copia qui l'elemento e rinominlo"
 
 # ID:101,
 #: ID:101
@@ -4060,6 +4070,11 @@ msgstr "Segna come &risolto"
 msgid "Mark as resolved"
 msgstr "Segna come risolto"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Marca per la comparazione"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4195,6 +4210,11 @@ msgid ""
 msgstr ""
 "Sposta %s\r\n"
 "in %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Sposta qui l'elemento e rinominlo"
 
 # ID:127,
 #: ID:103
@@ -5951,11 +5971,6 @@ msgstr "Obbiettivo mancate saltato"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
-msgstr "Ordina numericamente"
-
-# Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
 msgstr "Ordina numericamente"
 
 # Control-ID:1300,
