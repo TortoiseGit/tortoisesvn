@@ -1355,6 +1355,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, long rev)
 			return FALSE;
 		}
 	}
+	m_bCancelled = false;
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
 	filepath += changedpath;
 
