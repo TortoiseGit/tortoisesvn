@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-12 00:07+0200\n"
+"PO-Revision-Date: 2007-02-25 18:10+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -374,6 +374,11 @@ msgstr "&Почистване"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Поверяване..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Сравняване на URL-и"
 
 # ID:76,
 #: MenuEntry
@@ -2199,6 +2204,11 @@ msgstr "Копиране на URL в системния буфер"
 msgid "Copy all information to clipboard"
 msgstr "Копиране на цялата информация в системния буфер"
 
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Копиране и преименуване на обект до тук"
+
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2208,6 +2218,11 @@ msgstr "Копиране на съобщението за грешка в сис
 #: ID:76
 msgid "Copy from path"
 msgstr "Копиране от път"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Копиране на обектите до тук"
 
 # ID:101,
 #: ID:209
@@ -4093,6 +4108,11 @@ msgstr "Отбелязване като &разрешен"
 msgid "Mark as resolved"
 msgstr "Отбелязване като разрешен"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Отбелязване за сравнение"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4228,6 +4248,16 @@ msgid ""
 msgstr ""
 "Преместване на %s\r\n"
 "в %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Преместване и преименуване на обект до тук"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Преместване на обектите до тук"
 
 # ID:13,
 #: ID:209
@@ -5979,11 +6009,6 @@ msgid "Sort items numerically"
 msgstr "Цифрово сортиране на обектите"
 
 # Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Цифрово сортиране"
-
-# Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "Сортира обектите цифрово вместо по азбучен ред"
@@ -6260,27 +6285,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "Хранилището е създадено успешно!"
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"Пътят\n"
-"<i>%s</i>,\n"
-"споменат във файла с кръпки, не съществува.\n"
-"TortoiseMerge откри относителния път\n"
-"<i>%s</i>,\n"
-"който изглежда, че съответства на директорията, където налагате кръпката.\n"
-"Желаете ли да използвате предложения път? При отговор \"не\", TortoiseMerge ще се затвори."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6492,12 +6496,34 @@ msgid ""
 "The path\n"
 "<i>%s</i>\n"
 "in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Пътят\n"
+"<i>%s</i>\n"
+"във файла с кръпки не съществува.\n"
+"TortoiseMerge откри относителен път\n"
+"<i>%s</i>,\n"
+"който съответства на директорията, в която прилагате кръпката.\n"
+"\n"
+"Желаете ли да се използва предложения път? С отговор 'Не' ще затворите TortoiseMerge."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 "Пътят\n"
-"<i>%s</i>,\n"
-"споменат във файла с кръпки, не съществува.\n"
-"TortoiseMerge опита да наложи кръпката чрез премахване на представките, но не откри съвпадащ път."
+"<i>%s</i>\n"
+"във файла със кръпки не съществува.\n"
+"TortoiseMerge се опита да приложи кръпката чрез премахване на представките, но не откри съвпадащ път."
 
 # ID:314,
 #: ID:314
