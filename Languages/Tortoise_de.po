@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-02-20 09:59+0100\n"
+"PO-Revision-Date: 2007-02-26 11:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -292,6 +292,10 @@ msgstr "&Arbeitskopie aufräumen"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Übertragen..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Vergleiche URLs"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -1777,6 +1781,11 @@ msgstr "URL in Zwischenablage kopieren"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "Kopiere alle Informationen in die Zwischenablage"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Objekt hierher kopieren und umbenennen"
 
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -3426,6 +3435,11 @@ msgstr "Als &aufgelöst markieren"
 msgid "Mark as resolved"
 msgstr "Als aufgelöst markieren"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Für Vergleich auswählen"
+
 #: ID:2051
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -3542,6 +3556,11 @@ msgid ""
 msgstr ""
 "Verschiebe %s\r\n"
 "nach %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Objekt hierher verschieben und umbenennen"
 
 # ID:127,
 #: ID:103
@@ -4970,11 +4989,6 @@ msgstr "Fehlendes Ziel übersprungen"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
-msgstr "Numerisch sortieren"
-
-# Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
 msgstr "Numerisch sortieren"
 
 # Control-ID:1300,
