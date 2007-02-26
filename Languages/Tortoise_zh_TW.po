@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-13 09:13+0800\n"
+"PO-Revision-Date: 2007-02-26 09:54+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -335,6 +335,11 @@ msgstr "清理(&C)"
 #: ID:8
 msgid "&Commit..."
 msgstr "送交(&C)..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "比對URL(&C)"
 
 # ID:76,
 #: MenuEntry
@@ -2159,6 +2164,11 @@ msgstr "複製URL至剪貼簿"
 msgid "Copy all information to clipboard"
 msgstr "複製所有訊息至剪貼簿"
 
+# Control-ID:1073,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "複製及重新命名項目至此"
+
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2168,6 +2178,11 @@ msgstr "複製錯誤訊息至剪貼簿"
 #: ID:76
 msgid "Copy from path"
 msgstr "從路徑複製"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "複製項目至此"
 
 # ID:101,
 #: ID:209
@@ -4049,6 +4064,11 @@ msgstr "標記為已解決(&R)"
 msgid "Mark as resolved"
 msgstr "標記為已解決"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "選取比對用項目"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4183,6 +4203,16 @@ msgid ""
 msgstr ""
 "移動 %s\r\n"
 "至 %s"
+
+# Control-ID:1073,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "移動並重新命名項目至此"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "移動項目至此"
 
 # ID:13,
 #: ID:209
@@ -5935,11 +5965,6 @@ msgid "Sort items numerically"
 msgstr "依數字順序排序"
 
 # Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "依數字順序排序"
-
-# Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "依數字順序排序"
@@ -6216,28 +6241,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "檔案庫建立成功."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"補綴檔中的\n"
-"<i>%s</i>\n"
-"路徑不存在.\n"
-"TortoiseMerge找到的\n"
-"<i>%s</i>\n"
-"可能是正確的路徑. \n"
-"\n"
-"要改用找到的路徑嗎? 選擇 '否' 會結束 TortoiseMerge."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6441,6 +6444,28 @@ msgstr ""
 "\n"
 "檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名稱:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"補綴檔中的\n"
+"<i>%s</i>\n"
+"路徑不存在.\n"
+"TortoiseMerge找到的\n"
+"<i>%s</i>\n"
+"可能是正確的路徑. \n"
+"\n"
+"要改用找到的路徑嗎? 選擇 '否' 會結束 TortoiseMerge."
 
 # ID:314,
 #: ID:314
