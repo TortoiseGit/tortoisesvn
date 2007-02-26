@@ -590,28 +590,14 @@ void CCommitDlg::OnEnChangeLogmessage()
 
 LRESULT CCommitDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 {
-	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
+	if ((m_ListCtrl.GetItemCount() == 0)&&(m_ListCtrl.HasUnversionedItems())&&(!m_bShowUnversioned))
 	{
-		CMessageBox::Show(*this, IDS_COMMITDLG_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		DialogEnableWindow(IDCANCEL, true);
-		SetTimer(ENDDIALOGTIMER, 100, NULL);
-	}
-	else
-	{
-		if (m_ListCtrl.GetItemCount()==0)
+		if (CMessageBox::Show(*this, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
 		{
-			if (CMessageBox::Show(*this, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
-			{
-				m_bShowUnversioned = TRUE;
-				DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
-				m_ListCtrl.Show(dwShow);
-				UpdateData(FALSE);
-			}
-			else
-			{
-				DialogEnableWindow(IDCANCEL, true);
-				SetTimer(ENDDIALOGTIMER, 100, NULL);
-			}
+			m_bShowUnversioned = TRUE;
+			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
+			m_ListCtrl.Show(dwShow);
+			UpdateData(FALSE);
 		}
 	}
 	return 0;
