@@ -396,14 +396,6 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
-			<File
-				RelativePath=".\CreateChangelistDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\CreateChangelistDlg.h"
-				>
-			</File>
 			<Filter
 				Name="General"
 				>
@@ -1300,34 +1292,6 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="ReportCtrl"
-					>
-					<File
-						RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.h"
-						>
-					</File>
-					<File
-						RelativePath="..\Utils\ReportCtrl\ReportCtrl.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\Utils\ReportCtrl\ReportCtrl.h"
-						>
-					</File>
-					<File
-						RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.h"
-						>
-					</File>
-				</Filter>
-				<Filter
 					Name="GRETA"
 					>
 					<File
@@ -1945,6 +1909,14 @@
 				</File>
 				<File
 					RelativePath=".\CheckForUpdatesDlg.h"
+					>
+				</File>
+				<File
+					RelativePath=".\CreateChangelistDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\CreateChangelistDlg.h"
 					>
 				</File>
 				<File
