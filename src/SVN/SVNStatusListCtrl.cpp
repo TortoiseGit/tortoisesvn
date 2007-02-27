@@ -2679,7 +2679,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_nSelected--;
 								m_nTotal--;
 								FileEntry * fentry = GetListEntry(index);
-								if (fentry->isfolder)
+								if ((fentry)&&(fentry->isfolder))
 									deletedlist.AddPath(fentry->path);
 								RemoveListEntry(index);
 							}
