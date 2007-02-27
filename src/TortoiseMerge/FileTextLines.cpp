@@ -39,7 +39,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	UINT8 * pVal2 = (UINT8 *)(pVal+1);
 	// scan the whole buffer for a 0x0000 sequence
 	// if found, we assume a binary file
-	for (int i=0; i<(cb-1); i=i+2)
+	for (int i=0; i<(cb-2); i=i+2)
 	{
 		if (0x0000 == *pVal++)
 			return CFileTextLines::BINARY;
