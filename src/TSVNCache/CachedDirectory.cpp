@@ -200,7 +200,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
 		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-props"));
 	}
-	if (m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsFileTime == propsDirPath.GetLastWriteTime())
+	if ( (m_entriesFileTime == entriesFilePath.GetLastWriteTime()) && (!entriesFilePath.Exists() || (m_propsFileTime == propsDirPath.GetLastWriteTime())) )
 	{
 		if(m_entriesFileTime == 0)
 		{
