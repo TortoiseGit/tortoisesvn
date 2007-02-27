@@ -96,5 +96,5 @@ STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
 
 STDMETHODIMP CShellExtClassFactory::LockServer(BOOL /*fLock*/)
 {
-    return NOERROR;
+    return E_NOTIMPL;
 }
