@@ -2422,10 +2422,25 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_REVERT:
 					{
+						// If at least one item is not in the status "added"
+						// we ask for a confirmation
+						BOOL bConfirm = FALSE;
+						POSITION pos = GetFirstSelectedItemPosition();
+						int index;
+						while ((index = GetNextSelectedItem(pos)) >= 0)
+						{
+							FileEntry * fentry = GetListEntry(index);
+							if (fentry->textstatus != svn_wc_status_added)
+							{
+								bConfirm = TRUE;
+								break;
+							}
+						}	
+
 						CString str;
 						str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
 
-						if (CMessageBox::Show(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+						if (!bConfirm || CMessageBox::Show(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
 						{
 							CTSVNPathList targetList;
 							FillListOfSelectedItemPaths(targetList);
