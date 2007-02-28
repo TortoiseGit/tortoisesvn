@@ -1531,6 +1531,26 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (!pItem->locktoken.IsEmpty())
 				nLocked++;
 		}
+		if (urlList.GetCount() == 0)
+		{
+			// Seems to be a right-click on the listview background.
+			// Use the currently selected item in the tree view as the source.
+			m_blockEvents = true;
+			hSelectedTreeItem = m_RepoTree.GetSelectedItem();
+			if (hSelectedTreeItem)
+			{
+				m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
+				m_blockEvents = false;
+				m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
+				CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelectedTreeItem);
+				if (pTreeItem)
+				{
+					urlList.AddPath(CTSVNPath(pTreeItem->url));
+					urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
+					nFolders++;
+				}
+			}
+		}
 	}
 	if ((pWnd == &m_RepoTree)||(urlList.GetCount() == 0))
 	{
@@ -1560,6 +1580,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 		}
 	}
+
+	if (urlList.GetCount() == 0)
+		return;
 
 	CMenu popup;
 	if (popup.CreatePopupMenu())
