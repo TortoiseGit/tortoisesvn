@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8723
+# Based on Tortoise.pot r8789
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-19 14:36+0100\n"
+"PO-Revision-Date: 2007-02-28 16:29+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -295,6 +295,10 @@ msgstr "&Ryd op"
 #: ID:8,
 msgid "&Commit..."
 msgstr "&Arkivér..."
+
+#: ID:101,
+msgid "&Compare URLs"
+msgstr "&Sammenlign URL'er"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -1620,6 +1624,10 @@ msgstr "Kopier URL til udklipsholder"
 msgid "Copy all information to clipboard"
 msgstr "Kopier al information til udklipsholder"
 
+#: ID:104,
+msgid "Copy and rename item to here"
+msgstr "Kopier og omdøb emne hertil"
+
 #: ID:101,
 msgid "Copy error message to clipboard"
 msgstr "Kopier fejlbesked til udklipsholder"
@@ -2858,6 +2866,10 @@ msgstr "Marker som &løst"
 msgid "Mark as resolved"
 msgstr "Marker som løst"
 
+#: ID:101,
+msgid "Mark for comparison"
+msgstr "Marker til sammenligning"
+
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
@@ -2952,6 +2964,10 @@ msgstr "Flyt %ld emner til\r\n%s"
 #, c-format
 msgid "Move %s\r\nto %s"
 msgstr "Flyt %s\r\ntil %s"
+
+#: ID:104,
+msgid "Move and rename item to here"
+msgstr "Flyt og omdøb emne hertil"
 
 #: ID:103,
 msgid "Move items to here"
@@ -4220,10 +4236,6 @@ msgstr "Sprang over manglende element"
 msgid "Sort items numerically"
 msgstr "Sorter emner numerisk"
 
-#: ID:101,
-msgid "Sort numerical"
-msgstr "Sorter numerisk"
-
 #: ID:197,
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "Sorter emner numerisk i stedet for alfabetisk"
@@ -4519,6 +4531,16 @@ msgstr "Korrekturfilen lader til at være forældet. Linjen\n%s\n i filen og pat
 #: ID:88,
 msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr "Den sti/URL, du har indtastet, er ikke gyldig i Windows!\nHvis du alligevel fortsætter, vil du måske senere kunne få en fejl.\n\nGyldige stier i Windows må ikke indeholde '<>|\"?*:' eller én af følgende enhedsnavne:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#: ID:314,
+#, c-format
+msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%s</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr "Stien\n<i>%s</i>\ni korrekturfilen findes ikke.\nTortoiseMerge har fundet den relative sti\n<i>%s</i>\nsom lader til at passe på mappen, hvori du påfører korrekturfilen.\n\nØnsker du at bruge den foreslåede sti? Hvis du svarer 'nej', afsluttes TortoiseMerge."
+
+#: ID:314,
+#, c-format
+msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr "Stien\n<i>%s</i>\ni korrekturfilen findes ikke.\nTortoiseMerge har forsøgt at påføre korrekturfilen ved af fjerne præfikser, men der fandtes ikke findes en passende sti."
 
 #: ID:314,
 #, c-format
