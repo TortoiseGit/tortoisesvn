@@ -221,7 +221,11 @@ protected:
 	 * Subversion API calls.
 	 */
 	CString EscapeUrl(const CTSVNPath& url);
+	/// Initializes the repository browser with a new root url
 	void InitRepo();
+	/// Sets a background icon for the list view
+	bool SetBackgroundImage(UINT nID);
+
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();

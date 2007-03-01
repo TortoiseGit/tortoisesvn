@@ -105,6 +105,12 @@
 #define IDD_INPUTLOGDLG                 241
 #define IDD_UNLOCK                      242
 #define IDD_CREATECHANGELIST            243
+#define IDI_REPO_FILE                   244
+#define IDI_REPO_HTTP                   245
+#define IDI_REPO_HTTPS                  246
+#define IDI_REPO_SVN                    247
+#define IDI_REPO_SVNSSH                 248
+#define IDI_REPO_UNKNOWN                249
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1044,7 +1050,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        244
+#define _APS_NEXT_RESOURCE_VALUE        250
 #define _APS_NEXT_COMMAND_VALUE         32812
 #define _APS_NEXT_CONTROL_VALUE         1373
 #define _APS_NEXT_SYMED_VALUE           195

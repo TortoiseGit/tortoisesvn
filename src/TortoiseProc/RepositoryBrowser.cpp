@@ -240,6 +240,65 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	return TRUE;
 }
 
+bool CRepositoryBrowser::SetBackgroundImage(UINT nID)
+{
+	m_RepoList.SetTextBkColor(CLR_NONE);
+	COLORREF bkColor = m_RepoList.GetBkColor();
+	// create a bitmap from the icon
+	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(nID), IMAGE_ICON, 128, 128, LR_DEFAULTCOLOR);
+	if (!hIcon)
+		return false;
+
+	RECT rect = {0};
+	rect.right = 128;
+	rect.bottom = 128;
+	HBITMAP bmp = NULL;
+
+	HWND desktop = ::GetDesktopWindow();
+	if (desktop)
+	{
+		HDC screen_dev = ::GetDC(desktop);
+		if (screen_dev)
+		{
+			// Create a compatible DC
+			HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+			if (dst_hdc)
+			{
+				// Create a new bitmap of icon size
+				bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
+				if (bmp)
+				{
+					// Select it into the compatible DC
+					HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+					// Fill the background of the compatible DC with the given colour
+					::SetBkColor(dst_hdc, bkColor);
+					::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+					// Draw the icon into the compatible DC
+					::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
+					::SelectObject(dst_hdc, old_dst_bmp);
+				}
+				::DeleteDC(dst_hdc);
+			}
+		}
+		::ReleaseDC(desktop, screen_dev); 
+	}
+
+	// Restore settings
+	DestroyIcon(hIcon);
+
+	if (bmp == NULL)
+		return false;
+
+	LVBKIMAGE lv;
+	lv.ulFlags = LVBKIF_TYPE_WATERMARK;
+	lv.hbm = bmp;
+	lv.xOffsetPercent = 100;
+	lv.yOffsetPercent = 100;
+	m_RepoList.SetBkImage(&lv);
+	return true;
+}
+
 void CRepositoryBrowser::InitRepo()
 {
 	// We don't know if the url passed to us points to a file or a folder,
@@ -254,6 +313,12 @@ void CRepositoryBrowser::InitRepo()
 			m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
 		}
 	}
+	else
+	{
+		m_InitialUrl.Empty();
+		m_RepoList.ShowText(info.GetLastErrorMsg(), true);
+		return;
+	}
 	m_InitialUrl.TrimRight('/');
 
 	m_bCancelled = false;
@@ -264,6 +329,23 @@ void CRepositoryBrowser::InitRepo()
 	CPathUtils::Unescape(urlabuf);
 	m_strReposRoot = CUnicodeUtils::GetUnicode(urlabuf);
 	delete [] urlabuf;
+	// now check the repository root for the url type, then
+	// set the corresponding background image
+	if (!m_strReposRoot.IsEmpty())
+	{
+		UINT nID = IDI_REPO_UNKNOWN;
+		if (m_strReposRoot.Left(7).CompareNoCase(_T("http://"))==0)
+			nID = IDI_REPO_HTTP;
+		if (m_strReposRoot.Left(8).CompareNoCase(_T("https://"))==0)
+			nID = IDI_REPO_HTTPS;
+		if (m_strReposRoot.Left(6).CompareNoCase(_T("svn://"))==0)
+			nID = IDI_REPO_SVN;
+		if (m_strReposRoot.Left(10).CompareNoCase(_T("svn+ssh://"))==0)
+			nID = IDI_REPO_SVNSSH;
+		if (m_strReposRoot.Left(8).CompareNoCase(_T("file:///"))==0)
+			nID = IDI_REPO_FILE;
+		SetBackgroundImage(nID);
+	}
 }
 
 UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
@@ -301,10 +383,9 @@ UINT CRepositoryBrowser::InitThread()
 
 LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-	if (m_InitialUrl.IsEmpty())
+	if ((m_InitialUrl.IsEmpty())||(m_strReposRoot.IsEmpty()))
 	{
-		m_InitialUrl = m_barRepository.GetCurrentUrl();
-		m_initialRev = m_barRepository.GetCurrentRev();
+		return 0;
 	}
 
 	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev);
@@ -631,6 +712,8 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 			// if the repository root has changed, initialize all data from scratch
 			m_InitialUrl = url;
 			InitRepo();
+			if ((m_InitialUrl.IsEmpty())||(m_strReposRoot.IsEmpty()))
+				return false;
 		}
 	}
 	if (hItem == NULL)
