@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-09 08:18+0100\n"
+"PO-Revision-Date: 2007-03-01 11:03+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -295,6 +295,10 @@ msgstr "&Rensa"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Arkivera..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Jämför URLer"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -1834,6 +1838,10 @@ msgstr "Kopiera URL till urklipp"
 msgid "Copy all information to clipboard"
 msgstr "Kopiera all information till urklipp"
 
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Kopiera och byt namn på objekten hit"
+
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -1843,6 +1851,11 @@ msgstr "Kopiera felmeddelande till urklipp"
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopierad från"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Kopiera objekten hit"
 
 # ID:101,
 #: ID:209
@@ -3515,6 +3528,11 @@ msgstr "Markera som &löst"
 msgid "Mark as resolved"
 msgstr "Markera som löst"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Markera för jämförelse"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3636,6 +3654,15 @@ msgid ""
 msgstr ""
 "Flytta %s\r\n"
 "till %s"
+
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Flytta och byt namn på objektet hit"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Flytta objekten hit"
 
 #: ID:209
 msgid "Move to changelist"
@@ -5093,11 +5120,6 @@ msgid "Sort items numerically"
 msgstr "Sortera objekt numeriskt"
 
 # Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Sortera numeriskt"
-
-# Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "Sortera objekten numeriskt istället för alfabetiskt"
@@ -5533,6 +5555,42 @@ msgstr ""
 "\n"
 "En giltig sökväg i windows får inte innehålla '<>|\"?*:' eller en av de följande enhetsnamnen:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Sökvägen\n"
+"<i>%s</i>\n"
+"i patchfilen finns inte.\n"
+"TortoiseMerge hittade den relativa sökvägen\n"
+"<i>%s</i>\n"
+"som verkar stämma med mappen du applicerar patchen på.\n"
+"\n"
+"Vill du använda den föreslagna sökvägen istället? Om du svarar 'nej' så avslutas TortoiseMerge."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Sökvägen\n"
+"<i>%s</i>\n"
+"som finns i patchfilen existerar inte.\n"
+"TortoiseMerge försökte även hitta sökvägar genom att jämföra med kända prefix borttagna. "
 
 # ID:314,
 #: ID:314
@@ -6831,6 +6889,14 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "till %s"
+
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Minsta antalet tecken som ett logmeddelande måste innehålla för att låsning ska tillåtas."
 
 # ID:15,
 #: ID:15
