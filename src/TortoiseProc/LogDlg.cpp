@@ -40,6 +40,8 @@
 #include "SVNDiff.h"
 #include "RevisionRangeDlg.h"
 #include "BrowseFolder.h"
+#include "BlameDlg.h"
+#include "Blame.h"
 
 #define ICONITEMBORDER 5
 
@@ -59,6 +61,7 @@ enum LogDlgContextMenuCommands
 	ID_GNUDIFF2,
 	ID_FINDENTRY,
 	ID_OPEN,
+	ID_BLAME,
 	ID_REPOBROWSE,
 	ID_LOG,
 	ID_POPPROPS,
@@ -2857,6 +2860,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+				temp.LoadString(IDS_LOG_POPUP_BLAME);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			else
@@ -3223,6 +3228,38 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				}
 			}
 			break;
+		case ID_BLAME:
+			{
+				CBlameDlg dlg;
+				dlg.EndRev = revSelected;
+				if (dlg.DoModal() == IDOK)
+				{
+					CBlame blame;
+					CString tempfile;
+					CString logfile;
+					tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
+					if (!tempfile.IsEmpty())
+					{
+						if (logfile.IsEmpty())
+						{
+							//open the default text editor for the result file
+							CAppUtils::StartTextViewer(tempfile);
+						}
+						else
+						{
+							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName())))
+							{
+								break;
+							}
+						}
+					}
+					else
+					{
+						CMessageBox::Show(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+				}
+			}
+			break;
 		case ID_UPDATE:
 			{
 				//now first get the revision which is selected
@@ -3443,6 +3480,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+				temp.LoadString(IDS_LOG_POPUP_BLAME);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
@@ -3755,6 +3794,59 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		case ID_OPEN:
 			{
 				Open(bOpenWith,changedpaths[0],rev1);
+			}
+			break;
+		case ID_BLAME:
+			{
+				CString filepath;
+				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				{
+					filepath = m_path.GetSVNPathString();
+				}
+				else
+				{
+					filepath = GetURLFromPath(m_path);
+					if (filepath.IsEmpty())
+					{
+						theApp.DoWaitCursor(-1);
+						CString temp;
+						temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						TRACE(_T("could not retrieve the URL of the file!\n"));
+						EnableOKButton();
+						break;
+					}
+				}
+				filepath = GetRepositoryRoot(CTSVNPath(filepath));
+				filepath += changedpaths[0];
+				CBlameDlg dlg;
+				dlg.EndRev = rev1;
+				if (dlg.DoModal() == IDOK)
+				{
+					CBlame blame;
+					CString tempfile;
+					CString logfile;
+					tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
+					if (!tempfile.IsEmpty())
+					{
+						if (logfile.IsEmpty())
+						{
+							//open the default text editor for the result file
+							CAppUtils::StartTextViewer(tempfile);
+						}
+						else
+						{
+							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(filepath)))
+							{
+								break;
+							}
+						}
+					}
+					else
+					{
+						CMessageBox::Show(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+				}
 			}
 			break;
 		case ID_LOG:
