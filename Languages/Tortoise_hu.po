@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-23 15:50+0100\n"
+"PO-Revision-Date: 2007-03-02 13:59+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -338,6 +338,10 @@ msgstr "&Takarítás"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Beküldés..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Címek összehasonlítása"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -2152,6 +2156,11 @@ msgstr "A cím másolása a vágólapra"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "Minden információ másolása a vágólapra"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Elem átnevezése és másolása ide"
 
 # ID:114,
 #: ID:101
@@ -4047,6 +4056,11 @@ msgstr "&Megoldottnak jelöl"
 msgid "Mark as resolved"
 msgstr "Megoldottnak jelöl"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Összehasonlításra megjelöl"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4181,6 +4195,11 @@ msgid ""
 msgstr ""
 "%s áthelyezése\r\n"
 "ide: %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Elem átnevezése és áthelyezése ide"
 
 # ID:127,
 #: ID:103
@@ -5952,11 +5971,6 @@ msgstr "Hiányzó cél kihagyva"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
-msgstr "Szám szerint rendez"
-
-# Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
 msgstr "Szám szerint rendez"
 
 # Control-ID:1300,
