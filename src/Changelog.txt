@@ -106,7 +106,7 @@
        'no_unlock' option in the Subversion config file. (Stefan)
 - NEW: Better file handling in TortoiseMerge: Files with inconsistent
        line endings don't throw an error anymore, files with EOF chars
-       are handled properly, and files with now newline at the end are kept
+       are handled properly, and files with no newline at the end are kept
        that way when saving. Also see issue #336 for more details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
