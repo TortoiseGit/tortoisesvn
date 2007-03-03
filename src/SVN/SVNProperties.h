@@ -130,7 +130,7 @@ private:		//methods
 private:		//members
 	apr_pool_t *				m_pool;				///< memory pool baton
 	CTSVNPath					m_path;				///< the path to the file/directory this properties object acts upon
-	apr_array_header_t *		m_props;			
+	std::map<std::string, apr_hash_t*>		m_props;			
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;
 	SVNRev						m_rev;
@@ -139,6 +139,7 @@ private:		//members
 #endif
 	svn_client_ctx_t 			m_ctx;
 
-
+private:
+	static svn_error_t *		proplist_receiver(void *baton, svn_stringbuf_t *path, apr_hash_t *prop_hash, apr_pool_t *pool);
 
 };

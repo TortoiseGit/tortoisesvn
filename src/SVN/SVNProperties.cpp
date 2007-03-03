@@ -72,35 +72,21 @@ svn_error_t*	SVNProperties::Refresh()
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
 #endif
-	m_error = svn_client_proplist2 (&m_props,
-								m_path.GetSVNApiPath(),
+	m_error = svn_client_proplist3 (m_path.GetSVNApiPath(),
 								&rev,
 								&rev,
 								false,	//recurse
+								proplist_receiver,
+								this,
 								&m_ctx,
 								m_pool);
 	if(m_error != NULL)
 		return m_error;
 
 
-	for (int j = 0; j < m_props->nelts; j++)
+	for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
 	{
-		svn_client_proplist_item_t *item = ((svn_client_proplist_item_t **)m_props->elts)[j];
-
-		const char *node_name_native;
-		m_error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
-												item->node_name,
-												m_pool);
-
-		if (m_error != NULL)
-			return m_error;
-
-		apr_hash_index_t *hi;
-
-		for (hi = apr_hash_first (m_pool, item->prop_hash); hi; hi = apr_hash_next (hi))
-		{
-			m_propCount++;
-		} 
+		m_propCount += apr_hash_count(it->second);
 	}
 	return NULL;
 }
@@ -175,11 +161,10 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 	const void *key;
 	void *val;
 	svn_string_t *propval = NULL;
-	const char *node_name_native;
 	const char *pname_utf8 = "";
 	m_error = NULL;
 
-	if (m_props == NULL)
+	if (m_props.size() == 0)
 	{
 		return "";
 	}
@@ -190,26 +175,16 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 
 	long ind = 0;
 
-	for (int j = 0; j < m_props->nelts; j++)
+	for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
 	{
-		svn_client_proplist_item_t *item = ((svn_client_proplist_item_t **)m_props->elts)[j];
-
-		m_error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
-													item->node_name,
-													m_pool);
-		if (m_error != NULL)
-		{
-			return "";
-		}
-
 		apr_hash_index_t *hi;
 
-		for (hi = apr_hash_first (m_pool, item->prop_hash); hi; hi = apr_hash_next (hi))
+		for (hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
 		{
-			if(ind++ != index)
+			if (ind++ != index)
 				continue;
 
-			apr_hash_this (hi, &key, NULL, &val);
+			apr_hash_this(hi, &key, NULL, &val);
 			propval = (svn_string_t *)val;
 			pname_utf8 = (char *)key;
 
@@ -500,3 +475,16 @@ stdstring SVNProperties::GetLastErrorMsg()
 	return msg;
 }
 
+svn_error_t * SVNProperties::proplist_receiver(void *baton, svn_stringbuf_t *path, apr_hash_t *prop_hash, apr_pool_t *pool)
+{
+	SVNProperties * pThis = (SVNProperties*)baton;
+	if (pThis)
+	{
+		svn_error_t * error;
+		const char *node_name_native;
+		error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native, path, pool);
+		pThis->m_props[std::string(node_name_native)] = apr_hash_copy(pThis->m_pool, prop_hash);
+		return error;
+	}
+	return SVN_NO_ERROR;
+}
