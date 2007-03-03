@@ -72,3 +72,12 @@ BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 		return FALSE;
 	return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
 }
+
+BOOL SVNConfig::KeepLocks()
+{
+	svn_boolean_t no_unlock = FALSE;
+	svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		APR_HASH_KEY_STRING);
+	svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE);
+	return no_unlock;
+}

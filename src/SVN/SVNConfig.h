@@ -43,6 +43,8 @@ public:
 	 * \return TRUE if the name matches a pattern, FALSE if it doesn't.
 	 */
 	BOOL MatchIgnorePattern(const CString& name);
+
+	BOOL KeepLocks();
 private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
