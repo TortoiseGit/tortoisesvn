@@ -398,16 +398,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			}
 			if (!blame)
 			{
-				// subversion has a bug where it doesn't do the right thing if the revision
-				// is svn_opt_revision_working.
-				SVNRev userev = rev1;
-				SVNRev usepegrev = peg.IsValid() ? peg : rev1;
-				if (rev1.IsWorking())
-				{
-					userev = SVNRev::REV_UNSPECIFIED;
-					usepegrev = SVNRev::REV_UNSPECIFIED;
-				}
-				if (!m_pSVN->Cat(url1, usepegrev, userev, tempfile1))
+				if (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1))
 				{
 					if (peg.IsValid())
 					{
@@ -456,14 +447,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			}
 			else
 			{
-				SVNRev userev = rev2;
-				SVNRev usepegrev = peg.IsValid() ? peg : rev2;
-				if (rev1.IsWorking())
-				{
-					userev = SVNRev::REV_UNSPECIFIED;
-					usepegrev = SVNRev::REV_UNSPECIFIED;
-				}
-				if (!m_pSVN->Cat(url2, usepegrev, userev, tempfile2))
+				if (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2))
 				{
 					if (peg.IsValid())
 					{
