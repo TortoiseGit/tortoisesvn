@@ -384,6 +384,21 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 
 BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force /* = FALSE */, BOOL no_ignore /* = FALSE */)
 {
+	// the add command should use the mime-type file
+	const char *mimetypes_file;
+	svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+		APR_HASH_KEY_STRING);
+	svn_config_get(opt, &mimetypes_file,
+		SVN_CONFIG_SECTION_MISCELLANY,
+		SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+	if (mimetypes_file && *mimetypes_file)
+	{
+		Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+			mimetypes_file, pool);
+		if (Err)
+			return FALSE;
+	}
+
 	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
 	{
 		TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
@@ -796,6 +811,21 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, B
 
 BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse, BOOL no_ignore)
 {
+	// the import command should use the mime-type file
+	const char *mimetypes_file;
+	svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+		APR_HASH_KEY_STRING);
+	svn_config_get(opt, &mimetypes_file,
+		SVN_CONFIG_SECTION_MISCELLANY,
+		SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+	if (mimetypes_file && *mimetypes_file)
+	{
+		Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+			mimetypes_file, pool);
+		if (Err)
+			return FALSE;
+	}
+
 	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
