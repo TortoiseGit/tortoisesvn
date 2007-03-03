@@ -100,6 +100,9 @@ BOOL CCommitDlg::OnInitDialog()
 	m_regKeepChangelists = CRegDWORD(_T("Software\\TortoiseSVN\\KeepChangeLists"), FALSE);
 	m_bKeepChangeList = m_regKeepChangelists;
 
+	SVNConfig config;
+	m_bKeepLocks = config.KeepLocks();
+
 	UpdateData(FALSE);
 	
 	OnEnChangeLogmessage();
