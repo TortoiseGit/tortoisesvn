@@ -133,6 +133,7 @@
 #define IDS_ERR_FILE_OPEN               1100
 #define IDS_ERR_FILE_BINARY             1101
 #define IDS_ERR_FILE_NOTAFILE           1102
+#define IDS_ERR_FILE_TOOBIG             1103
 #define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701

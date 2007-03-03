@@ -636,6 +636,7 @@ BEGIN
     IDS_ERR_FILE_OPEN       "Could not open the file\n%s"
     IDS_ERR_FILE_BINARY     "The File\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
     IDS_ERR_FILE_NOTAFILE   "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
+    IDS_ERR_FILE_TOOBIG     "The file is too big"
 END
 
 STRINGTABLE 
@@ -696,11 +697,11 @@ STRINGTABLE
 BEGIN
     IDS_WARNBETTERPATCHPATHFOUND 
                             "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
-	IDS_WARNABSOLUTEPATHFOUND 
-                            "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%s</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-	IDS_WARNABSOLUTEPATHNOTFOUND 
-                            "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
     IDS_NOTFOUNDVIEWTITLEINDICATOR "(not found)"
+    IDS_WARNABSOLUTEPATHFOUND 
+                            "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%s</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+    IDS_WARNABSOLUTEPATHNOTFOUND 
+                            "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 END
 
 STRINGTABLE 

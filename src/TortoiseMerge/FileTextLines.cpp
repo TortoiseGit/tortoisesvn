@@ -19,7 +19,6 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "UnicodeUtils.h"
-#include "StdioFileT.h"
 #include ".\filetextlines.h"
 
 
@@ -204,127 +203,121 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		return FALSE;
 	}
 
-	char buf[10000];
-	DWORD dwReadBytes = 0;
-	do
+	LARGE_INTEGER fsize;
+	if (!GetFileSizeEx(hFile, &fsize))
 	{
-		if (!ReadFile(hFile, buf, sizeof(buf), &dwReadBytes, NULL))
-		{
-			SetErrorString();
-			CloseHandle(hFile);
-			return FALSE;
-		}
-		if (m_UnicodeType == CFileTextLines::AUTOTYPE)
-		{
-			m_UnicodeType = this->CheckUnicodeType(buf, dwReadBytes);
-		}
-		if (m_LineEndings == CFileTextLines::AUTOLINE)
-		{
-			m_LineEndings = CheckLineEndings(buf, dwReadBytes);
-		}
-	} while (((m_UnicodeType == CFileTextLines::AUTOTYPE)||(m_LineEndings == CFileTextLines::AUTOLINE))&&(dwReadBytes > 0));
+		SetErrorString();
+		CloseHandle(hFile);
+		return false;
+	}
+	if (fsize.HighPart)
+	{
+		// file is way too big for us
+		CloseHandle(hFile);
+		m_sErrorString.LoadString(IDS_ERR_FILE_TOOBIG);
+		return FALSE;
+	}
+
+	LPVOID pFileBuf = new BYTE[fsize.LowPart];
+	DWORD dwReadBytes = 0;
+	if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
+	{
+		SetErrorString();
+		CloseHandle(hFile);
+		return FALSE;
+	}
+	if (m_UnicodeType == CFileTextLines::AUTOTYPE)
+	{
+		m_UnicodeType = this->CheckUnicodeType(pFileBuf, min(10000, dwReadBytes));
+	}
+	if (m_LineEndings == CFileTextLines::AUTOLINE)
+	{
+		m_LineEndings = CheckLineEndings(pFileBuf, min(10000, dwReadBytes));
+	}
 	CloseHandle(hFile);
 
 	if (m_UnicodeType == CFileTextLines::BINARY)
 	{
 		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
+		delete [] pFileBuf;
 		return FALSE;
 	}
 
-	BOOL bRetval = TRUE;
-	CStringA sLine;
-	try
+	// we may have to convert the file content
+	if ((m_UnicodeType == UTF8)||(m_UnicodeType == UTF8BOM))
 	{
-		CStdioFileT file(sFilePath, (m_UnicodeType == CFileTextLines::UNICODE_LE ? CFile::typeBinary : CFile::typeText)
-			| CFile::modeRead | CFile::shareDenyNone);
+		int ret = MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)pFileBuf, dwReadBytes, NULL, 0);
+		wchar_t * pWideBuf = new wchar_t[ret];
+		int ret2 = MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)pFileBuf, dwReadBytes, pWideBuf, ret);
+		if (ret2 == ret)
+		{
+			delete [] pFileBuf;
+			pFileBuf = pWideBuf;
+			dwReadBytes = ret2;
+		}
+	}
+	else if (m_UnicodeType == ASCII)
+	{
+		int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)pFileBuf, dwReadBytes, NULL, 0);
+		wchar_t * pWideBuf = new wchar_t[ret];
+		int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)pFileBuf, dwReadBytes, pWideBuf, ret);
+		if (ret2 == ret)
+		{
+			delete [] pFileBuf;
+			pFileBuf = pWideBuf;
+			dwReadBytes = ret2;
+		}
+	}
 
-		switch (m_UnicodeType)
-		{
-		case CFileTextLines::UNICODE_LE:
-			file.Seek(2,0);
-			break;
-		case CFileTextLines::UTF8BOM:
-			file.Seek(3,0);
-			break;
-		default:
-			break;
-		}
-		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
-		{
-			CString sLineU;
-			bool bEmpty = false;
-			while (file.ReadString(sLineU))
-			{
-				bEmpty = sLineU.IsEmpty();
-				sLineU.TrimRight('\r');
-				Add(sLineU);
-			}
-			if (bEmpty)
-			{
-				// newline at end of file
-				Add(_T(""));
-			}
-		}
-		else
-		{
-			bool bEmpty = false;
-			while (file.ReadString(sLine))
-			{
-				int cr = sLine.Find('\r');
-				if (cr >= 0)
-				{
-					CStringA sLine1 = sLine.Left(cr);
-					if (sLine.GetLength() > cr)
-						sLine = sLine.Mid(cr+1);
-					else
-						sLine.Empty();
-					switch (m_UnicodeType)
-					{
-					case CFileTextLines::ASCII:
-						Add(CString(sLine1));
-						break;
-					case CFileTextLines::UTF8BOM:
-					case CFileTextLines::UTF8:
-						{
-							Add(CUnicodeUtils::GetUnicode(sLine1));
-						}
-						break;
-					default:
-						Add(CString(sLine1));
-					}
-				}
-				bEmpty = sLine.IsEmpty();
-				switch (m_UnicodeType)
-				{
-				case CFileTextLines::ASCII:
-					Add(CString(sLine));
-					break;
-				case CFileTextLines::UTF8BOM:
-				case CFileTextLines::UTF8:
-					{
-						Add(CUnicodeUtils::GetUnicode(sLine));
-					}
-					break;
-				default:
-					Add(CString(sLine));
-				}
-			}
-			if (bEmpty)
-			{
-				// newline at end of file
-				Add(_T(""));
-			}
-		}
-		file.Close();
-	}
-	catch (CException * e)
+	// fill in the lines into the array
+	wchar_t * pTextBuf = (wchar_t *)pFileBuf;
+	wchar_t * pLineStart = (wchar_t *)pFileBuf;
+	for (DWORD i = 0; i<dwReadBytes; ++i)
 	{
-		e->GetErrorMessage(m_sErrorString.GetBuffer(4096), 4096);
-		m_sErrorString.ReleaseBuffer();
-		e->Delete();
-		bRetval = FALSE;
+		if (*pTextBuf == '\r')
+		{
+			if ((i + 1) < dwReadBytes)
+			{
+				if (*(pTextBuf+1) == '\n')
+				{
+					// crlf lineending
+					CString line(pLineStart, pTextBuf-pLineStart);
+					Add(line);
+					pLineStart = pTextBuf+2;
+					++pTextBuf;
+					++i;
+				}
+				else
+				{
+					// cr lineending
+					CString line(pLineStart, pTextBuf-pLineStart);
+					Add(line);
+					pLineStart =pTextBuf+1;
+				}
+			}
+		}
+		else if (*pTextBuf == '\n')
+		{
+			// lf lineending
+			CString line(pLineStart, pTextBuf-pLineStart);
+			Add(line);
+			pLineStart =pTextBuf+1;
+		}
+		++pTextBuf;
 	}
-	return bRetval;
+	if (pLineStart < pTextBuf)
+	{
+		CString line(pLineStart, pTextBuf-pLineStart);
+		Add(line);
+		m_bReturnAtEnd = false;		
+	}
+	else
+		m_bReturnAtEnd = true;
+
+	delete [] pFileBuf;
+
+
+	return TRUE;
 }
 
 void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame)
@@ -455,7 +448,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 					sLine = _T("\x0a\x0d");
 					break;
 				}
-				file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
+				if ((m_bReturnAtEnd)||(i != GetCount()-1))
+					file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
 			}
 		}
 		else if ((!bSaveAsUTF8)&&((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE)))
@@ -485,7 +479,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 					sLine.Append("\x0a\x0d", 2);
 					break;
 				}
-				file.Write((LPCSTR)sLine, sLine.GetLength());
+				if ((m_bReturnAtEnd)||(i != GetCount()-1))
+					file.Write((LPCSTR)sLine, sLine.GetLength());
 			}
 		}
 		else if ((bSaveAsUTF8)||((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8)))
@@ -521,7 +516,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 					sLine.Append("\x0a\x0d",2);
 					break;
 				}
-				file.Write((LPCSTR)sLine, sLine.GetLength());
+				if ((m_bReturnAtEnd)||(i != GetCount()-1))
+					file.Write((LPCSTR)sLine, sLine.GetLength());
 			}
 		}
 		file.Close();

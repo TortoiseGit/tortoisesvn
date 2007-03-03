@@ -121,4 +121,5 @@ private:
 	CString		m_sErrorString;
 	CFileTextLines::UnicodeType	m_UnicodeType;
 	CFileTextLines::LineEndings m_LineEndings;
+	bool		m_bReturnAtEnd;
 };
