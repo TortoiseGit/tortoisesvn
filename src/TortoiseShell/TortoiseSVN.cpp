@@ -27,11 +27,11 @@ int					g_cAprInit = 0;
 SVNFolderStatus *	g_pCachedStatus = NULL;			///< status cache
 ShellCache			g_ShellCache;					///< caching of registry entries, ...
 CRemoteCacheLink	g_remoteCacheLink;
-CRegStdWORD			g_regLang;
 DWORD				g_langid;
-HINSTANCE			g_hResInst;
+DWORD				g_langTimeout = 0;
+HINSTANCE			g_hResInst = NULL;
 stdstring			g_filepath;
-svn_wc_status_kind	g_filestatus;					///< holds the corresponding status to the file/dir above
+svn_wc_status_kind	g_filestatus = svn_wc_status_none;	///< holds the corresponding status to the file/dir above
 bool				g_readonlyoverlay = false;
 bool				g_lockedoverlay = false;
 

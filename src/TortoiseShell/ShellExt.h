@@ -30,8 +30,8 @@ extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
 extern	SVNFolderStatus *	g_pCachedStatus;		// status cache
 extern	CRemoteCacheLink	g_remoteCacheLink;
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
-extern	CRegStdWORD			g_regLang;
 extern	DWORD				g_langid;
+extern	DWORD				g_langTimeout;
 extern	HINSTANCE			g_hResInst;
 extern	stdstring			g_filepath;
 extern	svn_wc_status_kind	g_filestatus;			///< holds the corresponding status to the file/dir above

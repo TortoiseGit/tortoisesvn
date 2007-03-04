@@ -50,8 +50,6 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	DWORD			m_dwLanguage;
-	CRegDWORD		m_regLanguage;
 	BOOL			m_bBackup;
 	CRegDWORD		m_regBackup;
 	BOOL			m_bFirstDiffOnLoad;
@@ -82,11 +80,9 @@ protected:
 	CRegString		m_regFontName;
 	CString			m_sFontName;
 
-	CComboBox		m_LanguageCombo;
 	CFontPreviewCombo m_cFontNames;
 	CComboBox		m_cFontSizes;
 protected:
-	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnBnClickedBackup();
 	afx_msg void OnBnClickedIgnorelf();
 	afx_msg void OnBnClickedOnepane();

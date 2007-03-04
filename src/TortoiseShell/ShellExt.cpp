@@ -63,7 +63,7 @@ CShellExt::~CShellExt()
 
 void LoadLangDll()
 {
-	if (g_langid != g_ShellCache.GetLangID())
+	if ((g_langid != g_ShellCache.GetLangID())&&((g_langTimeout == 0)||(g_langTimeout < GetTickCount())))
 	{
 		g_langid = g_ShellCache.GetLangID();
 		DWORD langId = g_langid;
@@ -177,13 +177,20 @@ void LoadLangDll()
 		} while ((hInst == NULL) && (langId != 0));
 		if (hInst == NULL)
 		{
+			// either the dll for the selected language is not present, or
+			// it is the wrong version.
+			// fall back to English and set a timeout so we don't retry
+			// to load the language dll too often
 			if (g_hResInst != g_hmodThisDll)
 				FreeLibrary(g_hResInst);
 			g_hResInst = g_hmodThisDll;
-			CRegStdWORD lid(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-			lid.removeValue();
 			g_langid = 1033;
+			// set a timeout of 10 seconds
+			if (g_ShellCache.GetLangID() != 1033)
+				g_langTimeout = GetTickCount() + 10000;
 		}
+		else
+			g_langTimeout = 0;
 	} // if (g_langid != g_ShellCache.GetLangID()) 
 }
 

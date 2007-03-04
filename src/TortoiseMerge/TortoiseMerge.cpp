@@ -58,7 +58,7 @@ CCrashReport g_crasher("crashreports@tortoisesvn.tigris.org", "Crashreport for T
 BOOL CTortoiseMergeApp::InitInstance()
 {
 	//set the resource dll for the required language
-	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
+	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 	CString langDll;
 	HINSTANCE hInst = NULL;
