@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-25 22:36+0100\n"
+"PO-Revision-Date: 2007-03-04 20:40+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1617,6 +1617,7 @@ msgid "Base file:"
 msgstr "Základný súbor:"
 
 # Dlg-ID:162,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Obviniť"
@@ -3865,7 +3866,7 @@ msgstr ""
 "Z: %s\n"
 "Do: %s\n"
 "\n"
-"Premiestnenie je potrebné iba ak <b>do</b> je inom úložisku.\n"
+"Premiestnenie je potrebné iba ak <b>do</b> je v inom úložisku.\n"
 "Menenie cesty <b>vrámci</b> úložiska sa vykonáva pomocou príkazu 'prepni'.\n"
 "\n"
 "Nesprávne použitie presunúť <b>poškodí vašu pracovnú kópiu!</b>\n"
@@ -6378,6 +6379,12 @@ msgstr ""
 "bol najdený viacnásobne(dvojmo)!?!\n"
 "Toto sa obvykle stáva pri aplikovaní záplaty\n"
 "na zlý adresár!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "Súbor je príliš veľký"
 
 # ID:3857,#:
 # ID:3857,
