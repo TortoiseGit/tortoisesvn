@@ -9,7 +9,7 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8789
+# Based on Tortoise.pot r8841
 #
 msgid ""
 msgstr ""
@@ -490,7 +490,7 @@ msgstr "&Importer..."
 msgid "&Jump to first difference when loading"
 msgstr "&Gå direkte til første forskel"
 
-#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:65535,
 msgid "&Language:"
 msgstr "&Sprog:"
 
@@ -1192,7 +1192,7 @@ msgstr "Søjlediagram"
 msgid "Base file:"
 msgstr "Basis-fil:"
 
-#: Dlg-ID:162,
+#: ID:114,#: Dlg-ID:162,
 msgid "Blame"
 msgstr "Ansvar"
 
@@ -4458,6 +4458,10 @@ msgstr "Filen %s blev ikke fundet i korrekturfilen!"
 #, c-format
 msgid "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
 msgstr "Filen %s\nblev fundet to gange!\nDette sker normalt, hvis der forsøges anvendt en korrekturfil på\nen forkert mappe!"
+
+#: ID:69,
+msgid "The file is too big"
+msgstr "Filen er for stor"
 
 #: ID:3857,#: ID:3857,
 msgid "The file is too large to open."
