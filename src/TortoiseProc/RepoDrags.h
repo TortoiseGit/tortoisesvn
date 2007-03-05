@@ -38,6 +38,8 @@ public:
 private:
 	CRepositoryBrowser * m_pRepoBrowser;
 	bool m_bFiles;
+	int	m_nCountDragMsgs;
+	HTREEITEM hLastItem;
 };
 
 class CListDropTarget : public CIDropTarget
