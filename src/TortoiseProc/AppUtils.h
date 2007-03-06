@@ -56,7 +56,8 @@ public:
 	 * Starts the external diff application
 	 */
 	static BOOL StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, 
-			const CString& sName1 = CString(), const CString& sName2 = CString(), BOOL bWait = FALSE, BOOL bBlame = FALSE);
+			const CString& sName1 = CString(), const CString& sName2 = CString(), 
+			BOOL bWait = FALSE, BOOL bBlame = FALSE, BOOL bReadOnly = FALSE);
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated

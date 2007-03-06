@@ -238,7 +238,7 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 	return TRUE;
 }
 
-BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame)
+BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame, BOOL bReadOnly)
 {
 	CString viewer;
 	CString mimetype;
@@ -338,6 +338,9 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 		viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+
+	if (bReadOnly)
+		viewer += _T(" /readonly");
 
 	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
 	{
