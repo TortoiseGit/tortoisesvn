@@ -333,6 +333,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	}
 
 	pFrame->m_bReadOnly = !!parser.HasKey(_T("readonly"));
+	if (GetFileAttributes(pFrame->m_Data.m_yourFile.GetFilename()) & FILE_ATTRIBUTE_READONLY)
+		pFrame->m_bReadOnly = true;
 	pFrame->m_bBlame = !!parser.HasKey(_T("blame"));
 	// diffing a blame means no editing!
 	if (pFrame->m_bBlame)
