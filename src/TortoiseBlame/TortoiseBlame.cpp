@@ -35,7 +35,7 @@
 // Global Variables:
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
-TCHAR szOrigFilename[MAX_PATH];
+TCHAR szViewtitle[MAX_PATH];
 TCHAR szOrigPath[MAX_PATH];
 TCHAR searchstringnotfound[MAX_LOADSTRING];
 
@@ -126,7 +126,7 @@ void TortoiseBlame::SetTitle()
 	char title[MAX_PATH + 100];
 	strcpy_s(title, MAX_PATH + 100, szTitle);
 	strcat_s(title, MAX_PATH + 100, " - ");
-	strcat_s(title, MAX_PATH + 100, szOrigFilename);
+	strcat_s(title, MAX_PATH + 100, szViewtitle);
 	::SetWindowText(wMain, title);
 }
 
@@ -831,7 +831,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		return FALSE;
 	}
 
-	ZeroMemory(szOrigFilename, MAX_PATH);
+	ZeroMemory(szViewtitle, MAX_PATH);
 	ZeroMemory(szOrigPath, MAX_PATH);
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
@@ -849,7 +849,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 	if (__argc > 3)
 	{
-		_tcscpy_s(szOrigFilename, MAX_PATH, __argv[3]);
+		_tcscpy_s(szViewtitle, MAX_PATH, __argv[3]);
 	}
 
 	if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
