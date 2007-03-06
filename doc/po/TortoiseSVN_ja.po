@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-03-06 10:27+0900\n"
+"PO-Revision-Date: 2007-03-06 18:26+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6694,7 +6694,7 @@ msgstr "使用できるコマンドラインスイッチ一覧"
 #: source/TortoiseSVN_en.xml:11564(title)
 #: source/TortoiseSVN_en.xml:12052(glossterm)
 msgid "Switch"
-msgstr "スイッチ"
+msgstr "切り替え"
 
 #: source/TortoiseSVN_en.xml:9899(entry)
 #: source/TortoiseSVN_en.xml:9968(entry)
@@ -7539,7 +7539,7 @@ msgstr "<placeholder-1/> にリポジトリを作成します。"
 
 #: source/TortoiseSVN_en.xml:10999(entry)
 msgid "Opens the switch dialog. The path specifies the target directory."
-msgstr "スイッチダイアログを開きます。パスに対象ディレクトリを指定します。"
+msgstr "切り替えダイアログを開きます。パスに対象ディレクトリを指定します。"
 
 #: source/TortoiseSVN_en.xml:11006(entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the dir in <placeholder-3/>."
@@ -8455,7 +8455,7 @@ msgstr "サーバ上の異なるディレクトリに移動したり、ドメイ
 
 #: source/TortoiseSVN_en.xml:11967(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr "注意: このコマンドは、作業コピーが同じリポジトリ、同じ場所を指していて、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに <quote>スイッチ</quote> コマンドを使用する必要があります。"
+msgstr "注意: このコマンドは、作業コピーが同じリポジトリ、同じ場所を指していて、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに <quote>切り替え</quote> コマンドを使用する必要があります。"
 
 #: source/TortoiseSVN_en.xml:11978(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
@@ -8507,7 +8507,7 @@ msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subver
 
 #: source/TortoiseSVN_en.xml:12054(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr "ちょうど <quote>リビジョンへの更新</quote> が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>スイッチ</quote> はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
+msgstr "ちょうど <quote>リビジョンへの更新</quote> が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>切り替え</quote> はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
 
 #: source/TortoiseSVN_en.xml:12068(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
