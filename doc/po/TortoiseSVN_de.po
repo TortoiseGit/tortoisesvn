@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-02-16 09:42+0100\n"
+"PO-Revision-Date: 2007-03-06 09:22+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1357,8 +1357,7 @@ msgstr "Gehen Sie mit dem Windows Explorer ins Installationsverzeichnis von Subv
 
 #: source/TortoiseSVN_en.xml:1648
 #: (para)
-#, fuzzy
-msgid "Copy the file <filename>/bin/libdbXX.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache modules directory."
+msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache modules directory."
 msgstr "Kopieren Sie die Dateien <filename>/bin/libdb*.dll</filename> und <filename>/bin/intl3_svn.dll</filename> aus dem Subversion-Installationsverzeichnis ins Apache-Modulverzeichnis."
 
 #: source/TortoiseSVN_en.xml:1656
@@ -1626,12 +1625,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:1904
 #: (para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. If you're asked for authentication for this link, enter <literal>guest</literal> as username and leave the password empty."
-msgstr ""
+msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchib <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> herunterladen. Falls sie nach einer Anmeldung gefragt werden, geben Sie einfach <literal>guest</literal> als Benutzername ein und lassen das Passwort frei."
 
 #: source/TortoiseSVN_en.xml:1913
 #: (para)
 msgid "The xsl file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your webbrowser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr ""
+msgstr "Die XSL Datei aus dem TortoiseSVN Projektachtiv enthält einen netten Kniff. Wenn Sie das Projektarchiv mit ihrem Webbrowser betrachten, wird neben jedem Ordner Ihres Projektarchivs ein Symbol angezeigt. Wenn Sie auf dieses Symbol klicken, wird sofort der Auschecken-Dialog von TortoiseSVN für die entsprechende URL aufgerufen."
 
 #: source/TortoiseSVN_en.xml:1759
 #: (para)
@@ -2368,8 +2367,8 @@ msgstr "Starten Sie das Subversion Installationsprogramm. Wenn Sie die Installat
 
 #: source/TortoiseSVN_en.xml:2598
 #: (para)
-msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb44.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Öffnen Sie das Installationsverzeichnis von Subversion im Windows Explorer. (normalerweise <filename>C:\\Programme\\Subversion</filename>). Aus dem <filename>bin</filename> Verzeichnis kopieren Sie die Dateien <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb44.dll</filename>, <filename>libeay32.dll</filename> und <filename>ssleay32.dll</filename> in das Verzeichnis in dem Ihr Server installiert ist z.B. <filename>c:\\svnserve</filename>."
+msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
+msgstr "Öffnen Sie das Installationsverzeichnis von Subversion im Windows Explorer. (normalerweise <filename>C:\\Programme\\Subversion</filename>). Aus dem <filename>bin</filename> Verzeichnis kopieren Sie die Dateien <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> und <filename>ssleay32.dll</filename> in das Verzeichnis in dem Ihr Server installiert ist z.B. <filename>c:\\svnserve</filename>."
 
 #: source/TortoiseSVN_en.xml:2620
 #: (title)
