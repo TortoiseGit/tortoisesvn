@@ -3247,7 +3247,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 						}
 						else
 						{
-							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName())))
+							CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
+							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams))
 							{
 								break;
 							}
@@ -3836,7 +3837,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						}
 						else
 						{
-							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(filepath)))
+							CString sParams = _T("/path:\"") + filepath + _T("\" ");
+							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(filepath),sParams))
 							{
 								break;
 							}

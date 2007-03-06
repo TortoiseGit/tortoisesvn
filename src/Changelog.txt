@@ -110,6 +110,8 @@
        that way when saving. Also see issue #336 for more details. (Stefan)
 - NEW: After upgrading, the previously selected language is kept.
        See issue #330 for details. (Stefan)
+- NEW: TortoiseBlame's context menu now has "Blame previous revision"
+       which makes tracking changes easier. See issue #343. (Tobias Schäfer)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

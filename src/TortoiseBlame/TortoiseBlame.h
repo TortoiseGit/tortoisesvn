@@ -78,6 +78,7 @@ public:
 	void DrawHeader(HDC hDC);
 	void StartSearch();
 	void CopySelectedLogToClipboard();
+	void BlamePreviousRevision();
 	bool DoSearch(LPSTR what, DWORD flags);
 	bool GotoLine(long line);
 	void GotoLineDlg();

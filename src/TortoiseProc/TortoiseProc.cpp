@@ -2074,7 +2074,9 @@ BOOL CTortoiseProcApp::InitInstance()
 						{
 							sVal = _T("/line:");
 							sVal += parser.GetVal(_T("line"));
+							sVal += _T(" ");
 						}
+						sVal += _T("/path:\"") + cmdLinePath.GetSVNPathString() + _T("\" ");
 						CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal);
 					}
 				}

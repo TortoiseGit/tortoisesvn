@@ -36,6 +36,7 @@
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
 TCHAR szOrigFilename[MAX_PATH];
+TCHAR szOrigPath[MAX_PATH];
 TCHAR searchstringnotfound[MAX_LOADSTRING];
 
 const bool ShowDate = false;
@@ -440,6 +441,62 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 	}
 }
 
+void TortoiseBlame::BlamePreviousRevision()
+{
+	LONG nRevisionTo = m_selectedrev - 1;
+	if ( nRevisionTo<1 )
+	{
+		return;
+	}
+
+	// We now determine the smallest revision number in the blame file (but ignore "-1")
+	// We do this for two reasons:
+	// 1. we respect the "From revision" which the user entered
+	// 2. we speed up the call of "svn blame" because previous smaller revision numbers don't have any effect on the result
+	LONG nSmallestRevision = -1;
+	for (LONG line=0;line<(LONG)app.revs.size();line++)
+	{
+		const LONG nRevision = app.revs[line];
+		if ( nRevision > 0 )
+		{
+			if ( nSmallestRevision < 1 )
+			{
+				nSmallestRevision = nRevision;
+			}
+			else
+			{
+				nSmallestRevision = min(nSmallestRevision,nRevision);
+			}
+		}
+	}
+
+	char bufStartRev[20];
+	_stprintf_s(bufStartRev, 20, _T("%d"), nSmallestRevision);
+
+	char bufEndRev[20];
+	_stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
+
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
+	stdstring svnCmd = _T(" /command:blame ");
+	svnCmd += _T(" /path:\"");
+	svnCmd += szOrigPath;
+	svnCmd += _T("\"");
+	svnCmd += _T(" /startrev:");
+	svnCmd += bufStartRev;
+	svnCmd += _T(" /endrev:");
+	svnCmd += bufEndRev;
+	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+	{
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
+	}
+}
+
 void TortoiseBlame::Notify(SCNotification *notification) 
 {
 	switch (notification->nmhdr.code) 
@@ -467,6 +524,9 @@ void TortoiseBlame::Command(int id)
 		break;
 	case ID_COPYTOCLIPBOARD:
 		CopySelectedLogToClipboard();
+		break;
+	case ID_BLAME_PREVIOUS_REVISION:
+		BlamePreviousRevision();
 		break;
 	case ID_EDIT_GOTOLINE:
 		GotoLineDlg();
@@ -772,6 +832,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	ZeroMemory(szOrigFilename, MAX_PATH);
+	ZeroMemory(szOrigPath, MAX_PATH);
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
 
@@ -798,6 +859,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		MessageBox(NULL, szInfo, _T("TortoiseBlame"), MB_ICONERROR);
 		langDLL.Close();
 		return 0;
+	}
+
+	if ( parser.HasKey(_T("path")) )
+	{
+		_tcscpy_s(szOrigPath, MAX_PATH, parser.GetVal(_T("path")));
 	}
 
 	app.SendEditor(SCI_SETCODEPAGE, GetACP());
@@ -1286,6 +1352,14 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			}
 			HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
 			HMENU hPopMenu = GetSubMenu(hMenu, 0);
+
+			if ( _tcslen(szOrigPath)==0 )
+			{
+				// Without knowing the original path we cannot blame the previous revision
+				// because we don't know which filename to pass to tortoiseproc.
+				EnableMenuItem(hPopMenu,ID_BLAME_PREVIOUS_REVISION, MF_DISABLED|MF_GRAYED);
+			}
+			
 			TrackPopupMenu(hPopMenu, TPM_LEFTALIGN | TPM_RIGHTBUTTON, xPos, yPos, 0, app.wBlame, NULL); 
 			DestroyMenu(hMenu);
 		}

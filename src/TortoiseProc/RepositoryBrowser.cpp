@@ -2516,7 +2516,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
-							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(urlList[0].GetFileOrDirectoryName())))
+							CString sParams = _T("/path:\"") + urlList[0].GetSVNPathString() + _T("\" ");
+							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(urlList[0].GetFileOrDirectoryName()),sParams))
 							{
 								break;
 							}
