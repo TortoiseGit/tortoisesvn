@@ -36,10 +36,10 @@ public:
 	virtual HRESULT STDMETHODCALLTYPE DragLeave(void);
 
 private:
-	CRepositoryBrowser * m_pRepoBrowser;
-	bool m_bFiles;
-	int	m_nCountDragMsgs;
-	HTREEITEM hLastItem;
+	CRepositoryBrowser *	m_pRepoBrowser;
+	bool					m_bFiles;
+	DWORD					m_dwHoverStartTicks;
+	HTREEITEM				hLastItem;
 };
 
 class CListDropTarget : public CIDropTarget

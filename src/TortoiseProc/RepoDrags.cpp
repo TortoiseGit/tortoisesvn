@@ -84,7 +84,7 @@ HRESULT CTreeDropTarget::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKey
 		m_bFiles = true;
 	else
 		m_bFiles = false;
-	m_nCountDragMsgs = 0;
+	m_dwHoverStartTicks = 0;
 	hLastItem = NULL;
 	return CIDropTarget::DragEnter(pDataObj, grfKeyState, pt, pdwEffect);
 }
@@ -97,7 +97,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 	hit.flags = TVHT_ONITEM;
 	HTREEITEM hItem = TreeView_HitTest(m_hTargetWnd,&hit);
 	if (hItem != hLastItem)
-		m_nCountDragMsgs = 0;
+		m_dwHoverStartTicks = 0;
 	hLastItem = hItem;
 	if (hItem != NULL)
 	{
@@ -106,22 +106,25 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 		TreeView_SelectDropTarget(m_hTargetWnd, hItem);
 		if ((m_pRepoBrowser->m_RepoTree.GetItemState(hItem, TVIS_EXPANDED)&TVIS_EXPANDED) != TVIS_EXPANDED)
 		{
-			++m_nCountDragMsgs;
-			if (m_nCountDragMsgs > 50)
+			if (m_dwHoverStartTicks == 0)
+				m_dwHoverStartTicks = GetTickCount();
+			UINT timeout = 0;
+			SystemParametersInfo(SPI_GETMOUSEHOVERTIME, 0, &timeout, 0);
+			if ((GetTickCount() - m_dwHoverStartTicks) > timeout)
 			{
 				// expand the item
 				m_pRepoBrowser->m_RepoTree.Expand(hItem, TVE_EXPAND);
-				m_nCountDragMsgs = 0;
+				m_dwHoverStartTicks = 0;
 			}
 		}
 		else
-			m_nCountDragMsgs = 0;
+			m_dwHoverStartTicks = 0;
 	}
 	else
 	{
 		TreeView_SelectDropTarget(m_hTargetWnd, NULL);
 		*pdwEffect = DROPEFFECT_NONE;
-		m_nCountDragMsgs = 0;
+		m_dwHoverStartTicks = 0;
 	}
 	CRect rect;
 	m_pRepoBrowser->m_RepoTree.GetWindowRect(&rect);
@@ -130,12 +133,12 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 		if (pt.y > (rect.bottom-20))
 		{
 			m_pRepoBrowser->m_RepoTree.SendMessage(WM_VSCROLL, MAKEWPARAM (SB_LINEDOWN, 0), NULL);
-			m_nCountDragMsgs = 0;
+			m_dwHoverStartTicks = 0;
 		}
 		if (pt.y < (rect.top+20))
 		{
 			m_pRepoBrowser->m_RepoTree.SendMessage(WM_VSCROLL, MAKEWPARAM (SB_LINEUP, 0), NULL);
-			m_nCountDragMsgs = 0;
+			m_dwHoverStartTicks = 0;
 		}
 	}
 
@@ -145,7 +148,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 HRESULT CTreeDropTarget::DragLeave(void)
 {
 	TreeView_SelectDropTarget(m_hTargetWnd, NULL);
-	m_nCountDragMsgs = 0;
+	m_dwHoverStartTicks = 0;
 	return CIDropTarget::DragLeave();
 }
 
