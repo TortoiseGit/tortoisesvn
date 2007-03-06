@@ -173,6 +173,8 @@ Version 1.4.4
        was counted too instead of just the selected items. (Stefan)
 - BUG: TortoiseMerge recognizes the readonly attribute of files and doesn't
        allow to save them anymore. (Stefan)
+- BUG: When saving a modified file in TortoiseMerge failed, the view titles
+       still indicated that the file was not 'modified' anymore. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
