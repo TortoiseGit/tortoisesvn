@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-03-04 21:19+0900\n"
+"PO-Revision-Date: 2007-03-06 10:27+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3911,7 +3911,7 @@ msgstr "リビジョンの比較ダイアログ"
 
 #: source/TortoiseSVN_en.xml:5495(para)
 msgid "<placeholder-1/> When you select two trees within the repository browser, or when you select two revisions of a folder in the log dialog, you can <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare revisions</guimenuitem></menuchoice>."
-msgstr "<placeholder-1/> リポジトリブラウザにある 2 つのツリーを選択したり、ログダイアログにあるフォルダのの 2 つのリビジョンを選択すると、<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare revisions</guimenuitem></menuchoice> ができます。"
+msgstr "<placeholder-1/> リポジトリブラウザにある 2 つのツリーを選択したり、ログダイアログにあるフォルダのの 2 つのリビジョンを選択すると、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice> を行えます。"
 
 #: source/TortoiseSVN_en.xml:5507(para)
 msgid "This dialog shows a list of all files which have changed and allows you to compare or blame them individually using context menu."
@@ -5619,7 +5619,7 @@ msgstr "webviewer:revision"
 
 #: source/TortoiseSVN_en.xml:8327(para)
 msgid "Set this property to the url of your repoviewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
-msgstr "指定したリビジョンの全変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> を含んでいる必要があります。<literal>%REVISION%</literal> は問い合わせるリビジョン番号に置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice> を表示するようになります。"
+msgstr "指定したリビジョンの全変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> を含んでいる必要があります。<literal>%REVISION%</literal> は問い合わせるリビジョン番号に置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。"
 
 #: source/TortoiseSVN_en.xml:8344(term)
 msgid "webviewer:pathrevision"
@@ -5627,7 +5627,7 @@ msgstr "webviewer:pathrevision"
 
 #: source/TortoiseSVN_en.xml:8346(para)
 msgid "Set this property to the url of your repoviewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the url will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "指定したリビジョン、指定したファイルの変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> と <literal>%PATH%</literal> を含んでいる必要があります。<literal>%PATH%</literal> は、リポジトリのルートからの取得するパスに置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> を表示するようになります。例えば、ログダイアログの下部ペインにある <literal>/trunk/src/file</literal> エントリで右クリックした場合、URL の <literal>%PATH%</literal> は <literal>/trunk/src/file</literal> に置換されます。"
+msgstr "指定したリビジョン、指定したファイルの変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> と <literal>%PATH%</literal> を含んでいる必要があります。<literal>%PATH%</literal> は、リポジトリのルートからの取得するパスに置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンとパスをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。例えば、ログダイアログの下部ペインにある <literal>/trunk/src/file</literal> エントリで右クリックした場合、URL の <literal>%PATH%</literal> は <literal>/trunk/src/file</literal> に置換されます。"
 
 #: source/TortoiseSVN_en.xml:8393(title)
 msgid "TortoiseSVN's Settings"
@@ -5768,7 +5768,7 @@ msgstr "<placeholder-1/> このページでは、メインコンテキストメ�
 
 #: source/TortoiseSVN_en.xml:8596(para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr ""
+msgstr "<guilabel>ロックを取得</guilabel> は特殊です。もちろん上のリストを用いてトップレベルに表示できますが、ロックの必要がないほとんどのファイルにとっては乱雑なだけです。しかし、<literal>svn:needs-lock</literal> プロパティが設定されているファイルには、いつでも編集できるように、このアクションが必要です。この場合トップレベルに表示している方が便利です。このボックスをチェックしておくと、<literal>svn:needs-lock</literal> プロパティが設定されているファイルを選択すると、<guilabel>ロックを取得</guilabel> がいつでもトップレベルに表示されるようになります。"
 
 #: source/TortoiseSVN_en.xml:8606(para)
 msgid "If you have a very large number of files in your working copy folders, it can take a long time before the context menu appears when you <action>right click</action> on a folder. This is because Subversion fetches the status for all files when you ask for folder status. To avoid this delay you can uncheck the <guilabel>Fetch status for context menu</guilabel> box. Be warned that the context menu for folders will not always be correct, and may include items which should not really be there. For example, you will see <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> for an <literal>Added</literal> folder, which will not work because the folder is not yet in the repository."
@@ -6396,7 +6396,7 @@ msgstr "作業コピーのチェックアウトや、変更点のマージ、リ
 
 #: source/TortoiseSVN_en.xml:9476(para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr ""
+msgstr "コンボボックスに表示されている 1 項目だけ削除したい場合、下矢印をクリックしてコンボボックスを開き、削除したい項目にマウスをあわせて、<action>SHIFT+DELETE</action> を押してください。"
 
 #: source/TortoiseSVN_en.xml:9485(term)
 msgid "Log messages"
@@ -6492,11 +6492,11 @@ msgstr "<placeholder-1/> このダイアログでは、Subversion のアクシ�
 
 #: source/TortoiseSVN_en.xml:9607(para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
-msgstr ""
+msgstr "ここで言うフックは、コミット後にバージョン番号を更新するため <literal>SubWCRev.exe</literal> のようなプログラムを起動したり、再構築のトリガになったりします。"
 
 #: source/TortoiseSVN_en.xml:9612(para)
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr ""
+msgstr "様々なセキュリティ上、実装上の理由により、フックスクリプトはプロジェクトプロパティとしてではなく、マシンローカルに定義されます。他の誰かがリポジトリにコミットするのを考慮する必要なく、何を行うかを定義してください。もちろん、スクリプトをバージョン管理下に置くかどうかを、いつでも選べます。"
 
 #: source/TortoiseSVN_en.xml:9620(title)
 msgid "The Settings Dialog, Configure Hook Scripts"
@@ -6566,11 +6566,11 @@ msgstr "現在、6 種類のフックスクリプトが使用できます。<pla
 
 #: source/TortoiseSVN_en.xml:9682(para)
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "フックは特定の作業コピーのパスに対して定義されます。最上位のパスのみ指定する必要があります。もし、サブフォルダを操作する場合、TortoiseSVN は自動的に上位へマッチするかどうか検索を行います。"
 
 #: source/TortoiseSVN_en.xml:9687(para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "次に、実行するコマンドライン (フックスクリプトや実行ファイルのパスを含む) を指定しなければなりません。バッチファイルや、実行ファイル、その他 Windows に関連付けられたファイル (perl スクリプトなど) を指定できます。"
 
 #: source/TortoiseSVN_en.xml:9701(literal)
 #: source/TortoiseSVN_en.xml:9709(literal)
@@ -6601,35 +6601,35 @@ msgstr "%ERROR%"
 
 #: source/TortoiseSVN_en.xml:9693(para)
 msgid "The command line can include several parameters which get filled in by TortoiseSVN. The parameters available depend upon which hook is called. <placeholder-1/>"
-msgstr ""
+msgstr "コマンドラインには、TortoiseSVN が設定するパラメータを含められます。呼ばれるフックによってパラメータは異なります。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9758(para)
 msgid "The paths which were selected when the operation was started, eg. the paths selected in Explorer when invoking the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "操作を始めたときに選択していたパスです。例えば、コミットダイアログを開いたときにエクスプローラで選択していたパスです。複数のパスを選択していた場合、<literal>*</literal> で区切られています。"
 
 #: source/TortoiseSVN_en.xml:9770(para)
 msgid "The paths which were selected within the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "コミットダイアログで選択したパスです。複数のパスを選択していた場合、<literal>*</literal> で区切られています。"
 
 #: source/TortoiseSVN_en.xml:9780(para)
 msgid "The repository revision after a commit completes."
-msgstr ""
+msgstr "コミットが完了したときの、リポジトリのリビジョンです。"
 
 #: source/TortoiseSVN_en.xml:9788(para)
 msgid "Empty if the operation was successful, or the error message if the operation was unsuccessful."
-msgstr ""
+msgstr "操作が正常に終了したときは空です。また、正常に終了しなかった場合は、エラーメッセージとなります。"
 
 #: source/TortoiseSVN_en.xml:9752(para)
 msgid "The meaning of each of these variables is described here: <placeholder-1/>"
-msgstr ""
+msgstr "各変数の意味は以下の通りです。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9796(para)
 msgid "If you want the Subversion operation to hold off until the hook has completed, check <guilabel>Wait for the script to finish</guilabel>."
-msgstr ""
+msgstr "Subversion の操作を、フックスクリプトが完了するまで止めておきたい場合は、<guilabel>スクリプトが終了するまで待機</guilabel> をチェックしてください。"
 
 #: source/TortoiseSVN_en.xml:9800(para)
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default. For debugging, you may want to watch what happens in the DOS window."
-msgstr ""
+msgstr "通常、スクリプト実行時に不格好な DOS ウィンドウを隠しておきたいと思います。 そのため <guilabel>実行時はスクリプトを非表示にする</guilabel> をデフォルトでチェックしてあります。デバッグなどで、何が起きているか DOS ウィンドウで確認することもできます。"
 
 #: source/TortoiseSVN_en.xml:9808(title)
 msgid "Final Step"
