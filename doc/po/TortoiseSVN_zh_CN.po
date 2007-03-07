@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-03-06 23:42 +0000\n"
-"PO-Revision-Date: 2007-03-07 09:26+0800\n"
+"PO-Revision-Date: 2007-03-07 10:05+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3451,9 +3451,8 @@ msgstr "有时你可能想要建立一个没有<filename>.svn</filename>目录�
 
 #: source/TortoiseSVN_en.xml:3850
 #: (title)
-#, fuzzy
 msgid "Committing Your Changes To The Repository"
-msgstr "让你的修改进入版本库"
+msgstr "将你的修改提交到版本库"
 
 #: source/TortoiseSVN_en.xml:3852
 #: (primary)
@@ -3467,7 +3466,6 @@ msgstr "将你对工作复本的修改发送给版本库，称为<firstterm>提�
 
 #: source/TortoiseSVN_en.xml:3872
 #: (title)
-#, fuzzy
 msgid "The Commit Dialog"
 msgstr "提交对话框"
 
@@ -3559,50 +3557,47 @@ msgstr "有时候文件不是用Subversion改名，于是它们在文件列表�
 #: source/TortoiseSVN_en.xml:4000
 #: (title)
 msgid "Change Lists"
-msgstr ""
+msgstr "修改列表"
 
 #: source/TortoiseSVN_en.xml:4002
 #: (primary)
-#, fuzzy
 msgid "changelist"
-msgstr "本地更改"
+msgstr "修改列表"
 
 #: source/TortoiseSVN_en.xml:4004
 #: (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "理想情况下，你任何时候都只做一件事，你的工作副本只包含一个逻辑修改集合。很好，回到现实。你经常会同时做几件不相关的事，当你察看提交对话框时，所有修改混到一起。<firstterm>修改列表</firstterm>特性帮助你分组，让你容易看到正在做什么。当然它只能在修改不重合的时候工作。如果两个不同的任务影响到同一个文件，没有办法隔离修改。"
 
 #: source/TortoiseSVN_en.xml:4015
 #: (para)
 msgid "The changelist feature is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr ""
+msgstr "修改列表依赖一个不存在于 Windows 2000 的外壳特性，所以它只能用于 Windows XP 或更新的系统。抱歉，但是现在 Windows 2000 真的很古老了，请不要抱怨。"
 
 #: source/TortoiseSVN_en.xml:4033
 #: (title)
-#, fuzzy
 msgid "Commit dialog with Changelists"
-msgstr "提交该更改"
+msgstr "带有修改列表的提交对话框"
 
 #: source/TortoiseSVN_en.xml:4021
 #: (para)
 msgid "Use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The commit dialog will now change to show groups of items. <placeholder-1/>"
-msgstr ""
+msgstr "使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>移到修改列表</guimenuitem></menuchoice> 可以增加一个项目到修改列表。最初没有修改列表，所以你第一次做的时候，会创建一个新的修改列表。给出一个能描述它的作用的名称，然后点击 <guibutton>OK</guibutton>。提交对话框会改变为显示项目分组。 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:4037
 #: (para)
 msgid "Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr ""
+msgstr "除了分组可以直接指示之外，你也可以使用组头选择提交哪些文件。"
 
 #: source/TortoiseSVN_en.xml:4042
 #: (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, not any other client."
-msgstr ""
+msgstr "修改列表是纯本地客户端特性。创建和删除修改列表不会影响到版本库，或任何其它客户端。"
 
 #: source/TortoiseSVN_en.xml:4049
 #: (title)
-#, fuzzy
 msgid "Commit Log Messages"
-msgstr "过滤日志信息"
+msgstr "提交日志信息"
 
 #: source/TortoiseSVN_en.xml:4050
 #: (para)
@@ -3651,9 +3646,8 @@ msgstr "如果你激活了一个缺陷跟踪系统，你可以在<guilabel>Bug-I
 
 #: source/TortoiseSVN_en.xml:4116
 #: (title)
-#, fuzzy
 msgid "Commit Progress"
-msgstr "提交属性"
+msgstr "提交进程"
 
 #: source/TortoiseSVN_en.xml:4121
 #: (title)
@@ -4120,9 +4114,8 @@ msgstr "这些列是可定制的。如果你<action>右击</action>任何一列�
 
 #: source/TortoiseSVN_en.xml:4765
 #: (para)
-#, fuzzy
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr "你可以设置当文件和文件夹加入版本库时，自动设置属性。阅读<xref linkend=\"tsvn-dug-settings\"/>以获得更多信息。"
+msgstr "如果你同时做几个不相关的任务，也可以在修改列表中分组文件。阅读<xref linkend=\"tsvn-dug-commit-changelists\"/>以获得更多信息。"
 
 #: source/TortoiseSVN_en.xml:4771
 #: (para)
