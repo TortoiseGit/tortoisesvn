@@ -1791,17 +1791,17 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				temp.LoadString(IDS_REPOBROWSE_PREPAREDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PREPAREDIFF, temp);	// "Mark for comparison"
-			}
 
-			if ((nFolders == 1)&&(m_diffKind == svn_node_dir))
-			{
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);		// "Show differences as unified diff"
+				if (m_diffKind == svn_node_dir)
+				{
+					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);		// "Show differences as unified diff"
 
-				temp.LoadString(IDS_REPOBROWSE_SHOWDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);		// "Compare URLs"
+					temp.LoadString(IDS_REPOBROWSE_SHOWDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);		// "Compare URLs"
+				}
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
-			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		if (urlList.GetCount() == 2)
 		{
