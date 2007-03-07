@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "RepositoryBar.h"
 #include "RevisionDlg.h"
+#include "SVNInfo.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
@@ -153,6 +154,20 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
 		new_url = GetCurrentUrl();
 		new_rev = GetCurrentRev();
 	}
+	// check if the entered url is valid
+	SVNInfo info;
+	const SVNInfoData * data = NULL;
+	do 
+	{
+		data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
+		if ((data == NULL)||(data->kind != svn_node_dir))
+		{
+			// in case the url is not a valid directory, try the parent dir
+			// until there's no more parent dir
+			new_url = new_url.Left(new_url.ReverseFind('/'));
+		}
+	} while(!new_url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+
 	ShowUrl(new_url, new_rev);
 	if (m_pRepo)
 		m_pRepo->ChangeToUrl(new_url, new_rev);
@@ -220,8 +235,7 @@ void CRepositoryBar::OnCbnSelEndOK()
 			m_btnRevision.GetWindowText(revision);
 			m_url = path;
 			m_rev = revision;
-			if (m_pRepo)
-				m_pRepo->ChangeToUrl(m_url, m_rev);
+			GotoUrl(m_url, m_rev);
 		}
 	}
 }
