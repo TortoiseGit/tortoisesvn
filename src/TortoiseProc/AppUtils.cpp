@@ -246,7 +246,7 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
 	bool bUseTMerge = !!(DWORD)blamediff;
 	viewer = diffexe;
-
+	bool bInternal = false;
 	SVNProperties props(file1);
 	for (int i=0; i<props.GetCount(); ++i)
 	{
@@ -307,6 +307,7 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 	{
 		//no registry entry (or commented out) for a diff program
 		//use TortoiseMerge
+		bInternal = true;
 		viewer = CPathUtils::GetAppDirectory();
 		viewer += _T("TortoiseMerge.exe");
 		viewer = _T("\"") + viewer + _T("\"");
@@ -339,7 +340,7 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
 
-	if (bReadOnly)
+	if ((bReadOnly)&&(bInternal))
 		viewer += _T(" /readonly");
 
 	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
