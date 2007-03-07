@@ -27,9 +27,10 @@ C. If you plan to build 64 bit packages, install the package
      available in the VS.NET2005 Professional and higher. 
      This will provide you with a cross-compiler and a suitable 
      command shell. On XP64, there will also be a native compiler.
-   - Using the x64 SDK (available for free download in the Windows® 
-     Server 2003 PPlatform SDK on http://www.microsoft.com/downloads) 
+   - Using the x64 SDK (available for free download in the Windows 
+     Server 2003 Platform SDK on http://www.microsoft.com/downloads)
      may work as well but has not been tested.
+
 
 Next you need to install some utilities/programs:
 - Java runtime            : http://java.sun.com, http://java.sun.com/webapps/getjava/BrowserRedirect
@@ -50,6 +51,7 @@ Next you need to download some more:
 - ZLib source             : http://www.gzip.org/zlib/
 - tools collection        : http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip
 - dictionaries/thesauri   : http://lingucomponent.openoffice.org/
+
 
 Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
@@ -86,7 +88,7 @@ Building 32 bit packages
   you can have the command shell call this file automatically:
   - Create a .reg file with the following code and merge it in your registry
     Windows Registry Editor Version 5.00
-  
+
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
     "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars32.bat\""
   Next time you start the command prompt, that file will be executed automatically.
@@ -183,7 +185,3 @@ Building 64 bit packages on x64
 	nant x64 release setup
 
   After the script finished, the packages can be found in .\bin .
-
-
-
-
