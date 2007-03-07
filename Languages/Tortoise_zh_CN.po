@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-04 11:50+0800\n"
+"PO-Revision-Date: 2007-03-07 09:24+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -330,6 +330,12 @@ msgstr "Berkeley 数据库(BDB)(&B)"
 #: ID:114
 msgid "&Blame differences"
 msgstr "追溯差异(&B)"
+
+# ID:114,#:
+# ID:322,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "追溯以前的版本(&B)"
 
 # ID:114,#:
 # ID:322,
@@ -6779,10 +6785,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
-"TortoiseBlame 不能直接启动！\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame 不能被直接启动！\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:7,
 #: ID:7
