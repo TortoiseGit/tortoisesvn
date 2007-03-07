@@ -91,8 +91,7 @@ public:
 					 const CTSVNPath& url2, const SVNRev& rev2, 
 					 SVNRev peg = SVNRev(),
 					 bool ignoreancestry = false,
-					 bool blame = false,
-					 bool readonly = false);
+					 bool blame = false);
 
 	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
 	

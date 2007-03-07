@@ -277,8 +277,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						  const CTSVNPath& url2, const SVNRev& rev2, 
 						  SVNRev peg /* = SVNRev() */,
 						  bool ignoreancestry /* = false */,
-						  bool blame /* = false */,
-						  bool readonly /* = false */)
+						  bool blame /* = false */)
 {
 	CTSVNPath tempfile;
 	
