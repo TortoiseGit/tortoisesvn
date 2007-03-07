@@ -643,6 +643,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 		if (!srcPath.IsDirectory())
 		{
 			CopyFile(srcPath.GetWinPath(), destPath.GetWinPath(), FALSE);
+			SetFileAttributes(destPath.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 			return TRUE;
 		}
 		// our own "export" function with a callback and the ability to export
@@ -736,6 +737,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 							{
 								lastError = GetLastError();
 							}
+							SetFileAttributes((LPCTSTR)it->second, FILE_ATTRIBUTE_NORMAL);
 						}
 					}
 					if (lastError)
@@ -759,6 +761,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 						return FALSE;
 					}
 				}
+				SetFileAttributes((LPCTSTR)it->second, FILE_ATTRIBUTE_NORMAL);
 			}
 		}
 		if (progress.HasUserCancelled())
