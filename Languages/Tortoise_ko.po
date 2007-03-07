@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-20 13:34+0900\n"
+"PO-Revision-Date: 2007-03-07 13:44+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -295,6 +295,11 @@ msgid "&Blame differences"
 msgstr "수정한 사람을 포함하여 비교(&B)"
 
 # ID:76,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "리비전에 대한 수정한 사람 보기(&B)"
+
+# ID:76,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -335,6 +340,11 @@ msgstr "정리(&C)"
 #: ID:8
 msgid "&Commit..."
 msgstr "커밋(&C)..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "URL 비교(&C)"
 
 # ID:76,
 #: MenuEntry
@@ -1584,6 +1594,7 @@ msgid "Base file:"
 msgstr "베이스 파일:"
 
 # ID:13,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "수정한 사람 보기"
@@ -2153,6 +2164,11 @@ msgstr "URL을 클립보드에 복사합니다"
 msgid "Copy all information to clipboard"
 msgstr "모든 정보를 클립보드에 복사"
 
+# ID:13,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "아이템을 여기에 복사하고 이름을 바꿉니다"
+
 # ID:101,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2162,6 +2178,11 @@ msgstr "오류 메시지를 클립보드에 복사"
 #: ID:76
 msgid "Copy from path"
 msgstr "복사된 원본 경로"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "아이템을 여기에 복사합니다"
 
 # ID:101,
 #: ID:209
@@ -4040,6 +4061,11 @@ msgstr "충돌해결상태로 표시(&R)"
 msgid "Mark as resolved"
 msgstr "충돌해결상태로 표시"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "비교 대상으로 표시"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4175,6 +4201,16 @@ msgid ""
 msgstr ""
 "%s (을)를\r\n"
 "%s (으)로 옮깁니다"
+
+# ID:13,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "아이템을 여기에 옮기고 이름을 바꿉니다"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "아이템을 여기에 옮깁니다"
 
 # ID:209,
 #: ID:209
@@ -5929,11 +5965,6 @@ msgid "Sort items numerically"
 msgstr "번호순으로 정렬합니다."
 
 # Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "수로 정렬"
-
-# Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "문자정렬 대신 번호순으로 정렬합니다."
@@ -6211,27 +6242,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "저장소가 성공적으로 생성되었습니다."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"경로\n"
-"<i>%s</i>\n"
-"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
-"TortoiseMerge는 다음의 유사한 경로\n"
-"<i>%s</i>\n"
-"을(를) 찾았습니다. 이 경로가 패치를 적용할만한 대상으로 보입니다.\n"
-"위 경로를 대신 사용하시겠습니까? '아니오'를 누르시면 종료합니다."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6288,6 +6298,12 @@ msgstr ""
 "이(가) 두 번 발견되었습니다.\n"
 "이 문제는 흔히 패치 파일을 잘못된 폴더에 적용한 경우\n"
 "발생하는 현상입니다."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "너무 커서 열 수가 없습니다."
 
 # ID:3857,#:
 # ID:3857,
@@ -6433,6 +6449,27 @@ msgstr ""
 "\n"
 "경로에는 '<>|\"?*:'을 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"경로\n"
+"<i>%s</i>\n"
+"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
+"TortoiseMerge는 다음의 유사한 경로\n"
+"<i>%s</i>\n"
+"을(를) 찾았습니다. 이 경로가 패치를 적용할만한 대상으로 보입니다.\n"
+"위 경로를 대신 사용하시겠습니까? '아니오'를 누르시면 종료합니다."
 
 # ID:314,
 #: ID:314
@@ -6704,10 +6741,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame은 직접 실행할 수 없습니다.\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:9,#:
 # ID:80,
