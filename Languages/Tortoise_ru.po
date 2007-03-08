@@ -41,14 +41,14 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8789: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8858: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-28 18:42+0300\n"
-"Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
+"PO-Revision-Date: 2007-03-08 15:45+0300\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -288,6 +288,10 @@ msgstr "&Berkeley database (BDB)"
 #: ID:114
 msgid "&Blame differences"
 msgstr "&Авторство различий"
+
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Авторство предыдущей ревизии"
 
 #: ID:114
 #: ID:322
@@ -1331,6 +1335,7 @@ msgid "Base file:"
 msgstr "Базовый файл:"
 
 # Заголовок окна
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Авторство"
@@ -5228,6 +5233,10 @@ msgstr ""
 "Это обычно происходит при попытке применения\n"
 "файла заплаток к не той папке!"
 
+#: ID:69
+msgid "The file is too big"
+msgstr "Файл слишком велик"
+
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Файл слишком большой для открытия."
@@ -5614,10 +5623,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame не может быть запущена без параметров!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe имя_файла [[файл_журнала] [заголовок]] [/line:номер_строки] [/path:исходный_путь]"
 
 #: ID:7
 msgid "TortoiseIDiff"
