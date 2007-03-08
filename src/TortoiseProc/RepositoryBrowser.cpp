@@ -1780,9 +1780,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_RENAME, temp);		// "Rename"
 			}
 
-			temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);		// "Copy To Working Copy..."
-
 			temp.LoadString(IDS_REPOBROWSE_COPY);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTO, temp);			// "Copy To..."
 
