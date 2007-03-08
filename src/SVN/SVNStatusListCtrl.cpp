@@ -3416,6 +3416,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			int nCol = 1;
 			UINT uCheckedFlags = MF_STRING | MF_ENABLED | MF_CHECKED;
 			UINT uUnCheckedFlags = MF_STRING | MF_ENABLED;
+			if (XPorLater)
+			{
+				temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
+				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, SVNSLC_NUMCOLUMNS, temp);
+				popup.AppendMenu(MF_SEPARATOR);
+			}
 			temp.LoadString(IDS_STATUSLIST_COLEXT);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLSTATUS);
@@ -3458,6 +3464,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					ShowColumn(cmd);
 				}
+			}
+			if (cmd == SVNSLC_NUMCOLUMNS)
+			{
+				EnableGroupView(!IsGroupViewEnabled());
 			}
 		}
 	}
