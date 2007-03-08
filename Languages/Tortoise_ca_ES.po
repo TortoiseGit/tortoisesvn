@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-02-21 11:50+0100\n"
+"PO-Revision-Date: 2007-03-08 09:50+0100\n"
 "Last-Translator: Arnau Perello <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -311,6 +311,12 @@ msgstr "&Mostra autoria de les diferències"
 
 # ID:114,#:
 # ID:322,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Mostra autoria de la revisió prèvia"
+
+# ID:114,#:
+# ID:322,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -351,6 +357,10 @@ msgstr "&Neteja"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Entrega..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Compara URLs"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -1599,6 +1609,7 @@ msgid "Base file:"
 msgstr "Fitxer base:"
 
 # Dlg-ID:162,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Autoria"
@@ -2167,6 +2178,11 @@ msgstr "Copia URL al portapapers"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "Copia tota la informació al portapapers"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Copia i canvia el nom aquí"
 
 # ID:101,
 #: ID:101
@@ -4066,6 +4082,11 @@ msgstr "Marca com a &resolt"
 msgid "Mark as resolved"
 msgstr "Marca com a resolt"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Marcar per comparació"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4203,6 +4224,11 @@ msgid ""
 msgstr ""
 "Mou %s\r\n"
 "a %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Mou i canvia el nom aquí"
 
 # ID:127,
 #: ID:103
@@ -5964,11 +5990,6 @@ msgstr "Objectiu no trobat ignorat"
 msgid "Sort items numerically"
 msgstr "Ordena items numèricament"
 
-# ID:101,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Ordena numericament"
-
 # Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
@@ -6305,6 +6326,12 @@ msgstr ""
 "s'ha trobat dos cops!?!\n"
 "Això passa normalment quan s'aplica un fitxer pedaç\n"
 "a una carpeta equivocada!"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "Aquest fitxer és massa gran"
 
 # ID:3857,#:
 # ID:3857,
@@ -6744,10 +6771,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "No es pot iniciar TortoiseBlame directament!\n"
-"TortoiseBlame.exe fitxer d'autoria  [[fitxer de log] [títol de vista]] [/line:número de línea]"
+"TortoiseBlame.exe blamefile [[fitxer de log] [títol de visualització]] [/line:número de línea] [/path:path original]"
 
 # ID:7,
 #: ID:7
