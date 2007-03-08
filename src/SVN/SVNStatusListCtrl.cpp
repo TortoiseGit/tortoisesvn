@@ -2213,7 +2213,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_MENUREMOVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
 					}
-					if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_deleted)&&(m_dwContextMenus & SVNSLC_POPDELETE))
+					if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_added)&&(m_dwContextMenus & SVNSLC_POPDELETE))
 					{
 						temp.LoadString(IDS_MENUREMOVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVE, temp);
