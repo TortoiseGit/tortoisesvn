@@ -310,17 +310,21 @@ void CRepositoryBrowser::InitRepo()
 	CWaitCursorEx wait;
 	// We don't know if the url passed to us points to a file or a folder,
 	// let's find out:
+
 	SVNInfo info;
-	const SVNInfoData * infodata = NULL;
-	infodata = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl), m_initialRev, m_initialRev);
-	if (infodata)
+	const SVNInfoData * data = NULL;
+	do 
 	{
-		if (infodata->kind == svn_node_file)
+		data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
+		if ((data == NULL)||(data->kind != svn_node_dir))
 		{
+			// in case the url is not a valid directory, try the parent dir
+			// until there's no more parent dir
 			m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
 		}
-	}
-	else
+	} while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+
+	if (data == NULL)
 	{
 		m_InitialUrl.Empty();
 		m_RepoList.ShowText(info.GetLastErrorMsg(), true);
@@ -329,7 +333,8 @@ void CRepositoryBrowser::InitRepo()
 	m_InitialUrl.TrimRight('/');
 
 	m_bCancelled = false;
-	m_strReposRoot = GetRepositoryRootAndUUID(CTSVNPath(m_InitialUrl), m_sUUID);
+	m_strReposRoot = data->reposRoot;
+	m_sUUID = data->reposUUID;
 	CStringA urla = CUnicodeUtils::GetUTF8(m_strReposRoot);
 	char * urlabuf = new char[urla.GetLength()+1];
 	strcpy_s(urlabuf, urla.GetLength()+1, urla);
@@ -395,7 +400,7 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 		return 0;
 	}
 
-	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev);
+	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev, true);
 	m_RepoList.ClearText();
 	m_bInitDone = TRUE;
 	return 0;

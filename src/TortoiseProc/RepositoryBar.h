@@ -64,7 +64,7 @@ public:
 	 * is given, the current values are used (which effectively refreshes
 	 * the tree).
 	 */
-	void GotoUrl(const CString& url = CString(), SVNRev rev = SVNRev());
+	void GotoUrl(const CString& url = CString(), SVNRev rev = SVNRev(), bool bAlreadyChecked = false);
 
 	/**
 	 * Returns the current URL.

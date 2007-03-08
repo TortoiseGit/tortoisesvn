@@ -145,7 +145,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 	m_btnRevision.SetWindowText(m_rev.ToString());
 }
 
-void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
+void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecked /* = false */)
 {
 	CString new_url = url;
 	SVNRev new_rev = rev;
@@ -158,19 +158,22 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
 		new_rev = GetCurrentRev();
 		new_url.TrimRight('/');
 	}
-	// check if the entered url is valid
-	SVNInfo info;
-	const SVNInfoData * data = NULL;
-	do 
+	if (!bAlreadyChecked)
 	{
-		data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
-		if ((data == NULL)||(data->kind != svn_node_dir))
+		// check if the entered url is valid
+		SVNInfo info;
+		const SVNInfoData * data = NULL;
+		do 
 		{
-			// in case the url is not a valid directory, try the parent dir
-			// until there's no more parent dir
-			new_url = new_url.Left(new_url.ReverseFind('/'));
-		}
-	} while(!new_url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+			data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
+			if ((data == NULL)||(data->kind != svn_node_dir))
+			{
+				// in case the url is not a valid directory, try the parent dir
+				// until there's no more parent dir
+				new_url = new_url.Left(new_url.ReverseFind('/'));
+			}
+		} while(!new_url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+	}
 
 	ShowUrl(new_url, new_rev);
 	if (m_pRepo)
