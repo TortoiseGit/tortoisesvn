@@ -151,10 +151,12 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
 	SVNRev new_rev = rev;
 	CWaitCursorEx wait;
 
+	new_url.TrimRight('/');
 	if (new_url.IsEmpty())
 	{
 		new_url = GetCurrentUrl();
 		new_rev = GetCurrentRev();
+		new_url.TrimRight('/');
 	}
 	// check if the entered url is valid
 	SVNInfo info;
