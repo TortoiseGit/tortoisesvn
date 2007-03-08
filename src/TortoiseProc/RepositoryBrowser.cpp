@@ -704,6 +704,7 @@ BOOL CRepositoryBrowser::ReportList(const CString& path, svn_node_kind_t kind,
 
 bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 {
+	CWaitCursorEx wait;
 	CString partUrl = url;
 	HTREEITEM hItem = m_RepoTree.GetRootItem();
 	if ((LONG(rev) != LONG(m_initialRev))||

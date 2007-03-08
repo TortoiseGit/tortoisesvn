@@ -21,6 +21,7 @@
 #include "RepositoryBar.h"
 #include "RevisionDlg.h"
 #include "SVNInfo.h"
+#include "WaitCursorEx.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
@@ -148,6 +149,7 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev)
 {
 	CString new_url = url;
 	SVNRev new_rev = rev;
+	CWaitCursorEx wait;
 
 	if (new_url.IsEmpty())
 	{
