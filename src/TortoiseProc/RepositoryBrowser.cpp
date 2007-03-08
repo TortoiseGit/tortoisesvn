@@ -307,6 +307,7 @@ bool CRepositoryBrowser::SetBackgroundImage(UINT nID)
 
 void CRepositoryBrowser::InitRepo()
 {
+	CWaitCursorEx wait;
 	// We don't know if the url passed to us points to a file or a folder,
 	// let's find out:
 	SVNInfo info;
@@ -434,6 +435,12 @@ void CRepositoryBrowser::OnBnClickedHelp()
 
 BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
 {
+	if (m_bThreadRunning)
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+		SetCursor(hCur);
+		return TRUE;
+	}
 	if (pWnd == this)
 	{
 		RECT rect;
@@ -778,6 +785,7 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 {
 	if (pItems == NULL)
 		return;
+	CWaitCursorEx wait;
 	m_RepoList.SetRedraw(false);
 	m_RepoList.DeleteAllItems();
 
