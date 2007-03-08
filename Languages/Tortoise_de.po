@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-05 09:22+0100\n"
+"PO-Revision-Date: 2007-03-08 09:35+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -259,6 +259,10 @@ msgstr "&Berkeley Datenbank (BDB)"
 #: ID:114
 msgid "&Blame differences"
 msgstr "&Unterschiede annotieren"
+
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Vorherige Revision annotieren"
 
 #: ID:114
 #: ID:322
@@ -5691,10 +5695,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame kann nicht direkt gestartet werden!\n"
-"TortoiseBlame.exe Blamedatei [[Logdatei] [Titel]] [/line:Zeilennummer]"
+"TortoiseBlame.exe Blamedatei [[Logdatei] [Titel]] [/line:Zeilennummer] [/path:Originalpfad]"
 
 #: ID:7
 msgid "TortoiseIDiff"
