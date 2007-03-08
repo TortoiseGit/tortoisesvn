@@ -454,7 +454,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			struct tm ptm;
 
 			time(&now);
-			if (localtime_s(&ptm, &now)==0)
+			if ((now != 0) && (localtime_s(&ptm, &now)==0))
 			{
 				int week = 0;
 				// we don't calculate the real 'week of the year' here
