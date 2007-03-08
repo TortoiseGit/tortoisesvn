@@ -41,6 +41,7 @@ CFolderCrawler::~CFolderCrawler(void)
 
 void CFolderCrawler::Stop()
 {
+	m_bRun = false;
 	if (m_hTerminationEvent != INVALID_HANDLE_VALUE)
 	{
 		SetEvent(m_hTerminationEvent);
@@ -67,6 +68,7 @@ void CFolderCrawler::Initialise()
 	// If m_hWakeEvent is already signalled the worker thread 
 	// will behave properly (with normal priority at worst).
 
+	m_bRun = true;
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
@@ -127,7 +129,7 @@ void CFolderCrawler::WorkerThread()
 		// exit event/working loop if the first event (m_hTerminationEvent)
 		// has been signalled or if one of the events has been abandoned
 		// (i.e. ~CFolderCrawler() is being executed)
-		if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
+		if(m_bRun == false || waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
 		{
 			// Termination event
 			break;
@@ -140,6 +142,8 @@ void CFolderCrawler::WorkerThread()
 		bFirstRunAfterWakeup = true;
 		for(;;)
 		{
+			if (!m_bRun)
+				break;
 			// Any locks today?
 			if (CSVNStatusCache::Instance().m_bClearMemory)
 			{
@@ -182,7 +186,6 @@ void CFolderCrawler::WorkerThread()
 					{
 						// The queue has changed - it's worth sorting and de-duping
 						std::sort(m_pathsToUpdate.begin(), m_pathsToUpdate.end());
-						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
 						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftSameWCPathAsRight), m_pathsToUpdate.end());
 						m_bPathsAddedSinceLastCrawl = false;
 					}
