@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8841
+# Based on Tortoise.pot r8893
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-28 16:29+0100\n"
+"PO-Revision-Date: 2007-03-09 14:20+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,11 @@ msgstr "&Berkeley database (BDB)"
 #: ID:114,
 #, fuzzy
 msgid "&Blame differences"
-msgstr "&Ansvar ved forskelle"
+msgstr "&Ansvar for forskelle"
+
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Ansvar for forrige revision"
 
 #: ID:114,#: ID:322,
 #, fuzzy
@@ -2347,6 +2351,10 @@ msgstr "Gå til forrige forskel\nforrige forskel"
 #: Control-ID:1134,
 msgid "Graph type:"
 msgstr "Graftype:"
+
+#: ID:214,
+msgid "Group changelists"
+msgstr "Gruppe-ændringslister"
 
 #: Control-ID:1229,
 msgid "H&ide unrelated changed paths"
@@ -4678,8 +4686,8 @@ msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
 #: ID:13,
-msgid "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
-msgstr "TortoiseBlame kan ikke startes direkte.\nTortoiseBlame.exe ansvarsfil [[logfil] [titel]] [/line:linjenummer]"
+msgid "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+msgstr "TortoiseBlame kan ikke startes direkte.\nTortoiseBlame.exe ansvarsfil [[logfil] [titel]] [/line:linjenummer] [/path:originalsti]"
 
 #: ID:7,
 msgid "TortoiseIDiff"
