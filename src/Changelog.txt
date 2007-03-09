@@ -175,6 +175,7 @@ Version 1.4.4
        allow to save them anymore. (Stefan)
 - BUG: When saving a modified file in TortoiseMerge failed, the view titles
        still indicated that the file was not 'modified' anymore. (Stefan)
+- BUG: The revision graph could show wrong nodes after a merge. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

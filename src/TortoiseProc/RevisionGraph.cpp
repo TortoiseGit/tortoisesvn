@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-CRevisionGraph::CRevisionGraph(void) :	m_bCancelled(FALSE)
+CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	, m_FilterMinRev(-1)
 	, m_FilterMaxRev(-1)
 {
@@ -335,7 +335,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 	BuildForwardCopies();
 	
 	// in case our path was renamed and had a different name in the past,
-	// we have to find out that name now, because we will analyse the data
+	// we have to find out that name now, because we will analyze the data
 	// from lower to higher revisions
 	
 	CStringA realurl = url;
@@ -581,7 +581,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 						reventry->action = CRevisionEntry::renamed;
 						bRenamed = false;
 					}
-					if (reventry->sourcearray.GetCount() > 0)
+					if ((reventry->action != CRevisionEntry::lastcommit)&&(reventry->sourcearray.GetCount() > 0))
 					{
 						// the entry is a source of a copy
 						reventry->bUsed = true;
@@ -652,6 +652,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 	}
 	if ((lastchangedreventry)&&((!lastchangedreventry->bUsed)||(lastchangedreventry->action == CRevisionEntry::nothing)))
 	{
+		// This is the last entry for that url. That means after this revision, there are no more
+		// entries shown for this url.
 		lastchangedreventry->bUsed = true;
 		lastchangedreventry->action = CRevisionEntry::lastcommit;
 		lastchangedreventry->level = m_nRecurseLevel;
