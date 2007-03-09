@@ -279,9 +279,9 @@ C:\Temp\New\tags
 			</menuchoice>
 			from the context menu. 
 			The Properties Dialog comes up. Then go to the Subversion tab.
-			There, you can set properties. Select the
-			<literal>svn:externals</literal> property from the combobox and
-			write in the edit box the repository url in the format
+			There, you can set properties. Click <guibutton>Add...</guibutton>.
+			Select the <literal>svn:externals</literal> property from the
+			combobox and write in the edit box the repository url in the format
 			<literal>name url</literal>
 			or if you want to specify a particular revision,
 			<literal>name -rREV url</literal>
