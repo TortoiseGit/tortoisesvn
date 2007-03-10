@@ -176,7 +176,11 @@ public:
 	/**
 	 * Assigns the files/folders in \c pathList to a \c changelist.
 	 */
-	BOOL SetChangeList(const CTSVNPathList& pathList, const CString& changelist);
+	BOOL AddToChangeList(const CTSVNPathList& pathList, const CString& changelist);
+	/**
+	 * Removes the files/folders in \c pathList from the \c changelist.
+	 */
+	BOOL RemoveFromChangeList(const CTSVNPathList& pathList, const CString& changelist);
 	/**
 	 * Update working tree path to revision.
 	 * \param pathList the files/directories to update

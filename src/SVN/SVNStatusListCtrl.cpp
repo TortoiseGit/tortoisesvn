@@ -3262,7 +3262,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPathList changelistItems;
 						FillListOfSelectedItemPaths(changelistItems);
 						SVN svn;
-						if (svn.SetChangeList(changelistItems, CString()))
+						if (svn.RemoveFromChangeList(changelistItems, CString()))
 						{
 							// The changelists were removed, but we now need to run through the selected items again
 							// and update their changelist
@@ -3291,7 +3291,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (dlg.DoModal() == IDOK)
 						{
 							SVN svn;
-							if (svn.SetChangeList(changelistItems, dlg.m_sName))
+							if (svn.AddToChangeList(changelistItems, dlg.m_sName))
 							{
 								// The changelists were removed, but we now need to run through the selected items again
 								// and update their changelist
@@ -3359,9 +3359,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (!sChangelist.IsEmpty())
 						{
 							SVN svn;
-							if (svn.SetChangeList(changelistItems, sChangelist))
+							if (svn.AddToChangeList(changelistItems, sChangelist))
 							{
-								// The changelists were removed, but we now need to run through the selected items again
+								// The changelists were moved, but we now need to run through the selected items again
 								// and update their changelist
 								POSITION pos = GetFirstSelectedItemPosition();
 								int index;
