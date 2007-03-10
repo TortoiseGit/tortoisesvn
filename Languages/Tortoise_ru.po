@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8858: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8893: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-08 15:45+0300\n"
+"PO-Revision-Date: 2007-03-10 16:11+0300\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1588,7 +1588,7 @@ msgstr "Очищает %ld сообщений журнала, сохранённ
 #: ID:196
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr "Очищает %ld пар имя-пользователя/пароль,%ld сертификатов ssl и %ld имён пользователей"
+msgstr "Очищает %ld пар(ы) имя-пользователя/пароль, %ld сертификатов ssl и %ld имён пользователей"
 
 #: ID:195
 msgid ""
@@ -1596,7 +1596,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "Очищает все сохраненные данные авторизации.\n"
-"Вам нужно будет заново ввести имя/пароль для всех хранилищ."
+"Вам нужно будет заново ввести имя-пользователя/пароль для всех хранилищ."
 
 #: ID:196
 #, c-format
@@ -2702,6 +2702,10 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Тип графика:"
+
+#: ID:214
+msgid "Group changelists"
+msgstr "Разбить по группам изменений"
 
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
