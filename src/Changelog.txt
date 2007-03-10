@@ -162,6 +162,9 @@
        recursively if there is only a property change. (Tobias Schäfer)
 - CHG: The language pack are now installed with msi installer files.
        See issue #155 for details. (Stefan)
+- CHG: When creating a repository, always use the FSFS type. While it's no
+       longer possible to create BDB repositories, it's still possible to
+       access them via file:///. (Stefan)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)

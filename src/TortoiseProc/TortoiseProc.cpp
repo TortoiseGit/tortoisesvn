@@ -38,7 +38,6 @@
 #include "ResolveDlg.h"
 #include "RevertDlg.h"
 #include "DeleteUnversionedDlg.h"
-#include "RepoCreateDlg.h"
 #include "RenameDlg.h"
 #include "SwitchDlg.h"
 #include "MergeDlg.h"
@@ -957,34 +956,13 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region repocreate
 		if (command == cmdRepoCreate)
 		{
-			CRepoCreateDlg dlg;
-			if (dlg.DoModal() == IDOK)
+			if (!SVN::CreateRepository(cmdLinePath.GetWinPathString()))
 			{
-				if ((dlg.RepoType.Compare(_T("bdb"))==0)&&(GetDriveType(cmdLinePath.GetRootPathString())==DRIVE_REMOTE))
-				{
-					if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
-					{
-						if (!SVN::CreateRepository(cmdLinePath.GetWinPathString(), dlg.RepoType))
-						{
-							CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
-						}
-						else
-						{
-							CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
-						}
-					} 
-				}
-				else
-				{
-					if (!SVN::CreateRepository(cmdLinePath.GetWinPathString(), dlg.RepoType))
-					{
-						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
-					}
-					else
-					{
-						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
-					}
-				}
+				CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+			}
+			else
+			{
+				CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 			}
 		}
 		//#endregion

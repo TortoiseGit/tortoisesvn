@@ -674,7 +674,7 @@ public:
 	 * \param path where the repository should be created
 	 * \return TRUE if operation was successful
 	 */
-	static BOOL CreateRepository(CString path, CString fstype = _T("bdb"));
+	static BOOL CreateRepository(CString path, CString fstype = _T("fsfs"));
 
 	/**
 	 * Convert Windows Path to Local Repository URL
