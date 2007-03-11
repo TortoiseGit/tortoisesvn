@@ -953,7 +953,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 {
 	BOOL bEnable = FALSE;
-	if ((!m_bReadOnly)&&(this->m_Data.m_mergedFile.InUse()))
+	if (this->m_Data.m_mergedFile.InUse())
 	{
 		if (m_pwndBottomView)
 		{
