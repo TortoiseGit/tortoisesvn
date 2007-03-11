@@ -343,6 +343,8 @@ bool CPicture::Load(stdstring sFilePathName)
 					{
 						TCHAR buf[100];
 						_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
+						if ((fileinfo.nFileSizeLow/1024)==0)
+							_stprintf_s(buf, _T("%ld Bytes"), fileinfo.nFileSizeLow);
 						m_FileSize = stdstring(buf);
 						m_nSize = fileinfo.nFileSizeLow;
 						bResult = true;
@@ -384,6 +386,8 @@ bool CPicture::Load(stdstring sFilePathName)
 			{
 				TCHAR buf[100];
 				_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
+				if ((fileinfo.nFileSizeLow/1024)==0)
+					_stprintf_s(buf, _T("%ld Bytes"), fileinfo.nFileSizeLow);
 				m_FileSize = stdstring(buf);
 				m_nSize = fileinfo.nFileSizeLow;
 			}
