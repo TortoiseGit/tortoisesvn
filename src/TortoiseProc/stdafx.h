@@ -82,7 +82,6 @@
 #pragma warning(push)
 #pragma warning(disable: 4005)	// macro redefinition
 #include "..\..\ext\apr\include\apr_version.h"
-#include "..\..\ext\apr-iconv\include\api_version.h"
 #include "..\..\ext\apr-util\include\apu_version.h"
 //#include "..\..\ext\berkeley-db\db4.3-win32\include\db.h"
 #include "..\..\ext\neon\config.h"

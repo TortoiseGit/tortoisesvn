@@ -54,13 +54,6 @@
 				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll" />
 				<include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll" />
 				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
-				<include name="..\ext\apr-iconv\${configuration}_${platform}\libapriconv_tsvn.dll" />
-			</fileset>
-		</copy>
-		<mkdir dir="..\bin\${configuration}${bindirextension}\iconv" failonerror="false" />
-		<copy todir="..\bin\${configuration}${bindirextension}\iconv" overwrite="true" failonerror="false">
-			<fileset>
-				<include name="..\ext\apr-iconv\${configuration}_${platform}\iconv\*.so" />
 			</fileset>
 		</copy>
 		<nant target="versioninfo">

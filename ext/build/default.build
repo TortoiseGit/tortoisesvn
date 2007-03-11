@@ -18,7 +18,6 @@
 
 	<target name="build">
 		<nant target="build" buildfile="apr.build" />
-		<nant target="build" buildfile="apriconv.build" />
 		<nant target="build" buildfile="aprutil.build" />
 
 		<copy file="inffas32.asm" tofile="..\..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />

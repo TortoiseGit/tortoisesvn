@@ -116,7 +116,7 @@
 
 	<target name="build" depends="gen_uri_delims,xml">
 		<mkdir dir="${configuration}_${platform}" />
-		<copy file="include\apu.hw" tofile="include\apu.h" overwrite="true" />
+		<copy file="..\build\apu.hw" tofile="include\apu.h" overwrite="true" />
 		<copy file="include\apu_want.hw" tofile="include\apu_want.h" overwrite="true" />
 		<copy file="include\apr_ldap.hw" tofile="include\apr_ldap.h" overwrite="true" />
 		<copy file="include\private\apu_select_dbm.hw" tofile="include\private\apu_select_dbm.h" overwrite="true" />
@@ -170,7 +170,6 @@
 				<include name="misc\*.c" />
 				<include name="strmatch\*.c" />
 				<include name="uri\apr_uri.c" />
-				<include name="xlate\*.c" />
 				<include name="xml\apr_xml.c" />
 			</sources>
 			<includedirs>
@@ -178,7 +177,6 @@
 				<include name="include\private" />
 				<include name="xml\expat\lib" />
 				<include name="..\apr\include" />
-				<include name="..\apr-iconv\include" />
 				<include name="..\berkeley-db\db4.4-win32\include" />
 			</includedirs>
 			<defines>
@@ -197,7 +195,7 @@
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
 			output="${configuration}_${platform}\libaprutil_tsvn.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-iconv\${configuration}_${platform}\libapriconv_tsvn.lib ..\berkeley-db\db4.4-win32\lib\libdb44.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\berkeley-db\db4.4-win32\lib\libdb44.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 				<include name="xml\expat\lib\${configuration}_${platform}\*.obj" />
