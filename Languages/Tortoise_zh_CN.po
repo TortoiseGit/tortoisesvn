@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-09 11:39+0800\n"
+"PO-Revision-Date: 2007-03-11 18:24+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3014,6 +3014,12 @@ msgstr "打开文件失败。"
 #: ID:3857
 msgid "Failed to save document."
 msgstr "保存文件失败。"
+
+# ID:15,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "设置/删除修改列表 \"%s\"失败"
 
 # ID:220,
 #: ID:220
