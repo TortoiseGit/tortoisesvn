@@ -186,9 +186,6 @@
 
             <?if $(env.IncludeCrashReportDll) = 1 ?>
             <Component Id="C__crash" Guid="$(var.GuidCrashRpt)" Win64="$(var.Win64YesNo)">
-              <?if $(env.Platform) = "win32" ?>
-              <File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
-              <?endif ?>
               <File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\CrashRpt.dll" KeyPath="yes" />
             </Component>
             <?endif ?>
