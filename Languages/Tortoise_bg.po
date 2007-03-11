@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-02-25 18:10+0200\n"
+"PO-Revision-Date: 2007-03-11 06:04+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -332,6 +332,11 @@ msgstr "&Berkeley database (BDB)"
 #: ID:114
 msgid "&Blame differences"
 msgstr "&Показване на отговорните за разликите"
+
+# ID:76,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Показване на отговорните за предишна ревизия"
 
 # ID:76,
 #: ID:114
@@ -1635,6 +1640,7 @@ msgid "Base file:"
 msgstr "Базов файл:"
 
 # ID:13,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Показване на отговорните"
@@ -3029,6 +3035,12 @@ msgstr "Грешка при отворяне на документ."
 msgid "Failed to save document."
 msgstr "Грешка при запис на документ."
 
+# ID:13,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Грешка при установяване/премахване на група с промени \"%s\""
+
 # ID:63,#:
 # ID:74,#:
 # ID:77,
@@ -3296,6 +3308,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Тип на диаграмата:"
+
+# ID:13,
+#: ID:214
+msgid "Group changelists"
+msgstr "Групиране на списъци с промени"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -6344,6 +6361,12 @@ msgstr ""
 
 # ID:3857,#:
 # ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "Файлът е прекалено голям"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Този файл е прекалено голям, за да бъде отворен."
@@ -6781,10 +6804,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame не може да бъде стартирана директно!\n"
-"TortoiseBlame.exe файл_с_отговорните [[файл–дневник] [заглавие]] [/line:номер_на_ред]"
+"TortoiseBlame.exe файл_с_отговорните [[файл–дневник] [заглавие]] [/line:номер_на_ред] [/path:първоначален_път]"
 
 # ID:9,#:
 # ID:80,
