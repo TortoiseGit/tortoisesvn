@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-18 20:04+0100\n"
+"PO-Revision-Date: 2007-03-11 20:40+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -316,6 +316,11 @@ msgid "&Blame differences"
 msgstr "&Krivci razlika"
 
 # ID:76,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Krivci prošle revizije"
+
+# ID:76,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -357,6 +362,11 @@ msgstr "&Počisti"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Pohrani..."
+
+# ID:76,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Usporedi URLove"
 
 # ID:76,
 #: MenuEntry
@@ -1613,6 +1623,7 @@ msgid "Base file:"
 msgstr "Osnovna datoteka:"
 
 # ID:13,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Okrivi"
@@ -2184,6 +2195,11 @@ msgstr "Kopiraj URL u međuspremnik"
 #: ID:209
 msgid "Copy all information to clipboard"
 msgstr "Kopiraj sve informacije u međuspremnik"
+
+# ID:127,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Ovdje kopiraj uz promjenu imena datoteke"
 
 # ID:257,
 #: ID:101
@@ -2998,6 +3014,12 @@ msgstr "Neuspješno otvaranje dokumenta."
 msgid "Failed to save document."
 msgstr "Neuspješno snimanje dokumenta."
 
+# ID:13,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Neuspješno postavljanje/uklanjanje skupu izmjena \"%s\""
+
 # ID:63,#:
 # ID:74,#:
 # ID:77,#:
@@ -3268,6 +3290,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Vrsta grafa:"
+
+# ID:13,
+#: ID:214
+msgid "Group changelists"
+msgstr "Grupiraj popis izmjena"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -4090,6 +4117,11 @@ msgstr "Označi kao &riješeno"
 msgid "Mark as resolved"
 msgstr "Označi kao riješeno"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Označi za usporedbu"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4228,6 +4260,11 @@ msgid ""
 msgstr ""
 "Premjesti %s\r\n"
 "u %s"
+
+# ID:127,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Ovdje premjesti uz promjenu imena"
 
 # ID:127,
 #: ID:103
@@ -6010,11 +6047,6 @@ msgid "Sort items numerically"
 msgstr "Razvrstaj stavke po brojevima"
 
 # Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Razvrstaj stavke po brojevima"
-
-# Control-ID:1300,
 #: ID:197
 msgid "Sorts items numerical instead of alphabetical"
 msgstr "Razvrstaj stavke po brojevima (umjesto abecedno)"
@@ -6352,6 +6384,12 @@ msgstr ""
 
 # ID:3857,#:
 # ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "Datoteka je prevelika"
+
+# ID:3857,#:
+# ID:3857,
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Datoteka je prevelika da bi se otvorila."
@@ -6496,6 +6534,41 @@ msgstr ""
 "\n"
 "Ispravna staza na windows ne smije sadržavati '<>|\"?*:' kao i niti jedan od sljedećih naziva uređaja:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"Staza\n"
+"<i>%s</i>\n"
+"iz zakrpe ne postoji u radnoj kopiji.\n"
+"No, TortoiseMerge je našao relativnu stazu\n"
+"<i>%s</i>\n"
+"koja je odgovarajuća mapi.\n"
+"Želite li umjesto one koristiti predloženu stazu? Ako odgovorite 'ne', TortoiseMerge će odustati."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"Staza\n"
+"<i>%s</i>\n"
+"u zakrpi ne postoji.\n"
+"TortoiseMerge je pokušao primjeniti zakrpu ali odgovarajuća mapa nije pronađena."
 
 # ID:314,
 #: ID:314
@@ -6755,10 +6828,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
-"TortoiseBlame se ne može direktno pokrenuti, samo s parametrima!\n"
-"TortoiseBlame.exe datoteka  [[log_datoteka] [naslov]] [/line:broj_redka]"
+"TortoiseBlame se ne može direktno pokrenuti!\n"
+"TortoiseBlame.exe datoteka  [[log_datoteka] [naslov]] [/line:broj_redka] [/path:osnovna_staza]"
 
 # ID:9,#:
 # ID:80,
@@ -6807,13 +6880,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#:
@@ -6836,7 +6907,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6846,7 +6916,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
