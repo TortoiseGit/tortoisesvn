@@ -1,3 +1,8 @@
+/*
+ * cmdline.c - command-line parsing shared between many of the
+ * PuTTY applications
+ */
+
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -63,23 +68,40 @@ void cmdline_cleanup(void)
     if (need_save) { cmdline_save_param(p, value, pri); return ret; } \
 } while (0)
 
-char *cmdline_password = NULL;
+static char *cmdline_password = NULL;
 
-static int cmdline_get_line(const char *prompt, char *str,
-                            int maxlen, int is_pw)
-{
+/*
+ * Similar interface to get_userpass_input(), except that here a -1
+ * return means that we aren't capable of processing the prompt and
+ * someone else should do it.
+ */
+int cmdline_get_passwd_input(prompts_t *p, unsigned char *in, int inlen) {
+
     static int tried_once = 0;
 
-    assert(is_pw && cmdline_password);
-
-    if (tried_once) {
-	return 0;
-    } else {
-	strncpy(str, cmdline_password, maxlen);
-	str[maxlen - 1] = '\0';
-	tried_once = 1;
-	return 1;
+    /*
+     * We only handle prompts which don't echo (which we assume to be
+     * passwords), and (currently) we only cope with a password prompt
+     * that comes in a prompt-set on its own.
+     */
+    if (!cmdline_password || in || p->n_prompts != 1 || p->prompts[0]->echo) {
+	return -1;
     }
+
+    /*
+     * If we've tried once, return utter failure (no more passwords left
+     * to try).
+     */
+    if (tried_once)
+	return 0;
+
+    strncpy(p->prompts[0]->result, cmdline_password,
+	    p->prompts[0]->result_len);
+    p->prompts[0]->result[p->prompts[0]->result_len-1] = '\0';
+    memset(cmdline_password, 0, strlen(cmdline_password));
+    tried_once = 1;
+    return 1;
+
 }
 
 /*
@@ -174,10 +196,6 @@ int cmdline_process_param(char *p, char *value, int need_save, Config *cfg)
 	RETURN(1);
 	flags |= FLAG_VERBOSE;
     }
-    if (!strcmp(p, "-V")) {
-        RETURN(1);
-        flags |= FLAG_VERSION;
-    }
     if (!strcmp(p, "-l")) {
 	RETURN(2);
 	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
@@ -194,19 +212,20 @@ int cmdline_process_param(char *p, char *value, int need_save, Config *cfg)
 	dynamic = !strcmp(p, "-D");
 	fwd = value;
 	ptr = cfg->portfwd;
-	/* if multiple forwards, find end of list */
-	if (ptr[0]=='R' || ptr[0]=='L' || ptr[0] == 'D') {
-	    for (i = 0; i < sizeof(cfg->portfwd) - 2; i++)
-		if (ptr[i]=='\000' && ptr[i+1]=='\000')
-		    break;
-	    ptr = ptr + i + 1;  /* point to next forward slot */
+	/* if existing forwards, find end of list */
+	while (*ptr) {
+	    while (*ptr)
+		ptr++;
+	    ptr++;
 	}
+	i = ptr - cfg->portfwd;
 	ptr[0] = p[1];  /* insert a 'L', 'R' or 'D' at the start */
-	if (strlen(fwd) > sizeof(cfg->portfwd) - i - 2) {
+	ptr++;
+	if (1 + strlen(fwd) + 2 > sizeof(cfg->portfwd) - i) {
 	    cmdline_error("out of space for port forwardings");
 	    return ret;
 	}
-	strncpy(ptr+1, fwd, sizeof(cfg->portfwd) - i);
+	strncpy(ptr, fwd, sizeof(cfg->portfwd) - i - 2);
 	if (!dynamic) {
 	    /*
 	     * We expect _at least_ two colons in this string. The
@@ -228,7 +247,29 @@ int cmdline_process_param(char *p, char *value, int need_save, Config *cfg)
 	}
 	cfg->portfwd[sizeof(cfg->portfwd) - 1] = '\0';
 	cfg->portfwd[sizeof(cfg->portfwd) - 2] = '\0';
-	ptr[strlen(ptr)+1] = '\000';    /* append two '\000' */
+	ptr[strlen(ptr)+1] = '\000';    /* append 2nd '\000' */
+    }
+    if ((!strcmp(p, "-nc"))) {
+	char *host, *portp;
+
+	RETURN(2);
+	UNAVAILABLE_IN(TOOLTYPE_FILETRANSFER | TOOLTYPE_NONNETWORK);
+	SAVEABLE(0);
+
+	host = portp = value;
+	while (*portp && *portp != ':')
+	    portp++;
+	if (*portp) {
+	    unsigned len = portp - host;
+	    if (len >= sizeof(cfg->ssh_nc_host))
+		len = sizeof(cfg->ssh_nc_host) - 1;
+	    strncpy(cfg->ssh_nc_host, value, len);
+	    cfg->ssh_nc_host[sizeof(cfg->ssh_nc_host) - 1] = '\0';
+	    cfg->ssh_nc_port = atoi(portp+1);
+	} else {
+	    cmdline_error("-nc expects argument of form 'host:port'");
+	    return ret;
+	}
     }
     if (!strcmp(p, "-m")) {
 	char *filename, *command;
@@ -275,8 +316,19 @@ int cmdline_process_param(char *p, char *value, int need_save, Config *cfg)
 	RETURN(2);
 	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
 	cmdline_password = value;
-	ssh_get_line = cmdline_get_line;
-	ssh_getline_pw_only = TRUE;
+    }
+
+    if (!strcmp(p, "-agent") || !strcmp(p, "-pagent") ||
+	!strcmp(p, "-pageant")) {
+	RETURN(1);
+	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
+	cfg->tryagent = TRUE;
+    }
+    if (!strcmp(p, "-noagent") || !strcmp(p, "-nopagent") ||
+	!strcmp(p, "-nopageant")) {
+	RETURN(1);
+	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
+	cfg->tryagent = FALSE;
     }
 
     if (!strcmp(p, "-A")) {
@@ -350,6 +402,17 @@ int cmdline_process_param(char *p, char *value, int need_save, Config *cfg)
 	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
 	SAVEABLE(0);
 	cfg->keyfile = filename_from_str(value);
+    }
+
+    if (!strcmp(p, "-4") || !strcmp(p, "-ipv4")) {
+	RETURN(1);
+	SAVEABLE(1);
+	cfg->addressfamily = ADDRTYPE_IPV4;
+    }
+    if (!strcmp(p, "-6") || !strcmp(p, "-ipv6")) {
+	RETURN(1);
+	SAVEABLE(1);
+	cfg->addressfamily = ADDRTYPE_IPV6;
     }
 
     return ret;			       /* unrecognised */

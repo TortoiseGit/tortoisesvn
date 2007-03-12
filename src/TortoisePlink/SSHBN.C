@@ -9,6 +9,20 @@
 
 #include "misc.h"
 
+/*
+ * Usage notes:
+ *  * Do not call the DIVMOD_WORD macro with expressions such as array
+ *    subscripts, as some implementations object to this (see below).
+ *  * Note that none of the division methods below will cope if the
+ *    quotient won't fit into BIGNUM_INT_BITS. Callers should be careful
+ *    to avoid this case.
+ *    If this condition occurs, in the case of the x86 DIV instruction,
+ *    an overflow exception will occur, which (according to a correspondent)
+ *    will manifest on Windows as something like
+ *      0xC0000095: Integer overflow
+ *    The C variant won't give the right answer, either.
+ */
+
 #if defined __GNUC__ && defined __i386__
 typedef unsigned long BignumInt;
 typedef unsigned long long BignumDblInt;
@@ -20,6 +34,23 @@ typedef unsigned long long BignumDblInt;
     __asm__("div %2" : \
 	    "=d" (r), "=a" (q) : \
 	    "r" (w), "d" (hi), "a" (lo))
+#elif defined _MSC_VER && defined _M_IX86
+typedef unsigned __int32 BignumInt;
+typedef unsigned __int64 BignumDblInt;
+#define BIGNUM_INT_MASK  0xFFFFFFFFUL
+#define BIGNUM_TOP_BIT   0x80000000UL
+#define BIGNUM_INT_BITS  32
+#define MUL_WORD(w1, w2) ((BignumDblInt)w1 * w2)
+/* Note: MASM interprets array subscripts in the macro arguments as
+ * assembler syntax, which gives the wrong answer. Don't supply them.
+ * <http://msdn2.microsoft.com/en-us/library/bf1dw62z.aspx> */
+#define DIVMOD_WORD(q, r, hi, lo, w) do { \
+    __asm mov edx, hi \
+    __asm mov eax, lo \
+    __asm div w \
+    __asm mov r, edx \
+    __asm mov q, eax \
+} while(0)
 #else
 typedef unsigned short BignumInt;
 typedef unsigned long BignumDblInt;
@@ -185,17 +216,39 @@ static void internal_mod(BignumInt *a, int alen,
 	    ai1 = a[i + 1];
 
 	/* Find q = h:a[i] / m0 */
-	DIVMOD_WORD(q, r, h, a[i], m0);
+	if (h >= m0) {
+	    /*
+	     * Special case.
+	     * 
+	     * To illustrate it, suppose a BignumInt is 8 bits, and
+	     * we are dividing (say) A1:23:45:67 by A1:B2:C3. Then
+	     * our initial division will be 0xA123 / 0xA1, which
+	     * will give a quotient of 0x100 and a divide overflow.
+	     * However, the invariants in this division algorithm
+	     * are not violated, since the full number A1:23:... is
+	     * _less_ than the quotient prefix A1:B2:... and so the
+	     * following correction loop would have sorted it out.
+	     * 
+	     * In this situation we set q to be the largest
+	     * quotient we _can_ stomach (0xFF, of course).
+	     */
+	    q = BIGNUM_INT_MASK;
+	} else {
+	    /* Macro doesn't want an array subscript expression passed
+	     * into it (see definition), so use a temporary. */
+	    BignumInt tmplo = a[i];
+	    DIVMOD_WORD(q, r, h, tmplo, m0);
 
-	/* Refine our estimate of q by looking at
-	   h:a[i]:a[i+1] / m0:m1 */
-	t = MUL_WORD(m1, q);
-	if (t > ((BignumDblInt) r << BIGNUM_INT_BITS) + ai1) {
-	    q--;
-	    t -= m1;
-	    r = (r + m0) & BIGNUM_INT_MASK;     /* overflow? */
-	    if (r >= (BignumDblInt) m0 &&
-		t > ((BignumDblInt) r << BIGNUM_INT_BITS) + ai1) q--;
+	    /* Refine our estimate of q by looking at
+	     h:a[i]:a[i+1] / m0:m1 */
+	    t = MUL_WORD(m1, q);
+	    if (t > ((BignumDblInt) r << BIGNUM_INT_BITS) + ai1) {
+		q--;
+		t -= m1;
+		r = (r + m0) & BIGNUM_INT_MASK;     /* overflow? */
+		if (r >= (BignumDblInt) m0 &&
+		    t > ((BignumDblInt) r << BIGNUM_INT_BITS) + ai1) q--;
+	    }
 	}
 
 	/* Subtract q * m from a[i...] */
@@ -203,7 +256,7 @@ static void internal_mod(BignumInt *a, int alen,
 	for (k = mlen - 1; k >= 0; k--) {
 	    t = MUL_WORD(q, m[k]);
 	    t += c;
-	    c = t >> BIGNUM_INT_BITS;
+	    c = (unsigned)(t >> BIGNUM_INT_BITS);
 	    if ((BignumInt) t > a[i + k])
 		c++;
 	    a[i + k] -= (BignumInt) t;
@@ -269,7 +322,7 @@ Bignum modpow(Bignum base_in, Bignum exp, Bignum mod)
     i = mlen - base[0];
     for (j = 0; j < i; j++)
 	n[j] = 0;
-    for (j = 0; j < base[0]; j++)
+    for (j = 0; j < (int)base[0]; j++)
 	n[i + j] = base[base[0] - j];
 
     /* Allocate a and b of size 2*mlen. Set a = 1 */
@@ -282,7 +335,7 @@ Bignum modpow(Bignum base_in, Bignum exp, Bignum mod)
     /* Skip leading zero bits of exp. */
     i = 0;
     j = BIGNUM_INT_BITS-1;
-    while (i < exp[0] && (exp[exp[0] - i] & (1 << j)) == 0) {
+    while (i < (int)exp[0] && (exp[exp[0] - i] & (1 << j)) == 0) {
 	j--;
 	if (j < 0) {
 	    i++;
@@ -291,7 +344,7 @@ Bignum modpow(Bignum base_in, Bignum exp, Bignum mod)
     }
 
     /* Main computation */
-    while (i < exp[0]) {
+    while (i < (int)exp[0]) {
 	while (j >= 0) {
 	    internal_mul(a + mlen, a + mlen, b, mlen);
 	    internal_mod(b, mlen * 2, m, mlen, NULL, 0);
@@ -382,7 +435,7 @@ Bignum modmul(Bignum p, Bignum q, Bignum mod)
     i = pqlen - p[0];
     for (j = 0; j < i; j++)
 	n[j] = 0;
-    for (j = 0; j < p[0]; j++)
+    for (j = 0; j < (int)p[0]; j++)
 	n[i + j] = p[p[0] - j];
 
     /* Allocate o of size pqlen, copy q to o */
@@ -390,7 +443,7 @@ Bignum modmul(Bignum p, Bignum q, Bignum mod)
     i = pqlen - q[0];
     for (j = 0; j < i; j++)
 	o[j] = 0;
-    for (j = 0; j < q[0]; j++)
+    for (j = 0; j < (int)q[0]; j++)
 	o[i + j] = q[q[0] - j];
 
     /* Allocate a of size 2*pqlen for result */
@@ -474,7 +527,7 @@ static void bigdivmod(Bignum p, Bignum mod, Bignum result, Bignum quotient)
     n = snewn(plen, BignumInt);
     for (j = 0; j < plen; j++)
 	n[j] = 0;
-    for (j = 1; j <= p[0]; j++)
+    for (j = 1; j <= (int)p[0]; j++)
 	n[plen - j] = p[j];
 
     /* Main computation */
@@ -492,7 +545,7 @@ static void bigdivmod(Bignum p, Bignum mod, Bignum result, Bignum quotient)
 
     /* Copy result to buffer */
     if (result) {
-	for (i = 1; i <= result[0]; i++) {
+	for (i = 1; i <= (int)result[0]; i++) {
 	    int j = plen - i;
 	    result[i] = j >= 0 ? n[j] : 0;
 	}
@@ -513,7 +566,7 @@ static void bigdivmod(Bignum p, Bignum mod, Bignum result, Bignum quotient)
 void decbn(Bignum bn)
 {
     int i = 1;
-    while (i < bn[0] && bn[i] == 0)
+    while (i < (int)bn[0] && bn[i] == 0)
 	bn[i++] = BIGNUM_INT_MASK;
     bn[i]--;
 }
@@ -539,7 +592,7 @@ Bignum bignum_from_bytes(const unsigned char *data, int nbytes)
 }
 
 /*
- * Read an ssh1-format bignum from a data buffer. Return the number
+ * Read an SSH-1-format bignum from a data buffer. Return the number
  * of bytes consumed, or -1 if there wasn't enough data.
  */
 int ssh1_read_bignum(const unsigned char *data, int len, Bignum * result)
@@ -568,7 +621,7 @@ int ssh1_read_bignum(const unsigned char *data, int len, Bignum * result)
 }
 
 /*
- * Return the bit count of a bignum, for ssh1 encoding.
+ * Return the bit count of a bignum, for SSH-1 encoding.
  */
 int bignum_bitcount(Bignum bn)
 {
@@ -579,7 +632,7 @@ int bignum_bitcount(Bignum bn)
 }
 
 /*
- * Return the byte length of a bignum when ssh1 encoded.
+ * Return the byte length of a bignum when SSH-1 encoded.
  */
 int ssh1_bignum_length(Bignum bn)
 {
@@ -587,7 +640,7 @@ int ssh1_bignum_length(Bignum bn)
 }
 
 /*
- * Return the byte length of a bignum when ssh2 encoded.
+ * Return the byte length of a bignum when SSH-2 encoded.
  */
 int ssh2_bignum_length(Bignum bn)
 {
@@ -599,7 +652,7 @@ int ssh2_bignum_length(Bignum bn)
  */
 int bignum_byte(Bignum bn, int i)
 {
-    if (i >= BIGNUM_INT_BYTES * bn[0])
+    if (i >= (int)(BIGNUM_INT_BYTES * bn[0]))
 	return 0;		       /* beyond the end */
     else
 	return (bn[i / BIGNUM_INT_BYTES + 1] >>
@@ -611,7 +664,7 @@ int bignum_byte(Bignum bn, int i)
  */
 int bignum_bit(Bignum bn, int i)
 {
-    if (i >= BIGNUM_INT_BITS * bn[0])
+    if (i >= (int)(BIGNUM_INT_BITS * bn[0]))
 	return 0;		       /* beyond the end */
     else
 	return (bn[i / BIGNUM_INT_BITS + 1] >> (i % BIGNUM_INT_BITS)) & 1;
@@ -622,7 +675,7 @@ int bignum_bit(Bignum bn, int i)
  */
 void bignum_set_bit(Bignum bn, int bitnum, int value)
 {
-    if (bitnum >= BIGNUM_INT_BITS * bn[0])
+    if (bitnum >= (int)(BIGNUM_INT_BITS * bn[0]))
 	abort();		       /* beyond the end */
     else {
 	int v = bitnum / BIGNUM_INT_BITS + 1;
@@ -635,7 +688,7 @@ void bignum_set_bit(Bignum bn, int bitnum, int value)
 }
 
 /*
- * Write a ssh1-format bignum into a buffer. It is assumed the
+ * Write a SSH-1-format bignum into a buffer. It is assumed the
  * buffer is big enough. Returns the number of bytes used.
  */
 int ssh1_write_bignum(void *data, Bignum bn)
@@ -689,9 +742,9 @@ Bignum bignum_rshift(Bignum a, int shift)
 	shiftbb = BIGNUM_INT_BITS - shiftb;
 
 	ai1 = a[shiftw + 1];
-	for (i = 1; i <= ret[0]; i++) {
+	for (i = 1; i <= (int)ret[0]; i++) {
 	    ai = ai1;
-	    ai1 = (i + shiftw + 1 <= a[0] ? a[i + shiftw + 1] : 0);
+	    ai1 = (i + shiftw + 1 <= (int)a[0] ? a[i + shiftw + 1] : 0);
 	    ret[i] = ((ai >> shiftb) | (ai1 << shiftbb)) & BIGNUM_INT_MASK;
 	}
     }
@@ -713,8 +766,8 @@ Bignum bigmuladd(Bignum a, Bignum b, Bignum addend)
     /* mlen space for a, mlen space for b, 2*mlen for result */
     workspace = snewn(mlen * 4, BignumInt);
     for (i = 0; i < mlen; i++) {
-	workspace[0 * mlen + i] = (mlen - i <= a[0] ? a[mlen - i] : 0);
-	workspace[1 * mlen + i] = (mlen - i <= b[0] ? b[mlen - i] : 0);
+	workspace[0 * mlen + i] = (mlen - i <= (int)a[0] ? a[mlen - i] : 0);
+	workspace[1 * mlen + i] = (mlen - i <= (int)b[0] ? b[mlen - i] : 0);
     }
 
     internal_mul(workspace + 0 * mlen, workspace + 1 * mlen,
@@ -722,11 +775,11 @@ Bignum bigmuladd(Bignum a, Bignum b, Bignum addend)
 
     /* now just copy the result back */
     rlen = alen + blen + 1;
-    if (addend && rlen <= addend[0])
+    if (addend && rlen <= (int)addend[0])
 	rlen = addend[0] + 1;
     ret = newbn(rlen);
     maxspot = 0;
-    for (i = 1; i <= ret[0]; i++) {
+    for (i = 1; i <= (int)ret[0]; i++) {
 	ret[i] = (i <= 2 * mlen ? workspace[4 * mlen - i] : 0);
 	if (ret[i] != 0)
 	    maxspot = i;
@@ -737,8 +790,8 @@ Bignum bigmuladd(Bignum a, Bignum b, Bignum addend)
     if (addend) {
 	BignumDblInt carry = 0;
 	for (i = 1; i <= rlen; i++) {
-	    carry += (i <= ret[0] ? ret[i] : 0);
-	    carry += (i <= addend[0] ? addend[i] : 0);
+	    carry += (i <= (int)ret[0] ? ret[i] : 0);
+	    carry += (i <= (int)addend[0] ? addend[i] : 0);
 	    ret[i] = (BignumInt) carry & BIGNUM_INT_MASK;
 	    carry >>= BIGNUM_INT_BITS;
 	    if (ret[i] != 0 && i > maxspot)
@@ -809,9 +862,9 @@ Bignum bignum_add_long(Bignum number, unsigned long addendx)
     int i, maxspot = 0;
     BignumDblInt carry = 0, addend = addendx;
 
-    for (i = 1; i <= ret[0]; i++) {
+    for (i = 1; i <= (int)ret[0]; i++) {
 	carry += addend & BIGNUM_INT_MASK;
-	carry += (i <= number[0] ? number[i] : 0);
+	carry += (i <= (int)number[0] ? number[i] : 0);
 	addend >>= BIGNUM_INT_BITS;
 	ret[i] = (BignumInt) carry & BIGNUM_INT_MASK;
 	carry >>= BIGNUM_INT_BITS;
@@ -942,9 +995,9 @@ Bignum modinv(Bignum number, Bignum modulus)
 	int maxspot = 1;
 	int i;
 
-	for (i = 1; i <= newx[0]; i++) {
-	    BignumInt aword = (i <= modulus[0] ? modulus[i] : 0);
-	    BignumInt bword = (i <= x[0] ? x[i] : 0);
+	for (i = 1; i <= (int)newx[0]; i++) {
+	    BignumInt aword = (i <= (int)modulus[0] ? modulus[i] : 0);
+	    BignumInt bword = (i <= (int)x[0] ? x[i] : 0);
 	    newx[i] = aword - bword - carry;
 	    bword = ~bword;
 	    carry = carry ? (newx[i] >= bword) : (newx[i] > bword);
@@ -984,9 +1037,14 @@ char *bignum_decimal(Bignum x)
      * round up (rounding down might make it less than x again).
      * Therefore if we multiply the bit count by 28/93, rounding
      * up, we will have enough digits.
+     *
+     * i=0 (i.e., x=0) is an irritating special case.
      */
     i = bignum_bitcount(x);
-    ndigits = (28 * i + 92) / 93;      /* multiply by 28/93 and round up */
+    if (!i)
+	ndigits = 1;		       /* x = 0 */
+    else
+	ndigits = (28 * i + 92) / 93;  /* multiply by 28/93 and round up */
     ndigits++;			       /* allow for trailing \0 */
     ret = snewn(ndigits, char);
 
@@ -996,7 +1054,7 @@ char *bignum_decimal(Bignum x)
      * big-endian form of the number.
      */
     workspace = snewn(x[0], BignumInt);
-    for (i = 0; i < x[0]; i++)
+    for (i = 0; i < (int)x[0]; i++)
 	workspace[i] = x[x[0] - i];
 
     /*
@@ -1009,7 +1067,7 @@ char *bignum_decimal(Bignum x)
     do {
 	iszero = 1;
 	carry = 0;
-	for (i = 0; i < x[0]; i++) {
+	for (i = 0; i < (int)x[0]; i++) {
 	    carry = (carry << BIGNUM_INT_BITS) + workspace[i];
 	    workspace[i] = (BignumInt) (carry / 10);
 	    if (workspace[i])

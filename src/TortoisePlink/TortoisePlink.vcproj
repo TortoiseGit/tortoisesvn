@@ -22,7 +22,6 @@
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoisePlink\Debug"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
@@ -46,7 +45,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="windows;..;../.."
 				PreprocessorDefinitions="_DEBUG;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -112,106 +111,10 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release|Win32"
-			OutputDirectory="..\..\bin\Release\bin"
-			IntermediateDirectory="..\..\obj\TortoisePlink\Release"
-			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/TortoisePlink.tlb"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="3"
-				InlineFunctionExpansion="1"
-				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.57&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
-				StringPooling="true"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="true"
-				ForceConformanceInForLoopScope="true"
-				UsePrecompiledHeader="0"
-				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
-				AssemblerListingLocation=""
-				ObjectFile="$(IntDir)/"
-				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
-				WarningLevel="3"
-				SuppressStartupBanner="true"
-				CompileAs="0"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1033"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="Ws2_32.lib comctl32.lib wininet.lib Rpcrt4.lib"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
-				LinkIncremental="1"
-				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="2"
-				OptimizeForWindows98="1"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
 			Name="Debug|x64"
 			OutputDirectory="..\..\bin\Debug64\bin"
 			IntermediateDirectory="..\..\obj\TortoisePlink\Debug64"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
@@ -302,11 +205,104 @@
 			/>
 		</Configuration>
 		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\bin\Release\bin"
+			IntermediateDirectory="..\..\obj\TortoisePlink\Release"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TypeLibraryName=".\Release/TortoisePlink.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				InlineFunctionExpansion="1"
+				FavorSizeOrSpeed="2"
+				AdditionalIncludeDirectories=""
+				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.57&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
+				StringPooling="true"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
+				AssemblerListingLocation=""
+				ObjectFile="$(IntDir)/"
+				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="Ws2_32.lib comctl32.lib wininet.lib Rpcrt4.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeForWindows98="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\bin\Release64\bin"
 			IntermediateDirectory="..\..\obj\TortoisePlink\Release64"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
@@ -1050,22 +1046,16 @@
 				>
 			</File>
 			<File
-				RelativePath="WINDEFS.C"
-				>
-			</File>
-			<File
-				RelativePath="WINMISC.C"
-				>
-			</File>
-			<File
-				RelativePath=".\WINNET.C"
+				RelativePath=".\Windows\WINDEFS.C"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"
+						AdditionalIncludeDirectories=".."
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1073,19 +1063,41 @@
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"
+						AdditionalIncludeDirectories=".."
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
 					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\WINSTORE.C"
+				RelativePath=".\Windows\WINMISC.C"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"
+						AdditionalIncludeDirectories=".."
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1093,7 +1105,95 @@
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Windows\WINNET.C"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Windows\WINSTORE.C"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=".."
 					/>
 				</FileConfiguration>
 			</File>
@@ -1191,11 +1291,11 @@
 				>
 			</File>
 			<File
-				RelativePath="WINHELP.H"
+				RelativePath=".\Windows\WINHELP.H"
 				>
 			</File>
 			<File
-				RelativePath=".\WINSTUFF.H"
+				RelativePath=".\Windows\WINSTUFF.H"
 				>
 			</File>
 			<File

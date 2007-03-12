@@ -1,3 +1,7 @@
+/*
+ * Rlogin backend.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -20,6 +24,7 @@ typedef struct rlogin_tag {
     Socket s;
     int bufsize;
     int firstbyte;
+    int cansize;
     int term_width, term_height;
     void *frontend;
 } *Rlogin;
@@ -32,6 +37,22 @@ static void c_write(Rlogin rlogin, char *buf, int len)
     sk_set_frozen(rlogin->s, backlog > RLOGIN_MAX_BACKLOG);
 }
 
+static void rlogin_log(Plug plug, int type, SockAddr addr, int port,
+		       const char *error_msg, int error_code)
+{
+    Rlogin rlogin = (Rlogin) plug;
+    char addrbuf[256], *msg;
+
+    sk_getaddr(addr, addrbuf, lenof(addrbuf));
+
+    if (type == 0)
+	msg = dupprintf("Connecting to %s port %d", addrbuf, port);
+    else
+	msg = dupprintf("Failed to connect to %s: %s", addrbuf, error_msg);
+
+    logevent(rlogin->frontend, msg);
+}
+
 static int rlogin_closing(Plug plug, const char *error_msg, int error_code,
 			  int calling_back)
 {
@@ -39,6 +60,7 @@ static int rlogin_closing(Plug plug, const char *error_msg, int error_code,
     if (rlogin->s) {
         sk_close(rlogin->s);
         rlogin->s = NULL;
+	notify_remote_exit(rlogin->frontend);
     }
     if (error_msg) {
 	/* A socket error has occurred. */
@@ -56,8 +78,10 @@ static int rlogin_receive(Plug plug, int urgent, char *data, int len)
 
 	c = *data++;
 	len--;
-	if (c == '\x80')
+	if (c == '\x80') {
+	    rlogin->cansize = 1;
 	    rlogin_size(rlogin, rlogin->term_width, rlogin->term_height);
+        }
 	/*
 	 * We should flush everything (aka Telnet SYNCH) if we see
 	 * 0x02, and we should turn off and on _local_ flow control
@@ -103,6 +127,7 @@ static const char *rlogin_init(void *frontend_handle, void **backend_handle,
 			       int nodelay, int keepalive)
 {
     static const struct plug_function_table fn_table = {
+	rlogin_log,
 	rlogin_closing,
 	rlogin_receive,
 	rlogin_sent
@@ -118,6 +143,7 @@ static const char *rlogin_init(void *frontend_handle, void **backend_handle,
     rlogin->term_width = cfg->width;
     rlogin->term_height = cfg->height;
     rlogin->firstbyte = 1;
+    rlogin->cansize = 0;
     *backend_handle = rlogin;
 
     /*
@@ -125,11 +151,14 @@ static const char *rlogin_init(void *frontend_handle, void **backend_handle,
      */
     {
 	char *buf;
-	buf = dupprintf("Looking up host \"%s\"", host);
+	buf = dupprintf("Looking up host \"%s\"%s", host,
+			(cfg->addressfamily == ADDRTYPE_IPV4 ? " (IPv4)" :
+			 (cfg->addressfamily == ADDRTYPE_IPV6 ? " (IPv6)" :
+			  "")));
 	logevent(rlogin->frontend, buf);
 	sfree(buf);
     }
-    addr = name_lookup(host, port, realhost, cfg);
+    addr = name_lookup(host, port, realhost, cfg, cfg->addressfamily);
     if ((err = sk_addr_error(addr)) != NULL) {
 	sk_addr_free(addr);
 	return err;
@@ -141,13 +170,6 @@ static const char *rlogin_init(void *frontend_handle, void **backend_handle,
     /*
      * Open socket.
      */
-    {
-	char *buf, addrbuf[100];
-	sk_getaddr(addr, addrbuf, 100);
-	buf = dupprintf("Connecting to %s port %d", addrbuf, port);
-	logevent(rlogin->frontend, buf);
-	sfree(buf);
-    }
     rlogin->s = new_connection(addr, *realhost, port, 1, 0,
 			       nodelay, keepalive, (Plug) rlogin, cfg);
     if ((err = sk_socket_error(rlogin->s)) != NULL)
@@ -229,7 +251,7 @@ static void rlogin_size(void *handle, int width, int height)
     rlogin->term_width = width;
     rlogin->term_height = height;
 
-    if (rlogin->s == NULL)
+    if (rlogin->s == NULL || !rlogin->cansize)
 	return;
 
     b[6] = rlogin->term_width >> 8;
@@ -258,10 +280,10 @@ static const struct telnet_special *rlogin_get_specials(void *handle)
     return NULL;
 }
 
-static Socket rlogin_socket(void *handle)
+static int rlogin_connected(void *handle)
 {
     Rlogin rlogin = (Rlogin) handle;
-    return rlogin->s;
+    return rlogin->s != NULL;
 }
 
 static int rlogin_sendok(void *handle)
@@ -302,6 +324,14 @@ static int rlogin_exitcode(void *handle)
         return 0;
 }
 
+/*
+ * cfg_info for rlogin does nothing at all.
+ */
+static int rlogin_cfg_info(void *handle)
+{
+    return 0;
+}
+
 Backend rlogin_backend = {
     rlogin_init,
     rlogin_free,
@@ -311,12 +341,13 @@ Backend rlogin_backend = {
     rlogin_size,
     rlogin_special,
     rlogin_get_specials,
-    rlogin_socket,
+    rlogin_connected,
     rlogin_exitcode,
     rlogin_sendok,
     rlogin_ldisc,
     rlogin_provide_ldisc,
     rlogin_provide_logctx,
     rlogin_unthrottle,
+    rlogin_cfg_info,
     1
 };

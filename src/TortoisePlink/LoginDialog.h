@@ -25,7 +25,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-BOOL DoLoginDialog(char* password, int maxlen, const char* prompt, BOOL is_pw);
+BOOL DoLoginDialog(char* password, int maxlen, const char* prompt);
 
 HWND GetParentHwnd();
 

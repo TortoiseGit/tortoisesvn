@@ -10,18 +10,6 @@
 #include "ssh.h"
 #include "misc.h"
 
-#define GET_32BIT(cp) \
-    (((unsigned long)(unsigned char)(cp)[0] << 24) | \
-    ((unsigned long)(unsigned char)(cp)[1] << 16) | \
-    ((unsigned long)(unsigned char)(cp)[2] << 8) | \
-    ((unsigned long)(unsigned char)(cp)[3]))
-
-#define PUT_32BIT(cp, value) { \
-    (cp)[0] = (unsigned char)((value) >> 24); \
-    (cp)[1] = (unsigned char)((value) >> 16); \
-    (cp)[2] = (unsigned char)((value) >> 8); \
-    (cp)[3] = (unsigned char)(value); }
-
 int makekey(unsigned char *data, int len, struct RSAKey *result,
 	    unsigned char **keystr, int order)
 {
@@ -802,6 +790,7 @@ static unsigned char *rsa2_sign(void *key, char *data, int datalen,
     SHA_Simple(data, datalen, hash);
 
     nbytes = (bignum_bitcount(rsa->modulus) - 1) / 8;
+    assert(1 <= nbytes - 20 - ASN1_LEN);
     bytes = snewn(nbytes, unsigned char);
 
     bytes[0] = 1;

@@ -1,3 +1,7 @@
+/*
+ * SSH port forwarding.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,46 +14,6 @@
 #ifndef TRUE
 #define TRUE 1
 #endif
-
-#define GET_32BIT_LSB_FIRST(cp) \
-  (((unsigned long)(unsigned char)(cp)[0]) | \
-  ((unsigned long)(unsigned char)(cp)[1] << 8) | \
-  ((unsigned long)(unsigned char)(cp)[2] << 16) | \
-  ((unsigned long)(unsigned char)(cp)[3] << 24))
-
-#define PUT_32BIT_LSB_FIRST(cp, value) ( \
-  (cp)[0] = (value), \
-  (cp)[1] = (value) >> 8, \
-  (cp)[2] = (value) >> 16, \
-  (cp)[3] = (value) >> 24 )
-
-#define GET_16BIT_LSB_FIRST(cp) \
-  (((unsigned long)(unsigned char)(cp)[0]) | \
-  ((unsigned long)(unsigned char)(cp)[1] << 8))
-
-#define PUT_16BIT_LSB_FIRST(cp, value) ( \
-  (cp)[0] = (value), \
-  (cp)[1] = (value) >> 8 )
-
-#define GET_32BIT_MSB_FIRST(cp) \
-  (((unsigned long)(unsigned char)(cp)[0] << 24) | \
-  ((unsigned long)(unsigned char)(cp)[1] << 16) | \
-  ((unsigned long)(unsigned char)(cp)[2] << 8) | \
-  ((unsigned long)(unsigned char)(cp)[3]))
-
-#define PUT_32BIT_MSB_FIRST(cp, value) ( \
-  (cp)[0] = (value) >> 24, \
-  (cp)[1] = (value) >> 16, \
-  (cp)[2] = (value) >> 8, \
-  (cp)[3] = (value) )
-
-#define GET_16BIT_MSB_FIRST(cp) \
-  (((unsigned long)(unsigned char)(cp)[0] << 8) | \
-  ((unsigned long)(unsigned char)(cp)[1]))
-
-#define PUT_16BIT_MSB_FIRST(cp, value) ( \
-  (cp)[0] = (value) >> 8, \
-  (cp)[1] = (value) )
 
 struct PFwdPrivate {
     const struct plug_function_table *fn;
@@ -85,6 +49,12 @@ struct PFwdPrivate {
     void *buffer;
     int buflen;
 };
+
+static void pfd_log(Plug plug, int type, SockAddr addr, int port,
+		    const char *error_msg, int error_code)
+{
+    /* we have to dump these since we have no interface to logging.c */
+}
 
 static int pfd_closing(Plug plug, const char *error_msg, int error_code,
 		       int calling_back)
@@ -354,9 +324,10 @@ static void pfd_sent(Plug plug, int bufsize)
  * Called when receiving a PORT OPEN from the server
  */
 const char *pfd_newconnect(Socket *s, char *hostname, int port,
-			   void *c, const Config *cfg)
+			   void *c, const Config *cfg, int addressfamily)
 {
     static const struct plug_function_table fn_table = {
+	pfd_log,
 	pfd_closing,
 	pfd_receive,
 	pfd_sent,
@@ -371,7 +342,7 @@ const char *pfd_newconnect(Socket *s, char *hostname, int port,
     /*
      * Try to find host.
      */
-    addr = name_lookup(hostname, port, &dummy_realhost, cfg);
+    addr = name_lookup(hostname, port, &dummy_realhost, cfg, addressfamily);
     if ((err = sk_addr_error(addr)) != NULL) {
 	sk_addr_free(addr);
 	return err;
@@ -407,6 +378,7 @@ const char *pfd_newconnect(Socket *s, char *hostname, int port,
 static int pfd_accepting(Plug p, OSSocket sock)
 {
     static const struct plug_function_table fn_table = {
+	pfd_log,
 	pfd_closing,
 	pfd_receive,
 	pfd_sent,
@@ -462,9 +434,11 @@ static int pfd_accepting(Plug p, OSSocket sock)
  sets up a listener on the local machine on (srcaddr:)port
  */
 const char *pfd_addforward(char *desthost, int destport, char *srcaddr,
-			   int port, void *backhandle, const Config *cfg)
+			   int port, void *backhandle, const Config *cfg,
+			   void **sockdata, int address_family)
 {
     static const struct plug_function_table fn_table = {
+	pfd_log,
 	pfd_closing,
 	pfd_receive,		       /* should not happen... */
 	pfd_sent,		       /* also should not happen */
@@ -493,13 +467,15 @@ const char *pfd_addforward(char *desthost, int destport, char *srcaddr,
     pr->backhandle = backhandle;
 
     pr->s = s = new_listener(srcaddr, port, (Plug) pr,
-			     !cfg->lport_acceptall, cfg);
+			     !cfg->lport_acceptall, cfg, address_family);
     if ((err = sk_socket_error(s)) != NULL) {
 	sfree(pr);
 	return err;
     }
 
     sk_set_private_ptr(s, pr);
+
+    *sockdata = (void *)s;
 
     return NULL;
 }
@@ -517,6 +493,14 @@ void pfd_close(Socket s)
     sfree(pr);
 
     sk_close(s);
+}
+
+/*
+ * Terminate a listener.
+ */
+void pfd_terminate(void *sv)
+{
+    pfd_close((Socket)sv);
 }
 
 void pfd_unthrottle(Socket s)

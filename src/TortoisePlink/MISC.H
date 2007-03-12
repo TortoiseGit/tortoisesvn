@@ -1,9 +1,15 @@
+/*
+ * Header for misc.c.
+ */
+
 #ifndef PUTTY_MISC_H
 #define PUTTY_MISC_H
 
 #include "puttymem.h"
 
+#include <stdio.h>		       /* for FILE * */
 #include <stdarg.h>		       /* for va_list */
+#include <time.h>                      /* for struct tm */
 
 #ifndef FALSE
 #define FALSE 0
@@ -15,10 +21,15 @@
 typedef struct Filename Filename;
 typedef struct FontSpec FontSpec;
 
+unsigned long parse_blocksize(const char *bs);
+char ctrlparse(char *s, char **next);
+
 char *dupstr(const char *s);
 char *dupcat(const char *s1, ...);
 char *dupprintf(const char *fmt, ...);
 char *dupvprintf(const char *fmt, va_list ap);
+
+char *fgetline(FILE *fp);
 
 void base64_encode_atom(unsigned char *data, int n, char *out);
 
@@ -36,6 +47,8 @@ void bufchain_prefix(bufchain *ch, void **data, int *len);
 void bufchain_consume(bufchain *ch, int len);
 void bufchain_fetch(bufchain *ch, void *data, int len);
 
+struct tm ltime(void);
+
 /*
  * Debugging functions.
  *
@@ -44,7 +57,7 @@ void bufchain_fetch(bufchain *ch, void *data, int len);
  * debug(()) (note the double brackets) is like printf().
  *
  * dmemdump() and dmemdumpl() both do memory dumps.  The difference
- * is that dmemdumpl() is more suited for when where the memory is is
+ * is that dmemdumpl() is more suited for when the memory address is
  * important (say because you'll be recording pointer values later
  * on).  dmemdump() is more concise.
  */
@@ -71,5 +84,49 @@ void debug_memdump(void *buf, int len, int L);
 #ifndef max
 #define max(x,y) ( (x) > (y) ? (x) : (y) )
 #endif
+
+#define GET_32BIT_LSB_FIRST(cp) \
+  (((unsigned long)(unsigned char)(cp)[0]) | \
+  ((unsigned long)(unsigned char)(cp)[1] << 8) | \
+  ((unsigned long)(unsigned char)(cp)[2] << 16) | \
+  ((unsigned long)(unsigned char)(cp)[3] << 24))
+
+#define PUT_32BIT_LSB_FIRST(cp, value) ( \
+  (cp)[0] = (unsigned char)(value), \
+  (cp)[1] = (unsigned char)((value) >> 8), \
+  (cp)[2] = (unsigned char)((value) >> 16), \
+  (cp)[3] = (unsigned char)((value) >> 24) )
+
+#define GET_16BIT_LSB_FIRST(cp) \
+  (((unsigned long)(unsigned char)(cp)[0]) | \
+  ((unsigned long)(unsigned char)(cp)[1] << 8))
+
+#define PUT_16BIT_LSB_FIRST(cp, value) ( \
+  (cp)[0] = (unsigned char)(value), \
+  (cp)[1] = (unsigned char)((value) >> 8) )
+
+#define GET_32BIT_MSB_FIRST(cp) \
+  (((unsigned long)(unsigned char)(cp)[0] << 24) | \
+  ((unsigned long)(unsigned char)(cp)[1] << 16) | \
+  ((unsigned long)(unsigned char)(cp)[2] << 8) | \
+  ((unsigned long)(unsigned char)(cp)[3]))
+
+#define GET_32BIT(cp) GET_32BIT_MSB_FIRST(cp)
+
+#define PUT_32BIT_MSB_FIRST(cp, value) ( \
+  (cp)[0] = (unsigned char)((value) >> 24), \
+  (cp)[1] = (unsigned char)((value) >> 16), \
+  (cp)[2] = (unsigned char)((value) >> 8), \
+  (cp)[3] = (unsigned char)(value) )
+
+#define PUT_32BIT(cp, value) PUT_32BIT_MSB_FIRST(cp, value)
+
+#define GET_16BIT_MSB_FIRST(cp) \
+  (((unsigned long)(unsigned char)(cp)[0] << 8) | \
+  ((unsigned long)(unsigned char)(cp)[1]))
+
+#define PUT_16BIT_MSB_FIRST(cp, value) ( \
+  (cp)[0] = (unsigned char)((value) >> 8), \
+  (cp)[1] = (unsigned char)(value) )
 
 #endif

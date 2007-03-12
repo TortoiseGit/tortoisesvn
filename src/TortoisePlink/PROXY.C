@@ -16,9 +16,7 @@
 
 #define do_proxy_dns(cfg) \
     (cfg->proxy_dns == FORCE_ON || \
-	 (cfg->proxy_dns == AUTO && \
-              cfg->proxy_type != PROXY_SOCKS4 && \
-              cfg->proxy_type != PROXY_SOCKS5))
+	 (cfg->proxy_dns == AUTO && cfg->proxy_type != PROXY_SOCKS4))
 
 /*
  * Call this when proxy negotiation is complete, so that this
@@ -191,6 +189,15 @@ static const char * sk_proxy_socket_error (Socket s)
 
 /* basic proxy plug functions */
 
+static void plug_proxy_log(Plug plug, int type, SockAddr addr, int port,
+			   const char *error_msg, int error_code)
+{
+    Proxy_Plug pp = (Proxy_Plug) plug;
+    Proxy_Socket ps = pp->proxy_socket;
+
+    plug_log(ps->plug, type, addr, port, error_msg, error_code);
+}
+
 static int plug_proxy_closing (Plug p, const char *error_msg,
 			       int error_code, int calling_back)
 {
@@ -342,7 +349,7 @@ static int proxy_for_destination (SockAddr addr, char *hostname, int port,
 }
 
 SockAddr name_lookup(char *host, int port, char **canonicalname,
-		     const Config *cfg)
+		     const Config *cfg, int addressfamily)
 {
     if (cfg->proxy_type != PROXY_NONE &&
 	do_proxy_dns(cfg) &&
@@ -351,7 +358,7 @@ SockAddr name_lookup(char *host, int port, char **canonicalname,
 	return sk_nonamelookup(host);
     }
 
-    return sk_namelookup(host, canonicalname);
+    return sk_namelookup(host, canonicalname, addressfamily);
 }
 
 Socket new_connection(SockAddr addr, char *hostname,
@@ -372,6 +379,7 @@ Socket new_connection(SockAddr addr, char *hostname,
     };
 
     static const struct plug_function_table plug_fn_table = {
+	plug_proxy_log,
 	plug_proxy_closing,
 	plug_proxy_receive,
 	plug_proxy_sent,
@@ -433,7 +441,7 @@ Socket new_connection(SockAddr addr, char *hostname,
 
 	/* look-up proxy */
 	proxy_addr = sk_namelookup(cfg->proxy_host,
-				   &proxy_canonical_name);
+				   &proxy_canonical_name, cfg->addressfamily);
 	if (sk_addr_error(proxy_addr) != NULL) {
 	    ret->error = "Proxy error: Unable to resolve proxy host name";
 	    return (Socket)ret;
@@ -461,13 +469,13 @@ Socket new_connection(SockAddr addr, char *hostname,
 }
 
 Socket new_listener(char *srcaddr, int port, Plug plug, int local_host_only,
-		    const Config *cfg)
+		    const Config *cfg, int addressfamily)
 {
     /* TODO: SOCKS (and potentially others) support inbound
      * TODO: connections via the proxy. support them.
      */
 
-    return sk_newlistener(srcaddr, port, plug, local_host_only);
+    return sk_newlistener(srcaddr, port, plug, local_host_only, addressfamily);
 }
 
 /* ----------------------------------------------------------------------
@@ -1315,7 +1323,8 @@ char *format_telnet_command(SockAddr addr, int port, const Config *cfg)
 	} else {
 
 	    /* % escape. we recognize %%, %host, %port, %user, %pass.
-	     * anything else, we just send unescaped (including the %).
+	     * %proxyhost, %proxyport. Anything else we just send
+	     * unescaped (including the %).
 	     */
 
 	    if (cfg->proxy_telnet_command[eo] == '%') {
@@ -1358,6 +1367,25 @@ char *format_telnet_command(SockAddr addr, int port, const Config *cfg)
 		memcpy(ret+retlen, cfg->proxy_password, passlen);
 		retlen += passlen;
 		eo += 4;
+	    }
+	    else if (strnicmp(cfg->proxy_telnet_command + eo,
+			      "proxyhost", 9) == 0) {
+		int phlen = strlen(cfg->proxy_host);
+		ENSURE(phlen);
+		memcpy(ret+retlen, cfg->proxy_host, phlen);
+		retlen += phlen;
+		eo += 9;
+	    }
+	    else if (strnicmp(cfg->proxy_telnet_command + eo,
+			      "proxyport", 9) == 0) {
+                char pport[50];
+		int pplen;
+                sprintf(pport, "%d", cfg->proxy_port);
+                pplen = strlen(pport);
+		ENSURE(pplen);
+		memcpy(ret+retlen, pport, pplen);
+		retlen += pplen;
+		eo += 9;
 	    }
 	    else {
 		/* we don't escape this, so send the % now, and
