@@ -128,6 +128,8 @@ void CRevertDlg::OnOK()
 			m_bRecursive = FALSE;
 			break;
 		}
+		else if (m_RevertList.GetListEntry(i)->IsInExternal())
+			m_bRecursive = FALSE;
 	}
 	if (!m_bRecursive)
 	{
