@@ -9,13 +9,14 @@ set LogFile=%ScriptPath%\gui_translation.txt
 set TmpFileDone=%ScriptPath%\gui_translation.tm1
 set TmpFileReview=%ScriptPath%\gui_translation.tm2
 set LotsOfBlanks="                              "
+set SomeBlanks="     "
 
 pushd %WorkDir%
 
 FOR /F "usebackq" %%p IN (`svnversion`) DO SET version=%%p
 
-rem Count all messages in PO Template file
-FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
+rem CountSVN all messages in PO Template file
+FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat Tortoise.pot`) DO SET totSVN=%%p
 
 copy Tortoise_*.po _Tortois_*.po /Y 2>NUL
 echo.
@@ -26,22 +27,22 @@ FOR %%i in (_Tortois_*.po) DO (
 )
 
 echo. > %LogFile%
-echo GUI Translation Status report for Tortoise.pot trunk/branch^(r!version:~0,4!^) >> %LogFile%
-echo ============================================================ >> %LogFile%
-echo Total=!total! >> %LogFile%
+echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,4!^) >> %LogFile%
+echo ===================================================== >> %LogFile%
+echo Total=!totSVN! strings >> %LogFile%
 echo. >> %LogFile%
-echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
+echo Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys >> %LogFile%
 echo. >> %LogFile%
-echo Incomplete                     : tr - fu - ut - ma >> %Logfile%
-echo -------------------------------------------------- >> %Logfile%
+echo Language                       : Status  (fu/un/ma) >> %Logfile%
+echo --------------------------------------------------- >> %Logfile%
 
 echo.
-echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^)
-echo ============================================================
-echo Total=!total!
+echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,4!^)
+echo =====================================================
+echo Total=!totSVN! strings
 echo.
-echo Language : translated - fuzzy - untranslated - missing accelerator keys
-echo.
+echo Language                       : Status  (fu/ut/ma)
+echo ---------------------------------------------------
 
 rem !!! ATTENTION 
 rem !!! There is a real TAB key inside "delims=	;"
@@ -49,57 +50,58 @@ rem !!! Please leave it there
 
 FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
 
-  SET POFILE=_Tortois_%%i.po
+  SET POSVN=_Tortois_%%i.po
   SET LANGNAME=%%j ^(%%i^)%LotsOfBlanks:~1,30%
   SET LANGNAME=!LANGNAME:~0,30! :
 
-  if exist !POFILE! (
-    set errors=0
-    set accel=0
-    set tra=0
-    set unt=0
-    set fuz=0
-    set obs=0
+  if exist !POSVN! (
+    set errSVN=0
+    set accSVN=0
+    set traSVN=0
+    set untSVN=0
+    set fuzSVN=0
 
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check !POFILE!`) DO SET errors=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check-accelerators !POFILE!`) DO SET accel=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --translated --no-obsolete !POFILE!`) DO SET tra=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --only-fuzzy --no-obsolete !POFILE!`) DO SET fuz=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --untranslated --no-obsolete !POFILE!`) DO SET unt=%%p
+    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check !POSVN!`) DO SET errSVN=%%p
+    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check-accelerators !POSVN!`) DO SET accSVN=%%p
+    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --translated --no-obsolete !POSVN!`) DO SET traSVN=%%p
+    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --only-fuzzy --no-obsolete !POSVN!`) DO SET fuzSVN=%%p
+    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --untranslated --no-obsolete !POSVN!`) DO SET untSVN=%%p
 
-    SET /A errsum=!fuz!+!unt!+!accel!+!errors!
-    if !errors! NEQ 0 (
-      echo !LANGNAME! !total! - BROKEN
-      echo !LANGNAME! !total! - BROKEN >> %LogFile% 
-    ) else if !errsum! EQU 0 (
-      echo !LANGNAME! !total! - OK
-      echo %%j ^(%%i^) >> %TmpFileDone% 
+    SET /A errsumSVN=!fuzSVN!+!untSVN!+!errSVN!+!accSVN!
+
+    if !errSVN! NEQ 0 (
+      set outSVN=BROKEN
+      set outStat=
+    ) else if !errsumSVN! EQU 0 (
+      set outSVN=OK
+      set outStat=
     ) else (
-      echo !LANGNAME! !tra! - !fuz! - !unt! - !accel!
-      if !total! EQU !tra! (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %TmpFileReview%
+      if !totSVN! EQU !traSVN! (
+        set outSVN=99,9%%
+        set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
       ) else (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %LogFile%
+        set /a outTMP=100*!traSVN!/totSVN
+        set outSVN=!outTMP!%%
+        set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
       )
     )
-  ) ELSE (
-    echo !LANGNAME! !POFILE! not found
+
+  ) else (
+    set outSVN=NONE
+  )
+
+
+  rem Format output (left adjust only, right adjust is complicated)
+  set outSVN=!outSVN!%SomeBlanks:~1,6%
+  set outSVN=!outSVN:~0,5!
+
+  if not "!outSVN!"=="NONE" (
+    echo !LANGNAME! !outSVN! !outStat!
+    echo !LANGNAME! !outSVN! !outStat! >> %Logfile% 
   )
 
 )
 
-echo. >> %Logfile%
-echo Needs review                   : tr - fu - ut - ma >> %Logfile%
-echo -------------------------------------------------- >> %Logfile%
-type %TmpFileReview% >> %LogFile%
-
-echo. >> %Logfile%
-echo Up to date: >> %Logfile%
-echo -------------------------------------------------- >> %Logfile%
-type %TmpFileDone% >> %LogFile%
-
-del %TmpFileReview%
-del %TmpFileDone%
 del _Tortois_*.po /Q
 del *.mo
 

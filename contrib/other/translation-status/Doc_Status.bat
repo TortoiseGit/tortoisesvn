@@ -72,7 +72,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
     SET /A errsumSVN=!fuzSVN!+!untSVN!+!errSVN!
 
     if !errSVN! NEQ 0 (
-      set outSVN=BROKEN 
+      set outSVN=BROKEN
     ) else if !errsumSVN! EQU 0 (
       set outSVN=OK
     ) else (
@@ -83,9 +83,10 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
         set outSVN=!outTMP!%%
       )
     )
+
   ) else (
-    set outSVN=NONE 
-	)
+    set outSVN=NONE
+  )
   
   if exist !POMRG! (
     set errMRG=0
@@ -114,7 +115,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
     )
   ) else (
     set outMRG=NONE
-	)
+  )
 
 
   set outBoth=!outSVN!!outMRG!
