@@ -265,7 +265,6 @@ void CChangedDlg::UpdateStatistics()
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
 	temp = m_FileListCtrl.GetStatisticsString();
-	m_tooltips.AddTool(IDC_SUMMARYTEXT, temp);
 	temp.Replace(_T(" = "), _T("="));
 	temp.Replace(_T("\n"), _T(", "));
 	GetDlgItem(IDC_INFOLABEL)->SetWindowText(temp);
