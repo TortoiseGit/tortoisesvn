@@ -1047,7 +1047,8 @@ void CCommitDlg::SetSplitterRange()
 		CRect rcMiddle;
 		m_ListCtrl.GetWindowRect(rcMiddle);
 		ScreenToClient(rcMiddle);
-		m_wndSplitter.SetRange(rcTop.top+60, rcMiddle.bottom-80);
+		if (rcMiddle.Height() && rcMiddle.Width())
+			m_wndSplitter.SetRange(rcTop.top+60, rcMiddle.bottom-80);
 	}
 }
 
