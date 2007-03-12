@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8893
+# Based on Tortoise.pot r8914
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-09 14:20+0100\n"
+"PO-Revision-Date: 2007-03-12 10:57+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2182,6 +2182,11 @@ msgstr "Det lykkedes ikke at åbne dokumentet."
 #: ID:3857,#: ID:3857,
 msgid "Failed to save document."
 msgstr "Det lykkedes ikke at gemme dokumentet."
+
+#: ID:264,
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Det lykkedes ikke at sætte/fjerne ændringslisten \"%s\""
 
 #: ID:220,
 msgid "Failed!"
@@ -4708,8 +4713,8 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 #: ID:107,
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
 
 #: ID:80,#: Control-ID:65535,
 msgid "TortoiseSVN"
@@ -4722,8 +4727,8 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 #: ID:107,
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 
 #: ID:77,
 msgid "TortoiseSVN Add..."
