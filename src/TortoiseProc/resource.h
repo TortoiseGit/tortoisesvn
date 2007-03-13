@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -662,6 +662,7 @@
 #define IDS_REPOBROWSE_COPYRENAMEDROP   1648
 #define IDS_REPOBROWSE_MOVERENAMEDROP   1649
 #define IDS_REPOBROWSE_INITWAIT         1660
+#define IDS_REPOBROWSE_WAIT             1661
 #define IDS_REPOBROWSE_MULTIIMPORT      1670
 #define IDS_REPOBROWSE_MULTICOPY        1671
 #define IDS_REPOBROWSE_MULTIMOVE        1672

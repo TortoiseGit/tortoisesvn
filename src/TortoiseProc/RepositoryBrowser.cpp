@@ -726,6 +726,7 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		RecursiveRemove(hItem);
 		m_RepoTree.DeleteAllItems();
 		m_RepoList.DeleteAllItems();
+		m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 		hItem = m_RepoTree.GetRootItem();
 		if (m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength())))
 		{

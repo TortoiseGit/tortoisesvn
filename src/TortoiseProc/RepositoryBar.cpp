@@ -43,7 +43,7 @@ CRepositoryBar::~CRepositoryBar()
 }
 
 BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
-	ON_CBN_SELENDOK(IDC_URL_COMBO, OnCbnSelEndOK)
+	ON_CBN_SELCHANGE(IDC_URL_COMBO, OnCbnSelChange)
 	ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
 	ON_WM_DESTROY()
 END_MESSAGE_MAP()
@@ -230,20 +230,17 @@ bool CRepositoryBar::CRepositoryCombo::OnReturnKeyPressed()
 }
 
 
-void CRepositoryBar::OnCbnSelEndOK()
+void CRepositoryBar::OnCbnSelChange()
 {
-	if (m_cbxUrl.GetDroppedState())
+	int idx = m_cbxUrl.GetCurSel();
+	if (idx >= 0)
 	{
-		int idx = m_cbxUrl.GetCurSel();
-		if (idx >= 0)
-		{
-			CString path, revision;
-			m_cbxUrl.GetLBText(idx, path);
-			m_btnRevision.GetWindowText(revision);
-			m_url = path;
-			m_rev = revision;
-			GotoUrl(m_url, m_rev);
-		}
+		CString path, revision;
+		m_cbxUrl.GetLBText(idx, path);
+		m_btnRevision.GetWindowText(revision);
+		m_url = path;
+		m_rev = revision;
+		GotoUrl(m_url, m_rev);
 	}
 }
 

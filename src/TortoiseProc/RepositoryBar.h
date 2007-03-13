@@ -89,7 +89,7 @@ public:
 	void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
 
 protected:
-	afx_msg void OnCbnSelEndOK();
+	afx_msg void OnCbnSelChange();
 	afx_msg void OnBnClicked();
 	afx_msg void OnDestroy();
 
