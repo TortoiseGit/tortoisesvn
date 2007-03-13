@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-01 11:03+0100\n"
+"PO-Revision-Date: 2007-03-13 11:22+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -261,6 +261,11 @@ msgstr "&Berkley database (DBD)"
 #, fuzzy
 msgid "&Blame differences"
 msgstr "&Jämför och visa ändringar per rad"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Blame previous revision"
+msgstr "&Jämför revisioner och visa ändringar per rad"
 
 #: ID:114
 #: ID:322
@@ -1352,6 +1357,7 @@ msgstr "Stapeldiagram"
 msgid "Base file:"
 msgstr "Basfil:"
 
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Visa ändringar per rad"
@@ -2533,6 +2539,11 @@ msgstr "Kunde inte öppna filen."
 msgid "Failed to save document."
 msgstr "Kunde inte spara filen."
 
+#: ID:264
+#, fuzzy, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Hör till ändringslistan \"%s\""
+
 #: ID:220
 msgid "Failed!"
 msgstr "Misslyckades!"
@@ -2779,6 +2790,10 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Graf typ:"
+
+#: ID:214
+msgid "Group changelists"
+msgstr "Gruppera ändringslistor"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -5420,6 +5435,10 @@ msgstr ""
 "Det händer vanligtvis om du applicerat en patch fil på\n"
 "fel mapp!"
 
+#: ID:69
+msgid "The file is too big"
+msgstr "Filen är för stor"
+
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Filen är för stor för att öppna."
@@ -5832,10 +5851,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
-"TortoiseBlame kan inte startas direkt\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:radnummer]"
+"TortoiseBlame kan inte startas direkt!\n"
+"TortoiseBlame.exe blamefile [[logfil] [titel]] [/line:radnummer] [/path:ursprungligsökväg]"
 
 #: ID:7
 msgid "TortoiseIDiff"
@@ -5877,13 +5896,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 #: ID:80
@@ -5902,7 +5919,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -5912,7 +5928,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
