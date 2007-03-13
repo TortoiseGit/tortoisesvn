@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-12 22:56+0900\n"
+"PO-Revision-Date: 2007-03-13 21:14+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2227,9 +2227,8 @@ msgstr "クリップボードにすべての情報をコピーする"
 
 # Control-ID:1073,
 #: ID:104,
-#, fuzzy
 msgid "Copy and rename item to here"
-msgstr "SVN バージョン管理ファイルをここにコピーし名前を変更する"
+msgstr "ここにコピーし名前を変更"
 
 # ID:101,
 #: ID:101,
@@ -3062,7 +3061,7 @@ msgstr "ドキュメントを保存できませんでした。"
 #: ID:264,
 #, c-format
 msgid "Failed to set/remove changelist \"%s\""
-msgstr ""
+msgstr "変更リスト\"%s\" にセット・削除に失敗しました"
 
 # ID:63,#:
 # ID:74,#:
@@ -3252,9 +3251,9 @@ msgstr "取得ファイル %s"
 
 # ID:119,
 #: ID:120,
-#, fuzzy, c-format
+#, c-format
 msgid "Getting file %s, revision %s"
-msgstr "取得ファイル %s，リビジョン %ld"
+msgstr "取得ファイル %s，リビジョン %s"
 
 # ID:132,
 #: ID:132,
@@ -3297,8 +3296,8 @@ msgid ""
 "Go to the next conflict\n"
 "next conflict"
 msgstr ""
-"次の競合へ移動する\n"
-"次の競合へ"
+"次の競合点へ移動する\n"
+"次の競合点へ"
 
 # ID:2049,
 #: ID:2049,
@@ -3315,8 +3314,8 @@ msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
-"前の競合へ移動する\n"
-"前の競合へ"
+"前の競合点へ移動する\n"
+"前の競合点へ"
 
 # ID:2049,
 #: ID:2049,
@@ -3334,9 +3333,8 @@ msgstr "グラフの種類:"
 
 # ID:213,
 #: ID:214,
-#, fuzzy
 msgid "Group changelists"
-msgstr "（変更リストは空です）"
+msgstr "変更リストのグループ化"
 
 # Control-ID:1229,
 #: Control-ID:1229,
@@ -4151,7 +4149,7 @@ msgstr "解消マークを付ける"
 
 #: ID:101,
 msgid "Mark for comparison"
-msgstr ""
+msgstr "比較のためマーク"
 
 # ID:2051,
 #: ID:2051,
@@ -4294,17 +4292,13 @@ msgstr ""
 
 # Control-ID:1073,
 #: ID:104,
-#, fuzzy
 msgid "Move and rename item to here"
-msgstr "SVN バージョン管理ファイルをここに移動し名前を変更する"
+msgstr "ここに移動し名前を変更"
 
 # ID:127,
 #: ID:103,
-#, fuzzy
 msgid "Move items to here"
-msgstr ""
-"%ld 個の項目を移動\r\n"
-"%s"
+msgstr "ここに項目を移動"
 
 # ID:209,
 #: ID:209,
@@ -4341,7 +4335,7 @@ msgstr "My ファイル:"
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr "次の競合へ(&E)"
+msgstr "次の競合点へ(&E)"
 
 # ID:3697,
 #: ID:3697,
@@ -4669,7 +4663,7 @@ msgstr "上書き"
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr "前の競合へ(&R)"
+msgstr "前の競合点へ(&R)"
 
 # ID:76,
 #: ID:76,
@@ -5190,7 +5184,6 @@ msgstr "ファイル／フォルダを削除"
 
 # ID:13,
 #: ID:264,
-#, fuzzy
 msgid "Removed from changelist"
 msgstr "変更リストから削除"
 
@@ -5746,9 +5739,8 @@ msgstr "ヘルプを表示するために、オブジェクトを選択する"
 
 # Control-ID:1126,
 #: ID:213,
-#, fuzzy
 msgid "Select changelist"
-msgstr "変更リストを保存する"
+msgstr "変更リストを選択"
 
 # ID:78,
 #: ID:78,
@@ -6580,7 +6572,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314,
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -6591,12 +6583,14 @@ msgid ""
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
-"パス\n"
+"パッチファイル内のパス\n"
 "<i>%s</i>\n"
-"はパスファイル内のものと一致していないようです。\n"
-"しかし、TortoiseMerge は\n"
+"は存在しません。\n"
+"TortoiseMerge はパッチを適用するパスとして\n"
 "<i>%s</i>\n"
-"のパスがより適合している判断しました。こちらのパスを変わりに利用しますか？"
+"がより適合している判断しました。\n"
+"\n"
+"このパスを代わりに使用しますか？'いいえ'と答えるとTortoiseMergeは終了します。"
 
 #: ID:314,
 #, c-format
@@ -6606,6 +6600,10 @@ msgid ""
 "in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
+"パッチファイル内のパス\n"
+"<i>%s</i>\n"
+"は存在しません。\n"
+"TortoiseMerge は先頭からパスを削って適用しようとしましたが、一致するパスが見つけられませんでした。"
 
 # ID:314,
 #: ID:314,
@@ -6863,13 +6861,12 @@ msgstr "TortoiseBlame"
 
 # ID:13,
 #: ID:13,
-#, fuzzy
 msgid ""
 "TortoiseBlame can't be started directly!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame を直接起動することはできません！\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:9,#:
 # ID:80,
@@ -6913,7 +6910,7 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # ID:107,
 #: ID:107,
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -6923,7 +6920,6 @@ msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#:
@@ -7454,9 +7450,8 @@ msgstr "バージョン"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: ID:264,
-#, fuzzy
 msgid "Versioned"
-msgstr "バージョン"
+msgstr "バージョン管理下"
 
 # ID:114,
 #: ID:114,
@@ -8091,13 +8086,12 @@ msgstr "%s へ"
 
 # ID:15,
 #: ID:17,
-#, fuzzy
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
-"tsvn:logminsize\n"
-"ログメッセージの最小の文字数は、コミット前に設定する必要があります。"
+"tsvn:lockmsgminsize\n"
+"ロックメッセージの最小の文字数は、ロックする前に設定する必要があります。"
 
 # ID:15,
 #: ID:15,
