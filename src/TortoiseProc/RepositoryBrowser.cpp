@@ -725,6 +725,7 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		// if the revision changed, then invalidate everything
 		RecursiveRemove(hItem);
 		m_RepoTree.DeleteAllItems();
+		m_RepoList.DeleteAllItems();
 		hItem = m_RepoTree.GetRootItem();
 		if (m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength())))
 		{
@@ -949,7 +950,6 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 
 	hNewItem = m_RepoTree.InsertItem(&tvinsert);
 	sTemp.ReleaseBuffer();
-	ATLTRACE("created tree entry %ws, url %ws\n", sTemp, pTreeItem->url);
 	m_RepoTree.SortChildren(hNewItem);
 	return hNewItem;
 }
@@ -1243,6 +1243,8 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
 	*pResult = 0;
 	if (m_blockEvents)
 		return;
+	if (m_RepoList.HasText())
+		return;
 	if (pNMLV->uChanged & LVIF_STATE)
 	{
 		if (pNMLV->uNewState & LVIS_SELECTED)
@@ -1343,6 +1345,8 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 
 	CIDropSource* pdsrc = new CIDropSource;
 	if (pdsrc == NULL)
+		return;
+	if (m_RepoList.HasText())
 		return;
 	pdsrc->AddRef();
 	CIDataObject* pdobj = new CIDataObject(pdsrc);
