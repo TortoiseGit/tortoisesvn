@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-13 21:14+0900\n"
-"Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
+"PO-Revision-Date: 2007-03-14 14:08+0900\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3061,7 +3061,7 @@ msgstr "ドキュメントを保存できませんでした。"
 #: ID:264,
 #, c-format
 msgid "Failed to set/remove changelist \"%s\""
-msgstr "変更リスト\"%s\" にセット・削除に失敗しました"
+msgstr "変更リスト \"%s\" の設定／削除に失敗しました"
 
 # ID:63,#:
 # ID:74,#:
@@ -4149,7 +4149,7 @@ msgstr "解消マークを付ける"
 
 #: ID:101,
 msgid "Mark for comparison"
-msgstr "比較のためマーク"
+msgstr "比較対象としてマーク"
 
 # ID:2051,
 #: ID:2051,
@@ -6590,7 +6590,7 @@ msgstr ""
 "<i>%s</i>\n"
 "がより適合している判断しました。\n"
 "\n"
-"このパスを代わりに使用しますか？'いいえ'と答えるとTortoiseMergeは終了します。"
+"このパスを代わりに使用しますか？「いいえ」を選択した場合は TortoiseMerge は終了します。"
 
 #: ID:314,
 #, c-format
@@ -6603,7 +6603,7 @@ msgstr ""
 "パッチファイル内のパス\n"
 "<i>%s</i>\n"
 "は存在しません。\n"
-"TortoiseMerge は先頭からパスを削って適用しようとしましたが、一致するパスが見つけられませんでした。"
+"TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスが見つけられませんでした。"
 
 # ID:314,
 #: ID:314,
@@ -8091,7 +8091,7 @@ msgid ""
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
 "tsvn:lockmsgminsize\n"
-"ロックメッセージの最小の文字数は、ロックする前に設定する必要があります。"
+"ロックする前に入力する必要のあるロックメッセージの最小文字数。"
 
 # ID:15,
 #: ID:15,
