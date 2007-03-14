@@ -45,7 +45,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	svn_auth_provider_object_t *provider;
 
 	/* The whole list of registered providers */
-	apr_array_header_t *providers = apr_array_make (pool, 11, sizeof (svn_auth_provider_object_t *));
+	apr_array_header_t *providers = apr_array_make (pool, 12, sizeof (svn_auth_provider_object_t *));
 
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
@@ -57,6 +57,8 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* The server-cert, client-cert, and client-cert-password providers. */
+	svn_auth_get_windows_ssl_server_trust_provider(&provider, pool); 
+	APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_ssl_server_trust_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_ssl_client_cert_file_provider (&provider, pool);

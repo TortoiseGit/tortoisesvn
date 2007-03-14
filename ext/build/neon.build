@@ -38,7 +38,6 @@
 		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
 		<echo file="config.h" message="${configfile}" unless="${file::exists('config.h')}" />
 		<!-- patch neon to use our own default-ca file -->
-		<copy file="..\build\ne_openssl.c" tofile="src\ne_openssl.c" overwrite="true" />
 		<cl outputdir="${configuration}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
