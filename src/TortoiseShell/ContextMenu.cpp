@@ -747,11 +747,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	int indexSubMenu = 0;
 	int lastSeparator = 0;
 
-	DWORD topmenu = g_ShellCache.GetMenuLayout();
+	unsigned __int64 topmenu = g_ShellCache.GetMenuLayout();
 //#region menu
 #define HMENU(x) ((topmenu & (x)) ? hMenu : subMenu)
 #define INDEXMENU(x) ((topmenu & (x)) ? indexMenu++ : indexSubMenu++)
-#define ISTOP(x) (topmenu &(x))
+#define ISTOP(x) ((topmenu & (x)) != 0)
 	//---- separator before
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 	//now fill in the entries 
@@ -807,7 +807,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if ((isInSVN)&&(isOnlyOneItemSelected)&&(!isAdded)&&(isInVersionedFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENURENAME), HMENU(MENURENAME), INDEXMENU(MENURENAME), idCmd++, IDS_MENURENAME, IDI_RENAME, idCmdFirst, ShellMenuRename);
 	if ((isInSVN)&&(!isAdded)&&(isInVersionedFolder))
-		InsertSVNMenu(ownerdrawn, ISTOP(MENUREMOVE), HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, ShellMenuRemove);
+	{
+		if (isExtended)
+			InsertSVNMenu(ownerdrawn, ISTOP(MENUREMOVE), HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVEKEEP, IDI_DELETE, idCmdFirst, ShellMenuRemoveKeep);
+		else
+			InsertSVNMenu(ownerdrawn, ISTOP(MENUREMOVE), HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, ShellMenuRemove);
+	}
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, ShellMenuRevert);
 	if ((isFolder)&&(isExtended))
@@ -1111,13 +1116,13 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 		if (HIWORD(lpcmi->lpVerb))
 		{
 			stdstring verb = stdstring(MultibyteToWide(lpcmi->lpVerb));
-			std::map<stdstring, int>::const_iterator verb_it = myVerbsMap.lower_bound(verb);
+			std::map<stdstring, UINT_PTR>::const_iterator verb_it = myVerbsMap.lower_bound(verb);
 			if (verb_it != myVerbsMap.end() && verb_it->first == verb)
 				idCmd = verb_it->second;
 		}
 
 		// See if we have a handler interface for this id
-		std::map<UINT_PTR, int>::const_iterator id_it = myIDMap.lower_bound(idCmd);
+		std::map<UINT_PTR, UINT_PTR>::const_iterator id_it = myIDMap.lower_bound(idCmd);
 		if (id_it != myIDMap.end() && id_it->first == idCmd)
 		{
 			STARTUPINFO startup;
@@ -1277,6 +1282,13 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("remove /path:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				break;
+			case ShellMenuRemoveKeep:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("remove /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /keep");
 				break;
 			case ShellMenuDiff:
 				svnCmd += _T("diff /path:\"");
@@ -1585,7 +1597,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          UINT cchMax)
 {   
 	//do we know the id?
-	std::map<UINT_PTR, int>::const_iterator id_it = myIDMap.lower_bound(idCmd);
+	std::map<UINT_PTR, UINT_PTR>::const_iterator id_it = myIDMap.lower_bound(idCmd);
 	if (id_it == myIDMap.end() || id_it->first != idCmd)
 	{
 		return E_INVALIDARG;		//no, we don't
@@ -1654,6 +1666,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case ShellMenuRemove:
 			MAKESTRING(IDS_MENUDESCREMOVE);
+			break;
+		case ShellMenuRemoveKeep:
+			MAKESTRING(IDS_MENUDESCREMOVEKEEP);
 			break;
 		case ShellMenuDiff:
 			MAKESTRING(IDS_MENUDESCDIFF);
@@ -1926,7 +1941,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			// we have the char the user pressed, now search that char in all our
 			// menu items
 			std::vector<int> accmenus;
-			for (std::map<UINT_PTR, int>::iterator It = mySubMenuMap.begin(); It != mySubMenuMap.end(); ++It)
+			for (std::map<UINT_PTR, UINT_PTR>::iterator It = mySubMenuMap.begin(); It != mySubMenuMap.end(); ++It)
 			{
 				resource = GetMenuTextFromResource(mySubMenuMap[It->first]);
 				if (resource == NULL)
@@ -1995,7 +2010,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 {
 	TCHAR textbuf[255];
 	LPCTSTR resource = NULL;
-	DWORD layout = g_ShellCache.GetMenuLayout();
+	unsigned __int64 layout = g_ShellCache.GetMenuLayout();
 	space = 6;
 #define SETSPACE(x) space = ((layout & (x)) ? 0 : 6)
 #define PREPENDSVN(x) if (layout & (x)) {_tcscpy_s(textbuf, 255, _T("SVN "));_tcscat_s(textbuf, 255, stringtablebuffer);_tcscpy_s(stringtablebuffer, 255, textbuf);}
@@ -2130,6 +2145,12 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			break;
 		case ShellMenuRemove:
 			MAKESTRING(IDS_MENUREMOVE);
+			resource = MAKEINTRESOURCE(IDI_DELETE);
+			SETSPACE(MENUREMOVE);
+			PREPENDSVN(MENUREMOVE);
+			break;
+		case ShellMenuRemoveKeep:
+			MAKESTRING(IDS_MENUREMOVEKEEP);
 			resource = MAKEINTRESOURCE(IDI_DELETE);
 			SETSPACE(MENUREMOVE);
 			PREPENDSVN(MENUREMOVE);

@@ -179,6 +179,8 @@
 #define IDS_MENUDELUNVERSIONED          268
 #define IDS_MENUDESCDELUNVERSIONED      269
 #define IDS_TT_TSVNLOCKMSGMINSIZE       270
+#define IDS_MENUREMOVEKEEP              271
+#define IDS_MENUDESCREMOVEKEEP          272
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

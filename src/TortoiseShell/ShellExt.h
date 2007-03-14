@@ -97,6 +97,7 @@ protected:
 		ShellMenuMerge,
 		ShellMenuSettings,
 		ShellMenuRemove,
+		ShellMenuRemoveKeep,
 		ShellMenuRename,
 		ShellMenuUpdateExt,
 		ShellMenuDiff,
@@ -137,9 +138,9 @@ protected:
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
-	std::map<UINT_PTR, int>	myIDMap;
-	std::map<UINT_PTR, int>	mySubMenuMap;
-	std::map<stdstring, int> myVerbsMap;
+	std::map<UINT_PTR, UINT_PTR>	myIDMap;
+	std::map<UINT_PTR, UINT_PTR>	mySubMenuMap;
+	std::map<stdstring, UINT_PTR> myVerbsMap;
 	std::map<UINT_PTR, stdstring> myVerbsIDMap;
 	stdstring	folder_;
 	std::vector<stdstring> files_;

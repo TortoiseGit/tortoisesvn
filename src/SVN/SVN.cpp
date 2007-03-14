@@ -357,7 +357,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, CStr
 
 	for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
 	{
-		if (!pathlist[nPath].IsDirectory())
+		if ((!keeplocal)&&(!pathlist[nPath].IsDirectory()))
 		{
 			SHChangeNotify(SHCNE_DELETE, SHCNF_PATH | SHCNF_FLUSHNOWAIT, pathlist[nPath].GetWinPath(), NULL);
 		}

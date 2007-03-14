@@ -1147,7 +1147,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				dlg.SetActionText(sHint);
 				if (dlg.DoModal()==IDOK)
 				{
-					if (!svn.Remove(pathList, TRUE, TRUE, dlg.GetLogMessage()))
+					if (!svn.Remove(pathList, TRUE, parser.HasKey(_T("keep")), dlg.GetLogMessage()))
 					{
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return FALSE;
@@ -1165,7 +1165,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					// if something goes wrong or unversioned/modified items are
 					// to be deleted
 					CTSVNPathList removePathList(pathList[nPath]);
-					if (!svn.Remove(removePathList, bForce))
+					if (!svn.Remove(removePathList, bForce, parser.HasKey(_T("keep"))))
 					{
 						if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
 							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
@@ -1186,7 +1186,7 @@ BOOL CTortoiseProcApp::InitInstance()
 							if (ret == 3)
 								bForce = TRUE;
 							if ((ret == 1)||(ret==3))
-								if (!svn.Remove(removePathList, TRUE))
+								if (!svn.Remove(removePathList, TRUE, parser.HasKey(_T("keep"))))
 								{
 									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}
