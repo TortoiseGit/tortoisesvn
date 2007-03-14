@@ -22,7 +22,6 @@
 SVNPool::SVNPool()
 {
 	m_pool = svn_pool_create(NULL);
-	svn_utf_initialize(m_pool);
 }
 
 SVNPool::SVNPool(apr_pool_t* parentPool)
@@ -48,13 +47,6 @@ SVNHelper::SVNHelper(void)
 	m_bCancelled = false;
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 	
-	svn_utf_initialize(m_pool);
-
-	// Why do we do this?
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
-
 	svn_client_create_context(&m_ctx, m_pool);
 	m_ctx->cancel_func = cancelfunc;
 	m_ctx->cancel_baton = this;

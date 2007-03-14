@@ -35,10 +35,6 @@
 SVNStatus::SVNStatus(bool * pbCanceled)
 {
 	m_pool = svn_pool_create (NULL);
-
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 	
 	svn_client_create_context(&ctx, m_pool);
 	
@@ -53,8 +49,6 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	
 	// set up authentication
 	m_prompt.Init(m_pool, ctx);
-
-	svn_utf_initialize(m_pool);
 
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
@@ -79,7 +73,6 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	}
 #else
 	svn_config_ensure(NULL, m_pool);
-	svn_utf_initialize(m_pool);
 
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
@@ -193,11 +186,6 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 		return svn_wc_status_unversioned;
 
 	pool = svn_pool_create (NULL);				// create the memory pool
-	svn_utf_initialize(pool);
-
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
 
 	svn_client_create_context(&ctx, pool);
 

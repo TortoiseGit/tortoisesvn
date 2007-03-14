@@ -75,7 +75,8 @@ public:
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
-		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+		menulayoutlow = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+		menulayouthigh = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
 		columnseverywhere = CRegStdWORD(_T("Software\\TortoiseSVN\\ColumnsEveryWhere"), FALSE);
@@ -113,7 +114,8 @@ public:
 		includelist.read();
 		simplecontext.read();
 		unversionedasmodified.read();
-		menulayout.read();
+		menulayoutlow.read();
+		menulayouthigh.read();
 		langid.read();
 		blockstatus.read();
 		columnseverywhere.read();
@@ -137,14 +139,17 @@ public:
 		}
 		return (blockstatus);
 	}
-	DWORD GetMenuLayout()
+	unsigned __int64 GetMenuLayout()
 	{
 		if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
 		{
 			layoutticker = GetTickCount();
-			menulayout.read();
+			menulayoutlow.read();
+			menulayouthigh.read();
 		}
-		return (menulayout);
+		unsigned __int64 temp = unsigned __int64(DWORD(menulayouthigh))<<32;
+		temp |= unsigned __int64(DWORD(menulayoutlow));
+		return temp;
 	}
 	BOOL IsRecursive()
 	{
@@ -453,7 +458,8 @@ private:
 	CRegStdWORD drivefloppy;
 	CRegStdWORD driveram;
 	CRegStdWORD driveunknown;
-	CRegStdWORD menulayout;
+	CRegStdWORD menulayoutlow;
+	CRegStdWORD menulayouthigh;
 	CRegStdWORD simplecontext;
 	CRegStdWORD unversionedasmodified;
 	CRegStdString excludelist;

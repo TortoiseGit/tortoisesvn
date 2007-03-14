@@ -94,11 +94,6 @@ SVNFolderStatus::SVNFolderStatus(void)
 	sCacheKey.reserve(MAX_PATH);
 
 	rootpool = svn_pool_create (NULL);
-	svn_utf_initialize(rootpool);
-
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", rootpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", rootpool);
 
 	m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
 }

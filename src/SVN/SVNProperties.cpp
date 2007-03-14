@@ -105,10 +105,6 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 	m_error = NULL;
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
-
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
 #ifdef _MFC_VER
