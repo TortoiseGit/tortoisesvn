@@ -209,7 +209,10 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				// here again, check for the 'chinese' bracket
 				num = num.Trim(0xff09);
 				chunks->sRevision = num;
-				chunks->sFilePath = sLine.Left(bracket-1).Trim();
+				if (bracket < 0)
+					chunks->sFilePath = sLine.Trim();
+				else
+					chunks->sFilePath = sLine.Left(bracket-1).Trim();
 				if (chunks->sFilePath.Find('\t')>=0)
 				{
 					chunks->sFilePath = chunks->sFilePath.Left(chunks->sFilePath.Find('\t'));
@@ -238,7 +241,10 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				// here again, check for the 'chinese' bracket
 				num = num.Trim(0xff09);
 				chunks->sRevision2 = num;
-				chunks->sFilePath2 = sLine.Left(bracket-1).Trim();
+				if (bracket < 0)
+					chunks->sFilePath2 = sLine.Trim();
+				else
+					chunks->sFilePath2 = sLine.Left(bracket-1).Trim();
 				if (chunks->sFilePath2.Find('\t')>=0)
 				{
 					chunks->sFilePath2 = chunks->sFilePath2.Left(chunks->sFilePath2.Find('\t'));
