@@ -73,7 +73,7 @@ if (Number(word.Version) <= vOffice2000)
 else
 {
     // Compare for Office XP (2002) and later
-    destination.Compare(sBaseDoc, "", wdCompareTargetNew, true, true);
+    destination.Compare(sBaseDoc, "Comparison", wdCompareTargetNew, true, true);
 }
     
 // Show the comparison result
