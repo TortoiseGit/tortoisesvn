@@ -114,7 +114,7 @@ private:
 	UINT LogThread();
 	void Refresh();
 	BOOL DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
-	BOOL Open(bool bOpenWith, CString changedpath, long rev);
+	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
 	void EditAuthor(int index);
 	void EditLogMessage(int index);
 	void DoSizeV1(int delta);
@@ -213,7 +213,7 @@ private:
 private:
     typedef struct LogEntryData
     {   
-        LONG lRev;
+        svn_revnum_t Rev;
         __time64_t tmDate;
         CString sDate;
         CString sAuthor;
@@ -269,7 +269,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->lRev < pEnd->lRev;
+                return pStart->Rev < pEnd->Rev;
             }
         };
         // Descending revision sorting.
@@ -277,7 +277,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-				return pStart->lRev > pEnd->lRev;
+				return pStart->Rev > pEnd->Rev;
             }
         };
         // Ascending author sorting.
