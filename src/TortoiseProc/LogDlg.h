@@ -213,7 +213,7 @@ private:
 private:
     typedef struct LogEntryData
     {   
-        DWORD dwRev;
+        LONG lRev;
         __time64_t tmDate;
         CString sDate;
         CString sAuthor;
@@ -269,7 +269,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-                return pStart->dwRev < pEnd->dwRev;
+                return pStart->lRev < pEnd->lRev;
             }
         };
         // Descending revision sorting.
@@ -277,7 +277,7 @@ private:
         {
             bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
             {
-				return pStart->dwRev > pEnd->dwRev;
+				return pStart->lRev > pEnd->lRev;
             }
         };
         // Ascending author sorting.
