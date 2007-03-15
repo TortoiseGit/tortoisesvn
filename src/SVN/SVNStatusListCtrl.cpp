@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2581,7 +2581,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						itemsToRemove.SortByPathname(true);
 
 						bool bSuccess = false;
-						if (svn.Remove(itemsToRemove, FALSE))
+						if (svn.Remove(itemsToRemove, FALSE, bShift))
 						{
 							bSuccess = true;
 						}
@@ -2598,7 +2598,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
 								if ((ret == 1)||(ret==3))
 								{
-									if (!svn.Remove(itemsToRemove, TRUE))
+									if (!svn.Remove(itemsToRemove, TRUE, bShift))
 									{
 										CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									}
@@ -2618,9 +2618,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
-								if ((e->textstatus == svn_wc_status_unversioned)||
+								if (!bShift &&
+									((e->textstatus == svn_wc_status_unversioned)||
 									(e->textstatus == svn_wc_status_none)||
-									(e->textstatus == svn_wc_status_ignored))
+									(e->textstatus == svn_wc_status_ignored)))
 								{
 									if (GetCheck(index))
 										m_nSelected--;
