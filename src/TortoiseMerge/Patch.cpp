@@ -116,18 +116,6 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 		}
 		else
 			sLine = PatchLines.GetAt(nIndex);
-		int cr = sLine.Find('\r');
-		if (cr >= 0)
-		{
-			sLine1 = sLine.Left(cr);
-			if (sLine.GetLength() > cr)
-				sLine = sLine.Mid(cr+1);
-			else
-				sLine.Empty();
-			CString temp = sLine;
-			sLine = sLine1;
-			sLine1 = temp;
-		}
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
@@ -518,15 +506,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				if ((PatchLines.GetUnicodeType()==CFileTextLines::UTF8)||(m_UnicodeType == CFileTextLines::UTF8BOM))
 				{
 					// convert the UTF-8 contents in CString sPatchLine into a CStringA
-					CStringA sPatchLineA;
-					char *pszPatchLine = sPatchLineA.GetBuffer(sPatchLine.GetLength());
-					for (int k = 0; k < sPatchLine.GetLength(); ++k)
-					{
-						*pszPatchLine++ = (char)sPatchLine.GetAt(k);
-					}
-					*pszPatchLine = 0;
-					sPatchLineA.ReleaseBuffer();
-					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLineA);
+					sPatchLine = CUnicodeUtils::GetUnicode(CStringA(sPatchLine));
 				}
 			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
