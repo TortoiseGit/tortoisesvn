@@ -61,7 +61,6 @@
 #define IDS_ERR_PATCH_FILESAVE          1023
 #define IDC_MISCGROUP                   1023
 #define IDC_ONEPANE                     1024
-#define IDS_ERR_PATCH_FILEFOUNDTWICE    1024
 #define IDC_BKUNKNOWN                   1027
 #define IDC_FGUNKNOWN                   1028
 #define IDC_BKNORMAL                    1029

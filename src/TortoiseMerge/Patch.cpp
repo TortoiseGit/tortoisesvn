@@ -442,7 +442,10 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sPath);
 		return FALSE;
 	}
+	// find the entry in the patchfile which matches the full path given in sPath.
 	int nIndex = -1;
+	// use the longest path that matches
+	int nMaxMatch = 0;
 	for (int i=0; i<GetNumberOfFiles(); i++)
 	{
 		CString temppath = sPath;
@@ -454,14 +457,10 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 			temppath = temppath.Right(temp.GetLength());
 			if ((temp.CompareNoCase(temppath)==0))
 			{
-				if ((nIndex < 0)&&(! temp.IsEmpty()))
+				if (nMaxMatch < temp.GetLength())
 				{
+					nMaxMatch = temp.GetLength();
 					nIndex = i;
-				}
-				else
-				{
-					m_sErrorMessage.Format(IDS_ERR_PATCH_FILEFOUNDTWICE, (LPCTSTR)temppath);
-					return FALSE;
 				}
 			}
 		}
