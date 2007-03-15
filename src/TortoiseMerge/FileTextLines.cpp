@@ -463,24 +463,26 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
-				switch (m_LineEndings)
-				{
-				case CR:
-					sLine += '\x0d';
-					break;
-				case CRLF:
-				case AUTOLINE:
-					sLine.Append("\x0d\x0a", 2);
-					break;
-				case LF:
-					sLine += '\x0a';
-					break;
-				case LFCR:
-					sLine.Append("\x0a\x0d", 2);
-					break;
-				}
 				if ((m_bReturnAtEnd)||(i != GetCount()-1))
-					file.Write((LPCSTR)sLine, sLine.GetLength());
+				{
+					switch (m_LineEndings)
+					{
+					case CR:
+						sLine += '\x0d';
+						break;
+					case CRLF:
+					case AUTOLINE:
+						sLine.Append("\x0d\x0a", 2);
+						break;
+					case LF:
+						sLine += '\x0a';
+						break;
+					case LFCR:
+						sLine.Append("\x0a\x0d", 2);
+						break;
+					}
+				}
+				file.Write((LPCSTR)sLine, sLine.GetLength());
 			}
 		}
 		else if ((bSaveAsUTF8)||((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8)))
@@ -500,24 +502,26 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 
-				switch (m_LineEndings)
-				{
-				case CR:
-					sLine += '\x0d';
-					break;
-				case CRLF:
-				case AUTOLINE:
-					sLine.Append("\x0d\x0a",2);
-					break;
-				case LF:
-					sLine += '\x0a';
-					break;
-				case LFCR:
-					sLine.Append("\x0a\x0d",2);
-					break;
-				}
 				if ((m_bReturnAtEnd)||(i != GetCount()-1))
-					file.Write((LPCSTR)sLine, sLine.GetLength());
+				{
+					switch (m_LineEndings)
+					{
+					case CR:
+						sLine += '\x0d';
+						break;
+					case CRLF:
+					case AUTOLINE:
+						sLine.Append("\x0d\x0a",2);
+						break;
+					case LF:
+						sLine += '\x0a';
+						break;
+					case LFCR:
+						sLine.Append("\x0a\x0d",2);
+						break;
+					}
+				}
+				file.Write((LPCSTR)sLine, sLine.GetLength());
 			}
 		}
 		file.Close();
