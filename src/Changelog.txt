@@ -183,6 +183,8 @@ Version 1.4.4
 - BUG: The revision graph could show wrong nodes after a merge. (Stefan)
 - BUG: TortoiseMerge could throw an error "The file 'x' was found twice!?!"
        even if the patchfile was applied to the correct folder. (Stefan)
+- BUG: "Create patch..." did not work for multiple files if the filenames
+       had a common prefix. (Tobias Schäfer)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
