@@ -4765,18 +4765,17 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	EnableGroupView(bHasGroups);
 
 	TCHAR groupname[1024];
-	if (bHasGroups)
-	{
-		LVGROUP grp = {0};
-		grp.cbSize = sizeof(LVGROUP);
-		grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-		CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-		_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
-		grp.pszHeader = groupname;
-		grp.iGroupId = 0;
-		grp.uAlign = LVGA_HEADER_LEFT;
-		InsertGroup(0, &grp);
-	}
+
+	LVGROUP grp = {0};
+	grp.cbSize = sizeof(LVGROUP);
+	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+	CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
+	_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
+	grp.pszHeader = groupname;
+	grp.iGroupId = 0;
+	grp.uAlign = LVGA_HEADER_LEFT;
+	InsertGroup(0, &grp);
+
 	// add a new group for each changelist
 	int groupindex = 1;
 	for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
