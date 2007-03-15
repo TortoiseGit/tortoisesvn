@@ -81,15 +81,12 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	for (; nIndex<PatchLines.GetCount(); nIndex++)
 	{
 		sLine = PatchLines.GetAt(nIndex);
-		if (sLine.Left(7).Compare(_T("Index: "))==0)
+		if ((nIndex+1)<PatchLines.GetCount())
 		{
-			if ((nIndex+1)<PatchLines.GetCount())
-			{
-				sLine = PatchLines.GetAt(nIndex+1);
-				sLine.Replace(_T("="), _T(""));
-				if (sLine.IsEmpty())
-					break;
-			}
+			sLine = PatchLines.GetAt(nIndex+1);
+			sLine.Replace(_T("="), _T(""));
+			if (sLine.IsEmpty())
+				break;
 		}
 	}
 	if ((PatchLines.GetCount()-nIndex) < 2)
@@ -120,23 +117,38 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 		{
 		case 0:	//Index: <filepath>
 			{
-				if (sLine.Left(7).Compare(_T("Index: "))==0)
+				CString nextLine;
+				if ((nIndex+1)<PatchLines.GetCount())
 				{
-					if (chunks)
+					nextLine = PatchLines.GetAt(nIndex+1);
+					if (!nextLine.IsEmpty())
 					{
-						//this is a new filediff, so add the last one to 
-						//our array.
-						m_arFileDiffs.Add(chunks);
+						nextLine.Replace(_T("="), _T(""));
+						if (nextLine.IsEmpty())
+						{
+							if (chunks)
+							{
+								//this is a new filediff, so add the last one to 
+								//our array.
+								m_arFileDiffs.Add(chunks);
+							}
+							chunks = new Chunks();
+							int nColon = sLine.Find(':');
+							if (nColon >= 0)
+							{
+								chunks->sFilePath = sLine.Mid(nColon+1).Trim();
+								if (chunks->sFilePath.Find('\t')>=0)
+									chunks->sFilePath.Left(chunks->sFilePath.Find('\t')).TrimRight();
+								if (chunks->sFilePath.Right(9).Compare(_T("(deleted)"))==0)
+									chunks->sFilePath.Left(chunks->sFilePath.GetLength()-9).TrimRight();
+								if (chunks->sFilePath.Right(7).Compare(_T("(added)"))==0)
+									chunks->sFilePath.Left(chunks->sFilePath.GetLength()-7).TrimRight();
+							}
+							state++;
+						}
 					}
-					chunks = new Chunks();
-					chunks->sFilePath = sLine.Mid(7).Trim();
-					if (chunks->sFilePath.Right(9).Compare(_T("(deleted)"))==0)
-						chunks->sFilePath.Left(chunks->sFilePath.GetLength()-9).TrimRight();
-					if (chunks->sFilePath.Right(7).Compare(_T("(added)"))==0)
-						chunks->sFilePath.Left(chunks->sFilePath.GetLength()-7).TrimRight();
-					state++;
 				}
-				else
+				if (state == 0)
 				{
 					if (nIndex > 0)
 					{
