@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-24 22:01+0100\n"
+"PO-Revision-Date: 2007-03-15 20:13+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -260,6 +260,10 @@ msgstr "&Berkeley Database (BDB)"
 msgid "&Blame differences"
 msgstr "&Verklaar verschillen"
 
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "Ver&klaar vorige revisie"
+
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -339,6 +343,7 @@ msgid "&Default"
 msgstr "&Standaard"
 
 #: ID:11
+#: ID:17
 msgid "&Delete"
 msgstr "&Verwijderen"
 
@@ -1289,6 +1294,7 @@ msgstr "Staafdiagram"
 msgid "Base file:"
 msgstr "Basisbestand:"
 
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Verklaren"
@@ -2024,6 +2030,10 @@ msgstr "Knoop verwijderd"
 msgid "Deletes files / folders from version control"
 msgstr "Verwijdert bestanden/mappen uit versiebeheer"
 
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Verwijdert bestanden/mappen uit versiebeheer, maar laat ze staan"
+
 #: ID:263
 msgid "Deleting"
 msgstr "Verwijderen"
@@ -2417,6 +2427,11 @@ msgstr "Openen van document mislukt."
 msgid "Failed to save document."
 msgstr "Opslaan van document mislukt."
 
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Maken/verwijderen werkset \"%s\" mislukt"
+
 #: ID:220
 msgid "Failed!"
 msgstr "Mislukt!"
@@ -2640,6 +2655,10 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Soort grafiek:"
+
+#: ID:214
+msgid "Group changelists"
+msgstr "Werksets groeperen"
 
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
@@ -3981,6 +4000,7 @@ msgstr "Even geduld terwijl de verschillen worden opgehaald..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Even geduld a.u.b. De archief-verkenner wordt geïnitialiseerd..."
 
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5208,18 +5228,9 @@ msgstr "Bestand %s bestaat niet!"
 msgid "The file %s was not found in the patch file!"
 msgstr "Bestand %s niet aangetroffen in het patch-bestand!"
 
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Het bestand %s\n"
-"is twee maal gevonden!?!\n"
-"Dit gebeurt meestal omdat u het patch-bestand op de\n"
-"verkeerde map heeft toegepast!"
+#: ID:69
+msgid "The file is too big"
+msgstr "Het bestand is te groot"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -5607,10 +5618,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame kan niet direct gestart worden!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 #: ID:7
 msgid "TortoiseIDiff"
@@ -5651,13 +5662,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 #: ID:80
@@ -5676,7 +5685,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -5686,7 +5694,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
