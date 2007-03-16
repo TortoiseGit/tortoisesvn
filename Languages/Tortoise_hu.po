@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-04 21:51+0100\n"
+"PO-Revision-Date: 2007-03-16 22:18+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -298,6 +298,10 @@ msgstr "&Berkeley adatbázis (BDB)"
 msgid "&Blame differences"
 msgstr "&Szemrehány eltéréseket"
 
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Szemrehányja az előző verziót"
+
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -395,6 +399,7 @@ msgstr "&Alap"
 
 # ID:11,
 #: ID:11
+#: ID:17
 msgid "&Delete"
 msgstr "&Törlés"
 
@@ -2490,6 +2495,11 @@ msgstr "Csomópont törölve"
 msgid "Deletes files / folders from version control"
 msgstr "Fájlok / Mappák törlölve a forráskezelésből"
 
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Fájlok / Mappák törlölve a forráskezelésből de megtartása a meghajtón"
+
 # ID:263,
 #: ID:263
 msgid "Deleting"
@@ -2973,6 +2983,12 @@ msgstr "Nem sikerült a dokumentumot betölteni"
 msgid "Failed to save document."
 msgstr "Nem sikerült a dokumentumot kimenteni"
 
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "\"%s\" változáslistához rendelése/törlése sikertelen"
+
 # ID:63,#:
 # ID:74,#:
 # ID:77,#:
@@ -3244,6 +3260,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Grafikon típus:"
+
+# Control-ID:1126,
+#: ID:214
+msgid "Group changelists"
+msgstr "Változáslisták csoportosítása"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -4764,6 +4785,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Várj amíg elindítom a Tárház böngészőt..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -6295,20 +6317,6 @@ msgstr "%s fájl nem létezik!"
 msgid "The file %s was not found in the patch file!"
 msgstr "%s fájl nem található a foltfájlban"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"A %s fájl\n"
-"kétszer lett megtalálva!?!\n"
-"Ez általában akkor történik amikor egy foltot rossz\n"
-"mappában építesz be!"
-
 # ID:3857,#:
 # ID:3857,
 #: ID:69
@@ -6751,10 +6759,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "A TortoiseBlame közvetlenül nem indítható!\n"
-"TortoiseBlame.exe blamefájl [[naplófájl] [címmutatás]] [/line:sorszám]"
+"TortoiseBlame.exe blamefájl [[naplófájl] [címmutatás]] [/line:sorszám] [/path:eredetiútvonal]"
 
 # ID:9,#:
 # ID:80,#:
@@ -6804,13 +6812,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#:
@@ -6834,7 +6840,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6844,7 +6849,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
