@@ -185,6 +185,8 @@ Version 1.4.4
        even if the patchfile was applied to the correct folder. (Stefan)
 - BUG: "Create patch..." did not work for multiple files if the filenames
        had a common prefix. (Tobias Schäfer)
+- BUG: Choosing "use other file" in TortoiseMerge wouldn't save the file
+       completely later. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

@@ -131,28 +131,33 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 						CDiffData::DiffStates state = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(i);
 						switch (state)
 						{
-						case CDiffData::DIFFSTATE_ADDED:
-						case CDiffData::DIFFSTATE_CONFLICTADDED:
-						case CDiffData::DIFFSTATE_CONFLICTED:
 						case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-						case CDiffData::DIFFSTATE_IDENTICALADDED:
-						case CDiffData::DIFFSTATE_NORMAL:
-						case CDiffData::DIFFSTATE_THEIRSADDED:
 						case CDiffData::DIFFSTATE_UNKNOWN:
-						case CDiffData::DIFFSTATE_YOURSADDED:
 						case CDiffData::DIFFSTATE_EMPTY:
 							rightstate.linestates[i] = m_arLineStates->GetAt(i);
 							m_arLineStates->SetAt(i, state);
 							break;
+						case CDiffData::DIFFSTATE_YOURSADDED:
+						case CDiffData::DIFFSTATE_IDENTICALADDED:
+						case CDiffData::DIFFSTATE_NORMAL:
+						case CDiffData::DIFFSTATE_THEIRSADDED:
+						case CDiffData::DIFFSTATE_ADDED:
+						case CDiffData::DIFFSTATE_CONFLICTADDED:
+						case CDiffData::DIFFSTATE_CONFLICTED:
 						case CDiffData::DIFFSTATE_IDENTICALREMOVED:
 						case CDiffData::DIFFSTATE_REMOVED:
 						case CDiffData::DIFFSTATE_THEIRSREMOVED:
 						case CDiffData::DIFFSTATE_YOURSREMOVED:
+							rightstate.linestates[i] = CDiffData::DIFFSTATE_NORMAL;
+							m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_NORMAL);
+							m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_NORMAL);
 							break;
 						default:
 							break;
 						}
 						SetModified();
+						if (m_pwndLocator)
+							m_pwndLocator->DocumentUpdated();
 					}
 				}
 			} 
