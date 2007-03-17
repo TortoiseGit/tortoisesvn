@@ -1981,6 +1981,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
 	if (fullver >= 0x0501)
 		XPorLater = true;
+	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
 	if (pWnd == this)
 	{
@@ -2215,7 +2216,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_added)&&(m_dwContextMenus & SVNSLC_POPDELETE))
 					{
-						temp.LoadString(IDS_MENUREMOVE);
+						if (bShift)
+							temp.LoadString(IDS_MENUREMOVEKEEP);
+						else
+							temp.LoadString(IDS_MENUREMOVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVE, temp);
 					}
 					if ((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_deleted))
@@ -2373,7 +2377,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
 				int iItemCountBeforeMenuCmd = GetItemCount();
