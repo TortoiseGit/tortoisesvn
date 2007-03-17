@@ -41,14 +41,14 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8914: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 8967: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-11 17:23+0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2007-03-17 12:05+0300\n"
+"Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -372,6 +372,7 @@ msgid "&Default"
 msgstr "По &умолчанию"
 
 #: ID:11
+#: ID:17
 msgid "&Delete"
 msgstr "&Удалить"
 
@@ -2078,6 +2079,10 @@ msgstr "Удалённый узел"
 #: ID:11
 msgid "Deletes files / folders from version control"
 msgstr "Удаляет файлы/папки из управления версиями"
+
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Удаляет файлы/папки из управления версиями без удаления самих файлов"
 
 #: ID:263
 msgid "Deleting"
@@ -3989,6 +3994,7 @@ msgstr "Пожалуйста, подождите, пока получаются 
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Подождите, пожалуйста, пока обозреватель хранилища инициализируется..."
 
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5228,19 +5234,6 @@ msgstr "Файл %s не существует!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Файл %s не найден в файле заплаток!"
-
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Файл %s\n"
-"был найден дважды!?!\n"
-"Это обычно происходит при попытке применения\n"
-"файла заплаток к не той папке!"
 
 #: ID:69
 msgid "The file is too big"
