@@ -916,12 +916,13 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		sTemp = sUrl.Left(slash);
 		pTreeItem->unescapedname = sTemp;
 		pTreeItem->url = fullurl.Left(fullurl.GetLength()-sUrl.GetLength()+slash);
+		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? TVIS_EXPANDED : TVIS_EXPANDED|TVIS_BOLD;
 		TVINSERTSTRUCT tvinsert = {0};
 		tvinsert.hParent = hNewItem;
-		tvinsert.hInsertAfter = TVI_LAST;
-		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
-		tvinsert.itemex.state = TVIS_EXPANDED;
-		tvinsert.itemex.stateMask = TVIS_EXPANDED;
+		tvinsert.hInsertAfter = TVI_SORT;
+		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+		tvinsert.itemex.state = state;
+		tvinsert.itemex.stateMask = state;
 		tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
 		tvinsert.itemex.cChildren = 1;
 		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
@@ -937,12 +938,13 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 	sTemp = sUrl;
 	pTreeItem->unescapedname = sTemp;
 	pTreeItem->url = fullurl;
+	UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? TVIS_EXPANDED : TVIS_EXPANDED|TVIS_BOLD;
 	TVINSERTSTRUCT tvinsert = {0};
 	tvinsert.hParent = hNewItem;
-	tvinsert.hInsertAfter = TVI_LAST;
-	tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
-	tvinsert.itemex.state = TVIS_EXPANDED;
-	tvinsert.itemex.stateMask = TVIS_EXPANDED;
+	tvinsert.hInsertAfter = TVI_SORT;
+	tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+	tvinsert.itemex.state = state;
+	tvinsert.itemex.stateMask = state;
 	tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
 	tvinsert.itemex.cChildren = 1;
 	tvinsert.itemex.lParam = (LPARAM)pTreeItem;
@@ -1872,10 +1874,16 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 		case ID_PREPAREDIFF:
 			{
+				m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), 0, TVIS_BOLD);
 				if (urlList.GetCount() == 1)
 				{
 					m_diffURL = urlList[0];
 					m_diffKind = nFolders ? svn_node_dir : svn_node_file;
+					// make the marked tree item bold
+					if (m_diffKind == svn_node_dir)
+					{
+						m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), TVIS_BOLD, TVIS_BOLD);
+					}
 				}
 				else
 				{
