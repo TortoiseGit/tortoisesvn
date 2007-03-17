@@ -3079,11 +3079,23 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								stat.GetStatus(fentry->GetPath());
 								if (stat.status)
 								{
-									if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+									if (stat.status->entry)
 									{
-										mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+										if (stat.status->entry->conflict_wrk)
+										{
+											mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+										}
+										else if (stat.status->entry->conflict_old)
+										{
+											// if the conflict_wrk entry is empty, that means the file is binary
+											// and there is no 'merged' file with the conflict markers in it which would
+											// have replaced the original file. In that case, the original file is left
+											// untouched, and we need to use that untouched file as 'mine'.
+											mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->name));
+										}
+										else
+											break;
 									}
-									else break;
 								}
 								else
 								{

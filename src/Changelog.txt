@@ -187,6 +187,8 @@ Version 1.4.4
        had a common prefix. (Tobias Schäfer)
 - BUG: Choosing "use other file" in TortoiseMerge wouldn't save the file
        completely later. (Stefan)
+- BUG: "Resolve conflict using 'mine'" didn't work if the conflicted file
+       was binary and not text. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

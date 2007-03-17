@@ -1786,6 +1786,14 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 										{
 											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 										}
+										else
+										{
+											// if the conflict_wrk entry is empty, that means the file is binary
+											// and there is no 'merged' file with the conflict markers in it which would
+											// have replaced the original file. In that case, the original file is left
+											// untouched, and we need to use that untouched file as 'mine'.
+											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->name));
+										}
 									}
 								}
 								CopyFile(choice.GetWinPath(), data->path.GetWinPath(), FALSE);
