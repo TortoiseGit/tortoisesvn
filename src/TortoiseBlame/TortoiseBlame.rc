@@ -48,7 +48,7 @@ BEGIN
     BEGIN
         MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
-		MENUITEM "&Diff with previous",         ID_DIFF_PREVIOUS_REVISION
+		MENUITEM "Show &differences",           ID_DIFF_PREVIOUS_REVISION
     END
 END
 
