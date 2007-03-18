@@ -1350,8 +1350,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		}
 		break;
 	case WM_RBUTTONDOWN:
-		if (app.m_selectedrev >= 0)
-			break;
 		// fall through
 	case WM_LBUTTONDOWN:
 		{
