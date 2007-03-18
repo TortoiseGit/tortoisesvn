@@ -31,10 +31,6 @@ SVNInfo::SVNInfo(void)
 {
 	m_pool = svn_pool_create (NULL);
 
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
-
 	svn_client_create_context(&m_pctx, m_pool);
 
 	svn_config_ensure(NULL, m_pool);
@@ -43,8 +39,6 @@ SVNInfo::SVNInfo(void)
 	m_prompt.Init(m_pool, m_pctx);
 	m_pctx->cancel_func = cancel;
 	m_pctx->cancel_baton = this;
-
-	svn_utf_initialize(m_pool);
 
 	// set up the configuration
 	m_err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);

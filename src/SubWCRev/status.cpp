@@ -171,7 +171,6 @@ svn_status (	const char *path,
 	sb.SubStat = (SubWCRev_t *)status_baton;
 	sb.extarray = extarray;
 	sb.pool = pool;
-	svn_utf_initialize(pool);
 
   	// Need to lock the tree as even a non-recursive status requires the
 	// immediate directories to be locked.

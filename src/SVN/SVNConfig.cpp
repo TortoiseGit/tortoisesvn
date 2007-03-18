@@ -27,10 +27,6 @@ SVNConfig::SVNConfig(void)
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
 
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", parentpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", parentpool);
-
 	err = svn_config_ensure(NULL, parentpool);
 	pool = svn_pool_create (parentpool);
 	// set up the configuration

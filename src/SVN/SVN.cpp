@@ -51,10 +51,6 @@ SVN::SVN(void) :
 	progress_lasttotal(0)
 {
 	parentpool = svn_pool_create(NULL);
-	svn_utf_initialize(parentpool);
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", parentpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", parentpool);
 	svn_client_create_context(&m_pctx, parentpool);
 
 	Err = svn_config_ensure(NULL, parentpool);
@@ -1144,10 +1140,6 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 
 	SVNPool localpool;
 
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
-	
 	apr_hash_t *fs_config = apr_hash_make (localpool);;
 
 	apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_TXN_NOSYNC,
@@ -1960,10 +1952,6 @@ CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
 	svn_error_t * err;
 	SVNPool localpool;
 
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
-
 	const char* pristinePath = NULL;
 	CTSVNPath returnPath;
 
@@ -1985,10 +1973,6 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, B
 	svn_wc_adm_access_t *adm_access;          
 	svn_error_t * err;
 	SVNPool localpool;
-
-	const char * deststr = NULL;
-	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
-	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
 
 	const char * translatedPath = NULL;
 	CStringA temp = sFile.GetSVNApiPath();
