@@ -1391,9 +1391,17 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				else
 				{
-					CTSVNPath temporaryFile;
 					SVNDiff diff;
-					diff.DiffFileAgainstBase(cmdLinePath);
+					if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
+					{
+						LONG nStartRevision = parser.GetLongVal(_T("startrev"));
+						LONG nEndRevision = parser.GetLongVal(_T("endrev"));
+						diff.ShowCompare(cmdLinePath, nStartRevision, cmdLinePath, nEndRevision);
+					}
+					else
+					{
+						diff.DiffFileAgainstBase(cmdLinePath);
+					}
 				}
 			} 
 			else

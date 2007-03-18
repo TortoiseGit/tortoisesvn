@@ -79,6 +79,7 @@ public:
 	void StartSearch();
 	void CopySelectedLogToClipboard();
 	void BlamePreviousRevision();
+	void DiffPreviousRevision();
 	bool DoSearch(LPSTR what, DWORD flags);
 	bool GotoLine(long line);
 	void GotoLineDlg();
