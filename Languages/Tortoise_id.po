@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-11 23:05+0700\n"
+"PO-Revision-Date: 2007-03-19 04:40+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,6 +407,11 @@ msgstr "&Standar"
 #: ID:11
 msgid "&Delete"
 msgstr "&Hapus"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Hapus (pertahankan lokal)"
 
 # ID:101,
 #: ID:101
@@ -2506,6 +2511,11 @@ msgstr "Node dihapus"
 #: ID:11
 msgid "Deletes files / folders from version control"
 msgstr "Menghapus file / folder dari kontrol versi"
+
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Menghapus file-file / folder-folder dari kontrol versi tetapi mempertahankan file tersebut"
 
 # ID:263,
 #: ID:263
@@ -4797,6 +4807,7 @@ msgstr "Harap menunggu sementara browser repositori diinisialisasi..."
 # ID:119,#:
 # ID:146,#:
 # ID:211,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5819,7 +5830,7 @@ msgid "Show &all revisions"
 msgstr "Tampilkan semu&a revisi"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Tampilkan perbe&daan"
 
@@ -6316,20 +6327,6 @@ msgstr "File %s tidak ada!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "File %s tidak ditemukan dalam file patch!"
-
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"File %s\n"
-"ditemukan dua kali!?!\n"
-"Ini biasanya terjadi bila anda menerapkan patchfile ke\n"
-"folder yang salah!"
 
 # ID:3857,#:
 # ID:3857,
