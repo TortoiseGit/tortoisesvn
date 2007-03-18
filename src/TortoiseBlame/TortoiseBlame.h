@@ -84,6 +84,8 @@ public:
 	void GotoLineDlg();
 	static INT_PTR CALLBACK GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
+	void SetSelectedLine(LONG line) { m_SelectedLine=line;};
+
 	LONG						m_mouserev;
 	std::string					m_mouseauthor;
 	LONG						m_selectedrev;
@@ -112,7 +114,7 @@ protected:
 	LONG						m_datewidth;
 	LONG						m_authorwidth;
 	LONG						m_linewidth;
-	LONG						m_SelectedLine;
+	LONG						m_SelectedLine; ///< zero-based
 
 	COLORREF					m_mouserevcolor;
 	COLORREF					m_mouseauthorcolor;

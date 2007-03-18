@@ -70,6 +70,7 @@ TortoiseBlame::TortoiseBlame()
 	m_selectedauthorcolor = InterColor(m_selectedrevcolor, m_texthighlightcolor, 35);
 
 	m_selectedrev = -1;
+	m_SelectedLine = -1;
 	m_directPointer = 0;
 	m_directFunction = 0;
 }
@@ -476,6 +477,9 @@ void TortoiseBlame::BlamePreviousRevision()
 	char bufEndRev[20];
 	_stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
 
+	char bufLine[20];
+	_stprintf_s(bufLine, 20, _T("%d"), m_SelectedLine+1); //using the current line is a good guess.
+
 	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
 	memset(&startup, 0, sizeof(startup));
@@ -490,6 +494,8 @@ void TortoiseBlame::BlamePreviousRevision()
 	svnCmd += bufStartRev;
 	svnCmd += _T(" /endrev:");
 	svnCmd += bufEndRev;
+	svnCmd += _T(" /line:");
+	svnCmd += bufLine;
 	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 	{
 		CloseHandle(process.hThread);
@@ -1315,6 +1321,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			line = line + (y/heigth);
 			if (line < (LONG)app.revs.size())
 			{
+				app.SetSelectedLine(line);
 				if (app.revs[line] != app.m_selectedrev)
 				{
 					app.m_selectedrev = app.revs[line];
@@ -1328,6 +1335,10 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					app.m_selectedrev = -2;
 				}
 				::InvalidateRect(app.wBlame, NULL, FALSE);
+			}
+			else
+			{
+				app.SetSelectedLine(-1);
 			}
 		}
 		break;
