@@ -126,7 +126,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
   set outMRG=!outMRG!%SomeBlanks:~1,6%
   set outMRG=!outMRG:~0,5!
 
-  if not "!outBoth!"=="NONE NONE" (
+  if not "!outBoth!"=="NONENONE" (
     echo !LANGNAME! !outSVN! - !outMRG!
     echo !LANGNAME! !outSVN! - !outMRG! >> %Logfile% 
   )
