@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-15 10:16+0100\n"
+"PO-Revision-Date: 2007-03-19 09:02+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -344,9 +344,13 @@ msgid "&Default"
 msgstr "&Standard"
 
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "&Löschen"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Löschen (lokal erhalten)"
 
 #: ID:101
 msgid "&Delete..."
@@ -4866,7 +4870,7 @@ msgstr "&Zeige Bereich"
 msgid "Show &all revisions"
 msgstr "Zeige &alle Revisionen"
 
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Zeige &Unterschiede"
 
@@ -5294,20 +5298,6 @@ msgstr "Die Datei %s existiert nicht!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Die Datei %s wurde in der Patch-Datei nicht gefunden!"
-
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Die Datei %s\n"
-"wurde zweimal gefunden!?!\n"
-"Das passiert, wenn Sie eine Patchdatei im falschen Ordner\n"
-"angewendet haben!"
 
 #: ID:69
 msgid "The file is too big"
