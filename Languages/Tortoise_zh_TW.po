@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-13 09:10+0800\n"
+"PO-Revision-Date: 2007-03-20 13:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -405,6 +405,11 @@ msgstr "預設(&D)"
 #: ID:11
 msgid "&Delete"
 msgstr "刪除(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "刪除並保留檔案(&D)"
 
 # ID:11,#:
 # ID:73,#:
@@ -2510,6 +2515,11 @@ msgstr "已刪除的節點"
 #: ID:11
 msgid "Deletes files / folders from version control"
 msgstr "從版本控制樹中刪除檔案/資料夾"
+
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "從版本控制樹中刪除但保留檔案"
 
 # ID:11,#:
 # ID:73,#:
@@ -4788,6 +4798,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5811,7 +5822,7 @@ msgid "Show &all revisions"
 msgstr "顯示所有版本(&A)"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "顯示差異(&D)"
 
@@ -6300,20 +6311,6 @@ msgstr "檔案 %s 不存在!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "補綴檔中找不到檔案: %s!"
-
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"檔案 %s\n"
-"出現兩次!?!\n"
-"可能因為您將補綴檔套用到錯\n"
-"誤的資料夾!"
 
 # ID:3857,#:
 # ID:3857,
