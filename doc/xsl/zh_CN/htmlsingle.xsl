@@ -2,7 +2,7 @@
 
 <xsl:import href="../htmlsingle.xsl"/>
 
-<xsl:param name="chunker.output.encoding" select="'GB2312'"/>
+<xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
 
 <xsl:template name="person.name.family-given">
   <xsl:param name="node" select="."/>

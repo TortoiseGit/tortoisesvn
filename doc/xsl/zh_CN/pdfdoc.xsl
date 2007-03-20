@@ -1,13 +1,14 @@
-<xsl:stylesheet 
- xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
- xmlns:fo="http://www.w3.org/1999/XSL/Format" 
- version="1.0"> 
- 
-<xsl:import href="../pdfdoc.xsl"/> 
+<xsl:stylesheet
+ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+ xmlns:fo="http://www.w3.org/1999/XSL/Format"
+ version="1.0">
 
-<xsl:param name="body.font.family" select="'simsun'"></xsl:param> 
-<xsl:param name="monospace.font.family" select="'simsun'"></xsl:param> 
-<xsl:param name="title.font.family" select="'simhei'"></xsl:param> 
+<xsl:import href="../pdfdoc.xsl"/>
+
+<xsl:param name="body.font.family" select="'simsun'"></xsl:param>
+<xsl:param name="dingbat.font.family" select="'simhei'"></xsl:param>
+<xsl:param name="monospace.font.family" select="'simsun'"></xsl:param>
+<xsl:param name="title.font.family" select="'simhei'"></xsl:param>
 
 <xsl:param name="hyphenate">false</xsl:param>
 
@@ -70,5 +71,5 @@
     <xsl:apply-templates select="$node//lineage[1]"/>
   </xsl:if>
 </xsl:template>
- 
-</xsl:stylesheet> 
+
+</xsl:stylesheet>
