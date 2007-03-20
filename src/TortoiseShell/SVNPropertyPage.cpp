@@ -224,6 +224,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							stdstring svnCmd = _T(" /command:");
 							svnCmd += _T("properties /path:\"");
 							svnCmd += retFilePath.c_str();
+							svnCmd += _T("\"");
 							if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 							{
 								CloseHandle(process.hThread);
