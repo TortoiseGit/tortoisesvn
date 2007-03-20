@@ -1183,7 +1183,6 @@ void CLogDlg::OnOK()
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			svn_revnum_t lowerRev = pLogEntry->Rev;
 			svn_revnum_t higherRev = lowerRev;
-			//int index = 0;
 			while (pos)
 			{
 			    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
@@ -1257,8 +1256,27 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		deleted.LoadString(IDS_SVNACTION_DELETE);
 
 		if (DiffPossible(changedpath, rev1))
+		{
 			// diffs with renamed files are possible
+			if ((changedpath)&&(!changedpath->sCopyFromPath.IsEmpty()))
+				rev2 = changedpath->lCopyFromRev;
+			else
+			{
+				// if the path was modified but the parent path was 'added with history'
+				// then we have to use the 'copyfrom' revision of the parent path
+				CTSVNPath cpath = CTSVNPath(changedpath->sPath);
+				for (int flist = 0; flist < pLogEntry->pArChangedPaths->GetCount(); ++flist)
+				{
+					CTSVNPath p = CTSVNPath(pLogEntry->pArChangedPaths->GetAt(flist)->sPath);
+					if (p.IsAncestorOf(cpath))
+					{
+						if (!pLogEntry->pArChangedPaths->GetAt(flist)->sCopyFromPath.IsEmpty())
+							rev2 = pLogEntry->pArChangedPaths->GetAt(flist)->lCopyFromRev;
+					}
+				}
+			}
 			DoDiffFromLog(selIndex, rev1, rev2, false, false);
+		}
 		else if (changedpath->sAction.Compare(deleted) == 0)
 			// deleted files must be opened from the revision before the deletion
 			Open(false,changedpath->sPath,rev1-1);
@@ -3432,6 +3450,26 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
 			LogChangedPath * changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
 
+			if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
+			{
+				if ((changedlogpath)&&(!changedlogpath->sCopyFromPath.IsEmpty()))
+					rev2 = changedlogpath->lCopyFromRev;
+				else
+				{
+					// if the path was modified but the parent path was 'added with history'
+					// then we have to use the 'copyfrom' revision of the parent path
+					CTSVNPath cpath = CTSVNPath(changedlogpath->sPath);
+					for (int flist = 0; flist < pLogEntry->pArChangedPaths->GetCount(); ++flist)
+					{
+						CTSVNPath p = CTSVNPath(pLogEntry->pArChangedPaths->GetAt(flist)->sPath);
+						if (p.IsAncestorOf(cpath))
+						{
+							if (!pLogEntry->pArChangedPaths->GetAt(flist)->sCopyFromPath.IsEmpty())
+								rev2 = pLogEntry->pArChangedPaths->GetAt(flist)->lCopyFromRev;
+						}
+					}
+				}
+			}
 			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 			{
 				// some items are hidden! So find out which item the user really clicked on
