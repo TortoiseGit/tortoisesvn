@@ -190,6 +190,8 @@ Version 1.4.4
        completely later. (Stefan)
 - BUG: "Resolve conflict using 'mine'" didn't work if the conflicted file
        was binary and not text. (Stefan)
+- BUG: After changing the "sort items numerically" setting, the "Apply"
+       button was not enabled. (Roel Harbers)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
