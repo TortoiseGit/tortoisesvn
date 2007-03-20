@@ -943,8 +943,6 @@ BEGIN
     GROUPBOX        "Check for modifications",IDC_STATIC,7,142,286,32
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,156,271,10
-    GROUPBOX        "Repository browser",IDC_STATIC,7,179,286,30
-    CONTROL         "Sort items numerically",IDC_SORTNUMERICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,192,237,10
     CONTROL         "&Reopen commit dialog after a commit failed",IDC_REOPENCOMMIT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,121,237,10
 END
@@ -2778,8 +2776,6 @@ STRINGTABLE
 BEGIN
     IDS_SETTINGS_CHECKOUTURL_TT 
                             "The default url to checkout from if nothing else is specified"
-    IDS_SETTINGS_SORTNUMERICAL_TT 
-                            "Sorts items numerical instead of alphabetical"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END

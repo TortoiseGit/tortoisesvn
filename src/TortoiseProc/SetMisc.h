@@ -67,8 +67,6 @@ private:
 	BOOL			m_bCheckRepo;
 	CRegDWORD		m_regMaxHistory;
 	DWORD			m_dwMaxHistory;
-	CRegDWORD		m_regSortNumerical;
-	BOOL			m_bSortNumerical;
 	CRegDWORD		m_regCommitReopen;
 	BOOL			m_bCommitReopen;
 };

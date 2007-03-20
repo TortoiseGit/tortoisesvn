@@ -528,7 +528,6 @@
 #define IDC_GRAPHLINEBUTTON             1299
 #define IDS_SSL_REJECT                  1300
 #define IDC_GRAPHLINESTACKEDBUTTON      1300
-#define IDC_SORTNUMERICAL               1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDC_GRAPHPIEBUTTON              1301
 #define IDC_FIRSTURL                    1301
