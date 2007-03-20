@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-15 22:35+0800\n"
+"PO-Revision-Date: 2007-03-17 20:13+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -435,9 +435,13 @@ msgstr "默认(&D)"
 
 # ID:11,
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "删除(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "删除(保留本地副本，&D)"
 
 # ID:101,
 #: ID:101
@@ -5849,7 +5853,7 @@ msgid "Show &all revisions"
 msgstr "显示全部版本(&A)"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "显示差异(&D)"
 
@@ -6347,20 +6351,6 @@ msgstr "文件 %s 不存在！"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "补丁文件中找不到文件: %s！"
-
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"文件 %s\n"
-"出现了两次？！\n"
-"这通常发生在你将补丁\n"
-"文件应用到了错误的目录。"
 
 # ID:3857,#:
 # ID:3857,
