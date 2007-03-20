@@ -821,7 +821,7 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 	//
 	// column 4: size
 	temp.LoadString(IDS_LOG_SIZE);
-	m_RepoList.InsertColumn(c++, temp);
+	m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT);
 	//
 	// column 5: date
 	temp.LoadString(IDS_LOG_DATE);
@@ -852,7 +852,8 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 		// author
 		m_RepoList.SetItemText(index, 3, it->author);
 		// size
-		temp.Format(_T("%ld"), it->size);
+		StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
+		temp.ReleaseBuffer();
 		m_RepoList.SetItemText(index, 4, temp);
 		// date
 		SVN::formatDate(date_native, (apr_time_t&)it->time, true);
