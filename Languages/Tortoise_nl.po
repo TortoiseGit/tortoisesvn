@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-20 21:53+0100\n"
+"PO-Revision-Date: 2007-03-20 22:05+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -343,9 +343,12 @@ msgid "&Default"
 msgstr "&Standaard"
 
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "&Verwijderen"
+
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Verwijderen (lokaal behouden)"
 
 #: ID:101
 msgid "&Delete..."
@@ -4339,10 +4342,6 @@ msgid "Repository Browser"
 msgstr "Archief-verkenner"
 
 #: Control-ID:65535
-msgid "Repository browser"
-msgstr "Archief-verkenner"
-
-#: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 
@@ -4956,14 +4955,6 @@ msgstr "Overgeslagen"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Ontbrekend doel overgeslagen"
-
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Sorteer onderdelen numeriek"
-
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Sorteer onderdelen numeriek in plaats van alfabetisch"
 
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
