@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-11 20:40+0100\n"
+"PO-Revision-Date: 2007-03-20 12:58+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -424,6 +424,11 @@ msgstr "&Početne postavke"
 #: ID:11
 msgid "&Delete"
 msgstr "&Obriši"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Obriši (sačuvaj lokalno)"
 
 # ID:101,
 #: ID:101
@@ -2527,6 +2532,11 @@ msgstr "Obrisani čvor"
 #: ID:11
 msgid "Deletes files / folders from version control"
 msgstr "Uklanja datoteke / mape iz upravljanja verzijama"
+
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Uklanja datoteke / mape iz upravljanja verzijama, ne briše datoteke"
 
 # ID:263,
 #: ID:263
@@ -4832,6 +4842,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Molim pričekajte inicijalizaciju preglednika skladišta..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5870,7 +5881,7 @@ msgid "Show &all revisions"
 msgstr "Prikaži &sve revizije"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Prikaži &razlike"
 
@@ -6367,20 +6378,6 @@ msgstr "Datoteka %s ne postoji!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Datoteka %s nije nađena u datoteci sa zakrpom!"
-
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Datoteka %s\n"
-"je pronađena dvaput!?!\n"
-"Ovo se obično dogodi kad primjenite\n"
-"zakrpu u krivoj mapi!"
 
 # ID:3857,#:
 # ID:3857,
