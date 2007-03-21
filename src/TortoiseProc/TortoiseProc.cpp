@@ -151,54 +151,52 @@ static const struct CommandInfo
 {
 	TSVNCommand command;
 	LPCTSTR pCommandName;
-	bool bPathIsTempFileByDefault;
 } commandInfo[] = 
 {
-	//                                          PathIsTempFile?
-	{	cmdTest,			_T("test"),				false	},
-	{	cmdCrash,			_T("crash"),			false	},
-	{	cmdAbout,			_T("about"),			false	},
-	{	cmdRTFM,			_T("rtfm"),				false	},
-	{	cmdLog,				_T("log"),				false	},
-	{	cmdCheckout,		_T("checkout"),			false	},
-	{	cmdImport,			_T("import"),			false	},
-	{	cmdUpdate,			_T("update"),			true	},
-	{	cmdCommit,			_T("commit"),			true	},
-	{	cmdAdd,				_T("add"),				true	},
-	{	cmdRevert,			_T("revert"),			true	},
-	{	cmdCleanup,			_T("cleanup"),			true	},
-	{	cmdResolve,			_T("resolve"),			true	},
-	{	cmdRepoCreate,		_T("repocreate"),		false	},
-	{	cmdSwitch,			_T("switch"),			false	},
-	{	cmdExport,			_T("export"),			false	},
-	{	cmdMerge,			_T("merge"),			false	},
-	{	cmdCopy,			_T("copy"),				false	},
-	{	cmdSettings,		_T("settings"),			false	},
-	{	cmdRemove,			_T("remove"),			true	},
-	{	cmdRename,			_T("rename"),			false	},
-	{	cmdDiff,			_T("diff"),				false	},
-	{	cmdUrlDiff,			_T("urldiff"),			false	},
-	{	cmdDropCopyAdd,		_T("dropcopyadd"),		true	},
-	{	cmdDropMove,		_T("dropmove"),			true	},
-	{	cmdDropExport,		_T("dropexport"),		true	},
-	{	cmdDropCopy,		_T("dropcopy"),			true	},
-	{	cmdConflictEditor,	_T("conflicteditor"),	false	},
-	{	cmdRelocate,		_T("relocate"),			false	},
-	{	cmdHelp,			_T("help"),				false	},
-	{	cmdRepoStatus,		_T("repostatus"),		false	},
-	{	cmdRepoBrowser,		_T("repobrowser"),		false	},
-	{	cmdIgnore,			_T("ignore"),			true	},
-	{	cmdUnIgnore,		_T("unignore"),			true	},
-	{	cmdBlame,			_T("blame"),			false	},
-	{	cmdCat,				_T("cat"),				false	},
-	{	cmdCreatePatch,		_T("createpatch"),		true	},
-	{	cmdUpdateCheck,		_T("updatecheck"),		false	},
-	{	cmdRevisionGraph,	_T("revisiongraph"),	false	},
-	{	cmdLock,			_T("lock"),				true	},
-	{	cmdUnlock,			_T("unlock"),			true	},
-	{	cmdRebuildIconCache,_T("rebuildiconcache"),	false	},
-	{	cmdProperties,		_T("properties"),		true	},
-	{	cmdDelUnversioned,	_T("delunversioned"),	false	},
+	{	cmdTest,			_T("test")				},
+	{	cmdCrash,			_T("crash")				},
+	{	cmdAbout,			_T("about")				},
+	{	cmdRTFM,			_T("rtfm")				},
+	{	cmdLog,				_T("log")				},
+	{	cmdCheckout,		_T("checkout")			},
+	{	cmdImport,			_T("import")			},
+	{	cmdUpdate,			_T("update")			},
+	{	cmdCommit,			_T("commit")			},
+	{	cmdAdd,				_T("add")				},
+	{	cmdRevert,			_T("revert")			},
+	{	cmdCleanup,			_T("cleanup")			},
+	{	cmdResolve,			_T("resolve")			},
+	{	cmdRepoCreate,		_T("repocreate")		},
+	{	cmdSwitch,			_T("switch")			},
+	{	cmdExport,			_T("export")			},
+	{	cmdMerge,			_T("merge")				},
+	{	cmdCopy,			_T("copy")				},
+	{	cmdSettings,		_T("settings")			},
+	{	cmdRemove,			_T("remove")			},
+	{	cmdRename,			_T("rename")			},
+	{	cmdDiff,			_T("diff")				},
+	{	cmdUrlDiff,			_T("urldiff")			},
+	{	cmdDropCopyAdd,		_T("dropcopyadd")		},
+	{	cmdDropMove,		_T("dropmove")			},
+	{	cmdDropExport,		_T("dropexport")		},
+	{	cmdDropCopy,		_T("dropcopy")			},
+	{	cmdConflictEditor,	_T("conflicteditor")	},
+	{	cmdRelocate,		_T("relocate")			},
+	{	cmdHelp,			_T("help")				},
+	{	cmdRepoStatus,		_T("repostatus")		},
+	{	cmdRepoBrowser,		_T("repobrowser")		},
+	{	cmdIgnore,			_T("ignore")			},
+	{	cmdUnIgnore,		_T("unignore")			},
+	{	cmdBlame,			_T("blame")				},
+	{	cmdCat,				_T("cat")				},
+	{	cmdCreatePatch,		_T("createpatch")		},
+	{	cmdUpdateCheck,		_T("updatecheck")		},
+	{	cmdRevisionGraph,	_T("revisiongraph")		},
+	{	cmdLock,			_T("lock")				},
+	{	cmdUnlock,			_T("unlock")			},
+	{	cmdRebuildIconCache,_T("rebuildiconcache")	},
+	{	cmdProperties,		_T("properties")		},
+	{	cmdDelUnversioned,	_T("delunversioned")	},
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -390,23 +388,21 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 
-		bool bPathIsTempfile = false;
-		if(commandInfo[command].bPathIsTempFileByDefault)
+		if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
 		{
-			// The path argument is probably a temporary file containing path names, unless
-			// the notempfile argument is present
-			bPathIsTempfile = !parser.HasKey(_T("notempfile"));
+			CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+			return FALSE;
 		}
 
-		CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
-		CTSVNPath cmdLinePath(sPathArgument);
-
+		CTSVNPath cmdLinePath;
 		CTSVNPathList pathList;
-		if(bPathIsTempfile)
+		if ( parser.HasKey(_T("pathfile")) )
 		{
+			CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
+			cmdLinePath.SetFromUnknown(sPathfileArgument);
 			if (pathList.LoadFromTemporaryFile(cmdLinePath)==false)
 				return FALSE;		// no path specified!
-			if(cmdLinePath.GetFileExtension().CompareNoCase(_T(".tmp")) == 0)
+			if ( parser.HasKey(_T("deletepathfile")) )
 			{
 				// We can delete the temporary path file, now that we've loaded it
 				::DeleteFile(cmdLinePath.GetWinPath());
@@ -417,6 +413,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		}
 		else
 		{
+			CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
+			cmdLinePath.SetFromUnknown(sPathArgument);
 			pathList.LoadFromAsteriskSeparatedString(sPathArgument);
 		}
 		

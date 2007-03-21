@@ -334,6 +334,7 @@
 #define IDS_LOG_SIZE                    1182
 #define IDC_COPYHEAD                    1182
 #define IDC_COPYWC                      1183
+#define IDS_ERR_INVALIDPATH             1183
 #define IDC_AUTOCOMPLETION              1184
 #define IDC_COPYREV                     1185
 #define IDC_COPYREVTEXT                 1186

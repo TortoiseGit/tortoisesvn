@@ -1134,9 +1134,12 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
 
 			//TortoiseProc expects a command line of the form:
+			//"/command:<commandname> /pathfile:<path> /revstart:<revisionstart> /revend:<revisionend> /deletepathfile
+			// or
 			//"/command:<commandname> /path:<path> /revstart:<revisionstart> /revend:<revisionend>
-			//path is either a path to a single file/directory for commands which only act on single files (log, checkout, ...)
-			//or a path to a temporary file which contains a list of filepaths
+			//
+			//* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
+			//* pathfile is a path to a temporary file which contains a list of filepaths
 			stdstring svnCmd = _T(" /command:");
 			stdstring tempfile;
 			switch (id_it->second)
@@ -1149,60 +1152,70 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuUpdate:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("update /path:\"");
+				svnCmd += _T("update /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuUpdateExt:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("update /path:\"");
+				svnCmd += _T("update /pathfile:\"");
 				svnCmd += tempfile;
-				svnCmd += _T("\" /rev");
+				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
+				svnCmd += _T(" /rev");
 				break;
 			case ShellMenuCommit:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("commit /path:\"");
+				svnCmd += _T("commit /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuAdd:
 			case ShellMenuAddAsReplacement:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("add /path:\"");
+				svnCmd += _T("add /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuIgnore:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("ignore /path:\"");
+				svnCmd += _T("ignore /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuIgnoreCaseSensitive:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("ignore /path:\"");
+				svnCmd += _T("ignore /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /onlymask");
 				break;
 			case ShellMenuUnIgnore:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("unignore /path:\"");
+				svnCmd += _T("unignore /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuUnIgnoreCaseSensitive:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("unignore /path:\"");
+				svnCmd += _T("unignore /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /onlymask");
 				break;
 			case ShellMenuRevert:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("revert /path:\"");
+				svnCmd += _T("revert /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuDelUnversioned:
 				svnCmd += _T("delunversioned /path:\"");
@@ -1211,15 +1224,17 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuCleanup:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("cleanup /path:\"");
+				svnCmd += _T("cleanup /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuResolve:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("resolve /path:\"");
+				svnCmd += _T("resolve /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuSwitch:
 				svnCmd += _T("switch /path:\"");
@@ -1279,15 +1294,17 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuRemove:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("remove /path:\"");
+				svnCmd += _T("remove /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuRemoveKeep:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("remove /path:\"");
+				svnCmd += _T("remove /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /keep");
 				break;
 			case ShellMenuDiff:
@@ -1316,63 +1333,70 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuDropCopyAdd:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropcopyadd /path:\"");
+				svnCmd += _T("dropcopyadd /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"";)
 					break;
 			case ShellMenuDropCopy:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropcopy /path:\"");
+				svnCmd += _T("dropcopy /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"";)
 					break;
 			case ShellMenuDropCopyRename:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropcopy /path:\"");
+				svnCmd += _T("dropcopy /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\" /rename";)
 					break;
 			case ShellMenuDropMove:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropmove /path:\"");
+				svnCmd += _T("dropmove /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuDropMoveRename:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropmove /path:\"");
+				svnCmd += _T("dropmove /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\" /rename";)
 				break;
 			case ShellMenuDropExport:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropexport /path:\"");
+				svnCmd += _T("dropexport /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuDropExportExtended:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("dropexport /path:\"");
+				svnCmd += _T("dropexport /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"");
@@ -1428,9 +1452,10 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuCreatePatch:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("createpatch /path:\"");
+				svnCmd += _T("createpatch /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuApplyPatch:
 				if ((isPatchFileInClipboard)&&(isExtended)&&(!isPatchFile))
@@ -1531,27 +1556,32 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				break;
 			case ShellMenuLock:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("lock /path:\"");
+				svnCmd += _T("lock /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuUnlock:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("unlock /path:\"");
+				svnCmd += _T("unlock /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			case ShellMenuUnlockForce:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("unlock /path:\"");
+				svnCmd += _T("unlock /pathfile:\"");
 				svnCmd += tempfile;
-				svnCmd += _T("\" /force");
+				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
+				svnCmd += _T(" /force");
 				break;
 			case ShellMenuProperties:
 				tempfile = WriteFileListToTempFile();
-				svnCmd += _T("properties /path:\"");
+				svnCmd += _T("properties /pathfile:\"");
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
+				svnCmd += _T(" /deletepathfile");
 				break;
 			default:
 				break;

@@ -3322,7 +3322,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_REPOBROWSE:
 			{
 				CString sCmd;
-				sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%ld /notempfile"),
+				sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 					pathURL, revSelected);
 
@@ -3348,7 +3348,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				CString url = _T("tsvn:")+pathURL;
-				sCmd.Format(_T("%s /command:export /url:\"%s\" /revision:%ld /notempfile"),
+				sCmd.Format(_T("%s /command:export /url:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 					url, revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
@@ -3358,7 +3358,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				CString url = _T("tsvn:")+pathURL;
-				sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld /notempfile"),
+				sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 					url, revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);

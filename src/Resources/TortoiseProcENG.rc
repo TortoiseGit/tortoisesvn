@@ -1947,6 +1947,7 @@ BEGIN
     IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!\n<hr=100%%>\n%s"
     IDS_ERR_SSL_VALIDATE    "Error validating server certificate for %s:"
     IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
+	IDS_ERR_INVALIDPATH     "The parameters '/path' and '/pathfile' are mutually exclusive.\nYou must only specify one of them."
 END
 
 STRINGTABLE 

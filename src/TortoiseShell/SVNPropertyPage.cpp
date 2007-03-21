@@ -222,9 +222,10 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							memset(&process, 0, sizeof(process));
 							CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
 							stdstring svnCmd = _T(" /command:");
-							svnCmd += _T("properties /path:\"");
+							svnCmd += _T("properties /pathfile:\"");
 							svnCmd += retFilePath.c_str();
 							svnCmd += _T("\"");
+							svnCmd += _T(" /deletepathfile");
 							if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 							{
 								CloseHandle(process.hThread);

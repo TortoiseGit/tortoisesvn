@@ -299,7 +299,7 @@ public:
 	bool WriteToTemporaryFile(const CString& sFilename, bool bANSI = false) const;
 
 	/**
-	 * Load from the path argument string, when the 'notempfile' flag is used
+	 * Load from the path argument string, when the 'path' parameter is used
 	 * This is a list of paths, with '*' between them
 	 */
 	void LoadFromAsteriskSeparatedString(const CString& sPathString);
