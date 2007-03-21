@@ -313,6 +313,7 @@ void CRepositoryBrowser::InitRepo()
 
 	SVNInfo info;
 	const SVNInfoData * data = NULL;
+	CString error;	// contains the first error of GetFirstFileInfo()
 	do 
 	{
 		data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
@@ -321,13 +322,23 @@ void CRepositoryBrowser::InitRepo()
 			// in case the url is not a valid directory, try the parent dir
 			// until there's no more parent dir
 			m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
+			if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
+				(m_InitialUrl.Compare(_T("https://")) == 0)||
+				(m_InitialUrl.Compare(_T("svn://")) == 0)||
+				(m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
+				(m_InitialUrl.Compare(_T("file:///")) == 0))
+			{
+				m_InitialUrl.Empty();
+			}
+			if ((error.IsEmpty())&&(data->kind == svn_node_dir))
+				error = info.GetLastErrorMsg();
 		}
 	} while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
 
 	if (data == NULL)
 	{
 		m_InitialUrl.Empty();
-		m_RepoList.ShowText(info.GetLastErrorMsg(), true);
+		m_RepoList.ShowText(error, true);
 		return;
 	}
 	m_InitialUrl.TrimRight('/');
