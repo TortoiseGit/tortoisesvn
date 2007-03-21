@@ -133,7 +133,6 @@ UINT CResolveDlg::ResolveThread()
 	}
 	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, SVNSLC_SHOWCONFLICTED);
 
-	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }

@@ -106,8 +106,6 @@ UINT CDeleteUnversionedDlg::StatusThread()
 	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, 
 		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);
 
-	DialogEnableWindow(IDOK, true);
-
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;
 	GetCursorPos(&pt);

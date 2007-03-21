@@ -141,7 +141,6 @@ UINT CUnlockDlg::UnlockThread()
 	m_unlockListCtrl.Show(SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES, 
 		SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES);
 
-	DialogEnableWindow(IDOK, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
