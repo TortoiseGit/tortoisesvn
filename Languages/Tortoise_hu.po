@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-17 20:39+0100\n"
+"PO-Revision-Date: 2007-03-21 23:39+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1985,6 +1985,7 @@ msgstr "Sikertelen parancs."
 
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Beküldés"
@@ -2789,7 +2790,6 @@ msgstr "Teljes képernyős méret"
 
 # ID:126,#:
 # Control-ID:1065,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Írd be a megjegyzést"
@@ -5208,11 +5208,6 @@ msgstr "Tárház"
 msgid "Repository Browser"
 msgstr "Tárház Böngésző"
 
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
-msgstr "Tárház böngésző"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -5828,7 +5823,7 @@ msgid "Show &all revisions"
 msgstr "Az &összes verzió mutatása"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "&Különbségeket mutat"
 
@@ -5994,16 +5989,6 @@ msgstr "Kihagyva"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Hiányzó cél kihagyva"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Szám szerint rendez"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Szám szerint rendez abc helyett"
 
 # ID:196,
 #: ID:196
@@ -6440,6 +6425,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Sikertelen művelet."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"A '/path' és '/pathfile' paraméterek együtt nem használhatóak.\n"
+"Kérlek csak az egyiket használd."
 
 # ID:64,
 #: ID:64
