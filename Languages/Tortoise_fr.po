@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-20 22:51+0100\n"
+"PO-Revision-Date: 2007-03-21 21:41+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1692,6 +1692,7 @@ msgid "Command failed."
 msgstr "Echec de la commande."
 
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Livrer"
@@ -2383,7 +2384,6 @@ msgstr "Révision de fin"
 msgid "Enlarge the window to full size"
 msgstr "Agrandir la fenêtre à la taille de l'écran"
 
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Entrer un commentaire"
@@ -4987,7 +4987,7 @@ msgstr "Affiche&r la plage..."
 msgid "Show &all revisions"
 msgstr "&Afficher toutes les révisions"
 
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Voir les &différences"
 
@@ -5520,6 +5520,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "L'opération a échoué."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Les paramètres '/path' et '/pathfile' s'excluent mutuellement.\n"
+"Vous ne devez en définir qu'un des deux."
 
 #: ID:64
 #, c-format
