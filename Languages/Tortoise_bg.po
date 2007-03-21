@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-11 06:04+0200\n"
+"PO-Revision-Date: 2007-03-21 23:52+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -444,6 +444,11 @@ msgstr "&По подразбиране"
 #: ID:11
 msgid "&Delete"
 msgstr "&Изтриване"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Изтриване (запазва местните)"
 
 # ID:11,#:
 # ID:73,#:
@@ -2027,6 +2032,7 @@ msgstr "Командата се провали."
 
 # ID:8,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Поверяване"
@@ -2553,6 +2559,11 @@ msgstr "Изтрит възел"
 msgid "Deletes files / folders from version control"
 msgstr "Изтрива контролирани файлове / папки"
 
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Изтрива контролирани файлове / папки, но запазва местните копия"
+
 # ID:11,#:
 # ID:73,#:
 # ID:101,
@@ -2838,7 +2849,6 @@ msgstr "Разширяване на прозореца на цял екран"
 
 # ID:126,#:
 # Control-ID:1065,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Въведете съобщение за дневника"
@@ -4832,6 +4842,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Моля, изчакайте инициализацията на програмата за разглеждане на хранилища... "
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5243,11 +5254,6 @@ msgstr "Хранилище"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "Разглеждане на хранилища"
-
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "Разглеждане на хранилища"
 
 # Control-ID:65535,
@@ -5855,7 +5861,7 @@ msgid "Show &all revisions"
 msgstr "&Всички ревизии"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Показване на &разликите"
 
@@ -6019,16 +6025,6 @@ msgstr "Прескочен"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Цифрово сортиране на обектите"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Сортира обектите цифрово вместо по азбучен ред"
 
 # ID:196,
 #: ID:196
@@ -6345,20 +6341,6 @@ msgstr "Файлът %s не съществува!"
 msgid "The file %s was not found in the patch file!"
 msgstr "Файлът %s не бе открит във файлът с кръпки!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Файлът %s\n"
-"е открит два пъти!?!\n"
-"Това обикновено се случва, ако сте наложили кръпка върху\n"
-"грешна папка."
-
 # ID:3857,#:
 # ID:3857,
 #: ID:69
@@ -6480,6 +6462,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Операцията се провали."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Параметрите '/path' и '/pathfile' са взаимно изключващи с.\n"
+"Трябва да подадете само един от тях."
 
 # ID:64,
 #: ID:64
@@ -6856,13 +6847,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, компилация %d - %s, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#:
@@ -6885,17 +6874,15 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, компилация %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
