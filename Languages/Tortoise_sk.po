@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-04 20:40+0100\n"
+"PO-Revision-Date: 2007-03-22 17:09+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -311,6 +311,12 @@ msgstr "&Obviniť rozdiely"
 
 # ID:114,#:
 # ID:322,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "&Obviniť predchádzajúcu revíziu"
+
+# ID:114,#:
+# ID:322,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -409,6 +415,11 @@ msgstr "&Predvolené"
 #: ID:11
 msgid "&Delete"
 msgstr "&Vymazať"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Odstrániť (zachovať lokálne)"
 
 # ID:101,
 #: ID:101
@@ -2009,6 +2020,7 @@ msgstr "Príkaz zlihal."
 # ID:209,#:
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Odovzdať"
@@ -2532,6 +2544,11 @@ msgstr "Uzol vymazaný"
 msgid "Deletes files / folders from version control"
 msgstr "Odstráni súbory, adresáre zo správy verzií"
 
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Odstráni súbory, adresáre zo správy verzií, ale zachová samotné súbory"
+
 # ID:263,
 #: ID:263
 msgid "Deleting"
@@ -2825,7 +2842,6 @@ msgid "Enlarge the window to full size"
 msgstr "Zväčšiť okno na plnú veľkosť"
 
 # Dlg-ID:135,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Zadaj správu denníka"
@@ -3023,6 +3039,12 @@ msgstr "Otváranie dokumentu zlyhalo."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Ukladanie dokumentu zlyhalo."
+
+# ID:15,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "Zlyhalo nastavenie/odstránenie zoznamu zmien \"%s\""
 
 # ID:63,#:
 # ID:74,#:
@@ -3301,6 +3323,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Typ grafu:"
+
+# ID:213,
+#: ID:214
+msgid "Group changelists"
+msgstr "Skupina zoznamu zmien"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -4835,6 +4862,7 @@ msgstr "Prosím čakajte, prehliadač úložiska sa inicializuje..."
 # ID:119,#:
 # ID:146,#:
 # ID:211,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5254,11 +5282,6 @@ msgstr "Úložisko"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "Prezeranie úložiska"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "Prezeranie úložiska"
 
 # Vyžaduje užívateľské meno a heslo
@@ -5865,7 +5888,7 @@ msgid "Show &all revisions"
 msgstr "Zobraziť &všetky revízie"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Zobraziť &rozdiely"
 
@@ -6036,16 +6059,6 @@ msgstr "Preskočené"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Preskočené chýbajúce ciele"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Usporiadať číselne"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Objekty usporiadať číselne namiesto podľa abecedy"
 
 # ID:196,
 #: ID:196
@@ -6366,20 +6379,6 @@ msgstr "Súbor %s neexistuje!"
 msgid "The file %s was not found in the patch file!"
 msgstr "Súbor %s nebol nájdený v záplatovom súbore!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"Súbor %s\n"
-"bol najdený viacnásobne(dvojmo)!?!\n"
-"Toto sa obvykle stáva pri aplikovaní záplaty\n"
-"na zlý adresár!"
-
 # ID:3857,#:
 # ID:3857,
 #: ID:69
@@ -6502,6 +6501,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Úkon zlihal."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Parametre '/path' a '/pathfile' sú nezlúčiteľné.\n"
+"Môžete zadať iba jeden z nich."
 
 # ID:64,
 #: ID:64
@@ -6825,10 +6833,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame nemožno volať priamo!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:7,
 #: ID:7
@@ -6876,13 +6884,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:80,#:
@@ -6905,7 +6911,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6915,7 +6920,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
