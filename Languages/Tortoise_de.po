@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-19 09:02+0100\n"
+"PO-Revision-Date: 2007-03-22 08:55+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1640,6 +1640,7 @@ msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
 
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Übertragen"
@@ -2317,7 +2318,6 @@ msgstr "Endrevision"
 msgid "Enlarge the window to full size"
 msgstr "Vergrößert das Fenster auf Bildschirmgröße"
 
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Logmeldung eingeben"
@@ -4379,10 +4379,6 @@ msgid "Repository Browser"
 msgstr "Projektarchiv"
 
 #: Control-ID:65535
-msgid "Repository browser"
-msgstr "Projektarchiv"
-
-#: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Erfragt Anwendername und Passwort"
 
@@ -5011,16 +5007,6 @@ msgstr "Übersprungen"
 msgid "Skipped missing target"
 msgstr "Fehlendes Ziel übersprungen"
 
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Numerisch sortieren"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Sortiert Einträge numerisch anstatt alphabetisch"
-
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5405,6 +5391,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Die Operation ist fehlgeschlagen."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Die Parameter '/path' und '/pathfile' schließen sich gegenseitig aus.\n"
+"Sie dürfen nur einen von beiden angeben."
 
 #: ID:64
 #, c-format
