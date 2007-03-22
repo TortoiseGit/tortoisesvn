@@ -359,7 +359,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// but only if it exists!
 		if (path.Exists() && m_shellCache.IsPathAllowed(path.GetWinPath()) && !g_SVNAdminDir.IsAdminDirPath(path.GetWinPath()))
 		{
-			ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
+			ATLTRACE(_T("adding %s to our cache\n"), path.GetWinPath());
 			ATLASSERT(path.IsDirectory()||(!path.Exists()));
 			CCachedDirectory * newcdir = new CCachedDirectory(path);
 			if (newcdir)

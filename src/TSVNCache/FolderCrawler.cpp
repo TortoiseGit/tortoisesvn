@@ -192,6 +192,24 @@ void CFolderCrawler::WorkerThread()
 					workingPath = m_pathsToUpdate.front();
 					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
 						m_pathsToUpdate.pop_front();
+					else
+					{
+						// since we always sort the whole list, we risk adding tons of new paths to m_pathsToUpdate
+						// until the last one in the sorted list finally times out.
+						// to avoid that, we go through the list again and crawl the first one which is valid
+						// to crawl. That way, we still reduce the size of the list.
+						if (m_pathsToUpdate.size() > 10)
+							ATLTRACE("attention: the list of paths to update is now %ld big!\n", m_pathsToUpdate.size());
+						for (std::deque<CTSVNPath>::iterator it = m_pathsToUpdate.begin(); it != m_pathsToUpdate.end(); ++it)
+						{
+							workingPath = *it;
+							if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+							{
+								m_pathsToUpdate.erase(it);
+								break;
+							}
+						}
+					}
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
@@ -361,6 +379,24 @@ void CFolderCrawler::WorkerThread()
 					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
 					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
 						m_foldersToUpdate.pop_front();
+					else
+					{
+						// since we always sort the whole list, we risk adding tons of new paths to m_pathsToUpdate
+						// until the last one in the sorted list finally times out.
+						// to avoid that, we go through the list again and crawl the first one which is valid
+						// to crawl. That way, we still reduce the size of the list.
+						if (m_foldersToUpdate.size() > 10)
+							ATLTRACE("attention: the list of folders to update is now %ld big!\n", m_foldersToUpdate.size());
+						for (std::deque<CTSVNPath>::iterator it = m_foldersToUpdate.begin(); it != m_foldersToUpdate.end(); ++it)
+						{
+							workingPath = *it;
+							if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+							{
+								m_foldersToUpdate.erase(it);
+								break;
+							}
+						}
+					}
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
@@ -372,7 +408,7 @@ void CFolderCrawler::WorkerThread()
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
 					continue;
 
-				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+				ATLTRACE(_T("Crawling folder: %s\n"), workingPath.GetWinPath());
 				{
 					AutoLocker print(critSec);
 					_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Crawling folder: %s"), workingPath.GetWinPath());
