@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-03-15 09:47+0100\n"
+"PO-Revision-Date: 2007-03-23 12:17+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -413,9 +413,13 @@ msgstr "&Per defecte"
 
 # ID:11,
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "&Suprimeix"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Esborra (desa còpia local)"
 
 # ID:101,
 #: ID:101
@@ -1998,6 +2002,7 @@ msgstr "La comanda ha fallat."
 # ID:209,#:
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Entrega"
@@ -2806,7 +2811,6 @@ msgid "Enlarge the window to full size"
 msgstr "Engrandeix la finestra al tamany màxim"
 
 # Dlg-ID:135,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Introdueix Texte del Log"
@@ -5229,11 +5233,6 @@ msgstr "Navega Repositori"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Repository browser"
-msgstr "Navegador de repositori"
-
-# Control-ID:65535,
-#: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Demana un nom d'usuari i contrasenya"
 
@@ -5833,7 +5832,7 @@ msgid "Show &all revisions"
 msgstr "Mostra &totes les revisions"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Mostra &diferències"
 
@@ -6002,16 +6001,6 @@ msgstr "Ignorat"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Objectiu no trobat ignorat"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Ordena items numèricament"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Ordena items numèricament en comptes d'alfabèticament"
 
 # ID:196,
 #: ID:196
@@ -6331,20 +6320,6 @@ msgstr "El fitxer %s no existeix!"
 msgid "The file %s was not found in the patch file!"
 msgstr "El fitxer %s no s'ha trobat al fitxer pedaç!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"El fitxer %s\n"
-"s'ha trobat dos cops!?!\n"
-"Això passa normalment quan s'aplica un fitxer pedaç\n"
-"a una carpeta equivocada!"
-
 # ID:3857,#:
 # ID:3857,
 #: ID:69
@@ -6466,6 +6441,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "L'operació ha fallat."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Els paràmetres '/path' i '/pathfile' són mutuament exclusius.\n"
+"Has d'especificar-ne només un."
 
 # ID:64,
 #: ID:64
