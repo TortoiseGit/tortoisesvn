@@ -2,39 +2,29 @@
 // Microsoft Visual C++ generated include file.
 // Used by CrashRpt.rc
 //
-#define IDM_ABOUTBOX                    0x0010
 #define IDC_SAVE                        40
 #define IDC_DEBUG                       50
 #define IDR_MAINFRAME                   128
 #define IDD_MAINDLG                     129
-#define IDC_HEADING_TEXT                130
-#define IDC_MESSAGE_TEXT                131
-#define IDC_LINK                        132
-#define IDI_APPICON                     133
 #define IDC_DESCRIPTION                 205
 #define IDS_NAME                        1000
 #define IDS_DESC                        1001
 #define IDS_TYPE                        1002
 #define IDS_SIZE                        1003
-#define IDC_EDIT1                       1003
 #define IDC_EMAIL                       1003
 #define IDS_CRASH_DUMP                  1004
-#define IDC_EDIT2                       1004
 #define IDS_CRASH_LOG                   1005
-#define IDC_RICHEDIT1                   1005
 #define IDS_SYMBOL_FILE                 1006
-#define IDS_EVENT_LOG                   1007
 #define IDS_USER_DATA                   1008
-#define IDS_SEND                        1010
 #define IDS_CONTENT_TYPE                57346
 #define IDS_HEADER                      57610
-#define IDS_MESSAGE                     57611
 #define IDS_INVALID_EMAIL               57611
 #define IDS_ZIP_FILTER                  57612
 #define IDS_HTTP_HEADER_CONTENT_TYPE    57613
 #define IDS_HTTP_HEADER_BOUNDARY        57614
 #define IDS_FORM_DATA                   57638
 #define IDS_ABOUTBOX                    57654
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 
