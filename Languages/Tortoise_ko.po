@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-09 20:16+0900\n"
+"PO-Revision-Date: 2007-03-23 10:29+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -403,6 +403,11 @@ msgstr "기본설정(&D)"
 #: ID:11
 msgid "&Delete"
 msgstr "삭제(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "삭제(&D) (작업사본은 유지)"
 
 # ID:101,
 #: ID:101
@@ -1981,6 +1986,7 @@ msgstr "명령 오류."
 
 # ID:8,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "커밋"
@@ -2500,6 +2506,11 @@ msgstr "삭제된 노드"
 msgid "Deletes files / folders from version control"
 msgstr "버전 컨트롤에서 파일과 폴더를 삭제"
 
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "작업 사본을 유지하면서 버전 컨트롤에서 파일과 폴더를 삭제"
+
 # ID:11,#:
 # ID:73,
 #: ID:263
@@ -2787,7 +2798,6 @@ msgstr "윈도우를 최대 크기로 늘입니다."
 
 # ID:126,#:
 # Control-ID:1065,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "로그 메시지를 입력하세요"
@@ -2983,6 +2993,12 @@ msgstr "문서 열기에 실패함."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "문서 저장 실패."
+
+# ID:209,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "변경 리스트 \"%s\"를 설정/제거에 실패함"
 
 # ID:63,#:
 # ID:74,#:
@@ -4772,6 +4788,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5186,11 +5203,6 @@ msgstr "저장소"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "저장소 브라우저"
-
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "저장소 브라우저"
 
 # Control-ID:65535,
@@ -5798,7 +5810,7 @@ msgid "Show &all revisions"
 msgstr "모든 리비젼 보기(&A)"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "바뀐점 보기(&D)"
 
@@ -5963,16 +5975,6 @@ msgstr "넘김"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "없는 개체는 건너뜀"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "번호순으로 정렬합니다."
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "문자정렬 대신 번호순으로 정렬합니다."
 
 # ID:196,
 #: ID:196
@@ -6290,20 +6292,6 @@ msgstr "존재하지 않는 파일: %s"
 msgid "The file %s was not found in the patch file!"
 msgstr "패치 파일에 없는 파일입니다.: %s"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"파일 %s\n"
-"이(가) 두 번 발견되었습니다.\n"
-"이 문제는 흔히 패치 파일을 잘못된 폴더에 적용한 경우\n"
-"발생하는 현상입니다."
-
 # ID:3857,#:
 # ID:3857,
 #: ID:69
@@ -6424,6 +6412,15 @@ msgstr ""
 msgid "The operation failed."
 msgstr "명령이 실패하였습니다"
 
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"파라미터 '/path' 와 '/pathfile' 는 동시에 사용할 수 없습니다.\n"
+"둘 중 하나만 사용하세요."
+
 # ID:64,
 #: ID:64
 #, c-format
@@ -6468,12 +6465,12 @@ msgid ""
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
-"경로\n"
+"패치 파일내의 경로\n"
 "<i>%s</i>\n"
-"이(가) 패치 파일내의 경로 중에 없는 것 같습니다.\n"
+"이(가) 존재하지 않습니다.\n"
 "TortoiseMerge는 다음의 유사한 경로\n"
 "<i>%s</i>\n"
-"을(를) 찾았습니다. 이 경로가 패치를 적용할만한 대상으로 보입니다.\n"
+"을(를) 찾았습니다. 이 경로가 패치를 적용할 만한 대상으로 보입니다.\n"
 "위 경로를 대신 사용하시겠습니까? '아니오'를 누르시면 종료합니다."
 
 # ID:314,
@@ -6798,13 +6795,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, 빌드번호 %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#:
@@ -6827,7 +6822,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6837,7 +6831,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, 빌드번호 %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
