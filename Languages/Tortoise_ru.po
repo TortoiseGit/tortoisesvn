@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 8967: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9038: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-17 12:05+0300\n"
+"PO-Revision-Date: 2007-03-24 11:44+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -372,9 +372,12 @@ msgid "&Default"
 msgstr "По &умолчанию"
 
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "&Удалить"
+
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Удалить (оставив локально)"
 
 #: ID:101
 msgid "&Delete..."
@@ -1649,6 +1652,7 @@ msgid "Command failed."
 msgstr "Сбой в комманде."
 
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Фиксация"
@@ -2321,7 +2325,6 @@ msgid "Enlarge the window to full size"
 msgstr "Увеличить окно до полного размера"
 
 # Заголовок окна
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Ввод сообщения журнала"
@@ -2589,6 +2592,10 @@ msgstr "С:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "От: (начальные URL и ревизия в ряду для слияния)"
+
+#: ID:266
+msgid "Fully recursive"
+msgstr "Полностью рекурсивно"
 
 #: ID:273
 msgid "GDI+ couldn't be initialized!"
@@ -3024,6 +3031,10 @@ msgstr "Игнорировать предков"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнорировать &завершения строк(рекомендуется)"
+
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Непосредственные потомки, включая папки"
 
 # Заголовок окна
 #: Dlg-ID:139
@@ -3757,9 +3768,12 @@ msgid "One or more files are in a conflicted state."
 msgstr "Один или более файлов имеют конфликты."
 
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Извлечь только папку &верхнего уровня"
+
+#: ID:266
+msgid "Only file children"
+msgstr "Только файлы-потомки"
 
 #: ID:169
 msgid ""
@@ -3769,9 +3783,9 @@ msgstr ""
 "Разрешены только цифры\n"
 "(возможно, разделённые запятыми)!"
 
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Обновить только папку &верхнего уровня"
+#: ID:266
+msgid "Only this item"
+msgstr "Только этот элемент"
 
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
@@ -4336,10 +4350,6 @@ msgid "Repository Browser"
 msgstr "Обозреватель хранилища"
 
 #: Control-ID:65535
-msgid "Repository browser"
-msgstr "Обозреватель хранилища"
-
-#: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Запрашивает имя пользователя и пароль"
 
@@ -4823,7 +4833,7 @@ msgstr "Показать &ряд..."
 msgid "Show &all revisions"
 msgstr "Показать &все ревизии"
 
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Показать &различия"
 
@@ -4961,14 +4971,6 @@ msgstr "Пропущено"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Пропущена отсутствующая цель"
-
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Сортировать с учётом содержащихся чисел"
-
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Сортирует элементы с учётом содержащихся в их именах чисел, а не просто по алфавиту"
 
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5338,6 +5340,14 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Операция завершена неудачно."
+
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Параметры '/path' и '/pathfile' являются взаимоисключающими.\n"
+"Необходимо указать только один из них."
 
 #: ID:64
 #, c-format
