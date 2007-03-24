@@ -2423,6 +2423,11 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
 		m_LogList.Invalidate();
+		if ( m_LogList.GetItemCount()==1 )
+		{
+			m_LogList.SetSelectionMark(0);
+			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
+		}
 		theApp.DoWaitCursor(-1);
 		m_cFilterCancelButton.ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);

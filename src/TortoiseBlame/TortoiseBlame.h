@@ -80,6 +80,7 @@ public:
 	void CopySelectedLogToClipboard();
 	void BlamePreviousRevision();
 	void DiffPreviousRevision();
+	void ShowLog();
 	bool DoSearch(LPSTR what, DWORD flags);
 	bool GotoLine(long line);
 	void GotoLineDlg();

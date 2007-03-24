@@ -47,8 +47,10 @@ BEGIN
     POPUP "&Copy to clipboard"
     BEGIN
         MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
+        MENUITEM SEPARATOR
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
-		MENUITEM "Show &differences",           ID_DIFF_PREVIOUS_REVISION
+        MENUITEM "Show &differences",           ID_DIFF_PREVIOUS_REVISION
+        MENUITEM "Show &log",                   ID_SHOWLOG
     END
 END
 
@@ -121,7 +123,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDS_COMMANDLINE_INFO    "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+    IDS_COMMANDLINE_INFO    "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 END
 
 STRINGTABLE 

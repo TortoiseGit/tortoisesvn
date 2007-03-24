@@ -540,6 +540,34 @@ void TortoiseBlame::DiffPreviousRevision()
 	}
 }
 
+void TortoiseBlame::ShowLog()
+{
+	char bufRev[20];
+	_stprintf_s(bufRev, 20, _T("%d"), m_selectedrev);
+
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
+	stdstring svnCmd = _T(" /command:log ");
+	svnCmd += _T(" /path:\"");
+	svnCmd += szOrigPath;
+	svnCmd += _T("\"");
+	svnCmd += _T(" /revstart:");
+	svnCmd += bufRev;
+	svnCmd += _T(" /revend:");
+	svnCmd += bufRev;
+	svnCmd += _T(" /revpeg:");
+	svnCmd += bufRev;
+	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+	{
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
+	}
+}
+
 void TortoiseBlame::Notify(SCNotification *notification) 
 {
 	switch (notification->nmhdr.code) 
@@ -573,6 +601,9 @@ void TortoiseBlame::Command(int id)
 		break;
 	case ID_DIFF_PREVIOUS_REVISION:
 		DiffPreviousRevision();
+		break;
+	case ID_SHOWLOG:
+		ShowLog();
 		break;
 	case ID_EDIT_GOTOLINE:
 		GotoLineDlg();
