@@ -27,7 +27,6 @@ IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	: CStandAloneDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
-	, m_bNonRecursive(FALSE)
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
 {
@@ -43,8 +42,8 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
-	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
 
@@ -60,8 +59,13 @@ BOOL CUpdateDlg::OnInitDialog()
 
 	AdjustControlSize(IDC_NEWEST);
 	AdjustControlSize(IDC_REVISION_N);
-	AdjustControlSize(IDC_NON_RECURSIVE);
 	AdjustControlSize(IDC_NOEXTERNALS);
+
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
+	m_depthCombo.SetCurSel(0);
 
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 	GetDlgItem(IDC_REVNUM)->SetFocus();
@@ -84,6 +88,24 @@ void CUpdateDlg::OnOK()
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVNUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
+	}
+	switch (m_depthCombo.GetCurSel())
+	{
+	case 0:
+		m_depth = svn_depth_infinity;
+		break;
+	case 1:
+		m_depth = svn_depth_immediates;
+		break;
+	case 2:
+		m_depth = svn_depth_files;
+		break;
+	case 3:
+		m_depth = svn_depth_empty;
+		break;
+	default:
+		m_depth = svn_depth_empty;
+		break;
 	}
 
 	UpdateData(FALSE);

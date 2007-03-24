@@ -3291,7 +3291,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				progDlg.SetTime(false);
 				svn.SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
-				if (!svn.Update(CTSVNPathList(m_path), revSelected, TRUE, FALSE))
+				if (!svn.Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE))
 				{
 					progDlg.Stop();
 					svn.SetAndClearProgressInfo((HWND)NULL);

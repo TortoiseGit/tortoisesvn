@@ -127,7 +127,7 @@ public:
 	 * if there are any unversioned obstructing items.
 	 */
 	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, 
-		SVNRev revision, BOOL recurse, BOOL bIgnoreExternals, 
+		SVNRev revision, svn_depth_t depth, BOOL bIgnoreExternals, 
 		BOOL bAllow_unver_obstructions = TRUE);
 	/**
 	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
@@ -196,7 +196,7 @@ public:
 	 * If @a bAllow_unver_obstructions is false then the update will abort
 	 * if there are any unversioned obstructing items.
 	 */
-	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, 
+	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, 
 		BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
 	/**
 	 * Commit file or directory path into repository, using message as
@@ -339,7 +339,7 @@ public:
 	 * If @a allow_unver_obstructions is false then the switch will abort
 	 * if there are any unversioned obstructing items.
 	 */
-	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse, BOOL allow_unver_obstruction = TRUE);
+	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL allow_unver_obstruction = TRUE);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)
@@ -448,8 +448,8 @@ public:
 	 * \remark - the use of two overloaded functions rather than default parameters is to avoid the
 	 * CTSVNPath constructor (and hence #include) being visible in this header file
 	 */
-	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
-	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile);
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile);
 
 	/**
 	 * Produce diff output which describes the delta between the filesystem object \a path in 

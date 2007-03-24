@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
 #include "LogDlg.h"
+#include "afxwin.h"
 
 
 /**
@@ -51,9 +52,10 @@ protected:
 
 	CLogDlg *	m_pLogDlg;
 	CString		m_sRevision;
+	CComboBox	m_depthCombo;
 public:
 	SVNRev		Revision;
 	CTSVNPath	m_wcPath;
-	BOOL		m_bNonRecursive;
 	BOOL		m_bNoExternals;
+	svn_depth_t	m_depth;
 };

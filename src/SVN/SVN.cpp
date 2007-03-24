@@ -291,7 +291,7 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 }
 
 BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, 
-				   SVNRev revision, BOOL recurse, BOOL bIgnoreExternals, 
+				   SVNRev revision, svn_depth_t depth, BOOL bIgnoreExternals, 
 				   BOOL bAllow_unver_obstructions)
 {
 	SVNPool subpool(pool);
@@ -300,7 +300,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 								destPath.GetSVNApiPath(),
 								pegrev,
 								revision,
-								recurse,
+								depth,
 								bIgnoreExternals,
 								bAllow_unver_obstructions,
 								m_pctx,
@@ -438,13 +438,13 @@ BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CString& cha
 	return TRUE;
 }
 
-BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals, BOOL bAllow_unver_obstructions)
+BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, BOOL ignoreexternals, BOOL bAllow_unver_obstructions)
 {
 	SVNPool(localpool);
 	Err = svn_client_update3(NULL,
 							MakePathArray(pathList),
 							revision,
-							recurse,
+							depth,
 							ignoreexternals,
 							bAllow_unver_obstructions,
 							m_pctx,
@@ -801,14 +801,14 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	return TRUE;
 }
 
-BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse, BOOL allow_unver_obstruction)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL allow_unver_obstruction)
 {
 	SVNPool subpool(pool);
 	Err = svn_client_switch2(NULL,
 							 path.GetSVNApiPath(),
 							 url.GetSVNApiPath(),
 							 revision,
-							 recurse,
+							 depth,
 							 allow_unver_obstruction,
 							 m_pctx,
 							 subpool);
@@ -920,12 +920,12 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 	return TRUE;
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile)
 {
-	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
+	return Diff(path1, revision1, path2, revision2, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -964,12 +964,12 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff3 (opts,
+	Err = svn_client_diff4 (opts,
 						   path1.GetSVNApiPath(),
 						   revision1,
 						   path2.GetSVNApiPath(),
 						   revision2,
-						   recurse,
+						   depth,
 						   ignoreancestry,
 						   nodiffdeleted,
 						   ignorecontenttype,

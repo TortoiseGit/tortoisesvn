@@ -65,15 +65,16 @@ protected:
 	CString			m_sRevision;
 	CString			m_sCheckoutDirOrig;
 	bool			m_bAutoCreateTargetName;
+	CComboBox		m_depthCombo;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;
 	SVNRev			Revision;
-	BOOL			m_bNonRecursive;
 	BOOL			m_bNoExternals;
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
 	CString			m_strCheckoutDirectory;
 	CFileDropEdit	m_cCheckoutEdit;
 	CLogDlg	*		m_pLogDlg;
+	svn_depth_t		m_depth;
 };

@@ -70,6 +70,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_dwCloseOnEnd(0)
 	, m_bFinishedItemAdded(false)
 	, m_bLastVisible(false)
+	, m_depth(svn_depth_unknown)
 {
 
 	m_pSvn = this;
@@ -691,7 +692,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				checkoutdir = m_targetPathList[0];
 				if (urls.GetCount() > 1)
 					checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
-				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
+				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 				{
 					if (m_ProgList.GetItemCount()!=0)
 					{
@@ -700,7 +701,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					}
 					// if the checkout fails with the peg revision set to the checkout revision,
 					// try again with HEAD as the peg revision.
-					else if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
+					else if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -728,7 +729,6 @@ UINT CSVNProgressDlg::ProgressThread()
 			CString sfile;
 			CStringA uuid;
 			StringRevMap uuidmap;
-			bool bRecursive = !!(m_options & ProgOptRecursive);
 			SVNRev revstore = m_Revision;
 			int nUUIDs = 0;
 			for(int nItem = 0; nItem < targetcount; nItem++)
@@ -787,7 +787,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 			DWORD exitcode = 0;
 			CString error;
-			if (CHooks::Instance().PreUpdate(m_targetPathList, bRecursive, nUUIDs > 1 ? revstore : m_Revision, exitcode, error))
+			if (CHooks::Instance().PreUpdate(m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -809,7 +809,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString sNotify;
 					sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
 					ReportNotification(sNotify);
-					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, bRecursive, m_options & ProgOptIgnoreExternals))
+					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, m_depth, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -817,13 +817,13 @@ UINT CSVNProgressDlg::ProgressThread()
 					}
 				}
 			}
-			else if (!m_pSvn->Update(m_targetPathList, m_Revision, bRecursive, m_options & ProgOptIgnoreExternals))
+			else if (!m_pSvn->Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				bFailed = true;
 				break;
 			}
-			if (CHooks::Instance().PostUpdate(m_targetPathList, bRecursive, m_RevisionEnd, exitcode, error))
+			if (CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -891,7 +891,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			DWORD exitcode = 0;
 			CString error;
-			if (CHooks::Instance().PreCommit(m_targetPathList, (m_Revision == 0), exitcode, error))
+			if (CHooks::Instance().PreCommit(m_targetPathList, m_depth, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -915,7 +915,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 				}
 			}
-			if (CHooks::Instance().PostCommit(m_targetPathList, (m_Revision == 0), m_RevisionEnd, exitcode, error))
+			if (CHooks::Instance().PostCommit(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -1018,7 +1018,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					rev = st.status->entry->revision;
 				}
 			}
-			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, true))
+			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, m_depth))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1102,7 +1102,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			if (m_options & ProgOptSwitchAfterCopy)
 			{
-				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, true))
+				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth))
 				{
 					ReportSVNError();
 					bFailed = true;
@@ -1147,11 +1147,11 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (m_bLockWarning)
 			{
 				// the lock failed, because the file was outdated.
-				// ask the user wheter to update the file and try again
+				// ask the user whether to update the file and try again
 				if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
 				{
 					ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-					if (!m_pSvn->Update(m_targetPathList, SVNRev::REV_HEAD, false, true))
+					if (!m_pSvn->Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, true))
 					{
 						ReportSVNError();
 						bFailed = true;

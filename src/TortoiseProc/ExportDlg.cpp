@@ -32,7 +32,6 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
 	, Revision(_T("HEAD"))
 	, m_strExportDirectory(_T(""))
 	, m_sExportDirOrig(_T(""))
-	, m_bNonRecursive(FALSE)
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
 {
@@ -52,10 +51,10 @@ void CExportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
 	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strExportDirectory);
-	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
 	DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
 	DDX_Control(pDX, IDC_EOLCOMBO, m_eolCombo);
+	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
 
@@ -78,7 +77,6 @@ BOOL CExportDlg::OnInitDialog()
 	m_sExportDirOrig = m_strExportDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 
-	AdjustControlSize(IDC_NON_RECURSIVE);
 	AdjustControlSize(IDC_NOEXTERNALS);
 	AdjustControlSize(IDC_REVISION_HEAD);
 	AdjustControlSize(IDC_REVISION_N);
@@ -86,6 +84,12 @@ BOOL CExportDlg::OnInitDialog()
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
+
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
+	m_depthCombo.SetCurSel(0);
 
 	// set radio buttons according to the revision
 	SetRevision(Revision);
@@ -201,6 +205,25 @@ void CExportDlg::OnOK()
 	m_eolCombo.GetWindowText(m_eolStyle);
 	if (m_eolStyle.Compare(_T("default"))==0)
 		m_eolStyle.Empty();
+
+	switch (m_depthCombo.GetCurSel())
+	{
+	case 0:
+		m_depth = svn_depth_infinity;
+		break;
+	case 1:
+		m_depth = svn_depth_immediates;
+		break;
+	case 2:
+		m_depth = svn_depth_files;
+		break;
+	case 3:
+		m_depth = svn_depth_empty;
+		break;
+	default:
+		m_depth = svn_depth_empty;
+		break;
+	}
 
 	UpdateData(FALSE);
 	CStandAloneDialog::OnOK();

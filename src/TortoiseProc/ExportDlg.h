@@ -68,16 +68,17 @@ protected:
 	CComboBox		m_eolCombo;
 	CString			m_sExportDirOrig;
 	bool			m_bAutoCreateTargetName;
+	CComboBox		m_depthCombo;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;
 	CString			m_eolStyle;
 	SVNRev			Revision;
-	BOOL			m_bNonRecursive;
 	BOOL			m_bNoExternals;
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
 	CString			m_strExportDirectory;
 	CFileDropEdit	m_cCheckoutEdit;
 	CLogDlg	*		m_pLogDlg;
+	svn_depth_t		m_depth;
 };

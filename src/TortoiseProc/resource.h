@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -191,7 +191,6 @@
 #define IDC_DEFAULTLOG                  1071
 #define IDC_DONTCONVERT                 1073
 #define IDC_RAM                         1073
-#define IDC_NON_RECURSIVE               1073
 #define IDC_CHECKNEWERVERSION           1073
 #define IDC_SHOWUNVERSIONED             1073
 #define IDC_USEFROMURL                  1073
@@ -604,6 +603,7 @@
 #define IDC_REPOTREE                    1371
 #define IDC_LIST1                       1372
 #define IDC_REPOLIST                    1372
+#define IDC_DEPTH                       1373
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -951,6 +951,10 @@
 #define IDS_SVN_SUMMARIZEADDED          4221
 #define IDS_SVN_SUMMARIZEMODIFIED       4222
 #define IDS_SVN_SUMMARIZEDELETED        4223
+#define IDS_SVN_DEPTH_INFINITE          4250
+#define IDS_SVN_DEPTH_IMMEDIATE         4251
+#define IDS_SVN_DEPTH_FILES             4252
+#define IDS_SVN_DEPTH_EMPTY             4253
 #define IDS_REVGRAPH_PROGTITLE          4300
 #define IDS_REVGRAPH_PROGGETREVS        4301
 #define IDS_REVGRAPH_PROGCURRENTREV     4302
@@ -1056,7 +1060,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        250
 #define _APS_NEXT_COMMAND_VALUE         32812
-#define _APS_NEXT_CONTROL_VALUE         1373
+#define _APS_NEXT_CONTROL_VALUE         1374
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

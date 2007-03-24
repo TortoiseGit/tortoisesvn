@@ -131,7 +131,7 @@ public:
 	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
 	 * the string representation of \c rev.
 	 */
-	bool				PreUpdate(const CTSVNPathList& pathList, bool bRecursive, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
 	/**
 	 * Executes the Post-Update-Hook that first matches one of the paths in
 	 * \c pathList.
@@ -148,7 +148,7 @@ public:
 	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
 	 * the string representation of \c rev.
 	 */
-	bool				PostUpdate(const CTSVNPathList& pathList, bool bRecursive, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
 
 	/**
 	 * Executes the Start-Commit-Hook that first matches one of the paths in
@@ -176,7 +176,7 @@ public:
 	 * The string "%RECURSIVE%" is replaced with either "recursive" or "nonrecursive" according
 	 * to the \c bRecursive parameter.
 	 */
-	bool				PreCommit(const CTSVNPathList& pathList, bool bRecursive, DWORD& exitcode, CString& error);
+	bool				PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, DWORD& exitcode, CString& error);
 	/**
 	 * Executes the Post-Commit-Hook that first matches one of the paths in
 	 * \c pathList.
@@ -193,7 +193,7 @@ public:
 	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
 	 * the string representation of \c rev.
 	 */
-	bool				PostCommit(const CTSVNPathList& pathList, bool bRecursive, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
 private:
 	/**
 	 * Starts a new process, specified in \c cmd.

@@ -2115,7 +2115,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					exportDirectory.SetFromWin(dlg.m_strExportDirectory, true);
 
 					CSVNProgressDlg progDlg;
-					int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
+					int opts = 0;
 					if (dlg.m_bNoExternals)
 						opts |= ProgOptIgnoreExternals;
 					if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
@@ -2125,6 +2125,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 						opts |= ProgOptEolLF;
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, opts, CTSVNPathList(exportDirectory), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.SetDepth(dlg.m_depth);
 					progDlg.DoModal();
 				}
 			}

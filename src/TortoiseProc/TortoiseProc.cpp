@@ -71,6 +71,7 @@
 #include "CreatePatch.h"
 #include "SVNAdminDir.h"
 #include "Hooks.h"
+#include "svn_types.h"
 
 #include "..\version.h"
 
@@ -664,10 +665,14 @@ BOOL CTortoiseProcApp::InitInstance()
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					m_pMainWnd = &progDlg;
-					int opts = foldbrowse.m_bCheck ? ProgOptNonRecursive : ProgOptRecursive;
+					int opts = 0;
 					if (foldbrowse.m_bCheck2)
 						opts |= ProgOptIgnoreExternals;
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(CTSVNPath(CString(checkoutpath))), dlg.m_URL, _T(""), dlg.Revision);
+					if (foldbrowse.m_bCheck)
+						progDlg.SetDepth(svn_depth_empty);
+					else
+						progDlg.SetDepth(svn_depth_infinity);
 					progDlg.DoModal();
 				}
 			}
@@ -681,10 +686,11 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
+				int opts = 0;
 				if (dlg.m_bNoExternals)
 					opts |= ProgOptIgnoreExternals;
 				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+				progDlg.SetDepth(dlg.m_depth);
 				progDlg.DoModal();
 			}
 		}
@@ -709,7 +715,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdUpdate)
 		{
 			SVNRev rev = SVNRev(_T("HEAD"));
-			int options = ProgOptRecursive;
+			int options = 0;
+			svn_depth_t depth = svn_depth_infinity;
 			DWORD exitcode = 0;
 			CString error;
 			if (CHooks::Instance().StartUpdate(pathList, exitcode, error))
@@ -730,14 +737,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (dlg.DoModal() == IDOK)
 				{
 					rev = dlg.Revision;
-					if (dlg.m_bNonRecursive)
-					{
-						options = ProgOptNonRecursive;
-					}
-					if (dlg.m_bNoExternals)
-					{
-						options |= ProgOptIgnoreExternals;
-					}
+					depth = dlg.m_depth;
 				}
 				else 
 					return FALSE;
@@ -747,7 +747,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (parser.HasVal(_T("rev")))
 					rev = SVNRev(parser.GetVal(_T("rev")));
 				if (parser.HasKey(_T("nonrecursive")))
-					options = ProgOptNonRecursive;
+					depth = svn_depth_empty;
 				if (parser.HasKey(_T("ignoreexternals")))
 					options |= ProgOptIgnoreExternals;
 			}
@@ -756,6 +756,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			m_pMainWnd = &progDlg;
 			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Update, options, pathList, _T(""), _T(""), rev);
+			progDlg.SetDepth(depth);
 			progDlg.DoModal();
 		}
 		//#endregion
@@ -1006,8 +1007,6 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					m_pMainWnd = &progDlg;
 					int options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0;
-					if (dlg.m_bNonRecursive)
-						options |= ProgOptNonRecursive;
 					if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
 						options |= ProgOptEolCRLF;
 					if (dlg.m_eolStyle.CompareNoCase(_T("CR"))==0)
@@ -1015,6 +1014,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 						options |= ProgOptEolLF;
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, options, CTSVNPathList(exportPath), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.SetDepth(dlg.m_depth);
 					progDlg.DoModal();
 				}
 			}
@@ -2401,7 +2401,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetDirectory().GetWinPathString().GetLength());
 		sRelativePath.Trim(_T("/\\"));
 		CTSVNPath diffpath = CTSVNPath(sRelativePath);
-		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, FALSE, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, svn_depth_empty, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

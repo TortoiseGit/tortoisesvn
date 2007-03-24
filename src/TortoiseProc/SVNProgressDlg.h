@@ -142,7 +142,7 @@ public:
 	 * \param revision the revision to work on or to get
 	 */
 	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
-
+	void SetDepth(svn_depth_t depth = svn_depth_unknown) {m_depth = depth;}
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
 
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
@@ -225,6 +225,7 @@ private:
 	CWinThread* m_pThread;
 	Command		m_Command;
 	int			m_options;	// Use values from the ProgressOptions enum
+	svn_depth_t	m_depth;
 
 	CTSVNPathList m_targetPathList;
 	CTSVNPath	m_url;

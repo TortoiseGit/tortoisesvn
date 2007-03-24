@@ -752,7 +752,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	{
 		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry1->revision), 
 			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry2->revision), 
-			TRUE, TRUE, FALSE, FALSE, CString(), false, tempfile))
+			svn_depth_infinity, TRUE, FALSE, FALSE, CString(), false, tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);		
 			theApp.DoWaitCursor(-1);
