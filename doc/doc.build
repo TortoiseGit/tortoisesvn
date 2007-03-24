@@ -270,7 +270,33 @@ All user/site specific configuration is stored in doc.build.user.
 
 			<call target="xsltproc" />
 
+			<property name="userconfig.langtemplate" value="${path.user.xsl}/${lang.target}/userconfig.template.xml" />
 			<property name="userconfig.lang" value="${path.user.xsl}/${lang.target}/userconfig.xml" />
+
+			<!-- find the path to the fonts -->
+			<script language="C#">			
+				<code>
+					<![CDATA[
+						public static void ScriptMain(Project project)
+						{
+							string systemPath = Environment.GetFolderPath(Environment.SpecialFolder.System);
+							string fontsPath = Path.GetDirectoryName(systemPath) + Path.DirectorySeparatorChar + "FONTS";
+							fontsPath = fontsPath.Replace('\\','/');
+							project.Properties.Add("fontpath", fontsPath );
+						}
+					]]>
+				</code>
+			</script>
+			<if test="${file::exists(userconfig.langtemplate)}">
+				<loadfile file="${userconfig.langtemplate}" property="configfile">
+					<filterchain>
+						<replacetokens begintoken="%" endtoken="%">
+							<token key="FONTSDIR" value="${fontpath}" />
+						</replacetokens>
+					</filterchain>
+				</loadfile>
+				<echo file="${userconfig.lang}" message="${configfile}" />
+			</if>
 			<property name="commandline" value="-q -fo ${xslt.target} -pdf ${file.target}"/>
 			<property name="commandline" value="-c ${userconfig.lang} ${commandline}" if="${file::exists(userconfig.lang)}"/>
 			
