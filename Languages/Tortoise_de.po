@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-22 08:55+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2007-03-24 16:52+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2591,6 +2591,10 @@ msgstr "Von:"
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Von: (Start-URL und Revision des zusammenzuführenden Bereichs)"
 
+#: ID:266
+msgid "Fully recursive"
+msgstr "Vollständig rekursiv"
+
 #: ID:273
 msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ konnte nicht initialisiert werden!"
@@ -3050,6 +3054,11 @@ msgstr "Ignoriere &Vorfahren"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Direkte Unterobjekte, einschließlich Ordnern"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -3794,9 +3803,13 @@ msgid "One or more files are in a conflicted state."
 msgstr "Eine oder mehrere Dateien befinden sich in einem Konfliktzustand."
 
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Nur den &obersten Ordner auschecken"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Nur Dateiobjekte"
 
 #: ID:169
 msgid ""
@@ -3806,9 +3819,10 @@ msgstr ""
 "Nur Zahlen (ggf. durch Kommata separiert)\n"
 "sind zugelassen!"
 
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Nur den &obersten Ordner aktualisieren"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Nur dieses Objekt"
 
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
