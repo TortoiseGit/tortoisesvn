@@ -51,8 +51,8 @@ public:
 	CFileDiffDlg(CWnd* pParent = NULL);
 	virtual ~CFileDiffDlg();
 
-	void SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry);
-	void SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry);
+	void SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
+	void SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 
 	void	DoBlame(bool blame = true) {m_bBlame = blame;}
 
@@ -116,7 +116,7 @@ private:
 	SVNRev				m_rev1;
 	CTSVNPath			m_path2;
 	SVNRev				m_rev2;
-	bool				m_bRecurse;
+	svn_depth_t			m_depth;
 	bool				m_bIgnoreancestry;
 	bool				m_bDoPegDiff;
 	volatile LONG		m_bThreadRunning;

@@ -989,12 +989,12 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	return TRUE;
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile)
 {
-	return PegDiff(path, pegrevision, startrev, endrev, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
+	return PegDiff(path, pegrevision, startrev, endrev, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -1028,12 +1028,12 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff_peg3 (opts,
+	Err = svn_client_diff_peg4 (opts,
 		path.GetSVNApiPath(),
 		pegrevision,
 		startrev,
 		endrev,
-		recurse,
+		depth,
 		ignoreancestry,
 		nodiffdeleted,
 		ignorecontenttype,
@@ -1053,12 +1053,12 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	return TRUE;
 }
 
-bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry)
+bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, svn_depth_t depth, bool ignoreancestry)
 {
 	SVNPool localpool(pool);
-	Err = svn_client_diff_summarize(path1.GetSVNApiPath(), rev1,
+	Err = svn_client_diff_summarize2(path1.GetSVNApiPath(), rev1,
 									path2.GetSVNApiPath(), rev2,
-									recurse, ignoreancestry,
+									depth, ignoreancestry,
 									summarize_func, this,
 									m_pctx, localpool);
 	if(Err != NULL)
@@ -1068,11 +1068,11 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& pa
 	return true;
 }
 
-bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry)
+bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry)
 {
 	SVNPool localpool(pool);
-	Err = svn_client_diff_summarize_peg(path.GetSVNApiPath(), peg, rev1, rev2,
-										recurse, ignoreancestry,
+	Err = svn_client_diff_summarize_peg2(path.GetSVNApiPath(), peg, rev1, rev2,
+										depth, ignoreancestry,
 										summarize_func, this,
 										m_pctx, localpool);
 	if(Err != NULL)

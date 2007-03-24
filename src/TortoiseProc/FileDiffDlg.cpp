@@ -79,7 +79,7 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
 
 
-void CFileDiffDlg::SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry)
+void CFileDiffDlg::SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry)
 {
 	m_bDoPegDiff = true;
 	m_path1 = path;
@@ -87,18 +87,18 @@ void CFileDiffDlg::SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 	m_peg = peg;
 	m_rev1 = rev1;
 	m_rev2 = rev2;
-	m_bRecurse = recurse;
+	m_depth = depth;
 	m_bIgnoreancestry = ignoreancestry;
 }
 
-void CFileDiffDlg::SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry)
+void CFileDiffDlg::SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, svn_depth_t depth, bool ignoreancestry)
 {
 	m_bDoPegDiff = false;
 	m_path1 = path1;
 	m_path2 = path2;
 	m_rev1 = rev1;
 	m_rev2 = rev2;
-	m_bRecurse = recurse;
+	m_depth = depth;
 	m_bIgnoreancestry = ignoreancestry;
 }
 
@@ -189,11 +189,11 @@ UINT CFileDiffDlg::DiffThread()
 	m_cFileList.ShowText(CString(MAKEINTRESOURCE(IDS_FILEDIFF_WAIT)));
 	if (m_bDoPegDiff)
 	{
-		bSuccess = DiffSummarizePeg(m_path1, m_peg, m_rev1, m_rev2, m_bRecurse, m_bIgnoreancestry);
+		bSuccess = DiffSummarizePeg(m_path1, m_peg, m_rev1, m_rev2, m_depth, m_bIgnoreancestry);
 	}
 	else
 	{
-		bSuccess = DiffSummarize(m_path1, m_rev1, m_path2, m_rev2, m_bRecurse, m_bIgnoreancestry);
+		bSuccess = DiffSummarize(m_path1, m_rev1, m_path2, m_rev2, m_depth, m_bIgnoreancestry);
 	}
 	if (!bSuccess)
 	{

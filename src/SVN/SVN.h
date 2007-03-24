@@ -115,7 +115,7 @@ public:
 	 * \param destPath the path to the local working copy
 	 * \param revision the revision number to check out
 	 * \param pegrev the peg revision to use
-	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
+	 * \param depth the Subversion depth enum
 	 * \param bIgnoreExternals if TRUE, do not check out externals
 	 * \param bAllow_unver_obstructions if true then the checkout tolerates
 	 * existing unversioned items that obstruct added paths from @a moduleName.  Only
@@ -185,7 +185,7 @@ public:
 	 * Update working tree path to revision.
 	 * \param pathList the files/directories to update
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
-	 * \param recurse 
+	 * \param depth the Subversion depth enum 
 	 * \param ignoreexternals if TRUE, don't update externals
 	 * \param bAllow_unver_obstructions if true then the update tolerates
 	 * existing unversioned items that obstruct added paths from @a pathList.  Only
@@ -329,7 +329,7 @@ public:
 	 * \param path the path of the working directory
 	 * \param url the url of the repository
 	 * \param revision the revision number to switch to
-	 * \param recurse if TRUE, switch recursively
+	 * \param depth the Subversion depth enum
 	 * \param allow_unver_obstruction if true then the switch tolerates
 	 * existing unversioned items that obstruct added paths from @a path.  Only
 	 * obstructions of the same type (file or dir) as the added item are
@@ -430,9 +430,6 @@ public:
 	 * is a file, \a path2 must also be.  (Currently, \a path1 and \a path2
 	 * must be the exact same path)
 	 * 
-	 * If \a recurse is true (and the \a paths are directories) this will be a
-	 * recursive operation.
-	 *
 	 * Use \a ignore_ancestry to control whether or not items being
 	 * diffed will be checked for relatedness first.  Unrelated items
 	 * are typically transmitted to the editor as a deletion of one thing
@@ -459,8 +456,8 @@ public:
 	 *
 	 * All other options are handled identically to Diff().
 	 */
-	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
-	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
 
 	/**
 	 * Finds out what files/folders have changed between two paths/revs,
@@ -470,16 +467,16 @@ public:
 	 * \param rev1 the revision of the first path/url
 	 * \param path2 the second path/url
 	 * \param rev2 the revision of the second path/url
-	 * \param recurse if true, then all children of path1/path2 are checked if they changed too
+	 * \param depth the Subversion depth enum
 	 * \param ignoreancestry if true, then possible ancestry between path1 and path2 is ignored
 	 */
-	bool DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry);
+	bool DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 	
 	/**
 	* Same as DiffSummarize(), expect this method takes a peg revision
 	* to anchor the path on.
 	*/
-	bool DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry);
+	bool DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 
 	/**
 	 * fires the Log-event on each log message from revisionStart

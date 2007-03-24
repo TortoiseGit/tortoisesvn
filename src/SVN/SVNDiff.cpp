@@ -242,7 +242,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	}
 	else
 	{
-		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
+		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, svn_depth_infinity, FALSE, FALSE, FALSE, _T(""), tempfile))
 		{
 			if (!m_pSVN->Diff(url1, rev1, url2, rev2, svn_depth_infinity, FALSE, FALSE, FALSE, _T(""), false, tempfile))
 			{
@@ -347,12 +347,12 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				fdlg.DoBlame(blame);
 				if (url1.IsEquivalentTo(url2))
 				{
-					fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, true, ignoreancestry);
+					fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, svn_depth_infinity, ignoreancestry);
 					fdlg.DoModal();
 				}
 				else
 				{
-					fdlg.SetDiff(url1, rev1, url2, rev2, TRUE, ignoreancestry);
+					fdlg.SetDiff(url1, rev1, url2, rev2, svn_depth_infinity, ignoreancestry);
 					fdlg.DoModal();
 				}
 			}
