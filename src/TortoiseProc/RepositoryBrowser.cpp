@@ -330,8 +330,11 @@ void CRepositoryBrowser::InitRepo()
 			{
 				m_InitialUrl.Empty();
 			}
-			if ((error.IsEmpty())&&(data->kind == svn_node_dir))
-				error = info.GetLastErrorMsg();
+			if (error.IsEmpty())
+			{
+				if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
+					error = info.GetLastErrorMsg();
+			}
 		}
 	} while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
 
