@@ -435,7 +435,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 
 			// if all selected entries are files, we don't do a recursive status
 			// fetching. But if only one is a directory, we have to recurse.
-			bool recurse = false;
+			svn_depth_t depth = svn_depth_empty;
 			// We have set a filter. If all selected items were files or we fetch
 			// the status not recursively, then we have to include
 			// ignored items too - the user has selected them
@@ -444,12 +444,12 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			{
 				if (pathList[fcindex].IsDirectory())
 				{
-					recurse = true;
+					depth = svn_depth_infinity;
 					bShowIgnoresRight = false;
 					break;
 				}
 			}
-			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnoresRight))
+			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, depth, bShowIgnoresRight))
 			{
 				bRet = FALSE;
 			}
@@ -462,7 +462,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 				// if a target specified multiple times (either directly or included
 				// in the status of a parent item) it will also show up multiple
 				// times in the list!
-				if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bShowIgnores))
+				if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_infinity, bShowIgnores))
 				{
 					bRet = FALSE;
 				}
@@ -504,7 +504,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							CStringA& strCurrentRepositoryUUID,
 							CTSVNPathList& arExtPaths,
 							bool bAllDirect,
-							bool recurse,
+							svn_depth_t depth,
 							bool bShowIgnores
 							)
 {
@@ -514,7 +514,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
-	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse, bShowIgnores);
+	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
 
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
@@ -573,7 +573,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			svn_wc_status2_t * sparent;
 			CTSVNPath svnParentPath;
 			SVNStatus tempstatus;
-			sparent = tempstatus.GetFirstFileStatus(workingTarget.GetContainingDirectory(), svnParentPath, false, false, false);
+			sparent = tempstatus.GetFirstFileStatus(workingTarget.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
 			if (sparent && sparent->entry && sparent->entry->uuid)
 			{
 				strCurrentRepositoryUUID = sparent->entry->uuid;
@@ -2786,7 +2786,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									SVNStatus status;
 									svn_wc_status2_t * s;
 									CTSVNPath svnPath;
-									s = status.GetFirstFileStatus(parentFolder, svnPath, false, false);
+									s = status.GetFirstFileStatus(parentFolder, svnPath, false, svn_depth_empty);
 									if (s!=0)
 									{
 										// first check if the folder isn't already present in the list
@@ -2929,7 +2929,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								SVNStatus status;
 								svn_wc_status2_t * s;
 								CTSVNPath svnPath;
-								s = status.GetFirstFileStatus(parentfolder, svnPath, false, false);
+								s = status.GetFirstFileStatus(parentfolder, svnPath, false, svn_depth_empty);
 								// first check if the folder isn't already present in the list
 								bool bFound = false;
 								nListboxEntries = GetItemCount();

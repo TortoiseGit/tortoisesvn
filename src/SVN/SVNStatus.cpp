@@ -173,7 +173,7 @@ stdstring SVNStatus::GetLastErrorMsg()
 #endif
 
 // static method
-svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive)
+svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t depth)
 {
 	svn_client_ctx_t * 			ctx;
 	svn_wc_status_kind			statuskind;
@@ -193,12 +193,12 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	statuskind = svn_wc_status_none;
-	err = svn_client_status2 (&youngest,
+	err = svn_client_status3 (&youngest,
 							path.GetSVNApiPath(),
 							&rev,
 							getallstatus,
 							&statuskind,
-							recursive,	//descend
+							depth,
 							TRUE,		//getall
 							FALSE,		//update
 							TRUE,		//noignore
@@ -220,7 +220,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 // static method
 svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const CTSVNPath& path)
 {
-	return GetAllStatus(path, TRUE);
+	return GetAllStatus(path, svn_depth_infinity);
 }
 
 // static method
@@ -282,12 +282,12 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	hashbaton.hash = statushash;
 	hashbaton.exthash = exthash;
 	hashbaton.pThis = this;
-	m_err = svn_client_status2 (&youngest,
+	m_err = svn_client_status3 (&youngest,
 							path.GetSVNApiPath(),
 							&rev,
 							getstatushash,
 							&hashbaton,
-							FALSE,		//descend
+							svn_depth_empty,		//depth
 							TRUE,		//getall
 							update,		//update
 							noignore,		//noignore
@@ -315,7 +315,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	
 	return youngest;
 }
-svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, bool recurse, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
+svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
 {
 	const sort_item*			item;
 
@@ -329,12 +329,12 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	hashbaton.exthash = m_externalhash;
 	hashbaton.pThis = this;
 	m_statushashindex = 0;
-	m_err = svn_client_status2 (&headrev,
+	m_err = svn_client_status3 (&headrev,
 							path.GetSVNApiPath(),
 							&rev,
 							getstatushash,
 							&hashbaton,
-							recurse,	//descend
+							depth,
 							TRUE,		//getall
 							update,		//update
 							bNoIgnore,	//noignore

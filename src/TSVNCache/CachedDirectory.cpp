@@ -391,13 +391,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				m_currentStatusFetchingPathTicks = GetTickCount();
 			}
 			ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
-			svn_error_t* pErr = svn_client_status2 (
+			svn_error_t* pErr = svn_client_status3 (
 				NULL,
 				m_directoryPath.GetSVNApiPath(),
 				&revision,
 				GetStatusCallback,
 				this,
-				FALSE,
+				svn_depth_immediates,
 				TRUE,									//getall
 				FALSE,
 				TRUE,									//noignore

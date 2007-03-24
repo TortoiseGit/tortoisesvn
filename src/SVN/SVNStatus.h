@@ -53,7 +53,7 @@ public:
 	 * If the status of the text and property part are different
 	 * then the more important status is returned.
 	 */
-	static svn_wc_status_kind GetAllStatus(const CTSVNPath& path, BOOL recursive = FALSE);
+	static svn_wc_status_kind GetAllStatus(const CTSVNPath& path, svn_depth_t depth = svn_depth_empty);
 
 	/**
 	 * Reads the Subversion status of the working copy entry and all its
@@ -111,7 +111,7 @@ public:
 	 * \param bNoExternals true to not fetch the status of included svn:externals
 	 * \return the status
 	 */
-	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, bool recurse = true, bool bNoIgnore = true, bool bNoExternals = false);
+	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, svn_depth_t depth = svn_depth_infinity, bool bNoIgnore = true, bool bNoExternals = false);
 	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
 	unsigned int GetVersionedCount();
 	/**

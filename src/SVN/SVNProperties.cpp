@@ -315,7 +315,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 		CTSVNPath path;
 		SVNStatus stat;
 		svn_wc_status2_t * status = NULL;
-		status = stat.GetFirstFileStatus(m_path, path, false, true, true, true);
+		status = stat.GetFirstFileStatus(m_path, path, false, svn_depth_infinity, true, true);
 		do 
 		{
 			if (status)

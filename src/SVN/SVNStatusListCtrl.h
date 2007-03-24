@@ -503,7 +503,7 @@ private:
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
 	/// Process one line of the command file supplied to GetStatus
-	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, bool recurse = true, bool bShowIgnores = false);
+	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
 
 	/// Create 'status' data for each item in an unversioned folder
 	void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, SVNConfig * config);

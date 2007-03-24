@@ -686,7 +686,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			CTSVNPath statusPath;
 			svn_wc_status2_t * s;
 			SVNStatus status;
-			if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, true, true, !!bIgnoreExternals))!=0)
+			if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, svn_depth_infinity, true, !!bIgnoreExternals))!=0)
 			{
 				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
 				{

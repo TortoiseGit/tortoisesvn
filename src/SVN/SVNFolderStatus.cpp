@@ -161,12 +161,12 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			try
 			{
 				folderpath = filepath;
-				err = svn_client_status2 (&youngest,
+				err = svn_client_status3 (&youngest,
 					filepath.GetDirectory().GetSVNApiPath(),
 					&rev,
 					findfolderstatus,
 					this,
-					FALSE,		//descend
+					svn_depth_empty,//depth
 					TRUE,		//getall
 					FALSE,		//update
 					TRUE,		//noignore
@@ -211,12 +211,12 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	rev.kind = svn_opt_revision_unspecified;
 	try
 	{
-		err = svn_client_status2 (&youngest,
+		err = svn_client_status3 (&youngest,
 			filepath.GetDirectory().GetSVNApiPath(),
 			&rev,
 			fillstatusmap,
 			this,
-			FALSE,		//descend
+			svn_depth_immediates,		//depth
 			TRUE,		//getall
 			FALSE,		//update
 			TRUE,		//noignore
