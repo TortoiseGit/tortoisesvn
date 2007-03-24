@@ -600,7 +600,7 @@ bool CTSVNPath::PredLeftSameWCPathAsRight(const CTSVNPath& left, const CTSVNPath
 		} while(r.HasAdminDir());
 		return l.GetContainingDirectory().IsEquivalentTo(r.GetContainingDirectory());
 	}
-	return left.IsEquivalentTo(right);
+	return left.GetDirectory().IsEquivalentTo(right.GetDirectory());
 }
 
 bool CTSVNPath::CheckChild(const CTSVNPath &parent, const CTSVNPath& child)

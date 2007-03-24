@@ -194,6 +194,7 @@ Version 1.4.4
        was binary and not text. (Stefan)
 - BUG: After changing the "sort items numerically" setting, the "Apply"
        button was not enabled. (Roel Harbers)
+- BUG: The cache could get stuffed and slow for big working copies. (Stefan)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
