@@ -1192,8 +1192,42 @@ void CLogDlg::OnOK()
 				if (higherRev < rev)
 					higherRev = rev;
 			}
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+			if (m_LogList.GetSelectedCount() == 1)
+			{
+				// if only one revision is selected, check if the path/url with which the dialog was started
+				// was directly affected in that revision. If it was, then check if our path was copied from somewhere.
+				// if it was copied, use the copyfrom revision as lowerRev
+				if ((pLogEntry)&&(pLogEntry->pArChangedPaths)&&(lowerRev == higherRev))
+				{
+					CString sUrl = m_path.GetSVNPathString();
+					if (!m_path.IsUrl())
+					{
+						sUrl = GetURLFromPath(m_path);
+					}
+					sUrl = sUrl.Mid(m_sRepositoryRoot.GetLength());
+					for (int cp = 0; cp < pLogEntry->pArChangedPaths->GetCount(); ++cp)
+					{
+						LogChangedPath * pData = pLogEntry->pArChangedPaths->GetAt(cp);
+						if (pData)
+						{
+							if (sUrl.Compare(pData->sPath) == 0)
+							{
+								if (!pData->sCopyFromPath.IsEmpty())
+								{
+									lowerRev = pData->lCopyFromRev;
+									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
+									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
+								}
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
+				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+			}
 		}
 	}
 	UpdateData();
