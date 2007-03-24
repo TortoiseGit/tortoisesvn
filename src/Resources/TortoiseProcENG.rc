@@ -819,13 +819,11 @@ CAPTION "Look and Feel"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Cascaded context menu",IDC_STATIC,7,7,286,210
-    CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,12,19,274,153
-    CONTROL         "Fetch &status for context menu",IDC_SIMPLECONTEXT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,191,274,10
+    CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,12,19,274,165
     CONTROL         "Enable &accelerators on the top level menu",IDC_ENABLEACCELERATORS,
                     "Button",BS_AUTO3STATE | WS_TABSTOP,12,203,273,10
     CONTROL         "Put ""Get Lock"" on top menu when svn:needs-lock is set",IDC_GETLOCKTOP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,178,274,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,190,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -2299,8 +2297,6 @@ BEGIN
                             "Use '*' as a wildcard character when specifying an exception.\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
     IDS_SETTINGS_READONLYNAME "readonly"
     IDS_SETTINGS_LOCKEDNAME "locked"
-    IDS_SETTINGS_SIMPLECONTEXT_TT 
-                            "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the ""Show Log"" entry will show even for just added folders."
     IDS_SETTINGS_AUTOCOMPLETION_TT 
                             "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
     IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT 

@@ -71,9 +71,6 @@ private:
 	BOOL			m_bModified;
 	DWORD			m_topmenu;
 	
-	CRegDWORD		m_regSimpleContext;
-	BOOL			m_bSimpleContext;
-	
 	CRegDWORD		m_regOwnerDrawn;
 	int				m_OwnerDrawn;
 

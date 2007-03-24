@@ -29,15 +29,12 @@ IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, CPropertyPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
 	, m_bInitialized(FALSE)
-	, m_bSimpleContext(TRUE)
 	, m_OwnerDrawn(1)
 	, m_bGetLockTop(FALSE)
 	, m_bVista(false)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_topmenu = m_regTopmenu;
-	m_regSimpleContext = CRegDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
-	m_bSimpleContext = m_regSimpleContext;
 	m_regOwnerDrawn = CRegDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);
 	m_OwnerDrawn = m_regOwnerDrawn;
 	if (m_OwnerDrawn == 0)
@@ -56,7 +53,6 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
-	DDX_Check(pDX, IDC_SIMPLECONTEXT, m_bSimpleContext);
 	DDX_Check(pDX, IDC_ENABLEACCELERATORS, m_OwnerDrawn);
 	DDX_Check(pDX, IDC_GETLOCKTOP, m_bGetLockTop);
 }
@@ -64,7 +60,6 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
-	ON_BN_CLICKED(IDC_SIMPLECONTEXT, OnChange)
 	ON_BN_CLICKED(IDC_GETLOCKTOP, OnChange)
 END_MESSAGE_MAP()
 
@@ -76,9 +71,6 @@ int CSetLookAndFeelPage::SaveData()
 		m_regTopmenu = m_topmenu;
 		if (m_regTopmenu.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regTopmenu.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		m_regSimpleContext = m_bSimpleContext;
-		if (m_regSimpleContext.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regSimpleContext.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regGetLockTop = m_bGetLockTop;
 		if (m_regGetLockTop.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -118,7 +110,6 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
-	m_tooltips.AddTool(IDC_SIMPLECONTEXT, IDS_SETTINGS_SIMPLECONTEXT_TT);
 	if (!m_bVista)
 		m_tooltips.AddTool(IDC_ENABLEACCELERATORS, IDS_SETTINGS_OWNERDRAWN_TT);
 	else

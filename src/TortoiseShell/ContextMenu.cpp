@@ -116,43 +116,35 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							CTSVNPath askedpath;
 							askedpath.SetFromWin(str.c_str());
-							if ((g_ShellCache.IsSimpleContext())&&(askedpath.IsDirectory()))
+							try
 							{
-								if (askedpath.HasAdminDir())
-									status = svn_wc_status_normal;
+								SVNStatus stat;
+								stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
+								if (stat.status)
+								{
+									statuspath = str;
+									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									fetchedstatus = status;
+									if ((stat.status->entry)&&(stat.status->entry->lock_token))
+										isLocked = (stat.status->entry->lock_token[0] != 0);
+									if ((stat.status->entry)&&(stat.status->entry->present_props))
+									{
+										if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+											isNeedsLock = true;
+									}
+								}
+								else
+								{
+									// sometimes, svn_client_status() returns with an error.
+									// in that case, we have to check if the working copy is versioned
+									// anyway to show the 'correct' context menu
+									if (askedpath.HasAdminDir())
+										status = svn_wc_status_normal;
+								}
 							}
-							else
+							catch ( ... )
 							{
-								try
-								{
-									SVNStatus stat;
-									stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
-									if (stat.status)
-									{
-										statuspath = str;
-										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-										fetchedstatus = status;
-										if ((stat.status->entry)&&(stat.status->entry->lock_token))
-											isLocked = (stat.status->entry->lock_token[0] != 0);
-										if ((stat.status->entry)&&(stat.status->entry->present_props))
-										{
-											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-												isNeedsLock = true;
-										}
-									}
-									else
-									{
-										// sometimes, svn_client_status() returns with an error.
-										// in that case, we have to check if the working copy is versioned
-										// anyway to show the 'correct' context menu
-										if (askedpath.HasAdminDir())
-											status = svn_wc_status_normal;
-									}
-								}
-								catch ( ... )
-								{
-									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-								}
+								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
@@ -199,48 +191,40 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						{
 							//get the Subversion status of the item
 							svn_wc_status_kind status = svn_wc_status_unversioned;
-							if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
+							try
 							{
-								if (strpath.HasAdminDir())
-									status = svn_wc_status_normal;
-							}
-							else
-							{
-								try
+								SVNStatus stat;
+								stat.GetStatus(CTSVNPath(strpath), false, true, true);
+								if (stat.status)
 								{
-									SVNStatus stat;
-									stat.GetStatus(CTSVNPath(strpath), false, true, true);
-									if (stat.status)
+									statuspath = str;
+									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									fetchedstatus = status;
+									if ((stat.status->entry)&&(stat.status->entry->lock_token))
+										isLocked = (stat.status->entry->lock_token[0] != 0);
+									if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+										isFolder = true;
+									if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+										isConflicted = true;
+									if ((stat.status->entry)&&(stat.status->entry->present_props))
 									{
-										statuspath = str;
-										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-										fetchedstatus = status;
-										if ((stat.status->entry)&&(stat.status->entry->lock_token))
-											isLocked = (stat.status->entry->lock_token[0] != 0);
-										if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
-											isFolder = true;
-										if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
-											isConflicted = true;
-										if ((stat.status->entry)&&(stat.status->entry->present_props))
-										{
-											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-												isNeedsLock = true;
-										}
-									}	
-									else
-									{
-										// sometimes, svn_client_status() returns with an error.
-										// in that case, we have to check if the working copy is versioned
-										// anyway to show the 'correct' context menu
-										if (CTSVNPath(strpath).HasAdminDir())
-											status = svn_wc_status_normal;
+										if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+											isNeedsLock = true;
 									}
-									statfetched = TRUE;
-								}
-								catch ( ... )
+								}	
+								else
 								{
-									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+									// sometimes, svn_client_status() returns with an error.
+									// in that case, we have to check if the working copy is versioned
+									// anyway to show the 'correct' context menu
+									if (CTSVNPath(strpath).HasAdminDir())
+										status = svn_wc_status_normal;
 								}
+								statfetched = TRUE;
+							}
+							catch ( ... )
+							{
+								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
@@ -318,41 +302,33 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			CTSVNPath askedpath;
 			askedpath.SetFromWin(folder_.c_str());
-			if ((g_ShellCache.IsSimpleContext())&&(askedpath.IsDirectory()))
+			try
 			{
-				if (askedpath.HasAdminDir())
-					status = svn_wc_status_normal;
+				SVNStatus stat;
+				stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+				if (stat.status)
+				{
+					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+					if ((stat.status->entry)&&(stat.status->entry->lock_token))
+						isLocked = (stat.status->entry->lock_token[0] != 0);
+					if ((stat.status->entry)&&(stat.status->entry->present_props))
+					{
+						if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+							isNeedsLock = true;
+					}
+				}
+				else
+				{
+					// sometimes, svn_client_status() returns with an error.
+					// in that case, we have to check if the working copy is versioned
+					// anyway to show the 'correct' context menu
+					if (askedpath.HasAdminDir())
+						status = svn_wc_status_normal;
+				}
 			}
-			else
+			catch ( ... )
 			{
-				try
-				{
-					SVNStatus stat;
-					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-					if (stat.status)
-					{
-						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-						if ((stat.status->entry)&&(stat.status->entry->lock_token))
-							isLocked = (stat.status->entry->lock_token[0] != 0);
-						if ((stat.status->entry)&&(stat.status->entry->present_props))
-						{
-							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-								isNeedsLock = true;
-						}
-					}
-					else
-					{
-						// sometimes, svn_client_status() returns with an error.
-						// in that case, we have to check if the working copy is versioned
-						// anyway to show the 'correct' context menu
-						if (askedpath.HasAdminDir())
-							status = svn_wc_status_normal;
-					}
-				}
-				catch ( ... )
-				{
-					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-				}
+				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 			}
 		}
 		else
@@ -379,33 +355,25 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			{
 				CTSVNPath askedpath;
 				askedpath.SetFromWin(folder_.c_str());
-				if (g_ShellCache.IsSimpleContext())
+				try
 				{
-					if (askedpath.HasAdminDir())
-						status = svn_wc_status_normal;
-				}
-				else
-				{
-					try
+					SVNStatus stat;
+					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+					if (stat.status)
 					{
-						SVNStatus stat;
-						stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-						if (stat.status)
+						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+						if ((stat.status->entry)&&(stat.status->entry->lock_token))
+							isLocked = (stat.status->entry->lock_token[0] != 0);
+						if ((stat.status->entry)&&(stat.status->entry->present_props))
 						{
-							status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-							if ((stat.status->entry)&&(stat.status->entry->lock_token))
-								isLocked = (stat.status->entry->lock_token[0] != 0);
-							if ((stat.status->entry)&&(stat.status->entry->present_props))
-							{
-								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-									isNeedsLock = true;
-							}
+							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+								isNeedsLock = true;
 						}
 					}
-					catch ( ... )
-					{
-						ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-					}
+				}
+				catch ( ... )
+				{
+					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 				}
 			}
 			else
