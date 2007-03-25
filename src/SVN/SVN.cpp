@@ -872,18 +872,21 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 	return TRUE;
 }
 
-BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
+BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, 
+				const CTSVNPath& localPath, BOOL force, svn_depth_t depth, 
+				BOOL ignoreanchestry, BOOL dryrun, BOOL record_only)
 {
 	SVNPool subpool(pool);
 
-	Err = svn_client_merge2(path1.GetSVNApiPath(),
+	Err = svn_client_merge3(path1.GetSVNApiPath(),
 							revision1,
 							path2.GetSVNApiPath(),
 							revision2,
 							localPath.GetSVNApiPath(),
-							recurse,
+							depth,
 							ignoreanchestry,
 							force,
+							record_only,
 							dryrun,
 							NULL,
 							m_pctx,
@@ -896,18 +899,21 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 	return TRUE;
 }
 
-BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
+BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
+				   const CTSVNPath& destpath, BOOL force, svn_depth_t depth, 
+				   BOOL ignoreancestry, BOOL dryrun, BOOL record_only)
 {
 	SVNPool subpool(pool);
 
-	Err = svn_client_merge_peg2 (source.GetSVNApiPath(),
+	Err = svn_client_merge_peg3 (source.GetSVNApiPath(),
 		revision1,
 		revision2,
 		pegrevision,
 		destpath.GetSVNApiPath(),
-		recurse,
+		depth,
 		ignoreancestry,
 		force,
+		record_only,
 		dryrun,
 		NULL,
 		m_pctx,

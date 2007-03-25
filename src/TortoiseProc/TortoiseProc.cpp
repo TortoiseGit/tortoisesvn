@@ -1080,6 +1080,8 @@ BOOL CTortoiseProcApp::InitInstance()
 					int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
 					options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
+					// use the depth of the working copy
+					progDlg.SetDepth(svn_depth_unknown);
 					progDlg.m_RevisionEnd = dlg.EndRev;
 					progDlg.DoModal();
 					repeat = dlg.m_bDryRun;

@@ -389,9 +389,15 @@ public:
 	 * \param revision2 second revision
 	 * \param localPath destination path
 	 * \param force		see description
-	 * \param recurse 
+	 * \param depth		the Subversion depth enum 
+	 * \param record_only	If record_only is true, the merge isn't actually performed, 
+	 *						but the merge info for the revisions which would've been 
+	 *						merged is recorded in the working copy (and must be subsequently 
+	 *						committed back to the repository).
 	 */
-	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE);
+	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, 
+		const CTSVNPath& localPath, BOOL force, svn_depth_t depth, 
+		BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 
 	/**
 	 * Merge changes from source/revision1 to source/revision2 into the
@@ -418,9 +424,15 @@ public:
 	 * \param pegrevision	the peg revision
 	 * \param localPath		destination path
 	 * \param force			see description
-	 * \param recurse 
+	 * \param depth		the Subversion depth enum 
+	 * \param record_only	If record_only is true, the merge isn't actually performed, 
+	 *						but the merge info for the revisions which would've been 
+	 *						merged is recorded in the working copy (and must be subsequently 
+	 *						committed back to the repository).
 	 */
-	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE);
+	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
+		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, 
+		BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
 	 * Print the output of the diff to \a outputfile, and any errors to \a errorfile. \a path1 
