@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-24 16:52+0100\n"
+"PO-Revision-Date: 2007-03-25 16:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2486,10 +2486,6 @@ msgstr "Konnte Änderungsliste '%s' nicht anlegen/entfernen"
 msgid "Failed!"
 msgstr "Fehlgeschlagen!"
 
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "&Kontextmenü abhängig von gewählter Datei / Ordner"
-
 #: ID:313
 msgid "Fetching file..."
 msgstr "Hole Datei..."
@@ -2953,16 +2949,6 @@ msgstr ""
 "Aktivieren Sie diese Option, damit der Übertragen-Dialog nach einem Fehler\n"
 "automatisch wieder geöffnet wird. Ihre letzte Auswahl sowie die Logmeldung\n"
 "werden beibehalten."
-
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Deaktivieren Sie diese Option, damit das Kontextmenü schneller angezeigt wird.\n"
-"Es wird allerdings Einträge enthalten, die nicht sinnvoll anwendbar sind,\n"
-"zum Beispiel 'Zeige Log' für einen gerade hinzugefügten Ordner."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -6579,6 +6565,11 @@ msgstr "Ignoriert"
 #: ID:13
 msgid "incomplete"
 msgstr "Unvollständig"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "Objekt lokal erhalten"
 
 #: ID:11
 #: ID:195
