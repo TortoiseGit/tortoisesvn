@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9038: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9055: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-24 11:44+0300\n"
+"PO-Revision-Date: 2007-03-25 18:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2492,10 +2492,6 @@ msgstr "Не удалось создать/ликвидировать групп
 msgid "Failed!"
 msgstr "Неудача!"
 
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Получать &статус файлов для контекстного меню"
-
 #: ID:313
 msgid "Fetching file..."
 msgstr "Извлечение файла..."
@@ -2939,16 +2935,6 @@ msgid ""
 msgstr ""
 "Если отмечено, диалог фиксации будет перезапущен автоматически после ошибки,\n"
 "с теми же выбранными файлами и сообщением журнала."
-
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Если отключить, контекстное меню будет отображаться быстрее,\n"
-"но при этом будут показаны некоторые пункты меню, которыми невозможно будет воспользоваться,\n"
-"например, \"Показать журнал\" будет присутствовать даже для только что добавленных папок."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -6491,6 +6477,10 @@ msgstr "игнорируемый"
 #: ID:13
 msgid "incomplete"
 msgstr "незакончен"
+
+#: ID:214
+msgid "item kept locally"
+msgstr "элемент оставлен локально"
 
 #: ID:11
 #: ID:195
