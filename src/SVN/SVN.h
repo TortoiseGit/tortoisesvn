@@ -317,7 +317,9 @@ public:
 	 * \param force		TRUE if existing files should be overwritten
 	 * \param eol		"", "CR", "LF" or "CRLF" - "" being the default
 	 */
-	BOOL Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force = TRUE, BOOL bIgnoreExternals = FALSE, HWND hWnd = NULL, BOOL extended = FALSE, CString eol = CString());
+	BOOL Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, 
+		BOOL force = TRUE, BOOL bIgnoreExternals = FALSE, svn_depth_t depth = svn_depth_infinity, 
+		HWND hWnd = NULL, BOOL extended = FALSE, CString eol = CString());
 	/**
 	 * Switch working tree path to URL at revision
 	 *

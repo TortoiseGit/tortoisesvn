@@ -641,7 +641,9 @@ BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL force, BOOL bIgnoreExternals, HWND hWnd, BOOL extended, CString eol)
+BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, 
+				 BOOL force, BOOL bIgnoreExternals, svn_depth_t depth, HWND hWnd, 
+				 BOOL extended, CString eol)
 {
 	if (revision.IsWorking())
 	{
@@ -782,14 +784,14 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	}
 	else
 	{
-		Err = svn_client_export3(NULL,		//no resulting revision needed
+		Err = svn_client_export4(NULL,		//no resulting revision needed
 			srcPath.GetSVNApiPath(),
 			destPath.GetSVNApiPath(),
 			pegrev,
 			revision,
 			force,
 			bIgnoreExternals,
-			TRUE,
+			depth,
 			eol.IsEmpty() ? NULL : (LPCSTR)CStringA(eol),
 			m_pctx,
 			pool);

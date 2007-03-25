@@ -1043,7 +1043,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				eol = _T("LF");
 			if (m_options & ProgOptEolCR)
 				eol = _T("CR");
-			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, NULL, FALSE, eol))
+			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, m_depth, NULL, FALSE, eol))
 			{
 				ReportSVNError();
 				bFailed = true;
