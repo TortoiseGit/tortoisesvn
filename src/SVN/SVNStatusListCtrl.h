@@ -18,6 +18,7 @@
 //
 #pragma once
 
+#include "svn_wc.h"
 #include "TSVNPath.h"
 #include "SVNRev.h"
 #include "Colors.h"
@@ -190,6 +191,9 @@ public:
 			, isConflicted(false)
 			, present_props(_T(""))
 			, needslock(false)
+			, working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
+			, keeplocal(false)
+			, depth(svn_depth_unknown)
 		{
 		}
 		const CTSVNPath& GetPath() const
@@ -278,6 +282,9 @@ public:
 		bool					needslock;				///< TRUE if the svn:needs-lock property is set
 		svn_revnum_t			Revision;				///< the base revision
 		CString					present_props;			///< cacheable properties present in BASE
+		apr_off_t				working_size;			///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
+		bool					keeplocal;				///< Whether a local copy of this entry should be kept in the working copy after a deletion has been committed
+		svn_depth_t				depth;					///< the depth of this entry
 		friend class CSVNStatusListCtrl;
 	};
 

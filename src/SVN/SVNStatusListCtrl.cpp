@@ -695,6 +695,9 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
 		entry->Revision = pSVNStatus->entry->revision;
+		entry->keeplocal = !!pSVNStatus->entry->keep_local;
+		entry->working_size = pSVNStatus->entry->working_size;
+		entry->depth = pSVNStatus->entry->depth;
 
 		if (pSVNStatus->entry->url)
 		{
@@ -4208,6 +4211,11 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 				url.ReleaseBuffer();
 				CString urlW = CUnicodeUtils::GetUnicode(url);
 				lstrcpyn(pTTTW->szText, urlW, 80);
+				return TRUE;
+			}
+			if (fentry->keeplocal)
+			{
+				lstrcpyn(pTTTW->szText, CString(MAKEINTRESOURCE(IDS_STATUSLIST_KEEPLOCAL)), 80);
 				return TRUE;
 			}
 		}
