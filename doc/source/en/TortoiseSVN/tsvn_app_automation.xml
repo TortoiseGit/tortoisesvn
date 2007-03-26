@@ -131,8 +131,8 @@ Don't touch these lines:
 								Opens the log dialog. The path specifies the
 								file or folder for which the log should be shown.
 								Three additional options can be set:
-								<option>/revstart:xxx</option>, 
-								<option>/revend:xxx</option> and
+								<option>/startrev:xxx</option>, 
+								<option>/endrev:xxx</option> and
 								<option>/strict</option>
 							</entry>
 						</row>
@@ -414,7 +414,7 @@ TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
 TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend
 
 TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
-                 /revstart:50 /revend:60 /closeonend
+                 /startrev:50 /endrev:60 /closeonend
 </screen>
 		</para>
 	</sect1>

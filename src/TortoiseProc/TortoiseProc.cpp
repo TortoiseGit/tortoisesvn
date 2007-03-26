@@ -533,14 +533,29 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdLog)
 		{
 			//the log command line looks like this:
-			//command:log path:<path_to_file_or_directory_to_show_the_log_messages> [revstart:<startrevision>] [revend:<endrevision>]
-			CString val = parser.GetVal(_T("revstart"));
+			//command:log path:<path_to_file_or_directory_to_show_the_log_messages> [startrev:<startrevision>] [endrev:<endrevision>]
+			CString val = parser.GetVal(_T("startrev"));
+			if ( val.IsEmpty() )
+			{
+				// support deprecated parameter prior 1.5.0
+				val = parser.GetVal(_T("revstart"));
+			}
 			long revstart = _tstol(val);
-			val = parser.GetVal(_T("revend"));
+			val = parser.GetVal(_T("endrev"));
+			if ( val.IsEmpty() )
+			{
+				// support deprecated parameter prior 1.5.0
+				val = parser.GetVal(_T("revend"));
+			}
 			long revend = _tstol(val);
 			val = parser.GetVal(_T("limit"));
 			int limit = _tstoi(val);
-			val = parser.GetVal(_T("revpeg"));
+			val = parser.GetVal(_T("pegrev"));
+			if ( val.IsEmpty() )
+			{
+				// support deprecated parameter prior 1.5.0
+				val = parser.GetVal(_T("revpeg"));
+			}
 			SVNRev pegrev = _tstol(val);
 			if (val.IsEmpty())
 				pegrev = SVNRev();

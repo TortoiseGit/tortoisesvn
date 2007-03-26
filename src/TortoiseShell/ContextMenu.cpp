@@ -1102,9 +1102,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
 
 			//TortoiseProc expects a command line of the form:
-			//"/command:<commandname> /pathfile:<path> /revstart:<revisionstart> /revend:<revisionend> /deletepathfile
+			//"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
 			// or
-			//"/command:<commandname> /path:<path> /revstart:<revisionstart> /revend:<revisionend>
+			//"/command:<commandname> /path:<path> /startrev:<startrevision> /endrev:<endrevision>
 			//
 			//* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
 			//* pathfile is a path to a temporary file which contains a list of filepaths

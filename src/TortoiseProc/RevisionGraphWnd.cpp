@@ -771,7 +771,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode(m_SelectedEntry1->url);
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
+				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,
 					m_SelectedEntry1->revision);

@@ -3968,7 +3968,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					logrev--;
 				}
 				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
+				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 				EnableOKButton();

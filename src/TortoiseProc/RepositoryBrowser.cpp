@@ -2043,7 +2043,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						rev2 = temp;
 					}
 					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld /revend:%ld"),
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld /endrev:%ld"),
 						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sCopyFrom1, (LONG)rev1, (LONG)rev2);
 
 					ATLTRACE(sCmd);
@@ -2059,7 +2059,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				else
 				{
 					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), EscapeUrl(urlList[0]), (LONG)GetRevision());
 
 					if (!m_path.IsUrl())
