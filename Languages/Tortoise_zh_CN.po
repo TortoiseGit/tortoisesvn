@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-17 20:13+0800\n"
+"PO-Revision-Date: 2007-03-26 12:24+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2028,6 +2028,7 @@ msgstr "命令失败。"
 # ID:209,#:
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "提交"
@@ -2829,7 +2830,6 @@ msgstr "将窗口放到最大"
 
 # Dlg-ID:135,#:
 # Dlg-ID:241,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "输入日志信息"
@@ -3036,11 +3036,6 @@ msgstr "设置/删除修改列表 \"%s\"失败"
 msgid "Failed!"
 msgstr "失败！"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "为右键菜单获取 SVN 状态(&S)"
-
 # ID:313,
 #: ID:313
 msgid "Fetching file..."
@@ -3159,6 +3154,11 @@ msgstr "起始："
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "起始：（合并范围的起始URL和版本）"
+
+# ID:563,
+#: ID:266
+msgid "Fully recursive"
+msgstr "全递归"
 
 # ID:273,
 #: ID:273
@@ -3542,18 +3542,6 @@ msgstr ""
 "如果选中该项，则如果在提交过程中发生错误，提交对话框将自动重新\n"
 "打开，并保留原有的选择内容和记录日志信息。"
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"如果不启用，右键菜单会显示得快一些，\n"
-"但是某些无效的右键菜单项也会显示出来；\n"
-"比如即使在一个只进行了添加的文件夹中，也\n"
-"会显示“显示日志”菜单项。"
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3646,6 +3634,11 @@ msgstr "忽略根源"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "忽略行尾（建议）(&E)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "直接子节点，包含文件夹"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -4523,9 +4516,13 @@ msgstr "至少还有一个的文件处于冲突状态。"
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "仅检出最上层目录(&T)"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "仅文件子节点"
 
 # ID:169,
 #: ID:169
@@ -4536,10 +4533,10 @@ msgstr ""
 "只可以输入数字（可以用逗\n"
 "点分隔）！"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "仅更新最上层目录(&T)"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "仅此项"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -5244,11 +5241,6 @@ msgstr "版本库"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "版本库浏览器"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "版本库浏览器"
 
 # Control-ID:65535,
@@ -6024,16 +6016,6 @@ msgstr "跳过"
 msgid "Skipped missing target"
 msgstr "跳过丢失的目标项"
 
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "按数字顺序排序"
-
-# ID:197,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "用数字顺序代替字母顺序排序项目"
-
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -6472,6 +6454,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "操作失败。"
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"参数“/path”和“/pathfile”互斥。\n"
+"你只能指定其中的一个。"
 
 # ID:64,
 #: ID:64
@@ -7794,6 +7785,11 @@ msgstr "忽略"
 #: ID:13
 msgid "incomplete"
 msgstr "未完成"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "保留本地项目"
 
 # ID:11,#:
 # ID:195,#:
