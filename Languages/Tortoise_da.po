@@ -9,7 +9,7 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r8914
+# Based on Tortoise.pot r9055
 #
 msgid ""
 msgstr ""
@@ -348,6 +348,10 @@ msgstr "&Standard"
 #: ID:11,
 msgid "&Delete"
 msgstr "S&let"
+
+#: ID:17,
+msgid "&Delete (keep local)"
+msgstr "&Slet (behold lokalt)"
 
 #: ID:101,
 msgid "&Delete..."
@@ -1483,7 +1487,7 @@ msgstr "Kommandolinje, der skal udføres:"
 msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
 
-#: ID:209,#: Control-ID:1083,
+#: ID:209,#: Dlg-ID:135,#: Control-ID:1083,
 msgid "Commit"
 msgstr "Arkivér"
 
@@ -1854,6 +1858,10 @@ msgstr "Slettet knude"
 msgid "Deletes files / folders from version control"
 msgstr "Sletter filer/mapper fra versionskontrol"
 
+#: ID:18,
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Sletter filer/mapper fra versionskontrol men beholder filen lokalt"
+
 #: ID:263,
 msgid "Deleting"
 msgstr "Sletter"
@@ -2040,7 +2048,7 @@ msgstr "Slut-revision"
 msgid "Enlarge the window to full size"
 msgstr "Maksimer vinduet"
 
-#: Dlg-ID:135,#: Dlg-ID:241,
+#: Dlg-ID:241,
 msgid "Enter Log Message"
 msgstr "Indtast logbesked"
 
@@ -2192,10 +2200,6 @@ msgstr "Det lykkedes ikke at sætte/fjerne ændringslisten \"%s\""
 msgid "Failed!"
 msgstr "Mislykket!"
 
-#: Control-ID:1217,
-msgid "Fetch &status for context menu"
-msgstr "Hent &status til kontekstmenu"
-
 #: ID:313,
 msgid "Fetching file..."
 msgstr "Henter fil..."
@@ -2266,6 +2270,11 @@ msgstr "Fra:"
 #: Control-ID:65535,
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Fra: (start-URL og -revision for intervallet, der skal flettes)"
+
+#: ID:266,
+#, fuzzy
+msgid "Fully recursive"
+msgstr "Fuldt rekursivt"
 
 #: ID:273,
 msgid "GDI+ couldn't be initialized!"
@@ -2537,10 +2546,6 @@ msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig kopi af basisfilen f
 msgid "If checked, the commit dialog will be started again automatically after an error,\nwhile preserving your last selection and log message."
 msgstr "Hvis valgt, så vil arkivér-dialogen automatisk åbnes igen, hvis arkiveringen fejler,\nsåledes at de valgte emner og logbeskeden bevares."
 
-#: ID:195,
-msgid "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the \"Show Log\" entry will show even for just added folders."
-msgstr "Hvis ikke valgt, så vises kontekstmenuen hurtigere,\nmen nogle elementer i kontekstmenuen vil blive vist, selvom de faktisk ikke kan bruges.\nEksempel: \"Vis log\"-elementet vil blive vist for mapper, der lige er tilføjet."
-
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
@@ -2593,6 +2598,11 @@ msgstr "Ignorer forældreskab"
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
+
+#: ID:266,
+#, fuzzy
+msgid "Immediate children, including folders"
+msgstr "Umiddelbare børn inklusiv mapper"
 
 #: Dlg-ID:139,
 msgid "Import"
@@ -3160,17 +3170,22 @@ msgstr "Udelad externals"
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flere filer indeholder konflikter."
 
-#: ID:99,#: Control-ID:1073,#: Control-ID:1073,
+#: ID:99,
 msgid "Only check out the &top folder"
 msgstr "Hent kun den &øverste mappe"
+
+#: ID:266,
+#, fuzzy
+msgid "Only file children"
+msgstr "Kun børn, som er filer"
 
 #: ID:169,
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
 msgstr "Kun tal (evt. adskilt af kommaer)\ner tilladt!"
 
-#: Control-ID:1073,
-msgid "Only update the &top folder"
-msgstr "Opdater kun den &øverste mappe"
+#: ID:266,
+msgid "Only this item"
+msgstr "Kun dette emne"
 
 #: Control-ID:1224,
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
@@ -3376,7 +3391,7 @@ msgstr "Vent venligst mens forskellene findes..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 
-#: ID:119,#: ID:146,#: ID:213,
+#: ID:104,#: ID:119,#: ID:146,#: ID:213,
 msgid "Please wait..."
 msgstr "Vent venligst..."
 
@@ -3679,10 +3694,6 @@ msgstr "Versionsarkiv"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
-msgstr "Versionsarkiv-søger"
-
-#: Control-ID:65535,
-msgid "Repository browser"
 msgstr "Versionsarkiv-søger"
 
 #: Control-ID:65535,
@@ -4124,7 +4135,7 @@ msgstr "Vis &interval..."
 msgid "Show &all revisions"
 msgstr "Vis &alle revisioner"
 
-#: ID:113,
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Vis &forskelle"
 
@@ -4244,14 +4255,6 @@ msgstr "Oversprunget"
 #: ID:263,
 msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
-
-#: Control-ID:1300,
-msgid "Sort items numerically"
-msgstr "Sorter emner numerisk"
-
-#: ID:197,
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Sorter emner numerisk i stedet for alfabetisk"
 
 #: ID:196,
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -4467,11 +4470,6 @@ msgstr "Filen %s eksisterer ikke!"
 msgid "The file %s was not found in the patch file!"
 msgstr "Filen %s blev ikke fundet i korrekturfilen!"
 
-#: ID:65,
-#, c-format
-msgid "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
-msgstr "Filen %s\nblev fundet to gange!\nDette sker normalt, hvis der forsøges anvendt en korrekturfil på\nen forkert mappe!"
-
 #: ID:69,
 msgid "The file is too big"
 msgstr "Filen er for stor"
@@ -4539,6 +4537,10 @@ msgstr "Den gamle fil svarer ikke til den nye fil.\nOmdøbning af filer er (endn
 #: ID:220,
 msgid "The operation failed."
 msgstr "Operationen mislykkedes."
+
+#: ID:74,
+msgid "The parameters '/path' and '/pathfile' are mutually exclusive.\nYou must only specify one of them."
+msgstr "Parametrene '/path' og '/pathfile' udelukker hinanden.\nDu kan kun angive én af dem."
 
 #: ID:64,
 #, c-format
@@ -5309,6 +5311,10 @@ msgstr "ignoreret"
 #: ID:13,
 msgid "incomplete"
 msgstr "ukomplet"
+
+#: ID:214,
+msgid "item kept locally"
+msgstr "emne beholdt lokalt"
 
 #: ID:11,#: ID:195,#: Control-ID:1002,
 msgid "locked"
