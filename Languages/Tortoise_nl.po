@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-20 22:05+0100\n"
+"PO-Revision-Date: 2007-03-27 21:41+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1606,6 +1606,7 @@ msgid "Command failed."
 msgstr "Opdracht mislukt."
 
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Vastleggen"
@@ -2273,7 +2274,6 @@ msgstr "Laatste Revisie"
 msgid "Enlarge the window to full size"
 msgstr "Maximaliseer het venster"
 
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Geef logboodschap"
@@ -2439,10 +2439,6 @@ msgstr "Maken/verwijderen werkset \"%s\" mislukt"
 msgid "Failed!"
 msgstr "Mislukt!"
 
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "&Status ophalen voor het contextmenu"
-
 #: ID:313
 msgid "Fetching file..."
 msgstr "Bestand ophalen..."
@@ -2537,6 +2533,10 @@ msgstr "Van:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Bron start (begin URL en revisie van het samen te voegen bereik):"
+
+#: ID:266
+msgid "Fully recursive"
+msgstr "Volledig recursief"
 
 #: ID:273
 msgid "GDI+ couldn't be initialized!"
@@ -2956,16 +2956,6 @@ msgstr ""
 "Activeer deze optie om de vastleg-dialoog opnieuw te openen na een fout.\n"
 "Daarbij wordt de meest recente selectie en logboek-boodschap bewaard."
 
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Het contextmenu wordt sneller getoond zonder deze optie.\n"
-"Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
-"Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
-
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
@@ -3045,6 +3035,10 @@ msgstr "Negeer oorsprong"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Negeer &regeleinden (aanbevolen)"
+
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Enkel nivo, inclusief mappen"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -3767,9 +3761,12 @@ msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Alleen de &bovenste map ophalen"
+
+#: ID:266
+msgid "Only file children"
+msgstr "Alleen bestanden"
 
 #: ID:169
 msgid ""
@@ -3779,9 +3776,9 @@ msgstr ""
 "Alleen nummers (optioneel gescheiden door een comma)\n"
 "toegestaan!"
 
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Alleen de &bovenste map verversen"
+#: ID:266
+msgid "Only this item"
+msgstr "Alleen dit object"
 
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
@@ -4819,7 +4816,7 @@ msgstr "Toon &Bereik..."
 msgid "Show &all revisions"
 msgstr "Toon &alle revisies"
 
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Toon vers&chillen"
 
@@ -5323,6 +5320,14 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Opdracht mislukt."
+
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"De parameters '/path' en '/pathfile' kunnen niet samen gebruikt worden.\n"
+"U mag er slechts één opgeven."
 
 #: ID:64
 #, c-format
@@ -6455,6 +6460,10 @@ msgstr "genegeerd"
 #: ID:13
 msgid "incomplete"
 msgstr "onvolledig"
+
+#: ID:214
+msgid "item kept locally"
+msgstr "object lokaal bewaard"
 
 #: ID:11
 #: ID:195
