@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,9 @@
 #include "RevisionGraph.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
+
+#define REVGRAPH_PREVIEW_WIDTH 100
+#define REVGRAPH_PREVIEW_HEIGTH 200
 
 enum NodeShape
 {
@@ -112,6 +115,8 @@ protected:
 	bool			m_bIsRubberBand;
 	CPoint			m_ptRubberStart;
 	CPoint			m_ptRubberEnd;
+
+	CBitmap			m_Preview;
 	
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -156,5 +161,7 @@ private:
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(float nZoomFactor);
 	void			DrawRubberBand();
+
+	void			BuildPreview();
 friend class CRevisionGraphDlg;
 };

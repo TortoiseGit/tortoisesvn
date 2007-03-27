@@ -54,6 +54,34 @@ void CRevisionGraphWnd::InitView()
 	GetViewSize();
 	BuildConnections();
 	SetScrollbars(0,0,m_ViewRect.Width(),m_ViewRect.Height());
+	BuildPreview();
+}
+
+void CRevisionGraphWnd::BuildPreview()
+{
+	CWindowDC ddc(this);
+	CDC dc, dc2;
+	if (!dc.CreateCompatibleDC(&ddc))
+		return;
+	if (!dc2.CreateCompatibleDC(&ddc))
+		return;
+	HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, m_ViewRect.Width(), m_ViewRect.Height());
+	if (hbm==0)
+		return;
+	HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+	// paint the whole graph
+	DrawGraph(&dc, m_ViewRect, 0, 0, true);
+	// now we have a bitmap the size of the real, whole graph
+	// but we need a bitmap the size of the preview window
+	m_Preview.CreateCompatibleBitmap(&ddc, REVGRAPH_PREVIEW_WIDTH, REVGRAPH_PREVIEW_HEIGTH);
+	HBITMAP oldbm2 = (HBITMAP)dc2.SelectObject(&m_Preview);
+	StretchBlt(dc2, 0, 0, REVGRAPH_PREVIEW_WIDTH, REVGRAPH_PREVIEW_HEIGTH,
+		dc, 0, 0, m_ViewRect.Width(), m_ViewRect.Height(), SRCCOPY);
+	dc.SelectObject(oldbm);
+	dc2.SelectObject(oldbm2);
+	DeleteObject(hbm);
+	dc.DeleteDC();
+	dc2.DeleteDC();
 }
 
 void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
