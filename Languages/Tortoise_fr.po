@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-21 21:41+0100\n"
+"PO-Revision-Date: 2007-03-27 23:36+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2555,11 +2555,6 @@ msgstr "Échec de la définition / suprression de la liste de changements \"%s\"
 msgid "Failed!"
 msgstr "Echoué !"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Récupérer le &statut pour le menu contextuel"
-
 #: ID:313
 msgid "Fetching file..."
 msgstr "Récupération fichier..."
@@ -2662,6 +2657,10 @@ msgstr "Du :"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De : (URL de début et révision de la plage à fusionner)"
+
+#: ID:266
+msgid "Fully recursive"
+msgstr "Complétement récursif"
 
 # ID:273,
 #: ID:273
@@ -3024,17 +3023,6 @@ msgstr ""
 "Si séléctionné, la boîte de dialogue Livrer redémarrera automatiquement après une erreur,\n"
 "tout en conservant votre sélection et vos commentaires précédents."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Si désactivé, alors le menu contextuel s'affichera plus rapidement.\n"
-"Mais quelques entrées du menu contextuel s'afficheront sans pouvoir être réellement utilisées.\n"
-"Par exemple : l'entrée \"Voir le journal\" s'affichera même pour des répertoires juste ajoutés."
-
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Si validé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
@@ -3123,6 +3111,11 @@ msgstr "Ignorer l'ascendance"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignor&er les fins de lignes (recommandé)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Les enfants immédiat, avec les dossiers"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -3896,9 +3889,13 @@ msgid "One or more files are in a conflicted state."
 msgstr "Un ou plusieurs fichiers sont en état de conflit."
 
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Extraire seulement le répertoire de &tête"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Uniquement les fichiers enfant"
 
 # ID:169,
 #: ID:169
@@ -3909,9 +3906,10 @@ msgstr ""
 "Seuls les nombres (optionnellement séparés par des virgules)\n"
 "sont acceptés !"
 
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Mettre à jour seulement le répertoire de &tête"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Uniquement cet élément"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -6723,6 +6721,11 @@ msgstr "ignoré"
 #: ID:13
 msgid "incomplete"
 msgstr "incomplet"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "élément conservé localement"
 
 #: ID:11
 #: ID:195
