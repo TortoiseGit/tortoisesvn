@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-03-20 13:21+0800\n"
+"PO-Revision-Date: 2007-03-28 09:51+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1992,6 +1992,7 @@ msgstr "命令失敗."
 
 # ID:8,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "送交"
@@ -2808,7 +2809,6 @@ msgstr "將視窗放到最大"
 
 # ID:126,#:
 # Control-ID:1065,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "輸入紀錄訊息"
@@ -3018,11 +3018,6 @@ msgstr "無法設定/移除變更列表: %s"
 msgid "Failed!"
 msgstr "失敗!"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "抓取右鍵選單的狀態(&S)"
-
 # ID:313,
 #: ID:313
 msgid "Fetching file..."
@@ -3135,6 +3130,11 @@ msgstr "從:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "從: (URL以及合併範圍的起始版本)"
+
+# Control-ID:1018,
+#: ID:266
+msgid "Fully recursive"
+msgstr "全部遞迴"
 
 # ID:273,
 #: ID:273
@@ -3516,17 +3516,6 @@ msgstr ""
 "勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\n"
 "並保留先前的選項與送交訊息."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"取消此選項時, 右鍵選單會比較快出現.\n"
-"但是某些顯示出來的功能不能真的使用.\n"
-"例如: \"顯示記錄\" 在新加入的資料夾也會出現."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3619,6 +3608,11 @@ msgstr "無視之前版本"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "(建議)忽略換行(&E)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "第一層檔案與目錄"
 
 # ID:9,
 #: Dlg-ID:139
@@ -4491,9 +4485,13 @@ msgstr "尚有一個以上的檔案處於衝突狀態."
 
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "僅取出最上層目錄(&T)"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "僅包含檔案"
 
 # ID:169,
 #: ID:169
@@ -4504,10 +4502,10 @@ msgstr ""
 "只可以輸入數字(可以用逗\n"
 "點分隔)!"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "僅更新最上層目錄(&T)"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "僅此項目"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -5210,11 +5208,6 @@ msgstr "檔案庫"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "檔案庫瀏覽器"
-
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "檔案庫瀏覽器"
 
 # Control-ID:65535,
@@ -5987,16 +5980,6 @@ msgstr "略過"
 msgid "Skipped missing target"
 msgstr "已跳過的缺少目標"
 
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "依數字順序排序"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "依數字順序排序"
-
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -6433,6 +6416,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "操作失敗."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"參數 '/path' 和 '/pathfile' 不能同時使用.\n"
+"請指定其中一個."
 
 # ID:64,
 #: ID:64
@@ -7772,6 +7764,11 @@ msgstr "忽略"
 #: ID:13
 msgid "incomplete"
 msgstr "未完成"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "檔案保留於本地端"
 
 # ID:11,#:
 # Control-ID:1002,
