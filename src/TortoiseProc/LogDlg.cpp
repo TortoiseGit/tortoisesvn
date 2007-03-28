@@ -1192,6 +1192,7 @@ void CLogDlg::OnOK()
 				if (higherRev < rev)
 					higherRev = rev;
 			}
+			BOOL bSentMessage = FALSE;
 			if (m_LogList.GetSelectedCount() == 1)
 			{
 				// if only one revision is selected, check if the path/url with which the dialog was started
@@ -1217,13 +1218,14 @@ void CLogDlg::OnOK()
 									lowerRev = pData->lCopyFromRev;
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
+									bSentMessage = TRUE;
 								}
 							}
 						}
 					}
 				}
 			}
-			else
+			if ( !bSentMessage )
 			{
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
