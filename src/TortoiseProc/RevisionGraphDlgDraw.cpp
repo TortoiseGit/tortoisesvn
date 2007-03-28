@@ -437,7 +437,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
 	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos, start, end);
 
-	if (!bDirectDraw)
+	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle()))
 	{
 		// draw the overview image rectangle in the top right corner
 		CMemDC memDC2(memDC, true);
@@ -447,27 +447,26 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 			&memDC2, 0, 0, SRCCOPY);
 		memDC2.SelectObject(oldhbm);
 		// draw the border for the overview rectangle
-		RECT previewRect;
-		previewRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH;
-		previewRect.top = 0;
-		previewRect.right = rect.Width();
-		previewRect.bottom = REVGRAPH_PREVIEW_HEIGTH;
-		memDC->DrawEdge(&previewRect, EDGE_BUMP, BF_RECT);
+		m_OverviewRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH;
+		m_OverviewRect.top = 0;
+		m_OverviewRect.right = rect.Width();
+		m_OverviewRect.bottom = REVGRAPH_PREVIEW_HEIGTH;
+		memDC->DrawEdge(&m_OverviewRect, EDGE_BUMP, BF_RECT);
 		// now draw a rectangle where the current view is located in the overview
 		LONG width = REVGRAPH_PREVIEW_WIDTH * rect.Width() / m_ViewRect.Width();
 		LONG heigth = REVGRAPH_PREVIEW_HEIGTH * rect.Height() / m_ViewRect.Height();
 		LONG xpos = nHScrollPos * REVGRAPH_PREVIEW_WIDTH / m_ViewRect.Width();
 		LONG ypos = nVScrollPos * REVGRAPH_PREVIEW_HEIGTH / m_ViewRect.Height();
-		previewRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
-		previewRect.top = ypos;
-		previewRect.right = previewRect.left + width;
-		previewRect.bottom = previewRect.top + heigth;
+		m_OverviewPosRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
+		m_OverviewPosRect.top = ypos;
+		m_OverviewPosRect.right = m_OverviewPosRect.left + width;
+		m_OverviewPosRect.bottom = m_OverviewPosRect.top + heigth;
 		memDC->SetROP2(R2_MASKPEN);
 		HGDIOBJ oldbrush = memDC->SelectObject(GetStockObject(GRAY_BRUSH));
-		memDC->Rectangle(&previewRect);
+		memDC->Rectangle(&m_OverviewPosRect);
 		memDC->SetROP2(R2_NOT);
 		memDC->SelectObject(oldbrush);
-		memDC->DrawEdge(&previewRect, EDGE_BUMP, BF_RECT);
+		memDC->DrawEdge(&m_OverviewPosRect, EDGE_BUMP, BF_RECT);
 	}
 
 	if (!bDirectDraw)

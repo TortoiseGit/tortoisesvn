@@ -82,6 +82,8 @@ protected:
 	DWORD			m_dwTicks;
 	CRect			m_ViewRect;
 	CRect			m_GraphRect;
+	CRect			m_OverviewPosRect;
+	CRect			m_OverviewRect;
 	CPtrArray		m_arConnections;
 	CDWordArray		m_arVertPositions;
 	
@@ -132,6 +134,7 @@ protected:
 	afx_msg void	OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 
 	DECLARE_MESSAGE_MAP()
 private:

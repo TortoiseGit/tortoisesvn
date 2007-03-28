@@ -54,11 +54,15 @@ void CRevisionGraphWnd::InitView()
 	GetViewSize();
 	BuildConnections();
 	SetScrollbars(0,0,m_ViewRect.Width(),m_ViewRect.Height());
-	BuildPreview();
 }
 
 void CRevisionGraphWnd::BuildPreview()
 {
+	m_Preview.DeleteObject();
+
+	float origZoom = m_fZoomFactor;
+	DoZoom(0.2f);
+
 	CWindowDC ddc(this);
 	CDC dc, dc2;
 	if (!dc.CreateCompatibleDC(&ddc))
@@ -82,6 +86,8 @@ void CRevisionGraphWnd::BuildPreview()
 	DeleteObject(hbm);
 	dc.DeleteDC();
 	dc2.DeleteDC();
+
+	DoZoom(origZoom);
 }
 
 void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)

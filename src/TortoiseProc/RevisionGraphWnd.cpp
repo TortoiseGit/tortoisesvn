@@ -141,6 +141,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_WM_CONTEXTMENU()
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
@@ -357,6 +358,8 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 		m_bIsRubberBand = true;
 		ATLTRACE("LButtonDown: x = %ld, y = %ld\n", point.x, point.y);
 		Invalidate();
+		if (m_OverviewRect.PtInRect(point))
+			m_bIsRubberBand = false;
 	}
 	m_ptRubberStart = point;
 	
@@ -792,9 +795,23 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 {
-	if ((!m_bIsRubberBand)||(m_bThreadRunning))
+	if (m_bThreadRunning)
 	{
 		return __super::OnMouseMove(nFlags, point);
+	}
+	if (!m_bIsRubberBand)
+	{
+		if ((!m_OverviewRect.IsRectEmpty())&&(m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
+		{
+			// scrolling
+			int x = (point.x-m_OverviewRect.left) * m_ViewRect.Width() / m_OverviewRect.Width();
+			int y = point.y * m_ViewRect.Height() / m_OverviewRect.Height();
+			SetScrollbars(y, x);
+			Invalidate(FALSE);
+			return __super::OnMouseMove(nFlags, point);
+		}
+		else
+			return __super::OnMouseMove(nFlags, point);
 	}
 
 	if ((abs(m_ptRubberStart.x - point.x) < 2)&&(abs(m_ptRubberStart.y - point.y) < 2))
@@ -803,7 +820,6 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 	}
 
 	SetCapture();
-	ATLTRACE("OnMouseMove: x = %ld, y = %ld\n", point.x, point.y);
 
 	if ((m_ptRubberEnd.x != 0)||(m_ptRubberEnd.y != 0))
 		DrawRubberBand();
@@ -817,6 +833,27 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 	DrawRubberBand();
 
 	__super::OnMouseMove(nFlags, point);
+}
+
+BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if ((nHitTest == HTCLIENT)&&(pWnd == this)&&(m_ViewRect.Width())&&(m_ViewRect.Height())&&(message))
+	{
+		POINT pt;
+		if (GetCursorPos(&pt))
+		{
+			ScreenToClient(&pt);
+			if (m_OverviewPosRect.PtInRect(pt))
+			{
+				HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND));
+				SetCursor(hCur);
+				return TRUE;
+			}
+		}
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+	SetCursor(hCur);
+	return TRUE;
 }
 
 

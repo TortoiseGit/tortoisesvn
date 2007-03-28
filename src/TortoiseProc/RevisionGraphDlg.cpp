@@ -226,6 +226,7 @@ cleanup:
 	delete pDlg->m_Graph.m_pProgress;
 	pDlg->m_Graph.m_pProgress = NULL;
 	pDlg->m_Graph.InitView();
+	pDlg->m_Graph.BuildPreview();
 	pDlg->m_Graph.UpdateWindow();
 	CoUninitialize();
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
