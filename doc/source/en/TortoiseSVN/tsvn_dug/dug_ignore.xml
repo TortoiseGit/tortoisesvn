@@ -48,7 +48,8 @@
 		property directly. That allows you to specify more general
 		patterns using filename globbing, described in the section below.
 		Read <xref linkend="tsvn-dug-propertypage"/> for more information
-		on setting properties directly.
+		on setting properties directly. Please be aware that each ignore pattern 
+		has to be placed on a separate line. Separating them by spaces does not work.
 	</para>
 	<tip>
 		<title>The Global Ignore List</title>
