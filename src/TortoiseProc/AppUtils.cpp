@@ -241,65 +241,69 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame, BOOL bReadOnly)
 {
 	CString viewer;
-	CString mimetype;
-	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
 	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
 	bool bUseTMerge = !!(DWORD)blamediff;
-	viewer = diffexe;
 	bool bInternal = false;
-	SVNProperties props(file1);
-	for (int i=0; i<props.GetCount(); ++i)
+	if ( !bUseTMerge )
 	{
-		if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
+		viewer = diffexe;
+		CString mimetype;
+		SVNProperties props(file1);
+		for (int i=0; i<props.GetCount(); ++i)
 		{
-			mimetype = props.GetItemValue(i).c_str();
-		}
-	}
-	if (mimetype.IsEmpty())
-	{
-		SVNProperties props2(file2);
-		for (int i=0; i<props2.GetCount(); ++i)
-		{
-			if (props2.GetItemName(i).compare(_T("svn:mime-type"))==0)
+			if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
 			{
-				mimetype = props2.GetItemValue(i).c_str();
+				mimetype = props.GetItemValue(i).c_str();
 			}
 		}
-	}
-	if (mimetype != "")
-	{
-		// is there an extension specific merge tool?
-		CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
-		if (CString(difftool) != "")
+		if (mimetype.IsEmpty())
 		{
-			viewer = difftool;
-		}
-	}
-	if (!file2.GetFileExtension().IsEmpty())
-	{
-		// is there an extension specific diff tool?
-		CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFileExtension().MakeLower());
-		if (CString(difftool) != "")
-		{
-			viewer = difftool;
-		}
-		else
-		{
-			// check if we maybe should use TortoiseIDiff
-			CString sExtension = file2.GetFileExtension();
-			if ((sExtension.CompareNoCase(_T(".jpg"))==0)||
-				(sExtension.CompareNoCase(_T(".jpeg"))==0)||
-				(sExtension.CompareNoCase(_T(".bmp"))==0)||
-				(sExtension.CompareNoCase(_T(".gif"))==0)||
-				(sExtension.CompareNoCase(_T(".png"))==0)||
-				(sExtension.CompareNoCase(_T(".ico"))==0)||
-				(sExtension.CompareNoCase(_T(".dib"))==0)||
-				(sExtension.CompareNoCase(_T(".emf"))==0))
+			SVNProperties props2(file2);
+			for (int i=0; i<props2.GetCount(); ++i)
 			{
-				viewer = CPathUtils::GetAppDirectory();
-				viewer += _T("TortoiseIDiff.exe");
-				viewer = _T("\"") + viewer + _T("\"");
-				viewer = viewer + _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
+				if (props2.GetItemName(i).compare(_T("svn:mime-type"))==0)
+				{
+					mimetype = props2.GetItemValue(i).c_str();
+					break;
+				}
+			}
+		}
+		if (mimetype != "")
+		{
+			// is there an extension specific merge tool?
+			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
+			if (CString(difftool) != "")
+			{
+				viewer = difftool;
+			}
+		}
+		if (!file2.GetFileExtension().IsEmpty())
+		{
+			// is there an extension specific diff tool?
+			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFileExtension().MakeLower());
+			if (CString(difftool) != "")
+			{
+				viewer = difftool;
+			}
+			else
+			{
+				// check if we maybe should use TortoiseIDiff
+				CString sExtension = file2.GetFileExtension();
+				if ((sExtension.CompareNoCase(_T(".jpg"))==0)||
+					(sExtension.CompareNoCase(_T(".jpeg"))==0)||
+					(sExtension.CompareNoCase(_T(".bmp"))==0)||
+					(sExtension.CompareNoCase(_T(".gif"))==0)||
+					(sExtension.CompareNoCase(_T(".png"))==0)||
+					(sExtension.CompareNoCase(_T(".ico"))==0)||
+					(sExtension.CompareNoCase(_T(".dib"))==0)||
+					(sExtension.CompareNoCase(_T(".emf"))==0))
+				{
+					viewer = CPathUtils::GetAppDirectory();
+					viewer += _T("TortoiseIDiff.exe");
+					viewer = _T("\"") + viewer + _T("\"");
+					viewer = viewer + _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
+				}
 			}
 		}
 	}
