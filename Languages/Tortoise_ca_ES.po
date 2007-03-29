@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-03-23 12:17+0100\n"
+"PO-Revision-Date: 2007-03-29 10:50+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -3021,11 +3021,6 @@ msgstr "No ha pogut configurar/treure changelist \"%s\""
 msgid "Failed!"
 msgstr "Ha fallat!"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Obté &estat pel menú contextual"
-
 # ID:313,
 #: ID:313
 msgid "Fetching file..."
@@ -3142,6 +3137,11 @@ msgstr "De:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De: (URL inicial i revisió del rang a fusionar)"
+
+# ID:563,
+#: ID:266
+msgid "Fully recursive"
+msgstr "Totalment recursiu"
 
 # ID:273,
 #: ID:273
@@ -3527,17 +3527,6 @@ msgstr ""
 "Si està seleccionat, el diàleg d'entrega es reiniciarà automaticament després d'un error,\n"
 "preservant la teva darrera selecció i el teu missatge de log."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Si està deshabilitat, el menú contextual apareix més ràpidament.\n"
-"Però es mostraran algunes opcions que no es podran utilitzar.\n"
-"Per exemple: la opció \"Mostra Log\" es mostrarà fins i tot per carpetes acabades d'afegir."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3630,6 +3619,11 @@ msgstr "Ignora ancestre"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignora &finals de línea (recomanat)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Fills immediats, incolent-hi carpetes"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -4507,9 +4501,13 @@ msgstr "Un o més fitxers són en estat de conflicte."
 # ID:99,#:
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Obté només la carpeta &superior"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Només fitxers fills"
 
 # ID:169,
 #: ID:169
@@ -4520,10 +4518,10 @@ msgstr ""
 "Només es permeten números!\n"
 "(opcionalment separats per comes)"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Actualitza només la carpeta &superior"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Només aquest item"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -7774,6 +7772,11 @@ msgstr "ignorat"
 #: ID:13
 msgid "incomplete"
 msgstr "incomplert"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "item guradat localment"
 
 # ID:11,#:
 # ID:195,#:
