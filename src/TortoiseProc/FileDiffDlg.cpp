@@ -403,7 +403,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 					n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}
 			}
-			CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+			CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE);
 		}
 	}
 }

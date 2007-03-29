@@ -124,11 +124,13 @@
 #define IDC_TOURL                       1015
 #define IDC_EXTDIFF                     1015
 #define IDC_EXTMERGE                    1016
+#define IDC_EXTDIFFPROPS                1016
 #define IDC_MESSAGE                     1017
 #define IDC_DIFFVIEWER                  1017
 #define IDC_NEWEST                      1019
 #define IDC_EXTDIFFBROWSE               1021
 #define IDC_EXTMERGEBROWSE              1022
+#define IDC_EXTDIFFPROPSBROWSE          1022
 #define IDC_CHANGEDDIRS                 1023
 #define IDC_ENABLE                      1023
 #define IDC_SAVECHECK                   1023
@@ -218,7 +220,9 @@
 #define IDC_EXTDIFF_OFF                 1091
 #define IDC_EXTDIFF_ON                  1092
 #define IDC_EXTMERGEADVANCED            1093
+#define IDC_EXTDIFFPROPS_OFF            1093
 #define IDC_EXTMERGE_OFF                1094
+#define IDC_EXTDIFFPROPS_ON             1094
 #define IDC_EXTMERGE_ON                 1095
 #define IDC_DIFFVIEWER_OFF              1096
 #define IDC_DIFFVIEWER_ON               1097

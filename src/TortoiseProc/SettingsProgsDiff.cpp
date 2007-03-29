@@ -29,11 +29,14 @@ CSettingsProgsDiff::CSettingsProgsDiff()
 	, m_dlgAdvDiff(_T("Diff"))
 	, m_iExtDiff(0)
 	, m_sDiffPath(_T(""))
+	, m_iExtDiffProps(0)
+	, m_sDiffPropsPath(_T(""))
 	, m_bInitialized(FALSE)
 	, m_regConvertBase(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE)
 	, m_bConvertBase(false)
 {
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+	m_regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"));
 }
 
 CSettingsProgsDiff::~CSettingsProgsDiff()
@@ -45,11 +48,16 @@ void CSettingsProgsDiff::DoDataExchange(CDataExchange* pDX)
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EXTDIFF, m_sDiffPath);
 	DDX_Radio(pDX, IDC_EXTDIFF_OFF, m_iExtDiff);
+	DDX_Text(pDX, IDC_EXTDIFFPROPS, m_sDiffPropsPath);
+	DDX_Radio(pDX, IDC_EXTDIFFPROPS_OFF, m_iExtDiffProps);
 	DDX_Check(pDX, IDC_DONTCONVERT, m_bConvertBase);
 
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(m_iExtDiff == 1);
 	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(m_iExtDiff == 1);
+	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(m_iExtDiffProps == 1);
+	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(m_iExtDiffProps == 1);
 	DDX_Control(pDX, IDC_EXTDIFF, m_cDiffEdit);
+	DDX_Control(pDX, IDC_EXTDIFFPROPS, m_cDiffPropsEdit);
 }
 
 
@@ -58,8 +66,12 @@ BEGIN_MESSAGE_MAP(CSettingsProgsDiff, CPropertyPage)
 	ON_BN_CLICKED(IDC_EXTDIFF_ON, OnBnClickedExtdiffOn)
 	ON_BN_CLICKED(IDC_EXTDIFFBROWSE, OnBnClickedExtdiffbrowse)
 	ON_BN_CLICKED(IDC_EXTDIFFADVANCED, OnBnClickedExtdiffadvanced)
+	ON_BN_CLICKED(IDC_EXTDIFFPROPS_OFF, OnBnClickedExtdiffpropsOff)
+	ON_BN_CLICKED(IDC_EXTDIFFPROPS_ON, OnBnClickedExtdiffpropsOn)
+	ON_BN_CLICKED(IDC_EXTDIFFPROPSBROWSE, OnBnClickedExtdiffpropsbrowse)
 	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
 	ON_EN_CHANGE(IDC_EXTDIFF, OnEnChangeExtdiff)
+	ON_EN_CHANGE(IDC_EXTDIFFPROPS, OnEnChangeExtdiffprops)
 END_MESSAGE_MAP()
 
 
@@ -68,9 +80,17 @@ int CSettingsProgsDiff::SaveData()
 	if (m_bInitialized)
 	{
 		if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != _T("#"))
+		{
 			m_sDiffPath = _T("#") + m_sDiffPath;
-
+		}
 		m_regDiffPath = m_sDiffPath;
+
+		if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != _T("#"))
+		{
+			m_sDiffPropsPath = _T("#") + m_sDiffPropsPath;
+		}
+		m_regDiffPropsPath = m_sDiffPropsPath;
+
 		m_regConvertBase = m_bConvertBase;
 		m_dlgAdvDiff.SaveData();
 	}
@@ -83,6 +103,9 @@ BOOL CSettingsProgsDiff::OnInitDialog()
 
 	m_sDiffPath = m_regDiffPath;
 	m_iExtDiff = IsExternal(m_sDiffPath);
+
+	m_sDiffPropsPath = m_regDiffPropsPath;
+	m_iExtDiffProps = IsExternal(m_sDiffPropsPath);
 
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTDIFF), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
@@ -120,6 +143,15 @@ void CSettingsProgsDiff::OnBnClickedExtdiffOff()
 	CheckProgComment();
 }
 
+void CSettingsProgsDiff::OnBnClickedExtdiffpropsOff()
+{
+	m_iExtDiffProps = 0;
+	SetModified();
+	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(false);
+	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(false);
+	CheckProgCommentProps();
+}
+
 void CSettingsProgsDiff::OnBnClickedExtdiffOn()
 {
 	m_iExtDiff = 1;
@@ -128,6 +160,16 @@ void CSettingsProgsDiff::OnBnClickedExtdiffOn()
 	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(true);
 	GetDlgItem(IDC_EXTDIFF)->SetFocus();
 	CheckProgComment();
+}
+
+void CSettingsProgsDiff::OnBnClickedExtdiffpropsOn()
+{
+	m_iExtDiffProps = 1;
+	SetModified();
+	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(true);
+	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(true);
+	GetDlgItem(IDC_EXTDIFFPROPS)->SetFocus();
+	CheckProgCommentProps();
 }
 
 void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
@@ -175,6 +217,51 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 	delete [] pszFilters;
 }
 
+void CSettingsProgsDiff::OnBnClickedExtdiffpropsbrowse()
+{
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = this->m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	CString sFilter;
+	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+	// Replace '|' delimiters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	}
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+	ofn.lpstrInitialDir = NULL;
+	CString temp;
+	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+	CStringUtils::RemoveAccelerators(temp);
+	ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
+
+	// Display the Open dialog box. 
+
+	if (GetOpenFileName(&ofn)==TRUE)
+	{
+		m_sDiffPropsPath = CString(ofn.lpstrFile);
+		UpdateData(FALSE);
+		SetModified();
+	}
+	delete [] pszFilters;
+}
+
 void CSettingsProgsDiff::OnBnClickedExtdiffadvanced()
 {
 	if (m_dlgAdvDiff.DoModal() == IDOK)
@@ -191,6 +278,11 @@ void CSettingsProgsDiff::OnEnChangeExtdiff()
 	SetModified();
 }
 
+void CSettingsProgsDiff::OnEnChangeExtdiffprops()
+{
+	SetModified();
+}
+
 void CSettingsProgsDiff::CheckProgComment()
 {
 	UpdateData();
@@ -198,5 +290,15 @@ void CSettingsProgsDiff::CheckProgComment()
 		m_sDiffPath = _T("#") + m_sDiffPath;
 	else if (m_iExtDiff == 1)
 		m_sDiffPath.TrimLeft('#');
+	UpdateData(FALSE);
+}
+
+void CSettingsProgsDiff::CheckProgCommentProps()
+{
+	UpdateData();
+	if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != _T("#"))
+		m_sDiffPropsPath = _T("#") + m_sDiffPropsPath;
+	else if (m_iExtDiffProps == 1)
+		m_sDiffPropsPath.TrimLeft('#');
 	UpdateData(FALSE);
 }

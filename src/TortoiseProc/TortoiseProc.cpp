@@ -2543,6 +2543,15 @@ void CTortoiseProcApp::CheckUpgrade()
 		}
 	}
 
+	// Initialize "Software\\TortoiseSVN\\DiffProps" once with the same value as "Software\\TortoiseSVN\\Diff"
+	CRegString regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"),_T("non-existant"));
+	CString strDiffPropsPath = regDiffPropsPath;
+	if ( strDiffPropsPath==_T("non-existant") )
+	{
+		CString strDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+		regDiffPropsPath = strDiffPath;
+	}
+
 	// set the current version so we don't come here again until the next update!
 	regVersion = _T(STRPRODUCTVER);	
 }

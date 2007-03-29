@@ -686,11 +686,11 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 			}
 			if (bSwitch)
 			{
-				retvalue = !!CAppUtils::StartExtDiff(wcpropfile, basepropfile, n1, n2, TRUE, FALSE, TRUE);
+				retvalue = !!CAppUtils::StartExtDiffProps(wcpropfile, basepropfile, n1, n2, TRUE, TRUE);
 			}
 			else
 			{
-				retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE, FALSE, TRUE);
+				retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
 			}
 		}
 	}
@@ -752,7 +752,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 				n2.Format(IDS_DIFF_BASENAME, wcname.c_str());
 			if (rev2.IsHead())
 				n2.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
-			retvalue = !!CAppUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE, FALSE, TRUE);
+			retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
 		}
 	}
 	return retvalue;

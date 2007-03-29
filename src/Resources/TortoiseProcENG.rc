@@ -776,15 +776,20 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "External Programs::Diff Viewer"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "Configure the program used for comparing different revisions of files.",IDC_STATIC,7,7,286,8
-    CONTROL         "&TortoiseMerge",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,74,10
-    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,89,23,71,10
-    EDITTEXT        IDC_EXTDIFF,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,41,14,14
-    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",IDC_STATIC,7,70,160,30
-    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,73,87,14
+    CONTROL         "&TortoiseMerge",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,23,74,10
+    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,92,23,71,10
+    EDITTEXT        IDC_EXTDIFF,14,41,256,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,274,41,14,14
+    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",IDC_STATIC,16,73,160,19
+    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,201,73,87,14
     CONTROL         "&Convert files when diffing against BASE",IDC_DONTCONVERT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,105,286,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,176,286,10
+    GROUPBOX        "Configure the program used for comparing different revisions of files",IDC_STATIC,7,7,286,87
+    CONTROL         "&TortoiseMerge",IDC_EXTDIFFPROPS_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,120,74,10
+    CONTROL         "&External",IDC_EXTDIFFPROPS_ON,"Button",BS_AUTORADIOBUTTON,92,120,71,10
+    EDITTEXT        IDC_EXTDIFFPROPS,14,139,256,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTDIFFPROPSBROWSE,274,139,14,14
+    GROUPBOX        "Configure the program used for comparing different revisions of properties",IDC_STATIC,7,104,286,63
 END
 
 IDD_SETTINGSPROGSMERGE DIALOGEX 0, 0, 300, 217
