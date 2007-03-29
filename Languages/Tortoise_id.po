@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-19 04:40+0700\n"
+"PO-Revision-Date: 2007-03-29 07:13+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1994,6 +1994,7 @@ msgstr "Perintah gagal."
 # ID:209,#:
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Komit"
@@ -2802,7 +2803,6 @@ msgid "Enlarge the window to full size"
 msgstr "Lebarkan jendele ke ukuran penuh"
 
 # Dlg-ID:135,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Masukkan Pesan Log"
@@ -3013,11 +3013,6 @@ msgstr "Gagal mengeset/menghapus daftar perubahan \"%s\""
 msgid "Failed!"
 msgstr "Gagal!"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Ambil &status untuk menu konteks"
-
 # ID:313,
 #: ID:313
 msgid "Fetching file..."
@@ -3134,6 +3129,11 @@ msgstr "Dari:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Dari: (mulai URL dan revisi dari deretan untuk digabung)"
+
+# ID:563,
+#: ID:266
+msgid "Fully recursive"
+msgstr "Rekursif penuh"
 
 # ID:273,
 #: ID:273
@@ -3519,17 +3519,6 @@ msgstr ""
 "Jika dicentang, dialog komit akan dimulai lagi secara otomatis setelah kesalahan,\n"
 "sementara menyimpan pilihan terakhir dan pesan log anda."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Jika dimatikan, maka menu konteks akan tampil lebih cepat.\n"
-"Tapi beberapa entri menu konteks akan ditampilkan tidak bisa digunakan.\n"
-"Sebagai contoh: entri \"Tampilkan Log\" akan tampil bahkan untuk folder yang baru ditambahkan."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3622,6 +3611,11 @@ msgstr "Abaikan asal"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Abaikan a&khir baris (direkomendasikan)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Anak yang langsung, termasuk folder-folder"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -4501,9 +4495,13 @@ msgstr "Satu atau lebih file dalam keadaan konflik."
 # ID:99,#:
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Hanya check out folder &atas"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Hanya anak file"
 
 # ID:169,
 #: ID:169
@@ -4514,10 +4512,10 @@ msgstr ""
 "Hanya angka (secara opsional dipisahkan oleh koma)\n"
 "yang diijinkan!"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Hanya memutahirkan folder &atas"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Hanya benda ini"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -5222,11 +5220,6 @@ msgstr "Repositori"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "Browser Repositori"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Repository browser"
 msgstr "Browser Repositori"
 
 # Control-ID:65535,
@@ -6000,16 +5993,6 @@ msgstr "Dilewati"
 msgid "Skipped missing target"
 msgstr "target yang hilang dilewati"
 
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Urut item secara numerik"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Mengurutkan item tidak secara alfabetis melainkan numeris"
-
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -6449,6 +6432,13 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "Perintah gagal."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr "Parameter-parameter '/path' dan '/pathfile' hanya dapat digunakan salah satu. Anda harus menspesifi salah satu dari mereka."
 
 # ID:64,
 #: ID:64
@@ -7774,6 +7764,11 @@ msgstr "diabaikan"
 #: ID:13
 msgid "incomplete"
 msgstr "tidak lengkap"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "benda yang dipertahankan secara lokal"
 
 # ID:11,#:
 # ID:195,#:
