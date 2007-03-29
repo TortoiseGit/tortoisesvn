@@ -390,7 +390,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				m_currentStatusFetchingPath = m_directoryPath;
 				m_currentStatusFetchingPathTicks = GetTickCount();
 			}
-			ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
+			ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			svn_error_t* pErr = svn_client_status3 (
 				NULL,
 				m_directoryPath.GetSVNApiPath(),
@@ -409,7 +409,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				AutoLocker pathlock(m_critSecPath);
 				m_currentStatusFetchingPath.Reset();
 			}
-			ATLTRACE("svn_cli_stat finished for '%ws'\n", m_directoryPath.GetWinPath(), path.GetWinPath());
+			ATLTRACE(_T("svn_cli_stat finished for '%s'\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			if(pErr)
 			{
 				// Handle an error
@@ -583,7 +583,8 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 			// own 'most important' value
 			pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, status->text_status);
 			pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, status->prop_status);
-			if ((status->text_status == svn_wc_status_unversioned)&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
+			if (((status->text_status == svn_wc_status_unversioned)||(status->text_status == svn_wc_status_none))
+				&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
 			{
 				// treat unversioned files as modified
 				pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_modified);
@@ -628,6 +629,12 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		{
 			if (svnPath.IsDirectory())
 				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+			else if (CSVNStatusCache::Instance().IsUnversionedAsModified())
+			{
+				// make this unversioned item change the most important status of this
+				// folder to modified if it doesn't already have another status
+				pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_modified);
+			}
 		}
 	}
 
@@ -793,7 +800,8 @@ void CCachedDirectory::RefreshMostImportant()
 	for (itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		newStatus = SVNStatus::GetMoreImportant(newStatus, itMembers->second.GetEffectiveStatus());
-		if ((itMembers->second.GetEffectiveStatus() == svn_wc_status_unversioned)&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
+		if (((itMembers->second.GetEffectiveStatus() == svn_wc_status_unversioned)||(itMembers->second.GetEffectiveStatus() == svn_wc_status_none))
+			&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
 		{
 			// treat unversioned files as modified
 			newStatus = SVNStatus::GetMoreImportant(newStatus, svn_wc_status_modified);
