@@ -1844,7 +1844,7 @@ BEGIN
     IDS_LOG_REVISION        "Revision"
     IDS_LOG_AUTHOR          "Author"
     IDS_LOG_DATE            "Date"
-    IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
+    IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes to\n%s\nwhich were made in this revision? These changes will be merged into your working copy."
     IDS_LOG_POPUP_COMPARE   "Compare with &working copy"
     IDS_LOG_POPUP_SAVE      "Save revision &to..."
     IDS_LOG_POPUP_COMPARETWO "&Compare revisions"
@@ -2024,7 +2024,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_REVERTTOREV_CONFIRM 
-                            "Do you really want to revert all changes in %s\nand go back to this revision?"
+                            "Do you really want to revert all changes in \n%s\nand go back to this revision? These changes will be merged into your working copy."
     IDS_LOG_REVERTREV_ERROR "Unable to reconstruct working copy path!\nThis can happen if the file has been renamed.\nPlease start the log dialog on this specific file alone and then revert the changes\nfrom the top pane in the log dialog."
     IDS_LOG_STOPONCOPY_HINT "For complete history deselect ""Stop on copy/rename"""
     IDS_LOG_SAVEFOLDERTOHINT "Select folder to save the selected files to"

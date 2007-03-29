@@ -175,7 +175,9 @@
 						made in that revision only. It does not replace your
 						working copy with the entire file at the earlier revision.
 						This is very useful for undoing an earlier change when
-						other unrelated changes have been made since.
+						other unrelated changes have been made since. If you have
+						made local changes, this command will merge these changes
+						into your working copy.
 					</para>
 				</listitem>
 				<listitem>
@@ -188,7 +190,8 @@
 						repository until you commit the changes. Note that this
 						will undo <emphasis>all</emphasis> changes made after the
 						selected revision, replacing the file/folder with the
-						earlier version.
+						earlier version. If you have made local changes, this
+						command will merge these changes into your working copy.
 					</para>
 				</listitem>
 				<listitem>
