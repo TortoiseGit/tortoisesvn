@@ -210,6 +210,57 @@ C:\Temp\New\tags
 			under version control! To get a version-controlled
 			<firstterm>working copy</firstterm>
 			you need to do a Checkout of the version you just imported.
+			Or read on to find out how to import a folder in place.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-dug-import-in-place">
+		<title>Import in Place</title>
+		<indexterm>
+			<primary>import in place</primary>
+		</indexterm>
+		<para>
+			The Subversion import command has limited functionality - you cannot easily
+			pick items for import. Also, the folder you are importing does not
+			become a Subversion working copy - you have to do a separate checkout.
+			But don't worry, there is another way of working which overcomes both
+			these shortcomings :-)
+		</para>
+		<para>
+			Assuming you already have a repository, and you want to add a new folder
+			structure to it, just follow these steps:
+			<orderedlist>
+				<listitem>
+					<para>
+						Use the repository browser to create a new
+						project folder directly in the repository.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Checkout the new folder over the top of the folder you want to import.
+						You will get a warning that the local folder is not empty.
+						Now you have a versioned top level folder with unversioned content.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Use
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Add...</guimenuitem>
+						</menuchoice>
+						on this versioned folder to add some or all of the content.
+						You can add and remove files, set <literal>svn:ignore</literal>
+						properties on folders and make any other changes you need to.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Commit the top level folder, and you have a new versioned tree,
+						and a local working copy, created from your existing folder.
+					</para>
+				</listitem>
+			</orderedlist>
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-import-3">
