@@ -86,6 +86,7 @@ protected:
 	CRect			m_OverviewRect;
 	CPtrArray		m_arConnections;
 	CDWordArray		m_arVertPositions;
+	BOOL			m_bShowOverview;
 	
 	std::multimap<source_entry*, CRevisionEntry*>		m_targetsbottom;
 	std::multimap<source_entry*, CRevisionEntry*>		m_targetsright;

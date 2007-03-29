@@ -73,6 +73,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_fZoomFactor(1.0)
 	, m_ptRubberEnd(0,0)
 	, m_ptRubberStart(0,0)
+	, m_bShowOverview(false)
 {
 	m_GraphRect.SetRectEmpty();
 	m_ViewRect.SetRectEmpty();
@@ -100,6 +101,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 
 		RegisterClass(&wndcls);
 	}
+	m_bShowOverview = (BOOL)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
 }
 
 CRevisionGraphWnd::~CRevisionGraphWnd()

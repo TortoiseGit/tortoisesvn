@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CStandAloneDialog)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_COMMAND(ID_VIEW_FILTER, &CRevisionGraphDlg::OnViewFilter)
+	ON_COMMAND(ID_VIEW_SHOWOVERVIEW, &CRevisionGraphDlg::OnViewShowoverview)
 END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
@@ -157,7 +158,19 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWALLREVISIONS) index++;
 	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWOVERVIEW) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
 
+	CMenu * pMenu = GetMenu();
+	if (pMenu)
+	{
+		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
+		m_Graph.m_bShowOverview = (BOOL)(DWORD)reg;
+		pMenu->CheckMenuItem(ID_VIEW_SHOWOVERVIEW, MF_BYCOMMAND | (DWORD(reg) ? MF_CHECKED : 0));
+		int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWOVERVIEW);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWOVERVIEW, tbstate | (DWORD(reg) ? TBSTATE_CHECKED : 0));
+	}
 	// fill the combo box
 	COMBOBOXEXITEM cbei;
 	ZeroMemory(&cbei, sizeof cbei);
@@ -657,6 +670,35 @@ void CRevisionGraphDlg::OnViewFilter()
 			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 		}
 	}
+}
+
+void CRevisionGraphDlg::OnViewShowoverview()
+{
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWOVERVIEW);
+	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWOVERVIEW, MF_BYCOMMAND);
+	if (state & MF_CHECKED)
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWOVERVIEW, MF_BYCOMMAND | MF_UNCHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWOVERVIEW, tbstate & (~TBSTATE_CHECKED));
+		m_Graph.m_bShowOverview = false;
+	}
+	else
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWOVERVIEW, MF_BYCOMMAND | MF_CHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWOVERVIEW, tbstate | TBSTATE_CHECKED);
+		m_Graph.m_bShowOverview = true;
+	}
+
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
+	reg = m_Graph.m_bShowOverview;
+	if (m_Graph.m_bShowOverview)
+	{
+		m_Graph.BuildPreview();
+	}
+	m_Graph.Invalidate(FALSE);
 }
 
 

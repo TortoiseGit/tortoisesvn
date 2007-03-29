@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,6 +85,7 @@ protected:
 	afx_msg void	OnViewUnifieddiffofheadrevisions();
 	afx_msg void	OnViewShowallrevisions();
 	afx_msg void	OnViewArrangedbypath();
+	afx_msg void	OnViewShowoverview();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnMenuexit();
 	afx_msg void	OnMenuhelp();

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -437,7 +437,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
 	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos, start, end);
 
-	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle()))
+	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle())&&(m_bShowOverview))
 	{
 		// draw the overview image rectangle in the top right corner
 		CMemDC memDC2(memDC, true);

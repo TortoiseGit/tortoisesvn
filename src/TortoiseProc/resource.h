@@ -1056,13 +1056,15 @@
 #define ID_FILTER_EXCLUDEPATHS          32807
 #define ID_FILTER_EXCLUDEREVISIONS      32808
 #define ID_VIEW_FILTER                  32809
+#define ID_VIEW_OVERVIEW                32812
+#define ID_VIEW_SHOWOVERVIEW            32813
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        250
-#define _APS_NEXT_COMMAND_VALUE         32812
+#define _APS_NEXT_COMMAND_VALUE         32814
 #define _APS_NEXT_CONTROL_VALUE         1374
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
