@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-04 22:34+0100\n"
+"PO-Revision-Date: 2007-03-29 22:56+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,6 +265,10 @@ msgstr "&Berkeley Database (BDB)"
 msgid "&Blame differences"
 msgstr "Ver a&utoría de las diferencias"
 
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "Ver &autoría de la revisión anterior"
+
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -298,6 +302,10 @@ msgstr "&Limpiar"
 #: ID:8
 msgid "&Commit..."
 msgstr "&Confirmar..."
+
+#: ID:101
+msgid "&Compare URLs"
+msgstr "&Comparar URLs"
 
 #: MenuEntry
 msgid "&Compare revisions"
@@ -346,6 +354,11 @@ msgstr "&Por defecto"
 #: ID:11
 msgid "&Delete"
 msgstr "&Eliminar..."
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Borrar (mantener local)"
 
 #: ID:101
 msgid "&Delete..."
@@ -398,6 +411,7 @@ msgid "&Export selection to..."
 msgstr "E&xportar selección a..."
 
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Externo"
@@ -717,6 +731,7 @@ msgid "&Toolbar"
 msgstr "Barra de &Herramientas"
 
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1356,6 +1371,7 @@ msgstr "Gráfico de barras"
 msgid "Base file:"
 msgstr "Fichero base:"
 
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Autoría"
@@ -1693,6 +1709,7 @@ msgid "Command failed."
 msgstr "El Comando falló."
 
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Confirmar"
@@ -1770,8 +1787,13 @@ msgstr "Configurar Scripts Gancho"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Configura el programa utilizado para comparar revisiones diferentes de ficheros."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Configura el programa utilizado para comparar diferentes revisiones de ficheros"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Configura el programa utilizado para comparar diferentes revisiones de propiedades"
 
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
@@ -1851,6 +1873,10 @@ msgstr "Copiar URL al portapapeles"
 msgid "Copy all information to clipboard"
 msgstr "Copiar toda la información al portapapeles"
 
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "Copiar aquí el ítem y renombrarlo"
+
 # ID:257,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -1860,6 +1886,11 @@ msgstr "Copiar mensaje de error al portapapeles"
 #: ID:76
 msgid "Copy from path"
 msgstr "Copiar desde la ruta"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "Copiar aquí los ítems"
 
 # ID:257,
 #: ID:209
@@ -2129,6 +2160,10 @@ msgstr "Nodo eliminado"
 msgid "Deletes files / folders from version control"
 msgstr "Elimina archivos / carpetas del control de versiones"
 
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Elimina archivos / carpetas del control de versiones pero mantiene el fichero"
+
 #: ID:263
 msgid "Deleting"
 msgstr "Eliminando"
@@ -2379,7 +2414,6 @@ msgstr "Revisión de Fin"
 msgid "Enlarge the window to full size"
 msgstr "Agrandar la ventana al tamaño máximo"
 
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Introducir Mensaje de Registro"
@@ -2543,14 +2577,15 @@ msgstr "Fallo al abrir documento."
 msgid "Failed to save document."
 msgstr "Fallo al guardar documento."
 
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "No es posible asignar/eliminar lista de cambios \"%s\""
+
 #: ID:220
 msgid "Failed!"
 msgstr "¡Falló!"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Obtener el &estado para el menú contextual"
 
 #: ID:313
 msgid "Fetching file..."
@@ -2654,6 +2689,10 @@ msgstr "Desde:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De: (URL y revisión del inicio del rango a fusionar)"
+
+#: ID:266
+msgid "Fully recursive"
+msgstr "Totalmente recursivo"
 
 # ID:273,
 #: ID:273
@@ -2785,6 +2824,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Tipo de gráfico:"
+
+# Control-ID:1126,
+#: ID:214
+msgid "Group changelists"
+msgstr "Agrupar listas de cambios"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -3014,17 +3058,6 @@ msgstr ""
 "Si está marcada, el diálogo de confirmación se iniciará de nuevo automáticamente después de un error,\n"
 "a la vez que preserva su última selección y el mensaje de registro."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Si se deshabilita, el menú contextual se mostrará más rápido.\n"
-"Pero se mostrarán algunas entradas del menú contextual que no se pueden utilizar realmente.\n"
-"Por ejemplo, se mostrará la entrada \"Mostrar Registro\" incluso para carpetas recién añadidas."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3112,6 +3145,11 @@ msgstr "Ignorar &ancestros"
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar &finales de línea (recomendado)"
+
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Hijos inmediatos, incluyendo carpetas"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -3545,6 +3583,11 @@ msgstr "Marcar como &resuelto"
 msgid "Mark as resolved"
 msgstr "Marcar como resuelto"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "Marcar para comparación"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3667,6 +3710,15 @@ msgid ""
 msgstr ""
 "Mover %s\r\n"
 "a %s"
+
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "Mover aquí el ítem y renombrarlo"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "Mover aquí los ítems"
 
 # ID:209,
 #: ID:209
@@ -3880,9 +3932,13 @@ msgstr "Unos o más archivos están en estado en conflicto."
 
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Sólo obtener la carpeta &superior"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Sólo fichero hijo"
 
 # ID:169,
 #: ID:169
@@ -3893,10 +3949,10 @@ msgstr ""
 "Solo se permiten numeros, opcionalmente separados\n"
 " por comas."
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Sólo actualizar la carpeta &superior"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Sólo este ítem"
 
 # Control-ID:1224,
 # En españa, establecer no se usa en este contexto. Una casilla de verificación se marca, no se establece.
@@ -4133,6 +4189,7 @@ msgstr "Por favor espere mientras se obtienen las diferencias..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
 
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -4483,10 +4540,6 @@ msgstr "Repositorio"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Navegador de Repositorio"
-
-#: Control-ID:65535
-msgid "Repository browser"
-msgstr "Navegador de repositorio"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4989,7 +5042,7 @@ msgstr "Mostrar &Rango..."
 msgid "Show &all revisions"
 msgstr "Mostrar &todas las revisiones"
 
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "Mostrar &diferencias"
 
@@ -5019,6 +5072,10 @@ msgstr "Mostrar archivos &no versionados"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Mostrar Lista de Ficheros"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Mostrar &resumen"
 
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5134,21 +5191,6 @@ msgstr "Saltado"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Saltado objetivo no encontrado"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Ordenar los ítems numéricamente"
-
-# Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "Ordenación numérica"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Ordenar los ítems numéricamente en vez de alfabéticamente"
 
 # ID:196,
 #: ID:196
@@ -5432,19 +5474,9 @@ msgstr "¡El archivo %s no existe!"
 msgid "The file %s was not found in the patch file!"
 msgstr "¡El archivo %s no se encontró en el archivo de parche!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"¡¿¡El fichero %s\n"
-"se encontró dos veces!?!\n"
-"¡Esto normlamente ocurre si aplica un fichero de parche\n"
-"en la carpeta errónea!"
+#: ID:69
+msgid "The file is too big"
+msgstr "El archivo es demasiado grande"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -5552,6 +5584,15 @@ msgstr ""
 msgid "The operation failed."
 msgstr "La operación falló."
 
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Los parámetros '/path' y '/pathfile' son mutuamente exclusivos.\n"
+"Debe especificar sólo uno de ellos."
+
 #: ID:64
 #, c-format
 msgid ""
@@ -5581,6 +5622,42 @@ msgstr ""
 "\n"
 "Una ruta válida en Windows no debe contener '<>|\"?*:' ni cualquiera de los siguientes nombres de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"La ruta\n"
+"<i>%s</i>\n"
+"en el fichero de parche no existe.\n"
+"TortoiseMerge encontró la ruta relativa\n"
+"<i>%s</i>\n"
+"que parece que coincide con el directorio donde está aplicando el parche.\n"
+"\n"
+"¿Desea usar la ruta propuesta? Si responde 'no' se cerrará TortoiseMerge."
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+"La ruta\n"
+"<i>%s</i>\n"
+"en el fichero de parche no existe.\n"
+"TortoiseMerge intentó aplicar el parche eliminando prefijos pero no pudo encontrarse una ruta coincidente."
 
 # ID:314,
 #: ID:314
@@ -5825,10 +5902,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "¡TortoiseBlame no se puede iniciar directamente!\n"
-"TortoiseBlame.exe ficherodeautoría [[ficherolog] [títulovisor]] [/line:númerodelínea]"
+"TortoiseBlame.exe ficherodeautoría [[ficherolog] [títulovisor]] [/line:númerodelínea] [/path:rutaoriginal]"
 
 #: ID:7
 msgid "TortoiseIDiff"
@@ -5872,13 +5949,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 #: ID:80
@@ -5899,7 +5974,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -5909,7 +5983,6 @@ msgstr ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6726,6 +6799,11 @@ msgstr "ignorado"
 msgid "incomplete"
 msgstr "incompleto"
 
+# ID:214,
+#: ID:214
+msgid "item kept locally"
+msgstr "ítem mantenido localmente"
+
 #: ID:11
 #: ID:195
 #: Control-ID:1002
@@ -6906,6 +6984,15 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "a %s"
+
+# ID:15,
+#: ID:17
+msgid ""
+"tsvn:lockmsgminsize\n"
+"Minimum size in chars a lock message must have before a lock is allowed."
+msgstr ""
+"tsvn:lockmsgminsize\n"
+"Mínimo número de caracteres que hay que escribir en un mensaje de bloqueo antes de que se permita efectuar el bloqueo."
 
 # ID:15,
 #: ID:15
