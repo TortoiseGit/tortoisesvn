@@ -75,9 +75,12 @@
 		</para>
 	</tip>
 	<sect2 id="tsvn-dug-ignore-glob">
-		<title>Filename Globbing in Ignore Lists</title>
+		<title>Pattern Matching in Ignore Lists</title>
 		<indexterm>
 			<primary>globbing</primary>
+		</indexterm>
+		<indexterm>
+			<primary>pattern matching</primary>
 		</indexterm>
 		<para>
 			Subversion's ignore patterns make use of filename globbing,
@@ -120,8 +123,10 @@
 			</variablelist>
 		</para>
 		<para>
-			The globbing is done by Subversion, so the path delimiter
-			is always <literal>/</literal>, not the Windows backslash.
+			Subversion uses the <literal>/</literal> as the path delimiter in all
+			internal pathnames, and all pattern matching is done against this style of
+			path names. If you want to use a path delimiter in your ignore pattern,
+			be sure to use <literal>/</literal>, and not the Windows backslash.
 		</para>
 		<para>
 			Pattern matching is case sensitive, which can cause problems
@@ -131,12 +136,26 @@
 			<literal>*.[Tt][Mm][Pp]</literal>.
 		</para>
 		<para>
-			If directory names are present in a path, they are included
-			in the matching, so pattern <literal>Fred.*</literal> will match
+			Subversion uses this pattern matching against every path presented
+			to it for action. These paths are generally relative to the directory
+			being acted upon for import, add, commit, etc. The matching pattern
+			therefore has to take account of the fact that there may or may not be
+			path components before the filename.
+		</para>
+		<para>
+			If directory names are present in a path, the matching algorithm will
+			not trim them off, so pattern <literal>Fred.*</literal> will match
 			<literal>Fred.c</literal> but not <literal>subdir/Fred.c</literal>.
-			This is significant if you add a folder containing some files
+			This is significant if you add a folder which contains some files
 			that you want to be ignored, because those filenames will be
-			preceded with the folder name.
+			preceded with the folder name when Subversion compares them with
+			the ignore pattern.
+		</para>
+		<para>
+			The <literal>/</literal> character is not treated in any special way
+			for pattern matching purposes, so the pattern <literal>abc*xyz</literal>
+			would match <literal>abcdxyz</literal> but also
+			<literal>abcdir/subdir/anything/morexyz</literal>.
 		</para>
 		<para>
 			To ignore all <literal>CVS</literal> folders you should either
