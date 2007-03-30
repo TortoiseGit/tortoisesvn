@@ -676,6 +676,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	iFirstResized = 0;
 	bSecondResized = FALSE;
 	m_bFinishedItemAdded = false;
+	CTime startTime = CTime::GetCurrentTime();
 	switch (m_Command)
 	{
 	case SVNProgress_Checkout:			//no tempfile!
@@ -1201,7 +1202,17 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDOK)->SetFocus();	
 
 	KillTimer(TRANSFERTIMER);
-	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(m_sTotalBytesTransferred);
+	if (!m_sTotalBytesTransferred.IsEmpty())
+	{
+		CString sFinalInfo;
+		CTimeSpan time = CTime::GetCurrentTime() - startTime;
+		temp.Format(IDS_PROGRS_TIME, time.GetTotalMinutes(), time.GetSeconds());
+		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, temp);
+		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(sFinalInfo);
+	}
+	else
+		GetDlgItem(IDC_PROGRESSLABEL)->ShowWindow(SW_HIDE);
+
 	GetDlgItem(IDC_PROGRESSBAR)->ShowWindow(SW_HIDE);
 
 	if (!m_bFinishedItemAdded)

@@ -910,6 +910,8 @@
 #define IDS_PROGRS_NONRECURSIVEHINT     3580
 #define IDS_PROGRS_PATHATREV            3600
 #define IDS_PROGRS_UPDATEPATH           3601
+#define IDS_PROGRS_TIME                 3602
+#define IDS_PROGRS_FINALINFO            3603
 #define IDS_SSL_SAVE_CERTPATH           3700
 #define IDS_REPOSTATUS_HEADREV          3800
 #define IDS_REPOSTATUS_WCINFO           3801
