@@ -927,7 +927,7 @@ svn_utf_cstring_to_utf8_ex2(const char **dest,
      it NULL since they don't change the thread locale they're running
      on. Which means converting from/to the 'current locale' is always
      ok. */
-  assert(frompage == NULL);
+  assert((frompage == APR_DEFAULT_CHARSET)||(frompage == APR_LOCALE_CHARSET));
   return svn_utf_cstring_to_utf8(dest, src, pool);
 #endif
 }
@@ -1182,7 +1182,7 @@ svn_utf_cstring_from_utf8_ex2(const char **dest,
 
   return err;
 #else
-  assert(topage == NULL);
+  assert((topage == APR_DEFAULT_CHARSET) || (topage == APR_LOCALE_CHARSET));
   return svn_utf_cstring_from_utf8(dest, src, pool);
 #endif
 }
