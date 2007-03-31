@@ -74,13 +74,16 @@
     <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
 
     <!-- Figure out where a previous installation was, if any ................................................................ -->
+    <?if $(env.Platform) = "x64" ?>
+    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" />
     <Property Id="INSTALLDIR">
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
-    <?if $(env.Platform) = "x64" ?>
-    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" />
     <?else ?>
     <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" />
+    <Property Id="INSTALLDIR">
+      <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
+    </Property>
     <?endif ?>
 
     <FragmentRef Id="StructureFragment"/>
@@ -122,7 +125,7 @@
 
       <FindRelatedProducts Suppress="no">1</FindRelatedProducts>
 
-      <Custom Action="DefaultTargetDir" After="PrepareDlg" />
+      <Custom Action="DefaultTargetDir" After="PrepareDlg">INSTALLDIR=""</Custom>
       <Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
       <Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
     </InstallUISequence>
