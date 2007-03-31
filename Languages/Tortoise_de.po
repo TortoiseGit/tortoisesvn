@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-03-30 09:03+0100\n"
+"PO-Revision-Date: 2007-03-31 23:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -114,6 +114,12 @@ msgstr "%I64d KBytes übertragen"
 msgid "%d files selected, %d files total"
 msgstr "%d Dateien gewählt, %d Dateien insgesamt"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld Minuten und %ld Sekunden"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -144,6 +150,12 @@ msgstr "%s : Basis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbeitskopie"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s, in %s"
 
 # ID:357,
 #: ID:357
@@ -556,6 +568,7 @@ msgstr "&Netzlaufwerke"
 msgid "&New "
 msgstr "&Neu"
 
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Nächste %ld"
@@ -4878,13 +4891,7 @@ msgstr "Zeige &alle Revisionen"
 msgid "Show &differences"
 msgstr "Zeige &Unterschiede"
 
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Zeige &Log"
 
