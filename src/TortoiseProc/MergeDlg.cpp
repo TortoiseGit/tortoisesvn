@@ -271,7 +271,7 @@ void CMergeDlg::OnBnClickedUidiffbutton()
 	AfxGetApp()->DoWaitCursor(1);
 	// create a unified diff of the merge
 	SVNDiff diff(NULL, this->m_hWnd);
-	diff.ShowCompare(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, EndRev, !!m_bIgnoreAncestry);
+	diff.ShowCompare(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, SVNRev(), !!m_bIgnoreAncestry);
 
 	AfxGetApp()->DoWaitCursor(-1);
 }
