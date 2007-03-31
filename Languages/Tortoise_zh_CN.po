@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-26 12:24+0800\n"
+"PO-Revision-Date: 2007-03-31 20:12+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -168,6 +168,12 @@ msgstr "已传输 %I64d KB"
 msgid "%d files selected, %d files total"
 msgstr "选择了 %d 个文件，共有 %d 个文件"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld 分 %ld 秒"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -203,6 +209,12 @@ msgstr "%s ：工作基础版本"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s ：工作拷贝"
+
+# ID:357,
+#: ID:226
+#, fuzzy, c-format
+msgid "%s in %s"
+msgstr "%s，传输 %s"
 
 # ID:357,
 #: ID:357
@@ -504,6 +516,7 @@ msgstr "导出选择项(&E)..."
 # Control-ID:1092,#:
 # Control-ID:1095,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "外部(&E)"
@@ -695,6 +708,7 @@ msgid "&New "
 msgstr "新建(&N)"
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "下 %ld (&N)"
@@ -885,6 +899,7 @@ msgstr "工具栏(&T)"
 # Control-ID:1091,#:
 # Control-ID:1094,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -2120,8 +2135,13 @@ msgstr "设置 Hook 脚本"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "设置用来比较不同版本的程序。"
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "设置用来比较不同版本文件的程序。"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "设置用来比较不同版本属性的程序。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2663,9 +2683,13 @@ msgstr "你确认要移动这个文件或目录吗？"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
-msgstr "你确定要复原%s中直到此版本的所有修改吗？"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
+msgstr ""
+"你确定要恢复\n"
+"%s\n"
+"从此版本直到工作版本的所有修改吗？这些修改将会合并到你的工作副本。"
 
 # ID:76,
 #: ID:76
@@ -2673,8 +2697,11 @@ msgstr "你确定要复原%s中直到此版本的所有修改吗？"
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
-msgstr "你确定要复原对这%s个版本的所有修改吗？"
+"which were made in this revision? These changes will be merged into your working copy."
+msgstr ""
+"你确定要恢复此版本对\n"
+"%s\n"
+"的所有修改吗？这些修改将会合并到你的工作副本。"
 
 # ID:76,
 #: ID:76
@@ -5857,13 +5884,7 @@ msgstr "显示差异(&D)"
 # Control-ID:1031,#:
 # Control-ID:1034,#:
 # Control-ID:1228,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "显示日志(&L)"
 
@@ -5885,6 +5906,10 @@ msgstr "显示无版本控制的文件(&U)"
 #: MenuEntry
 msgid "Show File List"
 msgstr "显示文件列表"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "显示预览(%R)"
 
 # ID:113,
 #: ID:113
