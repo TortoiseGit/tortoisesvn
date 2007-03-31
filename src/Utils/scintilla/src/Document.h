@@ -97,7 +97,8 @@ private:
 	char stylingMask;
 	int endStyled;
 	int styleClock;
-	int enteredCount;
+	int enteredModification;
+	int enteredStyling;
 	int enteredReadOnlyCount;
 
 	WatcherWithUserData *watchers;
@@ -212,7 +213,7 @@ public:
 	bool SetStyleFor(int length, char style);
 	bool SetStyles(int length, char *styles);
 	int GetEndStyled() { return endStyled; }
-	bool EnsureStyledTo(int pos);
+	void EnsureStyledTo(int pos);
 	int GetStyleClock() { return styleClock; }
 	void IncrementStyleClock();
 

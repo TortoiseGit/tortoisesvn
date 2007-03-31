@@ -421,6 +421,48 @@ enu CaseVisible=SC_CASE_
 val SC_CASE_MIXED=0
 val SC_CASE_UPPER=1
 val SC_CASE_LOWER=2
+
+# Get the foreground colour of a style.
+get colour StyleGetFore=2481(int style,)
+
+# Get the background colour of a style.
+get colour StyleGetBack=2482(int style,)
+
+# Get is a style bold or not.
+get bool StyleGetBold=2483(int style,)
+
+# Get is a style italic or not.
+get bool StyleGetItalic=2484(int style,)
+
+# Get the size of characters of a style.
+get int StyleGetSize=2485(int style,)
+
+# Get the font of a style.
+# Returns the length of the fontName
+fun int StyleGetFont=2486(int style, stringresult fontName)
+
+# Get is a style to have its end of line filled or not.
+get bool StyleGetEOLFilled=2487(int style,)
+
+# Get is a style underlined or not.
+get bool StyleGetUnderline=2488(int style,)
+
+# Get is a style mixed case, or to force upper or lower case.
+get int StyleGetCase=2489(int style,)
+
+# Get the character get of the font in a style.
+get int StyleGetCharacterSet=2490(int style,)
+
+# Get is a style visible or not.
+get bool StyleGetVisible=2491(int style,)
+
+# Get is a style changeable or not (read only).
+# Experimental feature, currently buggy.
+get bool StyleGetChangeable=2492(int style,)
+
+# Get is a style a hotspot or not.
+get bool StyleGetHotSpot=2493(int style,)
+
 # Set a style to be mixed case, or to force upper or lower case.
 set void StyleSetCase=2060(int style, int caseForce)
 
@@ -1511,14 +1553,26 @@ get int GetPrintWrapMode=2407(,)
 # Set a fore colour for active hotspots.
 set void SetHotspotActiveFore=2410(bool useSetting, colour fore)
 
+# Get the fore colour for active hotspots.
+get colour GetHotspotActiveFore=2494(,)
+
 # Set a back colour for active hotspots.
 set void SetHotspotActiveBack=2411(bool useSetting, colour back)
+
+# Get the back colour for active hotspots.
+get colour GetHotspotActiveBack=2495(,)
 
 # Enable / Disable underlining active hotspots.
 set void SetHotspotActiveUnderline=2412(bool underline,)
 
+# Get whether underlining for active hotspots.
+get bool GetHotspotActiveUnderline=2496(,)
+
 # Limit hotspots to single line so hotspots on two lines don't merge.
 set void SetHotspotSingleLine=2421(bool singleLine,)
+
+# Get the HotspotSingleLine property
+get bool GetHotspotSingleLine=2497(,)
 
 # Move caret between paragraphs (delimited by empty lines).
 fun void ParaDown=2413(,)
@@ -1858,6 +1912,7 @@ val SCLEX_INNOSETUP=76
 val SCLEX_OPAL=77
 val SCLEX_SPICE=78
 val SCLEX_D=79
+val SCLEX_CMAKE=80
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -2843,6 +2898,7 @@ val SCE_T3_HTML_STRING=16
 val SCE_T3_USER1=17
 val SCE_T3_USER2=18
 val SCE_T3_USER3=19
+val SCE_T3_BRACE=20
 # Lexical states for SCLEX_REBOL
 lex Rebol=SCLEX_REBOL SCE_REBOL_
 val SCE_REBOL_DEFAULT=0
@@ -2999,6 +3055,23 @@ val SCE_SPICE_NUMBER=5
 val SCE_SPICE_DELIMITER=6
 val SCE_SPICE_VALUE=7
 val SCE_SPICE_COMMENTLINE=8
+# Lexical states for SCLEX_CMAKE
+lex CMAKE=SCLEX_CMAKE SCE_CMAKE_
+val SCE_CMAKE_DEFAULT=0
+val SCE_CMAKE_COMMENT=1
+val SCE_CMAKE_STRINGDQ=2
+val SCE_CMAKE_STRINGLQ=3
+val SCE_CMAKE_STRINGRQ=4
+val SCE_CMAKE_COMMANDS=5
+val SCE_CMAKE_PARAMETERS=6
+val SCE_CMAKE_VARIABLE=7
+val SCE_CMAKE_USERDEFINED=8
+val SCE_CMAKE_WHILEDEF=9
+val SCE_CMAKE_FOREACHDEF=10
+val SCE_CMAKE_IFDEFINEDEF=11
+val SCE_CMAKE_MACRODEF=12
+val SCE_CMAKE_STRINGVAR=13
+val SCE_CMAKE_NUMBER=14
 
 # Events
 

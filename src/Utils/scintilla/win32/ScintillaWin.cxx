@@ -156,6 +156,7 @@ class ScintillaWin :
 
 	CLIPFORMAT cfColumnSelect;
 
+	HRESULT hrOle;
 	DropSource ds;
 	DataObject dob;
 	DropTarget dt;
@@ -199,7 +200,7 @@ class ScintillaWin :
 	virtual void NotifyFocus(bool focus);
 	virtual int GetCtrlID();
 	virtual void NotifyParent(SCNotification scn);
-	virtual void NotifyDoubleClick(Point pt, bool shift);
+	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
 	virtual void Copy();
 	virtual bool CanPaste();
 	virtual void Paste();
@@ -293,6 +294,8 @@ ScintillaWin::ScintillaWin(HWND hwnd) {
 	cfColumnSelect = static_cast<CLIPFORMAT>(
 		::RegisterClipboardFormat(TEXT("MSDEVColumnSelect")));
 
+	hrOle = E_FAIL;
+
 	wMain = hwnd;
 
 	dob.sci = this;
@@ -312,7 +315,7 @@ void ScintillaWin::Initialise() {
 	// Initialize COM.  If the app has already done this it will have
 	// no effect.  If the app hasnt, we really shouldnt ask them to call
 	// it just so this internal feature works.
-	::OleInitialize(NULL);
+	hrOle = ::OleInitialize(NULL);
 }
 
 void ScintillaWin::Finalise() {
@@ -321,7 +324,9 @@ void ScintillaWin::Finalise() {
 	SetIdle(false);
 	DestroySystemCaret();
 	::RevokeDragDrop(MainHWND());
-	::OleUninitialize();
+	if (SUCCEEDED(hrOle)) {
+		::OleUninitialize();
+	}
 }
 
 HWND ScintillaWin::MainHWND() {
@@ -1168,9 +1173,9 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
 }
 
-void ScintillaWin::NotifyDoubleClick(Point pt, bool shift) {
+void ScintillaWin::NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt) {
 	//Platform::DebugPrintf("ScintillaWin Double click 0\n");
-	ScintillaBase::NotifyDoubleClick(pt, shift);
+	ScintillaBase::NotifyDoubleClick(pt, shift, ctrl, alt);
 	// Send myself a WM_LBUTTONDBLCLK, so the container can handle it too.
 	::SendMessage(MainHWND(),
 			  WM_LBUTTONDBLCLK,

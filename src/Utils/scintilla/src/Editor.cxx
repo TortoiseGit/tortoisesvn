@@ -1125,7 +1125,7 @@ void Editor::ScrollTo(int line, bool moveThumb) {
 		ShowCaretAtCurrentPosition();
 		// Perform redraw rather than scroll if many lines would be redrawn anyway.
 #ifndef UNDER_CE
-		if (abs(linesToMove) <= 10) {
+		if ((abs(linesToMove) <= 10) && (paintState == notPainting)) {
 			ScrollText(linesToMove);
 		} else {
 			Redraw();
@@ -1627,6 +1627,7 @@ void Editor::LinesJoin() {
 				if (prevNonWS) {
 					// Ensure at least one space separating previous lines
 					pdoc->InsertChar(pos, ' ');
+					targetEnd++;
 				}
 			} else {
 				prevNonWS = pdoc->CharAt(pos) != ' ';
@@ -2373,6 +2374,10 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 		lineEnd = ll->LineStart(subLine + 1);
 	}
 
+	ColourAllocated wrapColour = vsDraw.styles[STYLE_DEFAULT].fore.allocated;
+	if (vsDraw.whitespaceForegroundSet)
+		wrapColour = vsDraw.whitespaceForeground.allocated;
+
 	bool drawWrapMarkEnd = false;
 
 	if (wrapVisualFlags & SC_WRAPVISUALFLAG_END) {
@@ -2396,7 +2401,8 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 			rcPlace.right = rcPlace.left + actualWrapVisualStartIndent * vsDraw.aveCharWidth;
 
 			// default bgnd here..
-			surface->FillRectangle(rcSegment, vsDraw.styles[STYLE_DEFAULT].back.allocated);
+			surface->FillRectangle(rcSegment, overrideBackground ? background :
+				vsDraw.styles[STYLE_DEFAULT].back.allocated);
 
 			// main line style would be below but this would be inconsistent with end markers
 			// also would possibly not be the style at wrap point
@@ -2410,7 +2416,7 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 				else
 					rcPlace.right = rcPlace.left + vsDraw.aveCharWidth;
 
-				DrawWrapMarker(surface, rcPlace, false, vsDraw.whitespaceForeground.allocated);
+				DrawWrapMarker(surface, rcPlace, false, wrapColour);
 			}
 
 			xStart += actualWrapVisualStartIndent * vsDraw.aveCharWidth;
@@ -2477,7 +2483,14 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 	if (twoPhaseDraw) {
 		DrawEOL(surface, vsDraw, rcLine, ll, line, lineEnd,
 		        xStart, subLine, subLineStart, overrideBackground, background,
-		        drawWrapMarkEnd, vsDraw.whitespaceForeground.allocated);
+		        drawWrapMarkEnd, wrapColour);
+	}
+
+	if (vsDraw.edgeState == EDGE_LINE) {
+		int edgeX = theEdge * vsDraw.spaceWidth;
+		rcSegment.left = edgeX + xStart;
+		rcSegment.right = rcSegment.left + 1;
+		surface->FillRectangle(rcSegment, vsDraw.edgecolour.allocated);
 	}
 
 	inIndentation = subLine == 0;	// Do not handle indentation except on first subline.
@@ -2676,7 +2689,7 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 	if (!twoPhaseDraw) {
 		DrawEOL(surface, vsDraw, rcLine, ll, line, lineEnd,
 		        xStart, subLine, subLineStart, overrideBackground, background,
-		        drawWrapMarkEnd, vsDraw.whitespaceForeground.allocated);
+		        drawWrapMarkEnd, wrapColour);
 	}
 	if ((vsDraw.selAlpha != SC_ALPHA_NOALPHA) && (ll->selStart >= 0) && (ll->selEnd >= 0)) {
 		int startPosSel = (ll->selStart < posLineStart) ? posLineStart : ll->selStart;
@@ -2686,13 +2699,6 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 			rcSegment.right = xStart + ll->positions[endPosSel - posLineStart] - subLineStart;
 			SimpleAlphaRectangle(surface, rcSegment, SelectionBackground(vsDraw), vsDraw.selAlpha);
 		}
-	}
-
-	if (vsDraw.edgeState == EDGE_LINE) {
-		int edgeX = theEdge * vsDraw.spaceWidth;
-		rcSegment.left = edgeX + xStart;
-		rcSegment.right = rcSegment.left + 1;
-		surface->FillRectangle(rcSegment, vsDraw.edgecolour.allocated);
 	}
 
 	// Draw any translucent whole line states
@@ -3173,16 +3179,17 @@ long Editor::FormatRange(bool draw, RangeToFormat *pfr) {
 	vsPrint.styles[STYLE_LINENUMBER].back.desired = ColourDesired(0xff, 0xff, 0xff);
 
 	vsPrint.Refresh(*surfaceMeasure);
-	// Ensure colours are set up
-	vsPrint.RefreshColourPalette(palette, true);
-	vsPrint.RefreshColourPalette(palette, false);
 	// Determining width must hapen after fonts have been realised in Refresh
 	int lineNumberWidth = 0;
 	if (lineNumberIndex >= 0) {
 		lineNumberWidth = surfaceMeasure->WidthText(vsPrint.styles[STYLE_LINENUMBER].font,
 		                  "99999" lineNumberPrintSpace, 5 + istrlen(lineNumberPrintSpace));
 		vsPrint.ms[lineNumberIndex].width = lineNumberWidth;
+		vsPrint.Refresh(*surfaceMeasure);	// Recalculate fixedColumnWidth
 	}
+	// Ensure colours are set up
+	vsPrint.RefreshColourPalette(palette, true);
+	vsPrint.RefreshColourPalette(palette, false);
 
 	int linePrintStart = pdoc->LineFromPosition(pfr->chrg.cpMin);
 	int linePrintLast = linePrintStart + (pfr->rc.bottom - pfr->rc.top) / vsPrint.lineHeight - 1;
@@ -3201,14 +3208,14 @@ long Editor::FormatRange(bool draw, RangeToFormat *pfr) {
 	// Ensure we are styled to where we are formatting.
 	pdoc->EnsureStyledTo(endPosPrint);
 
-	int xStart = vsPrint.fixedColumnWidth + pfr->rc.left + lineNumberWidth;
+	int xStart = vsPrint.fixedColumnWidth + pfr->rc.left;
 	int ypos = pfr->rc.top;
 
 	int lineDoc = linePrintStart;
 
 	int nPrintPos = pfr->chrg.cpMin;
 	int visibleLine = 0;
-	int widthPrint = pfr->rc.Width() - lineNumberWidth;
+	int widthPrint = pfr->rc.Width() - vsPrint.fixedColumnWidth;
 	if (printWrapState == eWrapNone)
 		widthPrint = LineLayout::wrapWidthInfinite;
 
@@ -3230,7 +3237,7 @@ long Editor::FormatRange(bool draw, RangeToFormat *pfr) {
 		ll.containsCaret = false;
 
 		PRectangle rcLine;
-		rcLine.left = pfr->rc.left + lineNumberWidth;
+		rcLine.left = pfr->rc.left;
 		rcLine.top = ypos;
 		rcLine.right = pfr->rc.right - 1;
 		rcLine.bottom = ypos + vsPrint.lineHeight;
@@ -3259,7 +3266,7 @@ long Editor::FormatRange(bool draw, RangeToFormat *pfr) {
 			PRectangle rcNumber = rcLine;
 			rcNumber.right = rcNumber.left + lineNumberWidth;
 			// Right justify
-			rcNumber.left -= surfaceMeasure->WidthText(
+			rcNumber.left = rcNumber.right - surfaceMeasure->WidthText(
 			                     vsPrint.styles[STYLE_LINENUMBER].font, number, istrlen(number));
 			surface->FlushCachedState();
 			surface->DrawTextNoClip(rcNumber, vsPrint.styles[STYLE_LINENUMBER].font,
@@ -3631,11 +3638,13 @@ void Editor::NotifyModifyAttempt() {
 	NotifyParent(scn);
 }
 
-void Editor::NotifyDoubleClick(Point pt, bool) {
+void Editor::NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt) {
 	SCNotification scn = {0};
 	scn.nmhdr.code = SCN_DOUBLECLICK;
 	scn.line = LineFromLocation(pt);
 	scn.position = PositionFromLocationClose(pt);
+	scn.modifiers = (shift ? SCI_SHIFT : 0) | (ctrl ? SCI_CTRL : 0) |
+	                (alt ? SCI_ALT : 0);
 	NotifyParent(scn);
 }
 
@@ -4019,7 +4028,10 @@ void Editor::PageMove(int direction, selTypes sel, bool stuttered) {
 	// I consider only the caretYSlop, and ignore the caretYPolicy-- is that a problem?
 	int currentLine = pdoc->LineFromPosition(currentPos);
 	int topStutterLine = topLine + caretYSlop;
-	int bottomStutterLine = topLine + LinesToScroll() - caretYSlop;
+	int bottomStutterLine =
+		pdoc->LineFromPosition(PositionFromLocation(
+		Point(lastXChosen, direction * vs.lineHeight * LinesToScroll())))
+		- caretYSlop - 1;
 
 	if (stuttered && (direction < 0 && currentLine > topStutterLine)) {
 		topLineNew = topLine;
@@ -4072,32 +4084,24 @@ void Editor::ChangeCaseOfSelection(bool makeUpperCase) {
 void Editor::LineTranspose() {
 	int line = pdoc->LineFromPosition(currentPos);
 	if (line > 0) {
+		pdoc->BeginUndoAction();
 		int startPrev = pdoc->LineStart(line - 1);
 		int endPrev = pdoc->LineEnd(line - 1);
 		int start = pdoc->LineStart(line);
 		int end = pdoc->LineEnd(line);
-		int startNext = pdoc->LineStart(line + 1);
-		if (end < pdoc->Length()) {
-			end = startNext;
-			char *thisLine = CopyRange(start, end);
-			pdoc->DeleteChars(start, end - start);
-			if (pdoc->InsertString(startPrev, thisLine, end - start)) {
-				MovePositionTo(startPrev + end - start);
-			}
-			delete []thisLine;
-		} else {
-			// Last line so line has no line end
-			char *thisLine = CopyRange(start, end);
-			char *prevEnd = CopyRange(endPrev, start);
-			pdoc->DeleteChars(endPrev, end - endPrev);
-			pdoc->InsertString(startPrev, thisLine, end - start);
-			if (pdoc->InsertString(startPrev + end - start, prevEnd, start - endPrev)) {
-				MovePositionTo(startPrev + end - endPrev);
-			}
-			delete []thisLine;
-			delete []prevEnd;
+		char *line1 = CopyRange(startPrev, endPrev);
+		int len1 = endPrev - startPrev;
+		char *line2 = CopyRange(start, end);
+		int len2 = end - start;
+		if (pdoc->DeleteChars(start, len2)) {
+			pdoc->DeleteChars(startPrev, len1);
+			pdoc->InsertString(startPrev, line2, len2);
+			pdoc->InsertString(start - len1 + len2, line1, len1);
+			MovePositionTo(start - len1 + len2);
 		}
-
+		delete []line1;
+		delete []line2;
+		pdoc->EndUndoAction();
 	}
 }
 
@@ -5151,7 +5155,7 @@ void Editor::ButtonDown(Point pt, unsigned int curTime, bool shift, bool ctrl, b
 		}
 		//Platform::DebugPrintf("Double click: %d - %d\n", anchor, currentPos);
 		if (doubleClick) {
-			NotifyDoubleClick(pt, shift);
+			NotifyDoubleClick(pt, shift, ctrl, alt);
 			if (PositionIsHotspot(newPos))
 				NotifyHotSpotDoubleClicked(newPos, shift, ctrl, alt);
 		}
@@ -6773,7 +6777,73 @@ sptr_t Editor::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
 			InvalidateStyleRedraw();
 		}
 		break;
+	case SCI_STYLEGETFORE:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].fore.desired.AsLong();
+		else
+			return 0; 
+	case SCI_STYLEGETBACK:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].back.desired.AsLong();
+		else
+			return 0;
+	case SCI_STYLEGETBOLD:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].bold ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETITALIC:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].italic ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETEOLFILLED:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].eolFilled ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETSIZE:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].size;
+		else
+			return 0;
+	case SCI_STYLEGETFONT:
+		if (lParam == 0)
+			return strlen(vs.styles[wParam].fontName);
 
+		if (wParam <= STYLE_MAX)
+			strcpy(CharPtrFromSPtr(lParam), vs.styles[wParam].fontName);
+		break;
+	case SCI_STYLEGETUNDERLINE:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].underline ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETCASE:
+		if (wParam <= STYLE_MAX)
+			return static_cast<int>(vs.styles[wParam].caseForce);
+		else
+			return 0;
+	case SCI_STYLEGETCHARACTERSET:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].characterSet;
+		else
+			return 0;
+	case SCI_STYLEGETVISIBLE:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].visible ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETCHANGEABLE:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].changeable ? 1 : 0;
+		else
+			return 0;
+	case SCI_STYLEGETHOTSPOT:
+		if (wParam <= STYLE_MAX)
+			return vs.styles[wParam].hotspot ? 1 : 0;
+		else
+			return 0;
 	case SCI_STYLERESETDEFAULT:
 		vs.ResetDefaultStyle();
 		InvalidateStyleRedraw();
@@ -7310,21 +7380,33 @@ sptr_t Editor::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
 		InvalidateStyleRedraw();
 		break;
 
+	case SCI_GETHOTSPOTACTIVEFORE:
+		return vs.hotspotForeground.desired.AsLong();
+
 	case SCI_SETHOTSPOTACTIVEBACK:
 		vs.hotspotBackgroundSet = wParam != 0;
 		vs.hotspotBackground.desired = ColourDesired(lParam);
 		InvalidateStyleRedraw();
 		break;
 
+	case SCI_GETHOTSPOTACTIVEBACK:
+		return vs.hotspotBackground.desired.AsLong();
+
 	case SCI_SETHOTSPOTACTIVEUNDERLINE:
 		vs.hotspotUnderline = wParam != 0;
 		InvalidateStyleRedraw();
 		break;
 
+	case SCI_GETHOTSPOTACTIVEUNDERLINE:
+		return vs.hotspotUnderline ? 1 : 0;
+
 	case SCI_SETHOTSPOTSINGLELINE:
 		vs.hotspotSingleLine = wParam != 0;
 		InvalidateStyleRedraw();
 		break;
+
+	case SCI_GETHOTSPOTSINGLELINE:
+		return vs.hotspotSingleLine ? 1 : 0;
 
 	case SCI_SETPASTECONVERTENDINGS:
 		convertPastes = wParam != 0;
