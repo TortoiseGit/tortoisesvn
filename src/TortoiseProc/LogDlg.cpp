@@ -197,8 +197,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_bStrict = m_regLastStrict;
 	UpdateData(FALSE);
 	CString temp;
-	GetDlgItem(IDC_NEXTHUNDRED)->GetWindowText(temp);
-	temp.Format(temp, m_limit);
+	temp.Format(IDS_LOG_SHOWNEXT, m_limit);
 	GetDlgItem(IDC_NEXTHUNDRED)->SetWindowText(temp);
 
 	// set the font to use in the log message view, configured in the settings dialog
