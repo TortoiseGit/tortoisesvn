@@ -130,7 +130,18 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	if (m_nHeadRev < 0)
 		m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress(0, m_nHeadRev);
-	if (!this->Blame(path, startrev, endrev, pegrev))
+
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev);
+	if ( !bBlameSuccesful && !pegrev.IsValid() )
+	{
+		// retry with the endrev as pegrev
+		if ( this->Blame(path, startrev, endrev, endrev) )
+		{
+			bBlameSuccesful = TRUE;
+			pegrev = endrev;
+		}
+	}
+	if (!bBlameSuccesful)
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
