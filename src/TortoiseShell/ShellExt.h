@@ -51,6 +51,7 @@ extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csCacheGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
+
 // The actual OLE Shell context menu handler
 /**
  * \ingroup TortoiseShell
@@ -75,6 +76,7 @@ protected:
 
 	enum SVNCommands
 	{
+		ShellSeparator = 0,
 		ShellSubMenu = 1,
 		ShellSubMenuFolder,
 		ShellSubMenuFile,
@@ -132,9 +134,33 @@ protected:
 		ShellMenuUnlock,
 		ShellMenuUnlockForce,
 		ShellMenuProperties,
-		ShellMenuDelUnversioned
+		ShellMenuDelUnversioned,
+		ShellMenuLastEntry			// used to mark the menu array end
 	};
 
+	// helper struct for context menu entries
+	typedef struct MenuInfo
+	{
+		SVNCommands			command;		///< the command which gets executed for this menu entry
+		unsigned __int64	menuID;			///< the menu ID to recognize the entry. NULL if it shouldn't be added to the context menu automatically
+		UINT				iconID;			///< the icon to show for the menu entry
+		UINT				menuTextID;		///< the text of the menu entry
+		UINT				menuDescID;		///< the description text for the menu entry
+		/// the following 8 params are for checking whether the menu entry should
+		/// be added automatically, based on states of the selected item(s).
+		/// The 'yes' states must be set, the 'no' states must not be set
+		/// the four pairs are OR'ed together, the 'yes'/'no' states are AND'ed together.
+		DWORD				firstyes;
+		DWORD				firstno;
+		DWORD				secondyes;
+		DWORD				secondno;
+		DWORD				thirdyes;
+		DWORD				thirdno;
+		DWORD				fourthyes;
+		DWORD				fourthno;
+	};
+
+	static MenuInfo menuInfo[];
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
@@ -144,22 +170,7 @@ protected:
 	std::map<UINT_PTR, stdstring> myVerbsIDMap;
 	stdstring	folder_;
 	std::vector<stdstring> files_;
-	bool isOnlyOneItemSelected;
-	bool isExtended;
-	bool isInSVN;
-	bool isIgnored;
-	bool isConflicted;
-	bool isFolder;
-	bool isInVersionedFolder;
-	bool isFolderInSVN;
-	bool isNormal;
-	bool isAdded;
-	bool isDeleted;
-	bool isLocked;
-	bool isPatchFile;
-	bool isShortcut;
-	bool isNeedsLock;
-	bool isPatchFileInClipboard;
+	DWORD itemStates;				///< see the globals.h file for the ITEMIS_* defines
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider
@@ -175,6 +186,7 @@ protected:
 //#define MAKESTRING(ID) LoadString(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer))
 private:
 	void			InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
+	void			InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, BOOL ownerdrawn, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu);
 	stdstring		WriteFileListToTempFile();
 	LPCTSTR			GetMenuTextFromResource(int id);
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);

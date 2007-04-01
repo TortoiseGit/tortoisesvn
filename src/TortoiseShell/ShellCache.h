@@ -75,6 +75,10 @@ public:
 		getlocktopticker = cachetypeticker;
 		menulayoutlow = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		menulayouthigh = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
+		menumasklow_lm = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0, FALSE, HKEY_LOCAL_MACHINE);
+		menumaskhigh_lm = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh"), 0, FALSE, HKEY_LOCAL_MACHINE);
+		menumasklow_cu = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0);
+		menumaskhigh_cu = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh"), 0);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
 		columnseverywhere = CRegStdWORD(_T("Software\\TortoiseSVN\\ColumnsEveryWhere"), FALSE);
@@ -117,6 +121,10 @@ public:
 		blockstatus.read();
 		columnseverywhere.read();
 		getlocktop.read();
+		menumasklow_lm.read();
+		menumaskhigh_lm.read();
+		menumasklow_cu.read();
+		menumaskhigh_cu.read();
 	}
 	CacheType GetCacheType()
 	{
@@ -146,6 +154,22 @@ public:
 		}
 		unsigned __int64 temp = unsigned __int64(DWORD(menulayouthigh))<<32;
 		temp |= unsigned __int64(DWORD(menulayoutlow));
+		return temp;
+	}
+	unsigned __int64 GetMenuMask()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > menumaskticker)
+		{
+			menumaskticker = GetTickCount();
+			menumasklow_lm.read();
+			menumaskhigh_lm.read();
+			menumasklow_cu.read();
+			menumaskhigh_cu.read();
+		}
+		DWORD low = (DWORD)menumasklow_lm | (DWORD)menumasklow_cu;
+		DWORD high = (DWORD)menumaskhigh_lm | (DWORD)menumaskhigh_cu;
+		unsigned __int64 temp = unsigned __int64(high)<<32;
+		temp |= unsigned __int64(low);
 		return temp;
 	}
 	BOOL IsRecursive()
@@ -448,6 +472,10 @@ private:
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayoutlow;
 	CRegStdWORD menulayouthigh;
+	CRegStdWORD menumasklow_lm;
+	CRegStdWORD menumaskhigh_lm;
+	CRegStdWORD menumasklow_cu;
+	CRegStdWORD menumaskhigh_cu;
 	CRegStdWORD unversionedasmodified;
 	CRegStdString excludelist;
 	CRegStdWORD columnseverywhere;
@@ -463,6 +491,7 @@ private:
 	DWORD driveticker;
 	DWORD drivetypeticker;
 	DWORD layoutticker;
+	DWORD menumaskticker;
 	DWORD langticker;
 	DWORD blockstatusticker;
 	DWORD columnrevformatticker;
