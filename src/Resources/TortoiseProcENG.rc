@@ -1863,21 +1863,21 @@ BEGIN
     IDS_PROGRS_ACTION       "Action"
     IDS_PROGRS_PATH         "Path"
     IDS_PROGRS_TITLEFIN     "Finished!"
-    IDS_PROGRS_TITLE_CHECKOUT "TortoiseSVN Checkout..."
-    IDS_PROGRS_TITLE_IMPORT "TortoiseSVN Import..."
-    IDS_PROGRS_TITLE_UPDATE "TortoiseSVN Update..."
-    IDS_PROGRS_TITLE_COMMIT "TortoiseSVN Commit..."
-    IDS_PROGRS_TITLE_ADD    "TortoiseSVN Add..."
-    IDS_PROGRS_TITLE_REVERT "TortoiseSVN Revert..."
-    IDS_PROGRS_TITLE_RESOLVE "TortoiseSVN Resolve..."
+    IDS_PROGRS_TITLE_CHECKOUT "Checkout... - TortoiseSVN"
+    IDS_PROGRS_TITLE_IMPORT "Import... - TortoiseSVN"
+    IDS_PROGRS_TITLE_UPDATE "Update... - TortoiseSVN"
+    IDS_PROGRS_TITLE_COMMIT "Commit... - TortoiseSVN"
+    IDS_PROGRS_TITLE_ADD    "Add... - TortoiseSVN"
+    IDS_PROGRS_TITLE_REVERT "Revert... - TortoiseSVN"
+    IDS_PROGRS_TITLE_RESOLVE "Resolve... - TortoiseSVN"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLE_SWITCH "TortoiseSVN Switch..."
-    IDS_PROGRS_TITLE_EXPORT "TortoiseSVN Export..."
-    IDS_PROGRS_TITLE_MERGE  "TortoiseSVN Merge..."
-    IDS_PROGRS_TITLE_COPY   "TortoiseSVN Copy..."
+    IDS_PROGRS_TITLE_SWITCH "Switch... - TortoiseSVN"
+    IDS_PROGRS_TITLE_EXPORT "Export... - TortoiseSVN"
+    IDS_PROGRS_TITLE_MERGE  "Merge... - TortoiseSVN"
+    IDS_PROGRS_TITLE_COPY   "Copy... - TortoiseSVN"
     IDS_PROGRS_MIMETYPE     "Mime type"
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
@@ -1918,7 +1918,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROC_SETTINGS_TITLE "TortoiseSVN Settings"
+    IDS_PROC_SETTINGS_TITLE "Settings - TortoiseSVN"
     IDS_PROC_OVERWRITE_CONFIRM 
                             "The file\n%s\nalready exists! Do you want to overwrite it?"
     IDS_PROC_REPOCREATEFINISHED "The Repository was successfully created."
