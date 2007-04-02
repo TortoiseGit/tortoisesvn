@@ -65,7 +65,7 @@ void CRevisionGraphWnd::BuildPreview()
 	float origZoom = m_fZoomFactor;
 	DoZoom(0.2f);
 
-	CWindowDC ddc(this);
+	CClientDC ddc(this);
 	CDC dc, dc2;
 	if (!dc.CreateCompatibleDC(&ddc))
 		return;
