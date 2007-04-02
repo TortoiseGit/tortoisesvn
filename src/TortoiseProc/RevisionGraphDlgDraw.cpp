@@ -366,7 +366,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	}
 	if (vert>0)
 		vert--;
-	// vert is now the top vertical postion of the first nodes to draw
+	// vert is now the top vertical position of the first nodes to draw
 	while ((i<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[i] < vert))
 		++i;
 	end = i;
