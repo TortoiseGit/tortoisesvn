@@ -1871,9 +1871,11 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		{
 			MAKESTRING(menuInfo[menuIndex].menuTextID);
 			resource = MAKEINTRESOURCE(menuInfo[menuIndex].iconID);
-			// menu lock is special
-			if (id == ShellMenuLock)
+			switch (id)
 			{
+			case ShellMenuLock:
+				// menu lock is special because it can be set to the top
+				// with a separate option in the registry
 				space = ((layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop())) ? 0 : 6;
 				if ((layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop()))
 				{
@@ -1881,9 +1883,16 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 					_tcscat_s(textbuf, 255, stringtablebuffer);
 					_tcscpy_s(stringtablebuffer, 255, textbuf);
 				}
-			}
-			else
-			{
+				break;
+				// the sub menu entries are special because they're *always* on the top level menu
+			case ShellSubMenuMultiple:
+			case ShellSubMenuLink:
+			case ShellSubMenuFolder:
+			case ShellSubMenuFile:
+			case ShellSubMenu:
+				space = 0;
+				break;
+			default:
 				space = layout & menuInfo[menuIndex].menuID ? 0 : 6;
 				if (layout & (menuInfo[menuIndex].menuID)) 
 				{
@@ -1891,6 +1900,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 					_tcscat_s(textbuf, 255, stringtablebuffer);
 					_tcscpy_s(stringtablebuffer, 255, textbuf);
 				}
+				break;
 			}
 			return resource;
 		}
