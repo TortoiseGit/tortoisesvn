@@ -395,11 +395,11 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	for ( ; ((i>=0)&&(i<end)); ++i)
 	{
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
-		int vertpos = m_arVertPositions[i];
+		float vertpos = (float)m_arVertPositions[i];
 		CRect noderect;
-		noderect.top = vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - nVScrollPos;
+		noderect.top = vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos);
 		noderect.bottom = noderect.top + m_node_rect_heigth;
-		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - nHScrollPos;
+		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos);
 		noderect.right = noderect.left + m_node_rect_width;
 		switch (entry->action)
 		{

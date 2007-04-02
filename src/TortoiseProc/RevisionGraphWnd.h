@@ -42,13 +42,13 @@ enum NodeShape
 #define RGB_DEF_BRANCH			RGB(0, 0, 255)
 #define RGB_DEF_NODE			RGB(0, 0, 255)
 
-#define NODE_RECT_WIDTH			200
-#define NODE_SPACE_LEFT			12
-#define NODE_SPACE_RIGHT		100
-#define NODE_SPACE_LINE			20
-#define NODE_RECT_HEIGTH		60
-#define NODE_SPACE_TOP			20
-#define NODE_SPACE_BOTTOM		20
+#define NODE_RECT_WIDTH			200.0f
+#define NODE_SPACE_LEFT			12.0f
+#define NODE_SPACE_RIGHT		100.0f
+#define NODE_SPACE_LINE			20.0f
+#define NODE_RECT_HEIGTH		60.0f
+#define NODE_SPACE_TOP			20.0f
+#define NODE_SPACE_BOTTOM		20.0f
 
 #define MAXFONTS				4
 #define	MAX_TT_LENGTH			10000
@@ -101,13 +101,13 @@ protected:
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 
-	int				m_node_rect_width;
-	int				m_node_space_left;
-	int				m_node_space_right;
-	int				m_node_space_line;
-	int				m_node_rect_heigth;
-	int				m_node_space_top;
-	int				m_node_space_bottom;
+	float			m_node_rect_width;
+	float			m_node_space_left;
+	float			m_node_space_right;
+	float			m_node_space_line;
+	float			m_node_rect_heigth;
+	float			m_node_space_top;
+	float			m_node_space_bottom;
 	int				m_nIconSize;
 	CPoint			m_RoundRectPt;
 	float			m_fZoomFactor;
