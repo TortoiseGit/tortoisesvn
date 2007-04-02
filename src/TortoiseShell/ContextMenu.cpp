@@ -1869,6 +1869,8 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	{
 		if (menuInfo[menuIndex].command == id)
 		{
+			MAKESTRING(menuInfo[menuIndex].menuTextID);
+			resource = MAKEINTRESOURCE(menuInfo[menuIndex].iconID);
 			// menu lock is special
 			if (id == ShellMenuLock)
 			{
@@ -1882,8 +1884,6 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			}
 			else
 			{
-				MAKESTRING(menuInfo[menuIndex].menuTextID);
-				resource = MAKEINTRESOURCE(menuInfo[menuIndex].iconID);
 				space = layout & menuInfo[menuIndex].menuID ? 0 : 6;
 				if (layout & (menuInfo[menuIndex].menuID)) 
 				{
