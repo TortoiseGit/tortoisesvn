@@ -282,7 +282,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			pDC->GetOutputTextMetrics(&textMetric);
 			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 			pDC->DrawText(temp, &r, DT_CALCRECT);
-			pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
+			pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), int(textrect.top + m_node_rect_heigth/4.0f), ETO_CLIPPED, NULL, temp, NULL);
 
 			// draw the url
 			pDC->SelectObject(GetFont(TRUE));
@@ -292,7 +292,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
 			temp.ReleaseBuffer();
 			temp.Replace('\\','/');
-			pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &textrect, temp, NULL);
+			pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), int(textrect.top + m_node_rect_heigth/4.0f + m_node_rect_heigth/3.0f), ETO_CLIPPED, &textrect, temp, NULL);
 		}
 
 		if (m_nIconSize)
@@ -397,10 +397,10 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
 		float vertpos = (float)m_arVertPositions[i];
 		CRect noderect;
-		noderect.top = vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos);
-		noderect.bottom = noderect.top + m_node_rect_heigth;
-		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos);
-		noderect.right = noderect.left + m_node_rect_width;
+		noderect.top = long(vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos));
+		noderect.bottom = long(noderect.top + m_node_rect_heigth);
+		noderect.left = long(float(entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos));
+		noderect.right = long(noderect.left + m_node_rect_width);
 		switch (entry->action)
 		{
 		case CRevisionEntry::deleted:
@@ -457,10 +457,13 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		LONG heigth = REVGRAPH_PREVIEW_HEIGTH * rect.Height() / m_ViewRect.Height();
 		LONG xpos = nHScrollPos * REVGRAPH_PREVIEW_WIDTH / m_ViewRect.Width();
 		LONG ypos = nVScrollPos * REVGRAPH_PREVIEW_HEIGTH / m_ViewRect.Height();
-		m_OverviewPosRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
-		m_OverviewPosRect.top = ypos;
-		m_OverviewPosRect.right = m_OverviewPosRect.left + width;
-		m_OverviewPosRect.bottom = m_OverviewPosRect.top + heigth;
+		RECT tempRect;
+		tempRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
+		tempRect.top = ypos;
+		tempRect.right = tempRect.left + width;
+		tempRect.bottom = tempRect.top + heigth;
+		// make sure the position rect is not bigger than the preview window itself
+		::IntersectRect(&m_OverviewPosRect, &m_OverviewRect, &tempRect);
 		memDC->SetROP2(R2_MASKPEN);
 		HGDIOBJ oldbrush = memDC->SelectObject(GetStockObject(GRAY_BRUSH));
 		memDC->Rectangle(&m_OverviewPosRect);
