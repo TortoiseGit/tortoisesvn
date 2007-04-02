@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9055
+# Based on Tortoise.pot r9101
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-12 10:57+0100\n"
+"PO-Revision-Date: 2007-04-02 16:11+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -166,6 +166,11 @@ msgstr "%I64d kBytes overført"
 msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
 
+#: ID:226,
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld minut(ter) og %ld sekund(er)"
+
 #: ID:7,
 #, c-format
 msgid "%ld of %ld"
@@ -195,6 +200,12 @@ msgstr "%s : Arbejdsbasis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbejdskopi"
+
+#: ID:226,
+#, c-format
+#Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
+msgid "%s in %s"
+msgstr "%s på %s"
 
 #: ID:357,
 #, c-format
@@ -397,7 +408,7 @@ msgstr "&Afslut"
 msgid "&Export selection to..."
 msgstr "&Eksporter valgte emner til..."
 
-#: Control-ID:1092,#: Control-ID:1095,
+#: Control-ID:1092,#: Control-ID:1094,#: Control-ID:1095,
 msgid "&External"
 msgstr "&Ekstern"
 
@@ -547,7 +558,7 @@ msgstr "&Netværksdrev"
 msgid "&New "
 msgstr "&Ny "
 
-#: Control-ID:1208,
+#: ID:115,#: Control-ID:1208,
 msgid "&Next %ld"
 msgstr "&Næste %ld"
 
@@ -695,7 +706,7 @@ msgstr "&Til URL: "
 msgid "&Toolbar"
 msgstr "&Værktøjslinje"
 
-#: Control-ID:1091,#: Control-ID:1094,
+#: Control-ID:1091,#: Control-ID:1093,#: Control-ID:1094,
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
 
@@ -798,7 +809,7 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1002,#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -939,6 +950,10 @@ msgstr "Føj til \"&ignorer\"-listen"
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "Tilføj..."
+
+#: ID:77,
+msgid "Add... - TortoiseSVN"
+msgstr "Tilføj... - TortoiseSVN"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1403,6 +1418,10 @@ msgstr "Hent arbejdskopi"
 msgid "Checkout &directory:"
 msgstr "&Mappe til arbejdskopi:"
 
+#: ID:77,
+msgid "Checkout... - TortoiseSVN"
+msgstr "Hent arbejdskopi... - TortoiseSVN"
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr "Rydder op."
@@ -1500,6 +1519,10 @@ msgstr "Arkiveringsterskel:"
 msgid "Commit to:"
 msgstr "Arkivér til:"
 
+#: ID:77,
+msgid "Commit... - TortoiseSVN"
+msgstr "Arkivér... - TortoiseSVN"
+
 #: ID:244,
 msgid "Commits by author"
 msgstr "Arkiveringer pr. forfatter"
@@ -1564,8 +1587,12 @@ msgid "Configure Hook Scripts"
 msgstr "Indstilling af hook-scripts"
 
 #: Control-ID:65535,
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af filer."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af filer"
+
+#: Control-ID:65535,
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af egenskaber"
 
 #: Control-ID:65535,
 msgid "Configure the program used to resolve conflicted files."
@@ -1667,6 +1694,10 @@ msgstr "Kopier til arbejdskopi"
 #: ID:101,
 msgid "Copy to working copy..."
 msgstr "Kopier til arbejdskopi..."
+
+#: ID:78,
+msgid "Copy... - TortoiseSVN"
+msgstr "Kopier... - TortoiseSVN"
 
 #: ID:98,
 #, c-format
@@ -1934,13 +1965,13 @@ msgstr "Er du sikker på, at du vil flytte denne fil eller mappe?"
 
 #: ID:119,
 #, c-format
-msgid "Do you really want to revert all changes in %s\nand go back to this revision?"
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i %s\nog gå tilbage til denne revision?"
+msgid "Do you really want to revert all changes in \n%s\nand go back to this revision? These changes will be merged into your working copy."
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i \n%s\nog gå tilbage til denne revision? Disse ændringer vil blive flettet ind i din arbejdskopi."
 
 #: ID:76,
 #, c-format
-msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision?"
+msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision? These changes will be merged into your working copy."
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision? Disse ændringer vil blive flettet ind i din arbejdskopi."
 
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -2125,6 +2156,10 @@ msgstr "Mappe til eksport:"
 #: ID:79,
 msgid "Export unversioned files too"
 msgstr "Eksporter også ikke-versionerede filer"
+
+#: ID:78,
+msgid "Export... - TortoiseSVN"
+msgstr "Eksporter... - TortoiseSVN"
 
 #: ID:284,
 #, c-format
@@ -2632,6 +2667,10 @@ msgstr "Importer fil til\r\n%s"
 msgid "Import folder %s\r\nto %s"
 msgstr "Importer mappe %s\r\ntil %s"
 
+#: ID:77,
+msgid "Import... - TortoiseSVN"
+msgstr "Importer... - TortoiseSVN"
+
 #: ID:120,
 #, c-format
 msgid "Importing file %s"
@@ -2912,6 +2951,10 @@ msgstr "Maksimalt antal logbeskeder gemt i historikken"
 #: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "Flet"
+
+#: ID:78,
+msgid "Merge... - TortoiseSVN"
+msgstr "Flet... - TortoiseSVN"
 
 #: ID:263,#: ID:263,
 msgid "Merged"
@@ -3716,6 +3759,10 @@ msgstr "Løs konflikt ved at bruge \"min\""
 msgid "Resolve conflict using \"theirs\""
 msgstr "Løs konflikt ved at bruge \"deres\""
 
+#: ID:77,
+msgid "Resolve... - TortoiseSVN"
+msgstr "Løs... - TortoiseSVN"
+
 #: ID:74,#: ID:209,
 msgid "Resolved"
 msgstr "Løst"
@@ -3752,6 +3799,10 @@ msgstr "Tilbagefør"
 #: ID:114,
 msgid "Revert changes from these revisions"
 msgstr "Tilbagefør ændringer fra disse revisioner"
+
+#: ID:77,
+msgid "Revert... - TortoiseSVN"
+msgstr "Tilbagefør... - TortoiseSVN"
 
 #: ID:73,
 msgid "Reverted"
@@ -4098,6 +4149,10 @@ msgstr "Sætter egenskaber..."
 msgid "Settings"
 msgstr "Indstillinger"
 
+#: ID:80,
+msgid "Settings - TortoiseSVN"
+msgstr "Indstillinger - TortoiseSVN"
+
 #: Control-ID:1132,
 #Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Sh&ow log"
@@ -4139,7 +4194,7 @@ msgstr "Vis &alle revisioner"
 msgid "Show &differences"
 msgstr "Vis &forskelle"
 
-#: ID:12,#: ID:101,#: Control-ID:1016,#: Control-ID:1228,#: Control-ID:1132,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,#: Control-ID:1228,
+#: MenuEntry
 #Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Show &log"
 msgstr "Vis &log"
@@ -4160,6 +4215,10 @@ msgstr "Vis &ikke-versionerede filer"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Vis filliste"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Vis ove&rsigt"
 
 #: ID:113,
 msgid "Show differences as &unified diff"
@@ -4394,6 +4453,10 @@ msgstr "Skift til foregående dokumentvindue"
 #: ID:9,
 msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
+
+#: ID:78,
+msgid "Switch... - TortoiseSVN"
+msgstr "Skift... - TortoiseSVN"
 
 #: ID:325,
 #, fuzzy
@@ -4732,61 +4795,13 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 
-#: ID:77,
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Tilføj..."
-
 #: ID:132,
 msgid "TortoiseSVN Blame"
 msgstr "TortoiseSVN Ansvar"
 
-#: ID:77,
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Hent arbejdskopi..."
-
-#: ID:77,
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Arkivér..."
-
-#: ID:78,
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Kopier..."
-
-#: ID:78,
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Eksporter..."
-
-#: ID:77,
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importer..."
-
-#: ID:78,
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Flet..."
-
 #: ID:221,
 msgid "TortoiseSVN Rename/move"
 msgstr "TortoiseSVN Omdøb/flyt"
-
-#: ID:77,
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Løs..."
-
-#: ID:77,
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Tilbagefør..."
-
-#: ID:80,
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Indstillinger"
-
-#: ID:78,
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Skift..."
-
-#: ID:77,
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Opdater..."
 
 #: ID:98,
 #, c-format
@@ -4914,6 +4929,10 @@ msgstr "Ikke-versionerede filer viser overordnet mappe som ændret"
 #: Dlg-ID:152,
 msgid "Update"
 msgstr "Opdater"
+
+#: ID:77,
+msgid "Update... - TortoiseSVN"
+msgstr "Opdater... - TortoiseSVN"
 
 #: ID:74,
 msgid "Updated"
