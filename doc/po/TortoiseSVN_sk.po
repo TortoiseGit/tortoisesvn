@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2007-02-02 12:39+0100\n"
+"PO-Revision-Date: 2007-04-02 23:02+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "Simon"
 #: source/TortoiseSVN_en.xml:20
 #: (surname)
 msgid "Large"
-msgstr "Veľké"
+msgstr "Large"
 
 #: source/TortoiseSVN_en.xml:27
 #: (title)
@@ -126,7 +126,7 @@ msgstr "Tento <emphasis>Predhovor</emphasis> trochu objasňuje TortoiseSVN proje
 #: source/TortoiseSVN_en.xml:90
 #: (para)
 msgid "The <emphasis>Introduction</emphasis> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr ""
+msgstr "<emphasis>Úvod</emphasis> Vysvetluje čo TortoiseSVN je, čo robí, odkiaľ pochádza a základy pre inštaláciu na váš osobný počítač."
 
 #: source/TortoiseSVN_en.xml:95
 #: (para)
@@ -141,7 +141,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:107
 #: (para)
 msgid "The chapter on <emphasis>The Repository</emphasis> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Kapitola <emphasis>Úložisko</emphasis> vysvetluje ako nastaviť miestne úložisko, ktoré je užitočné na testovanie Subversion a TortoiseSVN použitím jedného počítača. Tiež trochu popisuje správu úložiska, ktorá sa tyka aj úložiska na servery."
 
 #: source/TortoiseSVN_en.xml:113
 #: (para)
@@ -7737,67 +7737,67 @@ msgstr "Popis"
 #: source/TortoiseSVN_en.xml:9859
 #: (entry)
 msgid "-n"
-msgstr ""
+msgstr "-n"
 
 #: source/TortoiseSVN_en.xml:9860
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr ""
+msgstr "Ak je daný tento prepínač, SubWCRev sa ukonči s návratovou hodnotou ERRORLEVEL 7, ak miestna pracovná kópia obsahuje zmeny. Toto môže byť použité, aby sa vyhlo kompilovaniu neodovzdaných zmien."
 
 #: source/TortoiseSVN_en.xml:9868
 #: (entry)
 msgid "-m"
-msgstr ""
+msgstr "-m"
 
 #: source/TortoiseSVN_en.xml:9869
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr ""
+msgstr "Ak je daný tento prepínač, SubWCRev sa ukonči s návratovou hodnotou ERRORLEVEL 8, ak miestna pracovná kópia obsahuje rôyne revízie. Toto môže byť použité, aby sa vyhlo kompilovaniu čiastočne aktualizovanej pracovnej kópií."
 
 #: source/TortoiseSVN_en.xml:9877
 #: (entry)
 msgid "-d"
-msgstr ""
+msgstr "-d"
 
 #: source/TortoiseSVN_en.xml:9878
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists."
-msgstr ""
+msgstr "Ak je daný tento prepínač, SubWCRev sa ukonči s návratovou hodnotou ERRORLEVEL 8, ak cieľový súbor už existuje."
 
 #: source/TortoiseSVN_en.xml:9885
 #: (entry)
 msgid "-f"
-msgstr ""
+msgstr "-f"
 
 #: source/TortoiseSVN_en.xml:9886
 #: (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr ""
+msgstr "Ak je daný tento prepínač, SubWCRev zaráta i revíziu naposledy zmeneného adresára. Predvolené spravanie je používať iba súbory na získanie čísiel revízií."
 
 #: source/TortoiseSVN_en.xml:9894
 #: (entry)
 msgid "-e"
-msgstr ""
+msgstr "-e"
 
 #: source/TortoiseSVN_en.xml:9895
 #: (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr ""
+msgstr "Ak je daný tento prepínač, SubWCRev bude preskúmať aj svn:extrenals pokiaľ patria rovnakému úložisku. Predvolené správanie je ignorovať externals."
 
 #: source/TortoiseSVN_en.xml:9840
 #: (para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "Je viacero prepínač, ktore ovplivňujú ako SubWCRev pracuje. Ak chcete použiť viac ako jeden, musia byť zadané v jednej skupine napríklad: <literal>-nm</literal>,  (a nie samostatne ako <literal>-n -m</literal>). <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9911
 #: (title)
 msgid "Keyword Substitution"
-msgstr ""
+msgstr "Nahradzovanie kľúčových  slov."
 
 #: source/TortoiseSVN_en.xml:9922
 #: (entry)
 msgid "Keyword"
-msgstr ""
+msgstr "Kľúčové slovo"
 
 #: source/TortoiseSVN_en.xml:9928
 #: (entry)
@@ -7827,7 +7827,7 @@ msgstr "Nahradené dátumom/časom najvyššej odovzdanej revízie. Aby sa vyhlo
 #: source/TortoiseSVN_en.xml:9944
 #: (entry)
 msgid "$WCNOW$"
-msgstr ""
+msgstr "$WCNOW$"
 
 #: source/TortoiseSVN_en.xml:9945
 #: (entry)
@@ -7837,7 +7837,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9952
 #: (entry)
 msgid "$WCRANGE$"
-msgstr ""
+msgstr "$WCRANGE$"
 
 #: source/TortoiseSVN_en.xml:9953
 #: (entry)
@@ -7847,7 +7847,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9964
 #: (entry)
 msgid "$WCMIXED?TText:FText$"
-msgstr ""
+msgstr "$WCMIXED?TText:FText$"
 
 #: source/TortoiseSVN_en.xml:9965
 #: (entry)
@@ -7857,7 +7857,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9971
 #: (entry)
 msgid "$WCMODS?TText:FText$"
-msgstr ""
+msgstr "$WCMODS?TText:FText$"
 
 #: source/TortoiseSVN_en.xml:9972
 #: (entry)
@@ -7867,7 +7867,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9978
 #: (entry)
 msgid "$WCURL$"
-msgstr ""
+msgstr "$WCURL$"
 
 #: source/TortoiseSVN_en.xml:9979
 #: (entry)
@@ -7909,6 +7909,21 @@ msgid ""
 "\n"
 "// EndOfFile\n"
 msgstr ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"$WCREV$\";\n"
+"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date     = \"$WCDATE$\";\n"
+"char *RevRange = \"$WCRANGE$\";\n"
+"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL      = \"$WCURL$\";\n"
+"\n"
+"#if $WCMODS?1:0$\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
 
 #: source/TortoiseSVN_en.xml:10014
 #: (para)
@@ -7935,6 +7950,21 @@ msgid ""
 "\n"
 "// EndOfFile\n"
 msgstr ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"3701\";\n"
+"char *Modified = \"Modified\";\n"
+"char *Date     = \"2005/06/15 11:15:12\";\n"
+"char *RevRange = \"3699:3701\";\n"
+"char *Mixed    = \"Mixed revision WC\";\n"
+"char *URL      = \"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev\";\n"
+"\n"
+"#if 1\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
 
 #: source/TortoiseSVN_en.xml:10040
 #: (title)
@@ -8507,27 +8537,27 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10802
 #: (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
-msgstr ""
+msgstr "<option>/closeonend:0</option> nezatvárať dialógové okno automaticky"
 
 #: source/TortoiseSVN_en.xml:10806
 #: (para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> zavrieť dialógové okno automaticky ak nenastali chyby"
 
 #: source/TortoiseSVN_en.xml:10810
 #: (para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr ""
+msgstr "<option>/closeonend:2</option> zavrieť dialógové okno automaticky ak nenastali chyby, alebo konflikty"
 
 #: source/TortoiseSVN_en.xml:10814
 #: (para)
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr ""
+msgstr "<option>/closeonend:3</option> zavrieť dialógové okno automaticky ak nenastali chyby, konflikty, alebo zlúčenia"
 
 #: source/TortoiseSVN_en.xml:10818
 #: (para)
 msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr ""
+msgstr "<option>/closeonend:4</option> zavrieť dialógové okno automaticky ak nenastali chyby, konflikty, alebo zlúčenia pre miestne operácie"
 
 #: source/TortoiseSVN_en.xml:10796
 #: (para)
@@ -8552,27 +8582,27 @@ msgstr "Príkaz"
 #: source/TortoiseSVN_en.xml:10855
 #: (entry)
 msgid "Shows the About-dialog. This is also shown if no command is given."
-msgstr ""
+msgstr "Zobrazí okno O... Toto je zobrazené aj keď nieje zadaný ziaden príkaz."
 
 #: source/TortoiseSVN_en.xml:10866
 #: (option)
 msgid "/revstart:xxx"
-msgstr ""
+msgstr "/revstart:xxx"
 
 #: source/TortoiseSVN_en.xml:10867
 #: (option)
 msgid "/revend:xxx"
-msgstr ""
+msgstr "/revend:xxx"
 
 #: source/TortoiseSVN_en.xml:10868
 #: (option)
 msgid "/strict"
-msgstr ""
+msgstr "/strict"
 
 #: source/TortoiseSVN_en.xml:10862
 #: (entry)
 msgid "Opens the log dialog. The path specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
-msgstr ""
+msgstr "Otvorí denník. Cesta určuje súbor, alebo adresár pre ktorý ma byť denník zobrazený. Môžu byť zadané daľšie tri možnosti: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
 
 #: source/TortoiseSVN_en.xml:10874
 #: (option) source/TortoiseSVN_en.xml:10889
@@ -8600,37 +8630,37 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:11116
 #: source/TortoiseSVN_en.xml:11133
 msgid "/path"
-msgstr ""
+msgstr "/path"
 
 #: source/TortoiseSVN_en.xml:10875
 #: (option)
 msgid "/url"
-msgstr ""
+msgstr "/url"
 
 #: source/TortoiseSVN_en.xml:10873
 #: (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
-msgstr ""
+msgstr "Otvorí dialog pre získanie. Parameter <placeholder-1/> určuje cieľový adresár a <placeholder-2/> určuje URL, z ktorej prebehne získavanie."
 
 #: source/TortoiseSVN_en.xml:10881
 #: (entry)
 msgid "Opens the import dialog. The path specifies the directory with the data to import."
-msgstr ""
+msgstr "Otvorí dialog pre importovanie. Cesta udáva adresár s datami, ktoré majú byť naimportované."
 
 #: source/TortoiseSVN_en.xml:10890
 #: (option)
 msgid "/rev"
-msgstr ""
+msgstr "/rev"
 
 #: source/TortoiseSVN_en.xml:10893
 #: (option)
 msgid "/rev:1234"
-msgstr ""
+msgstr "/rev:1234"
 
 #: source/TortoiseSVN_en.xml:10894
 #: (option)
 msgid "/nonrecursive"
-msgstr ""
+msgstr "/nonrecursive"
 
 #: source/TortoiseSVN_en.xml:10895
 #: (option)
@@ -8660,17 +8690,17 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10916
 #: (entry)
 msgid "Adds the files in <placeholder-1/> to version control."
-msgstr ""
+msgstr "Pridá súbory v <placeholder-1/> do správy verzií."
 
 #: source/TortoiseSVN_en.xml:10923
 #: (entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
-msgstr ""
+msgstr "Vráti miestne zmeny pracovnej kópie. Parameter <placeholder-1/> hovorí, ktoré objekty sa majú vrátiť do pôvodného stavu."
 
 #: source/TortoiseSVN_en.xml:10931
 #: (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
-msgstr ""
+msgstr "Vyčistí, prerušené, alebo zrušené operácie a odomkne pracovnú kópiu v <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:10941
 #: (option) source/TortoiseSVN_en.xml:11007
