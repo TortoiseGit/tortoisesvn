@@ -98,7 +98,7 @@ Format your translation
 Please format your translation before send Tortoise_xx.po to the
 mailing list, or commit to the TortoiseSVN repository. You can do it
 like this:
-    $ msgmerge Tortoise_xx.po Tortoise.pot > Tortoise_xx.po.new
+    $ msgmerge --no-wrap -F -o Tortoise_xx.po.new Tortoise_xx.po Tortoise.pot
     $ mv -f Tortoise_xx.po.new Tortoise_xx.po
 
 This can minimize the svn diff output, review your translation is easy.
