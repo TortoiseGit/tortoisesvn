@@ -15,6 +15,13 @@ NAnt build script for the TortoiseSVN language pack installers
 		Builds the Language pack installers
 	</description>
 	
+	<include buildfile="../default.build.user" if="${file::exists('../default.build.user')}"/>
+
+	<property name="SpellCheckDir" 
+		value="..\..\Common\Spell_Thes\"
+		unless="${property::exists('SpellCheckDir')}"
+	/>
+
 	<target name="clean">
 		<description>
 			Removes all previously built language pack installers.
@@ -290,7 +297,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		<foreach item="File" property="filename">
 			<in>
 				<items>
-					<include name="..\..\Common\Spell_Thes\${langISO}*.*" />
+					<include name="${SpellCheckDir}${langISO}*.*" />
 				</items>
 			</in>
 			<do>
@@ -322,8 +329,8 @@ NAnt build script for the TortoiseSVN language pack installers
 		</if>
 		
 		<setenv>
-			<variable name="TSVNHelpFiles" value="" />
-			<variable name="TSVNMoFile" value="" />
+			<variable name="TSVNHelpFiles" value=" " />
+			<variable name="TSVNMoFile" value=" " />
 		</setenv>
 
 		<if test="${file::exists('subversion.mo')}">
@@ -338,7 +345,6 @@ NAnt build script for the TortoiseSVN language pack installers
 		</if>
 
 		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-
 		
 		<exec program="candle">
 			<arg value="-nologo" />
