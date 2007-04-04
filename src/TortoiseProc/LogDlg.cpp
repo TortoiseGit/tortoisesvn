@@ -106,6 +106,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_pNotifyWindow(NULL)
 	, m_bThreadRunning(FALSE)
 	, m_bAscending(FALSE)
+	, m_pStoreSelection(NULL)
 {
 	sModifiedStatus.LoadString(IDS_SVNACTION_MODIFIED);
 	sReplacedStatus.LoadString(IDS_SVNACTION_REPLACED);
@@ -121,6 +122,11 @@ CLogDlg::~CLogDlg()
 	DestroyIcon(m_hReplacedIcon);
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hDeletedIcon);
+	if ( m_pStoreSelection )
+	{
+		delete m_pStoreSelection;
+		m_pStoreSelection = NULL;
+	}
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -552,6 +558,11 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	}
 	m_ChangedFileListCtrl.SetItemCountEx(0);
 	m_ChangedFileListCtrl.Invalidate();
+	// We need to create CStoreSelection on the heap or else
+	// the variable will run out of the scope before the
+	// thread ends. Therefore we let the thread delete
+	// the instance.
+	m_pStoreSelection = new CStoreSelection(this);
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
@@ -596,6 +607,11 @@ void CLogDlg::Refresh()
 	m_startrev = -1;
 	m_bCancelled = FALSE;
 
+	// We need to create CStoreSelection on the heap or else
+	// the variable will run out of the scope before the
+	// thread ends. Therefore we let the thread delete
+	// the instance.
+	m_pStoreSelection = new CStoreSelection(this);
 	m_ChangedFileListCtrl.SetItemCountEx(0);
 	m_ChangedFileListCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
@@ -875,6 +891,13 @@ UINT CLogDlg::LogThread()
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(m_LogList);
 	m_LogList.SetRedraw(true);
+	if ( m_pStoreSelection )
+	{
+		// Deleting the instance will restore the
+		// selection of the CLogDlg.
+		delete m_pStoreSelection;
+		m_pStoreSelection = NULL;
+	}
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
 		temp.LoadString(IDS_MSGBOX_OK);
@@ -2187,11 +2210,11 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 void CLogDlg::OnBnClickedFiltercancel()
 {
 	KillTimer(LOGFILTER_TIMER);
-	int selIndex = m_LogList.GetSelectionMark();
 	
 	m_sFilterText.Empty();
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(1);
+	CStoreSelection storeselection(this);
 	FillLogMessageCtrl(false);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	m_arShownList.RemoveAll();
@@ -2214,15 +2237,6 @@ void CLogDlg::OnBnClickedFiltercancel()
 	m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(m_LogList);
-	
-	if (selIndex >= 0)
-	{
-		// restore the previous selected log message
-		m_LogList.SetSelectionMark(selIndex);
-		m_LogList.SetItemState(selIndex, LVIS_SELECTED, LVIS_SELECTED);
-		m_LogList.EnsureVisible(selIndex, FALSE);
-	}
-	
 	m_LogList.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 	m_cFilterCancelButton.ShowWindow(SW_HIDE);
@@ -2238,6 +2252,7 @@ void CLogDlg::OnEnChangeSearchedit()
 	UpdateData();
 	if (m_sFilterText.IsEmpty())
 	{
+		CStoreSelection storeselection(this);
 		// clear the filter, i.e. make all entries appear
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
@@ -2442,6 +2457,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			// 2. to rebuild the m_arShownList after sorting
 		}
 		theApp.DoWaitCursor(1);
+		CStoreSelection storeselection(this);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
 
@@ -4024,3 +4040,45 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 	SetSplitterRange();
 }
 
+CLogDlg::CStoreSelection::CStoreSelection(CLogDlg* dlg)
+{
+	m_logdlg = dlg;
+
+	int selIndex = m_logdlg->m_LogList.GetSelectionMark();
+	if ( selIndex>=0 )
+	{
+		POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+		int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+		if ( nIndex < m_logdlg->m_arShownList.GetSize() )
+		{
+			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
+			m_SetSelectedRevisions.insert(pLogEntry->Rev);
+			while (pos)
+			{
+				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+				if ( nIndex < m_logdlg->m_arShownList.GetSize() )
+				{
+					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
+					m_SetSelectedRevisions.insert(pLogEntry->Rev);
+				}
+			}
+		}
+	}
+}
+
+CLogDlg::CStoreSelection::~CStoreSelection()
+{
+	if ( m_SetSelectedRevisions.size()>0 )
+	{
+		for (int i=0; i<m_logdlg->m_arShownList.GetCount(); ++i)
+		{
+			LONG nRevision = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(i))->Rev;
+			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )
+			{
+				m_logdlg->m_LogList.SetSelectionMark(i);
+				m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+				m_logdlg->m_LogList.EnsureVisible(i, FALSE);
+			}
+		}
+	}
+}

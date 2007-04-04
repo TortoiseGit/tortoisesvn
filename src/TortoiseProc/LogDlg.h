@@ -47,6 +47,8 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 class CLogDlg : public CResizableStandAloneDialog, public SVN //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CLogDlg)
+	
+	friend class CStoreSelection;
 
 public:
 	CLogDlg(CWnd* pParent = NULL);   // standard constructor
@@ -211,6 +213,21 @@ private:
 	CString sModifiedStatus, sReplacedStatus, sAddStatus, sDeleteStatus;
 
 private:
+	/**
+	 * Instances of CStoreSelection save the selection of the CLogDlg. When the instance
+	 * is deleted the destructor restores the selection.
+	 */
+	class CStoreSelection
+	{
+	public:
+		CStoreSelection(CLogDlg* dlg);
+		~CStoreSelection();
+	protected:
+		CLogDlg* m_logdlg;
+		std::set<LONG> m_SetSelectedRevisions;
+	};
+	CLogDlg::CStoreSelection* m_pStoreSelection;
+
     typedef struct LogEntryData
     {   
         svn_revnum_t Rev;
