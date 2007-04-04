@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-29 10:18+0100\n"
+"PO-Revision-Date: 2007-04-04 23:00+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -119,6 +119,11 @@ msgstr "%I64d kBytes verstuurd"
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
 
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld minuten en %ld seconden"
+
 #: ID:7
 #, c-format
 msgid "%ld of %ld"
@@ -148,6 +153,11 @@ msgstr "%s : Werkbasis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
+
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s in %s"
 
 #: ID:357
 #, c-format
@@ -397,6 +407,7 @@ msgid "&Export selection to..."
 msgstr "E&xporteer selectie naar..."
 
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Extern"
@@ -551,6 +562,7 @@ msgstr "&Netwerkstations"
 msgid "&New "
 msgstr "&Nieuw"
 
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Volgende %ld"
@@ -703,6 +715,7 @@ msgid "&Toolbar"
 msgstr "&Werkbalk"
 
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -966,6 +979,10 @@ msgstr "Voeg '%s' toe aan woordenboek"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Toevoegen (ter vervanging)..."
+
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Toevoegen - TortoiseSVN"
 
 #: ID:563
 msgid "Add Properties"
@@ -1302,6 +1319,10 @@ msgstr "Basisbestand:"
 msgid "Blame"
 msgstr "Verklaren"
 
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Verklaren - TortoiseSVN"
+
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Geeft van een bestand de auteur per regel"
@@ -1514,6 +1535,10 @@ msgstr "Ophalen"
 msgid "Checkout &directory:"
 msgstr "&Ophalen naar map:"
 
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "Ophalen - TortoiseSVN"
+
 #: ID:146
 msgid "Cleaning up."
 msgstr "Schonen bezig."
@@ -1611,6 +1636,10 @@ msgstr "Opdracht mislukt."
 msgid "Commit"
 msgstr "Vastleggen"
 
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Vastleggen - TortoiseSVN"
+
 #: Control-ID:1262
 msgid "Commit threshold:"
 msgstr "Drempelwaarde:"
@@ -1681,8 +1710,12 @@ msgid "Configure Hook Scripts"
 msgstr "Hook-scripts configureren"
 
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Programma voor het vergelijken van verschillende revisies van bestanden."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Configureer het programma voor het vergelijken van verschillende revisies van bestanden"
+
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Configureer het programma voor het vergelijken van verschillende revisies van eigenschappen"
 
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
@@ -1748,6 +1781,10 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiëren (Tak / Label)"
+
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Kopiëren - TortoiseSVN"
 
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2131,22 +2168,23 @@ msgstr "Wilt u dit bestand of deze map echt verplaatsen?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
 "Wilt u echt alle wijzigingen in %s\n"
-"ongedaan maken en teruggaan naar deze revisie?"
+"ongedaan maken en teruggaan naar deze revisie? Deze wijzigingen zullen in uw werkkopie worden aangebracht."
 
 #: ID:76
 #, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
 "Wilt u echt alle wijzigingen in\n"
 "%s\n"
-"uit deze revisie ongedaan maken?"
+"uit deze revisie ongedaan maken? Deze wijzigingen zullen worden aangebracht in uw werkkopie."
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -2355,6 +2393,10 @@ msgstr "Exporteer"
 #: Control-ID:1074
 msgid "Export &directory:"
 msgstr "Export&map:"
+
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exporteren - TortoiseSVN"
 
 #: ID:94
 msgid "Export directory:"
@@ -3053,6 +3095,10 @@ msgstr "%ld zaken importeren"
 msgid "Import &message"
 msgstr "&Boodschap importeren"
 
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importeren - TortoiseSVN"
+
 #: ID:127
 #, c-format
 msgid ""
@@ -3469,6 +3515,10 @@ msgstr "Maximum aantal boodschappen in de geschiedenis van logboek-boodschappen"
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Samenvoegen"
+
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "Samenvoegen - TortoiseSVN"
 
 #: ID:263
 msgid "Merged"
@@ -4289,6 +4339,10 @@ msgstr ""
 "Hernoem van %s\r\n"
 "naar %s"
 
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Hernoem/verplaats - TortoiseSVN"
+
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Knoop hernoemd"
@@ -4350,6 +4404,10 @@ msgstr "&Opgelost..."
 msgid "Resolve"
 msgstr "Oplossen"
 
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Oplossen - TortoiseSVN"
+
 #: ID:282
 msgid "Resolve conflict using \"mine\""
 msgstr "Los conflict op met \"mijn\""
@@ -4395,6 +4453,10 @@ msgstr "Opnieuw"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Ongedaan maken"
+
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Maak ongedaan - TortoiseSVN"
 
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4779,6 +4841,10 @@ msgstr "Bezig met eigenschappen wijzigen..."
 msgid "Settings"
 msgstr "Instellingen"
 
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "Instellingen - TortoiseSVN"
+
 #: Control-ID:1132
 msgid "Sh&ow log"
 msgstr "&Toon logboek"
@@ -4820,13 +4886,7 @@ msgstr "Toon &alle revisies"
 msgid "Show &differences"
 msgstr "Toon vers&chillen"
 
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Toon &logboek"
 
@@ -4845,6 +4905,10 @@ msgstr "Toon bestanden &zonder versiebeheer"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Toon lijst met bestanden"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Toon &overzicht"
 
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5077,6 +5141,10 @@ msgstr "Subversion server bestand:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "&Schakel werkkopie naar de nieuwe tak/label"
+
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Wisselen - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -5696,62 +5764,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Toevoegen..."
-
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Verklaren"
-
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Ophalen..."
-
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Vastleggen..."
-
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Kopiëren..."
-
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exporteren..."
-
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importeren..."
-
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Samenvoegen"
-
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Hernoemen/verplaatsen..."
-
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Oplossen..."
-
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Terugzetten..."
-
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Instellingen"
-
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Wisselen..."
-
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Verversen..."
-
 #: ID:98
 #, c-format
 msgid ""
@@ -5902,6 +5914,10 @@ msgstr "Bestanden zonder versiebeheer markeren map als gewijzigd"
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Verversen"
+
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "Bijwerken - TortoiseSVN"
 
 #: ID:74
 msgid "Updated"
