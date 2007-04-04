@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-21 23:39+0100\n"
+"PO-Revision-Date: 2007-04-04 17:27+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,12 @@ msgstr "%I64d KB forgalom"
 msgid "%d files selected, %d files total"
 msgstr "%d fájl kiválasztva, %d összesen"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld perc %ld másodperc"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -173,6 +179,12 @@ msgstr "%s : Munka Alap"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Munka Másolat"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s, %s-ben"
 
 # ID:357,
 #: ID:357
@@ -467,6 +479,7 @@ msgstr "&Kijelöltet exportál ide..."
 # Control-ID:1095,#:
 # Control-ID:1097,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Külső"
@@ -659,6 +672,7 @@ msgid "&New "
 msgstr "&Új"
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Következő %ld"
@@ -853,6 +867,7 @@ msgstr "&Eszöztár"
 # ID:3585,#:
 # Dlg-ID:130,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1213,6 +1228,13 @@ msgstr "&Az elutasító listához adás"
 msgid "Add..."
 msgstr "Hozzáad..."
 
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add... - TortoiseSVN"
+msgstr "Hozzáad... - TortoiseSVN"
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1454,7 +1476,7 @@ msgstr "F&olt beépítése..."
 # Control-ID:1294,
 #: Control-ID:1294
 msgid "Apply property recursively"
-msgstr "Érték megadása rekrúzívan"
+msgstr "Érték megadása rekurzívan"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1870,6 +1892,11 @@ msgstr "Frissítés"
 msgid "Checkout &directory:"
 msgstr "&Mappa frissítése"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout... - TortoiseSVN"
+msgstr "Frissítés... - TortoiseSVN"
+
 # ID:145,
 #: ID:146
 msgid "Cleaning up."
@@ -2000,6 +2027,11 @@ msgstr "Beküldési határérték:"
 msgid "Commit to:"
 msgstr "Beküldés ide:"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit... - TortoiseSVN"
+msgstr "Beküld... - TortoiseSVN"
+
 # ID:244,
 #: ID:244
 msgid "Commits by author"
@@ -2076,8 +2108,13 @@ msgstr "Hook Szkrpitek Beállítása"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Beállítja az összehasonlító programokat"
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Program beállítása különböző fájlok tartalmának összehasonlítására"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Program beállítása különböző fájlok tulajdonságának összehasonlítására"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2216,6 +2253,13 @@ msgstr "A munkamásolatba másol"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "A munkamásolatba másol..."
+
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy... - TortoiseSVN"
+msgstr "Másol... - TortoiseSVN"
 
 # ID:97,
 #: ID:98
@@ -2619,12 +2663,13 @@ msgstr "Biztos áthelyeted ezt a fájlt vagy mappát?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
 "Biztos visszaállítod az összes változást ebben:\n"
 "%s\n"
-"(és elveszíted a módosításokat)?"
+"és visszatérsz ehhez a verzióhoz? A módosítások bele lesznek gyúrva a munkapéldányba."
 
 # ID:76,
 #: ID:76
@@ -2632,11 +2677,11 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
-"Biztos visszaálsz az alábbi verzióra\n"
+"Biztos visszaállítod az összes változást erre:\n"
 "%s\n"
-"törölve minden utánna lévő fejleszést?"
+"ami ebben a verzióban készült? A módosítások bele lesznek gyúrva a munkapéldányba."
 
 # ID:76,
 #: ID:76
@@ -2656,7 +2701,7 @@ msgstr ""
 #: ID:563
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
-msgstr "Törlöd a %s értéket rekrúzívan?"
+msgstr "Törlöd a %s értéket rekurzívan?"
 
 # ID:313,
 #: ID:313
@@ -2900,6 +2945,11 @@ msgstr "Mappa export:"
 msgid "Export unversioned files too"
 msgstr "Nem verziókezelt fájlokat is exportálja"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export... - TortoiseSVN"
+msgstr "Export... - TortoiseSVN"
+
 # ID:79,
 #: ID:284
 #, c-format
@@ -3000,11 +3050,6 @@ msgstr "\"%s\" változáslistához rendelése/törlése sikertelen"
 #: ID:220
 msgid "Failed!"
 msgstr "Sikertelen!"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Ne fűzze bele az &állapotot a tartalom menübe"
 
 # ID:313,
 #: ID:313
@@ -3120,6 +3165,11 @@ msgstr "Ettől:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Ettől: (kezdő cím és verzió az összegyúrandó tartománynak)"
+
+# Control-ID:1018,
+#: ID:266
+msgid "Fully recursive"
+msgstr "Teljesen rekurzív"
 
 # ID:273,
 #: ID:273
@@ -3505,17 +3555,6 @@ msgstr ""
 "Ha ba van kapcsolva, akkor a beküldő ablak hiba és/vagy sikertelen\n"
 "beküldés esetén újra megnyílik, megőrzive a beállításokat."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Ha le van tiltva, a tartalom menü gyorsabban feljön.\n"
-"De lehet, hogy néhány menüelem nem mindig lesz használható.\n"
-"Például: a \"Napló megtekintése\" minden mappánál meg fog jelenni."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3607,6 +3646,11 @@ msgstr "Származás elutasítása"
 msgid "Ignore line &endings (recommended)"
 msgstr "Sorvégek &elutasítása (ajánlott)"
 
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "Köztes gyerek, beleértve a mappákat"
+
 # ID:9,
 #: Dlg-ID:139
 msgid "Import"
@@ -3652,6 +3696,11 @@ msgid ""
 msgstr ""
 "%s mappa importálása\r\n"
 "ide: %s"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Import... - TortoiseSVN"
+msgstr "Import... - TortoiseSVN"
 
 # ID:103,
 #: ID:120
@@ -4117,6 +4166,13 @@ msgstr "Megőrizni kivánt megjegyzések száma"
 msgid "Merge"
 msgstr "Összegyúr"
 
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Merge... - TortoiseSVN"
+msgstr "Összegyúr... - TortoiseSVN"
+
 # ID:263,
 #: ID:263
 msgid "Merged"
@@ -4430,7 +4486,7 @@ msgstr "Nincs elég memória a művelet végrehajtásához."
 # Control-ID:1018,
 #: ID:563
 msgid "Not recursive"
-msgstr "Nem rekrúzív"
+msgstr "Nem rekurzív"
 
 # ID:88,
 #: ID:88
@@ -4482,9 +4538,13 @@ msgstr "Egy vagy több fájl ellentmondó"
 
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Csak a leg&fölső mappát ellenőrizze"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "Csak fájl gyerek"
 
 # ID:169,
 #: ID:169
@@ -4495,10 +4555,10 @@ msgstr ""
 "Csak számok (vesszőkkel elválaszva)\n"
 "megengedettek!"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "Csak a legfölső mappát &frissítse"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Csak ez az elem"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -4967,7 +5027,7 @@ msgstr "Nem verziókezelt mappákba lépés"
 # Control-ID:1018,
 #: ID:563
 msgid "Recursive"
-msgstr "Rekrúzív"
+msgstr "Rekurzív"
 
 # ID:3603,
 #: ID:3603
@@ -5235,6 +5295,11 @@ msgstr "Javítás a saját verzió szerint"
 msgid "Resolve conflict using \"theirs\""
 msgstr "Javítás a másik verzió szerint"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Resolve... - TortoiseSVN"
+msgstr "Felold... - TortoiseSVN"
+
 # ID:8,#:
 # ID:74,
 #: ID:74
@@ -5287,6 +5352,11 @@ msgstr "Visszavon"
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Ezen verziók változtatásainak visszavonása"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Revert... - TortoiseSVN"
+msgstr "Visszaállít... - TortoiseSVN"
 
 # ID:73,
 #: ID:73
@@ -5777,6 +5847,11 @@ msgstr "Beállítások szerkesztése..."
 msgid "Settings"
 msgstr "Beállítások"
 
+# Dlg-ID:129,
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "Beállítások - TortoiseSVN"
+
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
@@ -5828,13 +5903,7 @@ msgid "Show &differences"
 msgstr "&Különbségeket mutat"
 
 # Control-ID:1016,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "&Naplót mutat"
 
@@ -5858,6 +5927,10 @@ msgstr "&Nem verziókezelt fájlok mutatása"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Fájllista mutatása"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "&Áttekintés mutatása"
 
 # ID:113,
 #: ID:113
@@ -6075,12 +6148,12 @@ msgstr "Állapot gyorsítótár"
 # ID:196,
 #: ID:196
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Az állapot gyorsítótárazás egy külső folyamatra vár, lehet hogy a fedést rekrúzívan mutatja"
+msgstr "Az állapot gyorsítótárazás egy külső folyamatra vár, lehet hogy a fedést rekurzívan mutatja"
 
 # ID:196,
 #: ID:196
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Az állapot gyorsítótárazás csak egy mappára érvényes, nincsenek rekrúziv fedések"
+msgstr "Az állapot gyorsítótárazás csak egy mappára érvényes, nincsenek rekurzív fedések"
 
 # ID:11,
 #: ID:11
@@ -6202,6 +6275,11 @@ msgstr "Az előző dokumentumablakra ugrk"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Munkapéldány átállítása mellékágra"
+
+# Dlg-ID:129,
+#: ID:78
+msgid "Switch... - TortoiseSVN"
+msgstr "Vált... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -6729,10 +6807,10 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
-"Hogy rekrúzívan küldj be és dolgozhass a hibán,\n"
+"Hogy rekurzívan küldj be és dolgozhass a hibán,\n"
 "nézd meg hogy az összes elem az alkönyvtárakban\n"
 "ki van jelölve a beküldési ablakban,\n"
-"különben a TortoiseSVN nem-rekrúzívan fog beküldeni,\n"
+"különben a TortoiseSVN nem-rekurzívan fog beküldeni,\n"
 "ami nem teszi lehetővé a mappatörlést."
 
 # Control-ID:1201,
@@ -6856,78 +6934,14 @@ msgstr ""
 # ID:9,#:
 # ID:80,#:
 # Control-ID:65535,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Hozzáad..."
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
 #: ID:132
 msgid "TortoiseSVN Blame"
 msgstr "TortoiseSVN Szemrehány"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Kitekint..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Beküldés..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Másolás..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exportálás..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importálás..."
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Összegyúrás..."
 
 # ID:221,
 #: ID:221
 msgid "TortoiseSVN Rename/move"
 msgstr "TortoiseSVN Átnevez/áthelyez"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Megold..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Visszaállít..."
-
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Beállítások"
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Átkapcsoló..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Frissítés..."
 
 # ID:98,
 #: ID:98
@@ -7116,6 +7130,11 @@ msgstr "Nem verziókezelt fájlok a szülőkönyvtárt módosítottnak jelzik"
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Frissít"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Update... - TortoiseSVN"
+msgstr "Frissít... - TortoiseSVN"
 
 # ID:74,
 #: ID:74
@@ -7767,6 +7786,11 @@ msgstr "elutasítva"
 msgid "incomplete"
 msgstr "befejezetlen"
 
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "elemek helyben hagyva"
+
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
@@ -7870,7 +7894,7 @@ msgid ""
 msgstr ""
 "svn:executable\n"
 "Ha jelen van, a fájlt futtathatóvá teszi. Ezt nem állíthatod egy mappára.\n"
-"Egy nem-rekrúzív kísérlet nem fog működni, és a szűlőkönyvtárakra hat csak."
+"Egy nem-rekurzív kísérlet nem fog működni, és a szűlőkönyvtárakra hat csak."
 
 # ID:14,
 #: ID:14
