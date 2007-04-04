@@ -283,7 +283,8 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
 		<!-- create the mo files -->
-		<exec program="msgfmt" if="${file::exists('..\ext\Subversion\Subversion\po\${langISO}.po')}" failonerror="false" >
+		<property name="PoFileName" value="..\ext\Subversion\Subversion\po\${langISO}.po" />
+		<exec program="msgfmt" if="${file::exists(PoFileName)}" failonerror="false" >
 			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
 			<arg value="-o" />
 			<arg value="subversion.mo" />
@@ -338,11 +339,11 @@ NAnt build script for the TortoiseSVN language pack installers
 				<variable name="TSVNMoFile" value="${langISO}" />
 			</setenv>
 		</if>
-		<if test="${file::exists('..\doc\output\TortoiseSVN_${langISO}.chm')}">
-			<setenv>
-				<variable name="TSVNHelpFiles" value="${langISO}" />
-			</setenv>
-		</if>
+
+		<property name="chmFileName" value="..\doc\output\TortoiseSVN_${langISO}.chm" />
+		<setenv if="${file::exists(chmFileName)}">
+			<variable name="TSVNHelpFiles" value="${langISO}" />
+		</setenv>
 
 		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
 		
