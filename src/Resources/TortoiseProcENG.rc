@@ -1863,21 +1863,21 @@ BEGIN
     IDS_PROGRS_ACTION       "Action"
     IDS_PROGRS_PATH         "Path"
     IDS_PROGRS_TITLEFIN     "Finished!"
-    IDS_PROGRS_TITLE_CHECKOUT "Checkout... - TortoiseSVN"
-    IDS_PROGRS_TITLE_IMPORT "Import... - TortoiseSVN"
-    IDS_PROGRS_TITLE_UPDATE "Update... - TortoiseSVN"
-    IDS_PROGRS_TITLE_COMMIT "Commit... - TortoiseSVN"
-    IDS_PROGRS_TITLE_ADD    "Add... - TortoiseSVN"
-    IDS_PROGRS_TITLE_REVERT "Revert... - TortoiseSVN"
-    IDS_PROGRS_TITLE_RESOLVE "Resolve... - TortoiseSVN"
+    IDS_PROGRS_TITLE_CHECKOUT "Checkout - TortoiseSVN"
+    IDS_PROGRS_TITLE_IMPORT "Import - TortoiseSVN"
+    IDS_PROGRS_TITLE_UPDATE "Update - TortoiseSVN"
+    IDS_PROGRS_TITLE_COMMIT "Commit - TortoiseSVN"
+    IDS_PROGRS_TITLE_ADD    "Add - TortoiseSVN"
+    IDS_PROGRS_TITLE_REVERT "Revert - TortoiseSVN"
+    IDS_PROGRS_TITLE_RESOLVE "Resolve - TortoiseSVN"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLE_SWITCH "Switch... - TortoiseSVN"
-    IDS_PROGRS_TITLE_EXPORT "Export... - TortoiseSVN"
-    IDS_PROGRS_TITLE_MERGE  "Merge... - TortoiseSVN"
-    IDS_PROGRS_TITLE_COPY   "Copy... - TortoiseSVN"
+    IDS_PROGRS_TITLE_SWITCH "Switch - TortoiseSVN"
+    IDS_PROGRS_TITLE_EXPORT "Export - TortoiseSVN"
+    IDS_PROGRS_TITLE_MERGE  "Merge - TortoiseSVN"
+    IDS_PROGRS_TITLE_COPY   "Copy - TortoiseSVN"
     IDS_PROGRS_MIMETYPE     "Mime type"
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
@@ -2117,7 +2117,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_BLAME_PROGRESSTITLE "TortoiseSVN Blame"
+    IDS_BLAME_PROGRESSTITLE "Blame - TortoiseSVN"
     IDS_BLAME_PROGRESSINFO  "Please wait - this can take several minutes. Seriously!"
     IDS_BLAME_PROGRESSCANCEL "Cancelling TortoiseSVN Blame..."
     IDS_BLAME_PROGRESSINFO2 "Processing revision %d of %d..."
@@ -2455,7 +2455,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLE_RENAME "TortoiseSVN Rename/move"
+    IDS_PROGRS_TITLE_RENAME "Rename/move - TortoiseSVN"
     IDS_PROGRS_TITLE_LOCK   "Lock"
     IDS_PROGRS_TITLE_UNLOCK "Unlock"
 END
