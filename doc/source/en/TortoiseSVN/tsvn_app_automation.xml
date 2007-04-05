@@ -379,8 +379,16 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:lock</entry>
 							<entry>
-								Locks a file. The 'lock' dialog is shown so the
+								Locks a file or all files in a directory.
+								The 'lock' dialog is shown so the
 								user can enter a comment for the lock.
+								<option>/path</option>
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:unlock</entry>
+							<entry>
+								Unlocks a file or all files in a directory..
 								<option>/path</option>
 							</entry>
 						</row>
