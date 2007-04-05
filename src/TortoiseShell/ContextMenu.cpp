@@ -482,7 +482,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	if ((files_.size() == 1)&&(m_State != FileStateDropHandler))
 	{
 		itemStates |= ITEMIS_ONLYONE;
-		if (PathIsDirectory(files_.front().c_str()))
+		if ((folder_.size())&&(PathIsDirectory(files_.front().c_str())))
 		{
 			folder_ = files_.front();
 			svn_wc_status_kind status = svn_wc_status_unversioned;
@@ -1942,6 +1942,8 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, BOOL ownerdra
 	bool bShowIgnoreMenu = false;
 	TCHAR maskbuf[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
 	TCHAR ignorepath[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
+	if (files_.size() == 0)
+		return;
 	std::vector<stdstring>::iterator I = files_.begin();
 	if (_tcsrchr(I->c_str(), '\\'))
 		_tcscpy_s(ignorepath, MAX_PATH, _tcsrchr(I->c_str(), '\\')+1);
