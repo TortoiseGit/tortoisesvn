@@ -25,7 +25,7 @@
 #pragma warning(pop)
 
 // Import MSXML interfaces
-#import "msxml.dll" named_guids raw_interfaces_only
+#import "msxml6.dll" named_guids raw_interfaces_only
 
 //
 // COM helper macros
@@ -65,38 +65,38 @@ private:
    vector<string> m_symFiles;
 
    // used by stack wallback
-   MSXML::IXMLDOMElement* m_stack_element;
-   MSXML::IXMLDOMDocument* m_stack_doc;
+   MSXML2::IXMLDOMElement* m_stack_element;
+   MSXML2::IXMLDOMDocument* m_stack_doc;
    int m_frameNumber;
 
    // used by exception node creation, symbol translations
-   MSXML::IXMLDOMElement*  m_exception_element;
+   MSXML2::IXMLDOMElement*  m_exception_element;
 
    // used by dump callback
    std::vector<MINIDUMP_MODULE_CALLBACK>	m_modules;
 
    static void writeDumpFile(HANDLE file, PEXCEPTION_POINTERS m_excpInfo, void *data);
 
-   MSXML::IXMLDOMNode* CreateDOMNode(MSXML::IXMLDOMDocument* pDoc, 
+   MSXML2::IXMLDOMNode* CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc, 
                                             int type, 
                                             BSTR bstrName);
 
-   MSXML::IXMLDOMNode* CreateExceptionRecordNode(MSXML::IXMLDOMDocument* pDoc, 
+   MSXML2::IXMLDOMNode* CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc, 
                                                         EXCEPTION_RECORD* pExceptionRecord);
    static void CreateExceptionSymbolAttributes(DWORD_PTR address, const char *ImageName,
 									  const char *FunctionName, DWORD_PTR functionDisp,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data);
 
-   MSXML::IXMLDOMNode* CreateProcessorNode(MSXML::IXMLDOMDocument* pDoc);
+   MSXML2::IXMLDOMNode* CreateProcessorNode(MSXML2::IXMLDOMDocument* pDoc);
 
-   MSXML::IXMLDOMNode* CreateOSNode(MSXML::IXMLDOMDocument* pDoc);
+   MSXML2::IXMLDOMNode* CreateOSNode(MSXML2::IXMLDOMDocument* pDoc);
 
-   MSXML::IXMLDOMNode* CreateModulesNode(MSXML::IXMLDOMDocument* pDoc);
+   MSXML2::IXMLDOMNode* CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc);
 
-   MSXML::IXMLDOMNode* CreateMsgNode(MSXML::IXMLDOMDocument* pDoc, BSTR message);
+   MSXML2::IXMLDOMNode* CreateMsgNode(MSXML2::IXMLDOMDocument* pDoc, BSTR message);
 
-   MSXML::IXMLDOMNode* CreateWalkbackNode(MSXML::IXMLDOMDocument* pDoc, CONTEXT *pContext);
+   MSXML2::IXMLDOMNode* CreateWalkbackNode(MSXML2::IXMLDOMDocument* pDoc, CONTEXT *pContext);
 
    static void CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageName,
 									  const char *FunctionName, DWORD_PTR functionDisp,
