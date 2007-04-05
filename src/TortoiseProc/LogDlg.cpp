@@ -3612,6 +3612,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			return;
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		bool bOpenWith = false;
+		m_bCancelled = false;
 		switch (cmd)
 		{
 		case ID_DIFF:
