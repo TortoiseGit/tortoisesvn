@@ -2,8 +2,8 @@
 
 <xsl:import href="../htmlhelp.xsl"/>
 
-<xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
-<xsl:param name="htmlhelp.encoding" select="'UTF-8'"/>
+<xsl:param name="chunker.output.encoding" select="'GB18030'"/>
+<xsl:param name="htmlhelp.encoding" select="'GB18030'"/>
 
 <xsl:template name="person.name.family-given">
   <xsl:param name="node" select="."/>
