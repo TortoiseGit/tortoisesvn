@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-03-29 22:18 +0000\n"
-"PO-Revision-Date: 2007-03-07 10:05+0800\n"
+"PO-Revision-Date: 2007-04-05 23:49+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -860,9 +860,8 @@ msgid "https://"
 msgstr "https://"
 
 #: source/TortoiseSVN_en.xml:10961(para)
-#, fuzzy
 msgid "TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program. From TortoiseSVN 1.5.0 on and later, <option>/notempfile</option> parameter is obsolete and there is no need to add it anymore."
-msgstr "因为TortoiseSVN使用临时文件来在shell扩展之间传递多个参数，你<emphasis>必须</emphasis>添加<option>/notempfile</option>参数！如果你不这样做，命令不会执行，使用参数<option>/path</option>传递的文件会被删除。"
+msgstr "TortoiseSVN 使用临时文件在 shell 扩展和主程序之间传递多个参数。从 TortoiseSVN 1.5.0 开始，废弃<option>/notempfile</option>参数，不再需要增加此参数。"
 
 #: source/TortoiseSVN_en.xml:10967(para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batchfile or from the TortoiseSVN context menu."
@@ -929,14 +928,12 @@ msgid "Opens the log dialog. The path specifies the file or folder for which the
 msgstr "打开日志对话框，路径指定了日志显示的文件或目录，另外还有三个选项可以设置: <placeholder-1/>、<placeholder-2/>和<placeholder-3/>"
 
 #: source/TortoiseSVN_en.xml:11050(option)
-#, fuzzy
 msgid "/startrev:xxx"
-msgstr "/revstart:xxx"
+msgstr "/startrev:xxx"
 
 #: source/TortoiseSVN_en.xml:11051(option)
-#, fuzzy
 msgid "/endrev:xxx"
-msgstr "/rev:xxx"
+msgstr "/endrev:xxx"
 
 #: source/TortoiseSVN_en.xml:11052(option)
 msgid "/strict"
@@ -1193,7 +1190,6 @@ msgid "Shows the properties dialog for the path given in <placeholder-1/>."
 msgstr "显示 <placeholder-1/> 给出的路径之属性对话框。"
 
 #: source/TortoiseSVN_en.xml:11324(para)
-#, fuzzy
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
 "TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
@@ -1207,12 +1203,12 @@ msgid ""
 msgstr ""
 "例子(必须在一行输入): <screen>\n"
 "TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
-"                 /logmsg:\"test log message\" /notempfile /closeonend\n"
+"                 /logmsg:\"test log message\" /closeonend\n"
 "\n"
-"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /notempfile /closeonend\n"
+"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend\n"
 "\n"
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
-"                 /revstart:50 /revend:60 /notempfile /closeonend\n"
+"                 /startrev:50 /endrev:60 /closeonend\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:11339(title)
@@ -3907,9 +3903,8 @@ msgid "This document is also a work in progress, just as TortoiseSVN and Subvers
 msgstr "本文档与TortoiseSVN和Subversion一样，也是处于“正在开发”的状态。如果你找到了错误之处，请向邮件列表报告，这样我们就可以更新它。日常使用指南(DUG)中的一些屏幕截图也许不符合当前软件中的情况。请您原谅我们。毕竟我们只是用业余的时间在制作TortoiseSVN 。"
 
 #: source/TortoiseSVN_en.xml:3193(para)
-#, fuzzy
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr "以下情况不支持:  <placeholder-1/>"
+msgstr "为了获得比每日用户指南更多的信息: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3197(para)
 msgid "You should have installed TortoiseSVN already."
@@ -3936,9 +3931,8 @@ msgid "Icon Overlays"
 msgstr "图标重载"
 
 #: source/TortoiseSVN_en.xml:3226(para)
-#, fuzzy
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
-msgstr "<placeholder-1/>TortoiseSVN最直观的功能之一就是图标重载，重载的图标显示在你的工作复本文件上。你一眼就可以知道文件被修改过了。参考<xref linkend=\"tsvn-dug-wcstatus-1\"/>学习不同的重载图标所表示的意义。"
+msgstr "<placeholder-1/> TortoiseSVN 最明显的特性之一就是图标重载，重载的图标显示在你的工作副本文件上。你一眼就可以看到文件被修改过了。参考 <xref linkend=\"tsvn-dug-wcstatus-1\"/> 查阅不同的重载图标含义。"
 
 #: source/TortoiseSVN_en.xml:3228(title) source/TortoiseSVN_en.xml:4533(title)
 msgid "Explorer showing icon overlays"
@@ -4051,9 +4045,8 @@ msgid "authentication"
 msgstr "认证"
 
 #: source/TortoiseSVN_en.xml:3349(para)
-#, fuzzy
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/> There is one file for each server that you access, formatted as plain text, so you can use a text editor to check which server it applies to. In order to make Subversion and TortoiseSVN (and any other Subversion client) forget your credentials for a particular server, simply delete the corresponding file."
-msgstr "如果要连接的版本库需要口令，一个认证对话框就会显示出来。<placeholder-1/> 输入你的用户名和口令。那个选择框能让TortoiseSVN在Subversion的缺省路径下<filename>$APPDATA\\Subversion\\auth</filename>的三个子目录里保存认证信息: <placeholder-2/>每个文件对应一个要连接的服务器。文件是纯文本格式，因此可以用文本编辑器查看每个文件是应用于哪个服务器的。如果希望Subversion和TortoiseSVN忘记某个服务器的凭证信息，只需删除这个服务器的对应文件即可。"
+msgstr "如果连接的版本库需要口令，就会显示认证对话框。<placeholder-1/> 输入你的用户名和口令。其检查框能让 TortoiseSVN 在 Subversion的 缺省目录：<filename>%APPDATA%\\Subversion\\auth</filename> 的三个子目录内保存认证信息：<placeholder-2/> 每个文件对应一个服务器，文件是纯文本格式，因此可以用文本编辑器查看文件是对应哪个服务器。如果希望 Subversion 和 TortoiseSVN(或者其它 Subversion 客户端) 忘记某个服务器的凭证信息，只需删除这个服务器的对应文件即可。"
 
 #: source/TortoiseSVN_en.xml:3353(title)
 msgid "Authentication Dialog"
@@ -4080,9 +4073,8 @@ msgid "For more information on how to set up your server for authentication and 
 msgstr "关于如何设置服务器的认证和权限的更多信息，请参考<xref linkend=\"tsvn-serversetup\"/>"
 
 #: source/TortoiseSVN_en.xml:3399(para)
-#, fuzzy
 msgid "If you have to authenticate against a Windows NT domain, enter your username including the domain name, like: <filename>MYDOMAIN\\johnd</filename>."
-msgstr "如果使用Windows NT域进行认证，输入用户名的时候要包括域名，如: <filename>MYDOMAIN/johnd</filename>。"
+msgstr "如果使用 Windows NT 域认证，输入用户名的时候要包括域名，如: <filename>MYDOMAIN\\johnd</filename>。"
 
 #: source/TortoiseSVN_en.xml:3408(title)
 msgid "Importing Data Into A Repository"
@@ -4274,9 +4266,8 @@ msgid "By default, files and folders which match the global-ignore patterns are 
 msgstr "默认情况下，匹配全局忽略模式的文件和文件夹<emphasis>不会</emphasis>被导入。你可以使用<guilabel>包含忽略文件</guilabel>检验栏来禁止此行为。参考<xref linkend=\"tsvn-dug-settings-main\"/>以获得关于全局忽略模式的更多信息。"
 
 #: source/TortoiseSVN_en.xml:3607(para)
-#, fuzzy
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. As before, the name of the folder you import does not appear in the repository, only the folder contents. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported. Or read on to find out how to import a folder in place."
-msgstr "当你点击<guibutton>确认</guibutton>时，TortoiseSVN 会导入包含所有文件的完整目录树到版本库。如前所述，你导入的文件夹名称不会在版本库中出现，只有这个文件夹的内容会在版本库中出现。现在这个工程就存贮在版本库，被版本控制。请注意，你导入的文件夹<emphasis>没有</emphasis>被版本控制！你需要检出刚才导入的版本，以便获得受版本控制的<firstterm>工作目录</firstterm>。"
+msgstr "当你点击<guibutton>确认</guibutton>时，TortoiseSVN 会导入包含所有文件的完整目录树到版本库。如前所述，你导入的文件夹名称不会在版本库中出现，只有这个文件夹的内容会在版本库中出现。现在这个工程就存贮在版本库，被版本控制。请注意，你导入的文件夹<emphasis>没有</emphasis>被版本控制！你需要检出刚才导入的版本，以便获得受版本控制的<firstterm>工作目录</firstterm>。或者继续阅读，找到如何导入文件夹到合适的位置。"
 
 #: source/TortoiseSVN_en.xml:361(para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
@@ -4284,37 +4275,35 @@ msgstr "在2002年，Tim Kemp 发现 Subversion 是一个很好的版本控制�
 
 #: source/TortoiseSVN_en.xml:3621(title)
 msgid "Import in Place"
-msgstr ""
+msgstr "导入适当的位置"
 
 #: source/TortoiseSVN_en.xml:3623(primary)
 msgid "import in place"
-msgstr ""
+msgstr "导入适当的位置"
 
 #: source/TortoiseSVN_en.xml:3625(para)
 msgid "The Subversion import command has limited functionality - you cannot easily pick items for import. Also, the folder you are importing does not become a Subversion working copy - you have to do a separate checkout. But don't worry, there is another way of working which overcomes both these shortcomings :-)"
-msgstr ""
+msgstr "Subversion 导入命令功能有限 - 你不能容易的选择导入的项目。而且，你导入的文件夹不会成为 Subversion 工作副本 -  你不得不单独做检出。但是不要担心，有其它方法克服这些缺陷 :-)"
 
 #: source/TortoiseSVN_en.xml:3632(para)
 msgid "Assuming you already have a repository, and you want to add a new folder structure to it, just follow these steps: <placeholder-1/>"
-msgstr ""
+msgstr "假定你已经有个版本库，你想给它增加一个新目录结构，只需以下步骤: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3637(para)
-#, fuzzy
 msgid "Use the repository browser to create a new project folder directly in the repository."
-msgstr "你还可以使用版本库浏览器直接在版本库中创建文件夹。"
+msgstr "使用版本库浏览器直接在版本库中创建项目文件夹。"
 
 #: source/TortoiseSVN_en.xml:3643(para)
 msgid "Checkout the new folder over the top of the folder you want to import. You will get a warning that the local folder is not empty. Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "在你要导入的文件夹检出新目录。你会得到一个本地目录为空的警告。现在你有一个版本控制的顶级目录，含有未版本控制的内容。"
 
 #: source/TortoiseSVN_en.xml:3650(para)
-#, fuzzy
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> on this versioned folder to add some or all of the content. You can add and remove files, set <literal>svn:ignore</literal> properties on folders and make any other changes you need to."
-msgstr "在新目录下选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检出</guimenuitem></menuchoice>，在其中检出普通代码的副本，现在你在主要的工作副本有了一个独立的嵌套的工作副本。"
+msgstr "在此受版本控制的文件夹上使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>增加...</guimenuitem></menuchoice>增加部分或全部内容。你可以增加或删除文件，在文件夹上设置<literal>svn:ignore</literal>属性，或者你需要的其它修改。"
 
 #: source/TortoiseSVN_en.xml:3662(para)
 msgid "Commit the top level folder, and you have a new versioned tree, and a local working copy, created from your existing folder."
-msgstr ""
+msgstr "提交顶级目录，你有一个新的版本树，一份从你已有目录创建的本地工作副本。"
 
 #: source/TortoiseSVN_en.xml:367(para)
 msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain tortoisesvn.org and put the sourcecode online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
@@ -4361,7 +4350,6 @@ msgid "Sometimes it is useful to construct a working copy that is made out of a 
 msgstr "有时候，构建一个需要不同检出的工作目录是很有用的。举例来说，你需要不同的子目录来自版本库的不同位置。，或者可能完全来自不同的版本库。如果你需要每个用户具有相同的目录结构，你可以定义<literal>svn:externals</literal>属性。"
 
 #: source/TortoiseSVN_en.xml:3725(para)
-#, fuzzy
 msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use foldernames with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
@@ -4369,11 +4357,11 @@ msgid ""
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a subfolder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another subfolder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested subfolder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"比如说，你检出了<filename>/project1</filename>，工作目录是 <filename>D:\\dev\\project1</filename>。选择目录<filename>D:\\dev\\project1</filename>，<action>右击</action>，在右键菜单选择<menuchoice><guimenu>Windows 菜单</guimenu><guimenuitem>属性</guimenuitem></menuchoice>。就会出现属性窗口，转到Subversion页，你可以设置属性。从组合框选择<literal>svn:externals</literal>属性，在编辑框按照<literal>名称 URL</literal>格式输入，或者你需要一个指定的版本，那么使用<literal>名称 -r版本 URL</literal>。你可以增加多个外部工程，每行一个。注意，URL必须使用逃逸字符编码，不然可能无法正常工作。举例说明，你必须将每个空格替换为<literal>%20</literal>。使用包含空格的目录名称是不可能的。假设你为<filename>D:\\dev\\project1</filename>设置了这些属性: <screen>\n"
+"比如说，你检出了<filename>/project1</filename>到 <filename>D:\\dev\\project1</filename>。选择目录<filename>D:\\dev\\project1</filename>，<action>右击</action>，选择<menuchoice><guimenu>Windows 菜单</guimenu><guimenuitem>属性</guimenuitem></menuchoice>。出现属性对话框。在Subversion页，你可以设置属性。点击<guibutton>增加...</guibutton>。从组合框选择<literal>svn:externals</literal>属性，在编辑框按照<literal>名称 URL</literal>格式输入版本库URL，或者你需要一个指定的版本，那么使用<literal>名称 -r版本 URL</literal>。你可以增加多个外部工程，每行一个。注意，URL必须使用逃逸字符编码，不然可能无法正常工作。举例说明，你必须将每个空格替换为<literal>%20</literal>。注意使用包含空格的目录名称是不可能的。假设你为<filename>D:\\dev\\project1</filename>设置了这些属性: <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
 "quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen> 现在点击 <guibutton>设置</guibutton>，然后提交你的修改。当你(或其他用户)更新工作目录时， Subversion 将会创建子目录<filename>D:\\dev\\project1\\sounds</filename>，并且检出sounds工程，另一个子目录<filename>D:\\dev\\project1\\quick graphs</filename>包含graphics工程，最后一个嵌套的子目录<filename>D:\\dev\\project1\\skins\\toolkit</filename>包含的skin-maker工程的版本21。"
+"</screen> 现在点击 <guibutton>设置</guibutton>，提交你的修改。当你(或其他用户)更新工作副本时， Subversion 将会创建子目录<filename>D:\\dev\\project1\\sounds</filename>，并且检出sounds工程，另一个子目录<filename>D:\\dev\\project1\\quick_graphs</filename>包含graphics工程，最后一个嵌套的子目录<filename>D:\\dev\\project1\\skins\\toolkit</filename>包含的skin-maker工程的版本21。"
 
 #: source/TortoiseSVN_en.xml:3775(para)
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
@@ -5212,14 +5200,12 @@ msgid "Update your working copy to the selected revision. Useful if you want to 
 msgstr "将你的工作复本更新到选中的版本。如果你想要你的工作复本折返到过去的某个时间，那这个功能就很好用。你最好是更新工作复本的整个目录而不是单一某个文件，因为如果只更新某个文件，你的工作复本就可能不一致，从而导致你无法提交任何修改。"
 
 #: source/TortoiseSVN_en.xml:5045(para)
-#, fuzzy
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since. If you have made local changes, this command will merge these changes into your working copy."
-msgstr "还原选中版本中所做的变更。还原的内容只在你的工作复本中，这个操作完全<emphasis>不会</emphasis>影响版本库！要注意的是，这个操作仅仅恢复该版本中的修改(译注: 就是将你选中的那个版本中的修改还原，而在那之后的修改，包括你在工作复本中的新改动依然会被保留，如不正确请联系liuheqi@gmail.com)。不是将整个文件替换成选中的那个版本。(译注: 本段对菜单中的“复原自此版本以来的变更(Revert changes from this revision)”，按实际操作的结果来看，中文菜单应翻译成“复原此版本的变更”比较合适，如不正确请联系liuheqi@gmail.com)"
+msgstr "还原选中版本所做的修改。还原的内容只在你的工作副本中，所以此操作完全<emphasis>不会</emphasis>影响版本库！要注意的是，这个操作仅仅还原该版本中的修改。不是将整个文件替换成选中的那个版本。它对于已经做过其它无关修改的还原早期修改非常有用。如果你做了本地修改，此命令将会合并修改到工作副本。"
 
 #: source/TortoiseSVN_en.xml:5059(para)
-#, fuzzy
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version. If you have made local changes, this command will merge these changes into your working copy."
-msgstr "还原到某个早前的版本。如果你进行了多个修改，然后决定要返回到版本N中的模样，你就可以使用这个命令。当然，返回的东西都只在你的工作复本中，在你提交之前，并<emphasis>不会</emphasis>影响版本库。注意，这将会还原从那个版本以来的所有变更，使用选中的版本来替换文件/文件夹。(译注: 在实际使用中发现并不是简单的替换，如果你在当前工作复本中所做的修改不涉及到被选中版本以来的变更内容，那么你的修改会与版本N进行合并，否则这个操作会产生一个冲突。这段对应菜单中的“复原到此版本(Revert to this revision)”。如果不正确，请联系liuheqi@gmail.com)"
+msgstr "恢复到某个以前的版本。如果你做了多处修改，然后决定要返回到版本 N，你就可以使用这个命令。再次说明，恢复的修改位于你的工作复本，在你提交之前，并<emphasis>不会</emphasis>影响版本库。注意，这将会丢弃从那个版本以来的<emphasis>所有</emphasis>修改，使用选中的版本来替换文件/文件夹。"
 
 #: source/TortoiseSVN_en.xml:5073(para)
 msgid "Make a fresh checkout of the selected folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the checkout."
@@ -5858,9 +5844,8 @@ msgid "If you <action>right click</action> on a single unversioned file, and sel
 msgstr "如果你<action>右键</action>一个单独的未版本控制文件，并从菜单栏选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>(加入忽略列表)Add to Ignore List</guimenuitem></menuchoice>，会出现一个子菜单允许你仅选择该文件，或者所有具有相同后缀的文件。如果你选择多种文件，那么就没有子菜单了，你仅能添加这些特定的文件/目录。"
 
 #: source/TortoiseSVN_en.xml:5941(para)
-#, fuzzy
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
-msgstr "如果你想从忽略列表中移除一个或多个条目，<action>right click 右键</action>该条目并选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice>你也可以直接通过目录的<literal>svn:ignore</literal>特性。他允许你指定多个文件名段的通用样式，来部分的描述。阅读<xref linkend=\"tsvn-dug-propertypage\"/>立即获得更多关于设置道具的信息。"
+msgstr "如果你想从忽略列表中移除一个或多个条目，<action>右击</action>这些条目，选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>从忽略列表删除</guimenuitem></menuchoice>。你也可以直接存取目录的<literal>svn:ignore</literal>属性。它允许你使用文件匹配来指定多个模式，这在下面的章节叙述，阅读<xref linkend=\"tsvn-dug-propertypage\"/>获得更多关于直接设置属性的信息。请注意每个忽略模式占一行，不支持使用空格分割。"
 
 #: source/TortoiseSVN_en.xml:595(primary)
 msgid "translations"
@@ -5887,9 +5872,8 @@ msgid "Versioned files and folders can never be ignored - that's a feature of Su
 msgstr "已版本控制的文件或目录不能够忽略，这是subversion的一个特性。如果你错误的版本控制了一个文件，阅读<xref linkend=\"tsvn-howto-unversion\"/>介绍怎样<quote>取消版本控制(unversion)</quote>。"
 
 #: source/TortoiseSVN_en.xml:5979(title)
-#, fuzzy
 msgid "Pattern Matching in Ignore Lists"
-msgstr "忽略(Ignore)列表中的文件匹配"
+msgstr "忽略列表中的模式匹配"
 
 #: source/TortoiseSVN_en.xml:5981(primary)
 msgid "globbing"
@@ -5897,7 +5881,7 @@ msgstr "globbing"
 
 #: source/TortoiseSVN_en.xml:5984(primary)
 msgid "pattern matching"
-msgstr ""
+msgstr "模式匹配"
 
 #: source/TortoiseSVN_en.xml:5986(para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
@@ -5929,7 +5913,7 @@ msgstr "匹配任何单在方括号[]内的单字符，在方括号内，一对�
 
 #: source/TortoiseSVN_en.xml:6026(para)
 msgid "Subversion uses the <literal>/</literal> as the path delimiter in all internal pathnames, and all pattern matching is done against this style of path names. If you want to use a path delimiter in your ignore pattern, be sure to use <literal>/</literal>, and not the Windows backslash."
-msgstr ""
+msgstr "Subversion 在所有内部路径名称中使用 <literal>/</literal> 作为路径分割符，所有模式匹配都使用这种路径名称风格。如果你想在忽略模式中使用路径分割符，确认使用 <literal>/</literal>, 而不是 Windows 的反斜线符号。"
 
 #: source/TortoiseSVN_en.xml:6032(para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
@@ -5937,16 +5921,15 @@ msgstr "模式匹配是大小写敏感的，这在windows平台下会出问题�
 
 #: source/TortoiseSVN_en.xml:6039(para)
 msgid "Subversion uses this pattern matching against every path presented to it for action. These paths are generally relative to the directory being acted upon for import, add, commit, etc. The matching pattern therefore has to take account of the fact that there may or may not be path components before the filename."
-msgstr ""
+msgstr "Subversion 对每个路径使用这种匹配模式。这些路径通常相对于执行导入，增加，提交等动作的目录。因此，此匹配模式考虑在文件名称之前可能有，也可能没有路径组件这个事实。"
 
 #: source/TortoiseSVN_en.xml:6046(para)
-#, fuzzy
 msgid "If directory names are present in a path, the matching algorithm will not trim them off, so pattern <literal>Fred.*</literal> will match <literal>Fred.c</literal> but not <literal>subdir/Fred.c</literal>. This is significant if you add a folder which contains some files that you want to be ignored, because those filenames will be preceded with the folder name when Subversion compares them with the ignore pattern."
-msgstr "如果当前路径的目录名作为模式出现在匹配中，这个模式<literal>Fred.*</literal>将匹配<literal>Fred.c</literal>但不匹配<literal>subdir/Fred.c</literal>。这对于你添加了一个包含许多文件而又想忽略的目录来说是非常有意义的，因为这个目录名的优先级高于这些文件名。"
+msgstr "如果目录名称在路径中，匹配算法不会删除它们，所以模式<literal>Fred.*</literal>匹配<literal>Fred.c</literal>，但是不匹配<literal>subdir/Fred.c</literal>。这对于你添加一个包含你想忽略的一些文件的目录来说是非常有意义的，因为在 Subversion 处理忽略模式时，这些文件名的优先级高于目录名。"
 
 #: source/TortoiseSVN_en.xml:6055(para)
 msgid "The <literal>/</literal> character is not treated in any special way for pattern matching purposes, so the pattern <literal>abc*xyz</literal> would match <literal>abcdxyz</literal> but also <literal>abcdir/subdir/anything/morexyz</literal>."
-msgstr ""
+msgstr "在模式匹配中，<literal>/</literal> 字符不会做任何特别处理，所以模式 <literal>abc*xyz</literal> 匹配 <literal>abcdxyz</literal>，但是不匹配 <literal>abcdir/subdir/anything/morexyz</literal>。"
 
 #: source/TortoiseSVN_en.xml:6061(para)
 msgid "To ignore all <literal>CVS</literal> folders you should either specify a pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */CVS</literal>. The first option works, but would also exclude something called <literal>ThisIsNotCVS</literal>. Using <literal>*/CVS</literal> alone will not work on an immediate child <literal>CVS</literal> folder, and <literal>CVS</literal> alone will not work on subfolders."
@@ -7592,9 +7575,8 @@ msgid "global ignore"
 msgstr "全局忽略"
 
 #: source/TortoiseSVN_en.xml:8616(para)
-#, fuzzy
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Remember that these patterns may be used against paths which include N levels of parent directory. Setting ignore patterns for anything other than simple file extensions is not as trivial as it first appears, so be sure to read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information on the pattern-matching syntax, and how paths are checked."
-msgstr "全局忽略样式被用来防止非版本控制的文件在例如提交时的对话框中被列出来。那些符合样式的文件，在执行导入操作时将同样被忽略掉。通过在样式框中输入文件名或扩展名来忽略文件或文件夹。不同的样式之间将以空格分隔，例如 <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>。例子中前两个条目表示文件夹，其他四个表示文件。这些样式将采用文件名模糊匹配的方式来匹配要忽略的文件。阅读 <xref linkend=\"tsvn-dug-ignore-glob\"/> 以获得更多信息。"
+msgstr "全局忽略模式被用来防止非版本控制的文件在例如提交时的对话框中被列出来。那些符合模式的文件，在执行导入操作时同样被忽略。通过在模式框中输入文件名或扩展名来忽略文件或文件夹。不同的模式之间以空格分隔，例如 <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>。请记得这些模式可以用来处理含有 N 级父目录的路径。设置忽略模式并非象刚才显示的那么简单，所以请务必阅读 <xref linkend=\"tsvn-dug-ignore-glob\"/> 以获得更多模式匹配语法信息，和如何检查路径。"
 
 #: source/TortoiseSVN_en.xml:863(para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
