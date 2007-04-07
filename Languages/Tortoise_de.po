@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-04-02 11:05+0100\n"
+"PO-Revision-Date: 2007-04-07 15:36+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -996,6 +996,10 @@ msgstr "Füge '%s' zu Wörterbuch hinzu"
 msgid "Add (as replacement)..."
 msgstr "Hinzufügen (als Ersatz)..."
 
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Hinzufügen - TortoiseSVN"
+
 #: ID:563
 msgid "Add Properties"
 msgstr "Eigenschaften hinzufügen"
@@ -1015,10 +1019,6 @@ msgstr "&Ignorieren"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "Hinzufügen..."
-
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "Hinzufügen... - TortoiseSVN"
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1343,6 +1343,10 @@ msgstr "Basis Datei:"
 msgid "Blame"
 msgstr "Annotieren"
 
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Annotieren - TortoiseSVN"
+
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Zeigt, welcher Autor eine Zeile zuletzt geändert hat."
@@ -1562,8 +1566,8 @@ msgid "Checkout &directory:"
 msgstr "&Zielordner:"
 
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "Auschecken... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Auschecken - TortoiseSVN"
 
 #: ID:146
 msgid "Cleaning up."
@@ -1668,6 +1672,10 @@ msgstr "Befehl konnte nicht ausgeführt werden."
 msgid "Commit"
 msgstr "Übertragen"
 
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Übertragen - TortoiseSVN"
+
 #: Control-ID:1262
 msgid "Commit threshold:"
 msgstr "Übertragungen zusammenfassen:"
@@ -1675,10 +1683,6 @@ msgstr "Übertragungen zusammenfassen:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Übertragen nach:"
-
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "Übertragen... - TortoiseSVN"
 
 #: ID:244
 msgid "Commits by author"
@@ -1816,6 +1820,10 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "Kopieren (Verzweigung / Markierung)"
 
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Kopieren - TortoiseSVN"
+
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "URL in Zwischenablage kopieren"
@@ -1865,10 +1873,6 @@ msgstr "Kopiere zur Arbeitskopie"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Kopiere in Arbeitskopie..."
-
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "Kopieren... - TortoiseSVN"
 
 #: ID:98
 #, c-format
@@ -2440,6 +2444,10 @@ msgstr "Export"
 msgid "Export &directory:"
 msgstr "Export&verzeichnis:"
 
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exportieren - TortoiseSVN"
+
 #: ID:94
 msgid "Export directory:"
 msgstr "Exportverzeichnis:"
@@ -2447,10 +2455,6 @@ msgstr "Exportverzeichnis:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Exportiere alle Dateien"
-
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "Exportieren... - TortoiseSVN"
 
 #: ID:284
 #, c-format
@@ -3100,6 +3104,10 @@ msgstr "Importiere %ld Objekte"
 msgid "Import &message"
 msgstr "Import &Meldung"
 
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importieren - TortoiseSVN"
+
 #: ID:127
 #, c-format
 msgid ""
@@ -3126,10 +3134,6 @@ msgid ""
 msgstr ""
 "Importiere Ordner %s\r\n"
 "nach %s"
-
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "Importîeren... - TortoiseSVN"
 
 #: ID:120
 #, c-format
@@ -3532,8 +3536,8 @@ msgid "Merge"
 msgstr "Zusammenführen"
 
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "Zusammenführen... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Zusammenführen - TortoiseSVN"
 
 #: ID:263
 msgid "Merged"
@@ -4378,6 +4382,10 @@ msgstr ""
 "Objekt von %s\r\n"
 "in %s umbenennen"
 
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Umbenennen / Verschieben - TortoiseSVN"
+
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Knoten umbenannt"
@@ -4439,6 +4447,10 @@ msgstr "Konflikt &aufgelöst..."
 msgid "Resolve"
 msgstr "Konflikt lösen"
 
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Konflikte auflösen - TortoiseSVN"
+
 #: ID:282
 msgid "Resolve conflict using \"mine\""
 msgstr "Löse Konflikt mit 'Meiner' Datei"
@@ -4446,10 +4458,6 @@ msgstr "Löse Konflikt mit 'Meiner' Datei"
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "Löse Konflikt mit 'Deren' Datei"
-
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "Konflikte auflösen... - TortoiseSVN"
 
 #: ID:74
 #: ID:209
@@ -4489,13 +4497,13 @@ msgstr "Wiederholen"
 msgid "Revert"
 msgstr "Änderungen rückgängig"
 
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Rückgängig - TortoiseSVN"
+
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Änderungen dieser Revisionen &rückgängig machen"
-
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "Rückgängig... - TortoiseSVN"
 
 #: ID:73
 msgid "Reverted"
@@ -5200,6 +5208,10 @@ msgstr "Subversion Serverdatei:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Die Arbeitskopie zum neuen Zweig / Markierung &wechseln"
 
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Wechseln zu - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Tausche Links <-> Rechts"
@@ -5252,10 +5264,6 @@ msgstr "Wechsle zum vorherigen Dokument"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
-
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "Wechseln zu... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -5842,14 +5850,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Annotieren"
-
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Umbenennen / Verschieben"
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -6005,8 +6005,8 @@ msgid "Update"
 msgstr "Aktualisieren"
 
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "Aktualisieren... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Aktualisieren - TortoiseSVN"
 
 #: ID:74
 msgid "Updated"
