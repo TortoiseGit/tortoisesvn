@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9101: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9130: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-02 03:39+0300\n"
+"PO-Revision-Date: 2007-04-05 12:06+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1018,6 +1018,10 @@ msgstr "Добавить '%s' в словарь"
 msgid "Add (as replacement)..."
 msgstr "Добавить (как замену)..."
 
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Добавление - TortoiseSVN"
+
 #: ID:563
 msgid "Add Properties"
 msgstr "Добавить свойства"
@@ -1037,10 +1041,6 @@ msgstr "Добавить в список &игнорирования"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "Добавить..."
-
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "Добавление... - TortoiseSVN"
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1361,9 +1361,13 @@ msgstr "Базовый файл:"
 msgid "Blame"
 msgstr "Авторство"
 
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Авторство - TortoiseSVN"
+
 #: ID:13
 msgid "Blames each line of a file on an author"
-msgstr "Показывает для каждой строки ее автора"
+msgstr "Показывает для каждой строки файла её автора"
 
 #: Control-ID:1003
 msgid "Br&owse..."
@@ -1578,8 +1582,8 @@ msgid "Checkout &directory:"
 msgstr "&Извлечь в папку:"
 
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "Извлечение... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Извлечение - TortoiseSVN"
 
 #: ID:146
 msgid "Cleaning up."
@@ -1678,6 +1682,10 @@ msgstr "Сбой в комманде."
 msgid "Commit"
 msgstr "Фиксация"
 
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Фиксация - TortoiseSVN"
+
 #: Control-ID:1262
 msgid "Commit threshold:"
 msgstr "Пороговое значение фиксаций:"
@@ -1685,10 +1693,6 @@ msgstr "Пороговое значение фиксаций:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Фиксировать в:"
-
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "Фиксация... - TortoiseSVN"
 
 #: ID:244
 msgid "Commits by author"
@@ -1825,6 +1829,10 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "Копирование (Ответвление / Метка)"
 
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Копирование - TortoiseSVN"
+
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "Скопировать URL в буфер обмена"
@@ -1872,10 +1880,6 @@ msgstr "Копировать в рабочую копию"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Копировать в рабочую копию..."
-
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "Копирование... - TortoiseSVN"
 
 #: ID:98
 #, c-format
@@ -2441,6 +2445,10 @@ msgstr "Экспорт"
 msgid "Export &directory:"
 msgstr "Папка &экспорта:"
 
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Экспорт - TortoiseSVN"
+
 #: ID:94
 msgid "Export directory:"
 msgstr "Папка экспорта:"
@@ -2448,10 +2456,6 @@ msgstr "Папка экспорта:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Экспортировать также и неверсированные файлы"
-
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "Экспорт... - TortoiseSVN"
 
 #: ID:284
 #, c-format
@@ -3074,6 +3078,10 @@ msgstr "Импорт %ld элементов"
 msgid "Import &message"
 msgstr "&Сообщение импорта"
 
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Импорт - TortoiseSVN"
+
 #: ID:127
 #, c-format
 msgid ""
@@ -3100,10 +3108,6 @@ msgid ""
 msgstr ""
 "Импорт папки %s\r\n"
 "в %s"
-
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "Импорт... - TortoiseSVN"
 
 #: ID:120
 #, c-format
@@ -3502,8 +3506,8 @@ msgid "Merge"
 msgstr "Слияние"
 
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "Слияние... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Слияние - TortoiseSVN"
 
 #: ID:263
 msgid "Merged"
@@ -4331,6 +4335,10 @@ msgstr ""
 "Перемещение элемента из %s\r\n"
 "в %s"
 
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Переименование/перемещение - TortoiseSVN"
+
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Переименованный узел"
@@ -4394,6 +4402,10 @@ msgstr "У&ладить..."
 msgid "Resolve"
 msgstr "Улаживание"
 
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Улаживание - TortoiseSVN"
+
 #: ID:282
 msgid "Resolve conflict using \"mine\""
 msgstr "Уладить конфликт, используя \"мой\" файл"
@@ -4401,10 +4413,6 @@ msgstr "Уладить конфликт, используя \"мой\" файл"
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "Уладить конфликт, используя \"их\" файл"
-
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "Улаживание... - TortoiseSVN"
 
 #: ID:74
 #: ID:209
@@ -4445,14 +4453,14 @@ msgstr "Повторить"
 msgid "Revert"
 msgstr "Убрать изменения"
 
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Убрать изменения - TortoiseSVN"
+
 # "с этой" или "начиная с этой"?
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Убрать изменения, сделанные в этих ревизиях"
-
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "Убрать изменения... - TortoiseSVN"
 
 #: ID:73
 msgid "Reverted"
@@ -5140,6 +5148,10 @@ msgstr "Файл серверов Subversion:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Пере&ключить рабочую копию на новое ответвление/метку"
 
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Переключение - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Поменять местами: левая <-> правая"
@@ -5192,10 +5204,6 @@ msgstr "Переключиться на предыдущее окно докум
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Переключить рабочую копию на другое ответвление / метку"
-
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "Переключение... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -5763,14 +5771,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Авторство"
-
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Переименование/перемещение"
-
 #: ID:98
 #, c-format
 msgid ""
@@ -5930,8 +5930,8 @@ msgid "Update"
 msgstr "Обновление"
 
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "Обновление... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Обновление - TortoiseSVN"
 
 #: ID:74
 msgid "Updated"
