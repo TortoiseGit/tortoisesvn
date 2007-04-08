@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-29 07:13+0700\n"
+"PO-Revision-Date: 2007-04-08 21:25+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,12 @@ msgstr "%I64d kByte ditransfer"
 msgid "%d files selected, %d files total"
 msgstr "%d file dipilih, %d total file"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld menit dan %ld detik"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -173,6 +179,12 @@ msgstr "%s : Base Pekerjaan"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Copy Pekerjaan"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s dalam %s"
 
 # ID:357,
 #: ID:357
@@ -474,6 +486,7 @@ msgstr "&Ekspor yang dipilih ke..."
 # Control-ID:1092,#:
 # Control-ID:1095,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Eksternal"
@@ -665,6 +678,7 @@ msgid "&New "
 msgstr "&Baru"
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "%ld &Berikutnya"
@@ -854,6 +868,7 @@ msgstr "&Toolbar"
 # Control-ID:1091,#:
 # Control-ID:1094,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1188,6 +1203,12 @@ msgstr "Tambah '%s' ke kamus"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Tambah (sebagai pengganti)..."
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Tambah - TortoiseSVN"
 
 # ID:563,
 #: ID:563
@@ -1611,6 +1632,12 @@ msgstr "File Base:"
 msgid "Blame"
 msgstr "Blame"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Blame - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1876,6 +1903,11 @@ msgstr "Checkout"
 msgid "Checkout &directory:"
 msgstr "Checkout &direktori:"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "Checkout - TortoiseSVN"
+
 # ID:146,
 #: ID:146
 msgid "Cleaning up."
@@ -1999,6 +2031,11 @@ msgstr "Perintah gagal."
 msgid "Commit"
 msgstr "Komit"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Komit - TortoiseSVN"
+
 # Control-ID:1262,
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -2085,8 +2122,13 @@ msgstr "Konfigurasi Naskah Hook"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Konfigurasi program yang dipakai untuk membandingkan revisi file yang berbeda."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Mengonfigurasi program yang dipakai untuk membandingkan revisi-revisi yang berbeda dari file-file."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Mengonfigurasi program yang dipakai untuk membandingkan revisi-revisi yang berbeda dari properti-properti."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2166,6 +2208,12 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Copy (Cabang / Tag)"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Salin - TortoiseSVN"
 
 # ID:101,
 #: ID:101
@@ -2632,11 +2680,13 @@ msgstr "Anda benar-benar ingin memindahkan file atau folder ini?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
-"Anda benar-benar ingin memulihkan semua perubahan dalam %s\n"
-"dan kembali ke revisi ini?"
+"Anda benar-benar ingin memulihkan semua perubahan dalam \n"
+"%s\n"
+"dan kembali ke revisi ini? Perubahan-perubahan ini akan digabung ke dalam copy pekerjaan Anda."
 
 # ID:76,
 #: ID:76
@@ -2644,11 +2694,11 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
 "Anda benar-benar ingin memulihkan semua perubahan ke\n"
 "%s\n"
-"yang dibuat dalam revisi ini?"
+"yang dibuat dalam revisi ini? Perubahan-perubahan ini akan digabung ke dalam copy pekerjaan Anda."
 
 # ID:76,
 #: ID:76
@@ -2900,6 +2950,11 @@ msgstr "Ekspor"
 #: Control-ID:1074
 msgid "Export &directory:"
 msgstr "Ekspor &direktori:"
+
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Ekspor - TortoiseSVN"
 
 # ID:94,
 #: ID:94
@@ -3633,6 +3688,11 @@ msgstr "Impor %ld item"
 msgid "Import &message"
 msgstr "Impor pe&san"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Impor - TortoiseSVN"
+
 # ID:120,
 #: ID:127
 #, c-format
@@ -4126,6 +4186,12 @@ msgstr "Maks item untuk dibiarkan dalam histori pesan log"
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Gabung"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "Gabung - TortoiseSVN"
 
 # ID:263,#:
 # ID:263,
@@ -5161,6 +5227,11 @@ msgstr ""
 "Ganti nama item dari %s\r\n"
 "ke %s"
 
+# ID:10,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Ganti nama/pindahkan - TortoiseSVN"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5237,6 +5308,12 @@ msgstr "Di&selesaikan..."
 msgid "Resolve"
 msgstr "Selesaikan"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Selesaikan - TortoiseSVN"
+
 # ID:282,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5293,6 +5370,12 @@ msgstr "Coba lagi"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Pulihkan"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Pulihkan - TortoiseSVN"
 
 # ID:114,
 #: ID:114
@@ -5776,6 +5859,11 @@ msgstr "Seting properti..."
 msgid "Settings"
 msgstr "Seting"
 
+# Dlg-ID:129,
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "Pengaturan - TortoiseSVN"
+
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
@@ -5834,13 +5922,7 @@ msgstr "Tampilkan perbe&daan"
 # Control-ID:1031,#:
 # Control-ID:1034,#:
 # Control-ID:1132,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Tampilkan &log"
 
@@ -5862,6 +5944,10 @@ msgstr "Tampilkan file tidak ber&versi"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Tampilkan Daftar File"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Tunjukkan &Kilasan"
 
 # ID:113,
 #: ID:113
@@ -6146,6 +6232,12 @@ msgstr "File server Subversion:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Tukar cop&y pekerjaan ke cabang/tag baru"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Tukar - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -6855,76 +6947,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Tambah..."
-
-# ID:132,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Blame"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Checkout..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Komit..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Copy..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Ekspor..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Impor..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Merge..."
-
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Ganti nama/pindahkan"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Selesaikan..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Pulihkan..."
-
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Seting"
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Tukar..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Mutahirkan..."
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7112,6 +7134,12 @@ msgstr "File tidak berversi menandai folder leluhur sebagai diubah"
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Mutahirkan"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "Mutakhirkan - TortoiseSVN"
 
 # ID:74,
 #: ID:74
