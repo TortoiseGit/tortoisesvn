@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-29 22:56+0100\n"
+"PO-Revision-Date: 2007-04-07 20:29+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -115,6 +115,12 @@ msgstr "%I64d kBytes transferidos"
 msgid "%d files selected, %d files total"
 msgstr "%d archivos seleccionados, %d archivos en total"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld minuto(s) y %ld segundo(s)"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -146,6 +152,12 @@ msgstr "%s : Base de trabajo"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Copia de trabajo"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s en %s"
 
 # ID:357,
 #: ID:357
@@ -572,6 +584,7 @@ msgid "&New "
 msgstr "&Nuevo "
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Siguientes %ld"
@@ -1020,6 +1033,10 @@ msgstr "Añadir '%s' al diccionario"
 msgid "Add (as replacement)..."
 msgstr "Añadir (como reemplazo)..."
 
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Añadir - TortoiseSVN"
+
 #: ID:563
 msgid "Add Properties"
 msgstr "Añadir Propiedades"
@@ -1376,6 +1393,10 @@ msgstr "Fichero base:"
 msgid "Blame"
 msgstr "Autoría"
 
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Autoría - TortoiseSVN"
+
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Muestra el 'autor' de cada línea de un archivo"
@@ -1604,6 +1625,10 @@ msgstr "Obtener"
 msgid "Checkout &directory:"
 msgstr "&Directorio donde obtener:"
 
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "Obtener - TortoiseSVN"
+
 #: ID:146
 msgid "Cleaning up."
 msgstr "Limpiando."
@@ -1713,6 +1738,10 @@ msgstr "El Comando falló."
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Confirmar"
+
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Confirmar - TortoiseSVN"
 
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -1862,6 +1891,10 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Copiar (Rama / Etiqueta)"
+
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Copiar - TortoiseSVN"
 
 # ID:101,
 #: ID:101
@@ -2262,22 +2295,24 @@ msgstr "¿Realmente desea mover este fichero o carpeta?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
-"¿Realmente desea revertir todos los cambios en %s\n"
-"y volver a esta revisión?"
+"¿Realmente desea revertir todos los cambios en\n"
+"%s\n"
+"y volver de nuevo a esta revisión? Estos cambios se fusionarán en su copia de trabajo."
 
 #: ID:76
 #, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
-"¿Realmente desea revertir todos los cambios de\n"
+"¿Realmente desea revertir todos los cambios a\n"
 "%s\n"
-"que se hicieron en esta revisión?"
+"que se hicieron en esta revisión? Estos cambios se fusionarán en su copia de trabajo."
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -2500,6 +2535,10 @@ msgstr "Exportar"
 #: Control-ID:1074
 msgid "Export &directory:"
 msgstr "&Directorio de exportación:"
+
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exportar - TortoiseSVN"
 
 #: ID:94
 msgid "Export directory:"
@@ -3164,6 +3203,10 @@ msgstr "Importar %ld ítems"
 msgid "Import &message"
 msgstr "&Mensaje de importación"
 
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importar - TortoiseSVN"
+
 #: ID:127
 #, c-format
 msgid ""
@@ -3616,6 +3659,10 @@ msgstr "Nº máx. ítems en el historial de mensajes de registro"
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Fusionar"
+
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "Fusión - TortoiseSVN"
 
 #: ID:263
 msgid "Merged"
@@ -4492,6 +4539,10 @@ msgstr ""
 "Renombrar ítem de %s\r\n"
 "a %s"
 
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Renombrar/mover - TortoiseSVN"
+
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Nodo renombrado"
@@ -4554,6 +4605,10 @@ msgstr "Resuelt&o..."
 msgid "Resolve"
 msgstr "Resolver"
 
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Resolver - TortoiseSVN"
+
 #: ID:282
 msgid "Resolve conflict using \"mine\""
 msgstr "Resuelve el conflicto usando \"mío\""
@@ -4599,6 +4654,10 @@ msgstr "Reintentar"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Revertir"
+
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Revertir - TortoiseSVN"
 
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -5003,6 +5062,10 @@ msgstr "Estableciendo propiedades..."
 msgid "Settings"
 msgstr "Configuración"
 
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "Configuración - TortoiseSVN"
+
 #: Control-ID:1132
 msgid "Sh&ow log"
 msgstr "Mostrar &registro"
@@ -5046,13 +5109,7 @@ msgstr "Mostrar &todas las revisiones"
 msgid "Show &differences"
 msgstr "Mostrar &diferencias"
 
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Mostrar &registro"
 
@@ -5328,6 +5385,10 @@ msgstr "Archivo de servidores de Subversion:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Cam&biar la copia de trabajo a la nueva rama / etiqueta"
+
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Cambiar - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -5989,62 +6050,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Añadir..."
-
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Autoría"
-
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Obtener..."
-
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Confirmar..."
-
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Copiar..."
-
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exportar..."
-
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importar..."
-
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Fusión..."
-
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Renombrar/mover"
-
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Resolver..."
-
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Revertir..."
-
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Configuración"
-
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Cambiar..."
-
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Actualizar..."
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -6201,6 +6206,10 @@ msgstr "Ficheros sin versionar marcan la carpeta padre como modificada"
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Actualizar"
+
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "Actualizar - TortoiseSVN"
 
 #: ID:74
 msgid "Updated"
