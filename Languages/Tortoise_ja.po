@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-03-15 20:50+0900\n"
+"PO-Revision-Date: 2007-04-09 13:27+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -170,6 +170,12 @@ msgstr "%I64d Kバイトを転送しました"
 msgid "%d files selected, %d files total"
 msgstr "選択ファイル数 %d 、全体ファイル数 %d"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld 分 %ld 秒"
+
 # ID:7,
 # ID:7,
 #: ID:7
@@ -211,6 +217,13 @@ msgstr "%s : 作業ベース"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 作業コピー"
+
+# ID:357,
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s / %s"
 
 # ID:357,
 # ID:357,
@@ -480,9 +493,13 @@ msgstr "デフォルト(&D)"
 # ID:101,
 # ID:11,
 #: ID:11
-#: ID:17
 msgid "&Delete"
 msgstr "削除(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "削除(&D) - ローカルファイルを保持"
 
 # ID:11,#:
 # ID:73,#:
@@ -559,6 +576,7 @@ msgstr "選択をエクスポート(&E) ..."
 # Control-ID:1092,#:
 # Control-ID:1095,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "外部(&E)"
@@ -784,6 +802,7 @@ msgstr "新規(&N)"
 
 # Control-ID:1208,
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "次の %ld (&N)"
@@ -1020,6 +1039,7 @@ msgstr "ツールバー(&T)"
 # Control-ID:1091,#:
 # Control-ID:1094,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1427,6 +1447,14 @@ msgstr "'%s' を辞書に追加"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "追加（置き換え） ..."
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "追加 - TortoiseSVN"
 
 # Control-ID:65535,
 # ID:563,
@@ -1934,6 +1962,14 @@ msgstr "Base ファイル:"
 msgid "Blame"
 msgstr "注釈履歴"
 
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "注釈履歴 - TortoiseSVN"
+
 # ID:13,
 # ID:13,
 #: ID:13
@@ -2251,6 +2287,12 @@ msgstr "チェックアウト"
 msgid "Checkout &directory:"
 msgstr "チェックアウトディレクトリ(&D):"
 
+# Dlg-ID:129,
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "チェックアウト - TortoiseSVN"
+
 # ID:145,
 # ID:146,
 #: ID:146
@@ -2392,9 +2434,16 @@ msgstr "コマンドの実行に失敗しました。"
 # ID:209,#:
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "コミット"
+
+# Dlg-ID:129,
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "コミット - TortoiseSVN"
 
 # Control-ID:1110,
 # Control-ID:1262,
@@ -2501,8 +2550,14 @@ msgstr "フックスクリプトの設定"
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
+msgid "Configure the program used for comparing different revisions of files"
 msgstr "異なるリビジョンのファイルを比較するために用いるプログラムを設定する。"
+
+# Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "属性の異なるリビジョンのファイルを比較するために用いるプログラムを設定する。"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -2595,6 +2650,14 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "コピー（分岐／タグ）"
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "コピー - TortoiseSVN"
 
 # ID:101,
 # ID:101,
@@ -3149,11 +3212,13 @@ msgstr "本当にこのファイルもしくはフォルダを移動させても
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
 "%s で行われた全ての変更を元に戻し、\n"
-"このリビジョンに変更してもよろしいですか？"
+"このリビジョンに変更してもよろしいですか？\n"
+"これらの変更は、作業コピーにマージされます。"
 
 # ID:76,
 # ID:76,
@@ -3162,11 +3227,12 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
 "このリビジョンで行われた、\n"
 "%s\n"
-"に対する全ての変更を元に戻してもよろしいですか？"
+"に対する全ての変更を元に戻してもよろしいですか？\n"
+"これらの変更は、作業コピーにマージされます。"
 
 # ID:76,
 # ID:76,
@@ -3351,7 +3417,6 @@ msgstr "ウィンドウを最大化する"
 # Control-ID:1065,
 # Dlg-ID:135,#:
 # Dlg-ID:241,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "ログメッセージを入力"
@@ -3467,6 +3532,12 @@ msgstr "エクスポート"
 #: Control-ID:1074
 msgid "Export &directory:"
 msgstr "エクスポート先ディレクトリ(&D):"
+
+# Dlg-ID:129,
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "エクスポート - TortoiseSVN"
 
 # ID:94,
 # ID:94,
@@ -3600,12 +3671,6 @@ msgstr "変更リスト \"%s\" の設定／削除に失敗しました"
 #: ID:220
 msgid "Failed!"
 msgstr "失敗！"
-
-# Control-ID:1217,
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "コンテキストメニュー用に状態を取得する(&S)"
 
 # ID:313,
 # ID:313,
@@ -3743,6 +3808,12 @@ msgstr "元:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "元: （マージする範囲の始点を指すURLとリビジョン）"
+
+# Control-ID:1018,
+# ID:563,
+#: ID:266
+msgid "Fully recursive"
+msgstr "再帰的"
 
 # ID:273,
 # ID:273,
@@ -4170,18 +4241,6 @@ msgstr ""
 "チェックすると、コミットダイアログはエラーが発生した後に、最後に選択した結果と\n"
 "ログメッセージを保存した状態で自動的に再表示されます。"
 
-# ID:195,
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"無効にすると、コンテキストメニューの表示が速くなります。\n"
-"しかし、いくつかのコンテキストメニューが使用できないのに表示されてしまいます。\n"
-"例えば: \"ログを表示\" は追加したばかりのフォルダに対しても表示されます。"
-
 # ID:194,
 # ID:194,
 #: ID:194
@@ -4286,6 +4345,11 @@ msgstr "系統情報を無視する"
 msgid "Ignore line &endings (recommended)"
 msgstr "改行コード(&E)を無視する（推奨）"
 
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr ""
+
 # ID:9,
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -4304,6 +4368,12 @@ msgstr "%ld 個の項目をインポート"
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "インポートメッセージ(&M)"
+
+# Dlg-ID:129,
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "インポート - TortoiseSVN"
 
 # ID:119,
 # ID:127,
@@ -4869,6 +4939,14 @@ msgstr "ログメッセージの履歴で表示する最大の項目数"
 msgid "Merge"
 msgstr "マージ"
 
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "マージ - TortoiseSVN"
+
 # Dlg-ID:141,
 # ID:263,#:
 # ID:263,
@@ -5315,9 +5393,13 @@ msgstr "１つ以上のファイルが競合状態にあります。"
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "トップフォルダのみチェックアウトする(&T)"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "ファイルの子要素のみ"
 
 # ID:169,
 # ID:169,
@@ -5327,11 +5409,10 @@ msgid ""
 "are allowed!"
 msgstr "数値のみ（コンマで分割可能）が入力可能です！"
 
-# Control-ID:1073,
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "トップフォルダのみ更新する(&T)"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "この項目のみ"
 
 # Control-ID:1224,
 # Control-ID:1224,
@@ -6109,6 +6190,12 @@ msgstr ""
 "%s から\r\n"
 "%s に名前を変更する"
 
+# ID:10,
+# ID:10,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "名前を変更／移動 - TortoiseSVN"
+
 # ID:126,
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6183,12 +6270,6 @@ msgstr "リポジトリ"
 msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
 
-# Dlg-ID:153,
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Repository browser"
-msgstr "リポジトリブラウザ"
-
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6206,6 +6287,14 @@ msgstr "問題の解消(&O) ..."
 #: Dlg-ID:207
 msgid "Resolve"
 msgstr "問題の解消"
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "問題の解消 - TortoiseSVN"
 
 # ID:9,
 # ID:282,
@@ -6275,6 +6364,14 @@ msgstr "再試行"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "元に戻す"
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "元に戻す - TortoiseSVN"
 
 # ID:113,
 # ID:114,
@@ -6861,6 +6958,12 @@ msgstr "属性を設定 ..."
 msgid "Settings"
 msgstr "設定"
 
+# Dlg-ID:129,
+# Dlg-ID:129,
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "設定 - TortoiseSVN"
+
 # ID:12,
 # Control-ID:1132,
 #: Control-ID:1132
@@ -6918,7 +7021,7 @@ msgstr "全てのリビジョンを表示(&A)"
 
 # ID:113,
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "差分を表示(&D)"
 
@@ -6931,13 +7034,7 @@ msgstr "差分を表示(&D)"
 # Control-ID:1031,#:
 # Control-ID:1034,#:
 # Control-ID:1228,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "ログを表示(&L)"
 
@@ -6963,6 +7060,10 @@ msgstr "バージョン管理外のファイルを表示する(&U)"
 #: MenuEntry
 msgid "Show File List"
 msgstr "ファイルリストを表示"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "オーバービューを表示(&R)"
 
 # ID:113,
 # ID:113,
@@ -7116,18 +7217,6 @@ msgstr "スキップ"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップします"
-
-# Control-ID:1300,
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "項目を数字でソートする"
-
-# Control-ID:1300,
-# ID:197,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "アルファベットの代わりに数字で項目をソートします"
 
 # ID:196,
 # ID:196,
@@ -7310,6 +7399,14 @@ msgstr "Subversion サーバファイル:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "作業コピーを新しい分岐／タグへ切り替える(&I)"
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "切り替え - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -7500,20 +7597,6 @@ msgstr "ファイル %s は存在していません！"
 msgid "The file %s was not found in the patch file!"
 msgstr "ファイル %s はパッチファイル内で見つかりませんでした！"
 
-# ID:65,
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"ファイル %s\n"
-"が2回見つかりました？！\n"
-"これは、たいてい間違ったフォルダにパッチファイルを適用したときに発生します！"
-
 # ID:3857,#:
 # ID:3857,
 # ID:69,
@@ -7651,6 +7734,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "操作に失敗しました。"
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"パラメーターの '/path' と '/pathfile' は相互排除されます。\n"
+"これらのどれかひとつだけを指定してください。"
 
 # ID:64,
 # ID:64,
@@ -8118,95 +8210,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:9,#:
-# ID:80,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN 追加中 ..."
-
-# ID:9,#:
-# ID:80,
-# ID:132,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN 注釈履歴"
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN チェックアウト中 ..."
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN コミット中 ..."
-
-# ID:78,
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN コピー中 ..."
-
-# ID:78,
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN エクスポート中 ..."
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN インポート中 ..."
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN マージ中 ..."
-
-# ID:11,#:
-# ID:101,
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN 名前を変更／移動"
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN 問題の解消中 ..."
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN 元に戻し中 ..."
-
-# ID:80,
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN 設定"
-
-# ID:78,
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN 切り替え中 ..."
-
-# ID:77,
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN 更新中 ..."
-
 # ID:98,
 # ID:98,
 #: ID:98
@@ -8441,6 +8444,14 @@ msgstr "バージョン管理外のファイルを含むフォルダに変更マ
 #: Dlg-ID:152
 msgid "Update"
 msgstr "更新"
+
+# ID:9,#:
+# ID:80,
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "更新 - TortoiseSVN"
 
 # ID:8,#:
 # ID:74,#:
@@ -9185,6 +9196,11 @@ msgstr "無視"
 #: ID:13
 msgid "incomplete"
 msgstr "未完了"
+
+# ID:17,
+#: ID:214
+msgid "item kept locally"
+msgstr "ローカルに保持される項目"
 
 # ID:11,#:
 # Control-ID:1002,
