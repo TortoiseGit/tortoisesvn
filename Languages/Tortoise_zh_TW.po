@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-03 09:53+0800\n"
+"PO-Revision-Date: 2007-04-10 09:24+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1209,6 +1209,12 @@ msgstr "將 '%s' 加入字典"
 msgid "Add (as replacement)..."
 msgstr "新增(代替)..."
 
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "加入 - TortoiseSVN"
+
 # Control-ID:65535,
 #: ID:563
 msgid "Add Properties"
@@ -1233,12 +1239,6 @@ msgstr "加入忽略列表(&I)"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "加入..."
-
-# ID:9,#:
-# ID:80,
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "加入... - TortoiseSVN"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1633,6 +1633,11 @@ msgstr "基礎檔案:"
 msgid "Blame"
 msgstr "譴責"
 
+# Dlg-ID:129,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "更新 - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1900,8 +1905,8 @@ msgstr "取出目錄(&C):"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "取出... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "取出 - TortoiseSVN"
 
 # ID:145,
 #: ID:146
@@ -2023,6 +2028,11 @@ msgstr "命令失敗."
 msgid "Commit"
 msgstr "送交"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "送交 - TortoiseSVN"
+
 # Control-ID:1110,
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -2032,11 +2042,6 @@ msgstr "送交起點:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "送交至:"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "送交... - TortoiseSVN"
 
 # Control-ID:1110,
 #: ID:244
@@ -2202,6 +2207,12 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "複製(分支/標記)"
 
+# ID:9,#:
+# ID:80,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "複製 - TortoiseSVN"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2260,12 +2271,6 @@ msgstr "複製至工作複本"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "複製至工作複本..."
-
-# ID:9,#:
-# ID:80,
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "複製... - TortoiseSVN"
 
 # ID:97,
 #: ID:98
@@ -2953,6 +2958,11 @@ msgstr "匯出"
 msgid "Export &directory:"
 msgstr "匯出目錄(&D):"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "匯出 - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2962,11 +2972,6 @@ msgstr "匯出目錄:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "匯出無版本控制的檔案"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "匯出... - TortoiseSVN"
 
 # ID:79,
 #: ID:284
@@ -3679,6 +3684,11 @@ msgstr "匯入 %ld 項"
 msgid "Import &message"
 msgstr "匯入訊息(&M)"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "匯入 - TortoiseSVN"
+
 # ID:144,
 #: ID:127
 #, c-format
@@ -3708,11 +3718,6 @@ msgid ""
 msgstr ""
 "匯入資料夾 %s \r\n"
 " 至 %s"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "匯入... - TortoiseSVN"
 
 # ID:144,
 #: ID:120
@@ -4177,8 +4182,8 @@ msgstr "合併"
 # ID:9,#:
 # ID:80,
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "合併... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "合併 - TortoiseSVN"
 
 # Dlg-ID:141,
 #: ID:263
@@ -5208,6 +5213,11 @@ msgstr ""
 "變更項目名稱 %s\r\n"
 "至 %s"
 
+# Dlg-ID:129,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "重新命名/移動 - TortoiseSVN"
+
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5285,6 +5295,11 @@ msgstr "已解決(&O)..."
 msgid "Resolve"
 msgstr "解決"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "解決衝突 - TortoiseSVN"
+
 # ID:9,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5294,11 +5309,6 @@ msgstr "使用本地端(mine)解決衝突"
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "使用遠端(theirs)解決衝突"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "解決衝突... - TortoiseSVN"
 
 # ID:8,
 #: ID:74
@@ -5348,15 +5358,15 @@ msgstr "重試"
 msgid "Revert"
 msgstr "復原"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "復原 - TortoiseSVN"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "復原這些版本的變更"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "復原... - TortoiseSVN"
 
 # ID:8,#:
 # ID:73,#:
@@ -6205,6 +6215,11 @@ msgstr "Subversion 伺服器檔:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "切換工作複本至新分支/標記(&W)"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "切換 - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "左右切換"
@@ -6264,11 +6279,6 @@ msgstr "切換至前一個文件視窗"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "切換工作複本至其他分支/標記"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "切換... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -6919,18 +6929,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:9,#:
-# ID:80,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN 譴責"
-
-# ID:11,#:
-# ID:101,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN 重新命名/移動"
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7129,8 +7127,8 @@ msgstr "更新"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "更新... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "更新 - TortoiseSVN"
 
 # ID:8,#:
 # ID:74,#:
