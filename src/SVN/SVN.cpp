@@ -461,7 +461,9 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t dep
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message, 
 						 const CString& changelist, BOOL keepchangelist, BOOL recurse, BOOL keep_locks)
 {
-	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
+	SVNPool localpool(pool);
+
+	svn_commit_info_t *commit_info = svn_create_commit_info(localpool);
 
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -472,7 +474,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 							keepchangelist,
 							changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist),
 							m_pctx,
-							pool);
+							localpool);
 	m_pctx->log_msg_baton3 = logMessage("");
 	if(Err != NULL)
 	{
@@ -488,7 +490,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 			Notify(CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), 
 					svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, 
 					commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, 
-					_T(""), NULL, pool);
+					_T(""), NULL, localpool);
 			finrev = commit_info->revision;
 		}
 		if (commit_info->post_commit_err)
