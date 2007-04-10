@@ -316,7 +316,7 @@ void CCommitDlg::OnOK()
 		//inside a deleted folder. If that's the case, then remove those
 		//files from the list since they'll get deleted by the parent
 		//folder automatically.
-		m_ListCtrl.Block(TRUE);
+		m_ListCtrl.Block(TRUE, FALSE);
 		for (int i=0; i<arDeleted.GetCount(); i++)
 		{
 			if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
@@ -342,7 +342,7 @@ void CCommitDlg::OnOK()
 				}
 			}
 		} 
-		m_ListCtrl.Block(FALSE);
+		m_ListCtrl.Block(FALSE, FALSE);
 		//save only the files the user has checked into the temporary file
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
@@ -450,9 +450,9 @@ UINT CCommitDlg::StatusThread()
 	InterlockedExchange(&m_bBlock, FALSE);
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
 	{
-		m_ListCtrl.Block(TRUE);
+		m_ListCtrl.Block(TRUE, TRUE);
 		GetAutocompletionList();
-		m_ListCtrl.Block(FALSE);
+		m_ListCtrl.Block(FALSE, FALSE);
 	}
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
 	if (m_ListCtrl.HasChangeLists())

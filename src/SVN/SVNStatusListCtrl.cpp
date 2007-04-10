@@ -113,6 +113,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCHANGINGW, 0, &CSVNStatusListCtrl::OnHdnItemchanging)
 	ON_WM_DESTROY()
 	ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
+	ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
 END_MESSAGE_MAP()
 
 
@@ -135,6 +136,8 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bUnversionedLast(true)
 	, m_bHasChangeLists(false)
 	, m_bHasLocks(false)
+	, m_bBlock(false)
+	, m_bBlockUI(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
@@ -1581,6 +1584,21 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	m_bBlock = FALSE;
+}
+
+void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+
+#define ISCHECKED(x) ((x) ? ((((x)&LVIS_STATEIMAGEMASK)>>12)-1) : FALSE)
+	if ((m_bBlock)&&(m_bBlockUI))
+	{
+		// if we're blocked, prevent changing of the check state
+		if ((!ISCHECKED(pNMLV->uOldState) && ISCHECKED(pNMLV->uNewState))||
+			(ISCHECKED(pNMLV->uOldState) && !ISCHECKED(pNMLV->uNewState)))
+			*pResult = TRUE;
+	}
 }
 
 BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)

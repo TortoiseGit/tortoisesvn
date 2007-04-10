@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -488,7 +488,7 @@ public:
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
-	void Block(BOOL block) {m_bBlock = block;}
+	void Block(BOOL block, BOOL blockUI) {m_bBlock = block; m_bBlockUI = blockUI;}
 
 	LONG						m_nTargetCount;		///< number of targets in the file passed to GetStatus()
 
@@ -580,6 +580,7 @@ private:
 	afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg BOOL OnToolTipText(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
@@ -628,6 +629,7 @@ private:
 	bool						m_bUpdate;
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
+	BOOL						m_bBlockUI;
 	bool						m_bBusy;
 	bool						m_bEmpty;
 	bool						m_bIgnoreRemoveOnly;
