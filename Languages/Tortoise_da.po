@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9101
+# Based on Tortoise.pot r9130
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-02 16:11+0100\n"
+"PO-Revision-Date: 2007-04-10 11:33+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -931,6 +931,10 @@ msgstr "Føj '%s' til ordbog"
 msgid "Add (as replacement)..."
 msgstr "Tilføj (som erstatning)..."
 
+#: ID:77,
+msgid "Add - TortoiseSVN"
+msgstr "Tilføj - TortoiseSVN"
+
 #: ID:563,
 msgid "Add Properties"
 msgstr "Tilføj egenskaber"
@@ -950,10 +954,6 @@ msgstr "Føj til \"&ignorer\"-listen"
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "Tilføj..."
-
-#: ID:77,
-msgid "Add... - TortoiseSVN"
-msgstr "Tilføj... - TortoiseSVN"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -1219,6 +1219,10 @@ msgstr "Basis-fil:"
 msgid "Blame"
 msgstr "Ansvar"
 
+#: ID:132,
+msgid "Blame - TortoiseSVN"
+msgstr "Ansvar - TortoiseSVN"
+
 #: ID:13,
 msgid "Blames each line of a file on an author"
 msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
@@ -1419,8 +1423,8 @@ msgid "Checkout &directory:"
 msgstr "&Mappe til arbejdskopi:"
 
 #: ID:77,
-msgid "Checkout... - TortoiseSVN"
-msgstr "Hent arbejdskopi... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Hent arbejdskopi - TortoiseSVN"
 
 #: ID:146,
 msgid "Cleaning up."
@@ -1510,6 +1514,10 @@ msgstr "Kommandoen mislykkedes."
 msgid "Commit"
 msgstr "Arkivér"
 
+#: ID:77,
+msgid "Commit - TortoiseSVN"
+msgstr "Arkivér - TortoiseSVN"
+
 #: Control-ID:1262,
 #, fuzzy
 msgid "Commit threshold:"
@@ -1518,10 +1526,6 @@ msgstr "Arkiveringsterskel:"
 #: Control-ID:1110,
 msgid "Commit to:"
 msgstr "Arkivér til:"
-
-#: ID:77,
-msgid "Commit... - TortoiseSVN"
-msgstr "Arkivér... - TortoiseSVN"
 
 #: ID:244,
 msgid "Commits by author"
@@ -1651,6 +1655,10 @@ msgstr "Kopier %s\r\ntil %s"
 msgid "Copy (Branch / Tag)"
 msgstr "Kopier (forgrening/mærkat)"
 
+#: ID:78,
+msgid "Copy - TortoiseSVN"
+msgstr "Kopier - TortoiseSVN"
+
 #: ID:101,
 msgid "Copy URL to clipboard"
 msgstr "Kopier URL til udklipsholder"
@@ -1694,10 +1702,6 @@ msgstr "Kopier til arbejdskopi"
 #: ID:101,
 msgid "Copy to working copy..."
 msgstr "Kopier til arbejdskopi..."
-
-#: ID:78,
-msgid "Copy... - TortoiseSVN"
-msgstr "Kopier... - TortoiseSVN"
 
 #: ID:98,
 #, c-format
@@ -2149,6 +2153,10 @@ msgstr "Eksporter"
 msgid "Export &directory:"
 msgstr "Eksporter &mappe:"
 
+#: ID:78,
+msgid "Export - TortoiseSVN"
+msgstr "Eksporter - TortoiseSVN"
+
 #: ID:94,
 msgid "Export directory:"
 msgstr "Mappe til eksport:"
@@ -2156,10 +2164,6 @@ msgstr "Mappe til eksport:"
 #: ID:79,
 msgid "Export unversioned files too"
 msgstr "Eksporter også ikke-versionerede filer"
-
-#: ID:78,
-msgid "Export... - TortoiseSVN"
-msgstr "Eksporter... - TortoiseSVN"
 
 #: ID:284,
 #, c-format
@@ -2652,6 +2656,10 @@ msgstr "Importer %ld emner"
 msgid "Import &message"
 msgstr "&Logbesked for import"
 
+#: ID:77,
+msgid "Import - TortoiseSVN"
+msgstr "Importer - TortoiseSVN"
+
 #: ID:127,
 #, c-format
 msgid "Import file %s\r\nto %s"
@@ -2666,10 +2674,6 @@ msgstr "Importer fil til\r\n%s"
 #, c-format
 msgid "Import folder %s\r\nto %s"
 msgstr "Importer mappe %s\r\ntil %s"
-
-#: ID:77,
-msgid "Import... - TortoiseSVN"
-msgstr "Importer... - TortoiseSVN"
 
 #: ID:120,
 #, c-format
@@ -2953,8 +2957,8 @@ msgid "Merge"
 msgstr "Flet"
 
 #: ID:78,
-msgid "Merge... - TortoiseSVN"
-msgstr "Flet... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Flet - TortoiseSVN"
 
 #: ID:263,#: ID:263,
 msgid "Merged"
@@ -3697,6 +3701,10 @@ msgstr "Omdøb %s"
 msgid "Rename item from %s\r\nto %s"
 msgstr "Omdøb emne fra %s\r\ntil %s"
 
+#: ID:221,
+msgid "Rename/move - TortoiseSVN"
+msgstr "Omdøb/flyt - TortoiseSVN"
+
 #: Control-ID:65535,
 msgid "Renamed node"
 msgstr "Omdøbt knude"
@@ -3751,6 +3759,10 @@ msgstr "L&øst..."
 msgid "Resolve"
 msgstr "Løs"
 
+#: ID:77,
+msgid "Resolve - TortoiseSVN"
+msgstr "Løs - TortoiseSVN"
+
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "Løs konflikt ved at bruge \"min\""
@@ -3758,10 +3770,6 @@ msgstr "Løs konflikt ved at bruge \"min\""
 #: ID:282,
 msgid "Resolve conflict using \"theirs\""
 msgstr "Løs konflikt ved at bruge \"deres\""
-
-#: ID:77,
-msgid "Resolve... - TortoiseSVN"
-msgstr "Løs... - TortoiseSVN"
 
 #: ID:74,#: ID:209,
 msgid "Resolved"
@@ -3796,13 +3804,13 @@ msgstr "Prøv igen"
 msgid "Revert"
 msgstr "Tilbagefør"
 
+#: ID:77,
+msgid "Revert - TortoiseSVN"
+msgstr "Tilbagefør - TortoiseSVN"
+
 #: ID:114,
 msgid "Revert changes from these revisions"
 msgstr "Tilbagefør ændringer fra disse revisioner"
-
-#: ID:77,
-msgid "Revert... - TortoiseSVN"
-msgstr "Tilbagefør... - TortoiseSVN"
 
 #: ID:73,
 msgid "Reverted"
@@ -4418,6 +4426,10 @@ msgstr "Subversion server-fil:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "S&kift arbejdskopi til ny forgrening/mærkat"
 
+#: ID:78,
+msgid "Switch - TortoiseSVN"
+msgstr "Skift - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Ombyt Venstre<->Højre"
@@ -4453,10 +4465,6 @@ msgstr "Skift til foregående dokumentvindue"
 #: ID:9,
 msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
-
-#: ID:78,
-msgid "Switch... - TortoiseSVN"
-msgstr "Skift... - TortoiseSVN"
 
 #: ID:325,
 #, fuzzy
@@ -4795,14 +4803,6 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 
-#: ID:132,
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Ansvar"
-
-#: ID:221,
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Omdøb/flyt"
-
 #: ID:98,
 #, c-format
 msgid "TortoiseSVN has detected similar filenames. Do you want the files:%s\nto be renamed too?"
@@ -4931,8 +4931,8 @@ msgid "Update"
 msgstr "Opdater"
 
 #: ID:77,
-msgid "Update... - TortoiseSVN"
-msgstr "Opdater... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Opdater - TortoiseSVN"
 
 #: ID:74,
 msgid "Updated"
