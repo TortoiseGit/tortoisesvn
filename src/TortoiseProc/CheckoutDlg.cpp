@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,9 +26,9 @@
 #include "AppUtils.h"
 
 
-IMPLEMENT_DYNAMIC(CCheckoutDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableStandAloneDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCheckoutDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CCheckoutDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_strCheckoutDirectory(_T(""))
 	, m_sCheckoutDirOrig(_T(""))
@@ -45,7 +45,7 @@ CCheckoutDlg::~CCheckoutDlg()
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
@@ -57,7 +57,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
@@ -70,7 +70,7 @@ END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	AdjustControlSize(IDC_NOEXTERNALS);
 	AdjustControlSize(IDC_REVISION_HEAD);
@@ -110,8 +110,35 @@ BOOL CCheckoutDlg::OnInitDialog()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
 
+	AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_EXPORT_CHECKOUTDIR, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_CHECKOUTDIRECTORY, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_CHECKOUTDIRECTORY_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_NOEXTERNALS, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_GROUPBOTTOM, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
+	AddAnchor(IDC_REVISION_N, TOP_LEFT);
+	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
+	AddAnchor(IDC_SHOW_LOG, TOP_LEFT);
+	AddAnchor(IDOK, TOP_RIGHT);
+	AddAnchor(IDCANCEL, TOP_RIGHT);
+	AddAnchor(IDHELP, TOP_RIGHT);
+
+	// prevent resizing vertically
+	CRect rect;
+	GetWindowRect(&rect);
+	CSize size;
+	size.cx = MAXLONG;
+	size.cy = rect.Height();
+	SetMaxTrackSize(size);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("CheckoutDlg"));
 	return TRUE;
 }
 
@@ -219,7 +246,7 @@ void CCheckoutDlg::OnOK()
 		break;
 	}
 	UpdateData(FALSE);
-	CStandAloneDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CCheckoutDlg::OnBnClickedBrowse()
@@ -283,7 +310,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CStandAloneDialog::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "SVNRev.h"
 #include "StandAloneDlg.h"
-#include "StandAloneDlg.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
@@ -31,7 +30,7 @@
  * Prompts the user for required information for a checkout command. The information
  * is the module name and the repository url.
  */
-class CCheckoutDlg : public CStandAloneDialog //CStandAloneDialog
+class CCheckoutDlg : public CResizableStandAloneDialog //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CCheckoutDlg)
 

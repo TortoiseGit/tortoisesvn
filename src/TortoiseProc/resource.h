@@ -607,6 +607,9 @@
 #define IDC_LIST1                       1372
 #define IDC_REPOLIST                    1372
 #define IDC_DEPTH                       1373
+#define IDC_GROUPTOP                    1374
+#define IDC_GROUPBOTTOM                 1375
+#define IDC_URLOFREPO                   1376
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1068,7 +1071,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        250
 #define _APS_NEXT_COMMAND_VALUE         32814
-#define _APS_NEXT_CONTROL_VALUE         1374
+#define _APS_NEXT_CONTROL_VALUE         1377
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
