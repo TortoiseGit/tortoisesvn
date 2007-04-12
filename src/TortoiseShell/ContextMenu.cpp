@@ -486,7 +486,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	if ((files_.size() == 1)&&(m_State != FileStateDropHandler))
 	{
 		itemStates |= ITEMIS_ONLYONE;
-		if ((folder_.size())&&(PathIsDirectory(files_.front().c_str())))
+		if (PathIsDirectory(files_.front().c_str()))
 		{
 			folder_ = files_.front();
 			svn_wc_status_kind status = svn_wc_status_unversioned;
