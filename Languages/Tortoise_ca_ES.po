@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-03-29 10:50+0100\n"
+"PO-Revision-Date: 2007-04-12 11:10+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,12 @@ msgstr "%I64d kBytes transferits"
 msgid "%d files selected, %d files total"
 msgstr "%d fitxers seleccionats, %d fitxers totals"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld minut(s) i %ld segon(s)"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -181,6 +187,12 @@ msgstr "%s : Base de Treball"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Còpia de Treball"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s a %s"
 
 # ID:357,
 #: ID:357
@@ -482,6 +494,7 @@ msgstr "&Exporta selecció a..."
 # Control-ID:1092,#:
 # Control-ID:1095,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Extern"
@@ -673,6 +686,7 @@ msgid "&New "
 msgstr "&Nou"
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Propers %ld"
@@ -863,6 +877,7 @@ msgstr "&Barra d'Eines"
 # Control-ID:1091,#:
 # Control-ID:1094,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1196,6 +1211,12 @@ msgstr "Afegeix '%s' al diccionari"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Afegeix reemplaçant..."
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Afegeix -TortoiseSVN"
 
 # ID:563,
 #: ID:563
@@ -1619,6 +1640,12 @@ msgstr "Fitxer base:"
 msgid "Blame"
 msgstr "Autoria"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Mostra autor - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1884,6 +1911,11 @@ msgstr "Obté"
 msgid "Checkout &directory:"
 msgstr "&Directori d'on Obtenir:"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "Obté - TortoiseSVN"
+
 # ID:146,
 #: ID:146
 msgid "Cleaning up."
@@ -2007,6 +2039,11 @@ msgstr "La comanda ha fallat."
 msgid "Commit"
 msgstr "Entrega"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Entrega - TortoiseSVN"
+
 # Control-ID:1262,
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -2093,8 +2130,13 @@ msgstr "Configura Scripts tipus Hook"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "Configureu el programa utilitzat per comparar diferents revisions de fitxers."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "Configura el programa utilitzat per comparar diferents revisions de fitxers."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Configura el programa utilitzat per comparar diferents revisions de propietats."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2174,6 +2216,12 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Copia (Branca / Etiqueta)"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Copia - TortoiseSVN"
 
 # ID:101,
 #: ID:101
@@ -2640,11 +2688,13 @@ msgstr "Estàs segur de que vols moure aquest fixer o carpeta?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in \n"
+"%s\n"
+"and go back to this revision? These changes will be merged into your working copy."
 msgstr ""
-"Segur que vols revertir tots els canvis a %s\n"
-"i tornar enrera cap a aquesta revisió?"
+"Segur que vols revertir tots els canvis a \n"
+"%s\n"
+"i tornar enrera cap a aquesta revisió? Aquests canvis es barreijaran amb un 'merge' a la teva còpia de treball."
 
 # ID:76,
 #: ID:76
@@ -2652,11 +2702,11 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be merged into your working copy."
 msgstr ""
 "Segur que vols revertir tots els canvis a\n"
 "%s\n"
-"que han sigut fets en aquesta revisió?"
+"que han sigut fets en aquesta revisió? Aquests canvis es barreijaran amb un 'merge' a la teva còpia de treball."
 
 # ID:76,
 #: ID:76
@@ -2908,6 +2958,11 @@ msgstr "Exporta"
 #: Control-ID:1074
 msgid "Export &directory:"
 msgstr "Exporta &directory:"
+
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exporta - TortoiseSVN"
 
 # ID:94,
 #: ID:94
@@ -3641,6 +3696,11 @@ msgstr "Importa %ld items"
 msgid "Import &message"
 msgstr "Importa &missatge"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importa - TortoiseSVN"
+
 # ID:120,
 #: ID:127
 #, c-format
@@ -4132,6 +4192,12 @@ msgstr "Max. número d'items per conservar en el històric de missatges de log"
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Fusiona"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "Merge - TortoiseSVN"
 
 # ID:263,#:
 # ID:263,
@@ -4769,7 +4835,7 @@ msgid ""
 msgstr ""
 "Atenció:\n"
 "La teva còpia de treball segueix en el path anterior. Si vols que els teus següents canvis\n"
-"estiguin en la còpia acabada de crear has d'executar Canviar\n"
+"estiguin en la còpia acabada de crear has d'executar Canvia\n"
 "al path de la còpia. Utilitza el comandament Canvia per fer-ho."
 
 # ID:3858,#:
@@ -5168,6 +5234,11 @@ msgstr ""
 "Canvia el nom de l'item de %s\r\n"
 "a %s"
 
+# ID:10,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Canvia el nom/mou - TortoiseSVN"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5244,6 +5315,12 @@ msgstr "Res&olt..."
 msgid "Resolve"
 msgstr "Resol"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Resol - TortoiseSVN"
+
 # ID:282,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5300,6 +5377,12 @@ msgstr "Torna-ho a provar"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Reverteix"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Reverteix - TortoiseSVN"
 
 # ID:114,
 #: ID:114
@@ -5783,6 +5866,11 @@ msgstr "Establint propietats..."
 msgid "Settings"
 msgstr "Configuració"
 
+# Dlg-ID:129,
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "Configuració - TortoiseSVN"
+
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
@@ -5841,13 +5929,7 @@ msgstr "Mostra &diferències"
 # Control-ID:1031,#:
 # Control-ID:1034,#:
 # Control-ID:1132,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Mostra &log"
 
@@ -5869,6 +5951,10 @@ msgstr "Mostra fitxers se&nse versionar"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Mostra Llista de Fitxers"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Mostra Vista Gene&ral"
 
 # ID:113,
 #: ID:113
@@ -6153,6 +6239,12 @@ msgstr "Fitxer de servidor Subversion:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Canv&ia còpia de treball a nova branca/etiqueta"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Canvia - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -6864,76 +6956,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Afegeix..."
-
-# ID:132,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Autoria"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Obté..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Entrega..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Copia..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exporta..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importa..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN Fusiona..."
-
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Canvia el nom/mou"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Resol..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Reverteix..."
-
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN Configura"
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Canvia..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Actualitza..."
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7121,6 +7143,12 @@ msgstr "Els fitxers sense versionar marquen la carpeta contenidora com a modific
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Actualitza"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "Actualitza - TortoiseSVN"
 
 # ID:74,
 #: ID:74
