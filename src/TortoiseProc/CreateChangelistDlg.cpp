@@ -44,6 +44,7 @@ void CCreateChangelistDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CCreateChangelistDlg, CDialog)
+	ON_EN_CHANGE(IDC_NAME, &CCreateChangelistDlg::OnEnChangeName)
 END_MESSAGE_MAP()
 
 
@@ -53,7 +54,14 @@ BOOL CCreateChangelistDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDC_NAME)->SetFocus();
 
 	return FALSE;
+}
+
+void CCreateChangelistDlg::OnEnChangeName()
+{
+	UpdateData();
+	GetDlgItem(IDOK)->EnableWindow(!m_sName.IsEmpty());
 }

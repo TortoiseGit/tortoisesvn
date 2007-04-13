@@ -39,4 +39,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_sName;
+public:
+	afx_msg void OnEnChangeName();
 };
