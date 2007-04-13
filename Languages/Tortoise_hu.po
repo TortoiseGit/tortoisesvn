@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-04 17:27+0100\n"
+"PO-Revision-Date: 2007-04-13 21:23+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1202,6 +1202,13 @@ msgstr "'%s' hozzáadása a szótárhoz"
 msgid "Add (as replacement)..."
 msgstr "Hozzáad (csereként)..."
 
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Hozzáad - TortoiseSVN"
+
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:563
@@ -1227,13 +1234,6 @@ msgstr "&Az elutasító listához adás"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "Hozzáad..."
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "Hozzáad... - TortoiseSVN"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1627,6 +1627,11 @@ msgstr "Alap fájl:"
 msgid "Blame"
 msgstr "Szemrehányás"
 
+# Dlg-ID:129,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Frissít - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1894,8 +1899,8 @@ msgstr "&Mappa frissítése"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "Frissítés... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Frissítés - TortoiseSVN"
 
 # ID:145,
 #: ID:146
@@ -2017,6 +2022,11 @@ msgstr "Sikertelen parancs."
 msgid "Commit"
 msgstr "Beküldés"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Beküld - TortoiseSVN"
+
 # Control-ID:1110,
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -2026,11 +2036,6 @@ msgstr "Beküldési határérték:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Beküldés ide:"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "Beküld... - TortoiseSVN"
 
 # ID:244,
 #: ID:244
@@ -2195,6 +2200,13 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "Másol (Branch / Tag)"
 
+# ID:9,#:
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Másol - TortoiseSVN"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2253,13 +2265,6 @@ msgstr "A munkamásolatba másol"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "A munkamásolatba másol..."
-
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "Másol... - TortoiseSVN"
 
 # ID:97,
 #: ID:98
@@ -2935,6 +2940,11 @@ msgstr "Export"
 msgid "Export &directory:"
 msgstr "Ma&ppa export:"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Export - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2944,11 +2954,6 @@ msgstr "Mappa export:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Nem verziókezelt fájlokat is exportálja"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "Export... - TortoiseSVN"
 
 # ID:79,
 #: ID:284
@@ -3667,6 +3672,11 @@ msgstr "%ld elem importálása"
 msgid "Import &message"
 msgstr "Üzene&t Importálása"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Import - TortoiseSVN"
+
 # ID:103,
 #: ID:127
 #, c-format
@@ -3696,11 +3706,6 @@ msgid ""
 msgstr ""
 "%s mappa importálása\r\n"
 "ide: %s"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "Import... - TortoiseSVN"
 
 # ID:103,
 #: ID:120
@@ -4170,8 +4175,8 @@ msgstr "Összegyúr"
 # ID:80,#:
 # Control-ID:65535,
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "Összegyúr... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Összegyúr - TortoiseSVN"
 
 # ID:263,
 #: ID:263
@@ -5206,6 +5211,11 @@ msgstr ""
 "%s átnevezése erre:\r\n"
 "to %s"
 
+# Dlg-ID:129,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Felold - TortoiseSVN"
+
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5285,6 +5295,11 @@ msgstr "&Megoldva..."
 msgid "Resolve"
 msgstr "Megoldás"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Felold - TortoiseSVN"
+
 # ID:9,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5294,11 +5309,6 @@ msgstr "Javítás a saját verzió szerint"
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "Javítás a másik verzió szerint"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "Felold... - TortoiseSVN"
 
 # ID:8,#:
 # ID:74,
@@ -5348,15 +5358,15 @@ msgstr "Újrapróbáld"
 msgid "Revert"
 msgstr "Visszavon"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Visszaállít - TortoiseSVN"
+
 # ID:114,
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Ezen verziók változtatásainak visszavonása"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "Visszaállít... - TortoiseSVN"
 
 # ID:73,
 #: ID:73
@@ -6216,6 +6226,11 @@ msgstr "Subversion szerverfájl:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "A munkapéldány át&állítása egy új mellékágra"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Vált - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Balra <-> Jobbra vált"
@@ -6275,11 +6290,6 @@ msgstr "Az előző dokumentumablakra ugrk"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Munkapéldány átállítása mellékágra"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "Vált... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -6931,18 +6941,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:9,#:
-# ID:80,#:
-# Control-ID:65535,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Szemrehány"
-
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Átnevez/áthelyez"
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7133,8 +7131,8 @@ msgstr "Frissít"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "Frissít... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Frissít - TortoiseSVN"
 
 # ID:74,
 #: ID:74
