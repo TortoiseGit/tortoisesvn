@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-02 14:42+0200\n"
+"PO-Revision-Date: 2007-04-14 17:45+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1248,6 +1248,12 @@ msgstr "Добавяне на '%s' в речника"
 msgid "Add (as replacement)..."
 msgstr "Добавяне (като заместник)..."
 
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Добавяне - TortoiseSVN"
+
 # Control-ID:65535,
 #: ID:563
 msgid "Add Properties"
@@ -1272,12 +1278,6 @@ msgstr "Добавяне в списъка за &игнориране"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "Добавяне..."
-
-# ID:9,#:
-# ID:80,
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "Добавяне... - TortoiseSVN"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1671,6 +1671,11 @@ msgstr "Базов файл:"
 msgid "Blame"
 msgstr "Показване на отговорните"
 
+# Dlg-ID:129,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Показване на отговорните - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1940,8 +1945,8 @@ msgstr "Изписване на &директория:"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "Изписване... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Изписване - TortoiseSVN"
 
 # ID:145,
 #: ID:146
@@ -2063,6 +2068,11 @@ msgstr "Командата се провали."
 msgid "Commit"
 msgstr "Поверяване"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Поверяване - TortoiseSVN"
+
 # Control-ID:1110,
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -2072,11 +2082,6 @@ msgstr "Праг на поверявания:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Поверяване в:"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "Поверяване... - TortoiseSVN"
 
 # Control-ID:1110,
 #: ID:244
@@ -2242,6 +2247,12 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "Копиране (създаване на разклонение / етикет)"
 
+# ID:9,#:
+# ID:80,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Копиране - TortoiseSVN"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2300,12 +2311,6 @@ msgstr "Копиране в работно копие"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Копиране в работно копие..."
-
-# ID:9,#:
-# ID:80,
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "Копиране... - TortoiseSVN"
 
 # ID:97,
 #: ID:98
@@ -2993,6 +2998,11 @@ msgstr "&Износ"
 msgid "Export &directory:"
 msgstr "&Директория за износ:"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Износ - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -3002,11 +3012,6 @@ msgstr "Директория за износ:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Износ и на неконтролираните файлове"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "износ... - TortoiseSVN"
 
 # ID:79,
 #: ID:284
@@ -3723,6 +3728,11 @@ msgstr "Внос на %ld обекта"
 msgid "Import &message"
 msgstr "Съобщение за &внос"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Внос - TortoiseSVN"
+
 # ID:119,
 #: ID:127
 #, c-format
@@ -3752,11 +3762,6 @@ msgid ""
 msgstr ""
 "Внос на папка %s\r\n"
 "в %s"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "Внос... - TortoiseSVN"
 
 # ID:119,
 #: ID:120
@@ -4221,8 +4226,8 @@ msgstr "Сливане"
 # ID:9,#:
 # ID:80,
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "Сливане... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Сливане - TortoiseSVN"
 
 # Dlg-ID:141,
 #: ID:263
@@ -5252,6 +5257,11 @@ msgstr ""
 "Преименуване на обект от %s\r\n"
 "на %s"
 
+# Dlg-ID:129,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Преименуване/преместване - TortoiseSVN"
+
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5329,6 +5339,11 @@ msgstr "&Разрешен..."
 msgid "Resolve"
 msgstr "Разрешаване"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Разрешаване - TortoiseSVN"
+
 # ID:9,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5338,11 +5353,6 @@ msgstr "Разрешаване на конфликт, използвайки \"�
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "Разрешаване на конфликт, използвайки \"техния\""
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "Разрешаване... - TortoiseSVN"
 
 # ID:8,
 #: ID:74
@@ -5392,15 +5402,15 @@ msgstr "Нов опит"
 msgid "Revert"
 msgstr "Отменяне"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Отмяна - TortoiseSVN"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Отменяне на промените от тези ревизии"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "Отмяна... - TortoiseSVN"
 
 # ID:8,#:
 # ID:73,#:
@@ -6249,6 +6259,11 @@ msgstr "Файл със сървъри на Subversion:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Прев&ключване на работното копие към ново разклонение/етикет"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Превключване - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Размяна на ляво с дясно"
@@ -6308,11 +6323,6 @@ msgstr "Превключване към предишния прозорец на
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Превключване на работното копие към друго разклонение / етикет"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "Превключване... - TortoiseSVN"
 
 #: ID:325
 msgid "Switches the comparison left<->right"
@@ -6965,18 +6975,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:9,#:
-# ID:80,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN показване на отговорните"
-
-# ID:11,#:
-# ID:101,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN преименуване/преместване"
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7172,8 +7170,8 @@ msgstr "Обновяване"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "Обновяване... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Обновяване - TortoiseSVN"
 
 # ID:8,#:
 # ID:74,#:
