@@ -2,7 +2,7 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2007
 # Xingyu.Wang <xingyu.wang@gmail.com>
 # Stan J <thinkernel@yeah.net>
 #
@@ -27,8 +27,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2007-03-29 22:18 +0000\n"
-"PO-Revision-Date: 2007-04-05 23:49+0800\n"
+"POT-Creation-Date: 2007-04-13 10:50 +0000\n"
+"PO-Revision-Date: 2007-04-16 02:20+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -89,8 +89,8 @@ msgid "List of available command line switches"
 msgstr "列出可用的命令行开关"
 
 #: source/TortoiseSVN_en.xml:10038(entry)
-#: source/TortoiseSVN_en.xml:11703(title)
-#: source/TortoiseSVN_en.xml:12191(glossterm)
+#: source/TortoiseSVN_en.xml:11711(title)
+#: source/TortoiseSVN_en.xml:12199(glossterm)
 msgid "Switch"
 msgstr "切换"
 
@@ -698,11 +698,11 @@ msgstr "如果你需要将整个目录从版本控制中删除，过程会有一
 
 #: source/TortoiseSVN_en.xml:10770(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export</guimenuitem></menuchoice> the folder to somewhere safe, not inside your working copy."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>导出</guimenuitem></menuchoice>文件夹到某个安全的地方而不是你的工作复本。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>导出</guimenuitem></menuchoice>文件夹到某个安全的地方而不是你的工作副本。"
 
 #: source/TortoiseSVN_en.xml:10780(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> the folder from your working copy."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice>，从你的工作复本中删除该文件夹。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice>，从你的工作副本中删除该文件夹。"
 
 #: source/TortoiseSVN_en.xml:10789(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the deleted folder to remove it from the repository."
@@ -741,7 +741,7 @@ msgid "group policies"
 msgstr "组策略"
 
 #: source/TortoiseSVN_en.xml:10828(primary)
-#: source/TortoiseSVN_en.xml:11999(glossterm)
+#: source/TortoiseSVN_en.xml:12007(glossterm)
 msgid "GPO"
 msgstr "GPO"
 
@@ -835,7 +835,7 @@ msgid "Remember that TortoiseSVN is a GUI client, and this automation guide show
 msgstr "请记住TortoiseSVN是一个GUI客户端，这个自动化指导为你展示了让TortoiseSVN对话框显示并收集客户输入，如果你希望编写不需要输入的脚本，你应该使用官方的Subversion命令行客户端。"
 
 #: source/TortoiseSVN_en.xml:10940(title)
-#: source/TortoiseSVN_en.xml:11395(title)
+#: source/TortoiseSVN_en.xml:11403(title)
 msgid "TortoiseSVN Commands"
 msgstr "TortoiseSVN 命令"
 
@@ -966,8 +966,9 @@ msgstr "打开检出对话框，<placeholder-1/>指定了目标路径，而<plac
 #: source/TortoiseSVN_en.xml:11275(option)
 #: source/TortoiseSVN_en.xml:11285(option)
 #: source/TortoiseSVN_en.xml:11292(option)
-#: source/TortoiseSVN_en.xml:11300(option)
-#: source/TortoiseSVN_en.xml:11317(option)
+#: source/TortoiseSVN_en.xml:11301(option)
+#: source/TortoiseSVN_en.xml:11308(option)
+#: source/TortoiseSVN_en.xml:11325(option)
 msgid "/path"
 msgstr "/path"
 
@@ -1039,7 +1040,7 @@ msgstr "将<placeholder-1/>指定文件的冲突标示为解决，如果给定<p
 
 #: source/TortoiseSVN_en.xml:11125(option)
 #: source/TortoiseSVN_en.xml:11191(option)
-#: source/TortoiseSVN_en.xml:11310(option)
+#: source/TortoiseSVN_en.xml:11318(option)
 msgid "/noquestion"
 msgstr "/noquestion"
 
@@ -1174,22 +1175,26 @@ msgid "Shows the revision graph for the path given in <placeholder-1/>."
 msgstr "显示<placeholder-1/>目录下的版本变化图。"
 
 #: source/TortoiseSVN_en.xml:11297(entry)
-msgid "Locks a file. The 'lock' dialog is shown so the user can enter a comment for the lock. <placeholder-1/>"
-msgstr "锁定一个文件，显示‘锁定’对话框，用户可以输入锁定的注视 。<placeholder-1/>"
+msgid "Locks a file or all files in a directory. The 'lock' dialog is shown so the user can enter a comment for the lock. <placeholder-1/>"
+msgstr "锁定一个文件或一个目录内的所有文件。它会显示‘锁定’对话框，所以用户可以为锁定输入注释。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:113(para)
 msgid "The <emphasis>Daily Use Guide</emphasis> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
 msgstr "<emphasis>日常使用指南</emphasis>是最重要的章节，介绍了 TortoiseSVN 最主要特性的使用。它以教程的形式，从检出一个工作副本开始，然后修改，提交你的修改，之后进入高级主题。"
 
-#: source/TortoiseSVN_en.xml:11305(entry)
+#: source/TortoiseSVN_en.xml:11306(entry)
+msgid "Unlocks a file or all files in a directory.. <placeholder-1/>"
+msgstr "解锁一个文件或一个目录内的所有文件... <placeholder-1/>"
+
+#: source/TortoiseSVN_en.xml:11313(entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. <placeholder-1/>"
 msgstr "重建windows的图标缓存，只有windows的图标缓存出了问题才需要这样做，一个副作用就是(不可避免)桌面的图标会重新组织。<placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:11315(entry)
+#: source/TortoiseSVN_en.xml:11323(entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
 msgstr "显示 <placeholder-1/> 给出的路径之属性对话框。"
 
-#: source/TortoiseSVN_en.xml:11324(para)
+#: source/TortoiseSVN_en.xml:11332(para)
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
 "TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
@@ -1211,56 +1216,56 @@ msgstr ""
 "                 /startrev:50 /endrev:60 /closeonend\n"
 "</screen>"
 
-#: source/TortoiseSVN_en.xml:11339(title)
+#: source/TortoiseSVN_en.xml:11347(title)
 msgid "Command Line Interface Cross Reference"
 msgstr "命令行交叉索引"
 
-#: source/TortoiseSVN_en.xml:11341(primary)
+#: source/TortoiseSVN_en.xml:11349(primary)
 msgid "command line client"
 msgstr "命令行客户端"
 
-#: source/TortoiseSVN_en.xml:11344(primary)
+#: source/TortoiseSVN_en.xml:11352(primary)
 msgid "CLI"
 msgstr "CLI"
 
-#: source/TortoiseSVN_en.xml:11347(para)
+#: source/TortoiseSVN_en.xml:11355(para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr "有时候，本手册会参考Subversion的文档，会以命令行方式(CLI)描述Subversion术语，为了理解TortoiseSVN后台的操作，我们编辑了一份列表，用来展示命令行命令和对应的TortoiseSVN的GUI操作的关系。"
 
-#: source/TortoiseSVN_en.xml:11356(para)
+#: source/TortoiseSVN_en.xml:11364(para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
 msgstr "即使有命令行对应TortoiseSVN的操作，请记住TortoiseSVN<emphasis>没有</emphasis>调用命令行，而是直接使用了Subversion库。"
-
-#: source/TortoiseSVN_en.xml:11362(para)
-msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr "如果你发现了TortoiseSVN的bug，我们会希望你能用命令行重现它，这样我们可以区分这是TSVN还是Subversion的问题，这个参考告诉你该找那个命令。"
 
 #: source/TortoiseSVN_en.xml:1137(para)
 msgid "Also, users of the <literal>file:</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
 msgstr "另外，在 Windows 平台的 <literal>file:</literal> 方案有时候需要使用一种非正式的<quote>标准</quote>协议访问本地但不是程序运行磁盘的版本库，以下两种 URL 路径语法都可以工作，其中的 <literal>X</literal> 是版本库所在的磁盘: "
 
-#: source/TortoiseSVN_en.xml:11370(title)
+#: source/TortoiseSVN_en.xml:11370(para)
+msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
+msgstr "如果你发现了TortoiseSVN的bug，我们会希望你能用命令行重现它，这样我们可以区分这是TSVN还是Subversion的问题，这个参考告诉你该找那个命令。"
+
+#: source/TortoiseSVN_en.xml:11378(title)
 msgid "Conventions and Basic Rules"
 msgstr "约定和基本规则"
 
-#: source/TortoiseSVN_en.xml:11371(para)
+#: source/TortoiseSVN_en.xml:11379(para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr "在这个描述里，版本库位置URL使用<literal>URL</literal>显示，一个例子是<literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>，工作副本使用<literal>PATH</literal>显示，一个例子是<literal>C:\\TortoiseSVN\\trunk</literal>。"
 
-#: source/TortoiseSVN_en.xml:11381(para)
+#: source/TortoiseSVN_en.xml:11389(para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr "因为TortoiseSVN是一个Windows外壳扩展，它不能使用当前工作副本的概念，所有的工作副本必须使用绝对路径，而不是相对的。"
 
-#: source/TortoiseSVN_en.xml:11388(para)
+#: source/TortoiseSVN_en.xml:11396(para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr "特定项目是可选的，TortoiseSVN里这是通过多选项和单选项控制的，这些选项是在命令行定义的[方括号]里显示的。"
 
-#: source/TortoiseSVN_en.xml:11397(title)
-#: source/TortoiseSVN_en.xml:11899(glossterm)
+#: source/TortoiseSVN_en.xml:11405(title)
+#: source/TortoiseSVN_en.xml:11907(glossterm)
 msgid "Checkout"
 msgstr "检出"
 
-#: source/TortoiseSVN_en.xml:11398(screen)
+#: source/TortoiseSVN_en.xml:11406(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1269,24 +1274,24 @@ msgstr ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 
-#: source/TortoiseSVN_en.xml:11401(para)
+#: source/TortoiseSVN_en.xml:11409(para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "如果希望<guilabel>只检出顶级目录</guilabel>被选中，使用<literal>-N</literal>选项。"
 
-#: source/TortoiseSVN_en.xml:11405(para) source/TortoiseSVN_en.xml:11448(para)
+#: source/TortoiseSVN_en.xml:11413(para) source/TortoiseSVN_en.xml:11456(para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "如果希望<guilabel>忽略外部</guilabel>被选中，使用<literal>--ignore-externals</literal>选型。"
 
-#: source/TortoiseSVN_en.xml:11409(para)
+#: source/TortoiseSVN_en.xml:11417(para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr "如果你正在检出特定的修订版本，在URL后使用<literal>-r</literal>指定。"
 
-#: source/TortoiseSVN_en.xml:11415(title)
-#: source/TortoiseSVN_en.xml:12205(glossterm)
+#: source/TortoiseSVN_en.xml:11423(title)
+#: source/TortoiseSVN_en.xml:12213(glossterm)
 msgid "Update"
 msgstr "更新"
 
-#: source/TortoiseSVN_en.xml:11416(screen)
+#: source/TortoiseSVN_en.xml:11424(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1297,23 +1302,23 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 
-#: source/TortoiseSVN_en.xml:11420(para)
+#: source/TortoiseSVN_en.xml:11428(para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
 msgstr "更新多个项目在Subversion还不是原子操作，所以TortoiseSVN会首先找到版本库的HEAD修订版本，然后将所有项目更新到特定修订版本，防止出现混合修订版本的工作副本。"
 
-#: source/TortoiseSVN_en.xml:11427(para)
+#: source/TortoiseSVN_en.xml:11435(para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
 msgstr "如果只有一个项目被选中更新，或选中的项目来自不同的版本库，TortoiseSVN只会更新到HEAD。"
 
-#: source/TortoiseSVN_en.xml:11432(para)
+#: source/TortoiseSVN_en.xml:11440(para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr "没有使用命令行选项，<guilabel>更新到修订版本</guilabel>也实现了更新命令，但提供了更多的选项。"
 
-#: source/TortoiseSVN_en.xml:11439(title)
+#: source/TortoiseSVN_en.xml:11447(title)
 msgid "Update to Revision"
 msgstr "更新到版本"
 
-#: source/TortoiseSVN_en.xml:11440(screen)
+#: source/TortoiseSVN_en.xml:11448(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1324,33 +1329,18 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 
-#: source/TortoiseSVN_en.xml:11444(para)
+#: source/TortoiseSVN_en.xml:11452(para)
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "如果希望<guilabel>只更新顶级目录</guilabel>，使用<literal>-N</literal>选项。"
 
-#: source/TortoiseSVN_en.xml:11454(title)
-#: source/TortoiseSVN_en.xml:11925(glossterm)
+#: source/TortoiseSVN_en.xml:11462(title)
+#: source/TortoiseSVN_en.xml:11933(glossterm)
 msgid "Commit"
 msgstr "提交"
 
-#: source/TortoiseSVN_en.xml:11455(para)
+#: source/TortoiseSVN_en.xml:11463(para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr "在TortoiseSVN，提交对话框使用Subversion命令，第一部分是检查工作副本哪些文件可能被提交，然后你可以检查列表，比较与BASE的区别，选择你希望提交包含的项目。"
-
-#: source/TortoiseSVN_en.xml:11462(screen)
-#: source/TortoiseSVN_en.xml:11624(screen)
-#: source/TortoiseSVN_en.xml:11652(screen)
-#, no-wrap
-msgid ""
-"\n"
-"svn status -v PATH\n"
-msgstr ""
-"\n"
-"svn status -v PATH\n"
-
-#: source/TortoiseSVN_en.xml:11465(para) source/TortoiseSVN_en.xml:11553(para)
-msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr "如果选择了<guilabel>显示未版本控制的文件</guilabel>，TortoiseSVN会遵循忽略规则显示工作目录中所有未版本控制的文件和文件夹。这个特性在Subversion中没有等价操作，因为<literal>svn status</literal> 命令不扫描未版本控制的文件夹。"
 
 #: source/TortoiseSVN_en.xml:1147(screen)
 #, no-wrap
@@ -1367,12 +1357,27 @@ msgstr ""
 "file:///X|/path/to/repos\n"
 "...\n"
 
-#: source/TortoiseSVN_en.xml:11473(para)
+#: source/TortoiseSVN_en.xml:11470(screen)
+#: source/TortoiseSVN_en.xml:11632(screen)
+#: source/TortoiseSVN_en.xml:11660(screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn status -v PATH\n"
+msgstr ""
+"\n"
+"svn status -v PATH\n"
+
+#: source/TortoiseSVN_en.xml:11473(para) source/TortoiseSVN_en.xml:11561(para)
+msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
+msgstr "如果选择了<guilabel>显示未版本控制的文件</guilabel>，TortoiseSVN会遵循忽略规则显示工作目录中所有未版本控制的文件和文件夹。这个特性在Subversion中没有等价操作，因为<literal>svn status</literal> 命令不扫描未版本控制的文件夹。"
+
+#: source/TortoiseSVN_en.xml:11481(para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr "如果你选择了未版本控制的文件和文件夹，这些项目都会先增加到你的工作副本。"
 
-#: source/TortoiseSVN_en.xml:11477(screen)
-#: source/TortoiseSVN_en.xml:11767(screen)
+#: source/TortoiseSVN_en.xml:11485(screen)
+#: source/TortoiseSVN_en.xml:11775(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1381,11 +1386,11 @@ msgstr ""
 "\n"
 "svn add PATH...\n"
 
-#: source/TortoiseSVN_en.xml:11480(para)
+#: source/TortoiseSVN_en.xml:11488(para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr "当你点击确认，开始执行Subversion提交。如果你不修改所有的文件检查框，TortoiseSVN 会递归提交工作副本。如果你取消选择一些文件，那么就必须使用非递归提交 (<literal>-N</literal>) ，每个路径都必须在命令行上单独指定。"
 
-#: source/TortoiseSVN_en.xml:11488(screen)
+#: source/TortoiseSVN_en.xml:11496(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1394,21 +1399,21 @@ msgstr ""
 "\n"
 "svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:11491(para) source/TortoiseSVN_en.xml:11697(para)
-#: source/TortoiseSVN_en.xml:11780(para)
+#: source/TortoiseSVN_en.xml:11499(para) source/TortoiseSVN_en.xml:11705(para)
+#: source/TortoiseSVN_en.xml:11788(para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "<literal>日志消息</literal>是日志编辑框的内容。它可以为空。"
 
-#: source/TortoiseSVN_en.xml:11495(para)
+#: source/TortoiseSVN_en.xml:11503(para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr "如果选择了<guilabel>保持锁</guilabel>，就使用<literal>--no-unlock</literal>开关。"
 
-#: source/TortoiseSVN_en.xml:11501(title)
-#: source/TortoiseSVN_en.xml:11971(glossterm)
+#: source/TortoiseSVN_en.xml:11509(title)
+#: source/TortoiseSVN_en.xml:11979(glossterm)
 msgid "Diff"
 msgstr "差异"
 
-#: source/TortoiseSVN_en.xml:11502(screen)
+#: source/TortoiseSVN_en.xml:11510(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1417,49 +1422,49 @@ msgstr ""
 "\n"
 "svn diff PATH\n"
 
-#: source/TortoiseSVN_en.xml:11505(para)
+#: source/TortoiseSVN_en.xml:11513(para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between fulltext files, so there is no direct CLI equivalent."
 msgstr "如果你在右键菜单使用差异，就会将修改的文件与基础版本比较。控制台的命令输出也是执行这个操作，输出统一差异格式。然而，TortoiseSVN不使用它。TortoiseSVN 使用TortoiseMerge (或者你选择的比较差异程序)可视化的全文显示差异，所以它没有控制台等价操作。"
 
-#: source/TortoiseSVN_en.xml:11514(para)
+#: source/TortoiseSVN_en.xml:11522(para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
 msgstr "你可以使用TortoiseSVN,比较任意两个文件的差异，不管他们是否受版本控制。TortoiseSVN只是把这两个文件传递给已经选择的比较差异程序，让它比较差异。"
-
-#: source/TortoiseSVN_en.xml:11522(title)
-msgid "Show Log"
-msgstr "显示日志"
-
-#: source/TortoiseSVN_en.xml:11523(screen)
-#, no-wrap
-msgid ""
-"\n"
-"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
-"  or\n"
-"svn log -v -r M:N [--stop-on-copy] PATH\n"
-msgstr ""
-"\n"
-"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
-"  或者\n"
-"svn log -v -r M:N [--stop-on-copy] PATH\n"
-
-#: source/TortoiseSVN_en.xml:11528(para)
-msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
-msgstr "默认情况下，TortoiseSVN尝试用--limit方法取得100个日志消息。如果设置了让它使用旧借口，那么就使用第二种个是获得100个日志消息。"
 
 #: source/TortoiseSVN_en.xml:1153(para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
 msgstr "注意 URL 使用普通的斜杠，而不是 Windows 本地(非 URL)形式的路径。"
 
-#: source/TortoiseSVN_en.xml:11534(para)
+#: source/TortoiseSVN_en.xml:11530(title)
+msgid "Show Log"
+msgstr "显示日志"
+
+#: source/TortoiseSVN_en.xml:11531(screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  or\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
+msgstr ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  或者\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
+
+#: source/TortoiseSVN_en.xml:11536(para)
+msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
+msgstr "默认情况下，TortoiseSVN尝试用--limit方法取得100个日志消息。如果设置了让它使用旧借口，那么就使用第二种个是获得100个日志消息。"
+
+#: source/TortoiseSVN_en.xml:11542(para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr "如果选择了<guilabel>停止于复制/改名</guilabel>，就使用<literal>--stop-on-copy</literal>开关。"
 
-#: source/TortoiseSVN_en.xml:11540(title)
+#: source/TortoiseSVN_en.xml:11548(title)
 #: source/TortoiseSVN_en.xml:4682(title)
 msgid "Check for Modifications"
 msgstr "检查所作的修改"
 
-#: source/TortoiseSVN_en.xml:11541(screen)
+#: source/TortoiseSVN_en.xml:11549(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1472,19 +1477,23 @@ msgstr ""
 "  或者\n"
 "svn status -u -v PATH\n"
 
-#: source/TortoiseSVN_en.xml:11546(para)
+#: source/TortoiseSVN_en.xml:11554(para)
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
 msgstr "只在你的工作副本执行初始的状态检查。如果你点击<guibutton>检查版本库</guibutton>，那么也检查版本库，察看哪些文件会被更新操作修改，它需要<literal>-u</literal>开关。"
 
-#: source/TortoiseSVN_en.xml:11563(title)
+#: source/TortoiseSVN_en.xml:1157(para)
+msgid "You can safely access an FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
+msgstr "你可以安全的访问网络共享上 FSFS 版本库，但是你<emphasis>不能</emphasis>以这种方式访问 BDB 版本库。"
+
+#: source/TortoiseSVN_en.xml:11571(title)
 msgid "Revision Graph"
 msgstr "版本图"
 
-#: source/TortoiseSVN_en.xml:11564(para)
+#: source/TortoiseSVN_en.xml:11572(para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
 msgstr "版本图是TortoiseSVN特有的，命令行客户端没有等价实现。"
 
-#: source/TortoiseSVN_en.xml:11568(para)
+#: source/TortoiseSVN_en.xml:11576(para)
 msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
@@ -1496,15 +1505,11 @@ msgstr ""
 "svn log -v URL\n"
 "</screen>其中URL是版本库的 <emphasis>根</emphasis>，返回分析数据。"
 
-#: source/TortoiseSVN_en.xml:1157(para)
-msgid "You can safely access an FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "你可以安全的访问网络共享上 FSFS 版本库，但是你<emphasis>不能</emphasis>以这种方式访问 BDB 版本库。"
-
-#: source/TortoiseSVN_en.xml:11579(title)
+#: source/TortoiseSVN_en.xml:11587(title)
 msgid "Repo Browser"
 msgstr "版本库浏览器"
 
-#: source/TortoiseSVN_en.xml:11580(screen)
+#: source/TortoiseSVN_en.xml:11588(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1515,27 +1520,27 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 
-#: source/TortoiseSVN_en.xml:11584(para)
+#: source/TortoiseSVN_en.xml:11592(para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
 msgstr "你可以使用<literal>svn info</literal>检查版本库的根，它在版本库浏览器的顶级显示。你不能浏览它的<literal>上级目录</literal>。同样，这个命令返回所有显示在版本库浏览器的锁信息。"
 
-#: source/TortoiseSVN_en.xml:11591(para)
+#: source/TortoiseSVN_en.xml:11599(para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
 msgstr "给出URL和可选的版本号，<literal>svn list</literal>列出目录中的内容。"
 
-#: source/TortoiseSVN_en.xml:11597(title)
+#: source/TortoiseSVN_en.xml:11605(title)
 msgid "Edit Conflicts"
 msgstr "编辑冲突"
 
-#: source/TortoiseSVN_en.xml:11598(para)
+#: source/TortoiseSVN_en.xml:11606(para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
 msgstr "这个命令没有控制台等价实现。它调用TortoiseMerge或者外部三路差异/合并工具察看棘手的冲突，挑选出冲突行。"
 
-#: source/TortoiseSVN_en.xml:11605(title)
+#: source/TortoiseSVN_en.xml:11613(title)
 msgid "Resolved"
 msgstr "已解决"
 
-#: source/TortoiseSVN_en.xml:11606(screen)
+#: source/TortoiseSVN_en.xml:11614(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1544,11 +1549,11 @@ msgstr ""
 "\n"
 "svn resolved PATH\n"
 
-#: source/TortoiseSVN_en.xml:11611(title)
+#: source/TortoiseSVN_en.xml:11619(title)
 msgid "Rename"
 msgstr "改名"
 
-#: source/TortoiseSVN_en.xml:11612(screen)
+#: source/TortoiseSVN_en.xml:11620(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1557,12 +1562,12 @@ msgstr ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 
-#: source/TortoiseSVN_en.xml:11617(title)
-#: source/TortoiseSVN_en.xml:11959(glossterm)
+#: source/TortoiseSVN_en.xml:11625(title)
+#: source/TortoiseSVN_en.xml:11967(glossterm)
 msgid "Delete"
 msgstr "删除"
 
-#: source/TortoiseSVN_en.xml:11618(screen)
+#: source/TortoiseSVN_en.xml:11626(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1571,25 +1576,25 @@ msgstr ""
 "\n"
 "svn delete PATH\n"
 
-#: source/TortoiseSVN_en.xml:11623(title)
-#: source/TortoiseSVN_en.xml:12138(glossterm)
+#: source/TortoiseSVN_en.xml:11631(title)
+#: source/TortoiseSVN_en.xml:12146(glossterm)
 msgid "Revert"
 msgstr "恢复"
 
-#: source/TortoiseSVN_en.xml:11627(para)
+#: source/TortoiseSVN_en.xml:11635(para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
 msgstr "首先开始状态检查，察看你的工作副本有哪些项目可以被撤销。你可以复审文件列表，检查这些文件的修改，然后选择你要撤销的项目。"
-
-#: source/TortoiseSVN_en.xml:11633(para)
-msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr "当你点击确认时，开始Subversion撤销操作。如果你不修改所有的文件检查框，TortoiseSVN 会递归撤销 (<literal>-R</literal>)工作副本的修改。如果你取消选择一些文件，那么就必须使用非递归撤销 ，每个路径都必须在命令行上单独指定。\""
 
 #: source/TortoiseSVN_en.xml:1164(para) source/TortoiseSVN_en.xml:2679(para)
 #: source/TortoiseSVN_en.xml:3024(para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
 msgstr "不要创建和访问网络共享上的 Berkeley DB 版本库，它<emphasis>不能</emphasis>存在于一个远程的文件系统，即使是映射到盘符的共享。如果你希望在网络共享使用 Berkeley DB，结果难以预料－你可能会立刻看到奇怪的错误，也有可能几个月之后才发现数据库已经损坏了。"
 
-#: source/TortoiseSVN_en.xml:11640(screen)
+#: source/TortoiseSVN_en.xml:11641(para)
+msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
+msgstr "当你点击确认时，开始Subversion撤销操作。如果你不修改所有的文件检查框，TortoiseSVN 会递归撤销 (<literal>-R</literal>)工作副本的修改。如果你取消选择一些文件，那么就必须使用非递归撤销 ，每个路径都必须在命令行上单独指定。\""
+
+#: source/TortoiseSVN_en.xml:11648(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1598,13 +1603,13 @@ msgstr ""
 "\n"
 "svn revert [-R] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:11645(title)
-#: source/TortoiseSVN_en.xml:11908(glossterm)
+#: source/TortoiseSVN_en.xml:11653(title)
+#: source/TortoiseSVN_en.xml:11916(glossterm)
 #: source/TortoiseSVN_en.xml:6368(title)
 msgid "Cleanup"
 msgstr "清理"
 
-#: source/TortoiseSVN_en.xml:11646(screen)
+#: source/TortoiseSVN_en.xml:11654(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1613,15 +1618,15 @@ msgstr ""
 "\n"
 "svn cleanup PATH\n"
 
-#: source/TortoiseSVN_en.xml:11651(title)
+#: source/TortoiseSVN_en.xml:11659(title)
 msgid "Get Lock"
 msgstr "获得锁"
 
-#: source/TortoiseSVN_en.xml:11655(para)
+#: source/TortoiseSVN_en.xml:11663(para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
 msgstr "首先开始状态检查，察看你的工作副本有哪些项目可以被加锁。你可以选择想加锁的项目。"
 
-#: source/TortoiseSVN_en.xml:11660(screen)
+#: source/TortoiseSVN_en.xml:11668(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1630,19 +1635,19 @@ msgstr ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:11663(para)
+#: source/TortoiseSVN_en.xml:11671(para)
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
 msgstr "<literal>加锁信息</literal>是加锁编辑框的内容。它可以为空。\""
 
-#: source/TortoiseSVN_en.xml:11667(para)
+#: source/TortoiseSVN_en.xml:11675(para)
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
 msgstr "如果选择了<guilabel>强制锁定</guilabel> ，就使用<literal>--force</literal>开关。"
 
-#: source/TortoiseSVN_en.xml:11673(title)
+#: source/TortoiseSVN_en.xml:11681(title)
 msgid "Release Lock"
 msgstr "释放锁"
 
-#: source/TortoiseSVN_en.xml:11674(screen)
+#: source/TortoiseSVN_en.xml:11682(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1651,11 +1656,11 @@ msgstr ""
 "\n"
 "svn unlock PATH\n"
 
-#: source/TortoiseSVN_en.xml:11679(title)
+#: source/TortoiseSVN_en.xml:11687(title)
 msgid "Branch/Tag"
 msgstr "分支/标记"
 
-#: source/TortoiseSVN_en.xml:11680(screen)
+#: source/TortoiseSVN_en.xml:11688(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1672,25 +1677,25 @@ msgstr ""
 "  或\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 
-#: source/TortoiseSVN_en.xml:11687(para)
+#: source/TortoiseSVN_en.xml:11695(para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
 msgstr "分支/标签对话框在版本库执行复制。有三个单选按钮: <placeholder-1/> 对应上面的三个命令行参数。"
 
-#: source/TortoiseSVN_en.xml:11691(listitem)
+#: source/TortoiseSVN_en.xml:11699(listitem)
 #: source/TortoiseSVN_en.xml:6759(term)
 msgid "HEAD revision in the repository"
 msgstr "版本库中的最新版本"
 
-#: source/TortoiseSVN_en.xml:11692(listitem)
+#: source/TortoiseSVN_en.xml:11700(listitem)
 msgid "Specific revision in repository"
 msgstr "指定版本库中的版本"
 
-#: source/TortoiseSVN_en.xml:11693(listitem)
+#: source/TortoiseSVN_en.xml:11701(listitem)
 #: source/TortoiseSVN_en.xml:6785(term)
 msgid "Working copy"
 msgstr "工作副本"
 
-#: source/TortoiseSVN_en.xml:11704(screen)
+#: source/TortoiseSVN_en.xml:11712(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1701,12 +1706,12 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 
-#: source/TortoiseSVN_en.xml:11710(title)
-#: source/TortoiseSVN_en.xml:12052(glossterm)
+#: source/TortoiseSVN_en.xml:11718(title)
+#: source/TortoiseSVN_en.xml:12060(glossterm)
 msgid "Merge"
 msgstr "合并"
 
-#: source/TortoiseSVN_en.xml:11711(screen)
+#: source/TortoiseSVN_en.xml:11719(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1715,11 +1720,11 @@ msgstr ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 
-#: source/TortoiseSVN_en.xml:11714(para)
+#: source/TortoiseSVN_en.xml:11722(para)
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr "<guibutton>Dry run</guibutton>与使用<literal>--dry-run</literal>选项的merge相同。"
 
-#: source/TortoiseSVN_en.xml:11718(screen)
+#: source/TortoiseSVN_en.xml:11726(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1728,16 +1733,16 @@ msgstr ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 
-#: source/TortoiseSVN_en.xml:11721(para)
+#: source/TortoiseSVN_en.xml:11729(para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
 msgstr "<guibutton>Unified diff</guibutton>显示了用来合并的区别操作。"
 
-#: source/TortoiseSVN_en.xml:11727(title)
-#: source/TortoiseSVN_en.xml:11980(glossterm)
+#: source/TortoiseSVN_en.xml:11735(title)
+#: source/TortoiseSVN_en.xml:11988(glossterm)
 msgid "Export"
 msgstr "输出"
 
-#: source/TortoiseSVN_en.xml:11728(screen)
+#: source/TortoiseSVN_en.xml:11736(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1746,32 +1751,32 @@ msgstr ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 
-#: source/TortoiseSVN_en.xml:11731(para)
+#: source/TortoiseSVN_en.xml:11739(para)
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
 msgstr "这个形式是当从一个未版本控制目录访问，并且文件夹作为目标。"
-
-#: source/TortoiseSVN_en.xml:11735(para)
-msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
-msgstr "导出一个工作副本到一个目录没有使用Subversion的库，所以没有等同的命令行匹配。"
 
 #: source/TortoiseSVN_en.xml:1174(para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
 msgstr "假定你修改了 <filename>button.c</filename>，因为 <filename>.svn</filename> 目录记录着文件的修改日期和原始内容，Subversion 可以告诉你已经修改了文件，然而，在你明确告诉它之前，Subversion 不会将你的改变公开。将改变公开的操作被叫做提交(或者是<firstterm>检入</firstterm>)，它提交修改到版本库中。"
 
-#: source/TortoiseSVN_en.xml:11740(para)
+#: source/TortoiseSVN_en.xml:11743(para)
+msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
+msgstr "导出一个工作副本到一个目录没有使用Subversion的库，所以没有等同的命令行匹配。"
+
+#: source/TortoiseSVN_en.xml:11748(para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
 msgstr "TortoiseSVN做的只是将所有文件复制到一个新的位置，并且会显示操作的过程。未版本控制的文件/文件夹也可以被导出。"
 
-#: source/TortoiseSVN_en.xml:11745(para)
+#: source/TortoiseSVN_en.xml:11753(para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "在两种情况下，如果<guilabel>Omit externals</guilabel>被选中，就相当于使用了<literal>--ignore-externals</literal>选项。"
 
-#: source/TortoiseSVN_en.xml:11752(title)
-#: source/TortoiseSVN_en.xml:12098(glossterm)
+#: source/TortoiseSVN_en.xml:11760(title)
+#: source/TortoiseSVN_en.xml:12106(glossterm)
 msgid "Relocate"
 msgstr "重新定位"
 
-#: source/TortoiseSVN_en.xml:11753(screen)
+#: source/TortoiseSVN_en.xml:11761(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1780,11 +1785,11 @@ msgstr ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 
-#: source/TortoiseSVN_en.xml:11758(title)
+#: source/TortoiseSVN_en.xml:11766(title)
 msgid "Create Repository Here"
 msgstr "在当前位置创建版本库"
 
-#: source/TortoiseSVN_en.xml:11759(screen)
+#: source/TortoiseSVN_en.xml:11767(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1797,22 +1802,22 @@ msgstr ""
 "  或\n"
 "svnadmin create --fs-type bdb PATH\n"
 
-#: source/TortoiseSVN_en.xml:11766(title)
-#: source/TortoiseSVN_en.xml:11842(glossterm)
+#: source/TortoiseSVN_en.xml:11774(title)
+#: source/TortoiseSVN_en.xml:11850(glossterm)
 msgid "Add"
 msgstr "添加"
 
-#: source/TortoiseSVN_en.xml:11770(para)
+#: source/TortoiseSVN_en.xml:11778(para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
 msgstr "如果选择了一个文件夹，TortoiseSVN会首先会递归的访问可以添加的条目。"
 
-#: source/TortoiseSVN_en.xml:11776(title)
-#: source/TortoiseSVN_en.xml:12015(glossterm)
+#: source/TortoiseSVN_en.xml:11784(title)
+#: source/TortoiseSVN_en.xml:12023(glossterm)
 #: source/TortoiseSVN_en.xml:3553(title)
 msgid "Import"
 msgstr "导入"
 
-#: source/TortoiseSVN_en.xml:11777(screen)
+#: source/TortoiseSVN_en.xml:11785(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1821,12 +1826,12 @@ msgstr ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 
-#: source/TortoiseSVN_en.xml:11786(title)
-#: source/TortoiseSVN_en.xml:11863(glossterm)
+#: source/TortoiseSVN_en.xml:11794(title)
+#: source/TortoiseSVN_en.xml:11871(glossterm)
 msgid "Blame"
 msgstr "追溯"
 
-#: source/TortoiseSVN_en.xml:11787(screen)
+#: source/TortoiseSVN_en.xml:11795(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1837,15 +1842,15 @@ msgstr ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 
-#: source/TortoiseSVN_en.xml:11791(para)
+#: source/TortoiseSVN_en.xml:11799(para)
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a textfile, this information is not required."
 msgstr "如果你使用TortoiseBlame来查看追溯信息，文件日志也需要在工具提上上显示日志信息，如果你以文件方式查看追溯，这个信息不是必须的。"
 
-#: source/TortoiseSVN_en.xml:11799(title)
+#: source/TortoiseSVN_en.xml:11807(title)
 msgid "Add to Ignore List"
 msgstr "加入忽略列表"
 
-#: source/TortoiseSVN_en.xml:11800(screen)
+#: source/TortoiseSVN_en.xml:11808(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1858,15 +1863,15 @@ msgstr ""
 "{编辑新的忽略内容到tempfile文件中}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 
-#: source/TortoiseSVN_en.xml:11805(para)
+#: source/TortoiseSVN_en.xml:11813(para)
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
 msgstr "因为svn:ignore通常是多行的，这里是通过文件显示，而不是直接使用命令行操作。"
 
-#: source/TortoiseSVN_en.xml:11812(title)
+#: source/TortoiseSVN_en.xml:11820(title)
 msgid "Create Patch"
 msgstr "创建补丁"
 
-#: source/TortoiseSVN_en.xml:11813(screen)
+#: source/TortoiseSVN_en.xml:11821(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1875,15 +1880,15 @@ msgstr ""
 "\n"
 "svn diff PATH &gt; patchfile\n"
 
-#: source/TortoiseSVN_en.xml:11816(para)
+#: source/TortoiseSVN_en.xml:11824(para)
 msgid "TortoiseSVN creates a patchfile in unified diff format by comparing the working copy with its BASE version."
 msgstr "TortoiseSVN通过比较工作副本和它的基础版本产生一个标准区别格式(unified diff format)的补丁文件。"
 
-#: source/TortoiseSVN_en.xml:11822(title)
+#: source/TortoiseSVN_en.xml:11830(title)
 msgid "Apply Patch"
 msgstr "应用补丁(Apply Patch)"
 
-#: source/TortoiseSVN_en.xml:11823(para)
+#: source/TortoiseSVN_en.xml:11831(para)
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
 msgstr "如果补丁和工作副本不是同一版本的话，那么应用补丁会是一件很棘手的事情。幸运的是，你可以使用 TortoiseMerge(在Subversion中没有等同的工具)。"
 
@@ -1891,97 +1896,93 @@ msgstr "如果补丁和工作副本不是同一版本的话，那么应用补丁
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
 msgstr "发布你的修改给别人，可以使用 Subversion 的提交命令。"
 
-#: source/TortoiseSVN_en.xml:11840(title)
+#: source/TortoiseSVN_en.xml:11848(title)
 msgid "Glossary"
 msgstr "术语表"
 
-#: source/TortoiseSVN_en.xml:11844(para)
+#: source/TortoiseSVN_en.xml:11852(para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr "向你的工作复本中增加文件或者目录时使用的Subversion命令。在你提交的时候新的项就会被加入到版本库中。"
+msgstr "向你的工作副本中增加文件或者目录时使用的Subversion命令。在你提交的时候新的项就会被加入到版本库中。"
 
-#: source/TortoiseSVN_en.xml:11852(glossterm)
+#: source/TortoiseSVN_en.xml:11860(glossterm)
 msgid "BASE revision"
 msgstr "基础版本(BASE revision)"
 
-#: source/TortoiseSVN_en.xml:11854(para)
+#: source/TortoiseSVN_en.xml:11862(para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "当前<emphasis>工作副本</emphasis>里的文件或目录的基础版本。是文件或目录最后被检出、更新或者提交时的版本。基础版本通常和HEAD版本不一致。"
 
-#: source/TortoiseSVN_en.xml:11865(para)
+#: source/TortoiseSVN_en.xml:11873(para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "这个命令只能用于文本文件，它将会标记每一行来显示版本库修订版本的最后修改的修订和作出修改的人。我们的GUI实现叫做TortoiseBlame，在你将鼠标移到修订版本号码上时，它也会显示时间和日志信息。"
-
-#: source/TortoiseSVN_en.xml:11875(glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#: source/TortoiseSVN_en.xml:11877(para)
-msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr "伯克利DB(Berkeley DB)，版本库可以使用的一种经过充分测试的后台数据库实现，不能在通过网络共享的文件系统上使用，伯克利DB是Subversion 1.2版以前的缺省版本库格式。"
 
 #: source/TortoiseSVN_en.xml:1188(para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
 msgstr "这时你对 <filename>button.c</filename> 的修改已经提交到了版本库，如果其他人取出了 <filename>/calc</filename> 的一个工作副本，他们会看到这个文件最新的版本。"
 
-#: source/TortoiseSVN_en.xml:11884(glossterm)
+#: source/TortoiseSVN_en.xml:11883(glossterm)
+msgid "BDB"
+msgstr "BDB"
+
+#: source/TortoiseSVN_en.xml:11885(para)
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr "伯克利DB(Berkeley DB)，版本库可以使用的一种经过充分测试的后台数据库实现，不能在通过网络共享的文件系统上使用，伯克利DB是Subversion 1.2版以前的缺省版本库格式。"
+
+#: source/TortoiseSVN_en.xml:11892(glossterm)
 msgid "Branch"
 msgstr "分支"
 
-#: source/TortoiseSVN_en.xml:11886(para)
+#: source/TortoiseSVN_en.xml:11894(para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "有一个版本控制系统经常使用，来描述在某个时间点的两个人追随不同的路径的术语。你可以创建一个分支离开开发的主线来添加一个新特性，而不必影响主线的稳定，或者你可以创建一个分支用来发布bug修正，而新的开发发生在不稳定的主干。在Subversion，分支是使用<quote>廉价的复制</quote>实现的。"
 
-#: source/TortoiseSVN_en.xml:11901(para)
+#: source/TortoiseSVN_en.xml:11909(para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "一个Subversion命令在空目录通过从版本库下载版本控制的文件来创建本地工作副本。"
 
-#: source/TortoiseSVN_en.xml:11910(para)
+#: source/TortoiseSVN_en.xml:11918(para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
 msgstr "来自《Subversion手册》的引用: <quote>递归的清理工作副本，删除锁定和保留的未完成操作。如果你得到<literal>工作副本已锁定</literal>的错误，运行这个命令删除无用的锁定，并将工作副本恢复到可用状态。</quote>"
 
-#: source/TortoiseSVN_en.xml:11927(para)
+#: source/TortoiseSVN_en.xml:11935(para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "一个Subversion操作，用来将本地修改的内容传递回版本库，创建一个新的版本库修订版本。"
-
-#: source/TortoiseSVN_en.xml:11935(glossterm)
-msgid "Conflict"
-msgstr "冲突"
-
-#: source/TortoiseSVN_en.xml:11937(para)
-msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr "当版本库的修改合并到本地修改，有时候修改发生在同一行，这种情况下，Subversion不能自动决定使用文件的那一行，在提交之前，你需要手工编辑文件解决冲突。"
 
 #: source/TortoiseSVN_en.xml:1194(para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
 msgstr "设你有个合作者，Sally，她和你同时取出了 <filename>/calc</filename> 的一个工作副本，你提交了你对 <filename>button.c</filename> 的修改，Sally 的工作副本并没有改变，Subversion 只在用户要求的时候才改变工作副本。"
 
-#: source/TortoiseSVN_en.xml:11947(glossterm)
+#: source/TortoiseSVN_en.xml:11943(glossterm)
+msgid "Conflict"
+msgstr "冲突"
+
+#: source/TortoiseSVN_en.xml:11945(para)
+msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
+msgstr "当版本库的修改合并到本地修改，有时候修改发生在同一行，这种情况下，Subversion不能自动决定使用文件的那一行，在提交之前，你需要手工编辑文件解决冲突。"
+
+#: source/TortoiseSVN_en.xml:11955(glossterm)
 msgid "Copy"
 msgstr "复制"
 
-#: source/TortoiseSVN_en.xml:11949(para)
+#: source/TortoiseSVN_en.xml:11957(para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "在Subversion版本库，你可以创建一个文件或整个目录树的副本，这是通过<quote>廉价复制</quote>实现的，看起来很像链接到原来的位置，几乎不占用任何空间。创建一个保存历史的副本，这样你就可以跟踪副本之前的修改。"
 
-#: source/TortoiseSVN_en.xml:11961(para)
+#: source/TortoiseSVN_en.xml:11969(para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "当你删除了一个版本控制的条目(并且提交这个修改)，这个条目将不会存在于版本库以后的修订。但它还是存在于版本库的以前的修订版本里，如果必要，你可以复制一个删除的条目回来，并且保持所有的历史。"
 
-#: source/TortoiseSVN_en.xml:11973(para)
+#: source/TortoiseSVN_en.xml:11981(para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "<quote>显示区别</quote>的快捷方式，当你希望查看你所做修改的时候非常有用。"
 
-#: source/TortoiseSVN_en.xml:11982(para)
+#: source/TortoiseSVN_en.xml:11990(para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "这个命令创建了一个版本控制目录的副本，就像工作副本，但是没有<literal>.svn</literal>目录。"
 
-#: source/TortoiseSVN_en.xml:11990(glossterm)
+#: source/TortoiseSVN_en.xml:11998(glossterm)
 msgid "FSFS"
 msgstr "FSFS"
-
-#: source/TortoiseSVN_en.xml:11992(para)
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "FS文件系统，版本库可以使用的一种Subversion专用的后台文件系统格式，能够在通过网络共享的文件系统上使用，FSFS是Subversion 1.2版以后的缺省版本库格式。"
 
 #: source/TortoiseSVN_en.xml:12(surname)
 msgid "Küng"
@@ -1991,71 +1992,75 @@ msgstr "Küng"
 msgid "<emphasis>SubWCRev</emphasis> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
 msgstr "<emphasis>SubWCRev</emphasis> 是 TortoiseSVN 的一个独立程序，可以从工作副本抽取信息并记录到一个文件，可以用来在项目中包含构建信息。"
 
-#: source/TortoiseSVN_en.xml:12001(para)
+#: source/TortoiseSVN_en.xml:12000(para)
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "FS文件系统，版本库可以使用的一种Subversion专用的后台文件系统格式，能够在通过网络共享的文件系统上使用，FSFS是Subversion 1.2版以后的缺省版本库格式。"
+
+#: source/TortoiseSVN_en.xml:12009(para)
 msgid "Group policy object"
 msgstr "组策略对象"
 
-#: source/TortoiseSVN_en.xml:12007(glossterm)
+#: source/TortoiseSVN_en.xml:12015(glossterm)
 msgid "HEAD revision"
 msgstr "最新版本(HEAD revision)"
 
-#: source/TortoiseSVN_en.xml:12009(para)
+#: source/TortoiseSVN_en.xml:12017(para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "<emphasis>版本库</emphasis>里文件或目录的最新版本。"
-
-#: source/TortoiseSVN_en.xml:12017(para)
-msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr "在一个修订里将整个目录导入到版本库的Subversion命令。"
 
 #: source/TortoiseSVN_en.xml:1202(para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
 msgstr "要使项目最新，Sally 可以要求 Subversion <firstterm>更新</firstterm>她的工作副本，通过使用更新命令，可以将你和所有其他人在她上次更新之后的修改合并到她的工作副本。"
 
-#: source/TortoiseSVN_en.xml:12024(glossterm)
+#: source/TortoiseSVN_en.xml:12025(para)
+msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
+msgstr "在一个修订里将整个目录导入到版本库的Subversion命令。"
+
+#: source/TortoiseSVN_en.xml:12032(glossterm)
 msgid "Lock"
 msgstr "锁"
 
-#: source/TortoiseSVN_en.xml:12026(para)
+#: source/TortoiseSVN_en.xml:12034(para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "当一个版本控制条目的被你锁定，就是将它在版本库里标示为不可提交，只有作出锁定的工作副本可以提交。"
 
-#: source/TortoiseSVN_en.xml:12034(glossterm)
+#: source/TortoiseSVN_en.xml:12042(glossterm)
 msgid "Log"
 msgstr "日志"
 
-#: source/TortoiseSVN_en.xml:12036(para)
+#: source/TortoiseSVN_en.xml:12044(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "显示一个文件或是文件夹的版本历史。也就是<quote>历史</quote>。"
 
-#: source/TortoiseSVN_en.xml:12043(glossterm)
+#: source/TortoiseSVN_en.xml:12051(glossterm)
 msgid "History"
 msgstr "历史"
 
-#: source/TortoiseSVN_en.xml:12045(para)
+#: source/TortoiseSVN_en.xml:12053(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "显示文件或目录的历史修订，也被称为<quote>Log</quote>。"
 
-#: source/TortoiseSVN_en.xml:12054(para)
+#: source/TortoiseSVN_en.xml:12062(para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "这个过程会查看版本库添加到工作副本的的修改，而不会破坏你在本地的修改，有时候这些修改可能不会自动的结合，也就是冲突了。"
 
-#: source/TortoiseSVN_en.xml:12060(para)
+#: source/TortoiseSVN_en.xml:12068(para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "在你更新工作副本时会自动合并，你也可以使用TortoiseSVN的合并命令从另一条分支进行合并。"
 
-#: source/TortoiseSVN_en.xml:12068(glossterm)
+#: source/TortoiseSVN_en.xml:12076(glossterm)
 msgid "Patch"
 msgstr "补丁"
 
-#: source/TortoiseSVN_en.xml:12070(para)
+#: source/TortoiseSVN_en.xml:12078(para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "如果工作副本只有文本文件有修改，也可以使用Subversion的Diff命令生成标准区别格式的单文件的修改摘要。这种文件通常被叫做<quote>补丁</quote>，可以邮寄给任何人，使之可以应用到另一个工作副本。一些没有提交访问的人可以通过提交补丁文件给有授权的人来应用补丁，或者是在不确定修改时提交补丁给别人进行评审。"
 
-#: source/TortoiseSVN_en.xml:12083(glossterm)
+#: source/TortoiseSVN_en.xml:12091(glossterm)
 msgid "Property"
 msgstr "属性"
 
-#: source/TortoiseSVN_en.xml:12085(para)
+#: source/TortoiseSVN_en.xml:12093(para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "除了版本控制文件和目录，Subversion允许你添加版本控制的元数据 - 被称作每个文件和目录的<quote>属性</quote> 。每个属性都有一个名称和一个值，非常类似于注册表键。Subversion有一些内置的特别属性，例如<literal>svn:eol-style</literal>。TortoiseSVN也有一些类似的，例如<literal>tsvn:logminsize</literal>，你可以选择名称和值添加你自己的属性。"
 
@@ -2063,89 +2068,89 @@ msgstr "除了版本控制文件和目录，Subversion允许你添加版本控�
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
 msgstr "注意，Sally 不必指定要更新的文件，Subversion 利用 <filename>.svn</filename> 以及版本库的进一步信息决定哪些文件需要更新。"
 
-#: source/TortoiseSVN_en.xml:12100(para)
+#: source/TortoiseSVN_en.xml:12108(para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "如果你的版本库移动了，或许是因为移动到了一个新的目录，或者是域名改变，你需要<quote>relocate</quote>你的工作副本，这样你的版本库URL指向新的地址。"
 
-#: source/TortoiseSVN_en.xml:12106(para)
+#: source/TortoiseSVN_en.xml:12114(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "注意: 工作副本必须是指向同一个版本库的同一个位置，是版本库本身移动了。在其他几种情况下，你很有可能是需要<quote>Switch</quote>命令。"
 
-#: source/TortoiseSVN_en.xml:12115(glossterm)
+#: source/TortoiseSVN_en.xml:12123(glossterm)
 #: source/TortoiseSVN_en.xml:3413(primary)
 msgid "Repository"
 msgstr "版本库"
 
-#: source/TortoiseSVN_en.xml:12117(para)
+#: source/TortoiseSVN_en.xml:12125(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "版本库是进行数据存储和维护的中心。版本库既可以由分布在网络上的若干数据库或者文件组成，也可以存放在用户不需要通过网络就可以直接访问的某个位置。"
 
-#: source/TortoiseSVN_en.xml:12126(glossterm)
+#: source/TortoiseSVN_en.xml:12134(glossterm)
 msgid "Resolve"
 msgstr "解决"
 
-#: source/TortoiseSVN_en.xml:12128(para)
+#: source/TortoiseSVN_en.xml:12136(para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "当合并之后版本库的文件进入了冲突状态，必须有人用编辑器解决冲突(或者是TortoiseMerge)，这个过程称作<quote>解决冲突</quote>，当此过程结束，你可以将冲突文件标示为解决，将会运行提交这个文件。"
 
-#: source/TortoiseSVN_en.xml:12140(para)
+#: source/TortoiseSVN_en.xml:12148(para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion会为每个更新到工作副本的文件保留一份<quote>原始</quote>副本。如果你做出了修改，并希望取消修改，你可以使用<quote>revert</quote>回到原始状态。"
 
-#: source/TortoiseSVN_en.xml:12149(glossterm)
+#: source/TortoiseSVN_en.xml:12157(glossterm)
 msgid "Revision"
 msgstr "版本"
 
-#: source/TortoiseSVN_en.xml:12151(para)
+#: source/TortoiseSVN_en.xml:12159(para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "每当你提交一组修改，你会在版本库创建一个<quote>修订版本</quote>，每个修订代表了版本库树在历史上某一点的状态，如果你希望回到历史，你可以回到以前的修订版本N。"
 
-#: source/TortoiseSVN_en.xml:12158(para)
+#: source/TortoiseSVN_en.xml:12166(para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "另一种情况下，你可以把修订看作修订版本建立的修改集。"
 
-#: source/TortoiseSVN_en.xml:12165(glossterm)
+#: source/TortoiseSVN_en.xml:12173(glossterm)
 msgid "Revision Property (revprop)"
 msgstr "版本属性(revprop)"
 
-#: source/TortoiseSVN_en.xml:12167(para)
+#: source/TortoiseSVN_en.xml:12175(para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "就像文件，版本库的每个修订也可以有属性。一些特殊的修订属性会在修订版本创建时自动生成，例如: <literal>svn:date svn:author svn:log</literal>代表了提交的时间，提交者和日志信息。这些属性可以编辑，但是这些属性都不是版本控制的，所以任何修改都是永久的，不可回退的。"
 
-#: source/TortoiseSVN_en.xml:12179(glossterm)
+#: source/TortoiseSVN_en.xml:12187(glossterm)
 msgid "SVN"
 msgstr "SVN"
 
-#: source/TortoiseSVN_en.xml:12181(para)
+#: source/TortoiseSVN_en.xml:12189(para)
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Subversion的常见缩写形式。"
-
-#: source/TortoiseSVN_en.xml:12184(para)
-msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr "Subversion的<quote>svnserve</quote>版本库服务器使用的自定义协议名称。"
 
 #: source/TortoiseSVN_en.xml:1219(title)
 msgid "Revisions"
 msgstr "修订版本"
 
-#: source/TortoiseSVN_en.xml:12193(para)
+#: source/TortoiseSVN_en.xml:12192(para)
+msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
+msgstr "Subversion的<quote>svnserve</quote>版本库服务器使用的自定义协议名称。"
+
+#: source/TortoiseSVN_en.xml:12201(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "就像<quote>Update-to-revision</quote>从历史上改变了工作副本的视点，<quote>Switch</quote>改变了工作副本空间上的视点。当主干和分支只有微小差别时，这个命令非常有用，你可以在目录之间跳转，而只会有很小区别需要传输。"
-
-#: source/TortoiseSVN_en.xml:12207(para)
-msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr "这个命令将最新的修改从版本库下载到工作副本，合并其他人的修改和工作副本的本地修改。"
 
 #: source/TortoiseSVN_en.xml:1221(primary)
 #: source/TortoiseSVN_en.xml:7892(primary)
 msgid "revision"
 msgstr "修订版本"
 
-#: source/TortoiseSVN_en.xml:12215(glossterm)
+#: source/TortoiseSVN_en.xml:12215(para)
+msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
+msgstr "这个命令将最新的修改从版本库下载到工作副本，合并其他人的修改和工作副本的本地修改。"
+
+#: source/TortoiseSVN_en.xml:12223(glossterm)
 msgid "Working Copy"
 msgstr "工作副本"
 
-#: source/TortoiseSVN_en.xml:12217(para)
+#: source/TortoiseSVN_en.xml:12225(para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "这是你的本地<quote>沙盒</quote>，这个区域是你工作在版本控制文件的地方，它一般存在于你的本地磁盘，你可以使用<quote>Checkout</quote>从版本库创建一个工作副本，然后使用<quote>Commit</quote>将修改传递回版本库。"
 
@@ -4018,7 +4023,7 @@ msgstr "F5"
 
 #: source/TortoiseSVN_en.xml:3312(para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
-msgstr "刷新当前视图。这也许是单键命令中唯一一个最常用的了。比如... 在资源浏览器中，这个键可以刷新工作复本中的图标重载。在提交对话框中，它可以重新扫描查找哪些是需要提交的。在版本日志对话框中，可以重新联系版本库以检查更多的最近修改情况。"
+msgstr "刷新当前视图。这也许是单键命令中唯一一个最常用的了。比如... 在资源浏览器中，这个键可以刷新工作副本中的图标重载。在提交对话框中，它可以重新扫描查找哪些是需要提交的。在版本日志对话框中，可以重新联系版本库以检查更多的最近修改情况。"
 
 #: source/TortoiseSVN_en.xml:332(para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
@@ -4421,11 +4426,11 @@ msgstr "如果项目含有外部项目的引用，而这个引用你不希望同
 
 #: source/TortoiseSVN_en.xml:3869(para)
 msgid "If either of these options are checked, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
-msgstr "如果这两个选项的任何一个选中了，你应该使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新至版本...</guimenuitem></menuchoice>来更新你的工作复本而不是使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。标准的更新将会包含所有的子文件夹和外部引用。"
+msgstr "如果这两个选项的任何一个选中了，你应该使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新至版本...</guimenuitem></menuchoice>来更新你的工作副本而不是使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。标准的更新将会包含所有的子文件夹和外部引用。"
 
 #: source/TortoiseSVN_en.xml:3884(para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "强烈建议你只检出<literal>trunk</literal>的那部分目录树。如果你在URL中指定了目录树的父路径，你的硬盘有可能被塞满，因为你将会得到整个版本库树的复本，包括项目所有的分支和标签(tag)！"
+msgstr "强烈建议你只检出<literal>trunk</literal>的那部分目录树。如果你在URL中指定了目录树的父路径，你的硬盘有可能被塞满，因为你将会得到整个版本库树的副本，包括项目所有的分支和标签(tag)！"
 
 #: source/TortoiseSVN_en.xml:3892(title)
 msgid "Exporting"
@@ -4433,7 +4438,7 @@ msgstr "关于导出"
 
 #: source/TortoiseSVN_en.xml:3893(para)
 msgid "Sometimes you may want to create a local copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Read <xref linkend=\"tsvn-dug-export\"/> to find out how to do that."
-msgstr "有时你可能想要建立一个没有<filename>.svn</filename>目录的本地的复本，比如建立一个源代码压缩包。要达到这个目的，请参考<xref linkend=\"tsvn-dug-export\"/>。"
+msgstr "有时你可能想要建立一个没有<filename>.svn</filename>目录的本地的副本，比如建立一个源代码压缩包。要达到这个目的，请参考<xref linkend=\"tsvn-dug-export\"/>。"
 
 #: source/TortoiseSVN_en.xml:3902(title)
 msgid "Committing Your Changes To The Repository"
@@ -4445,7 +4450,7 @@ msgstr "提交"
 
 #: source/TortoiseSVN_en.xml:3907(para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr "将你对工作复本的修改发送给版本库，称为<firstterm>提交</firstterm>修改。但在你提交之前要确保你的工作副本是最新的。你可以直接使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>，或者，你可以先使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检查修改</guimenuitem></menuchoice>看看哪些文件在本地或是服务器上已经有了改动。"
+msgstr "将你对工作副本的修改发送给版本库，称为<firstterm>提交</firstterm>修改。但在你提交之前要确保你的工作副本是最新的。你可以直接使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>，或者，你可以先使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检查修改</guimenuitem></menuchoice>看看哪些文件在本地或是服务器上已经有了改动。"
 
 #: source/TortoiseSVN_en.xml:391(title)
 msgid "TortoiseSVN's Features"
@@ -4461,7 +4466,7 @@ msgstr "提交对话框"
 
 #: source/TortoiseSVN_en.xml:3925(para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr "如果你的工作复本是最新的，并且没有冲突，你就已经为提交做好准备了，选择你要提交的文件和/或文件夹，然后<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交...</guimenuitem></menuchoice>. <placeholder-1/>"
+msgstr "如果你的工作副本是最新的，并且没有冲突，你就已经为提交做好准备了，选择你要提交的文件和/或文件夹，然后<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3934(title)
 msgid "The Commit dialog"
@@ -4497,7 +4502,7 @@ msgstr "如果你认为TSVN提交对话框显示了太多的未受控文件(如�
 
 #: source/TortoiseSVN_en.xml:3978(para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr "将文件(或是通配符扩展)加入到设置页的排除列表中。这对每个工作复本都起作用。"
+msgstr "将文件(或是通配符扩展)加入到设置页的排除列表中。这对每个工作副本都起作用。"
 
 #: source/TortoiseSVN_en.xml:398(term)
 msgid "Shell integration"
@@ -4525,7 +4530,7 @@ msgstr "Windows 外壳"
 
 #: source/TortoiseSVN_en.xml:4020(para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
-msgstr "你可以将文件从别的地方拖动到提交对话框，只要工作复本是由同一版本库中检出就可以了。比如，你有一个很大的工作复本，要开好几个资源管理器窗口来查看层次中不同的文件夹。如果你要避免从顶级文件夹提交(冗长而缓慢的文件夹改动检查)，你可以打开一个文件夹的提交对话框，然后将别的窗口中的项拖进去，可样就可以一次提交它们了。"
+msgstr "你可以将文件从别的地方拖动到提交对话框，只要工作副本是由同一版本库中检出就可以了。比如，你有一个很大的工作副本，要开好几个资源管理器窗口来查看层次中不同的文件夹。如果你要避免从顶级文件夹提交(冗长而缓慢的文件夹改动检查)，你可以打开一个文件夹的提交对话框，然后将别的窗口中的项拖进去，可样就可以一次提交它们了。"
 
 #: source/TortoiseSVN_en.xml:4030(para)
 msgid "You can drag unversioned files which reside within a working copy into the commit dialog, and they will be SVN added automatically."
@@ -4681,11 +4686,11 @@ msgstr "这是默认的配色方案，但你可以通过设置对话框来定制
 
 #: source/TortoiseSVN_en.xml:4223(title)
 msgid "Update Your Working Copy With Changes From Others"
-msgstr "用来自别人的修改更新你的工作复本"
+msgstr "用来自别人的修改更新你的工作副本"
 
 #: source/TortoiseSVN_en.xml:4227(para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr "<placeholder-1/>你应该定期地确保别人作的修改与你的工作复本可以整合。从服务器上获取改动到你本地复本的过程称为<literal>更新</literal>。更新可以针对一个文件、几个选中的文件或是递归整个目录层次。要进行更新操作，请选择要更新文件和/或路径，<action>右击</action>选择右键菜单中的<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。会弹出一个窗口显示更新的进度。别人作的修改将合并到你的文件中，你所做的修改会被保留。版本库<emphasis>受</emphasis>更新操作的影响。"
+msgstr "<placeholder-1/>你应该定期地确保别人作的修改与你的工作副本可以整合。从服务器上获取改动到你本地副本的过程称为<literal>更新</literal>。更新可以针对一个文件、几个选中的文件或是递归整个目录层次。要进行更新操作，请选择要更新文件和/或路径，<action>右击</action>选择右键菜单中的<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。会弹出一个窗口显示更新的进度。别人作的修改将合并到你的文件中，你所做的修改会被保留。版本库<emphasis>受</emphasis>更新操作的影响。"
 
 #: source/TortoiseSVN_en.xml:4229(title)
 msgid "Progress dialog showing finished update"
@@ -4741,7 +4746,7 @@ msgstr "当更新完成后，进度对话框在文件列表下面显示汇总信
 
 #: source/TortoiseSVN_en.xml:4318(para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose to update the current folder non-recursively (without all the subfolders) and you can choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "标准的更新命令没有选项，仅仅是把你的工作复本更新到版本库中的最新版本，这也是最常用的情况。如果你要对更新过程进行更多的控制，就要使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新到版本...</guimenuitem></menuchoice>。这个操作允许你更新工作复本到一个指定的版本，不仅仅是最新的。假设你的工作复本是在版本100，但你要回顾一下版本50是什么样的——那你只要简单地更新到版本50就可以了。在同一个对话框中你还可以选择不递归更新当前文件夹(就是不更新所有的子文件夹)并且可以选择是否在更新中忽略外部的项目(比如具有属性 <literal>svn:externals</literal>的被引用的项目)."
+msgstr "标准的更新命令没有选项，仅仅是把你的工作副本更新到版本库中的最新版本，这也是最常用的情况。如果你要对更新过程进行更多的控制，就要使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新到版本...</guimenuitem></menuchoice>。这个操作允许你更新工作副本到一个指定的版本，不仅仅是最新的。假设你的工作副本是在版本100，但你要回顾一下版本50是什么样的——那你只要简单地更新到版本50就可以了。在同一个对话框中你还可以选择不递归更新当前文件夹(就是不更新所有的子文件夹)并且可以选择是否在更新中忽略外部的项目(比如具有属性 <literal>svn:externals</literal>的被引用的项目)."
 
 #: source/TortoiseSVN_en.xml:4338(para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
@@ -4749,7 +4754,7 @@ msgstr "如果你把一个文件或是文件夹更新到某个特定的版本，
 
 #: source/TortoiseSVN_en.xml:4348(para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr "<menuchoice><guimenuitem>更新到版本</guimenuitem></menuchoice>在你偶尔要看看你的项目在早前某时刻是什么样子的时候很有用。但通常，更新单个文件到之前的版本不是一个好主意，因为这会使你的工作复本处于不一致的状态。如果你要更新的文件已经改了名，你可能甚至发现该文件从你的工作复本中消失了，因为早期的版本中不存在这个名字的文件。如果你只是简单地想要一个旧版本文件的本地复本，最好是在该文件的日志对话框中使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>另存版本为...</guimenuitem></menuchoice>命令。"
+msgstr "<menuchoice><guimenuitem>更新到版本</guimenuitem></menuchoice>在你偶尔要看看你的项目在早前某时刻是什么样子的时候很有用。但通常，更新单个文件到之前的版本不是一个好主意，因为这会使你的工作副本处于不一致的状态。如果你要更新的文件已经改了名，你可能甚至发现该文件从你的工作副本中消失了，因为早期的版本中不存在这个名字的文件。如果你只是简单地想要一个旧版本文件的本地副本，最好是在该文件的日志对话框中使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>另存版本为...</guimenuitem></menuchoice>命令。"
 
 #: source/TortoiseSVN_en.xml:4367(title)
 msgid "Multiple Files/Folders"
@@ -4769,7 +4774,7 @@ msgstr "本地文件已经存在"
 
 #: source/TortoiseSVN_en.xml:4381(para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr "有时在你试图更新的时候，更新失败，提示信息说已经有一个同名的本地文件。通常发生在Subversion试图检出一个新增的受控文件时，发现一个未受控的同名文件已经在工作路径中存在。Subversion绝不会覆盖一个未受控的文件——因为它有可能有你需要的东西，却碰匚与另一个开发者新提交的文件重名了。"
+msgstr "有时在你试图更新的时候，更新失败，提示信息说已经有一个同名的本地文件。通常发生在Subversion试图检出一个新增的受控文件时，发现一个未受控的同名文件已经在工作路径中存在。Subversion绝不会覆盖一个未受控的文件——因为它有可能有你需要的东西，却碰巧与另一个开发者新提交的文件重名了。"
 
 #: source/TortoiseSVN_en.xml:439(para)
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
@@ -4816,7 +4821,7 @@ msgstr "filename.ext.mine"
 
 #: source/TortoiseSVN_en.xml:4435(para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr "这是你的文件，在你更新你的工作复本之前存在于你的的工作复本中——也就是说，没有冲突标志。这个文件除了你的最新修改外没有别的东西。"
+msgstr "这是你的文件，在你更新你的工作副本之前存在于你的的工作副本中——也就是说，没有冲突标志。这个文件除了你的最新修改外没有别的东西。"
 
 #: source/TortoiseSVN_en.xml:4444(term)
 msgid "filename.ext.rOLDREV"
@@ -4824,7 +4829,7 @@ msgstr "filename.ext.rOLDREV"
 
 #: source/TortoiseSVN_en.xml:4446(para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr "这是在你更新你的工作复本之前的基础版本(BASE revision)文件。也就是说，它是在你做最后修改之前所检出的文件。"
+msgstr "这是在你更新你的工作副本之前的基础版本(BASE revision)文件。也就是说，它是在你做最后修改之前所检出的文件。"
 
 #: source/TortoiseSVN_en.xml:4455(term)
 msgid "filename.ext.rNEWREV"
@@ -4832,7 +4837,7 @@ msgstr "filename.ext.rNEWREV"
 
 #: source/TortoiseSVN_en.xml:4457(para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr "这个文件是当你更新你的工作复本时，你的Subversion客户端从服务器接收到的。这个文件对应与版本库中的最新版本。"
+msgstr "这个文件是当你更新你的工作副本时，你的Subversion客户端从服务器接收到的。这个文件对应与版本库中的最新版本。"
 
 #: source/TortoiseSVN_en.xml:446(para)
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
@@ -4865,7 +4870,7 @@ msgstr "状态"
 
 #: source/TortoiseSVN_en.xml:4518(para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr "当你在你的工作复本上工作时，你时常需要知道哪些文件你已经修改/增加/删除或改名了，或者甚至是哪个文件已经被其他人修改并提交了。"
+msgstr "当你在你的工作副本上工作时，你时常需要知道哪些文件你已经修改/增加/删除或改名了，或者甚至是哪个文件已经被其他人修改并提交了。"
 
 #: source/TortoiseSVN_en.xml:452(term)
 msgid "Directory versioning"
@@ -4881,7 +4886,7 @@ msgstr "图标"
 
 #: source/TortoiseSVN_en.xml:4537(para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr "现在你已经从Subversion版本库中检出了一份工作复本，你可以在资源管理器中看一下这些文件的图标有什么变化。这也正是TortoiseSVN这么流行的原因之一。TortoiseSVN加入了被称为重载图标的功能重载了原始的文件图标。根据文件的Subversion状态的不同，重载的图标也不同。"
+msgstr "现在你已经从Subversion版本库中检出了一份工作副本，你可以在资源管理器中看一下这些文件的图标有什么变化。这也正是TortoiseSVN这么流行的原因之一。TortoiseSVN加入了被称为重载图标的功能重载了原始的文件图标。根据文件的Subversion状态的不同，重载的图标也不同。"
 
 #: source/TortoiseSVN_en.xml:454(para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
@@ -4889,11 +4894,11 @@ msgstr "CVS 只能追踪单个文件的历史，但是 Subversion 实现了一�
 
 #: source/TortoiseSVN_en.xml:4545(para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
-msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> 一个新检出的工作复本使用绿色的对勾做重载。表示Subversion状态<literal>正常</literal>."
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> 一个新检出的工作副本使用绿色的对勾做重载。表示Subversion状态<literal>正常</literal>."
 
 #: source/TortoiseSVN_en.xml:4550(para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
-msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/>在你开始编辑一个文件后，状态就变成了<literal>已修改</literal>，而图标重载变成了红色感叹号。通过这种方式，你可以很容易地看出哪些文件从你上次更新工作复本后被修改过，需要被提交。"
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/>在你开始编辑一个文件后，状态就变成了<literal>已修改</literal>，而图标重载变成了红色感叹号。通过这种方式，你可以很容易地看出哪些文件从你上次更新工作副本后被修改过，需要被提交。"
 
 #: source/TortoiseSVN_en.xml:4558(para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
@@ -4921,7 +4926,7 @@ msgstr "与TortoiseCVS (一个集成的CVS shell)不同，对于未受控的文�
 
 #: source/TortoiseSVN_en.xml:4594(para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If you are also using TortoiseCVS, then there are not enough overlay slots available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr "事实上，你会发现并不是所有的图标被使用在你的系统上。这是由于Windows限制图标重载不能超过15个。Windows自己用了4个，剩下11个可被别的应用程序使用。如果你同时使用了TortoiseCVS，就不有足够的空位了，所以TortoiseSVN希望成为一个<quote>良好市民(TM)</quote>，限制自身的使用，为别的应用留下机会。"
+msgstr "事实上，你会发现并不是所有的图标被使用在你的系统上。这是由于Windows限制图标重载不能超过15个。Windows自己用了4个，剩下11个可被别的应用程序使用。如果你同时使用了TortoiseCVS，就没有足够的空位了，所以TortoiseSVN希望成为一个<quote>良好市民(TM)</quote>，限制自身的使用，为别的应用留下机会。"
 
 #: source/TortoiseSVN_en.xml:4604(para)
 msgid "<literal>Normal</literal>, <literal>Modified</literal> and <literal>Conflicted</literal> are always loaded and visible."
@@ -4961,7 +4966,7 @@ msgstr "右键点击列头，从出现的右键菜单中选择<guimenuitem>其�
 
 #: source/TortoiseSVN_en.xml:4665(para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr "如果你想要当前的布局对你所有的工作复本都有效，你可以考虑把它设成默认视图。"
+msgstr "如果你想要当前的布局对你所有的工作副本都有效，你可以考虑把它设成默认视图。"
 
 #: source/TortoiseSVN_en.xml:467(term)
 msgid "Atomic commits"
@@ -4977,7 +4982,7 @@ msgstr "修改"
 
 #: source/TortoiseSVN_en.xml:4680(para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr "<placeholder-1/> 通常知道你修改了哪些文件以及哪些文件已经由另人修改并提交了是很有用的。这就是命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> 的用武之地了。这个对话框显示了所有你的工作复本中进行了任何形式的修改的的文件，也包括了当前存在的未受控的文件。"
+msgstr "<placeholder-1/> 通常知道你修改了哪些文件以及哪些文件已经由另人修改并提交了是很有用的。这就是命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> 的用武之地了。这个对话框显示了所有你的工作副本中进行了任何形式的修改的的文件，也包括了当前存在的未受控的文件。"
 
 #: source/TortoiseSVN_en.xml:469(para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
@@ -5037,7 +5042,7 @@ msgstr "你还可以对单个文件进行还原(revert)。如果你不小心删�
 
 #: source/TortoiseSVN_en.xml:4795(para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr "可以使用<menuchoice><guimenu>邮件菜单</guimenu><guimenuitem>删除</guimenuitem></menuchoice>将未版本控制的或忽略的文件丢到垃圾箱。如果你向彻底删除(不使用垃圾箱)，在点击<guilabel>删除</guilabel>时，请按着<keycap>Shift</keycap>键。"
+msgstr "可以使用<menuchoice><guimenu>邮件菜单</guimenu><guimenuitem>删除</guimenuitem></menuchoice>将未版本控制的或忽略的文件丢到垃圾箱。如果你想彻底删除(不使用垃圾箱)，在点击<guilabel>删除</guilabel>时，请按着<keycap>Shift</keycap>键。"
 
 #: source/TortoiseSVN_en.xml:4804(para)
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
@@ -5065,11 +5070,11 @@ msgstr "比较"
 
 #: source/TortoiseSVN_en.xml:4853(para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr "通常你想要深入文件中了解你修改了什么。要达到这个目的，你可以选中这个文件，然后在TortoiseSVN的右键菜单中选择<guimenuitem>比较</guimenuitem>。这个操作会启动一个外部的差别检查程序，由它来比较当前文件与上一次检出或更新后的原始的复本(<literal>基础</literal>版本)。"
+msgstr "通常你想要深入文件中了解你修改了什么。要达到这个目的，你可以选中这个文件，然后在TortoiseSVN的右键菜单中选择<guimenuitem>比较</guimenuitem>。这个操作会启动一个外部的差别检查程序，由它来比较当前文件与上一次检出或更新后的原始的副本(<literal>基础</literal>版本)。"
 
 #: source/TortoiseSVN_en.xml:4863(para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr "即使你不是在一个工作复本中工作或者你有多个版本的文件，你都可以按以下方法来进行比较: "
+msgstr "即使你不是在一个工作副本中工作或者你有多个版本的文件，你都可以按以下方法来进行比较: "
 
 #: source/TortoiseSVN_en.xml:4867(para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
@@ -5197,7 +5202,7 @@ msgstr "从选中的版本建立一个分支/标记。这个选项很有用。�
 
 #: source/TortoiseSVN_en.xml:5035(para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy will be inconsistent and you will be unable to commit any changes."
-msgstr "将你的工作复本更新到选中的版本。如果你想要你的工作复本折返到过去的某个时间，那这个功能就很好用。你最好是更新工作复本的整个目录而不是单一某个文件，因为如果只更新某个文件，你的工作复本就可能不一致，从而导致你无法提交任何修改。"
+msgstr "将你的工作副本更新到选中的版本。如果你想要你的工作副本折返到过去的某个时间，那这个功能就很好用。你最好是更新工作副本的整个目录而不是单一某个文件，因为如果只更新某个文件，你的工作副本就可能不一致，从而导致你无法提交任何修改。"
 
 #: source/TortoiseSVN_en.xml:5045(para)
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since. If you have made local changes, this command will merge these changes into your working copy."
@@ -5205,7 +5210,7 @@ msgstr "还原选中版本所做的修改。还原的内容只在你的工作副
 
 #: source/TortoiseSVN_en.xml:5059(para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version. If you have made local changes, this command will merge these changes into your working copy."
-msgstr "恢复到某个以前的版本。如果你做了多处修改，然后决定要返回到版本 N，你就可以使用这个命令。再次说明，恢复的修改位于你的工作复本，在你提交之前，并<emphasis>不会</emphasis>影响版本库。注意，这将会丢弃从那个版本以来的<emphasis>所有</emphasis>修改，使用选中的版本来替换文件/文件夹。"
+msgstr "恢复到某个以前的版本。如果你做了多处修改，然后决定要返回到版本 N，你就可以使用这个命令。再次说明，恢复的修改位于你的工作副本，在你提交之前，并<emphasis>不会</emphasis>影响版本库。注意，这将会丢弃从那个版本以来的<emphasis>所有</emphasis>修改，使用选中的版本来替换文件/文件夹。"
 
 #: source/TortoiseSVN_en.xml:5073(para)
 msgid "Make a fresh checkout of the selected folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the checkout."
@@ -6736,7 +6741,7 @@ msgstr "锁定在Subverion中是如何工作的"
 
 #: source/TortoiseSVN_en.xml:7301(para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr "默认情况下，所有的东西都没有锁定，只要有提交权限的人都可以在任何时候提交任何的文件。其他人会定时更新他们的工作复本，在库中的改变的东西都会与本地合并。"
+msgstr "默认情况下，所有的东西都没有锁定，只要有提交权限的人都可以在任何时候提交任何的文件。其他人会定时更新他们的工作副本，在库中的改变的东西都会与本地合并。"
 
 #: source/TortoiseSVN_en.xml:7307(para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
@@ -6744,11 +6749,11 @@ msgstr "如果你对一个文件 <firstterm>取得锁定</firstterm>，那么只
 
 #: source/TortoiseSVN_en.xml:7314(para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr "但是，其他用户不必知道你已经增加了锁定，除非他们定期地检查锁定的状态。这其实没什么意义，因为他们发现提交失败的时候就可以知道锁定了。为了更容易管理锁，而设置了一个新的Subversion属性 <literal>svn:needs-lock</literal>。当一个文件的这个属性被设置(成任意值)的时候，每当该文件检出或更新时，本地的复本都被设成只读，<emphasis>除非</emphasis>该工作复本就是拥有锁的那个用户的。这么做是为了能警告你，你不应该修改这个文件，除非你申请到了锁定。受控只读的文件在TortoiseSVN中用一个特殊的图标来表示你需要在编辑前取得锁定。"
+msgstr "但是，其他用户不必知道你已经增加了锁定，除非他们定期地检查锁定的状态。这其实没什么意义，因为他们发现提交失败的时候就可以知道锁定了。为了更容易管理锁，而设置了一个新的Subversion属性 <literal>svn:needs-lock</literal>。当一个文件的这个属性被设置(成任意值)的时候，每当该文件检出或更新时，本地的副本都被设成只读，<emphasis>除非</emphasis>该工作副本就是拥有锁的那个用户的。这么做是为了能警告你，你不应该修改这个文件，除非你申请到了锁定。受控只读的文件在TortoiseSVN中用一个特殊的图标来表示你需要在编辑前取得锁定。"
 
 #: source/TortoiseSVN_en.xml:7330(para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr "锁除了按所有者记录外，还在工作复本中记录。如果你有多个工作复本(在家，在单位)，那么在这些工作复本中，只允许对其中<emphasis>一份</emphasis>拥有锁。"
+msgstr "锁除了按所有者记录外，还在工作副本中记录。如果你有多个工作副本(在家，在单位)，那么在这些工作副本中，只允许对其中<emphasis>一份</emphasis>拥有锁。"
 
 #: source/TortoiseSVN_en.xml:7336(para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
@@ -6760,7 +6765,7 @@ msgstr "这一章是对 Subversion 一个简短随意的介绍，如果你对版
 
 #: source/TortoiseSVN_en.xml:7346(para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr "锁在库中进行记录，一个锁定令牌建立在你的本地工作复本中。如果有矛盾，比如某人破坏了锁下，那么本地的锁定令牌将不可用。库中的记录将是最权威的参考。"
+msgstr "锁在库中进行记录，一个锁定令牌建立在你的本地工作副本中。如果有矛盾，比如某人破坏了锁下，那么本地的锁定令牌将不可用。库中的记录将是最权威的参考。"
 
 #: source/TortoiseSVN_en.xml:7355(title)
 msgid "Getting a Lock"
@@ -6768,7 +6773,7 @@ msgstr "取得锁定"
 
 #: source/TortoiseSVN_en.xml:7356(para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr "选择工作复本中你想要获取锁定的文件，然后选择命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>取得锁定...</guimenuitem></menuchoice>. <placeholder-1/>出现一个对话框，允许你输入注释，这样别人可以知道你为什么锁定这个文件。注释是可选的，并且只用于基于Svnserve的库。当(且<emphasis>仅</emphasis>当)你需要窃取别人的锁的时候，勾选<guilabel>偷取此锁定</guilabel>复选框，然后点击<guibutton>确定</guibutton>。"
+msgstr "选择工作副本中你想要获取锁定的文件，然后选择命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>取得锁定...</guimenuitem></menuchoice>. <placeholder-1/>出现一个对话框，允许你输入注释，这样别人可以知道你为什么锁定这个文件。注释是可选的，并且只用于基于Svnserve的库。当(且<emphasis>仅</emphasis>当)你需要窃取别人的锁的时候，勾选<guilabel>偷取此锁定</guilabel>复选框，然后点击<guibutton>确定</guibutton>。"
 
 #: source/TortoiseSVN_en.xml:7364(title)
 msgid "The Locking Dialog"
@@ -6788,7 +6793,7 @@ msgstr "为了确保你不会忘记释放锁，你不需要做别的事，在提
 
 #: source/TortoiseSVN_en.xml:7402(para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
-msgstr "要手动释放锁定，选中工作复本中要释放的文件，选择命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>释放锁定</guimenuitem></menuchoice>。不需要输入什么 TortoiseSVN会联系版本库并释放锁。你可以对一个文件夹来使用这个命令释放其中的所有锁定项。"
+msgstr "要手动释放锁定，选中工作副本中要释放的文件，选择命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>释放锁定</guimenuitem></menuchoice>。不需要输入什么 TortoiseSVN会联系版本库并释放锁。你可以对一个文件夹来使用这个命令释放其中的所有锁定项。"
 
 #: source/TortoiseSVN_en.xml:7415(title)
 msgid "Checking Lock Status"
@@ -6824,7 +6829,7 @@ msgstr "让非锁定的文件变成只读"
 
 #: source/TortoiseSVN_en.xml:7450(para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr "正如上面提到的，最有效的使用锁的方式是对一个文件设置<literal>svn:needs-lock</literal>属性。参考<xref linkend=\"tsvn-dug-propertypage\"/>如何设置属性。带有此属性的文件将总被按只读的方式检出和更新(除非你的工作复本拥有锁定)。<graphic fileref=\"../images/ReadOnlyIcon.png\"/>作为提醒的方式之一，TortoiseSVN使用一个特殊的图标表示。"
+msgstr "正如上面提到的，最有效的使用锁的方式是对一个文件设置<literal>svn:needs-lock</literal>属性。参考<xref linkend=\"tsvn-dug-propertypage\"/>如何设置属性。带有此属性的文件将总被按只读的方式检出和更新(除非你的工作副本拥有锁定)。<graphic fileref=\"../images/ReadOnlyIcon.png\"/>作为提醒的方式之一，TortoiseSVN使用一个特殊的图标表示。"
 
 #: source/TortoiseSVN_en.xml:7460(para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
