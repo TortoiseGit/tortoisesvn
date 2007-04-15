@@ -1271,9 +1271,6 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	int selCount = m_LogList.GetSelectedCount();
-	if ((selCount != 1)&&(selCount != 2))
-		return;
 	// find out if there's an entry selected in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
