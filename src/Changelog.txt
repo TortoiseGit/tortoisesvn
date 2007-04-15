@@ -209,6 +209,8 @@ Version 1.4.4
 - BUG: In the commit dialog, when the items are already shown but the fetch
        thread is still running, the items could be (un)checked but their
        changed state wouldn't be taken into account for the commit. (Stefan)
+- BUG: The log dialog used wrong revision numbers when selecting two
+       revisions and double clicking on the filename. (Tobias Schäfer)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

@@ -1278,19 +1278,27 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 	svn_revnum_t rev1 = pLogEntry->Rev;
-	svn_revnum_t rev2 = rev1-1;
+	svn_revnum_t rev2 = rev1;
 	if (pos)
 	{
-		// there's a second entry selected in the log list: two revisions selected!
-		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-		if (pLogEntry)
-			rev2 = pLogEntry->Rev;
+		while (pos)
+		{
+			// there's at least a second entry selected in the log list: several revisions selected!
+			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			if (pLogEntry)
+			{
+				rev1 = max(rev1,(long)pLogEntry->Rev);
+				rev2 = min(rev2,(long)pLogEntry->Rev);
+			}
+		}
+		rev2--;
 		// now we have both revisions selected in the log list, so we can do a diff of the doubleclicked
 		// entry in the changed files list with these two revisions.
 		DoDiffFromLog(selIndex, rev1, rev2, false, false);
 	}
 	else
 	{
+		rev2 = rev1-1;
 		// nothing or only one revision selected in the log list
 		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
 
