@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-04-13 13:25+0100\n"
+"PO-Revision-Date: 2007-04-16 18:25+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4156,7 +4156,7 @@ msgstr "Die angezeigten Spalten können angepasst werden. Wenn Sie einen <action
 #: source/TortoiseSVN_en.xml:4817
 #: (para)
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr ""
+msgstr "Wenn Sie gleichzeitig an mehreren voneinander unabhängigen Aufgaben arbeiten, können Sie Dateien in Änderungslisten zusammenfassen. Lesen Sie <xref linkend=\"tsvn-dug-commit-changelists\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:4823
 #: (para)
@@ -5129,7 +5129,7 @@ msgstr "Die Ausschluss-Muster von Subversion verwenden Platzhalter, eine Technik
 #: source/TortoiseSVN_en.xml:6026
 #: (para)
 msgid "Subversion uses the <literal>/</literal> as the path delimiter in all internal pathnames, and all pattern matching is done against this style of path names. If you want to use a path delimiter in your ignore pattern, be sure to use <literal>/</literal>, and not the Windows backslash."
-msgstr ""
+msgstr "Subversion verwendet das <literal>/</literal> Zeichen als Trenner in allen internen Pfadnamen und sämtliche Mustervergleiche werden mit dieser Art der Pfaddarstellung durchgeführt. Wenn Sie ein Pfadtrennzeichen in Ihrem Ausschlussmuster verwenden möchten, stellen Sie sicher, dass Sie <literal>/</literal>, und nicht das Windows <literal>\\</literal> Trennzeichen verwenden."
 
 #: source/TortoiseSVN_en.xml:6032
 #: (para)
@@ -5139,7 +5139,7 @@ msgstr "Die Platzhaltersuche beachtet Groß-/Kleinschreibung, was unter Windows 
 #: source/TortoiseSVN_en.xml:6039
 #: (para)
 msgid "Subversion uses this pattern matching against every path presented to it for action. These paths are generally relative to the directory being acted upon for import, add, commit, etc. The matching pattern therefore has to take account of the fact that there may or may not be path components before the filename."
-msgstr ""
+msgstr "Subversion benutzt diesen Mustervergleich für jeden Pfad, der für eine Aktion verwendet wird. Diese Pfade sind im Allgemeinen relativ zu dem Verzeichnis, das importiert, hinzugefügt oder übertragen wird. Der Mustervergleich muss demzufolge berücksichtigen, dass Pfade vor dem Dateinamen stehen können."
 
 #: source/TortoiseSVN_en.xml:6046
 #: (para)
@@ -5149,7 +5149,7 @@ msgstr "Falls Verzeichnisnamen in einem Pfad vorkommen, werden sie durch die Pla
 #: source/TortoiseSVN_en.xml:6055
 #: (para)
 msgid "The <literal>/</literal> character is not treated in any special way for pattern matching purposes, so the pattern <literal>abc*xyz</literal> would match <literal>abcdxyz</literal> but also <literal>abcdir/subdir/anything/morexyz</literal>."
-msgstr ""
+msgstr "Das <literal>/</literal> Zeichen wird beim Mustervergleich nicht gesondert behandelt. Auf das Muster <literal>abc*xyz</literal> würde sowohl  <literal>abcdxyz</literal>, als auch <literal>abcdir/subdir/anything/morexyz</literal> passen."
 
 #: source/TortoiseSVN_en.xml:6061
 #: (para)
