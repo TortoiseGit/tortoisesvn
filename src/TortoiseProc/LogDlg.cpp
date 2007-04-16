@@ -658,6 +658,12 @@ void CLogDlg::OnBnClickedNexthundred()
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	SetSortArrow(&m_LogList, -1, true);
 	InterlockedExchange(&m_bThreadRunning, TRUE);
+	// We need to create CStoreSelection on the heap or else
+	// the variable will run out of the scope before the
+	// thread ends. Therefore we let the thread delete
+	// the instance.
+	m_pStoreSelection = new CStoreSelection(this);
+
 	// since we fetch the log from the last revision we already have,
 	// we have to remove that revision entry to avoid getting it twice
 	m_logEntries.pop_back();
@@ -897,6 +903,16 @@ UINT CLogDlg::LogThread()
 		// selection of the CLogDlg.
 		delete m_pStoreSelection;
 		m_pStoreSelection = NULL;
+	}
+	else
+	{
+		// If no selection has been set then this must be the first time
+		// the revisions are shown. Let's preselect the topmost revision.
+		if ( m_LogList.GetItemCount()>0 )
+		{
+			m_LogList.SetSelectionMark(0);
+			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
+		}
 	}
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
