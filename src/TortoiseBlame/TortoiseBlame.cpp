@@ -557,8 +557,6 @@ void TortoiseBlame::ShowLog()
 	svnCmd += _T("\"");
 	svnCmd += _T(" /startrev:");
 	svnCmd += bufRev;
-	svnCmd += _T(" /endrev:");
-	svnCmd += bufRev;
 	svnCmd += _T(" /pegrev:");
 	svnCmd += bufRev;
 	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
