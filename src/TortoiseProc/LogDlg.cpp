@@ -4055,14 +4055,14 @@ CLogDlg::CStoreSelection::CStoreSelection(CLogDlg* dlg)
 	{
 		POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
 		int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-		if ( nIndex < m_logdlg->m_arShownList.GetSize() )
+		if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
 		{
 			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
 			m_SetSelectedRevisions.insert(pLogEntry->Rev);
 			while (pos)
 			{
 				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-				if ( nIndex < m_logdlg->m_arShownList.GetSize() )
+				if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
 				{
 					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
 					m_SetSelectedRevisions.insert(pLogEntry->Rev);
