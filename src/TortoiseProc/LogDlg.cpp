@@ -107,6 +107,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bThreadRunning(FALSE)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
+	, m_limit(0)
 {
 	sModifiedStatus.LoadString(IDS_SVNACTION_MODIFIED);
 	sReplacedStatus.LoadString(IDS_SVNACTION_REPLACED);
@@ -203,7 +204,11 @@ BOOL CLogDlg::OnInitDialog()
 	m_bStrict = m_regLastStrict;
 	UpdateData(FALSE);
 	CString temp;
-	temp.Format(IDS_LOG_SHOWNEXT, m_limit);
+	if (m_limit)
+		temp.Format(IDS_LOG_SHOWNEXT, m_limit);
+	else
+		temp.Format(IDS_LOG_SHOWNEXT, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+
 	GetDlgItem(IDC_NEXTHUNDRED)->SetWindowText(temp);
 
 	// set the font to use in the log message view, configured in the settings dialog
@@ -654,7 +659,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_startrev = rev;
 	m_endrev = 1;
 	m_bCancelled = FALSE;
-	m_limit = 100;
+	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	SetSortArrow(&m_LogList, -1, true);
 	InterlockedExchange(&m_bThreadRunning, TRUE);
