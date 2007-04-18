@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-04-16 18:25+0100\n"
+"PO-Revision-Date: 2007-04-18 17:59+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3599,12 +3599,12 @@ msgstr "Änderungsliste"
 #: source/TortoiseSVN_en.xml:4056
 #: (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "In einer idealen Welt würden Sie normalerweise nur an einer Aufgabe zur Zeit arbeiten und Ihre Arbeitskopie enthielte nur einen logischen Satz an Änderungen. Aber zurück zur Realität. Es kommt mit Sicherheit häufiger vor, dass Sie an mehrern unzusammenhängenden Aufgaben gleichzeitig arbeiten und beim Übertragen alle Änderungen im Dialog angezeigt bekommen. Die <firstterm>Änderungslisten</firstterm> ermöglichen es Ihnen, Dateien in Gruppen zusammenzufassen. Dies kann natürlich nur sinnvoll funktionieren, wenn sich die Änderungen nicht überschneiden. Wenn mehrere Änderungen dieselbe Datei betreffen, gibt es keine Möglichkeit, die Änderungen auseinander zu halten."
 
 #: source/TortoiseSVN_en.xml:4067
 #: (para)
 msgid "The changelist feature is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr ""
+msgstr "Die Änderungslisten stehen nur under Windows XP und neuer zur Verfügung, da sie eine Shell-Funktion beötigen, die unter Windows 2000 nicht zur Verfügung steht. Sorry, Win2K ist mittleweile recht alt, also bitte nicht beschweren."
 
 #: source/TortoiseSVN_en.xml:4085
 #: (title)
@@ -3614,17 +3614,17 @@ msgstr "Der Übertragen-Dialog mit Änderungsliste"
 #: source/TortoiseSVN_en.xml:4073
 #: (para)
 msgid "Use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The commit dialog will now change to show groups of items. <placeholder-1/>"
-msgstr ""
+msgstr "Rufen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>In Änderungsliste übernehmen</guimenuitem></menuchoice> auf, um ein Objekt zu einer Änderungsliste hinzuzufügen. Zu Anfang gibt es noch keine Änderungslisten. Deshalb wird beim ersten Mal eine neue Änderungsliste angelegt. Geben Sie ihr einen beschreibenden Namen und klicken Sie auf <guibutton>OK</guibutton>. Der Übertragen-Dialog wird nun Gruppen von Einträgen anzeigen. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:4089
 #: (para)
 msgid "Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr ""
+msgstr "Abgesehen davon, dass Sie einen optischen Hinweis auf Zusammenhänge erhalten, können Sie auch die Gruppenköpfe verwenden, um die zu übertragenden Dateien zu markieren."
 
 #: source/TortoiseSVN_en.xml:4094
 #: (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, not any other client."
-msgstr ""
+msgstr "Änderungslisten sind eine rein lokale Angelegenheit. Anlegen und löschen von Änderungslisten wird weder das Projektarchiv noch einen anderen Client beeinflussen."
 
 #: source/TortoiseSVN_en.xml:4101
 #: (title)
