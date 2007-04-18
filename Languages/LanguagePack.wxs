@@ -65,6 +65,9 @@
       Display='expand' Level='1' ConfigurableDirectory='INSTALLDIR'>
       <Feature Id='Main' Title='Program' Description='The language pack files.' Level='1'>
         <ComponentRef Id='Main' />
+        <?if $(env.TSVNMoFile) = "$COUNTRYCODE$" ?>
+        <ComponentRef Id='SVNMO' />
+        <?endif?>
       </Feature>
     </Feature>
 
