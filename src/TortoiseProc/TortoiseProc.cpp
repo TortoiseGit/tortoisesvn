@@ -837,9 +837,9 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					if (dlg.m_pathList.GetCount()==0)
 						return FALSE;
-					selectedList = dlg.m_pathList;
+					if (!dlg.m_pathList.IsEqual(pathList))
+						selectedList = dlg.m_pathList;
 					sLogMsg = dlg.m_sLogMessage;
-					pathList = dlg.m_pathList;
 					CSVNProgressDlg progDlg;
 					if (!dlg.m_sChangeList.IsEmpty())
 						progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
