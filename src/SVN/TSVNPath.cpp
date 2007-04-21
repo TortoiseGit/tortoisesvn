@@ -979,6 +979,18 @@ void CTSVNPathList::RemoveChildren()
 	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::CheckChild), m_paths.end());
 }
 
+bool CTSVNPathList::IsEqual(const CTSVNPathList& list)
+{
+	if (list.GetCount() != GetCount())
+		return false;
+	for (int i=0; i<list.GetCount(); ++i)
+	{
+		if (!list[i].IsEquivalentTo(m_paths[i]))
+			return false;
+	}
+	return true;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 

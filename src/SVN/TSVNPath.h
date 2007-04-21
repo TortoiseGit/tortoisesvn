@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -99,8 +99,8 @@ public:
 	*/
 	CTSVNPath GetContainingDirectory() const;
 	/**
-	* Get the 'root path' (e.g. "c:\") - Used to pass to GetDriveType 
-	*/
+	 * Get the 'root path' (e.g. "c:\") - Used to pass to GetDriveType 
+	 */
 	CString GetRootPathString() const;
 	/**
 	 * Returns the filename part of the full path.
@@ -174,9 +174,9 @@ public:
 	void AppendPathString(const CString& sAppend);
 
 	/**
-	* Get the file modification time - returns zero for files which don't exist
-	* Returns a FILETIME structure cast to an __int64, for easy comparisons
-	*/
+	 * Get the file modification time - returns zero for files which don't exist
+	 * Returns a FILETIME structure cast to an __int64, for easy comparisons
+	 */
 	__int64 GetLastWriteTime() const;
 	
 	bool IsReadOnly() const;
@@ -225,9 +225,9 @@ private:
 	void EnsureBackslashPathSet() const;
 	void EnsureFwdslashPathSet() const;
 	/**
-	* Checks if two path strings are equal. No conversion of slashes is done!
-	* \remark for slash-independent comparison, use IsEquivalentTo()
-	*/
+	 * Checks if two path strings are equal. No conversion of slashes is done!
+	 * \remark for slash-independent comparison, use IsEquivalentTo()
+	 */
 	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
 	static bool ArePathStringsEqualWithCase(const CString& sP1, const CString& sP2);
 	
@@ -261,31 +261,18 @@ private:
 };
 
 /**
-* Compares two paths and return true if left is earlier in sort order than right
-* (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
-*/
+ * Compares two paths and return true if left is earlier in sort order than right
+ * (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
+ */
 bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 
 
 //////////////////////////////////////////////////////////////////////////
 
 /**
-* \ingroup Utils
-* This class represents a list of paths
-*
-* \par requirements
-* win95 or later
-* winNT4 or later
-* MFC
-*
-* \version 1.0
-* first version
-*
-* \date DEC-2004
-*
-* \author Will Dean
-*
-*/
+ * \ingroup Utils
+ * This class represents a list of paths
+ */
 class CTSVNPathList 
 {
 public:
@@ -326,6 +313,9 @@ public:
 	 * child files and folders don't have to be deleted anymore)
 	 */
 	void RemoveChildren();
+
+	/** Checks if two CTSVNPathLists are the same */
+	bool IsEqual(const CTSVNPathList& list);
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;
