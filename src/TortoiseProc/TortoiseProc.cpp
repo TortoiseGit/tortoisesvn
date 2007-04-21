@@ -837,6 +837,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					if (dlg.m_pathList.GetCount()==0)
 						return FALSE;
+					// if the user hasn't changed the list of selected items
+					// we don't use that list. Because if we would use the list
+					// of pre-checked items, the dialog would show different
+					// checked items on the next startup: it would only try
+					// to check the parent folder (which might not even show)
+					// instead, we simply use an empty list and let the
+					// default checking do its job.
 					if (!dlg.m_pathList.IsEqual(pathList))
 						selectedList = dlg.m_pathList;
 					sLogMsg = dlg.m_sLogMessage;
