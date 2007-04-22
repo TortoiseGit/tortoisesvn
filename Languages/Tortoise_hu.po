@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-13 21:23+0100\n"
+"PO-Revision-Date: 2007-04-22 23:51+0100\n"
 "Last-Translator: Szente-Varga Bálint <info[at]bociusz[dot]hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -881,8 +881,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "A &Tárház címe:"
 
@@ -1076,8 +1077,8 @@ msgstr "Lezárási tiltalom megszegés történt %1 elérése közben."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Egy újabb verzió érhető el. Kérlek töltsd le a http://tortoisesvn.tigris.org címről a legújabb kiadást!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Egy újabb verzió érhető el. Kérlek töltsd le a http://tortoisesvn.tigris.org címről a legújabb kiadást! Kattints _ide_ ha egyből a honlapra szeretnél jutni."
 
 # ID:195,
 #: ID:195
@@ -2668,25 +2669,25 @@ msgstr "Biztos áthelyeted ezt a fájlt vagy mappát?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "Biztos visszaállítod az összes változást ebben:\n"
 "%s\n"
-"és visszatérsz ehhez a verzióhoz? A módosítások bele lesznek gyúrva a munkapéldányba."
+"és visszatérsz ehhez a verzióhoz? A visszatérés módosításai bele lesznek gyúrva a munkapéldányodba."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Biztos visszaállítod az összes változást erre:\n"
 "%s\n"
-"ami ebben a verzióban készült? A módosítások bele lesznek gyúrva a munkapéldányba."
+"ami ebben a verzióban készült? A visszatérés módosításai bele lesznek gyúrva a munkapéldányodba."
 
 # ID:76,
 #: ID:76
@@ -5268,8 +5269,9 @@ msgstr "Cserélés"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Tárház"
 
@@ -5383,8 +5385,9 @@ msgstr "Minden módosítást visszaállít az utolsó frissítés óta"
 # Control-ID:65535,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Verzió"
