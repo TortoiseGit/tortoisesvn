@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9130: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9205: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-05 12:06+0300\n"
+"PO-Revision-Date: 2007-04-22 23:51+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -760,8 +760,9 @@ msgstr "&TortoiseMerge"
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
 
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "URL в &хранилище:"
 
@@ -915,8 +916,8 @@ msgid "A locking violation occurred while accessing %1."
 msgstr "Нарушение блокирования при обращении к %1."
 
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Доступна новая версия. Пожалуйста, посетите http://tortoisesvn.tigris.org и скачайте новую версию!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Доступна новая версия. Пожалуйста, посетите http://tortoisesvn.tigris.org и скачайте новую версию! Вы можете нажать _здесь_ для того, чтобы перейти прямо на наш сайт."
 
 #: ID:195
 msgid ""
@@ -2218,24 +2219,24 @@ msgstr "Вы действительно хотите переместить эт
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "Вы действительно хотите убрать все изменения в\n"
 " %s,\n"
-"и вернуться к этой ревизии?  Изменения, обратные этим, будут слиты с вашей рабочей копией."
+"и вернуться к этой ревизии? Эти изменения будут убраны путём обратного слияния (т.е. исключения) убираемых ревизий с вашей рабочей копией."
 
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Вы действительно хотите убрать все изменения в\n"
 " %s,\n"
-"сделаные в этой ревизии? Изменения, обратные этим, будут слиты с вашей рабочей копией."
+"сделаные в этой ревизии? Эти изменения будут убраны путём обратного слияния (т.е. исключения) убираемой ревизии с вашей рабочей копией."
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -4379,8 +4380,9 @@ msgstr "Заменённый узел"
 msgid "Replacing"
 msgstr "Замена"
 
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Хранилище"
 
@@ -4472,8 +4474,9 @@ msgstr "Убирает все изменения, которые вы сдела
 
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Ревизия"
