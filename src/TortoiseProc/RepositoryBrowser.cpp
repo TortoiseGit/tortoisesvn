@@ -827,7 +827,7 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 	//
 	// column 2: revision number
 	temp.LoadString(IDS_LOG_REVISION);
-	m_RepoList.InsertColumn(c++, temp);
+	m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT);
 	//
 	// column 3: author
 	temp.LoadString(IDS_LOG_AUTHOR);
