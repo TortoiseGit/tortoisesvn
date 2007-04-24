@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-17 09:07+0800\n"
+"PO-Revision-Date: 2007-04-24 10:01+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2686,25 +2686,25 @@ msgstr "確定要移動這個檔案或資料夾嗎?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "確定要復原\n"
 "%s\n"
-"中的所有變更並回到這個版本? 這些變更將會合併至工作複本."
+"中的所有變更並回到這個版本? 這些變更將會反向合併至工作複本."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "確定要復原\n"
 "%s\n"
-"此版本的所有變更? 這些變更將會合併至工作複本."
+"此版本的所有變更? 這些變更將會反向合併至工作複本."
 
 # ID:76,
 #: ID:76
