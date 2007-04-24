@@ -417,7 +417,7 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force /* = FALSE
 BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changelist)
 {
 	SVNPool subpool(pool);
-	Err = svn_client_add_to_changelist(MakePathArray(pathList), changelist.IsEmpty() ? (const char*)NULL : CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
+	Err = svn_client_add_to_changelist(MakePathArray(pathList), changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -429,7 +429,7 @@ BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
 BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CString& changelist)
 {
 	SVNPool subpool(pool);
-	Err = svn_client_remove_from_changelist(MakePathArray(pathList), changelist.IsEmpty() ? (const char*)NULL : CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
+	Err = svn_client_remove_from_changelist(MakePathArray(pathList), changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
