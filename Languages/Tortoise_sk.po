@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-02 22:37+0100\n"
+"PO-Revision-Date: 2007-04-25 22:27+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -893,8 +893,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL úložiska:"
 
@@ -1089,8 +1090,8 @@ msgstr "Porušenie zamykania pri prístupe k %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Je prístupná nová verzia. Prosím navštívte http://tortoisesvn.tigris.org a stiahnite si aktuálnu verziu!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Je prístupná nová verzia. Prosím navštívte http://tortoisesvn.tigris.org a stiahnite si aktuálnu verziu!Kliknutím _sem_ sa dostanete priamo na našu stránku."
 
 # ID:195,
 #: ID:195
@@ -1217,6 +1218,12 @@ msgstr "Pridať '%s' do slovníka"
 msgid "Add (as replacement)..."
 msgstr "Pridať (ako náhradu)..."
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Pridať - TortoiseSVN"
+
 # ID:563,
 #: ID:563
 msgid "Add Properties"
@@ -1243,12 +1250,6 @@ msgstr "Pridaj do zoznamu &ignorovaných"
 #: Control-ID:1279
 msgid "Add..."
 msgstr "Pridať..."
-
-# ID:80,#:
-# Control-ID:65535,
-#: ID:77
-msgid "Add... - TortoiseSVN"
-msgstr "Pridať... - TortoiseSVN"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -1654,6 +1655,11 @@ msgstr "Základný súbor:"
 msgid "Blame"
 msgstr "Obviniť"
 
+# Dlg-ID:129,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "Obviniť - TortoiseSVN"
+
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1922,8 +1928,8 @@ msgstr "Získať a&dresár:"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Checkout... - TortoiseSVN"
-msgstr "Získať... - TortoiseSVN"
+msgid "Checkout - TortoiseSVN"
+msgstr "Získať - TortoiseSVN"
 
 # Čistím
 # ID:146,
@@ -2051,6 +2057,11 @@ msgstr "Príkaz zlihal."
 msgid "Commit"
 msgstr "Odovzdať"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "Odovzdať - TortoiseSVN"
+
 # Citlivosť
 # Control-ID:1262,
 #: Control-ID:1262
@@ -2061,11 +2072,6 @@ msgstr "Prah počtu odovzdaní:"
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Odovzdať do:"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Commit... - TortoiseSVN"
-msgstr "Odovzdať... - TortoiseSVN"
 
 # ID:244,
 #: ID:244
@@ -2233,6 +2239,12 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "Kopíruj (Vetvu / značku)"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Kopírovať - TortoiseSVN"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2292,12 +2304,6 @@ msgstr "Kopírovať do pracovnej kópie"
 #: ID:101
 msgid "Copy to working copy..."
 msgstr "Kopírovať do pracovnej kópie..."
-
-# ID:80,#:
-# Control-ID:65535,
-#: ID:78
-msgid "Copy... - TortoiseSVN"
-msgstr "Kopírovať... - TortoiseSVN"
 
 # ID:98,
 #: ID:98
@@ -2705,25 +2711,25 @@ msgstr "Chcete tento adresár naozaj presunúť?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Chcete anozaj vrátiť všetky zmeny v\n"
+"Chcete naozaj vrátiť všetky zmeny v\n"
 "%s\n"
-"a isť späť na túto revíziu?"
+"a isť späť na túto revíziu? Tieto zmeny budú vrátene reverzným zlučovaním revízií do vašej pracovnej kópie."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Chcete naozaj vrátiť všetky zmeny v \n"
 "%s\n"
-"ktoré boli v tejto verzií vykonané? Tieto zmeny budú zlúčené s pracovnou kópiou."
+"ktoré boli v tejto verzií vykonané? Tieto zmeny budú vrátene reverzným zlučovaním revízií do vašej pracovnej kópie."
 
 # ID:76,
 #: ID:76
@@ -2985,6 +2991,11 @@ msgstr "Exportovať"
 msgid "Export &directory:"
 msgstr "Exportovať &adresár"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exportovať - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2994,11 +3005,6 @@ msgstr "Exportuj adresár:"
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Exportuj aj neverziované súbory"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Export... - TortoiseSVN"
-msgstr "Exportovať... - TortoiseSVN"
 
 # ID:79,
 #: ID:284
@@ -3294,12 +3300,12 @@ msgstr "Získavam súbor %s"
 #: ID:120
 #, c-format
 msgid "Getting file %s, revision %s"
-msgstr "Získavanie súboru %s revízie %s"
+msgstr "Získavam súbor %s revízie %s"
 
 # ID:132,
 #: ID:132
 msgid "Getting file info..."
-msgstr "Getting informácie o súbore..."
+msgstr "Získavam informácie o súbore..."
 
 # ID:269,
 #: ID:269
@@ -3727,6 +3733,11 @@ msgstr "Importovať %ld objektov"
 msgid "Import &message"
 msgstr "Importovať &správu"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importovať - TortoiseSVN"
+
 # ID:120,
 #: ID:127
 #, c-format
@@ -3756,11 +3767,6 @@ msgid ""
 msgstr ""
 "Importovať adresár %s\r\n"
 "do %s"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Import... - TortoiseSVN"
-msgstr "Importovať... - TortoiseSVN"
 
 # ID:120,
 #: ID:120
@@ -4236,8 +4242,8 @@ msgstr "Spájať"
 # ID:80,#:
 # Control-ID:65535,
 #: ID:78
-msgid "Merge... - TortoiseSVN"
-msgstr "Zlúčiť... - TortoiseSVN"
+msgid "Merge - TortoiseSVN"
+msgstr "Zlúčiť - TortoiseSVN"
 
 # ID:263,#:
 # ID:263,
@@ -5280,6 +5286,11 @@ msgstr ""
 "Premenovať objekt z %s\r\n"
 "na %s"
 
+# Dlg-ID:129,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Premenovať/presunúť - TortoiseSVN"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5332,8 +5343,9 @@ msgstr "Nahradzujem"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Úložisko"
 
@@ -5358,6 +5370,11 @@ msgstr "&Vyriešené"
 msgid "Resolve"
 msgstr "Vyriešiť"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Vyriešiť - TortoiseSVN"
+
 # ID:282,
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -5367,11 +5384,6 @@ msgstr "Vyriešiť konfikt použitím \"Moje\""
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
 msgstr "Vyriešiť konfikt použitím \"Ich\""
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Resolve... - TortoiseSVN"
-msgstr "Vyriešiť... - TortoiseSVN"
 
 # ID:74,#:
 # ID:209,
@@ -5420,15 +5432,15 @@ msgstr "Znova"
 msgid "Revert"
 msgstr "Vrátiť"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Vrátiť - TortoiseSVN"
+
 # ID:114,
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Vrátiť zmeny z týchto revízií"
-
-# Dlg-ID:129,
-#: ID:77
-msgid "Revert... - TortoiseSVN"
-msgstr "Vrátiť... - TortoiseSVN"
 
 # ID:73,
 #: ID:73
@@ -5447,8 +5459,9 @@ msgstr "Vrátiť všetky zmeny od poslednej aktualizácie"
 # ID:19,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Revízia"
@@ -6285,6 +6298,11 @@ msgstr "Súbor Subversion servera:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Prepnúť pracovanú kópiu na novú ve&tvu/značku"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Prepnúť - TortoiseSVN"
+
 # Prepnúť ľavú <-> pravú
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -6345,11 +6363,6 @@ msgstr "Prepnúť do predchádzajúceho okna dokumentu"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Prepnúť pracovnú  kópiu do inej vetvy / značky"
-
-# Dlg-ID:129,
-#: ID:78
-msgid "Switch... - TortoiseSVN"
-msgstr "Prepnúť... - TortoiseSVN"
 
 # ID:325,
 #: ID:325
@@ -7002,16 +7015,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# ID:132,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Obviniť"
-
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Premenovať/presunúť"
-
 # ID:98,
 #: ID:98
 #, c-format
@@ -7207,8 +7210,8 @@ msgstr "Aktualizácia"
 
 # Dlg-ID:129,
 #: ID:77
-msgid "Update... - TortoiseSVN"
-msgstr "Aktualizovať... - TortoiseSVN"
+msgid "Update - TortoiseSVN"
+msgstr "Aktualizovať - TortoiseSVN"
 
 # ID:74,
 #: ID:74
