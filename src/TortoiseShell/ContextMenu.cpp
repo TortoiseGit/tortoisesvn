@@ -31,8 +31,6 @@ int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
-	{ ShellSeparator, 0, 0, 0, 0, 0, 0, 0, 0},
-
 	{ ShellMenuCheckout,					MENUCHECKOUT,		IDI_CHECKOUT,			IDS_MENUCHECKOUT,			IDS_MENUDESCCHECKOUT,
 	ITEMIS_FOLDER, ITEMIS_INSVN,	0, 0, 0, 0, 0, 0 },
 
@@ -854,7 +852,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//create the submenu
 	HMENU subMenu = CreateMenu();
 	int indexSubMenu = 0;
-	int lastSeparator = 0;
 
 	unsigned __int64 topmenu = g_ShellCache.GetMenuLayout();
 	unsigned __int64 menumask = g_ShellCache.GetMenuMask();
@@ -862,6 +859,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	int menuIndex = 0;
 	bool bAddSeparator = false;
 	bool bMenuEntryAdded = false;
+	// insert separator at start
+	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
 	{
 		if (menuInfo[menuIndex].command == ShellSeparator)
@@ -935,7 +934,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 						bAddSeparator = false;
 						bMenuEntryAdded = false;
 						InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-						lastSeparator = indexSubMenu;
 					}
 					
 					// handle special cases (submenus)
