@@ -1595,14 +1595,14 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, bool recurse, bool fetchlocks)
+BOOL SVN::List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, svn_depth_t depth, bool fetchlocks)
 {
 	SVNPool subpool(pool);
 	
-	Err = svn_client_list(url.GetSVNApiPath(),
+	Err = svn_client_list2(url.GetSVNApiPath(),
 						  pegrev,
 						  revision,
-						  recurse,
+						  depth,
 						  SVN_DIRENT_ALL,
 						  fetchlocks,
 						  listReceiver,

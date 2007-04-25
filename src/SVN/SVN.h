@@ -426,7 +426,7 @@ public:
 	 * \param pegrevision	the peg revision
 	 * \param localPath		destination path
 	 * \param force			see description
-	 * \param depth		the Subversion depth enum 
+	 * \param depth			the Subversion depth enum 
 	 * \param record_only	If record_only is true, the merge isn't actually performed, 
 	 *						but the merge info for the revisions which would've been 
 	 *						merged is recorded in the working copy (and must be subsequently 
@@ -551,9 +551,8 @@ public:
 	 * Report directory entries by invoking the virtual method ReportList().
 	 * 
 	 * If \c fetchlocks is true, include locks when reporting directory entries.
-	 * If \c recurse is true and url is a directory this will be a recursive operation.
 	 */
-	BOOL List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, bool recurse, bool fetchlocks);
+	BOOL List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, svn_depth_t depth, bool fetchlocks);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function

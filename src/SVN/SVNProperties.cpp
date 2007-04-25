@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -471,14 +471,14 @@ stdstring SVNProperties::GetLastErrorMsg()
 	return msg;
 }
 
-svn_error_t * SVNProperties::proplist_receiver(void *baton, svn_stringbuf_t *path, apr_hash_t *prop_hash, apr_pool_t *pool)
+svn_error_t * SVNProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
 {
 	SVNProperties * pThis = (SVNProperties*)baton;
 	if (pThis)
 	{
 		svn_error_t * error;
 		const char *node_name_native;
-		error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native, path, pool);
+		error = svn_utf_cstring_from_utf8 (&node_name_native, path, pool);
 		pThis->m_props[std::string(node_name_native)] = apr_hash_copy(pThis->m_pool, prop_hash);
 		return error;
 	}
