@@ -438,7 +438,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 
 			// if all selected entries are files, we don't do a recursive status
 			// fetching. But if only one is a directory, we have to recurse.
-			svn_depth_t depth = svn_depth_empty;
+			svn_depth_t depth = svn_depth_files;
 			// We have set a filter. If all selected items were files or we fetch
 			// the status not recursively, then we have to include
 			// ignored items too - the user has selected them
