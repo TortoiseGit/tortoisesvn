@@ -161,6 +161,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_WM_CONTEXTMENU()
 	ON_NOTIFY(LVN_ENDLABELEDIT, IDC_REPOLIST, &CRepositoryBrowser::OnLvnEndlabeleditRepolist)
 	ON_NOTIFY(TVN_ENDLABELEDIT, IDC_REPOTREE, &CRepositoryBrowser::OnTvnEndlabeleditRepotree)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -762,8 +763,6 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		tvinsert.hParent = TVI_ROOT;
 		tvinsert.hInsertAfter = TVI_ROOT;
 		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
-		tvinsert.itemex.state = TVIS_EXPANDED;
-		tvinsert.itemex.stateMask = TVIS_EXPANDED;
 		tvinsert.itemex.pszText = m_strReposRoot.GetBuffer(m_strReposRoot.GetLength());
 		tvinsert.itemex.cChildren = 1;
 		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
@@ -790,6 +789,7 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		m_RepoList.ShowText(_T(" "), true);
 
 	RefreshNode(hItem);
+	m_RepoTree.Expand(hItem, TVE_EXPAND);
 	FillList(&pTreeItem->children);
 
 	m_blockEvents = true;
@@ -931,7 +931,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		sTemp = sUrl.Left(slash);
 		pTreeItem->unescapedname = sTemp;
 		pTreeItem->url = fullurl.Left(fullurl.GetLength()-sUrl.GetLength()+slash);
-		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? TVIS_EXPANDED : TVIS_EXPANDED|TVIS_BOLD;
+		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
 		TVINSERTSTRUCT tvinsert = {0};
 		tvinsert.hParent = hNewItem;
 		tvinsert.hInsertAfter = TVI_SORT;
@@ -953,7 +953,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 	sTemp = sUrl;
 	pTreeItem->unescapedname = sTemp;
 	pTreeItem->url = fullurl;
-	UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? TVIS_EXPANDED : TVIS_EXPANDED|TVIS_BOLD;
+	UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
 	TVINSERTSTRUCT tvinsert = {0};
 	tvinsert.hParent = hNewItem;
 	tvinsert.hInsertAfter = TVI_SORT;
@@ -1100,19 +1100,38 @@ void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult
 	if (m_blockEvents)
 		return;
 
-	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
-	if (pTreeItem)
-	{
-		if (!pTreeItem->children_fetched)
-		{
-			m_RepoList.ShowText(_T(" "), true);
-			RefreshNode(pNMTreeView->itemNew.hItem);
-			m_RepoList.ClearText();
-		}
+	if (pNMTreeView->action == TVC_BYKEYBOARD)
+		SetTimer(REPOBROWSER_FETCHTIMER, 300, NULL);
+	else
+		OnTimer(REPOBROWSER_FETCHTIMER);
+}
 
-		FillList(&pTreeItem->children);
-		m_barRepository.ShowUrl(pTreeItem->url, GetRevision());
+void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
+{
+	if (nIDEvent == REPOBROWSER_FETCHTIMER)
+	{
+		KillTimer(REPOBROWSER_FETCHTIMER);
+		// find the currently selected item
+		HTREEITEM hSelItem = m_RepoTree.GetSelectedItem();
+		if (hSelItem)
+		{
+			CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelItem);
+			if (pTreeItem)
+			{
+				if (!pTreeItem->children_fetched)
+				{
+					m_RepoList.ShowText(_T(" "), true);
+					RefreshNode(hSelItem);
+					m_RepoList.ClearText();
+				}
+
+				FillList(&pTreeItem->children);
+				m_barRepository.ShowUrl(pTreeItem->url, GetRevision());
+			}
+		}
 	}
+
+	__super::OnTimer(nIDEvent);
 }
 
 void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2582,5 +2601,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		DialogEnableWindow(IDOK, TRUE);
 	}
 }
+
 
 

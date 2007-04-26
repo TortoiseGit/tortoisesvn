@@ -29,7 +29,8 @@
 #include "LogDlg.h"
 #include "HintListCtrl.h"
 
-#define REPOBROWSER_CTRL_MIN_WIDTH 20
+#define REPOBROWSER_CTRL_MIN_WIDTH	20
+#define REPOBROWSER_FETCHTIMER		101
 
 using namespace std;
 
@@ -174,6 +175,7 @@ protected:
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	DECLARE_MESSAGE_MAP()
 
