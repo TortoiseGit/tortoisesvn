@@ -36,6 +36,34 @@
 		on the parent folder.
 	</para>
 	<para>
+		When you 
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Delete</guimenuitem>
+		</menuchoice>
+		a file, it is removed from your working copy immediately as well
+		as being marked for deletion in the repository on next commit.
+		When you
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Delete</guimenuitem>
+		</menuchoice>
+		a folder, it remains in your working copy, but the overlay
+		changes to indicate that it is marked for deletion. This
+		difference in behaviour is a part of Subversion, not TortoiseSVN.
+	</para>
+	<para>
+		If you want to delete an item from the repository, but keep it
+		locally as an unversioned file/folder, use
+		<menuchoice>
+			<guimenu>Extended Context Menu</guimenu>
+			<guimenuitem>Delete (keep local)</guimenuitem>
+		</menuchoice>.
+		You have to hold the <keycap>Shift</keycap> while right clicking on
+		the item in the explorer list pane (right pane) in order to see this
+		in the extended context menu.
+	</para>
+	<para>
 		If you want to move files inside a working copy,
 		use the drag-and-drop handler again:
 		<orderedlist>
