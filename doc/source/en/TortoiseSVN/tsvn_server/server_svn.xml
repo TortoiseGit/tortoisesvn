@@ -140,12 +140,11 @@ svn://localhost/TestRepo
 				<primary>svnservice</primary>
 			</indexterm>
 			<para>
-				If you are concerned about always having a user logged in on your 
-				server, or worried about someone shutting down svnserve or 
-				forgetting to restart it after a reboot, it is possible to run 
+				Running svnserve as a user is usually not the best way.
+				It means always having a user logged in on your server,
+				and remembering to restart it after a reboot. A better way is to run 
 				svnserve as a windows service. Starting with Subversion 1.4,
-				svnserve can be installed as a native windows service, 
-				in previous versions it can be installed using a wrapper.
+				svnserve can be installed as a native windows service.
 			</para>
 			<para>
 				To install svnserve as a native windows service, execute the following
@@ -155,6 +154,23 @@ svn://localhost/TestRepo
 sc create svnserve binpath= "c:\svnserve\svnserve.exe --service 
 	--root c:\repos" displayname= "Subversion" depend= tcpip start= auto
 </screen>
+				If any of the paths include spaces, you have to use (escaped) quotes
+				around the path, like this:
+<screen>
+sc create svnserve binpath= "\"C:\Program Files\Subversion\bin\svnserve.exe\"
+	--service --root c:\repos" displayname= "Subversion" depend= tcpip start= auto
+</screen>
+				You can also add a description after creating the service. This
+				will show up in the Windows Services Manager.
+<screen>
+sc description svnserve "Subversion server (svnserve)"
+</screen>
+			</para>
+			<para>
+				Note the rather unusual command line format used by <literal>sc</literal>.
+				In the <literal>key= value</literal> pairs there must be no space between
+				the key and the <literal>=</literal> but there must be a space before the
+				value.
 			</para>
 			<tip>
 				<para>
@@ -172,42 +188,31 @@ obj= "NT AUTHORITY\LocalService"
 					Note that you would have to give the Local Service account
 					appropriate rights to both Subversion and your repositories,
 					as well as any applications which are used by hook scripts.
+					The builtin group for this is called "LOCAL SERVICE".
 				</para>
 			</tip>
 			<para>
-				To install svnserve using a wrapper, one written specifically for
-				svnserve is <literal>SvnService</literal>. Magnus Norddahl adapted
-				some skeleton code from Microsoft, and further improvements have
-				been made by Daniel Thompson.
-				Daniel's version is available for download from
-				<ulink url="http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip">
-					<citetitle>tigris.org</citetitle>
+				Once you have installed the service, you need to go to the services
+				manager to start it (this time only; it will start automatically when
+				the server reboots).
+			</para>
+			<para>
+				For more detailed information, refer to
+				<ulink 
+					url="http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt">
+					<citetitle>Windows Service Support for Svnserve</citetitle>
 				</ulink>.
 			</para>
 			<para>
-				More generic tools like
-				<ulink url="http://www.firedaemon.com/">
-					<citetitle>firedaemon</citetitle>
-				</ulink>
-				will also work. Note that you will still need to run
-				svnserve with the --daemon switch.
-			</para>
-			<para>
-				Finally, if you have access to the Windows 2000/XP/2003
-				resource kit you can use
-				<ulink url="http://support.microsoft.com/kb/q137890/">
-					<citetitle>SrvAny</citetitle>
-				</ulink>
-				from Microsoft.
-				This is the official Microsoft way of running programs as services,
-				but it is a bit messy (requires registry editing) and if you stop
-				the service it will kill svnserve immediately without letting it
-				clean up.
-				If you don't want to install the entire reskit, you can
-				download <emphasis>just</emphasis> the SrvAny components from
-				<ulink url="http://www.petri.co.il/software/srvany.zip">
-					<citetitle>Daniel Petri</citetitle>
-				</ulink>.
+				If you installed an earlier version of svnserve using the
+				<literal>SvnService</literal> wrapper, and you now want to use
+				the native support instead, you will need to unregister the wrapper
+				as a service (remember to stop the service first!).
+				Simply use the command
+<screen>
+svnservice -remove
+</screen>
+				to remove the service registry entry.
 			</para>
 		</sect3>
 	</sect2>
