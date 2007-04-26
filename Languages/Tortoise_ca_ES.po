@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-04-12 11:10+0100\n"
+"PO-Revision-Date: 2007-04-26 13:36+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -889,8 +889,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL del repositori:"
 
@@ -1086,8 +1087,8 @@ msgstr "Una violació de bloqueig ha ocorregut quan s'accedia a %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Hi ha una versió més nova dsiponible. Si us plau aneu a http://tortoisesvn.tigris.org i baixeu-vos la versió actual!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Hi ha una versió més nova disponible. Si us plau aneu a http://tortoisesvn.tigris.org i baixeu-vos la versió actual! Feu click aquí per anar al nostre lloc web."
 
 # ID:195,
 #: ID:195
@@ -2688,25 +2689,25 @@ msgstr "Estàs segur de que vols moure aquest fixer o carpeta?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Segur que vols revertir tots els canvis a \n"
+"Segur que voleu revertir tots els canvis a \n"
 "%s\n"
-"i tornar enrera cap a aquesta revisió? Aquests canvis es barreijaran amb un 'merge' a la teva còpia de treball."
+"i tornar enrera cap a aquesta revisió? Aquests canvis es revertiran amb 'reverse-merging' les revisions a la vostra còpia de treball."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Segur que vols revertir tots els canvis a\n"
 "%s\n"
-"que han sigut fets en aquesta revisió? Aquests canvis es barreijaran amb un 'merge' a la teva còpia de treball."
+"que han sigut fets a aquesta revisió? Aquests canvis es revertiran amb  'reverse-merging' a la revisió dins de la teva còpia de treball."
 
 # ID:76,
 #: ID:76
@@ -5290,8 +5291,9 @@ msgstr "Reemplaçant"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Repositori"
 
@@ -5406,8 +5408,9 @@ msgstr "Reverteix canvis des de la darrera actualització"
 # ID:19,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Revisió"
