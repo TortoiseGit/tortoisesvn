@@ -94,6 +94,33 @@
 				<guimenuitem>Go To Line...</guimenuitem>
 			</menuchoice>.
 		</para>
+		<para>
+			When the mouse is over the blame info columns, a context menu is
+			available which helps with comparing revisions and examining history,
+			using the revision number of the line under the mouse as a reference.
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Blame previous revision</guimenuitem>
+			</menuchoice> generates a blame report for the same file, but using
+			the previous revision as the upper limit. This gives you the blame
+			report for the state of the file just before the line you are looking
+			at was last changed.
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Show differences</guimenuitem>
+			</menuchoice> starts your diff viewer, showing you what changed in
+			the referenced revision.
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Show log</guimenuitem>
+			</menuchoice> displays the revision log dialog starting with the
+			referenced revision.
+		</para>
+		<para>
+			Although TortoiseBlame has no settings dialog of its own, it uses the same
+			font as TortoiseMerge, so if you want to change it, start TortoiseMerge
+			and use the settings dialog there.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-blame-diffs">
 		<title>Blame Differences</title>
