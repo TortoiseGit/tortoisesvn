@@ -675,7 +675,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				foldbrowse.SetCheckBoxText2(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTNOEXTERNALS)));
 				foldbrowse.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS | BIF_USENEWUI | BIF_VALIDATE;
 				TCHAR checkoutpath[MAX_PATH];
-				if (foldbrowse.Show(EXPLORERHWND, checkoutpath, MAX_PATH)==CBrowseFolder::OK)
+				if (foldbrowse.Show(EXPLORERHWND, checkoutpath, MAX_PATH, CString(regDefCheckoutPath))==CBrowseFolder::OK)
 				{
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
