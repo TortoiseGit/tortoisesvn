@@ -815,6 +815,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
 		return NOERROR;
 
+	if (uFlags & CMF_EXTENDEDVERBS)
+		itemStates |= ITEMIS_EXTENDED;
+
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
 	// On Vista, owner drawn menus force the context menu to the 'old' UI style.
 	// Since we like improved UIs, we don't want to do that so we simply
