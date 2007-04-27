@@ -284,6 +284,24 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			}
 		}
 	}
+	else
+	{
+		m_URLCombo.GetWindowText(m_URL);
+		if (m_URL.IsEmpty())
+			return;
+		CString tempURL = m_URL;
+		CString name;
+		while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
+			(name.CompareNoCase(_T("tags"))==0) ||
+			(name.CompareNoCase(_T("trunk"))==0))
+		{
+			name = tempURL.Mid(tempURL.ReverseFind('/')+1);
+			tempURL = tempURL.Left(tempURL.ReverseFind('/'));
+		}
+		m_strCheckoutDirectory = m_sCheckoutDirOrig+_T('\\')+name;
+		m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+		UpdateData(FALSE);
+	}
 }
 
 void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
