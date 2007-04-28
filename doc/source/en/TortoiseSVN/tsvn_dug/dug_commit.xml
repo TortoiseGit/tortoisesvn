@@ -109,6 +109,11 @@
 			text editor or an IDE.
 		</para>
 		<para>
+			You can select or deselect items by clicking on the checkbox to the
+			left of the item. For directories you can use <action>SHIFT-Select</action>
+			to make the action recursive.
+		</para>
+		<para>
 			The columns displayed in the bottom pane are customizable. If you
 			<action>right click</action> on any column header you will see a
 			context menu allowing you to select which columns are displayed.
@@ -116,6 +121,15 @@
 			appears when you move the mouse over a column boundary. These
 			customizations are preserved, so you will see the same headings
 			next time.
+		</para>
+		<para>
+			By default when you commit changes, any locks that you hold on files
+			are released automatically after the commit succeeds. If you want
+			to keep those locks, make sure the <guilabel>Keep locks</guilabel>
+			checkbox is checked. The default state of this checkbox is taken
+			from the <literal>no_unlock</literal> option in the Subversion
+			configuration file. Read <xref linkend="tsvn-dug-settings-main"/>
+			for information on how to edit the Subversion config file.
 		</para>
 		<tip>
 			<title>Drag and Drop</title>
