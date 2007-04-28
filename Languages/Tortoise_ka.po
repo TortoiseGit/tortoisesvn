@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-13 14:38+0400\n"
+"PO-Revision-Date: 2007-04-28 05:50+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,12 @@ msgstr "გადაწერილია %I64d კბაიტი"
 msgid "%d files selected, %d files total"
 msgstr "შეირჩა %d ფაილი, სულ %d ფაილიდან"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld წუთი და %ld წამი"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -171,6 +177,12 @@ msgstr "%s : სამუშაო ბაზა"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : სამუშაო ასლი"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s აქ %s"
 
 # ID:357,
 #: ID:357
@@ -299,6 +311,12 @@ msgstr "სხვაობათა &ავტორები"
 
 # ID:76,#:
 # ID:274,
+#: MenuEntry
+msgid "&Blame previous revision"
+msgstr "წინა ვერსიების &ავტორები"
+
+# ID:76,#:
+# ID:274,
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
@@ -339,6 +357,12 @@ msgstr "გასუ&ფთავება"
 #: ID:8
 msgid "&Commit..."
 msgstr "&ფიქსირება..."
+
+# ID:76,#:
+# ID:274,
+#: ID:101
+msgid "&Compare URLs"
+msgstr "მისამართების &შედარება"
 
 # ID:76,#:
 # ID:274,
@@ -395,6 +419,11 @@ msgstr "&ნაგულისხმები"
 #: ID:11
 msgid "&Delete"
 msgstr "&წაშლა"
+
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&წაშლა (ლოკალურის შენარჩუნებით)"
 
 # ID:101,
 #: ID:101
@@ -456,6 +485,7 @@ msgstr "მონიშნულის &ექსპორტი აქ..."
 # Control-ID:1095,#:
 # Control-ID:1097,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&გარე"
@@ -647,6 +677,7 @@ msgid "&New "
 msgstr "&ახალი"
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&შემდეგი %ld"
@@ -839,6 +870,7 @@ msgstr "&პულტი"
 # ID:3585,#:
 # Dlg-ID:130,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -850,8 +882,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&საცავის მისამართი:"
 
@@ -1045,8 +1078,8 @@ msgstr "ბლოკირების დარღვევა მიმარ�
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "გამოვიდა ახალი ვერსია. მოინახულეთ http://tortoisesvn.tigris.org და აგადაწერეთ ახლი ვერსია!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "გამოვიდა ახალი ვერსია. მოინახულეთ http://tortoisesvn.tigris.org და ჩამოტვირთეთ ახლი ვერსია! უშუალოდ ჩვენს ვებგვერდზე გადასასვლელად დაწკაპეთ _აქ_."
 
 # ID:195,
 #: ID:195
@@ -1169,6 +1202,12 @@ msgstr "ლექსიკონში დამატება - '%s'"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "დამატება (ჩანაცვლებით)..."
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "დამატება - TortoiseSVN"
 
 # Control-ID:65535,
 #: ID:563
@@ -1447,7 +1486,7 @@ msgstr "ბებკი ფაილის გამოყენება"
 # ID:145,
 #: ID:145
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "ნამდვილად გსურთ ამ ფაილ(ებ)ისთვის კონფლიქტურის სტატუსის მოხსნა?"
+msgstr "ნამდვილად გსურთ კონფლიქტური ფაილ(ებ)ისთვის მოგვარებულის სტატუსის მინიჭება?"
 
 # ID:79,
 #: ID:79
@@ -1585,9 +1624,16 @@ msgid "Base file:"
 msgstr "ძირითადი ფაილი:"
 
 # ID:13,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "ავტორები"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:132
+msgid "Blame - TortoiseSVN"
+msgstr "ავტორები - TortoiseSVN"
 
 # ID:13,
 #: ID:13
@@ -1853,6 +1899,11 @@ msgstr "გადმოტანა"
 msgid "Checkout &directory:"
 msgstr "&გადმოსატანი დასტა:"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "გადმოტანა - TortoiseSVN"
+
 # ID:145,
 #: ID:146
 msgid "Cleaning up."
@@ -1968,9 +2019,15 @@ msgstr "ბრძანება არ შესრულდა."
 
 # Control-ID:1083,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "ფიქსირება..."
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "ფიქსირება - TortoiseSVN"
 
 # Control-ID:1110,
 #: Control-ID:1262
@@ -2061,8 +2118,13 @@ msgstr "ბმული სცენარების გამართვა"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
-msgstr "ფაილების სხვადასხვა ვერსიების შედარების პროგრამის კონფიგურაცია."
+msgid "Configure the program used for comparing different revisions of files"
+msgstr "პროგრამის კონფიგურაცია ფაილების სხვადასხვა ვერსიების შედარებისთვის."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "პროგრამის კონფიგურაცია პარამეტრების სხვადასხვა ვერსიების შედარებისთვის."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2143,6 +2205,12 @@ msgstr ""
 msgid "Copy (Branch / Tag)"
 msgstr "კოპირება (შტო / ჭდე)"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "კოპირება - TortoiseSVN"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2153,6 +2221,11 @@ msgstr "URL-ს ბუფერში კოპირება"
 msgid "Copy all information to clipboard"
 msgstr "სრული ინფორმაიის ბუფერში კოპირება"
 
+# ID:16,
+#: ID:104
+msgid "Copy and rename item to here"
+msgstr "ელემენტების კოპირება და გადარქმევა აქ"
+
 # ID:114,
 #: ID:101
 msgid "Copy error message to clipboard"
@@ -2162,6 +2235,11 @@ msgstr "შეცდომის შეტყობინების ბუფ�
 #: ID:76
 msgid "Copy from path"
 msgstr "კოპირება გეზიდან"
+
+# ID:127,
+#: ID:103
+msgid "Copy items to here"
+msgstr "ელემენტის კოპირება აქ"
 
 # ID:114,
 #: ID:209
@@ -2474,6 +2552,11 @@ msgstr "წაშლილი კვანძი"
 msgid "Deletes files / folders from version control"
 msgstr "ვერსიის კონტროლიდან ფაილების/დასტების წაშლა"
 
+# ID:11,
+#: ID:18
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "წაშლის ფაილებს/დასტებს ვერსიის კონტროლიდან ფაილის შენარჩუნებით"
+
 # ID:263,
 #: ID:263
 msgid "Deleting"
@@ -2588,23 +2671,25 @@ msgstr "ამდვილად გსურთ ამ ფაილის ა�
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in\n"
+"%s\n"
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n"
-"და %s-ის ამ ვერსიაზე დაბრუნება?"
+"%s\n"
+"და %s-ის ამ ვერსიაზე დაბრუნება? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n"
 "%s\n"
-"რომლებიც ამ ვერსიაშია შეტანილი?"
+"რომლებიც ამ ვერსიაშია შეტანილი? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
 
 # ID:76,
 #: ID:76
@@ -2760,7 +2845,6 @@ msgid "Enlarge the window to full size"
 msgstr "ფანჯრის მაქსიმიზება"
 
 # ID:126,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "ჟურნალში შეტყობინების შეტანა"
@@ -2859,6 +2943,11 @@ msgstr "ექსპორტი"
 msgid "Export &directory:"
 msgstr "&დასტის ექსპორტი:"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "ექსპორტი - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -2956,6 +3045,12 @@ msgstr "დოკუმენტის გახსნა ვერ მოხე
 msgid "Failed to save document."
 msgstr "დოკუმენტის შენახვა ვერ მოხერხდა."
 
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "\"%s\" ცვლილებათა სიის მითითება/ამოღება ვერ მოხერხდა"
+
 # ID:63,#:
 # ID:74,#:
 # ID:77,#:
@@ -2964,11 +3059,6 @@ msgstr "დოკუმენტის შენახვა ვერ მოხ
 #: ID:220
 msgid "Failed!"
 msgstr "არ შედგა!"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "კონტექსტური მენიუსთვის ფაილის &სტატუსის მიღება"
 
 # ID:313,
 #: ID:313
@@ -3085,6 +3175,11 @@ msgstr "აქედან:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "აქედან: (შერწყმის რანგის საწყისი მისამართი და ვერსია)"
+
+# Control-ID:1018,
+#: ID:266
+msgid "Fully recursive"
+msgstr "სრულად რეკურსიული"
 
 # ID:273,
 #: ID:273
@@ -3230,6 +3325,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "გრაფიკის ტიპი:"
+
+# Control-ID:1126,
+#: ID:214
+msgid "Group changelists"
+msgstr "ჯგუფის ცვლილებათა სიები"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -3465,17 +3565,6 @@ msgstr ""
 "თუ ჩართულია, ფიქსირების დიალოგი შეცდომის შემდეგ ავტომატურად დაიწყება,\n"
 "ბოლო მონიშვნებისა და დავთრის ჩანაწერების შენარჩუნებით."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"თუ გამორთულია, კონტექსტური მენიუ უფრო სწრაფად გამოჩნდება.\n"
-"იმავე დროს გამოჩნდება მენიუს ზოგიერთი ელემენტი რომლებიც სინამდვილეში ვერ გამოიყენება.\n"
-"მაგალითად: ელემენტი \"ჟურნალის ჩვენება\" გამოჩნდება ახლად დამატებული დასტებისთვისაც."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3569,6 +3658,11 @@ msgstr "ძირეულების იგნორირება"
 msgid "Ignore line &endings (recommended)"
 msgstr "სტრიქონის &ბოლოების იგნორირება (რეკომენდებულია)"
 
+# ID:266,
+#: ID:266
+msgid "Immediate children, including folders"
+msgstr "უშუალო ქვეელემენტები, დასტების ჩათვლით"
+
 # ID:9,
 #: Dlg-ID:139
 msgid "Import"
@@ -3584,6 +3678,11 @@ msgstr "%ld ელემენტის იმპორტი"
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&შეტყობინების იმპორტი"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "იმპორტი - TortoiseSVN"
 
 # ID:120,
 #: ID:127
@@ -4039,6 +4138,11 @@ msgstr "მონიშვნა &მოგვარებულად"
 msgid "Mark as resolved"
 msgstr "მონიშვნა მოგვარებულად"
 
+# ID:101,
+#: ID:101
+msgid "Mark for comparison"
+msgstr "მონიშვნა შესადარებლად"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -4068,6 +4172,12 @@ msgstr "ჟურნალის ჩანაწერების მაქს�
 #: Control-ID:65535
 msgid "Merge"
 msgstr "შერწყმა"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "შერწყმა - TortoiseSVN"
 
 # ID:263,#:
 # ID:263,
@@ -4174,6 +4284,16 @@ msgid ""
 msgstr ""
 "%s - გადატანა\r\n"
 "აქ %s"
+
+# ID:16,
+#: ID:104
+msgid "Move and rename item to here"
+msgstr "ელემენტების გადატანა და გადარქმევა აქ"
+
+# ID:127,
+#: ID:103
+msgid "Move items to here"
+msgstr "ელემენტების გადატანა აქ"
 
 # ID:209,
 #: ID:209
@@ -4423,9 +4543,13 @@ msgstr "კონფლიქტი ერთ ან რამოდენიმ
 
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "მხოლოდ &სათაო დასტის გადმოტანა"
+
+# ID:266,
+#: ID:266
+msgid "Only file children"
+msgstr "მხოლოდ ფაილური ქვეელემენტები"
 
 # ID:169,
 #: ID:169
@@ -4436,10 +4560,10 @@ msgstr ""
 "დასაშვებია მხოლოდ რიცხვები\n"
 "(შესაძლოა მძიმით გამოყოფილი)!"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "მხოლოდ &სათაო დასტის განახლება"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "მხოლოდ ეს ელემენტი"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -4728,6 +4852,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "გთხოვთ დაელოდოთ სანამ საცავის ბროუზერი ინიციალიზდება..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5079,6 +5204,11 @@ msgstr ""
 "%s ელემენტის გადარქმევა\r\n"
 "- %s"
 
+# ID:10,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "გადარქმევა/გადატანა - TortoiseSVN"
+
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5131,8 +5261,9 @@ msgstr "შეცვლა"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "საცავი"
 
@@ -5140,11 +5271,6 @@ msgstr "საცავი"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "საცავის ნუსხა"
-
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
-msgstr "საცავის ბრაუზერი"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5161,6 +5287,12 @@ msgstr "&მოგვარდა..."
 #: Dlg-ID:207
 msgid "Resolve"
 msgstr "მოგვარება"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "მოგვარება - TortoiseSVN"
 
 # ID:282,
 #: ID:282
@@ -5219,6 +5351,12 @@ msgstr "კვლავ"
 msgid "Revert"
 msgstr "აღდგენა"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "აღდგენა - TortoiseSVN"
+
 # ID:114,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -5239,8 +5377,9 @@ msgstr "განახლების შემდგომი ყველა 
 # Control-ID:65535,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "ვერსია"
@@ -5698,6 +5837,11 @@ msgstr "პარამეტრების მითითება..."
 msgid "Settings"
 msgstr "პარამეტრები"
 
+# Dlg-ID:129,
+#: ID:80
+msgid "Settings - TortoiseSVN"
+msgstr "პარამეტრები - TortoiseSVN"
+
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Sh&ow log"
@@ -5746,7 +5890,7 @@ msgid "Show &all revisions"
 msgstr "&ყველა ვერსიის ჩვენება"
 
 # ID:113,
-#: ID:113
+#: MenuEntry
 msgid "Show &differences"
 msgstr "&სხვაობების ჩვენება"
 
@@ -5757,13 +5901,7 @@ msgstr "&სხვაობების ჩვენება"
 # Control-ID:1031,#:
 # Control-ID:1034,#:
 # Control-ID:1132,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "&ჟურნალის ჩვენება"
 
@@ -5786,6 +5924,10 @@ msgstr "&არავერსიული ფაილების ჩვენ
 #: MenuEntry
 msgid "Show File List"
 msgstr "ფაილების სიის ჩვენება"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "&მიმოხილვის ჩვენება"
 
 # ID:113,
 #: ID:113
@@ -5916,21 +6058,6 @@ msgstr "გამოტოვება"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "გამოტოვებული მცდარი სამიზნე"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "ელემენტების ნუმერაციით სორტირება"
-
-# Control-ID:1300,
-#: ID:101
-msgid "Sort numerical"
-msgstr "სორტირება ნუმერაციით"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "ელემენტების ნუმერაციით სორტირება ანბანურის ნაცვლად"
 
 # ID:196,
 #: ID:196
@@ -6083,6 +6210,12 @@ msgstr "ქვევერსიის სერვერის ფაილი"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "სამუშაო ასლის ახალ შტოზე/ჭდეზე გადარ&თვა"
 
+# ID:80,#:
+# Control-ID:65535,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "გადართვა - TortoiseSVN"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "გაცვლა მარცხენა<->მარჯვენა"
@@ -6203,28 +6336,6 @@ msgstr ""
 msgid "The Repository was successfully created."
 msgstr "საცავი წარმატებით შეიქმნა."
 
-# ID:314,
-#: ID:314
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"გეზი\n"
-"<i>%s</i>\n"
-"ბებკი ფაილში არ არსებობს.\n"
-"პროგრამამ ფარდობითი გეზი მოიძია\n"
-"<i>%s</i>\n"
-"რომელიც შესაძლოა გამოსაყენებელი ბებკის გეზს შეესაბამაბა.\n"
-"\n"
-"გნებავთ შემოთავაზებული ბებკის გამოყენება? პასუხი 'არა'-ს შემთხვევაში პროგრამა დასრულდება."
-
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6268,19 +6379,11 @@ msgstr "ფაილი %s არ არსებობს!"
 msgid "The file %s was not found in the patch file!"
 msgstr "ფაილი %s ბებკიში ვერ მოიძებნა!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"ფაილი %s\n"
-"ორგან მოიძებნა!?!\n"
-"ჩვეულებრივ, ეს ხდება როცა ბებკის ფაილს მცდარ\n"
-"დასტაში ატვირთავთ!"
+# ID:3857,#:
+# ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "ფაილი მეტისმეტად დიდია"
 
 # ID:3857,#:
 # ID:3857,
@@ -6398,6 +6501,15 @@ msgstr ""
 msgid "The operation failed."
 msgstr "ოპერაცია არ შედგა."
 
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"პარამეტრები  '/path' და '/pathfile' ურთიერთგამომრიცხავია.\n"
+"უნდა მიუთითოთ ერთი მათგანი."
+
 # ID:64,
 #: ID:64
 #, c-format
@@ -6428,6 +6540,28 @@ msgstr ""
 "\n"
 "Windows-ის მართებული გეზი არ შეიძლება შეიცავდეს '<>|\"?*:' სიმბოლოებს ან\n"
 "შემდეგ მოწყობილობათა სახელებს: com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+# ID:314,
+#: ID:314
+#, c-format
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"in the patchfile does not exist.\n"
+"TortoiseMerge found the relative path\n"
+"<i>%s</i>\n"
+"which seems to match the directory you're applying the patch.\n"
+"\n"
+"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+"გეზი\n"
+"<i>%s</i>\n"
+"ბებკი ფაილში არ არსებობს.\n"
+"პროგრამამ ფარდობითი გეზი მოიძია\n"
+"<i>%s</i>\n"
+"რომელიც შესაძლოა გამოსაყენებელი ბებკის გეზს შეესაბამაბა.\n"
+"\n"
+"გნებავთ შემოთავაზებული ბებკის გამოყენება? პასუხი 'არა'-ს შემთხვევაში პროგრამა დასრულდება."
 
 # ID:314,
 #: ID:314
@@ -6698,10 +6832,10 @@ msgstr "TortoiseBlame"
 #: ID:13
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
-"TortoiseBlame პარამეტრების გარეშე ვერ შესრულდება!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame უშუალოდ ვერ დაიწყება!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:80,#:
 # Control-ID:65535,
@@ -6750,13 +6884,11 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, გამოშვება %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 # ID:80,#:
@@ -6779,7 +6911,6 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6787,84 +6918,13 @@ msgid ""
 "zlib %s"
 msgstr ""
 "TortoiseSVN %d.%d.%d, გამოშვება %d - %s, %s\r\n"
-"ქვევვერსია %d.%d.%d, %s\r\n"
+"ქვევერსია %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN დამატება..."
-
-# ID:132,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN ავტორები"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN გადმოტანა..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN ფიქსირება..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN კოპირება..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN ექსპორტი..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN იმპორტი..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN შერწყმა..."
-
-# ID:221,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN გადარქმევა/გადატანა"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN მოგვარება..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN აღდგენა..."
-
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN პარამეტრები"
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN გადართვა..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN განახლება..."
 
 # ID:98,
 #: ID:98
@@ -7052,6 +7112,12 @@ msgstr "არავერსიული ფაილები ძირეუ�
 #: Dlg-ID:152
 msgid "Update"
 msgstr "განახლება"
+
+# ID:80,#:
+# Control-ID:65535,
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "განახლება - TortoiseSVN"
 
 # ID:74,
 #: ID:74
@@ -7706,6 +7772,11 @@ msgstr "იგნორირებული"
 #: ID:13
 msgid "incomplete"
 msgstr "არასრული"
+
+# ID:214,
+#: ID:214
+msgid "item kept locally"
+msgstr "ელემენტი ლოკალურად შენარჩუნდა"
 
 # ID:11,#:
 # ID:195,#:
