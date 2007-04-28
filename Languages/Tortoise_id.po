@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-08 21:25+0700\n"
+"PO-Revision-Date: 2007-04-28 21:13+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -880,8 +880,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL repositori:"
 
@@ -1077,8 +1078,8 @@ msgstr "Pelanggaran penguncian terjadi saat mengakses %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Versi lebih baru tersedia. Silahkan pergi ke http://tortoisesvn.tigris.org dan download versi saat ini!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Versi lebih baru tersedia. Silahkan pergi ke http://tortoisesvn.tigris.org dan unduh versi saat ini! Klik _di sini_ untuk pergi langsung ke situs web kami."
 
 # ID:195,
 #: ID:195
@@ -2680,25 +2681,25 @@ msgstr "Anda benar-benar ingin memindahkan file atau folder ini?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Anda benar-benar ingin memulihkan semua perubahan dalam \n"
+"Apakah Anda benar-benar ingin memulihkan semua perubahan dalam \n"
 "%s\n"
-"dan kembali ke revisi ini? Perubahan-perubahan ini akan digabung ke dalam copy pekerjaan Anda."
+"dan kembali ke revisi ini? Perubahan-perubahan ini akan dipulihkan dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Anda benar-benar ingin memulihkan semua perubahan ke\n"
 "%s\n"
-"yang dibuat dalam revisi ini? Perubahan-perubahan ini akan digabung ke dalam copy pekerjaan Anda."
+"yang dibuat dalam revisi ini? Perubahan-perubahan ini akan dipulihkan dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
 
 # ID:76,
 #: ID:76
@@ -5283,8 +5284,9 @@ msgstr "Mengganti"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Repositori"
 
@@ -5399,8 +5401,9 @@ msgstr "Memulihkan semua perubahan yang anda buat sejak pemutahiran terakhir"
 # ID:19,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Revisi"
