@@ -94,6 +94,32 @@ svnadmin create --fs-type fsfs MyNewRepository
 				</para>
 			</listitem>
 		</orderedlist>
+		<tip>
+			<para>
+				TortoiseSVN no longer offers the option to create BDB repositories,
+				although you can still use the command line client to create them.
+				FSFS repositories are generally easier for you to maintain, and also
+				makes it easier for us to maintain TortoiseSVN due to compatibility
+				issues between the different BDB versions.
+			</para>
+			<para>
+				Future versions of TortoiseSVN will not support
+				<literal>file:///</literal> access to BDB repositories due to these
+				compatibility issues, although it will of course always support
+				this repository format when accessed via a server through the
+				<literal>svn://</literal>,
+				<literal>http://</literal> or
+				<literal>https://</literal> protocols.
+				For this reason, we strongly recommend that any new repository
+				which must be accessed using <literal>file:///</literal>
+				protocol is created as FSFS.
+			</para>
+			<para>
+				Of course we also recommend that you don't use <literal>file:///</literal>
+				access at all, apart from local testing purposes. Using a server is
+				more secure and more reliable for all but single-developer use.
+			</para>
+		</tip>
 	</sect2>
 	<!-- ================================================================= -->
 	<sect2 id="tsvn-repository-local-access">
