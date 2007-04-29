@@ -213,6 +213,8 @@ Version 1.4.4
        changed state wouldn't be taken into account for the commit. (Stefan)
 - BUG: The log dialog used wrong revision numbers when selecting two
        revisions and double clicking on the filename. (Tobias Schäfer)
+- BUG: When committing added directories, the log message wasn't always saved
+       in the history. (Tobias Schäfer)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)

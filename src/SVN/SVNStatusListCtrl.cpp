@@ -574,9 +574,14 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			// So we fetch the status of the parent directory instead and
 			// check if that one has an UUID assigned to it.
 			svn_wc_status2_t * sparent;
-			CTSVNPath svnParentPath;
-			SVNStatus tempstatus;
-			sparent = tempstatus.GetFirstFileStatus(workingTarget.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
+			CTSVNPath path = workingTarget;
+			do
+			{
+				CTSVNPath svnParentPath;
+				SVNStatus tempstatus;
+				sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
+				path = svnParentPath;
+			} while ( (sparent) && (sparent->entry) && (!sparent->entry->uuid) && (sparent->text_status==svn_wc_status_added) );
 			if (sparent && sparent->entry && sparent->entry->uuid)
 			{
 				strCurrentRepositoryUUID = sparent->entry->uuid;
