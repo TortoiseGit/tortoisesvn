@@ -2951,7 +2951,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 				}
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
@@ -2981,7 +2981,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					//temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
 					//popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 				}
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
@@ -3591,7 +3591,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEDIFF, temp);
 				popup.SetDefaultItem(ID_DIFF, FALSE);
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 				bEntryAdded = true;
 			}
