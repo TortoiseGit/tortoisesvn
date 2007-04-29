@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-09 16:59+0900\n"
+"PO-Revision-Date: 2007-04-29 17:39+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1056,8 +1056,9 @@ msgstr "&TortoiseSVN"
 # Control-ID:65535,#:
 # Control-ID:1058,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "リポジトリの&URL:"
 
@@ -1296,8 +1297,8 @@ msgstr "%1 にアクセス中にロック違反が発生しました。"
 # ID:201,
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください！"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください！直接ウェブサイトへ行く場合は、_ここ_ をクリックしてください。"
 
 # ID:195,
 # ID:195,
@@ -3212,27 +3213,29 @@ msgstr "本当にこのファイルもしくはフォルダを移動させても
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "%s で行われた全ての変更を元に戻し、\n"
 "このリビジョンに変更してもよろしいですか？\n"
-"これらの変更は、作業コピーにマージされます。"
+"これらの変更は、作業コピーに対してリビジョン\n"
+"の逆マージを行うことで元に戻します。"
 
 # ID:76,
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "このリビジョンで行われた、\n"
 "%s\n"
 "に対する全ての変更を元に戻してもよろしいですか？\n"
-"これらの変更は、作業コピーにマージされます。"
+"これらの変更は、作業コピーに対してリビジョン\n"
+"の逆マージを行うことで元に戻します。"
 
 # ID:76,
 # ID:76,
@@ -6259,8 +6262,9 @@ msgstr "置換"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "リポジトリ"
 
@@ -6403,8 +6407,9 @@ msgstr "最後の更新から行った全ての変更を元に戻す"
 # ID:19,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "リビジョン"
