@@ -41,13 +41,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9205: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9276: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-22 23:51+0300\n"
+"PO-Revision-Date: 2007-04-30 14:44+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -296,8 +296,8 @@ msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley database (BDB)"
 
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Авторство различий"
+msgid "&Blame changes"
+msgstr "&Авторство изменений"
 
 #: MenuEntry
 msgid "&Blame previous revision"
@@ -4889,8 +4889,8 @@ msgid "Show &all revisions"
 msgstr "Показать &все ревизии"
 
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Показать &различия"
+msgid "Show &changes"
+msgstr "Показать &изменения"
 
 #: MenuEntry
 msgid "Show &log"
@@ -4915,6 +4915,10 @@ msgstr "Показать список файлов"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Показать о&бзорное окно"
+
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Показать изменения как объединённые разли&чия"
 
 # !!!
 #: ID:113
