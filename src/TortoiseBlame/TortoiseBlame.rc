@@ -49,7 +49,7 @@ BEGIN
         MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
         MENUITEM SEPARATOR
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
-        MENUITEM "Show &differences",           ID_DIFF_PREVIOUS_REVISION
+        MENUITEM "Show &changes",		        ID_DIFF_PREVIOUS_REVISION
         MENUITEM "Show &log",                   ID_SHOWLOG
     END
 END
