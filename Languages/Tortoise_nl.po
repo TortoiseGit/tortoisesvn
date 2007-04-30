@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-18 21:50+0100\n"
+"PO-Revision-Date: 2007-04-30 22:48+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -267,8 +267,8 @@ msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
 
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Verklaar verschillen"
+msgid "&Blame changes"
+msgstr "&Verklaar wijzigingen"
 
 #: MenuEntry
 msgid "&Blame previous revision"
@@ -2169,23 +2169,24 @@ msgstr "Wilt u dit bestand of deze map echt verplaatsen?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Wilt u echt alle wijzigingen in %s\n"
-"ongedaan maken en teruggaan naar deze revisie? Deze wijzigingen zullen in uw werkkopie worden aangebracht."
+"Wilt u echt alle wijzigingen in\n"
+"%s\n"
+"ongedaan maken en teruggaan naar deze revisie? Deze wijzigingen zullen via omgekeerd-samenvoegen in uw werkkopie worden aangebracht."
 
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Wilt u echt alle wijzigingen in\n"
 "%s\n"
-"uit deze revisie ongedaan maken? Deze wijzigingen zullen worden aangebracht in uw werkkopie."
+"uit deze revisie ongedaan maken? Deze wijzigingen zullen via omgekeerd-samenvoegen worden aangebracht in uw werkkopie."
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -4886,8 +4887,8 @@ msgid "Show &all revisions"
 msgstr "Toon &alle revisies"
 
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Toon vers&chillen"
+msgid "Show &changes"
+msgstr "Toon &wijzigingen"
 
 #: MenuEntry
 msgid "Show &log"
@@ -4912,6 +4913,10 @@ msgstr "Toon lijst met bestanden"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Toon &overzicht"
+
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Toon wijzigingen als &unified diff"
 
 #: ID:113
 msgid "Show differences as &unified diff"
