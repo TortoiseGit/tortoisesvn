@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-04-26 13:36+0100\n"
+"PO-Revision-Date: 2007-04-30 09:31+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -316,10 +316,10 @@ msgstr "&Fes còpia de seguretat del fitxer original"
 msgid "&Berkeley database (BDB)"
 msgstr "&Base de Dades Berkeley (BDB)"
 
-# ID:114,
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Mostra autoria de les diferències"
+msgid "&Blame changes"
+msgstr "&Estableix autoria dels canvis"
 
 # ID:114,#:
 # ID:322,
@@ -5920,6 +5920,11 @@ msgstr "Mostra &Rang..."
 msgid "Show &all revisions"
 msgstr "Mostra &totes les revisions"
 
+# ID:115,
+#: ID:113
+msgid "Show &changes"
+msgstr "Mostra &canvis"
+
 # ID:113,
 #: MenuEntry
 msgid "Show &differences"
@@ -5958,6 +5963,11 @@ msgstr "Mostra Llista de Fitxers"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Mostra Vista Gene&ral"
+
+# ID:113,
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Mostra canvis com a diff &unificat"
 
 # ID:113,
 #: ID:113
