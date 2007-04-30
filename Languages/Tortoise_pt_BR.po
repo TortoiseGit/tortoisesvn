@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-02-24 19:00-0300\n"
+"PO-Revision-Date: 2007-04-30 11:26-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,12 @@ msgstr "%I64d kBytes transferidos"
 msgid "%d files selected, %d files total"
 msgstr "%d arquivos selecionados, %d arquivos no total"
 
+# ID:226,
+#: ID:226
+#, c-format
+msgid "%ld minute(s) and %ld second(s)"
+msgstr "%ld minuto(s) e %ld segundo(s)"
+
 # ID:7,
 #: ID:7
 #, c-format
@@ -174,6 +180,12 @@ msgstr "%s : Base de Trabalho"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Cópia de Trabalho"
+
+# ID:357,
+#: ID:226
+#, c-format
+msgid "%s in %s"
+msgstr "%s em %s"
 
 # ID:357,
 #: ID:357
@@ -294,9 +306,16 @@ msgstr "Fazer &backup do arquivo original"
 msgid "&Berkeley database (BDB)"
 msgstr "&Banco de Dados Berkeley (BDB)"
 
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Acusar diferenças"
+msgid "&Blame changes"
+msgstr "Alteração de responsa&bilidade"
+
+# ID:76,
+#: MenuEntry
+#, fuzzy
+msgid "&Blame previous revision"
+msgstr "Resposa&bilidade da revisão anterior"
 
 # ID:76,
 #: ID:114
@@ -405,6 +424,11 @@ msgstr "Pa&drão"
 msgid "&Delete"
 msgstr "&Excluir"
 
+# ID:17,
+#: ID:17
+msgid "&Delete (keep local)"
+msgstr "&Excluir (manter local)"
+
 # ID:11,#:
 # ID:73,#:
 # ID:101,
@@ -466,6 +490,7 @@ msgstr "&Exportar seleção para..."
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1094
 #: Control-ID:1095
 msgid "&External"
 msgstr "&Externo"
@@ -655,6 +680,7 @@ msgid "&New "
 msgstr "&Novo "
 
 # Control-ID:1208,
+#: ID:115
 #: Control-ID:1208
 msgid "&Next %ld"
 msgstr "&Próximos %ld"
@@ -853,6 +879,7 @@ msgstr "&Barra de Ferramentas"
 # ID:3585,#:
 # Dlg-ID:130,
 #: Control-ID:1091
+#: Control-ID:1093
 #: Control-ID:1094
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -865,8 +892,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL do repositório:"
 
@@ -1061,8 +1089,9 @@ msgstr "Uma violação de bloqueio ocorreu ao acessar %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Uma nova versão está disponível. Por favor, acesse http://tortoisesvn.tigris.org e baixe a versão atual!"
+#, fuzzy
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Uma nova versão está disponível. Por favor, acesse http://tortoisesvn.tigris.org e faça o download da versão atual! Clique _aqui_ para ir diretamente ao nosso website."
 
 # ID:195,
 #: ID:195
@@ -1187,6 +1216,12 @@ msgstr "Adicionar '%s' ao dicionário"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Adicionar (como substituição)..."
+
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Add - TortoiseSVN"
+msgstr "Adicionar - TortoiseSVN"
 
 # Control-ID:65535,
 #: ID:563
@@ -1488,9 +1523,9 @@ msgstr "Ordenado os nós por caminho"
 
 # ID:209,
 #: ID:264
-#, fuzzy, c-format
+#, c-format
 msgid "Assigned to changelist \"%s\""
-msgstr "Associar a lista de alterações \"%s\""
+msgstr "Associado a lista de alterações \"%s\""
 
 # ID:77,
 #: ID:77
@@ -1605,9 +1640,17 @@ msgid "Base file:"
 msgstr "Arquivo Base:"
 
 # ID:13,
+#: ID:114
 #: Dlg-ID:162
 msgid "Blame"
 msgstr "Responsabilidade"
+
+# ID:9,#:
+# ID:80,
+#: ID:132
+#, fuzzy
+msgid "Blame - TortoiseSVN"
+msgstr "Responsabilidade - TortoiseSVN"
 
 # ID:13,
 #: ID:13
@@ -1877,6 +1920,11 @@ msgstr "Obter"
 msgid "Checkout &directory:"
 msgstr "&Diretório de destino:"
 
+# Dlg-ID:129,
+#: ID:77
+msgid "Checkout - TortoiseSVN"
+msgstr "Obeter - TortoiseSVN"
+
 # ID:145,
 #: ID:146
 msgid "Cleaning up."
@@ -1992,9 +2040,15 @@ msgstr "Comando falhou."
 
 # ID:8,
 #: ID:209
+#: Dlg-ID:135
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Submeter"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Commit - TortoiseSVN"
+msgstr "submeter - TortoiseSVN"
 
 # Control-ID:1110,
 #: Control-ID:1262
@@ -2084,8 +2138,15 @@ msgstr "Configurar Scripts de Gancho"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Configure the program used for comparing different revisions of files."
+#, fuzzy
+msgid "Configure the program used for comparing different revisions of files"
 msgstr "Configure o programa usado para comparar diferentes revisões dos arquivos."
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Configure the program used for comparing different revisions of properties"
+msgstr "Configure o programa usado para comparar diferentes revisões de propriedades"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2164,6 +2225,12 @@ msgstr ""
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Copiar (Ramo / Rótulo)"
+
+# ID:9,#:
+# ID:80,
+#: ID:78
+msgid "Copy - TortoiseSVN"
+msgstr "Copiar - TortoiseSVN"
 
 # ID:257,
 #: ID:101
@@ -2516,6 +2583,12 @@ msgstr "Nó excluído"
 msgid "Deletes files / folders from version control"
 msgstr "Exclui arquivos / pastas do controle de versões"
 
+# ID:11,
+#: ID:18
+#, fuzzy
+msgid "Deletes files / folders from version control but keeps the file"
+msgstr "Exclui arquivos / pastas do controle de versões mas manter o arquivo"
+
 # ID:11,#:
 # ID:73,#:
 # ID:101,
@@ -2630,25 +2703,27 @@ msgstr "Você realmente deseja mover esse arquivo ou pasta?"
 
 # ID:76,
 #: ID:119
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Do you really want to revert all changes in %s\n"
-"and go back to this revision?"
+"Do you really want to revert all changes in\n"
+"%s\n"
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Você deseja realmente reverter todas as alterações em %s\n"
-"e voltar para essa revisão?"
+"Você deseja realmente reverter todas as alterações em\n"
+"%s\n"
+"e voltar para essa revisão? As alterações serão revertidas por combinação-reversão das revisões na sua cópia de trabalho."
 
 # ID:76,
 #: ID:76
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision?"
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 "Você deseja realmente reverter todas as alterações para\n"
 "%s\n"
-"que foram feitas nesta revisão?"
+"que foram feitas nesta revisão? As alterações serão revertidas por combinação-reversão das revisões na sua cópia de trabalho."
 
 # ID:76,
 #: ID:76
@@ -2803,7 +2878,6 @@ msgstr "Expandir a janela para a tela cheia"
 
 # ID:126,#:
 # Control-ID:1065,
-#: Dlg-ID:135
 #: Dlg-ID:241
 msgid "Enter Log Message"
 msgstr "Inserir Mensagem de Log:"
@@ -2905,6 +2979,11 @@ msgstr "Exportar"
 msgid "Export &directory:"
 msgstr "Exportar &diretório:"
 
+# Dlg-ID:129,
+#: ID:78
+msgid "Export - TortoiseSVN"
+msgstr "Exportar - TortoiseSVN"
+
 # ID:94,
 #: ID:94
 msgid "Export directory:"
@@ -3001,17 +3080,18 @@ msgstr "Falha ao abrir documento."
 msgid "Failed to save document."
 msgstr "Falha ao salvar documento."
 
+# ID:209,
+#: ID:264
+#, fuzzy, c-format
+msgid "Failed to set/remove changelist \"%s\""
+msgstr "falha ao definir/remover a lista de alterações \"%s\""
+
 # ID:63,#:
 # ID:74,#:
 # ID:77,
 #: ID:220
 msgid "Failed!"
 msgstr "Falhou!"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Fetch &status for context menu"
-msgstr "Obter &status para o menu de contexto"
 
 # ID:313,
 #: ID:313
@@ -3125,6 +3205,12 @@ msgstr "De:"
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De: (revisão e URL iniciais do intervalo para combinar)"
+
+# Control-ID:1018,
+#: ID:266
+#, fuzzy
+msgid "Fully recursive"
+msgstr "Completamente recursivo"
 
 # ID:273,
 #: ID:273
@@ -3268,6 +3354,11 @@ msgstr ""
 #: Control-ID:1134
 msgid "Graph type:"
 msgstr "Tipo de gráfico:"
+
+# ID:209,
+#: ID:214
+msgid "Group changelists"
+msgstr "Agrupar listas de alterações"
 
 # Control-ID:1229,
 #: Control-ID:1229
@@ -3505,18 +3596,6 @@ msgstr ""
 "Se selecionado, o diálogo de submissão será reaberto automaticamente após um erro,\n"
 "preservando sua última seleção e mensagem de log."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If disabled, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Se desativado, então o menu de contexto será mostrado mais rapidamente.\n"
-"Contudo, algumas entradas do menu de contexto serão mostradas mesmo quando\n"
-"não puderem ser usadas. Por exemplo: a entrada \"Visualizar Histórico\"\n"
-"será mostrada mesmo para pastas recém adicionadas."
-
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -3611,6 +3690,12 @@ msgstr "Ignorar descendência"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar fins d&e linha (recomendado)"
 
+# ID:266,
+#: ID:266
+#, fuzzy
+msgid "Immediate children, including folders"
+msgstr "Filhos diretos, incluindo pastas"
+
 # ID:9,
 #: Dlg-ID:139
 msgid "Import"
@@ -3626,6 +3711,11 @@ msgstr "Importar %ld itens"
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Importar &mensagem"
+
+# Dlg-ID:129,
+#: ID:77
+msgid "Import - TortoiseSVN"
+msgstr "Importar - TortoiseSVN"
 
 # ID:119,
 #: ID:127
@@ -4119,6 +4209,12 @@ msgstr "Máximo de ítens no histórico de mensagens de log "
 msgid "Merge"
 msgstr "Combinar"
 
+# ID:9,#:
+# ID:80,
+#: ID:78
+msgid "Merge - TortoiseSVN"
+msgstr "Combinar - TortoiseSVN"
+
 # Dlg-ID:141,
 #: ID:263
 msgid "Merged"
@@ -4485,9 +4581,14 @@ msgstr "Um ou mais arquivos estão em estado de conflito."
 
 # Control-ID:1073,
 #: ID:99
-#: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Ob&ter apenas a pasta raiz"
+
+# ID:266,
+#: ID:266
+#, fuzzy
+msgid "Only file children"
+msgstr "Apenas arquivos filhos"
 
 # ID:169,
 #: ID:169
@@ -4498,10 +4599,10 @@ msgstr ""
 "Apenas números (opcionalmente separados por\n"
 "vígulas) são permitidos!"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Only update the &top folder"
-msgstr "A&tualizar apenas a pasta raiz"
+# ID:266,
+#: ID:266
+msgid "Only this item"
+msgstr "Apenas esse ítem"
 
 # Control-ID:1224,
 #: Control-ID:1224
@@ -4793,6 +4894,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor, espere enquanto o navegador de repositório é inicializado..."
 
 # ID:119,
+#: ID:104
 #: ID:119
 #: ID:146
 #: ID:213
@@ -5145,6 +5247,11 @@ msgstr ""
 "Renomear item de %s\r\n"
 "para %s"
 
+# ID:10,
+#: ID:221
+msgid "Rename/move - TortoiseSVN"
+msgstr "Renomear/Mover - TortoiseSVN"
+
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5197,8 +5304,9 @@ msgstr "Substituindo"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Repositório"
 
@@ -5206,11 +5314,6 @@ msgstr "Repositório"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Navegador de Repositório"
-
-# Dlg-ID:153,
-#: Control-ID:65535
-msgid "Repository browser"
-msgstr "Navegador do repositório"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5226,6 +5329,12 @@ msgstr "Res&olvido..."
 #: Dlg-ID:207
 msgid "Resolve"
 msgstr "Resolver"
+
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Resolve - TortoiseSVN"
+msgstr "Resolver - TortoiseSVN"
 
 # ID:9,
 #: ID:282
@@ -5285,6 +5394,12 @@ msgstr "Tentar novamente"
 msgid "Revert"
 msgstr "Reverter"
 
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Revert - TortoiseSVN"
+msgstr "Reverter - TortoiseSVN"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -5307,8 +5422,9 @@ msgstr "Reverter todas as alterações que você fez desde a última atualizaç�
 # Control-ID:65535,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Revisão"
@@ -5771,6 +5887,12 @@ msgstr "Ajuste de propriedades..."
 msgid "Settings"
 msgstr "Preferências"
 
+# Dlg-ID:129,
+#: ID:80
+#, fuzzy
+msgid "Settings - TortoiseSVN"
+msgstr "Preferências - TortoiseSVN"
+
 # ID:12,
 #: Control-ID:1132
 msgid "Sh&ow log"
@@ -5817,19 +5939,13 @@ msgstr "Mostrar &Intervalo..."
 msgid "Show &all revisions"
 msgstr "Mostrar tod&as as revisões"
 
-# ID:113,
-#: ID:113
-msgid "Show &differences"
-msgstr "Exibir &diferenças"
+# Control-ID:1031,
+#: MenuEntry
+msgid "Show &changes"
+msgstr "Exibir &alterações..."
 
 # Control-ID:1016,
-#: ID:12
-#: ID:101
-#: Control-ID:1016
-#: Control-ID:1228
-#: Control-ID:1132
-#: Control-ID:1031
-#: Control-ID:1034
+#: MenuEntry
 msgid "Show &log"
 msgstr "Exibir &histórico"
 
@@ -5852,6 +5968,16 @@ msgstr "Exibir arq&uivos sem controle de versão"
 #: MenuEntry
 msgid "Show File List"
 msgstr "Mostrar Lista de Arquivos"
+
+#: MenuEntry
+msgid "Show Ove&rview"
+msgstr "Exibir visão ge&ral"
+
+# ID:113,
+#: ID:114
+#, fuzzy
+msgid "Show changes as &unified diff"
+msgstr "Exibir diferenças como comparação &unificada"
 
 # ID:113,
 #: ID:113
@@ -5982,16 +6108,6 @@ msgstr "Ignorado"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Arquivo ausente ignorado"
-
-# Control-ID:1300,
-#: Control-ID:1300
-msgid "Sort items numerically"
-msgstr "Ordenar ítens numericamente"
-
-# Control-ID:1300,
-#: ID:197
-msgid "Sorts items numerical instead of alphabetical"
-msgstr "Ordenar ítens numericamente ao invés de alfabeticamente"
 
 # ID:196,
 #: ID:196
@@ -6144,6 +6260,12 @@ msgstr "Arquivo de servidor do Subversion:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Alternar a cóp&ia de trabalho para o novo ramo/rótulo"
+
+# ID:9,#:
+# ID:80,
+#: ID:78
+msgid "Switch - TortoiseSVN"
+msgstr "Alternar - TortoiseSVN"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -6308,19 +6430,11 @@ msgstr "O arquivo %s não existe!"
 msgid "The file %s was not found in the patch file!"
 msgstr "O arquivo %s não foi encontrado no arquivo de correção!"
 
-# ID:65,
-#: ID:65
-#, c-format
-msgid ""
-"The file %s\n"
-"was found twice!?!\n"
-"This usually happens if you applied a patchfile to the\n"
-"wrong folder!"
-msgstr ""
-"O arquivo %s\n"
-"foi achado duas vezes!?!\n"
-"Isto usualmente acontece se você aplicar um patch de arquivo à\n"
-"pasta errada!"
+# ID:3857,#:
+# ID:3857,
+#: ID:69
+msgid "The file is too big"
+msgstr "O arquivo é muito grande"
 
 # ID:3857,#:
 # ID:3857,
@@ -6437,6 +6551,15 @@ msgstr ""
 #: ID:220
 msgid "The operation failed."
 msgstr "A operação falhou."
+
+# ID:74,
+#: ID:74
+msgid ""
+"The parameters '/path' and '/pathfile' are mutually exclusive.\n"
+"You must only specify one of them."
+msgstr ""
+"Os parâmetros '/path' e '/pathfile' são mutuamente exclusivos.\n"
+"Você deve escolher apenas um deles."
 
 # ID:64,
 #: ID:64
@@ -6760,9 +6883,10 @@ msgstr "TortoiseBlame"
 
 # ID:13,
 #: ID:13
+#, fuzzy
 msgid ""
 "TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 "TortoiseBlame não pode ser inicializado diretamente!\n"
 "TortoiseBlame.exe blamefile [[arquivodelog] [vertítulo]] [/linha:númerodalinha]"
@@ -6809,12 +6933,11 @@ msgstr "TortoiseMerge %d.%d.%d, Compilação %d - %s, %s"
 
 # ID:107,
 #: ID:107
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
 "TortoiseMerge %d.%d.%d, Compilação %d - %s, %s\r\n"
@@ -6838,12 +6961,11 @@ msgstr "TortoiseSVN %d.%d.%d, Compilação %d - %s, %s"
 
 # ID:107,
 #: ID:107
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
@@ -6859,81 +6981,6 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
-
-# ID:9,#:
-# ID:80,
-#: ID:77
-msgid "TortoiseSVN Add..."
-msgstr "TortoiseSVN Adicionar..."
-
-# ID:9,#:
-# ID:80,
-#: ID:132
-msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Responsabilidade"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN Obter..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Commit..."
-msgstr "TortoiseSVN Submeter..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Copy..."
-msgstr "TortoiseSVN Copiar..."
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Export..."
-msgstr "TortoiseSVN Exportar..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Import..."
-msgstr "TortoiseSVN Importar..."
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: ID:78
-msgid "TortoiseSVN Merge..."
-msgstr "TortoiseSVN  Merge..."
-
-# ID:11,#:
-# ID:101,
-#: ID:221
-msgid "TortoiseSVN Rename/move"
-msgstr "TortoiseSVN Renomear/Mover"
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Resolve..."
-msgstr "TortoiseSVN Resolver..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Revert..."
-msgstr "TortoiseSVN Reverter..."
-
-# ID:80,
-#: ID:80
-msgid "TortoiseSVN Settings"
-msgstr "Configurações TortoiseSVN"
-
-# ID:78,
-#: ID:78
-msgid "TortoiseSVN Switch..."
-msgstr "TortoiseSVN Alternar..."
-
-# ID:77,
-#: ID:77
-msgid "TortoiseSVN Update..."
-msgstr "TortoiseSVN Atualizar..."
 
 # ID:98,
 #: ID:98
@@ -7127,6 +7174,12 @@ msgstr "Arquivos sem controle de versão marcam o diretório pai como modificado
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Atualizar"
+
+# ID:9,#:
+# ID:80,
+#: ID:77
+msgid "Update - TortoiseSVN"
+msgstr "Atualizar - TortoiseSVN"
 
 # ID:8,#:
 # ID:74,#:
@@ -7784,6 +7837,11 @@ msgstr "ignorado"
 #: ID:13
 msgid "incomplete"
 msgstr "incompleto"
+
+# ID:214,
+#: ID:214
+msgid "item kept locally"
+msgstr "ítem mantido localmente"
 
 # ID:11,#:
 # Control-ID:1002,
