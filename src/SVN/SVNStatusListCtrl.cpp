@@ -2096,8 +2096,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
-				if ((wcStatus >= svn_wc_status_normal)
-					&&(wcStatus != svn_wc_status_missing))
+				if (wcStatus >= svn_wc_status_normal)
 				{
 					if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 					{
@@ -2113,7 +2112,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (wcStatus > svn_wc_status_normal)
 							{
-								if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus != svn_wc_status_deleted))
+								if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
 								{
 									temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
@@ -2210,7 +2209,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 				}
 				if ((GetSelectedCount() == 1)&&(wcStatus >= svn_wc_status_normal)
-					&&(wcStatus != svn_wc_status_missing)&&(wcStatus != svn_wc_status_ignored))
+					&&(wcStatus != svn_wc_status_ignored))
 				{
 					if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
 					{
@@ -2360,7 +2359,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 
-					if (wcStatus != svn_wc_status_deleted && wcStatus!=svn_wc_status_unversioned)
+					if (wcStatus != svn_wc_status_missing && wcStatus != svn_wc_status_deleted &&wcStatus!=svn_wc_status_unversioned)
 					{
 						popup.AppendMenu(MF_SEPARATOR);
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
@@ -3675,8 +3674,6 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;
 	if ((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))
 		return;		// normal files won't show anything interesting in a diff
-	if (entry->status == svn_wc_status_missing)
-		return;		// we don't compare a missing file (nothing) with something
 	if (entry->status == svn_wc_status_unversioned)
 		return;		// we don't compare new files with nothing
 
