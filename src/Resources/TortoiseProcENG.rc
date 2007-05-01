@@ -2325,7 +2325,7 @@ STRINGTABLE
 BEGIN
     IDS_PROGRS_CONFLICTSOCCURED_WARNING "Warning!"
     IDS_PROGRS_CONFLICTSOCCURED "One or more files are in a conflicted state."
-    IDS_PROGRS_DRYRUN       "(dry run)"
+    IDS_PROGRS_DRYRUN       "Dry Run"
     IDS_PROGRS_FINISHED     "Finished!"
 END
 
@@ -2335,6 +2335,9 @@ BEGIN
     IDS_PROGRS_UPDATEPATH   "Updating %s"
     IDS_PROGRS_TIME         "%ld minute(s) and %ld second(s)"
     IDS_PROGRS_FINALINFO    "%s in %s"
+    IDS_PROGRS_EXTERNALSEXCLUDED "Externals excluded"
+    IDS_PROGRS_EXTERNALSINCLUDED "Externals included"
+    IDS_PROGRS_IGNOREDINCLUDED "Ignored items included"
 END
 
 STRINGTABLE 
@@ -2813,6 +2816,9 @@ STRINGTABLE
 BEGIN
     IDS_PROGRS_TITLEFAILED  "Failed!"
     IDS_PROGRS_INFOFAILED   "The operation failed."
+    IDS_PROGRS_CMDINFO      "Command"
+    IDS_PROGRS_IGNOREANCESTRY "ignoring ancestry"
+    IDS_PROGRS_RESPECTANCESTRY "respecting ancestry"
 END
 
 STRINGTABLE 
@@ -2846,6 +2852,18 @@ BEGIN
     IDS_SVN_DEPTH_IMMEDIATE "Immediate children, including folders"
     IDS_SVN_DEPTH_FILES     "Only file children"
     IDS_SVN_DEPTH_EMPTY     "Only this item"
+    IDS_SVN_DEPTH_EXCLUDE   "Not descending"
+    IDS_SVN_DEPTH_UNKNOWN   "Unknown depth"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_CMD_CHECKOUT "Checkout from %s, revision %s, %s, %s"
+    IDS_PROGRS_CMD_IMPORT   "Import %s to %s%s"
+    IDS_PROGRS_CMD_SWITCH   "Switch %s to %s, Revision %s"
+    IDS_PROGRS_CMD_MERGEPEG "Merging %s from revision %s to %s into %s, %s%s"
+    IDS_PROGRS_CMD_MERGEURL "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+    IDS_PROGRS_CMD_COPY     "Copy %s to %s, Revision %s"
 END
 
 #endif    // English (U.S.) resources

@@ -624,6 +624,11 @@ void CSVNProgressDlg::ReportNotification(const CString& sNotification)
 	ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
 }
 
+void CSVNProgressDlg::ReportCmd(const CString& sCmd)
+{
+	ReportString(sCmd, CString(MAKEINTRESOURCE(IDS_PROGRS_CMDINFO)));
+}
+
 void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, COLORREF color)
 {
 	// instead of showing a dialog box with the error message or notification,
@@ -677,6 +682,12 @@ UINT CSVNProgressDlg::ProgressThread()
 	bSecondResized = FALSE;
 	m_bFinishedItemAdded = false;
 	CTime startTime = CTime::GetCurrentTime();
+	CString sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED));
+	CString sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED));
+	CString sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED));
+	CString sIgnoreAncestry(MAKEINTRESOURCE(IDS_PROGRS_IGNOREANCESTRY));
+	CString sRespectAncestry(MAKEINTRESOURCE(IDS_PROGRS_RESPECTANCESTRY));
+	CString sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN));
 	switch (m_Command)
 	{
 	case SVNProgress_Checkout:			//no tempfile!
@@ -693,6 +704,14 @@ UINT CSVNProgressDlg::ProgressThread()
 				checkoutdir = m_targetPathList[0];
 				if (urls.GetCount() > 1)
 					checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
+
+				CString sCmdInfo;
+				sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT, 
+					(LPCTSTR)urls[i].GetSVNPathString(), (LPCTSTR)m_Revision.ToString(), 
+					(LPCTSTR)SVN::GetDepthString(m_depth), 
+					m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
+				ReportCmd(sCmdInfo);
+
 				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 				{
 					if (m_ProgList.GetItemCount()!=0)
@@ -702,24 +721,34 @@ UINT CSVNProgressDlg::ProgressThread()
 					}
 					// if the checkout fails with the peg revision set to the checkout revision,
 					// try again with HEAD as the peg revision.
-					else if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+					else
 					{
-						ReportSVNError();
-						bFailed = true;
+						if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+						{
+							ReportSVNError();
+							bFailed = true;
+						}
 					}
 				}
 			}
 		}
 		break;
 	case SVNProgress_Import:			//no tempfile!
-		ASSERT(m_targetPathList.GetCount() == 1);
-		sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
-		sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
 		{
-			ReportSVNError();
-			bFailed = true;
+			ASSERT(m_targetPathList.GetCount() == 1);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
+			sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+			SetWindowText(sWindowTitle);
+			CString sCmdInfo;
+			sCmdInfo.Format(IDS_PROGRS_CMD_IMPORT, 
+				m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
+				m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
+			ReportCmd(sCmdInfo);
+			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
+			{
+				ReportSVNError();
+				bFailed = true;
+			}
 		}
 		break;
 	case SVNProgress_Update:
@@ -1019,6 +1048,13 @@ UINT CSVNProgressDlg::ProgressThread()
 					rev = st.status->entry->revision;
 				}
 			}
+
+			CString sCmdInfo;
+			sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH, 
+				m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
+				(LPCTSTR)m_Revision.ToString());
+			ReportCmd(sCmdInfo);
+
 			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, m_depth))
 			{
 				ReportSVNError();
@@ -1057,7 +1093,6 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
 			if (m_options & ProgOptDryRun)
 			{
-				CString sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN));
 				sWindowTitle += _T(" ") + sDryRun;
 			}
 			SetWindowText(sWindowTitle);
@@ -1065,6 +1100,16 @@ UINT CSVNProgressDlg::ProgressThread()
 			CTSVNPath urlTo(m_sMessage);
 			if (m_url.IsEquivalentTo(urlTo))
 			{
+
+				CString sCmdInfo;
+				sCmdInfo.Format(IDS_PROGRS_CMD_MERGEPEG, 
+					(LPCTSTR)m_url.GetSVNPathString(),
+					(LPCTSTR)m_Revision.ToString(), (LPCTSTR)m_RevisionEnd.ToString(),
+					m_targetPathList[0].GetWinPath(),
+					m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+					m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
+				ReportCmd(sCmdInfo);
+
 				if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, 
 					m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
 					m_targetPathList[0], true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
@@ -1081,6 +1126,15 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			else
 			{
+				CString sCmdInfo;
+				sCmdInfo.Format(IDS_PROGRS_CMD_MERGEURL, 
+					(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(), 
+					(LPCTSTR)urlTo.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
+					m_targetPathList[0].GetWinPath(),
+					m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+					m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
+				ReportCmd(sCmdInfo);
+
 				if (!m_pSvn->Merge(m_url, m_Revision, urlTo, m_RevisionEnd, m_targetPathList[0], 
 					true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 				{
@@ -1095,6 +1149,13 @@ UINT CSVNProgressDlg::ProgressThread()
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			SetWindowText(sWindowTitle);
+
+			CString sCmdInfo;
+			sCmdInfo.Format(IDS_PROGRS_CMD_COPY, 
+				m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath(),
+				(LPCTSTR)m_url.GetSVNPathString(), m_Revision.ToString());
+			ReportCmd(sCmdInfo);
+
 			if (!m_pSvn->Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
 			{
 				ReportSVNError();

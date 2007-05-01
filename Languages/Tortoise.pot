@@ -719,10 +719,6 @@ msgstr ""
 msgid "(binary value)"
 msgstr ""
 
-#: ID:219,
-msgid "(dry run)"
-msgstr ""
-
 #: ID:208,
 msgid "(multiple targets selected)"
 msgstr ""
@@ -1362,6 +1358,11 @@ msgstr ""
 msgid "Checkout - TortoiseSVN"
 msgstr ""
 
+#: ID:229,
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr ""
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr ""
@@ -1432,6 +1433,10 @@ msgstr ""
 
 #: Dlg-ID:138,
 msgid "Colors"
+msgstr ""
+
+#: ID:220,
+msgid "Command"
 msgstr ""
 
 #: ID:198,
@@ -1576,6 +1581,11 @@ msgstr ""
 #: ID:103,
 #, c-format
 msgid "Copy %s"
+msgstr ""
+
+#: ID:229,
+#, c-format
+msgid "Copy %s to %s, Revision %s"
 msgstr ""
 
 #: ID:126,
@@ -1938,6 +1948,10 @@ msgstr ""
 msgid "Drive Types"
 msgstr ""
 
+#: ID:219,
+msgid "Dry Run"
+msgstr ""
+
 #: MenuEntry
 msgid "E&xit"
 msgstr ""
@@ -2139,6 +2153,14 @@ msgstr ""
 
 #: Dlg-ID:194,
 msgid "External Programs::Unified Diff Viewer"
+msgstr ""
+
+#: ID:226,
+msgid "Externals excluded"
+msgstr ""
+
+#: ID:226,
+msgid "Externals included"
 msgstr ""
 
 #: ID:74,
@@ -2564,6 +2586,10 @@ msgstr ""
 msgid "Ignore line &endings (recommended)"
 msgstr ""
 
+#: ID:226,
+msgid "Ignored items included"
+msgstr ""
+
 #: ID:266,
 msgid "Immediate children, including folders"
 msgstr ""
@@ -2575,6 +2601,11 @@ msgstr ""
 #: ID:127,
 #, c-format
 msgid "Import %ld items"
+msgstr ""
+
+#: ID:229,
+#, c-format
+msgid "Import %s to %s%s"
 msgstr ""
 
 #: Control-ID:1056,
@@ -2895,6 +2926,16 @@ msgstr ""
 msgid "Merging"
 msgstr ""
 
+#: ID:229,
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr ""
+
+#: ID:229,
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr ""
+
 #: ID:83,
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr ""
@@ -3096,6 +3137,10 @@ msgstr ""
 
 #: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr ""
+
+#: ID:266,
+msgid "Not descending"
 msgstr ""
 
 #: ID:83,
@@ -4336,6 +4381,11 @@ msgstr ""
 msgid "Sw&itch working copy to new branch/tag"
 msgstr ""
 
+#: ID:229,
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr ""
+
 #: ID:78,
 msgid "Switch - TortoiseSVN"
 msgstr ""
@@ -4813,6 +4863,10 @@ msgstr ""
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr ""
 
+#: ID:266,
+msgid "Unknown depth"
+msgstr ""
+
 #: ID:221,#: Dlg-ID:242,
 msgid "Unlock"
 msgstr ""
@@ -5230,6 +5284,10 @@ msgstr ""
 msgid "ignored"
 msgstr ""
 
+#: ID:220,
+msgid "ignoring ancestry"
+msgstr ""
+
 #: ID:13,
 msgid "incomplete"
 msgstr ""
@@ -5300,6 +5358,10 @@ msgstr ""
 
 #: ID:10,
 msgid "replaced"
+msgstr ""
+
+#: ID:220,
+msgid "respecting ancestry"
 msgstr ""
 
 #: ID:14,

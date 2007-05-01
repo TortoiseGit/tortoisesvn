@@ -198,6 +198,7 @@ private:
 	void		ReportError(const CString& sError);
 	void		ReportWarning(const CString& sWarning);
 	void		ReportNotification(const CString& sNotification);
+	void		ReportCmd(const CString& sCmd);
 	void		ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
 	void		AddItemToList(const NotificationData* pData);
 
