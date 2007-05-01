@@ -239,9 +239,7 @@
 			to show image differences. By default the images are displayed side-by-side
 			but you can use the View menu or toolbar to switch to a top-bottom
 			view instead, or if you prefer, you can overlay the images and pretend
-			you are using a lightbox. A slider at the top controls the relative
-			intensity of the images (alpha blend). You can also use
-			<action>Ctrl-Shift-Wheel</action> to change the blend.
+			you are using a lightbox.
 		</para>
 		<para>
 			Naturally you can also zoom in and out and pan around the image.
@@ -258,6 +256,20 @@
 				<guimenuitem>Image Info</guimenuitem>
 			</menuchoice>
 			to hide it.
+		</para>
+		<para>
+			When the images are overlaid, the relative intensity of the images
+			(alpha blend) is controlled by a slider control at the left side.
+			You can click anywhere in the slider to set the blend directly, or you
+			can drag the slider to change the blend interactively.
+			<action>Ctrl-Shift-Wheel</action> to change the blend.
+		</para>
+		<para>
+			The button above the slider toggles between two preset blends, indicated
+			by the markers on either side of the blend slider. By default one is at
+			the top and the other at the bottom, so the toggle button just switches
+			between one image and the other. You can move the markers to choose
+			the two blend values that the toggle button will use.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-diff-tools">
