@@ -2249,6 +2249,33 @@ CString SVN::GetSummarizeActionText(svn_client_diff_summarize_kind_t kind)
 	return sAction;
 }
 
+CString SVN::GetDepthString(svn_depth_t depth)
+{
+	CString sDepth;
+	switch (depth)
+	{
+	case svn_depth_unknown:
+		sDepth.LoadString(IDS_SVN_DEPTH_UNKNOWN);
+		break;
+	case svn_depth_exclude:
+		sDepth.LoadString(IDS_SVN_DEPTH_EXCLUDE);
+		break;
+	case svn_depth_empty:
+		sDepth.LoadString(IDS_SVN_DEPTH_EMPTY);
+		break;
+	case svn_depth_files:
+		sDepth.LoadString(IDS_SVN_DEPTH_FILES);
+		break;
+	case svn_depth_immediates:
+		sDepth.LoadString(IDS_SVN_DEPTH_IMMEDIATE);
+		break;
+	case svn_depth_infinity:
+		sDepth.LoadString(IDS_SVN_DEPTH_INFINITE);
+		break;
+	}
+	return sDepth;
+}
+
 void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t * /*pool*/)
 {
 	SVN * pSVN = (SVN*)baton;
