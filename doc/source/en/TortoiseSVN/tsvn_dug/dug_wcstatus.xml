@@ -309,6 +309,16 @@
 			group files together into changelists.
 			Read <xref linkend="tsvn-dug-commit-changelists"/> for more information.
 		</para>
+		<para>
+			At the bottom of the dialog you can see a summary of the range of repository
+			revisions in use in your working copy. These are the <literal>commit</literal>
+			revisions, not the <literal>update</literal> revisions; they represent the
+			range of revisions where these files were last committed, not the revisions
+			to which they have been updated. Note that the revision range shown applies
+			only to the items displayed, not to the entire working copy. If you want to
+			see that information for the whole working copy you must check the
+			<guilabel>Show unmodified files</guilabel> checkbox.
+		</para>
 		<tip>
 			<para>
 				If you want a flat view of your working copy, i.e. showing all files
