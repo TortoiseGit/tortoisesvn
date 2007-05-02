@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-04-30 10:07+0100\n"
+"PO-Revision-Date: 2007-05-02 09:44+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -803,10 +803,6 @@ msgstr "&Arbeitskopie"
 msgid "(binary value)"
 msgstr "(Binärwert)"
 
-#: ID:219
-msgid "(dry run)"
-msgstr "(Trockenlauf)"
-
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(mehrere Ziele gewählt)"
@@ -1570,6 +1566,11 @@ msgstr "&Zielordner:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Auschecken - TortoiseSVN"
 
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Auschecken von %s, Revision %s, %s, %s"
+
 #: ID:146
 msgid "Cleaning up."
 msgstr "Beim Aufräumen."
@@ -1653,6 +1654,10 @@ msgstr "Änderungen in Zeile &farbig hervorheben"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Farben"
+
+#: ID:220
+msgid "Command"
+msgstr "Befehl"
 
 #: ID:198
 msgid "Command Line"
@@ -1807,6 +1812,11 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiere %s"
+
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Kopiere %s nach %s, Revision %s"
 
 #: ID:126
 #, c-format
@@ -2267,6 +2277,10 @@ msgstr "Diese Meldung nicht wieder anzeigen"
 msgid "Drive Types"
 msgstr "Laufwerkstypen"
 
+#: ID:219
+msgid "Dry Run"
+msgstr "Trockenlauf"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Beenden"
@@ -2502,6 +2516,14 @@ msgstr "Externe Programme::Konflikteditor"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Externe Programme::GNU-Diff Betrachter"
+
+#: ID:226
+msgid "Externals excluded"
+msgstr "Externals ausgeschlossen"
+
+#: ID:226
+msgid "Externals included"
+msgstr "Externals eingeschlossen"
 
 #: ID:74
 msgid "Failed revert"
@@ -3087,6 +3109,10 @@ msgstr "Ignoriere &Vorfahren"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
 
+#: ID:226
+msgid "Ignored items included"
+msgstr "Ignorierte Objekte eingeschlossen"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3100,6 +3126,11 @@ msgstr "Importieren"
 #, c-format
 msgid "Import %ld items"
 msgstr "Importiere %ld Objekte"
+
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importiere %s in %s%s"
 
 #: Control-ID:1056
 msgid "Import &message"
@@ -3552,6 +3583,18 @@ msgstr "Führt Verzweigung und Arbeitskopie zusammen"
 msgid "Merging"
 msgstr "Zusammenführen"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Zusammenführen %s von Revision %s bis %s in %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Zusammenführen von %s, Revision %s bis %s, Revision %s in %s, %s%s"
+
 # ID:83,
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -3799,6 +3842,11 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelöscht."
+
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "Nicht absteigend"
 
 #: ID:83
 msgid "Not enough memory to complete operation."
@@ -5215,6 +5263,11 @@ msgstr "Subversion Serverdatei:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Die Arbeitskopie zum neuen Zweig / Markierung &wechseln"
 
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Wechsle %s zu %s, Revision %s"
+
 #: ID:78
 msgid "Switch - TortoiseSVN"
 msgstr "Wechseln zu - TortoiseSVN"
@@ -5985,6 +6038,10 @@ msgstr ""
 "  Fingerabdruck: %s\n"
 "  Ermittelter Name: %s"
 
+#: ID:266
+msgid "Unknown depth"
+msgstr "Unbekannte Tiefe"
+
 #: ID:221
 #: Dlg-ID:242
 msgid "Unlock"
@@ -6588,6 +6645,10 @@ msgstr "Extern"
 msgid "ignored"
 msgstr "Ignoriert"
 
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "Ignoriere Vorfahren"
+
 #: ID:13
 msgid "incomplete"
 msgstr "Unvollständig"
@@ -6668,6 +6729,10 @@ msgstr "schreibgeschützt"
 #: ID:10
 msgid "replaced"
 msgstr "Ersetzt"
+
+#: ID:220
+msgid "respecting ancestry"
+msgstr "Beachte Vorfahren"
 
 #: ID:14
 msgid ""
