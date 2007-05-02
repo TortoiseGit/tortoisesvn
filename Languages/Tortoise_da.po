@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9130
+# Based on Tortoise.pot r9291
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-10 11:33+0100\n"
+"PO-Revision-Date: 2007-05-02 15:40+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -271,8 +271,8 @@ msgstr "&Berkeley database (BDB)"
 
 #: ID:114,
 #, fuzzy
-msgid "&Blame differences"
-msgstr "&Ansvar for forskelle"
+msgid "&Blame changes"
+msgstr "&Ansvar for ændringer"
 
 #: MenuEntry
 msgid "&Blame previous revision"
@@ -714,7 +714,7 @@ msgstr "&TortoiseMerge"
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
 
-#: Control-ID:65535,#: Control-ID:1058,#: Control-ID:65535,
+#: Control-ID:1376,#: Control-ID:1058,#: Control-ID:65535,
 msgid "&URL of repository:"
 msgstr "&Versionsarkivets URL:"
 
@@ -779,10 +779,6 @@ msgstr "&Arbejdskopi"
 msgid "(binary value)"
 msgstr "(binær værdi)"
 
-#: ID:219,
-msgid "(dry run)"
-msgstr "(testkørsel)"
-
 #: ID:208,
 msgid "(multiple targets selected)"
 msgstr "(flere elementer er valgt)"
@@ -845,8 +841,8 @@ msgid "A locking violation occurred while accessing %1."
 msgstr "En overtrædelse af låsning opstod under adgang til %1."
 
 #: ID:201,
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Der er en nyere version til rådighed. Gå til http://tortoisesvn.tigris.org og hent den nyeste version."
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Der er en nyere version til rådighed. Gå til http://tortoisesvn.tigris.org og hent den nyeste version. Klik _her_ for at gå direkte til vores hjemmeside."
 
 #: ID:195,
 msgid "A newline separated list of paths for which icon overlays are shown.\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
@@ -1426,6 +1422,11 @@ msgstr "&Mappe til arbejdskopi:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Hent arbejdskopi - TortoiseSVN"
 
+#: ID:229,
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Hent arbejdskopi fra %s, revision %s, %s, %s"
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr "Rydder op."
@@ -1497,6 +1498,10 @@ msgstr "Farveko&dning af ændringer indenfor linje"
 #: Dlg-ID:138,
 msgid "Colors"
 msgstr "Farver"
+
+#: ID:220,
+msgid "Command"
+msgstr "Kommando"
 
 #: ID:198,
 msgid "Command Line"
@@ -1645,6 +1650,11 @@ msgstr "Kopier %ld emner til\r\n%s"
 #, c-format
 msgid "Copy %s"
 msgstr "Kopier %s"
+
+#: ID:229,
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Kopier %s til %s, revision %s"
 
 #: ID:126,
 #, c-format
@@ -1969,13 +1979,13 @@ msgstr "Er du sikker på, at du vil flytte denne fil eller mappe?"
 
 #: ID:119,
 #, c-format
-msgid "Do you really want to revert all changes in \n%s\nand go back to this revision? These changes will be merged into your working copy."
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i \n%s\nog gå tilbage til denne revision? Disse ændringer vil blive flettet ind i din arbejdskopi."
+msgid "Do you really want to revert all changes in\n%s\nand go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nog gå tilbage til denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
 
 #: ID:76,
 #, c-format
-msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision? These changes will be merged into your working copy."
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision? Disse ændringer vil blive flettet ind i din arbejdskopi."
+msgid "Do you really want to revert all changes in\n%s\nwhich were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
 
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -2005,6 +2015,10 @@ msgstr "Vis ikke denne meddelelse igen"
 #: Control-ID:1079,
 msgid "Drive Types"
 msgstr "Drevtyper"
+
+#: ID:219,
+msgid "Dry Run"
+msgstr "Testkørsel"
 
 #: MenuEntry
 msgid "E&xit"
@@ -2209,6 +2223,14 @@ msgstr "Eksterne programmer::Flet-program"
 #: Dlg-ID:194,
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Eksterne programmer::Unified diff-visningsprogram"
+
+#: ID:226,
+msgid "Externals excluded"
+msgstr "Externals udeladt"
+
+#: ID:226,
+msgid "Externals included"
+msgstr "Externals inkluderet"
 
 #: ID:74,
 msgid "Failed revert"
@@ -2638,6 +2660,10 @@ msgstr "Ignorer forældreskab"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
 
+#: ID:226,
+msgid "Ignored items included"
+msgstr "Ignorerede emner inkluderet"
+
 #: ID:266,
 #, fuzzy
 msgid "Immediate children, including folders"
@@ -2651,6 +2677,11 @@ msgstr "Importer"
 #, c-format
 msgid "Import %ld items"
 msgstr "Importer %ld emner"
+
+#: ID:229,
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importer %s til %s%s"
 
 #: Control-ID:1056,
 msgid "Import &message"
@@ -2973,6 +3004,16 @@ msgstr "Fletter en forgrening ind i hovedstammen"
 msgid "Merging"
 msgstr "Fletning"
 
+#: ID:229,
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Fletter %s fra revision %s til %s ind i %s, %s%s"
+
+#: ID:229,
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Fletter fra %s, revision %s til %s, revision %s ind i %s, %s%s"
+
 #: ID:83,
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "Fletning kræver forskellige revisioner eller forskellige URL'er i \"Fra:\" og \"Til:\""
@@ -3176,6 +3217,10 @@ msgstr "Normal"
 #: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Ikke alle indgange i registreringsdatabasen (eller INI-filen) blev fjernet."
+
+#: ID:266,
+msgid "Not descending"
+msgstr "Ikke faldende"
 
 #: ID:83,
 msgid "Not enough memory to complete operation."
@@ -3739,7 +3784,7 @@ msgstr "Erstattet knude"
 msgid "Replacing"
 msgstr "Erstatter"
 
-#: Control-ID:65535,#: Control-ID:1055,#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:1374,#: Control-ID:1055,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Repository"
 msgstr "Versionsarkiv"
 
@@ -3820,7 +3865,7 @@ msgstr "Tilbageført"
 msgid "Reverts all changes you made since the last update"
 msgstr "Tilbagefører alle ændringer, du har foretaget siden sidste opdatering"
 
-#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: ID:19,
+#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: ID:19,
 msgid "Revision"
 msgstr "Revision"
 
@@ -4199,8 +4244,8 @@ msgid "Show &all revisions"
 msgstr "Vis &alle revisioner"
 
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Vis &forskelle"
+msgid "Show &changes"
+msgstr "Vis &ændringer"
 
 #: MenuEntry
 #Der er ikke plads til at skrive "Vis logbeskeder".
@@ -4227,6 +4272,10 @@ msgstr "Vis filliste"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Vis ove&rsigt"
+
+#: ID:114,
+msgid "Show changes as &unified diff"
+msgstr "Vis ændringer som &unified diff"
 
 #: ID:113,
 msgid "Show differences as &unified diff"
@@ -4425,6 +4474,11 @@ msgstr "Subversion server-fil:"
 #: Control-ID:1232,
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "S&kift arbejdskopi til ny forgrening/mærkat"
+
+#: ID:229,
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Skift %s til %s, revision %s"
 
 #: ID:78,
 msgid "Switch - TortoiseSVN"
@@ -4906,6 +4960,10 @@ msgstr "Unified &diff af HEAD-revisioner"
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr "Ukendt udsteder af certifikat.\n  Fingeraftryk: %s\n  Distinguished navn: %s"
 
+#: ID:266,
+msgid "Unknown depth"
+msgstr "Ukendt dybde"
+
 #: ID:221,#: Dlg-ID:242,
 msgid "Unlock"
 msgstr "Lås op"
@@ -5327,6 +5385,10 @@ msgstr "ekstern"
 msgid "ignored"
 msgstr "ignoreret"
 
+#: ID:220,
+msgid "ignoring ancestry"
+msgstr "ignorerer forældreskab"
+
 #: ID:13,
 msgid "incomplete"
 msgstr "ukomplet"
@@ -5398,6 +5460,11 @@ msgstr "skrivebeskyttet"
 #: ID:10,
 msgid "replaced"
 msgstr "erstattet"
+
+#: ID:220,
+#, fuzzy
+msgid "respecting ancestry"
+msgstr "respekterer forældreskab"
 
 #: ID:14,
 msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
