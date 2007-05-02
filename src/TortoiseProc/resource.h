@@ -111,6 +111,8 @@
 #define IDI_REPO_SVN                    247
 #define IDI_REPO_SVNSSH                 248
 #define IDI_REPO_UNKNOWN                249
+#define IDC_PANCUR                      250
+#define IDC_PANCURDOWN                  251
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1084,7 +1086,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        250
+#define _APS_NEXT_RESOURCE_VALUE        252
 #define _APS_NEXT_COMMAND_VALUE         32814
 #define _APS_NEXT_CONTROL_VALUE         1377
 #define _APS_NEXT_SYMED_VALUE           195

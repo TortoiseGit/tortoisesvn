@@ -85,21 +85,11 @@ IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// String Table
+// Cursor
 //
 
-STRINGTABLE 
-BEGIN
-    ID_VIEW_ZOOMIN          "Zoom in"
-    ID_VIEW_ZOOMOUT         "Zoom out"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_VIEW_ZOOM100         "Zoom 100%"
-    ID_VIEW_ZOOMALL         "Zoom to fit"
-END
-
+IDC_PANCUR              CURSOR                  "pan.cur"
+IDC_PANCURDOWN          CURSOR                  "pandown.cur"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -2864,6 +2854,19 @@ BEGIN
     IDS_PROGRS_CMD_MERGEPEG "Merging %s from revision %s to %s into %s, %s%s"
     IDS_PROGRS_CMD_MERGEURL "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
     IDS_PROGRS_CMD_COPY     "Copy %s to %s, Revision %s"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOM100         "Zoom 100%"
+    ID_VIEW_ZOOMALL         "Zoom to fit"
+    ID_VIEW_SHOWOVERVIEW    "Show an overview of the whole graph"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOMIN          "Zoom in"
+    ID_VIEW_ZOOMOUT         "Zoom out"
 END
 
 #endif    // English (U.S.) resources

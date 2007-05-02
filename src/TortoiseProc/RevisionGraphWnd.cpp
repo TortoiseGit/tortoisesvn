@@ -316,41 +316,44 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	SetFocus();
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	if (!m_OverviewRect.PtInRect(point))
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (reventry->drawrect.PtInRect(point))
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 		{
-			if (bControl)
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+			if (reventry->drawrect.PtInRect(point))
 			{
-				if (m_SelectedEntry1 == reventry)
+				if (bControl)
 				{
-					if (m_SelectedEntry2)
+					if (m_SelectedEntry1 == reventry)
 					{
-						m_SelectedEntry1 = m_SelectedEntry2;
-						m_SelectedEntry2 = NULL;
+						if (m_SelectedEntry2)
+						{
+							m_SelectedEntry1 = m_SelectedEntry2;
+							m_SelectedEntry2 = NULL;
+						}
+						else
+							m_SelectedEntry1 = NULL;
 					}
+					else if (m_SelectedEntry2 == reventry)
+						m_SelectedEntry2 = NULL;
+					else if (m_SelectedEntry1)
+						m_SelectedEntry2 = reventry;
 					else
-						m_SelectedEntry1 = NULL;
+						m_SelectedEntry1 = reventry;
 				}
-				else if (m_SelectedEntry2 == reventry)
+				else
+				{
+					if (m_SelectedEntry1 == reventry)
+						m_SelectedEntry1 = NULL;
+					else
+						m_SelectedEntry1 = reventry;
 					m_SelectedEntry2 = NULL;
-				else if (m_SelectedEntry1)
-					m_SelectedEntry2 = reventry;
-				else
-					m_SelectedEntry1 = reventry;
+				}
+				bHit = true;
+				Invalidate();
+				break;
 			}
-			else
-			{
-				if (m_SelectedEntry1 == reventry)
-					m_SelectedEntry1 = NULL;
-				else
-					m_SelectedEntry1 = reventry;
-				m_SelectedEntry2 = NULL;
-			}
-			bHit = true;
-			Invalidate();
-			break;
 		}
 	}
 	if ((!bHit)&&(!bControl))
@@ -847,7 +850,11 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 			ScreenToClient(&pt);
 			if (m_OverviewPosRect.PtInRect(pt))
 			{
-				HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND));
+				HCURSOR hCur = NULL;
+				if (GetKeyState(VK_LBUTTON)&0x8000)
+					hCur = LoadCursor(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_PANCURDOWN));
+				else
+					hCur = LoadCursor(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_PANCUR));
 				SetCursor(hCur);
 				return TRUE;
 			}

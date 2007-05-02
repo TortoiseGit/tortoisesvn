@@ -251,7 +251,6 @@ BOOL CTortoiseProcApp::InitInstance()
 	bindtextdomain("subversion", (LPCSTR)langpath);
 	bind_textdomain_codeset("subversion", "UTF-8");
 	HINSTANCE hInst = NULL;
-	
 	do
 	{
 		langDll.Format(_T("..\\Languages\\TortoiseProc%d.dll"), langId);
