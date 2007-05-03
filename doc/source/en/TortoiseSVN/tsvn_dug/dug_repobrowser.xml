@@ -26,32 +26,132 @@
 		rename, ... directly on the repository.
 	</para>
 	<para>
+		The repository browser looks very similar to the Windows explorer,
+		except that it is showing the content of the repository at a particular
+		revision rather than files on your computer. In the left pane you
+		can see a directory tree, and in the right pane are the contents
+		of the selected directory.
 		At the top of the Repository Browser Window you can enter the URL of
-		the repository and the revision you want to browse. Browsing an older
-		revision is useful if you want to e.g. recover a previously deleted
-		file. Use the 
-		<menuchoice>
-			<guimenu>Context Menu</guimenu>
-			<guimenuitem>Copy To...</guimenuitem>
-		</menuchoice>
-		command to do that and enter the full working copy path to where
-		you want to recover your deleted file.
+		the repository and the revision you want to browse.
 	</para>
 	<para>
-        The main browser window looks much like any other tree browser.
-        You can click on the column headings at the top to change the sort
-        order. If you right click on the <literal>File</literal> heading
-        you can turn <literal>Numerical Sort</literal> on or off. This
-        provides a more intelligent handling of numbers than a plain
-        ascii sort does, and is useful for getting version number tags
-        in the correct order. The default state of this setting can be
-        changed in the settings dialog.
+		Just like Windows explorer, you can click on the column headings in
+		the right pane if you want to set the sort order. And as in explorer
+		there are context menus available in both panes.
 	</para>
 	<para>
-		If you select two items, you can view the differences either as a
-		unified-diff, or as a list of files which can be visually diffed
-		using the default diff tool. This can be particularly useful for
-		comparing two tags to see what changed.
+		The context menu for a file allows you to:
+		<itemizedlist>
+			<listitem>
+				<para>
+					Open the selected file, either with the default viewer for
+					that file type, or with a program you choose.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Save an unversioned copy of the file to your hard drive.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Show the revision log for that file, or show a graph of
+					all revisions so you can see where the file came from.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Blame the file, to see who changed which line and when.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Delete or rename the file.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Make a copy of the file, either to a different part of the
+					repository, or to a working copy rooted in the same repository.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					View the file's properties (you cannot edit properties
+					directly in the repository).
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<para>
+		The context menu for a folder allows you to:
+		<itemizedlist>
+			<listitem>
+				<para>
+					Show the revision log for that folder, or show a graph of
+					all revisions so you can see where the folder came from.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Export the folder to a local unversioned copy on your hard drive.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Checkout the folder to produce a local working copy on your hard drive.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Create a new folder in the repository.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Add files or folders directly to the repository.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Delete or rename the folder.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Make a copy of the folder, either to a different part of the
+					repository, or to a working copy rooted in the same repository.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					View the folder's properties (you cannot edit properties
+					directly in the repository).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Mark the folder for comparison. A marked folder is shown in bold.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Compare the folder with a previously marked folder, either as
+					a unified diff, or as a list of changed files which can then be
+					visually diffed using the default diff tool. This can be particularly
+					useful for comparing two tags, or trunk and branch to see what changed.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<para>
+		If you select two folders in the right pane, you can view the differences
+		either as a unified-diff, or as a list of files which can be visually diffed
+		using the default diff tool.
+	</para>
+	<para>
+		If you select multiple folders in the right pane, you can checkout all
+		of them at once into a common parent folder.
 	</para>
 	<para>
 		If you select 2 tags which are copied from the same root
