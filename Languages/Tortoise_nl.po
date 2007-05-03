@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-30 22:48+0100\n"
+"PO-Revision-Date: 2007-05-03 22:17+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -564,6 +564,7 @@ msgstr "&Nieuw"
 
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Volgende %ld"
 
@@ -791,10 +792,6 @@ msgstr "&Werkkopie"
 #: ID:564
 msgid "(binary value)"
 msgstr "(binaire waarde)"
-
-#: ID:219
-msgid "(dry run)"
-msgstr "(proefrun)"
 
 #: ID:208
 msgid "(multiple targets selected)"
@@ -1540,6 +1537,11 @@ msgstr "&Ophalen naar map:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Ophalen - TortoiseSVN"
 
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Ophalen van %s, revisie %s, %s, %s"
+
 #: ID:146
 msgid "Cleaning up."
 msgstr "Schonen bezig."
@@ -1618,6 +1620,10 @@ msgstr "&Kleurcoderen van in-line wijzigingen"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Kleuren"
+
+#: ID:220
+msgid "Command"
+msgstr "Commando"
 
 #: ID:198
 msgid "Command Line"
@@ -1769,6 +1775,11 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopieer %s"
+
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Kopiëer %s naar %s, revisie %s"
 
 #: ID:126
 #, c-format
@@ -2224,6 +2235,10 @@ msgstr "Deze boodschap niet meer tonen"
 msgid "Drive Types"
 msgstr "Type station"
 
+#: ID:219
+msgid "Dry Run"
+msgstr "Proefrun"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Afsluiten"
@@ -2453,6 +2468,14 @@ msgstr "Externe programma's::Samenvoeg gereedschap"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Externe programma's::GNU diff-bestandsviewer"
+
+#: ID:226
+msgid "Externals excluded"
+msgstr "Zonder externen"
+
+#: ID:226
+msgid "Externals included"
+msgstr "Inclusief externen"
 
 #: ID:74
 msgid "Failed revert"
@@ -3080,6 +3103,10 @@ msgstr "Negeer oorsprong"
 msgid "Ignore line &endings (recommended)"
 msgstr "Negeer &regeleinden (aanbevolen)"
 
+#: ID:226
+msgid "Ignored items included"
+msgstr "Inclusief genegeerde zaken"
+
 #: ID:266
 msgid "Immediate children, including folders"
 msgstr "Enkel nivo, inclusief mappen"
@@ -3092,6 +3119,11 @@ msgstr "Importeren"
 #, c-format
 msgid "Import %ld items"
 msgstr "%ld zaken importeren"
+
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importeer %s in %s%s"
 
 #: Control-ID:1056
 msgid "Import &message"
@@ -3534,6 +3566,16 @@ msgstr "Voegt wijzigingen uit een tak toe aan de basislijn"
 msgid "Merging"
 msgstr "Samenvoegen"
 
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "%s wordt samengevoegd van revisie %s tot %s in %s, %s%s"
+
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Samenvoegen van %s, revisie %s tot %s, revisie %s in %s, %s%s"
+
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "Voor samenvoegen zijn verschillende revisies of URLs nodig in 'Van:' en 'Tot:'"
@@ -3769,6 +3811,10 @@ msgstr "Normaal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
+
+#: ID:266
+msgid "Not descending"
+msgstr "Niet aflopend"
 
 #: ID:83
 msgid "Not enough memory to complete operation."
@@ -5150,6 +5196,11 @@ msgstr "Subversion server bestand:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "&Schakel werkkopie naar de nieuwe tak/label"
 
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Wissel %s naar %s, revisie %s"
+
 #: ID:78
 msgid "Switch - TortoiseSVN"
 msgstr "Wisselen - TortoiseSVN"
@@ -5207,8 +5258,8 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Schakel werkkopie naar een andere tak/label"
 
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "Wisselt links <-> rechts"
+msgid "Switches the comparison left<<->right"
+msgstr "Wisselt links <<-> rechts"
 
 #: Control-ID:65535
 msgid "System &sounds"
@@ -5425,13 +5476,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Het opgegeven pad/URL is niet toegestaan onder Windows!\n"
 "U kunt het proberen te gebruiken, maar er kan later een fout optreden.\n"
 "\n"
-"Een geldig pad onder Windows mag geen '<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
+"Een geldig pad onder Windows mag geen '<<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: ID:314
@@ -5626,11 +5677,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Dit is geen geldig pad!\n"
-"Een geldig pad onder Windows mag geen '<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
+"Een geldig pad onder Windows mag geen '<<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
@@ -5897,6 +5948,10 @@ msgstr ""
 "Onbekende uitgever van certificaat.\n"
 "  Vingerafdruk: %s\n"
 "  Onderscheidende naam: %s"
+
+#: ID:266
+msgid "Unknown depth"
+msgstr "Onbekende diepte"
 
 #: ID:221
 #: Dlg-ID:242
@@ -6481,6 +6536,10 @@ msgstr "extern"
 msgid "ignored"
 msgstr "genegeerd"
 
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "oorsprong wordt genegeerd"
+
 #: ID:13
 msgid "incomplete"
 msgstr "onvolledig"
@@ -6555,6 +6614,10 @@ msgstr "alleen lezen"
 #: ID:10
 msgid "replaced"
 msgstr "vervangen"
+
+#: ID:220
+msgid "respecting ancestry"
+msgstr "oorsprong wordt gehonoreerd"
 
 #: ID:14
 msgid ""
