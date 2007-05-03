@@ -3,7 +3,7 @@
 <sect2 id="tsvn-dug-settings-hooks">
 	<?dbhh topicname="HIDD_SETTINGSHOOKS"?>
 	<?dbhh topicname="HIDD_SETTINGSHOOKCONFIG"?>
-	<title>Hook Scripts</title>
+	<title>Client Side Hook Scripts</title>
 	<indexterm>
 		<primary>client hooks</primary>
 	</indexterm>
@@ -17,6 +17,8 @@
 		</figure>
 		This dialog allows you to set up hook scripts which will be
 		executed automatically when certain Subversion actions are performed.
+		As opposed to the hook scripts explained in <xref linkend="tsvn-repository-hooks"/>,
+		these scrips are executed locally on the client. 
 	</para>
 	<para>
 		One application for such hooks might be to call a program like
