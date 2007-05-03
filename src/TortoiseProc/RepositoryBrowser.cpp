@@ -1844,7 +1844,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				temp.LoadString(IDS_REPOBROWSE_PREPAREDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PREPAREDIFF, temp);	// "Mark for comparison"
 
-				if (m_diffKind == svn_node_dir)
+				if ((m_diffKind == svn_node_dir)&&(!m_diffURL.IsEquivalentTo(urlList[0])))
 				{
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF, temp);		// "Show differences as unified diff"
