@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9291
+# Based on Tortoise.pot r9302
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-02 15:40+0100\n"
+"PO-Revision-Date: 2007-05-03 10:42+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -559,6 +559,7 @@ msgid "&New "
 msgstr "&Ny "
 
 #: ID:115,#: Control-ID:1208,
+#, c-format
 msgid "&Next %ld"
 msgstr "&Næste %ld"
 
@@ -4522,8 +4523,8 @@ msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
 
 #: ID:325,
 #, fuzzy
-msgid "Switches the comparison left<->right"
-msgstr "Ombytter sammenligningen venstre<->højre"
+msgid "Switches the comparison left<<->right"
+msgstr "Ombytter sammenligningen venstre<<->højre"
 
 #: Control-ID:65535,
 msgid "System &sounds"
@@ -4673,8 +4674,8 @@ msgid "The patch seems outdated! The file line\n%s\nand the patchline\n%s\ndo no
 msgstr "Korrekturfilen lader til at være forældet. Linjen\n%s\n i filen og patch-linjen\n%s\nstemmer ikke overens!"
 
 #: ID:88,
-msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-msgstr "Den sti/URL, du har indtastet, er ikke gyldig i Windows!\nHvis du alligevel fortsætter, vil du måske senere kunne få en fejl.\n\nGyldige stier i Windows må ikke indeholde '<>|\"?*:' eller én af følgende enhedsnavne:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "Den sti/URL, du har indtastet, er ikke gyldig i Windows!\nHvis du alligevel fortsætter, vil du måske senere kunne få en fejl.\n\nGyldige stier i Windows må ikke indeholde '<<>|\"?*:' eller én af følgende enhedsnavne:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: ID:314,
 #, c-format
@@ -4772,8 +4773,8 @@ msgid "This is not a valid URL.\nPlease enter an URL here."
 msgstr "Dette er ikke en gyldig URL.\nIndtast en URL her."
 
 #: ID:82,
-msgid "This is not a valid path!\nA valid path must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-msgstr "Dette er ikke en gyldig sti!\nEn gyldig sti må ikke indeholde '<>|\"?*:' eller én af følgende enhedsnavne:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgid "This is not a valid path!\nA valid path must not contain '<<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "Dette er ikke en gyldig sti!\nEn gyldig sti må ikke indeholde '<<>|\"?*:' eller én af følgende enhedsnavne:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535,
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
