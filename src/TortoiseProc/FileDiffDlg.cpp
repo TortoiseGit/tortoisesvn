@@ -756,6 +756,8 @@ void CFileDiffDlg::SetURLLabels()
 
 	GetDlgItem(IDC_FIRSTURL)->SetWindowText(m_path1.GetSVNPathString());
 	GetDlgItem(IDC_SECONDURL)->SetWindowText(m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
+	m_tooltips.AddTool(IDC_FIRSTURL, m_path1.GetSVNPathString());
+	m_tooltips.AddTool(IDC_SECONDURL, m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
 }
 
 BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
