@@ -1677,21 +1677,28 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		}
 		if (urlList.GetCount() == 0)
 		{
-			// Seems to be a right-click on the listview background.
-			// Use the currently selected item in the tree view as the source.
-			m_blockEvents = true;
-			hSelectedTreeItem = m_RepoTree.GetSelectedItem();
-			if (hSelectedTreeItem)
+			// Right-click outside any list control items. It may be the background,
+			// but it also could be the list control headers.
+			CRect hr;
+			m_RepoList.GetHeaderCtrl()->GetWindowRect(&hr);
+			if (!hr.PtInRect(point))
 			{
-				m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
-				m_blockEvents = false;
-				m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
-				CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelectedTreeItem);
-				if (pTreeItem)
+				// Seems to be a right-click on the listview background.
+				// Use the currently selected item in the tree view as the source.
+				m_blockEvents = true;
+				hSelectedTreeItem = m_RepoTree.GetSelectedItem();
+				if (hSelectedTreeItem)
 				{
-					urlList.AddPath(CTSVNPath(pTreeItem->url));
-					urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
-					nFolders++;
+					m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
+					m_blockEvents = false;
+					m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
+					CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelectedTreeItem);
+					if (pTreeItem)
+					{
+						urlList.AddPath(CTSVNPath(pTreeItem->url));
+						urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
+						nFolders++;
+					}
 				}
 			}
 		}
