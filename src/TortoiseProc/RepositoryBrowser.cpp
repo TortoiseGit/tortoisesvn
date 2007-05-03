@@ -1825,7 +1825,27 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				temp.LoadString(IDS_REPOBROWSE_RENAME);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_RENAME, temp);		// "Rename"
 			}
-
+		}
+		if (urlList.GetCount() > 0)
+		{
+			if (GetRevision().IsHead())
+			{
+				temp.LoadString(IDS_REPOBROWSE_DELETE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);		// "Remove"
+			}
+			if (nFolders == 0)
+			{
+				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
+			}
+			if ((urlList.GetCount() == nFolders)||(nFolders == 0))
+			{
+				temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);	// "Copy To Working Copy..."
+			}
+		}
+		if (urlList.GetCount() == 1)
+		{
 			temp.LoadString(IDS_REPOBROWSE_COPY);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTO, temp);			// "Copy To..."
 
@@ -1837,10 +1857,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PROPS, temp);			// "Show Properties"
 
-			popup.AppendMenu(MF_SEPARATOR, NULL);
 
 			if (nFolders == 1)
 			{
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_REPOBROWSE_PREPAREDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PREPAREDIFF, temp);	// "Mark for comparison"
 
@@ -1852,7 +1872,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_REPOBROWSE_SHOWDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);		// "Compare URLs"
 				}
-				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 		}
 		if (urlList.GetCount() == 2)
@@ -1869,21 +1888,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			temp.LoadString(IDS_MENULOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
 		} 
-		if (urlList.GetCount() >= 0)
-		{
-			if (GetRevision().IsHead())
-			{
-				temp.LoadString(IDS_REPOBROWSE_DELETE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);		// "Remove"
-			}
-			if (nFolders == 0)
-			{
-				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
-				temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);	// "Copy To Working Copy..."
-			}
-		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 
 		if (pWnd == &m_RepoTree)
@@ -1943,10 +1947,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					OPENFILENAME ofn;		// common dialog box structure
 					TCHAR szFile[MAX_PATH];  // buffer for file name
 					ZeroMemory(szFile, sizeof(szFile));
-					CString filename = urlList[0].GetFileOrDirectoryName();
+					CString filename = m_path.GetFileOrDirectoryName();
 					_tcscpy_s(szFile, MAX_PATH, filename);
 					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
 					ofn.lStructSize = sizeof(OPENFILENAME);
 					ofn.hwndOwner = this->m_hWnd;
 					ofn.lpstrFile = szFile;
@@ -2423,10 +2426,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					OPENFILENAME ofn;		// common dialog box structure
 					TCHAR szFile[MAX_PATH];  // buffer for file name
 					ZeroMemory(szFile, sizeof(szFile));
-					CString filename = urlList[0].GetFileOrDirectoryName();
+					CString filename = m_path.GetFileOrDirectoryName();
 					_tcscpy_s(szFile, MAX_PATH, filename);
 					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
 					ofn.lStructSize = sizeof(OPENFILENAME);
 					ofn.hwndOwner = this->m_hWnd;
 					ofn.lpstrFile = szFile;
