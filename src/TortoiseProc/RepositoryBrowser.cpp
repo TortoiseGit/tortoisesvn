@@ -1799,11 +1799,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				temp.LoadString(IDS_REPOBROWSE_REFRESH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);		// "Refresh"
 			}
-			if (nFolders == 0)
-			{
-				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
-			}
 			popup.AppendMenu(MF_SEPARATOR, NULL);				
 
 			if (GetRevision().IsHead())
@@ -1826,9 +1821,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_MENU_UNLOCKFORCE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BREAKLOCK, temp);	// "Break Lock"
 				}
-
-				temp.LoadString(IDS_REPOBROWSE_DELETE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);		// "Delete"
 
 				temp.LoadString(IDS_REPOBROWSE_RENAME);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_RENAME, temp);		// "Rename"
