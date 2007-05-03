@@ -445,7 +445,7 @@ SUBST X: "D:\Documents\framework"
 			using the automation interface to TortoiseProc. Just
 			create a new shortcut and set the target to:
 <screen>
-TortoiseProc.exe /command:repobrowser /path:"url/to/repository" /notempfile
+TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 </screen>
 			Of course you need to include the real repository URL.
 		</para>
