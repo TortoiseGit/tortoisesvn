@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-02 16:11+0100\n"
+"PO-Revision-Date: 2007-05-03 09:51+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -570,6 +570,7 @@ msgstr "&Neu"
 
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Nächste %ld"
 
@@ -2644,7 +2645,7 @@ msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 # ID:119,
 #: ID:119
 msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "Wählen Sie \"Bei Kopien/Umbenennen anhalten\" ab, um eine vollständige Historie zu erhalten."
+msgstr "Wählen Sie 'Bei Kopien/Umbenennen anhalten' ab, um eine vollständige Historie zu erhalten."
 
 #: Control-ID:1200
 #: Control-ID:65535
@@ -2988,7 +2989,7 @@ msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Aktivieren Sie diese Option, damit die Funktion \"Sperre holen\" im obersten\n"
+"Aktivieren Sie diese Option, damit die Funktion 'Sperre holen' im obersten\n"
 "Menü angezeigt wird, falls die svn:needs-lock Eigenschaft der Datei gesetzt ist."
 
 #: ID:95
@@ -4232,7 +4233,7 @@ msgstr "Proxy Einstellungen"
 # Control-ID:1338,
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Zeige \"Sperre holen\" im obersten Menü an, wenn svn:needs-lock gesetzt ist"
+msgstr "Zeige 'Sperre holen' im obersten Menü an, wenn svn:needs-lock gesetzt ist"
 
 # ID:246,
 #: ID:246
@@ -5325,9 +5326,10 @@ msgstr "Wechsle zum vorherigen Dokument"
 msgid "Switch working copy to another branch / tag"
 msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
 
+# Two left brackets needed! Otherwise the text is treated as a html tag
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "Vergleich links <-> rechts wechseln"
+msgid "Switches the comparison left<<->right"
+msgstr "Vergleich links <<-> rechts wechseln"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5547,17 +5549,18 @@ msgstr ""
 "%s\n"
 "stimmen nicht überein!"
 
+# Two left brackets needed! Otherwise the text is treated as a html tag
 #: ID:88
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Der Pfad/die URL, die Sie eingegeben haben, sind unter Windows nicht zulässig!\n"
 "Sie können es trotzdem versuchen, müssen aber mit Folgefehlern rechnen.\n"
-"Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
+"Eine gültige Pfadangabe unter Windows darf keine '<<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: ID:314
@@ -5759,14 +5762,15 @@ msgstr ""
 "Dies ist keine gültige URL.\n"
 "Bitte geben Sie hier eine URL ein."
 
+# Two left brackets needed! Otherwise the text is treated as a html tag
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Dies ist kein gültiger Pfad!\n"
-"Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
+"Eine gültige Pfadangabe unter Windows darf keine '<<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
