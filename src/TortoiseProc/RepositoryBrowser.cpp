@@ -859,7 +859,8 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 		int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
 		// extension
 		temp = CPathUtils::GetFileExtFromPath(it->path);
-		m_RepoList.SetItemText(index, 1, temp);
+		if (it->kind == svn_node_file)
+			m_RepoList.SetItemText(index, 1, temp);
 		// revision
 		temp.Format(_T("%ld"), it->created_rev);
 		m_RepoList.SetItemText(index, 2, temp);
