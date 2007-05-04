@@ -247,6 +247,10 @@
                 Target="[INSTALLDIR]bin\TortoiseIDiff.exe" Description="View Diff's of image files" Show="normal" />
             </Component>
 
+            <Component Id="C__TortoiseUDiff" Guid="$(var.GuidTortoiseUDiff)" Win64="$(var.Win64YesNo)">
+              <File Id="F__TortoiseUDiff" Name="TUDIFF.EXE" LongName="TortoiseUDiff.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseUDiff.exe" KeyPath="yes" />
+            </Component>
+
           </Directory>
 
           <Directory Id="D__Languages" Name="Language" LongName="Languages" >

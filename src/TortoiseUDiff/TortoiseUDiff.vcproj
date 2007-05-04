@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="TortoiseIDiff"
-	ProjectGUID="{6D95829D-AE04-47A7-B66B-DC2F581DDF01}"
-	RootNamespace="TortoiseIDiff"
+	Name="TortoiseUDiff"
+	ProjectGUID="{BC5A5F3B-E41A-4C56-B16F-263D2C6D6475}"
+	RootNamespace="TortoiseUDiff"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -21,7 +21,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
-			IntermediateDirectory="..\..\obj\TortoiseIDiff\Debug"
+			IntermediateDirectory="..\..\obj\TortoiseUDiff\Debug"
 			ConfigurationType="1"
 			CharacterSet="1"
 			>
@@ -43,14 +43,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\Utils;..\Utils\MiscUI"
+				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="4"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -58,16 +57,13 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories=""
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="gdiplus.lib"
 				LinkIncremental="2"
-				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -100,7 +96,7 @@
 		<Configuration
 			Name="Debug|x64"
 			OutputDirectory="..\..\bin\Debug64\bin"
-			IntermediateDirectory="..\..\obj\TortoiseIDiff\Debug64"
+			IntermediateDirectory="..\..\obj\TortoiseUDiff\Debug64"
 			ConfigurationType="1"
 			CharacterSet="1"
 			>
@@ -123,14 +119,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\Utils;..\Utils\MiscUI"
-				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS"
+				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -144,9 +139,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="gdiplus.lib"
 				LinkIncremental="2"
-				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="17"
@@ -179,7 +172,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
-			IntermediateDirectory="..\..\obj\TortoiseIDiff\Release"
+			IntermediateDirectory="..\..\obj\TortoiseUDiff\Release"
 			ConfigurationType="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -201,18 +194,11 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="1"
-				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="..\Utils;..\Utils\MiscUI"
+				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
-				StringPooling="true"
 				RuntimeLibrary="2"
-				BufferSecurityCheck="true"
-				EnableEnhancedInstructionSet="0"
-				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -226,14 +212,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="gdiplus.lib"
 				LinkIncremental="1"
-				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -264,7 +247,7 @@
 		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\bin\Release64\bin"
-			IntermediateDirectory="..\..\obj\TortoiseIDiff\Release64"
+			IntermediateDirectory="..\..\obj\TortoiseUDiff\Release64"
 			ConfigurationType="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -287,14 +270,11 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="1"
-				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="..\Utils;..\Utils\MiscUI"
-				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS"
+				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="false"
+				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -308,14 +288,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="gdiplus.lib"
 				LinkIncremental="1"
-				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -353,7 +330,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\AlphaControl.cpp"
+				RelativePath="..\Utils\MiscUI\BaseDialog.cpp"
 				>
 			</File>
 			<File
@@ -365,19 +342,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\LangDll.cpp"
+				RelativePath=".\FindBar.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\MainWindow.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\Picture.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\PicWindow.cpp"
 				>
 			</File>
 			<File
@@ -421,7 +390,11 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\TortoiseIDiff.cpp"
+				RelativePath=".\TortoiseUDiff.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.cpp"
 				>
 			</File>
 		</Filter>
@@ -431,7 +404,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\AlphaControl.h"
+				RelativePath="..\Utils\MiscUI\BaseDialog.h"
 				>
 			</File>
 			<File
@@ -443,23 +416,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\LangDll.h"
+				RelativePath=".\FindBar.h"
 				>
 			</File>
 			<File
 				RelativePath=".\MainWindow.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\MemDC.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MiscUI\Picture.h"
-				>
-			</File>
-			<File
-				RelativePath=".\PicWindow.h"
 				>
 			</File>
 			<File
@@ -475,7 +436,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\TortoiseIDiff.h"
+				RelativePath=".\TortoiseUDiff.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.h"
 				>
 			</File>
 		</Filter>
@@ -485,83 +450,15 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\alphatoggle.ico"
+				RelativePath="..\Resources\cancel-normal.bmp"
 				>
 			</File>
 			<File
-				RelativePath=".\fitinwindow.ico"
+				RelativePath=".\TortoiseUDiff.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\imginfo.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\link.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\origsize.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\overlap.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\pan.cur"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\pan.cur"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\pandown.cur"
-				>
-			</File>
-			<File
-				RelativePath=".\pandown.cur"
-				>
-			</File>
-			<File
-				RelativePath=".\player_fwd.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\player_rew.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\player_start.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\player_stop.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\TortoiseIDiff.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\TortoiseIDiff.rc"
-				>
-			</File>
-			<File
-				RelativePath="..\Resources\uac.manifest"
-				>
-			</File>
-			<File
-				RelativePath=".\vertical.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\zoomin.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\zoomout.ico"
+				RelativePath=".\TortoiseUDiff.rc"
 				>
 			</File>
 		</Filter>

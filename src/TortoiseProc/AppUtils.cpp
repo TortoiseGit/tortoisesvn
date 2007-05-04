@@ -404,32 +404,21 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
 	return TRUE;
 }
 
-BOOL CAppUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
+BOOL CAppUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, const CString& title, BOOL bWait)
 {
 	CString viewer;
 	CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 	viewer = v;
 	if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
 	{
-		//first try the default app which is associated with diff files
-		CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-		viewer = diff;
-		viewer = viewer + _T("\\Shell\\Open\\Command\\");
-		CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-		viewer = diffexe;
-		if (viewer.IsEmpty())
-		{
-			CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = txt;
-			viewer = viewer + _T("\\Shell\\Open\\Command\\");
-			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = txtexe;
-		}
-		DWORD len = ExpandEnvironmentStrings(viewer, NULL, 0);
-		TCHAR * buf = new TCHAR[len+1];
-		ExpandEnvironmentStrings(viewer, buf, len);
-		viewer = buf;
-		delete buf;
+		// use TortoiseUDiff
+		viewer = CPathUtils::GetAppDirectory();
+		viewer += _T("TortoiseUDiff.exe");
+		// enquote the path to TortoiseUDiff
+		viewer = _T("\"") + viewer + _T("\"");
+		// add the params
+		viewer = viewer + _T(" /patchfile:%1 /title:\"%title\"");
+
 	}
 	if (viewer.Find(_T("%1"))>=0)
 	{
@@ -440,6 +429,10 @@ BOOL CAppUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
 	}
 	else
 		viewer += _T(" \"") + patchfile.GetWinPathString() + _T("\"");
+	if (viewer.Find(_T("%title")) >= 0)
+	{
+		viewer.Replace(_T("%title"), title);
+	}
 
 	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
 	{
