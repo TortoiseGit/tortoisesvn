@@ -867,9 +867,12 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 		// author
 		m_RepoList.SetItemText(index, 3, it->author);
 		// size
-		StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
-		temp.ReleaseBuffer();
-		m_RepoList.SetItemText(index, 4, temp);
+		if (it->kind == svn_node_file)
+		{
+			StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
+			temp.ReleaseBuffer();
+			m_RepoList.SetItemText(index, 4, temp);
+		}
 		// date
 		SVN::formatDate(date_native, (apr_time_t&)it->time, true);
 		m_RepoList.SetItemText(index, 5, date_native);
