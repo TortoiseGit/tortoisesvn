@@ -66,7 +66,7 @@
 			<filename>HKCU\Software\TortoiseSVN\UpdateCheckURL</filename> (string value)
 			to an URL pointing to a text file in your intranet. That textfile must have
 			the following format:
-			<screen>
+<screen>
 1.4.1.6000
 A new version of TortoiseSVN is available for you to download!
 http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
@@ -100,7 +100,7 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
 			But that option is only hidden for the user. You still can force the
 			TortoiseSVN installer to set that environment variable by setting the ASPDOTNETHACK
 			property to TRUE. For example, you can start the installer like this:
-			<screen>
+<screen>
 msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 </screen>
 		</para>

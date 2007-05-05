@@ -59,26 +59,26 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-						Changes inside the modified lines are shown in different
-						colors. Added string parts are shown with a lighter color,
-						but you can of course configure the colors used here.
-						Removed parts are indicated with a dark brown vertical
-						line in the string. Check out the screenshot above to
-						see how this works.
+							Changes inside the modified lines are shown in different
+							colors. Added string parts are shown with a lighter color,
+							but you can of course configure the colors used here.
+							Removed parts are indicated with a dark brown vertical
+							line in the string. Check out the screenshot above to
+							see how this works.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						Code reorganization usually means a lot of changes in whitespaces
-						(space, tab, newlines) but no actual code change. For example,
-						you split up a very long line into several lines, or you sometimes
-						compact several lines together into one.
+							Code reorganization usually means a lot of changes in whitespaces
+							(space, tab, newlines) but no actual code change. For example,
+							you split up a very long line into several lines, or you sometimes
+							compact several lines together into one.
 						</para>
-						Such changes are marked with a white circle symbol on the left side
-						of the views. If you see such a white circle, you know immediately
-						that no real code change is there and you don't have to check the
-						changed block further.
 						<para>
+							Such changes are marked with a white circle symbol on the left side
+							of the views. If you see such a white circle, you know immediately
+							that no real code change is there and you don't have to check the
+							changed block further.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -162,12 +162,12 @@
 				resolve possible conflicts manually.
 			</para>
 			<para>
-                The patchfile window has a context menu which allows you to
-                preview the effect of the patch on the current file
-                (apply without saving), to apply and save the changes
-                for the selected file, or to apply and save changes to
-                <emphasis>all</emphasis> files in the list.
-                The double-click action is to preview.
+				The patchfile window has a context menu which allows you to
+				preview the effect of the patch on the current file
+				(apply without saving), to apply and save the changes
+				for the selected file, or to apply and save changes to
+				<emphasis>all</emphasis> files in the list.
+				The double-click action is to preview.
 			</para>
 			<para>
 				Depending on whether TortoiseMerge can apply the patch directly

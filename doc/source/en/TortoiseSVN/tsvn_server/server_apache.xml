@@ -199,8 +199,10 @@
 					<para>
 						Uncomment (remove the '<literal>#</literal>' mark) the
 						following lines:
-<screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen>
-						<screen>#LoadModule dav_module modules/mod_dav.so</screen>
+<screen>
+#LoadModule dav_fs_module modules/mod_dav_fs.so
+#LoadModule dav_module modules/mod_dav.so
+</screen>
 						Add the following two lines to the end of the
 						<literal>LoadModule</literal> section.
 <screen>

@@ -3,16 +3,16 @@
 <sect1 id="tsvn-repository-create">
 	<title>Repository Creation</title>
 	<para>
-					You can create a repository with the FSFS backend or with the
-					old but stable Berkeley Database (BDB) format. The FSFS format
-					is faster and it now works on network shares and Windows 98
-					without problems. The BDB format is more stable because it has
-					been tested longer. Read
-					<ulink url="http://svnbook.red-bean.com/en/1.2/svn.reposadmin.html">
+		You can create a repository with the FSFS backend or with the
+		old but stable Berkeley Database (BDB) format. The FSFS format
+		is faster and it now works on network shares and Windows 98
+		without problems. The BDB format is more stable because it has
+		been tested longer. Read
+		<ulink url="http://svnbook.red-bean.com/en/1.2/svn.reposadmin.html">
 			<citetitle>Repository Data Stores</citetitle>
 		</ulink>
-					in the Subversion book for more information.
-				</para>
+		in the Subversion book for more information.
+	</para>
 	<sect2 id="tsvn-repository-create-commandline">
 		<title>Creating a Repository with the Command Line Client</title>
 		<indexterm>
@@ -151,20 +151,20 @@ svnadmin create --fs-type fsfs MyNewRepository
 	</sect2>
 	<warning>
 		<para>
-				Do not create or access a Berkeley DB repository on a network share.
-				It <emphasis>cannot</emphasis> exist on a remote filesystem.
-				Not even if you have the network drive mapped to a drive letter.
-				If you attempt to use Berkeley DB on a network share,
-				the results are unpredictable - you may see mysterious errors
-				right away, or it may be months before you discover that your
-				repository database is subtly corrupted.
-			</para>
+			Do not create or access a Berkeley DB repository on a network share.
+			It <emphasis>cannot</emphasis> exist on a remote filesystem.
+			Not even if you have the network drive mapped to a drive letter.
+			If you attempt to use Berkeley DB on a network share,
+			the results are unpredictable - you may see mysterious errors
+			right away, or it may be months before you discover that your
+			repository database is subtly corrupted.
+		</para>
 	</warning>
 	<tip>
 		<para>
-				If you really need to access a repository through a network share,
-				create the repository with fsfs format. If you need to provide
-				server access as well, you will need Subversion Server 1.1 or higher.
-			</para>
+			If you really need to access a repository through a network share,
+			create the repository with fsfs format. If you need to provide
+			server access as well, you will need Subversion Server 1.1 or higher.
+		</para>
 	</tip>
 </sect1>

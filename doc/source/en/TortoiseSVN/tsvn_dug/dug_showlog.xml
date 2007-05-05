@@ -468,13 +468,13 @@
 			They do not control downloading of messages from the repository.
 		</para>
 		<para>
-            You can also filter the path names in the bottom pane using the
-            <guilabel>Hide unrelated changed paths</guilabel> checkbox.
-            Related paths are those which contain the path used to display
-            the log. If you fetch the log for a folder, that means anything
-            in that folder or below it. For a file it means just that one file.
-            The checkbox is tri-state: you can show all paths, grey out the
-            unrelated ones, or hide the unrelated paths completely.
+			You can also filter the path names in the bottom pane using the
+			<guilabel>Hide unrelated changed paths</guilabel> checkbox.
+			Related paths are those which contain the path used to display
+			the log. If you fetch the log for a folder, that means anything
+			in that folder or below it. For a file it means just that one file.
+			The checkbox is tri-state: you can show all paths, grey out the
+			unrelated ones, or hide the unrelated paths completely.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-5">
@@ -492,58 +492,58 @@
 			has been working hardest and who is slacking ;-)
 		</para>
 		<sect3 id="tsvn-dug-showlog-stats-1">
-            <title>Statistics Page</title>
-            <para>
-                This page gives you all the numbers you can think of,
-                in particular the period and number of revisions covered,
-                and some min/max/average values.
-            </para>
-        </sect3>
+			<title>Statistics Page</title>
+			<para>
+				This page gives you all the numbers you can think of,
+				in particular the period and number of revisions covered,
+				and some min/max/average values.
+			</para>
+		</sect3>
 		<sect3 id="tsvn-dug-showlog-stats-2">
-            <title>Commits by Author Page</title>
-            <para>
-                <figure id="tsvn-dug-showlog-stats-dia-2">
-                    <title>Commits-by-Author Histogram</title>
-                    <graphic fileref="../images/StatsByAuthor.png"/>
-                </figure>
-                This graph shows you which authors have been active on the
-                project as a simple histogram, stacked histogram or
-                pie chart.
-                <figure id="tsvn-dug-showlog-stats-dia-3">
-                    <title>Commits-by-Author Pie Chart</title>
-                    <graphic fileref="../images/StatsByAuthPie.png"/>
-                </figure>
-            </para>
-            <para>
-                Where there are a few major authors and many minor contributors,
-                the number of tiny segments can make the graph more difficult to
-                read. The slider at the bottom allows you to set a threshold
-                (as a per centage of total commits) below which any activity is
-                grouped into an <emphasis>Others</emphasis> category.
-            </para>
-        </sect3>
+			<title>Commits by Author Page</title>
+			<para>
+				<figure id="tsvn-dug-showlog-stats-dia-2">
+					<title>Commits-by-Author Histogram</title>
+					<graphic fileref="../images/StatsByAuthor.png"/>
+				</figure>
+				This graph shows you which authors have been active on the
+				project as a simple histogram, stacked histogram or
+				pie chart.
+				<figure id="tsvn-dug-showlog-stats-dia-3">
+					<title>Commits-by-Author Pie Chart</title>
+					<graphic fileref="../images/StatsByAuthPie.png"/>
+				</figure>
+			</para>
+			<para>
+				Where there are a few major authors and many minor contributors,
+				the number of tiny segments can make the graph more difficult to
+				read. The slider at the bottom allows you to set a threshold
+				(as a per centage of total commits) below which any activity is
+				grouped into an <emphasis>Others</emphasis> category.
+			</para>
+		</sect3>
 		<sect3 id="tsvn-dug-showlog-stats-3">
-            <title>Commits by date Page</title>
-            <para>
-                <figure id="tsvn-dug-showlog-stats-dia-4">
-                    <title>Commits-by-date Graph</title>
-                    <graphic fileref="../images/StatsByDate.png"/>
-                </figure>
-                This page gives you a graphical representation of project
-                activity in terms of number of commits <emphasis>and</emphasis>
-                author. This gives some idea of when a project is being worked
-                on, and who was working at which time.
-            </para>
-            <para>
-                When there are several authors, you will get many lines on the
-                graph. There are two views available here: <emphasis>normal</emphasis>,
-                where each author's activity is relative to the base line, and
-                <emphasis>stacked</emphasis>, where each author's activity is
-                relative to the line underneath.
-                The latter option avoids the lines crossing over, which can make
-                the graph easier to read, but less easy to see one author's output.
-            </para>
-        </sect3>
+			<title>Commits by date Page</title>
+			<para>
+				<figure id="tsvn-dug-showlog-stats-dia-4">
+					<title>Commits-by-date Graph</title>
+					<graphic fileref="../images/StatsByDate.png"/>
+				</figure>
+				This page gives you a graphical representation of project
+				activity in terms of number of commits <emphasis>and</emphasis>
+				author. This gives some idea of when a project is being worked
+				on, and who was working at which time.
+			</para>
+			<para>
+				When there are several authors, you will get many lines on the
+				graph. There are two views available here: <emphasis>normal</emphasis>,
+				where each author's activity is relative to the base line, and
+				<emphasis>stacked</emphasis>, where each author's activity is
+				relative to the line underneath.
+				The latter option avoids the lines crossing over, which can make
+				the graph easier to read, but less easy to see one author's output.
+			</para>
+		</sect3>
 		<para>
 			By default the analysis is case-sensitive, so users
 			<literal>PeterEgan</literal> and <literal>PeteRegan</literal>

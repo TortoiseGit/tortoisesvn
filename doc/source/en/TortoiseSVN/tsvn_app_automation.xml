@@ -29,7 +29,7 @@
 			<primary>command line</primary>
 		</indexterm>
 		<para>
-            The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>.
+			The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>.
 			All commands are specified with the parameter <option>/command:abcd</option>
 			where <literal>abcd</literal> is the required command name. Most of these
 			commands need at least one path argument, which is given with 
@@ -68,23 +68,29 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-						<option>/closeonend:0</option> don't close the dialog automatically</para>
+						<option>/closeonend:0</option> don't close the dialog automatically
+					</para>
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:1</option> auto close if no errors</para>
+						<option>/closeonend:1</option> auto close if no errors
+					</para>
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:2</option> auto close if no errors and conflicts</para>
+						<option>/closeonend:2</option> auto close if no errors and conflicts
+					</para>
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:3</option> auto close if no errors, conflicts and merges</para>
+						<option>/closeonend:3</option> auto close if no errors, conflicts and merges
+					</para>
 				</listitem>
 				<listitem>
 					<para>
-						<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations</para>
+						<option>/closeonend:4</option> auto close if no errors, conflicts and merges
+						for local operations
+					</para>
 				</listitem>
 			</itemizedlist>
 		</para>

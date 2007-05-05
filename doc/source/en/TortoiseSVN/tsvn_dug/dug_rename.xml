@@ -196,29 +196,58 @@
 		<para>
 			Solution A) (recommended)
 			<orderedlist>
-			<listitem><para>Commit the changes in your working copy.</para></listitem>
-			<listitem><para>Rename the file from UPPERcase to upperCASE directly 
-			in the repository using the repository browser.</para></listitem>
-			<listitem><para>Update your working copy.</para></listitem>
+				<listitem>
+					<para>
+						Commit the changes in your working copy.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Rename the file from UPPERcase to upperCASE directly 
+						in the repository using the repository browser.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Update your working copy.
+					</para>
+				</listitem>
 			</orderedlist>
 		</para>
 		<para>
 			Solution B)
 			<orderedlist>
-			<listitem><para>Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu.</para></listitem>
-			<listitem><para>Commit the changes.</para></listitem>
-			<listitem><para>Rename from UPPERcase_ to upperCASE.</para></listitem>
-			<listitem><para>Commit the changes.</para></listitem>
+				<listitem>
+					<para>
+						Rename from UPPERcase to UPPERcase_ with the rename command
+						in the TortoiseSVN submenu.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Commit the changes.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Rename from UPPERcase_ to upperCASE.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Commit the changes.
+					</para>
+				</listitem>
 			</orderedlist>
 		</para>
 		<tip>
 			<title>Preventing two files with the same name</title>
 			<para>
-			There is a server hook script available at: 
-			<ulink url="http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/">
-				<citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle>
-			</ulink>
-			that will prevent checkins which result in case conflicts.
+				There is a server hook script available at: 
+				<ulink url="http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/">
+					<citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle>
+				</ulink>
+				that will prevent checkins which result in case conflicts.
 			</para>
 		</tip>
 	</sect2>
