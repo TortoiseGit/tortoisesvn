@@ -113,6 +113,14 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			}
 		}
 		break;
+	case WM_GETMINMAXINFO:
+		{
+			MINMAXINFO * mmi = (MINMAXINFO*)lParam;
+			mmi->ptMinTrackSize.x = 100;
+			mmi->ptMinTrackSize.y = 100;
+			return 0;
+		}
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
