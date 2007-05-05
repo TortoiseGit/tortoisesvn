@@ -1470,6 +1470,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
 			switch (cmd)
 			{
+			default:// nothing clicked
+				return false;
 			case 1: // copy drop
 				dwEffect = DROPEFFECT_COPY;
 				break;
