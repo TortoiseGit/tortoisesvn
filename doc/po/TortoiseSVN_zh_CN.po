@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-05-05 22:50 +0000\n"
-"PO-Revision-Date: 2007-04-30 10:12+0800\n"
+"PO-Revision-Date: 2007-05-06 12:38+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -66,9 +66,8 @@ msgid "For more information, and other ways to avoid this problem in the first p
 msgstr "若想获得更多信息，了解避免该问题的其他方法，请读读我们 <ulink url=\"http://tortoisesvn.net/node/aspdotnethack\"><citetitle>FAQ</citetitle></ulink> 里的文章。"
 
 #: source/TortoiseSVN_en.xml:10022(title)
-#, fuzzy
 msgid "Client Side Hook Scripts"
-msgstr "钩子脚本"
+msgstr "客户端钩子脚本"
 
 #: source/TortoiseSVN_en.xml:10024(primary)
 msgid "client hooks"
@@ -79,9 +78,8 @@ msgid "hook scripts"
 msgstr "钩子脚本"
 
 #: source/TortoiseSVN_en.xml:10029(para)
-#, fuzzy
 msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
-msgstr "<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动作执行时，自动执行的钩子脚本。"
+msgstr "<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动作执行时，自动执行的钩子脚本。与 <xref linkend=\"tsvn-repository-hooks\"/> 中钩子脚本的解释相反，这些脚本在客户端本地执行。"
 
 #: source/TortoiseSVN_en.xml:10031(title)
 msgid "The Settings Dialog, Hook Scripts Page"
@@ -869,15 +867,14 @@ msgid "shortcut"
 msgstr "快捷方式"
 
 #: source/TortoiseSVN_en.xml:10990(para)
-#, fuzzy
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
 "</screen> Of course you need to include the real repository URL."
 msgstr ""
-"如果你经常需要从某个位置打开版本库浏览器，你可以使用TortoiseProc创建一个到这个路径的快捷方式，只需要创建一个新的快捷方式，将目标设置为: <screen>\n"
-"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
-"</screen>，当然你需要包含一个真实的版本库URL。"
+"如果你经常需要从某个位置打开版本库浏览器，你可以使用 TortoiseProc 自动化接口创建一个快捷方式。只需要创建一个新的快捷方式，将目标设置为: <screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
+"</screen> 当然你需要包含真实的版本库 URL。"
 
 #: source/TortoiseSVN_en.xml:11(firstname)
 msgid "Stefan"
@@ -2672,7 +2669,6 @@ msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\A
 msgstr "使用记事本之类的文本编辑器修改Apache的配置文件(通常是<filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>)，做出如下修改: "
 
 #: source/TortoiseSVN_en.xml:1662(para)
-#, fuzzy
 msgid ""
 "Uncomment (remove the '<literal>#</literal>' mark) the following lines: <screen>\n"
 "#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
@@ -2682,7 +2678,10 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
-"去掉如下几行的注释(删除 '<literal>#</literal>'标记): <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen>将下面几行添加到<literal>LoadModule</literal>部分的最后。<screen>\n"
+"去掉以下几行的注释(删除 '<literal>#</literal>'标记): <screen>\n"
+"#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
+"#LoadModule dav_module modules/mod_dav.so\n"
+"</screen> 将以下两行到 <literal>LoadModule</literal> 节的末尾。<screen>\n"
 "LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
@@ -7367,9 +7366,8 @@ msgid "The context menu for a file allows you to: <placeholder-1/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8010(para)
-#, fuzzy
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr "在你的硬盘上创建一个空的文件夹"
+msgstr "在你的硬盘上保存此文件的一个未版本控制的副本。"
 
 #: source/TortoiseSVN_en.xml:8015(para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
@@ -7377,20 +7375,19 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8021(para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "追溯这个文件，查看是谁在何时修改哪些行。"
 
 #: source/TortoiseSVN_en.xml:8026(para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "删除或改名文件。"
 
 #: source/TortoiseSVN_en.xml:8031(para)
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8037(para)
-#, fuzzy
 msgid "View the file's properties (you cannot edit properties directly in the repository)."
-msgstr "使用版本库浏览器直接在版本库中创建项目文件夹。"
+msgstr "查看文件的属性(你不能直接在版本库编辑属性)。"
 
 #: source/TortoiseSVN_en.xml:804(title)
 msgid "The Problem of File-Sharing"
@@ -7417,27 +7414,24 @@ msgid "Checkout the folder to produce a local working copy on your hard drive."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8064(para)
-#, fuzzy
 msgid "Create a new folder in the repository."
-msgstr "向版本库添加的条目。"
+msgstr "在版本库创建新目录。"
 
 #: source/TortoiseSVN_en.xml:8069(para)
-#, fuzzy
 msgid "Add files or folders directly to the repository."
-msgstr "向版本库添加的条目。"
+msgstr "直接向版本库增加文件或目录。"
 
 #: source/TortoiseSVN_en.xml:8074(para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "删除或改名文件夹。"
 
 #: source/TortoiseSVN_en.xml:8079(para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8085(para)
-#, fuzzy
 msgid "View the folder's properties (you cannot edit properties directly in the repository)."
-msgstr "使用版本库浏览器直接在版本库中创建项目文件夹。"
+msgstr "查看文件夹的属性(你不能直接在版本库编辑属性)。"
 
 #: source/TortoiseSVN_en.xml:8091(para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
@@ -8530,7 +8524,6 @@ msgid "The window titles are not pure filenames. TortoiseSVN treats that as a na
 msgstr "窗口标题并不一定代表真正的文件名。TortoiseSVN把它伪装成一个名字用来创建和显示。因此，倘若你在对比一个版本为123的文件和你当前工作副本中的文件，名字将显示为 <filename>文件名 : 版本 123</filename> 和 <filename>文件名 : 工作副本</filename>"
 
 #: source/TortoiseSVN_en.xml:9700(para)
-#, fuzzy
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine\n"
@@ -8543,15 +8536,15 @@ msgid ""
 "    %base %mine\n"
 "</screen>"
 msgstr ""
-"例如，使用 ExamDiff Pro: <screen>\n"
+"例如，使用 ExamDiff Pro：<screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine\n"
-"</screen> 或者使用 KDiff3: <screen>\n"
+"</screen> 或者使用 KDiff3：<screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> 或者使用 WinMerge: <screen>\n"
+"</screen> 或者使用 WinMerge：<screen>\n"
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> 或者使用 Araxis: <screen>\n"
+"</screen> 或者使用 Araxis：<screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"\t%base %mine\n"
+"    %base %mine\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:9719(para)
@@ -8619,7 +8612,6 @@ msgid "The window title for the merged file"
 msgstr "合并文件的窗口标题"
 
 #: source/TortoiseSVN_en.xml:9815(para)
-#, fuzzy
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
@@ -8631,14 +8623,14 @@ msgid ""
 "    /title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen>"
 msgstr ""
-"例如，使用 Perforce Merge: <screen>\n"
+"例如，使用 Perforce Merge：<screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> 或者使用 KDiff3: <screen>\n"
+"</screen> 或者使用 KDiff3：<screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"\t--L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> 或者使用 Araxis: <screen>\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> 或者使用 Araxis：<screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"\t/title3:%yname %theirs %base %mine %merged /a2\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:9833(title)
