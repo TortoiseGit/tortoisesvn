@@ -1884,7 +1884,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						cmdLinePath.SetFromSVN(cmdLinePath.GetSVNPathString().Mid(4));
 				}
 
-				url = svn.GetURLFromPath(cmdLinePath);
+				url = svn.GetUIURLFromPath(cmdLinePath);
 
 				if (url.IsEmpty())
 				{
