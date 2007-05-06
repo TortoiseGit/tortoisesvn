@@ -661,7 +661,7 @@ UINT CFileDiffDlg::ExportThread()
 		m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
 
 		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + fd.path.GetWinPathString());
-		CPathUtils::MakeSureDirectoryPathExists(savepath.GetDirectory().GetWinPath());
+		CPathUtils::MakeSureDirectoryPathExists(fd.node == svn_node_file ? savepath.GetContainingDirectory().GetWinPath() : savepath.GetDirectory().GetWinPath());
 		if (fd.node == svn_node_dir)
 		{
 			// exporting a folder requires calling SVN::Export() so we also export all
@@ -671,6 +671,9 @@ UINT CFileDiffDlg::ExportThread()
 				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				delete m_pProgDlg;
 				m_pProgDlg = NULL;
+				InterlockedExchange(&m_bThreadRunning, FALSE);
+				GetCursorPos(&pt);
+				SetCursorPos(pt.x, pt.y);
 				return 1;
 			}
 		}
@@ -683,6 +686,9 @@ UINT CFileDiffDlg::ExportThread()
 				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				delete m_pProgDlg;
 				m_pProgDlg = NULL;
+				InterlockedExchange(&m_bThreadRunning, FALSE);
+				GetCursorPos(&pt);
+				SetCursorPos(pt.x, pt.y);
 				return 1;
 			}
 		}
