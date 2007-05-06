@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-05-05 22:50 +0000\n"
-"PO-Revision-Date: 2007-01-06 14:32+0800\n"
+"PO-Revision-Date: 2007-05-06 11:50+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -500,16 +500,15 @@ msgstr "　　如果你使用版本控制系统（如 Subversion）时，当你�
 
 #: source/TortoiseMerge_en.xml:20(firstname)
 msgid "Simon"
-msgstr ""
+msgstr "Simon"
 
 #: source/TortoiseMerge_en.xml:206(para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
 msgstr "　　下图说明了存在冲突的文件之间的关系。"
 
 #: source/TortoiseMerge_en.xml:21(surname)
-#, fuzzy
 msgid "Large"
-msgstr "合并"
+msgstr "Large"
 
 #: source/TortoiseMerge_en.xml:211(title)
 #: source/TortoiseMerge_en.xml:385(title)
@@ -601,9 +600,8 @@ msgid "Code reorganization usually means a lot of changes in whitespaces (space,
 msgstr "代码重构经常意味着许多空白字符(空格，制表，新行)变化，但是没有实际上的代码改变。举例来说，你可以将一个很长的行拆分为几行，或者将几行合并为一行。"
 
 #: source/TortoiseMerge_en.xml:351(para)
-#, fuzzy
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
-msgstr "<placeholder-1/> 这些改变在视图的左边用白色圆形符号标记。如果你看到了这些符号，就立即知道这里没有实际代码改变，不需要进一步检查这个代码块。<placeholder-2/>"
+msgstr "这些改变在视图的左边用白色圆形符号标记。如果你看到了这些白色圆形，就立即知道这里没有实际代码改变，不需要进一步检查这个代码块"
 
 #: source/TortoiseMerge_en.xml:360(para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
