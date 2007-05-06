@@ -1881,7 +1881,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		}
 		if (urlList.GetCount() == 2)
 		{
-			if (nFolders == 2)
+			if ((nFolders == 2)||(nFolders == 0))
 			{
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
