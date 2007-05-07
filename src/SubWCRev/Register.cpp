@@ -60,11 +60,9 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
 {
 	// Get server location.
 	TCHAR szModule[1024];
-	DWORD dwResult =
-		::GetModuleFileName(hModule, 
-		                    szModule,
-		                    sizeof(szModule)/sizeof(TCHAR)) ;
-	assert(dwResult != 0) ;
+	::GetModuleFileName(hModule, 
+	                    szModule,
+	                    sizeof(szModule)/sizeof(TCHAR)) ;
 
 	_tcscat_s(szModule, 1024, _T(" /automation"));
 	// Convert the CLSID into a TCHAR.
@@ -129,11 +127,9 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 {
 	// Get server location.
 	TCHAR szModule[512] ;
-	DWORD dwResult =
-		::GetModuleFileName(hModule, 
-		                    szModule,
-		                    sizeof(szModule)/sizeof(TCHAR)) ;
-	assert(dwResult != 0) ;
+	::GetModuleFileName(hModule, 
+	                    szModule,
+	                    sizeof(szModule)/sizeof(TCHAR)) ;
 
 	// Convert the CLSID into a TCHAR.
 	TCHAR szCLSID[CLSID_STRING_SIZE] ;
@@ -242,8 +238,7 @@ void CLSIDtochar(const CLSID& clsid,
 	assert(length >= CLSID_STRING_SIZE) ;
 	// Get CLSID
 	LPOLESTR wszCLSID = NULL ;
-	HRESULT hr = StringFromCLSID(clsid, &wszCLSID) ;
-	assert(SUCCEEDED(hr)) ;
+	StringFromCLSID(clsid, &wszCLSID) ;
 
 	// Covert from wide characters to non-wide.
 	_tcscpy_s(szCLSID, length, wszCLSID) ;
