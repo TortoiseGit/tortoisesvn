@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-29 17:39+0900\n"
+"PO-Revision-Date: 2007-05-07 20:26+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -359,10 +359,11 @@ msgstr "オリジナルファイルをバックアップする(&B)"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley database (BDB)"
 
-# ID:114,
+# Control-ID:1067,
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "注釈履歴の差分(&B)"
+msgid "&Blame changes"
+msgstr "変更の注釈履歴(&B)"
 
 # ID:76,
 #: MenuEntry
@@ -804,6 +805,7 @@ msgstr "新規(&N)"
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "次の %ld (&N)"
 
@@ -1156,12 +1158,6 @@ msgstr "作業コピー(&W)"
 #: ID:564
 msgid "(binary value)"
 msgstr "(バイナリ値)"
-
-# Control-ID:1061,
-# ID:219,
-#: ID:219
-msgid "(dry run)"
-msgstr "（動作チェック）"
 
 # ID:208,
 # ID:208,
@@ -2294,6 +2290,13 @@ msgstr "チェックアウトディレクトリ(&D):"
 msgid "Checkout - TortoiseSVN"
 msgstr "チェックアウト - TortoiseSVN"
 
+# ID:119,
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "%s からチェックアウト、リビジョン %s, %s, %s"
+
 # ID:145,
 # ID:146,
 #: ID:146
@@ -2409,6 +2412,13 @@ msgstr "行内の変更された部分に色付けする(&D)"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "色"
+
+# ID:3857,#:
+# ID:3857,
+# ID:198,
+#: ID:220
+msgid "Command"
+msgstr "コマンド"
 
 # ID:3857,#:
 # ID:3857,
@@ -2634,6 +2644,13 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "%s をコピー"
+
+# ID:77,
+# ID:226,
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "%s から %s へのコピー、リビジョン %s"
 
 # ID:82,
 # ID:126,
@@ -3286,6 +3303,12 @@ msgstr "このメッセージを再び表示しない"
 msgid "Drive Types"
 msgstr "ドライブの種類"
 
+# Control-ID:1061,
+# Control-ID:1179,
+#: ID:219
+msgid "Dry Run"
+msgstr "動作チェック"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "終了(&X)"
@@ -3622,6 +3645,18 @@ msgstr "外部プログラム::マージツール"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "外部プログラム::Unified形式の差分ビューア"
+
+# ID:74,
+# ID:74,
+#: ID:226
+msgid "Externals excluded"
+msgstr "外部を除外"
+
+# ID:74,
+# ID:74,
+#: ID:226
+msgid "Externals included"
+msgstr "外部を含む"
 
 # ID:74,
 # ID:74,
@@ -4348,6 +4383,12 @@ msgstr "系統情報を無視する"
 msgid "Ignore line &endings (recommended)"
 msgstr "改行コード(&E)を無視する（推奨）"
 
+# Control-ID:1021,
+# ID:15,
+#: ID:226
+msgid "Ignored items included"
+msgstr "無視項目を含む"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -4365,6 +4406,13 @@ msgstr "インポート"
 #, c-format
 msgid "Import %ld items"
 msgstr "%ld 個の項目をインポート"
+
+# ID:119,
+# ID:127,
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "%s を %s%s へインポート"
 
 # Control-ID:1056,
 # Control-ID:1056,
@@ -4969,6 +5017,18 @@ msgstr "分岐を本体にマージする"
 msgid "Merging"
 msgstr "マージ"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "%s のリビジョン %s から %s を %s へマージ、%s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "%s のリビジョン %s から %s のリビジョン %s を %s へマージ、%s%s"
+
 # ID:83,
 # ID:83,
 #: ID:83
@@ -5321,6 +5381,11 @@ msgstr "通常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
+
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "深さ方向は無し"
 
 # ID:3857,#:
 # ID:3857,
@@ -7024,11 +7089,11 @@ msgstr "範囲を表示(&R) ..."
 msgid "Show &all revisions"
 msgstr "全てのリビジョンを表示(&A)"
 
-# ID:113,
-# ID:113,
+# Control-ID:1031,
+# ID:115,
 #: MenuEntry
-msgid "Show &differences"
-msgstr "差分を表示(&D)"
+msgid "Show &changes"
+msgstr "変更を表示(&C)"
 
 # Control-ID:1016,
 # ID:12,#:
@@ -7069,6 +7134,17 @@ msgstr "ファイルリストを表示"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "オーバービューを表示(&R)"
+
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "グラフ全体の概観を表示"
+
+# ID:113,
+# ID:113,
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "&Unified Diff 形式で変更を表示"
 
 # ID:113,
 # ID:113,
@@ -7354,8 +7430,8 @@ msgstr "ロックを横取りする"
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan Kung, Lubbe Onken"
+msgstr "Stefan Kung, Lubbe Onken"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -7404,6 +7480,13 @@ msgstr "Subversion サーバファイル:"
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "作業コピーを新しい分岐／タグへ切り替える(&I)"
+
+# ID:119,
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "%s から %s への切り替え、リビジョン %s"
 
 # ID:9,#:
 # ID:80,
@@ -7483,8 +7566,8 @@ msgstr "他の分岐／タグへ作業コピーを切り替え"
 
 # ID:325,
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "左右の比較を入れ替える"
+msgid "Switches the comparison left<<->right"
+msgstr "左右の比較対象を入れ替える"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -7773,13 +7856,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "入力されたパス／URLはWindowsでは無効です！\n"
 "実行はできますが、後でエラーが発生するかもしれません。\n"
 "\n"
-"Windowsで有効なパスには、 '<>|\"?*:' の文字や、次に示すデバイス名のどれかを含めることはできません:\n"
+"Windowsで有効なパスには、 '<<>|\"?*:' の文字や、次に示すデバイス名のどれかを含めることはできません:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -8019,11 +8102,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "これは有効なパスではありません！\n"
-"Windowsで有効なパスには、 '<>|\"?*:' の文字や、次に示すデバイス名のどれかを含んではいけません:\n"
+"Windowsで有効なパスには、 '<<>|\"?*:' の文字や、次に示すデバイス名のどれかを含んではいけません:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -8404,6 +8487,12 @@ msgstr ""
 "未知の証明書です。\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
+
+# Control-ID:1061,
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "未知の深さ"
 
 # ID:11,#:
 # Control-ID:1002,
@@ -9196,6 +9285,12 @@ msgstr "外部"
 msgid "ignored"
 msgstr "無視"
 
+# Control-ID:1067,
+# Control-ID:1267,
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "系統情報を無視"
+
 # ID:13,
 # ID:13,
 #: ID:13
@@ -9311,6 +9406,12 @@ msgstr "読み取り専用"
 #: ID:10
 msgid "replaced"
 msgstr "置換"
+
+# Control-ID:1067,
+# Control-ID:1267,
+#: ID:220
+msgid "respecting ancestry"
+msgstr "系統情報を無視"
 
 # ID:14,
 # ID:14,
