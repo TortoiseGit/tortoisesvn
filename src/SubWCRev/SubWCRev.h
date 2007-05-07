@@ -18,6 +18,11 @@
 #pragma once
 #include <vector>
 
+#include <apr_pools.h>
+#include "svn_error.h"
+#include "svn_client.h"
+#include "svn_path.h"
+
 #define URL_BUF	2048
 
 // This structure is used as the status baton for WC crawling
@@ -48,3 +53,7 @@ svn_status (       const char *path,
                    svn_boolean_t no_ignore,
                    svn_client_ctx_t *ctx,
                    apr_pool_t *pool);
+
+char *Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool);
+
+void AutomationMain();

@@ -40,6 +40,8 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
+				GenerateTypeLibrary="true"
+				TypeLibraryName="SubWCRev.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -358,6 +360,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Register.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\status.cpp"
 				>
 			</File>
@@ -401,6 +407,14 @@
 				RelativePath=".\SubWCRev.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\SubWCRev.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\SubWCRevCOM.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -408,7 +422,23 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\Register.h"
+				>
+			</File>
+			<File
+				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\SubWCRev.h"
+				>
+			</File>
+			<File
+				RelativePath=".\SubWCRevCOM.h"
 				>
 			</File>
 		</Filter>
@@ -418,10 +448,18 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
+				RelativePath=".\SubWCRev.rc"
+				>
+			</File>
+			<File
 				RelativePath="..\Resources\uac.manifest"
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\testCOM.js"
+			>
+		</File>
 	</Files>
 	<Globals>
 		<Global

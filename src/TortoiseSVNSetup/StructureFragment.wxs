@@ -200,10 +200,41 @@
               <File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
               <File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
               <File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
-              <File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
               <File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
               <File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
+
+              <File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
+              <!-- register the SubWCRev COM-Object -->
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\LocalServer32" Value="[INSTALLDIR]bin\SubWCRev.exe /automation" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\ProgID" Value="SubWCRev.object.1" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\VersionIndependentProgID" Value="SubWCRev.object" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\TypeLib" Value="{$(var.GuidSubWCRevTypeLib)}" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}" Value="SubWCRev Server Object" Type="string" />
+
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object" Value="SubWCRev Server Object" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object\CLSID" Value="{$(var.GuidSubWCRev)}" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object\CurVer" Value="SubWCRev.object.1" Type="string" />
+
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object.1" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object.1" Value="SubWCRev Server Object" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\SubWCRev.object.1\CLSID" Value="{$(var.GuidSubWCRev)}" Type="string" />
+
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0" Value="LibSubWCRev" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0\win32" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\FLAGS" Value="0" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\HELPDIR" Value="[INSTALLDIR]" Type="string" />
+
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}" Action="createKeyAndRemoveKeyOnUninstall" />
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}" Value="ISubWCRev" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}\ProxyStubClsid" Value="{00020424-0000-0000-C000-000000000046}" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}\ProxyStubClsid32" Value="{00020424-0000-0000-C000-000000000046}" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}\TypeLib" Value="{$(var.GuidSubWCRevTypeLib)}" Type="string" />
+              <Registry Root="HKMU" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}\TypeLib" Name="Version" Value="1.0" Type="string" />
             </Component>
 
             <Component Id="C__TortoiseSVNShortcuts" Guid="$(var.GuidTortoiseSVNShortcuts)" Win64="$(var.Win64YesNo)">

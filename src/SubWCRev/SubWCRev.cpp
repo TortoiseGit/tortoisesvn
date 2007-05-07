@@ -2,18 +2,18 @@
 
 // Copyright (C) 2003-2006 - Stefan Kueng
 
-// This program is free software; you can redistribute it and/or
+// thisobject program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
 
-// This program is distributed in the hope that it will be useful,
+// thisobject program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software Foundation,
+// along with thisobject program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
 
@@ -28,6 +28,10 @@
 #include "svn_path.h"
 #include "SubWCRev.h"
 #include "..\version.h"
+
+STDAPI DllUnregisterServer();
+STDAPI DllRegisterServer();
+
 
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
@@ -48,7 +52,7 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -f                 :   if given, then SubWCRev will include the\n\
                        last-committed revision of folders. Default is\n\
                        to use only files to get the revision numbers.\n\
-                       This only affects $WCREV$ and $WCDATE$.\n\
+                       thisobject only affects $WCREV$ and $WCDATE$.\n\
 -e                 :   if given, also include dirs which are included\n\
                        with svn:externals, but only if they're from the\n\
                        same repository.\n"
@@ -267,7 +271,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
 	
 	// Look for the ':' dividing TrueText from FalseText
 	char *pSplit = pBuild + 1;
-	// This loop is guaranteed to terminate due to test above.
+	// thisobject loop is guaranteed to terminate due to test above.
 	while (*pSplit != ':' && *pSplit != '$')
 		pSplit++;
 
@@ -322,6 +326,21 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		// WC path is always first argument.
 		wc = argv[1];
+		if (_tcscmp(argv[1], _T("/automation"))==0)
+		{
+			AutomationMain();
+			return 0;
+		}
+		else if (_tcscmp(argv[1], _T("unregserver"))==0)
+		{
+			DllUnregisterServer();
+			return 0;
+		}
+		else if (_tcscmp(argv[1], _T("regserver"))==0)
+		{
+			DllRegisterServer();
+			return 0;
+		}
 	}
 	if (argc == 4 || argc == 5)
 	{
@@ -374,9 +393,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (wc == NULL)
 	{
 		_tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),
-					TSVN_VERMAJOR, TSVN_VERMINOR,
-					TSVN_VERMICRO, TSVN_VERBUILD,
-					_T(TSVN_PLATFORM));
+			TSVN_VERMAJOR, TSVN_VERMINOR,
+			TSVN_VERMICRO, TSVN_VERBUILD,
+			_T(TSVN_PLATFORM));
 		_putts(_T(HelpText1));
 		_putts(_T(HelpText2));
 		_putts(_T(HelpText3));
@@ -389,7 +408,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (_tcschr(wc, '\"') != NULL) // dir contains a quoation mark
 		{
 			_tprintf(_T("The WorkingCopyPath contains a quotation mark.\n"));
-			_tprintf(_T("This indicates a problem when calling SubWCRev from an interpreter which treats\n"));
+			_tprintf(_T("thisobject indicates a problem when calling SubWCRev from an interpreter which treats\n"));
 			_tprintf(_T("a backslash char specially.\n"));
 			_tprintf(_T("Try using double backslashes or insert a dot after the last backslash when\n"));
 			_tprintf(_T("calling SubWCRev\n"));
@@ -571,7 +590,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	// The file is only written if its contents would change.
-	// This prevents the timestamp from changing.
+	// thisobject prevents the timestamp from changing.
 	if (!sameFileContent)
 	{
 		SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
@@ -594,3 +613,4 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 	return 0;
 }
+

@@ -1,0 +1,51 @@
+
+import "wtypes.idl";
+
+[
+    uuid(40ACF49D-74FF-4165-94E9-0E002C448520),
+    version(1.0)
+]
+library LibSubWCRev
+{
+	importlib("stdole32.tlb");
+	importlib("stdole.tlb"); 
+
+	[ 
+	  uuid(2F5EA5B0-4DE7-4f96-8E6B-FC0C37D9C0D6),
+	  dual,
+	  oleautomation 
+	]
+	interface ISubWCRev : IDispatch
+	{
+		[helpstring("Fetches the status information. Call this to initialize all the properties")]
+		HRESULT GetWCInfo([in] BSTR	wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals);
+
+		[propget, helpstring("Returns the working copy revision")]
+		HRESULT Revision([out, retval]VARIANT* rev);
+
+		[propget, helpstring("Returns the lowest revision number of the working copy")]
+		HRESULT MinRev([out, retval]VARIANT* rev);
+
+		[propget, helpstring("Returns the hightest revision number of the working copy")]
+		HRESULT MaxRev([out, retval]VARIANT* rev);
+
+		[propget, helpstring("Returns the working copy date as a string")]
+		HRESULT Date([out, retval]VARIANT* date);
+
+		[propget, helpstring("Returns the working copy url")]
+		HRESULT Url([out, retval]VARIANT* url);
+
+		[propget, helpstring("TRUE if the working copy has modifications")]
+		HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
+	}
+
+
+	[ uuid(F26E2640-0CFF-43dc-8325-575A3261D885),
+	  helpstring("SubWCRev object") 
+	]
+	coclass SubWCRev
+	{
+		[default] interface ISubWCRev;
+	}
+}
+
