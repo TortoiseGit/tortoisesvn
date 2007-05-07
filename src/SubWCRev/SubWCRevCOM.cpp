@@ -221,6 +221,21 @@ HRESULT __stdcall SubWCRev::get_Url(/*[out, retval]*/VARIANT* url)
 	return S_OK;
 }
 
+HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
+{
+	author->vt = VT_BSTR;
+
+	WCHAR * buf;
+	int len = strlen(SubStat.Author);
+	buf = new WCHAR[len*4 + 1];
+	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	MultiByteToWideChar(CP_UTF8, 0, SubStat.Author, -1, buf, len*4);
+	author->bstrVal = SysAllocString(buf);
+	delete [] buf;
+
+	return S_OK;
+}
+
 HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 {
 	*modifications = !!SubStat.HasMods;

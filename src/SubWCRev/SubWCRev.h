@@ -37,7 +37,8 @@ typedef struct SubWCRev_t
 	BOOL bFolders;			// If TRUE, status of folders is included
 	BOOL bExternals;		// If TRUE, status of externals is included
 	char Url[URL_BUF];		// URL of working copy
-	char UUID[1024];	// The repository UUID of the working copy
+	char UUID[1024];		// The repository UUID of the working copy
+	char Author[URL_BUF];	// The author of the wcPath
 } SubWCRev_t;
 
 typedef struct SubWCRev_StatusBaton_t

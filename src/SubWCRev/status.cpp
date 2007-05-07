@@ -27,6 +27,64 @@
 #pragma warning(push)
 #pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR)
 
+// Copy the URL from src to dest, unescaping on the fly.
+void UnescapeCopy(char * src, char * dest, int buf_len)
+{
+	char * pszSource = src;
+	char * pszDest = dest;
+	int len = 0;
+
+	// under VS.NET2k5 strchr() wants this to be a non-const array :/
+
+	static char szHex[] = "0123456789ABCDEF";
+
+	// Unescape special characters. The number of characters
+	// in the *pszDest is assumed to be <= the number of characters
+	// in pszSource (they are both the same string anyway)
+
+	while (*pszSource != '\0' && ++len < buf_len)
+	{
+		if (*pszSource == '%')
+		{
+			// The next two chars following '%' should be digits
+			if ( *(pszSource + 1) == '\0' ||
+				*(pszSource + 2) == '\0' )
+			{
+				// nothing left to do
+				break;
+			}
+
+			char nValue = '?';
+			char * pszLow = NULL;
+			char * pszHigh = NULL;
+			pszSource++;
+
+			*pszSource = (char) toupper(*pszSource);
+			pszHigh = strchr(szHex, *pszSource);
+
+			if (pszHigh != NULL)
+			{
+				pszSource++;
+				*pszSource = (char) toupper(*pszSource);
+				pszLow = strchr(szHex, *pszSource);
+
+				if (pszLow != NULL)
+				{
+					nValue = (char) (((pszHigh - szHex) << 4) +
+						(pszLow - szHex));
+				}
+			}
+			*pszDest++ = nValue;
+		} 
+		else
+			*pszDest++ = *pszSource;
+
+		pszSource++;
+	}
+
+	*pszDest = '\0';
+}
+
 void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 {
 	SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
@@ -43,6 +101,18 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 		}
 		if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
 			return;
+	}
+	if ((status)&&(status->entry)&&(status->entry->cmt_author))
+	{
+		if ((sb->SubStat->Author[0] == 0)&&(status->url))
+		{
+			char EntryUrl[URL_BUF];
+			UnescapeCopy((char *)status->entry->url,EntryUrl, URL_BUF);
+			if (strncmp(sb->SubStat->Url, EntryUrl, URL_BUF) == 0)
+			{
+				strncpy_s(sb->SubStat->Author, URL_BUF, status->entry->cmt_author, URL_BUF);
+			}
+		}
 	}
 	if ((status)&&(status->entry))
 	{
@@ -92,64 +162,6 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 			break;			
 		}
 	}
-}
-
-// Copy the URL from src to dest, unescaping on the fly.
-void UnescapeCopy(char * src, char * dest, int buf_len)
-{
-	char * pszSource = src;
-	char * pszDest = dest;
-	int len = 0;
-
-	// under VS.NET2k5 strchr() wants this to be a non-const array :/
-
-	static char szHex[] = "0123456789ABCDEF";
-
-	// Unescape special characters. The number of characters
-	// in the *pszDest is assumed to be <= the number of characters
-	// in pszSource (they are both the same string anyway)
-
-	while (*pszSource != '\0' && ++len < buf_len)
-	{
-		if (*pszSource == '%')
-		{
-			// The next two chars following '%' should be digits
-			if ( *(pszSource + 1) == '\0' ||
-				 *(pszSource + 2) == '\0' )
-			{
-				// nothing left to do
-				break;
-			}
-
-			char nValue = '?';
-			char * pszLow = NULL;
-			char * pszHigh = NULL;
-			pszSource++;
-
-			*pszSource = (char) toupper(*pszSource);
-			pszHigh = strchr(szHex, *pszSource);
-
-			if (pszHigh != NULL)
-			{
-				pszSource++;
-				*pszSource = (char) toupper(*pszSource);
-				pszLow = strchr(szHex, *pszSource);
-
-				if (pszLow != NULL)
-				{
-					nValue = (char) (((pszHigh - szHex) << 4) +
-									(pszLow - szHex));
-				}
-			}
-			*pszDest++ = nValue;
-		} 
-		else
-			*pszDest++ = *pszSource;
-			
-		pszSource++;
-	}
-
-	*pszDest = '\0';
 }
 
 svn_error_t *

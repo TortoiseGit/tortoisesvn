@@ -42,6 +42,8 @@ public:
 
 	virtual HRESULT __stdcall get_Url(/*[out, retval]*/VARIANT* url);
 
+	virtual HRESULT __stdcall get_Author(/*[out, retval]*/VARIANT* author);
+
 	virtual HRESULT __stdcall get_HasModifications(/*[out, retval]*/VARIANT_BOOL* modifications);
 
 

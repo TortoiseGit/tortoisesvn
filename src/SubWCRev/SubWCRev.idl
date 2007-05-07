@@ -35,6 +35,9 @@ library LibSubWCRev
 		[propget, helpstring("Returns the working copy url")]
 		HRESULT Url([out, retval]VARIANT* url);
 
+		[propget, helpstring("Returns the author of the wcPath as a string")]
+		HRESULT Author([out, retval]VARIANT* author);
+
 		[propget, helpstring("TRUE if the working copy has modifications")]
 		HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
 	}
