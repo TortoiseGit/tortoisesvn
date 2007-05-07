@@ -21,6 +21,10 @@
 #include <tchar.h>
 #include <windows.h>
 #include <shlwapi.h>
+#include <shellapi.h>
+#include <io.h>
+#include <fcntl.h>
+
 
 #include <apr_pools.h>
 #include "svn_error.h"
@@ -311,8 +315,13 @@ int abort_on_pool_failure (int /*retcode*/)
 }
 #pragma warning(pop)
 
-int _tmain(int argc, _TCHAR* argv[])
+int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
+					   HINSTANCE /*hPrevInstance*/,
+					   LPTSTR    /*lpCmdLine*/,
+					   int       /*nCmdShow*/)
 {
+	int argc = 0;
+	LPWSTR * argv = CommandLineToArgvW(GetCommandLine(), &argc);
 	// we have three parameters
 	const TCHAR * src = NULL;
 	const TCHAR * dst = NULL;
@@ -402,10 +411,55 @@ int _tmain(int argc, _TCHAR* argv[])
 		return ERR_SYNTAX;
 	}
 
+	// If we get here, that means we're used 'standalone', i.e., not in
+	// automation mode. And that again means we should try to get a
+	// console so we have something to output text to.
+	bool bCon = false;
+	typedef BOOL(__stdcall *PFNATTACHCONSOLE)(DWORD dwProcessId);
+	HMODULE hMod = LoadLibrary(_T("Kernel32.dll"));
+	if (hMod)
+	{
+		PFNATTACHCONSOLE pfnAttachConsole = (PFNATTACHCONSOLE)GetProcAddress(hMod, "AttachConsole");
+		if (pfnAttachConsole)
+		{
+			if ((pfnAttachConsole)(ATTACH_PARENT_PROCESS))
+				bCon = true;
+		}
+		FreeLibrary(hMod);
+	}
+	if (!bCon)
+		AllocConsole();
+
+	// now attach the std and c-runtime handles to the console
+	int nCRTIn= _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
+	if (nCRTIn != -1)
+	{
+		FILE * fpCRTIn = _fdopen(nCRTIn, "r");
+
+		if (fpCRTIn)
+		{
+			*stdin = *fpCRTIn;
+			std::cin.clear();
+		}
+	}
+	int nCRTOut= _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
+	if (nCRTOut != -1)
+	{
+		FILE * fpCRTOut = _fdopen(nCRTOut, "w");
+
+		if (fpCRTOut)
+		{
+			*stdout = *fpCRTOut;
+			std::cout.clear();
+		}
+	}
+
+
+	AllocConsole();
 	if (!PathFileExists(wc))
 	{
 		_tprintf(_T("Directory or file '%s' does not exist\n"), wc);
-		if (_tcschr(wc, '\"') != NULL) // dir contains a quoation mark
+		if (_tcschr(wc, '\"') != NULL) // dir contains a quotation mark
 		{
 			_tprintf(_T("The WorkingCopyPath contains a quotation mark.\n"));
 			_tprintf(_T("thisobject indicates a problem when calling SubWCRev from an interpreter which treats\n"));
