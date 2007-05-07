@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-25 22:27+0100\n"
+"PO-Revision-Date: 2007-05-07 20:00+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -316,10 +316,10 @@ msgstr "&Archivuj pôvodný súbor"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley databáza (BDB)"
 
-# ID:114,
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Obviniť rozdiely"
+msgid "&Blame changes"
+msgstr "O&bviniť zmeny"
 
 # ID:114,#:
 # ID:322,
@@ -692,6 +692,7 @@ msgstr "&Nový"
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Daľších %ld"
 
@@ -975,11 +976,6 @@ msgstr "&Pracovná kópia"
 #: ID:564
 msgid "(binary value)"
 msgstr "(binárna hodnota)"
-
-# ID:219,
-#: ID:219
-msgid "(dry run)"
-msgstr "(skušobný beh)"
 
 # ID:208,
 #: ID:208
@@ -1931,6 +1927,12 @@ msgstr "Získať a&dresár:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Získať - TortoiseSVN"
 
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Získať z %s, revízia %s, %s, %s"
+
 # Čistím
 # ID:146,
 #: ID:146
@@ -2031,6 +2033,12 @@ msgstr "&Farebné značky zmien v riadkoch"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Farby"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "Command"
+msgstr "Príkaz"
 
 # ID:3857,#:
 # ID:3857,
@@ -2223,6 +2231,12 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopíruj %s"
+
+# ID:226,
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Kopírovať %s do %s, Revízia %s"
 
 # ID:82,
 #: ID:126
@@ -2777,6 +2791,11 @@ msgstr "Túto správu už nezobrazuj"
 msgid "Drive Types"
 msgstr "Typy diskov"
 
+# Control-ID:1179,
+#: ID:219
+msgid "Dry Run"
+msgstr "Zkúšobný beh"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "U&končiť"
@@ -3065,6 +3084,16 @@ msgstr "Externý program::Spájací nástroj"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Extrerný program::Prezerač unifikovaného porovnania"
+
+# ID:74,
+#: ID:226
+msgid "Externals excluded"
+msgstr "Vylučené externé"
+
+# ID:74,
+#: ID:226
+msgid "Externals included"
+msgstr "Zahrnuté externé "
 
 # ID:74,
 #: ID:74
@@ -3711,6 +3740,12 @@ msgstr "Zanedbať pôvod"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovať &konce riadkov (doporučené)"
 
+# &Ignoruj položky
+# ID:15,
+#: ID:226
+msgid "Ignored items included"
+msgstr "Zahrnuté ignorované objekty"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3727,6 +3762,12 @@ msgstr "Importovať"
 #, c-format
 msgid "Import %ld items"
 msgstr "Importovať %ld objektov"
+
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importovať %s do %s%s"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -4261,6 +4302,18 @@ msgstr "Spojit vetvy do hlavného kmeňa"
 msgid "Merging"
 msgstr "Zlúčovanie"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Zločovanie %s od revízie %s až %s v %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Zlučovanie z %s, revízia %s až %s, revízia %s v %s, %s%s"
+
 # ID:83,
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -4554,6 +4607,11 @@ msgstr "Normálne"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nie všetky položky systémových registrov (elbo INI súbor) boli vymazané."
+
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "Neklesajúce"
 
 # ID:83,
 #: ID:83
@@ -5973,10 +6031,10 @@ msgstr "Zobraziť &Rozsah..."
 msgid "Show &all revisions"
 msgstr "Zobraziť &všetky revízie"
 
-# ID:113,
+# ID:115,
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Zobraziť &rozdiely"
+msgid "Show &changes"
+msgstr "Zobraziť &zmeny"
 
 # ID:12,#:
 # ID:101,#:
@@ -6011,6 +6069,16 @@ msgstr "Zobraziť zoznam súborov"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Zobraziť &prehľad"
+
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "Zobrazí náhľad na celý graf"
+
+# ID:113,
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Zobraz rozdiely &unifikovaným porovnaním"
 
 # ID:113,
 #: ID:113
@@ -6298,6 +6366,12 @@ msgstr "Súbor Subversion servera:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Prepnúť pracovanú kópiu na novú ve&tvu/značku"
 
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Prepnúť %s na %s, Revízia %s"
+
 # Dlg-ID:129,
 #: ID:78
 msgid "Switch - TortoiseSVN"
@@ -6366,8 +6440,8 @@ msgstr "Prepnúť pracovnú  kópiu do inej vetvy / značky"
 
 # ID:325,
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "Vymení porovnavané strany. ľavá<->pravá"
+msgid "Switches the comparison left<<->right"
+msgstr "Vymení porovnavané strany ľavá<<->pravá"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6622,13 +6696,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Cesta/URL, ktorú ste zadlai vyzerá byť vo Windows nepovolená!\n"
 "Môžete to napriek tomu skúsiť, ale asi to spôsobí chybu.\n"
 "\n"
-"Platná adresa vo Windows nesmie obsahovať  '<>|\"?*:' a ani jedno z mien zariadení:\n"
+"Platná adresa vo Windows nesmie obsahovať  '<<>|\"?*:' a ani jedno z mien zariadení:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -6846,11 +6920,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Toto nieje platná cesta!\n"
-"Platná cesta nesmie obsahovať '<>|\"?*:' ani meno nasledovných zariadení:\n"
+"Toto nie je platná cesta!\n"
+"Platná cesta nesmie obsahovať '<<>|\"?*:' ani meno nasledovných zariadení:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -7172,6 +7246,11 @@ msgstr ""
 "Neznámy pôvodca certifikátur.\n"
 "  Otlačok: %s\n"
 "  (význačné )Meno: %s"
+
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "Neznáma hĺba"
 
 # Odomkni
 # ID:221,
@@ -7871,6 +7950,11 @@ msgstr "externé"
 msgid "ignored"
 msgstr "ignorované"
 
+# Ignorovať predkov
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "zanedpanie pôvodu"
+
 # nekompletných
 # ID:13,
 #: ID:13
@@ -7973,6 +8057,11 @@ msgstr "iba na čítanie"
 #: ID:10
 msgid "replaced"
 msgstr "nahradené"
+
+# Ignorovať predkov
+#: ID:220
+msgid "respecting ancestry"
+msgstr "rešpektovanie pôvodu"
 
 # ID:14,
 #: ID:14
