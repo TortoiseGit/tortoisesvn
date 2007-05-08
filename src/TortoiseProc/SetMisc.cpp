@@ -32,6 +32,7 @@ CSetMisc::CSetMisc()
 	, m_bCheckRepo(FALSE)
 	, m_dwMaxHistory(25)
 	, m_bCommitReopen(FALSE)
+	, m_bShowLockDlg(FALSE)
 {
 	m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
 	m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
@@ -47,6 +48,8 @@ CSetMisc::CSetMisc()
 	m_dwMaxHistory = (DWORD)m_regMaxHistory;
 	m_regCommitReopen = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
 	m_bCommitReopen = (BOOL)(DWORD)m_regCommitReopen;
+	m_regShowLockDlg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE);
+	m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
 }
 
 CSetMisc::~CSetMisc()
@@ -76,6 +79,9 @@ int CSetMisc::SaveData()
 	m_regCommitReopen = m_bCommitReopen;
 	if (m_regCommitReopen.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regCommitReopen.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regShowLockDlg = m_bShowLockDlg;
+	if (m_regShowLockDlg.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regShowLockDlg.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	return 0;
 }
 
@@ -91,6 +97,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MAXHISTORY, m_dwMaxHistory);
 	DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
 	DDX_Check(pDX, IDC_REOPENCOMMIT, m_bCommitReopen);
+	DDX_Check(pDX, IDC_SHOWLOCKDLG, m_bShowLockDlg);
 }
 
 
@@ -102,6 +109,7 @@ BEGIN_MESSAGE_MAP(CSetMisc, CPropertyPage)
 	ON_BN_CLICKED(IDC_SPELL, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_REPOCHECK, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_REOPENCOMMIT, &CSetMisc::OnChanged)
+	ON_BN_CLICKED(IDC_SHOWLOCKDLG, &CSetMisc::OnChanged)
 END_MESSAGE_MAP()
 
 void CSetMisc::OnChanged()
@@ -131,7 +139,7 @@ BOOL CSetMisc::OnInitDialog()
 	m_tooltips.AddTool(IDC_REPOCHECK, IDS_SETTINGS_REPOCHECK_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);
-
+	m_tooltips.AddTool(IDC_SHOWLOCKDLG, IDS_SETTINGS_SHOWLOCKDLG_TT);
 	return TRUE;
 }
 

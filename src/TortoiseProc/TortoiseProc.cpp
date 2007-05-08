@@ -2161,7 +2161,14 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CLockDlg lockDlg;
 			lockDlg.m_pathList = pathList;
-			if (lockDlg.DoModal()==IDOK)
+			if (pathList.AreAllPathsFiles() && !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)))
+			{
+				// just lock the requested files
+				CSVNProgressDlg progDlg;
+				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Lock, 0, pathList, CString(), CString());
+				progDlg.DoModal();
+			}
+			else if (lockDlg.DoModal()==IDOK)
 			{
 				if (lockDlg.m_pathList.GetCount() != 0)
 				{

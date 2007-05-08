@@ -251,6 +251,7 @@ private:
 	CColors		m_Colors;
 
 	bool		m_bLockWarning;
+	bool		m_bLockExists;
 	bool		m_bFinishedItemAdded;
 	bool		m_bLastVisible;
 

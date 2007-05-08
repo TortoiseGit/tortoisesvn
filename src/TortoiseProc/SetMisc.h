@@ -70,4 +70,6 @@ private:
 	DWORD			m_dwMaxHistory;
 	CRegDWORD		m_regCommitReopen;
 	BOOL			m_bCommitReopen;
+	CRegDWORD		m_regShowLockDlg;
+	BOOL			m_bShowLockDlg;
 };

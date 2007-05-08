@@ -939,6 +939,9 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,156,271,10
     CONTROL         "&Reopen commit dialog after a commit failed",IDC_REOPENCOMMIT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,121,237,10
+    GROUPBOX        "Lock",IDC_STATIC,7,178,286,32
+    CONTROL         "Show Lock dialog before locking files",IDC_SHOWLOCKDLG,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,190,270,10
 END
 
 IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
@@ -2777,6 +2780,8 @@ STRINGTABLE
 BEGIN
     IDS_SETTINGS_CHECKOUTURL_TT 
                             "The default url to checkout from if nothing else is specified"
+    IDS_SETTINGS_SHOWLOCKDLG_TT 
+                            "If unchecked, the lock dialog is skipped and selected files are locked immediately."
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END
@@ -2816,6 +2821,8 @@ BEGIN
     IDS_SVNPROGRESS_EXPORTING "Exporting %s"
     IDS_SVNPROGRESS_EXPORTINGTO "to %s"
     IDS_SVNPROGRESS_EXPORTINGWAIT "Gathering information. Please wait..."
+    IDS_SVNPROGRESS_LOCKHINT 
+                            "To steal the lock, right-click on the parent folder of this item and select ""Get Lock"" from the context menu.\nthis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 END
 
 STRINGTABLE 

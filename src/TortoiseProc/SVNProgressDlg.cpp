@@ -60,6 +60,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_Revision(_T("HEAD"))
 	, m_RevisionEnd(0)
 	, m_bLockWarning(false)
+	, m_bLockExists(false)
 	, m_bCancelled(FALSE)
 	, m_bThreadRunning(FALSE)
 	, m_nConflicts(0)
@@ -349,6 +350,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		bDoAddData = false;
 		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
 			m_bLockWarning = true;
+		if (err->apr_err == SVN_ERR_FS_PATH_ALREADY_LOCKED)
+			m_bLockExists = true;
 		break;
 	case svn_wc_notify_failed_unlock:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
@@ -1224,6 +1227,17 @@ UINT CSVNProgressDlg::ProgressThread()
 						bFailed = true;
 						break;
 					}
+				}
+			}
+			if (m_bLockExists)
+			{
+				// the locking failed because there already is a lock.
+				// if the locking-dialog is skipped in the settings, tell the
+				// user how to steal the lock anyway (i.e., how to get the lock
+				// dialog back without changing the settings)
+				if (!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)))
+				{
+					ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_LOCKHINT)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
 				}
 			}
 		}
