@@ -2869,6 +2869,12 @@ BEGIN
     ID_VIEW_ZOOMOUT         "Zoom out"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_SVNDIFF_ONEURL      "revisions %s-%s, %s"
+    IDS_SVNDIFF_TWOURLS     "revision %s-%s, revision %s-%s"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -275,13 +275,13 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const C
 		list.AddPath(url1);
 		list.AddPath(url2);
 		if (url1.IsEquivalentTo(url2))
-			title.Format(_T("%s, revisions %s-%s"), (LPCTSTR)url1.GetUIFileOrDirectoryName(), (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString());
+			title.Format(IDS_SVNDIFF_ONEURL, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString(), (LPCTSTR)url1.GetUIFileOrDirectoryName());
 		else
 		{
 			CTSVNPath root = list.GetCommonRoot();
 			CString u1 = url1.GetUIPathString().Mid(root.GetUIPathString().GetLength());
 			CString u2 = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
-			title.Format(_T("%s, revision %s-%s, revision %s"), (LPCTSTR)u1, (LPCTSTR)rev1.ToString(), (LPCTSTR)u2, (LPCTSTR)rev2.ToString());
+			title.Format(IDS_SVNDIFF_TWOURLS, (LPCTSTR)rev1.ToString(), (LPCTSTR)u1, (LPCTSTR)rev2.ToString(), (LPCTSTR)u2);
 		}
 		return !!CAppUtils::StartUnifiedDiffViewer(tempfile, title);
 	}
