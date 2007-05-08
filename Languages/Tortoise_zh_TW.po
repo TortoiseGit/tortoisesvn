@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-30 09:25+0800\n"
+"PO-Revision-Date: 2007-05-08 09:39+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -677,6 +677,7 @@ msgstr "新增(&N)"
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "下 %ld(&N)"
 
@@ -972,11 +973,6 @@ msgstr "工作複本(&W)"
 #: ID:564
 msgid "(binary value)"
 msgstr "(二進位值)"
-
-# Control-ID:1061,
-#: ID:219
-msgid "(dry run)"
-msgstr "(試演)"
 
 # ID:208,
 #: ID:208
@@ -1910,6 +1906,12 @@ msgstr "取出目錄(&C):"
 msgid "Checkout - TortoiseSVN"
 msgstr "取出 - TortoiseSVN"
 
+# ID:119,
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "自 %s 取得檔案, 版本 %s, %s, %s"
+
 # ID:145,
 #: ID:146
 msgid "Cleaning up."
@@ -2005,6 +2007,12 @@ msgstr "以顏色標記行內程式碼變更(&D)"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "色彩"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "Command"
+msgstr "命令"
 
 # ID:3857,#:
 # ID:3857,
@@ -2193,6 +2201,12 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "複製 %s"
+
+# ID:77,
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "複製 %s 至 %s, 版本 %s"
 
 # ID:82,
 #: ID:126
@@ -2748,6 +2762,11 @@ msgstr "不再顯示此訊息"
 msgid "Drive Types"
 msgstr "磁碟機類型"
 
+# Control-ID:1061,
+#: ID:219
+msgid "Dry Run"
+msgstr "試演"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "離開(&X)"
@@ -3031,6 +3050,16 @@ msgstr "外部程式::合併工具"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "外部程式::單一補綴檔檢視工具"
+
+# ID:74,
+#: ID:226
+msgid "Externals excluded"
+msgstr "不包含外部"
+
+# ID:74,
+#: ID:226
+msgid "Externals included"
+msgstr "包含外部"
 
 # ID:74,
 #: ID:74
@@ -3665,6 +3694,11 @@ msgstr "無視之前版本"
 msgid "Ignore line &endings (recommended)"
 msgstr "(建議)忽略換行(&E)"
 
+# Control-ID:1021,
+#: ID:226
+msgid "Ignored items included"
+msgstr "包含忽略的項目"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3680,6 +3714,12 @@ msgstr "匯入"
 #, c-format
 msgid "Import %ld items"
 msgstr "匯入 %ld 項"
+
+# ID:144,
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "匯入 %s 至 %s%s"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -4202,6 +4242,18 @@ msgstr "將分支樹合併回主幹"
 msgid "Merging"
 msgstr "正在合併"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "合併 %s 自版本 %s 至 %s, 併入 %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "正在自 %s 合併檔案, 版本 %s 至 %s, 版本 %s 併入 %s, %s%s"
+
 # ID:83,
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -4494,6 +4546,11 @@ msgstr "正常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
+
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "不展開"
 
 # ID:3857,#:
 # ID:3857,
@@ -5904,14 +5961,9 @@ msgid "Show &all revisions"
 msgstr "顯示所有版本(&A)"
 
 # Control-ID:1031,
-#: ID:113
+#: MenuEntry
 msgid "Show &changes"
 msgstr "顯示變更(&C)"
-
-# ID:113,
-#: MenuEntry
-msgid "Show &differences"
-msgstr "顯示差異(&D)"
 
 # Control-ID:1016,
 #: MenuEntry
@@ -5941,6 +5993,11 @@ msgstr "顯示檔案列表"
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "顯示一覽(&R)"
+
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "顯示整個圖型"
 
 # ID:113,
 #: ID:114
@@ -6229,6 +6286,12 @@ msgstr "Subversion 伺服器檔:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "切換工作複本至新分支/標記(&W)"
 
+# ID:119,
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "切換 %s 至 %s, 版本 %s"
+
 # Dlg-ID:129,
 #: ID:78
 msgid "Switch - TortoiseSVN"
@@ -6295,7 +6358,7 @@ msgid "Switch working copy to another branch / tag"
 msgstr "切換工作複本至其他分支/標記"
 
 #: ID:325
-msgid "Switches the comparison left<->right"
+msgid "Switches the comparison left<<->right"
 msgstr "左右切換比對視窗"
 
 # Control-ID:65535,
@@ -6550,13 +6613,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "您輸入的路徑/URL在Windows上有錯誤!\n"
 "您可以照用, 但之後可能發生問題.\n"
 "\n"
-"檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名稱:\n"
+"檔案名稱中不可以包含下列字元 '<<>|\"?*:' 或是下列的裝置名稱:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -6774,11 +6837,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "路徑錯誤!\n"
-"正確的路徑不可以包含'<>|\"?*:' 或是下列的裝置名:\n"
+"正確的路徑不可以包含'<<>|\"?*:' 或是下列的裝置名:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -7101,6 +7164,11 @@ msgstr ""
 "不明的憑證發行人.\n"
 "  指紋: %s\n"
 "  識別名稱: %s"
+
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "不明層數"
 
 # ID:11,#:
 # Control-ID:1002,
@@ -7792,6 +7860,11 @@ msgstr "外部"
 msgid "ignored"
 msgstr "忽略"
 
+# Control-ID:1067,
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "無視之前版本"
+
 # ID:13,
 #: ID:13
 msgid "incomplete"
@@ -7886,6 +7959,11 @@ msgstr "唯讀"
 #: ID:10
 msgid "replaced"
 msgstr "取代"
+
+# Control-ID:1067,
+#: ID:220
+msgid "respecting ancestry"
+msgstr "參考之前版本"
 
 # ID:14,
 #: ID:14
