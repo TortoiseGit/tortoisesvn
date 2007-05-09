@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-07 20:26+0900\n"
+"PO-Revision-Date: 2007-05-09 11:35+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4333,6 +4333,11 @@ msgid ""
 "i.e. they get the modified overlay icon."
 msgstr "設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。例えば、変更のオーバーレイアイコンが付きます。"
 
+# ID:197,
+#: ID:197
+msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
+msgstr "チェックをはずすと、ロックダイアログをスキップして選択されたファイルをすぐにロックします。"
+
 # ID:196,
 # ID:196,
 #: ID:196
@@ -4773,6 +4778,7 @@ msgstr "リポジトリURLの内容を保存する先。"
 # ID:221,
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "ロック"
 
@@ -7131,6 +7137,11 @@ msgstr "バージョン管理外のファイルを表示する(&U)"
 msgid "Show File List"
 msgstr "ファイルリストを表示"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "ファイルをロックする前にロックダイアログを表示する"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "オーバービューを表示(&R)"
@@ -7430,8 +7441,8 @@ msgstr "ロックを横取りする"
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Stefan Kung, Lubbe Onken"
-msgstr "Stefan Kung, Lubbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -8166,6 +8177,15 @@ msgstr ""
 "コミットダイアログでチェックしてください。\n"
 "そうでない場合は、TortoiseSVN は非再帰的にコミットを行い、\n"
 "ディレクトリの削除を行うことはできません。"
+
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"ロックを奪うために、この項目の親フォルダ上で右クリックし、コンテキストメニューから \"ロックを取得\" を選択してください。\n"
+"これにより、ロックを実行する所でロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '奪う' など）。"
 
 # Control-ID:1201,
 # Control-ID:1201,#:
@@ -9412,6 +9432,20 @@ msgstr "置換"
 #: ID:220
 msgid "respecting ancestry"
 msgstr "系統情報を無視"
+
+# ID:119,
+# ID:120,
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "リビジョン %s-%s，リビジョン %s-%s"
+
+# ID:119,
+# ID:120,
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "リビジョン %s-%s, %s"
 
 # ID:14,
 # ID:14,
