@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-05 13:47+0100\n"
+"PO-Revision-Date: 2007-05-10 12:42+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3073,6 +3073,11 @@ msgstr ""
 "modifiziert markiert (erhält das 'modifiziert' Symbol) wird, wenn es\n"
 "nicht versionierte Dateien enthält."
 
+# ID:197,
+#: ID:197
+msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
+msgstr "Wenn diese Option nicht markiert ist, wird der Sperrdialog übersprungen und die Dateien werden sofort gesperrt"
+
 # ID:196,
 #: ID:196
 msgid ""
@@ -3415,6 +3420,7 @@ msgstr ""
 
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "Sperre"
 
@@ -5011,6 +5017,11 @@ msgstr "Zeige &nicht versionierte Dateien"
 msgid "Show File List"
 msgstr "Zeige Dateiliste"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "Sperrdialog vor dem Sperren anzeigen"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Ü&bersicht anzeigen"
@@ -5818,6 +5829,15 @@ msgstr ""
 "im Übertragen-Dialog markiert sein.\n"
 "Andernfalls muss TortoiseSVN die Daten nicht-rekursiv übertragen.\n"
 "Dabei ist das Löschen von Verzeichnissen nicht erlaubt."
+
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"Um die Sperre zu stehlen, machen Sie einen Rechtsklick auf den Elternordner und wählen Sie 'Sperre Holen...' aus dem Kontextmenü.\n"
+"Dies wird den Sperr-Dialog anzeigen, mit dessen Hilfe Sie eine Sperre erzwingen und somit von demjenigen, der sie momentan hat, 'stehlen' können."
 
 #: Control-ID:1201
 #: Control-ID:65535
@@ -6742,6 +6762,16 @@ msgstr "Ersetzt"
 #: ID:220
 msgid "respecting ancestry"
 msgstr "Beachte Vorfahren"
+
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "Revision %s-%s, Revision %s-%s"
+
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "Revisionen %s-%s, %s"
 
 #: ID:14
 msgid ""
