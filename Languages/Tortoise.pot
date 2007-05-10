@@ -5429,6 +5429,10 @@ msgstr ""
 msgid "to %s"
 msgstr ""
 
+#: ID:18,
+msgid "tsvn:autoprops\nA list of properties separated by newlines which get applied automatically when adding/importing files.\nFormat: <filemask> = property=value;property=value\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #: ID:17,
 msgid "tsvn:lockmsgminsize\nMinimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
