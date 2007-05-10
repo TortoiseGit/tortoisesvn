@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-04-30 09:31+0100\n"
+"PO-Revision-Date: 2007-05-10 09:58+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -688,6 +688,7 @@ msgstr "&Nou"
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Propers %ld"
 
@@ -971,11 +972,6 @@ msgstr "&Còpia de Treball"
 #: ID:564
 msgid "(binary value)"
 msgstr "(valor binari)"
-
-# ID:219,
-#: ID:219
-msgid "(dry run)"
-msgstr "(simulació)"
 
 # ID:208,
 #: ID:208
@@ -1917,6 +1913,12 @@ msgstr "&Directori d'on Obtenir:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Obté - TortoiseSVN"
 
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Obtenint fitxer de %s, revisió %s, %s, %s"
+
 # ID:146,
 #: ID:146
 msgid "Cleaning up."
@@ -2015,6 +2017,11 @@ msgstr "Marca co&di de colors als canvis de les línies"
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Colors"
+
+# ID:198,
+#: ID:220
+msgid "Command"
+msgstr "Comanda"
 
 # ID:198,
 #: ID:198
@@ -2202,6 +2209,12 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Copia %s"
+
+# ID:226,
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Copiar %s a %s, Revisió %s"
 
 # ID:82,
 #: ID:126
@@ -2751,6 +2764,11 @@ msgstr "No mostrar més aquest missatge "
 msgid "Drive Types"
 msgstr "Tipus d'Unitat"
 
+# Control-ID:1179,
+#: ID:219
+msgid "Dry Run"
+msgstr "Simulació"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "S&urt"
@@ -3032,6 +3050,16 @@ msgstr "Programes externs::Eina de fusió"
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Programes externs::Visualitzador de Diff unificat"
+
+# ID:74,
+#: ID:226
+msgid "Externals excluded"
+msgstr "Externs exclosos"
+
+# ID:74,
+#: ID:226
+msgid "Externals included"
+msgstr "Externs inclosos"
 
 # ID:74,
 #: ID:74
@@ -3633,6 +3661,11 @@ msgstr ""
 "Si està seleccionat, els fitxers sense versionar marcaran l'estat del directori pare com a modificat\n"
 "Per exemple, se'ls hi sobreposarà la icona de modificació."
 
+# ID:197,
+#: ID:197
+msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
+msgstr "Si no es selecciona, el diàlog de bloqueig s'omet i els fitxers seleccionats es bloqueigen immediatament."
+
 # ID:196,
 #: ID:196
 msgid ""
@@ -3676,6 +3709,11 @@ msgstr "Ignora ancestre"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignora &finals de línea (recomanat)"
 
+# ID:15,
+#: ID:226
+msgid "Ignored items included"
+msgstr "Items ignorats inclosos"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3691,6 +3729,12 @@ msgstr "Importa"
 #, c-format
 msgid "Import %ld items"
 msgstr "Importa %ld items"
+
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importa %s a %s%s"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -4010,6 +4054,7 @@ msgstr ""
 # ID:221,
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "Bloqueja"
 
@@ -4215,6 +4260,18 @@ msgstr "Fusiona una branca al tronc principal"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Fusionant"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Merging %s from revision %s to %s into %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Fusionant de %s, revisió %s a %s, revisió %s cap a %s, %s%s"
 
 # ID:83,
 #: ID:83
@@ -4508,6 +4565,11 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Alguns valors del registre (o del fitxer INI) no s'han suprimit."
+
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "No descendent"
 
 # ID:83,
 #: ID:83
@@ -5921,14 +5983,9 @@ msgid "Show &all revisions"
 msgstr "Mostra &totes les revisions"
 
 # ID:115,
-#: ID:113
+#: MenuEntry
 msgid "Show &changes"
 msgstr "Mostra &canvis"
-
-# ID:113,
-#: MenuEntry
-msgid "Show &differences"
-msgstr "Mostra &diferències"
 
 # ID:12,#:
 # ID:101,#:
@@ -5960,9 +6017,19 @@ msgstr "Mostra fitxers se&nse versionar"
 msgid "Show File List"
 msgstr "Mostra Llista de Fitxers"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "Mostra Diàleg de Bloqueig abans de bloqueijar fitxers"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Mostra Vista Gene&ral"
+
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "Mostra una visió general del gràfic complert"
 
 # ID:113,
 #: ID:114
@@ -6253,6 +6320,12 @@ msgstr "Fitxer de servidor Subversion:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Canv&ia còpia de treball a nova branca/etiqueta"
 
+# ID:120,
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Canvia %s a %s, Revisió %s"
+
 # ID:80,#:
 # Control-ID:65535,
 #: ID:78
@@ -6321,8 +6394,8 @@ msgstr "Canvia còpia de treball a una altra branca / etiqueta"
 
 # ID:325,
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "Canvia la comparació  equerra<->dreta"
+msgid "Switches the comparison left<<->right"
+msgstr "Canvia la comparació esquerra<<->dreta"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6576,7 +6649,7 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "El path/URL introduit sembla que no és acceptat pel Windows!\n"
@@ -6800,11 +6873,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Això no és un path vàlid!\n"
-"Un path vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms:\n"
+"Un path vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms de dispositiu:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -6855,6 +6928,15 @@ msgstr ""
 "també són marcats al diàleg d'entrega.\n"
 "Sinó, TortoiseSVN ha de fer una entrega no-recursiva\n"
 "que no permet esborrar directoris."
+
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"Per robar el bloqueig, feu clic amb el botó dret a la carpeta superior d'aquest item i seleccioneu \"Obté Bloqueig\" del menú contextual.\n"
+"Això farà apareixer el diàleg de bloqueig on podeu prendre el bloqueig, o sigui \"robar-lo\"' de qui actualment el poseeix."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -7124,6 +7206,11 @@ msgstr ""
 "Autoritat certificadora desconeguda.\n"
 "  Emprempta: %s\n"
 "  Nom distinguit : %s"
+
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "&Profunditat desconeguda"
 
 # ID:221,
 #: ID:221
@@ -7809,6 +7896,11 @@ msgstr "extern"
 msgid "ignored"
 msgstr "ignorat"
 
+# Control-ID:1267,
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "Ignorant ancestre"
+
 # ID:13,
 #: ID:13
 msgid "incomplete"
@@ -7905,6 +7997,23 @@ msgstr "només de lectura"
 #: ID:10
 msgid "replaced"
 msgstr "substituït"
+
+# Control-ID:1267,
+#: ID:220
+msgid "respecting ancestry"
+msgstr "respectant ancestre"
+
+# ID:120,
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "revisió %s-%s, revisió %s-%s"
+
+# ID:120,
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "revisions %s-%s, %s"
 
 # ID:14,
 #: ID:14
