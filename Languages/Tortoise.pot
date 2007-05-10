@@ -2559,10 +2559,6 @@ msgstr ""
 msgid "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
 msgstr ""
 
-#: ID:197,
-msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
-msgstr ""
-
 #: ID:196,
 msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
 msgstr ""
@@ -5389,6 +5385,10 @@ msgstr ""
 #: ID:326,
 #, c-format
 msgid "revisions %s-%s, %s"
+msgstr ""
+
+#: ID:197,
+msgid "shows a dialog asking for a descriptive message about the locking before every lock attempt"
 msgstr ""
 
 #: ID:14,

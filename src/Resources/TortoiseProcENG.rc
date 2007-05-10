@@ -2781,7 +2781,7 @@ BEGIN
     IDS_SETTINGS_CHECKOUTURL_TT 
                             "The default url to checkout from if nothing else is specified"
     IDS_SETTINGS_SHOWLOCKDLG_TT 
-                            "If unchecked, the lock dialog is skipped and selected files are locked immediately."
+                            "shows a dialog asking for a descriptive message about the locking before every lock attempt"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END
