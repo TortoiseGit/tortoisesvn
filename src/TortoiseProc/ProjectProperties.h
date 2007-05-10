@@ -39,6 +39,7 @@ using namespace regex;
 #define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
 #define PROJECTPROPNAME_USERFILEPROPERTY  _T("tsvn:userfileproperties")
 #define PROJECTPROPNAME_USERDIRPROPERTY   _T("tsvn:userdirproperties")
+#define PROJECTPROPNAME_AUTOPROPS		  _T("tsvn:autoprops")
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     _T("webviewer:revision")
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
@@ -47,7 +48,7 @@ class CTSVNPathList;
 
 /**
  * \ingroup TortoiseProc
- * Provides methods for retrieving information about bug/issuetrackers
+ * Provides methods for retrieving information about bug/issue trackers
  * associated with a Subversion repository/working copy and other project
  * related properties.
  */
@@ -105,6 +106,12 @@ public:
 	 * \param msg the BugID extracted from the log message
 	 */
 	CString GetBugIDUrl(const CString& sBugID);
+
+	/**
+	 * Inserts the tsvn:autoprops into the Subversion config section.
+	 * Call this before an import or an add operation.
+	 */
+	void InsertAutoProps(svn_config_t *cfg);
 
 public:
 	/** The label to show in the commit dialog where the issue number/bug id
@@ -177,6 +184,7 @@ public:
 private:
 	rpattern	patCheckRe;
 	rpattern	patBugIDRe;
+	CString		sAutoProps;
 #ifdef DEBUG
 	friend class PropTest;
 #endif

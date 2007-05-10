@@ -21,6 +21,7 @@
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 #include "SVNGlobal.h"
+#include "ProjectProperties.h"
 
 class CProgressDlg;
 class CTSVNPath;
@@ -172,7 +173,7 @@ public:
 	 *              all unversioned files in it (in combination with \a recurse)
 	 * \param no_ignore if FALSE, then don't add ignored files.
 	 */
-	BOOL Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
+	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
 	/**
 	 * Assigns the files/folders in \c pathList to a \c changelist.
 	 */
@@ -364,14 +365,14 @@ public:
 	 * \param recurse 
 	 * \param no_ignore	If no_ignore is FALSE, don't add files or directories that match ignore patterns.
 	 */
-	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse, BOOL no_ignore);
+	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, BOOL recurse, BOOL no_ignore);
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either
 	 * working-copy paths or URLs.
 	 *
 	 * By "merging", we mean:  apply file differences and schedule 
-	 * additions & deletions when appopriate.
+	 * additions & deletions when appropriate.
 	 *
 	 * path1 and path2 must both represent the same node kind -- that is,
 	 * if path1 is a directory, path2 must also be, and if path1 is a

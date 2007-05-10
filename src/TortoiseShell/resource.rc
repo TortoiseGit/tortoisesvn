@@ -371,6 +371,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_MENUDESCREMOVEKEEP  "Deletes files / folders from version control but keeps the file"
+    IDS_TT_TSVNAUTOPROPS    "tsvn:autoprops\nA list of properties separated by newlines which get applied automatically when adding/importing files.\nFormat: <filemask> = property=value;property=value\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 END
 
 #endif    // English (U.S.) resources

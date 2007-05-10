@@ -721,6 +721,9 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Import, dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : 0, pathList, dlg.m_url, dlg.m_sMessage);
+				ProjectProperties props;
+				props.ReadPropsPathList(pathList);
+				progDlg.SetProjectProperties(props);
 				progDlg.DoModal();
 			}
 		}
@@ -875,6 +878,9 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, dlg.m_pathList);
+				ProjectProperties props;
+				props.ReadPropsPathList(dlg.m_pathList);
+				progDlg.SetProjectProperties(props);
 				progDlg.DoModal();
 			}
 		}
@@ -1519,7 +1525,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			CSVNProgressDlg progDlg;
 			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			m_pMainWnd = &progDlg;
+
 			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, copiedFiles);
+			ProjectProperties props;
+			props.ReadPropsPathList(copiedFiles);
+			progDlg.SetProjectProperties(props);
 			progDlg.DoModal();
 		}
 		//#endregion

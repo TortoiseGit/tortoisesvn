@@ -303,7 +303,7 @@ void CCommitDlg::OnOK()
 	// are added before their children
 	itemsToAdd.SortByPathname();
 	SVN svn;
-	svn.Add(itemsToAdd, FALSE);
+	svn.Add(itemsToAdd, &m_ProjectProperties, FALSE);
 
 	// Remove any missing items
 	// Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point
@@ -634,7 +634,7 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 		// if the item was not unversioned, the add will fail but nothing
 		// more will happen.
 		SVN svn;
-		svn.Add(CTSVNPathList(path), false, false, true);
+		svn.Add(CTSVNPathList(path), &m_ProjectProperties, false, false, true);
 		if (m_pathList.AreAllPathsFiles())
 		{
 			m_pathList.AddPath(path);

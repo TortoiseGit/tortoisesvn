@@ -72,6 +72,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundUserDirProps = FALSE;
 	BOOL bFoundWebViewRev = FALSE;
 	BOOL bFoundWebViewPathRev = FALSE;
+	BOOL bFoundAutoProps = FALSE;
 
 	if (!path.IsDirectory())
 		path = path.GetContainingDirectory();
@@ -231,6 +232,12 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				sDPPath.Replace(_T("\r\n"), _T("\n"));
 				bFoundUserDirProps = TRUE;
 			}
+			if ((!bFoundAutoProps)&&(sPropName.Compare(PROJECTPROPNAME_AUTOPROPS)==0))
+			{
+				sAutoProps = sPropVal;
+				sAutoProps.Replace(_T("\r\n"), _T("\n"));
+				bFoundAutoProps = TRUE;
+			}
 			if ((!bFoundWebViewRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
 			{
 				sWebViewerRev = sPropVal;
@@ -250,7 +257,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
-				| bFoundUserFileProps | bFoundUserDirProps
+				| bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
 				| bFoundWebViewRev | bFoundWebViewPathRev)
 				return TRUE;
 			return FALSE;
@@ -760,6 +767,40 @@ BOOL ProjectProperties::HasBugID(const CString& sMessage)
 		catch (bad_regexpr) {}
 	}
 	return FALSE;
+}
+
+void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
+{
+	// every line is an autoprop
+	CString sPropsData = sAutoProps;
+	bool bEnableAutoProps = false;
+	while (!sPropsData.IsEmpty())
+	{
+		int pos = sPropsData.Find('\n');
+		CString sLine = pos >= 0 ? sPropsData.Left(pos) : sPropsData;
+		sLine.Trim();
+		if (!sLine.IsEmpty())
+		{
+			// format is '*.something = property=value;property=value;....'
+			// find first '=' char
+			int equalpos = sLine.Find('=');
+			if ((equalpos >= 0)&&(sLine[0] != '#'))
+			{
+				CString key = sLine.Left(equalpos);
+				CString value = sLine.Mid(equalpos);
+				key.Trim(_T(" ="));
+				value.Trim(_T(" ="));
+				svn_config_set(cfg, SVN_CONFIG_SECTION_AUTO_PROPS, (LPCSTR)CUnicodeUtils::GetUTF8(key), (LPCSTR)CUnicodeUtils::GetUTF8(value));
+				bEnableAutoProps = true;
+			}
+		}
+		if (pos >= 0)
+			sPropsData = sPropsData.Mid(pos).Trim();
+		else
+			sPropsData.Empty();
+	}
+	if (bEnableAutoProps)
+		svn_config_set(cfg, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, "yes");
 }
 
 #ifdef DEBUG

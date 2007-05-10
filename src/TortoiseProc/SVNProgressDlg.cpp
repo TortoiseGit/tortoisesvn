@@ -747,7 +747,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
 				m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
 			ReportCmd(sCmdInfo);
-			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
+			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, true, m_options & ProgOptIncludeIgnored ? true : false))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -965,7 +965,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Add(m_targetPathList, false, FALSE, TRUE))
+		if (!m_pSvn->Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE))
 		{
 			ReportSVNError();
 			bFailed = true;

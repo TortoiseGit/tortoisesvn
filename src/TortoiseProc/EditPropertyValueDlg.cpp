@@ -114,6 +114,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
 		m_PropNames.AddString(_T("tsvn:userfileproperties"));
 		m_PropNames.AddString(_T("tsvn:userdirproperties"));
+		m_PropNames.AddString(_T("tsvn:autoprops"));
 
 		m_PropNames.AddString(_T("webviewer:revision"));
 		m_PropNames.AddString(_T("webviewer:pathrevision"));
@@ -288,6 +289,8 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfolderproperties"))==0)
 			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+		if (sName.Compare(_T("tsvn:autoprops"))==0)
+			nText = IDS_TT_TSVNAUTOPROPS;
 
 		if (sName.Compare(_T("webviewer:revision"))==0)
 			nText = IDS_TT_WEBVIEWERREVISION;

@@ -20,6 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
+#include "ProjectProperties.h"
 #include "SVN.h"
 #include "Colors.h"
 #include "afxwin.h"
@@ -144,7 +145,7 @@ public:
 	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
 	void SetDepth(svn_depth_t depth = svn_depth_unknown) {m_depth = depth;}
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
-
+	void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
 	
 	CString BuildInfoString();
@@ -221,6 +222,8 @@ private:
 
 	typedef std::vector<NotificationData *> NotificationDataVect;
 	NotificationDataVect	m_arData;
+
+	ProjectProperties m_ProjectProperties;
 
 	CListCtrl	m_ProgList;
 	CWinThread* m_pThread;
