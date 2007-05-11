@@ -193,6 +193,22 @@
 				</listitem>
 				<listitem>
 					<para>
+						Subversion allows you to set <quote>autoprops</quote> which
+						will be applied to newly added or imported files, based on
+						the file extension. This depends on every client having set
+						appropriate autoprops in their subversion config file.
+						<literal>tsvn:autoprops</literal> can be set on folders
+						and these will be merged with the user's local autoprops
+						when importing or adding files.
+					</para>
+					<para>
+						If there is a conflict between the local autoprops and
+						<literal>tsvn:autoprops</literal>, the project settings take
+						precedence because they are specific to that project.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						In the Commit dialog you have the option to paste in the
 						list of changed files, including the status of each file
 						(added, modified, etc).
@@ -279,5 +295,16 @@
 			It can also integrate with some web-based repository browsers.
 			Read <xref linkend="tsvn-dug-repoviewer"/> for further information.
 		</para>
+		<caution>
+			<para>
+				Although the <literal>tsvn:xxx</literal> properties are extremely useful,
+				they only work with TortoiseSVN, and some will only work in newer versions
+				of TortoiseSVN. If people working on your project use a variety of
+				Subversion clients, or possibly have old versions of TortoiseSVN,
+				you may want to use repository hooks to enforce project policies.
+				<literal>tsvn:</literal> properties can only help to implement a
+				policy, they cannot enforce it.
+			</para>
+		</caution>
 	</sect2>
 </sect1>
