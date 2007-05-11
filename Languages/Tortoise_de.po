@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-10 12:42+0100\n"
+"PO-Revision-Date: 2007-05-11 10:01+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3072,11 +3072,6 @@ msgstr ""
 "Aktivieren Sie diese Option, damit das übergeordnete Verzeichnis als\n"
 "modifiziert markiert (erhält das 'modifiziert' Symbol) wird, wenn es\n"
 "nicht versionierte Dateien enthält."
-
-# ID:197,
-#: ID:197
-msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
-msgstr "Wenn diese Option nicht markiert ist, wird der Sperrdialog übersprungen und die Dateien werden sofort gesperrt"
 
 # ID:196,
 #: ID:196
@@ -6773,6 +6768,11 @@ msgstr "Revision %s-%s, Revision %s-%s"
 msgid "revisions %s-%s, %s"
 msgstr "Revisionen %s-%s, %s"
 
+# ID:197,
+#: ID:197
+msgid "shows a dialog asking for a descriptive message about the locking before every lock attempt"
+msgstr "Zeigt einen Dialog, der eine Beschreibung des Grundes für das Sperren anfordert, bevor eine Datei gesperrt wird."
+
 #: ID:14
 msgid ""
 "svn:eol-style\n"
@@ -6872,6 +6872,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "nach %s"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"Eine durch Zeilenumbrüche getrennte Liste von Eigenschaften, die automatisch gesetzt werden, wenn Dateien hinzugefügt oder importiert werden.\n"
+"Format: <Dateimaske> = Eigenschaft=Wert;Eigenschaft=Wert\n"
+"Beispiel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #: ID:17
 msgid ""
