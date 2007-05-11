@@ -1872,7 +1872,7 @@ BEGIN
     IDS_PROGRS_TITLE_MERGE  "Merge - TortoiseSVN"
     IDS_PROGRS_TITLE_COPY   "Copy - TortoiseSVN"
     IDS_PROGRS_MIMETYPE     "Mime type"
-    IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
+    IDS_PROGRS_COPY_WARNING "Please note:\nYour working copy remains on the previous path. If you want your next changes\nto be committed to the copy or branch you have just created,\nthen you need to switch your working copy over to the new URL.\nUse the Switch command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
                             "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
     IDS_PROGRS_REVERTMARKERS 
@@ -2779,9 +2779,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_CHECKOUTURL_TT 
-                            "The default url to checkout from if nothing else is specified"
+                            "The default URL to checkout from if nothing else is specified"
     IDS_SETTINGS_SHOWLOCKDLG_TT 
-                            "shows a dialog asking for a descriptive message about the locking before every lock attempt"
+                            "When locking one or more selected files, shows a dialog\nasking for a descriptive message about the locking"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END
@@ -2822,7 +2822,7 @@ BEGIN
     IDS_SVNPROGRESS_EXPORTINGTO "to %s"
     IDS_SVNPROGRESS_EXPORTINGWAIT "Gathering information. Please wait..."
     IDS_SVNPROGRESS_LOCKHINT 
-                            "To steal the lock, right-click on the parent folder of this item and select ""Get Lock"" from the context menu.\nthis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+                            "To steal the lock, right-click on the parent folder of this item and select ""Get Lock"" from the context menu.\nThis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 END
 
 STRINGTABLE 
