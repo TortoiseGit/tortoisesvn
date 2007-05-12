@@ -3372,7 +3372,7 @@ msgid "Please execute the \"Cleanup\" command."
 msgstr ""
 
 #: ID:78,
-msgid "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
+msgid "Please note:\nYour working copy remains on the previous path. If you want your next changes\nto be committed to the copy or branch you have just created,\nthen you need to switch your working copy over to the new URL.\nUse the Switch command to do that."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
@@ -4301,6 +4301,10 @@ msgstr ""
 msgid "Specify the revision range which you want to merge:"
 msgstr ""
 
+#: ID:376,
+msgid "Split lines"
+msgstr ""
+
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
 msgstr ""
@@ -4486,12 +4490,12 @@ msgstr ""
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr ""
 
-#: ID:196,
-msgid "The default path to checkout to if nothing else is specified"
+#: ID:197,
+msgid "The default URL to checkout from if nothing else is specified"
 msgstr ""
 
-#: ID:197,
-msgid "The default url to checkout from if nothing else is specified"
+#: ID:196,
+msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 
 #: ID:68,
@@ -4720,7 +4724,7 @@ msgid "To commit recursively and work around this error,\nmake sure that all chi
 msgstr ""
 
 #: ID:284,
-msgid "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\nthis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgid "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\nThis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 
 #: Control-ID:1201,#: Control-ID:65535,
@@ -5077,6 +5081,10 @@ msgstr ""
 msgid "Warning!"
 msgstr ""
 
+#: ID:197,
+msgid "When locking one or more selected files, shows a dialog\nasking for a descriptive message about the locking"
+msgstr ""
+
 #: ID:146,
 msgid "With URL:"
 msgstr ""
@@ -5385,10 +5393,6 @@ msgstr ""
 #: ID:326,
 #, c-format
 msgid "revisions %s-%s, %s"
-msgstr ""
-
-#: ID:197,
-msgid "shows a dialog asking for a descriptive message about the locking before every lock attempt"
 msgstr ""
 
 #: ID:14,

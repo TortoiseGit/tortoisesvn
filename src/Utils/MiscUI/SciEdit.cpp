@@ -67,12 +67,11 @@ struct loc_map enc2locale[] = {
 
 IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
 
-CSciEdit::CSciEdit(void)
+CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
+	, m_DirectPointer(NULL)
+	, pChecker(NULL)
+	, pThesaur(NULL)
 {
-	m_DirectFunction = 0;
-	m_DirectPointer = 0;
-	pChecker = 0;
-	pThesaur = 0;
 	m_hModule = ::LoadLibrary(_T("SciLexer.DLL"));
 }
 
@@ -550,6 +549,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 			CheckSpelling();
 			MarkEnteredBugID(startstylepos, endstylepos);
 			StyleEnteredText(startstylepos, endstylepos);
+			WrapLines(startstylepos, endstylepos);
 			return TRUE;
 			break;
 		}
@@ -711,6 +711,11 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 		popup.AppendMenu(MF_SEPARATOR);
 
+		sMenuItemText.LoadString(IDS_SCIEDIT_SPLITLINES);
+		popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_LINESSPLIT, sMenuItemText);
+
+		popup.AppendMenu(MF_SEPARATOR);
+
 		int nCustoms = nCorrections;
 		// now add any custom context menus
 		for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
@@ -794,6 +799,17 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case SCI_ADDWORD:
 			m_personalDict.AddWord(sWord);
 			CheckSpelling();
+			break;
+		case SCI_LINESSPLIT:
+			{
+				int marker = Call(SCI_GETEDGECOLUMN) * Call(SCI_TEXTWIDTH, 0, (LPARAM)" ");
+				if (marker)
+				{
+					Call(SCI_TARGETFROMSELECTION);
+					Call(SCI_LINESJOIN);
+					Call(SCI_LINESSPLIT, marker);
+				}
+			}
 			break;
 		default:
 			if (cmd < nCorrections)
@@ -885,6 +901,19 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 		delete linebuffer;
 	}
 	return bStyled;
+}
+
+bool CSciEdit::WrapLines(int startpos, int endpos)
+{
+	int markerX = Call(SCI_GETEDGECOLUMN) * Call(SCI_TEXTWIDTH, 0, (LPARAM)" ");
+	if (markerX)
+	{
+		Call(SCI_SETTARGETSTART, startpos);
+		Call(SCI_SETTARGETEND, endpos);
+		Call(SCI_LINESSPLIT, markerX);
+		return true;
+	}
+	return false;
 }
 
 void CSciEdit::AdvanceUTF8(const char * str, int& pos)

@@ -101,7 +101,7 @@ public:
 	 */
 	void		InsertText(const CString& sText, bool bNewLine = false);
 	/**
-	 * Retreives the text in the scintilla control.
+	 * Retrieves the text in the scintilla control.
 	 */
 	CString		GetText(void);
 	/**
@@ -145,6 +145,7 @@ protected:
 	BOOL		LoadDictionaries(LONG lLanguageID);
 	BOOL		MarkEnteredBugID(int startstylepos, int endstylepos);
 	bool		StyleEnteredText(int startstylepos, int endstylepos);
+	bool		WrapLines(int startpos, int endpos);
 	bool		FindStyleChars(const char * line, char styler, int& start, int& end);
 	void		AdvanceUTF8(const char * str, int& pos);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
