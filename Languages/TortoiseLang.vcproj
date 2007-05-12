@@ -19,8 +19,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
+			OutputDirectory="..\bin\Debug\bin"
+			IntermediateDirectory="..\obj\TortoiseLang\Debug"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -29,6 +29,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+				CommandLine="..\bin\release\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll Tortoise.pot&#x0D;&#x0A;"
+				Outputs="Tortoise.pot"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -162,8 +164,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
+			OutputDirectory="..\bin\release\bin"
+			IntermediateDirectory="..\obj\TortoiseLang\Release"
 			ConfigurationType="1"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
@@ -173,7 +175,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll Tortoise.pot"
+				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll Tortoise.pot&#x0D;&#x0A;"
 				Outputs="Tortoise.pot"
 			/>
 			<Tool
