@@ -31,6 +31,7 @@ CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 	, m_bStealLocks(FALSE)
 	, m_pThread(NULL)
 	, m_bCancelled(false)
+	, m_ProjectProperties(NULL)
 {
 }
 
@@ -68,8 +69,8 @@ BOOL CLockDlg::OnInitDialog()
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
 	m_cFileList.SetBackgroundImage(IDI_LOCK);
-	m_ProjectProperties.ReadPropsPathList(m_pathList);
-	m_cEdit.Init(m_ProjectProperties);
+	if (m_ProjectProperties)
+		m_cEdit.Init(*m_ProjectProperties);
 	m_cEdit.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	if (!m_sLockMessage.IsEmpty())
@@ -189,7 +190,7 @@ UINT CLockDlg::StatusThread()
 	SetCursorPos(pt.x, pt.y);
 	CString logmsg;
 	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(logmsg);
-	DialogEnableWindow(IDOK, m_ProjectProperties.nMinLockMsgSize <= logmsg.GetLength());
+	DialogEnableWindow(IDOK, m_ProjectProperties ? m_ProjectProperties->nMinLockMsgSize <= logmsg.GetLength() : TRUE);
 	m_bBlock = FALSE;
 	return 0;
 }
@@ -246,7 +247,7 @@ void CLockDlg::OnEnChangeLockmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_ProjectProperties.nMinLockMsgSize)
+	if ((m_ProjectProperties)&&(sTemp.GetLength() >= m_ProjectProperties->nMinLockMsgSize))
 	{
 		if (!m_bBlock)
 			DialogEnableWindow(IDOK, TRUE);

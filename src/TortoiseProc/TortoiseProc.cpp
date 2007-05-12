@@ -2171,7 +2171,9 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CLockDlg lockDlg;
 			lockDlg.m_pathList = pathList;
-			if (pathList.AreAllPathsFiles() && !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)))
+			ProjectProperties props;
+			props.ReadPropsPathList(pathList);
+			if (pathList.AreAllPathsFiles() && !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)) && !props.nMinLockMsgSize)
 			{
 				// just lock the requested files
 				CSVNProgressDlg progDlg;

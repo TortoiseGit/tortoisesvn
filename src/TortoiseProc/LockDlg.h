@@ -39,7 +39,7 @@ public:
 	CLockDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLockDlg();
 
-
+	void	SetProjectProperties(ProjectProperties * pProps) {m_ProjectProperties = pProps;}
 private:
 	static UINT StatusThreadEntry(LPVOID pVoid);
 	UINT StatusThread();
@@ -68,7 +68,7 @@ private:
 	BOOL				m_bBlock;
 	CSVNStatusListCtrl	m_cFileList;
 	CSciEdit			m_cEdit;
-	ProjectProperties	m_ProjectProperties;
+	ProjectProperties *	m_ProjectProperties;
 	bool				m_bCancelled;
 	CBalloon			m_tooltips;
 	CButton				m_SelectAll;
