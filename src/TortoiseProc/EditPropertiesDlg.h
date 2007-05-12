@@ -33,6 +33,7 @@ public:
 	virtual ~CEditPropertiesDlg();
 
 	void	SetPathList(const CTSVNPathList& pathlist) {m_pathlist = pathlist;}
+	void	SetRevision(const SVNRev& rev) {m_revision = rev;}
 	void	Refresh();
 	bool	HasChanged() {return m_bChanged;}
 
@@ -78,4 +79,5 @@ protected:
 	bool			m_bChanged;
 	volatile LONG	m_bThreadRunning;
 	std::map<stdstring, PropValue>	m_properties;
+	SVNRev			m_revision;
 };
