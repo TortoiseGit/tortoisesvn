@@ -23,6 +23,7 @@
 #include "InputLogDlg.h"
 #include "LogDlg.h"
 #include "PropDlg.h"
+#include "EditPropertiesDlg.h"
 #include "Blame.h"
 #include "BlameDlg.h"
 #include "WaitCursorEx.h"
@@ -2573,10 +2574,25 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_PROPS:
 			{
-				CPropDlg dlg;
-				dlg.m_rev = GetRevision();
-				dlg.m_Path = CTSVNPath(EscapeUrl(urlList[0]));
-				dlg.DoModal();
+				if (GetRevision().IsHead())
+				{
+					CEditPropertiesDlg dlg;
+					CTSVNPathList escapedlist;
+					for (int i=0; i<urlList.GetCount(); ++i)
+					{
+						escapedlist.AddPath(CTSVNPath(EscapeUrl(urlList[i])));
+					}
+					dlg.SetPathList(escapedlist);
+					dlg.SetRevision(GetHEADRevision(urlList[0]));
+					dlg.DoModal();
+				}
+				else
+				{
+					CPropDlg dlg;
+					dlg.m_rev = GetRevision();
+					dlg.m_Path = CTSVNPath(EscapeUrl(urlList[0]));
+					dlg.DoModal();
+				}
 			}
 			break;
 		case ID_BLAME:
