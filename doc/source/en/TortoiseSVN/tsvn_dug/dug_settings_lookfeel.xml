@@ -465,14 +465,29 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Sort items numerically</term>
+				<term>Show Lock dialog before locking files</term>
 				<listitem>
 					<para>
-						The repository browser can use a more intelligent sorting
-						algorithm which handles paths containing numbers better than
-						a plain ascii sort. This is sometimes useful for getting
-						version number tags in the correct order. This option controls
-						the default sort type used.
+						When you select one or more files and then use
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Lock</guimenuitem>
+						</menuchoice>
+						to take out a lock on those files, on some projects it is
+						customary to write a lock message explaining why you have
+						locked the files. If you do not use lock messages, you can
+						uncheck this box to skip that dialog and lock the files
+						immediately.
+					</para>
+					<para>
+						If you use the lock command on a folder, you are always
+						presented with the lock dialog as that also gives you the
+						option to select files for locking.
+					</para>
+					<para>
+						If your project is using the <literal>tsvn:lockmsgminsize</literal>
+						property, you will see the lock dialog regardless of this setting
+						because the project <emphasis>requires</emphasis> lock messages.
 					</para>
 				</listitem>
 			</varlistentry>
