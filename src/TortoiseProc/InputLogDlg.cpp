@@ -29,6 +29,7 @@ IMPLEMENT_DYNAMIC(CInputLogDlg, CResizableStandAloneDialog)
 
 CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
+	, m_pProjectProperties(NULL)
 {
 
 }
