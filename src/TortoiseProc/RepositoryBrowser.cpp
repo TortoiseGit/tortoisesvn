@@ -1147,10 +1147,25 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 	if (m_blockEvents)
 		return;
 
+	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
+
+	if (pNMTreeView->action == TVE_COLLAPSE)
+	{
+		// user wants to collapse a tree node.
+		// if we don't know anything about the children
+		// of the node, we suppress the collapsing but fetch the info instead
+		if (!pTreeItem->children_fetched)
+		{
+			RefreshNode(pNMTreeView->itemNew.hItem);
+			*pResult = 1;
+			return;
+		}
+		return;
+	}
+
 	// user wants to expand a tree node.
 	// check if we already know its children - if not we have to ask the repository!
 
-	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
 	if (!pTreeItem->children_fetched)
 	{
 		RefreshNode(pNMTreeView->itemNew.hItem);
