@@ -32,10 +32,10 @@ int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
 	{ ShellMenuCheckout,					MENUCHECKOUT,		IDI_CHECKOUT,			IDS_MENUCHECKOUT,			IDS_MENUDESCCHECKOUT,
-	ITEMIS_FOLDER, ITEMIS_INSVN,	0, 0, 0, 0, 0, 0 },
+	ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_FOLDERINSVN, 0, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuUpdate,						MENUUPDATE,			IDI_UPDATE,				IDS_MENUUPDATE,				IDS_MENUDESCUPDATE,				
-	ITEMIS_INSVN,	ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN,	ITEMIS_ADDED, ITEMIS_FOLDERINSVN, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuCommit,						MENUCOMMIT,			IDI_COMMIT,				IDS_MENUCOMMIT,				IDS_MENUDESCCOMMIT,
 	ITEMIS_INSVN, 0, 0, 0, 0, 0, 0, 0 },
@@ -46,7 +46,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_NORMAL|ITEMIS_FOLDER|ITEMIS_EXTENDED, ITEMIS_TWO, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuUrlDiff,						MENUURLDIFF,		IDI_DIFF,				IDS_MENUURLDIFF,			IDS_MENUDESCURLDIFF,
-	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, 0, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, 0, ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuLog,							MENULOG,			IDI_LOG,				IDS_MENULOG,				IDS_MENUDESCLOG,
 	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED, ITEMIS_FOLDER|ITEMIS_FOLDERINSVN, ITEMIS_ADDED, 0, 0, 0, 0 },
@@ -69,7 +69,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	ITEMIS_INSVN|ITEMIS_CONFLICTED, 0, ITEMIS_INSVN|ITEMIS_FOLDER, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuUpdateExt,					MENUUPDATEEXT,		IDI_UPDATE,				IDS_MENUUPDATEEXT,			IDS_MENUDESCUPDATEEXT,
-	ITEMIS_INSVN, ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN, ITEMIS_ADDED, ITEMIS_FOLDERINSVN, ITEMIS_ADDED, 0, 0, 0, 0 },
 
 	{ ShellMenuRename,						MENURENAME,			IDI_RENAME,				IDS_MENURENAME,				IDS_MENUDESCRENAME,
 	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_INVERSIONEDFOLDER, ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
@@ -81,16 +81,16 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	ITEMIS_INSVN|ITEMIS_INVERSIONEDFOLDER|ITEMIS_EXTENDED, ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuRevert,						MENUREVERT,			IDI_REVERT,				IDS_MENUREVERT,				IDS_MENUDESCREVERT,
-	ITEMIS_INSVN, ITEMIS_NORMAL, ITEMIS_FOLDER|ITEMIS_FOLDERINSVN, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN, ITEMIS_NORMAL, ITEMIS_FOLDERINSVN, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuDelUnversioned,				MENUDELUNVERSIONED,	IDI_DELUNVERSIONED,		IDS_MENUDELUNVERSIONED,		IDS_MENUDESCDELUNVERSIONED,
-	ITEMIS_FOLDER|ITEMIS_INSVN|ITEMIS_EXTENDED, 0, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_FOLDER|ITEMIS_INSVN|ITEMIS_EXTENDED, 0, ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuCleanup,						MENUCLEANUP,		IDI_CLEANUP,			IDS_MENUCLEANUP,			IDS_MENUDESCCLEANUP,
-	ITEMIS_INSVN|ITEMIS_FOLDER, 0, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN|ITEMIS_FOLDER, 0, ITEMIS_FOLDERINSVN|ITEMIS_FOLDER, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuLock,						MENULOCK,			IDI_LOCK,				IDS_MENU_LOCK,				IDS_MENUDESC_LOCK,
-	ITEMIS_INSVN, ITEMIS_LOCKED|ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN, ITEMIS_LOCKED|ITEMIS_ADDED, ITEMIS_FOLDERINSVN, ITEMIS_LOCKED|ITEMIS_ADDED, 0, 0, 0, 0 },
 
 	{ ShellMenuUnlock,						MENUUNLOCK,			IDI_UNLOCK,				IDS_MENU_UNLOCK,			IDS_MENUDESC_UNLOCK,
 	ITEMIS_INSVN|ITEMIS_LOCKED, 0, ITEMIS_FOLDER, ITEMIS_EXTENDED, 0, 0, 0, 0 },
@@ -473,7 +473,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 		{
-			itemStates |= (ITEMIS_INSVN|ITEMIS_FOLDERINSVN);
+			itemStates |= ITEMIS_FOLDERINSVN;
 		}
 		if (status == svn_wc_status_ignored)
 			itemStates |= ITEMIS_IGNORED;
@@ -715,6 +715,9 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 		return NOERROR;
 
+	if (folder_.size()  == 0)
+		return NOERROR;					// no target? this should never happen, but we shouldn't crash anyway just because we can't handle this.
+
 	//the drop handler only has eight commands, but not all are visible at the same time:
 	//if the source file(s) are under version control then those files can be moved
 	//to the new location or they can be moved with a rename, 
@@ -722,21 +725,21 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	//if they are versioned, they also can be exported to an unversioned location
 	UINT idCmd = idCmdFirst;
 
-	if ((itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_INSVN))&&((~itemStates) & ITEMIS_ADDED))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&((itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED)))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, ShellMenuDropMove);
-	if ((itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_INSVN|ITEMIS_ONLYONE))&&((~itemStates) & ITEMIS_ADDED))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & (ITEMIS_INSVN|ITEMIS_ONLYONE))&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVERENAMEMENU, 0, idCmdFirst, ShellMenuDropMoveRename);
-	if ((itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_INSVN))&&((~itemStates) & ITEMIS_ADDED))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, ShellMenuDropCopy);
-	if ((itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_INSVN|ITEMIS_ONLYONE))&&((~itemStates) & ITEMIS_ADDED))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & (ITEMIS_INSVN|ITEMIS_ONLYONE))&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYRENAMEMENU, 0, idCmdFirst, ShellMenuDropCopyRename);
-	if ((itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_INSVN))&&((~itemStates) & ITEMIS_ADDED))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&((~itemStates) & ITEMIS_INSVN))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, ShellMenuDropCopyAdd);
-	if (itemStates & ITEMIS_INSVN)
+	if (((itemStates & ITEMIS_FOLDERINSVN)==0)&&(itemStates & ITEMIS_INSVN))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, ShellMenuDropExport);
-	if (itemStates & ITEMIS_INSVN)
+	if (((itemStates & ITEMIS_FOLDERINSVN)==0)&&(itemStates & ITEMIS_INSVN))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended);
-	if (itemStates & (ITEMIS_FOLDERINSVN|ITEMIS_PATCHFILE))
+	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_PATCHFILE))
 		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_MENUAPPLYPATCH, 0, idCmdFirst, ShellMenuApplyPatch);
 	if (idCmd != idCmdFirst)
 		InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
