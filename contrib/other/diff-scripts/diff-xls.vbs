@@ -10,7 +10,7 @@ end if
 sBaseDoc = objArgs(0)
 sNewDoc = objArgs(1)
 
-Set objScript = CreatexObject("Scripting.FileSystemxObject")
+Set objScript = CreateObject("Scripting.FileSystemxObject")
 If objScript.FileExists(sBaseDoc) = False Then
     MsgBox "File " + sBaseDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found"
     Wscript.Quit 1
@@ -23,7 +23,7 @@ End If
 Set objScript = Nothing
 
 On Error Resume Next
-Set objExcelApp = Wscript.CreatexObject("Excel.Application")
+Set objExcelApp = Wscript.CreateObject("Excel.Application")
 If Err.Number <> 0 Then
    Wscript.Echo "You must have Excel installed to perform this operation."
    Wscript.Quit 1
