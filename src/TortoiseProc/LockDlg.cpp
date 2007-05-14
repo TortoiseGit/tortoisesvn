@@ -71,6 +71,8 @@ BOOL CLockDlg::OnInitDialog()
 	m_cFileList.SetBackgroundImage(IDI_LOCK);
 	if (m_ProjectProperties)
 		m_cEdit.Init(*m_ProjectProperties);
+	else
+		m_cEdit.Init();
 	m_cEdit.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	if (!m_sLockMessage.IsEmpty())
