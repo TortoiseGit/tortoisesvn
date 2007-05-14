@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9321
+# Based on Tortoise.pot r9380
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-07 11:51+0100\n"
+"PO-Revision-Date: 2007-05-14 18:18+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2848,7 +2848,7 @@ msgstr "Lokal status"
 msgid "Location where the contents of the\nrepository URL will be saved to."
 msgstr "Den placering, hvor indholdet af\nversionsarkiv-URL'en vil blive gemt."
 
-#: ID:207,#: ID:221,
+#: ID:207,#: ID:221,#: Control-ID:65535,
 msgid "Lock"
 msgstr "Lås"
 
@@ -3453,8 +3453,8 @@ msgid "Please execute the \"Cleanup\" command."
 msgstr "Udfør venligst kommandoen \"Ryd op\"."
 
 #: ID:78,
-msgid "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
-msgstr "Bemærk:\nDin arbejdskopi forbliver på den samme sti. Hvis du ønsker at dine fremtidige ændringer\nskal være i den nyoprettede kopi, skal du skifte over\npå stien for kopien. Brug kommandoen Skift for at gøre dette."
+msgid "Please note:\nYour working copy remains on the previous path. If you want your next changes\nto be committed to the copy or branch you have just created,\nthen you need to switch your working copy over to the new URL.\nUse the Switch command to do that."
+msgstr "Bemærk:\nDin arbejdskopi forbliver på den samme sti. Hvis du ønsker at dine fremtidige ændringer\nskal arkiveres i den nyoprettede kopi eller forgrening,\nskal du skifte over på URL'en for kopien.\nBrug kommandoen Skift for at gøre dette."
 
 #: ID:3858,#: ID:3858,
 msgid "Please select a button."
@@ -4270,6 +4270,10 @@ msgstr "Vis &ikke-versionerede filer"
 msgid "Show File List"
 msgstr "Vis filliste"
 
+#: Control-ID:1126,
+msgid "Show Lock dialog before locking files"
+msgstr "Vis låsedialog før låsning af filer"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Vis ove&rsigt"
@@ -4388,6 +4392,10 @@ msgstr "Angiv de filer eller mapper, som TortoiseSVN\nskal ignorere i <b>alle</b
 #: Control-ID:65535,
 msgid "Specify the revision range which you want to merge:"
 msgstr "Angiv revisions-intervallet, som skal flettes:"
+
+#: ID:376,
+msgid "Split lines"
+msgstr "Bryd linjer"
 
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
@@ -4577,13 +4585,13 @@ msgstr "\"Chunk size\" svarer ikke til antallet af tilføjede/fjernede linjer!"
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "\"Chunk start\" \"@@\" var forventet i linje %d!"
 
+#: ID:197,
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "Standard-URL'en, der skal hentes arbejdskopi fra, hvis intet andet er angivet."
+
 #: ID:196,
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Standard-stien, der skal hentes arbejdskopi fra, hvis intet andet er angivet."
-
-#: ID:197,
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "Standard-URL'en, der skal hentes arbejdskopi fra, hvis intet andet er angivet."
 
 #: ID:68,
 #, c-format
@@ -4809,6 +4817,10 @@ msgstr "Denne egenskab må ikke indeholde flere linjer. Der tillades kun én lin
 #: ID:224,
 msgid "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
 msgstr "For at arkivere rekursivt og omgå denne fejl\nskal du sørge for at alle emner inde i en valgt mappe\nog også er valgt i arkivér-dialogen.\nEllers skal TortoiseSVN lave en ikke-rekursiv arkivering,\nsom ikke tillader sletning af mapper."
+
+#: ID:284,
+msgid "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\nThis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr "For at stjæle låsen skal du højreklikke på mappen over emnet og vælge \"Tag lås\" fra kontekstmenuen.\nDette vil vise låsedialogen, hvor du kan gennemtvinge låsen, dvs. 'stjæle' den fra den, som ellers har taget den."
 
 #: Control-ID:1201,#: Control-ID:65535,
 msgid "To:"
@@ -5168,6 +5180,10 @@ msgstr "Advarsel"
 msgid "Warning!"
 msgstr "Advarsel!"
 
+#: ID:197,
+msgid "When locking one or more selected files, shows a dialog\nasking for a descriptive message about the locking"
+msgstr "Ved låsning af én eller flere filer vises dialogen\nhvor der kan indtastes en beskrivende besked om låsningen"
+
 #: ID:146,
 msgid "With URL:"
 msgstr "Med URL:"
@@ -5471,6 +5487,16 @@ msgstr "erstattet"
 msgid "respecting ancestry"
 msgstr "respekterer forældreskab"
 
+#: ID:326,
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "revision %s-%s, revision %s-%s"
+
+#: ID:326,
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "revisioner %s-%s, %s"
+
 #: ID:14,
 msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr "svn:eol-style\nEn af følgende: \"native\", \"LF\", \"CR\", \"CRLF\"."
@@ -5508,6 +5534,10 @@ msgstr "skiftet til\r\n%s"
 #, c-format
 msgid "to %s"
 msgstr "til %s"
+
+#: ID:18,
+msgid "tsvn:autoprops\nA list of properties separated by newlines which get applied automatically when adding/importing files.\nFormat: <filemask> = property=value;property=value\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "tsvn:autoprops\nEn liste af egenskaber, adskilt af linjeskift, som automatisk påføres ved tilføjelse eller import af filer.\nFormat: <filmaske> = egenskab=værdi;egenskab=værdi\nEksempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #: ID:17,
 msgid "tsvn:lockmsgminsize\nMinimum size in chars a lock message must have before a lock is allowed."
