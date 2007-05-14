@@ -290,6 +290,7 @@ public:
 	 * This is a list of paths, with '*' between them
 	 */
 	void LoadFromAsteriskSeparatedString(const CString& sPathString);
+	CString CreateAsteriskSeparatedString() const;
 
 	int GetCount() const;
 	void Clear();

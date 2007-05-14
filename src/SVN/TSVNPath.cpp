@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -826,6 +826,18 @@ void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
 	} 
 }
 
+CString CTSVNPathList::CreateAsteriskSeparatedString() const
+{
+	CString sRet;
+	PathVector::const_iterator it;
+	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	{
+		if (!sRet.IsEmpty())
+			sRet += _T("*");
+		sRet += it->GetWinPathString();
+	}
+	return sRet;
+}
 #endif // _MFC_VER
 
 bool 
