@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include ".\lockdlg.h"
 #include "UnicodeUtils.h"
 #include "SVNProperties.h"
+#include "SVN.h"
 
 
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
@@ -58,6 +59,7 @@ BEGIN_MESSAGE_MAP(CLockDlg, CResizableStandAloneDialog)
 	ON_EN_CHANGE(IDC_LOCKMESSAGE, OnEnChangeLockmessage)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_BN_CLICKED(IDC_SELECTALL, &CLockDlg::OnBnClickedSelectall)
+	ON_BN_CLICKED(IDC_HISTORY, &CLockDlg::OnBnClickedHistory)
 END_MESSAGE_MAP()
 
 BOOL CLockDlg::OnInitDialog()
@@ -86,6 +88,7 @@ BOOL CLockDlg::OnInitDialog()
 	AdjustControlSize(IDC_STEALLOCKS);
 	AdjustControlSize(IDC_SELECTALL);
 
+	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDC_LOCKTITLELABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOCKMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -125,7 +128,8 @@ void CLockDlg::OnOK()
 	m_cFileList.WriteCheckedNamesToPathList(m_pathList);
 	UpdateData();
 	m_sLockMessage = m_cEdit.GetText();
-
+	m_HistoryDlg.AddString(m_sLockMessage);
+	m_HistoryDlg.SaveHistory();
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -135,6 +139,10 @@ void CLockDlg::OnCancel()
 	m_bCancelled = true;
 	if (m_bBlock)
 		return;
+	UpdateData();
+	m_sLockMessage = m_cEdit.GetText();
+	m_HistoryDlg.AddString(m_sLockMessage);
+	m_HistoryDlg.SaveHistory();
 	CResizableStandAloneDialog::OnCancel();
 }
 
@@ -277,4 +285,25 @@ void CLockDlg::OnBnClickedSelectall()
 		m_SelectAll.SetCheck(state);
 	}
 	m_cFileList.SelectAll(state == BST_CHECKED);
+}
+
+void CLockDlg::OnBnClickedHistory()
+{
+	if (m_pathList.GetCount() == 0)
+		return;
+	SVN svn;
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\lock%s"), svn.GetUUIDFromPath(m_pathList[0]));
+	m_HistoryDlg.LoadHistory(reg, _T("lockmsgs"));
+	if (m_HistoryDlg.DoModal()==IDOK)
+	{
+		if (m_HistoryDlg.GetSelectedText().Compare(m_cEdit.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+		{
+			CString sMsg = m_HistoryDlg.GetSelectedText();
+			m_cEdit.SetText(sMsg);
+		}
+
+		OnEnChangeLockmessage();
+		GetDlgItem(IDC_LOCKMESSAGE)->SetFocus();
+	}
 }

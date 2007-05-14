@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "Balloon.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
+#include "HistoryDlg.h"
 #include "SciEdit.h"
 #include "Registry.h"
 
@@ -53,6 +54,7 @@ private:
 	afx_msg void OnEnChangeLockmessage();
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg void OnBnClickedSelectall();
+	afx_msg void OnBnClickedHistory();
 	void Refresh();
 
 	DECLARE_MESSAGE_MAP()
@@ -72,4 +74,5 @@ private:
 	bool				m_bCancelled;
 	CBalloon			m_tooltips;
 	CButton				m_SelectAll;
+	CHistoryDlg			m_HistoryDlg;
 };
