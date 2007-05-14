@@ -114,6 +114,7 @@
 				<term>Start-commit</term>
 				<listitem>
 					<para>
+						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 					</para>
 				</listitem>
@@ -122,8 +123,8 @@
 				<term>Pre-commit</term>
 				<listitem>
 					<para>
+						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
-						<literal>%SELECTEDPATHS%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -131,8 +132,8 @@
 				<term>Post-commit</term>
 				<listitem>
 					<para>
-						<literal>%SELECTEDPATHS%</literal>
-						<literal>%REVISION%</literal>
+						<literal>%PATH%</literal>
+						<literal>%PATHS%</literal>
 						<literal>%ERROR%</literal>
 					</para>
 				</listitem>
@@ -141,6 +142,7 @@
 				<term>Start-update</term>
 				<listitem>
 					<para>
+						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 					</para>
 				</listitem>
@@ -149,6 +151,7 @@
 				<term>Pre-update</term>
 				<listitem>
 					<para>
+						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 					</para>
 				</listitem>
@@ -157,6 +160,7 @@
 				<term>Post-update</term>
 				<listitem>
 					<para>
+						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 						<literal>%REVISION%</literal>
 						<literal>%ERROR%</literal>
@@ -169,6 +173,16 @@
 		The meaning of each of these variables is described here:
 		<variablelist>
 			<varlistentry>
+				<term>%PATH%</term>
+				<listitem>
+					<para>
+						A path to a temporary file which contains all the
+						paths for which the operation was started.
+						Each path is on a separate line in the temp file.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>%PATHS%</term>
 				<listitem>
 					<para>
@@ -178,15 +192,10 @@
 						If multiple paths were selected they are separated
 						by a <literal>*</literal> character.
 					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>%SELECTEDPATHS%</term>
-				<listitem>
 					<para>
-						The paths which were selected within the Commit dialog.
-						If multiple paths were selected they are separated
-						by a <literal>*</literal> character.
+						Note that if possible, you should use <literal>%PATH%</literal>
+						instead of <literal>%PATHS%</literal> to avoid running into
+						the size limit of the command line.
 					</para>
 				</listitem>
 			</varlistentry>

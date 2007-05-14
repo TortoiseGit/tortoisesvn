@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -545,6 +545,11 @@ void CSVNProgressDlg::SetParams(Command cmd, int options, const CTSVNPathList& p
 	m_Revision = revision;
 }
 
+void CSVNProgressDlg::SetSelectedList(const CTSVNPathList& selPaths)
+{
+	m_selectedPaths = selPaths;
+}
+
 void CSVNProgressDlg::ResizeColumns()
 {
 	m_ProgList.SetRedraw(FALSE);
@@ -924,7 +929,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			DWORD exitcode = 0;
 			CString error;
-			if (CHooks::Instance().PreCommit(m_targetPathList, m_depth, exitcode, error))
+			if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -948,7 +953,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 				}
 			}
-			if (CHooks::Instance().PostCommit(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error))
+			if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, exitcode, error))
 			{
 				if (exitcode)
 				{

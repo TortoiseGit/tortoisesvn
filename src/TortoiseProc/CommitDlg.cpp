@@ -346,6 +346,7 @@ void CCommitDlg::OnOK()
 		//save only the files the user has checked into the temporary file
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
+	m_ListCtrl.WriteCheckedNamesToPathList(m_selectedPathList);
 	if ((m_bRecursive)&&(checkedLists.size() == 1))
 	{
 		// all checked items belong to the same changelist

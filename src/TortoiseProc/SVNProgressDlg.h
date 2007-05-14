@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,7 +147,7 @@ public:
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
 	void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
-	
+	void SetSelectedList(const CTSVNPathList& selPaths);
 	CString BuildInfoString();
 	
 	bool DidErrorsOccur() {return m_bErrorsOccurred;}
@@ -232,6 +232,7 @@ private:
 	svn_depth_t	m_depth;
 
 	CTSVNPathList m_targetPathList;
+	CTSVNPathList m_selectedPaths;
 	CTSVNPath	m_url;
 	CString		m_sMessage;
 	SVNRev		m_Revision;

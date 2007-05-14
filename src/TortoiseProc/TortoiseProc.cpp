@@ -854,6 +854,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
+					progDlg.SetSelectedList(dlg.m_selectedPathList);
 					progDlg.DoModal();
 					CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 					err = (DWORD)progDlg.DidErrorsOccur();
