@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-09 13:10+0800\n"
+"PO-Revision-Date: 2007-05-14 10:07+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3589,10 +3589,6 @@ msgstr ""
 "设置后，包含无版本控制的文件的文件夹将标志为修改后。\n"
 "例如，图标显示为修改状态。"
 
-#: ID:197,
-msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
-msgstr "如果不选择，就会略过加锁对话框，选择的文件被立即锁定。"
-
 # ID:196,
 #: ID:196,
 msgid ""
@@ -4804,14 +4800,15 @@ msgstr "请执行“清理”动作。"
 #: ID:78,
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "请注意：\n"
-"你的工作拷贝仍设为原来的路径。如果你想要之后的修改会\n"
-"提交到刚才创建的拷贝，你必须先<b>切换</b>到新的路径。\n"
-"使用<b>切换</b>指令来执行此操作。"
+"你的工作副本仍设为原来的路径。如果你想要之后的修改会\n"
+"提交到刚才创建的地址或分支，你必须先切换到新的URL。\n"
+"可使用切换指令来执行此操作。"
 
 # ID:3858,#:
 # ID:3858,
@@ -6075,6 +6072,10 @@ msgstr ""
 msgid "Specify the revision range which you want to merge:"
 msgstr "指定合并的版本范围："
 
+#: ID:376,
+msgid "Split lines"
+msgstr "分割行"
+
 # ID:3604,
 #: ID:3604,
 msgid ""
@@ -6347,15 +6348,15 @@ msgstr "区块大小与加入/删除的行数不符！"
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "区块起始标记“@@”应该位于第 %d 行！"
 
+# ID:197,
+#: ID:197,
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "如果没有指定时默认要取出的URL"
+
 # ID:196,
 #: ID:196,
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "没有指定时默认要取出的路径"
-
-# ID:197,
-#: ID:197,
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "没有指定时默认要取出的URL"
 
 # ID:68,
 #: ID:68,
@@ -6811,10 +6812,10 @@ msgstr ""
 #: ID:284,
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"为了窃取锁，在项目的父目录上点击右键，在上下文菜单中选择“获得锁”。\n"
-"这就会出现加锁对话框，你可以强制加锁，例如从当前持有人那里“窃取”锁。"
+"为了窃取锁，在此项目的父目录上点击右键，在上下文菜单中选择“获得锁”。\n"
+"这就会出现加锁对话框，你可以强制锁定操作，例如从当前持有人那里“窃取”锁。"
 
 # Control-ID:1201,#:
 # Control-ID:65535,
@@ -7366,6 +7367,12 @@ msgstr "警告"
 #: ID:219,
 msgid "Warning!"
 msgstr "警告！"
+
+#: ID:197,
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr "当锁定一个或多个文件时，显示对话框询问锁定的描述消息"
 
 # ID:146,
 #: ID:146,
@@ -7987,6 +7994,18 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
+
+#: ID:18,
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"当增加/导入时自动应用的用新行分割的属性列表。\n"
+"格式：<filemask> = property=value;property=value\n"
+"样例：*.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17,
