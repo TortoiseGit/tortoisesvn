@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-11 10:01+0100\n"
+"PO-Revision-Date: 2007-05-15 10:04+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4100,14 +4100,16 @@ msgstr "Bitte führen Sie den Befehl 'Arbeitskopie aufräumen' aus."
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "Bitte beachten:\n"
-"Ihre Arbeitskopie bleibt auf dem vorherigen Pfad. Wenn Sie Ihre nächsten Änderungen\n"
-"in der gerade erstellen Kopie haben möchten, dann müssen Sie\n"
-"zu dieser Kopie wechseln. Benutzen Sie dazu den Befehl <b>Wechseln zu...</b>."
+"Ihre Arbeitskopie bleibt auf dem vorherigen Pfad. Wenn Sie wollen,\n"
+"dass Ihre nächsten Änderungen in die gerade erstelle Kopie übertragen\n"
+"werden, müssen Sie mit Ihrer Arbeitskopie zu der neuen URL wechseln.\n"
+"Benutzen Sie dazu den Befehl <b>Wechseln zu...</b>."
 
 #: ID:3858
 msgid "Please select a button."
@@ -5161,6 +5163,11 @@ msgstr ""
 msgid "Specify the revision range which you want to merge:"
 msgstr "Geben Sie den Revisionsbereich ein, den Sie zusammenführen möchten:"
 
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "Zeilen splitten"
+
 #: ID:3604
 msgid ""
 "Split the active window into panes\n"
@@ -5400,15 +5407,15 @@ msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschte
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
 
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "Die Standard-URL von der ausgecheckt wird, wenn nichts anderes angegeben wird"
+
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Der Standardpfad in den ausgecheckt wird, wenn nichts anderes angegeben wird"
-
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "Die Standard-URL von der ausgecheckt wird, wenn nichts anderes angegeben wird"
 
 #: ID:68
 #, c-format
@@ -5829,7 +5836,7 @@ msgstr ""
 #: ID:284
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "Um die Sperre zu stehlen, machen Sie einen Rechtsklick auf den Elternordner und wählen Sie 'Sperre Holen...' aus dem Kontextmenü.\n"
 "Dies wird den Sperr-Dialog anzeigen, mit dessen Hilfe Sie eine Sperre erzwingen und somit von demjenigen, der sie momentan hat, 'stehlen' können."
@@ -6310,6 +6317,15 @@ msgstr "Warnung"
 msgid "Warning!"
 msgstr "Warnung!"
 
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"Wenn ein oder mehrere Dateien gesperrt werden sollen, wird ein Dialog\n"
+"angezeigt, der eine Beschreibung des Grundes für das Sperren anfordert."
+
 #: ID:146
 msgid "With URL:"
 msgstr "Mit URL:"
@@ -6767,11 +6783,6 @@ msgstr "Revision %s-%s, Revision %s-%s"
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "Revisionen %s-%s, %s"
-
-# ID:197,
-#: ID:197
-msgid "shows a dialog asking for a descriptive message about the locking before every lock attempt"
-msgstr "Zeigt einen Dialog, der eine Beschreibung des Grundes für das Sperren anfordert, bevor eine Datei gesperrt wird."
 
 #: ID:14
 msgid ""
