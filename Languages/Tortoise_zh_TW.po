@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-08 09:39+0800\n"
+"PO-Revision-Date: 2007-05-15 11:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4038,6 +4038,7 @@ msgstr ""
 # ID:221,
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "鎖定"
 
@@ -4873,13 +4874,14 @@ msgstr "請執行 \"清理\" 動作."
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "請注意:\n"
 "你的工作複本還是設為先前的路徑. 如果你想要之後的異動\n"
-"會送交到剛才建立的複本, 你必須先切換到新的路徑.\n"
+"改送交到剛才建立的複本, 你必須先切換到新的路徑.\n"
 "請使用切換指令."
 
 # ID:3858,#:
@@ -5990,6 +5992,11 @@ msgstr "顯示無版本控制的檔案(&U)"
 msgid "Show File List"
 msgstr "顯示檔案列表"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "鎖定檔案前顯示鎖定視窗"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "顯示一覽(&R)"
@@ -6154,6 +6161,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
 msgstr "請指定你要合併的版本範圍:"
+
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "斷行"
 
 # ID:3604,
 #: ID:3604
@@ -6428,15 +6440,15 @@ msgstr "區塊大小與加入/移除的行數不符!"
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "區塊起始標記 \"@@\" 應該位於第 %d 行!"
 
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "未指定 URL 時預設的取出 URL"
+
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "未指定路徑時的預設取出路徑"
-
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "未指定 URL 時預設的取出 URL"
 
 # ID:68,
 #: ID:68
@@ -6892,6 +6904,15 @@ msgstr ""
 "在送交視窗中全部都有勾選.\n"
 "否則 TortoiseSVN 將會進行不含子目錄的送交,\n"
 "也不允許刪除目錄."
+
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"想要竊取別人的鎖定, 請在目標檔案的上層目錄上按右鍵, 並從選單中選擇 \"取得鎖定\".\n"
+"出現的視窗中會有強制取得鎖定的功能, 也就是從目前持有鎖定的人手上 '竊取' 過來."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -7462,6 +7483,15 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告!"
 
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"在鎖定檔案時, 顯示一個用來詢問\n"
+"鎖定原因的視窗."
+
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: ID:146
@@ -7965,6 +7995,18 @@ msgstr "取代"
 msgid "respecting ancestry"
 msgstr "參考之前版本"
 
+# ID:119,
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "正在取得檔案 %s-%s, 版本 %s-%s"
+
+# ID:119,
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "版本 %s-%s, %s"
+
 # ID:14,
 #: ID:14
 msgid ""
@@ -8070,6 +8112,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"在加入/匯入檔案時自動套用的性質設定. 多筆時以換行分隔.\n"
+"格式: <檔案遮罩> = 性質=值;性質=值\n"
+"範例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17
