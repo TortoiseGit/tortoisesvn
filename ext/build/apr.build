@@ -121,6 +121,14 @@
 			<arg value=".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\libapr_tsvn.dll;#2"' />
 		</exec>
+		<if test="${platform == 'x64'}">
+			<exec program="svn" failonerror="false">
+				<arg value="revert" />
+				<arg value="file_io\win32\open.c" />
+				<arg value="file_io\win32\readwrite.c" />
+				<arg value="network_io\win32\sendrecv.c" />
+			</exec>
+		</if>
 	</target>
 
 </project>

@@ -259,6 +259,10 @@
 			<arg value=".\${configuration}_${platform}\svn.exe.intermediate.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\svn.exe;#1"' />
 		</exec>
+		<exec program="svn" failonerror="false">
+			<arg value="revert" />
+			<arg value="subversion\libsvn_subr\utf.c" />
+		</exec>
 	</target>
 
 </project>

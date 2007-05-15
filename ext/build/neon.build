@@ -122,10 +122,6 @@
 				<include name="..\..\..\common\openssl\out32\ssleay32.lib" />
 			</sources>
 		</lib>
-		<exec program="svn" failonerror="false">
-			<arg value="revert" />
-			<arg value="src\ne_openssl.c" />
-		</exec>
 	</target>
 
 </project>
