@@ -1,19 +1,13 @@
 <!--<!DOCTYPE configuration SYSTEM "config.dtd">-->
-<!-- 
-     this file contains templates which allow an user easy 
-     configuration of Fop. Actually normally you don't need this configuration 
+<!--
+     this file contains templates which allow an user easy
+     configuration of Fop. Actually normally you don't need this configuration
      file, but if you need to change configuration, you should
-     always use this file and *not* config.xml. 
+     always use this file and *not* config.xml.
      Usage: java org.apache.fop.apps.Fop -c userconfig.xml -fo fo-file -pdf pdf-file
 -->
 
-<!--
-	 this file is translated automatically to userconfig.xml by our
-	 build script.
--->
-
 <configuration>
-
 
 <!--
 ************************************************************************
@@ -23,23 +17,24 @@
 ************************************************************************
 -->
 
-<fonts>
- <font metrics-file="..\..\xsl\zh_CN\simhei.xml" embed-file="%FONTSDIR%\simhei.ttf" kerning="yes">
-    <font-triplet name="simhei" style="normal" weight="normal"/>
-    <font-triplet name="simhei" style="normal" weight="bold"/>
-    <font-triplet name="simhei" style="italic" weight="normal"/>
-    <font-triplet name="simhei" style="italic" weight="bold"/>
- </font>
- <font metrics-file="..\..\xsl\zh_CN\simsun.xml" embed-file="%FONTSDIR%\simsun.ttc" kerning="yes">
-    <font-triplet name="simsun" style="normal" weight="normal"/> 
-    <font-triplet name="simsun" style="normal" weight="bold"/> 
-    <font-triplet name="simsun" style="italic" weight="normal"/> 
-    <font-triplet name="simsun" style="italic" weight="bold"/> 
- </font> 
-</fonts>
+  <fonts>
 
+    <!-- font metrics-file="../../xsl/zh_CN/msyhbd.xml" embed-file="%FONTSDIR%\msyhbd.ttf" kerning="yes" -->
+    <font metrics-file="../../xsl/zh_CN/simhei.xml" embed-file="%FONTSDIR%\simhei.ttf" kerning="yes">
+      <font-triplet name="simhei" style="normal" weight="normal"/>
+      <font-triplet name="simhei" style="normal" weight="bold"/>
+      <font-triplet name="simhei" style="italic" weight="normal"/>
+      <font-triplet name="simhei" style="italic" weight="bold"/>
+    </font>
+
+    <!-- font metrics-file="../../xsl/zh_CN/msyh.xml" embed-file="%FONTSDIR%\msyh.ttf" kerning="yes" -->
+    <font metrics-file="../../xsl/zh_CN/simsun.xml" embed-file="%FONTSDIR%\simsun.ttc" kerning="yes">
+      <font-triplet name="simsun" style="normal" weight="normal"/>
+      <font-triplet name="simsun" style="normal" weight="bold"/>
+      <font-triplet name="simsun" style="italic" weight="normal"/>
+      <font-triplet name="simsun" style="italic" weight="bold"/>
+    </font>
+
+  </fonts>
 
 </configuration>
-
-
-

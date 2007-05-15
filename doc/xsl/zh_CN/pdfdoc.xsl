@@ -3,73 +3,67 @@
  xmlns:fo="http://www.w3.org/1999/XSL/Format"
  version="1.0">
 
-<xsl:import href="../pdfdoc.xsl"/>
+  <xsl:import href="../pdfdoc.xsl"/>
 
-<xsl:param name="body.font.family" select="'simsun'"></xsl:param>
-<xsl:param name="dingbat.font.family" select="'simhei'"></xsl:param>
-<xsl:param name="monospace.font.family" select="'simsun'"></xsl:param>
-<xsl:param name="title.font.family" select="'simhei'"></xsl:param>
+  <xsl:param name="l10n.gentext.language" select="'zh_cn'"/>
 
-<xsl:param name="hyphenate">false</xsl:param>
+  <xsl:param name="body.font.family" select="'simsun'"></xsl:param>
+  <xsl:param name="dingbat.font.family" select="'simhei'"></xsl:param>
+  <xsl:param name="monospace.font.family" select="'simsun'"></xsl:param>
+  <xsl:param name="title.font.family" select="'simhei'"></xsl:param>
 
-<xsl:template match="menuchoice">
-  <fo:inline font-family="simhei">
-    <xsl:call-template name="process.menuchoice"/>
-  </fo:inline>
-</xsl:template>
+  <xsl:param name="paper.type" select="'A4'"></xsl:param>
+  <xsl:param name="hyphenate">false</xsl:param>
 
-<xsl:template match="guilabel">
-  <fo:inline font-family="simhei">
-    <xsl:call-template name="inline.charseq"/>
-  </fo:inline>
-</xsl:template>
+  <!-- These extensions are required for table printing and other stuff -->
+  <xsl:param name="use.extensions">1</xsl:param>
+  <xsl:param name="tablecolumns.extension">0</xsl:param>
+  <xsl:param name="fop.extensions">1</xsl:param>
 
-<xsl:template match="guibutton">
-  <fo:inline font-family="simhei">
-    <xsl:call-template name="inline.charseq"/>
-  </fo:inline>
-</xsl:template>
+  <xsl:param name="draft.mode" select="no"/>
 
-<xsl:template match="keysym">
-  <fo:inline font-family="Symbol">
-    <xsl:call-template name="inline.charseq"/>
-  </fo:inline>
-</xsl:template>
+  <xsl:param name="variablelist.as.blocks" select="1" />
+  <xsl:param name="admon.textlabel" select="0" />
+  <xsl:param name="admon.graphics" select="1" />
+  <xsl:param name="admon.graphics.path">images/</xsl:param>
+  <xsl:param name="admon.graphics.extension">.png</xsl:param>
+  <xsl:param name="section.autolabel" select="1" />
+  <xsl:attribute-set name="sidebar.properties" use-attribute-sets="formal.object.properties">
+    <xsl:attribute name="border-style">solid</xsl:attribute>
+    <xsl:attribute name="border-width">.1mm</xsl:attribute>
+    <xsl:attribute name="background-color">#EEEEEE</xsl:attribute>
+  </xsl:attribute-set>
 
-<xsl:template name="person.name.family-given">
-  <xsl:param name="node" select="."/>
+  <!-- Prevent blank pages in output -->
+  <xsl:template name="book.titlepage.before.verso">
+  </xsl:template>
+  <xsl:template name="book.titlepage.verso">
+  </xsl:template>
+  <xsl:template name="book.titlepage.separator">
+  </xsl:template>
 
-  <xsl:if test="$node//honorific">
-    <xsl:apply-templates select="$node//honorific[1]"/>
-    <xsl:value-of select="$punct.honorific"/>
-  </xsl:if>
+  <xsl:template match="menuchoice">
+    <fo:inline font-family="simsun">
+      <xsl:call-template name="process.menuchoice"/>
+    </fo:inline>
+  </xsl:template>
 
-  <xsl:if test="$node//firstname">
-    <xsl:if test="$node//honorific">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates select="$node//firstname[1]"/>
-  </xsl:if>
+  <xsl:template match="guilabel">
+    <fo:inline font-family="simsun">
+      <xsl:call-template name="inline.charseq"/>
+    </fo:inline>
+  </xsl:template>
 
-  <xsl:if test="$node//othername and $author.othername.in.middle != 0">
-    <xsl:if test="$node//honorific or $node//firstname">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates select="$node//othername[1]"/>
-  </xsl:if>
+  <xsl:template match="guibutton">
+    <fo:inline font-family="simsun">
+      <xsl:call-template name="inline.charseq"/>
+    </fo:inline>
+  </xsl:template>
 
-  <xsl:if test="$node//surname">
-    <xsl:if test="$node//honorific or $node//firstname
-                  or ($node//othername and $author.othername.in.middle != 0)">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates select="$node//surname[1]"/>
-  </xsl:if>
-
-  <xsl:if test="$node//lineage">
-    <xsl:text>, </xsl:text>
-    <xsl:apply-templates select="$node//lineage[1]"/>
-  </xsl:if>
-</xsl:template>
+  <xsl:template match="keysym">
+    <fo:inline font-family="Symbol">
+      <xsl:call-template name="inline.charseq"/>
+    </fo:inline>
+  </xsl:template>
 
 </xsl:stylesheet>
