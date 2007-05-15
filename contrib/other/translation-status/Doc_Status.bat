@@ -77,7 +77,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
       set outSVN=OK
     ) else (
       if !totSVN! EQU !traSVN! (
-        set outSVN=99,9%%
+        set outSVN=99%%
       ) else (
         set /a outTMP=100*!traSVN!/totSVN
         set outSVN=!outTMP!%%
@@ -107,7 +107,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
       set outMRG=OK
     ) else (
       if !totMRG! EQU !traMRG! (
-        set outMRG=99,9%%
+        set outMRG=99%%
       ) else (
         set /a outTMP=100*!traMRG!/totMRG
         set outMRG=!outTMP!%%
