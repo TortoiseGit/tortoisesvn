@@ -809,7 +809,7 @@ void CCachedDirectory::RefreshMostImportant()
 	}
 	if (newStatus != m_mostImportantFileStatus)
 	{
-		ATLTRACE("status change of path %ws\n", m_directoryPath.GetWinPath());
+		ATLTRACE(_T("status change of path %s\n"), m_directoryPath.GetWinPath());
 		CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
 	}
 	m_mostImportantFileStatus = newStatus;

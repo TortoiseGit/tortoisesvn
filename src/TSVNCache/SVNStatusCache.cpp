@@ -423,6 +423,10 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	}
 	ATLTRACE("ignored no good path %ws\n", path.GetWinPath());
 	m_mostRecentStatus = CStatusCacheEntry();
+	if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.HasSVNAdminDir(path.GetWinPath(), true))
+	{
+		m_mostRecentStatus.ForceStatus(svn_wc_status_normal);
+	}
 	return m_mostRecentStatus;
 }
 

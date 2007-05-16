@@ -258,6 +258,7 @@
 #define IDC_USETEXTVIEWER               1126
 #define IDC_KEEPLISTS                   1126
 #define IDC_SHOWLOCKDLG                 1126
+#define IDC_SHOWEXCLUDEDASNORMAL        1126
 #define IDC_F5HINT                      1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
@@ -613,7 +614,6 @@
 #define IDC_GROUPTOP                    1374
 #define IDC_GROUPBOTTOM                 1375
 #define IDC_URLOFREPO                   1376
-#define IDC_BUTTON1                     1377
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -848,6 +848,7 @@
 #define IDS_SETTINGS_CHECKOUTURL_TT     3136
 #define IDS_SETTINGS_SORTNUMERICAL_TT   3137
 #define IDS_SETTINGS_SHOWLOCKDLG_TT     3137
+#define IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT 3138
 #define IDS_SETTINGS_HOOKS_SELECTFOLDERPATH 3150
 #define IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE 3151
 #define IDS_SETTINGS_HOOKS_TYPECOL      3152

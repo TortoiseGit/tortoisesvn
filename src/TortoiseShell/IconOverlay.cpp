@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -222,6 +222,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	{
 		if (!g_ShellCache.IsPathAllowed(pPath))
 		{
+			if ((m_State == FileStateVersioned) && g_ShellCache.ShowExcludedAsNormal() && PathIsDirectory(pPath) && g_ShellCache.HasSVNAdminDir(pPath, true))
+			{
+				return S_OK;
+			}
 			return S_FALSE;
 		}
 

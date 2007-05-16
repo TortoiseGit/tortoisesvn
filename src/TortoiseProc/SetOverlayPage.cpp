@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,6 +42,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_sIncludePaths(_T(""))
 	, m_bUnversionedAsModified(FALSE)
 	, m_bFloppy(FALSE)
+	, m_bShowExcludedAsNormal(TRUE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -55,6 +56,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 	m_regCacheType = CRegDWORD(_T("Software\\TortoiseSVN\\CacheType"), 1);
 	m_regUnversionedAsModified = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
+	m_regShowExcludedAsNormal = CRegDWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
@@ -65,6 +67,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bRAM = m_regDriveMaskRAM;
 	m_bUnknown = m_regDriveMaskUnknown;
 	m_bUnversionedAsModified = m_regUnversionedAsModified;
+	m_bShowExcludedAsNormal = m_regShowExcludedAsNormal;
 	m_sExcludePaths = m_regExcludePaths;
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 	m_sIncludePaths = m_regIncludePaths;
@@ -90,6 +93,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
 	DDX_Check(pDX, IDC_UNVERSIONEDASMODIFIED, m_bUnversionedAsModified);
 	DDX_Check(pDX, IDC_FLOPPY, m_bFloppy);
+	DDX_Check(pDX, IDC_SHOWEXCLUDEDASNORMAL, m_bShowExcludedAsNormal);
 }
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
@@ -107,6 +111,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CACHESHELL, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHENONE, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_UNVERSIONEDASMODIFIED, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_SHOWEXCLUDEDASNORMAL, &CSetOverlayPage::OnChange)
 END_MESSAGE_MAP()
 
 int CSetOverlayPage::SaveData()
@@ -234,6 +239,9 @@ int CSetOverlayPage::SaveData()
 		m_regUnversionedAsModified = m_bUnversionedAsModified;
 		if (m_regUnversionedAsModified.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regUnversionedAsModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regShowExcludedAsNormal = m_bShowExcludedAsNormal;
+		if (m_regShowExcludedAsNormal.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regShowExcludedAsNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	return 0;
 }
@@ -266,6 +274,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CACHESHELL, IDS_SETTINGS_CACHESHELL_TT);
 	m_tooltips.AddTool(IDC_CACHENONE, IDS_SETTINGS_CACHENONE_TT);
 	m_tooltips.AddTool(IDC_UNVERSIONEDASMODIFIED, IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT);
+	m_tooltips.AddTool(IDC_SHOWEXCLUDEDASNORMAL, IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT);
 	m_bInitialized = TRUE;
 
 	UpdateData(FALSE);

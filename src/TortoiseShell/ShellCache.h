@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,6 +60,7 @@ public:
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		getlocktop = CRegStdWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
+		excludedasnormal = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
 		cachetypeticker = GetTickCount();
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
@@ -73,6 +74,7 @@ public:
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
+		excludedasnormalticker = cachetypeticker;
 		menulayoutlow = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		menulayouthigh = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
 		menumasklow_lm = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0, FALSE, HKEY_LOCAL_MACHINE);
@@ -115,6 +117,7 @@ public:
 		excludelist.read();
 		includelist.read();
 		unversionedasmodified.read();
+		excludedasnormal.read();
 		menulayoutlow.read();
 		menulayouthigh.read();
 		langid.read();
@@ -207,6 +210,15 @@ public:
 			getlocktop.read();
 		}
 		return (getlocktop);
+	}
+	BOOL ShowExcludedAsNormal()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>excludedasnormalticker)
+		{
+			excludedasnormalticker = GetTickCount();
+			excludedasnormal.read();
+		}
+		return (excludedasnormal);
 	}
 	BOOL IsRemote()
 	{
@@ -477,6 +489,7 @@ private:
 	CRegStdWORD menumasklow_cu;
 	CRegStdWORD menumaskhigh_cu;
 	CRegStdWORD unversionedasmodified;
+	CRegStdWORD excludedasnormal;
 	CRegStdString excludelist;
 	CRegStdWORD columnseverywhere;
 	stdstring excludeliststr;
@@ -498,6 +511,7 @@ private:
 	DWORD excludelistticker;
 	DWORD includelistticker;
 	DWORD unversionedasmodifiedticker;
+	DWORD excludedasnormalticker;
 	DWORD columnseverywhereticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.

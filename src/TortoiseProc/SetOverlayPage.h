@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,6 +66,7 @@ private:
 	BOOL			m_bRAM;
 	BOOL			m_bUnknown;
 	BOOL			m_bUnversionedAsModified;
+	BOOL			m_bShowExcludedAsNormal;
 	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskFloppy;
@@ -75,6 +76,7 @@ private:
 	CRegDWORD		m_regDriveMaskRAM;
 	CRegDWORD		m_regDriveMaskUnknown;
 	CRegDWORD		m_regUnversionedAsModified;
+	CRegDWORD		m_regShowExcludedAsNormal;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
 	CRegString		m_regExcludePaths;
@@ -85,4 +87,5 @@ private:
 	DWORD			m_dwCacheType;
 
 	BOOL			m_bModified;
+public:
 };
