@@ -25,11 +25,12 @@
 # Whitespaces           Presledki
 # Repository            Skladišče
 # Main Trunk            Glavno deblo
+# Hook                  Akcija
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN 1.3.3\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-13 08:57+0100\n"
+"PO-Revision-Date: 2007-05-15 20:20+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2147,7 +2148,7 @@ msgstr "Dokončano"
 # Dlg-ID:236,
 #: Dlg-ID:236
 msgid "Configure Hook Scripts"
-msgstr ""
+msgstr "Nastavi skripte akcij"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3428,17 +3429,17 @@ msgstr "Nasvet: pritisnite F5 za osvežitev izbranega poddrevesa in Ctrl-F5 za n
 # Dlg-ID:103,
 #: Dlg-ID:103
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Skripte akcij"
 
 # ID:198,
 #: ID:198
 msgid "Hook Type"
-msgstr ""
+msgstr "Tip akcije"
 
 # Control-ID:1334,
 #: Control-ID:1334
 msgid "Hook Type:"
-msgstr ""
+msgstr "Tip akcije"
 
 # ID:82,
 #: ID:82
@@ -4836,7 +4837,7 @@ msgstr "Vnesite uro."
 # ID:3858,
 #: ID:83
 msgid "Please enter a hook script to execute."
-msgstr ""
+msgstr "Vnesite skripto akcije za izvajanje:"
 
 # ID:3858,#:
 # ID:3858,
@@ -4854,7 +4855,7 @@ msgstr "Vnesite število."
 # ID:83,
 #: ID:83
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
+msgstr "Vnesite pot, kjer naj se skripta akcije uporabi."
 
 # ID:3858,#:
 # ID:3858,
@@ -4923,7 +4924,7 @@ msgstr "Izberite gumb."
 # ID:3858,
 #: ID:83
 msgid "Please select a hook type"
-msgstr ""
+msgstr "Izberite tip akcije"
 
 # ID:76,
 #: ID:76
@@ -4961,22 +4962,22 @@ msgstr "Prosimo, počakajte ..."
 # Control-ID:1110,
 #: ID:569
 msgid "Post-Commit Hook"
-msgstr ""
+msgstr "Akcija po objavi"
 
 # ID:570,
 #: ID:570
 msgid "Post-Update Hook"
-msgstr ""
+msgstr "Akcija po posodobitvi"
 
 # Control-ID:1110,
 #: ID:569
 msgid "Pre-Commit Hook"
-msgstr ""
+msgstr "Akcija pred objavo"
 
 # ID:570,
 #: ID:570
 msgid "Pre-Update Hook"
-msgstr ""
+msgstr "Akcija pred posodobitvijo"
 
 # ID:376,
 #: ID:376
@@ -5880,7 +5881,7 @@ msgstr "Izberi direktorij za shranitev datotek"
 # ID:313,
 #: ID:197
 msgid "Select hook script file"
-msgstr ""
+msgstr "Izberite datoteko skripte akcije"
 
 # ID:78,
 #: ID:78
@@ -6237,7 +6238,7 @@ msgstr "Zložen črtni graf"
 # ID:569,
 #: ID:569
 msgid "Start Commit Hook"
-msgstr ""
+msgstr "Akcija pred prikazom okna objave"
 
 # ID:11,
 #: Control-ID:65535
@@ -6247,7 +6248,7 @@ msgstr "Začni revizijo"
 # ID:569,
 #: ID:569
 msgid "Start Update Hook"
-msgstr ""
+msgstr "Akcija pred prikazom okna posodobitve"
 
 # ID:245,#:
 # Control-ID:1132,#:
@@ -6591,6 +6592,8 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
+"Skripta akcije je vrnila napako:\n"
+"%s"
 
 # ID:7,
 #: ID:7
