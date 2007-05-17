@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-15 10:04+0100\n"
+"PO-Revision-Date: 2007-05-17 11:07+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3045,6 +3045,15 @@ msgstr ""
 "automatisch auf Änderungen geprüft wird.\n"
 "Sie müssen dann nicht mehr 'Projektarchiv prüfen' wählen."
 
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Für Ordner innerhalb von Arbeitskopien, die aufgrund eines Ausschlußpfades\n"
+"keine überlagerten Symbole erhalten, wird das Statussymbol 'Normal' angezeigt."
+
 #: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
@@ -5035,6 +5044,11 @@ msgstr "Zeige Änderungen als &Standard-Diff"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Zeige Unterschiede als &Standard-Diff"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Ausgeschlossene Ordner 'normal' anzeigen"
 
 #: Control-ID:1264
 msgid "Show ignored files"
