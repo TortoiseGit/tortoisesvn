@@ -3523,8 +3523,8 @@ void CSVNStatusListCtrl::ShowColumn(int col)
 	SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
 
 	// restore position
-	int arr[SVNSLC_NUMCOLUMNS];
-	int arr2[SVNSLC_NUMCOLUMNS];
+	int arr[SVNSLC_NUMCOLUMNS] = {0};
+	int arr2[SVNSLC_NUMCOLUMNS] = {0};
 	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
 	int arrIndex = 0;
 	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
@@ -3566,8 +3566,8 @@ void CSVNStatusListCtrl::HideColumn(int col)
 	SetColumnWidth(col,0);
 	m_ColumnShown[col] = 0;
 	// move to front of list
-	int arr[SVNSLC_NUMCOLUMNS];
-	int arr2[SVNSLC_NUMCOLUMNS];
+	int arr[SVNSLC_NUMCOLUMNS] = {0};
+	int arr2[SVNSLC_NUMCOLUMNS] = {0};
 	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
 	int arrIndex = 0;
 	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
