@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
+<sect1 id="tsvn-dug-copy">
+	<title>Copying Existing Files and Folders</title>
+	<indexterm>
+		<primary>copy files</primary>
+	</indexterm>
+	<para>
+		It often happens that you already have the files you need in another
+		project in your repository, and you simply want to copy them across.
+		You could simply copy the files and add them as described above, but
+		that would not give you any history. And if you subsequently fix a bug
+		in the original files, you can only merge the fix automatically if the
+		new copy is related to the original in Subversion.
+	</para>
+	<para>
+		The easiest way to copy files and folders from within a working copy is
+		to use the right-drag menu. When you <action>right-drag</action> a file
+		or folder from one working copy to another, or even within the same
+		folder, a context menu appears when you release the mouse.
+		<figure id="tsvn-dug-copy-right-drag">
+			<title>Right drag menu for a directory under version control</title>
+			<graphic fileref="../images/RightDragMenu.png"/>
+		</figure>
+		Now you can copy existing versioned content to a new location, possibly
+		renaming it at the same time.
+	</para>
+	<para>
+		You can also use the repository browser to locate content you want,
+		and copy it into your working copy directly from the repository.
+		Refer to <xref linkend="tsvn-dug-repobrowser"/> to find out more.
+	</para>
+</sect1>
