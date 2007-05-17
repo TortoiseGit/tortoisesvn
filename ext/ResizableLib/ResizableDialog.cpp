@@ -148,6 +148,10 @@ void CResizableDialog::EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly)
 
 	// restore immediately
 	LoadWindowRect(pszSection, bRectOnly);
+
+	CMenu* pMenu = GetMenu();
+	if ( pMenu )
+		DrawMenuBar();
 }
 
 BOOL CResizableDialog::OnEraseBkgnd(CDC* pDC) 
