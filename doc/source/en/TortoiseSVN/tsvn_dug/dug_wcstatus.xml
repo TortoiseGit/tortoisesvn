@@ -374,4 +374,69 @@
 			</para>
 		</tip>
 	</sect2>
+	<sect2>
+		<title>Keyword Expansion</title>
+		<indexterm>
+			<primary>keywords</primary>
+		</indexterm>
+		<para>
+			Subversion supports CVS-like keyword expansion which can be
+			used to embed filename and revision information within the
+			file itself. Keywords currently supported are:
+			<variablelist>
+				<varlistentry>
+					<term>Date</term>
+					<listitem>
+						<para>
+							Date of last known commit. This is based on
+							information obtained when you update your working
+							copy. It does <emphasis>not</emphasis> check the
+							repository to find more recent changes.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Revision</term>
+					<listitem>
+						<para>
+							Revision of last known commit.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Author</term>
+					<listitem>
+						<para>
+							Author who made the last known commit.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>HeadURL</term>
+					<listitem>
+						<para>
+							The full URL of this file in the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Id</term>
+					<listitem>
+						<para>
+							A compressed combination of the previous
+							four keywords.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			To find out how to use these keywords, look at the
+			<ulink url="http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html#svn.advanced.props.special.keywords">
+				<citetitle>svn:keywords section</citetitle>
+			</ulink>
+			in the Subversion book, which gives a full description of these
+			keywords and how to enable and use them.
+		</para>
+	</sect2>
 </sect1>
