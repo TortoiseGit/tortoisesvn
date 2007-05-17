@@ -41,9 +41,9 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace Gdiplus;
 
-IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CResizableStandAloneDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
@@ -58,11 +58,11 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_WM_SIZE()
 	ON_WM_LBUTTONDOWN()
 	ON_COMMAND(ID_VIEW_ZOOMIN, OnViewZoomin)
@@ -87,7 +87,7 @@ END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	EnableToolTips();
 
@@ -198,6 +198,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_Graph.Init(this, &graphrect);
 	m_Graph.SetOwner(this);
 	m_Graph.UpdateWindow();
+
+	EnableSaveRestore(_T("RevisionGraphDlg"));
 
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{

@@ -45,7 +45,7 @@ public:
  * the drawing is done in the member class CRevisionGraphWnd
  * Here, we handle window messages.
  */
-class CRevisionGraphDlg : public CStandAloneDialog
+class CRevisionGraphDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:
