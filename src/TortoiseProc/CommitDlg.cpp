@@ -776,7 +776,7 @@ void CCommitDlg::GetAutocompletionList()
 			{
 				// add the path parts to the autocompletion list too
 				CString sPartPath = entry->GetRelativeSVNPath();
-				ATLTRACE("parse file %ws for autocompletion\n", (LPCTSTR)sPartPath);
+				ATLTRACE(_T("parse file %s for autocompletion\n"), (LPCTSTR)sPartPath);
 				m_autolist.AddSorted(sPartPath);
 				int pos = 0;
 				while ((pos = sPartPath.Find('/', pos)) >= 0)
