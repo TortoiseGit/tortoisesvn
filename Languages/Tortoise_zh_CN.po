@@ -3562,6 +3562,12 @@ msgstr ""
 "如果启用此选项，当对话框出现时会自动检查版本库。\n"
 "不必再设置“检查版本库”选项。"
 
+#: ID:197,
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr "如果启用，已从覆盖显示排除的工作副本目录仍旧会按照“正常”情况覆盖显示"
+
 # ID:195,
 #: ID:195,
 msgid ""
@@ -5925,6 +5931,10 @@ msgstr "以标准差异格式显示改变(&U)"
 #: ID:113,
 msgid "Show differences as &unified diff"
 msgstr "以标准差异文件显示修改(&U)"
+
+#: Control-ID:1126,
+msgid "Show excluded folders as 'normal'"
+msgstr "将排除的目录显示为“正常”"
 
 # Control-ID:1264,
 #: Control-ID:1264,
