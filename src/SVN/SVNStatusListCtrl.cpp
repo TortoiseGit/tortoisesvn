@@ -263,6 +263,10 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLCOPYFROM;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
+	nCol++;
+	temp.LoadString(IDS_STATUSLIST_COLMODIFICATIONDATE);
+	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLMODIFICATIONDATE;
+	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
 	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
 	CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
@@ -1406,6 +1410,19 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	else
 		temp = entry->copyfrom_url;
 	SetItemText(index, nCol++, temp);
+	// SVNSLC_COLMODIFICATIONDATE
+	__int64 filetime = entry->GetPath().GetLastWriteTime();
+	if (filetime)
+	{
+		FILETIME* f = (FILETIME*)(__int64*)&filetime;
+		TCHAR datebuf[SVN_DATE_BUFFER];
+		SVN::formatDate(datebuf,*f,true);
+		SetItemText(index, nCol++, datebuf);
+	}
+	else
+	{
+		SetItemText(index, nCol++, _T(""));
+	}
 
 	SetCheck(index, entry->checked);
 	if (entry->checked)
@@ -3496,6 +3513,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
+			temp.LoadString(IDS_STATUSLIST_COLMODIFICATIONDATE);
+			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			if ((cmd >= 1)&&(cmd < SVNSLC_NUMCOLUMNS))
@@ -4206,6 +4225,12 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 	{
 		internalcol++;
 		if (m_dwColumns & SVNSLC_COLSVNNEEDSLOCK)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLMODIFICATIONDATE)
 			currentcol++;
 	}
 

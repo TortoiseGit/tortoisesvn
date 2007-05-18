@@ -812,6 +812,11 @@ public:
 	 * format.
 	 */
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
+	/**
+	 * Returns a string in \c date_native[] representing the date in the OS local
+	 * format.
+	 */
+	static void formatDate(TCHAR date_native[], FILETIME& date, bool force_short_fmt = false);
 
 	/**
 	 * Reads the proxy settings from Internet Explorer and sets them for Subversion

@@ -2048,6 +2048,41 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	}
 }
 
+void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_fmt)
+{
+	date_native[0] = '\0';
+
+	// Convert UTC to local time
+	FILETIME localfiletime;
+	VERIFY( FileTimeToLocalFileTime(&filetime,&localfiletime) );
+	
+	SYSTEMTIME systime;
+	VERIFY(FileTimeToSystemTime(&localfiletime,&systime));
+
+	TCHAR timebuf[SVN_DATE_BUFFER];
+	TCHAR datebuf[SVN_DATE_BUFFER];
+
+	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+	locale = MAKELCID(locale, SORT_DEFAULT);
+
+	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
+	{
+		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+	}
+	else
+	{
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(", "), SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+	}
+}
+
 CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
 {
 	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
