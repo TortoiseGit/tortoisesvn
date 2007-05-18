@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ public:
 	bool Exists() const;
 	void SetFileName(const CString& newFilename);
 	void SetDescriptiveName(const CString& newDescName);
+	CString GetDescriptiveName() {return m_sDescriptiveName;}
 	void CreateEmptyFile();
 	CString GetWindowName() const;
 	CString GetFilename() const		{ return m_sFilename; }

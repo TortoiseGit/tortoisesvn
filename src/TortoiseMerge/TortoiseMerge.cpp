@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -339,6 +339,40 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// diffing a blame means no editing!
 	if (pFrame->m_bBlame)
 		pFrame->m_bReadOnly = true;
+
+	// try to find a suitable window title
+	CString sYour = pFrame->m_Data.m_yourFile.GetDescriptiveName();
+	if (sYour.Find(_T(" - "))>=0)
+		sYour = sYour.Left(sYour.Find(_T(" - ")));
+	if (sYour.Find(_T(" : "))>=0)
+		sYour = sYour.Left(sYour.Find(_T(" : ")));
+	CString sTheir = pFrame->m_Data.m_theirFile.GetDescriptiveName();
+	if (sTheir.Find(_T(" - "))>=0)
+		sTheir = sTheir.Left(sTheir.Find(_T(" - ")));
+	if (sTheir.Find(_T(" : "))>=0)
+		sTheir = sTheir.Left(sTheir.Find(_T(" : ")));
+
+	if (!sYour.IsEmpty() && !sTheir.IsEmpty())
+	{
+		if (sYour.CompareNoCase(sTheir)==0)
+			pFrame->SetWindowText(sYour + _T(" - TortoiseMerge"));
+		else if ((sYour.GetLength() < 10) &&
+				(sTheir.GetLength() < 10))
+			pFrame->SetWindowText(sYour + _T(" - ") + sTheir + _T(" - TortoiseMerge"));
+		else
+		{
+			// we have two very long descriptive texts here, which
+			// means we have to find a way to use them as a window 
+			// title in a shorter way.
+			// for simplicity, we just use the one from "yourfile"
+			pFrame->SetWindowText(sYour + _T(" - TortoiseMerge"));
+		}
+	}
+	else if (!sYour.IsEmpty())
+		pFrame->SetWindowText(sYour + _T(" - TortoiseMerge"));
+	else if (!sTheir.IsEmpty())
+		pFrame->SetWindowText(sTheir + _T(" - TortoiseMerge"));
+
 	// The one and only window has been initialized, so show and update it
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);
