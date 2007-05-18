@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -139,8 +139,16 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 
 void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 {
-	m_url = url;
-	m_rev = rev;
+	if (url.Find('?')>=0)
+	{
+		m_url = url.Left(url.Find('?'));
+		m_rev = SVNRev(url.Mid(url.Find('?')+1));
+	}
+	else
+	{
+		m_url = url;
+		m_rev = rev;
+	}
 	m_cbxUrl.SetWindowText(m_url);
 	m_btnRevision.SetWindowText(m_rev.ToString());
 }
@@ -157,6 +165,11 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 		new_url = GetCurrentUrl();
 		new_rev = GetCurrentRev();
 		new_url.TrimRight('/');
+	}
+	if (new_url.Find('?')>=0)
+	{
+		new_rev = SVNRev(new_url.Mid(new_url.Find('?')+1));
+		new_url = new_url.Left(new_url.Find('?'));
 	}
 	if (!bAlreadyChecked)
 	{

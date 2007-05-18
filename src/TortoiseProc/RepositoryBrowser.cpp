@@ -310,9 +310,15 @@ bool CRepositoryBrowser::SetBackgroundImage(UINT nID)
 void CRepositoryBrowser::InitRepo()
 {
 	CWaitCursorEx wait;
+
+	if (m_InitialUrl.Find('?')>=0)
+	{
+		m_initialRev = SVNRev(m_InitialUrl.Mid(m_InitialUrl.Find('?')+1));
+		m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.Find('?'));
+	}
+
 	// We don't know if the url passed to us points to a file or a folder,
 	// let's find out:
-
 	SVNInfo info;
 	const SVNInfoData * data = NULL;
 	CString error;	// contains the first error of GetFirstFileInfo()

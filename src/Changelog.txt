@@ -141,6 +141,8 @@
        See issue #349 for details. (Stefan)
 - NEW: TortoiseMerge shows the diffed file info in the window title.
        See issue #345 for details. (Stefan)
+- NEW: The repository browser can handle URLs with revisions in the form
+       URL?revision. See issue #346 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added
