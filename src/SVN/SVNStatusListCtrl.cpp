@@ -3548,6 +3548,10 @@ void CSVNStatusListCtrl::ShowColumn(int col)
 				arr2[arrIndex++] = arr[i];
 		}
 	}
+	if ( !bInserted )
+	{
+		arr2[arrIndex++] = col;
+	}
 
 	SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr2);
 
