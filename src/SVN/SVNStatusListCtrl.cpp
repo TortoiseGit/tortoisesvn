@@ -1462,6 +1462,19 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
+	case 16:
+		{
+			if (result == 0)
+			{
+				__int64 writetime1 = entry1->GetPath().GetLastWriteTime();
+				__int64 writetime2 = entry2->GetPath().GetLastWriteTime();
+
+				FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
+				FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
+	
+				result = CompareFileTime(filetime1,filetime2);
+			}
+		}
 	case 13:
 		{
 			if (result == 0)
