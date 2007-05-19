@@ -26,6 +26,7 @@
 #include "Registry.h"
 #include "SciEdit.h"
 #include "SplitterControl.h"
+#include "PathWatcher.h"
 
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101
@@ -114,4 +115,5 @@ private:
 	CHistoryDlg			m_HistoryDlg;
 	bool				m_bCancelled;
 	CSplitterControl	m_wndSplitter;
+	CPathWatcher		m_pathwatcher;
 };

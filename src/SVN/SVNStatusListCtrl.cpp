@@ -171,6 +171,29 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
 	return m_arStatusArray[m_arListArray[index]];
 }
 
+CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetVisibleListEntry(const CTSVNPath& path)
+{
+	int itemCount = GetItemCount();
+	for (int i=0; i < itemCount; i++)
+	{
+		FileEntry * entry = GetListEntry(i);
+		if (entry->GetPath().IsEquivalentTo(path))
+			return entry;
+	}
+	return NULL;
+}
+
+CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(const CTSVNPath& path)
+{
+	for (size_t i=0; i < m_arStatusArray.size(); i++)
+	{
+		FileEntry * entry = m_arStatusArray[i];
+		if (entry->GetPath().IsEquivalentTo(path))
+			return entry;
+	}
+	return NULL;
+}
+
 void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus /* = SVNSLC_POPALL */, bool bHasCheckboxes /* = true */)
 {
 	Locker lock(m_critSec);
@@ -4525,11 +4548,23 @@ bool CSVNStatusListCtrl::EnableFileDrop()
 	return true;
 }
 
-bool CSVNStatusListCtrl::HasPath(CTSVNPath path)
+bool CSVNStatusListCtrl::HasPath(const CTSVNPath& path)
 {
 	for (size_t i=0; i < m_arStatusArray.size(); i++)
 	{
 		FileEntry * entry = m_arStatusArray[i];
+		if (entry->GetPath().IsEquivalentTo(path))
+			return true;
+	}
+	return false;
+}
+
+bool CSVNStatusListCtrl::IsPathShown(const CTSVNPath& path)
+{
+	int itemCount = GetItemCount();
+	for (int i=0; i < itemCount; i++)
+	{
+		FileEntry * entry = GetListEntry(i);
 		if (entry->GetPath().IsEquivalentTo(path))
 			return true;
 	}

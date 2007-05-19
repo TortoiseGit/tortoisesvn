@@ -174,6 +174,14 @@ BOOL CCommitDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("CommitDlg"));
 
+
+	// add all directories to the watcher
+	for (int i=0; i<m_pathList.GetCount(); ++i)
+	{
+		if (m_pathList[i].IsDirectory())
+			m_pathwatcher.AddPath(m_pathList[i]);
+	}
+
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
@@ -231,6 +239,7 @@ void CCommitDlg::OnOK()
 		if (CMessageBox::Show(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
 			return;
 	}
+	m_pathwatcher.Stop();
 	InterlockedExchange(&m_bBlock, TRUE);
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
@@ -298,6 +307,47 @@ void CCommitDlg::OnOK()
 			}
 		}
 	}
+	if (m_pathwatcher.GetNumberOfChangedPaths() && m_bRecursive)
+	{
+		// There are paths which got changed (touched at least).
+		// We have to find out if this affects the selection in the commit dialog
+		// If it could affect the selection, revert back to a non-recursive commit
+		CTSVNPathList changedList = m_pathwatcher.GetChangedPaths();
+		changedList.RemoveDuplicates();
+		for (int i=0; i<changedList.GetCount(); ++i)
+		{
+			if (changedList[i].IsAdminDir())
+			{
+				// something inside an admin dir was changed.
+				// if it's the entries file, then we have to fully refresh because
+				// files may have been added/removed from version control
+				if ((changedList[i].GetWinPathString().Right(7).CompareNoCase(_T("entries")) == 0) &&
+					(changedList[i].GetWinPathString().Find(_T("\\tmp\\"))<0))
+				{
+					m_bRecursive = false;
+					break;
+				}
+			}
+			else if (!m_ListCtrl.IsPathShown(changedList[i]))
+			{
+				// a path which is not shown in the list has changed
+				CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(changedList[i]);
+				if (entry)
+				{
+					// check if the changed path would get committed by a recursive commit
+					if ((!entry->IsFromDifferentRepository()) &&
+						(!entry->IsInExternal()) &&
+						(!entry->IsNested()) && 
+						(!entry->IsChecked()))
+					{
+						m_bRecursive = false;
+						break;
+					}
+				}
+			}
+		}
+	}
+
 
 	// Now, do all the adds - make sure that the list is sorted so that parents 
 	// are added before their children
@@ -347,6 +397,7 @@ void CCommitDlg::OnOK()
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
 	m_ListCtrl.WriteCheckedNamesToPathList(m_selectedPathList);
+
 	if ((m_bRecursive)&&(checkedLists.size() == 1))
 	{
 		// all checked items belong to the same changelist
@@ -477,6 +528,7 @@ void CCommitDlg::OnCancel()
 	m_bCancelled = true;
 	if (m_bBlock)
 		return;
+	m_pathwatcher.Stop();
 	if (m_bThreadRunning)
 	{
 		InterlockedExchange(&m_bRunThread, FALSE);

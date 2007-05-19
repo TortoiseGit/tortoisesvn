@@ -227,6 +227,10 @@ public:
 		{
 			return inexternal;
 		}
+		const bool IsNested() const
+		{
+			return isNested;
+		}
 		const bool IsFromDifferentRepository() const
 		{
 			return differentrepo;
@@ -377,6 +381,17 @@ public:
 	CSVNStatusListCtrl::FileEntry * GetListEntry(int index);
 
 	/**
+	 * Returns the file entry data for the specified path.
+	 * \note The entry might not be shown in the list control.
+	 */
+	CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path);
+
+	/**
+	 * Returns the file entry data for the specified path in the list control.
+	 */
+	CSVNStatusListCtrl::FileEntry * GetVisibleListEntry(const CTSVNPath& path);
+
+	/**
 	 * Returns a String containing some statistics like number of modified, normal, deleted,...
 	 * files.
 	 */
@@ -479,8 +494,11 @@ public:
 	/**
 	 * Checks if the path already exists in the list.
 	 */
-	bool HasPath(CTSVNPath path);
-
+	bool HasPath(const CTSVNPath& path);
+	/**
+	 * Checks if the path is shown/visible in the list control.
+	 */
+	bool IsPathShown(const CTSVNPath& path);
 	/**
 	 * Forces the children to be checked when the parent folder is checked,
 	 * and the parent folder to be unchecked if one of its children is unchecked.
