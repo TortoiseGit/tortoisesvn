@@ -1459,6 +1459,8 @@ void CSVNStatusListCtrl::Sort()
 
 bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2)
 {
+	#define SGN(x) ((x)==0?0:((x)>0?1:-1))
+
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
@@ -1475,11 +1477,24 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 				result = CompareFileTime(filetime1,filetime2);
 			}
 		}
+	case 15:
+		{
+			if (result == 0)
+			{
+				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
+			}
+		}
+	case 14:
+		{
+			if (result == 0)
+			{
+				result = SGN(entry1->needslock - entry2->needslock);
+			}
+		}
 	case 13:
 		{
 			if (result == 0)
 			{
-				#define SGN(x) ((x)==0?0:((x)>0?1:-1))
 				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
 			}
 		}
