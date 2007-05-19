@@ -1894,7 +1894,12 @@ bool CSVNStatusListCtrl::BuildStatistics()
 					if (SVNStatus::IsImportant(entry->remotestatus))
 						break;
 					m_nUnversioned++;
-					if ((!entry->inunversionedfolder)&&(m_bUnversionedLast))
+					// If an entry is in an unversioned folder, we don't have to do an expensive array search
+					// to find out if it got case-renamed: an unversioned folder can't have versioned files
+					// But nested folders are also considered to be in unversioned folders, we have to do the
+					// check in that case too, otherwise we would miss case-renamed folders - they show up
+					// as nested folders.
+					if (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast))
 					{
 						// check if the unversioned item is just
 						// a file differing in case but still versioned
