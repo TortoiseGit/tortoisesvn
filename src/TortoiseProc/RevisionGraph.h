@@ -19,23 +19,38 @@
 #pragma once
 
 #include "SVNPrompt.h"
+#include "ILogReceiver.h"
+
 #include <map>
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
-struct log_entry
+class log_entry
 {
-	apr_hash_t* ch_paths;
+public:
+
+	std::auto_ptr<LogChangedPathArray> changes;
 	svn_revnum_t rev;
-	const char* author; 
-	apr_time_t time;
-	const char* msg; 
+	CString author;
+	apr_time_t timeStamp;
+	CString message;
+
+	// default construction
+
+	log_entry() {};
+
+private:
+
+	// copy is not allowed (due to std::auto_ptr)
+
+	log_entry (const log_entry&);
+	log_entry& operator= (const log_entry&);
 };
 
 struct source_entry
 {
-	const char *	pathto;
-	LONG			revisionto;
+	CString	pathto;
+	LONG	revisionto;
 };
 
 /**
@@ -60,19 +75,19 @@ public:
 		source
 	};
 	//methods
-	CRevisionEntry(void) : revision(0), url(NULL), realurl(NULL), author(NULL), date(0),
-		message(NULL), action(nothing), level(1), bUsed(false),
+	CRevisionEntry(void) : revision(0), url(), realurl(), author(), date(0),
+		message(), action(nothing), level(1), bUsed(false),
 		leftconnections(0),	rightconnections(0), bottomconnections(0),
 		rightlines(0), bottomlines(0),
 		leftconnectionsleft(0),	rightconnectionsleft(0), bottomconnectionsleft(0),
 		rightlinesleft(0), bottomlinesleft(0) {};
 	//members
 	svn_revnum_t	revision;
-	const char *	url;
-	const char *	realurl;
-	const char *	author;
+	CString			url;
+	CString			realurl;
+	CString			author;
 	apr_time_t		date;
-	const char *	message;
+	CString			message;
 	Action			action;
 	int				level;
 	CPtrArray		sourcearray;
@@ -106,7 +121,7 @@ public:
  * out if they are related to the path we're looking at. If they are, we mark
  * them as \b in-use.
  */
-class CRevisionGraph
+class CRevisionGraph : private ILogReceiver
 {
 public:
 	CRevisionGraph(void);
@@ -119,6 +134,7 @@ public:
 
 	CString						GetLastErrorMessage();
 	static bool					IsParentOrItself(const char * parent, const char * child);
+	static bool					IsParentOrItself(const wchar_t * parent, const wchar_t * child);
 	CPtrArray					m_arEntryPtrs;
 	size_t						m_maxurllength;
 	CString						m_maxurl;
@@ -131,7 +147,9 @@ public:
 	CString						GetReposRoot() {return CString(m_sRepoRoot);}
 
 	BOOL						m_bCancelled;
-	apr_array_header_t *		m_logdata;
+
+	typedef std::map<svn_revnum_t, log_entry*> TLogDataMap;
+	TLogDataMap					m_logdata;
 	apr_pool_t *				pool;			///< memory pool
 	apr_pool_t *				graphpool;
 	svn_client_ctx_t 			m_ctx;
@@ -139,14 +157,14 @@ public:
 
 private:
 	bool						BuildForwardCopies();
-	bool						AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool bShowAll);
-	bool						Cleanup(CStringA url, bool bArrangeByPath);
+	bool						AnalyzeRevisions(CString url, svn_revnum_t startrev, bool bShowAll);
+	bool						Cleanup(bool bArrangeByPath);
 	
-	bool						SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom_rev, 
-											const char * copyto_path, svn_revnum_t copyto_rev);
-	CRevisionEntry *			GetRevisionEntry(const char * path, svn_revnum_t rev, 
+	bool						SetCopyTo(const CString& uiCopyFromPath, svn_revnum_t copyfrom_rev, 
+											const CString& copyto_path, svn_revnum_t copyto_rev);
+	CRevisionEntry *			GetRevisionEntry(const CString& uiPath, svn_revnum_t rev, 
 													bool bCreate = true);
-	char *						GetRename(const char * url, LONG rev);
+	CString 					GetRename(const CString& url, LONG rev);
 
 #ifdef DEBUG	
 	void						PrintDebugInfo();
@@ -158,7 +176,7 @@ private:
 	CStringA					m_sRepoRoot;
 	LONG						m_lHeadRevision;
 
-	std::set<std::string>		m_filterpaths;
+	std::set<std::wstring>		m_filterpaths;
 	svn_revnum_t				m_FilterMinRev;
 	svn_revnum_t				m_FilterMaxRev;
 
@@ -166,12 +184,13 @@ private:
 	svn_error_t *				Err;			///< Global error object struct
 	apr_pool_t *				parentpool;
 	static svn_error_t*			cancel(void *baton);
-	static svn_error_t*			logDataReceiver(void* baton, 
-												apr_hash_t* ch_paths, 
-												svn_revnum_t rev, 
-												const char* author, 
-												const char* date, 
-												const char* msg, 
-												apr_pool_t* pool);
+
+	// implement ILogReceiver
+
+	void ReceiveLog ( LogChangedPathArray* changes
+					, svn_revnum_t rev
+					, const CString& author
+					, const apr_time_t& timeStamp
+					, const CString& message);
 
 };

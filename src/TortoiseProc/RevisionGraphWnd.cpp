@@ -489,10 +489,10 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 			SVN::formatDate(date, rentry->date);
 			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
 							rentry->revision,
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->realurl),
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->author), 
+							(LPCTSTR)rentry->realurl,
+							(LPCTSTR)rentry->author, 
 							date,
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->message));
+							(LPCTSTR)rentry->message);
 		}
 	}
 	else
@@ -732,7 +732,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||((m_SelectedEntry2)&&(m_SelectedEntry2->action == CRevisionEntry::deleted)))
 			return;	// we can't compare with deleted items
 
-		bool bSameURL = (m_SelectedEntry2 && (strcmp(m_SelectedEntry1->url, m_SelectedEntry2->url)==0));
+		bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->url == m_SelectedEntry2->url));
 		CString temp;
 		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 		{
@@ -778,7 +778,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			{
 				CString sCmd;
-				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode(m_SelectedEntry1->url);
+				CString URL = GetReposRoot() + m_SelectedEntry1->url;
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,

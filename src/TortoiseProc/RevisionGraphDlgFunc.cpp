@@ -598,11 +598,11 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 				m_numRevisions++;
 				lastrev = reventry->revision;
 			}
-			size_t len = strlen(reventry->url);
+			size_t len = reventry->url.GetLength();
 			if (m_maxurllength < len)
 			{
 				m_maxurllength = len;
-				m_maxurl = CUnicodeUtils::GetUnicode(reventry->url);
+				m_maxurl = reventry->url;
 			}
 		}
 	}
@@ -694,8 +694,8 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry1->url));
-	url2.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry2->url));
+	url1.SetFromSVN (sRepoRoot + m_SelectedEntry1->url);
+	url2.SetFromSVN (sRepoRoot + m_SelectedEntry2->url);
 
 	SVNRev peg = (SVNRev)(bHead ? m_SelectedEntry1->revision : SVNRev());
 
@@ -719,8 +719,8 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry1->url));
-	url2.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry2->url));
+	url1.SetFromSVN (sRepoRoot + m_SelectedEntry1->url);
+	url2.SetFromSVN (sRepoRoot + m_SelectedEntry2->url);
 
 	SVNDiff diff(&svn, this->m_hWnd);
 	diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
@@ -760,8 +760,8 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry1->url));
-	url2.SetFromSVN(sRepoRoot+CUnicodeUtils::GetUnicode(m_SelectedEntry2->url));
+	url1.SetFromSVN (sRepoRoot + m_SelectedEntry1->url);
+	url2.SetFromSVN (sRepoRoot + m_SelectedEntry2->url);
 	CTSVNPath url1_temp = url1;
 	CTSVNPath url2_temp = url2;
 	INT_PTR iMax = min(url1_temp.GetSVNPathString().GetLength(), url2_temp.GetSVNPathString().GetLength());

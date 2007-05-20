@@ -816,6 +816,12 @@ public:
 	 */
 	static void UseIEProxySettings(apr_hash_t * cfg);
 
+	/**
+	 * Returns the log cache pool singleton. You will need that to 
+	 * create \c CCacheLogQuery instances.
+	 */
+	LogCache::CLogCachePool* GetLogCachePool() {return &logCachePool;}
+
 	svn_error_t *				Err;			///< Global error object struct
 private:
 	svn_client_ctx_t * 			m_pctx;			///< pointer to client context

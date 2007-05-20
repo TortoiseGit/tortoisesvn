@@ -286,7 +286,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 
 			// draw the url
 			pDC->SelectObject(GetFont(TRUE));
-			temp = CUnicodeUtils::GetUnicode(rentry->url);
+			temp = rentry->url;
 			r = textrect;
 			temp.Replace('/','\\');
 			pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
