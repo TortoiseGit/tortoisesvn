@@ -478,6 +478,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		if (status == svn_wc_status_ignored)
 			itemStates |= ITEMIS_IGNORED;
 		itemStates |= ITEMIS_FOLDER;
+		if (files_.size() == 0)
+			itemStates |= ITEMIS_ONLYONE;
 	}
 	if (files_.size() == 2)
 		itemStates |= ITEMIS_TWO;
