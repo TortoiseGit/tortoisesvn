@@ -177,8 +177,8 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 			(stream.GetSubStream (CRevisionInfoContainer::TIMESTAMPS_STREAM_ID));
 	*timeStampsStream >> container.timeStamps;
 
-	CPackedDWORDInStream* rootPathsStream 
-		= dynamic_cast<CPackedDWORDInStream*>
+	CDiffIntegerInStream* rootPathsStream 
+		= dynamic_cast<CDiffIntegerInStream*>
 			(stream.GetSubStream (CRevisionInfoContainer::ROOTPATHS_STREAM_ID));
 	*rootPathsStream >> container.rootPaths;
 
@@ -253,10 +253,10 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 								  , PACKED_TIME64_STREAM_TYPE_ID));
 	*timeStampsStream << container.timeStamps;
 
-	CPackedDWORDOutStream* rootPathsStream 
-		= dynamic_cast<CPackedDWORDOutStream*>
+	CDiffIntegerOutStream* rootPathsStream 
+		= dynamic_cast<CDiffIntegerOutStream*>
 			(stream.OpenSubStream ( CRevisionInfoContainer::ROOTPATHS_STREAM_ID
-								  , PACKED_DWORD_STREAM_TYPE_ID));
+								  , DIFF_INTEGER_STREAM_TYPE_ID));
 	*rootPathsStream << container.rootPaths;
 
 	CDiffDWORDOutStream* changesOffsetsStream 
