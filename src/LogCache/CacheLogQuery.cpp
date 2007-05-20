@@ -300,6 +300,11 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
 	revision_t lastReported = startRevision+1;
 
+	// we cannot receive logs for rev 0 (or earlier)
+
+	if (endRevision < 1)
+		endRevision = 1;
+
 	// crawl & update the cache, report entries found
 
 	while ((iterator->GetRevision() >= endRevision) && !iterator->EndOfPath())
