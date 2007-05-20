@@ -55,6 +55,10 @@ public:
 	// close the stream (returns a globally unique index)
 
 	virtual STREAM_INDEX AutoClose() = 0;
+
+	// required for proper destruction of sub-class instances
+
+	virtual ~IHierarchicalOutStream() {};
 };
 
 ///////////////////////////////////////////////////////////////

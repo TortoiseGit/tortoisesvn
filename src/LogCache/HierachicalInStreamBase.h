@@ -42,6 +42,10 @@ public:
 	// add a sub-stream
 
 	virtual IHierarchicalInStream* GetSubStream (SUB_STREAM_ID subStreamID) = 0;
+
+	// required for proper destruction of sub-class instances
+
+	virtual ~IHierarchicalInStream() {};
 };
 
 ///////////////////////////////////////////////////////////////
