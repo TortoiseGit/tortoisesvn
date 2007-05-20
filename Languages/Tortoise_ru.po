@@ -21,7 +21,7 @@
 # file handle -- файловый дескриптор
 # HEAD revision -- ведущая ревизия
 # help -- cправка
-# hook -- привязка
+# hook -- привязка (-> действие?)
 # issue -- проблема (в системе отслеживания ошибок)
 # locatorbar -- полоса местоположения
 # locking (files) -- блокирование (файлов)
@@ -36,18 +36,19 @@
 # revision -- ревизия
 # sharing -- общий доступ
 # tag -- метка
-# Unified Diff -- Объединённый файл различий (было: патч-файл)
-# whitespaces -- непечатаемые знаки (было: пустые символы)
+# undo -- откат
+# unified diff -- объединённые различия
+# whitespaces -- непечатаемые знаки
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9380: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9452: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-13 23:00+0300\n"
+"PO-Revision-Date: 2007-05-20 15:09+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -626,7 +627,7 @@ msgstr "&Пароль:"
 
 #: ID:376
 msgid "&Paste"
-msgstr "&Вставка"
+msgstr "&Вставить"
 
 #: Control-ID:65535
 msgid "&Port:"
@@ -773,11 +774,11 @@ msgstr "&URL:"
 
 #: ID:376
 msgid "&Undo"
-msgstr "&Откат"
+msgstr "&Откатить"
 
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
-msgstr "&Откат\tCtrl+Z"
+msgstr "&Откатить\tCtrl+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
@@ -3024,6 +3025,14 @@ msgstr ""
 "Если отмечено, при начале диалога программа сама связывается с хранилищем.\n"
 "Вам больше не надо нажимать на кнопку \"Проверить хранилище\"."
 
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Если отмечено, то в рабочих копиях на исключённых (но версированных) папках\n"
+"всё равно будет показываться пометка на значке как для статуса 'нормальная'."
+
 #: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
@@ -3607,6 +3616,10 @@ msgstr "Разное"
 #: ID:3887
 msgid "Mixed"
 msgstr "Смешанное"
+
+#: ID:208
+msgid "Modification date"
+msgstr "Дата изменения"
 
 #: ID:74
 #: ID:264
@@ -4982,6 +4995,10 @@ msgstr "Показать изменения как объединённые ра
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённые разли&чия"
+
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Показывать исключённые папки как 'нормальные'"
 
 #: Control-ID:1264
 msgid "Show ignored files"
