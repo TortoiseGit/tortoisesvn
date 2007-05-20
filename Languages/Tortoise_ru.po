@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9452: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9488: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-20 15:09+0300\n"
+"PO-Revision-Date: 2007-05-20 18:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -332,6 +332,10 @@ msgstr "&Отмена"
 #: ID:8
 msgid "&Clean up"
 msgstr "&Очистить"
+
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "Обозначать &цветом возраст строк"
 
 #: ID:8
 msgid "&Commit..."
@@ -2882,6 +2886,12 @@ msgstr "ID:32779:V   +S"
 #: ; '&Go To Line...'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
@@ -6214,6 +6224,10 @@ msgstr "Версия"
 #: ID:264
 msgid "Versioned"
 msgstr "Версировано"
+
+#: MenuEntry
+msgid "View"
+msgstr "Вид"
 
 #: ID:114
 msgid "View revision for path in &webviewer"
