@@ -63,7 +63,9 @@ CHierachicalInStreamBase::~CHierachicalInStreamBase()
 		, end = subStreams.end()
 		; iter != end
 		; ++iter)
-		delete iter->second;
+		// typecast is needed here to avoid memory leaks: the objects must
+		// be destroyed properly
+		delete (CHierachicalInStreamBase*)iter->second;
 }
 
 // implement IHierarchicalOutStream
