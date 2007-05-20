@@ -40,6 +40,10 @@ BEGIN
         MENUITEM "&Find...",                    ID_EDIT_FIND
         MENUITEM "&Go To Line...",              ID_EDIT_GOTOLINE
     END
+    POPUP "View"
+    BEGIN
+        MENUITEM "&Color age of lines",         ID_VIEW_COLORAGEOFLINES
+    END
 END
 
 IDR_BLAMEPOPUP MENU 
@@ -49,7 +53,7 @@ BEGIN
         MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
         MENUITEM SEPARATOR
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
-        MENUITEM "Show &changes",		        ID_DIFF_PREVIOUS_REVISION
+        MENUITEM "Show &changes",               ID_DIFF_PREVIOUS_REVISION
         MENUITEM "Show &log",                   ID_SHOWLOG
     END
 END
@@ -68,6 +72,7 @@ BEGIN
     "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
     "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
     VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    "O",            ID_VIEW_COLORAGEOFLINES, VIRTKEY, CONTROL, NOINVERT
 END
 
 

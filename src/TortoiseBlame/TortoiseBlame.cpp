@@ -73,6 +73,10 @@ TortoiseBlame::TortoiseBlame()
 	m_SelectedLine = -1;
 	m_directPointer = 0;
 	m_directFunction = 0;
+
+	m_lowestrev = LONG_MAX;
+	m_highestrev = 0;
+	m_colorage = true;
 }
 
 TortoiseBlame::~TortoiseBlame()
@@ -140,6 +144,8 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 	{
 		return FALSE;
 	}
+	m_lowestrev = LONG_MAX;
+	m_highestrev = 0;
 	LONG rev = 0;
 	std::string msg;
 	int slength = 0;
@@ -185,6 +191,8 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 		logmsgbuf[len] = 0;
 		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
+		m_lowestrev = min(m_lowestrev, rev);
+		m_highestrev = max(m_highestrev, rev);
 	}
 }
 
@@ -578,6 +586,12 @@ void TortoiseBlame::Notify(SCNotification *notification)
 	case SCN_PAINTED:
 		InvalidateRect(wBlame, NULL, FALSE);
 		break;
+	case SCN_GETBKCOLOR:
+		if ((m_colorage)&&(notification->line < (int)revs.size()))
+		{
+			notification->lParam = InterColor(RGB(230, 230, 255), RGB(255, 230, 230), (revs[notification->line]-m_lowestrev)*100/(m_highestrev-m_lowestrev));
+		}
+		break;
 	}
 }
 
@@ -605,6 +619,16 @@ void TortoiseBlame::Command(int id)
 		break;
 	case ID_EDIT_GOTOLINE:
 		GotoLineDlg();
+		break;
+	case ID_VIEW_COLORAGEOFLINES:
+		{
+			m_colorage = !m_colorage;
+			HMENU hMenu = GetMenu(wMain);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= m_colorage ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_COLORAGEOFLINES, uCheck);
+			::InvalidateRect(wEditor, NULL, FALSE);
+		}
 		break;
 	default:
 		break;
@@ -950,6 +974,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	{
 		app.GotoLine(parser.GetLongVal(_T("line")));
 	}
+
+	CheckMenuItem(GetMenu(app.wMain), ID_VIEW_COLORAGEOFLINES, MF_CHECKED|MF_BYCOMMAND);
 
 
 	hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);

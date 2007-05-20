@@ -150,6 +150,8 @@
        If it detects such a change, it reverts back to a non-recursive
        commit to avoid committing unchecked files. 
        See issue #339 for details. (Stefan)
+- NEW: TortoiseBlame can indicate the age of lines by coloring the
+       background of the lines. See issue #364 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added

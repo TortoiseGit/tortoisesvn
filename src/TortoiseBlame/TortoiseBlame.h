@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,6 +94,9 @@ public:
 	std::string					m_selectedauthor;
 	std::string					m_selecteddate;
 	static long					m_gotoline;
+	long						m_lowestrev;
+	long						m_highestrev;
+	bool						m_colorage;
 
 	std::vector<LONG>			revs;
 	std::vector<std::string>	dates;

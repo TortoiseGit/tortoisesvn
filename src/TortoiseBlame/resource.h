@@ -27,6 +27,7 @@
 #define ID_BLAME_PREVIOUS_REVISION      32782
 #define ID_DIFF_PREVIOUS_REVISION       32783
 #define ID_SHOWLOG                      32784
+#define ID_VIEW_COLORAGEOFLINES         32785
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -35,7 +36,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        131
-#define _APS_NEXT_COMMAND_VALUE         32785
+#define _APS_NEXT_COMMAND_VALUE         32786
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
