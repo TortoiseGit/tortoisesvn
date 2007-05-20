@@ -46,7 +46,6 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 
 	Err = svn_config_ensure(NULL, parentpool);
 	pool = svn_pool_create (parentpool);
-	graphpool = svn_pool_create(parentpool);
 	// set up the configuration
 	if (Err == 0)
 		Err = svn_config_get_config (&(m_ctx.config), g_pConfigDir, pool);
@@ -55,7 +54,6 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	{
 		::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (pool);
-		svn_pool_destroy (graphpool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
 	}
@@ -93,6 +91,10 @@ CRevisionGraph::~CRevisionGraph(void)
 	}
 	for (TLogDataMap::iterator iter = m_logdata.begin(), end = m_logdata.end(); iter != end; ++iter)
 	{
+		LogChangedPathArray& changes = *iter->second->changes;
+		for (INT_PTR i = 0, count = changes.GetCount(); i < count; ++i)
+			delete changes.GetAt(i);
+
 		delete iter->second;
 	}
 
@@ -270,9 +272,6 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 	if (m_logdata.empty())
 		return FALSE;
 
-	svn_pool_destroy(graphpool);
-	graphpool = svn_pool_create(parentpool);
-
 	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
 		CRevisionEntry * e = it->second;
@@ -298,13 +297,13 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 		//not an url, so get the URL from the working copy path first
 		svn_wc_adm_access_t *adm_access;          
 		const svn_wc_entry_t *entry;  
-		const char * canontarget = svn_path_canonicalize(url, graphpool);
+		const char * canontarget = svn_path_canonicalize(url, pool);
 #pragma warning(push)
 #pragma warning(disable: 4127)	// conditional expression is constant
 		Err = svn_wc_adm_probe_open2 (&adm_access, NULL, canontarget,
-			FALSE, 0, graphpool);
+			FALSE, 0, pool);
 		if (Err) return FALSE;
-		Err =  svn_wc_entry (&entry, canontarget, adm_access, FALSE, graphpool);
+		Err =  svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool);
 		if (Err) return FALSE;
 		Err = svn_wc_adm_close (adm_access);
 		if (Err) return FALSE;
