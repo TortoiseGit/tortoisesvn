@@ -55,6 +55,10 @@ public:
 	CString				conflict_new;
 	CString				conflict_wrk;
 	CString				prejfile;
+
+	// convenience methods:
+
+	bool IsValid() {return rev.IsValid() != FALSE;}
 };
 
 

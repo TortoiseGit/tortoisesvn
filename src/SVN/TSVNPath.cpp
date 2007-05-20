@@ -1005,6 +1005,21 @@ bool CTSVNPathList::IsEqual(const CTSVNPathList& list)
 
 //////////////////////////////////////////////////////////////////////////
 
+apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
+{
+	apr_array_header_t *targets = apr_array_make (pool, GetCount(), sizeof(const char *));
+
+	for(int nItem = 0; nItem < GetCount(); nItem++)
+	{
+		const char * target = apr_pstrdup (pool, m_paths[nItem].GetSVNApiPath());
+		(*((const char **) apr_array_push (targets))) = target;
+	}
+
+	return targets;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
 
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes

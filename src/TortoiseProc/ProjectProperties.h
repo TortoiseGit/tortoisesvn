@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include "regexpr2.h"
+#include "TSVNPath.h"
 using namespace std;
 using namespace regex;
 
@@ -45,6 +46,7 @@ using namespace regex;
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
 
 class CTSVNPathList;
+struct svn_config_t;
 
 /**
  * \ingroup TortoiseProc

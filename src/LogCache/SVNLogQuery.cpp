@@ -1,0 +1,153 @@
+#include "StdAfx.h"
+
+#include "SVNLogQuery.h"
+#include "ILogReceiver.h"
+
+#include "svn_time.h"
+#include "svn_sorts.h"
+#include "UnicodeUtils.h"
+#include "SVN.h"
+#include "SVNError.h"
+#include "SVNHelpers.h"
+#include "TSVNPath.h"
+
+svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
+									   , apr_hash_t* ch_paths
+									   , svn_revnum_t revision
+									   , const char* author
+									   , const char* date
+									   , const char* msg
+									   , apr_pool_t* pool)
+{
+	// where to send the pre-processed informat
+
+	ILogReceiver* receiver = reinterpret_cast<ILogReceiver*>(baton);
+
+	// convert strings
+
+	CString authorNative = CUnicodeUtils::GetUnicode (author);
+	CString messageNative = CUnicodeUtils::GetUnicode (msg != NULL ? msg : "");
+
+	// time stamp
+
+	apr_time_t timeStamp = NULL;
+	if (date && date[0])
+		SVN_ERR (svn_time_from_cstring (&timeStamp, date, pool));
+
+	// the individual changes
+
+	std::auto_ptr<LogChangedPathArray> arChangedPaths (new LogChangedPathArray);
+	try
+	{
+		if (ch_paths)
+		{
+			apr_array_header_t *sorted_paths 
+				= svn_sort__hash (ch_paths, svn_sort_compare_items_as_paths, pool);
+
+			for (int i = 0, count = sorted_paths->nelts; i < count; ++i)
+			{
+				// find the item in the hash
+
+				std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
+				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
+														 , i
+														 , svn_sort__item_t));
+
+				// extract the path name
+
+				const char *path = (const char *)item->key;
+				changedPath->sPath = SVN::MakeUIUrlOrPath (path);
+
+				// decode the action
+
+				svn_log_changed_path_t *log_item 
+					= (svn_log_changed_path_t *) apr_hash_get ( ch_paths
+															  , item->key
+															  , item->klen);
+				static const char actionKeys[5] = "AMRD";
+				const char* actionKey = strchr (actionKeys, log_item->action);
+
+				changedPath->action = actionKey == NULL 
+									? 0
+									: 1 << (actionKey - actionKeys);
+
+				// decode copy-from info
+
+				if (   log_item->copyfrom_path 
+					&& SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				{
+					changedPath->lCopyFromRev = log_item->copyfrom_rev;
+					changedPath->sCopyFromPath 
+						= SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
+				}
+				else
+				{
+					changedPath->lCopyFromRev = 0;
+				}
+
+				arChangedPaths->Add (changedPath.release());
+			} 
+		} 
+	}
+	catch (CMemoryException * e)
+	{
+		e->Delete();
+	}
+
+	// now, report the change
+
+	try
+	{
+		receiver->ReceiveLog ( arChangedPaths.release()
+							 , revision
+							 , authorNative
+							 , timeStamp
+							 , messageNative);
+	}
+	catch (SVNError& e)
+	{
+		return svn_error_create (e.GetCode(), NULL, e.GetMessage());
+	}
+	catch (...)
+	{
+		// we must not leak exceptions back into SVN
+	}
+
+	return NULL;
+}
+
+CSVNLogQuery::CSVNLogQuery (svn_client_ctx_t *context, apr_pool_t *pool)
+	: context (context)
+	, pool (pool)
+{
+}
+
+CSVNLogQuery::~CSVNLogQuery(void)
+{
+}
+
+void CSVNLogQuery::Log ( const CTSVNPathList& targets
+					   , const SVNRev& peg_revision
+					   , const SVNRev& start
+					   , const SVNRev& end
+					   , int limit
+					   , bool strictNodeHistory
+					   , ILogReceiver* receiver)
+{
+	SVNPool localpool (pool);
+	svn_error_t *result = svn_client_log3 ( targets.MakePathArray (pool)
+										  , peg_revision
+										  , start
+										  , end
+										  , limit
+										  , true
+										  , strictNodeHistory ? TRUE : FALSE
+										  , LogReceiver
+										  , (void *)receiver
+										  , context
+										  , localpool);
+
+	if (result != NULL)
+		throw SVNError (result);
+}
+

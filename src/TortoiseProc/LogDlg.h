@@ -210,8 +210,6 @@ private:
 	HICON				m_hAddedIcon;
 	HICON				m_hDeletedIcon;
 
-	CString sModifiedStatus, sReplacedStatus, sAddStatus, sDeleteStatus;
-
 private:
 	/**
 	 * Instances of CStoreSelection save the selection of the CLogDlg. When the instance

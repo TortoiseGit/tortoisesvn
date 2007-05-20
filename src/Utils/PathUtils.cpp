@@ -160,6 +160,19 @@ CString CPathUtils::GetAppParentDirectory()
 	return path;
 }
 
+CString CPathUtils::GetAppDataDirectory()
+{
+	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
+		return CString();
+
+	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
+	if (!PathIsDirectory(path))
+		CreateDirectory(path, NULL);
+
+	return CString (path) + _T('\\');
+}
+
 void CPathUtils::Unescape(char * psz)
 {
 	char * pszSource = psz;

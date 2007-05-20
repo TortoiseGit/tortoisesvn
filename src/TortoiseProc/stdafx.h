@@ -77,6 +77,7 @@
 #include <tmschema.h>
 #include <dlgs.h>
 #include <wininet.h>
+#include <assert.h>
 #pragma warning(pop)
 
 #pragma warning(push)

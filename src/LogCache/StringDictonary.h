@@ -1,0 +1,159 @@
+#pragma once
+
+///////////////////////////////////////////////////////////////
+// necessary includes
+///////////////////////////////////////////////////////////////
+
+#include "QuickHash.h"
+#include "LogCacheGlobals.h"
+
+///////////////////////////////////////////////////////////////
+// forward declarations
+///////////////////////////////////////////////////////////////
+
+class IHierarchicalInStream;
+class IHierarchicalOutStream;
+
+///////////////////////////////////////////////////////////////
+// begin namespace LogCache
+///////////////////////////////////////////////////////////////
+
+namespace LogCache
+{
+
+///////////////////////////////////////////////////////////////
+//
+// CStringDictionary
+//
+//		efficiently stores a pool unique (UTF8) strings.
+//		Each string is assigned an unique, immutable index.
+//
+//		Under most circumstances, O(1) lookup is provided.
+//
+///////////////////////////////////////////////////////////////
+
+class CStringDictionary
+{
+private:
+
+	///////////////////////////////////////////////////////////////
+	//
+	// CHashFunction
+	//
+	//		A simple string hash function that satisfies quick_hash'
+	//		interface requirements.
+	//
+	//		NULL strings are supported and are mapped to index 0.
+	//		Hence, the dictionary must contain the empty string at
+	//		index 0.
+	//
+	///////////////////////////////////////////////////////////////
+
+	class CHashFunction
+	{
+	private:
+
+		// the dictionary we index with the hash
+		// (used to map index -> value)
+
+		CStringDictionary* dictionary;
+
+	public:
+
+		// simple construction
+
+		CHashFunction (CStringDictionary* aDictionary);
+
+		// required typedefs and constants
+
+		typedef const char* value_type;
+		typedef index_t index_type;
+
+		enum {NO_INDEX = LogCache::NO_INDEX};
+
+		// the actual hash function
+
+		size_t operator() (value_type value) const;
+
+		// dictionary lookup
+
+		value_type value (index_type index) const;
+
+		// lookup and comparison
+
+		bool equal (value_type value, index_type index) const;
+	};
+
+	// sub-stream IDs
+
+	enum
+	{
+		PACKED_STRING_STREAM_ID = 1,
+		OFFSETS_STREAM_ID = 2
+	};
+
+	// the string data
+
+	std::vector<char> packedStrings;
+	std::vector<index_t> offsets;
+
+	// the string index
+
+	quick_hash<CHashFunction> hashIndex;
+
+	friend class CHashFunction;
+
+	// test for the worst effects of data corruption
+
+	void CheckOffsets();
+
+	// construction utility
+
+	void Initialize();
+
+public:
+
+	// construction / destruction
+
+	CStringDictionary(void);
+	virtual ~CStringDictionary(void);
+
+	// dictionary operations
+
+	index_t size() const
+	{
+		return (index_t)(offsets.size()-1);
+	}
+
+	const char* operator[](index_t index) const;
+	index_t GetLength (index_t index) const;
+
+	index_t Find (const char* string) const;
+	index_t Insert (const char* string);
+	index_t AutoInsert (const char* string);
+
+	// reset content
+
+	void Clear();
+
+	// stream I/O
+
+	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+											 , CStringDictionary& dictionary);
+	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+											  , const CStringDictionary& dictionary);
+};
+
+// stream I/O
+
+IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+								  , CStringDictionary& dictionary);
+IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+								   , const CStringDictionary& dictionary);
+
+///////////////////////////////////////////////////////////////
+// end namespace LogCache
+///////////////////////////////////////////////////////////////
+
+}
+

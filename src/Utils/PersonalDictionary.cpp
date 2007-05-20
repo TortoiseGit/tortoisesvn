@@ -20,6 +20,7 @@
 #include "StdAfx.h"
 #include <fstream>
 #include "PersonalDictionary.h"
+#include "PathUtils.h"
 
 CPersonalDictionary::CPersonalDictionary(LONG lLanguage /* = 0*/) :
 	m_bLoaded(false)
@@ -39,18 +40,13 @@ bool CPersonalDictionary::Load()
 	if (m_bLoaded)
 		return true;
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
-	TCHAR sLang[10];
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
-		return false;
-	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
-
-	if (!PathIsDirectory(path))
-		CreateDirectory(path, NULL);
+	_tcscpy_s (path, CPathUtils::GetAppDataDirectory());
 
 	if (m_lLanguage==0)
 		m_lLanguage = GetUserDefaultLCID();
 
-	_stprintf_s(sLang, 10, _T("\\%ld"), m_lLanguage);
+	TCHAR sLang[10];
+	_stprintf_s(sLang, 10, _T("%ld"), m_lLanguage);
 	_tcscat_s(path, MAX_PATH, sLang);
 	_tcscat_s(path, MAX_PATH, _T(".dic"));
 
@@ -102,18 +98,13 @@ bool CPersonalDictionary::Save()
 	if (!m_bLoaded)
 		return false;
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
-	TCHAR sLang[10];
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
-		return false;
-	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
-
-	if (!PathIsDirectory(path))
-		CreateDirectory(path, NULL);
+	_tcscpy_s (path, CPathUtils::GetAppDataDirectory());
 
 	if (m_lLanguage==0)
 		m_lLanguage = GetUserDefaultLCID();
 
-	_stprintf_s(sLang, 10, _T("\\%ld"), m_lLanguage);
+	TCHAR sLang[10];
+	_stprintf_s(sLang, 10, _T("%ld"), m_lLanguage);
 	_tcscat_s(path, MAX_PATH, sLang);
 	_tcscat_s(path, MAX_PATH, _T(".dic"));
 

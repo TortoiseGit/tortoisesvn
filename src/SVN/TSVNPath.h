@@ -18,6 +18,8 @@
 //
 #pragma once
 
+#include "apr_tables.h"
+
 #if defined(_MFC_VER)
 // CSTRING is always available in an MFC build
 #define CSTRING_AVAILABLE
@@ -317,6 +319,9 @@ public:
 
 	/** Checks if two CTSVNPathLists are the same */
 	bool IsEqual(const CTSVNPathList& list);
+
+	/** Convert into the SVN API parameter format */
+	apr_array_header_t * MakePathArray (apr_pool_t *pool) const;
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;

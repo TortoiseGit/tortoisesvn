@@ -65,6 +65,9 @@ public:
 	/// returns TRUE if the revision is a number
 	BOOL IsNumber() const {return (rev.kind == svn_opt_revision_number);}
 
+	// Returns the kind of revision representation (number, HEAD, BASE, etc.)
+	svn_opt_revision_kind GetKind() const {return rev.kind;}
+
 	/// Returns a string representing the date of a DATE revision, otherwise an empty string.
 	CString GetDateString() const {return sDate;}
 	/// Converts the revision into a string representation.

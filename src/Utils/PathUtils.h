@@ -70,6 +70,12 @@ public:
 	static CString GetAppParentDirectory();
 
 	/**
+	 * Returns the path to the application data folder, in our case the %APPDATA%TortoiseSVN folder.
+	 * \remark the path returned has a trailing backslash
+	 */
+	static CString GetAppDataDirectory();
+
+	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.
 	 */
 	static void Unescape(char * psz);
