@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-17 11:07+0100\n"
+"PO-Revision-Date: 2007-05-21 09:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -304,6 +304,10 @@ msgstr "&Abbrechen"
 #: ID:8
 msgid "&Clean up"
 msgstr "&Arbeitskopie aufräumen"
+
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Farbcodierung für Alter der Zeilen"
 
 #: ID:8
 msgid "&Commit..."
@@ -2891,6 +2895,12 @@ msgstr "ID:32779:V   +O"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32773:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
 #: ; 'Arrange &Vertical'
@@ -3647,6 +3657,10 @@ msgstr "Allgemein"
 #: ID:3887
 msgid "Mixed"
 msgstr "Gemischt"
+
+#: ID:208
+msgid "Modification date"
+msgstr "Änderungsdatum"
 
 #: ID:74
 #: ID:264
@@ -6298,6 +6312,10 @@ msgstr "Version"
 #: ID:264
 msgid "Versioned"
 msgstr "Versioniert"
+
+#: MenuEntry
+msgid "View"
+msgstr "Ansicht"
 
 # ID:114,
 #: ID:114
