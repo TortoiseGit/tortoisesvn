@@ -106,6 +106,7 @@
 #define IDD_UNLOCK                      242
 #define IDD_CREATECHANGELIST            243
 #define IDI_REPO_FILE                   244
+#define IDD_SETTINGSTBLAME              244
 #define IDI_REPO_HTTP                   245
 #define IDI_REPO_HTTPS                  246
 #define IDI_REPO_SVN                    247
@@ -113,6 +114,8 @@
 #define IDI_REPO_UNKNOWN                249
 #define IDC_PANCUR                      250
 #define IDC_PANCURDOWN                  251
+#define IDI_ICON1                       252
+#define IDI_TORTOISEBLAME               252
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -614,6 +617,9 @@
 #define IDC_GROUPTOP                    1374
 #define IDC_GROUPBOTTOM                 1375
 #define IDC_URLOFREPO                   1376
+#define IDC_NEWLINESCOLOR               1378
+#define IDC_OLDLINESCOLOR               1380
+#define IDC_TABSIZE                     1381
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1094,9 +1100,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        252
+#define _APS_NEXT_RESOURCE_VALUE        253
 #define _APS_NEXT_COMMAND_VALUE         32814
-#define _APS_NEXT_CONTROL_VALUE         1378
+#define _APS_NEXT_CONTROL_VALUE         1382
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

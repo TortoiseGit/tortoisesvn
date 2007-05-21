@@ -73,6 +73,7 @@ IDI_REPO_HTTPS          ICON                    "repo_https.ico"
 IDI_REPO_SVN            ICON                    "repo_svn.ico"
 IDI_REPO_SVNSSH         ICON                    "repo_svn+ssh.ico"
 IDI_REPO_UNKNOWN        ICON                    "repo_unknown.ico"
+IDI_TORTOISEBLAME       ICON                    "..\\TortoiseBlame\\small.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1132,6 +1133,25 @@ BEGIN
     CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",BS_AUTO3STATE | WS_TABSTOP,7,119,230,10
 END
 
+IDD_SETTINGSTBLAME DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "TortoiseBlame"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Colors",IDC_STATIC,7,7,286,79
+    LTEXT           "recently modified lines",IDC_STATIC,14,21,148,8
+    PUSHBUTTON      "",IDC_NEWLINESCOLOR,172,17,50,14
+    LTEXT           "older lines",IDC_STATIC,14,37,148,8
+    PUSHBUTTON      "",IDC_OLDLINESCOLOR,172,34,50,14
+    PUSHBUTTON      "Restore Default",IDC_RESTORE,191,62,93,14
+    GROUPBOX        "Font",IDC_STATIC,7,95,286,52
+    LTEXT           "&Font:",IDC_STATIC,14,107,92,23,SS_CENTERIMAGE
+    COMBOBOX        IDC_FONTNAMES,107,112,136,90,CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FONTSIZES,253,112,31,47,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tab size:",IDC_STATIC,14,132,92,8
+    EDITTEXT        IDC_TABSIZE,244,129,40,14,ES_AUTOHSCROLL | ES_NUMBER
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1708,6 +1728,19 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 148
     END
+
+    IDD_SETTINGSTBLAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        VERTGUIDE, 14
+        VERTGUIDE, 106
+        VERTGUIDE, 162
+        VERTGUIDE, 172
+        VERTGUIDE, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -2271,7 +2304,7 @@ BEGIN
     IDS_STATUSLIST_COLREVISION "Revision"
     IDS_STATUSLIST_COLSVNLOCK "Needs lock"
     IDS_STATUSLIST_COLCOPYFROM "Copied from URL"
-	IDS_STATUSLIST_COLMODIFICATIONDATE "Modification date"
+    IDS_STATUSLIST_COLMODIFICATIONDATE "Modification date"
     IDS_STATUSLIST_MULTIPLETARGETS "(multiple targets selected)"
     IDS_STATUSLIST_PROPONLY "(property change only)"
     IDS_STATUSLIST_COPYFROM "copied from\r\n%s - revision %ld"

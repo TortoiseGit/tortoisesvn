@@ -21,6 +21,7 @@
 #include "Commdlg.h"
 #include "Scintilla.h"
 #include "SciLexer.h"
+#include "registry.h"
 
 const COLORREF black = RGB(0,0,0);
 const COLORREF white = RGB(0xff,0xff,0xff);
@@ -133,4 +134,7 @@ protected:
 	LRESULT						m_directPointer;
 	FINDREPLACE					fr;
 	TCHAR						szFindWhat[80];
+
+	CRegStdWORD					m_regOldLinesColor;
+	CRegStdWORD					m_regNewLinesColor;
 };

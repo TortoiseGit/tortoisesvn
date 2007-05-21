@@ -274,9 +274,9 @@ void TortoiseBlame::InitialiseEditor()
 	m_directFunction = SendMessage(wEditor, SCI_GETDIRECTFUNCTION, 0, 0);
 	m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
 	// Set up the global default style. These attributes are used wherever no explicit choices are made.
-	SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), 
-		((stdstring)(CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")))).c_str());
-	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\TabSize"), 4));
+	SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), 
+		((stdstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New")))).c_str());
+	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4));
 	SendEditor(SCI_SETREADONLY, TRUE);
 	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
 	if (ShowLine)
@@ -291,6 +291,8 @@ void TortoiseBlame::InitialiseEditor()
 	SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
 	SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
 	SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regOldLinesColor = CRegStdWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), RGB(230, 230, 255));
+	m_regNewLinesColor = CRegStdWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
 }
 
 void TortoiseBlame::StartSearch()
@@ -589,7 +591,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
 	case SCN_GETBKCOLOR:
 		if ((m_colorage)&&(notification->line < (int)revs.size()))
 		{
-			notification->lParam = InterColor(RGB(230, 230, 255), RGB(255, 230, 230), (revs[notification->line]-m_lowestrev)*100/(m_highestrev-m_lowestrev));
+			notification->lParam = InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (revs[notification->line]-m_lowestrev)*100/(m_highestrev-m_lowestrev));
 		}
 		break;
 	}
