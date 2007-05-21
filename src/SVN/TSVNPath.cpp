@@ -1011,7 +1011,7 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
 
 	for(int nItem = 0; nItem < GetCount(); nItem++)
 	{
-		const char * target = apr_pstrdup (pool, m_paths[nItem].GetSVNApiPath());
+		const char * target = svn_path_canonicalize(m_paths[nItem].GetSVNApiPath(), pool);
 		(*((const char **) apr_array_push (targets))) = target;
 	}
 
