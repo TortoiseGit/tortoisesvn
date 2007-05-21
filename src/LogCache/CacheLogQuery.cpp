@@ -404,6 +404,7 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 // get UUID & repository-relative path
 
 SVNInfoData& CCacheLogQuery::GetRepositoryInfo ( const CTSVNPath& path
+											   , const SVNRev& pegRevision
  								               , SVNInfoData& baseInfo
 									           , SVNInfoData& headInfo) const
 {
@@ -417,14 +418,15 @@ SVNInfoData& CCacheLogQuery::GetRepositoryInfo ( const CTSVNPath& path
 
 	// look it up
 
+	SVNInfo info;
 	if (path.IsUrl())
 	{
-		headInfo = *SVNInfo().GetFirstFileInfo (path, SVNRev(), CString (_T("HEAD")));
+		headInfo = *info.GetFirstFileInfo (path, pegRevision, pegRevision);
 		return headInfo;
 	}
 	else
 	{
-		baseInfo = *SVNInfo().GetFirstFileInfo (path, SVNRev(), SVNRev());
+		baseInfo = *info.GetFirstFileInfo (path, SVNRev(), SVNRev());
 		return baseInfo;
 	}
 }
@@ -543,7 +545,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	// load cache and find path to start from
 
-	SVNInfoData& info = GetRepositoryInfo (path, baseInfo, headInfo);
+	SVNInfoData& info = GetRepositoryInfo (path, peg_revision, baseInfo, headInfo);
 
 	CDictionaryBasedTempPath startPath 
 		= TranslatePegRevisionPath ( pegRevision

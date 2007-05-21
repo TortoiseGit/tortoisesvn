@@ -164,6 +164,7 @@ private:
 	// get UUID & repository-relative path
 
 	SVNInfoData& GetRepositoryInfo ( const CTSVNPath& path
+								   , const SVNRev& pegRevision
  								   , SVNInfoData& baseInfo
 								   , SVNInfoData& headInfo) const;
 
