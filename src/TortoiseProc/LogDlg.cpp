@@ -869,7 +869,7 @@ UINT CLogDlg::LogThread()
 	size_t startcount = m_logEntries.size();
 	m_lowestRev = -1;
 	m_bStrictStopped = false;
-	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, true, m_bStrict))
+	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}

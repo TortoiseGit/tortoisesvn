@@ -515,12 +515,11 @@ public:
 	 * \param revisionStart	the revision to start the logs from
 	 * \param revisionEnd the revision to stop the logs
 	 * \param limit number of log messages to fetch, or zero for all
-	 * \param changed set to TRUE if you need the information about changed paths in each revision
 	 * \param strict if TRUE, then the log won't follow copies
 	 * \param changed TRUE if the log should follow changed paths 
 	 * \return TRUE if succesful
 	 */
-	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.
