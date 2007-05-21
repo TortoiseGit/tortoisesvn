@@ -520,7 +520,18 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	revision_t startRevision = DecodeRevision (path, start, baseInfo, headInfo);
 	revision_t endRevision = DecodeRevision (path, end, baseInfo, headInfo);
-	revision_t pegRevision = DecodeRevision (path, peg_revision, baseInfo, headInfo);
+	// The svn_client_log3() API defaults the peg revision to HEAD for URLs 
+	// and WC for local paths if it isn't set explicitly.
+	revision_t pegRevision = 0;
+	if (!peg_revision.IsValid())
+	{
+		if (path.IsUrl())
+			pegRevision = DecodeRevision (path, SVNRev::REV_HEAD, baseInfo, headInfo);
+		else
+			pegRevision = DecodeRevision (path, SVNRev::REV_WC, baseInfo, headInfo);
+	}
+	else
+		pegRevision = DecodeRevision (path, peg_revision, baseInfo, headInfo);
 
 	// order revisions
 
