@@ -382,6 +382,10 @@ msgstr "取消(&C)"
 msgid "&Clean up"
 msgstr "清理(&C)"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "为年龄线着色(&C)"
+
 # ID:8,
 #: ID:8,
 msgid "&Commit..."
@@ -3425,6 +3429,11 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
@@ -4247,6 +4256,11 @@ msgstr "其它"
 #: ID:3887,#: ID:3887,
 msgid "Mixed"
 msgstr "混合"
+
+# Control-ID:65535,
+#: ID:208,
+msgid "Modification date"
+msgstr "修改日期"
 
 # ID:74,#:
 # ID:264,
@@ -7341,6 +7355,11 @@ msgstr "版本"
 #: ID:264,
 msgid "Versioned"
 msgstr "已经版本控制"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "View"
+msgstr "查看"
 
 # ID:114,
 #: ID:114,
