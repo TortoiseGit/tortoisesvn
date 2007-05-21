@@ -185,7 +185,6 @@ void CPathWatcher::WorkerThread()
 	CDirWatchInfo * pdi = NULL;
 	LPOVERLAPPED lpOverlapped;
 	WCHAR buf[MAX_PATH*4] = {0};
-	WCHAR * pFound = NULL;
 	while (m_bRunning)
 	{
 		if (watchedPaths.GetCount())
