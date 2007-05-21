@@ -489,7 +489,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 					if (reventry->action == CRevisionEntry::deleted)
 					{
 						CString newname = GetRename(reventry->url, currentrev);
-						if (newname)
+						if (!newname.IsEmpty())
 						{
 							// we got renamed in this revision.
 							TRACELEVELSPACE;
