@@ -92,6 +92,11 @@ public:
 		return relPathElements.empty();
 	}
 
+	bool IsRoot() const
+	{
+		return inherited::IsRoot() && relPathElements.empty();
+	}
+
 	CDictionaryBasedTempPath GetCommonRoot 
 		(const CDictionaryBasedTempPath& rhs) const;
 

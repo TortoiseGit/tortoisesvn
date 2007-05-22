@@ -86,6 +86,12 @@ bool CLogIteratorBase::PathInRevision() const
 {
 	assert (!InternalDataIsMissing());
 
+	// special case: repository root 
+	// (report all revisions including empty ones)
+
+	if (path.IsRoot())
+		return true;
+
 	// revision data lookup
 
 	const CRevisionInfoContainer& revisionInfo = logInfo->GetLogInfo();
