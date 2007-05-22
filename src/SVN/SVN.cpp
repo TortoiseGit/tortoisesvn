@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,7 +46,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-LogCache::CLogCachePool SVN::logCachePool (CPathUtils::GetAppDataDirectory());
+LogCache::CLogCachePool SVN::logCachePool (CPathUtils::GetAppDataDirectory()+_T("logcache\\"));
 
 SVN::SVN(void) :
 	m_progressWnd(0),
