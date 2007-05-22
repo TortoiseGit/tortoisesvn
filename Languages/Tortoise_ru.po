@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9488: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9506: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-20 18:54+0300\n"
+"PO-Revision-Date: 2007-05-22 21:47+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -500,18 +500,18 @@ msgstr "&Перейти к строке..."
 #: Control-ID:1115
 #: Control-ID:1032
 msgid "&HEAD Revision"
-msgstr "Ведущая &ревизия"
+msgstr "Ведущая &ревизия (HEAD)"
 
 #: Control-ID:1032
 #: Control-ID:1019
 #: Control-ID:1034
 msgid "&HEAD revision"
-msgstr "Ведущая &ревизия"
+msgstr "Ведущая &ревизия (HEAD)"
 
 # д.б. согласовано с "из ..."
 #: Control-ID:1182
 msgid "&HEAD revision in the repository"
-msgstr "ведущей ревизии в &хранилище"
+msgstr "ведущей ревизии в &хранилище (HEAD)"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -1669,6 +1669,7 @@ msgstr "Закрывает активное окно и приглашает с�
 msgid "Color co&de in-line changes"
 msgstr "Помечать &цветом изменения внутри строк"
 
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Цвета"
@@ -2644,6 +2645,10 @@ msgstr "Закончено!"
 #: Control-ID:1315
 msgid "Floppy drives (A: B:)"
 msgstr "Гибкие диски (A: B:)"
+
+#: Control-ID:65535
+msgid "Font"
+msgstr "Шрифт"
 
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -5326,6 +5331,11 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+# 'табуляции' не помещается
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Размер табул.:"
+
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -5792,6 +5802,7 @@ msgstr "По:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "До: (конечные URL и ревизия в ряду для слияния)"
 
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -6678,6 +6689,10 @@ msgstr "нормальный"
 msgid "obstructed"
 msgstr "мешающий"
 
+#: Control-ID:65535
+msgid "older lines"
+msgstr "более старые строки"
+
 #: ID:3869
 msgid "pixels"
 msgstr "пикселы"
@@ -6695,6 +6710,10 @@ msgstr "квартал"
 #: ID:195
 msgid "readonly"
 msgstr "только-для-чтения"
+
+#: Control-ID:65535
+msgid "recently modified lines"
+msgstr "недавно изменённые строки"
 
 #: ID:10
 msgid "replaced"
