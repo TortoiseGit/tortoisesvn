@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-21 10:22+0100\n"
+"PO-Revision-Date: 2007-05-22 08:58+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -447,11 +447,11 @@ msgstr "&Lokale Laufwerke"
 
 #: Control-ID:65535
 msgid "&Font for log messages:"
-msgstr "&Zeichensatz:"
+msgstr "&Schrift für Logmeldungen:"
 
 #: Control-ID:65535
 msgid "&Font:"
-msgstr "&Zeichensatz"
+msgstr "&Schriftart:"
 
 #: ID:501
 #: Control-ID:65535
@@ -1656,6 +1656,7 @@ msgstr "Schließt das aktive Fenster und fragt nach, ob die Daten gespeichert we
 msgid "Color co&de in-line changes"
 msgstr "Änderungen in Zeile &farbig hervorheben"
 
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Farben"
@@ -2640,6 +2641,10 @@ msgstr "Fertig!"
 #: Control-ID:1315
 msgid "Floppy drives (A: B:)"
 msgstr "Diskettenlaufwerke (A: B:)"
+
+#: Control-ID:65535
+msgid "Font"
+msgstr "&Schriftart:"
 
 # ID:3585,
 #: ID:3585
@@ -5396,6 +5401,10 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Tab Größe:"
+
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -5878,6 +5887,7 @@ msgstr "Bis:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Bis: (End-URL und Revision des zusammenzuführenden Bereichs)"
 
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -6779,6 +6789,11 @@ msgstr "Normal"
 msgid "obstructed"
 msgstr "Versperrt"
 
+# ID:376,
+#: Control-ID:65535
+msgid "older lines"
+msgstr "ältere Zeilen"
+
 #: ID:3869
 msgid "pixels"
 msgstr "Pixel"
@@ -6797,6 +6812,11 @@ msgstr "Quartal"
 #: ID:195
 msgid "readonly"
 msgstr "schreibgeschützt"
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "recently modified lines"
+msgstr "kürzlich geänderte Zeilen"
 
 #: ID:10
 msgid "replaced"
