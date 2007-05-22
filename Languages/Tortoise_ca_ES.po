@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-05-10 09:58+0100\n"
+"PO-Revision-Date: 2007-05-18 18:37+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -3634,6 +3634,15 @@ msgstr ""
 "Si està habilitat, es connecta amb el repositori quan s'inicia el diàleg.\n"
 "No cal fer clic a \"Comprova Repositori\"."
 
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Si s'habilita, les carpetes de la còpia de treball que no mostren\n"
+"sobreposicions segueixen mostrant la sobreposició pel estat 'normal'"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -3660,11 +3669,6 @@ msgid ""
 msgstr ""
 "Si està seleccionat, els fitxers sense versionar marcaran l'estat del directori pare com a modificat\n"
 "Per exemple, se'ls hi sobreposarà la icona de modificació."
-
-# ID:197,
-#: ID:197
-msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
-msgstr "Si no es selecciona, el diàlog de bloqueig s'omet i els fitxers seleccionats es bloqueigen immediatament."
 
 # ID:196,
 #: ID:196
@@ -4892,14 +4896,16 @@ msgstr "Executa el comandament \"Neteja\"."
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "Atenció:\n"
-"La teva còpia de treball segueix en el path anterior. Si vols que els teus següents canvis\n"
-"estiguin en la còpia acabada de crear has d'executar Canvia\n"
-"al path de la còpia. Utilitza el comandament Canvia per fer-ho."
+"La teva còpia de treball segueix en el path anterior. Si vols que els teus canvis següents\n"
+"siguin entregats a la còpia que avabes de crear, \n"
+"has de canviar la teva còpia de treball a la nova URL.\n"
+"Utilitza el comandament Canvia per fer-ho."
 
 # ID:3858,#:
 # ID:3858,
@@ -6041,6 +6047,11 @@ msgstr "Mostra canvis com a diff &unificat"
 msgid "Show differences as &unified diff"
 msgstr "Mostra diferències com diff &unificat"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Mostra carpetes excloses com 'normals'"
+
 # Control-ID:1264,
 #: Control-ID:1264
 msgid "Show ignored files"
@@ -6186,6 +6197,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
 msgstr "Espcifiqueu el rang de revisions que voleu fusionar:"
+
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "Parteix línies"
 
 # ID:3604,
 #: ID:3604
@@ -6464,15 +6480,15 @@ msgstr "El tamany del troç no correspon al nombre de línies afegides/esborrade
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "L'inici del troç \"@@\" s'esperava a la línea %d !"
 
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "La URL per defecte d'on obtenir  si no s'especifica res més"
+
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "El path per defecte d'on obtenir si no s'especifica res més"
-
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "La URL per defecte d'on obtenir  si no s'especifica res més"
 
 # ID:68,
 #: ID:68
@@ -6933,10 +6949,10 @@ msgstr ""
 #: ID:284
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "Per robar el bloqueig, feu clic amb el botó dret a la carpeta superior d'aquest item i seleccioneu \"Obté Bloqueig\" del menú contextual.\n"
-"Això farà apareixer el diàleg de bloqueig on podeu prendre el bloqueig, o sigui \"robar-lo\"' de qui actualment el poseeix."
+"Això farà apareixer el diàleg de bloqueig on podeu prendre el bloqueig, o sigui 'robar-lo' de qui actualment el poseeix."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -7495,6 +7511,15 @@ msgstr "Atenció"
 #: ID:219
 msgid "Warning!"
 msgstr "Atenció!"
+
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"Quan es bloquegen fitxers, mostra un diàleg\n"
+"demanant una descripció del bloqueig"
 
 # ID:146,
 #: ID:146
@@ -8123,6 +8148,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "a %s"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"Una llista de propietats (separada  amb noves línies) que s'aplica automaticament quan s'afegeixen/importen fitxers.\n"
+"Format: <màscara de fitxer> = propietat=valor;propietat=valor\n"
+"Exemple: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17
