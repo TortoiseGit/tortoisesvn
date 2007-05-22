@@ -55,15 +55,25 @@ bool CLogIteratorBase::PathInRevision
 		; iter != last
 		; ++iter)
 	{
-		CDictionaryBasedPath changedPath = iter->GetPath();
-		if (changedPath.IsSameOrParentOf (path.GetBasePath()))
-			return true;
-
 		// if (and only if) path is a cached path, 
 		// it may be a parent of the changedPath
+		// (i.e. report a change of this or some sub-path)
 
+		CDictionaryBasedPath changedPath = iter->GetPath();
 		if (   path.IsFullyCachedPath() 
 			&& path.GetBasePath().IsSameOrParentOf (changedPath))
+			return true;
+
+		// this change affects a true parent path or completly unrelated path
+		// -> ignore mere modifications (e.g. properties on a folder)
+
+		if (iter->GetAction() == CRevisionInfoContainer::ACTION_CHANGED)
+			continue;
+
+		// this is an add / delete / replace.
+		// does it affect our path?
+
+		if (changedPath.IsSameOrParentOf (path.GetBasePath()))
 			return true;
 	}
 
