@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2007-05-22 21:30+0100\n"
+"PO-Revision-Date: 2007-05-22 22:01+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3536,7 +3536,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:4319
 #: (para)
 msgid "New item added to your WC."
-msgstr ""
+msgstr "Pridaný nový objekt to vašej pracovnej kópie."
 
 #: source/TortoiseSVN_en.xml:4327
 #: (para)
@@ -3546,27 +3546,27 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:4334
 #: (term) source/TortoiseSVN_en.xml:4800
 msgid "Green"
-msgstr ""
+msgstr "Zelené"
 
 #: source/TortoiseSVN_en.xml:4336
 #: (para)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr ""
+msgstr "Zmeny z úložiska boli úspešne zlúčené s vašimi miestnými zmenami."
 
 #: source/TortoiseSVN_en.xml:4343
 #: (term) source/TortoiseSVN_en.xml:4810
 msgid "Bright red"
-msgstr ""
+msgstr "Svetlo červené"
 
 #: source/TortoiseSVN_en.xml:4345
 #: (para)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
-msgstr ""
+msgstr "Výsledkom zlúčenia zmien z úložiska a vaších zmien je stav konfliktu, ktorý treba vyriešiť."
 
 #: source/TortoiseSVN_en.xml:4354
 #: (para)
 msgid "Unchanged item in your WC updated with newer version from the repository."
-msgstr ""
+msgstr "Nezmenený objekt vo vašej pracovnej kópií s novšoj verziou z úložiska."
 
 #: source/TortoiseSVN_en.xml:4312
 #: (para)
@@ -3611,7 +3611,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:4443
 #: (title)
 msgid "Local File Already Exists"
-msgstr ""
+msgstr "Miestny súbor už existuje"
 
 #: source/TortoiseSVN_en.xml:4444
 #: (para)
@@ -3636,32 +3636,32 @@ msgstr "Riešiť konflikty"
 #: source/TortoiseSVN_en.xml:4496
 #: (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #: source/TortoiseSVN_en.xml:4498
 #: (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr "Toto je súbor ako existoval vo vašej pracovnej kópií predtím ako ste aktualizovali vašu pracovnú kópiu - to znamená bez označovačov konfliktov. Tento súbor obsahuje vaše posledné zmeny, nič viac."
 
 #: source/TortoiseSVN_en.xml:4507
 #: (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #: source/TortoiseSVN_en.xml:4509
 #: (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr "Toto je súbor, ktorý bol BASE (základnou) revíziou predtím ako ste aktualizovali vašu pracovnú kópiu. To je ten súbor, ktorý ste získali pred vašimi poslednými zmenami."
 
 #: source/TortoiseSVN_en.xml:4518
 #: (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #: source/TortoiseSVN_en.xml:4520
 #: (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr "Toto je súbor, ktorý váš Subversion klient práve získal pri aktualiyovaní vašej pracovnej kópie. Tento súbor odpovedá hlavnej revízií v čase aktualizácie."
 
 #: source/TortoiseSVN_en.xml:4475
 #: (para)
@@ -3958,7 +3958,7 @@ msgstr "Kľúčové slová"
 #: source/TortoiseSVN_en.xml:4961
 #: (term)
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: source/TortoiseSVN_en.xml:4963
 #: (para)
@@ -3974,17 +3974,17 @@ msgstr "Revízia"
 #: source/TortoiseSVN_en.xml:4974
 #: (para)
 msgid "Revision of last known commit."
-msgstr ""
+msgstr "Revízia posledného známeho odovzdania."
 
 #: source/TortoiseSVN_en.xml:4980
 #: (term)
 msgid "Author"
-msgstr ""
+msgstr "Author"
 
 #: source/TortoiseSVN_en.xml:4982
 #: (para)
 msgid "Author who made the last known commit."
-msgstr ""
+msgstr "Autor, ktorý urobil posledné známe odovzdanie."
 
 #: source/TortoiseSVN_en.xml:4988
 #: (term)
@@ -3999,12 +3999,12 @@ msgstr "Plná URL adresa súboru v úložisku."
 #: source/TortoiseSVN_en.xml:4996
 #: (term)
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: source/TortoiseSVN_en.xml:4998
 #: (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr ""
+msgstr "Komprimovaná kombinacia predchádyajúcich styroch."
 
 #: source/TortoiseSVN_en.xml:4955
 #: (para)

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-22 20:49+0100\n"
+"PO-Revision-Date: 2007-05-22 21:43+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1962,6 +1962,7 @@ msgstr "Vyčistiť preušené úkony, zamknuté súbory, ..."
 #: Control-ID:1275
 #: Control-ID:1276
 #: Control-ID:1279
+#: Control-ID:1281
 msgid "Clear"
 msgstr "Vymazať"
 
@@ -1982,6 +1983,12 @@ msgstr "Vymaže uložené správy denníka (%ld) pre pracové kópie (%ld)"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Vymaže uživateľské mená a heslá(%ld), ssl certifikáty (%ld) a uživaľské mená (%ld)"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Vymaže uložené správy denníka z %ld úložísk"
 
 # ID:195,
 #: ID:195
@@ -2074,6 +2081,12 @@ msgstr "Odovzdať"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "Odovzdať - TortoiseSVN"
+
+# Control-ID:1274,#:
+# Dlg-ID:130,
+#: Control-ID:1274
+msgid "Commit Log Messages"
+msgstr "Odovzdať správy denníka"
 
 # Citlivosť
 # Control-ID:1262,
@@ -4185,6 +4198,11 @@ msgstr "Zamkne súbor pre iných užívateľov a povolí ho editovať vám."
 msgid "Log"
 msgstr "Denník"
 
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log Data"
+msgstr "Data denníka"
+
 # Dlg-ID:211,
 #: Dlg-ID:211
 msgid "Log History"
@@ -4192,7 +4210,6 @@ msgstr "Denník"
 
 # Control-ID:1274,#:
 # Dlg-ID:130,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Správy denníka"
