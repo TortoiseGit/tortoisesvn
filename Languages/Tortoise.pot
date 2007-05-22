@@ -1380,7 +1380,7 @@ msgstr ""
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr ""
 
-#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,#: Control-ID:1281,
 msgid "Clear"
 msgstr ""
 
@@ -1397,6 +1397,11 @@ msgstr ""
 #: ID:196,
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr ""
+
+#: ID:197,
+#, c-format
+msgid "Clears cached logs from %ld repositories"
 msgstr ""
 
 #: ID:195,
@@ -1462,6 +1467,10 @@ msgstr ""
 
 #: ID:77,
 msgid "Commit - TortoiseSVN"
+msgstr ""
+
+#: Control-ID:1274,
+msgid "Commit Log Messages"
 msgstr ""
 
 #: Control-ID:1262,
@@ -2838,11 +2847,15 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
+#: Control-ID:1280,
+msgid "Log Data"
+msgstr ""
+
 #: Dlg-ID:211,
 msgid "Log History"
 msgstr ""
 
-#: Control-ID:1274,#: Dlg-ID:130,
+#: Dlg-ID:130,
 msgid "Log Messages"
 msgstr ""
 

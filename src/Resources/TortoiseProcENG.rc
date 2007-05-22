@@ -955,12 +955,14 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "URL history",IDC_URLHISTORY,7,20,226,8
     PUSHBUTTON      "Clear",IDC_URLHISTCLEAR,243,18,50,14
-    LTEXT           "Log Messages",IDC_LOGHISTORY,7,44,226,8
+    LTEXT           "Commit Log Messages",IDC_LOGHISTORY,7,44,226,8
     PUSHBUTTON      "Clear",IDC_LOGHISTCLEAR,243,42,50,14
-    LTEXT           "Dialog sizes and positions",IDC_RESIZABLEHISTORY,7,68,226,8
-    PUSHBUTTON      "Clear",IDC_RESIZABLEHISTCLEAR,243,66,50,14
-    LTEXT           "Authentication data",IDC_AUTHHISTORY,7,92,226,8
-    PUSHBUTTON      "Clear",IDC_AUTHHISTCLEAR,243,90,50,14
+    LTEXT           "Dialog sizes and positions",IDC_RESIZABLEHISTORY,7,98,226,8
+    PUSHBUTTON      "Clear",IDC_RESIZABLEHISTCLEAR,243,96,50,14
+    LTEXT           "Authentication data",IDC_AUTHHISTORY,7,122,226,8
+    PUSHBUTTON      "Clear",IDC_AUTHHISTCLEAR,243,120,50,14
+    LTEXT           "Log Data",IDC_REPOLOG,7,71,226,8
+    PUSHBUTTON      "Clear",IDC_REPOLOGCLEAR,243,68,50,14
 END
 
 IDD_HISTORYDLG DIALOGEX 0, 0, 196, 116
@@ -2822,6 +2824,8 @@ BEGIN
                             "When locking one or more selected files, shows a dialog\nasking for a descriptive message about the locking"
     IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT 
                             "If enabled, working copy folders which are excluded from\nshowing overlays still show the overlay for status 'normal'"
+    IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT 
+                            "Clears cached logs from %ld repositories"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END

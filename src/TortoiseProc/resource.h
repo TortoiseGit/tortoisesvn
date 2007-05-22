@@ -114,7 +114,6 @@
 #define IDI_REPO_UNKNOWN                249
 #define IDC_PANCUR                      250
 #define IDC_PANCURDOWN                  251
-#define IDI_ICON1                       252
 #define IDI_TORTOISEBLAME               252
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -503,8 +502,10 @@
 #define IDC_BUTTON4                     1279
 #define IDC_AUTHHISTCLEAR               1279
 #define IDC_HOOKADDBUTTON               1279
+#define IDC_REPOLOG                     1280
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDC_EDITPROPLIST                1281
+#define IDC_REPOLOGCLEAR                1281
 #define IDS_ERR_EXTDIFFSTART            1282
 #define IDC_EDITPROPS                   1282
 #define IDS_ERR_NOCOMMAND               1283
@@ -855,6 +856,7 @@
 #define IDS_SETTINGS_SORTNUMERICAL_TT   3137
 #define IDS_SETTINGS_SHOWLOCKDLG_TT     3137
 #define IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT 3138
+#define IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT 3139
 #define IDS_SETTINGS_HOOKS_SELECTFOLDERPATH 3150
 #define IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE 3151
 #define IDS_SETTINGS_HOOKS_TYPECOL      3152

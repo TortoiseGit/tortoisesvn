@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "registry.h"
+#include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SetSavedDataPage.h"
 
@@ -40,6 +41,7 @@ void CSetSavedDataPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGHISTCLEAR, m_btnLogHistClear);
 	DDX_Control(pDX, IDC_RESIZABLEHISTCLEAR, m_btnResizableHistClear);
 	DDX_Control(pDX, IDC_AUTHHISTCLEAR, m_btnAuthHistClear);
+	DDX_Control(pDX, IDC_REPOLOGCLEAR, m_btnRepoLogClear);
 }
 
 BOOL CSetSavedDataPage::OnInitDialog()
@@ -51,6 +53,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	int nLogHistMsg = 0;
 	int nUrlHistWC = 0;
 	int nUrlHistItems = 0;
+	int nLogHistRepo = 0;
 	CRegistryKey regloghist(_T("Software\\TortoiseSVN\\History"));
 	CStringList loghistlist;
 	regloghist.getSubKeys(loghistlist);
@@ -98,6 +101,9 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	int nSSL = 0;
 	int nUsername = 0;
 
+	CString sFile;
+	bool bIsDir = false;
+
 	TCHAR pathbuf[MAX_PATH] = {0};
 	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
 	{
@@ -105,8 +111,6 @@ BOOL CSetSavedDataPage::OnInitDialog()
 		CString sSimple = CString(pathbuf) + _T("svn.simple");
 		CString sSSL = CString(pathbuf) + _T("svn.ssl.server");
 		CString sUsername = CString(pathbuf) + _T("svn.username");
-		CString sFile;
-		bool bIsDir = false;
 		CDirFileEnum simpleenum(sSimple);
 		while (simpleenum.NextFile(sFile, &bIsDir))
 			nSimple++;
@@ -118,10 +122,15 @@ BOOL CSetSavedDataPage::OnInitDialog()
 			nUsername++;
 	}
 
+	CDirFileEnum logenum(CPathUtils::GetAppDataDirectory()+_T("logcache"));
+	while (logenum.NextFile(sFile, &bIsDir))
+		nLogHistRepo++;
+
 	m_btnLogHistClear.EnableWindow(nLogHistMsg || nLogHistWC);
 	m_btnUrlHistClear.EnableWindow(nUrlHistItems || nUrlHistWC);
 	m_btnResizableHistClear.EnableWindow(nResizableDialogs);
 	m_btnAuthHistClear.EnableWindow(nSimple || nSSL || nUsername);
+	m_btnRepoLogClear.EnableWindow(nLogHistRepo);
 
 	EnableToolTips();
 
@@ -139,6 +148,9 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	sTT.Format(IDS_SETTINGS_SAVEDDATA_AUTH_TT, nSimple, nSSL, nUsername);
 	m_tooltips.AddTool(IDC_AUTHHISTORY, sTT);
 	m_tooltips.AddTool(IDC_AUTHHISTCLEAR, sTT);
+	sTT.Format(IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT, nLogHistRepo);
+	m_tooltips.AddTool(IDC_REPOLOG, sTT);
+	m_tooltips.AddTool(IDC_REPOLOGCLEAR, sTT);
 
 	return TRUE;
 }
@@ -154,6 +166,7 @@ BEGIN_MESSAGE_MAP(CSetSavedDataPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_LOGHISTCLEAR, &CSetSavedDataPage::OnBnClickedLoghistclear)
 	ON_BN_CLICKED(IDC_RESIZABLEHISTCLEAR, &CSetSavedDataPage::OnBnClickedResizablehistclear)
 	ON_BN_CLICKED(IDC_AUTHHISTCLEAR, &CSetSavedDataPage::OnBnClickedAuthhistclear)
+	ON_BN_CLICKED(IDC_REPOLOGCLEAR, &CSetSavedDataPage::OnBnClickedRepologclear)
 END_MESSAGE_MAP()
 
 void CSetSavedDataPage::OnBnClickedUrlhistclear()
@@ -216,5 +229,27 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
 	m_tooltips.RemoveTool(GetDlgItem(IDC_AUTHHISTCLEAR));
 	m_tooltips.RemoveTool(GetDlgItem(IDC_AUTHHISTORY));
 }
+
+void CSetSavedDataPage::OnBnClickedRepologclear()
+{
+	CString path = CPathUtils::GetAppDataDirectory()+_T("logcache");
+	TCHAR pathbuf[MAX_PATH] = {0};
+	_tcscpy_s(pathbuf, MAX_PATH, (LPCTSTR)path);
+	pathbuf[_tcslen(pathbuf)+1] = 0;
+
+	SHFILEOPSTRUCT fileop = {0};
+	fileop.hwnd = this->m_hWnd;
+	fileop.wFunc = FO_DELETE;
+	fileop.pFrom = pathbuf;
+	fileop.pTo = NULL;
+	fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
+	fileop.lpszProgressTitle = _T("deleting cached data");
+	SHFileOperation(&fileop);
+
+	m_btnRepoLogClear.EnableWindow(FALSE);
+	m_tooltips.RemoveTool(GetDlgItem(IDC_REPOLOG));
+	m_tooltips.RemoveTool(GetDlgItem(IDC_REPOLOGCLEAR));
+}
+
 
 
