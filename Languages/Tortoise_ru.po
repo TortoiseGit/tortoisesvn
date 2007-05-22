@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9506: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9519: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-22 21:47+0300\n"
+"PO-Revision-Date: 2007-05-22 23:24+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1609,6 +1609,7 @@ msgstr "Очистка прерванных операций, блокирова
 #: Control-ID:1275
 #: Control-ID:1276
 #: Control-ID:1279
+#: Control-ID:1281
 msgid "Clear"
 msgstr "Очистить"
 
@@ -1626,6 +1627,11 @@ msgstr "Очищает %ld сообщений журнала, сохранённ
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Очищает %ld пар(ы) имя-пользователя/пароль, %ld сертификатов ssl и %ld имён пользователей"
+
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Очищает кэш сообщений журнала из %ld хранилищ(а)"
 
 #: ID:195
 msgid ""
@@ -1699,6 +1705,10 @@ msgstr "Фиксация"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "Фиксация - TortoiseSVN"
+
+#: Control-ID:1274
+msgid "Commit Log Messages"
+msgstr "Предыдущие сообщения журнала при фиксации"
 
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -3466,13 +3476,16 @@ msgstr "Блокирует файл для других пользователе
 msgid "Log"
 msgstr "Журнал"
 
+#: Control-ID:1280
+msgid "Log Data"
+msgstr "Кэшированные журнальные данные"
+
 # Заголовок окна
 #: Dlg-ID:211
 msgid "Log History"
 msgstr "Предыдущие сообщения журнала"
 
 # Заголовок окна
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Сообщения журнала"
