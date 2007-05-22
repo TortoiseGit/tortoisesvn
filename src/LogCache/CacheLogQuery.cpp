@@ -196,6 +196,53 @@ CCacheLogQuery::NextAvailableRevision ( const CDictionaryBasedTempPath& path
 	return endRevision-1;
 }
 
+// Determine an end-revision that would fill many cache gaps efficiently
+
+revision_t CCacheLogQuery::FindOldestGap ( revision_t startRevision
+									     , revision_t endRevision) const
+{
+	// consider the following trade-off:
+	// 1 server roundtrip takes about as long as receiving
+	// 100 log entries.
+	//
+	// -> filling cache data gaps of up to 100 revisions
+	//    apart with a single fetch should result in 
+	//    close-to-optimal log performance.
+
+	enum {RECEIVE_TO_ROUNTRIP_TRADEOFF = 100};
+
+	// find the next "long" section of consecutive cached log info
+
+	revision_t lastMissing = startRevision;
+
+	const CRevisionIndex& revisions = cache->GetRevisions();
+	revision_t lastRevisionToCheck = min ( endRevision
+										 , revisions.GetFirstRevision());
+
+	for (revision_t r = startRevision-1; r+1 > lastRevisionToCheck; --r)
+	{
+		if (revisions[r] == NO_INDEX)
+		{
+			// move the "last gap" pointer
+
+			lastMissing = r;
+		}
+		else
+		{
+			// if we found a long consecutive section with known log info,
+			// don't read it again
+
+			if (lastMissing > r + RECEIVE_TO_ROUNTRIP_TRADEOFF)
+				return lastMissing;
+		}
+	}
+
+	// we didn't find long sections of known log info
+	// -> just fetch the whole range
+
+	return endRevision;
+}
+
 // ask SVN to fill the log -- at least a bit
 // Possibly, it will stop long before endRevision and limit!
 
@@ -208,9 +255,21 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 {
 	// don't try to get a full log; just enough to continue our search
 
-	endRevision = NextAvailableRevision ( startPath
-										, startRevision
-										, endRevision);
+	revision_t nextAvailable = NextAvailableRevision ( startPath
+													 , startRevision
+													 , endRevision);
+
+	// propose a (possibly) different end-revision to cover more gaps
+	// within the desired range (receiving duplicate intermediate
+	// log info is less expensive than starting a new log query)
+
+	revision_t cacheOptimalEndRevision = FindOldestGap ( startRevision
+													   , endRevision);
+
+	// extend the requested range, if that is probably more efficient
+	// (fill many small gaps at once)
+
+	endRevision = min (nextAvailable+1, cacheOptimalEndRevision);
 
 	// now, fill the cache (somewhat) and forward to the receiver
 
