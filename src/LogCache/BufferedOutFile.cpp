@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "BufferedOutFile.h"
+#include "PathUtils.h"
 
 // write buffer content to disk
 
@@ -39,6 +40,7 @@ CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
 	, used (0)
 	, fileSize (0)
 {
+	CPathUtils::MakeSureDirectoryPathExists(fileName.substr(0, fileName.find_last_of('\\')).c_str());
 	file = CreateFile ( fileName.c_str()
 					  , GENERIC_WRITE
 					  , 0
