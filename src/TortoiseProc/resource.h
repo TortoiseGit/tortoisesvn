@@ -618,6 +618,7 @@
 #define IDC_GROUPTOP                    1374
 #define IDC_GROUPBOTTOM                 1375
 #define IDC_URLOFREPO                   1376
+#define IDC_GROUPMIDDLE                 1377
 #define IDC_NEWLINESCOLOR               1378
 #define IDC_OLDLINESCOLOR               1380
 #define IDC_TABSIZE                     1381
