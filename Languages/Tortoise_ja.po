@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-09 11:35+0900\n"
+"PO-Revision-Date: 2007-05-23 11:29+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -415,6 +415,10 @@ msgstr "キャンセル(&C)"
 #: ID:8
 msgid "&Clean up"
 msgstr "クリーンアップ(&C)"
+
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "各行の変更時期を色分けする(&C)"
 
 # ID:8,
 # ID:8,
@@ -2324,6 +2328,7 @@ msgstr "中断した処理、ロックファイル、... をクリーンアッ�
 #: Control-ID:1275
 #: Control-ID:1276
 #: Control-ID:1279
+#: Control-ID:1281
 msgid "Clear"
 msgstr "クリア"
 
@@ -2347,6 +2352,12 @@ msgstr "%ld 個のログメッセージをクリアする（%ld 個の作業コ�
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "%ld 個のユーザー名／パスワードの組、%ld 個の SSL 証明書と %ld 個のユーザー名をクリアする"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "%ld 個のリポジトリにキャッシュされているログをクリアします"
 
 # ID:195,
 # ID:195,
@@ -2409,6 +2420,7 @@ msgstr "行内の変更された部分に色付けする(&D)"
 
 # Dlg-ID:138,
 # Dlg-ID:138,
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "色"
@@ -2455,6 +2467,13 @@ msgstr "コミット"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "コミット - TortoiseSVN"
+
+# Dlg-ID:130,
+# Control-ID:1274,#:
+# Dlg-ID:130,
+#: Control-ID:1274
+msgid "Commit Log Messages"
+msgstr "コミットログメッセージ"
 
 # Control-ID:1110,
 # Control-ID:1262,
@@ -3821,6 +3840,12 @@ msgstr "終了！"
 msgid "Floppy drives (A: B:)"
 msgstr "フロッピードライブ (A: B:)"
 
+# Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font"
+msgstr "フォント"
+
 # ID:3585,
 # ID:3585,
 #: ID:3585
@@ -4142,6 +4167,12 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
 #: ; 'Arrange &Vertical'
@@ -4305,6 +4336,15 @@ msgstr ""
 "有効にすると、ダイアログを表示する際にリポジトリにアクセスします。\n"
 "本チェックにより、\"リポジトリをチェック\" をクリックする必要はなくなります。"
 
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"有効にすると、オーバーレイの対象から除外されている作業コピーのフォルダは、\n"
+"'通常' の状態としてオーバーレイ表示されます。"
+
 # ID:195,
 # ID:195,
 #: ID:195
@@ -4332,11 +4372,6 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
 msgstr "設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。例えば、変更のオーバーレイアイコンが付きます。"
-
-# ID:197,
-#: ID:197
-msgid "If unchecked, the lock dialog is skipped and selected files are locked immediately."
-msgstr "チェックをはずすと、ロックダイアログをスキップして選択されたファイルをすぐにロックします。"
 
 # ID:196,
 # ID:196,
@@ -4856,6 +4891,11 @@ msgstr "他のユーザに対してファイルをロックし、自分が編集
 msgid "Log"
 msgstr "ログ"
 
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log Data"
+msgstr "ログデータ"
+
 # ID:80,
 # Dlg-ID:211,
 #: Dlg-ID:211
@@ -4865,7 +4905,6 @@ msgstr "ログの履歴"
 # Dlg-ID:130,
 # Control-ID:1274,#:
 # Dlg-ID:130,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "ログメッセージ"
@@ -5099,6 +5138,12 @@ msgstr "各種設定"
 #: ID:3887
 msgid "Mixed"
 msgstr "ミックス"
+
+# Control-ID:65535,
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "変更日:"
 
 # ID:74,
 # ID:74,#:
@@ -5787,13 +5832,15 @@ msgstr "\"クリーンアップ\" コマンドを実行してください。"
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "注意書き：\n"
-"あなたの作業コピーは従来のパスのままです。もし今後の変更を今作成した\n"
-"コピーに反映する場合は、そのコピー先パスに全体を切り替える必要があります。\n"
+"あなたの作業コピーは従来のパスのままです。もし、今作成したコピーもしくは分岐に\n"
+"今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n"
+"切り替える必要があります。\n"
 "本操作を行うためには、切り替えコマンドを使用してください。"
 
 # ID:3858,#:
@@ -7163,6 +7210,11 @@ msgstr "&Unified Diff 形式で変更を表示"
 msgid "Show differences as &unified diff"
 msgstr "&Unified Diff 形式で差分を表示"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "'通常' として除外フォルダを表示する"
+
 # Control-ID:1073,
 # Control-ID:1264,
 #: Control-ID:1264
@@ -7334,6 +7386,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
 msgstr "マージしたいリビジョンの範囲を指定:"
+
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "行を分割"
 
 # ID:3604,
 # ID:3604,
@@ -7606,6 +7663,12 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+# Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "タブ幅:"
+
 # ID:79,
 # ID:79,
 #: ID:79
@@ -7659,17 +7722,17 @@ msgstr "チャンクのサイズは追加／削除した行数と合いません
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "\"@@\" で始まる部分は、行 %d だと思われます！"
 
+# ID:197,
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "何も指定しない場合にチェックアウトするデフォルトのURL"
+
 # ID:196,
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "何も指定されない場合はデフォルトのパスにチェックアウトする"
-
-# ID:197,
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "何も指定されない場合はデフォルトのURLにチェックアウトする"
 
 # ID:68,
 # ID:68,
@@ -8182,7 +8245,7 @@ msgstr ""
 #: ID:284
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"this will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "ロックを奪うために、この項目の親フォルダ上で右クリックし、コンテキストメニューから \"ロックを取得\" を選択してください。\n"
 "これにより、ロックを実行する所でロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '奪う' など）。"
@@ -8204,6 +8267,7 @@ msgstr "先: （マージする範囲の終点を指すURLとリビジョン）"
 # ID:9,#:
 # ID:80,
 # ID:7,
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -8815,6 +8879,11 @@ msgstr "バージョン"
 msgid "Versioned"
 msgstr "バージョン管理下"
 
+# MenuEntry#:
+#: MenuEntry
+msgid "View"
+msgstr "ビュー"
+
 # ID:114,
 # ID:114,
 #: ID:114
@@ -8858,6 +8927,15 @@ msgstr "警告"
 #: ID:219
 msgid "Warning!"
 msgstr "警告！"
+
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"選択している１つ以上のファイルをロックする際に、ロックについての\n"
+"メッセージを問い合わせるダイアログを表示する。"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -9395,6 +9473,11 @@ msgstr "通常"
 msgid "obstructed"
 msgstr "妨害"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "older lines"
+msgstr "以前に変更された行"
+
 # ID:3869,#:
 # ID:3869,
 # ID:3869,#:
@@ -9420,6 +9503,12 @@ msgstr "3ヶ月"
 #: ID:195
 msgid "readonly"
 msgstr "読み取り専用"
+
+# Control-ID:1065,
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "recently modified lines"
+msgstr "最近変更された行"
 
 # ID:10,
 # ID:10,
@@ -9565,6 +9654,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "%s へ"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"ファイルを追加／インポートする際に自動的に適用される属性のリスト（複数ある場合は、改行で区切る）。\n"
+"形式: <filemask> = property=value;property=value\n"
+"例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 # ID:17,
