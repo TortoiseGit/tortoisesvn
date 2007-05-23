@@ -158,12 +158,14 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 		if (len == 0)
 		{
 			fclose(File);
+            InitSize();
 			return TRUE;
 		}
 		len = fread(&slength, sizeof(int), 1, File);
 		if (len == 0)
 		{
 			fclose(File);
+            InitSize();
 			return FALSE;
 		}
 		if (slength > MAX_LOG_LENGTH)
@@ -177,6 +179,7 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 		if (len < (size_t)slength)
 		{
 			fclose(File);
+            InitSize();
 			return FALSE;
 		}
 		msg = std::string(logmsgbuf, slength);
@@ -1158,6 +1161,26 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
    return TRUE;
 }
 
+void TortoiseBlame::InitSize()
+{
+    RECT rc;
+    RECT blamerc;
+    RECT sourcerc;
+    ::GetClientRect(wMain, &rc);
+    ::SetWindowPos(wHeader, 0, rc.left, rc.top, rc.right-rc.left, HEADER_HEIGHT, 0);
+    rc.top += HEADER_HEIGHT;
+    blamerc.left = rc.left;
+    blamerc.top = rc.top;
+    blamerc.right = GetBlameWidth() > (rc.right - rc.left) ? rc.right : GetBlameWidth() + rc.left;
+    blamerc.bottom = rc.bottom;
+    sourcerc.left = blamerc.right;
+    sourcerc.top = rc.top;
+    sourcerc.bottom = rc.bottom;
+    sourcerc.right = rc.right;
+    ::SetWindowPos(wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
+    ::SetWindowPos(wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	if (message == uFindReplaceMsg)
@@ -1220,22 +1243,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_SIZE:
 		if (wParam != 1) 
 		{
-			RECT rc;
-			RECT blamerc;
-			RECT sourcerc;
-			::GetClientRect(hWnd, &rc);
-			::SetWindowPos(app.wHeader, 0, rc.left, rc.top, rc.right-rc.left, HEADER_HEIGHT, 0);
-			rc.top += HEADER_HEIGHT;
-			blamerc.left = rc.left;
-			blamerc.top = rc.top;
-			blamerc.right = app.GetBlameWidth() > (rc.right - rc.left) ? rc.right : app.GetBlameWidth() + rc.left;
-			blamerc.bottom = rc.bottom;
-			sourcerc.left = blamerc.right;
-			sourcerc.top = rc.top;
-			sourcerc.bottom = rc.bottom;
-			sourcerc.right = rc.right;
-			::SetWindowPos(app.wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
-			::SetWindowPos(app.wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
+            app.InitSize();
 		}
 		return 0;
 
