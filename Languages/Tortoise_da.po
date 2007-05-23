@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9380
+# Based on Tortoise.pot r9519
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-14 18:18+0100\n"
+"PO-Revision-Date: 2007-05-23 10:28+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -307,6 +307,10 @@ msgstr "&Annuller"
 msgid "&Clean up"
 msgstr "&Ryd op"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Farv linjer efter alder"
+
 #: ID:8,
 msgid "&Commit..."
 msgstr "&Arkivér..."
@@ -440,7 +444,7 @@ msgstr "&Faste drev"
 msgid "&Font for log messages:"
 msgstr "&Skrifttype til logbeskeder:"
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&Font:"
 msgstr "&Skrifttype:"
 
@@ -603,7 +607,7 @@ msgstr "&Forrige forskel"
 msgid "&Properties..."
 msgstr "&Egenskaber..."
 
-#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
+#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
 msgid "&Recent messages"
 msgstr "&Seneste beskeder"
 
@@ -851,7 +855,7 @@ msgstr "En liste af stier, adskilt af linjeskift, som vil blive vist med ikonove
 
 #: ID:194,
 msgid "A newline separated list of paths for which no icon overlays are shown.\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow overlays on all paths."
-msgstr "En liste af stier, adskilt af linjeskift, som ikke vil blive vist med ikonoverdækninger.\nHvis du tilføjer \"*\" i slutningen af stien, vil alle filer og mapper under stien også blive ekskluderet.\nEn tom liste vil vise ikonoverdækninger på alle stier."
+msgstr "En liste af stier, adskilt af linjeskift, som ikke vil blive vist med ikonoverdækninger.\nHvis du tilføjer \"*\" i slutningen af stien, vil alle filer og mapper under stien også blive udelukket.\nEn tom liste vil vise ikonoverdækninger på alle stier."
 
 #: ID:3843,#: ID:3843,
 msgid "A required resource was unavailable."
@@ -1440,7 +1444,7 @@ msgstr "Oprydning er afsluttet"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rydder op i afbrudte handlinger, låste filer mv."
 
-#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,#: Control-ID:1281,
 msgid "Clear"
 msgstr "Slet"
 
@@ -1458,6 +1462,11 @@ msgstr "Sletter %ld logbeskeder gemt for %ld arbejdkopier"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Sletter %ld brugernavne og adgangskoder, %ld SSL-certifikater og %ld brugernavne"
+
+#: ID:197,
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Sletter cachede logbeskeder fra %ld versionsarkiver"
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
@@ -1496,7 +1505,7 @@ msgstr "Lukker det aktive vindue og spørger, om dokumenterne skal gemmes"
 msgid "Color co&de in-line changes"
 msgstr "Farveko&dning af ændringer indenfor linje"
 
-#: Dlg-ID:138,
+#: Control-ID:65535,#: Dlg-ID:138,
 msgid "Colors"
 msgstr "Farver"
 
@@ -1523,6 +1532,11 @@ msgstr "Arkivér"
 #: ID:77,
 msgid "Commit - TortoiseSVN"
 msgstr "Arkivér - TortoiseSVN"
+
+#: Control-ID:1274,
+#, fuzzy
+msgid "Commit Log Messages"
+msgstr "Arkivér-logbeskeder"
 
 #: Control-ID:1262,
 #, fuzzy
@@ -2316,6 +2330,10 @@ msgstr "Færdig!"
 msgid "Floppy drives (A: B:)"
 msgstr "Diskettedrev (A: B:)"
 
+#: Control-ID:65535,
+msgid "Font"
+msgstr "Skrifttype"
+
 #: ID:3585,
 #, fuzzy
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -2515,6 +2533,11 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
@@ -2619,6 +2642,10 @@ msgstr "Hvis valgt, så vil Flet-dialogen initialisere \"Fra:\"-URL'en med URL'e
 #: ID:195,
 msgid "If enabled, the repository is contacted when the dialog starts up.\nYou don't have to click on \"Check Repository\" anymore."
 msgstr "Hvis valgt, så kontaktes versionsarkivet, når dialogen åbnes.\nDu behøver ikke at klikke på \"Check versionsarkiv\" længere."
+
+#: ID:197,
+msgid "If enabled, working copy folders which are excluded from\nshowing overlays still show the overlay for status 'normal'"
+msgstr "Hvis valgt, så vises overdækningsikoner for mapper, som er\nudelukket fra overdækningsikon-visning blot som status 'normal'"
 
 #: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
@@ -2898,11 +2925,15 @@ msgstr "Låser en fil for andre brugere og gør, at du kan redigere den."
 msgid "Log"
 msgstr "Log"
 
+#: Control-ID:1280,
+msgid "Log Data"
+msgstr "Logdata"
+
 #: Dlg-ID:211,
 msgid "Log History"
 msgstr "Log-historik"
 
-#: Control-ID:1274,#: Dlg-ID:130,
+#: Dlg-ID:130,
 msgid "Log Messages"
 msgstr "Logbeskeder"
 
@@ -3054,6 +3085,10 @@ msgstr "Diverse"
 #: ID:3887,#: ID:3887,
 msgid "Mixed"
 msgstr "Blandet"
+
+#: ID:208,
+msgid "Modification date"
+msgstr "Ændringsdato"
 
 #: ID:74,#: ID:264,#: Control-ID:65535,
 msgid "Modified"
@@ -3830,7 +3865,7 @@ msgstr "Løst:\n%s"
 msgid "Resolves conflicted files"
 msgstr "Løser konflikter i filer"
 
-#: Control-ID:1254,
+#: Control-ID:1254,#: Control-ID:1254,
 msgid "Restore Default"
 msgstr "Gendan standard"
 
@@ -4290,6 +4325,10 @@ msgstr "Vis ændringer som &unified diff"
 msgid "Show differences as &unified diff"
 msgstr "Vis forskelle i &unified diff-format"
 
+#: Control-ID:1126,
+msgid "Show excluded folders as 'normal'"
+msgstr "Vis udelukkede mapper som 'normal'"
+
 #: Control-ID:1264,
 msgid "Show ignored files"
 msgstr "Vis ignorerede filer"
@@ -4553,6 +4592,10 @@ msgstr "TORTOISEBLAME"
 #: ID:7,
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
+
+#: Control-ID:65535,
+msgid "Tab size:"
+msgstr "Tabstørrelse:"
 
 #: ID:79,
 #, c-format
@@ -4830,7 +4873,7 @@ msgstr "Til:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "Til: (slut-URL og -revision for intervallet, der skal flettes)"
 
-#: ID:7,
+#: Dlg-ID:244,#: ID:7,
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
@@ -5150,6 +5193,10 @@ msgstr "Version"
 msgid "Versioned"
 msgstr "Versioneret"
 
+#: MenuEntry
+msgid "View"
+msgstr "Vis"
+
 #: ID:114,
 #, fuzzy
 msgid "View revision for path in &webviewer"
@@ -5462,6 +5509,10 @@ msgstr "normal"
 msgid "obstructed"
 msgstr "spærret"
 
+#: Control-ID:65535,
+msgid "older lines"
+msgstr "ældre linjer"
+
 #: ID:3869,#: ID:3869,
 msgid "pixels"
 msgstr "pixel"
@@ -5477,6 +5528,10 @@ msgstr "kvartal"
 #: ID:195,
 msgid "readonly"
 msgstr "skrivebeskyttet"
+
+#: Control-ID:65535,
+msgid "recently modified lines"
+msgstr "nyligt ændrede linjer"
 
 #: ID:10,
 msgid "replaced"
