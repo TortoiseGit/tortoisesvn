@@ -144,8 +144,6 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 	{
 		return FALSE;
 	}
-	m_lowestrev = LONG_MAX;
-	m_highestrev = 0;
 	LONG rev = 0;
 	std::string msg;
 	int slength = 0;
@@ -194,8 +192,6 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 		logmsgbuf[len] = 0;
 		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
-		m_lowestrev = min(m_lowestrev, rev);
-		m_highestrev = max(m_highestrev, rev);
 	}
 }
 
@@ -221,13 +217,18 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	//ignore the first two lines, they're of no interest to us
 	File.getline(line, sizeof(line)/sizeof(TCHAR));
 	File.getline(line, sizeof(line)/sizeof(TCHAR));
+	m_lowestrev = LONG_MAX;
+	m_highestrev = 0;
 	do
 	{
 		File.getline(line, sizeof(line)/sizeof(TCHAR));
 		if (File.gcount()>0)
 		{
 			lineptr = &line[7];
-			revs.push_back(_ttol(lineptr));
+			long rev = _ttol(lineptr);
+			revs.push_back(rev);
+			m_lowestrev = min(m_lowestrev, rev);
+			m_highestrev = max(m_highestrev, rev);
 			lineptr += 7;
 			dates.push_back(std::string(lineptr, 30));
 			lineptr += 31;
