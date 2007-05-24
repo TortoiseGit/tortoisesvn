@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3338,7 +3338,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
 					if (!tempfile.IsEmpty())
 					{
-						if (logfile.IsEmpty())
+						if (dlg.m_bTextView)
 						{
 							//open the default text editor for the result file
 							CAppUtils::StartTextViewer(tempfile);
@@ -3946,7 +3946,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
 					if (!tempfile.IsEmpty())
 					{
-						if (logfile.IsEmpty())
+						if (dlg.m_bTextView)
 						{
 							//open the default text editor for the result file
 							CAppUtils::StartTextViewer(tempfile);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -161,7 +161,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		// will error out. Bug in Subversion?
 		if (pegrev.IsWorking() && !path.IsUrl())
 			pegrev = SVNRev();
-		if (!this->ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, TRUE))
+		if (!this->ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE))
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);

@@ -2629,7 +2629,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					tempfile = blame.BlameToTempFile(CTSVNPath(EscapeUrl(urlList[0])), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
 					if (!tempfile.IsEmpty())
 					{
-						if (logfile.IsEmpty())
+						if (dlg.m_bTextView)
 						{
 							//open the default text editor for the result file
 							CAppUtils::StartTextViewer(tempfile);

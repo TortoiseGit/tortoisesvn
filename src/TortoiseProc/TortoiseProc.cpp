@@ -2082,7 +2082,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, TRUE);
 				if (!tempfile.IsEmpty())
 				{
-					if (logfile.IsEmpty())
+					if (dlg.m_bTextView)
 					{
 						//open the default text editor for the result file
 						CAppUtils::StartTextViewer(tempfile);
