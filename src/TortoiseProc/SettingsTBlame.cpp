@@ -161,3 +161,11 @@ void CSettingsTBlame::OnBnClickedRestore()
 	m_cNewLinesColor.SetColor(RGB(255, 230, 230));
 	SetModified(TRUE);
 }
+
+BOOL CSettingsTBlame::OnApply()
+{
+	UpdateData();
+	SaveData();
+	SetModified(FALSE);
+	return CPropertyPage::OnApply();
+}
