@@ -41,7 +41,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-22 23:07+0200\n"
+"PO-Revision-Date: 2007-05-25 01:44+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1946,6 +1946,11 @@ msgstr "&Työhakemisto:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Hae työkopio - TortoiseSVN"
 
+# Dlg-ID:133,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Työkopion haun syvyys"
+
 # ID:119,
 #: ID:229
 #, c-format
@@ -1970,6 +1975,7 @@ msgstr "Siivoa keskeytetyt operaatiot, lukitut tiedostot, ..."
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1992,6 +1998,12 @@ msgstr "Tyhjentää %ld lokiviestiä talletettuina %ld työkopioon"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Tyhjentää %ld käyttäjätunnus/salasana -paria, %ld SSL-sertifikaattia ja %ld käyttäjänimeä"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Tyhjentää talletetut lokit %ld tietovarastosta"
 
 # ID:195,
 #: ID:195
@@ -4174,7 +4186,6 @@ msgstr "Viimeisimmät viestit"
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Lokiviestit"
@@ -4189,6 +4200,17 @@ msgstr "Lokiviesti"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Lokiviestit"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Lokiviestit (Toimita tietovarastoon -dialogi)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Lokiviestit (Näytä loki -dialogi)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -4658,6 +4680,11 @@ msgstr "OK"
 #: ID:3697
 msgid "OVR"
 msgstr "OVR"
+
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Vanhemmat rivit"
 
 # ID:13,
 #: ID:99
@@ -5160,6 +5187,11 @@ msgstr "P&alauta..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lue 'Daily Use Guide' ennen kuin jäät jumiin..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Äskettäin muutetut rivit"
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -8074,11 +8106,6 @@ msgstr "normaali"
 msgid "obstructed"
 msgstr "tukkeutunut"
 
-# ID:376,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "Vanhemmat rivit"
-
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
@@ -8099,11 +8126,6 @@ msgstr "neljännesvuosi"
 #: ID:195
 msgid "readonly"
 msgstr "vain luku"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "Äskettäin muutetut rivit"
 
 # ID:10,
 #: ID:10
