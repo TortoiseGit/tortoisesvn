@@ -111,7 +111,7 @@ void CDictionaryBasedTempPath::RepeatLookup()
 		if (nextIndex == NO_INDEX)
 		{
 			// new dictionary-based path info ends here.
-			// upate internal data, if we made any progress
+			// update internal data, if we made any progress
 
 			if (iter != begin)
 			{
