@@ -452,6 +452,14 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 	cache = caches->GetCache (info.reposUUID);
 	URL = CUnicodeUtils::GetUTF8 (info.reposRoot);
 
+	// workaround for 1.2.x (and older) working copies
+
+	if (URL.IsEmpty())
+	{
+		SVN svn;
+		URL = svn.GetRepositoryRoot (CTSVNPath (info.url));
+	}
+
 	// get path object
 
 	CStringA relPath = CUnicodeUtils::GetUTF8 (info.url).Mid (URL.GetLength());
@@ -581,8 +589,10 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	revision_t startRevision = DecodeRevision (path, start, baseInfo, headInfo);
 	revision_t endRevision = DecodeRevision (path, end, baseInfo, headInfo);
+
 	// The svn_client_log3() API defaults the peg revision to HEAD for URLs 
 	// and WC for local paths if it isn't set explicitly.
+
 	revision_t pegRevision = 0;
 	if (!peg_revision.IsValid())
 	{
