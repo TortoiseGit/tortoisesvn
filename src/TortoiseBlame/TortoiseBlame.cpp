@@ -594,7 +594,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
 	case SCN_GETBKCOLOR:
 		if ((m_colorage)&&(notification->line < (int)revs.size()))
 		{
-			notification->lParam = InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (revs[notification->line]-m_lowestrev)*100/(m_highestrev-m_lowestrev));
+			notification->lParam = InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (revs[notification->line]-m_lowestrev)*100/((m_highestrev-m_lowestrev)+1));
 		}
 		break;
 	}
