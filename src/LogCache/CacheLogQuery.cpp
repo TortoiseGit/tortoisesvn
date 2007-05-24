@@ -449,15 +449,26 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 {
 	// load cache
 
+	URL.Empty();
+	if (info.reposUUID.IsEmpty())
+	{
+		SVN svn;
+		URL = CUnicodeUtils::GetUTF8(svn.GetRepositoryRootAndUUID(
+										CTSVNPath(info.url), info.reposUUID));
+	}
+
+	assert(!info.reposUUID.IsEmpty());
 	cache = caches->GetCache (info.reposUUID);
-	URL = CUnicodeUtils::GetUTF8 (info.reposRoot);
+
+	if (URL.IsEmpty())
+		URL = CUnicodeUtils::GetUTF8 (info.reposRoot);
 
 	// workaround for 1.2.x (and older) working copies
 
 	if (URL.IsEmpty())
 	{
 		SVN svn;
-		URL = svn.GetRepositoryRoot (CTSVNPath (info.url));
+		URL = CUnicodeUtils::GetUTF8(svn.GetRepositoryRoot (CTSVNPath (info.url)));
 	}
 
 	// get path object
