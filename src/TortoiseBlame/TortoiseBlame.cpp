@@ -1343,6 +1343,11 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					if (!ShowAuthor || !ShowDate)
 						msg += '\n';
 					msg += iter->second;
+					// an empty tooltip string will deactivate the tooltips,
+					// which means we must make sure that the tooltip won't
+					// be empty.
+					if (msg.empty())
+						msg = _T(" ");
 					if (pNMHDR->code == TTN_NEEDTEXTA)
 					{
 						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH+5);
