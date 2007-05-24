@@ -30,24 +30,41 @@
 
 const CString& LogChangedPath::GetAction() const
 {
+	static CString addActionString;
+	static CString deleteActionString;
+	static CString replacedActionString;
+	static CString modifiedActionString;
+
 	if (actionAsString.IsEmpty())
 	{
 		switch (action)
 		{
 		case LOGACTIONS_ADDED: 
-			actionAsString.LoadString(IDS_SVNACTION_ADD);
+			if (addActionString.IsEmpty())
+				addActionString.LoadString(IDS_SVNACTION_ADD);
+
+			actionAsString = addActionString;
 			break;
 
 		case LOGACTIONS_DELETED: 
-			actionAsString.LoadString(IDS_SVNACTION_DELETE);
+			if (deleteActionString.IsEmpty())
+				deleteActionString.LoadString(IDS_SVNACTION_DELETE);
+
+			actionAsString = deleteActionString;
 			break;
 
 		case LOGACTIONS_REPLACED: 
-			actionAsString.LoadString(IDS_SVNACTION_REPLACED);
+			if (replacedActionString.IsEmpty())
+				replacedActionString.LoadString(IDS_SVNACTION_REPLACED);
+
+			actionAsString = replacedActionString;
 			break;
 
 		case LOGACTIONS_MODIFIED: 
-			actionAsString.LoadString(IDS_SVNACTION_MODIFIED);
+			if (modifiedActionString.IsEmpty())
+				modifiedActionString.LoadString(IDS_SVNACTION_MODIFIED);
+
+			actionAsString = modifiedActionString;
 			break;
 
 		default:
