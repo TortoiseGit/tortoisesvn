@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-23 11:29+0900\n"
+"PO-Revision-Date: 2007-05-24 10:55+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2326,9 +2326,9 @@ msgstr "中断した処理、ロックファイル、... をクリーンアッ�
 # Control-ID:1279,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
-#: Control-ID:1281
 msgid "Clear"
 msgstr "クリア"
 
@@ -2467,13 +2467,6 @@ msgstr "コミット"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "コミット - TortoiseSVN"
-
-# Dlg-ID:130,
-# Control-ID:1274,#:
-# Dlg-ID:130,
-#: Control-ID:1274
-msgid "Commit Log Messages"
-msgstr "コミットログメッセージ"
 
 # Control-ID:1110,
 # Control-ID:1262,
@@ -4891,11 +4884,6 @@ msgstr "他のユーザに対してファイルをロックし、自分が編集
 msgid "Log"
 msgstr "ログ"
 
-# Control-ID:1280,
-#: Control-ID:1280
-msgid "Log Data"
-msgstr "ログデータ"
-
 # ID:80,
 # Dlg-ID:211,
 #: Dlg-ID:211
@@ -4920,6 +4908,17 @@ msgstr "ログメッセージ"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "ログメッセージ"
+
+# Dlg-ID:130,
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "ログメッセージ (入力ダイアログ)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "ログメッセージ (ログダイアログ)"
 
 # Dlg-ID:106,
 # Dlg-ID:195,
@@ -5599,6 +5598,12 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "オンラインのリポジトリを調整するためにリポジトリブラウザを開く"
+
+# ID:77,
+# ID:117,
+#: Control-ID:1377
+msgid "Options"
+msgstr "オプション"
 
 #: MenuEntry
 msgid "Ori&ginal size"
