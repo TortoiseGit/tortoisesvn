@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-22 08:58+0100\n"
+"PO-Revision-Date: 2007-05-24 10:11+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1590,6 +1590,7 @@ msgstr "Führt unterbrochene Aktionen zu Ende, hebt Sperren auf, ..."
 
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1612,6 +1613,12 @@ msgstr "Löscht %ld gespeicherte Logmeldungen von %ld Arbeitskopien"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Löscht %ld Name/Passwort Paare, %ld SSL Zertifikate und %ld Benutzernamen"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Löscht gespeicherte Logmeldungen von %ld Projektarchiven"
 
 #: ID:195
 msgid ""
@@ -3498,7 +3505,6 @@ msgstr "Log"
 msgid "Log History"
 msgstr "Letzte Logmeldungen"
 
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Logmeldungen"
@@ -3510,6 +3516,15 @@ msgstr "Logmeldung"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Logmeldungen"
+
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Logmeldungen (Eingabedialog)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Logmeldungen (Zeige Log)"
 
 #: Dlg-ID:195
 msgid "Look and Feel"
@@ -3985,6 +4000,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
+
+#: Control-ID:1377
+msgid "Options"
+msgstr "Optionen"
 
 #: MenuEntry
 msgid "Ori&ginal size"
