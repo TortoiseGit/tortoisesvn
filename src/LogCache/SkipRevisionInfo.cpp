@@ -352,7 +352,7 @@ void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 {
 	// raise lower bound
 
-	while ((size > 0) && (revisions[revision] != NO_REVISION))
+	while ((size > 0) && (revisions[revision] != NO_INDEX))
 	{
 		++revision;
 		--size;
@@ -360,7 +360,7 @@ void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 
 	// lower upper bound
 
-	while ((size > 0) && (revisions[revision + size-1] != NO_REVISION))
+	while ((size > 0) && (revisions[revision + size-1] != NO_INDEX))
 	{
 		--size;
 	}
