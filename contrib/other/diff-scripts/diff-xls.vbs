@@ -10,7 +10,7 @@ end if
 sBaseDoc = objArgs(0)
 sNewDoc = objArgs(1)
 
-Set objScript = CreateObject("Scripting.FileSystemxObject")
+Set objScript = CreateObject("Scripting.FileSystemObject")
 If objScript.FileExists(sBaseDoc) = False Then
     MsgBox "File " + sBaseDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found"
     Wscript.Quit 1
