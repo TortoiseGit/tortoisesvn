@@ -2837,6 +2837,18 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 {
 	if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
 		return;
+
+	// ignore old fetch limits when switching
+	// between copy-following and stop-on-copy
+	// (otherwise stop-on-copy will limit what
+	//  we see immediately after switching to
+	//  copy-following)
+
+	m_logEntries.clear();
+	m_endrev = 1;
+
+	// now, restart the query
+
 	Refresh();
 }
 
