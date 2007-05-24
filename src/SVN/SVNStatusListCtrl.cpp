@@ -2768,10 +2768,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						fileop.pTo = NULL;
 						fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | (bShift ? 0 : FOF_ALLOWUNDO);
 						fileop.lpszProgressTitle = _T("deleting file");
-						SHFileOperation(&fileop);
+						int result = SHFileOperation(&fileop);
 						delete [] buf;
 
-						if (! fileop.fAnyOperationsAborted)
+						if ( (result==0) && (!fileop.fAnyOperationsAborted) )
 						{
 							POSITION pos = NULL;
 							CTSVNPathList deletedlist;	// to store list of deleted folders
