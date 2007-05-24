@@ -83,11 +83,16 @@ void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
 
 	if (firstNARevision > revision)
 	{
-		assert (currentPath->IsFullyCachedPath());
+		// due to only the parent path being renamed, the currentPath
+		// may not have shown up in the log -> don't mark the range
+		// as N/A for some *parent*.
 
-		cache->AddSkipRange ( currentPath->GetBasePath()
-							, revision+1
-							, firstNARevision - revision);
+		if (currentPath->IsFullyCachedPath())
+		{
+			cache->AddSkipRange ( currentPath->GetBasePath()
+								, revision+1
+								, firstNARevision - revision);
+		}
 	}
 
 	if (followRenames)
