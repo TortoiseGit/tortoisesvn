@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-14 10:07+0800\n"
+"PO-Revision-Date: 2007-05-24 14:29+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -547,7 +547,7 @@ msgid "&Font for log messages:"
 msgstr "日志信息字体(&F)："
 
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&Font:"
 msgstr "字体(&F)："
 
@@ -1919,7 +1919,8 @@ msgstr "清理未完成的操作，锁定文件等…"
 # Control-ID:1275,#:
 # Control-ID:1276,#:
 # Control-ID:1279,
-#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1281,#: Control-ID:1276,#:
+#: Control-ID:1279,
 msgid "Clear"
 msgstr "清除"
 
@@ -1940,6 +1941,11 @@ msgstr "清除%ld条日志，它们存储在%ld个工作拷贝中"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "清除%ld个用户名/密码、%ld个SSL认证数据及%ld个用户名"
+
+#: ID:197,
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "已经从  %ld 个版本库清除缓存日志"
 
 # ID:195,
 #: ID:195,
@@ -1992,7 +1998,7 @@ msgid "Color co&de in-line changes"
 msgstr "用颜色标记行内改变(&D)"
 
 # Dlg-ID:138,
-#: Dlg-ID:138,
+#: Control-ID:65535,#: Dlg-ID:138,
 msgid "Colors"
 msgstr "颜色"
 
@@ -3158,6 +3164,11 @@ msgstr "完成！"
 msgid "Floppy drives (A: B:)"
 msgstr "软盘驱动器 (A: B:)"
 
+# Control-ID:65535,
+#: Control-ID:65535,
+msgid "Font"
+msgstr "字体"
+
 # ID:3585,
 #: ID:3585,
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -4062,7 +4073,7 @@ msgstr "历史记录"
 
 # Control-ID:1274,#:
 # Dlg-ID:130,
-#: Control-ID:1274,#: Dlg-ID:130,
+#: Dlg-ID:130,
 msgid "Log Messages"
 msgstr "日志信息"
 
@@ -4075,6 +4086,15 @@ msgstr "日志信息"
 #: Control-ID:65535,
 msgid "Log messages"
 msgstr "日志信息"
+
+# Control-ID:65535,
+#: Control-ID:1274,
+msgid "Log messages (Input dialog)"
+msgstr "日志信息(输入对话框)"
+
+#: Control-ID:1280,
+msgid "Log messages (Show log dialog)"
+msgstr "日志信息(显示日志对话框)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195,
@@ -4635,6 +4655,11 @@ msgstr ""
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "打开版本库浏览器，在线进行版本库调整"
+
+# ID:117,
+#: Control-ID:1377,
+msgid "Options"
+msgstr "操作"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -5334,7 +5359,7 @@ msgid "Resolves conflicted files"
 msgstr "解决有冲突的文件"
 
 # Control-ID:1254,
-#: Control-ID:1254,
+#: Control-ID:1254,#: Control-ID:1254,
 msgid "Restore Default"
 msgstr "恢复默认值"
 
@@ -6326,6 +6351,11 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+# Control-ID:65535,
+#: Control-ID:65535,
+msgid "Tab size:"
+msgstr "Tab 宽度："
+
 # ID:79,
 #: ID:79,
 #, c-format
@@ -6853,7 +6883,7 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "结束： （合并范围的结束URL和版本）"
 
 # ID:7,
-#: ID:7,
+#: Dlg-ID:244,#: ID:7,
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
@@ -7875,6 +7905,10 @@ msgstr "常规"
 msgid "obstructed"
 msgstr "阻碍"
 
+#: Control-ID:65535,
+msgid "older lines"
+msgstr "旧行"
+
 # ID:3869,#:
 # ID:3869,
 #: ID:3869,#: ID:3869,
@@ -7895,6 +7929,11 @@ msgstr "季度"
 #: ID:195,
 msgid "readonly"
 msgstr "只读"
+
+# Control-ID:1065,
+#: Control-ID:65535,
+msgid "recently modified lines"
+msgstr "最近修改的行"
 
 # ID:10,
 #: ID:10,

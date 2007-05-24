@@ -2094,6 +2094,15 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"为了将 svnserve 安装为 Windows 服务，在一行内执行下面的命令，创建一个当 Windows 启动后，自动启动的服务。<screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
+"</screen> 如果任一个路径包含空格，你必须使用双引号(逃逸字符)包含路径，例如：<screen>\n"
+"sc create svnserve binpath= \"\\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
+"</screen> 在创建服务以后，你还可以增加描述。它在 Windows 服务管理器中显示。<screen>\n"
+"sc description svnserve \"Subversion server (svnserve)\"\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2723(para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
@@ -3688,9 +3697,8 @@ msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision dele
 msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> 如果某个版本删除了文件和目录，<literal>已删除</literal> 图表就会在第三列显示。"
 
 #: source/TortoiseSVN_en.xml:5116(para)
-#, fuzzy
 msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <literal>replaced</literal> icon is shown in the fourth column."
-msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> 如果某个版本替换了文件和目录，<literal>已替换</literal> 图表就会在第四列显示。"
+msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> 如果某个版本替换了文件和目录，<literal>已替换</literal> 图标就会在第四列显示。"
 
 #: source/TortoiseSVN_en.xml:5123(title)
 msgid "Getting Additional Information"
@@ -4153,9 +4161,8 @@ msgid "The image difference viewer"
 msgstr "差异察看器截图"
 
 #: source/TortoiseSVN_en.xml:5831(para)
-#, fuzzy
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>比较差异</guimenuitem></menuchoice>TortoiseIDiff可以显示同种格式的图像差异。一般情况下是左右对称地显示两个图像，但你也可以通过调整视图滑动条转变为上下显示的模式，如果你愿意，这里支持使用透明框进行图像覆盖的方式，在顶端的滑动条可以调整图像之间的吻合程度(alpha blend)，你也可以使用<action>Ctrl-Shift-Wheel</action>来调整这种程度。"
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>比较差异</guimenuitem></menuchoice> 会启动 TortoiseIDiff 显示常用格式的图像差异。一般情况下是左右对称地显示两个图像，但你也可以通过视图菜单或者工具栏切换为上下显示的模式，或者如果你愿意，也可以重叠显示图像。"
 
 #: source/TortoiseSVN_en.xml:5846(para)
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, wheelmouse) on both images are linked."
@@ -5351,9 +5358,8 @@ msgid "Applying a Patch File"
 msgstr "应用一个补丁文件"
 
 #: source/TortoiseSVN_en.xml:7862(para)
-#, fuzzy
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
-msgstr "当你对你的工作副本打补丁的时候，你应当在与创建补丁文件时相同的目录层次上。如果你不能确定在那个目录层次上，就看一下补丁文件的第一行。例如，如果补丁第一个要处理的文件是<filename>doc/source/english/chapter1.xml</filename> 并且补丁文件的第一行是<filename>Index: english/chapter1.xml</filename>说明你必须要对<filename>english</filename>目录应用这个补丁文件。尽管如此，倘若你在正确的工作副本上工作，如果你选择了一个错误的目录层次，TSVN会察觉到这个错误，并给出正确的建议。"
+msgstr "补丁文件应用于你的工作副本。当你对你的工作副本打补丁的时候，你应当在与创建补丁文件时相同的目录层次上。如果你不能确定在哪个目录层次上，就看一下补丁文件的第一行。例如，如果补丁第一个要处理的文件是<filename>doc/source/english/chapter1.xml</filename> 并且补丁文件的第一行是<filename>Index: english/chapter1.xml</filename>说明你必须要对<filename>doc/source/</filename>目录应用这个补丁文件。尽管如此，倘若你在正确的工作副本上工作，如果你选择了一个错误的目录层次，TSVN会察觉到这个错误，并给出正确的建议。"
 
 #: source/TortoiseSVN_en.xml:7876(para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
@@ -6409,15 +6415,15 @@ msgstr "在锁定文件之前显示加锁对话框"
 
 #: source/TortoiseSVN_en.xml:9623(para)
 msgid "When you select one or more files and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lock</guimenuitem></menuchoice> to take out a lock on those files, on some projects it is customary to write a lock message explaining why you have locked the files. If you do not use lock messages, you can uncheck this box to skip that dialog and lock the files immediately."
-msgstr ""
+msgstr "当你选择一个或多个文件，然后选择 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>加锁</guimenuitem></menuchoice> 后，一些项目的惯例是写加锁信息，解释你为什么锁定这些文件。如果你不使用加锁信息，可以取消此选择框，从而略过对话框，直接锁定文件。"
 
 #: source/TortoiseSVN_en.xml:9635(para)
 msgid "If you use the lock command on a folder, you are always presented with the lock dialog as that also gives you the option to select files for locking."
-msgstr ""
+msgstr "如果你在目录上使用加锁命令，一定会出现加锁对话框，因为它要让你选择加锁的文件。"
 
 #: source/TortoiseSVN_en.xml:9640(para)
 msgid "If your project is using the <literal>tsvn:lockmsgminsize</literal> property, you will see the lock dialog regardless of this setting because the project <emphasis>requires</emphasis> lock messages."
-msgstr ""
+msgstr "如果你的项目使用了 <literal>tsvn:lockmsgminsize</literal> 属性，那么不管你如何设置，都会看到加锁对话框，因为此项目<emphasis>需要</emphasis>加锁信息。"
 
 #: source/TortoiseSVN_en.xml:9650(title)
 msgid "TortoiseSVN Colour Settings"
@@ -6625,7 +6631,7 @@ msgstr "如果你使用了 <literal>svn:keywords</literal> 属性来扩展关键
 
 #: source/TortoiseSVN_en.xml:9896(para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
-msgstr ""
+msgstr "你也可以使用 Subversion 属性来指定其它的比较工具。既然这些是简短的文本，你可能想要使用简单的查看器。"
 
 #: source/TortoiseSVN_en.xml:9903(title)
 msgid "Merge Tool"
@@ -6958,15 +6964,15 @@ msgstr "命令行可以包含被TortoiseSVN填写的几个参数。这些参数�
 
 #: source/TortoiseSVN_en.xml:10357(para)
 msgid "A path to a temporary file which contains all the paths for which the operation was started. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "指向临时文件的路径，此文件包含了操作开始时的所有路径。在临时文件中，每个路径占一行。"
 
 #: source/TortoiseSVN_en.xml:10367(para)
 msgid "The paths which were selected when the operation was started, eg. the paths selected in Explorer when invoking the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
-msgstr "当操作开始时选择的路径。例如当启动提交对话框是在资源管理器中选择的路径。如果选择了多个路径，它们用<literal>*</literal>自负隔开。"
+msgstr "当操作开始时选择的路径。例如当启动提交对话框是在资源管理器中选择的路径。如果选择了多个路径，它们用<literal>*</literal>字符隔开。"
 
 #: source/TortoiseSVN_en.xml:10374(para)
 msgid "Note that if possible, you should use <literal>%PATH%</literal> instead of <literal>%PATHS%</literal> to avoid running into the size limit of the command line."
-msgstr ""
+msgstr "注意，如果可能的话，你应该使用 <literal>%PATH%</literal> 来代替 <literal>%PATHS%</literal>，以避免超过命令行的长度限制。"
 
 #: source/TortoiseSVN_en.xml:10384(para)
 msgid "The repository revision after a commit completes."
