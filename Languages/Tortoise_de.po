@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-24 10:11+0100\n"
+"PO-Revision-Date: 2007-05-25 09:19+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1570,6 +1570,10 @@ msgstr "&Zielordner:"
 #: ID:77
 msgid "Checkout - TortoiseSVN"
 msgstr "Auschecken - TortoiseSVN"
+
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Auschecktiefe"
 
 #: ID:229
 #, c-format
@@ -3922,6 +3926,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "ÜB"
 
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Ältere Zeilen"
+
 #: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
@@ -4000,10 +4009,6 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
-
-#: Control-ID:1377
-msgid "Options"
-msgstr "Optionen"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -4326,6 +4331,11 @@ msgstr "&Rückgängig..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Die schnelle Hilfe bei vielen täglichen Problemen."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Kürzlich geänderte Zeilen"
 
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
@@ -6808,11 +6818,6 @@ msgstr "Normal"
 msgid "obstructed"
 msgstr "Versperrt"
 
-# ID:376,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "ältere Zeilen"
-
 #: ID:3869
 msgid "pixels"
 msgstr "Pixel"
@@ -6831,11 +6836,6 @@ msgstr "Quartal"
 #: ID:195
 msgid "readonly"
 msgstr "schreibgeschützt"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "kürzlich geänderte Zeilen"
 
 #: ID:10
 msgid "replaced"
