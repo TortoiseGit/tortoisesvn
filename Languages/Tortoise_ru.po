@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9519: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9547: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-22 23:24+0300\n"
+"PO-Revision-Date: 2007-05-25 19:20+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1588,6 +1588,10 @@ msgstr "&Извлечь в папку:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Извлечение - TortoiseSVN"
 
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Глубина охвата при извлечении"
+
 #: ID:229
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
@@ -1607,9 +1611,9 @@ msgstr "Очистка прерванных операций, блокирова
 
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
-#: Control-ID:1281
 msgid "Clear"
 msgstr "Очистить"
 
@@ -1705,10 +1709,6 @@ msgstr "Фиксация"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "Фиксация - TortoiseSVN"
-
-#: Control-ID:1274
-msgid "Commit Log Messages"
-msgstr "Предыдущие сообщения журнала при фиксации"
 
 #: Control-ID:1262
 msgid "Commit threshold:"
@@ -3476,10 +3476,6 @@ msgstr "Блокирует файл для других пользователе
 msgid "Log"
 msgstr "Журнал"
 
-#: Control-ID:1280
-msgid "Log Data"
-msgstr "Кэшированные журнальные данные"
-
 # Заголовок окна
 #: Dlg-ID:211
 msgid "Log History"
@@ -3497,6 +3493,14 @@ msgstr "Сообщение журнала"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Сообщения журнала"
+
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Введённые предыдущие сообщения журнала"
+
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Полученные кэшированные сообщения журнала"
 
 #: Dlg-ID:195
 msgid "Look and Feel"
@@ -3878,6 +3882,10 @@ msgstr "OK"
 #: ID:3697
 msgid "OVR"
 msgstr "OVR"
+
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Более старые строки"
 
 # Род?
 #: ID:99
@@ -4271,6 +4279,10 @@ msgstr "Убрать и&зменения..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Прочитайте 'Руководство по ежедневному использованию', пока не застряли..."
+
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Недавно изменённые строки"
 
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
@@ -6702,10 +6714,6 @@ msgstr "нормальный"
 msgid "obstructed"
 msgstr "мешающий"
 
-#: Control-ID:65535
-msgid "older lines"
-msgstr "более старые строки"
-
 #: ID:3869
 msgid "pixels"
 msgstr "пикселы"
@@ -6723,10 +6731,6 @@ msgstr "квартал"
 #: ID:195
 msgid "readonly"
 msgstr "только-для-чтения"
-
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "недавно изменённые строки"
 
 #: ID:10
 msgid "replaced"
