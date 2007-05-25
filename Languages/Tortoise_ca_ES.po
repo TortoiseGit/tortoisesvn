@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-05-18 18:37+0100\n"
+"PO-Revision-Date: 2007-05-24 17:08+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +364,10 @@ msgstr "&Cancel·la"
 #: ID:8
 msgid "&Clean up"
 msgstr "&Neteja"
+
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Color de les línies"
 
 # ID:8,
 #: ID:8
@@ -1940,6 +1944,7 @@ msgstr "Neteja interrompuda per operacions, fitxers bloquejats, ..."
 # Control-ID:1279,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1962,6 +1967,12 @@ msgstr "Deixa en blanc %ld missatges de log guardats per %ld còpies de treball"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Deixa en blanc %ld parelles nom d'usuari/contrasenya, %ld certificats ssl i  %ld noms d'usuari"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Esborra logs amagats dels %ld repositoris"
 
 # ID:195,
 #: ID:195
@@ -2014,6 +2025,7 @@ msgid "Color co&de in-line changes"
 msgstr "Marca co&di de colors als canvis de les línies"
 
 # Dlg-ID:138,
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Colors"
@@ -3201,6 +3213,11 @@ msgstr "Finalitzat!"
 msgid "Floppy drives (A: B:)"
 msgstr "Unitats de disquet (A: B:)"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font"
+msgstr "Font"
+
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -3481,6 +3498,12 @@ msgstr "ID:32779:V   +S"
 #: ; '&Go To Line...'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
@@ -4130,7 +4153,6 @@ msgstr "Històric del Log"
 
 # Control-ID:1274,#:
 # Dlg-ID:130,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Missatges de Log"
@@ -4144,6 +4166,16 @@ msgstr "Missatge de Log"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Missatges de Log"
+
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Missatges de log (diàleg d'entrada)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Missatges de log (Mostra diàleg de log)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -4328,6 +4360,11 @@ msgstr "Miscel·lània"
 #: ID:3887
 msgid "Mixed"
 msgstr "Barrejat"
+
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "Data de cmodificació"
 
 # ID:74,#:
 # ID:264,
@@ -4710,6 +4747,11 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Obre repositori ambel navegador per modificar-lo \"online\""
+
+# ID:117,
+#: Control-ID:1377
+msgid "Options"
+msgstr "Opcions"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -6434,6 +6476,11 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Tamany tabulador:"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -6966,6 +7013,7 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "A: (URL i revisió del rang a fusionar)"
 
 # ID:7,
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -7475,6 +7523,11 @@ msgstr "Versió"
 #: ID:264
 msgid "Versioned"
 msgstr "Versionat"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "View"
+msgstr "Visualiització"
 
 # ID:114,
 #: ID:114
@@ -7997,6 +8050,11 @@ msgstr "normal"
 msgid "obstructed"
 msgstr "obstruït"
 
+# ID:376,
+#: Control-ID:65535
+msgid "older lines"
+msgstr "Línies antigues"
+
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
@@ -8017,6 +8075,11 @@ msgstr "trimestre"
 #: ID:195
 msgid "readonly"
 msgstr "només de lectura"
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "recently modified lines"
+msgstr "línies recentment modificades"
 
 # ID:10,
 #: ID:10
