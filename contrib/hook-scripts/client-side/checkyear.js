@@ -35,26 +35,29 @@ while (fileindex < files.length)
 	var f = files[fileindex];
     if (f.match(filere) != null)
     {
-        a = fs.OpenTextFile(f, ForReading, false);
-        var currentfound = false;
-        while ((!a.AtEndOfStream)&&(!currentfound))
-        {
-            r =  a.ReadLine();
-            rv = r.match(basere);
-            if (rv != null)
-            {
-				rv = r.match(re);
-				if (rv == null)
+		if (fs.FileExists(f))
+		{
+			a = fs.OpenTextFile(f, ForReading, false);
+			var currentfound = false;
+			while ((!a.AtEndOfStream)&&(!currentfound))
+			{
+				r =  a.ReadLine();
+				rv = r.match(basere);
+				if (rv != null)
 				{
-					if (errormsg != "")
-						errormsg += "\n";
-					errormsg += f;
-					found = false;
+					rv = r.match(re);
+					if (rv == null)
+					{
+						if (errormsg != "")
+							errormsg += "\n";
+						errormsg += f;
+						found = false;
+					}
+					currentfound = true;
 				}
-				currentfound = true;
-            }
-        }
-        a.Close();
+			}
+			a.Close();
+		}
     }
     fileindex+=1;
 }
