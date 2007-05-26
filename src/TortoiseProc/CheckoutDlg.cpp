@@ -79,6 +79,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_sCheckoutDirOrig = m_strCheckoutDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 
+	CString sUrlSave = m_URL;
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
@@ -94,8 +95,8 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 	m_editRevision.SetWindowText(_T(""));
 
-	if (!m_URL.IsEmpty())
-		m_URLCombo.SetWindowText(m_URL);
+	if (!sUrlSave.IsEmpty())
+		m_URLCombo.SetWindowText(sUrlSave);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
