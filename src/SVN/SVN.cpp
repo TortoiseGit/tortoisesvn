@@ -511,7 +511,9 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 	return finrev;
 }
 
-BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNRev revision, SVNRev pegrev, CString logmsg, bool copy_as_child)
+BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
+			   SVNRev revision, SVNRev pegrev, CString logmsg, bool copy_as_child, 
+			   bool make_parents)
 {
 	SVNPool subpool(pool);
 
@@ -527,6 +529,7 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNR
 							MakeCopyArray(srcPathList, revision, pegrev),
 							destPath.GetSVNApiPath(),
 							copy_as_child,
+							make_parents,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -553,7 +556,9 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNR
 	return TRUE;
 }
 
-BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, BOOL force, CString message /* = _T("")*/, bool move_as_child /* = false*/)
+BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
+			   BOOL force, CString message /* = _T("")*/, 
+			   bool move_as_child /* = false*/, bool make_parents /* = false */)
 {
 	SVNPool subpool(pool);
 
@@ -565,6 +570,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, BOOL
 							destPath.GetSVNApiPath(),
 							force,
 							move_as_child,
+							make_parents,
 							m_pctx,
 							subpool);
 	if(Err != NULL)

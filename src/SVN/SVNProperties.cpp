@@ -75,7 +75,7 @@ svn_error_t*	SVNProperties::Refresh()
 	m_error = svn_client_proplist3 (m_path.GetSVNApiPath(),
 								&rev,
 								&rev,
-								false,	//recurse
+								svn_depth_empty,
 								proplist_receiver,
 								this,
 								&m_ctx,

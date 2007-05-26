@@ -117,7 +117,7 @@ public:
 	 * properties of obstructing items are set equal to the base properties.
 	 * If @a bAllow_unver_obstructions is false then the checkout will abort
 	 * if there are any unversioned obstructing items.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, 
 		SVNRev revision, svn_depth_t depth, BOOL bIgnoreExternals, 
@@ -141,7 +141,7 @@ public:
 	 * will fail if a directory contains unversioned files or if the file itself is not versioned.
 	 * \param if keeplocal is true, the file/dir is not removed from the working copy but only scheduled
 	 * for deletion in the repository. After the next commit, the file/dir will be unversioned.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal = TRUE, CString message = _T(""));
 	/**
@@ -149,7 +149,7 @@ public:
 	 * was last updated with the repository.
 	 * \param path the file/directory to revert
 	 * \param recurse 
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Revert(const CTSVNPathList& pathlist, BOOL recurse);
 	/**
@@ -166,17 +166,17 @@ public:
 	 * \param force if TRUE, then an adding an already versioned folder will add
 	 *              all unversioned files in it (in combination with \a recurse)
 	 * \param no_ignore if FALSE, then don't add ignored files.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
 	/**
 	 * Assigns the files/folders in \c pathList to a \c changelist.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL AddToChangeList(const CTSVNPathList& pathList, const CString& changelist);
 	/**
 	 * Removes the files/folders in \c pathList from the \c changelist.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL RemoveFromChangeList(const CTSVNPathList& pathList, const CString& changelist);
 	/**
@@ -193,7 +193,7 @@ public:
 	 * properties of obstructing items are set equal to the base properties.
 	 * If @a bAllow_unver_obstructions is false then the update will abort
 	 * if there are any unversioned obstructing items.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, 
 		BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
@@ -246,9 +246,12 @@ public:
 	 * \param copy_as_child set to \c true for copying the source
 	 *                      as a child of the \c destPath if the name of
 	 *                      srcPathList and destPath are the same.
-	 * \return TRUE if succesful
+	 * \param make_parents if true, any non-existent parent dirs are also created
+	 * \return TRUE if successful
 	 */
-	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, SVNRev revision, SVNRev pegrev, CString logmsg = CString(), bool copy_as_child = false);
+	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
+		SVNRev revision, SVNRev pegrev, CString logmsg = CString(), 
+		bool copy_as_child = false, bool make_parents = false);
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -272,9 +275,12 @@ public:
 	 * \param move_as_child set to \c true for moving the source
 	 *                      as a child of the \c destPath if the name of
 	 *                      srcPathList and destPath are the same.
-	 * \return TRUE if succesful
+	 * \param make_parents if true, any non-existent parent dirs are also created
+	 * \return TRUE if successful
 	 */
-	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, BOOL force, CString message = _T(""), bool move_as_child = false);
+	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
+				BOOL force, CString message = _T(""), bool move_as_child = false, 
+				bool make_parents = false);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -344,7 +350,7 @@ public:
 	 * properties of obstructing items are set equal to the base properties.
 	 * If @a allow_unver_obstructions is false then the switch will abort
 	 * if there are any unversioned obstructing items.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL allow_unver_obstruction = TRUE);
 	/**
@@ -368,7 +374,7 @@ public:
 	 * \param message	log message used for the 'commit'
 	 * \param recurse 
 	 * \param no_ignore	If no_ignore is FALSE, don't add files or directories that match ignore patterns.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, BOOL recurse, BOOL no_ignore);
 	/**
@@ -402,7 +408,7 @@ public:
 	 *						but the merge info for the revisions which would've been 
 	 *						merged is recorded in the working copy (and must be subsequently 
 	 *						committed back to the repository).
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, 
 		const CTSVNPath& localPath, BOOL force, svn_depth_t depth, 
@@ -438,7 +444,7 @@ public:
 	 *						but the merge info for the revisions which would've been 
 	 *						merged is recorded in the working copy (and must be subsequently 
 	 *						committed back to the repository).
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
 		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, 
@@ -466,7 +472,7 @@ public:
 	 *
 	 * \remark - the use of two overloaded functions rather than default parameters is to avoid the
 	 * CTSVNPath constructor (and hence #include) being visible in this header file
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
 	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile);
@@ -478,7 +484,7 @@ public:
 	 * \a path can be either a working-copy path or URL.
 	 *
 	 * All other options are handled identically to Diff().
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
 	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
@@ -493,14 +499,14 @@ public:
 	 * \param rev2 the revision of the second path/url
 	 * \param depth the Subversion depth enum
 	 * \param ignoreancestry if true, then possible ancestry between path1 and path2 is ignored
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	bool DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 	
 	/**
 	* Same as DiffSummarize(), expect this method takes a peg revision
 	* to anchor the path on.
-	* \return TRUE if succesful
+	* \return TRUE if successful
 	*/
 	bool DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 
@@ -517,7 +523,7 @@ public:
 	 * \param limit number of log messages to fetch, or zero for all
 	 * \param strict if TRUE, then the log won't follow copies
 	 * \param changed TRUE if the log should follow changed paths 
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
 	
@@ -525,7 +531,7 @@ public:
 	 * Checks out a file with \a revision to \a localpath.
 	 * \param revision the revision of the file to checkout
 	 * \param localpath the place to store the file
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const CTSVNPath& localpath);
 
@@ -551,7 +557,7 @@ public:
 	 * \param entries CStringArray of subdirectories
 	 * \param extended Set to TRUE for entries in extended format (see above)
 	 * \param recursive Set this to TRUE to get all entries recursively
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE, BOOL escaped = FALSE);
 
@@ -565,7 +571,7 @@ public:
 	 * Report directory entries by invoking the virtual method ReportList().
 	 * 
 	 * If \c fetchlocks is true, include locks when reporting directory entries.
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, svn_depth_t depth, bool fetchlocks);
 
@@ -589,7 +595,7 @@ public:
 	 * \param endrev the end revision where the check is stopped
 	 * \param peg the peg revision to use
 	 * \param ignoremimetype set to true if you want to ignore the mimetype and blame everything
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg = SVNRev(), bool ignoremimetype = false);
 	
@@ -600,7 +606,7 @@ public:
 	 * \param pathList a list of filepaths to lock
 	 * \param bStealLock if TRUE, an already existing lock is overwritten
 	 * \param comment a comment to assign to the lock. Only used by svnserve!
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& comment = CString());
 	
@@ -609,7 +615,7 @@ public:
 	 * \param pathList a list of filepaths to remove the lock from
 	 * \param bBreakLock if TRUE, the locks are removed even if the committer
 	 * isn't the owner of the locks!
-	 * \return TRUE if succesful
+	 * \return TRUE if successful
 	 */
 	BOOL Unlock(const CTSVNPathList& pathList, BOOL bBreakLock);
 	
