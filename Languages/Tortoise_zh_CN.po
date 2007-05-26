@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-24 14:29+0800\n"
+"PO-Revision-Date: 2007-05-26 10:15+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1893,6 +1893,12 @@ msgstr "检出至目录(&D)："
 #: ID:77,
 msgid "Checkout - TortoiseSVN"
 msgstr "检出 - TortoiseSVN"
+
+# Dlg-ID:133,#:
+# Control-ID:65535,
+#: Control-ID:1377,
+msgid "Checkout Depth"
+msgstr "检出深度"
 
 # ID:120,
 #: ID:229,
@@ -4558,6 +4564,10 @@ msgstr "确定"
 msgid "OVR"
 msgstr "OVR"
 
+#: Control-ID:65535,
+msgid "Older lines"
+msgstr "旧行"
+
 # ID:99,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
@@ -4655,11 +4665,6 @@ msgstr ""
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "打开版本库浏览器，在线进行版本库调整"
-
-# ID:117,
-#: Control-ID:1377,
-msgid "Options"
-msgstr "操作"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -5056,6 +5061,11 @@ msgstr "SVN 还原(&V)..."
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "在你卡住之前, 请先阅读日常使用指南…"
+
+# Control-ID:1065,
+#: Control-ID:65535,
+msgid "Recently modified lines"
+msgstr "最近修改的行"
 
 # Control-ID:1260,
 #: Control-ID:1260,
@@ -7905,10 +7915,6 @@ msgstr "常规"
 msgid "obstructed"
 msgstr "阻碍"
 
-#: Control-ID:65535,
-msgid "older lines"
-msgstr "旧行"
-
 # ID:3869,#:
 # ID:3869,
 #: ID:3869,#: ID:3869,
@@ -7929,11 +7935,6 @@ msgstr "季度"
 #: ID:195,
 msgid "readonly"
 msgstr "只读"
-
-# Control-ID:1065,
-#: Control-ID:65535,
-msgid "recently modified lines"
-msgstr "最近修改的行"
 
 # ID:10,
 #: ID:10,

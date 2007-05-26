@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-05-18 21:51 +0000\n"
-"PO-Revision-Date: 2007-05-09 13:36+0800\n"
+"PO-Revision-Date: 2007-05-26 10:54+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2106,7 +2106,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2723(para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
-msgstr ""
+msgstr "注意 <literal>sc</literal> 的命令行很特殊。在 <literal>key= value</literal> 对中，key 与 <literal>=</literal> 之间不能有空格，但是在 value 之前，必须有空格。"
 
 #: source/TortoiseSVN_en.xml:2730(para)
 msgid ""
@@ -2132,6 +2132,9 @@ msgid ""
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
+"如果你已经使用 <literal>SvnService</literal> 包装安装了早期的 svnserve，现在想使用本机服务，那么你需要将其从服务中删除(切记先停止服务！)。使用简单的命令<screen>\n"
+"svnservice -remove\n"
+"</screen> 即可删除服务。"
 
 #: source/TortoiseSVN_en.xml:2772(title)
 msgid "Authentication with svnserve"
@@ -2302,15 +2305,15 @@ msgstr "然后就会在新文件夹创建一个版本库，<emphasis>不要手�
 
 #: source/TortoiseSVN_en.xml:3001(para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr ""
+msgstr "TortoiseSVN 不再给你创建 BDB 版本库的选择，尽管你仍旧可以使用命令行工具创建。FSFS 版本库通常很容易维护，也让我们维护 TortoiseSVN 变得更容易，因为我们不再需要处理不同 BDB 版本之间的兼容性问题。"
 
 #: source/TortoiseSVN_en.xml:3008(para)
 msgid "Future versions of TortoiseSVN will not support <literal>file:///</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file:///</literal> protocol is created as FSFS."
-msgstr ""
+msgstr "由于这些兼容性问题，将来的 TortoiseSVN 不再支持使用 <literal>file:///</literal> 访问 BDB 版本库，尽管我们继续支持使用 <literal>svn://</literal>，<literal>http://</literal> 或 <literal>https://</literal> 协议访问 BDB 版本库。因此，我们强烈建议任何新的必须使用 <literal>file:///</literal> 协议访问的版本库使用 FSFS 格式。"
 
 #: source/TortoiseSVN_en.xml:3020(para)
 msgid "Of course we also recommend that you don't use <literal>file:///</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr ""
+msgstr "当然除了本地测试之外，我们也建议你根本不要使用 <literal>file:///</literal> 协议访问。除非是单个开发人员，使用服务器模型更为安全可靠。"
 
 #: source/TortoiseSVN_en.xml:3029(title)
 msgid "Local Access to the Repository"
@@ -2384,7 +2387,7 @@ msgstr "钩子脚本是被版本库事件触发的程序，例如新修订版本
 
 #: source/TortoiseSVN_en.xml:3140(para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr ""
+msgstr "这些钩子脚本被版本库所在的服务器执行。TortoiseSVN 也允许你配置由确定事件触发，在本地执行的客户端脚本。请参看 <xref linkend=\"tsvn-dug-settings-hooks\"/> 以获得更多信息。"
 
 #: source/TortoiseSVN_en.xml:3146(para)
 msgid ""
@@ -2626,7 +2629,7 @@ msgstr "最大化"
 
 #: source/TortoiseSVN_en.xml:3446(para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
-msgstr ""
+msgstr "大多数 TortoiseSVN 的对话框显示很多信息，但是经常只有最大化高度或者宽度有用，而不是全部最大化，覆盖整个屏幕。为了方便，在 <guilabel>最大化</guilabel> 按钮有快捷方式做这些工作。使用鼠标<action>中键</action>最大化高度，<action>右键</action>最大化宽度。"
 
 #: source/TortoiseSVN_en.xml:3457(title)
 msgid "Importing Data Into A Repository"
