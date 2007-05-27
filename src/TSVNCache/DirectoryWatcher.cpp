@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,10 +23,10 @@
 
 extern HWND hWnd;
 
-CDirectoryWatcher::CDirectoryWatcher(void) :
-	m_hCompPort(NULL) ,
-	m_bRunning(TRUE),
-	m_FolderCrawler(NULL)
+CDirectoryWatcher::CDirectoryWatcher(void) : m_hCompPort(NULL)
+	, m_bRunning(TRUE)
+	, m_FolderCrawler(NULL)
+	, blockTickCount(0)
 {
 	// enable the required privileges for this process
 	
@@ -101,10 +101,26 @@ repeat:
 	return bRemoved;
 }
 
+void CDirectoryWatcher::BlockPath(const CTSVNPath& path)
+{
+	blockedPath = path;
+	// block the path from being watched for 4 seconds
+	blockTickCount = GetTickCount()+4000;
+	ATLTRACE(_T("Blocking path: %s\n"), path.GetWinPath());
+}
+
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 {
 	if (!CSVNStatusCache::Instance().IsPathAllowed(path))
 		return false;
+	if ((!blockedPath.IsEmpty())&&(blockedPath.IsAncestorOf(path)))
+	{
+		if (GetTickCount() < blockTickCount)
+		{
+			ATLTRACE(_T("Path %s prevented from being watched\n"), path.GetWinPath());
+			return false;
+		}
+	}
 	AutoLocker lock(m_critSec);
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
 	{
@@ -434,6 +450,7 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 		{
 			path = info->m_DirName;
 			RemovePathAndChildren(path);
+			BlockPath(path);
 		}
 		info->CloseDirectoryHandle();
 	}

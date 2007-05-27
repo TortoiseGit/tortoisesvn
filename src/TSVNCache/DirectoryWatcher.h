@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,6 +80,8 @@ private:
 
 	void ClearInfoMap();
 
+	void BlockPath(const CTSVNPath& path);
+
 private:
 	CComAutoCriticalSection	m_critSec;
 	HANDLE					m_hThread;
@@ -89,6 +91,9 @@ private:
 	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
 	
 	CTSVNPathList			watchedPaths;	///< list of watched paths.
+
+	CTSVNPath				blockedPath;
+	DWORD					blockTickCount;
 
 	/**
 	 * \ingroup TSVNCache
