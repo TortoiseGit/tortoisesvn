@@ -28,6 +28,8 @@
 #	include "UnicodeUtils.h"
 #	include "registry.h"
 #	include "PathUtils.h"
+#	define STRUCT_IOVEC_DEFINED
+#	include "sasl.h"
 #else
 #include "registry.h"
 extern	HINSTANCE			g_hResInst;
@@ -137,6 +139,11 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
+
+	// to avoid that SASL will look for and load its plugin dlls all around the
+	// system, we set the path here.
+	// Note that SASL doesn't have to be initialized yet for this to work
+	sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory()));
 #endif
 
 	SVNProperties::Refresh();
