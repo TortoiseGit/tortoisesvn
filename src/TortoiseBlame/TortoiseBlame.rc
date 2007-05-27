@@ -50,7 +50,7 @@ IDR_BLAMEPOPUP MENU
 BEGIN
     POPUP "&Copy to clipboard"
     BEGIN
-        MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
+        MENUITEM "&Copy to log message to clipboard", ID_COPYTOCLIPBOARD
         MENUITEM SEPARATOR
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
         MENUITEM "Show &changes",               ID_DIFF_PREVIOUS_REVISION
@@ -151,6 +151,45 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,4,99,9571
+ PRODUCTVERSION 1,4,99,9571
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004e4"
+        BEGIN
+            VALUE "CompanyName", "http://tortoisesvn.net"
+            VALUE "FileDescription", "TortoiseBlame"
+            VALUE "FileVersion", "1, 4, 99, 9571"
+            VALUE "InternalName", "TortoiseBlame.exe"
+            VALUE "LegalCopyright", "Copyright (C) 2007"
+            VALUE "OriginalFilename", "TortoiseBlame.exe"
+            VALUE "ProductName", "TortoiseBlame"
+            VALUE "ProductVersion", "1, 4, 99, 9571"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1252
+    END
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
