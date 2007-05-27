@@ -180,6 +180,16 @@
               <File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil_tsvn.dll" DiskId="1" src="..\..\ext\apr-util\release_$(var.PlatformPathExtension)\libaprutil_tsvn.dll" />
             </Component>
 
+            <Component Id="C__sasl" Guid="$(var.GuidSASL)" Win64="$(var.Win64YesNo)">
+              <File Id="F__libsasl" Name="LIBSASL.DLL" LongName="libsasl.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\libsasl.dll" KeyPath="yes" />
+              <File Id="F__saslANONYMOUS" Name="saslANON.DLL" LongName="saslANONYMOUS.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslANONYMOUS.dll" />
+              <File Id="F__saslCRAMMD5" Name="saslCRAM.DLL" LongName="saslCRAMMD5.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslCRAMMD5.dll" />
+              <File Id="F__saslDIGESTMD5" Name="saslDIGE.DLL" LongName="saslDIGESTMD5.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslDIGESTMD5.dll" />
+              <File Id="F__saslLOGIN" Name="saslLOGI.DLL" LongName="saslLOGIN.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslLOGIN.dll" />
+              <File Id="F__saslNTLM" Name="saslNTLM.DLL" LongName="saslNTLM.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslNTLM.dll" />
+              <File Id="F__saslPLAIN" Name="saslPLAI.DLL" LongName="saslPLAIN.dll" DiskId="1" src="..\..\ext\cyrus-SASL\2.1.22-$(var.PlatformPathExtension)\bin\release\saslPLAIN.dll" />
+            </Component>
+
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">
               <File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-$(var.PlatformPathExtension)-libintl\bin\intl3_svn.dll" KeyPath="yes" />
             </Component>

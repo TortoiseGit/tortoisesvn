@@ -54,6 +54,7 @@
 				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll" />
 				<include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll" />
 				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
+				<include name="..\ext\cyrus-SASL\2.1.22-${platform}\bin\${configuration}\libsasl.dll" />
 			</fileset>
 		</copy>
 		<nant target="versioninfo">
