@@ -729,9 +729,9 @@ void TortoiseBlame::CreateFont()
 	LOGFONT lf = {0};
 	lf.lfWeight = 400;
 	HDC hDC = ::GetDC(wBlame);
-	lf.lfHeight = -MulDiv((DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
+	lf.lfHeight = -MulDiv((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
 	lf.lfCharSet = DEFAULT_CHARSET;
-	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
+	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
 	_tcscpy_s(lf.lfFaceName, 32, ((stdstring)fontname).c_str());
 	m_font = ::CreateFontIndirect(&lf);
 	ReleaseDC(wBlame, hDC);
