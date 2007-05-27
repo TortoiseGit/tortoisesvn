@@ -30,6 +30,8 @@
 #	include "registry.h"
 #	include "TSVNPath.h"
 #	include "PathUtils.h"
+#	define STRUCT_IOVEC_DEFINED
+#	include "sasl.h"
 #endif
 
 SVNStatus::SVNStatus(bool * pbCanceled)
