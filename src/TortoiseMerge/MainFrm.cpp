@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2004-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -861,7 +861,8 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 	if (!this->m_Data.m_mergedFile.InUse())
 		return FileSaveAs(bCheckResolved);
 	// check if the file has the readonly attribute set
-	if (GetFileAttributes(m_Data.m_mergedFile.GetFilename()) & FILE_ATTRIBUTE_READONLY)
+	DWORD fAttribs = GetFileAttributes(m_Data.m_mergedFile.GetFilename());
+	if ((fAttribs != INVALID_FILE_ATTRIBUTES)&&(fAttribs & FILE_ATTRIBUTE_READONLY))
 		return FileSaveAs(bCheckResolved);
 	if (bCheckResolved)
 	{
