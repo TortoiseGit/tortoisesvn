@@ -536,14 +536,27 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
 	case svn_opt_revision_head:
 		if (!headInfo.IsValid())
-			headInfo = *SVNInfo().GetFirstFileInfo (path, SVNRev(), revision);
-
+		{
+			SVNInfo info;
+			const SVNInfoData * pHeadInfo = info.GetFirstFileInfo (path, SVNRev(), revision);
+			if (pHeadInfo)
+				headInfo = *pHeadInfo;
+			else
+				throw SVNError(info.GetError());
+		}
 		return static_cast<LONG>(headInfo.rev);
 
 	case svn_opt_revision_base:
 	case svn_opt_revision_working:
 		if (!baseInfo.IsValid())
-			baseInfo = *SVNInfo().GetFirstFileInfo (path, SVNRev(), SVNRev());
+		{
+			SVNInfo info;
+			const SVNInfoData * pBaseInfo = info.GetFirstFileInfo (path, SVNRev(), revision);
+			if (pBaseInfo)
+				baseInfo = *pBaseInfo;
+			else
+				throw SVNError(info.GetError());
+		}
 
 		return static_cast<LONG>(baseInfo.rev);
 	}
@@ -553,8 +566,9 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 	SVNInfo infoProvider;
 	const SVNInfoData* info 
 		= infoProvider.GetFirstFileInfo (path, SVNRev(), revision);
-
-	return static_cast<LONG>(info->rev);
+	if (info)
+		return static_cast<LONG>(info->rev);
+	throw SVNError(infoProvider.GetError());	
 }
 
 // get the (exactly) one path from targets
