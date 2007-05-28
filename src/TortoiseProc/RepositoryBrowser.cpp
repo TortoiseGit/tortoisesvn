@@ -992,6 +992,8 @@ bool CRepositoryBrowser::RefreshNode(const CString& url, bool force /* = false*/
 
 bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, bool recursive /* = false*/)
 {
+	if (hNode == NULL)
+		return false;
 	CWaitCursorEx wait;
 	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
 	HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
