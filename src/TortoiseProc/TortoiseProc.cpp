@@ -74,6 +74,8 @@
 #include "svn_types.h"
 
 #include "..\version.h"
+#define STRUCT_IOVEC_DEFINED
+#include "sasl.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -484,6 +486,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString sConfigDir = parser.GetVal(_T("configdir"));
 			g_SVNGlobal.SetConfigDir(sConfigDir);
 		}
+		// to avoid that SASL will look for and load its plugin dlls all around the
+		// system, we set the path here.
+		// Note that SASL doesn't have to be initialized yet for this to work
+		//CString sAppdir = CPathUtils::GetAppDirectory();
+		//sAppdir = sAppdir.TrimRight('\\');
+		sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
 
 		//#region crash
 		if (command == cmdCrash)
