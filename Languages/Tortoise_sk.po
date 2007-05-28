@@ -12,12 +12,16 @@
 #   * co sa na vykonat - akcie : v neurcitku,      napr: Open - Otvorit
 #   * obsluha                  : 2 os mnsoz cisla, napr: Open - Otvorte
 #   * popis                    : 3 os jedn. cisla, napr: Opens - Otvori
+#
+# item = object
+# hook script = (hook) skript / pripnuty skript
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-22 21:43+0100\n"
+"PO-Revision-Date: 2007-05-28 19:15+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -405,6 +409,11 @@ msgstr "&Previesť súbory pri porovnávaní so základňou"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Kopírovať"
+
+# ID:101,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "Skopíruj správy denníka do schránky"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -1931,6 +1940,11 @@ msgstr "Získať a&dresár:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Získať - TortoiseSVN"
 
+# Dlg-ID:133,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Hĺbka adresárov pre získanie"
+
 # ID:120,
 #: ID:229
 #, c-format
@@ -1960,9 +1974,9 @@ msgstr "Vyčistiť preušené úkony, zamknuté súbory, ..."
 # Control-ID:1279,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
-#: Control-ID:1281
 msgid "Clear"
 msgstr "Vymazať"
 
@@ -2081,12 +2095,6 @@ msgstr "Odovzdať"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "Odovzdať - TortoiseSVN"
-
-# Control-ID:1274,#:
-# Dlg-ID:130,
-#: Control-ID:1274
-msgid "Commit Log Messages"
-msgstr "Odovzdať správy denníka"
 
 # Citlivosť
 # Control-ID:1262,
@@ -4198,11 +4206,6 @@ msgstr "Zamkne súbor pre iných užívateľov a povolí ho editovať vám."
 msgid "Log"
 msgstr "Denník"
 
-# Control-ID:1280,
-#: Control-ID:1280
-msgid "Log Data"
-msgstr "Data denníka"
-
 # Dlg-ID:211,
 #: Dlg-ID:211
 msgid "Log History"
@@ -4223,6 +4226,16 @@ msgstr "Správa denníka"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Správy denníka"
+
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Správy denníka (Vstupný dialóg)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Správy denníka (Zobrazenie denníka)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -4700,6 +4713,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Staršie riadky"
+
 # ID:99,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
@@ -5154,7 +5172,7 @@ msgstr "Nastavenia Proxy"
 # Control-ID:1338,
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Umiestniť \"Uzam&knuť\" na vrch menu pri nastavenom svn:needs-lock"
+msgstr "Umiestniť \"Uzamknúť\" na vrch menu pri nastavenom svn:needs-lock"
 
 # ID:246,
 #: ID:246
@@ -5205,6 +5223,11 @@ msgstr "&Vrátiť"
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Pred tím ako sa zaseknete si prečítajte 'Návod pre denné použite' ('Daily Use Guide')"
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Naposledy menené riadky"
 
 # Control-ID:1260,
 #: Control-ID:1260
@@ -7054,6 +7077,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Na ukradnutie zámky, stlačte pravý klik na rodičovskom adresáry objektu a vyberte \"Uzamknúť\" z kontextového menu.\n"
+"Toto vám zobrazí dialóg zamykania, kde môže znútiť zámok - 'ukradnúť' ho od jeho aktuálneho vlastníka."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -8125,11 +8150,6 @@ msgstr "normálne"
 msgid "obstructed"
 msgstr "blokované"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "staršie riadky"
-
 # pixelov ?
 # ID:3869,#:
 # ID:3869,
@@ -8151,11 +8171,6 @@ msgstr "švrťrok"
 #: ID:195
 msgid "readonly"
 msgstr "iba na čítanie"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "naposledy menené riadky"
 
 # ID:10,
 #: ID:10
