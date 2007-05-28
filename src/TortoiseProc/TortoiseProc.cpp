@@ -869,20 +869,30 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region add
 		if (command == cmdAdd)
 		{
-			CAddDlg dlg;
-			dlg.m_pathList = pathList;
-			if (dlg.DoModal() == IDOK)
+			if (parser.HasKey(_T("noui")))
 			{
-				if (dlg.m_pathList.GetCount() == 0)
-					return FALSE;
-				CSVNProgressDlg progDlg;
-				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, dlg.m_pathList);
+				SVN svn;
 				ProjectProperties props;
-				props.ReadPropsPathList(dlg.m_pathList);
-				progDlg.SetProjectProperties(props);
-				progDlg.DoModal();
+				props.ReadPropsPathList(pathList);
+				svn.Add(pathList, &props, FALSE);
+			}
+			else
+			{
+				CAddDlg dlg;
+				dlg.m_pathList = pathList;
+				if (dlg.DoModal() == IDOK)
+				{
+					if (dlg.m_pathList.GetCount() == 0)
+						return FALSE;
+					CSVNProgressDlg progDlg;
+					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+					m_pMainWnd = &progDlg;
+					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, dlg.m_pathList);
+					ProjectProperties props;
+					props.ReadPropsPathList(dlg.m_pathList);
+					progDlg.SetProjectProperties(props);
+					progDlg.DoModal();
+				}
 			}
 		}
 		//#endregion
