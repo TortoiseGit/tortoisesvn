@@ -861,9 +861,14 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 	if (!this->m_Data.m_mergedFile.InUse())
 		return FileSaveAs(bCheckResolved);
 	// check if the file has the readonly attribute set
+	bool bDoesNotExist = false;
 	DWORD fAttribs = GetFileAttributes(m_Data.m_mergedFile.GetFilename());
 	if ((fAttribs != INVALID_FILE_ATTRIBUTES)&&(fAttribs & FILE_ATTRIBUTE_READONLY))
 		return FileSaveAs(bCheckResolved);
+	if (fAttribs == INVALID_FILE_ATTRIBUTES)
+	{
+		bDoesNotExist = (GetLastError() == ERROR_FILE_NOT_FOUND);
+	}
 	if (bCheckResolved)
 	{
 		int nConflictLine = CheckResolved();
@@ -885,6 +890,41 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 	}
 	SaveFile(this->m_Data.m_mergedFile.GetFilename());
+	if (bDoesNotExist)
+	{
+		// call TortoiseProc to add the new file to version control
+		CString cmd = _T("\"") + CPathUtils::GetAppDirectory();
+		cmd += _T("TortoiseProc.exe\" /command:add /noui /path:\"");
+		cmd += this->m_Data.m_mergedFile.GetFilename() + _T("\"");
+		TCHAR * buf = new TCHAR[cmd.GetLength()+1];
+		_tcscpy_s(buf, cmd.GetLength()+1, cmd);
+		STARTUPINFO startup;
+		PROCESS_INFORMATION process;
+		memset(&startup, 0, sizeof(startup));
+		startup.cb = sizeof(startup);
+		memset(&process, 0, sizeof(process));
+		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		{
+			delete buf;
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+			return FALSE;
+		}
+		delete buf;
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
+	}
 	return true;
 }
 
