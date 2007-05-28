@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9547: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9577: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-25 19:20+0300\n"
+"PO-Revision-Date: 2007-05-28 21:44+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -368,6 +368,10 @@ msgstr "&Преобразовывать файлы при сравнении с 
 #: MenuEntry
 msgid "&Copy"
 msgstr "Копи&ровать"
+
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "С&копировать сообщение журнала в буфер обмена"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -6320,7 +6324,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"Рабочая копия перебазирована в\n"
+"Рабочая копия перебазирована на\n"
 "%s"
 
 #: ID:73
