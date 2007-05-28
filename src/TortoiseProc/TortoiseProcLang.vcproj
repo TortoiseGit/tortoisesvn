@@ -21,9 +21,8 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
-			IntermediateDirectory="..\..\obj\TortoiseLang\Release"
+			IntermediateDirectory="..\..\obj\TortoiseProcLang\Release"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -103,9 +102,8 @@
 		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\bin\release64\bin"
-			IntermediateDirectory="..\..\obj\TortoiseLang\Release64"
+			IntermediateDirectory="..\..\obj\TortoiseProcLang\Release64"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -186,9 +184,8 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
-			IntermediateDirectory="..\..\obj\TortoiseLang\Debug"
+			IntermediateDirectory="..\..\obj\TortoiseProcLang\Debug"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -267,10 +264,9 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\..\bin\debug64\bin"
+			IntermediateDirectory="..\..\obj\TortoiseProcLang\Debug64"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -447,15 +443,11 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Resources\bin167.avi"
-			>
-		</File>
-		<File
 			RelativePath="..\Languages\res\bin167.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\bin168.avi"
+			RelativePath="..\Resources\bin167.avi"
 			>
 		</File>
 		<File
@@ -463,11 +455,15 @@
 			>
 		</File>
 		<File
+			RelativePath="..\Resources\bin168.avi"
+			>
+		</File>
+		<File
 			RelativePath="..\Resources\search.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest"
+			RelativePath="..\Languages\res\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
@@ -503,7 +499,7 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest"
+			RelativePath="..\Resources\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
