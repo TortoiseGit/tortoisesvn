@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-22 10:54+0800\n"
+"PO-Revision-Date: 2007-05-29 09:41+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -351,7 +351,7 @@ msgstr "清理(&C)"
 
 #: MenuEntry
 msgid "&Color age of lines"
-msgstr ""
+msgstr "以顏色標記各行的年齡(&C)"
 
 # ID:8,
 #: ID:8
@@ -392,6 +392,11 @@ msgstr "與 BASE 比對異動時轉換檔案(&C)"
 #: MenuEntry
 msgid "&Copy"
 msgstr "複製(&C)"
+
+# ID:101,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "複製紀錄訊息至剪貼簿(&C)"
 
 # ID:101,
 #: MenuEntry
@@ -1910,6 +1915,11 @@ msgstr "取出目錄(&C):"
 msgid "Checkout - TortoiseSVN"
 msgstr "取出 - TortoiseSVN"
 
+# ID:8,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "取出的層數"
+
 # ID:119,
 #: ID:229
 #, c-format
@@ -1934,6 +1944,7 @@ msgstr "清理未完成的作業, 鎖定檔等..."
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1956,6 +1967,12 @@ msgstr "清除了 %ld 組訊息紀錄 (自 %ld 份工作複本)"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "清除了 %ld 組帳號密碼, %ld 份 SSL 憑證, 以及 %ld 組帳號"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "從 %ld 個檔案庫中清除快取紀錄訊息"
 
 # ID:195,
 #: ID:195
@@ -4136,7 +4153,6 @@ msgid "Log History"
 msgstr "訊息紀錄"
 
 # Dlg-ID:130,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "紀錄訊息"
@@ -4150,6 +4166,16 @@ msgstr "紀錄訊息"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "紀錄訊息"
+
+# Dlg-ID:130,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "紀錄訊息(輸入視窗)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "紀錄訊息 (顯示紀錄視窗)"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -4621,6 +4647,11 @@ msgstr "確定"
 #: ID:3697
 msgid "OVR"
 msgstr "OVR"
+
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "之前的行"
 
 # ID:13,
 #: ID:99
@@ -5118,6 +5149,11 @@ msgstr "復原(&V)..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "在你卡住之前, 請先閱讀日常使用指南..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "最近異動過的行"
 
 # Control-ID:1073,
 #: Control-ID:1260
@@ -8009,11 +8045,6 @@ msgstr "一般"
 msgid "obstructed"
 msgstr "阻礙"
 
-# ID:376,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "之前的行"
-
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
@@ -8034,11 +8065,6 @@ msgstr "季"
 #: ID:195
 msgid "readonly"
 msgstr "唯讀"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "最近異動過的行"
 
 # ID:10,
 #: ID:10
