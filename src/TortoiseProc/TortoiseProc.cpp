@@ -489,8 +489,6 @@ BOOL CTortoiseProcApp::InitInstance()
 		// to avoid that SASL will look for and load its plugin dlls all around the
 		// system, we set the path here.
 		// Note that SASL doesn't have to be initialized yet for this to work
-		//CString sAppdir = CPathUtils::GetAppDirectory();
-		//sAppdir = sAppdir.TrimRight('\\');
 		sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
 
 		//#region crash
