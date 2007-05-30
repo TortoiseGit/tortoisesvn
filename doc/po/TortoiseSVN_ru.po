@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-03-09 23:11GMT Standard Time\n"
-"PO-Revision-Date: 2007-05-30 19:06+0300\n"
+"PO-Revision-Date: 2007-05-30 19:32+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -632,7 +632,6 @@ msgstr "словарь"
 msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr "TortoiseSVN содержит возможность проверки правописания, которая позволяет проверять ваши сообщения при фиксации. Это особенно полезно, если язык ведения проекта для вас не родной. Проверка правописания использует те же файлы словарей, которые используют <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 
-# !!! реально есть возможность и не ставить эти словари
 # !!! словарей в языковых пакетах больше нет
 # !!! я думаю, в оригинале под local user interface имеется в ввиду локализованный интерфейс пользователя
 #: source/TortoiseSVN_en.xml:635
@@ -642,9 +641,8 @@ msgstr "Установщик автоматически добавляет сл�
 
 #: source/TortoiseSVN_en.xml:643
 #: (para)
-#, fuzzy
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-msgstr "Или вы можете установить словари самостоятельно. Если вы используете OpenOffice или Mozilla, вы можете скопировать эти словари, расположенные в установочных папках этих программ. Иначе вам надо загрузить нужные файлы словарей с <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
+msgstr "Или вы можете установить словари самостоятельно. Если вы используете OpenOffice или Mozilla, вы можете скопировать эти словари из папок, в которых установлены эти программы. Иначе вам надо будет загрузить необходимые файлы словарей с <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:659
 #: (para)
@@ -1413,9 +1411,8 @@ msgstr "Используя Проводник Windows, скопируйте из
 
 #: source/TortoiseSVN_en.xml:1648
 #: (para)
-#, fuzzy
 msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache bin directory."
-msgstr "Скопируйте файлы <filename>/bin/libdb*.dll</filename> и <filename>/bin/intl3_svn.dll</filename> из папки, где установлена Subversion, в папку с модулями Apache."
+msgstr "Скопируйте файлы <filename>/bin/libdb*.dll</filename> и <filename>/bin/intl3_svn.dll</filename> из папки, где установлена Subversion, в папку bin Apache."
 
 #: source/TortoiseSVN_en.xml:1656
 #: (para)
@@ -1424,7 +1421,6 @@ msgstr "Откройте конфигурационный файл Apache (об�
 
 #: source/TortoiseSVN_en.xml:1662
 #: (para)
-#, fuzzy
 msgid ""
 "Uncomment (remove the '<literal>#</literal>' mark) the following lines: <screen>\n"
 "#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
@@ -1434,7 +1430,10 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
-"Разкомментируйте (убрав символ '<literal>#</literal>') следующие строки: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Добавьте следующие две строки в конце секции <literal>LoadModule</literal>: <screen>\n"
+"Разкомментируйте (убрав символ '<literal>#</literal>') следующие строки: <screen>\n"
+"#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
+"#LoadModule dav_module modules/mod_dav.so\n"
+"</screen> Добавьте следующие две строки в конце секции <literal>LoadModule</literal>: <screen>\n"
 "LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
@@ -3557,7 +3556,7 @@ msgstr "Вы должны серьёзно рассмотреть использ
 #: source/TortoiseSVN_en.xml:3853
 #: (para)
 msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
-msgstr "Адреса URL в определениях <literal>svn:externals</literal> абсолютные. Вы не можете использовать относительные URL. Если вы перемещаете вашу рабочую копию, или если внешнее хранилище было перемещено, эти URL не будут обновлены автоматически. Также, если вы создаёте ответвление проекта, в котором есть внешние связи в то же хранилище, адреса URL в скопированном ответвлении не будут изменены; возможно, вместо этого вы захотите заменить ссылки, которые были в стволе, на ссылки, которые должны быть в ответвлении."
+msgstr "Адреса URL в определениях <literal>svn:externals</literal> абсолютные. Вы не можете использовать относительные URL. Если вы перебазируете вашу рабочую копию, или если внешнее хранилище было перебазировано, эти URL не будут обновлены автоматически. Также, если вы создаёте ответвление проекта, в котором есть внешние связи в то же хранилище, адреса URL в скопированном ответвлении не будут изменены; возможно, вместо этого вы захотите заменить ссылки, которые были в стволе, на ссылки, которые должны быть в ответвлении."
 
 #: source/TortoiseSVN_en.xml:3862
 #: (para)
@@ -7139,20 +7138,23 @@ msgid "When exporting from a working copy, if the target folder already contains
 msgstr ""
 
 # ---- 5.24
+# =
 #: source/TortoiseSVN_en.xml:8533
 #: (title)
 msgid "Relocating a working copy"
-msgstr "Перемещение рабочей копии"
+msgstr "Перебазирование рабочей копии"
 
+# =
 #: source/TortoiseSVN_en.xml:8535
 #: (primary)
 msgid "relocate"
-msgstr "перемещение"
+msgstr "перебазирование"
 
+# =
 #: source/TortoiseSVN_en.xml:8540
 #: (title)
 msgid "The Relocate Dialog"
-msgstr "Диалог Перемещение"
+msgstr "Диалог перебазирования"
 
 #: source/TortoiseSVN_en.xml:8538
 #: (para)
@@ -8639,9 +8641,8 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10354
 #: source/TortoiseSVN_en.xml:10367
 #: (term)
-#, fuzzy
 msgid "%PATH%"
-msgstr "%PATHS%"
+msgstr "%PATH%"
 
 #: source/TortoiseSVN_en.xml:10309
 #: (literal) source/TortoiseSVN_en.xml:10318
