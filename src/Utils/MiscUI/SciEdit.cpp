@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -596,6 +596,28 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				DoAutoCompletion();
 				return;
 			}
+		}
+		break;
+	case 'l':
+	case 'L':
+		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
+			// change to LTR mode
+			long exStyle = ::GetWindowLong(m_hWnd, GWL_EXSTYLE);
+			exStyle = exStyle&(~WS_EX_LAYOUTRTL);
+			::SetWindowLong(m_hWnd, GWL_EXSTYLE, exStyle);
+			RedrawWindow();
+		}
+		break;
+	case 'r':
+	case 'R':
+		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
+			// change to RTL mode
+			long exStyle = ::GetWindowLong(m_hWnd, GWL_EXSTYLE);
+			exStyle = exStyle|WS_EX_LAYOUTRTL;
+			::SetWindowLong(m_hWnd, GWL_EXSTYLE, exStyle);
+			RedrawWindow();
 		}
 		break;
 	}
