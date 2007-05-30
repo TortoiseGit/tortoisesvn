@@ -2795,17 +2795,17 @@ msgstr "Хранилище будет создано внутри новой п�
 #: source/TortoiseSVN_en.xml:3001
 #: (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr ""
+msgstr "TortoiseSVN больше не предоставляет возможность создавать хранилища, использующие BDB, хотя их всё ещё возможно создать при помощи клиента командной строки. Хранилища FSFS обычно более легки в обслуживании, а также делают для нас более легкой поддержку и TortoiseSVN - из-за проблем с совместимостью разных версий BDB."
 
 #: source/TortoiseSVN_en.xml:3008
 #: (para)
 msgid "Future versions of TortoiseSVN will not support <literal>file:///</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file:///</literal> protocol is created as FSFS."
-msgstr ""
+msgstr "Будущие версии TortoiseSVN не будут поддерживать доступ к хранилищам BDB при помощи <literal>file:///</literal> из-за этих проблем с совместимостью, хотя TortoiseSVN, конечно, будет поддерживать этот формат хранилища при доступе к серверу по протоколам <literal>svn://</literal>, <literal>http://</literal> или <literal>https://</literal>. По этой причине, мы настоятельно рекомендуем, чтобы все новые хранилища, доступ к которым должен осуществлятся при помощи протокола <literal>file:///</literal>, создавались в формате FSFS."
 
 #: source/TortoiseSVN_en.xml:3020
 #: (para)
 msgid "Of course we also recommend that you don't use <literal>file:///</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr ""
+msgstr "Мы также предлагаем, чтобы вы совсем не использовали доступ при помощи <literal>file:///</literal>, кроме как для локального тестирования. Использование сервера более безопасно и более надёжно для всех задач, за исключением применения его для единственного разработчика."
 
 #: source/TortoiseSVN_en.xml:3029
 #: (title)
