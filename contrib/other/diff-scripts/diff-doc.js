@@ -40,17 +40,66 @@ if ( ! objScript.FileExists(sNewDoc))
     WScript.Quit(1);
 }
 
-objScript = null;
-
 try
 {
    word = WScript.CreateObject("Word.Application");
 }
 catch(e)
 {
-   WScript.Echo("You must have Microsoft Word installed to perform this operation.");
-   WScript.Quit(1);
+	// before giving up, try with OpenOffice
+	try
+	{
+		var OO;
+		OO = WScript.CreateObject("com.sun.star.ServiceManager");
+	}
+	catch(e)
+	{
+		WScript.Echo("You must have Microsoft Word or OpenOffice installed to perform this operation.");
+		WScript.Quit(1);
+	}
+	// yes, OO is installed - do the diff with that one instead
+	var objFile = objScript.GetFile(sNewDoc);
+	if ((objFile.Attributes & 1)==1)
+	{
+		// reset the readonly attribute
+		objFile.Attributes = objFile.Attributes & (~1);
+	}
+	//Create the DesktopSet 
+	var objDesktop = OO.createInstance("com.sun.star.frame.Desktop");
+	var objUriTranslator = OO.createInstance("com.sun.star.uri.ExternalUriReferenceTranslator");
+	//Adjust the paths for OO
+	sBaseDoc = sBaseDoc.replace(/\\/g, "/");
+	sBaseDoc = sBaseDoc.replace(/:/g, "|");
+	sBaseDoc = sBaseDoc.replace(/ /g, "%20");
+	sBaseDoc="file:///" + sBaseDoc;
+	sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc);
+	sNewDoc = sNewDoc.replace(/\\/g, "/");
+	sNewDoc = sNewDoc.replace(/:/g, "|");
+	sNewDoc = sNewDoc.replace(/ /g, "%20");
+	sNewDoc="file:///" + sNewDoc;
+	sNewDoc=objUriTranslator.translateToInternal(sNewDoc);
+
+	//Open the %base document
+	var oPropertyValue = new Array();
+	oPropertyValue[0] = OO.Bridge_GetStruct("com.sun.star.beans.PropertyValue");
+	oPropertyValue[0].Name = "ShowTrackedChanges";
+	oPropertyValue[0].Value = true;
+	var objDocument=objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue);
+	
+	//Set the frame
+	var Frame = objDesktop.getCurrentFrame();
+	
+	var dispatcher=OO.CreateInstance("com.sun.star.frame.DispatchHelper");
+	
+	//Execute the comparison
+	dispatcher.executeDispatch(Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyValue);
+	oPropertyValue[0].Name = "URL";
+	oPropertyValue[0].Value = sBaseDoc;
+	dispatcher.executeDispatch(Frame, ".uno:CompareDocuments", "", 0, oPropertyValue);
+	WScript.Quit(0);
 }
+
+objScript = null;
 
 word.visible = true;
 
