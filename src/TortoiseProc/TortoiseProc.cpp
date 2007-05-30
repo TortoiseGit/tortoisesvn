@@ -217,6 +217,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 
 CTortoiseProcApp::~CTortoiseProcApp()
 {
+	sasl_done();
 	// since it is undefined *when* the global object SVNAdminDir is
 	// destroyed, we tell it to destroy the memory pools and terminate apr
 	// *now* instead of later when the object itself is destroyed.
