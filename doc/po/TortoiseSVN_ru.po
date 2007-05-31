@@ -1433,7 +1433,7 @@ msgstr ""
 "Разкомментируйте (убрав символ '<literal>#</literal>') следующие строки: <screen>\n"
 "#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
 "#LoadModule dav_module modules/mod_dav.so\n"
-"</screen> Добавьте следующие две строки в конце секции <literal>LoadModule</literal>: <screen>\n"
+"</screen>Добавьте следующие две строки в конце секции <literal>LoadModule</literal>: <screen>\n"
 "LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
@@ -2537,9 +2537,8 @@ msgstr "svnservice"
 
 #: source/TortoiseSVN_en.xml:2696
 #: (para)
-#, fuzzy
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
-msgstr "Если вы озабочены тем, что всегда должен быть пользователь, вошедший в систему на сервере для запуска svnserve, или беспокоитесь о том, что кто-то прекратит выполнение svnserve, или забудет запустить его после перезагрузки, то для таких случаев возможен запуск svnserve как службы Windows. Начиная с Subversion 1.4, svnserve может быть установлен как обычная служба Windows, в предыдущих версиях он может быть установлен с использованием программы-обертки."
+msgstr "Как правило, запускать svnserve как обычную программу - не самый лучший способ: это означает, всегда должен быть пользователь, вошедший в систему на сервере, и что надо не забывать запускать её каждый раз после перезагрузки. Есть лучший способ - запуск и исполнение svnserve как службы Windows. Начиная с Subversion 1.4, svnserve может быть установлен как обычная служба Windows."
 
 #: source/TortoiseSVN_en.xml:2703
 #: (para)
@@ -2554,33 +2553,41 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"Для того, чтобы установить svnserve как обычную службу Windows, выполните следующую команду, создающую службу, автоматически запускаемую при запуске Windows (всё в одной строке): <screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
+"</screen> Если где-нибудь в пути встречаются пробелы, необходимо заключить путь в заэкранированные кавычки, вот так: <screen>\n"
+"sc create svnserve binpath= \"\\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
+"</screen> Вы также можете добавить описание после создания службы, которое будет показываться в оснастке 'Управление службами Windows'. <screen>\n"
+"sc description svnserve \"Сервер Subversion (svnserve)\"\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2723
 #: (para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
-msgstr ""
+msgstr "Обратите внимание на довольно необычный формат командной строки, используемой <literal>sc</literal>. В парах <literal>ключ= значение</literal> не должно быть пробела между ключом и <literal>=</literal>, но должен быть пробел перед значением."
 
 #: source/TortoiseSVN_en.xml:2730
 #: (para)
-#, fuzzy
 msgid ""
 "Microsoft now recommend services to be run as under either the Local Service or Network Service account. Refer to <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. To create the service under the Local Service account, append the following to the example above. <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The builtin group for this is called \"LOCAL SERVICE\"."
 msgstr ""
-"Microsoft сейчас рекомендует, чтобы службы выполнялись под учётной записью или Локальной службы, или Сетевой службы. Обратитесь к <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Для создания службы под учётной записью Локальной службы, добавьте к вышеприведённому примеру следующее: <screen>\n"
+"Теперь Microsoft рекомендует, чтобы службы выполнялись под учётной записью или Локальной службы, или Сетевой службы. Обратитесь к <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Для создания службы под учётной записью Локальной службы, добавьте к вышеприведённому примеру следующее: <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
-"</screen> Заметьте, вы должны будете предоставить учётной записи Локальной службы соответствующие права и к Subversion, и к хранилищам, также как и любым приложениям, которые используются скриптами привязок."
+"</screen> Заметьте, вы должны будете предоставить учётной записи Локальной службы соответствующие права и к Subversion, и к хранилищам. Такие же права потребуются и любым приложениям, которые используются скриптами привязок. Встроенная группа для этого называется просто \"СЛУЖБА\" (в английской версии - \"LOCAL SERVICE\")."
 
 #: source/TortoiseSVN_en.xml:2747
 #: (para)
 msgid "Once you have installed the service, you need to go to the services manager to start it (this time only; it will start automatically when the server reboots)."
-msgstr ""
+msgstr "После установки службы вам необходимо запустить её при помощи оснастки управления службами (это понадобится только в этот раз; она будет запускаться автоматически при перезагрузке сервера)."
 
 #: source/TortoiseSVN_en.xml:2752
 #: (para)
 msgid "For more detailed information, refer to <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>."
-msgstr ""
+msgstr "За более подробной информацией обращайтесь к url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve (Поддержка службы Windows программой Svnserve)</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2758
 #: (para)
@@ -2589,6 +2596,9 @@ msgid ""
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
+"Если вы установили более раннюю версию svnserve при помощи программы-обёртки <literal>SvnService</literal>, и теперь вы жлаете использовать вместо неё встроенную поддержку, вам необходимо отменить регистрацию этой обёртки как службы (не забудьте сначала её остановить!). Просто используйте команду <screen>\n"
+"svnservice -remove\n"
+"</screen> для удаления записи в реестре, относящейся к этой службе."
 
 #: source/TortoiseSVN_en.xml:2772
 #: (title)
