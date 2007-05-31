@@ -822,8 +822,6 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Cascaded context menu",IDC_STATIC,7,7,286,210
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,12,19,274,165
-    CONTROL         "Enable &accelerators on the top level menu",IDC_ENABLEACCELERATORS,
-                    "Button",BS_AUTO3STATE | WS_TABSTOP,12,203,273,10
     CONTROL         "Put ""Get Lock"" on top menu when svn:needs-lock is set",IDC_GETLOCKTOP,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,190,274,10
 END
@@ -2632,8 +2630,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SETTINGS_OWNERDRAWN_TT 
-                            "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
     IDS_SETTINGS_UNVERSIONEDRECURSE_TT 
                             "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
     IDS_SETTINGS_MAXHISTORY_TT 

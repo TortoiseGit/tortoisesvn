@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,7 +61,6 @@ public:
 private:
 	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
 
-	bool			m_bVista;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
 	CRegDWORD		m_regTopmenu;
@@ -71,9 +70,6 @@ private:
 	BOOL			m_bModified;
 	DWORD			m_topmenu;
 	
-	CRegDWORD		m_regOwnerDrawn;
-	int				m_OwnerDrawn;
-
 	CRegDWORD		m_regGetLockTop;
 	BOOL			m_bGetLockTop;
 };

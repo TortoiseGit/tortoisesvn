@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,18 +29,10 @@ IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, CPropertyPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
 	, m_bInitialized(FALSE)
-	, m_OwnerDrawn(1)
 	, m_bGetLockTop(FALSE)
-	, m_bVista(false)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_topmenu = m_regTopmenu;
-	m_regOwnerDrawn = CRegDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);
-	m_OwnerDrawn = m_regOwnerDrawn;
-	if (m_OwnerDrawn == 0)
-		m_OwnerDrawn = 1;
-	else if (m_OwnerDrawn == 1)
-		m_OwnerDrawn = 0;
 	m_regGetLockTop = CRegDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 	m_bGetLockTop = m_regGetLockTop;
 }
@@ -53,7 +45,6 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
-	DDX_Check(pDX, IDC_ENABLEACCELERATORS, m_OwnerDrawn);
 	DDX_Check(pDX, IDC_GETLOCKTOP, m_bGetLockTop);
 }
 
@@ -74,24 +65,6 @@ int CSetLookAndFeelPage::SaveData()
 		m_regGetLockTop = m_bGetLockTop;
 		if (m_regGetLockTop.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		if ((m_OwnerDrawn == 1)||(m_bVista))
-		{
-			m_regOwnerDrawn = 0;
-			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		}
-		else if (m_OwnerDrawn == 0)
-		{
-			m_regOwnerDrawn = 1;
-			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		}
-		else
-		{
-			m_regOwnerDrawn = 2;
-			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		}
 	}
 	return 0;
 }
@@ -100,20 +73,8 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
-	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	if (fullver >= 0x0600)
-		m_bVista = true;
-
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
-	if (!m_bVista)
-		m_tooltips.AddTool(IDC_ENABLEACCELERATORS, IDS_SETTINGS_OWNERDRAWN_TT);
-	else
-		GetDlgItem(IDC_ENABLEACCELERATORS)->ShowWindow(SW_HIDE);
 	m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
@@ -159,6 +120,8 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH);
 	InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
 	InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES);
+	InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
+	InsertItem(IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, MENUDELUNVERSIONED);
 
 	m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
 	int mincol = 0;
@@ -244,6 +207,8 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPROPERTIES : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDELUNVERSIONED : 0;
 	}
 	*pResult = 0;
 }

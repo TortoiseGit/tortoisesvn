@@ -180,6 +180,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                    LPDATAOBJECT pDataObj,
                                    HKEY /* hRegKey */)
 {
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+
 	ATLTRACE("Shell :: Initialize\n");
 	PreserveChdir preserveChdir;
 	files_.clear();
@@ -534,7 +540,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	return NOERROR;
 }
 
-void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
+void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
 {
 	TCHAR menutextbuffer[255];
 	TCHAR verbsbuffer[255];
@@ -548,11 +554,7 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
 	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
-	if (ownerdrawn==1) 
-	{
-		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING | MF_OWNERDRAW, id, menutextbuffer);
-	}
-	else if (ownerdrawn==0)
+	if (fullver >= 0x600) 
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
 		HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
@@ -560,8 +562,18 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 	}
 	else
 	{
-		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
+		MENUITEMINFO menuiteminfo;
+		ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+		menuiteminfo.cbSize = sizeof(menuiteminfo);
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
+		menuiteminfo.fType = MFT_STRING;
+		menuiteminfo.dwTypeData = menutextbuffer;
+		menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
+		menuiteminfo.hbmpItem = HBMMENU_CALLBACK;
+		menuiteminfo.wID = id;
+		InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
 	}
+
 	if (istop)
 	{
 		//menu entry for the top context menu, so append an "SVN " before
@@ -728,21 +740,21 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	UINT idCmd = idCmdFirst;
 
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&((itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED)))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, ShellMenuDropMove);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, ShellMenuDropMove);
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVERENAMEMENU, 0, idCmdFirst, ShellMenuDropMoveRename);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVERENAMEMENU, 0, idCmdFirst, ShellMenuDropMoveRename);
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, ShellMenuDropCopy);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, ShellMenuDropCopy);
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYRENAMEMENU, 0, idCmdFirst, ShellMenuDropCopyRename);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYRENAMEMENU, 0, idCmdFirst, ShellMenuDropCopyRename);
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&((~itemStates) & ITEMIS_INSVN))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, ShellMenuDropCopyAdd);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, ShellMenuDropCopyAdd);
 	if (((itemStates & ITEMIS_FOLDERINSVN)==0)&&(itemStates & ITEMIS_INSVN))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, ShellMenuDropExport);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, ShellMenuDropExport);
 	if (((itemStates & ITEMIS_FOLDERINSVN)==0)&&(itemStates & ITEMIS_INSVN))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended);
 	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_PATCHFILE))
-		InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_MENUAPPLYPATCH, 0, idCmdFirst, ShellMenuApplyPatch);
+		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_MENUAPPLYPATCH, 0, idCmdFirst, ShellMenuApplyPatch);
 	if (idCmd != idCmdFirst)
 		InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 
@@ -822,18 +834,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if (uFlags & CMF_EXTENDEDVERBS)
 		itemStates |= ITEMIS_EXTENDED;
-
-	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
-	// On Vista, owner drawn menus force the context menu to the 'old' UI style.
-	// Since we like improved UIs, we don't want to do that so we simply
-	// don't draw the menus on Vista ourselves.
-	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	if (fullver >= 0x0600)
-		ownerdrawn = 0;
 
 	//check if we already added our menu entry for a folder.
 	//we check that by iterating through all menu entries and check if 
@@ -947,7 +947,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 					// handle special cases (submenus)
 					if ((menuInfo[menuIndex].command == ShellMenuIgnoreSub)||(menuInfo[menuIndex].command == ShellMenuUnIgnoreSub))
 					{
-						InsertIgnoreSubmenus(idCmd, idCmdFirst, ownerdrawn, hMenu, subMenu, indexMenu, indexSubMenu, topmenu);
+						InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu);
 						bMenuEntryAdded = true;
 					}
 					else
@@ -960,15 +960,14 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 								bIsTop = true;
 						}
 						// insert the menu entry
-						InsertSVNMenu(ownerdrawn,
-							bIsTop,
-							bIsTop ? hMenu : subMenu,
-							bIsTop ? indexMenu++ : indexSubMenu++,
-							idCmd++,
-							menuInfo[menuIndex].menuTextID,
-							menuInfo[menuIndex].iconID,
-							idCmdFirst,
-							menuInfo[menuIndex].command);
+						InsertSVNMenu(	bIsTop,
+										bIsTop ? hMenu : subMenu,
+										bIsTop ? indexMenu++ : indexSubMenu++,
+										idCmd++,
+										menuInfo[menuIndex].menuTextID,
+										menuInfo[menuIndex].iconID,
+										idCmdFirst,
+										menuInfo[menuIndex].command);
 						if (!bIsTop)
 							bMenuEntryAdded = true;
 					}
@@ -984,13 +983,14 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	MENUITEMINFO menuiteminfo;
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
-	if ((ownerdrawn==1)&&(fullver >= 0x0501))
-		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA;
-	else if (ownerdrawn == 0)
+	if (fullver >= 0x600)
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	else
-		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
-	menuiteminfo.fType = MFT_OWNERDRAW;
+	{
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
+		menuiteminfo.hbmpItem = HBMMENU_CALLBACK;
+	}
+	menuiteminfo.fType = MFT_STRING;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 	menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
 
@@ -1646,8 +1646,6 @@ STDMETHODIMP CShellExt::HandleMenuMsg(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *pResult)
 {
-//a great tutorial on owner drawn menus in shell extension can be found
-//here: http://www.codeproject.com/shell/shellextguide7.asp
 	PreserveChdir preserveChdir;
 
 	LRESULT res;
@@ -1658,141 +1656,39 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 	LoadLangDll();
 	switch (uMsg)
 	{
-		case WM_MEASUREITEM:
+	case WM_MEASUREITEM:
 		{
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
 			if (lpmis==NULL)
 				break;
 			*pResult = TRUE;
-			lpmis->itemWidth = 0;
-			lpmis->itemHeight = 0;
-			POINT size;
-			//get the information about the shell dc, font, ...
-			NONCLIENTMETRICS ncm;
-			ncm.cbSize = sizeof(NONCLIENTMETRICS);
-			if (SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0)==0)
-				break;
-			HDC hDC = CreateCompatibleDC(NULL);
-			if (hDC == NULL)
-				break;
-			HFONT hFont = CreateFontIndirect(&ncm.lfMenuFont);
-			if (hFont == NULL)
-				break;
-			HFONT oldFont = (HFONT)SelectObject(hDC, hFont);
-			GetMenuTextFromResource(myIDMap[lpmis->itemID]);
-			GetTextExtentPoint32(hDC, stringtablebuffer, _tcslen(stringtablebuffer), (SIZE*)&size);
-			LPtoDP(hDC, &size, 1);
-			//now release the font and dc
-			SelectObject(hDC, oldFont);
-			DeleteObject(hFont);
-			DeleteDC(hDC);
-
-			lpmis->itemWidth = size.x + size.y + 6;						//width of string + height of string (~ width of icon) + space between
-			lpmis->itemHeight = max(size.y + 4, ncm.iMenuHeight);		//two pixels on both sides
+			lpmis->itemWidth += 2;
+			if (lpmis->itemHeight < 16)
+				lpmis->itemHeight = 16;
 		}
 		break;
-		case WM_DRAWITEM:
+	case WM_DRAWITEM:
 		{
 			LPCTSTR resource;
-			TCHAR *szItem;
 			DRAWITEMSTRUCT* lpdis = (DRAWITEMSTRUCT*)lParam;
 			if ((lpdis==NULL)||(lpdis->CtlType != ODT_MENU))
 				return S_OK;		//not for a menu
 			resource = GetMenuTextFromResource(myIDMap[lpdis->itemID]);
 			if (resource == NULL)
 				return S_OK;
-			szItem = stringtablebuffer;
-			int ix, iy;
-			RECT rt, rtTemp;
-			SIZE size;
-			//choose text colors
-			if (lpdis->itemState & ODS_SELECTED)
-			{
-				COLORREF crText;
-				if (lpdis->itemState & ODS_GRAYED)
-					crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_GRAYTEXT)); //RGB(128, 128, 128));
-				else
-					crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHTTEXT));
-				SetBkColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHT));
-			}
-			CopyRect(&rtTemp, &(lpdis->rcItem));
-
-			ix = lpdis->rcItem.left + space;
-			SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
-
-			HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-
+			HICON hIcon = (HICON)LoadImage(g_hResInst, resource, IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 			if (hIcon == NULL)
 				return S_OK;
-			//convert the icon into a bitmap
-			ICONINFO ii;
-			if (GetIconInfo(hIcon, &ii)==FALSE)
-				return S_OK;
-			HBITMAP hbmItem = ii.hbmColor; 
-			if (hbmItem)
-			{
-				BITMAP bm;
-				GetObject(hbmItem, sizeof(bm), &bm);
-
-				int tempY = lpdis->rcItem.top + ((lpdis->rcItem.bottom - lpdis->rcItem.top) - bm.bmHeight) / 2;
-				SetRect(&rt, ix, tempY, ix + 16, tempY + 16);
-				ExtTextOut(lpdis->hDC, 0, 0, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
-				rtTemp.left = rt.right;
-
-				HDC hDCTemp = CreateCompatibleDC(lpdis->hDC);
-				SelectObject(hDCTemp, hbmItem);
-				DrawIconEx(lpdis->hDC, rt.left , rt.top, hIcon, bm.bmWidth, bm.bmHeight,
-					0, NULL, DI_NORMAL);
-
-				DeleteDC(hDCTemp);
-				DeleteObject(hbmItem);
-			}
-			ix = rt.right + space;
-
-			//free memory
-			DeleteObject(ii.hbmColor);
-			DeleteObject(ii.hbmMask);
+			DrawIconEx(lpdis->hDC,
+				lpdis->rcItem.left - 16,
+				lpdis->rcItem.top + (lpdis->rcItem.bottom - lpdis->rcItem.top - 16) / 2,
+				hIcon, 16, 16,
+				0, NULL, DI_NORMAL);
 			DestroyIcon(hIcon);
-
-			//draw menu text
-			GetTextExtentPoint32(lpdis->hDC, szItem, lstrlen(szItem), &size);
-			iy = ((lpdis->rcItem.bottom - lpdis->rcItem.top) - size.cy) / 2;
-			iy = lpdis->rcItem.top + (iy>=0 ? iy : 0);
-			SetRect(&rt, ix , iy, lpdis->rcItem.right - 4, lpdis->rcItem.bottom);
-			ExtTextOut(lpdis->hDC, ix, iy, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
-			UINT uFormat = DT_LEFT|DT_EXPANDTABS;
-			// only draw accelerators on the submenu!
-			// Reason: we only get the WM_MENUCHAR message if the *whole* menu is ownerdrawn,
-			// which the top level context menu is *not*. So drawing there the accelerators
-			// is futile because they won't get used.
-			int menuID = myIDMap[lpdis->itemID];
-			if ((_tcsncmp(szItem, _T("SVN"), 3)==0)||(menuID == ShellSubMenu)||(menuID == ShellSubMenuFile)||(menuID == ShellSubMenuFolder)||(menuID == ShellSubMenuLink)||(menuID == ShellSubMenuMultiple))
-				uFormat |= DT_HIDEPREFIX;
-			else
-			{
-				// If the "hide keyboard cues" option is turned off, we still
-				// get the ODS_NOACCEL flag! So we have to check this setting
-				// manually too.
-				BOOL bShowAccels = FALSE;
-				SystemParametersInfo(SPI_GETKEYBOARDCUES, 0, &bShowAccels, 0);
-				uFormat |= ((lpdis->itemState & ODS_NOACCEL)&&(!bShowAccels)) ? DT_HIDEPREFIX : 0;
-			}
-			if (lpdis->itemState & ODS_GRAYED)
-			{        
-				SetBkMode(lpdis->hDC, TRANSPARENT);
-				OffsetRect( &rt, 1, 1 );
-				SetTextColor( lpdis->hDC, RGB(255,255,255) );
-				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
-				OffsetRect( &rt, -1, -1 );
-				SetTextColor( lpdis->hDC, RGB(128,128,128) );
-				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );         
-			}
-			else
-				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
 			*pResult = TRUE;
 		}
 		break;
-		case WM_MENUCHAR:
+	case WM_MENUCHAR:
 		{
 			LPCTSTR resource;
 			TCHAR *szItem;
@@ -1862,8 +1758,8 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			}
 		}
 		break;
-		default:
-			return NOERROR;
+	default:
+		return NOERROR;
 	}
 
 	return NOERROR;
@@ -1947,7 +1843,7 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
 	return false;
 }
 
-void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, BOOL ownerdrawn, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu)
+void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu)
 {
 	HMENU ignoresubmenu = NULL;
 	int indexignoresub = 0;
@@ -2054,18 +1950,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, BOOL ownerdra
 		MENUITEMINFO menuiteminfo;
 		ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 		menuiteminfo.cbSize = sizeof(menuiteminfo);
-		OSVERSIONINFOEX inf;
-		ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-		inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-		GetVersionEx((OSVERSIONINFO *)&inf);
-		WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-		if ((ownerdrawn==1)&&(fullver >= 0x0501))
-			menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
-		else if (ownerdrawn == 0)
-			menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
-		else
-			menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
-		menuiteminfo.fType = MFT_OWNERDRAW;
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
+		menuiteminfo.fType = MFT_STRING;
+		menuiteminfo.hbmpItem = HBMMENU_CALLBACK;
 		HBITMAP bmp = IconToBitmap(IDI_IGNORE, (COLORREF)GetSysColor(COLOR_MENU));
 		menuiteminfo.hbmpChecked = bmp;
 		menuiteminfo.hbmpUnchecked = bmp;
