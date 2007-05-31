@@ -304,9 +304,19 @@ CCacheLogQuery::GetChanges ( CRevisionInfoContainer::CChangesIterator& first
 		std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
 
 		// extract the path name
+        // use map to cache results (speed-up and reduce memory footprint)
 
-		std::string path = first.GetPath().GetPath();
-		changedPath->sPath = SVN::MakeUIUrlOrPath (path.c_str());
+        CDictionaryBasedPath path = first.GetPath();
+        TID2String::const_iterator iter (pathToStringMap.find (path.GetIndex()));
+        if (iter == pathToStringMap.end())
+        {
+    		changedPath->sPath = SVN::MakeUIUrlOrPath (path.GetPath().c_str());
+            pathToStringMap.insert (path.GetIndex(), changedPath->sPath);
+        }
+        else
+        {
+            changedPath->sPath = *iter;
+        }
 
 		// decode the action
 
@@ -344,6 +354,11 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 								 , bool strictNodeHistory
 								 , ILogReceiver* receiver)
 {
+    // clear string translatin caches
+
+    authorToStringMap.clear();
+    pathToStringMap.clear();
+
 	// create the right iterator
 
 	std::auto_ptr<ILogIterator> iterator;
@@ -398,15 +413,38 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 				index_t logIndex = cache->GetRevisions()[revision];
 				const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
 
-				CStringA author = logInfo.GetAuthor (logIndex);
+                // extract data for this revision
+
+                // author
+
+                CString author;
+                index_t authorID = logInfo.GetAuthorID (logIndex);
+                TID2String::const_iterator iter = authorToStringMap.find (authorID);
+                if (iter == authorToStringMap.end())
+                {
+				    author = CUnicodeUtils::GetUnicode (logInfo.GetAuthor (logIndex));
+                    authorToStringMap.insert (authorID, author);
+                }
+                else
+                {
+                    author = *iter;
+                }
+
+                // comment
+
 				CStringA comment = logInfo.GetComment (logIndex).c_str();
+
+                // change list
+
 				std::auto_ptr<LogChangedPathArray> changes
 					= GetChanges ( logInfo.GetChangesBegin (logIndex)
 								 , logInfo.GetChangesEnd (logIndex));
 
+                // send it to the receiver
+
 				receiver->ReceiveLog ( changes.release()
 									 , revision
-									 , CUnicodeUtils::GetUnicode (author)
+									 , author
 									 , logInfo.GetTimeStamp (logIndex)
 									 , CUnicodeUtils::GetUnicode (comment));
 			}

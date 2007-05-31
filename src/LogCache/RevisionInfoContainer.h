@@ -314,6 +314,12 @@ public:
 		return (index_t)authors.size();
 	}
 
+    index_t GetAuthorID (index_t index) const
+	{
+		CheckIndex (index);
+		return authors [index];
+	}
+
 	const char* GetAuthor (index_t index) const
 	{
 		CheckIndex (index);
@@ -393,4 +399,5 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 ///////////////////////////////////////////////////////////////
 
 }
+
 

@@ -28,6 +28,8 @@
 #include "RevisionInfoContainer.h"
 #include "DictionaryBasedTempPath.h"
 
+#include "QuickHashMap.h"
+
 ///////////////////////////////////////////////////////////////
 // forward declarations
 ///////////////////////////////////////////////////////////////
@@ -118,6 +120,13 @@ private:
 
 	ILogQuery* svnQuery;
 
+    // efficient map cached string / path -> CString
+
+    typedef quick_hash_map<index_t, CString> TID2String;
+
+    TID2String authorToStringMap;
+    TID2String pathToStringMap;
+
 	// Determine the revision range to pass to SVN.
 
 	revision_t NextAvailableRevision ( const CDictionaryBasedTempPath& path
@@ -141,7 +150,7 @@ private:
 
 	// fill the receiver's change list buffer 
 
-	static std::auto_ptr<LogChangedPathArray> GetChanges 
+	std::auto_ptr<LogChangedPathArray> GetChanges 
 		( CRevisionInfoContainer::CChangesIterator& first
 		, CRevisionInfoContainer::CChangesIterator& last);
 
