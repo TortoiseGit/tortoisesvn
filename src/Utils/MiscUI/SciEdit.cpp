@@ -598,28 +598,6 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		break;
-	case 'l':
-	case 'L':
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			// change to LTR mode
-			long exStyle = ::GetWindowLong(m_hWnd, GWL_EXSTYLE);
-			exStyle = exStyle&(~WS_EX_LAYOUTRTL);
-			::SetWindowLong(m_hWnd, GWL_EXSTYLE, exStyle);
-			RedrawWindow();
-		}
-		break;
-	case 'r':
-	case 'R':
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			// change to RTL mode
-			long exStyle = ::GetWindowLong(m_hWnd, GWL_EXSTYLE);
-			exStyle = exStyle|WS_EX_LAYOUTRTL;
-			::SetWindowLong(m_hWnd, GWL_EXSTYLE, exStyle);
-			RedrawWindow();
-		}
-		break;
 	}
 	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
