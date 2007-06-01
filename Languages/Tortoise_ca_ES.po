@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-05-24 17:08+0100\n"
+"PO-Revision-Date: 2007-06-01 12:26+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -405,6 +405,11 @@ msgstr "&Converteix fitxers quan es compara respecte BASE"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Copia"
+
+# ID:101,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "Copia el missatge de log al portapapers"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -1917,6 +1922,11 @@ msgstr "&Directori d'on Obtenir:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Obté - TortoiseSVN"
 
+# Dlg-ID:133,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Obté Profunditat"
+
 # ID:120,
 #: ID:229
 #, c-format
@@ -2848,20 +2858,6 @@ msgstr "Nom o IP del servidor proxy"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Buit"
-
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Habilita &acceleradors al menú principal"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Habilita-ho si vols els acceleradors de teclat habilitats al menú principal també.\n"
-"Tingues en compte que les icones del menú es veuen millor quan aquesta opció està deshabilitada."
 
 # ID:196,
 #: ID:196
@@ -4650,6 +4646,11 @@ msgstr "D'acord"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Línies antigues"
+
 # ID:99,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
@@ -4747,11 +4748,6 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Obre repositori ambel navegador per modificar-lo \"online\""
-
-# ID:117,
-#: Control-ID:1377
-msgid "Options"
-msgstr "Opcions"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -5157,6 +5153,11 @@ msgstr "Re&verteix..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Llegeix la  'Guia d'Us Diari' abans de que et quedis bloquejat..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Línies recentment modificades"
 
 # Control-ID:1260,
 #: Control-ID:1260
@@ -8050,11 +8051,6 @@ msgstr "normal"
 msgid "obstructed"
 msgstr "obstruït"
 
-# ID:376,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "Línies antigues"
-
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
@@ -8075,11 +8071,6 @@ msgstr "trimestre"
 #: ID:195
 msgid "readonly"
 msgstr "només de lectura"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "línies recentment modificades"
 
 # ID:10,
 #: ID:10
