@@ -24,7 +24,7 @@
  * \ingroup TortoiseProc
  * Dialog asking for a new URL for the working copy.
  */
-class CRelocateDlg : public CStandAloneDialog
+class CRelocateDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRelocateDlg)
 

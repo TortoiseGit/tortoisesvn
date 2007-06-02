@@ -23,9 +23,9 @@
 #include "BrowseFolder.h"
 #include "AppUtils.h"
 
-IMPLEMENT_DYNAMIC(CRelocateDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CRelocateDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
 	, m_sToUrl(_T(""))
 	, m_sFromUrl(_T(""))
 {
@@ -37,23 +37,29 @@ CRelocateDlg::~CRelocateDlg()
 
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CRelocateDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
+
+	AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_sFromUrl);
 	m_URLCombo.SetWindowText(m_sFromUrl);
@@ -75,7 +81,7 @@ void CRelocateDlg::OnOK()
 	m_sToUrl = m_URLCombo.GetString();
 	UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CRelocateDlg::OnBnClickedHelp()
