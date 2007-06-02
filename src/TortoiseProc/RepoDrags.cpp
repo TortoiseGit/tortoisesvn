@@ -109,7 +109,8 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 			if (m_dwHoverStartTicks == 0)
 				m_dwHoverStartTicks = GetTickCount();
 			UINT timeout = 0;
-			SystemParametersInfo(SPI_GETMOUSEHOVERTIME, 0, &timeout, 0);
+			//SystemParametersInfo(SPI_GETMOUSEHOVERTIME, 0, &timeout, 0);
+			timeout = 2000;
 			if ((GetTickCount() - m_dwHoverStartTicks) > timeout)
 			{
 				// expand the item
