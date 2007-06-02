@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ public:
 	
 	enum Colors
 	{
+		Cmd,
 		Conflict,
 		Modified,
 		Merged,
@@ -49,6 +50,7 @@ public:
 	void SetColor(Colors col, COLORREF cr);
 	
 private:
+	CRegDWORD m_regCmd;
 	CRegDWORD m_regConflict;
 	CRegDWORD m_regModified;
 	CRegDWORD m_regMerged;

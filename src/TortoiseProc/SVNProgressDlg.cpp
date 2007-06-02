@@ -634,7 +634,7 @@ void CSVNProgressDlg::ReportNotification(const CString& sNotification)
 
 void CSVNProgressDlg::ReportCmd(const CString& sCmd)
 {
-	ReportString(sCmd, CString(MAKEINTRESOURCE(IDS_PROGRS_CMDINFO)));
+	ReportString(sCmd, CString(MAKEINTRESOURCE(IDS_PROGRS_CMDINFO)), m_Colors.GetColor(CColors::Cmd));
 }
 
 void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, COLORREF color)
