@@ -357,6 +357,26 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			<filename>D:\dev\project1\skins\toolkit</filename> containing
 			revision 21 of the skin-maker project.
 		</para>
+		<tip>
+			<para>
+				You should strongly consider using explicit revision numbers
+				in all of your externals definitions, as described above.
+				Doing so means
+				that you get to decide when to pull down a different snapshot
+				of external information, and exactly which snapshot to pull.
+				Besides the common sense aspect of not being surprised by
+				changes to third-party repositories that you might not have
+				any control over, using explicit revision numbers also means
+				that as you backdate your working copy to a previous
+				revision, your externals definitions will also revert to the
+				way they looked in that previous revision, which in turn means
+				that the external working copies will be updated to match they
+				way <emphasis>they</emphasis> looked back when your repository was
+				at that previous revision.  For software projects, this could
+				be the difference between a successful and a failed build of
+				an older snapshot of your complex codebase.
+			</para>
+		</tip>
 		<para>
 			If the external project is in the same repository, any changes
 			you make there there will be included in the commit list when
@@ -378,25 +398,6 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			project. When a new version of that project is released, you
 			change your external reference to point to the new tag.
 		</para>
-		<tip>
-			<para>
-			You should strongly consider using explicit revision numbers
-			in all of your externals definitions.  Doing so means
-			that you get to decide when to pull down a different snapshot
-			of external information, and exactly which snapshot to pull.
-			Besides the common sense aspect of not being surprised by
-			changes to third-party repositories that you might not have
-			any control over, using explicit revision numbers also means
-			that as you backdate your working copy to a previous
-			revision, your externals definitions will also revert to the
-			way they looked in that previous revision, which in turn means
-			that the external working copies will be updated to match they
-			way <emphasis>they</emphasis> looked back when your repository was
-			at that previous revision.  For software projects, this could
-			be the difference between a successful and a failed build of
-			an older snapshot of your complex codebase.
-		</para>
-		</tip>
 		<para>
 			URLs in <literal>svn:externals</literal> definitions are absolute.
 			You cannot use relative URLs. If you relocate your working copy,

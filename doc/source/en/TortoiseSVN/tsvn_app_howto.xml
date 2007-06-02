@@ -367,6 +367,12 @@
 				when you commit the main project, but you have to commit
 				those external changes separately.
 			</para>
+			<para>
+				Of the three methods described, this is the only one which needs
+				no setup on the client side. Once externals are specified in
+				the folder properties, all clients will get populated folders
+				when they update.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-howto-common-nested">
 			<title>Use a nested working copy</title>
