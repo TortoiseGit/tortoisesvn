@@ -220,11 +220,8 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			with a diff or merge program.
 		</para>
 		<para>
-			To associate using a file extension, you need to specify just the extension,
-			with the leading dot but with no wildcard spec.
-			Use <literal>.BMP</literal> to describe Windows bitmap files,
-			<emphasis>not</emphasis>
-			<literal>*.BMP</literal>.
+			To associate using a file extension, you need to specify the extension.
+			Use <literal>.bmp</literal> to describe Windows bitmap files.
 			To associate using the <literal>svn:mime-type</literal> property, specify
 			the mime type, including a slash, for example
 			<literal>text/xml</literal>.

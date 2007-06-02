@@ -47,6 +47,7 @@ void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
 	{
 		if (m_sExtension.Find('/')<0)
 		{
+			m_sExtension.TrimLeft(_T("*"));
 			m_sExtension.TrimLeft(_T("."));
 			m_sExtension = _T(".") + m_sExtension;
 		}
