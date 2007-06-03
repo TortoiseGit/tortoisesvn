@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -173,7 +173,16 @@ BOOL CCommitDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("CommitDlg"));
-
+	DWORD yPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
+	if (yPos)
+	{
+		RECT rectSplitter;
+		m_wndSplitter.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		int delta = yPos - rectSplitter.top;
+		DoSize(delta);
+		m_wndSplitter.SetWindowPos(NULL, 0, yPos, 0, 0, SWP_NOSIZE);
+	}
 
 	// add all directories to the watcher
 	for (int i=0; i<m_pathList.GetCount(); ++i)
@@ -423,7 +432,19 @@ void CCommitDlg::OnOK()
 	}
 	m_HistoryDlg.AddString(m_sLogMessage);
 	m_HistoryDlg.SaveHistory();
+
+	SaveSplitterPos();
+
 	CResizableStandAloneDialog::OnOK();
+}
+
+void CCommitDlg::SaveSplitterPos()
+{
+	CRegDWORD regPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
+	RECT rectSplitter;
+	m_wndSplitter.GetWindowRect(&rectSplitter);
+	ScreenToClient(&rectSplitter);
+	regPos = rectSplitter.top;
 }
 
 UINT CCommitDlg::StatusThreadEntry(LPVOID pVoid)
@@ -557,6 +578,7 @@ void CCommitDlg::OnCancel()
 	}
 	m_HistoryDlg.AddString(m_sLogMessage);
 	m_HistoryDlg.SaveHistory();
+	SaveSplitterPos();
 	CResizableStandAloneDialog::OnCancel();
 }
 

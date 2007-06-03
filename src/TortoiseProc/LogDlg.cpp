@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -338,6 +338,28 @@ BOOL CLogDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("LogDlg"));
+
+	DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
+	DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
+	if (yPos1)
+	{
+		RECT rectSplitter;
+		m_wndSplitter1.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		int delta = yPos1 - rectSplitter.top;
+		DoSizeV1(delta);
+		m_wndSplitter1.SetWindowPos(NULL, 0, yPos1, 0, 0, SWP_NOSIZE);
+	}
+	if (yPos2)
+	{
+		RECT rectSplitter;
+		m_wndSplitter2.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		int delta = yPos2 - rectSplitter.top;
+		DoSizeV2(delta);
+		m_wndSplitter2.SetWindowPos(NULL, 0, yPos2, 0, 0, SWP_NOSIZE);
+	}
+
 	
 	if (m_bSelect)
 	{
@@ -682,6 +704,19 @@ BOOL CLogDlg::Cancel()
 	return m_bCancelled;
 }
 
+void CLogDlg::SaveSplitterPos()
+{
+	CRegDWORD regPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
+	CRegDWORD regPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
+	RECT rectSplitter;
+	m_wndSplitter1.GetWindowRect(&rectSplitter);
+	ScreenToClient(&rectSplitter);
+	regPos1 = rectSplitter.top;
+	m_wndSplitter2.GetWindowRect(&rectSplitter);
+	ScreenToClient(&rectSplitter);
+	regPos2 = rectSplitter.top;
+}
+
 void CLogDlg::OnCancel()
 {
 	// canceling means stopping the working thread if it's still running.
@@ -701,6 +736,7 @@ void CLogDlg::OnCancel()
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = m_btnShow.GetCurrentEntry();
+	SaveSplitterPos();
 	__super::OnCancel();
 }
 
@@ -1274,6 +1310,7 @@ void CLogDlg::OnOK()
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = m_btnShow.GetCurrentEntry();
+	SaveSplitterPos();
 }
 
 void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)

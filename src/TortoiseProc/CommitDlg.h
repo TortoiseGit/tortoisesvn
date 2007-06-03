@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,6 +80,7 @@ protected:
 	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);
 	void DoSize(int delta);
 	void SetSplitterRange();
+	void SaveSplitterPos();
 
 	DECLARE_MESSAGE_MAP()
 
