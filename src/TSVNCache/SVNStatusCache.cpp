@@ -287,6 +287,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
 	if (cdir == NULL)
 		return false;
+	AssertWriting();
 	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
 	if (cdir->m_childDirectories.size())
 	{
@@ -315,6 +316,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 	CCachedDirectory::ItDir itMap;
 	CCachedDirectory * dirtoremove = NULL;
 
+	AssertWriting();
 	itMap = m_directoryCache.find(path);
 	if ((itMap != m_directoryCache.end())&&(itMap->second))
 		dirtoremove = itMap->second;
@@ -333,7 +335,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 	itMap = m_directoryCache.find(path);
 	if ((itMap != m_directoryCache.end())&&(itMap->second))
 	{
-		// We've found this directory in the cache 
+		// We have found this directory in the cache 
 		return itMap->second;
 	}
 	else
@@ -342,7 +344,16 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// that means that path got invalidated and needs to be treated
 		// as if it never was in our cache. So we remove the last remains
 		// from the cache and start from scratch.
-		WaitToWrite();
+		AssertLock();
+		if (!IsWriter())
+		{
+			// upgrading our state to writer
+			ATLTRACE("trying to upgrade the state to \"Writer\"\n");
+			Done();
+			ATLTRACE("Returned \"Reader\" state\n");
+			WaitToWrite();
+			ATLTRACE("Got \"Writer\" state now\n");
+		}
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
@@ -364,13 +375,11 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 					CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
 					if (!path.IsEmpty())
 						watcher.AddPath(path);
-					ReleaseWriterLock();
 					return cdir;		
 				}
 				m_bClearMemory = true;
 			}
 		}
-		ReleaseWriterLock();
 		return NULL;
 	}
 }
@@ -432,7 +441,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
 {
-	m_folderCrawler.AddDirectoryForUpdate(path);
+	m_folderCrawler.AddPathForUpdate(path);
 }
 
 void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
@@ -441,26 +450,3 @@ void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
 	m_folderCrawler.BlockPath(path);
 }
 
-//////////////////////////////////////////////////////////////////////////
-#ifdef _DEBUG
-static class StatusCacheTests
-{
-public:
-	StatusCacheTests()
-	{
-		//apr_initialize();
-		//CSVNStatusCache::Create();
-		//{
-		//	CSVNStatusCache& cache = CSVNStatusCache::Instance();
-
-		//	cache.GetStatusForPath(CTSVNPath(_T("D:/Development/SVN/TortoiseSVN")), TSVNCACHE_FLAGS_RECUSIVE_STATUS);
-		//	cache.GetStatusForPath(CTSVNPath(_T("D:/Development/SVN/Subversion")), TSVNCACHE_FLAGS_RECUSIVE_STATUS);
-		//}
-
-		//CSVNStatusCache::Destroy();
-		//apr_terminate();
-	}
-
-} StatusCacheTests;
-
-#endif

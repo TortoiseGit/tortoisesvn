@@ -376,13 +376,15 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				return CStatusCacheEntry();
 			}
 		}
-		AutoLocker lock(m_critSec);
 		SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
-		m_mostImportantFileStatus = svn_wc_status_none;
-		m_childDirectories.clear();
-		m_entryCache.clear();
-		m_ownStatus.SetStatus(NULL);
-		m_bRecursive = bRecursive;
+		{
+			AutoLocker lock(m_critSec);
+			m_mostImportantFileStatus = svn_wc_status_none;
+			m_childDirectories.clear();
+			m_entryCache.clear();
+			m_ownStatus.SetStatus(NULL);
+			m_bRecursive = bRecursive;
+		}
 		if(!bThisDirectoryIsUnversioned)
 		{
 			{

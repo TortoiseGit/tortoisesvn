@@ -386,14 +386,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 							ATLTRACE("Device to be dismounted\n");
 							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-							CSVNStatusCache::Instance().ReleaseWriterLock();
+							CSVNStatusCache::Instance().Done();
 						}
 						if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_LOCK))
 						{
 							ATLTRACE("Device lock event\n");
 							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-							CSVNStatusCache::Instance().ReleaseWriterLock();
+							CSVNStatusCache::Instance().Done();
 						}
 					}
 				}
@@ -405,13 +405,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				else
 				{
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				break;
 			case DBT_DEVICEQUERYREMOVE:
@@ -421,13 +421,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				else
 				{
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				break;
 			case DBT_DEVICEREMOVECOMPLETE:
@@ -437,13 +437,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				else
 				{
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 				}
 				break;
 			}
@@ -472,7 +472,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 	CSVNStatusCache::Instance().WaitToRead();
 	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
-	CSVNStatusCache::Instance().ReleaseReaderLock();
+	CSVNStatusCache::Instance().Done();
 }
 
 DWORD WINAPI PipeThread(LPVOID lpvParam)
@@ -737,14 +737,14 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 					// remove the path from our cache - that will 'invalidate' it.
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
-					CSVNStatusCache::Instance().ReleaseWriterLock();
+					CSVNStatusCache::Instance().Done();
 					CSVNStatusCache::Instance().AddFolderForCrawling(changedpath.GetDirectory());
 				}
 				break;
 			case TSVNCACHECOMMAND_REFRESHALL:
 				CSVNStatusCache::Instance().WaitToWrite();
 				CSVNStatusCache::Instance().Refresh();
-				CSVNStatusCache::Instance().ReleaseWriterLock();
+				CSVNStatusCache::Instance().Done();
 				break;
 		}
 	} 

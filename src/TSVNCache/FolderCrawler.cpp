@@ -60,35 +60,18 @@ void CFolderCrawler::Stop()
 
 void CFolderCrawler::Initialise()
 {
-	// Don't call Initalise more than once
+	// Don't call Initialize more than once
 	ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
 
 	// Just start the worker thread. 
-	// It will wait for event being signalled.
-	// If m_hWakeEvent is already signalled the worker thread 
+	// It will wait for event being signaled.
+	// If m_hWakeEvent is already signaled the worker thread 
 	// will behave properly (with normal priority at worst).
 
 	m_bRun = true;
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
-}
-
-void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
-{
-	if (!CSVNStatusCache::Instance().IsPathGood(path))
-		return;
-	{
-		AutoLocker lock(m_critSec);
-		m_foldersToUpdate.push_back(path);
-		m_foldersToUpdate.back().SetCustomData(GetTickCount()+10);
-		ATLASSERT(path.IsDirectory() || !path.Exists());
-		// set this flag while we are sync'ed 
-		// with the worker thread
-		m_bItemsAddedSinceLastCrawl = true;
-	}
-	if (SetHoldoff())
-		SetEvent(m_hWakeEvent);
 }
 
 void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
@@ -149,7 +132,7 @@ void CFolderCrawler::WorkerThread()
 			{
 				CSVNStatusCache::Instance().WaitToWrite();
 				CSVNStatusCache::Instance().ClearCache();
-				CSVNStatusCache::Instance().ReleaseWriterLock();
+				CSVNStatusCache::Instance().Done();
 				CSVNStatusCache::Instance().m_bClearMemory = false;
 			}
 			if(m_lCrawlInhibitSet > 0)
@@ -171,7 +154,7 @@ void CFolderCrawler::WorkerThread()
 				m_blockedPath.Reset();
 			}
 	
-			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
+			if (m_pathsToUpdate.empty())
 			{
 				// Nothing left to do 
 				break;
@@ -253,7 +236,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().ReleaseWriterLock();
+						CSVNStatusCache::Instance().Done();
 						continue;
 					}
 
@@ -294,12 +277,12 @@ void CFolderCrawler::WorkerThread()
 						}
 						else
 						{
+							CSVNStatusCache::Instance().Done();
 							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-							CSVNStatusCache::Instance().ReleaseWriterLock();
 						}
 					}
-					CSVNStatusCache::Instance().ReleaseReaderLock();
+					CSVNStatusCache::Instance().Done();
 					//In case that svn_client_stat() modified a file and we got
 					//a notification about that in the directory watcher,
 					//remove that here again - this is to prevent an endless loop
@@ -312,7 +295,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().ReleaseWriterLock();
+						CSVNStatusCache::Instance().Done();
 						continue;
 					}
 					if (!workingPath.Exists())
@@ -346,7 +329,7 @@ void CFolderCrawler::WorkerThread()
 						CSVNStatusCache::Instance().UpdateShell(workingPath);
 						ATLTRACE("shell update in foldercrawler for %ws\n", workingPath.GetWinPath());
 					}
-					CSVNStatusCache::Instance().ReleaseReaderLock();
+					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
@@ -356,86 +339,9 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().ReleaseWriterLock();
+						CSVNStatusCache::Instance().Done();
 					}
 				}
-			}
-			else if (!m_foldersToUpdate.empty())
-			{
-				{
-					AutoLocker lock(m_critSec);
-
-					if (m_bItemsAddedSinceLastCrawl)
-					{
-						// The queue has changed - it's worth sorting and de-duping
-						std::sort(m_foldersToUpdate.begin(), m_foldersToUpdate.end());
-						m_foldersToUpdate.erase(std::unique(m_foldersToUpdate.begin(), m_foldersToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_foldersToUpdate.end());
-						m_bItemsAddedSinceLastCrawl = false;
-					}
-					// create a new CTSVNPath object to make sure the cached flags are requested again.
-					// without this, a missing file/folder is still treated as missing even if it is available
-					// now when crawling.
-					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
-					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
-					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
-						m_foldersToUpdate.pop_front();
-					else
-					{
-						// since we always sort the whole list, we risk adding tons of new paths to m_pathsToUpdate
-						// until the last one in the sorted list finally times out.
-						// to avoid that, we go through the list again and crawl the first one which is valid
-						// to crawl. That way, we still reduce the size of the list.
-						if (m_foldersToUpdate.size() > 10)
-							ATLTRACE("attention: the list of folders to update is now %ld big!\n", m_foldersToUpdate.size());
-						for (std::deque<CTSVNPath>::iterator it = m_foldersToUpdate.begin(); it != m_foldersToUpdate.end(); ++it)
-						{
-							workingPath = *it;
-							if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
-							{
-								m_foldersToUpdate.erase(it);
-								break;
-							}
-						}
-					}
-				}
-				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
-				{
-					Sleep(50);
-					continue;
-				}
-				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
-					continue;
-				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
-					continue;
-
-				ATLTRACE(_T("Crawling folder: %s\n"), workingPath.GetWinPath());
-				{
-					AutoLocker print(critSec);
-					_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Crawling folder: %s"), workingPath.GetWinPath());
-					nCurrentCrawledpathIndex++;
-					if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
-						nCurrentCrawledpathIndex = 0;
-				}
-				InvalidateRect(hWnd, NULL, FALSE);
-				CSVNStatusCache::Instance().WaitToRead();
-				// Now, we need to visit this folder, to make sure that we know its 'most important' status
-				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
-				if (cachedDir)
-					cachedDir->RefreshStatus(bRecursive);
-
-				// While refreshing the status, we could get another crawl request for the same folder.
-				// This can happen if the crawled folder has a lower status than one of the child folders
-				// (recursively). To avoid double crawlings, remove such a crawl request here
-				AutoLocker lock(m_critSec);
-				if (m_bItemsAddedSinceLastCrawl)
-				{
-					if (m_foldersToUpdate.back().IsEquivalentToWithoutCase(workingPath))
-					{
-						m_foldersToUpdate.pop_back();
-						m_bItemsAddedSinceLastCrawl = false;
-					}
-				}
-				CSVNStatusCache::Instance().ReleaseReaderLock();
 			}
 		}
 	}

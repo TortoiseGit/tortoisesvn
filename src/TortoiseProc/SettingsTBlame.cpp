@@ -31,6 +31,7 @@ CSettingsTBlame::CSettingsTBlame()
 	, m_dwFontSize(0)
 	, m_sFontName(_T(""))
 	, m_dwTabSize(4)
+	, bInit(false)
 {
 	m_regNewLinesColor = CRegStdWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
 	m_regOldLinesColor = CRegStdWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), RGB(230, 230, 255));
