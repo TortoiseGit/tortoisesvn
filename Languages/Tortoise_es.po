@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-04-07 20:29+0100\n"
+"PO-Revision-Date: 2007-06-03 22:40+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -273,9 +273,10 @@ msgstr "&Realizar copia de seguridad del archivo original"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
 
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "Ver a&utoría de las diferencias"
+msgid "&Blame changes"
+msgstr "&Autoría de los cambios"
 
 #: MenuEntry
 msgid "&Blame previous revision"
@@ -311,6 +312,10 @@ msgstr "&Cancelar"
 msgid "&Clean up"
 msgstr "&Limpiar"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Colorea la antigüedad de las líneas"
+
 #: ID:8
 msgid "&Commit..."
 msgstr "&Confirmar..."
@@ -343,6 +348,11 @@ msgstr "&Convertir archivos cuando se diferencian contra BASE"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Copiar"
+
+# ID:257,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "&Copiar el mensaje de registro al portapapeles"
 
 # ID:257,
 #: MenuEntry
@@ -586,6 +596,7 @@ msgstr "&Nuevo "
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Siguientes %ld"
 
@@ -753,8 +764,9 @@ msgstr "&TortoiseMerge"
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
 
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL de repositorio:"
 
@@ -825,11 +837,6 @@ msgstr "&Copia de trabajo"
 #: ID:564
 msgid "(binary value)"
 msgstr "(valor binario)"
-
-# Control-ID:1061,
-#: ID:219
-msgid "(dry run)"
-msgstr "(simular)"
 
 # ID:208,
 #: ID:208
@@ -927,8 +934,8 @@ msgstr "Ocurrió una violación de bloqueo mientras se accedía a %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Hay disponible una nueva versión. Por favor, vaya a http://tortoisesvn.tigris.org ¡y descargue la última versión!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Hay disponible una nueva versión. Por favor, vaya a http://tortoisesvn.tigris.org ¡y descargue la última versión! Pulse _aquí_ para ir directamente a nuestro sitio web."
 
 # ID:195,
 #: ID:195
@@ -1467,6 +1474,15 @@ msgstr "C&rear carpeta..."
 msgid "CAP"
 msgstr "MAY"
 
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Cachear mensajes de registro"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Cachea los mensajes de registro para acelerar la obtención del registro"
+
 #: ID:82
 #, c-format
 msgid ""
@@ -1629,6 +1645,15 @@ msgstr "&Directorio donde obtener:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Obtener - TortoiseSVN"
 
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Profundidad de obtención"
+
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Obteniendo desde %s, revisión %s, %s, %s"
+
 #: ID:146
 msgid "Cleaning up."
 msgstr "Limpiando."
@@ -1644,6 +1669,7 @@ msgstr "Limpia operaciones interrumpidas, archivos bloqueados, ..."
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1666,6 +1692,12 @@ msgstr "Limpia %ld mensajes de registro almacenados para %ld copias de trabajo"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Limpia %ld pares de usuario/contraseña, %ld certificados ssl y %ld nombres de usuario"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Limpia la caché de mensajes de registro de %ld repositorios"
 
 # ID:195,
 #: ID:195
@@ -1716,9 +1748,14 @@ msgstr "Cerrar la ventana activa y solicitar confirmación para guardar los docu
 msgid "Color co&de in-line changes"
 msgstr "Colorear cambios &dentro de las líneas"
 
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Colores"
+
+#: ID:220
+msgid "Command"
+msgstr "Comando"
 
 #: ID:198
 msgid "Command Line"
@@ -1878,6 +1915,11 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Copiar %s"
+
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Copia %s en %s, Revisión %s"
 
 #: ID:126
 #, c-format
@@ -2295,24 +2337,25 @@ msgstr "¿Realmente desea mover este fichero o carpeta?"
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
 "¿Realmente desea revertir todos los cambios en\n"
 "%s\n"
-"y volver de nuevo a esta revisión? Estos cambios se fusionarán en su copia de trabajo."
+"y volver de nuevo a la revisión seleccionada? Estos cambios se revertirán haciendo una fusión inversa de las revisiones en su copia de trabajo."
 
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
-"¿Realmente desea revertir todos los cambios a\n"
-"%s\n"
-"que se hicieron en esta revisión? Estos cambios se fusionarán en su copia de trabajo."
+"¿Realmente desea revertir\n"
+"todos los cambios que se hicieron en esta revisión sobre\n"
+"%s?\n"
+"Estos cambios se revertirán haciendo una fusión inversa de las revisiones en su copia de trabajo."
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -2350,6 +2393,11 @@ msgstr "No mostrar este mensaje de nuevo"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Tipos de Unidad"
+
+# Control-ID:1061,
+#: ID:219
+msgid "Dry Run"
+msgstr "Simular"
 
 #: MenuEntry
 msgid "E&xit"
@@ -2408,20 +2456,6 @@ msgstr "El nombre o bien la IP del servidor proxy"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Vacío"
-
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Habilitar &aceleradoras en el menú de nivel superior"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Habilite esto si desea utilizar teclas aceleradoras también en el menú contextual de primer nivel.\n"
-"Tenga en cuenta que los iconos del menú contextual se verán más bonitos con esta opción dehabilitada."
 
 # ID:196,
 #: ID:196
@@ -2596,6 +2630,14 @@ msgstr "Programas Externos::Herramienta de Fusión"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Programas Externos::Visor de Diffs Unificados"
 
+#: ID:226
+msgid "Externals excluded"
+msgstr "Externos excluídos"
+
+#: ID:226
+msgid "Externals included"
+msgstr "Externos incluídos"
+
 #: ID:74
 msgid "Failed revert"
 msgstr "Revertir fallido"
@@ -2708,6 +2750,10 @@ msgstr "¡Terminado!"
 #: Control-ID:1315
 msgid "Floppy drives (A: B:)"
 msgstr "Unidades de disco flexible (A: B:)"
+
+#: Control-ID:65535
+msgid "Font"
+msgstr "Fuente"
 
 # ID:3585,
 #: ID:3585
@@ -2972,6 +3018,12 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
 #: ; 'Arrange &Vertical'
@@ -3120,6 +3172,15 @@ msgstr ""
 "Si se habilita, se contacta con el repositorio cuando se lanza el diálogo.\n"
 "No tiene que pulsar más el botón \"Comprobar Repositorio\"."
 
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Si se habilita, las carpetas de las copias de trabajo que estén excluídas\n"
+"de mostrar iconos sobreimpresionados mostrarán el icono del estado 'normal'"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -3185,6 +3246,10 @@ msgstr "Ignorar &ancestros"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar &finales de línea (recomendado)"
 
+#: ID:226
+msgid "Ignored items included"
+msgstr "Ítems ignorados incluídos"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3198,6 +3263,11 @@ msgstr "Importar"
 #, c-format
 msgid "Import %ld items"
 msgstr "Importar %ld ítems"
+
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Importa %s en %s%s"
 
 #: Control-ID:1056
 msgid "Import &message"
@@ -3490,6 +3560,7 @@ msgstr ""
 # ID:221,
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "Bloquear"
 
@@ -3555,7 +3626,6 @@ msgstr "Registro"
 msgid "Log History"
 msgstr "Historial de Mensajes"
 
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Mensajes de Registro"
@@ -3567,6 +3637,15 @@ msgstr "Mensaje de registro"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Mensajes de registro"
+
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Mensajes de registro (diálogo de entrada)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Mensajes de registro (diálogo de mostrar registro)"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -3676,6 +3755,18 @@ msgstr "Fusiona una rama en el tronco principal"
 msgid "Merging"
 msgstr "Fusionando"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Fusionando %s, desde la revisión %s a la %s, en %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Fusionando desde %s, revisión %s, hasta %s, revisión %s, en %s, %s%s"
+
 # ID:83,
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -3720,6 +3811,11 @@ msgstr "Miscelánea"
 #: ID:3887
 msgid "Mixed"
 msgstr "Mixto"
+
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "Fecha de modificación"
 
 #: ID:74
 #: ID:264
@@ -3931,6 +4027,11 @@ msgstr "Normal"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "No se eliminaron todas las entradas del registro del sistema (o del archivo INI)."
 
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "No descendente"
+
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "No hay memoria suficiente para completar la operación."
@@ -3962,6 +4063,11 @@ msgstr "Aceptar"
 #: ID:3697
 msgid "OVR"
 msgstr "SOB"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Líneas más antiguas"
 
 #: ID:99
 #: Control-ID:1202
@@ -4198,14 +4304,16 @@ msgstr "Por favor ejecute el comando \"Cleanup\""
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
 "Por favor, tenga en cuenta que:\n"
-"su copia de trabajo permanece en la ruta previa. Si desea que sus siguientes cambios\n"
-"se hagan en la copia recién creada necesita cambiar\n"
-"a la ruta de la copia. Utilice el  comando Cambiar para hacer esto."
+"su copia de trabajo permanece en la ruta anterior. Si desea que sus siguientes cambios\n"
+"se hagan en la copia o rama recién creada,\n"
+"necesita cambiar su copia de trabajo a la nueva URL.\n"
+"Utilice el comando Cambiar para hacer esto."
 
 #: ID:3858
 msgid "Please select a button."
@@ -4379,6 +4487,11 @@ msgstr "Re&vertir..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lea la 'Guía de Uso Diario' antes de que se quede bloqueado..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Líneas recientemente modificadas"
 
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
@@ -4583,8 +4696,9 @@ msgstr "Nodo reemplazado"
 msgid "Replacing"
 msgstr "Reemplazando"
 
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Repositorio"
 
@@ -4673,8 +4787,9 @@ msgstr "Revierte todos los cambios que ha realzizado desde la última actualizac
 
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Revisión"
@@ -5106,8 +5221,8 @@ msgid "Show &all revisions"
 msgstr "Mostrar &todas las revisiones"
 
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Mostrar &diferencias"
+msgid "Show &changes"
+msgstr "Mostrar &cambios"
 
 #: MenuEntry
 msgid "Show &log"
@@ -5130,13 +5245,32 @@ msgstr "Mostrar archivos &no versionados"
 msgid "Show File List"
 msgstr "Mostrar Lista de Ficheros"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "Muestra el diálogo Bloquear antes de bloquear ficheros"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "Mostrar &resumen"
 
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "Muestra una vista preliminar del gráfico completo"
+
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Mostrar cambios como diff &unificado"
+
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Mostrar diferencias como 'diff &unificado'"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Muestra las carpetas excluídas como 'normal'"
 
 #: Control-ID:1264
 msgid "Show ignored files"
@@ -5269,6 +5403,11 @@ msgstr ""
 msgid "Specify the revision range which you want to merge:"
 msgstr "Especifique el rango de revisiones que desea fusionar:"
 
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "Dividir líneas"
+
 #: ID:3604
 msgid ""
 "Split the active window into panes\n"
@@ -5386,6 +5525,11 @@ msgstr "Archivo de servidores de Subversion:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Cam&biar la copia de trabajo a la nueva rama / etiqueta"
 
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Cambio de %s a %s, Revisión %s"
+
 #: ID:78
 msgid "Switch - TortoiseSVN"
 msgstr "Cambiar - TortoiseSVN"
@@ -5444,8 +5588,8 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Cambia la copia de trabajo a otra rama / etiqueta"
 
 #: ID:325
-msgid "Switches the comparison left<->right"
-msgstr "Cambia la comparación izquierda<->derecha"
+msgid "Switches the comparison left<<->right"
+msgstr "Cambia la comparación izquierda<<->derecha"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5465,6 +5609,10 @@ msgstr "TORTOISEBLAME"
 #: ID:7
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
+
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Tamaño de tabulación:"
 
 #: ID:79
 #, c-format
@@ -5506,15 +5654,15 @@ msgstr "¡El tamaño de bloque no coincide con el número de líneas añadidas/e
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "¡Se esperaba el comienzo de bloque \"@@\" en la línea %d !"
 
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "La URL por defecto desde la que obtener si no se especifica ninguna otra"
+
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "La ruta por defecto en la que obtener si no se especifica otra"
-
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "La URL por defecto desde la que obtener si no se especifica otra"
 
 #: ID:68
 #, c-format
@@ -5675,13 +5823,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"¡La ruta o URL que ha introducido parece ser ilegal en Windows!\n"
+"La ruta o URL que ha introducido parece ser ilegal en Windows.\n"
 "Puede intentarlo de todas formas, pero quizás obtenga un error más tarde.\n"
 "\n"
-"Una ruta válida en Windows no debe contener '<>|\"?*:' ni cualquiera de los siguientes nombres de dispositivo:\n"
+"Una ruta válida en Windows no debe contener '<<>|\"?*:' ni cualquiera de los siguientes nombres de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -5894,11 +6042,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Esa no es una ruta válida!\n"
-"Una ruta válida no debe contener '<>|\"?*:' o alguno de los siguientes nombres de dispositivo:\n"
+"Esta no es una ruta válida.\n"
+"Una ruta válida no debe contener '<<>|\"?*:' o alguno de los siguientes nombres de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
@@ -5944,6 +6092,15 @@ msgstr ""
 "Si no, TortoiseSVN deberá hacer una confirmación no-recursiva\n"
 "que no permite borrados de directorios."
 
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"Para robar el bloqueo, haga clic con el botón derecho en la carpeta padre de este item y seleccione \"Obtener Bloqueo\" desde el menú contextual.\n"
+"Esto hará aparecer el diálogo de bloqueo desde el que puede forzar el bloqueo, es decir, 'robárselo' a quien lo tiene actualmente."
+
 # Control-ID:1201,
 #: Control-ID:1201
 #: Control-ID:65535
@@ -5955,6 +6112,7 @@ msgstr "A:"
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "A: (URL y revisión del fin del rango a fusionar)"
 
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -6181,6 +6339,11 @@ msgstr ""
 "  Huella dactilar: %s\n"
 "  Nombre distinguido: %s"
 
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "Profundidad desconocida"
+
 #: ID:221
 #: Dlg-ID:242
 msgid "Unlock"
@@ -6397,6 +6560,10 @@ msgstr "Versión"
 msgid "Versioned"
 msgstr "Versionado"
 
+#: MenuEntry
+msgid "View"
+msgstr "Ver"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -6430,6 +6597,15 @@ msgstr "Atención"
 #: ID:219
 msgid "Warning!"
 msgstr "¡Atención!"
+
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"Cuando se bloquea uno o varios ficheros, muestra un diálogo\n"
+"pidiendo un mensaje descriptivo sobre el bloqueo."
 
 #: ID:146
 msgid "With URL:"
@@ -6804,6 +6980,11 @@ msgstr "externo"
 msgid "ignored"
 msgstr "ignorado"
 
+# Control-ID:1067,
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "ignorando &ancestros"
+
 #: ID:13
 msgid "incomplete"
 msgstr "incompleto"
@@ -6887,6 +7068,21 @@ msgstr "sólo-lectura"
 #: ID:10
 msgid "replaced"
 msgstr "reemplazado"
+
+# Control-ID:1067,
+#: ID:220
+msgid "respecting ancestry"
+msgstr "respetando &ancestros"
+
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "revisión %s-%s, revisión %s-%s"
+
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "revisiones %s-%s, %s"
 
 # ID:14,
 #: ID:14
@@ -6993,6 +7189,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "a %s"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"Una lista de propiedades, una por línea, que se aplican automáticamente cuando se añaden/importan ficheros.\n"
+"Formato: <máscara de fichero> = propiedad=valor;propiedad=valor\n"
+"Ejemplo: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17
