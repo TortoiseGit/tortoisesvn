@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -326,9 +326,13 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	columnfilepath = path;
 	const FileStatusCacheEntry * status = NULL;
 	TSVNCacheResponse itemStatus;
-	AutoLocker lock(g_csCacheGuard);
+	ShellCache::CacheType t = ShellCache::exe;
+	{
+		AutoLocker lock(g_csCacheGuard);
+		t = g_ShellCache.GetCacheType();
+	}
 
-	switch (g_ShellCache.GetCacheType())
+	switch (t)
 	{
 	case ShellCache::exe:
 		{
@@ -358,6 +362,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	default:
 	case ShellCache::none:
 		{
+			AutoLocker lock(g_csCacheGuard);
 			if (g_ShellCache.HasSVNAdminDir(path, bIsDir))
 				filestatus = svn_wc_status_normal;
 			else
@@ -372,7 +377,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		break;
 	}
 
-	if (g_ShellCache.GetCacheType() == ShellCache::exe)
+	if (t == ShellCache::exe)
 	{
 		columnauthor = UTF8ToWide(itemStatus.m_author);
 		columnrev = itemStatus.m_entry.cmt_rev;
@@ -422,7 +427,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		Unescape(url);
 		itemurl = UTF8ToWide(url);
 	}
-	else if (g_ShellCache.GetCacheType() == ShellCache::exe)
+	else if (t == ShellCache::exe)
 	{
 		char url[INTERNET_MAX_URL_LENGTH];
 		strcpy_s(url, INTERNET_MAX_URL_LENGTH, itemStatus.m_url);
