@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9577: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9637: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-05-28 21:44+0300\n"
+"PO-Revision-Date: 2007-06-03 22:58+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1023,7 +1023,7 @@ msgstr "Добавить '%s' в словарь"
 
 #: ID:16
 msgid "Add (as replacement)..."
-msgstr "Добавить (как замену)..."
+msgstr "Добавить (как перемещение)..."
 
 #: ID:77
 msgid "Add - TortoiseSVN"
@@ -1435,6 +1435,14 @@ msgstr "С&оздать папку..."
 #: ID:3697
 msgid "CAP"
 msgstr "CAP"
+
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Кэшировать сообщения журнала"
+
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Включает кэширование сообщений журнала для ускорения их доставки"
 
 #: ID:82
 #, c-format
@@ -1987,7 +1995,7 @@ msgid ""
 "Patching is not possible!"
 msgstr ""
 "Не могу получить версию %s файла %s.\n"
-"Невозможено применить заплатку!"
+"Невозможно применить заплатку!"
 
 #: ID:64
 #, c-format
@@ -2332,7 +2340,7 @@ msgstr "Редактировать свойства"
 
 #: ID:113
 msgid "Edit author"
-msgstr "Редактировать автора"
+msgstr "Изменить автора"
 
 #: ID:115
 msgid "Edit author name"
@@ -2349,7 +2357,7 @@ msgstr "Редактировать программу слияния для ко
 #: ID:113
 #: ID:115
 msgid "Edit log message"
-msgstr "Редактировать сообщение журнала"
+msgstr "Изменить сообщение журнала"
 
 #: Control-ID:1331
 msgid "Edit..."
@@ -2363,18 +2371,6 @@ msgstr "Введите имя либо IP-адрес прокси-сервера
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Отсутствующее"
-
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Включить &ускорители в меню верхнего уровня"
-
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Отметьте, если вам нужны клавиатурные ускорители и в контекстном меню верхнего уровня.\n"
-"Предупреждение: значки в контекстном меню выглядят лучше, когда эта опция выключена."
 
 #: ID:196
 msgid ""
@@ -2587,7 +2583,7 @@ msgstr "Извлечение файла..."
 #: ID:313
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr "Выборка ревизии %s файла:"
+msgstr "Извлечение ревизии %s файла"
 
 #: ID:63
 #: ID:74
@@ -4481,11 +4477,11 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Replaced node"
-msgstr "Заменённый узел"
+msgstr "Перемещённый узел"
 
 #: ID:74
 msgid "Replacing"
-msgstr "Замена"
+msgstr "Перемещено"
 
 #: Control-ID:1374
 #: Control-ID:1055
@@ -6685,7 +6681,7 @@ msgstr "отсутствует"
 
 #: Control-ID:65535
 msgid "missing / deleted / replaced"
-msgstr "отсутствует / удалён / заменён"
+msgstr "отсутствует / удалён / перемещён"
 
 #: ID:10
 msgid "modified"
@@ -6738,7 +6734,7 @@ msgstr "только-для-чтения"
 
 #: ID:10
 msgid "replaced"
-msgstr "заменён"
+msgstr "перемещён"
 
 #: ID:220
 msgid "respecting ancestry"
