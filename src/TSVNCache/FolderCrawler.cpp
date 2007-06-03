@@ -149,7 +149,7 @@ void CFolderCrawler::WorkerThread()
 			{
 				CSVNStatusCache::Instance().WaitToWrite();
 				CSVNStatusCache::Instance().ClearCache();
-				CSVNStatusCache::Instance().Done();
+				CSVNStatusCache::Instance().ReleaseWriterLock();
 				CSVNStatusCache::Instance().m_bClearMemory = false;
 			}
 			if(m_lCrawlInhibitSet > 0)
@@ -253,7 +253,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().Done();
+						CSVNStatusCache::Instance().ReleaseWriterLock();
 						continue;
 					}
 
@@ -294,12 +294,12 @@ void CFolderCrawler::WorkerThread()
 						}
 						else
 						{
-							CSVNStatusCache::Instance().Done();
 							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+							CSVNStatusCache::Instance().ReleaseWriterLock();
 						}
 					}
-					CSVNStatusCache::Instance().Done();
+					CSVNStatusCache::Instance().ReleaseReaderLock();
 					//In case that svn_client_stat() modified a file and we got
 					//a notification about that in the directory watcher,
 					//remove that here again - this is to prevent an endless loop
@@ -312,7 +312,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().Done();
+						CSVNStatusCache::Instance().ReleaseWriterLock();
 						continue;
 					}
 					if (!workingPath.Exists())
@@ -346,7 +346,7 @@ void CFolderCrawler::WorkerThread()
 						CSVNStatusCache::Instance().UpdateShell(workingPath);
 						ATLTRACE("shell update in foldercrawler for %ws\n", workingPath.GetWinPath());
 					}
-					CSVNStatusCache::Instance().Done();
+					CSVNStatusCache::Instance().ReleaseReaderLock();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
@@ -356,7 +356,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-						CSVNStatusCache::Instance().Done();
+						CSVNStatusCache::Instance().ReleaseWriterLock();
 					}
 				}
 			}
@@ -435,7 +435,7 @@ void CFolderCrawler::WorkerThread()
 						m_bItemsAddedSinceLastCrawl = false;
 					}
 				}
-				CSVNStatusCache::Instance().Done();
+				CSVNStatusCache::Instance().ReleaseReaderLock();
 			}
 		}
 	}

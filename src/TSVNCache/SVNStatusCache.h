@@ -25,7 +25,7 @@
 #include "FolderCrawler.h"
 #include "DirectoryWatcher.h"
 #include "ShellUpdater.h"
-#include "RWSection.h"
+#include "ReaderWriterLock.h"
 #include "atlcoll.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -85,15 +85,11 @@ public:
 
 	void CloseWatcherHandles(HDEVNOTIFY hdev);
 
-	void WaitToRead() {m_rwSection.WaitToRead();}
-	void WaitToWrite() {m_rwSection.WaitToWrite();}
-	void Done() {m_rwSection.Done();}
-	bool IsWriter() {return m_rwSection.IsWriter();}
-#if defined (DEBUG) || defined (_DEBUG)
-	void AssertWriting() {m_rwSection.AssertWriting();}
-#else
-	void AssertWriting() {;}
-#endif
+	void WaitToRead() {m_rwSection.AcquireReaderLock();}
+	void WaitToWrite() {m_rwSection.AcquireWriterLock();}
+	void ReleaseReaderLock() {m_rwSection.ReleaseReaderLock();}
+	void ReleaseWriterLock() {m_rwSection.ReleaseWriterLock();}
+
 	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
 	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
 	bool IsPathGood(CTSVNPath path);
@@ -101,7 +97,7 @@ public:
 	bool m_bClearMemory;
 private:
 	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
-	CRWSection m_rwSection;
+	CReaderWriterLock m_rwSection;
 	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache;
 	std::set<CTSVNPath> m_NoWatchPaths;

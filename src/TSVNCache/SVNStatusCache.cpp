@@ -287,7 +287,6 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
 	if (cdir == NULL)
 		return false;
-	AssertWriting();
 	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
 	if (cdir->m_childDirectories.size())
 	{
@@ -316,7 +315,6 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 	CCachedDirectory::ItDir itMap;
 	CCachedDirectory * dirtoremove = NULL;
 
-	AssertWriting();
 	itMap = m_directoryCache.find(path);
 	if ((itMap != m_directoryCache.end())&&(itMap->second))
 		dirtoremove = itMap->second;
@@ -344,33 +342,35 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// that means that path got invalidated and needs to be treated
 		// as if it never was in our cache. So we remove the last remains
 		// from the cache and start from scratch.
-		if (!IsWriter())
-		{
-			// upgrading our state to writer
-			ATLTRACE("trying to upgrade the state to \"Writer\"\n");
-			Done();
-			ATLTRACE("Returned \"Reader\" state\n");
-			WaitToWrite();
-			ATLTRACE("Got \"Writer\" state now\n");
-		}
+		WaitToWrite();
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
 		// but only if it exists!
 		if (path.Exists() && m_shellCache.IsPathAllowed(path.GetWinPath()) && !g_SVNAdminDir.IsAdminDirPath(path.GetWinPath()))
 		{
-			ATLTRACE(_T("adding %s to our cache\n"), path.GetWinPath());
-			ATLASSERT(path.IsDirectory()||(!path.Exists()));
-			CCachedDirectory * newcdir = new CCachedDirectory(path);
-			if (newcdir)
+			// some notifications are for files which got removed/moved around.
+			// In such cases, the CTSVNPath::IsDirectory() will return true (it assumes a directory if
+			// the path doesn't exist). Which means we can get here with a path to a file
+			// instead of a directory.
+			// Since we're here most likely called from the crawler thread, the file could exist
+			// again. If that's the case, just do nothing
+			if (path.IsDirectory()||(!path.Exists()))
 			{
-				CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
-				if (!path.IsEmpty())
-					watcher.AddPath(path);
-				return cdir;		
+				ATLTRACE(_T("adding %s to our cache\n"), path.GetWinPath());
+				CCachedDirectory * newcdir = new CCachedDirectory(path);
+				if (newcdir)
+				{
+					CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
+					if (!path.IsEmpty())
+						watcher.AddPath(path);
+					ReleaseWriterLock();
+					return cdir;		
+				}
+				m_bClearMemory = true;
 			}
-			m_bClearMemory = true;
 		}
+		ReleaseWriterLock();
 		return NULL;
 	}
 }
