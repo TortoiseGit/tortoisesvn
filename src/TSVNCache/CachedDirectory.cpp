@@ -366,14 +366,16 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 
 	{
-		AutoLocker pathlock(m_critSecPath);
-		if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
 		{
-			if ((m_currentStatusFetchingPath.IsAncestorOf(path))&&((m_currentStatusFetchingPathTicks + 1000)<GetTickCount()))
+			AutoLocker pathlock(m_critSecPath);
+			if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
 			{
-				ATLTRACE("returning empty status (status fetch in progress) for %ws\n", path.GetWinPath());
-				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-				return CStatusCacheEntry();
+				if ((m_currentStatusFetchingPath.IsAncestorOf(path))&&((m_currentStatusFetchingPathTicks + 1000)<GetTickCount()))
+				{
+					ATLTRACE("returning empty status (status fetch in progress) for %ws\n", path.GetWinPath());
+					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+					return CStatusCacheEntry();
+				}
 			}
 		}
 		SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
@@ -750,10 +752,10 @@ CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
 
 void CCachedDirectory::RefreshStatus(bool bRecursive)
 {
-	AutoLocker lock(m_critSec);
 	// Make sure that our own status is up-to-date
 	GetStatusForMember(m_directoryPath,bRecursive);
 
+	AutoLocker lock(m_critSec);
 	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
 	std::set<CTSVNPath> refreshedpaths;
@@ -772,12 +774,14 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
+					lock.Unlock();
 					// We need to request this item as well
 					GetStatusForMember(filePath,bRecursive);
 					// GetStatusForMember now has recreated the m_entryCache map.
 					// So start the loop again, but add this path to the refreshedpaths set
 					// to make sure we don't refresh this path again. This is to make sure
 					// that we don't end up in an endless loop.
+					lock.Lock();
 					refreshedpaths.insert(refr_it, filePath);
 					itMembers = m_entryCache.begin();
 					if (m_entryCache.size()==0)
