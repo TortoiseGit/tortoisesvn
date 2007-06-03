@@ -831,7 +831,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Dialogs 1"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Log messages",IDC_STATIC,7,7,286,72
+    GROUPBOX        "Log messages",IDC_STATIC,7,7,286,83
     LTEXT           "Default &number of log messages",IDC_STATIC,14,20,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,20,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     LTEXT           "&Font for log messages:",IDC_STATIC,14,32,92,23,SS_CENTERIMAGE
@@ -839,18 +839,19 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,253,37,31,47,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Short &date/time format in log messages",IDC_SHORTDATEFORMAT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,56,271,10
-    GROUPBOX        "Progress",IDC_STATIC,7,81,286,35
-    LTEXT           "&Autoclose:",IDC_STATIC,14,91,85,19,SS_CENTERIMAGE
-    COMBOBOX        IDC_AUTOCLOSECOMBO,107,95,177,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Progress",IDC_STATIC,7,93,286,35
+    LTEXT           "&Autoclose:",IDC_STATIC,14,103,85,19,SS_CENTERIMAGE
+    COMBOBOX        IDC_AUTOCLOSECOMBO,107,107,177,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Use URL of &WC as the default ""From:"" URL",IDC_WCURLFROM,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,140,271,10
-    GROUPBOX        "Merge",IDC_STATIC,7,126,286,33
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,144,271,10
+    GROUPBOX        "Merge",IDC_STATIC,7,132,286,27
     GROUPBOX        "Checkout",IDC_STATIC,7,165,286,45
     LTEXT           "Default path:",IDC_STATIC,14,179,85,8
     LTEXT           "Default URL:",IDC_STATIC,14,195,85,8
     EDITTEXT        IDC_CHECKOUTPATH,107,176,161,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSECHECKOUTPATH,272,176,12,14
     EDITTEXT        IDC_CHECKOUTURL,107,193,161,14,ES_AUTOHSCROLL
+    CONTROL         "Cache log messages",IDC_CACHELOGS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,72,270,10
 END
 
 IDD_RESOLVE DIALOGEX 0, 0, 244, 153
@@ -2824,6 +2825,8 @@ BEGIN
                             "If enabled, working copy folders which are excluded from\nshowing overlays still show the overlay for status 'normal'"
     IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT 
                             "Clears cached logs from %ld repositories"
+    IDS_SETTINGS_CACHELOGS_TT 
+                            "Caches the log messages to speed up log fetching"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END

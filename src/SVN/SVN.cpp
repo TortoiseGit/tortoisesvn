@@ -1120,7 +1120,7 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
 		CSVNLogQuery svnQuery (m_pctx, localpool);
 		CCacheLogQuery cacheQuery (&logCachePool, &svnQuery);
 
-		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), FALSE);
+		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 		ILogQuery* query = useLogCache != FALSE
 						 ? static_cast<ILogQuery*>(&cacheQuery)
 						 : static_cast<ILogQuery*>(&svnQuery);

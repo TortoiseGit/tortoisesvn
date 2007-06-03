@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,6 +39,7 @@ CSetDialogs::CSetDialogs()
 	, m_bUseWCURL(FALSE)
 	, m_sDefaultCheckoutPath(_T(""))
 	, m_sDefaultCheckoutUrl(_T(""))
+	, m_bCacheLogs(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -48,6 +49,7 @@ CSetDialogs::CSetDialogs()
 	m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
 	m_regDefaultCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 	m_regDefaultCheckoutUrl = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
+	m_regCacheLogs = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -93,6 +95,9 @@ int CSetDialogs::SaveData()
 	m_regDefaultCheckoutUrl = m_sDefaultCheckoutUrl;
 	if (m_regDefaultCheckoutUrl.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regDefaultCheckoutUrl.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regCacheLogs = m_bCacheLogs;
+	if (m_regCacheLogs.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regCacheLogs.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	return 0;
 }
 
@@ -114,6 +119,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_WCURLFROM, m_bUseWCURL);
 	DDX_Text(pDX, IDC_CHECKOUTPATH, m_sDefaultCheckoutPath);
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
+	DDX_Check(pDX, IDC_CACHELOGS, m_bCacheLogs);
 }
 
 
@@ -127,6 +133,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_BN_CLICKED(IDC_BROWSECHECKOUTPATH, &CSetDialogs::OnBnClickedBrowsecheckoutpath)
 	ON_EN_CHANGE(IDC_CHECKOUTPATH, OnChange)
 	ON_EN_CHANGE(IDC_CHECKOUTURL, OnChange)
+	ON_EN_CHANGE(IDC_CACHELOGS, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -160,6 +167,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_bUseWCURL = m_regUseWCURL;
 	m_sDefaultCheckoutPath = m_regDefaultCheckoutPath;
 	m_sDefaultCheckoutUrl = m_regDefaultCheckoutUrl;
+	m_bCacheLogs = m_regCacheLogs;
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTPATH)->m_hWnd, SHACF_FILESYSTEM);
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTURL)->m_hWnd, SHACF_URLALL);
@@ -179,6 +187,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_WCURLFROM, IDS_SETTINGS_USEWCURL_TT);
 	m_tooltips.AddTool(IDC_CHECKOUTPATH, IDS_SETTINGS_CHECKOUTPATH_TT);
 	m_tooltips.AddTool(IDC_CHECKOUTURL, IDS_SETTINGS_CHECKOUTURL_TT);
+	m_tooltips.AddTool(IDC_CACHELOGS, IDS_SETTINGS_CACHELOGS_TT);
 
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
