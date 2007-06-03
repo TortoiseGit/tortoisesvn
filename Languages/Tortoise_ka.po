@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-18 12:15+0300\n"
+"PO-Revision-Date: 2007-06-03 15:53+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,6 +354,10 @@ msgstr "&გაუქმება"
 msgid "&Clean up"
 msgstr "გასუ&ფთავება"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "სტრიქონთა ასაკით &დაფერვა"
+
 # ID:8,
 #: ID:8
 msgid "&Commit..."
@@ -394,6 +398,11 @@ msgstr "ფაილების &გარდაქმნა BASE ვერს�
 #: MenuEntry
 msgid "&Copy"
 msgstr "&კოპირება"
+
+# ID:114,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "დავთრის ჩანაწერების ბუფერში &კოპირება"
 
 # ID:114,
 #: MenuEntry
@@ -1712,6 +1721,16 @@ msgstr "დასტის &შექმნა..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "დავთრის ჩანაწერების ბუფერირება"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "დავთრის ჩანაწერების ბუფერირება კითხვის დასაჩქარებლად"
+
 # ID:82,
 #: ID:82
 #, c-format
@@ -1901,6 +1920,11 @@ msgstr "&გადმოსატანი დასტა:"
 msgid "Checkout - TortoiseSVN"
 msgstr "გადმოტანა - TortoiseSVN"
 
+# ID:8,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "გადმოტანის სიღრმე"
+
 # ID:120,
 #: ID:229
 #, c-format
@@ -1925,6 +1949,7 @@ msgstr "შეწყვეტილი ოპერაციებისა დ�
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1947,6 +1972,12 @@ msgstr "გაასუფთავებს %ld შენახულ ჩან
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "გაასუფთავებს %ld სახელის/მონაწილის წყვილს,  %ld ssl სერთიფიკატს და %ld სახელს"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "დავთრის ჩანაწერების ბუფერის გასუფთავება %ld საცავისთვის"
 
 # ID:195,
 #: ID:195
@@ -1999,6 +2030,7 @@ msgid "Color co&de in-line changes"
 msgstr "სტრიქონებში ცვლელებების &ფერით აღნიშვნა"
 
 # Dlg-ID:138,
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "ფერები"
@@ -2820,20 +2852,6 @@ msgstr "პროქსი სერვერის სახელი ან IP
 msgid "Empty"
 msgstr "ცარიელი"
 
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "მთავარ მენიუში &მალმხმობების გააქტივება"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"გაააქტივეთ თუ გსურთ კლავიატურის მალმხმობების მთავარ მენიუში გამოყენება.\n"
-"გაითვალისწინეთ, რომ მენიუ მათ გარეშე უკეთესად გამოიყურება."
-
 # ID:196,
 #: ID:196
 msgid ""
@@ -3185,6 +3203,11 @@ msgstr "დასრულდა!"
 msgid "Floppy drives (A: B:)"
 msgstr "ფლოპის წამყვანები (A: B:)"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font"
+msgstr "შრიფტი"
+
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -3465,6 +3488,12 @@ msgstr "ID:32779:V   +S"
 #: ; '&Go To Line...'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
+
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
@@ -4113,7 +4142,6 @@ msgid "Log History"
 msgstr "ჟურნალის ისტორია"
 
 # Control-ID:65535,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "ჟურნალის ჩანაწერები"
@@ -4127,6 +4155,16 @@ msgstr "ჟურნალის ჩანაწერი"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "ჟურნალის ჩანაწერები"
+
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "დავთრის წარმოება (შეტანის დიალოგი)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "დავთრის წარმოება (დავთრის დიალოგის ჩვენება)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -4309,6 +4347,11 @@ msgstr "სხვადასხვა"
 #: ID:3887
 msgid "Mixed"
 msgstr "შერეული"
+
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "შეცვლის თარიღი"
 
 # ID:74,
 #: ID:74
@@ -4591,6 +4634,11 @@ msgstr "დიახ"
 #: ID:3697
 msgid "OVR"
 msgstr "OVR"
+
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "ძველი სტრიქონები"
 
 # Control-ID:1202,#:
 # Control-ID:1202,
@@ -5087,6 +5135,11 @@ msgstr "ა&ღდგენა"
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "სანამ ჩაეფლობით გადაიკითხეთ 'Daily Use Guide'..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "ბოლოს შეცვლილი სტრიქონები"
 
 # Control-ID:1073,
 #: Control-ID:1260
@@ -6402,6 +6455,11 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "ტაბულაციის ზომა"
+
 # ID:79,
 #: ID:79
 #, c-format
@@ -6934,6 +6992,7 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "აქ: (საბოლოო URL შერწყმის არის ვერსია)"
 
 # ID:132,
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -7447,6 +7506,11 @@ msgstr "ვერსია"
 #: ID:264
 msgid "Versioned"
 msgstr "ვერსიული"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "View"
+msgstr "ჩვენება"
 
 # ID:114,
 #: ID:114
