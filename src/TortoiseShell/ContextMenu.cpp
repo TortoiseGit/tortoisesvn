@@ -542,9 +542,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 
 void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
 {
-	TCHAR menutextbuffer[255];
-	TCHAR verbsbuffer[255];
-	ZeroMemory(menutextbuffer, sizeof(menutextbuffer));
+	TCHAR menutextbuffer[255] = {0};
+	TCHAR verbsbuffer[255] = {0};
 	MAKESTRING(stringid);
 
 	if (istop)
@@ -562,10 +561,9 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 	}
 	else
 	{
-		MENUITEMINFO menuiteminfo;
-		ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+		MENUITEMINFO menuiteminfo = {0};
 		menuiteminfo.cbSize = sizeof(menuiteminfo);
-		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
 		menuiteminfo.dwTypeData = menutextbuffer;
 		menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
@@ -1665,6 +1663,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			lpmis->itemWidth += 2;
 			if (lpmis->itemHeight < 16)
 				lpmis->itemHeight = 16;
+			*pResult = TRUE;
 		}
 		break;
 	case WM_DRAWITEM:
