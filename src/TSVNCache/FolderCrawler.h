@@ -40,6 +40,7 @@ public:
 
 public:
 	void Initialise();
+	void AddDirectoryForUpdate(const CTSVNPath& path);
 	void AddPathForUpdate(const CTSVNPath& path);
 	void Stop();
 	bool SetHoldoff(DWORD milliseconds = 100);
@@ -51,6 +52,7 @@ private:
 private:
 	CComAutoCriticalSection m_critSec;
 	HANDLE m_hThread;
+	std::deque<CTSVNPath> m_foldersToUpdate;
 	std::deque<CTSVNPath> m_pathsToUpdate;
 	HANDLE m_hTerminationEvent;
 	HANDLE m_hWakeEvent;

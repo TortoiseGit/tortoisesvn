@@ -335,7 +335,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 	itMap = m_directoryCache.find(path);
 	if ((itMap != m_directoryCache.end())&&(itMap->second))
 	{
-		// We have found this directory in the cache 
+		// We've found this directory in the cache 
 		return itMap->second;
 	}
 	else
@@ -441,7 +441,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
 {
-	m_folderCrawler.AddPathForUpdate(path);
+	m_folderCrawler.AddDirectoryForUpdate(path);
 }
 
 void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
