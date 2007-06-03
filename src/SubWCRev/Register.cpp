@@ -441,7 +441,7 @@ HRESULT RegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
 	if (SUCCEEDED(hr))
 	{
 		OLECHAR szDir[MAX_PATH];
-		ocscpy(szDir, bstrPath);
+		ocscpy_s(szDir, MAX_PATH, bstrPath);
 		// If index is specified remove it from the path
 		if (lpszIndex != NULL)
 		{
