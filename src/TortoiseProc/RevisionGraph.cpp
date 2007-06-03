@@ -245,7 +245,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		CSVNLogQuery svnQuery (&m_ctx, pool);
 		CCacheLogQuery cacheQuery (svn.GetLogCachePool(), &svnQuery);
 
-		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), FALSE);
+		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 		ILogQuery* query = useLogCache != FALSE
 						 ? static_cast<ILogQuery*>(&cacheQuery)
 						 : static_cast<ILogQuery*>(&svnQuery);
