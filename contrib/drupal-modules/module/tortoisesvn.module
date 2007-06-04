@@ -222,6 +222,7 @@ function print_blank_stat($i, $postat, $vars)
   echo "<td class=\"graph\">$graphtag</td>";
   echo "<td class=\"download\">$dltag</td>";
   echo "<td class=\"lang\">$fdate</td>";
+  echo "<td>&nbsp;</td>";
 }
 
 function print_content_stat($i, $postat, $vars)
