@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-29 12:12+0100\n"
+"PO-Revision-Date: 2007-06-04 11:29+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1418,6 +1418,15 @@ msgstr "Ordner &anlegen..."
 msgid "CAP"
 msgstr "CAP"
 
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Logmeldungen lokal speichern"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Lokaler Zwischenspeicher, um die Anzeige des Logs zu beschleunigen"
+
 #: ID:82
 #, c-format
 msgid ""
@@ -2355,20 +2364,6 @@ msgstr "Entweder der Name oder die IP Adresse des Proxy Servers"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Leer"
-
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "&Tastenkürzel im Kontextmenü aktivieren"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Aktivieren Sie diese Option, wenn Sie Tastenkürzel im Kontextmenü verwenden wollen.\n"
-"Beachten Sie, dass die Symbole im Kontextmenü besser aussehen, wenn die Tastenkürzel deaktiviert sind."
 
 # ID:196,
 #: ID:196
