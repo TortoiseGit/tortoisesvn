@@ -553,7 +553,7 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
 	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
-	if (fullver >= 0x600) 
+	if ((fullver >= 0x600)||(fullver <= 0x500))
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
 		HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
@@ -566,7 +566,6 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
 		menuiteminfo.dwTypeData = menutextbuffer;
-		menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
 		menuiteminfo.hbmpItem = HBMMENU_CALLBACK;
 		menuiteminfo.wID = id;
 		InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
@@ -940,6 +939,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 						bAddSeparator = false;
 						bMenuEntryAdded = false;
 						InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
+						idCmd++;
 					}
 					
 					// handle special cases (submenus)
@@ -981,7 +981,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	MENUITEMINFO menuiteminfo;
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
-	if (fullver >= 0x600)
+	if ((fullver >= 0x600)||(fullver <= 0x500))
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	else
 	{
@@ -990,7 +990,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 	menuiteminfo.fType = MFT_STRING;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
-	menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
 
 	HBITMAP bmp = NULL;
 	if (folder_.size())
@@ -1035,7 +1034,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	//return number of menu items added
 	return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
-//#endregion
 }
 
 
@@ -1659,7 +1657,6 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
 			if (lpmis==NULL)
 				break;
-			*pResult = TRUE;
 			lpmis->itemWidth += 2;
 			if (lpmis->itemHeight < 16)
 				lpmis->itemHeight = 16;
