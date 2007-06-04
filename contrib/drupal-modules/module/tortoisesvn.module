@@ -325,7 +325,7 @@ function print_single_stat($i, $postat, $vars)
 {
 
 /*
-  echo "<tr class=\"ok\">\n";
+  echo "<tr class=\"stat_ok\">\n";
   echo "<td>$i</td> <td><pre>";
 	print_r($postat);
 	echo"</pre></td>";
@@ -334,7 +334,7 @@ function print_single_stat($i, $postat, $vars)
   if ($postat[0] == 1) {
     // $postat[0] == 1 
     // -> It's the .pot file
-    echo "<tr class=\"ok\">\n";
+    echo "<tr class=\"stat_ok\">\n";
     print_blank_stat($i, $postat, $vars);
 
   } elseif ($postat[5] > 0) {
@@ -344,7 +344,7 @@ function print_single_stat($i, $postat, $vars)
     print_blank_stat($i, $postat, $vars);
 
   } else {
-    echo "<tr class=\"ok\">\n";
+    echo "<tr class=\"stat_ok\">\n";
     print_content_stat($i, $postat, $vars);
   }
   echo "</tr>\n";
