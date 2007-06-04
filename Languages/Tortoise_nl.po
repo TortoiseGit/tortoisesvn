@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-23 21:41+0100\n"
+"PO-Revision-Date: 2007-06-04 13:05+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -338,6 +338,10 @@ msgstr "&Bestanden converteren bij het vergelijken met BASE"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Kopiëren"
+
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "&Kopiëer logboekboodschap naar klembord"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -1389,6 +1393,14 @@ msgstr "&Map maken..."
 msgid "CAP"
 msgstr "CAP"
 
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Bewaar logboekberichten"
+
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Bewaart logboekboodschappen zodat bekijken sneller gaat"
+
 #: ID:82
 #, c-format
 msgid ""
@@ -1540,6 +1552,10 @@ msgstr "&Ophalen naar map:"
 #: ID:77
 msgid "Checkout - TortoiseSVN"
 msgstr "Ophalen - TortoiseSVN"
+
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Ophaaldiepte"
 
 #: ID:229
 #, c-format
@@ -2303,18 +2319,6 @@ msgstr "De naam of het IP-adres van de proxyserver"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Leeg"
-
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Activeer &sneltoetsen op het bovenste menu"
-
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Activeer deze optie als u ook sneltoetsen op het bovenste contextmenu wilt hebben.\n"
-"Let op: de menuopties zien er beter uit zonder deze optie."
 
 #: ID:196
 msgid ""
@@ -3892,6 +3896,10 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Oudere regels"
+
 #: ID:99
 #: Control-ID:1202
 msgid "Omit e&xternals"
@@ -3968,10 +3976,6 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Opent de archief-verkenner om het archief online te tweaken"
-
-#: Control-ID:1377
-msgid "Options"
-msgstr "Opties"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -4285,6 +4289,10 @@ msgstr "&Terugzetten..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lees de 'Gids voor dagelijks gebruik' voordat u vast komt te zitten"
+
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Recent gewijzigde regels"
 
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
@@ -6688,10 +6696,6 @@ msgstr "gewoon"
 msgid "obstructed"
 msgstr "versperd"
 
-#: Control-ID:65535
-msgid "older lines"
-msgstr "oudere regels"
-
 #: ID:3869
 msgid "pixels"
 msgstr "pixels"
@@ -6707,10 +6711,6 @@ msgstr "kwartaal"
 #: ID:195
 msgid "readonly"
 msgstr "alleen lezen"
-
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "recent gewijzigde regels"
 
 #: ID:10
 msgid "replaced"
