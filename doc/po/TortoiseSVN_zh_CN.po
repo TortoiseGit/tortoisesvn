@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-06-02 22:07 +0000\n"
-"PO-Revision-Date: 2007-06-03 14:02+0800\n"
+"PO-Revision-Date: 2007-06-04 11:30+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3059,7 +3059,7 @@ msgstr "在底部面板中显示的列是可定制的。如果你<action>右击<
 
 #: source/TortoiseSVN_en.xml:4073(para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion config file."
-msgstr ""
+msgstr "缺省情况下，当你成功提交修改后，你在这些文件上持有的锁会被自动释放。如果你需要保留锁，请确认选中检查框<guilabel>保留锁</guilabel>。此检查框的缺省状态从 Subversion 配置文件的 <literal>no_unlock</literal> 选项获取。"
 
 #: source/TortoiseSVN_en.xml:4084(para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
@@ -3536,7 +3536,7 @@ msgstr "如果你同时做几个不相关的任务，也可以在修改列表中
 
 #: source/TortoiseSVN_en.xml:4886(para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <literal>commit</literal> revisions, not the <literal>update</literal> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr ""
+msgstr "在这个对话框的底部，你可以看到工作副本所用版本库版本的范围概要。这些是 <literal>提交</literal>版本，不是<literal>更新</literal>版本；它们是这些文件最后提交的版本范围，不是已经更新的版本。注意显示的版本范围针对的是显示的项目，不是整个工作副本。如果你想察看整个工作副本的信息，必须选中检查框<guilabel>显示未修改的文件</guilabel>。"
 
 #: source/TortoiseSVN_en.xml:4897(para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
@@ -3685,7 +3685,7 @@ msgstr "版本日志动作"
 
 #: source/TortoiseSVN_en.xml:5097(para)
 msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons that summarize what has been done in that revision. There are four different icons, each shown in its own column."
-msgstr ""
+msgstr "顶部面板有个<guilabel>动作</guilabel>列，包含了此版本的动作概要图标。有四个不同的图标，每个都在自己的列显示。"
 
 #: source/TortoiseSVN_en.xml:5102(para)
 msgid "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision modified a file or directory, the <literal>modified</literal> icon is shown in the first column."
@@ -4177,11 +4177,11 @@ msgstr "在图像信息框中显示了图像的基本信息，比如像素的大
 
 #: source/TortoiseSVN_en.xml:5863(para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <action>Ctrl-Shift-Wheel</action> to change the blend."
-msgstr ""
+msgstr "当图像覆盖时，其亮度(alpha 混合)由左边的滑杆控制。你可以在滑杆的任意地方点击，直接设置混合参数，或者通过拖曳滑板来交互改变。<action>Ctrl-Shift-Wheel</action>也可以改变混合。"
 
 #: source/TortoiseSVN_en.xml:5870(para)
 msgid "The button above the slider toggles between two preset blends, indicated by the markers on either side of the blend slider. By default one is at the top and the other at the bottom, so the toggle button just switches between one image and the other. You can move the markers to choose the two blend values that the toggle button will use."
-msgstr ""
+msgstr "滑杆上部的按钮在两个混合展现之间切换，它标记了混合滑杆控制哪边。默认一个在顶部，另一个在底部，所以切换按钮只是在一个图像与另一个之间转换。你可以移动标记选择切换按钮使用哪个混合值。"
 
 #: source/TortoiseSVN_en.xml:5879(title)
 msgid "External Diff/Merge Tools"
@@ -4481,7 +4481,7 @@ msgstr "如果你通过TSVN删除了一个文件/目录，吗呢这个文件被�
 
 #: source/TortoiseSVN_en.xml:6324(para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. This difference in behaviour is a part of Subversion, not TortoiseSVN."
-msgstr ""
+msgstr "当你<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice>一个文件，它立即被从工作副本删除，并且标记为下次提交从版本库删除。当你<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice>一个目录，它仍旧在你的工作副本中，但是覆盖图标指出了它标记为删除。这个区别是 Subversion 的特性，与 TortoiseSVN 无关。"
 
 #: source/TortoiseSVN_en.xml:6341(para)
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
@@ -4795,11 +4795,11 @@ msgstr "<literal>tsvn:logtemplate</literal>在需要定义日志消息格式化�
 
 #: source/TortoiseSVN_en.xml:6863(para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion config file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files."
-msgstr ""
+msgstr "Subversion 允许你设置 <quote>autoprops</quote>，它基于文件扩展名，对新增文件或导入的文件生效。这依赖于每个客户端在 Subversion 配置文件中设置适当的 autoprops。<literal>tsvn:autoprops</literal> 可以对目录设置，当新增文件或导入文件时，它会与用户的本地 autoprops 合并。"
 
 #: source/TortoiseSVN_en.xml:6872(para)
 msgid "If there is a conflict between the local autoprops and <literal>tsvn:autoprops</literal>, the project settings take precedence because they are specific to that project."
-msgstr ""
+msgstr "如果本地 autoprops 与 <literal>tsvn:autoprops</literal> 冲突，项目设置优先(因为它们是针对此项目的)。"
 
 #: source/TortoiseSVN_en.xml:6879(para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
@@ -4848,7 +4848,7 @@ msgstr "它也与一些基于WEB的版本库浏览器集成。阅读<xref linken
 
 #: source/TortoiseSVN_en.xml:6967(para)
 msgid "Although the <literal>tsvn:xxx</literal> properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. <literal>tsvn:</literal> properties can only help to implement a policy, they cannot enforce it."
-msgstr ""
+msgstr "尽管 <literal>tsvn:xxx</literal> 属性很有用，它们只适用于 TortoiseSVN，而且一些只是对于新版本的 TortoiseSVN 才生效。如果你的项目中的人使用各种 Subversion 客户端，或者使用低版本的 TortoiseSVN，你可能想使用版本库钩子强制执行项目政策。<literal>tsvn:</literal> 属性只能帮助你实现政策，不能强制执行。"
 
 #: source/TortoiseSVN_en.xml:6980(title)
 msgid "Branching / Tagging"
@@ -5458,7 +5458,7 @@ msgstr "你也可以使用 <menuchoice><guimenu>编辑</guimenu><guimenuitem>转
 
 #: source/TortoiseSVN_en.xml:8021(para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "当鼠标滑过追溯信息列时，有个上下文菜单可以帮助你比较版本和检查历史，它用鼠标下方行的版本号作为参考版本。<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>追溯以前版本</guimenuitem></menuchoice>产生同一个文件的追溯报告，它使用以前的版本作为上限，给出了你看到最后修改之前的文件状态追溯报告。<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>显示修改</guimenuitem></menuchoice>启动差异察看器，显示在参考版本中的修改。<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>显示日志</guimenuitem></menuchoice>从参考版本开始显示版本日志。"
 
 #: source/TortoiseSVN_en.xml:8043(para)
 msgid "Although TortoiseBlame has no settings dialog of its own, it uses the same font as TortoiseMerge, so if you want to change it, start TortoiseMerge and use the settings dialog there."
@@ -5606,7 +5606,7 @@ msgstr "如果你选择两个拥有相同历史的标签(特别是<literal>/主�
 
 #: source/TortoiseSVN_en.xml:8272(para)
 msgid "You can use <action>F5</action> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <action>CTRL-F5</action>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
-msgstr ""
+msgstr "你可以使用 <action>F5</action> 刷新视图。它会刷新现在显示的所有信息。你可以使用 <action>CTRL-F5</action> 预取或刷新还没有打开的节点信息。然后，展开任何节点都会立即显示，因为信息已经预取，所以没有网络延迟。"
 
 #: source/TortoiseSVN_en.xml:8279(para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
@@ -6254,7 +6254,7 @@ msgstr "TSVNCache.exe 同样使用这些路径来限制它的扫描。如果你�
 
 #: source/TortoiseSVN_en.xml:9378(para)
 msgid "Sometimes you will exclude areas that contain working copies, which saves TSVNCache from scanning and monitoring for changes, but you still want a visual indication that such folders are versioned. The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox allows you to do this. With this option, versioned folders in an excluded area will show up as normal and up-to-date, with a green check mark. This reminds you that you are looking at a working copy, even though the folder overlays may not be correct. Files do not get an overlay at all. Note that the context menus still work, even though the overlays are not shown."
-msgstr ""
+msgstr "有时候，你会想排除包含工作副本的区域，因为它会节约 TSVNCache 扫描和监视修改的代价，但是你仍旧想让这些目录显示为受版本控制。检查框<guilabel>“正常”显示排除目录</guilabel>允许你这样做。使用这个选项，被排除的区域中受版本控制的目录使用绿色检查标记，正常显示为最新版本。它提醒你在察看工作副本，目录覆盖图标可能显示不正确。文件根本不显示覆盖图标。尽管不显示覆盖图标，上下文菜单仍旧工作。"
 
 #: source/TortoiseSVN_en.xml:9392(title)
 msgid "Icon Set Selection"
