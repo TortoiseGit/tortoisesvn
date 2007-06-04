@@ -929,7 +929,7 @@ svn_utf_cstring_to_utf8_ex2(const char **dest,
      ok. */
   if ((frompage != APR_DEFAULT_CHARSET) && (frompage != APR_LOCALE_CHARSET))
     return svn_error_createf(APR_EINVAL, NULL,
-                             _("Converting to non-default or non-local charsets is not supported!\n"));
+                             _("Converting from non-default or non-local charsets is not supported!\n"));
 
   return svn_utf_cstring_to_utf8(dest, src, pool);
 #endif
@@ -1185,7 +1185,7 @@ svn_utf_cstring_from_utf8_ex2(const char **dest,
 
   return err;
 #else
-  if ((frompage != APR_DEFAULT_CHARSET) && (frompage != APR_LOCALE_CHARSET))
+  if ((topage != APR_DEFAULT_CHARSET) && (topage != APR_LOCALE_CHARSET))
     return svn_error_createf(APR_EINVAL, NULL,
                              _("Converting to non-default or non-local charsets is not supported!\n"));
   return svn_utf_cstring_from_utf8(dest, src, pool);
