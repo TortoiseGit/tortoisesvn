@@ -69,44 +69,51 @@ void CSVNStatusCache::Create()
 		pFile = _tfsopen(path2, _T("rb"), _SH_DENYNO);
 		if (pFile)
 		{
-			LOADVALUEFROMFILE(value);
-			if (value != 2)
+			try
 			{
-				goto error;
-			}
-			int mapsize = 0;
-			LOADVALUEFROMFILE(mapsize);
-			for (int i=0; i<mapsize; ++i)
-			{
-				LOADVALUEFROMFILE2(value);	
-				if (value > MAX_PATH)
-					goto error;
-				if (value)
+				LOADVALUEFROMFILE(value);
+				if (value != 2)
 				{
-					CString sKey;
-					if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
+					goto error;
+				}
+				int mapsize = 0;
+				LOADVALUEFROMFILE(mapsize);
+				for (int i=0; i<mapsize; ++i)
+				{
+					LOADVALUEFROMFILE2(value);	
+					if (value > MAX_PATH)
+						goto error;
+					if (value)
 					{
-						sKey.ReleaseBuffer(0);
-						goto error;
-					}
-					sKey.ReleaseBuffer(value);
-					CCachedDirectory * cacheddir = new CCachedDirectory();
-					if (cacheddir == NULL)
-						goto error;
-					if (!cacheddir->LoadFromDisk(pFile))
-						goto error;
-					CTSVNPath KeyPath = CTSVNPath(sKey);
-					if (m_pInstance->IsPathAllowed(KeyPath))
-					{
-						m_pInstance->m_directoryCache[KeyPath] = cacheddir;
-						m_pInstance->watcher.AddPath(KeyPath);
-						// do *not* add the paths for crawling!
-						// because crawled paths will trigger a shell
-						// notification, which makes the desktop flash constantly
-						// until the whole first time crawling is over
-						// m_pInstance->AddFolderForCrawling(KeyPath);
+						CString sKey;
+						if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
+						{
+							sKey.ReleaseBuffer(0);
+							goto error;
+						}
+						sKey.ReleaseBuffer(value);
+						CCachedDirectory * cacheddir = new CCachedDirectory();
+						if (cacheddir == NULL)
+							goto error;
+						if (!cacheddir->LoadFromDisk(pFile))
+							goto error;
+						CTSVNPath KeyPath = CTSVNPath(sKey);
+						if (m_pInstance->IsPathAllowed(KeyPath))
+						{
+							m_pInstance->m_directoryCache[KeyPath] = cacheddir;
+							m_pInstance->watcher.AddPath(KeyPath);
+							// do *not* add the paths for crawling!
+							// because crawled paths will trigger a shell
+							// notification, which makes the desktop flash constantly
+							// until the whole first time crawling is over
+							// m_pInstance->AddFolderForCrawling(KeyPath);
+						}
 					}
 				}
+			}
+			catch (CAtlException)
+			{
+				goto error;
 			}
 		}
 	}

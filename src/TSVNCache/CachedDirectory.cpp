@@ -102,74 +102,80 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 {
 	AutoLocker lock(m_critSec);
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
-
-	unsigned int value = 0;
-	LOADVALUEFROMFILE(value);
-	if (value != 1)
-		return false;		// not the correct version
-	int mapsize = 0;
-	LOADVALUEFROMFILE(mapsize);
-	for (int i=0; i<mapsize; ++i)
+	try
 	{
+		unsigned int value = 0;
 		LOADVALUEFROMFILE(value);
-		if (value > MAX_PATH)
-			return false;
-		if (value)
+		if (value != 1)
+			return false;		// not the correct version
+		int mapsize = 0;
+		LOADVALUEFROMFILE(mapsize);
+		for (int i=0; i<mapsize; ++i)
 		{
-			CString sKey;
-			if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
+			LOADVALUEFROMFILE(value);
+			if (value > MAX_PATH)
+				return false;
+			if (value)
 			{
-				sKey.ReleaseBuffer(0);
-				return false;
+				CString sKey;
+				if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
+				{
+					sKey.ReleaseBuffer(0);
+					return false;
+				}
+				sKey.ReleaseBuffer(value);
+				CStatusCacheEntry entry;
+				if (!entry.LoadFromDisk(pFile))
+					return false;
+				m_entryCache[sKey] = entry;
 			}
-			sKey.ReleaseBuffer(value);
-			CStatusCacheEntry entry;
-			if (!entry.LoadFromDisk(pFile))
-				return false;
-			m_entryCache[sKey] = entry;
 		}
-	}
-	LOADVALUEFROMFILE(mapsize);
-	for (int i=0; i<mapsize; ++i)
-	{
+		LOADVALUEFROMFILE(mapsize);
+		for (int i=0; i<mapsize; ++i)
+		{
+			LOADVALUEFROMFILE(value);
+			if (value > MAX_PATH)
+				return false;
+			if (value)
+			{
+				CString sPath;
+				if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+				{
+					sPath.ReleaseBuffer(0);
+					return false;
+				}
+				sPath.ReleaseBuffer(value);
+				svn_wc_status_kind status;
+				LOADVALUEFROMFILE(status);
+				m_childDirectories[CTSVNPath(sPath)] = status;
+			}
+		}
+		LOADVALUEFROMFILE(m_entriesFileTime);
+		LOADVALUEFROMFILE(m_propsFileTime);
 		LOADVALUEFROMFILE(value);
 		if (value > MAX_PATH)
 			return false;
 		if (value)
 		{
 			CString sPath;
-			if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+			if (fread(sPath.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
 			{
 				sPath.ReleaseBuffer(0);
 				return false;
 			}
 			sPath.ReleaseBuffer(value);
-			svn_wc_status_kind status;
-			LOADVALUEFROMFILE(status);
-			m_childDirectories[CTSVNPath(sPath)] = status;
+			m_directoryPath.SetFromWin(sPath);
 		}
-	}
-	LOADVALUEFROMFILE(m_entriesFileTime);
-	LOADVALUEFROMFILE(m_propsFileTime);
-	LOADVALUEFROMFILE(value);
-	if (value > MAX_PATH)
-		return false;
-	if (value)
-	{
-		CString sPath;
-		if (fread(sPath.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
-		{
-			sPath.ReleaseBuffer(0);
+		if (!m_ownStatus.LoadFromDisk(pFile))
 			return false;
-		}
-		sPath.ReleaseBuffer(value);
-		m_directoryPath.SetFromWin(sPath);
-	}
-	if (!m_ownStatus.LoadFromDisk(pFile))
-		return false;
 
-	LOADVALUEFROMFILE(m_currentFullStatus);
-	LOADVALUEFROMFILE(m_mostImportantFileStatus);
+		LOADVALUEFROMFILE(m_currentFullStatus);
+		LOADVALUEFROMFILE(m_mostImportantFileStatus);
+	}
+	catch ( CAtlException )
+	{
+		return false;
+	}
 	return true;
 
 }

@@ -77,70 +77,76 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 {
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
-
-	unsigned int value = 0;
-	LOADVALUEFROMFILE(value);
-	if (value != 4)
-		return false;		// not the correct version
-	LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
-	LOADVALUEFROMFILE(m_lastWriteTime);
-	LOADVALUEFROMFILE(m_bSet);
-	LOADVALUEFROMFILE(m_bSVNEntryFieldSet);
-	LOADVALUEFROMFILE(m_commitRevision);
-	LOADVALUEFROMFILE(value);
-	if (value != 0)
+	try
 	{
-		if (value > INTERNET_MAX_URL_LENGTH)
-			return false;		// invalid length for an url
-		if (fread(m_sUrl.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
+		unsigned int value = 0;
+		LOADVALUEFROMFILE(value);
+		if (value != 4)
+			return false;		// not the correct version
+		LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
+		LOADVALUEFROMFILE(m_lastWriteTime);
+		LOADVALUEFROMFILE(m_bSet);
+		LOADVALUEFROMFILE(m_bSVNEntryFieldSet);
+		LOADVALUEFROMFILE(m_commitRevision);
+		LOADVALUEFROMFILE(value);
+		if (value != 0)
 		{
-			m_sUrl.ReleaseBuffer(0);
-			return false;
+			if (value > INTERNET_MAX_URL_LENGTH)
+				return false;		// invalid length for an url
+			if (fread(m_sUrl.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
+			{
+				m_sUrl.ReleaseBuffer(0);
+				return false;
+			}
+			m_sUrl.ReleaseBuffer(value);
 		}
-		m_sUrl.ReleaseBuffer(value);
+		LOADVALUEFROMFILE(value);
+		if (value != 0)
+		{
+			if (fread(m_sOwner.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
+			{
+				m_sOwner.ReleaseBuffer(0);
+				return false;
+			}
+			m_sOwner.ReleaseBuffer(value);
+		}
+		LOADVALUEFROMFILE(value);
+		if (value != 0)
+		{
+			if (fread(m_sAuthor.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
+			{
+				m_sAuthor.ReleaseBuffer(0);
+				return false;
+			}
+			m_sAuthor.ReleaseBuffer(value);
+		}
+		LOADVALUEFROMFILE(m_kind);
+		LOADVALUEFROMFILE(m_bReadOnly);
+		LOADVALUEFROMFILE(value);
+		if (value != 0)
+		{
+			if (fread(m_sPresentProps.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
+			{
+				m_sPresentProps.ReleaseBuffer(0);
+				return false;
+			}
+			m_sPresentProps.ReleaseBuffer(value);
+		}
+		ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
+		LOADVALUEFROMFILE(m_svnStatus.copied);
+		LOADVALUEFROMFILE(m_svnStatus.locked);
+		LOADVALUEFROMFILE(m_svnStatus.prop_status);
+		LOADVALUEFROMFILE(m_svnStatus.repos_prop_status);
+		LOADVALUEFROMFILE(m_svnStatus.repos_text_status);
+		LOADVALUEFROMFILE(m_svnStatus.switched);
+		LOADVALUEFROMFILE(m_svnStatus.text_status);
+		m_svnStatus.entry = NULL;
+		m_discardAtTime = GetTickCount()+cachetimeout;
 	}
-	LOADVALUEFROMFILE(value);
-	if (value != 0)
+	catch ( CAtlException )
 	{
-		if (fread(m_sOwner.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
-		{
-			m_sOwner.ReleaseBuffer(0);
-			return false;
-		}
-		m_sOwner.ReleaseBuffer(value);
+		return false;
 	}
-	LOADVALUEFROMFILE(value);
-	if (value != 0)
-	{
-		if (fread(m_sAuthor.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
-		{
-			m_sAuthor.ReleaseBuffer(0);
-			return false;
-		}
-		m_sAuthor.ReleaseBuffer(value);
-	}
-	LOADVALUEFROMFILE(m_kind);
-	LOADVALUEFROMFILE(m_bReadOnly);
-	LOADVALUEFROMFILE(value);
-	if (value != 0)
-	{
-		if (fread(m_sPresentProps.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
-		{
-			m_sPresentProps.ReleaseBuffer(0);
-			return false;
-		}
-		m_sPresentProps.ReleaseBuffer(value);
-	}
-	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
-	LOADVALUEFROMFILE(m_svnStatus.copied);
-	LOADVALUEFROMFILE(m_svnStatus.locked);
-	LOADVALUEFROMFILE(m_svnStatus.prop_status);
-	LOADVALUEFROMFILE(m_svnStatus.repos_prop_status);
-	LOADVALUEFROMFILE(m_svnStatus.repos_text_status);
-	LOADVALUEFROMFILE(m_svnStatus.switched);
-	LOADVALUEFROMFILE(m_svnStatus.text_status);
-	m_svnStatus.entry = NULL;
-	m_discardAtTime = GetTickCount()+cachetimeout;
 	return true;
 }
 
