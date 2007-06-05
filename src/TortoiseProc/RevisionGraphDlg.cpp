@@ -267,6 +267,8 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 		GetGraphRect(&rect);
 		m_Graph.MoveWindow(&rect);
 	}
+	if (IsWindow(m_ToolBar)) 
+		RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0); 
 }
 
 BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
