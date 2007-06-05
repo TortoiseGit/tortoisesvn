@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2004-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -562,6 +562,8 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 					}
 					if (lAddLine == 0)
 						lAddLine++;
+					if (lRemoveLine == 0)
+						lRemoveLine++;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
 						(!HasExpandedKeyWords(sPatchLine)) &&
 						(lRemoveLine <= PatchLines.GetCount()) &&
