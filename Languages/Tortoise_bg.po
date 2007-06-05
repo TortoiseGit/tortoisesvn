@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-04-14 17:45+0200\n"
+"PO-Revision-Date: 2007-06-05 12:55+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -341,9 +341,10 @@ msgstr "&Запис на резервно копие"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley database (BDB)"
 
+# Control-ID:1067,
 #: ID:114
-msgid "&Blame differences"
-msgstr "&Показване на отговорните за разликите"
+msgid "&Blame changes"
+msgstr "&Отговорни за промените"
 
 # ID:76,
 #: MenuEntry
@@ -387,6 +388,10 @@ msgstr "&Отказ"
 msgid "&Clean up"
 msgstr "&Почистване"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Оцветяване на редовете според възрастта им"
+
 # ID:8,
 #: ID:8
 msgid "&Commit..."
@@ -426,6 +431,11 @@ msgstr "&Преобразуване на файловете при сравне�
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Копиране"
+
+# ID:101,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "&Копиране на съобщението за дневника в системния буфер"
 
 # ID:101,
 #: MenuEntry
@@ -715,6 +725,7 @@ msgstr "&Нов"
 # Control-ID:1208,
 #: ID:115
 #: Control-ID:1208
+#, c-format
 msgid "&Next %ld"
 msgstr "&Следващи %ld"
 
@@ -925,8 +936,9 @@ msgstr "&TortoiseSVN"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
-#: Control-ID:65535
+#: Control-ID:1376
 #: Control-ID:1058
+#: Control-ID:65535
 msgid "&URL of repository:"
 msgstr "&URL на хранилище:"
 
@@ -1009,11 +1021,6 @@ msgstr "&Работно копие"
 #: ID:564
 msgid "(binary value)"
 msgstr "(двоична стойност)"
-
-# Control-ID:1061,
-#: ID:219
-msgid "(dry run)"
-msgstr "(симулация)"
 
 # ID:208,
 #: ID:208
@@ -1121,8 +1128,8 @@ msgstr "Грешка при блокиране на достъпа до %1."
 
 # ID:201,
 #: ID:201
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Налична е по-нова версия. Моля, посетете http://tortoisesvn.tigris.org/ и я изтеглете!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgstr "Налична е по-нова версия. Моля, посетете http://tortoisesvn.tigris.org/ и я изтеглете! Щракнете _тук_, за да отидете директно на нашия сайт."
 
 # ID:195,
 #: ID:195
@@ -1759,6 +1766,16 @@ msgstr "Съ&здаване на папка..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Кеширане на съобщенията в дневника"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Кешира съобщенията с цел ускоряване на изтеглянето на дневника"
+
 # ID:82,
 #: ID:82
 #, c-format
@@ -1948,6 +1965,17 @@ msgstr "Изписване на &директория:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Изписване - TortoiseSVN"
 
+# ID:8,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Дълбочина на изписване"
+
+# ID:119,
+#: ID:229
+#, c-format
+msgid "Checkout from %s, revision %s, %s, %s"
+msgstr "Изписване от %s, ревизия %s, %s, %s"
+
 # ID:145,
 #: ID:146
 msgid "Cleaning up."
@@ -1966,6 +1994,7 @@ msgstr "Почиства недовършени операции, блокира
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1988,6 +2017,12 @@ msgstr "Изчиства %ld съобщения за дневника, съхр�
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Изчиства %ld двойки потребителско име/парола, %ld SSL сертификата и %ld потребителски имена."
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Изчиства кеширани съобщения от дневника от %ld хранилища"
 
 # ID:195,
 #: ID:195
@@ -2040,9 +2075,16 @@ msgid "Color co&de in-line changes"
 msgstr "&Цветно кодиране на промените по редове"
 
 # Dlg-ID:138,
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Цветове"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:220
+msgid "Command"
+msgstr "Команда"
 
 # ID:3857,#:
 # ID:3857,
@@ -2231,6 +2273,12 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Копиране на %s"
+
+# ID:77,
+#: ID:229
+#, c-format
+msgid "Copy %s to %s, Revision %s"
+msgstr "Копиране на %s в %s, ревизия %s"
 
 # ID:82,
 #: ID:126
@@ -2725,25 +2773,25 @@ msgstr "Наистина ли желаете да преместите този 
 #: ID:119
 #, c-format
 msgid ""
-"Do you really want to revert all changes in \n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be merged into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Наистина ли желаете да отмените всички промени в \n"
+"Наистина ли желаете да отмените всички промени в\n"
 "%s\n"
-"и да се върнете към тази ревизия? Тези промени ще бъдат слети с работното Ви копие."
+"и да се върнете към тази ревизия? Тези промени ще бъдат отменени чрез обратно сливане на ревизиите с работното Ви копие."
 
 # ID:76,
 #: ID:76
 #, c-format
 msgid ""
-"Do you really want to revert all changes to\n"
+"Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be merged into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
-"Наистина ли желаете да отмените всички промени в \n"
+"Наистина ли желаете да отмените всички промени в\n"
 "%s,\n"
-"които са направени в тази ревизия? Тези промени ще бъдат слети с работното Ви копие."
+"направени в тази ревизия? Тези промени ще бъдат отменени чрез обратно сливане на ревизията с работното Ви копие."
 
 # ID:76,
 #: ID:76
@@ -2787,6 +2835,11 @@ msgstr "Да не се показва повече това съобщение"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Тип устройства"
+
+# Control-ID:1061,
+#: ID:219
+msgid "Dry Run"
+msgstr "Симулация"
 
 #: MenuEntry
 msgid "E&xit"
@@ -2853,20 +2906,6 @@ msgstr "Името или IP адреса на proxy сървъра"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Празни"
-
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "\"&Кратки клавиши\" в главното контекстно меню"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Включете това, ако желаете наличието на \"бързи клавиши\" и в главното контекстно меню.\n"
-"Забележка: иконките в контекстното меню изглеждат по-добре, когато тази опция е изключена."
 
 # ID:196,
 #: ID:196
@@ -3071,6 +3110,16 @@ msgid "External Programs::Unified Diff Viewer"
 msgstr "Външна програма::Програма за разглеждане на Unified Diff файлове"
 
 # ID:74,
+#: ID:226
+msgid "Externals excluded"
+msgstr "Без външните"
+
+# ID:74,
+#: ID:226
+msgid "Externals included"
+msgstr "Със външните"
+
+# ID:74,
 #: ID:74
 msgid "Failed revert"
 msgstr "Пропаднало отменяне"
@@ -3203,6 +3252,11 @@ msgstr "Завършено!"
 #: Control-ID:1315
 msgid "Floppy drives (A: B:)"
 msgstr "Дискетни устройства (A: B:)"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font"
+msgstr "Шрифт"
 
 # ID:3585,
 #: ID:3585
@@ -3484,6 +3538,12 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr "ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
 #: ; 'Arrange &Vertical'
@@ -3637,6 +3697,15 @@ msgstr ""
 "Ако е включено, при стартиране на диалоговият прозорец се прави проверка в хранилището.\n"
 "В този случай вече няма нужда да се ползва бутона \"Проверка в хранилището\"."
 
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Ако е включено, папките в работните копия, за които няма модификация\n"
+"на иконките, се показват със модификация за 'нормално' състояние"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -3707,6 +3776,11 @@ msgstr "Игнориране на предшествениците"
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнориране на символите за &край на ред (препоръчително)"
 
+# Control-ID:1021,
+#: ID:226
+msgid "Ignored items included"
+msgstr "Включване и на игнорираните обекти"
+
 # ID:266,
 #: ID:266
 msgid "Immediate children, including folders"
@@ -3722,6 +3796,12 @@ msgstr "Внос"
 #, c-format
 msgid "Import %ld items"
 msgstr "Внос на %ld обекта"
+
+# ID:119,
+#: ID:229
+#, c-format
+msgid "Import %s to %s%s"
+msgstr "Внос на %s в %s%s"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -4040,6 +4120,7 @@ msgstr ""
 # ID:221,
 #: ID:207
 #: ID:221
+#: Control-ID:65535
 msgid "Lock"
 msgstr "Заключване"
 
@@ -4112,7 +4193,6 @@ msgid "Log History"
 msgstr "Дневник"
 
 # Dlg-ID:130,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Съобщения в дневника"
@@ -4126,6 +4206,16 @@ msgstr "Съобщение в дневника"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Съобщения в дневника"
+
+# Dlg-ID:130,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Съобщения от дневника (Диалогов прозорец за въвеждане)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Съобщения от дневника (Диалогов прозорец за показване)"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -4244,6 +4334,18 @@ msgstr "Влива разклонение в основното течение"
 msgid "Merging"
 msgstr "Сливане"
 
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging %s from revision %s to %s into %s, %s%s"
+msgstr "Сливане на %s от ревизия %s до %s в %s, %s%s"
+
+# ID:229,
+#: ID:229
+#, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
+msgstr "Сливане от %s, ревизия %s до %s, ревизия %s в %s, %s%s"
+
 # ID:83,
 #: ID:83
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -4296,6 +4398,11 @@ msgstr "Други"
 #: ID:3887
 msgid "Mixed"
 msgstr "Смесен"
+
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "Дата на промяна"
 
 # ID:74,
 #: ID:74
@@ -4538,6 +4645,11 @@ msgstr "Нормален"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не всички записи в системния регистър (или INI файлът) са премахнати."
 
+# ID:266,
+#: ID:266
+msgid "Not descending"
+msgstr "Без спускане"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:83
@@ -4577,6 +4689,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "По-стари редове"
+
 # ID:13,
 #: ID:99
 #: Control-ID:1202
@@ -4601,7 +4718,7 @@ msgstr "Изписване само на най-&горната папка"
 # ID:266,
 #: ID:266
 msgid "Only file children"
-msgstr "Само деца-файлове"
+msgstr "Само деца от тип файлове"
 
 # ID:169,
 #: ID:169
@@ -4859,13 +4976,16 @@ msgstr "Моля, изпълнете командата \"Почистване\"
 #: ID:78
 msgid ""
 "Please note:\n"
-"your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to switch over\n"
-"to that copy path. Use the Switch command to do that."
+"Your working copy remains on the previous path. If you want your next changes\n"
+"to be committed to the copy or branch you have just created,\n"
+"then you need to switch your working copy over to the new URL.\n"
+"Use the Switch command to do that."
 msgstr ""
-"Обърнете внимание, че Вашето текущо работно копие остана на предишния си път. Ако желаете Вашите следващи промени\n"
-"да бъдат извършени в току-що създаденото копие, ще трябва да превключите към\n"
-"пътя на това копие. Използвайте командата \"Превключване\" за тази цел."
+"Внимание:\n"
+"Вашето работно копие остава на предишния си път. Ако желаете Вашите следващи промени\n"
+"да бъдат поверени в току-що създаденото копие или разклонение,\n"
+"ще трябва да превключите работното си копие към новия URL.\n"
+"Използвайте командата \"Превключване\" за тази цел."
 
 # ID:3858,#:
 # ID:3858,
@@ -5071,6 +5191,11 @@ msgstr "&Отмяна..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Прочетете 'Упътване за всекидневна употреба' преди да 'затънете'..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Наскоро променени редове"
 
 # Control-ID:1073,
 #: Control-ID:1260
@@ -5314,8 +5439,9 @@ msgstr "Замяна"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:65535
 msgid "Repository"
 msgstr "Хранилище"
 
@@ -5429,8 +5555,9 @@ msgstr "Отменя всички промени, които сте направ
 # Control-ID:65535,
 #: ID:76
 #: ID:208
-#: Control-ID:65535
+#: Control-ID:1375
 #: Control-ID:1306
+#: Control-ID:65535
 #: ID:19
 msgid "Revision"
 msgstr "Ревизия"
@@ -5943,10 +6070,10 @@ msgstr "Показване на &обхват от ревизии..."
 msgid "Show &all revisions"
 msgstr "&Всички ревизии"
 
-# ID:113,
+# Control-ID:1031,
 #: MenuEntry
-msgid "Show &differences"
-msgstr "Показване на &разликите"
+msgid "Show &changes"
+msgstr "&Промените"
 
 # Control-ID:1016,
 #: MenuEntry
@@ -5973,14 +6100,34 @@ msgstr "Показване на &неконтролираните файлове
 msgid "Show File List"
 msgstr "Показване на списъкa с файлове"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show Lock dialog before locking files"
+msgstr "Показване на диалоговия прозорец за заключванията преди заключване на файлове"
+
 #: MenuEntry
 msgid "Show Ove&rview"
 msgstr "&Преглед"
+
+# ID:2051,
+#: ID:2051
+msgid "Show an overview of the whole graph"
+msgstr "Преглед на цялата диаграма"
+
+# ID:113,
+#: ID:114
+msgid "Show changes as &unified diff"
+msgstr "Показване на промените като &unified Diff"
 
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Показване на разликите като &Unified Diff"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Показване на изключените папки като 'нормални'"
 
 # Control-ID:1073,
 #: Control-ID:1264
@@ -6128,6 +6275,11 @@ msgstr ""
 msgid "Specify the revision range which you want to merge:"
 msgstr "Укажете обхвата от ревизии, която желаете да слеете:"
 
+# ID:376,
+#: ID:376
+msgid "Split lines"
+msgstr "Разделяне на редовете"
+
 # ID:3604,
 #: ID:3604
 msgid ""
@@ -6259,6 +6411,12 @@ msgstr "Файл със сървъри на Subversion:"
 msgid "Sw&itch working copy to new branch/tag"
 msgstr "Прев&ключване на работното копие към ново разклонение/етикет"
 
+# ID:119,
+#: ID:229
+#, c-format
+msgid "Switch %s to %s, Revision %s"
+msgstr "Превключване на %s към %s, Ревизия %s"
+
 # Dlg-ID:129,
 #: ID:78
 msgid "Switch - TortoiseSVN"
@@ -6325,7 +6483,7 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Превключване на работното копие към друго разклонение / етикет"
 
 #: ID:325
-msgid "Switches the comparison left<->right"
+msgid "Switches the comparison left<<->right"
 msgstr "Размяна на ляво с дясно при сравняване"
 
 # Control-ID:65535,
@@ -6348,6 +6506,11 @@ msgstr "TORTOISEBLAME"
 #: ID:7
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Размер на табулатора:"
 
 # ID:79,
 #: ID:79
@@ -6395,15 +6558,15 @@ msgstr "Размера на блока с код не съвпада с броя
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Начало \"@@\" на блок с код се очакваше на ред %d!"
 
+# ID:197,
+#: ID:197
+msgid "The default URL to checkout from if nothing else is specified"
+msgstr "URL по подразбиране при изписване"
+
 # ID:196,
 #: ID:196
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Път по подразбиране за изписване, ако не е указан изрично"
-
-# ID:197,
-#: ID:197
-msgid "The default url to checkout from if nothing else is specified"
-msgstr "URL по подразбиране за изписване, ако не е указан изрично"
 
 # ID:68,
 #: ID:68
@@ -6580,13 +6743,13 @@ msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
-"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Пътят/URL, който сте въвели, най-вероятно е невалиден под Windows!\n"
-"Въпреки това може да се опитате да го използвате, но вероятно ще получите грешка по-късно.\n"
+"Пътят/URL, който сте въвели, изглежда невалиден под Windows!\n"
+"Можете да се опитате да го използвате, но вероятно ще получите грешка по-късно.\n"
 "\n"
-"За да е валиден пътят под Windows, той не трябва да съдържа знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
+"Валидните пътища под Windows не съдържат знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -6804,11 +6967,11 @@ msgstr ""
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
-"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Този път е невалиден!\n"
-"За да е валиден пътят под Windows, той не трябва да съдържа знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
+"Валидните пътища не съдържат знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -6860,6 +7023,15 @@ msgstr ""
 "В противен случай, TortoiseSVN ще трябва да направи нерекусивно поверяване,\n"
 "което не позволява изтриване на директории."
 
+# ID:284,
+#: ID:284
+msgid ""
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgstr ""
+"За да присвоите заключване, щракнете с десния бутон на родителската папка на обекта и изберете \"Заключване\" от контекстното меню.\n"
+"Това ще извика диалоговия прозорец за заключванията, където можете наложите заключване, т.е. да го 'присвоите' от текущия му държател."
+
 # Control-ID:1201,
 #: Control-ID:1201
 #: Control-ID:65535
@@ -6873,6 +7045,7 @@ msgstr "До: (краен URL и ревизия на обхвата за сли�
 
 # ID:9,#:
 # ID:80,
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -7130,6 +7303,11 @@ msgstr ""
 "Неизвестен издател на сертификат.\n"
 "  Отпечатък: %s\n"
 "  Уникално име: %s"
+
+# Control-ID:1061,
+#: ID:266
+msgid "Unknown depth"
+msgstr "Неизвестна дълбочина"
 
 # ID:11,#:
 # Control-ID:1002,
@@ -7389,6 +7567,10 @@ msgstr "Версия"
 msgid "Versioned"
 msgstr "Контролиран"
 
+#: MenuEntry
+msgid "View"
+msgstr "View"
+
 # ID:114,
 #: ID:114
 msgid "View revision for path in &webviewer"
@@ -7424,6 +7606,15 @@ msgstr "Предупреждение"
 #: ID:219
 msgid "Warning!"
 msgstr "Внимание!"
+
+# ID:197,
+#: ID:197
+msgid ""
+"When locking one or more selected files, shows a dialog\n"
+"asking for a descriptive message about the locking"
+msgstr ""
+"При заключване на един или повече избрани файлове, показва диалогов прозорец,\n"
+"за да се въведе описателно съобщение за заключването"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -7822,6 +8013,11 @@ msgstr "външни"
 msgid "ignored"
 msgstr "игнориран"
 
+# Control-ID:1067,
+#: ID:220
+msgid "ignoring ancestry"
+msgstr "игнориране на предшествениците"
+
 # ID:13,
 #: ID:13
 msgid "incomplete"
@@ -7916,6 +8112,23 @@ msgstr "само за четене"
 #: ID:10
 msgid "replaced"
 msgstr "заменени"
+
+# Control-ID:1067,
+#: ID:220
+msgid "respecting ancestry"
+msgstr "зачитане на предшествениците"
+
+# ID:119,
+#: ID:326
+#, c-format
+msgid "revision %s-%s, revision %s-%s"
+msgstr "ревизия %s-%s, ревизия %s-%s"
+
+# ID:119,
+#: ID:326
+#, c-format
+msgid "revisions %s-%s, %s"
+msgstr "ревизии %s-%s, %s"
 
 # ID:14,
 #: ID:14
@@ -8022,6 +8235,19 @@ msgstr ""
 #, c-format
 msgid "to %s"
 msgstr "към %s"
+
+# ID:18,
+#: ID:18
+msgid ""
+"tsvn:autoprops\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+"tsvn:autoprops\n"
+"Списък със свойства, разделени с нов ред, които се прилагат автоматично при добавяне или внасяне на файлове.\n"
+"Формат: <файлова_маска> = свойство=стойност;свойство=стойност\n"
+"Пример: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17
