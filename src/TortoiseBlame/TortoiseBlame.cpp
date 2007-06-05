@@ -1395,13 +1395,13 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				ti.hwnd = app.wBlame;
 				ti.uId = 0;
 				SendMessage(app.hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
-				app.ttVisible = TRUE;
 			}
 			int y = ((int)(short)HIWORD(lParam));
 			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 			LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
 			line = line + (y/heigth);
-			if (line < (LONG)app.revs.size())
+			app.ttVisible = (line < (LONG)app.revs.size());
+			if ( app.ttVisible )
 			{
 				if (app.authors[line].compare(app.m_mouseauthor) != 0)
 				{
