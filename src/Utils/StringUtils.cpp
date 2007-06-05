@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -272,6 +272,11 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 				if (GlobalUnlock(hClipboardData))
 				{
 					if (SetClipboardData(cFormat,hClipboardData)==NULL)
+					{
+						CloseClipboard();
+						return false;
+					}
+					if (SetClipboardData(CF_TEXT,hClipboardData)==NULL)
 					{
 						CloseClipboard();
 						return false;
