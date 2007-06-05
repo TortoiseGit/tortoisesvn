@@ -423,7 +423,35 @@ bool TortoiseBlame::GotoLine(long line)
 	{
 		line = authors.size()-1;
 	}
-	SendEditor(SCI_GOTOLINE, line);
+
+	int nCurrentPos = SendEditor(SCI_GETCURRENTPOS);
+	int nCurrentLine = SendEditor(SCI_LINEFROMPOSITION,nCurrentPos);
+	int nFirstVisibleLine = SendEditor(SCI_GETFIRSTVISIBLELINE);
+	int nLinesOnScreen = SendEditor(SCI_LINESONSCREEN);
+
+	if ( line>=nFirstVisibleLine && line<=nFirstVisibleLine+nLinesOnScreen)
+	{
+		// no need to scroll
+		SendEditor(SCI_GOTOLINE, line);
+	}
+	else
+	{
+		// Place the requested line one third from the top
+		if ( line > nCurrentLine )
+		{
+			SendEditor(SCI_GOTOLINE, (WPARAM)(line+(int)nLinesOnScreen*(2/3.0)));
+		}
+		else
+		{
+			SendEditor(SCI_GOTOLINE, (WPARAM)(line-(int)nLinesOnScreen*(1/3.0)));
+		}
+	}
+
+	// Highlight the line
+	int nPosStart = SendEditor(SCI_POSITIONFROMLINE,line);
+	int nPosEnd = SendEditor(SCI_GETLINEENDPOSITION,line);
+	SendEditor(SCI_SETSEL,nPosStart,nPosEnd);
+
 	return true;
 }
 
