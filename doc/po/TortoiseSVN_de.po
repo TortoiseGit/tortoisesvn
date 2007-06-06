@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-05 10:15+0100\n"
+"PO-Revision-Date: 2007-06-06 15:59+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3618,7 +3618,7 @@ msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungs
 #: source/TortoiseSVN_en.xml:4059
 #: (para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <action>SHIFT-Select</action> to make the action recursive."
-msgstr ""
+msgstr "Sie können Einträge an- oder abwählen, indem Sie auf das Kästchen links vom Eintrag markieren. Für Verzeichnisse können Sie <action>Umschalt-Auswahl</action> verwenden, um die Auswahl rekursiv zu machen."
 
 #: source/TortoiseSVN_en.xml:4064
 #: (para)
@@ -3628,7 +3628,7 @@ msgstr "Die im unteren Bereich angezeigten Spalten können angepasst werden. Wen
 #: source/TortoiseSVN_en.xml:4073
 #: (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion config file."
-msgstr ""
+msgstr "Standardmäßig werden bei einer erfolgreichen Übertragung die von Ihnen gesperrten Dateien wieder freigegeben. Falls sie jedoch die Sperren behalten möchten, markieren Sie das Auswahlkästchen <guilabel>Sperren behalten</guilabel>. Als Vorgabewert des Auswahlkästchen wird aus der Einstellung <literal>no_unlock</literal> in der Subversion Konfigurationsdatei verwendet. Lesen Sie in <xref linkend=\"tsvn-dug-settings-main\"/> nach, wie sie die Subversion Konfigurationsdatei bearbeiten können."
 
 #: source/TortoiseSVN_en.xml:4084
 #: (para)
@@ -4321,12 +4321,12 @@ msgstr "Eine komprimierte Version der vorherigen drei Schlüsselwörter"
 #: source/TortoiseSVN_en.xml:4956
 #: (para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
-msgstr ""
+msgstr "Subversion unterstützt eine CVS-ähnliche Expansion von Schlüsselwörtern, die dazu genutzt werden kann, Dateinamen und Revisionsinformationen in der Datei selbst einzubetten. Die derzeit unterstützten Schlüsselwörter sind: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:5007
 #: (para)
 msgid "To find out how to use these keywords, look at the <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html#svn.advanced.props.special.keywords\"><citetitle>svn:keywords section</citetitle></ulink> in the Subversion book, which gives a full description of these keywords and how to enable and use them."
-msgstr ""
+msgstr "Um mehr über diese Schlüsselwörter herauszufinden, lesen Sie den Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.props.html#svn.advanced.props.special.keywords\"><citetitle>svn:keywords</citetitle></ulink> im Subversion Buch, in dem die Schlüsselwörter und ihre Anwendung im Detail beschrieben werden."
 
 #: source/TortoiseSVN_en.xml:5018
 #: (title)
@@ -4411,7 +4411,7 @@ msgstr "Aktionen im Revisionslog"
 #: source/TortoiseSVN_en.xml:5097
 #: (para)
 msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons that summarize what has been done in that revision. There are four different icons, each shown in its own column."
-msgstr ""
+msgstr "Die obere Fläche enthält eine <guilabel>Aktionen</guilabel> Spalte, in der Symbole die Änderungen einer Revision zusammenfassen. Es gibt vier verschiedene Symbole, die jeweils in einer eigenen Spalte angezeigt werden."
 
 #: source/TortoiseSVN_en.xml:5102
 #: (para)
@@ -5210,7 +5210,7 @@ msgstr "Sie können Dateien innerhalb einer Arbeitskopie einfach hinzufügen, in
 #: source/TortoiseSVN_en.xml:6084
 #: (title)
 msgid "Copying Existing Files and Folders"
-msgstr ""
+msgstr "Existierende Dateien oder Ordner kopieren"
 
 #: source/TortoiseSVN_en.xml:6086
 #: (primary)
@@ -6724,7 +6724,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8175
 #: (para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "Datei löschen oder umbenennen"
 
 #: source/TortoiseSVN_en.xml:8180
 #: (para)
@@ -6769,7 +6769,7 @@ msgstr "Dateien oder Ordner zum Projektarchiv hinzufügen"
 #: source/TortoiseSVN_en.xml:8223
 #: (para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Ordner löschen oder umbenennen"
 
 #: source/TortoiseSVN_en.xml:8228
 #: (para)
