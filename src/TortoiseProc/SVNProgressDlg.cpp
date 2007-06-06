@@ -929,7 +929,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			DWORD exitcode = 0;
 			CString error;
-			if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, exitcode, error))
+			if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error))
 			{
 				if (exitcode)
 				{
@@ -953,7 +953,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 				}
 			}
-			if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, exitcode, error))
+			if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
 			{
 				if (exitcode)
 				{

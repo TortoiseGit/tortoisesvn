@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - Stefan Kueng
+// Copyright (C) 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Hooks.h"
 #include "registry.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 
 CHooks* CHooks::m_pInstance;
@@ -199,45 +200,66 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, CString
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	exitcode = RunScript(sCmd, error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
-bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, DWORD& exitcode, CString& error)
+bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const CString& message, DWORD& exitcode, CString& error)
 {
 	hookiterator it = FindItem(pre_commit_hook, pathList);
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	CString sTemp;
 	sTemp.Format(_T("%d"), depth);
 	sCmd.Replace(_T("%DEPTH%"), sTemp);
+	if (sCmd.Find(_T("%MESSAGEFILE%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		CStringUtils::WriteStringToTextFile(temppath.GetWinPath(), (LPCTSTR)message);
+		sCmd.Replace(_T("%MESSAGEFILE%"), temppath.GetWinPathString());
+	}
 	exitcode = RunScript(sCmd, error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
-bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error)
+bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, const CString& message, DWORD& exitcode, CString& error)
 {
 	hookiterator it = FindItem(post_commit_hook, pathList);
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	CString sTemp;
 	sTemp.Format(_T("%d"), depth);
 	sCmd.Replace(_T("%DEPTH%"), sTemp);
 	sCmd.Replace(_T("%REVISION%"), rev.ToString());
+	if (sCmd.Find(_T("%MESSAGEFILE%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		CStringUtils::WriteStringToTextFile(temppath.GetWinPath(), (LPCTSTR)message);
+		sCmd.Replace(_T("%MESSAGEFILE%"), temppath.GetWinPathString());
+	}
 	exitcode = RunScript(sCmd, error, it->second.bWait, it->second.bShow);
 	return true;
 }
@@ -248,9 +270,12 @@ bool CHooks::StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, CString
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	exitcode = RunScript(sCmd, error, it->second.bWait, it->second.bShow);
 	return true;
@@ -262,9 +287,12 @@ bool CHooks::PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev 
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	CString sTemp;
 	sTemp.Format(_T("%d"), depth);
@@ -280,9 +308,12 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	if (it == end())
 		return false;
 	CString sCmd = it->second.commandline;
-	CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-	pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
-	sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	if (sCmd.Find(_T("%PATH%")) >= 0)
+	{
+		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
+		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	CString sTemp;
 	sTemp.Format(_T("%d"), depth);

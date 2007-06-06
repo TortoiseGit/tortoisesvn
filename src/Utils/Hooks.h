@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,7 +96,8 @@ public:
 	/**
 	 * Adds a new hook script. To make the change persistent, call Save().
 	 */
-	void				Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd, bool bWait, bool bShow);
+	void				Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd, 
+							bool bWait, bool bShow);
 
 	/// returns the string representation of the hook type.
 	static CString		GetHookTypeString(hooktype t);
@@ -114,12 +115,13 @@ public:
 	 * in \c pathList, separated by newlines. The hook script can parse this
 	 * file to get all the paths the update is about to be done on.
 	 */
-	bool				StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, CString& error);
+	bool				StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, 
+									CString& error);
 	/**
 	 * Executes the Pre-Update-Hook that first matches one of the paths in
 	 * \c pathList.
 	 * \param pathList a list of paths to look for the hook scripts
-	 * \param bRecursive set to true if the update is done recursively
+	 * \param depth the depth of the commit
 	 * \param rev the revision the update is done to
 	 * \param exitcode on return, contains the exit code of the hook script
 	 * \param error the data the hook script outputs to stderr
@@ -131,12 +133,13 @@ public:
 	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
 	 * the string representation of \c rev.
 	 */
-	bool				PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, 
+									SVNRev rev, DWORD& exitcode, CString& error);
 	/**
 	 * Executes the Post-Update-Hook that first matches one of the paths in
 	 * \c pathList.
 	 * \param pathList a list of paths to look for the hook scripts
-	 * \param bRecursive set to true if the update is done recursively
+	 * \param depth the depth of the commit
 	 * \param rev the revision the update was done to
 	 * \param exitcode on return, contains the exit code of the hook script
 	 * \param error the data the hook script outputs to stderr
@@ -148,7 +151,8 @@ public:
 	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
 	 * the string representation of \c rev.
 	 */
-	bool				PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, 
+									SVNRev rev, DWORD& exitcode, CString& error);
 
 	/**
 	 * Executes the Start-Commit-Hook that first matches one of the paths in
@@ -161,27 +165,33 @@ public:
 	 * in \c pathList, separated by newlines. The hook script can parse this
 	 * file to get all the paths the commit is about to be done on.
 	 */
-	bool				StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, CString& error);
+	bool				StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, 
+									CString& error);
 	/**
 	 * Executes the Pre-Commit-Hook that first matches one of the paths in
 	 * \c pathList.
 	 * \param pathList a list of paths to look for the hook scripts
-	 * \param bRecursive set to true if the commit is done recursively
+	 * \param depth the depth of the commit
+	 * \param message the commit message
 	 * \param exitcode on return, contains the exit code of the hook script
 	 * \param error the data the hook script outputs to stderr
 	 * \remark the string "%PATHS% in the command line of the hook script is 
 	 * replaced with the path to a temporary file which contains a list of files
 	 * in \c pathList, separated by newlines. The hook script can parse this
 	 * file to get all the paths the update is about to be done on.
-	 * The string "%RECURSIVE%" is replaced with either "recursive" or "nonrecursive" according
-	 * to the \c bRecursive parameter.
+	 * The string "%DEPTH%" is replaced with the numerical value (string) of the
+	 * svn_depth_t parameter. See the Subversion source documentation about the
+	 * values.
 	 */
-	bool				PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, DWORD& exitcode, CString& error);
+	bool				PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, 
+									const CString& message, DWORD& exitcode, 
+									CString& error);
 	/**
 	 * Executes the Post-Commit-Hook that first matches one of the paths in
 	 * \c pathList.
 	 * \param pathList a list of paths to look for the hook scripts
-	 * \param bRecursive set to true if the commit is done recursively
+	 * \param depth the depth of the commit
+	 * \param message the commit message
 	 * \param rev the revision the commit was done to
 	 * \param exitcode on return, contains the exit code of the hook script
 	 * \param error the data the hook script outputs to stderr
@@ -189,11 +199,13 @@ public:
 	 * replaced with the path to a temporary file which contains a list of files
 	 * in \c pathList, separated by newlines. The hook script can parse this
 	 * file to get all the paths the commit is about to be done on.
-	 * The string "%RECURSIVE%" is replaced with either "recursive" or "nonrecursive" according
-	 * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
-	 * the string representation of \c rev.
+	 * The string "%DEPTH%" is replaced with the numerical value (string) of the
+	 * svn_depth_t parameter. See the Subversion source documentation about the
+	 * values.
 	 */
-	bool				PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error);
+	bool				PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, 
+									SVNRev rev, const CString& message, 
+									DWORD& exitcode, CString& error);
 private:
 	/**
 	 * Starts a new process, specified in \c cmd.
