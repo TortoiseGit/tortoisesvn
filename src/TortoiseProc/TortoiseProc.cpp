@@ -403,7 +403,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
 			cmdLinePath.SetFromUnknown(sPathfileArgument);
-			if (pathList.LoadFromTemporaryFile(cmdLinePath)==false)
+			if (pathList.LoadFromFile(cmdLinePath)==false)
 				return FALSE;		// no path specified!
 			if ( parser.HasKey(_T("deletepathfile")) )
 			{

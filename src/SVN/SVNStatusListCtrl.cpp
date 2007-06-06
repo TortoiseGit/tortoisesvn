@@ -2513,7 +2513,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPathList targetList;
 						FillListOfSelectedItemPaths(targetList);
 						CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
-						VERIFY(targetList.WriteToTemporaryFile(tempFile.GetWinPathString()));
+						VERIFY(targetList.WriteToFile(tempFile.GetWinPathString()));
 						CString commandline = CPathUtils::GetAppDirectory();
 						commandline += _T("TortoiseProc.exe /command:commit /pathfile:\"");
 						commandline += tempFile.GetWinPathString();

@@ -203,7 +203,7 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, CString
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
@@ -220,7 +220,7 @@ bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const C
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
@@ -246,7 +246,7 @@ bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
@@ -273,7 +273,7 @@ bool CHooks::StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, CString
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
@@ -290,7 +290,7 @@ bool CHooks::PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev 
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
@@ -311,7 +311,7 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	if (sCmd.Find(_T("%PATH%")) >= 0)
 	{
 		CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-		pathList.WriteToTemporaryFile(temppath.GetWinPathString(), true);
+		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
