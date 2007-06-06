@@ -377,16 +377,15 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 	Call(SCI_STYLESETUNDERLINE, STYLE_UNDERLINED, (LPARAM)TRUE);
 }
 
-void CSciEdit::SetAutoCompletionList(const CAutoCompletionList& list, const TCHAR separator)
+void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator)
 {
 	//copy the autocompletion list.
 	
 	//SK: instead of creating a copy of that list, we could accept a pointer
 	//to the list and use that instead. But then the caller would have to make
 	//sure that the list persists over the lifetime of the control!
-	m_autolist.RemoveAll();
-	for (INT_PTR i=0; i<list.GetCount(); ++i)
-		m_autolist.Add(list[i]);
+	m_autolist.clear();
+	m_autolist = list;
 	m_separator = separator;
 }
 
@@ -435,7 +434,7 @@ void CSciEdit::CheckSpelling()
 			else
 				sWordA = CStringA(sWord);
 			// first check if the word is in our autocompletion list
-			if (((m_autolist.Find(sWord)<0)&&(!pChecker->spell(sWordA)))&&
+			if (((m_autolist.find(sWord) == m_autolist.end())&&(!pChecker->spell(sWordA)))&&
 				(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
 			{
 				//mark word as misspelled
@@ -488,7 +487,7 @@ void CSciEdit::SuggestSpellingAlternatives()
 
 void CSciEdit::DoAutoCompletion()
 {
-	if (m_autolist.GetCount()==0)
+	if (m_autolist.size()==0)
 		return;
 	if (Call(SCI_AUTOCACTIVE))
 		return;
@@ -500,14 +499,15 @@ void CSciEdit::DoAutoCompletion()
 		return;	//don't autocomplete if we're not at the end of a word
 	CString sAutoCompleteList;
 	
-	for (INT_PTR index = 0; index < m_autolist.GetCount(); ++index)
+	for (std::set<CString>::const_iterator lowerit = m_autolist.lower_bound(word);
+		lowerit != m_autolist.end(); ++lowerit)
 	{
-		int compare = word.CompareNoCase(m_autolist[index].Left(word.GetLength()));
+		int compare = word.CompareNoCase(lowerit->Left(word.GetLength()));
 		if (compare>0)
 			continue;
 		else if (compare == 0)
 		{
-			sAutoCompleteList += m_autolist[index] + m_separator;
+			sAutoCompleteList += *lowerit + m_separator;
 		}
 		else
 		{
@@ -680,7 +680,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 		// also allow the user to add the word to the custom dictionary so
 		// it won't show up as misspelled anymore
-		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
+		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.find(sWord) == m_autolist.end())&&(!pChecker->spell(worda)))&&
 			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
 		{
 			sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
@@ -1151,52 +1151,4 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	return FALSE;
 }
 
-//////////////////////////////////////////////////////////////////////////
 
-void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= true*/)
-{
-	if (elem.IsEmpty())
-		return;
-	if (GetCount()==0)
-		return InsertAt(0, elem);
-	
-	int nMin = 0;
-	int nMax = GetUpperBound();
-	while (nMin <= nMax)
-	{
-		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast divide by 2
-		int cmp = elem.CompareNoCase(GetAt(nHit));
-
-		if (cmp > 0)
-			nMin = nHit + 1;
-		else if (cmp < 0)
-			nMax = nHit - 1;
-		else if (bNoDuplicates)
-			return; // already in the array
-	}
-	return InsertAt(nMin, elem);
-}
-
-INT_PTR CAutoCompletionList::Find(const CString& elem)
-{
-	if (elem.IsEmpty())
-		return -1;
-	if (GetCount()==0)
-		return -1;
-
-	int nMin = 0;
-	int nMax = GetUpperBound();
-	while (nMin <= nMax)
-	{
-		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast divide by 2
-		int cmp = elem.CompareNoCase(GetAt(nHit));
-
-		if (cmp > 0)
-			nMin = nHit + 1;
-		else if (cmp < 0)
-			nMax = nHit - 1;
-		else
-			return nMin;
-	}
-	return -1;
-}

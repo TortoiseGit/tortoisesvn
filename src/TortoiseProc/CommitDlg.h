@@ -106,7 +106,7 @@ public:
 
 private:
 	CWinThread*			m_pThread;
-	CAutoCompletionList	m_autolist;
+	std::set<CString>	m_autolist;
 	CSVNStatusListCtrl	m_ListCtrl;
 	BOOL				m_bShowUnversioned;
 	volatile LONG		m_bBlock;

@@ -517,7 +517,7 @@ UINT CCommitDlg::StatusThread()
 	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
 
-	m_autolist.RemoveAll();
+	m_autolist.clear();
 	// we don't have to block the commit dialog while we fetch the
 	// auto completion list.
 	InterlockedExchange(&m_bBlock, FALSE);
@@ -840,12 +840,12 @@ void CCommitDlg::GetAutocompletionList()
 			// add the path parts to the autocompletion list too
 			CString sPartPath = entry->GetRelativeSVNPath();
 			ATLTRACE(_T("parse file %s for autocompletion\n"), (LPCTSTR)sPartPath);
-			m_autolist.AddSorted(sPartPath);
+			m_autolist.insert(sPartPath);
 			int pos = 0;
 			while ((pos = sPartPath.Find('/', pos)) >= 0)
 			{
 				pos++;
-				m_autolist.AddSorted(sPartPath.Mid(pos));
+				m_autolist.insert(sPartPath.Mid(pos));
 			}
 			if (entry->IsChecked())
 			{
@@ -922,7 +922,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 			{
 				for (size_t i=1; i<results.cbackrefs(); ++i)
 				{
-					m_autolist.AddSorted((LPCTSTR)results.backref(i).str().c_str());
+					m_autolist.insert((LPCTSTR)results.backref(i).str().c_str());
 					ATLTRACE("group %d is \"%ws\"\n", i, results.backref(i).str().c_str());
 				}
 				offset += results.rstart(0);

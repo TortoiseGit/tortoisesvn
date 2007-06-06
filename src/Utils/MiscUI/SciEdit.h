@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,19 +26,6 @@
 
 //forward declaration
 class CSciEdit;
-
-/**
- * \ingroup Utils
- * Helper class which extends the MFC CStringArray class. The only method added
- * to that class is AddSorted() which adds a new element in a sorted order.
- * That way the array is kept sorted.
- */
-class CAutoCompletionList : public CStringArray
-{
-public:
-	void		AddSorted(const CString& elem, bool bNoDuplicates = true);
-	INT_PTR		Find(const CString& elem);
-};
 
 /**
  * \ingroup Utils
@@ -111,7 +98,7 @@ public:
 	/**
 	 * Adds a list of words for use in autocompletion.
 	 */
-	void		SetAutoCompletionList(const CAutoCompletionList& list, const TCHAR separator = ';');
+	void		SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator = ';');
 	/**
 	 * Returns the word located under the cursor.
 	 */
@@ -129,7 +116,7 @@ private:
 	MySpell *	pChecker;
 	MyThes *	pThesaur;
 	UINT		m_spellcodepage;
-	CAutoCompletionList m_autolist;
+	std::set<CString> m_autolist;
 	TCHAR		m_separator;
 	CString		m_sCommand;
 	CString		m_sBugID;
