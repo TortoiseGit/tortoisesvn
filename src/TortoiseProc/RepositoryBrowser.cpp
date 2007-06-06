@@ -1970,61 +1970,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_SAVEAS:
 			{
-				bool bSavePathOK = false;
 				CTSVNPath tempfile;
-				if (urlList.GetCount() == 1)
-				{
-					OPENFILENAME ofn;		// common dialog box structure
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
-					CString filename = m_path.GetFileOrDirectoryName();
-					_tcscpy_s(szFile, MAX_PATH, filename);
-					// Initialize OPENFILENAME
-					ofn.lStructSize = sizeof(OPENFILENAME);
-					ofn.hwndOwner = this->m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					CString temp;
-					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					CStringUtils::RemoveAccelerators(temp);
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT;
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-					// Replace '|' delimiters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
-					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					}
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					bSavePathOK = (GetSaveFileName(&ofn)==TRUE);
-					if (bSavePathOK)
-						tempfile.SetFromWin(ofn.lpstrFile);
-					delete [] pszFilters;
-				}
-				else
-				{
-					CBrowseFolder browser;
-					CString sTempfile;
-					browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-					browser.Show(GetSafeHwnd(), sTempfile);
-					if (!sTempfile.IsEmpty())
-					{
-						bSavePathOK = true;
-						tempfile.SetFromWin(sTempfile);
-					}
-				}
+				bool bSavePathOK = AskForSavePath(urlList, tempfile);
 				if (bSavePathOK)
 				{
 					CWaitCursorEx wait_cursor;
@@ -2459,61 +2406,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_COPYTOWC:
 			{
-				bool bSavePathOK = false;
 				CTSVNPath tempfile;
-				if (urlList.GetCount() == 1)
-				{
-					OPENFILENAME ofn;		// common dialog box structure
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
-					CString filename = m_path.GetFileOrDirectoryName();
-					_tcscpy_s(szFile, MAX_PATH, filename);
-					// Initialize OPENFILENAME
-					ofn.lStructSize = sizeof(OPENFILENAME);
-					ofn.hwndOwner = this->m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					CString temp;
-					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					CStringUtils::RemoveAccelerators(temp);
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT;
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-					// Replace '|' delimiters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
-					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					}
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					bSavePathOK = (GetSaveFileName(&ofn)==TRUE);
-					if (bSavePathOK)
-						tempfile.SetFromWin(ofn.lpstrFile);
-					delete [] pszFilters;
-				}
-				else
-				{
-					CBrowseFolder browser;
-					CString sTempfile;
-					browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-					browser.Show(GetSafeHwnd(), sTempfile);
-					if (!sTempfile.IsEmpty())
-					{
-						bSavePathOK = true;
-						tempfile.SetFromWin(sTempfile);
-					}
-				}
+				bool bSavePathOK = AskForSavePath(urlList, tempfile);
 				if (bSavePathOK)
 				{
 					CWaitCursorEx wait_cursor;
@@ -2660,4 +2554,62 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 }
 
 
+bool CRepositoryBrowser::AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile)
+{
+	bool bSavePathOK = false;
+	if (urlList.GetCount() == 1)
+	{
+		OPENFILENAME ofn;		// common dialog box structure
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		CString filename = m_path.GetFileOrDirectoryName();
+		_tcscpy_s(szFile, MAX_PATH, filename);
+		// Initialize OPENFILENAME
+		ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.hwndOwner = this->m_hWnd;
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		CString temp;
+		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+		CStringUtils::RemoveAccelerators(temp);
+		if (temp.IsEmpty())
+			ofn.lpstrTitle = NULL;
+		else
+			ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_OVERWRITEPROMPT;
+
+		CString sFilter;
+		sFilter.LoadString(IDS_COMMONFILEFILTER);
+		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+		// Replace '|' delimiters with '\0's
+		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+		while (ptr != pszFilters)
+		{
+			if (*ptr == '|')
+				*ptr = '\0';
+			ptr--;
+		}
+		ofn.lpstrFilter = pszFilters;
+		ofn.nFilterIndex = 1;
+		// Display the Open dialog box. 
+		bSavePathOK = (GetSaveFileName(&ofn)==TRUE);
+		if (bSavePathOK)
+			tempfile.SetFromWin(ofn.lpstrFile);
+		delete [] pszFilters;
+	}
+	else
+	{
+		CBrowseFolder browser;
+		CString sTempfile;
+		browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+		browser.Show(GetSafeHwnd(), sTempfile);
+		if (!sTempfile.IsEmpty())
+		{
+			bSavePathOK = true;
+			tempfile.SetFromWin(sTempfile);
+		}
+	}
+	return bSavePathOK;
+}
 

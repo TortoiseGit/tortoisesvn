@@ -228,6 +228,8 @@ protected:
 	/// Sets a background icon for the list view
 	bool SetBackgroundImage(UINT nID);
 
+	bool AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile);
+
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "MyGraph.h"
 #include "XPImageButton.h"
 #include "TSVNPath.h"
+#include "UnicodeUtils.h"
 
 /**
  * \ingroup TortoiseProc
@@ -99,6 +100,11 @@ protected:
 
 	void		ShowLabels(BOOL bShow);
 	void		RedrawGraph();
+	void		CountCommits(std::map<stdstring, LONG> &authors, 
+								std::map<stdstring, LONG> &AuthorCommits, 
+								std::map<stdstring, LONG> &AuthorCommitsMin, 
+								std::map<stdstring, LONG> &AuthorCommitsMax, 
+								std::map<stdstring, LONG> &authorcommits);
 
 	enum UnitType
 	{
@@ -112,6 +118,7 @@ protected:
 	int			GetUnit(const CTime& time);
 	CStatGraphDlg::UnitType	GetUnitType();
 	CString		GetUnitString();
+	CString		GetUnitLabel(int unit, CTime &lasttime);
 
 	void		EnableDisableMenu();
 
