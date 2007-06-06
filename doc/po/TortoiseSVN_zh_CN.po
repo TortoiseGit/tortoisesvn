@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-06-02 22:07 +0000\n"
-"PO-Revision-Date: 2007-06-04 11:30+0800\n"
+"PO-Revision-Date: 2007-06-04 18:33+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2238,7 +2238,7 @@ msgstr "创建版本库"
 
 #: source/TortoiseSVN_en.xml:2908(para)
 msgid "You can create a repository with the FSFS backend or with the old but stable Berkeley Database (BDB) format. The FSFS format is faster and it now works on network shares and Windows 98 without problems. The BDB format is more stable because it has been tested longer. Read <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.html\"><citetitle>Repository Data Stores</citetitle></ulink> in the Subversion book for more information."
-msgstr "你可以使用FSFS或较老但更稳定的Berkeley Database(BDB)作为版本库的后端，FSFS格式更快一点，而且可以正常运行在Windows 98，BDB格式更加的稳定，因为其经过了更长时间的验证。《使用 Subversion 进行版本管理》中的<ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.html\"><citetitle>版本库数据存储</citetitle></ulink>有更多细节。"
+msgstr "你可以使用 FSFS 或较老但更稳定的 Berkeley Database(BDB) 作为版本库的后端，FSFS 格式更快一点，而且可以正常运行在 Windows 98，BDB 格式更加的稳定，因为其经过了更长时间的验证。《使用 Subversion 进行版本管理》中的<ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.html\"><citetitle>版本库数据存储</citetitle></ulink>有更多细节。"
 
 #: source/TortoiseSVN_en.xml:2920(title)
 msgid "Creating a Repository with the Command Line Client"
@@ -3508,7 +3508,7 @@ msgstr "未修改和未受控的项。"
 
 #: source/TortoiseSVN_en.xml:4769(para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr "对话框使用颜色代码来高亮显示状态。"
+msgstr "对话框使用颜色代码来高亮显示状态。 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:4841(para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
@@ -3977,7 +3977,7 @@ msgstr "作者提交次数统计饼图"
 
 #: source/TortoiseSVN_en.xml:5546(para)
 msgid "<placeholder-1/> This graph shows you which authors have been active on the project as a simple histogram, stacked histogram or pie chart. <placeholder-2/>"
-msgstr "<placeholder-1/>此图用简单柱状图、叠加柱状图或饼图显示了哪些作者已经在项目中活跃了。"
+msgstr "<placeholder-1/>此图用简单柱状图、叠加柱状图或饼图显示了哪些作者已经在项目中活跃了。 <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:5559(para)
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a per centage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
@@ -5926,7 +5926,7 @@ msgstr "如果你不熟悉正则表达式，可以看一下<ulink url=\"http://w
 
 #: source/TortoiseSVN_en.xml:8773(para)
 msgid "In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr "在使用<literal>正则表达式</literal>的方法中，TortoiseSVN不会显示一个单独的输入框，而是标记用户输入的日志信息，认为这些标志可以被问题追踪工具识别。这是在用户编写日志信息的时候完成的，这也意味着bug ID可以出现在日志信息的任何位置！这种方法非常灵活，也是TortoiseSVN项目本身使用的方法。"
+msgstr "在使用<literal>正则表达式</literal>的方法中，TortoiseSVN不会显示一个单独的输入框，而是标记用户输入的日志信息，认为这些标志可以被问题追踪工具识别。这是在用户编写日志信息的时候完成的，这也意味着bug ID可以出现在日志信息的任何位置！这种方法非常灵活，也是TortoiseSVN项目本身使用的方法。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:8821(para)
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
@@ -7814,7 +7814,7 @@ msgstr "<option>/closeonend:4</option>如果没有错误、冲突和合并，会
 
 #: source/TortoiseSVN_en.xml:11505(para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
-msgstr "如果想在进度对话框执行完毕后自动关闭，而又不必设置永久性的参数，可以传递<option>/closeonend</option>参数。"
+msgstr "如果想在进度对话框执行完毕后自动关闭，而又不必设置永久性的参数，可以传递<option>/closeonend</option>参数。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:11538(para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
