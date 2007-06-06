@@ -754,6 +754,45 @@ LRESULT CCommitDlg::OnAutoListReady(WPARAM, LPARAM)
 // functions which run in the status thread
 //////////////////////////////////////////////////////////////////////////
 
+void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, RegexData>& mapRegex)
+{
+	CString strLine;
+	try
+	{
+		CStdioFile file(sFile, CFile::typeText | CFile::modeRead);
+		while (m_bRunThread && file.ReadString(strLine))
+		{
+			int eqpos = strLine.Find('=');
+			RegexData rdata;
+			rdata.regex = strLine.Mid(eqpos+1).Trim();
+			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
+			rdata.flags = NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("SINGLELINE"))>=0 ? SINGLELINE : NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("RIGHTMOST"))>=0 ? RIGHTMOST : NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("NORMALIZE"))>=0 ? NORMALIZE : NOFLAGS;
+			rdata.flags |= sFlags.Find(_T("NOCASE"))>=0 ? NOCASE : NOFLAGS;
+
+			if (!sFlags.IsEmpty())
+				strLine = strLine.Mid(strLine.Find(')')+1).Trim();
+			int pos = -1;
+			while (((pos = strLine.Find(','))>=0)&&(pos < eqpos))
+			{
+				mapRegex[strLine.Left(pos)] = rdata;
+				strLine = strLine.Mid(pos+1).Trim();
+			}
+			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = rdata;
+		}
+		file.Close();
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException loading autolist regex file\n");
+		pE->Delete();
+		return;
+	}
+}
 void CCommitDlg::GetAutocompletionList()
 {
 	// the autocompletion list is made of strings from each selected files.
@@ -765,122 +804,64 @@ void CCommitDlg::GetAutocompletionList()
 	// (MULTILINE|NOCASE) .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
-	CMapStringToString mapRegex;
+	std::map<CString, RegexData> mapRegex;
 	CString sRegexFile = CPathUtils::GetAppDirectory();
 	CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	DWORD timeoutvalue = regtimeout*1000;
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
-	REGEX_FLAGS rflags = NOFLAGS;
-	try
+	ATLTRACE("start parsing regex file for autocompletion\n");
+	ParseRegexFile(sRegexFile, mapRegex);
+	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, sRegexFile.GetBuffer(MAX_PATH+1));
+	sRegexFile.ReleaseBuffer();
+	sRegexFile += _T("\\TortoiseSVN\\autolist.txt");
+	if (PathFileExists(sRegexFile))
 	{
-		ATLTRACE("start parsing regex file for autocompletion\n");
-		CString strLine;
-		CStdioFile file(sRegexFile, CFile::typeText | CFile::modeRead);
-		while (m_bRunThread && file.ReadString(strLine))
-		{
-			int eqpos = strLine.Find('=');
-			CString sRegex = strLine.Mid(eqpos+1).Trim();
-			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
-			rflags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
-			rflags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
-			rflags |= sFlags.Find(_T("SINGLELINE"))>=0 ? SINGLELINE : NOFLAGS;
-			rflags |= sFlags.Find(_T("RIGHTMOST"))>=0 ? RIGHTMOST : NOFLAGS;
-			rflags |= sFlags.Find(_T("NORMALIZE"))>=0 ? NORMALIZE : NOFLAGS;
-			rflags |= sFlags.Find(_T("NOCASE"))>=0 ? NOCASE : NOFLAGS;
-				
-			if (!sFlags.IsEmpty())
-				strLine = strLine.Mid(strLine.Find(')')+1).Trim();
-			int pos = -1;
-			while (((pos = strLine.Find(','))>=0)&&(pos < eqpos))
-			{
-				mapRegex[strLine.Left(pos)] = sRegex;
-				strLine = strLine.Mid(pos+1).Trim();
-			}
-			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = sRegex;
-		}
-		file.Close();
-		SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, sRegexFile.GetBuffer(MAX_PATH+1));
-		sRegexFile.ReleaseBuffer();
-		sRegexFile += _T("\\TortoiseSVN\\autolist.txt");
-		if (PathFileExists(sRegexFile))
-		{
-			CStdioFile file2(sRegexFile, CFile::typeText | CFile::modeRead);
-			while (m_bRunThread && file2.ReadString(strLine))
-			{
-				int eqpos = strLine.Find('=');
-				CString sRegex = strLine.Mid(eqpos+1).Trim();
-				CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
-				rflags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
-				rflags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
-				rflags |= sFlags.Find(_T("SINGLELINE"))>=0 ? SINGLELINE : NOFLAGS;
-				rflags |= sFlags.Find(_T("RIGHTMOST"))>=0 ? RIGHTMOST : NOFLAGS;
-				rflags |= sFlags.Find(_T("NORMALIZE"))>=0 ? NORMALIZE : NOFLAGS;
-				rflags |= sFlags.Find(_T("NOCASE"))>=0 ? NOCASE : NOFLAGS;
-
-				if (!sFlags.IsEmpty())
-					strLine = strLine.Mid(strLine.Find(')')+1).Trim();
-				int pos = -1;
-				while (((pos = strLine.Find(','))>=0)&&(pos < eqpos))
-				{
-					mapRegex[strLine.Left(pos)] = sRegex;
-					strLine = strLine.Mid(pos+1).Trim();
-				}
-				mapRegex[strLine.Left(strLine.Find('=')).Trim()] = sRegex;
-			}
-			file2.Close();
-		}
-		DWORD timeout = GetTickCount()+timeoutvalue;		// stop parsing after timeout
-		
-		// now we have two arrays of strings, where the first array contains all
-		// file extensions we can use and the second the corresponding regex strings
-		// to apply to those files.
-		
-		// the next step is to go over all files shown in the commit dialog
-		// and scan them for strings we can use
-		int nListItems = m_ListCtrl.GetItemCount();
-
-		for (int i=0; i<nListItems; ++i)
-		{
-			if ((!m_bRunThread)||(GetTickCount()>timeout))
-				return;
-			const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
-			if (entry)
-			{
-				// add the path parts to the autocompletion list too
-				CString sPartPath = entry->GetRelativeSVNPath();
-				ATLTRACE(_T("parse file %s for autocompletion\n"), (LPCTSTR)sPartPath);
-				m_autolist.AddSorted(sPartPath);
-				int pos = 0;
-				while ((pos = sPartPath.Find('/', pos)) >= 0)
-				{
-					pos++;
-					m_autolist.AddSorted(sPartPath.Mid(pos));
-				}
-				if (entry->IsChecked())
-				{
-					CString sExt = entry->GetPath().GetFileExtension();
-					sExt.MakeLower();
-					CString sRegex;
-					// find the regex string which corresponds to the file extension
-					sRegex = mapRegex[sExt];
-					if (!sRegex.IsEmpty())
-					{
-						ScanFile(entry->GetPath().GetWinPathString(), sRegex, rflags);
-						CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
-						if (!basePath.IsEmpty())
-							ScanFile(basePath.GetWinPathString(), sRegex, rflags);
-					}
-				}
-			}
-		}
+		ParseRegexFile(sRegexFile, mapRegex);
 	}
-	catch (CFileException* pE)
+	DWORD timeout = GetTickCount()+timeoutvalue;		// stop parsing after timeout
+
+	// now we have two arrays of strings, where the first array contains all
+	// file extensions we can use and the second the corresponding regex strings
+	// to apply to those files.
+
+	// the next step is to go over all files shown in the commit dialog
+	// and scan them for strings we can use
+	int nListItems = m_ListCtrl.GetItemCount();
+
+	for (int i=0; i<nListItems; ++i)
 	{
-		TRACE("CFileException loading autolist regex file\n");
-		pE->Delete();
-		return;
+		if ((!m_bRunThread)||(GetTickCount()>timeout))
+			return;
+		const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+		if (entry)
+		{
+			// add the path parts to the autocompletion list too
+			CString sPartPath = entry->GetRelativeSVNPath();
+			ATLTRACE(_T("parse file %s for autocompletion\n"), (LPCTSTR)sPartPath);
+			m_autolist.AddSorted(sPartPath);
+			int pos = 0;
+			while ((pos = sPartPath.Find('/', pos)) >= 0)
+			{
+				pos++;
+				m_autolist.AddSorted(sPartPath.Mid(pos));
+			}
+			if (entry->IsChecked())
+			{
+				CString sExt = entry->GetPath().GetFileExtension();
+				sExt.MakeLower();
+				// find the regex string which corresponds to the file extension
+				RegexData rdata = mapRegex[sExt];
+				if (!rdata.regex.IsEmpty())
+				{
+					ScanFile(entry->GetPath().GetWinPathString(), rdata.regex, rdata.flags);
+					CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+					if (!basePath.IsEmpty())
+						ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
+				}
+			}
+		}
 	}
 }
 

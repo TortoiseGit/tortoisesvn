@@ -32,6 +32,12 @@
 #define REFRESHTIMER   101
 
 
+typedef struct RegexData
+{
+	CString regex;
+	REGEX_FLAGS flags;
+} RegexData;
+
 /**
  * \ingroup TortoiseProc
  * Dialog to enter log messages used in a commit.
@@ -81,6 +87,7 @@ protected:
 	void DoSize(int delta);
 	void SetSplitterRange();
 	void SaveSplitterPos();
+	void ParseRegexFile(const CString& sFile, std::map<CString, RegexData>& mapRegex);
 
 	DECLARE_MESSAGE_MAP()
 
