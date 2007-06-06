@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
+#include "UnicodeUtils.h"
 #include "stringutils.h"
 
 int strwildcmp(const char *wild, const char *string)
@@ -306,6 +307,35 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 }
 
 #endif // #ifdef _MFC_VER
+
+bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 /* = true */)
+{
+	DWORD dwWritten = 0;
+	HANDLE hFile = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hFile == INVALID_HANDLE_VALUE)
+		return false;
+
+	if (bUTF8)
+	{
+		std::string buf = CUnicodeUtils::StdGetUTF8(text);
+		if (!WriteFile(hFile, buf.c_str(), buf.length(), &dwWritten, NULL))
+		{
+			CloseHandle(hFile);
+			return false;
+		}
+	}
+	else
+	{
+		if (!WriteFile(hFile, text.c_str(), text.length(), &dwWritten, NULL))
+		{
+			CloseHandle(hFile);
+			return false;
+		}
+	}
+	CloseHandle(hFile);
+	return true;
+}
+
 
 
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))

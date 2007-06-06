@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,6 +75,12 @@ public:
 	static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
 
 #endif
+
+	/**
+	 * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
+	 * depending on the \c bUTF8 param.
+	 */
+	static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
 
 	/**
 	 * Compares strings while trying to parse numbers in it too.
