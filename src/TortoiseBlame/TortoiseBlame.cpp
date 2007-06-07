@@ -450,7 +450,7 @@ bool TortoiseBlame::GotoLine(long line)
 	// Highlight the line
 	int nPosStart = SendEditor(SCI_POSITIONFROMLINE,line);
 	int nPosEnd = SendEditor(SCI_GETLINEENDPOSITION,line);
-	SendEditor(SCI_SETSEL,nPosStart,nPosEnd);
+	SendEditor(SCI_SETSEL,nPosEnd,nPosStart);
 
 	return true;
 }
