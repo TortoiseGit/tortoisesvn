@@ -19,8 +19,8 @@
 #pragma once
 #include "scintilla.h"
 #include "SciLexer.h"
-#include "myspell\\myspell.hxx"
-#include "myspell\\mythes.hxx"
+#include "hunspell\\hunspell.hxx"
+#include "hunspell\\mythes.hxx"
 #include "ProjectProperties.h"
 #include "PersonalDictionary.h"
 
@@ -113,7 +113,7 @@ private:
 	HMODULE		m_hModule;
 	LRESULT		m_DirectFunction;
 	LRESULT		m_DirectPointer;
-	MySpell *	pChecker;
+	Hunspell *	pChecker;
 	MyThes *	pThesaur;
 	UINT		m_spellcodepage;
 	std::set<CString> m_autolist;

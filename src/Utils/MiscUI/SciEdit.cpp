@@ -198,27 +198,27 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 		if ((PathFileExists(sFolder + sFile + _T(".aff"))) &&
 			(PathFileExists(sFolder + sFile + _T(".dic"))))
 		{
-			pChecker = new MySpell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
+			pChecker = new Hunspell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
 		}
 		else if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
 			(PathFileExists(sFolder + _T("dic\\") + sFile + _T(".dic"))))
 		{
-			pChecker = new MySpell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
+			pChecker = new Hunspell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
 		}
 		else if ((PathFileExists(sFolderUp + sFile + _T(".aff"))) &&
 			(PathFileExists(sFolderUp + sFile + _T(".dic"))))
 		{
-			pChecker = new MySpell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
+			pChecker = new Hunspell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
 		}
 		else if ((PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".aff"))) &&
 			(PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".dic"))))
 		{
-			pChecker = new MySpell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
+			pChecker = new Hunspell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
 		}
 		else if ((PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".aff"))) &&
 			(PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".dic"))))
 		{
-			pChecker = new MySpell(CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".dic")));
+			pChecker = new Hunspell(CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".dic")));
 		}
 	}
 #if THESAURUS

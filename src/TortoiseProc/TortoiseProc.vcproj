@@ -892,10 +892,10 @@
 				Name="3rd Party"
 				>
 				<Filter
-					Name="myspell"
+					Name="hunspell"
 					>
 					<File
-						RelativePath="..\Utils\myspell\affentry.cxx"
+						RelativePath="..\Utils\hunspell\affentry.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -904,6 +904,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -913,6 +914,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -922,6 +924,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -931,15 +934,16 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\affentry.hxx"
+						RelativePath="..\Utils\hunspell\affentry.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\affixmgr.cxx"
+						RelativePath="..\Utils\hunspell\affixmgr.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -948,6 +952,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -957,6 +962,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -966,6 +972,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -975,23 +982,24 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\affixmgr.hxx"
+						RelativePath="..\Utils\hunspell\affixmgr.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\atypes.hxx"
+						RelativePath="..\Utils\hunspell\atypes.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\baseaffix.hxx"
+						RelativePath="..\Utils\hunspell\baseaffix.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\csutil.cxx"
+						RelativePath="..\Utils\hunspell\csutil.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1000,6 +1008,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1009,6 +1018,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1018,6 +1028,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1027,15 +1038,16 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\csutil.hxx"
+						RelativePath="..\Utils\hunspell\csutil.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\dictmgr.cxx"
+						RelativePath="..\Utils\hunspell\dictmgr.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1044,6 +1056,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1053,6 +1066,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1062,6 +1076,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1071,15 +1086,16 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\dictmgr.hxx"
+						RelativePath="..\Utils\hunspell\dictmgr.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\example.cxx"
+						RelativePath="..\Utils\hunspell\hashmgr.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1088,6 +1104,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1097,6 +1114,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1106,6 +1124,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1115,11 +1134,20 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\hashmgr.cxx"
+						RelativePath="..\Utils\hunspell\hashmgr.hxx"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\hunspell\htypes.hxx"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\hunspell\hunspell.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1128,6 +1156,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1137,6 +1166,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1146,6 +1176,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1155,19 +1186,24 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\hashmgr.hxx"
+						RelativePath="..\Utils\hunspell\hunspell.h"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\htypes.hxx"
+						RelativePath="..\Utils\hunspell\hunspell.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\myspell.cxx"
+						RelativePath="..\Utils\hunspell\langnum.hxx"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\hunspell\mythes.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1176,6 +1212,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1185,6 +1222,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1194,6 +1232,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1203,15 +1242,16 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\myspell.hxx"
+						RelativePath="..\Utils\hunspell\mythes.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\mythes.cxx"
+						RelativePath="..\Utils\hunspell\suggestmgr.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1220,6 +1260,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1229,6 +1270,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1238,6 +1280,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1247,15 +1290,16 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\mythes.hxx"
+						RelativePath="..\Utils\hunspell\suggestmgr.hxx"
 						>
 					</File>
 					<File
-						RelativePath="..\Utils\myspell\suggestmgr.cxx"
+						RelativePath="..\Utils\hunspell\utf_info.cxx"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -1264,6 +1308,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1273,6 +1318,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1282,6 +1328,7 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
 						<FileConfiguration
@@ -1291,12 +1338,9 @@
 								Name="VCCLCompilerTool"
 								PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 								UsePrecompiledHeader="0"
+								WarningLevel="3"
 							/>
 						</FileConfiguration>
-					</File>
-					<File
-						RelativePath="..\Utils\myspell\suggestmgr.hxx"
-						>
 					</File>
 				</Filter>
 				<Filter
