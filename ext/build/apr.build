@@ -21,23 +21,8 @@
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
-		<if test="${platform == 'x64'}">
-			<copy file="..\build\open.c" tofile="file_io\win32\open.c" overwrite="true" />
-			<copy file="..\build\readwrite.c" tofile="file_io\win32\readwrite.c" overwrite="true" />
-			<copy file="..\build\sendrecv.c" tofile="network_io\win32\sendrecv.c" overwrite="true" />
-		</if>
-		<loadfile file="include\apr_version.h" property="versionfile" />
-		<regex pattern="#define APR_MAJOR_VERSION( )+(?'APR_MAJOR_VERSION'\d+)" input="${versionfile}" />
-		<regex pattern="#define APR_MINOR_VERSION[ ]+(?'APR_MINOR_VERSION'\d+)" input="${versionfile}" />
-		<regex pattern="#define APR_PATCH_VERSION[ ]+(?'APR_PATCH_VERSION'\d+)" input="${versionfile}" />
-		<loadfile file="libapr.rc" property="rcfile">
-			<filterchain>
-				<replacestring from="0,0,0" to="${APR_MAJOR_VERSION},${APR_MINOR_VERSION},${APR_PATCH_VERSION}" />
-				<replacestring from="0.0.0" to="${APR_MAJOR_VERSION},${APR_MINOR_VERSION},${APR_PATCH_VERSION}" />
-			</filterchain>
-		</loadfile>
-		<echo file="libaprver.rc" message="${rcfile}" />
-		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr_tsvn.res">
+		<copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
+		<rc rcfile="libapr.rc" output="${configuration}_${platform}\libapr_tsvn.res">
 			<includedirs>
 				<include name="include" />
 			</includedirs>
@@ -58,6 +43,7 @@
 			<arg value="/Zi" />
 			<arg value="/errorReport:prompt" />
 			<sources>
+				<include name="atomic\win32\apr_atomic.c" />
 				<include name="dso\win32\dso.c" />
 				<include name="file_io\win32\*.c" />
 				<include name="file_io\unix\copy.c" />
@@ -81,7 +67,7 @@
 				<include name="network_io\unix\inet_pton.c" />
 				<include name="network_io\unix\sockaddr.c" />
 				<include name="passwd\*.c" />
-				<include name="poll\unix\*.c" />
+				<include name="poll\unix\select.c" />
 				<include name="shmem\win32\*.c" />
 				<include name="strings\*.c" />
 				<include name="tables\*.c" />
@@ -92,8 +78,7 @@
 			<includedirs>
 				<include name="include" />
 				<include name="include\arch" />
-				<include name="include\arch\win32" />
-			</includedirs>
+				<include name="include\arch\win32" />			</includedirs>
 			<defines>
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" />
@@ -121,14 +106,7 @@
 			<arg value=".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\libapr_tsvn.dll;#2"' />
 		</exec>
-		<if test="${platform == 'x64'}">
-			<exec program="svn" failonerror="false">
-				<arg value="revert" />
-				<arg value="file_io\win32\open.c" />
-				<arg value="file_io\win32\readwrite.c" />
-				<arg value="network_io\win32\sendrecv.c" />
-			</exec>
-		</if>
+		<delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
 	</target>
 
 </project>
