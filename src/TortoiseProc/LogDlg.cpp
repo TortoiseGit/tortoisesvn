@@ -2772,15 +2772,25 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 	if (m_bAscendingPathList)
 		std::swap (cpath1, cpath2);
 
+	int cmp = 0;
 	switch (m_nSortColumnPathList)
 	{
-	case 0:		// action
-			return cpath2->GetAction().Compare(cpath1->GetAction());
-	case 1:		// path
-			return cpath2->sPath.CompareNoCase(cpath1->sPath);
-	case 2:		// copyfrom path
-			return cpath2->sCopyFromPath.Compare(cpath1->sCopyFromPath);
-	case 3:		// copyfrom revision
+	case 0:	// action
+			cmp = cpath2->GetAction().Compare(cpath1->GetAction());
+			if (cmp)
+				return cmp;
+			// fall through
+	case 1:	// path
+			cmp = cpath2->sPath.CompareNoCase(cpath1->sPath);
+			if (cmp)
+				return cmp;
+			// fall through
+	case 2:	// copyfrom path
+			cmp = cpath2->sCopyFromPath.Compare(cpath1->sCopyFromPath);
+			if (cmp)
+				return cmp;
+			// fall through
+	case 3:	// copyfrom revision
 			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
 	}
 	return 0;
