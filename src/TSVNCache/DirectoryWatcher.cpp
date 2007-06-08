@@ -214,7 +214,7 @@ void CDirectoryWatcher::WorkerThread()
 	DWORD numBytes;
 	CDirWatchInfo * pdi = NULL;
 	LPOVERLAPPED lpOverlapped;
-	WCHAR buf[MAX_PATH*4] = {0};
+	WCHAR buf[READ_DIR_CHANGE_BUFFER_SIZE] = {0};
 	WCHAR * pFound = NULL;
 	while (m_bRunning)
 	{
@@ -330,39 +330,24 @@ void CDirectoryWatcher::WorkerThread()
 					do 
 					{
 						nOffset = pnotify->NextEntryOffset;
-						//switch (pnotify->Action)
-						//{
-						//case FILE_ACTION_RENAMED_OLD_NAME:
-						//	{
-						//		pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-						//		if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-						//			break;
-						//		continue;
-						//	}
-						//	break;
-						//}
-						ZeroMemory(buf, MAX_PATH*4*sizeof(TCHAR));
-						_tcsncpy_s(buf, MAX_PATH*4, pdi->m_DirPath, MAX_PATH*4);
-						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), (MAX_PATH*4)-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
+						if (pnotify->FileNameLength >= READ_DIR_CHANGE_BUFFER_SIZE)
+							continue;
+						ZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
+						_tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
+						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
 						if (err == STRUNCATE)
 						{
 							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 							continue;
 						}
-						buf[min(MAX_PATH*4-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
+						buf[READ_DIR_CHANGE_BUFFER_SIZE-1] = 0;
 						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 						if (m_FolderCrawler)
 						{
 							if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
 							{
 								pFound += 4;
-								if ((*pFound)=='\\')
-								{
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
-									continue;
-								}
-								if (size_t(pFound-buf) == _tcslen(buf))
+								if (((*pFound)=='\\')||((*pFound)=='\0'))
 								{
 									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
 										break;
@@ -370,6 +355,16 @@ void CDirectoryWatcher::WorkerThread()
 								}
 							}
 							if ((pFound = wcsstr(buf, L":\\RECYCLER\\"))!=NULL)
+							{
+								if ((pFound-buf) < 5)
+								{
+									// a notification for the recycle bin - ignore it
+									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+										break;
+									continue;
+								}
+							}
+							if ((pFound = wcsstr(buf, L":\\$Recycle.Bin\\"))!=NULL)
 							{
 								if ((pFound-buf) < 5)
 								{
