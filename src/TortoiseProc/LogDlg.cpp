@@ -3306,12 +3306,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					progDlg.ShowModeless(m_hWnd);
 					if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
 					{
-						progDlg.Stop();
-						svn.SetAndClearProgressInfo((HWND)NULL);
-						delete [] pszFilters;
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						EnableOKButton();
-						break;
+						// try again with another peg revision
+						if (!svn.Cat(m_path, revSelected, revSelected, tempfile))
+						{
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
+							delete [] pszFilters;
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							EnableOKButton();
+							break;
+						}
 					}
 					progDlg.Stop();
 					svn.SetAndClearProgressInfo((HWND)NULL);
