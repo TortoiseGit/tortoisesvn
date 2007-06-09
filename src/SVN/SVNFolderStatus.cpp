@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2005 - Tim Kemp and Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	pool = svn_pool_create (rootpool);				// create the memory pool
 
 	ClearCache();
-	svn_client_create_context(&localctx, pool);
+	svn_error_clear(svn_client_create_context(&localctx, pool));
 
 	// strings pools are unused, now -> we may clear them
 	
@@ -193,6 +193,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			}
 			m_cache[filepath.GetWinPath()] = dirstat;
 			m_TimeStamp = GetTickCount();
+			svn_error_clear(err);
 			svn_pool_destroy (pool);				//free allocated memory
 			return &dirstat;
 		}
@@ -231,10 +232,12 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	// Error present if function is not under version control
 	if (err != NULL)
 	{
+		svn_error_clear(err);
 		svn_pool_destroy (pool);				//free allocated memory
 		return &invalidstatus;	
 	}
 
+	svn_error_clear(err);
 	svn_pool_destroy (pool);				//free allocated memory
 	m_TimeStamp = GetTickCount();
 	const FileStatusCacheEntry * ret = NULL;

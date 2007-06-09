@@ -137,7 +137,7 @@ private:		//members
 #ifdef _MFC_VER
 	SVNPrompt					m_prompt;
 #endif
-	svn_client_ctx_t 			m_ctx;
+	svn_client_ctx_t * 			m_pctx;
 
 private:
 	static svn_error_t *		proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool);

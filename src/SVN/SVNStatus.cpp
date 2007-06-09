@@ -36,7 +36,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 {
 	m_pool = svn_pool_create (NULL);
 	
-	svn_client_create_context(&ctx, m_pool);
+	svn_error_clear(svn_client_create_context(&ctx, m_pool));
 	
 	if (pbCanceled)
 	{
@@ -45,7 +45,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	}
 
 #ifdef _MFC_VER
-	svn_config_ensure(NULL, m_pool);
+	svn_error_clear(svn_config_ensure(NULL, m_pool));
 	
 	// set up authentication
 	m_prompt.Init(m_pool, ctx);
@@ -56,6 +56,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	if (m_err)
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_error_clear(m_err);
 		svn_pool_destroy (m_pool);					// free the allocated memory
 		exit(-1);
 	}
@@ -72,7 +73,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
 #else
-	svn_config_ensure(NULL, m_pool);
+	svn_error_clear(svn_config_ensure(NULL, m_pool));
 
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
@@ -82,6 +83,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 
 SVNStatus::~SVNStatus(void)
 {
+	svn_error_clear(m_err);
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }
 
@@ -187,7 +189,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 
 	pool = svn_pool_create (NULL);				// create the memory pool
 
-	svn_client_create_context(&ctx, pool);
+	svn_error_clear(svn_client_create_context(&ctx, pool));
 
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
@@ -209,6 +211,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 	// Error present
 	if (err != NULL)
 	{
+		svn_error_clear(err);
 		svn_pool_destroy (pool);				//free allocated memory
 		return svn_wc_status_unversioned;	
 	}
@@ -273,6 +276,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	apr_array_header_t *		statusarray;
 	const sort_item*			item;
 	
+	svn_error_clear(m_err);
 	statushash = apr_hash_make(m_pool);
 	exthash = apr_hash_make(m_pool);
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
@@ -319,6 +323,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 {
 	const sort_item*			item;
 
+	svn_error_clear(m_err);
 	m_statushash = apr_hash_make(m_pool);
 	m_externalhash = apr_hash_make(m_pool);
 	headrev = SVN_INVALID_REVNUM;

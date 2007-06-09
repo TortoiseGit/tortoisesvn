@@ -62,6 +62,7 @@ svn_error_t* svn_get_log_message(const char **log_msg,
 svn_error_t*	SVNProperties::Refresh()
 {
 	svn_opt_revision_t			rev;
+	svn_error_clear(m_error);
 	m_error = NULL;
 
 	m_propCount = 0;
@@ -78,7 +79,7 @@ svn_error_t*	SVNProperties::Refresh()
 								svn_depth_empty,
 								proplist_receiver,
 								this,
-								&m_ctx,
+								m_pctx,
 								m_pool);
 	if(m_error != NULL)
 		return m_error;
@@ -102,17 +103,18 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev)
 SVNProperties::SVNProperties(const CTSVNPath& filepath)
 {
 #endif
-	m_error = NULL;
 	m_pool = svn_pool_create (NULL);				// create the memory pool
-
-	memset (&m_ctx, 0, sizeof (m_ctx));
+	m_error = NULL;
+	svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
 
 #ifdef _MFC_VER
-	svn_config_ensure(NULL, m_pool);
+	svn_error_clear(svn_config_ensure(NULL, m_pool));
 	// set up the configuration
-	if (svn_config_get_config (&(m_ctx.config), g_pConfigDir, m_pool))
+	m_error = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
+	if (m_error)
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_error_clear(m_error);
 		svn_pool_destroy (m_pool);					// free the allocated memory
 		return;
 	}
@@ -120,9 +122,9 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 	
 	m_path = filepath;
 #ifdef _MFC_VER
-	m_prompt.Init(m_pool, &m_ctx);
+	m_prompt.Init(m_pool, m_pctx);
 
-	m_ctx.log_msg_func3 = svn_get_log_message;
+	m_pctx->log_msg_func3 = svn_get_log_message;
 
 	m_path = filepath;
 
@@ -133,7 +135,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
@@ -145,6 +147,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 
 SVNProperties::~SVNProperties(void)
 {
+	svn_error_clear(m_error);
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }
 
@@ -209,7 +212,7 @@ BOOL SVNProperties::IsSVNProperty(int index)
 	const char *pname_utf8;
 	const char *name = SVNProperties::GetItem(index, true).c_str();
 
-	svn_utf_cstring_to_utf8 (&pname_utf8, name, m_pool);
+	svn_error_clear(svn_utf_cstring_to_utf8 (&pname_utf8, name, m_pool));
 	svn_boolean_t is_svn_prop = svn_prop_needs_translation (pname_utf8);
 
 	return is_svn_prop;
@@ -262,6 +265,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 	m_error = NULL;
 
 	SVNPool subpool(m_pool);
+	svn_error_clear(m_error);
 
 	pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
@@ -325,7 +329,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 				{
 					// a versioned folder, so set the property!
 					svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
-					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, m_rev, &m_ctx, subpool);
+					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, m_rev, m_pctx, subpool);
 				}
 			}
 			status = stat.GetNextFileStatus(path);
@@ -344,9 +348,9 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 			baton->message_encoding = NULL;
 			baton->tmpfile_left = NULL;
 			baton->pool = subpool;
-			m_ctx.log_msg_baton3 = baton;
+			m_pctx->log_msg_baton3 = baton;
 		}
-		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, m_rev, &m_ctx, subpool);
+		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, m_rev, m_pctx, subpool);
 	}
 	if (m_error != NULL)
 	{
@@ -368,6 +372,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse, const TCHAR * messa
 	m_error = NULL;
 
 	SVNPool subpool(m_pool);
+	svn_error_clear(m_error);
 
 	pname_utf8 = StringToUTF8(Name);
 
@@ -382,10 +387,10 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse, const TCHAR * messa
 		baton->message_encoding = NULL;
 		baton->tmpfile_left = NULL;
 		baton->pool = subpool;
-		m_ctx.log_msg_baton3 = baton;
+		m_pctx->log_msg_baton3 = baton;
 	}
 
-	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, false, m_rev, &m_ctx, subpool);
+	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, false, m_rev, m_pctx, subpool);
 
 	if (m_error != NULL)
 	{

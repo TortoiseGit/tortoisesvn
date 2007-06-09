@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Tim Kemp and Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,7 @@ SVNConfig::SVNConfig(void)
 
 	if (err != 0)
 	{
+		svn_error_clear(err);
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
@@ -56,6 +57,7 @@ BOOL SVNConfig::GetDefaultIgnores()
 	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
 	if (err)
 	{
+		svn_error_clear(err);
 		return FALSE;
 	}
 
@@ -74,6 +76,6 @@ BOOL SVNConfig::KeepLocks()
 	svn_boolean_t no_unlock = FALSE;
 	svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 		APR_HASH_KEY_STRING);
-	svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE);
+	svn_error_clear(svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
 	return no_unlock;
 }
