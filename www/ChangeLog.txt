@@ -1,3 +1,34 @@
+Version 1.4.4
+- BUG: When refreshing the status list control missing files lost their
+       check mark. (Tobias Schäfer)
+- BUG: When selecting a revision range in the log dialog, the selection mark
+       was counted too instead of just the selected items. (Stefan)
+- BUG: TortoiseMerge recognizes the readonly attribute of files and doesn't
+       allow to save them anymore. (Stefan)
+- BUG: When saving a modified file in TortoiseMerge failed, the view titles
+       still indicated that the file was not 'modified' anymore. (Stefan)
+- BUG: The revision graph could show wrong nodes after a merge. (Stefan)
+- BUG: TortoiseMerge could throw an error "The file 'x' was found twice!?!"
+       even if the patchfile was applied to the correct folder. (Stefan)
+- BUG: "Create patch..." did not work for multiple files if the filenames
+       had a common prefix. (Tobias Schäfer)
+- BUG: Choosing "use other file" in TortoiseMerge wouldn't save the file
+       completely later. (Stefan)
+- BUG: "Resolve conflict using 'mine'" didn't work if the conflicted file
+       was binary and not text. (Stefan)
+- BUG: After changing the "sort items numerically" setting, the "Apply"
+       button was not enabled. (Roel Harbers)
+- BUG: The cache could get stuffed and slow for big working copies. (Stefan)
+- BUG: The setting "unversioned files mark parent folder as modified" for the
+       overlays didn't work reliably. (Stefan)
+- BUG: In the commit dialog, when the items are already shown but the fetch
+       thread is still running, the items could be (un)checked but their
+       changed state wouldn't be taken into account for the commit. (Stefan)
+- BUG: The log dialog used wrong revision numbers when selecting two
+       revisions and double clicking on the filename. (Tobias Schäfer)
+- BUG: When committing added directories, the log message wasn't always saved
+       in the history. (Tobias Schäfer)
+
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
 - BUG: Possible TSVNCache crash when removing/renaming folders. (Stefan)
