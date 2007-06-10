@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -222,6 +222,7 @@ bool SVNLineDiff::Diff(svn_diff_t **diff, LPCTSTR line1, int len1, LPCTSTR line2
 	svn_error_t * err = svn_diff_diff(diff, this, &SVNLineDiff_vtable, m_subpool);
 	if (err)
 	{
+		svn_error_clear(err);
 		svn_pool_clear(m_subpool);
 		return false;
 	}

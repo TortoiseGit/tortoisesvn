@@ -53,6 +53,7 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	if (Err != 0)
 	{
 		::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_error_clear(Err);
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
 		exit(-1);
@@ -79,6 +80,7 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 
 CRevisionGraph::~CRevisionGraph(void)
 {
+	svn_error_clear(Err);
 	svn_pool_destroy (parentpool);
 	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
@@ -202,6 +204,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(path);
 
+	svn_error_clear(Err);
 	// convert a working copy path into an URL if necessary
 	if (!svn_path_is_url(url))
 	{
@@ -235,7 +238,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 	if (m_sRepoRoot.IsEmpty())
 	{
-		Err = svn.Err;
+		Err = svn_error_dup(svn.Err);
 		return FALSE;
 	}
 
@@ -271,6 +274,8 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 {
 	if (m_logdata.empty())
 		return FALSE;
+
+	svn_error_clear(Err);
 
 	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
@@ -455,6 +460,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 			temp2.Format(IDS_REVGRAPH_PROGANALYZEREV, currentrev);
 			if (!ProgressCallback(temp, temp2, currentrev, m_lHeadRevision))
 			{
+				svn_error_clear(Err);
 				CString temp3;
 				temp3.LoadString(IDS_SVN_USERCANCELLED);
 				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp3));
