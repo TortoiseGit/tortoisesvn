@@ -40,47 +40,6 @@
 		for an <literal>Added</literal> folder, which will not work because
 		the folder is not yet in the repository.
 	</para>
-	<para>
-		The option <guilabel>Enable accelerators on the top level menu</guilabel>
-		has three states:
-		<variablelist>
-			<varlistentry>
-				<term>Unchecked (default)</term>
-				<listitem>
-					<para>
-						In this state the menu items are all drawn by TortoiseSVN. No
-						accelerator keys are shown.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Checked</term>
-				<listitem>
-					<para>
-						This activates the accelerators for TortoiseSVN commands,
-						but of course these may conflict with the accelerators for anything
-						else in the explorer context menu. Pressing the shortcut key
-						multiple times will cycle through the matching context menu items.
-						In this state, the menu items are drawn by Windows which makes
-						the icons look ugly.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Indeterminate</term>
-				<listitem>
-					<para>In this mode the accelerator keys are active and the menu items
-					are drawn in text only mode without icons.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</para>
-	<para>
-		Windows Vista has an improved user interface for context menu entries, which means
-		that ownerdrawn icons are not required. This option is therefore not shown in Vista
-		as we can have both pretty icons <emphasis>and</emphasis> accelerators :-)
-	</para>
 	<sect3 id="tsvn-dug-settings-overlay">
 		<title>Icon Overlay Settings</title>
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
@@ -292,6 +251,25 @@
 					<para>
 						If the standard long messages use up too much 
 						space on your screen use the short format.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Cache log messages</term>
+				<listitem>
+					<para>
+						Fetching log messages can take a long time on some repositories,
+						depending on how good the connection is, server load, etc.
+						TortoiseSVN has the facility to cache log messages locally to
+						avoid the need to fetch them from the server. The cache is filled
+						in as part of the normal log message fetch, so there is no need
+						to take any other action.
+					</para>
+					<para>
+						You should keep in mind that log messages can be edited, so if
+						someone else changes a log message and you have a cached copy,
+						you will not see the changes unless you clear the log message
+						cache. Use the <guilabel>Saved Data</guilabel> tab to do that.
 					</para>
 				</listitem>
 			</varlistentry>

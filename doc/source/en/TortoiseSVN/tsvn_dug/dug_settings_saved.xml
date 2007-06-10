@@ -32,12 +32,25 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Log messages</term>
+			<term>Log messages (Input dialog)</term>
 			<listitem>
 				<para>
 					TortoiseSVN stores recent commit log messages that you
 					enter. These are stored per repository, so if you access many
 					repositories this list can grow quite large.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Log messages (Show log dialog)</term>
+			<listitem>
+				<para>
+					TortoiseSVN caches log messages fetched by the Show Log
+					dialog to save time when you next show the log. If someone
+					else edits a log message and you already have that message
+					cached, you will not see the change until you clear the
+					cache. Log message caching is enabled on the
+					<guilabel>Dialogs 1</guilabel> tab.
 				</para>
 			</listitem>
 		</varlistentry>
