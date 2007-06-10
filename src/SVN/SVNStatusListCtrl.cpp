@@ -1435,7 +1435,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	SetItemText(index, nCol++, temp);
 	// SVNSLC_COLMODIFICATIONDATE
 	__int64 filetime = entry->GetPath().GetLastWriteTime();
-	if (filetime)
+	if ( (filetime) && (entry->status!=svn_wc_status_deleted) )
 	{
 		FILETIME* f = (FILETIME*)(__int64*)&filetime;
 		TCHAR datebuf[SVN_DATE_BUFFER];
