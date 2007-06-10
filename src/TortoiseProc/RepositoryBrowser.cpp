@@ -433,6 +433,8 @@ void CRepositoryBrowser::OnOK()
 	RevokeDragDrop(m_RepoList.GetSafeHwnd());
 	RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
+	SaveColumnWidths(true);
+
 	HTREEITEM hItem = m_RepoTree.GetRootItem();
 	RecursiveRemove(hItem);
 
@@ -444,6 +446,8 @@ void CRepositoryBrowser::OnCancel()
 {
 	RevokeDragDrop(m_RepoList.GetSafeHwnd());
 	RevokeDragDrop(m_RepoTree.GetSafeHwnd());
+
+	SaveColumnWidths(true);
 
 	HTREEITEM hItem = m_RepoTree.GetRootItem();
 	RecursiveRemove(hItem);
@@ -896,6 +900,25 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 	{
 		m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
 	}
+	for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
+	{
+		m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
+	}
+
+	CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
+	if (!CString(regColWidths).IsEmpty())
+	{
+		StringToWidthArray(regColWidths, m_arColumnWidths);
+	}
+	int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = 1; col <= maxcol; col++)
+	{
+		if (m_arColumnWidths[col] == 0)
+			m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+		else
+			m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
+	}
 
 	m_RepoList.SetRedraw(true);
 }
@@ -994,6 +1017,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 {
 	if (hNode == NULL)
 		return false;
+	SaveColumnWidths();
 	CWaitCursorEx wait;
 	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
 	HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
@@ -2613,3 +2637,51 @@ bool CRepositoryBrowser::AskForSavePath(const CTSVNPathList& urlList, CTSVNPath 
 	return bSavePathOK;
 }
 
+bool CRepositoryBrowser::StringToWidthArray(const CString& WidthString, int WidthArray[])
+{
+	TCHAR * endchar;
+	for (int i=0; i<7; ++i)
+	{
+		CString hex = WidthString.Mid(i*8, 8);
+		if ( hex.IsEmpty() )
+		{
+			// This case only occurs when upgrading from an older
+			// TSVN version in which there were fewer columns.
+			WidthArray[i] = 0;
+		}
+		else
+		{
+			WidthArray[i] = _tcstol(hex, &endchar, 16);
+		}
+	}
+	return true;
+}
+
+CString CRepositoryBrowser::WidthArrayToString(int WidthArray[])
+{
+	CString sResult;
+	TCHAR buf[10];
+	for (int i=0; i<7; ++i)
+	{
+		_stprintf_s(buf, 10, _T("%08X"), WidthArray[i]);
+		sResult += buf;
+	}
+	return sResult;
+}
+
+void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
+{
+	CRegString regColWidth(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
+	int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_arColumnWidths[col] = m_RepoList.GetColumnWidth(col);
+		if (m_arColumnWidths[col] == m_arColumnAutoWidths[col])
+			m_arColumnWidths[col] = 0;
+	}
+	if (bSaveToRegistry)
+	{
+		CString sWidths = WidthArrayToString(m_arColumnWidths);
+		regColWidth = sWidths;
+	}
+}

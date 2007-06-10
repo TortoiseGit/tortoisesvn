@@ -227,8 +227,15 @@ protected:
 	void InitRepo();
 	/// Sets a background icon for the list view
 	bool SetBackgroundImage(UINT nID);
-
+	/// Helper function to show the "File Save" dialog
 	bool AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile);
+
+	/// Saves the column widths
+	void SaveColumnWidths(bool bSaveToRegistry = false);
+	/// converts a string to an array of column widths
+	bool StringToWidthArray(const CString& WidthString, int WidthArray[]);
+	/// converts an array of column widths to a string
+	CString WidthArrayToString(int WidthArray[]);
 
 
 	static UINT InitThreadEntry(LPVOID pVoid);
@@ -261,6 +268,8 @@ private:
 
 	bool				m_bSortAscending;
 	int					m_nSortedColumn;
+	int					m_arColumnWidths[7];
+	int					m_arColumnAutoWidths[7];
 
 	CTreeDropTarget *	m_pTreeDropTarget;
 	CListDropTarget *	m_pListDropTarget;
