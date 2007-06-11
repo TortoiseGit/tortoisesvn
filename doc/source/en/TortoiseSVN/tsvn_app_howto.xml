@@ -484,8 +484,14 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 			<orderedlist>
 				<listitem>
 					<para>
-						Move the file to somewhere safe, not inside your
-						working copy.
+						Hold the <keycap>Shift</keycap> key to get the extended
+						context menu and use
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Delete (keep local)</guimenuitem>
+						</menuchoice>
+						to mark the file for deletion from the repository
+						without losing the local copy.
 					</para>
 				</listitem>
 				<listitem>
@@ -494,14 +500,7 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Commit</guimenuitem>
 						</menuchoice>
-						the parent folder. TortoiseSVN will see that the file
-						is missing and you can mark it for deletion
-						from the repository.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Move the file back to its original location.
+						the parent folder.
 					</para>
 				</listitem>
 				<listitem>
