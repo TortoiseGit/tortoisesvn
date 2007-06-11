@@ -334,4 +334,16 @@ authz-db = authz
 			for a description of the file format.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-serversetup-svnserve-sasl">
+		<title>Cyrus SASL Support</title>
+		<para>
+			Starting with Subversion 1.5.0, svnserve and TortoiseSVN support
+			Cyrus SASL (Simple Authentication and Security Layer) for the
+			<filename>svn://</filename> protocol.
+			You can find further information in this subversion app note:
+			<ulink url="http://svn.collab.net/repos/svn/trunk/notes/sasl.txt">
+				<citetitle>Using Cyrus SASL Authentication with Subversion</citetitle>
+			</ulink>.
+		</para>
+	</sect2>
 </sect1>
