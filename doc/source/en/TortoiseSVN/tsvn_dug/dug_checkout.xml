@@ -28,17 +28,60 @@
 	</para>
 	<important>
 		<para>
-			You should only check out into an empty directory. If you want to check out
-			your source tree into the same directory that you imported from, Subversion
-			will throw an error message because it will not overwrite the existing
-			unversioned files with versioned ones.
-			You will have to check out into a different directory or delete the 
-			existing sourcetree first.
+			When you checkout an existing source tree from the repository,
+			you should do so in an empty directory. If you try to check out
+			your source tree into the same directory that you imported from,
+			Subversion will throw an error message because it will not overwrite
+			the existing unversioned files with versioned ones, even if they are
+			identical. You will have to check out into a different directory or
+			delete the existing sourcetree first. Better still, read
+			<xref linkend="tsvn-dug-import-in-place"/> which describes a
+			method that avoids this problem.
 		</para>
 	</important>
 	<para>
-		If you want to check out the top level folder only and omit all sub-folders,
-		use the <guilabel>Only check out the top folder</guilabel> checkbox.
+		You can choose the <firstterm>depth</firstterm> you want to checkout,
+		which allows you to specify the depth of recursion into child folders.
+		If you want just a few sections of a large tree, You can checkout
+		the top level folder only, then update selected folders recursively.
+		<variablelist>
+			<varlistentry>
+				<term>Fully recursive</term>
+				<listitem>
+					<para>
+						Checkout the entire tree, including all child folders
+						and sub-folders.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Immediate children, including folders</term>
+				<listitem>
+					<para>
+						Checkout the specified directory, including all files
+						and child folders, but do not populate the child folders.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Only file children</term>
+				<listitem>
+					<para>
+						Checkout the specified directory, including all files
+						but do not checkout any child folders.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Only this item</term>
+				<listitem>
+					<para>
+						Checkout the directory only. Do not populate it with
+						files or child folders.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</para>
 	<para>
 		If the project contains references to external projects which you do
@@ -47,7 +90,8 @@
 	</para>
 	<important>
 		<para>
-			If either of these options are checked, you will have to perform
+			If <guilabel>Omit externals</guilabel> is checked, or if you wish
+			to increase the depth value, you will have to perform
 			updates to your working copy using
 			<menuchoice>
 				<guimenu>TortoiseSVN</guimenu>
@@ -63,7 +107,7 @@
 	</important>
 	<para>
 		It is recommended that you check out only the <literal>trunk</literal> part of the
-		directory tree. If you specify the parent path of the
+		directory tree, or lower. If you specify the parent path of the
 		directory tree in the URL then you might end up with a full
 		hard disk since you will get a copy of the entire repository tree
 		including every branch and tag of your project!
