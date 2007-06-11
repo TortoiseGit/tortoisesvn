@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,9 +31,16 @@
 
 std::set<CShellExt *> g_exts;
 
+
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
 {
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+
     m_State = state;
 
     m_cRef = 0L;
@@ -47,6 +54,13 @@ CShellExt::CShellExt(FileState state)
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();
+
+	m_gdipToken = NULL;
+	if(fullver >= 0x600)
+	{
+		GdiplusStartupInput gdiplusStartupInput;
+		GdiplusStartup(&m_gdipToken, &gdiplusStartupInput, NULL);
+	}
 }
 
 CShellExt::~CShellExt()
@@ -59,6 +73,9 @@ CShellExt::~CShellExt()
 	bitmaps.clear();
 	g_cRefThisDll--;
 	g_exts.erase(this);
+
+	if(m_gdipToken)
+		GdiplusShutdown(m_gdipToken);
 }
 
 void LoadLangDll()

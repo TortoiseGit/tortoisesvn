@@ -25,6 +25,10 @@
 #include "RemoteCacheLink.h"
 #include "SVNFolderStatus.h"
 
+// GdiPlus includes
+#include <GdiPlus.h>
+using namespace Gdiplus;
+
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
 extern	SVNFolderStatus *	g_pCachedStatus;		// status cache
@@ -162,6 +166,7 @@ protected:
 
 	static MenuInfo menuInfo[];
 	WORD fullver;
+	ULONG_PTR m_gdipToken;
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
@@ -185,12 +190,13 @@ protected:
 	std::map<UINT, HBITMAP> bitmaps;
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
-	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
+	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags);
 	void			InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu);
 	stdstring		WriteFileListToTempFile();
 	LPCTSTR			GetMenuTextFromResource(int id);
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
-	HBITMAP			IconToBitmap(UINT uIcon, COLORREF transparentColor);
+	HBITMAP			IconToBitmap(UINT uIcon);
+	HBITMAP			IconToBitmapPARGB32(UINT uIcon);
 	int				GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
 	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
 	bool			IsIllegalFolder(std::wstring folder, int * cslidarray);
