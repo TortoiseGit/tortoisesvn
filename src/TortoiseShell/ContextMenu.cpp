@@ -560,7 +560,8 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
 		menuiteminfo.dwTypeData = menutextbuffer;
-		menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(icon) : HBMMENU_CALLBACK;
+		if (icon)
+			menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(icon) : HBMMENU_CALLBACK;
 		menuiteminfo.wID = id;
 		InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
 	}
@@ -860,6 +861,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	bool bMenuEntryAdded = false;
 	// insert separator at start
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
+	bool bShowIcons = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE));
 	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
 	{
 		if (menuInfo[menuIndex].command == ShellSeparator)
@@ -957,7 +959,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 										bIsTop ? indexMenu++ : indexSubMenu++,
 										idCmd++,
 										menuInfo[menuIndex].menuTextID,
-										menuInfo[menuIndex].iconID,
+										bShowIcons ? menuInfo[menuIndex].iconID : 0,
 										idCmdFirst,
 										menuInfo[menuIndex].command,
 										uFlags);
@@ -979,29 +981,29 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	menuiteminfo.fType = MFT_STRING;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 
-	UINT uIcon = IDI_APP;
+	UINT uIcon = bShowIcons ? IDI_APP : 0;
 	if (folder_.size())
 	{
-		uIcon = IDI_MENUFOLDER;
+		uIcon = bShowIcons ? IDI_MENUFOLDER : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuFolder;
 		myIDMap[idCmd] = ShellSubMenuFolder;
 		menuiteminfo.dwItemData = (ULONG_PTR)g_MenuIDString;
 	}
 	else if (((~itemStates) & ITEMIS_SHORTCUT) && (files_.size()==1))
 	{
-		uIcon = IDI_MENUFILE;
+		uIcon = bShowIcons ? IDI_MENUFILE : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuFile;
 		myIDMap[idCmd] = ShellSubMenuFile;
 	}
 	else if ((itemStates & ITEMIS_SHORTCUT) && (files_.size()==1))
 	{
-		uIcon = IDI_MENULINK;
+		uIcon = bShowIcons ? IDI_MENULINK : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuLink;
 		myIDMap[idCmd] = ShellSubMenuLink;
 	}
 	else if (files_.size() > 1)
 	{
-		uIcon = IDI_MENUMULTIPLE;
+		uIcon = bShowIcons ? IDI_MENUMULTIPLE : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuMultiple;
 		myIDMap[idCmd] = ShellSubMenuMultiple;
 	}
@@ -1019,7 +1021,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	else
 	{
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
-		menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(uIcon) : HBMMENU_CALLBACK;
+		if (bShowIcons)
+			menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(uIcon) : HBMMENU_CALLBACK;
 	}
 	menuiteminfo.hbmpChecked = bmp;
 	menuiteminfo.hbmpUnchecked = bmp;
