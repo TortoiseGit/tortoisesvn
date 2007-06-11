@@ -23,23 +23,6 @@
 		the <literal>svn:needs-lock</literal> property set,
 		<guilabel>Get Lock</guilabel> will always appear at the top level.
 	</para>
-	<para>
-		If you have a very large number of files in your working copy
-		folders, it can take a long time before the context menu appears
-		when you <action>right click</action> on a folder. This is because
-		Subversion fetches the status for all files when you ask for
-		folder status. To avoid this delay you can uncheck the
-		<guilabel>Fetch status for context menu</guilabel>
-		box. Be warned that the context menu for folders will not always
-		be correct, and may include items which should not really be there.
-		For example, you will see
-		<menuchoice>
-			<guimenu>TortoiseSVN</guimenu>
-			<guimenuitem>Show Log</guimenuitem>
-		</menuchoice>
-		for an <literal>Added</literal> folder, which will not work because
-		the folder is not yet in the repository.
-	</para>
 	<sect3 id="tsvn-dug-settings-overlay">
 		<title>Icon Overlay Settings</title>
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
