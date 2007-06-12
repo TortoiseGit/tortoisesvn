@@ -296,6 +296,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	sHelppath.Replace(_T("tortoiseproc.chm"), _T("TortoiseSVN_en.chm"));
 	free((void*)m_pszHelpFilePath);
 	m_pszHelpFilePath=_tcsdup(sHelppath);
+	sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseSVN_en.chm");
 	do
 	{
 		CString sLang = _T("_");

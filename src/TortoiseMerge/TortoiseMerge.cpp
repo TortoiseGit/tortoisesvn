@@ -99,6 +99,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	sHelppath.Replace(_T(".chm"), _T("_en.chm"));
 	free((void*)m_pszHelpFilePath);
 	m_pszHelpFilePath=_tcsdup(sHelppath);
+	sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseMerge_en.chm");
 	do
 	{
 		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
