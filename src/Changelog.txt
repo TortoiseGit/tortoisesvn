@@ -217,6 +217,11 @@
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
 
+Version 1.4.5
+- BUG: The setting "unversioned files mark parent folder as modified" for the
+       overlays marked folders as modified even if the unversioned files
+       were ignored. (Stefan)
+
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
        check mark. (Tobias Schäfer)

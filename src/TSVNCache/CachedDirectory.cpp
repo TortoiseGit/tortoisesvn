@@ -639,7 +639,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		{
 			if (svnPath.IsDirectory())
 				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
-			else if (CSVNStatusCache::Instance().IsUnversionedAsModified())
+			else if ((CSVNStatusCache::Instance().IsUnversionedAsModified())&&(status->text_status != svn_wc_status_ignored))
 			{
 				// make this unversioned item change the most important status of this
 				// folder to modified if it doesn't already have another status
