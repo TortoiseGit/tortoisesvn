@@ -382,7 +382,7 @@ void CDirectoryWatcher::WorkerThread()
 									break;
 								continue;
 							}
-							ATLTRACE("change notification: %ws\n", buf);
+							ATLTRACE(_T("change notification: %s\n"), buf);
 							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
 						}
 						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)

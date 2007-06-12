@@ -262,7 +262,7 @@ void CFolderCrawler::WorkerThread()
 						workingPath = workingPath.GetContainingDirectory();	
 					} while(workingPath.IsAdminDir());
 
-					ATLTRACE("Invalidating and refreshing folder: %ws\n", workingPath.GetWinPath());
+					ATLTRACE(_T("Invalidating and refreshing folder: %s\n"), workingPath.GetWinPath());
 					{
 						AutoLocker print(critSec);
 						_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
