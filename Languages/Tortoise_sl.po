@@ -26,11 +26,12 @@
 # Repository            Skladišče
 # Main Trunk            Glavno deblo
 # Hook                  Akcija
+# Log Message           Dnevniški zapis
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN 1.3.3\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-05-15 20:20+0100\n"
+"PO-Revision-Date: 2007-06-11 20:04+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -376,6 +377,10 @@ msgstr "&Prekliči"
 msgid "&Clean up"
 msgstr "&Počisti"
 
+#: MenuEntry
+msgid "&Color age of lines"
+msgstr "&Prikaz starosti vrstic z barvami"
+
 # ID:8,
 #: ID:8
 msgid "&Commit..."
@@ -412,6 +417,11 @@ msgstr "Pri razlikovanju glede na BASE &pretvori datoteke"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Kopiraj"
+
+# ID:114,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "&Kopiraj sporočilo o napaki na odložišče"
 
 # ID:114,
 #: MenuEntry
@@ -541,7 +551,7 @@ msgstr "&Fiksni pogoni"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Font for log messages:"
-msgstr "&Pisava za sporočila dnevnika:"
+msgstr "&Pisava za dnevniški zapis:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1740,6 +1750,16 @@ msgstr "Ustva&ri mapo ..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Predpomnenje dnevniških zapisov"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Shrani dnevniške zapise v predpomnilnik za hitrejši prenos zapisov"
+
 # ID:82,
 #: ID:82
 #, c-format
@@ -1929,6 +1949,11 @@ msgstr "&Mapa prevzema:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Prevzemi - TortoiseSVN"
 
+# ID:8,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Globina prevzema"
+
 # ID:229,
 #: ID:229
 #, c-format
@@ -1953,6 +1978,7 @@ msgstr "Počisti prekinjene operacije, zaklenjene datoteke, ..."
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
 msgid "Clear"
@@ -1975,6 +2001,12 @@ msgstr "Počisti %ld dnevniških zapisov, shranjenih za %ld delovnih kopij"
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr "Počisti %ld parov uporabniških imen/gesel, %ld potrdil ssl in %ld uporabniških imen"
+
+# ID:197,
+#: ID:197
+#, c-format
+msgid "Clears cached logs from %ld repositories"
+msgstr "Počisti zapise predpomnilnik iz skladišč %ld"
 
 # ID:195,
 #: ID:195
@@ -2027,6 +2059,7 @@ msgid "Color co&de in-line changes"
 msgstr "Obarvaj spremembe v &vrstici"
 
 # Dlg-ID:138,
+#: Control-ID:65535
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Barve"
@@ -2556,7 +2589,7 @@ msgstr "Datum"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "Privzeto &število sporočil v dnevniku"
+msgstr "Privzeto &število dnevniških zapisov"
 
 # ID:11,
 #: Control-ID:65535
@@ -2831,7 +2864,7 @@ msgstr "Uredi poseben program za spajanje glede na končnico"
 #: ID:113
 #: ID:115
 msgid "Edit log message"
-msgstr "Uredi sporočilo dnevnika"
+msgstr "Uredi dnevniški zapis"
 
 # Control-ID:1099,
 #: Control-ID:1331
@@ -2847,20 +2880,6 @@ msgstr "Vnesite ime ali IP naslov prehoda"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Prazno"
-
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Omogoči &bližnjice na vrhnjem meniju"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"To omogočite, če želite tipke za bližnjice tudi za vrhnjo raven pojavnega menija.\n"
-"Potrebno je pripomniti, da so ikone pojavnega menija videti lepše, če ta možnost ni vključena."
 
 # ID:196,
 #: ID:196
@@ -3214,6 +3233,11 @@ msgstr "Dokončano!"
 msgid "Floppy drives (A: B:)"
 msgstr "Disketniki (A: B:)"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font"
+msgstr "Pisava"
+
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -3495,6 +3519,12 @@ msgstr "ID:32779:V   +S"
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
+#. Accelerator Entry for Menu ID:32785; '&Color age of lines'
+#: Corresponding Menu ID:32785
+#: ; '&Color age of lines'
+msgid "ID:32785:V C +O"
+msgstr " ID:32785:V C +O"
+
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 #: Corresponding Menu ID:32793
 #: ; 'Arrange &Vertical'
@@ -3594,7 +3624,7 @@ msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Če je vključen, bo \"Vzami zaklep\" prikazan na vrhnjem nivoju,\n"
+"Če je vključen, bo \"Vzemi zaklep\" prikazan na vrhnjem nivoju,\n"
 "če ima izbrana datoteka nastavljeno lastnost svn:needs-lock"
 
 # ID:95,
@@ -3620,7 +3650,7 @@ msgid ""
 "while preserving your last selection and log message."
 msgstr ""
 "Če je možnost vključena, se bo pogovorno okno objave v primeru napake samodejno prikazalo,\n"
-"ob tem pa se ohranil izbor datotek in sporočilo dnevnika."
+"ob tem pa se ohranil izbor datotek in dnevniški zapis."
 
 # ID:194,
 #: ID:194
@@ -3644,6 +3674,15 @@ msgid ""
 msgstr ""
 "Če je aktivirano, se poveže s skladiščem, ko se pojavi pogovorno okno.\n"
 "Nič več vam ni potrebno klikniti \"Preveri skladišče\"."
+
+# ID:197,
+#: ID:197
+msgid ""
+"If enabled, working copy folders which are excluded from\n"
+"showing overlays still show the overlay for status 'normal'"
+msgstr ""
+"Če je vključeno, mape v delovni kopiji, ki ne kažejo prekrivnih ikon,\n"
+"prikažejo ikono za status 'običajno'"
 
 # ID:195,
 #: ID:195
@@ -4135,21 +4174,31 @@ msgstr "Zgodovina dnevnika"
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
-#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
-msgstr "Sporočila dnevnika"
+msgstr "Dnevniški zapis"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Log message"
-msgstr "Sporočilo dnevnika"
+msgstr "Dnevniški zapis"
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Log messages"
-msgstr "Sporočila dnevnika"
+msgstr "Dnevniški zapisi"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Dnevniški zapisi (vnosno okno)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Dnevniški zapisi (okno Pokaži dnevnik)"
 
 # Dlg-ID:195,
 #: Dlg-ID:195
@@ -4240,7 +4289,7 @@ msgstr "Največ"
 # Control-ID:65535,
 #: Control-ID:1317
 msgid "Max. items to keep in the log message history"
-msgstr "Največje število ohranjenih dnevniških sporočil"
+msgstr "Največje število ohranjenih dnevniških zapisov"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
@@ -4334,6 +4383,11 @@ msgstr "Razno"
 #: ID:3887
 msgid "Mixed"
 msgstr "Mešano"
+
+# Control-ID:65535,
+#: ID:208
+msgid "Modification date"
+msgstr "Datum spremembe:"
 
 # ID:74,
 #: ID:74
@@ -4617,6 +4671,11 @@ msgstr "V redu"
 #: ID:3697
 msgid "OVR"
 msgstr "PRE"
+
+# ID:376,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "Starejše vrstice"
 
 # ID:145,#:
 # Control-ID:1202,#:
@@ -5069,7 +5128,7 @@ msgstr "Nastavitve prehoda"
 # Control-ID:1338,
 #: Control-ID:1338
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Postavi \"Vzami zaklep\" na vrhnji menu, ko je svn:needs-lock nastavljen"
+msgstr "Postavi \"Vzemi zaklep\" na vrhnji menu, ko je svn:needs-lock nastavljen"
 
 # ID:246,
 #: ID:246
@@ -5120,6 +5179,11 @@ msgstr "Po&vrni ..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Preden se znajdete pred nerešljivim problemom, preberite 'Dnevni uporabniški vodnik' ..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "Zadnje spremenjene vrstice"
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -5532,7 +5596,7 @@ msgstr "Revizija / avtor:"
 # Dlg-ID:182,
 #: Dlg-ID:182
 msgid "Revision Graph"
-msgstr "Graf revizije"
+msgstr "Graf revizij"
 
 # ID:15,#:
 # ID:269,#:
@@ -5784,7 +5848,7 @@ msgstr "Scintilla"
 # ID:113,
 #: ID:113
 msgid "Search &log messages..."
-msgstr "Iskanje po sporočilih &dnevnika ..."
+msgstr "Iskanje po &dnevniških zapisih..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5987,7 +6051,7 @@ msgstr "Pokaži &lastnosti"
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "Kratka oblika zapisa &datuma/časa v sporočilih dnevnika"
+msgstr "Kratka oblika zapisa &datuma/časa v dnevniških zapisih"
 
 # ID:12,
 #: ID:12
@@ -6063,6 +6127,11 @@ msgstr "Pokaži razlike kot &poenotene razlike"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Pokaži razlike kot &poenotene razlike"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Show excluded folders as 'normal'"
+msgstr "Prikaži izločene mape kot 'običajne'"
 
 # Control-ID:1209,
 #: Control-ID:1264
@@ -6193,7 +6262,7 @@ msgstr "Preskočena manjkajoča tarča"
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Določa, koliko elementov želite ohraniti v pogovornem oknu najsodobnejših dnevniških zaznamkov."
+msgstr "Določa, koliko elementov želite ohraniti v pogovornem oknu najsodobnejših dnevniških zapisov."
 
 # ID:79,
 #: ID:79
@@ -6446,6 +6515,11 @@ msgstr "TORTOISEBLAME"
 #: ID:7
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Tab size:"
+msgstr "Velikost tabulatorja:"
 
 # ID:79,
 #: ID:79
@@ -6964,7 +7038,7 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Če želite ukrasti zaklep, desno-kliknite na vrhnjo mapo te datoteke in iz kontekstnega menija izberite \"Vzami zaklep\".\n"
+"Če želite ukrasti zaklep, desno-kliknite na vrhnjo mapo te datoteke in iz kontekstnega menija izberite \"Vzemi zaklep\".\n"
 "Prikazalo se bo pogovorno okno zaklepov, kjer boste lahko vsilili zaklep, torej ga boste ukradli trenutnemu uporabniku."
 
 # Control-ID:1201,
@@ -6981,6 +7055,7 @@ msgstr "Za: (končni URL in revizija obsega za spajanje)"
 # ID:9,#:
 # ID:80,#:
 # Control-ID:65535,
+#: Dlg-ID:244
 #: ID:7
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -7498,6 +7573,11 @@ msgstr "Različica"
 #: ID:264
 msgid "Versioned"
 msgstr "Verzioniran"
+
+# MenuEntry#:
+#: MenuEntry
+msgid "View"
+msgstr "Pogled"
 
 # ID:114,
 #: ID:114
@@ -8228,7 +8308,7 @@ msgid ""
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\n"
-"Nastavite na število znakov, kolikor naj bo največja dolžina dnevniškega vnosa.\n"
+"Nastavite na število znakov, kolikor naj bo največja dolžina dnevniškega zapisa.\n"
 "Na tem mestu se v pogovornem oknu objave pokaže zatemnjena vrstica. Privzeta vrednost je 80 (znakov)."
 
 # ID:15,
