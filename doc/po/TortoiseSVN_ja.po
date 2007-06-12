@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-06-11 22:01+0900\n"
+"PO-Revision-Date: 2007-06-12 13:58+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2386,7 +2386,7 @@ msgstr "フックスクリプトは、リポジトリのイベント (新しい�
 
 #: source/TortoiseSVN_en.xml:3140(para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr ""
+msgstr "このフックスクリプトは、リポジトリのあるサーバで実行されます。TortoiseSVN は、各イベントでのローカルに実行する、クライアントサイドフックスクリプトも設定できます。詳細は <xref linkend=\"tsvn-dug-settings-hooks\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:3146(para)
 msgid ""
@@ -3062,7 +3062,7 @@ msgstr "コミットダイアログで変更のあるファイルを <action>ダ
 
 #: source/TortoiseSVN_en.xml:4059(para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <action>SHIFT-Select</action> to make the action recursive."
-msgstr ""
+msgstr "項目の左にあるチェックボックスをクリックして、選択・未選択を切り替えられます。ディレクトリに対して、<action>SHIFT を押しながら選択</action> すると、再帰的に動作します。"
 
 #: source/TortoiseSVN_en.xml:4064(para)
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
