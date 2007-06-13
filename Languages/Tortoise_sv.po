@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-02 10:46+0100\n"
+"PO-Revision-Date: 2007-06-13 14:30+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1463,6 +1463,15 @@ msgstr "&Skapa mapp..."
 #: ID:3697
 msgid "CAP"
 msgstr "CAP"
+
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Cacha loggmeddelanden"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Cachar loggmeddelanden för att kunna visa dem snabbare"
 
 #: ID:82
 #, c-format
@@ -7113,7 +7122,8 @@ msgid ""
 "Format: <filemask> = property=value;property=value\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
-"tsvn:autoprops\nEn lista av egenskaper avdelade med nyradstecken som appliceras automatiskt när filer läggs till eller importeras.\n"
+"tsvn:autoprops\n"
+"En lista av egenskaper avdelade med nyradstecken som appliceras automatiskt när filer läggs till eller importeras.\n"
 "Format: <filmask> = egenskap=värde;egenskap=värde\n"
 "Exempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
