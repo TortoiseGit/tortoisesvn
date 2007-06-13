@@ -192,7 +192,7 @@
             </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">
-              <File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-$(var.PlatformPathExtension)-libintl\bin\intl3_svn.dll" KeyPath="yes" />
+              <File Id="F__intl" Name="INTL3_TS.DLL" LongName="intl3_tsvn.dll" DiskId="1" src="..\..\ext\libintl\libintl3-$(var.PlatformPathExtension)\bin\intl3_tsvn.dll" KeyPath="yes" />
             </Component>
 
             <?if $(env.IncludeCrashReportDll) = 1 ?>
