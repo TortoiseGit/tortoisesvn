@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-12 16:09+0100\n"
+"PO-Revision-Date: 2007-06-13 11:02+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6556,9 +6556,8 @@ msgstr "Eine Patchdatei anwenden"
 
 #: source/TortoiseSVN_en.xml:7957
 #: (para)
-#, fuzzy
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
-msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muss innerhalb desselben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/deutsch/kapitel1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: deutsch/kapitel1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>deutsch/</filename> Ordner anwenden. Falls den Patch nicht in der richtigen Arbeitskopie oder im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
+msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muss innerhalb desselben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/deutsch/kapitel1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: deutsch/kapitel1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>doc/source/</filename> Ordner anwenden. Falls Sie den Patch in der richtigen Arbeitskopie aber nicht im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
 
 #: source/TortoiseSVN_en.xml:7971
 #: (para)
@@ -8639,7 +8638,7 @@ msgstr "Mögliche Werte sind: <placeholder-1/>"
 #: source/TortoiseSVN_en.xml:10518
 #: (para)
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF8 encoding."
-msgstr ""
+msgstr "Pfad zu einer Datei im UTF8 Format, die die Logmeldung für die Übertragung enthält."
 
 #: source/TortoiseSVN_en.xml:10528
 #: (para)
@@ -8679,37 +8678,37 @@ msgstr "Der Einstellungsdialog, TortoiseBlame"
 #: source/TortoiseSVN_en.xml:10558
 #: (para)
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
-msgstr ""
+msgstr "<placeholder-1/> Die Einstellungen von TortoiseBlame werden im TortoiseSVN Einstellungsdialog vorgenommen, nicht in TortoiseBlame selbst."
 
 #: source/TortoiseSVN_en.xml:10568
 #: (term)
 msgid "Colors"
-msgstr ""
+msgstr "Farben"
 
 #: source/TortoiseSVN_en.xml:10570
 #: (para)
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr ""
+msgstr "TortoiseBlame kann mit Hilfe der Hintergrundfarbe das Alter der Zeilen in einer Datei anzeigen. Sie können die Anfangs- und Endfarben für die neueste bzw. älteste Revision festlegen. TortoiseBlame wird, entsprechend der Revisionsnummer, der Zeile eine Farbe zwischen diesen Werten zuordnen."
 
 #: source/TortoiseSVN_en.xml:10580
 #: (term)
 msgid "Font"
-msgstr ""
+msgstr "Schrift"
 
 #: source/TortoiseSVN_en.xml:10582
 #: (para)
 msgid "You can select the font used to display the text, and the point size to use. This applies both to the file content, and to the author and revision information shown in the left pane."
-msgstr ""
+msgstr "Sie können die Schriftart und -größe zur Anzeige des Texts festlegen. Diese Einstellung wird sowohl für den Inhalt als auch für die Autor- und Revisionsinformationen auf der linken Seite verwendet."
 
 #: source/TortoiseSVN_en.xml:10590
 #: (term)
 msgid "Tabs"
-msgstr ""
+msgstr "Tabulator"
 
 #: source/TortoiseSVN_en.xml:10592
 #: (para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
-msgstr ""
+msgstr "Legt fest, wie viele Leerzeichen für einen Tabulator eingesetzt werden sollen."
 
 #: source/TortoiseSVN_en.xml:10602
 #: (title)
@@ -9299,7 +9298,7 @@ msgstr "Übertragen Sie diese Änderungen. Nun, wenn Sie Ihre Arbeitskopie aktua
 #: source/TortoiseSVN_en.xml:11280
 #: (para)
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
-msgstr ""
+msgstr "Von den drei beschriebenene Methoden ist dies die einzige, die keine clientseitige Konfiguration erfordert. Sobald Externals in den Ordnereigenschaften festgelegt wurden, werden sämtliche Clients die Ordner beim Aktualisieren erhalten."
 
 #: source/TortoiseSVN_en.xml:11288
 #: (title)
