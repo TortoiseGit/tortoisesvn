@@ -856,9 +856,16 @@ void CCommitDlg::GetAutocompletionList()
 				if (!rdata.regex.IsEmpty())
 				{
 					ScanFile(entry->GetPath().GetWinPathString(), rdata.regex, rdata.flags);
-					CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
-					if (!basePath.IsEmpty())
-						ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
+					if ((entry->textstatus != svn_wc_status_unversioned) &&
+						(entry->textstatus != svn_wc_status_none) &&
+						(entry->textstatus != svn_wc_status_ignored) &&
+						(entry->textstatus != svn_wc_status_added) &&
+						(entry->textstatus != svn_wc_status_normal))
+					{
+						CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+						if (!basePath.IsEmpty())
+							ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
+					}
 				}
 			}
 		}
