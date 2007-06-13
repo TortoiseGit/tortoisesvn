@@ -574,7 +574,9 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 				{
 					// This child directory is already in our cache!
 					// So ask this dir about its recursive status
-					pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
+					svn_wc_status_kind st = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
+					AutoLocker lock(pThis->m_critSec);
+					pThis->m_childDirectories[svnPath] = st;
 				}
 				else
 				{
@@ -582,6 +584,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 					// initially 'unversioned'. But we added that directory to the crawling list above, which
 					// means the cache will be updated soon.
 					CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
+					AutoLocker lock(pThis->m_critSec);
 					pThis->m_childDirectories[svnPath] = s;
 				}
 			}
@@ -615,7 +618,10 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 				CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
 				// Mark the directory as 'versioned' (status 'normal' for now).
 				// This initial value will be overwritten from below some time later
-				pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				{
+					AutoLocker lock(pThis->m_critSec);
+					pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				}
 				// Make sure the entry is also in the cache
 				CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
 				// also mark the status in the status object as normal
@@ -627,7 +633,10 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 			CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
 			// Mark the directory as 'versioned' (status 'normal' for now).
 			// This initial value will be overwritten from below some time later
-			pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+			{
+				AutoLocker lock(pThis->m_critSec);
+				pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+			}
 			// we have added a directory to the child-directory list of this
 			// directory. We now must make sure that this directory also has
 			// an entry in the cache.
@@ -638,7 +647,10 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		else
 		{
 			if (svnPath.IsDirectory())
+			{
+				AutoLocker lock(pThis->m_critSec);
 				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+			}
 			else if ((CSVNStatusCache::Instance().IsUnversionedAsModified())&&(status->text_status != svn_wc_status_ignored))
 			{
 				// make this unversioned item change the most important status of this
@@ -668,7 +680,7 @@ void CCachedDirectory::Invalidate()
 	m_ownStatus.Invalidate();
 }
 
-svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
+svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus()
 {
 	// Combine our OWN folder status with the most important of our *FILES'* status.
 	svn_wc_status_kind retVal = SVNStatus::GetMoreImportant(m_mostImportantFileStatus, m_ownStatus.GetEffectiveStatus());
@@ -681,6 +693,7 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 
 	// Now combine all our child-directorie's status
 	
+	AutoLocker lock(m_critSec);
 	ChildDirStatus::const_iterator it;
 	for(it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
 	{
@@ -729,7 +742,11 @@ void CCachedDirectory::UpdateCurrentStatus()
 // Receive a notification from a child that its status has changed
 void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus)
 {
-	svn_wc_status_kind currentStatus = m_childDirectories[childDir];
+	svn_wc_status_kind currentStatus = svn_wc_status_none;
+	{
+		AutoLocker lock(m_critSec);
+		currentStatus = m_childDirectories[childDir];
+	}
 	if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
 	{
 		{

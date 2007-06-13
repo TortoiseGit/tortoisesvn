@@ -56,7 +56,7 @@ private:
 	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
 
 	// Calculate the complete, composite status from ourselves, our files, and our decendants
-	svn_wc_status_kind CalculateRecursiveStatus() const;
+	svn_wc_status_kind CalculateRecursiveStatus();
 
 	// Update our composite status and deal with things if it's changed
 	void UpdateCurrentStatus();
