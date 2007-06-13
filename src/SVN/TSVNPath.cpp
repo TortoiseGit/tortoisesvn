@@ -314,7 +314,7 @@ void CTSVNPath::UpdateAttributes() const
 	else
 	{
 		DWORD err = GetLastError();
-		if ((err == ERROR_FILE_NOT_FOUND)||(err == ERROR_PATH_NOT_FOUND))
+		if ((err == ERROR_FILE_NOT_FOUND)||(err == ERROR_PATH_NOT_FOUND)||(err == ERROR_INVALID_NAME))
 		{
 			m_bIsDirectory = false;
 			m_lastWriteTime = 0;
