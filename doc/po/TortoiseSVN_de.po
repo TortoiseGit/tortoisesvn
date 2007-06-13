@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-12 10:27+0100\n"
+"PO-Revision-Date: 2007-06-12 16:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2616,12 +2616,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2890
 #: (title)
 msgid "Cyrus SASL Support"
-msgstr ""
+msgstr "Cyrus SASL Unterstützung"
 
 #: source/TortoiseSVN_en.xml:2891
 #: (para)
 msgid "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus SASL (Simple Authentication and Security Layer) for the <filename>svn://</filename> protocol. You can find further information in this subversion app note: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Beginnend mit Subversion 1.5.0, werden svnserve und TortoiseSVN Cyrus SASL (Simple Authentication and Security Layer) für das <filename>svn://</filename> Protokoll unterstützen. Sie können in der folgenden Anwendungsnotiz zu Subversion weitere Informationen finden: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2906
 #: (para)
@@ -3512,9 +3512,8 @@ msgstr "Wählen Sie nun den Ordner im Windows Explorer in dem Sie Ihre Arbeitsko
 
 #: source/TortoiseSVN_en.xml:3912
 #: (para)
-#, fuzzy
 msgid "When you checkout an existing source tree from the repository, you should do so in an empty directory. If you try to check out your source tree into the same directory that you imported from, Subversion will throw an error message because it will not overwrite the existing unversioned files with versioned ones, even if they are identical. You will have to check out into a different directory or delete the existing sourcetree first. Better still, read <xref linkend=\"tsvn-dug-import-in-place\"/> which describes a method that avoids this problem."
-msgstr "Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen vorher importieren Ordner auschecken möchten wird Subversion eine Fehlermeldung ausgeben. Sie müssen die importierten Dateien entweder in einen neuen Ordner auschecken oder zuerst alle Dateien in dem gerade importieren Ordner löschen."
+msgstr "Wenn Sie einen Quellbaum aus einem Projektarchiv auschecken, sollten Sie das in ein leeres Verzeichnis tun. Falls Sie zum Beispiel in denselben Ordner auschecken, aus dem sie importiert haben, wird Subversion eine Fehlermeldung ausgeben, weil es keine lokal vorhandenen nicht versionierten Objekte überschreibt, selbst wenn diese mit denen im Projektarchiv identisch sind. Sie müssen die entweder in einen neuen Ordner auschecken oder zuerst den lokalen Quellbaum löschen. Noch besser ist es, wenn Sie vorher <xref linkend=\"tsvn-dug-import-in-place\"/> lesen, in dem eine Methode, die das Problem vermeidet, beschrieben wird."
 
 #: source/TortoiseSVN_en.xml:3931
 #: (term) source/TortoiseSVN_en.xml:4456
@@ -3524,42 +3523,42 @@ msgstr "Vollständig rekursiv"
 #: source/TortoiseSVN_en.xml:3933
 #: (para) source/TortoiseSVN_en.xml:4458
 msgid "Checkout the entire tree, including all child folders and sub-folders."
-msgstr ""
+msgstr "Checkt den gesamten Baum rekursiv inklusive aller Dateien und Unterordner aus."
 
 #: source/TortoiseSVN_en.xml:3940
 #: (term) source/TortoiseSVN_en.xml:4465
 msgid "Immediate children, including folders"
-msgstr ""
+msgstr "Direkte Kinder, inklusive Ordner"
 
 #: source/TortoiseSVN_en.xml:3942
 #: (para) source/TortoiseSVN_en.xml:4467
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
-msgstr ""
+msgstr "Checkt das angegebene Verzeichnis inklusive aller Dateien und Unterordner aus, füllt die Verzeichnisse aber nicht."
 
 #: source/TortoiseSVN_en.xml:3949
 #: (term) source/TortoiseSVN_en.xml:4474
 msgid "Only file children"
-msgstr ""
+msgstr "Nur Dateien"
 
 #: source/TortoiseSVN_en.xml:3951
 #: (para) source/TortoiseSVN_en.xml:4476
 msgid "Checkout the specified directory, including all files but do not checkout any child folders."
-msgstr ""
+msgstr "Checkt das angegebene Verzeichnis inklusive aller Dateien aus. Es werden keine Unterordner angelegt."
 
 #: source/TortoiseSVN_en.xml:3958
 #: (term) source/TortoiseSVN_en.xml:4483
 msgid "Only this item"
-msgstr ""
+msgstr "Nur dieses Objekt"
 
 #: source/TortoiseSVN_en.xml:3960
 #: (para) source/TortoiseSVN_en.xml:4485
 msgid "Checkout the directory only. Do not populate it with files or child folders."
-msgstr ""
+msgstr "Checkt nur das angegebene Verzeichnis aus. Weder Dateien noch Unterordner werden angelegt."
 
 #: source/TortoiseSVN_en.xml:3924
 #: (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
-msgstr ""
+msgstr "Sie können die <firstterm>Tiefe</firstterm> der Rekursion beim Auschecken festlegen. Wenn Sie nur einige Bereiche eines großen Quellbaumes wollen, können Sie den oberten Ordner auschecken und danach die gewünschten Ordner rekursiv aktualisieren. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3968
 #: (para)
@@ -3568,13 +3567,11 @@ msgstr "Wenn das Projekt Verweise auf externe Projekte enthält welche Sie <emph
 
 #: source/TortoiseSVN_en.xml:3974
 #: (para)
-#, fuzzy
 msgid "If <guilabel>Omit externals</guilabel> is checked, or if you wish to increase the depth value, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
-msgstr "Änderungen an Dateien im Projektarchiv abzuspeichern wird auch <firstterm>Übertragen</firstterm> der Änderungen genannt. Vor dem Übertragen jedoch sollten Sie sicherstellen, dass Ihre Arbeitskopie auch auf dem neuesten Stand ist. Sie können entweder den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren...</guimenuitem></menuchoice> sofort ausführen oder zunächst mittels <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auf Änderungen überprüfen</guimenuitem></menuchoice>, welche Dateien sich lokal oder auf dem Server geändert haben."
+msgstr "Falls <guilabel>Externals auslassen</guilabel> markiert ist oder falls Sie die Tiefe ändern wollen, müssen Sie Aktualisierungen Ihrer Arbeitskopie mittels <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisiere zu Revision...</guimenuitem></menuchoice> anstatt  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren</guimenuitem></menuchoice> durchführen. Die Standardaktualisierung wird alle Unterordner inklusive externer Verweise aktualisieren."
 
 #: source/TortoiseSVN_en.xml:3990
 #: (para)
-#, fuzzy
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
 msgstr "Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad auschecken, erhalten Sie den kompletten Dateibaum des Projektarchivs! So können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede Markierung in <filename>tags</filename> eine separate Kopie der Daten erhalten!"
 
@@ -3934,9 +3931,8 @@ msgstr "Sobald die Aktualisierung beendet ist, zeigt der Fortschrittsdialog eine
 
 #: source/TortoiseSVN_en.xml:4438
 #: (para)
-#, fuzzy
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. <placeholder-1/> You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch festlegen, ob Sie nur den aktuellen Ordner nicht-rekursiv (ohne Unterordner) aktualisieren wollen und ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
+msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch die <firstterm>Tiefe</firstterm> beim Aktualiseren festlegen. <placeholder-1/>Weiterhin können Sie wählen, ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
 
 #: source/TortoiseSVN_en.xml:4496
 #: (para)
@@ -5038,7 +5034,7 @@ msgstr "Die obere Schaltfläche ermöglicht es Ihnen, die Richtung des Vergleich
 #: source/TortoiseSVN_en.xml:5907
 #: (para)
 msgid "The buttons with the revision numbers on can be used to change to a different revision range. When you change the range, the list of items which differ between the two revisions will be updated automatically."
-msgstr "Die Schaltflächen mit den Revsionsnummern dienen dazu, einen anderen Revisionsbereich auszuwählen. Wenn Sie den Bereich ändern, wird die Liste der Objekte, die sich darin geändert haben, aktualisiert."
+msgstr "Die Schaltflächen mit den Revisionsnummern dienen dazu, einen anderen Revisionsbereich auszuwählen. Wenn Sie den Bereich ändern, wird die Liste der Objekte, die sich darin geändert haben, aktualisiert."
 
 #: source/TortoiseSVN_en.xml:5914
 #: (title)
@@ -6980,7 +6976,7 @@ msgstr "Es gibt auch eine Option, den Graphen <emphasis>nach Pfad</emphasis> zu 
 #: source/TortoiseSVN_en.xml:8501
 #: (para)
 msgid "Sometimes the revision graph contains more detail than you want to see. <menuchoice><guimenu>View</guimenu><guimenuitem>Filter</guimenuitem></menuchoice> opens a dialog which allows you to restrict the range of revisions displayed, and to hide particular paths by name."
-msgstr "Manchmal zeigt der Revsionsgraph mehr Details an als Sie eigentlich sehen wollen.<menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Filter</guimenuitem></menuchoice> öffnet einen Dialog, mit dem Sie dan angezeigten Revisionsbereich einschränken oder bestimmte Pfade über ihre Namen ausschließen können."
+msgstr "Manchmal zeigt der Revisionsgraph mehr Details an als Sie eigentlich sehen wollen.<menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Filter</guimenuitem></menuchoice> öffnet einen Dialog, mit dem Sie dan angezeigten Revisionsbereich einschränken oder bestimmte Pfade über ihre Namen ausschließen können."
 
 #: source/TortoiseSVN_en.xml:8510
 #: (para)
@@ -9183,7 +9179,7 @@ msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zei
 #: source/TortoiseSVN_en.xml:11073
 #: (para)
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the shift key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr "Markieren Sie die Revsion, die Sie rückgängig machen wollen. Wenn Sie einen ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie die letzte Revision markieren. Beachten Sie, dass der Revisionsbereich nicht unterbrochen sein darf. Machen Sie einen <action>Rechtsklick</action> auf die gewählten Revision(en) und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
+msgstr "Markieren Sie die Revision, die Sie rückgängig machen wollen. Wenn Sie einen ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie die letzte Revision markieren. Beachten Sie, dass der Revisionsbereich nicht unterbrochen sein darf. Machen Sie einen <action>Rechtsklick</action> auf die gewählten Revision(en) und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
 
 #: source/TortoiseSVN_en.xml:11088
 #: (para)
