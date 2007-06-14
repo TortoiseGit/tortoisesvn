@@ -221,6 +221,8 @@ Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
        overlays marked folders as modified even if the unversioned files
        were ignored. (Stefan)
+- BUG: The commit dialog wrongly showed added files in external folders.
+       (Tobias Schäfer)
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their

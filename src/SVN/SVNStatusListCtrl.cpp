@@ -892,7 +892,6 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				if (!strCurrentRepositoryUUID.IsEmpty())
 				{
 					if ((SVNStatus::IsImportant(wcFileStatus))&&
-						(s->entry->kind == svn_node_dir)&&
 						(lastexternalpath.IsAncestorOf(svnPath)))
 					{
 						bEntryfromDifferentRepo = true;
