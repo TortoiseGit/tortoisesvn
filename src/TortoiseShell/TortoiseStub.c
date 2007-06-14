@@ -16,6 +16,7 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
+#define _WIN32_WINNT 0x0400
 #include <Windows.h>
 #include <tchar.h>
 #include "Debug.h"
