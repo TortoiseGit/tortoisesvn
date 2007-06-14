@@ -245,6 +245,115 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 // EndOfFile
 </screen>
 	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 4 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-subwcrev-com-interface">
+		<title>COM interface</title>
+		<para>
+			If you need to access Subversion revision information from other
+			programs, you can use the COM interface of SubWCRev. The object to
+			create is <literal>SubWCRev</literal>, and the following
+			methods are supported:
+			<table id="tsvn-subwcrev-COM-table">
+				<title>COM/automation methods supported</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="2" colwidth="4*"/>
+					<thead>
+						<row>
+							<entry>Method</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>GetWCInfo</entry>
+							<entry>
+								This method traverses the working copy gathering the
+								revision information. Naturally you must call this before
+								you can access the information using the remaining methods.
+								The first parameter is the path.
+							</entry>
+						</row>
+						<row>
+							<entry>Revision</entry>
+							<entry>
+								The highest commit revision in the working copy.
+								Equivalent to $WCREV$
+							</entry>
+						</row>
+						<row>
+							<entry>Date</entry>
+							<entry>
+								The commit date/time of the highest commit revision.
+								Equivalent to $WCDATE$
+							</entry>
+						</row>
+						<row>
+							<entry>Author</entry>
+							<entry>
+								The author of the highest commit revision, ie the
+								last person to commit changes to the working copy.
+							</entry>
+						</row>
+						<row>
+							<entry>MinRev</entry>
+							<entry>The minimum update revision, as shown in $WCRANGE$</entry>
+						</row>
+						<row>
+							<entry>MaxRev</entry>
+							<entry>The maximum update revision, as shown in $WCRANGE$</entry>
+						</row>
+						<row>
+							<entry>HasModifications</entry>
+							<entry>True if there are local modifications</entry>
+						</row>
+						<row>
+							<entry>Url</entry>
+							<entry>
+								Replaced with the repository URL of the working
+								copy path used in GetWCInfo. Equivalent to $WCURL$
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</para>
+		<para>
+			The following example shows how the interface might be used.
+<screen>
+// test script for the SubWCRev COM/Automation-object
+
+objScript = new ActiveXObject("Scripting.FileSystemObject");
+
+objScript1 = new ActiveXObject("SubWCRev.object.1");
+objScript2 = new ActiveXObject("SubWCRev.object.1");
+objScript3 = new ActiveXObject("SubWCRev.object.1");
+
+objScript1.GetWCInfo(objScript.GetAbsolutePathName("."), 1, 1);
+objScript2.GetWCInfo(objScript.GetAbsolutePathName(".."), 1, 1);
+objScript3.GetWCInfo(objScript.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
+
+sInfo1 = "Revision = " + objScript1.Revision + "\nMin Revision = " + objScript1.MinRev +
+         "\nMax Revision = " + objScript1.MaxRev + "\nDate = " + objScript1.Date +
+         "\nURL = " + objScript1.Url + "\nAuthor = " + objScript1.Author +
+         "\nHasMods = " + objScript1.HasModifications;
+sInfo2 = "Revision = " + objScript2.Revision + "\nMin Revision = " + objScript2.MinRev +
+         "\nMax Revision = " + objScript2.MaxRev + "\nDate = " + objScript2.Date +
+         "\nURL = " + objScript2.Url + "\nAuthor = " + objScript2.Author +
+         "\nHasMods = " + objScript2.HasModifications;
+sInfo3 = "Revision = " + objScript3.Revision + "\nMin Revision = " + objScript3.MinRev +
+         "\nMax Revision = " + objScript3.MaxRev + "\nDate = " + objScript3.Date +
+         "\nURL = " + objScript3.Url + "\nAuthor = " + objScript3.Author +
+         "\nHasMods = " + objScript3.HasModifications;
+
+WScript.Echo(sInfo1);
+WScript.Echo(sInfo2);
+WScript.Echo(sInfo3);
+</screen>
+		</para>
+	</sect1>
 </chapter>
 <!--
 local variables:
