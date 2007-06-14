@@ -39,44 +39,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     {
         return S_FALSE;
     }
-    // Under NT (and 95?), file open dialog crashes apps upon shutdown,
-    // so we disable our icon overlays unless we are in Explorer process
-    // space.
-    bool bAllowOverlayInFileDialogs = osv.dwMajorVersion > 4 || // allow anything major > 4
-        (osv.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS &&
-        osv.dwMajorVersion == 4 && osv.dwMinorVersion > 0); // plus Windows 98/Me
 	
-	// There is also a user-option to suppress this
-	if(bAllowOverlayInFileDialogs && CRegStdWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE))
-	{
-		bAllowOverlayInFileDialogs = false;
-	}
-
-	if(!bAllowOverlayInFileDialogs)
-	{
-		// Test if we are in Explorer
-		DWORD modpathlen = 0;
-		TCHAR * buf = NULL;
-		DWORD pathLength = 0;
-		do 
-		{
-			modpathlen += MAX_PATH;		// MAX_PATH is not the limit here!
-			if (buf)
-				delete buf;
-			buf = new TCHAR[modpathlen];
-			pathLength = GetModuleFileName(NULL, buf, modpathlen);
-		} while (pathLength == modpathlen);
-		if(pathLength >= 13)
-		{
-			if ((_tcsicmp(&buf[pathLength-13], _T("\\explorer.exe"))) != 0)
-			{
-				delete buf;
-				return S_FALSE;
-			}
-		}
-		delete buf;
-	}
-
 	int nInstalledOverlays = GetInstalledOverlays();
 	
 	if ((m_State == FileStateAddedOverlay)&&(nInstalledOverlays > 12))

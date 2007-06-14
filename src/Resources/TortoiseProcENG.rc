@@ -431,7 +431,7 @@ CAPTION "Look and Feel::Icon Overlays"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,12,7,274,31
-    CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
+    CONTROL         "Show &overlays and context menu only in explorer",IDC_ONLYEXPLORER,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,266,10
     GROUPBOX        "Status cache",IDC_STATIC,12,41,274,43
     CONTROL         "&Default",IDC_CACHEDEFAULT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,56,60,10
@@ -2267,7 +2267,7 @@ BEGIN
     IDS_SETTINGS_CHECKNEWER_TT 
                             "If enabled, TortoiseSVN checks once a week if a newer version is available"
     IDS_SETTINGS_ONLYEXPLORER_TT 
-                            "If activated, prevents the overlays from showing in ""save as..."" or ""open"" dialogs"
+                            "If activated, prevents the overlays and the context menu from showing in ""save as..."" or ""open"" dialogs"
     IDS_SETTINGS_MENULAYOUT_TT 
                             "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
     IDS_SETTINGS_EXCLUDELIST_TT 

@@ -44,7 +44,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bFloppy(FALSE)
 	, m_bShowExcludedAsNormal(TRUE)
 {
-	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
+	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\LoadDllOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 	m_regDriveMaskFloppy = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));

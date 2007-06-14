@@ -58,40 +58,40 @@
             <Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
             <Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidDropHandler)}" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}" Action="createKeyAndRemoveKeyOnUninstall" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}" Action="createKeyAndRemoveKeyOnUninstall" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}" Action="createKeyAndRemoveKeyOnUninstall" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}\InProcServer32" Value="[INSTALLDIR]bin\tortoisesvn.dll" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}" Value="TortoiseSVN" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
@@ -210,6 +210,7 @@
             <Component Id="C__TortoiseSVN" Guid="$(var.GuidTortoiseSVN)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
               <File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
+              <File Id="F__TortoiseStub" Name="TORTSTB.DLL" LongName="TortoiseStub.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseStub.dll" />
               <File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
               <File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
               <File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
