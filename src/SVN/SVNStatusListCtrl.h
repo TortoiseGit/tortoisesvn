@@ -254,6 +254,11 @@ public:
 		}
 	public:
 		svn_wc_status_kind		status;					///< local status
+		svn_wc_status_kind		textstatus;				///< local text status
+		svn_wc_status_kind		propstatus;				///< local property status
+		svn_wc_status_kind		remotestatus;			///< remote status
+		svn_wc_status_kind		remotetextstatus;		///< remote text status
+		svn_wc_status_kind		remotepropstatus;		///< remote property status
 	private:
 		CTSVNPath				path;					///< full path of the file
 		CTSVNPath				basepath;				///< common ancestor path of all files
@@ -269,11 +274,6 @@ public:
 		CString					last_commit_author;		///< the author which last committed this item
 		apr_time_t				last_commit_date;		///< the date when this item was last committed
 		svn_revnum_t			last_commit_rev;		///< the revision where this item was last committed
-		svn_wc_status_kind		textstatus;				///< local text status
-		svn_wc_status_kind		propstatus;				///< local property status
-		svn_wc_status_kind		remotestatus;			///< remote status
-		svn_wc_status_kind		remotetextstatus;		///< remote text status
-		svn_wc_status_kind		remotepropstatus;		///< remote property status
 		bool					copied;					///< if the file/folder is added-with-history
 		bool					switched;				///< if the file/folder is switched to another url
 		bool					checked;				///< if the file is checked in the list control
