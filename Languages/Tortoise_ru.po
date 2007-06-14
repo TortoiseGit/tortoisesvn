@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9637: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9758: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-06-03 22:58+0300\n"
+"PO-Revision-Date: 2007-06-15 01:31+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2995,8 +2995,10 @@ msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Значки/Дизайн/Код: Luebbe Onken"
 
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Если отмечено, запрещает помечать значки в диалогах \"сохранить как...\" и \"открыть\""
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr ""
+"Если отмечено, то контекстное меню и пометки на значках не будут отображаться\n"
+"в диалогах \"сохранить как...\" и \"открыть\""
 
 #: ID:198
 msgid ""
@@ -5004,8 +5006,8 @@ msgid "Show &log..."
 msgstr "Показать &журнал..."
 
 #: Control-ID:1088
-msgid "Show &overlays only in explorer"
-msgstr "Показывать &пометки только в проводнике"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "Показывать &пометки и контекстное меню только в проводнике"
 
 #: Control-ID:1073
 msgid "Show &unversioned files"
