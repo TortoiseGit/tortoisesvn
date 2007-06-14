@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-24 10:55+0900\n"
+"PO-Revision-Date: 2007-06-14 11:20+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -465,6 +465,12 @@ msgstr "BASE に対する差分の時はファイルを変換する(&C)"
 #: MenuEntry
 msgid "&Copy"
 msgstr "コピー(&C)"
+
+# ID:101,
+# ID:101,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "ログメッセージをクリップボードにコピーする(&C)"
 
 # ID:101,
 #: MenuEntry
@@ -2068,6 +2074,17 @@ msgstr "フォルダを作成(&R) ..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "ログメッセージをキャッシュする"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "ログの取得を高速化するためにログメッセージをキャッシュする"
+
 # ID:82,
 # ID:82,
 #: ID:82
@@ -2293,6 +2310,13 @@ msgstr "チェックアウトディレクトリ(&D):"
 #: ID:77
 msgid "Checkout - TortoiseSVN"
 msgstr "チェックアウト - TortoiseSVN"
+
+# ID:8,
+# Dlg-ID:133,#:
+# Control-ID:65535,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "チェックアウトする深さ"
 
 # ID:119,
 # ID:120,
@@ -3400,22 +3424,6 @@ msgstr "プロクシサーバの名前もしくは IP を入力します"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "空"
-
-# Control-ID:1240,
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "トップレベルメニューのショートカットキーを有効にする(&A)"
-
-# ID:196,
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"トップレベルメニューでもキーボードショートカットを利用したい場合は有効にする。\n"
-"ただし、これを無効にしたほうがコンテキストメニューのアイコンは見やすくなります。"
 
 # ID:196,
 # ID:196,
@@ -5485,6 +5493,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "以前に変更された行"
+
 # ID:13,
 # ID:99,#:
 # Control-ID:1202,#:
@@ -5598,12 +5611,6 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "オンラインのリポジトリを調整するためにリポジトリブラウザを開く"
-
-# ID:77,
-# ID:117,
-#: Control-ID:1377
-msgid "Options"
-msgstr "オプション"
 
 #: MenuEntry
 msgid "Ori&ginal size"
@@ -6096,6 +6103,12 @@ msgstr "元に戻す(&V) ..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "行き詰まったら \"日常の利用ガイド\" を読もう"
+
+# Control-ID:1065,
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "最近変更された行"
 
 # Control-ID:1073,
 # Control-ID:1260,
@@ -9478,11 +9491,6 @@ msgstr "通常"
 msgid "obstructed"
 msgstr "妨害"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "以前に変更された行"
-
 # ID:3869,#:
 # ID:3869,
 # ID:3869,#:
@@ -9508,12 +9516,6 @@ msgstr "3ヶ月"
 #: ID:195
 msgid "readonly"
 msgstr "読み取り専用"
-
-# Control-ID:1065,
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "最近変更された行"
 
 # ID:10,
 # ID:10,
