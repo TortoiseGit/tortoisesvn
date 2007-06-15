@@ -42,14 +42,14 @@
 			and some as removable drives.
 		</para>
 		<para>
-			By default, overlay icons will appear in all open/save dialogs
-			as well as in Windows Explorer. If you want them to appear
+			By default, overlay icons and context menus will appear in all open/save
+			dialogs as well as in Windows Explorer. If you want them to appear
 			<emphasis>only</emphasis> in Windows Explorer, check the
-			<guilabel>Show overlays only in explorer</guilabel> box.
+			<guilabel>Show overlays and context menu only in explorer</guilabel> box.
 		</para>
 		<para>
 			Since it takes quite a while to fetch the status of a working copy,
-			TortoiseSVN uses a cache to store the status in so the explorer
+			TortoiseSVN uses a cache to store the status so the explorer
 			doesn't get hogged too much when showing the overlays.
 			You can choose which type of cache TortoiseSVN should use according
 			to your system and working copy size here:
