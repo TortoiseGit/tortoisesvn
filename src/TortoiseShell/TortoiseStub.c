@@ -144,6 +144,8 @@ static void LoadRealLibrary(void)
 	}
 
 	TRACE(_T("LoadRealLibrary() - Success\n"));
+	pDllGetClassObject = NULL;
+	pDllCanUnloadNow = NULL;
 	pDllGetClassObject = (LPFNGETCLASSOBJECT)GetProcAddress(hTortoiseSVN, GetClassObject);
 	if (pDllGetClassObject == NULL)
 	{
@@ -232,7 +234,10 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppv)
 	LoadRealLibrary();
 	if (!pDllGetClassObject)
 	{
-		*ppv = NULL;
+		if (ppv)
+			*ppv = NULL;
+		else
+			ppv = NULL;
 
 		TRACE(_T("DllGetClassObject() - Bypass\n"));
 		return CLASS_E_CLASSNOTAVAILABLE;
