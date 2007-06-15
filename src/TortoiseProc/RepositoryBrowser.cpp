@@ -1046,12 +1046,11 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	}
 	pTreeItem->children_fetched = true;
 	// if there are no child folders, remove the '+' in front of the node
-	if (!pTreeItem->has_child_folders)
 	{
 		TVITEM tvitem = {0};
 		tvitem.hItem = hNode;
 		tvitem.mask = TVIF_CHILDREN;
-		tvitem.cChildren = 0;
+		tvitem.cChildren = pTreeItem->has_child_folders ? 1 : 0;
 		m_RepoTree.SetItem(&tvitem);
 	}
 	if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
