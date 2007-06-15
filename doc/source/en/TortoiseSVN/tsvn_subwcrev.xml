@@ -253,7 +253,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 		<para>
 			If you need to access Subversion revision information from other
 			programs, you can use the COM interface of SubWCRev. The object to
-			create is <literal>SubWCRev</literal>, and the following
+			create is <literal>SubWCRev.object.1</literal>, and the following
 			methods are supported:
 			<table id="tsvn-subwcrev-COM-table">
 				<title>COM/automation methods supported</title>
@@ -274,6 +274,12 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 								revision information. Naturally you must call this before
 								you can access the information using the remaining methods.
 								The first parameter is the path.
+								The second parameter should be true if you want to include
+								folder revisions. Equivalent to the <literal>-f</literal>
+								command line switch.
+								The third parameter should be true if you want to include
+								svn:externals. Equivalent to the <literal>-e</literal>
+								command line switch.
 							</entry>
 						</row>
 						<row>
@@ -325,28 +331,28 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 <screen>
 // test script for the SubWCRev COM/Automation-object
 
-objScript = new ActiveXObject("Scripting.FileSystemObject");
+filesystem = new ActiveXObject("Scripting.FileSystemObject");
 
-objScript1 = new ActiveXObject("SubWCRev.object.1");
-objScript2 = new ActiveXObject("SubWCRev.object.1");
-objScript3 = new ActiveXObject("SubWCRev.object.1");
+SubWCRev1 = new ActiveXObject("SubWCRev.object.1");
+SubWCRev2 = new ActiveXObject("SubWCRev.object.1");
+SubWCRev3 = new ActiveXObject("SubWCRev.object.1");
 
-objScript1.GetWCInfo(objScript.GetAbsolutePathName("."), 1, 1);
-objScript2.GetWCInfo(objScript.GetAbsolutePathName(".."), 1, 1);
-objScript3.GetWCInfo(objScript.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
+SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName("."), 0, 0);
+SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
+SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 0, 0);
 
-sInfo1 = "Revision = " + objScript1.Revision + "\nMin Revision = " + objScript1.MinRev +
-         "\nMax Revision = " + objScript1.MaxRev + "\nDate = " + objScript1.Date +
-         "\nURL = " + objScript1.Url + "\nAuthor = " + objScript1.Author +
-         "\nHasMods = " + objScript1.HasModifications;
-sInfo2 = "Revision = " + objScript2.Revision + "\nMin Revision = " + objScript2.MinRev +
-         "\nMax Revision = " + objScript2.MaxRev + "\nDate = " + objScript2.Date +
-         "\nURL = " + objScript2.Url + "\nAuthor = " + objScript2.Author +
-         "\nHasMods = " + objScript2.HasModifications;
-sInfo3 = "Revision = " + objScript3.Revision + "\nMin Revision = " + objScript3.MinRev +
-         "\nMax Revision = " + objScript3.MaxRev + "\nDate = " + objScript3.Date +
-         "\nURL = " + objScript3.Url + "\nAuthor = " + objScript3.Author +
-         "\nHasMods = " + objScript3.HasModifications;
+sInfo1 = "Revision = " + SubWCRev1.Revision + "\nMin Revision = " + SubWCRev1.MinRev +
+         "\nMax Revision = " + SubWCRev1.MaxRev + "\nDate = " + SubWCRev1.Date +
+         "\nURL = " + SubWCRev1.Url + "\nAuthor = " + SubWCRev1.Author +
+         "\nHasMods = " + SubWCRev1.HasModifications;
+sInfo2 = "Revision = " + SubWCRev2.Revision + "\nMin Revision = " + SubWCRev2.MinRev +
+         "\nMax Revision = " + SubWCRev2.MaxRev + "\nDate = " + SubWCRev2.Date +
+         "\nURL = " + SubWCRev2.Url + "\nAuthor = " + SubWCRev2.Author +
+         "\nHasMods = " + SubWCRev2.HasModifications;
+sInfo3 = "Revision = " + SubWCRev3.Revision + "\nMin Revision = " + SubWCRev3.MinRev +
+         "\nMax Revision = " + SubWCRev3.MaxRev + "\nDate = " + SubWCRev3.Date +
+         "\nURL = " + SubWCRev3.Url + "\nAuthor = " + SubWCRev3.Author +
+         "\nHasMods = " + SubWCRev3.HasModifications;
 
 WScript.Echo(sInfo1);
 WScript.Echo(sInfo2);
