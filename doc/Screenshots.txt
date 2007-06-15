@@ -2,6 +2,11 @@ This file is a guide to grabbing screenshots for the user manual.
 Although there are not many hard and fast rules, some screenshots need
 care to set up as they are demonstrating a range of features.
 
+To help with consistency, some of these instructions are presented
+as a TortoiseProc.exe command line. These assume that the TSVN
+bin directory is in the PATH and that you have a doc folder checked
+out at C:\TortoiseSVN\Doc. Adjust the path according to your location.
+
 If you do not already have a screen capture/image viewer program,
 download a free copy of IrfanView from www.irfanview.com
 
@@ -33,9 +38,11 @@ Changelist.png
 	Modify some files in the doc DUG folder, say 3.
 	Open the commit dialog and add one of these to a new changelist.
 	Screenshot shows context menu for the changelist.
+	Revert the changes.
 
 Checkout.png
-	Just pretend to checkout the TSVN docs.
+	Just pretend to checkout the TSVN docs:
+	TortoiseProc.exe /command:checkout /path:"C:\TortoiseSVN\Doc" /url:"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc"
 
 Commit.png
 	(show externals warning symbol and context menu)
@@ -84,6 +91,7 @@ RepoStatus.png
 Revert.png
 RevisionGraph.png
 RightDragMenu.png
+SettingsBlame.png
 SettingsColors.png
 SettingsContext.png
 SettingsDialog.png
