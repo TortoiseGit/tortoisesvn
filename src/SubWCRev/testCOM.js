@@ -1,20 +1,20 @@
 // test script for the SubWCRev COM/Automation-object
 
-objScript = new ActiveXObject("Scripting.FileSystemObject");
+filesystem = new ActiveXObject("Scripting.FileSystemObject");
 
-objScript1 = new ActiveXObject("SubWCRev.object.1");
-objScript2 = new ActiveXObject("SubWCRev.object.1");
-objScript3 = new ActiveXObject("SubWCRev.object.1");
+subwcrevObject1 = new ActiveXObject("SubWCRev.object.1");
+subwcrevObject2 = new ActiveXObject("SubWCRev.object.1");
+subwcrevObject3 = new ActiveXObject("SubWCRev.object.1");
 
-objScript1.GetWCInfo(objScript.GetAbsolutePathName("."), 1, 1);
-objScript2.GetWCInfo(objScript.GetAbsolutePathName(".."), 1, 1);
-objScript3.GetWCInfo(objScript.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
+subwcrevObject1.GetWCInfo(filesystem.GetAbsolutePathName("."), 1, 1);
+subwcrevObject2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
+subwcrevObject3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
 
-sInfo1 = "Revision = " + objScript1.Revision + "\nMin Revision = " + objScript1.MinRev + "\nMax Revision = " + objScript1.MaxRev + "\nDate = " + objScript1.Date + "\nURL = " + objScript1.Url + "\nAuthor = " + objScript1.Author + "\nHasMods = " + objScript1.HasModifications;
-sInfo2 = "Revision = " + objScript2.Revision + "\nMin Revision = " + objScript2.MinRev + "\nMax Revision = " + objScript2.MaxRev + "\nDate = " + objScript2.Date + "\nURL = " + objScript2.Url + "\nAuthor = " + objScript2.Author + "\nHasMods = " + objScript2.HasModifications;
-sInfo3 = "Revision = " + objScript3.Revision + "\nMin Revision = " + objScript3.MinRev + "\nMax Revision = " + objScript3.MaxRev + "\nDate = " + objScript3.Date + "\nURL = " + objScript3.Url + "\nAuthor = " + objScript3.Author + "\nHasMods = " + objScript3.HasModifications;
+wcInfoString1 = "Revision = " + subwcrevObject1.Revision + "\nMin Revision = " + subwcrevObject1.MinRev + "\nMax Revision = " + subwcrevObject1.MaxRev + "\nDate = " + subwcrevObject1.Date + "\nURL = " + subwcrevObject1.Url + "\nAuthor = " + subwcrevObject1.Author + "\nHasMods = " + subwcrevObject1.HasModifications;
+wcInfoString2 = "Revision = " + subwcrevObject2.Revision + "\nMin Revision = " + subwcrevObject2.MinRev + "\nMax Revision = " + subwcrevObject2.MaxRev + "\nDate = " + subwcrevObject2.Date + "\nURL = " + subwcrevObject2.Url + "\nAuthor = " + subwcrevObject2.Author + "\nHasMods = " + subwcrevObject2.HasModifications;
+wcInfoString3 = "Revision = " + subwcrevObject3.Revision + "\nMin Revision = " + subwcrevObject3.MinRev + "\nMax Revision = " + subwcrevObject3.MaxRev + "\nDate = " + subwcrevObject3.Date + "\nURL = " + subwcrevObject3.Url + "\nAuthor = " + subwcrevObject3.Author + "\nHasMods = " + subwcrevObject3.HasModifications;
 
-WScript.Echo(sInfo1);
-WScript.Echo(sInfo2);
-WScript.Echo(sInfo3);
+WScript.Echo(wcInfoString1);
+WScript.Echo(wcInfoString2);
+WScript.Echo(wcInfoString3);
 
