@@ -1432,15 +1432,18 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 
+	if (m_RepoList.HasText())
+		return;
 	CIDropSource* pdsrc = new CIDropSource;
 	if (pdsrc == NULL)
-		return;
-	if (m_RepoList.HasText())
 		return;
 	pdsrc->AddRef();
 	CIDataObject* pdobj = new CIDataObject(pdsrc);
 	if (pdobj == NULL)
+	{
+		delete pdsrc;
 		return;
+	}
 	pdobj->AddRef();
 
 	// Init the supported format
