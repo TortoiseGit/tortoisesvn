@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-28 19:15+0100\n"
+"PO-Revision-Date: 2007-06-16 20:40+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -298,7 +298,7 @@ msgstr "Prid&ať"
 #: Control-ID:1090
 #: Control-ID:1093
 msgid "&Advanced..."
-msgstr "&Pokročilé"
+msgstr "&Rozširené..."
 
 # Control-ID:1013,
 #: Control-ID:1013
@@ -413,7 +413,7 @@ msgstr "&Kopírovať"
 # ID:101,
 #: MenuEntry
 msgid "&Copy log message to clipboard"
-msgstr "Skopíruj správy denníka do schránky"
+msgstr "&Skopíruj správy denníka do schránky"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -1749,6 +1749,16 @@ msgstr "Vytvo&r adresár..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Pmätať si správy denníka"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Pamätanie si správ denníka urýchli ich získakavanie"
+
 # ID:82,
 #: ID:82
 #, c-format
@@ -2769,7 +2779,7 @@ msgid ""
 msgstr ""
 "Chcete naozaj vrátiť všetky zmeny v \n"
 "%s\n"
-"ktoré boli v tejto verzií vykonané? Tieto zmeny budú vrátene reverzným zlučovaním revízií do vašej pracovnej kópie."
+"ktoré boli v tejto revízií vykonané? Tieto zmeny budú vrátene reverzným zlučovaním revízie do vašej pracovnej kópie."
 
 # ID:76,
 #: ID:76
@@ -2891,20 +2901,6 @@ msgstr "IP adresa, alebo meno proxy servera"
 msgid "Empty"
 msgstr "Prázdne"
 
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Povoliť &akceleračné klávesy pre hlavné menu"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Zaškrtnite ak chcete povoliť akceleračné klúče aj pre hlavné kontextové menu.\n"
-"Poznámka: ikonky kontextového menu vyzerajú krajšie ak nieje povolené."
-
 # ID:196,
 #: ID:196
 msgid ""
@@ -2993,7 +2989,7 @@ msgstr "Chyba"
 # ID:145,
 #: ID:145
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Prebuduj zásobu ikonky pre šel."
+msgstr "Prebuduj zásobu ikokoniek pre šel."
 
 # ID:81,
 #: ID:81
@@ -3109,7 +3105,7 @@ msgstr "Externý program::Spájací nástroj"
 # Dlg-ID:194,
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
-msgstr "Extrerný program::Prezerač unifikovaného porovnania"
+msgstr "Externý program::Prezerač unifikovaného porovnania"
 
 # ID:74,
 #: ID:226
@@ -3645,8 +3641,8 @@ msgstr "Ikony/Design/Kód:     Luebbe ONKEN"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových menu v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
 
 # ID:198,
 #: ID:198
@@ -6002,7 +5998,7 @@ msgstr "Vyberte aplikáciu, ktorá bude použitá na úpravu textových súborov
 # ID:79,
 #: ID:79
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Vyber správanie pre dialogové okno postupu na konci úkonu."
+msgstr "Vyberte správanie pre dialogové okno postupu na konci úkonu."
 
 # ID:3603,
 #: ID:3603
@@ -6072,7 +6068,7 @@ msgstr "Šel"
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "Ikonky pamäte šelu boli prebudované!"
+msgstr "Pamäť ikoniek šelu bola prebudované!"
 
 # ID:101,
 #: ID:101
@@ -6129,8 +6125,8 @@ msgstr "Zobraziť &denník..."
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Show &overlays only in explorer"
-msgstr "Z&obrazovať prekrytie len v Explorer-y"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "Z&obrazovať prekrytie a kontextové menu len v Explorer-y"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -6388,7 +6384,7 @@ msgstr "Pamäť stavov"
 # ID:196,
 #: ID:196
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Pamäť stavou udržiavaná externým procesom može zobrazovať prekryvajúce ikonky s vnáraním"
+msgstr "Pamäť stavov udržiavaná externým procesom može zobrazovať prekryvajúce ikonky s vnáraním"
 
 # ID:196,
 #: ID:196
