@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-07-03 00:53+0200\n"
+"PO-Revision-Date: 2007-06-16 22:04+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -780,7 +780,7 @@ msgstr "Υπήρξε μια παραβίαση "
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr ""
+msgstr "Υπάρχει καινούργια έκδοση. Παρακαλώ πηγαίντε στην τοποθεσία http://tortoisesvn.tigris.org και κατεβάστε την τρέχουσα έκδοση"
 
 #: ID:195,
 msgid ""
@@ -798,19 +798,21 @@ msgstr ""
 #: ID:3843,#:
 #: ID:3843,
 msgid "A required resource was unavailable."
-msgstr ""
+msgstr "Ενας απαιτούμενος πόρος δεν είναι διαθέσημος."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "A sharing violation occurred while accessing %1."
-msgstr ""
+msgstr "Συνέβηκε μια παραβίαση κοινής χρήσης καθώς γινόταν προσπέλαση του %1."
 
 #: ID:79,
 msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
+"Ένα πρόγραμμα ανάγνωσης για αρχεία διαφωρών GNU .\n"
+"Εάν δεν έχετε ένα, χρησιμοποιήστε το Σημειωματάριο."
 
 #: ID:9,
 msgid "A&bout"
@@ -944,10 +946,12 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
+"Διευθέτηση των ρυθμίσεων\n"
+"Ρυθμίσεις"
 
 #: Dlg-ID:170,
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "Προχωρημένες Ρυθμήσεις Διαφωρών/Συνενώσεων"
 
 #: ID:110,
 msgid "Advanced diff settings"
@@ -1035,8 +1039,9 @@ msgstr ""
 
 #: ID:3843,#:
 #: ID:3843,
+#, fuzzy
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "Συνέβηκε ένα άγνωστο λάθος."
 
 #: ID:3867,#:
 #: ID:3868,#:
@@ -1053,11 +1058,11 @@ msgstr ""
 #: ID:3843,#:
 #: ID:3843,
 msgid "An unsupported operation was attempted."
-msgstr ""
+msgstr "Έγινε προσπάθεια εκτέλεσης μίας μή υποστηριζόμενης λειτουργείας"
 
 #: ID:269,
 msgid "Analyze revision data..."
-msgstr ""
+msgstr "Ανάλυση δεδωμένων έκδωσης..."
 
 #: ID:14,
 msgid "Applies a unified diff file to the working copy"
@@ -1083,7 +1088,7 @@ msgstr "Εφαρμογή ενοποιημένης διαφοράς"
 
 #: ID:145,
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr ""
+msgstr "Είσαστε βέβαιοι ότι θέλετε να σημαδεύσετε τα αντιφάσκωντα αρχεία όπως έχουν ειλημμένα αποφασηστεί;"
 
 #: ID:79,
 #, c-format
@@ -1091,8 +1096,9 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr ""
 
 #: MenuEntry
+#, fuzzy
 msgid "Arranged by &path"
-msgstr ""
+msgstr "Διαταξη ως προς την &ακολουθούμενη γραμμή ενεργειών (path)"
 
 #: ID:2050,
 msgid "Arranges the nodes sorted by path"
@@ -1135,15 +1141,15 @@ msgstr "Συγγραφείς:"
 
 #: ID:222,
 msgid "Auto-close if no conflicts"
-msgstr ""
+msgstr "Αυτόματο κλείσημο εάν δεν υπάρχουν αντιφάσεις "
 
 #: ID:222,
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "Αυτόματο κλείσημο εάν δεν υπάρχουν λάθη"
 
 #: ID:222,
 msgid "Auto-close if no merges, adds or deletes"
-msgstr ""
+msgstr "Αυτόματο κλείσημο εάν δεν υπάρχουν συνενώσεις, προσθήκες ή διαγραφές"
 
 #: ID:195,
 msgid ""
@@ -4815,11 +4821,11 @@ msgstr ""
 
 #: ID:74,
 msgid "User cancelled"
-msgstr ""
+msgstr "Ο χρήστης ακύρωσε"
 
 #: ID:69,
 msgid "Username:"
-msgstr ""
+msgstr "Αναγνωριστικό χρήστη:"
 
 #: ID:313,
 msgid ""
@@ -5170,7 +5176,7 @@ msgstr "λείπει"
 
 #: Control-ID:65535,
 msgid "missing / deleted / replaced"
-msgstr ""
+msgstr "λείπει / διαγράφηκε / αντικαταστάθηκε"
 
 #: ID:10,
 msgid "modified"
