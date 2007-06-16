@@ -131,7 +131,8 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 	data.lastchangedtime = info->last_changed_date/1000000L;
 	if (info->last_changed_author)
 		data.author = CUnicodeUtils::GetUnicode(info->last_changed_author);
-	
+	data.depth = info->depth;
+
 	if (info->lock)
 	{
 		if (info->lock->path)
@@ -166,6 +167,8 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 			data.conflict_wrk = CUnicodeUtils::GetUnicode(info->conflict_wrk);
 		if (info->prejfile)
 			data.prejfile = CUnicodeUtils::GetUnicode(info->prejfile);
+		if (info->changelist)
+			data.changelist = CUnicodeUtils::GetUnicode(info->changelist);
 	}
 	pThis->m_arInfo.push_back(data);
 	pThis->Receiver(&data);

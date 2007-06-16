@@ -56,6 +56,9 @@ public:
 	CString				conflict_wrk;
 	CString				prejfile;
 
+	CString				changelist;
+	svn_depth_t			depth;
+
 	// convenience methods:
 
 	bool IsValid() {return rev.IsValid() != FALSE;}
