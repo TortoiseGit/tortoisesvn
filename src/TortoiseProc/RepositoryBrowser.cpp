@@ -44,6 +44,7 @@
 #include "SysImageList.h"
 #include "RepoDrags.h"
 #include "SVNInfo.h"
+#include "SVNDataObject.h"
 
 
 enum RepoBrowserContextMenuCommands
@@ -187,7 +188,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	RegisterDragDrop(m_RepoTree.GetSafeHwnd(), m_pTreeDropTarget);
 	// create the supported formats:
 	FORMATETC ftetc={0}; 
-	ftetc.cfFormat = CF_TEXT; 
+	ftetc.cfFormat = CF_UNICODETEXT; 
 	ftetc.dwAspect = DVASPECT_CONTENT; 
 	ftetc.lindex = -1; 
 	ftetc.tymed = TYMED_HGLOBAL; 
@@ -198,7 +199,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_pListDropTarget = new CListDropTarget(this);
 	RegisterDragDrop(m_RepoList.GetSafeHwnd(), m_pListDropTarget);
 	// create the supported formats:
-	ftetc.cfFormat = CF_TEXT; 
+	ftetc.cfFormat = CF_UNICODETEXT; 
 	m_pListDropTarget->AddSuportedFormat(ftetc); 
 	ftetc.cfFormat=CF_HDROP; 
 	m_pListDropTarget->AddSuportedFormat(ftetc);
@@ -1438,46 +1439,23 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	if (pdsrc == NULL)
 		return;
 	pdsrc->AddRef();
-	CIDataObject* pdobj = new CIDataObject(pdsrc);
+
+	CTSVNPathList sourceURLs;
+	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int index = -1;
+	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+	{
+		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
+		sourceURLs.AddPath(CTSVNPath(pItem->absolutepath));
+	}
+
+	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
 	if (pdobj == NULL)
 	{
 		delete pdsrc;
 		return;
 	}
 	pdobj->AddRef();
-
-	// Init the supported format
-	FORMATETC fmtetc = {0}; 
-	fmtetc.cfFormat = CF_UNICODETEXT; 
-	fmtetc.dwAspect = DVASPECT_CONTENT; 
-	fmtetc.lindex = -1; 
-	fmtetc.tymed = TYMED_HGLOBAL;
-	// Init the medium used
-	STGMEDIUM medium = {0};
-	medium.tymed = TYMED_HGLOBAL;
-
-	CString urls;
-
-	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-	int index = -1;
-	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
-	{
-		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		urls += pItem->absolutepath + _T("\r\n");
-	}
-
-	medium.hGlobal = GlobalAlloc(GHND, (urls.GetLength()+1)*sizeof(TCHAR));
-	if (medium.hGlobal)
-	{
-		TCHAR* pMem = (TCHAR*)GlobalLock(medium.hGlobal);
-		_tcscpy_s(pMem, urls.GetLength()+1, (LPCTSTR)urls);
-		GlobalUnlock(medium.hGlobal);
-
-		pdobj->SetData(&fmtetc, &medium, TRUE);
-	}
-
-	m_pListDropTarget->AddSuportedFormat(fmtetc);
-	m_pTreeDropTarget->AddSuportedFormat(fmtetc);
 
 	CDragSourceHelper dragsrchelper;
 	dragsrchelper.InitializeFromWindow(m_RepoList.GetSafeHwnd(), pNMLV->ptAction, pdobj);
