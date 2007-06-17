@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-17 14:51+0200\n"
+"PO-Revision-Date: 2007-06-17 17:08+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1454,7 +1454,7 @@ msgstr ""
 
 #: ID:222,
 msgid "Close manually"
-msgstr ""
+msgstr "Χειροκίνητος τερματισμός λειτουργείας"
 
 #: ID:3825,
 msgid "Close the active window and prompts to save the documents"
@@ -1471,7 +1471,7 @@ msgstr "Χρώματα"
 #: ID:3857,#:
 #: ID:3857,
 msgid "Command failed."
-msgstr ""
+msgstr "Η διαταγή απέτυχε."
 
 #: ID:209,#:
 #: Control-ID:1083,
@@ -3205,7 +3205,7 @@ msgstr ""
 
 #: ID:74,
 msgid "Program"
-msgstr ""
+msgstr "Προγραμμα"
 
 #: ID:157,
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
@@ -3214,30 +3214,30 @@ msgstr ""
 #: Dlg-ID:134,#:
 #: Control-ID:65535,
 msgid "Progress"
-msgstr ""
+msgstr "Πρόοδος"
 
 #: ID:17,#:
 #: Dlg-ID:177,#:
 #: Dlg-ID:226,
 msgid "Properties"
-msgstr ""
+msgstr "Ιδιότητες"
 
 #: Control-ID:1287,
 msgid "Properties for"
-msgstr ""
+msgstr "Ιδιότητες για"
 
 #: ID:209,#:
 #: Control-ID:11021,
 msgid "Properties..."
-msgstr ""
+msgstr "Ιδιότητες..."
 
 #: ID:11,
 msgid "Property"
-msgstr ""
+msgstr "Ιδιότητα"
 
 #: Dlg-ID:107,
 msgid "Property Page"
-msgstr ""
+msgstr "Σελιδα Ιδιοτήτων"
 
 #: Control-ID:65535,
 msgid "Property Status:"
@@ -3249,7 +3249,7 @@ msgstr ""
 
 #: ID:207,
 msgid "Property status"
-msgstr ""
+msgstr "Καθεστός Ιδιωτήτων"
 
 #: Control-ID:1293,
 msgid "Property value:"
@@ -3778,7 +3778,7 @@ msgstr ""
 
 #: ID:78,
 msgid "Select SSH client"
-msgstr ""
+msgstr "Διαλέχτε πελάτη SSH"
 
 #: ID:3585,
 msgid "Select an object on which to get Help"
@@ -3790,11 +3790,11 @@ msgstr ""
 
 #: ID:313,
 msgid "Select diff file..."
-msgstr ""
+msgstr "Διαλέχτε αρχείο διαφορών..."
 
 #: ID:276,
 msgid "Select end revision"
-msgstr ""
+msgstr "Διαλέκτε τελική έκδοση"
 
 #: ID:79,
 msgid ""
@@ -3847,7 +3847,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Server &address:"
-msgstr ""
+msgstr "&Διεύθυνση διακομιστή:"
 
 #: Control-ID:1088,
 msgid "Set filedates to the \"last commit &time\""
@@ -4493,10 +4493,11 @@ msgstr ""
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
+# Well, you can't really translate this :P
 #: ID:107,
 #, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 #: ID:107,
 #, c-format
@@ -4507,6 +4508,11 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
 
 #: ID:80,#:
 #: Control-ID:65535,
@@ -4516,7 +4522,7 @@ msgstr "TortoiseSVN"
 #: ID:107,
 #, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 #: ID:107,
 #, c-format
@@ -4531,6 +4537,15 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
 
 #: ID:77,
 msgid "TortoiseSVN Add..."
@@ -4594,6 +4609,8 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
+"Το πρόγραμμα έχει εντοπίσει παρεμφερή ονοματα αρχείων. Θέλετε τα αρχεία: %s\n"
+"επίσεις να μετονομαστούν;"
 
 #: Control-ID:1162,
 msgid "Total commits analyzed:"
@@ -5157,11 +5174,11 @@ msgstr "Ο κατάλογος αρχείων είναι άδειος"
 
 #: ID:13,
 msgid "ignored"
-msgstr ""
+msgstr "παραβλέυθηκε"
 
 #: ID:13,
 msgid "incomplete"
-msgstr ""
+msgstr "ελλιπή(ς)"
 
 #: ID:11,#:
 #: ID:195,#:
