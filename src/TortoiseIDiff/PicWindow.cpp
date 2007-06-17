@@ -353,7 +353,8 @@ void CPicWindow::SetPic(stdstring path, stdstring title)
 
 void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 {
-	HFONT hFont = CreateFont(-MulDiv(10, GetDeviceCaps(hDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
+	HFONT hFont = NULL;
+	hFont = CreateFont(-MulDiv(pSecondPic ? 8 : 10, GetDeviceCaps(hDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
 	HFONT hFontOld = (HFONT)SelectObject(hDC, (HGDIOBJ)hFont);
 
 	RECT textrect;
@@ -383,11 +384,6 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	stdstring realtitle = *title;
 	stdstring imgnumstring;
 
-	if (pSecondPic)
-	{
-		realtitle = realtitle + _T(" - ") + (pictitle2.empty() ? picpath2 : pictitle2);
-	}
-
 	if (HasMultipleImages())
 	{
 		TCHAR buf[MAX_PATH];
@@ -402,15 +398,27 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	if (GetTextExtentPoint32(hDC, realtitle.c_str(), realtitle.size(), &stringsize))
 	{
 		int nStringLength = stringsize.cx;
-
+		int texttop = pSecondPic ? textrect.top + (HEADER_HEIGHT/2) - stringsize.cy : textrect.top + (HEADER_HEIGHT/2) - stringsize.cy/2;
 		ExtTextOut(hDC, 
 			max(textrect.left + ((textrect.right-textrect.left)-nStringLength)/2, 1),
-			textrect.top + (HEADER_HEIGHT/2) - stringsize.cy/2,
+			texttop,
 			ETO_CLIPPED,
 			&textrect,
 			realtitle.c_str(),
 			realtitle.size(),
 			NULL);
+		if (pSecondPic)
+		{
+			realtitle = (pictitle2.empty() ? picpath2 : pictitle2);
+			ExtTextOut(hDC, 
+				max(textrect.left + ((textrect.right-textrect.left)-nStringLength)/2, 1),
+				texttop + stringsize.cy,
+				ETO_CLIPPED,
+				&textrect,
+				realtitle.c_str(),
+				realtitle.size(),
+				NULL);
+		}
 	}
 	if (HasMultipleImages())
 	{
@@ -866,13 +874,11 @@ void CPicWindow::Paint(HWND hwnd)
 			{
 				_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
 					(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFO),
-					pictitle.empty() ? picpath.c_str() : pictitle.c_str(),
 					picture.GetFileSizeAsText().c_str(),
 					picture.GetWidth(), picture.GetHeight(),
 					picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 					picture.GetColorDepth(),
 					(UINT)(GetZoom()*100.0),
-					pictitle2.empty() ? picpath2.c_str() : pictitle2.c_str(),
 					pSecondPic->GetFileSizeAsText().c_str(),
 					pSecondPic->GetWidth(), pSecondPic->GetHeight(),
 					pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
