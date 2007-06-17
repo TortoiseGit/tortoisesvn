@@ -17,6 +17,8 @@
 #define IDS_DUALIMAGEINFO               108
 #define IDC_TORTOISEIDIFF               109
 #define IDS_DIMENSIONSANDFRAMES         110
+#define IDS_IMAGEINFOTT                 111
+#define IDS_DUALIMAGEINFOTT             112
 #define IDR_MAINFRAME                   128
 #define IDD_OPEN                        130
 #define IDR_TORTOISEIDIFF               131

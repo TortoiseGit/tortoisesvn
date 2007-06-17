@@ -174,6 +174,9 @@ protected:
 	stdstring 			picpath2;			///< the path of the second picture
 	BYTE				alphalive;			///< the alpha value for the transparency live-preview of the second picture
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
+	TCHAR				m_wszTip[8192];
+	char				m_szTip[8192];
+	HWND				hwndTT;
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position
 	int					nHScrollPos;		///< horizontal scroll position

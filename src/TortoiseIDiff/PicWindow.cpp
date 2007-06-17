@@ -71,12 +71,57 @@ void CPicWindow::PositionTrackBar()
 
 LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+	TRACKMOUSEEVENT mevt;
 	switch (uMsg)
 	{
 	case WM_CREATE:
-		// create a slider control
-		hwndAlphaSlider = CreateTrackbar(hwnd);
-		ShowWindow(hwndAlphaSlider, SW_HIDE);
+		{
+			// create a slider control
+			hwndAlphaSlider = CreateTrackbar(hwnd);
+			ShowWindow(hwndAlphaSlider, SW_HIDE);
+			//Create the tooltips
+			TOOLINFO ti;
+			RECT rect;                  // for client area coordinates
+
+			hwndTT = CreateWindowEx(WS_EX_TOPMOST,
+				TOOLTIPS_CLASS,
+				NULL,
+				WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,		
+				CW_USEDEFAULT,
+				CW_USEDEFAULT,
+				CW_USEDEFAULT,
+				CW_USEDEFAULT,
+				hwnd,
+				NULL,
+				hResource,
+				NULL
+				);
+
+			SetWindowPos(hwndTT,
+				HWND_TOPMOST,
+				0,
+				0,
+				0,
+				0,
+				SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+
+			::GetClientRect(hwnd, &rect);
+
+			ti.cbSize = sizeof(TOOLINFO);
+			ti.uFlags = TTF_TRACK | TTF_ABSOLUTE;
+			ti.hwnd = hwnd;
+			ti.hinst = hResource;
+			ti.uId = 0;
+			ti.lpszText = LPSTR_TEXTCALLBACK;
+			// ToolTip control will cover the whole window
+			ti.rect.left = rect.left;    
+			ti.rect.top = rect.top;
+			ti.rect.right = rect.right;
+			ti.rect.bottom = rect.bottom;
+
+			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
+			SendMessage(hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
+		}
 		break;
 	case WM_SETFOCUS:
 	case WM_KILLFOCUS:
@@ -128,8 +173,34 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		startVScrollPos = nVScrollPos;
 		startHScrollPos = nHScrollPos;
 		break;
+	case WM_MOUSELEAVE:
+		SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
+		::InvalidateRect(*this, NULL, FALSE);
+		break;
 	case WM_MOUSEMOVE:
 		{
+			mevt.cbSize = sizeof(TRACKMOUSEEVENT);
+			mevt.dwFlags = TME_LEAVE;
+			mevt.dwHoverTime = HOVER_DEFAULT;
+			mevt.hwndTrack = *this;
+			::TrackMouseEvent(&mevt);
+			POINT pt = {((int)(short)LOWORD(lParam)), ((int)(short)HIWORD(lParam))};
+			if (pt.y < HEADER_HEIGHT)
+			{
+				ClientToScreen(*this, &pt);
+				pt.x += 15;
+				pt.y += 15;
+				SendMessage(hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(pt.x, pt.y));
+				TOOLINFO ti;
+				ti.cbSize = sizeof(TOOLINFO);
+				ti.hwnd = *this;
+				ti.uId = 0;
+				SendMessage(hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
+			}
+			else
+			{
+				SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
+			}
 			if (wParam & MK_LBUTTON)
 			{
 				// pan the image
@@ -277,6 +348,46 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					TCHAR stringbuf[MAX_PATH] = {0};
 					_stprintf_s(stringbuf, MAX_PATH, _T("%ld alpha"), (BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
 					lpttt->lpszText = stringbuf;
+				}
+				else
+				{
+					NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
+					NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
+					TCHAR infostring[8192];
+					if (pSecondPic)
+					{
+						_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+							(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFOTT),
+							picture.GetFileSizeAsText().c_str(),
+							picture.GetWidth(), picture.GetHeight(),
+							picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+							picture.GetColorDepth(),
+							(UINT)(GetZoom()*100.0),
+							pSecondPic->GetFileSizeAsText().c_str(),
+							pSecondPic->GetWidth(), pSecondPic->GetHeight(),
+							pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
+							pSecondPic->GetColorDepth());
+					}
+					else
+					{
+						_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
+							(TCHAR const *)ResString(hResource, IDS_IMAGEINFOTT),
+							picture.GetFileSizeAsText().c_str(), 
+							picture.GetWidth(), picture.GetHeight(),
+							picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+							picture.GetColorDepth(),
+							(UINT)(GetZoom()*100.0));
+					}
+					if (pNMHDR->code == TTN_NEEDTEXTW)
+					{
+						lstrcpyn(m_wszTip, infostring, 8192);
+						pTTTW->lpszText = m_wszTip;
+					}
+					else
+					{
+						pTTTA->lpszText = m_szTip;
+						::WideCharToMultiByte(CP_ACP, 0, infostring, -1, m_szTip, 8192, NULL, NULL);
+					}
 				}
 			}
 		}

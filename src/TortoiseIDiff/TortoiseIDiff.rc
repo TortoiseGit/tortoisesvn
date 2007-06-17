@@ -179,6 +179,12 @@ BEGIN
     IDS_DUALIMAGEINFO       "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
     IDC_TORTOISEIDIFF       "TORTOISEIDIFF"
     IDS_DIMENSIONSANDFRAMES "%ld of %ld"
+    IDS_IMAGEINFOTT         "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DUALIMAGEINFOTT     "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit"
 END
 
 #endif    // English (U.S.) resources
