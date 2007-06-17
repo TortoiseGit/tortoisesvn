@@ -29,8 +29,8 @@ CAlphaControl::CAlphaControl(HWND hwndControl)
 	, nMax(255)
 	, nCurr(128)
 	, eTracking(TRACKING_NONE)
-	, nLeftMarker(nMax)
-	, nRightMarker(nMin)
+	, nLeftMarker(255)
+	, nRightMarker(0)
 {
 	SetWindowLong(hwndControl, 0, (LONG)this);
 }
