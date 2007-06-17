@@ -78,6 +78,7 @@ private:
 		CTSVNPath				rootpath;
 		SVNInfoData				infodata;
 	} SVNobjectInfoData;
+
 private:
 	SVN							m_svn;
 	CTSVNPathList				m_svnPaths;
@@ -113,3 +114,4 @@ private:
 	ULONG						m_cRefCount;
 	int							m_iCur;
 };
+
