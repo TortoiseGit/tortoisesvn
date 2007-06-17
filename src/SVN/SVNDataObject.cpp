@@ -117,14 +117,52 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	{
 		// now it is time to get all subfolders for the directories we have
 		SVNInfo svnInfo;
-		for (int i = 0; i < m_svnPaths.GetCount(); ++i)
+		// find the common directory of all the paths
+		CTSVNPath commonDir;
+		bool bAllUrls = true;
+		for (int i=0; i<m_svnPaths.GetCount(); ++i)
 		{
-			const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, true);
+			if (!m_svnPaths[i].IsUrl())
+				bAllUrls = false;
+			if (commonDir.IsEmpty())
+				commonDir = m_svnPaths[i].GetContainingDirectory();
+			if (!commonDir.IsEquivalentTo(m_svnPaths[i].GetContainingDirectory()))
+			{
+				commonDir.Reset();
+				break;
+			}
+		}
+		if (bAllUrls && (m_svnPaths.GetCount() > 1) && !commonDir.IsEmpty())
+		{
+			// if all paths are in the same directory, we can fetch the info recursively
+			// from the parent folder to save a lot of time.
+			const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(commonDir, m_pegRev, m_revision, true);
 			while (infodata)
 			{
-				SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
-				m_allPaths.push_back(id);
+				// check if the returned item is one in our list
+				for (int i=0; i<m_svnPaths.GetCount(); ++i)
+				{
+					if (m_svnPaths[i].IsAncestorOf(CTSVNPath(infodata->url)))
+					{
+						SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+						m_allPaths.push_back(id);
+						break;
+					}
+				}
 				infodata = svnInfo.GetNextFileInfo();
+			}
+		}
+		else
+		{
+			for (int i = 0; i < m_svnPaths.GetCount(); ++i)
+			{
+				const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, true);
+				while (infodata)
+				{
+					SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+					m_allPaths.push_back(id);
+					infodata = svnInfo.GetNextFileInfo();
+				}
 			}
 		}
 		unsigned int dataSize = sizeof(FILEGROUPDESCRIPTOR) + ((m_allPaths.size() - 1) * sizeof(FILEDESCRIPTOR));
