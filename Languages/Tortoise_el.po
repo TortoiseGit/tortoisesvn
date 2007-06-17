@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-17 17:08+0200\n"
+"PO-Revision-Date: 2007-06-17 22:52+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1555,7 +1555,7 @@ msgstr ""
 #: ID:188,
 #, c-format
 msgid "Conflicts: %d"
-msgstr ""
+msgstr "Διιστάσεις: %d"
 
 #: ID:73,
 msgid "Continue"
@@ -1580,7 +1580,7 @@ msgstr "Αντιγραφή %s"
 
 #: Dlg-ID:142,
 msgid "Copy (Branch / Tag)"
-msgstr ""
+msgstr "Αντιγραφή (Διακλάδωσης/Ετικέτας)"
 
 #: ID:101,
 msgid "Copy URL to clipboard"
@@ -1594,9 +1594,10 @@ msgstr ""
 msgid "Copy error message to clipboard"
 msgstr ""
 
+# Όλα είναι δρόμος
 #: ID:76,
 msgid "Copy from path"
-msgstr ""
+msgstr "Αντιγραφή από τη διαδρομή"
 
 #: ID:209,
 msgid "Copy paths to clipboard"
@@ -1623,7 +1624,7 @@ msgstr ""
 #: ID:98,
 #, c-format
 msgid "Copy: New name for %s"
-msgstr ""
+msgstr "Αντιγραφή: Νέο όνομα για %s"
 
 #: ID:80,
 #, c-format
@@ -1657,7 +1658,7 @@ msgstr ""
 
 #: ID:81,
 msgid "Could not get the status!"
-msgstr ""
+msgstr "Δεν γινετα να ληφ8εί η κατάσταση!"
 
 #: ID:69,
 #, c-format
@@ -2072,11 +2073,11 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Exceptions:"
-msgstr ""
+msgstr "Εξαιρέσεις:"
 
 #: Control-ID:65535,
 msgid "Exclude paths:"
-msgstr ""
+msgstr "Εξαίρεση διαδρομών:"
 
 #: ID:209,
 msgid "Explore to"
@@ -2084,7 +2085,7 @@ msgstr ""
 
 #: ID:94,
 msgid "Export directory:"
-msgstr ""
+msgstr "Εξαγωγή φακέλου:"
 
 #: ID:79,
 msgid "Export unversioned files too"
@@ -2092,7 +2093,7 @@ msgstr ""
 
 #: ID:79,
 msgid "Exporting..."
-msgstr ""
+msgstr "Εξαγωγή"
 
 #: ID:10,
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
@@ -2109,7 +2110,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Extension:"
-msgstr ""
+msgstr "Προέκταση"
 
 # again, inflection
 #: ID:74,
@@ -2118,7 +2119,7 @@ msgstr "Εξωτερικό"
 
 #: Control-ID:65535,
 msgid "External Program:"
-msgstr ""
+msgstr "Εξωτερικό Πρόγραμμα"
 
 #: Dlg-ID:192,
 msgid "External Programs::Diff Viewer"
@@ -2216,11 +2217,11 @@ msgstr ""
 
 #: ID:273,
 msgid "GDI+ couldn't be initialized!"
-msgstr ""
+msgstr "Δεν γινεται να αρχίσει η λειτουργεία του υποσυστήματος GDI+"
 
 #: ID:273,
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr ""
+msgstr "Το υποσυστήμα GDI+ δεν μπορεί να δημιουργήσει ένα αντικείμενο . Πιθανών να μην έχετε αρκετνή μνήμη στον υπολογιστή σας."
 
 #: ID:83,
 msgid ""
@@ -2228,6 +2229,9 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
+"Το υποσυστήμα GDI+ είναι απαραίτητο για να σώσουμε το γράφημα των εκδόσεων σαν εικόνα.\n"
+"Μπορείτε να το λάβετε από\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #: Dlg-ID:143,#:
 #: Dlg-ID:107,#:
@@ -3128,13 +3132,13 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a time."
-msgstr ""
+msgstr "Παρακαλω εισάγετε μια χρονική στιγμή."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter an integer between %1 and %2."
-msgstr ""
+msgstr "Παρακαλώ εισάγετε έναν ακαίρεο αριθμό μεταξύ %1 και %2."
 
 #: ID:3858,#:
 #: ID:3858,
@@ -3192,7 +3196,7 @@ msgstr ""
 #: ID:119,#:
 #: ID:211,
 msgid "Please wait..."
-msgstr ""
+msgstr "Παρακαλώ περιμένετε..."
 
 #: ID:376,
 msgid "Preview patched file"
