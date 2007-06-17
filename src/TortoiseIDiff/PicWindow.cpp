@@ -911,8 +911,8 @@ void CPicWindow::Paint(HWND hwnd)
 				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
 				DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
 				SelectObject(memDC, (HGDIOBJ)hFontOld);
-				PositionTrackBar();
 			}
+			PositionTrackBar();
 			DeleteObject(hFont);
 		}
 		else
