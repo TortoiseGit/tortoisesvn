@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-16 22:04+0200\n"
+"PO-Revision-Date: 2007-06-17 14:51+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1188,7 +1188,7 @@ msgstr "Απόδοση ευθυνών"
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "Επιρρίπτει την υπαιτιότητα για κάθε γραμμή ενός αρχείου σε ένα συγγραφέα"
 
 #: Control-ID:1003,
 msgid "Br&owse..."
@@ -1196,11 +1196,11 @@ msgstr "Πε&ριεργασία..."
 
 #: ID:115,
 msgid "Branch / tag created successfully!"
-msgstr ""
+msgstr "Η διακλάδωση/ετικέτα έγινε με επιτυχία!"
 
 #: ID:9,
 msgid "Branch/&tag..."
-msgstr ""
+msgstr "Διακλάδωση/&ετικέτα..."
 
 #: ID:16,
 msgid "Break loc&k"
@@ -1222,9 +1222,11 @@ msgstr "Περιεργασία για ένα εξωτερικό πρόγραμμ
 msgid "Browse..."
 msgstr "Πε&ριεργασία..."
 
+# ok, so, what does "Nr" stand for? Number?
 #: Control-ID:1119,
+#, fuzzy
 msgid "Bug-&ID / Issue-Nr:"
-msgstr ""
+msgstr "&Αριθμός Λάθους/Αριθμός-Λά8ους:"
 
 #: ID:116,
 msgid "Bug-ID"
@@ -1244,7 +1246,7 @@ msgstr "Δ&ιμιουργία καταλόγου..."
 
 #: ID:77,
 msgid "C&reate tag from revision"
-msgstr ""
+msgstr "Δ&ημιρουγία ετικέτας από έκδοση"
 
 #: ID:3697,
 msgid "CAP"
@@ -1258,6 +1260,10 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
+"Δεν γίνεται να αντιγραφεί το \n"
+"%s\n"
+"προς το\n"
+"%s"
 
 # again, inflection
 #: ID:73,#:
@@ -1269,11 +1275,11 @@ msgstr "Ακύρωση"
 
 #: ID:132,
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr ""
+msgstr "Ακύρωση Επίρρηξης Υπαιτιότητας του TortoiseSVN..."
 
 #: ID:270,
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "Ακύρωση λειτουργείας..."
 
 #: ID:68,
 msgid "Cannot show diff because of inconsistent newlines in the file."
@@ -1311,16 +1317,16 @@ msgstr ""
 
 #: Dlg-ID:199,
 msgid "Changed Files"
-msgstr ""
+msgstr "Αρχεία με μεταβολές"
 
 #: ID:163,
 #, c-format
 msgid "Changed files: %d"
-msgstr ""
+msgstr "Αρχεία με μεταβολές: %d"
 
 #: Control-ID:1242,
 msgid "Changes made (double-click for details):"
-msgstr ""
+msgstr "Έγιναν οι ακόλουθες αλλαγές ( διπλό-κλικ πάνω στο αρχείο για λεπτομέρειες):"
 
 #: ID:8,
 msgid "Chec&kout..."
@@ -3603,7 +3609,7 @@ msgstr "Σ&τατιστικά στοιχεία"
 
 #: ID:9,
 msgid "S&witch..."
-msgstr ""
+msgstr "Μ&εταστροφή..."
 
 #: ID:3697,
 msgid "SCRL"
