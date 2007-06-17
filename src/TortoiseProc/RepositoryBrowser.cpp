@@ -1446,7 +1446,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
 	{
 		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		sourceURLs.AddPath(CTSVNPath(pItem->absolutepath));
+		sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath))));
 	}
 
 	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
