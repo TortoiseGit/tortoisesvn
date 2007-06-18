@@ -114,6 +114,10 @@ SOURCE=..\src\ContractionState.cxx
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\Decoration.cxx
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\Document.cxx
 # End Source File
 # Begin Source File
@@ -242,6 +246,10 @@ SOURCE=..\src\LexFortran.cxx
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\LexGAP.cxx
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\LexGui4Cli.cxx
 # End Source File
 # Begin Source File
@@ -318,7 +326,15 @@ SOURCE=..\src\LexPerl.cxx
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\LexPLM.cxx
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\LexPOV.cxx
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\LexProgress.cxx
 # End Source File
 # Begin Source File
 
@@ -394,11 +410,19 @@ SOURCE=..\win32\PlatWin.cxx
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\PositionCache.cxx
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\PropSet.cxx
 # End Source File
 # Begin Source File
 
 SOURCE=..\src\RESearch.cxx
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\RunStyles.cxx
 # End Source File
 # Begin Source File
 

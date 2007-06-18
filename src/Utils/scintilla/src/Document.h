@@ -8,6 +8,10 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H
 
+#ifdef SCI_NAMESPACE
+namespace Scintilla {
+#endif
+
 /**
  * A Position is a position within a document between two characters or at the beginning or end.
  * Sometimes used as a character index where it identifies the character after the position.
@@ -122,6 +126,8 @@ public:
 	bool tabIndents;
 	bool backspaceUnindents;
 
+	DecorationList decorations;
+
 	Document();
 	virtual ~Document();
 
@@ -216,6 +222,7 @@ public:
 	void EnsureStyledTo(int pos);
 	int GetStyleClock() { return styleClock; }
 	void IncrementStyleClock();
+	void DecorationFillRange(int position, int value, int fillLength);
 
 	int SetLineState(int line, int state) { return cb.SetLineState(line, state); }
 	int GetLineState(int line) { return cb.GetLineState(line); }
@@ -301,5 +308,9 @@ public:
 	virtual void NotifyDeleted(Document *doc, void *userData) = 0;
 	virtual void NotifyStyleNeeded(Document *doc, void *userData, int endPos) = 0;
 };
+
+#ifdef SCI_NAMESPACE
+}
+#endif
 
 #endif

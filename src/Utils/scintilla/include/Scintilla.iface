@@ -525,8 +525,8 @@ fun void BeginUndoAction=2078(,)
 # End a sequence of actions that is undone and redone as a unit.
 fun void EndUndoAction=2079(,)
 
+# Indicator style enumeration and some constants
 enu IndicatorStyle=INDIC_
-val INDIC_MAX=7
 val INDIC_PLAIN=0
 val INDIC_SQUIGGLE=1
 val INDIC_TT=2
@@ -535,6 +535,8 @@ val INDIC_STRIKE=4
 val INDIC_HIDDEN=5
 val INDIC_BOX=6
 val INDIC_ROUNDBOX=7
+val INDIC_MAX=31
+val INDIC_CONTAINER=8
 val INDIC0_MASK=0x20
 val INDIC1_MASK=0x40
 val INDIC2_MASK=0x80
@@ -551,6 +553,12 @@ set void IndicSetFore=2082(int indic, colour fore)
 
 # Retrieve the foreground colour of an indicator.
 get colour IndicGetFore=2083(int indic,)
+
+# Set an indicator to draw under text or over(default).
+set void IndicSetUnder=2510(int indic, bool under)
+
+# Retrieve whether indicator drawn under or over text.
+get bool IndicGetUnder=2511(int indic,)
 
 # Set the foreground colour of all whitespace and whether to use this setting.
 fun void SetWhitespaceFore=2084(bool useSetting, colour fore)
@@ -1726,6 +1734,53 @@ set void SetCaretLineBackAlpha=2470(int alpha,)
 # Get the background alpha of the caret line.
 get int GetCaretLineBackAlpha=2471(,)
 
+enu CaretStyle=CARETSTYLE_
+val CARETSTYLE_INVISIBLE=0
+val CARETSTYLE_LINE=1
+val CARETSTYLE_BLOCK=2
+
+# Set the style of the caret to be drawn.
+set void SetCaretStyle=2512(int caretStyle,)
+
+# Returns the current style of the caret.
+get int GetCaretStyle=2513(,)
+
+# Set the indicator used for IndicatorFillRange and IndicatorClearRange
+set void SetIndicatorCurrent=2500(int indicator,)
+
+# Get the current indicator
+get int GetIndicatorCurrent=2501(,)
+
+# Set the value used for IndicatorFillRange
+set void SetIndicatorValue=2502(int value,)
+
+# Get the current indicator vaue
+get int GetIndicatorValue=2503(,)
+
+# Turn a indicator on over a range.
+fun void IndicatorFillRange=2504(int position, int fillLength)
+
+# Turn a indicator off over a range.
+fun void IndicatorClearRange=2505(int position, int clearLength)
+
+# Are any indicators present at position?
+fun int IndicatorAllOnFor=2506(int position,)
+
+# What value does a particular indicator have at at a position?
+fun int IndicatorValueAt=2507(int indicator, int position)
+
+# Where does a particular indicator start?
+fun int IndicatorStart=2508(int indicator, int position)
+
+# Where does a particular indicator end?
+fun int IndicatorEnd=2509(int indicator, int position)
+
+# Set number of entries in position cache
+set void SetPositionCache=2514(int size,)
+
+# How many entries are allocated to the position cache?
+get int GetPositionCache=2515(,)
+
 # Start notifying the container of all key presses and commands.
 fun void StartRecord=3001(,)
 
@@ -1789,7 +1844,8 @@ val SC_MOD_BEFOREINSERT=0x400
 val SC_MOD_BEFOREDELETE=0x800
 val SC_MULTILINEUNDOREDO=0x1000
 val SC_STARTACTION=0x2000
-val SC_MODEVENTMASKALL=0x2FFF
+val SC_MOD_CHANGEINDICATOR=0x4000
+val SC_MODEVENTMASKALL=0x6FFF
 
 # For compatibility, these go through the COMMAND notification rather than NOTIFY
 # and should have had exactly the same values as the EN_* constants.
@@ -1913,6 +1969,9 @@ val SCLEX_OPAL=77
 val SCLEX_SPICE=78
 val SCLEX_D=79
 val SCLEX_CMAKE=80
+val SCLEX_GAP=81
+val SCLEX_PLM=82
+val SCLEX_PROGRESS=83
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -3072,6 +3131,63 @@ val SCE_CMAKE_IFDEFINEDEF=11
 val SCE_CMAKE_MACRODEF=12
 val SCE_CMAKE_STRINGVAR=13
 val SCE_CMAKE_NUMBER=14
+# Lexical states for SCLEX_GAP
+lex Gap=SCLEX_GAP SCE_GAP_
+val SCE_GAP_DEFAULT=0
+val SCE_GAP_IDENTIFIER=1
+val SCE_GAP_KEYWORD=2
+val SCE_GAP_KEYWORD2=3
+val SCE_GAP_KEYWORD3=4
+val SCE_GAP_KEYWORD4=5
+val SCE_GAP_STRING=6
+val SCE_GAP_CHAR=7
+val SCE_GAP_OPERATOR=8
+val SCE_GAP_COMMENT=9
+val SCE_GAP_NUMBER=10
+val SCE_GAP_STRINGEOL=11
+# Lexical state for SCLEX_PLM
+lex PLM=SCLEX_PLM SCE_PLM_
+val SCE_PLM_DEFAULT=0
+val SCE_PLM_COMMENT=1
+val SCE_PLM_STRING=2
+val SCE_PLM_NUMBER=3
+val SCE_PLM_IDENTIFIER=4
+val SCE_PLM_OPERATOR=5
+val SCE_PLM_CONTROL=6
+val SCE_PLM_KEYWORD=7
+lex Progress=SCLEX_PROGRESS SCE_4GL_
+val SCE_4GL_DEFAULT=0
+val SCE_4GL_NUMBER=1
+val SCE_4GL_WORD=2
+val SCE_4GL_STRING=3
+val SCE_4GL_CHARACTER=4
+val SCE_4GL_PREPROCESSOR=5
+val SCE_4GL_OPERATOR=6
+val SCE_4GL_IDENTIFIER=7
+val SCE_4GL_BLOCK=8
+val SCE_4GL_END=9
+val SCE_4GL_COMMENT1=10
+val SCE_4GL_COMMENT2=11
+val SCE_4GL_COMMENT3=12
+val SCE_4GL_COMMENT4=13
+val SCE_4GL_COMMENT5=14
+val SCE_4GL_COMMENT6=15
+val SCE_4GL_DEFAULT_=16
+val SCE_4GL_NUMBER_=17
+val SCE_4GL_WORD_=18
+val SCE_4GL_STRING_=19
+val SCE_4GL_CHARACTER_=20
+val SCE_4GL_PREPROCESSOR_=21
+val SCE_4GL_OPERATOR_=22
+val SCE_4GL_IDENTIFIER_=23
+val SCE_4GL_BLOCK_=24
+val SCE_4GL_END_=25
+val SCE_4GL_COMMENT1_=26
+val SCE_4GL_COMMENT2_=27
+val SCE_4GL_COMMENT3_=28
+val SCE_4GL_COMMENT4_=29
+val SCE_4GL_COMMENT5_=30
+val SCE_4GL_COMMENT6_=31
 
 # Events
 
@@ -3098,6 +3214,8 @@ evt void HotSpotClick=2019(int modifiers, int position)
 evt void HotSpotDoubleClick=2020(int modifiers, int position)
 evt void CallTipClick=2021(int position)
 evt void AutoCSelection=2022(string text)
+evt void IndicatorClick=2023(int modifiers, int position)
+evt void IndicatorRelease=2024(int modifiers, int position)
 
 cat Deprecated
 

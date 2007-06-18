@@ -16,10 +16,16 @@
 #include "SVector.h"
 #include "SplitVector.h"
 #include "Partitioning.h"
+#include "RunStyles.h"
 #include "CellBuffer.h"
 #include "CharClassify.h"
+#include "Decoration.h"
 #include "Document.h"
 #include "RESearch.h"
+
+#ifdef SCI_NAMESPACE
+using namespace Scintilla;
+#endif
 
 // This is ASCII specific but is safe with chars >= 0x80
 static inline bool isspacechar(unsigned char ch) {
@@ -264,7 +270,9 @@ int Document::LenChar(int pos) {
 		if (ch < 0x80)
 			return 1;
 		int len = 2;
-		if (ch >= (0x80 + 0x40 + 0x20))
+		if (ch >= (0x80 + 0x40 + 0x20 + 0x10))
+			len = 4;
+		else if (ch >= (0x80 + 0x40 + 0x20))
 			len = 3;
 		int lengthDoc = Length();
 		if ((pos + len) > lengthDoc)
@@ -1335,6 +1343,14 @@ void Document::IncrementStyleClock() {
 	styleClock++;
 	if (styleClock > 0x100000) {
 		styleClock = 0;
+	}
+}
+
+void Document::DecorationFillRange(int position, int value, int fillLength) {
+	if (decorations.FillRange(position, value, fillLength)) {
+		DocModification mh(SC_MOD_CHANGEINDICATOR | SC_PERFORMED_USER,
+							position, fillLength);
+		NotifyModified(mh);
 	}
 }
 
