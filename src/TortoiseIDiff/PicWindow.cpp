@@ -1162,7 +1162,7 @@ HWND CPicWindow::CreateTrackbar(HWND hwndParent)
 		200, 30,							// size 
 		hwndParent,							// parent window 
 		(HMENU)TRACKBAR_ID,					// control identifier 
-		hResource,							// instance 
+		hInst,								// instance 
 		NULL								// no WM_CREATE parameter 
 		); 
 
