@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-17 22:52+0200\n"
+"PO-Revision-Date: 2007-06-18 00:19+0200\n"
 "Last-Translator: George Marselis <project2501a@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1550,7 +1550,7 @@ msgstr ""
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
-msgstr ""
+msgstr "Διιστάση"
 
 #: ID:188,
 #, c-format
@@ -1814,7 +1814,7 @@ msgstr "Διαγράφεται"
 #: ID:3859,#:
 #: ID:3859,
 msgid "Destination disk drive is full."
-msgstr ""
+msgstr "Ο προοριζόμενος δίσκος είναι γεμάτος."
 
 #: Control-ID:1277,
 msgid "Dialog sizes and positions"
@@ -1850,7 +1850,7 @@ msgstr ""
 #: ID:3867,
 #, c-format
 msgid "Disk full while accessing %1."
-msgstr ""
+msgstr "Ο δίσκος ήταν γεμάτος καθώς γινόταν πρόσβαση του %1"
 
 #: ID:3860,#:
 #: ID:3860,
@@ -1884,7 +1884,7 @@ msgstr ""
 
 #: ID:145,
 msgid "Do you really want to move this file or folder?"
-msgstr ""
+msgstr "Πραγματικά θέλετε να μετακινήσετε αυτό το αρχείο ή φάκελο;"
 
 #: ID:119,
 #, c-format
@@ -1903,7 +1903,7 @@ msgstr ""
 
 #: ID:76,
 msgid "Do you want to proceed?"
-msgstr ""
+msgstr "Θέλετε να προχωρήσετε;"
 
 #: ID:313,
 msgid ""
@@ -2025,7 +2025,7 @@ msgstr ""
 
 #: ID:80,
 msgid "Enter URL"
-msgstr ""
+msgstr "Εισαγώγή URL"
 
 #: ID:313,
 msgid "Enter a lock message (optional):"
@@ -2044,6 +2044,8 @@ msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
+"Διαγραφή των πάντων\n"
+"Διαγραφή Όλων"
 
 #: ID:3603,
 msgid ""
@@ -2145,7 +2147,7 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to launch help."
-msgstr ""
+msgstr "Αποτυχία εκίνησης βοήθειας."
 
 #: ID:3857,#:
 #: ID:3857,
@@ -2163,12 +2165,12 @@ msgstr ""
 
 #: ID:313,
 msgid "Fetching file..."
-msgstr ""
+msgstr "Ανάκτηση του αρχείου..."
 
 #: ID:313,
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr ""
+msgstr "Ανάκτηση της έκδοσης %s του αρχείου:"
 
 #: ID:63,#:
 #: ID:74,#:
@@ -2180,7 +2182,7 @@ msgstr "Αρχείο"
 
 #: Control-ID:1138,
 msgid "File changes each week:"
-msgstr ""
+msgstr "Αλλαγές στο αρχείο ανά εβδομάδα:"
 
 #: ID:376,
 msgid "File diffs"
@@ -2213,7 +2215,7 @@ msgstr "Από:"
 
 #: Control-ID:65535,
 msgid "From: (start URL and revision of the range to merge)"
-msgstr ""
+msgstr "Από: (Αρχικό URL και εμβέλεια των έκδοσεων που πρόκειτε να συνενωθούν)"
 
 #: ID:273,
 msgid "GDI+ couldn't be initialized!"
@@ -2258,12 +2260,12 @@ msgstr ""
 #: ID:119,
 #, c-format
 msgid "Getting file %s"
-msgstr ""
+msgstr "Λήψη του αρχείου %s"
 
 #: ID:120,
 #, c-format
 msgid "Getting file %s, revision %ld"
-msgstr ""
+msgstr "Λήψη του αρχείου %s, έκδοση %ld"
 
 #: ID:132,
 msgid "Getting file info..."
@@ -2275,7 +2277,7 @@ msgstr ""
 
 #: ID:120,
 msgid "Getting information..."
-msgstr ""
+msgstr "Λήψη πληροφοριών..."
 
 #: ID:132,
 msgid "Getting log info..."
@@ -2315,7 +2317,7 @@ msgstr ""
 
 #: Control-ID:1134,
 msgid "Graph type:"
-msgstr ""
+msgstr "Τύπος γραφήματος:"
 
 #: Control-ID:1229,
 msgid "H&ide unrelated changed paths"
@@ -2415,11 +2417,11 @@ msgstr "Παράβλεψη"
 
 #: Control-ID:1020,
 msgid "Ignore &all whitespaces"
-msgstr ""
+msgstr "Παράβλεψη ό&λου του κενού χώρου"
 
 #: Control-ID:1067,
 msgid "Ignore &case changes"
-msgstr ""
+msgstr "Παράβλεψη διαφοράς πεζών/κεφαλαίων"
 
 #: Control-ID:1267,
 msgid "Ignore ancestry"
@@ -2572,9 +2574,10 @@ msgstr ""
 msgid "Least active author:"
 msgstr ""
 
+# Smash Capitalism! :D
 #: ID:188,
 msgid "Left View: "
-msgstr ""
+msgstr "Αριστερή Άποψη:"
 
 #: Control-ID:65535,
 msgid "Line with whitespace diff"
@@ -2610,39 +2613,42 @@ msgstr "Επισφάληση αρχείων"
 
 #: ID:209,
 msgid "Lock broken!"
-msgstr ""
+msgstr "Κάποιος έσπασε το κλείθρο "
 
 #: ID:207,
 msgid "Lock comment"
-msgstr ""
+msgstr "Σχόλειο για το κλείθρο"
 
 #: Control-ID:65535,
 msgid "Lock creation date:"
-msgstr ""
+msgstr "Ημερομηνία δημιουργίας κλείθρου:"
 
 #: ID:263,
 msgid "Lock failed"
-msgstr ""
+msgstr "Κλείθρο απέτυχε"
 
 #: Control-ID:65535,
 msgid "Lock owner:"
-msgstr ""
+msgstr "Ιδιοκτήτης κλείθρου:"
 
 #: ID:209,
 #, c-format
 msgid "Lock stolen by %s"
-msgstr ""
+msgstr "Το κλείθρο εκλάπηκε από %s"
 
 #: ID:263,
 #, c-format
 msgid "Locked by %s"
-msgstr ""
+msgstr "Κλειδωμένο από %s"
 
+# Fuzzy, becase "locking" is a gerund, which works GREAT in German and english but the neo-Greek language has gotten rid of that case, along with the Dativ. Please let me know if anybody has a better suggestion.
 #: ID:89,
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
 msgstr ""
+"Η προσπάθεια κλειδώματος απέτυχε γιατί υπάρχει μια ποιό καινούργια έκδοση!\n"
+"Θέλετε να παραθέσετε την νεότερη έκδοση και να ξαναπροσπάθήσετε;"
 
 #: ID:16,
 msgid "Locks a file for other users and makes it editable by you."
@@ -2654,7 +2660,7 @@ msgstr "Αρχείο ιστορικότητας"
 
 #: Dlg-ID:211,
 msgid "Log History"
-msgstr ""
+msgstr "Ιστορική Αναδρομή:"
 
 #: Control-ID:1274,#:
 #: Dlg-ID:130,
@@ -2743,7 +2749,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Merging"
-msgstr ""
+msgstr "Γίνεται συνένωση"
 
 #: ID:83,
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -2834,9 +2840,11 @@ msgstr "NUM"
 msgid "Needs lock"
 msgstr ""
 
+# Fuzzy like the hair of RMS after not having showered for 2-3 weeks
 #: ID:210,
+#, fuzzy
 msgid "Nested"
-msgstr ""
+msgstr "Εμπαραθέματα"
 
 #: Dlg-ID:102,
 msgid "Network"
@@ -3438,17 +3446,17 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Replaced node"
-msgstr ""
+msgstr "Επανατοποθετημένος κόμβος"
 
 #: ID:74,
 msgid "Replacing"
-msgstr ""
+msgstr "Επανατοποθέτηση"
 
 #: Control-ID:65535,#:
 #: Control-ID:1055,#:
 #: Control-ID:65535,
 msgid "Repository"
-msgstr ""
+msgstr "Αποθήκη"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
@@ -3508,7 +3516,7 @@ msgstr ""
 
 #: ID:73,
 msgid "Retry"
-msgstr ""
+msgstr "Επανάληψη προσπαθειας"
 
 #: Dlg-ID:175,
 msgid "Revert"
