@@ -352,6 +352,8 @@ LRESULT CMainWindow::DoCommand(int id)
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
+			if (bOverlap)
+				picWindow1.FitImageInWindow();
 			return 0;
 		}
 		break;

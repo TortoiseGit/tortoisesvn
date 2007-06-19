@@ -838,21 +838,38 @@ double CPicWindow::RoundDouble(double doValue, int nPrecision)
 void CPicWindow::FitImageInWindow()
 {
 	RECT rect;
+	double dZoom = 1.0;
 	GetClientRect(&rect);
 	if (rect.right-rect.left)
 	{
 		if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
 		{
 			// image is smaller than the window
-			SetZoom(1.0);
+			dZoom = 1.0;
 		}
 		else
 		{
 			// image is bigger than the window
 			double xscale = double(rect.right-rect.left)/double(picture.m_Width);
 			double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
-			SetZoom(min(yscale, xscale));
+			dZoom = min(yscale, xscale);
 		}
+		if (pSecondPic)
+		{
+			if (((rect.right - rect.left) > pSecondPic->m_Width)&&((rect.bottom - rect.top)> pSecondPic->m_Height))
+			{
+				// image is smaller than the window
+				dZoom = min(1.0, dZoom);
+			}
+			else
+			{
+				// image is bigger than the window
+				double xscale = double(rect.right-rect.left)/double(pSecondPic->m_Width);
+				double yscale = double(rect.bottom-rect.top)/double(pSecondPic->m_Height);
+				dZoom = min(min(yscale, xscale), dZoom);
+			}
+		}
+		SetZoom(dZoom);
 		SetupScrollBars();
 	}
 	PositionChildren();
