@@ -29,6 +29,7 @@
 #include "svn_opt.h"
 
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
 #include "TSVNPath.h"
 #include "SVN.h"
 #include "SVNInfo.h"
@@ -375,7 +376,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
 	iterator->Retry();
 
-	// report starts at endRevision or earlier revisions
+	// report starts at startRevision or earlier revision
 
 	revision_t lastReported = startRevision+1;
 
@@ -514,11 +515,13 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 		URL = CUnicodeUtils::GetUTF8(svn.GetRepositoryRoot (CTSVNPath (info.url)));
 	}
 
-	// get path object
+	// get path object 
+	// (URLs are always escaped, so we must unescape them)
 
 	CStringA relPath = CUnicodeUtils::GetUTF8 (info.url).Mid (URL.GetLength());
-	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
+	relPath = CPathUtils::PathUnescape (relPath);
 
+	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
 	return CDictionaryBasedTempPath (paths, (const char*)relPath);
 }
 
