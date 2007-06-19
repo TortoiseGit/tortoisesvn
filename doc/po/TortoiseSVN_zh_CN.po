@@ -5137,9 +5137,8 @@ msgid "If other people may be committing changes then be careful about using the
 msgstr "如果其他用户可能提交，那么要小心使用最新版本。如果有人在你最近更新之后提交了，它指代的版本可能就不是你想的那样了。"
 
 #: source/TortoiseSVN_en.xml:7484(para) source/TortoiseSVN_en.xml:7588(para)
-#, fuzzy
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr "点击<guibutton>合并</guibutton>按钮完成合并。"
+msgstr "点击 <guibutton>合并</guibutton> 按钮完成合并。"
 
 #: source/TortoiseSVN_en.xml:7370(para)
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
@@ -7436,18 +7435,16 @@ msgid "This method traverses the working copy gathering the revision information
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10912(entry)
-#, fuzzy
 msgid "The highest commit revision in the working copy. Equivalent to $WCREV$"
-msgstr "用工作副本中最高的提交版本来替换"
+msgstr "工作副本中的最高提交版本。等价于 $WCREV$"
 
 #: source/TortoiseSVN_en.xml:10919(entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to $WCDATE$"
-msgstr ""
+msgstr "最高提交版本的提交日期/时间。等价于 $WCDATE$"
 
 #: source/TortoiseSVN_en.xml:10926(entry)
-#, fuzzy
 msgid "The author of the highest commit revision, ie the last person to commit changes to the working copy."
-msgstr "用工作副本中最高的提交版本来替换"
+msgstr "最高提交版本的作者，也就是工作副本中最后提交修改的人。"
 
 #: source/TortoiseSVN_en.xml:10932(entry)
 msgid "MinRev"
@@ -7455,7 +7452,7 @@ msgstr "MinRev"
 
 #: source/TortoiseSVN_en.xml:10933(entry)
 msgid "The minimum update revision, as shown in $WCRANGE$"
-msgstr ""
+msgstr "最小的更新版本，在 $WCRANGE$ 中显示"
 
 #: source/TortoiseSVN_en.xml:10936(entry)
 msgid "MaxRev"
@@ -7463,25 +7460,23 @@ msgstr "MaxRev"
 
 #: source/TortoiseSVN_en.xml:10937(entry)
 msgid "The maximum update revision, as shown in $WCRANGE$"
-msgstr ""
+msgstr "最大的更新版本，在 $WCRANGE$ 中显示"
 
 #: source/TortoiseSVN_en.xml:10940(entry)
 msgid "HasModifications"
 msgstr "HasModifications"
 
 #: source/TortoiseSVN_en.xml:10941(entry)
-#, fuzzy
 msgid "True if there are local modifications"
-msgstr "若本地存在修改，就用正确提示文本 TText 替换，否则用失败提示文本 FText 替换。"
+msgstr "若本地存在修改，就为真"
 
 #: source/TortoiseSVN_en.xml:10944(entry)
 msgid "Url"
-msgstr "Url"
+msgstr "URL"
 
 #: source/TortoiseSVN_en.xml:10945(entry)
-#, fuzzy
 msgid "Replaced with the repository URL of the working copy path used in GetWCInfo. Equivalent to $WCURL$"
-msgstr "用传递给SubWCRev的工作目录的版本库地址替换。"
+msgstr "在 GetWCInfo 中使用，用工作副本的版本库之 URL 替换。等价于 $WCURL$"
 
 #: source/TortoiseSVN_en.xml:10878(para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object.1</literal>, and the following methods are supported: <placeholder-1/>"
@@ -7864,18 +7859,16 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr "如果你还没有提交，你只需要<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice>来取消添加，你需要将这个文件添加到忽略列表，这样它们才不会被再次误添加近来。"
 
 #: source/TortoiseSVN_en.xml:11511(para)
-#, fuzzy
 msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice>，从你的工作副本中删除该文件夹。"
+msgstr "用 <keycap>Shift</keycap> 键获得扩展上下文菜单，使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除(保留版本副本)</guimenuitem></menuchoice> 标记文件/目录从版本库删除，但是保留版本副本。"
 
 #: source/TortoiseSVN_en.xml:11523(para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交</guimenuitem></menuchoice>父目录。"
 
 #: source/TortoiseSVN_en.xml:11532(para)
-#, fuzzy
 msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr "将文件添加到忽略文件，所以你不必再为此烦心。"
+msgstr "将文件/目录增加到忽略列表，所以你不会再遇到同样的麻烦。"
 
 #: source/TortoiseSVN_en.xml:11506(para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
