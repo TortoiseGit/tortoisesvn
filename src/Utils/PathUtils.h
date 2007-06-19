@@ -86,6 +86,11 @@ public:
 	static CStringA PathEscape(const CStringA& path);
 
 	/**
+	 * Replaces escaped sequences with the corresponding characters in a string.
+	 */
+	static CStringA PathUnescape(const CStringA& path);
+
+	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.
 	 * \param p_strDateiname path to the dll or exe
 	 * \return the version string

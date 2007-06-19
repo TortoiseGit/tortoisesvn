@@ -343,6 +343,16 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 	return ret;
 }
 
+CStringA CPathUtils::PathUnescape(const CStringA& path)
+{
+	std::auto_ptr<char> urlabuf (new char[path.GetLength()+1]);
+
+	strcpy_s(urlabuf.get(), path.GetLength()+1, path);
+	Unescape(urlabuf.get());
+
+	return urlabuf.get();
+}
+
 CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
 {
 	struct TRANSARRAY
