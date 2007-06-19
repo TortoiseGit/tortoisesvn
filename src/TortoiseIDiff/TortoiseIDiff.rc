@@ -46,6 +46,7 @@ IDI_STOP                ICON                    "player_stop.ico"
 IDI_VERTICAL            ICON                    "vertical.ico"
 IDI_LINK                ICON                    "link.ico"
 IDI_ALPHATOGGLE         ICON                    "alphatoggle.ico"
+IDI_FITTOGETHER         ICON                    "fittogether.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -85,6 +86,7 @@ BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
         MENUITEM "&Link images together",       ID_VIEW_LINKIMAGESTOGETHER, CHECKED
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
+        MENUITEM "Fit Images &together",        ID_VIEW_FITTOGETHER
         MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM SEPARATOR
         MENUITEM "Zoo&m out",                   ID_VIEW_ZOOMOUT
@@ -147,6 +149,11 @@ END
 IDR_TORTOISEIDIFF ACCELERATORS 
 BEGIN
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    VK_UP,          ID_VIEW_ALPHA0,         VIRTKEY, NOINVERT
+    VK_LEFT,        ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
+    VK_DOWN,        ID_VIEW_ALPHA255,       VIRTKEY, NOINVERT
+    VK_SPACE,       ID_VIEW_ALPHATOGGLE,    VIRTKEY, NOINVERT
     "V",            ID_VIEW_ARRANGEVERTICAL, VIRTKEY, CONTROL, NOINVERT
     "F",            ID_VIEW_FITIMAGESINWINDOW, VIRTKEY, NOINVERT
     "i",            ID_VIEW_IMAGEINFO,      ASCII,  NOINVERT
@@ -156,11 +163,7 @@ BEGIN
     VK_OEM_MINUS,   ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
     VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
-    VK_UP,          ID_VIEW_ALPHA0,         VIRTKEY, NOINVERT
-    VK_DOWN,        ID_VIEW_ALPHA255,       VIRTKEY, NOINVERT
-    VK_LEFT,        ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
-    VK_RIGHT,       ID_VIEW_ALPHA127,       VIRTKEY, NOINVERT
-    VK_SPACE,       ID_VIEW_ALPHATOGGLE,    VIRTKEY, NOINVERT
+    "T",            ID_VIEW_FITTOGETHER,    VIRTKEY, NOINVERT
 END
 
 
@@ -176,7 +179,7 @@ BEGIN
     IDS_OPENIMAGEFILE       "Open image file..."
     IDS_INVALIDIMAGEINFO    "The image can not be shown."
     IDS_IMAGEINFO           "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
-    IDS_DUALIMAGEINFO       "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
+    IDS_DUALIMAGEINFO       "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
     IDC_TORTOISEIDIFF       "TORTOISEIDIFF"
     IDS_DIMENSIONSANDFRAMES "%ld of %ld"
     IDS_IMAGEINFOTT         "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
@@ -184,7 +187,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_DUALIMAGEINFOTT     "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit"
+    IDS_DUALIMAGEINFOTT     "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
 END
 
 #endif    // English (U.S.) resources

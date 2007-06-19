@@ -537,25 +537,25 @@ void CPicWindow::SetupScrollBars()
 
 	si.fMask = SIF_POS | SIF_PAGE | SIF_RANGE | SIF_DISABLENOSCROLL;
 
-	LONG width = picture.m_Width;
-	LONG height = picture.m_Height;
+	double width = double(picture.m_Width)*picscale;
+	double height = double(picture.m_Height)*picscale;
 	if (pSecondPic)
 	{
-		width = max(width, pSecondPic->m_Width);
-		height = max(height, pSecondPic->m_Height);
+		width = max(width, double(pSecondPic->m_Width)*picscale2);
+		height = max(height, double(pSecondPic->m_Height)*picscale2);
 	}
 
-	bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
-	bool bPicHeigthBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
+	bool bPicWidthBigger = (int(width) > (rect.right-rect.left));
+	bool bPicHeigthBigger = (int(height) > (rect.bottom-rect.top));
 	// set the scroll position so that the image is drawn centered in the window
 	// if the window is bigger than the image
 	if (!bPicWidthBigger)
 	{
-		nHScrollPos = -((rect.right-rect.left)-int(double(width)*picscale))/2;
+		nHScrollPos = -((rect.right-rect.left)-int(width))/2;
 	}
 	if (!bPicHeigthBigger)
 	{
-		nVScrollPos = -((rect.bottom-rect.top)-int(double(height)*picscale))/2;
+		nVScrollPos = -((rect.bottom-rect.top)-int(height))/2;
 	}
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
@@ -564,13 +564,13 @@ void CPicWindow::SetupScrollBars()
 	si.nPos  = nVScrollPos;
 	si.nPage = rect.bottom-rect.top;
 	si.nMin  = 0;
-	si.nMax  = int(double(height)*picscale);
+	si.nMax  = int(height);
 	SetScrollInfo(*this, SB_VERT, &si, TRUE);
 
 	si.nPos  = nHScrollPos;
 	si.nPage = rect.right-rect.left;
 	si.nMin  = 0;
-	si.nMax  = int(double(width)*picscale);
+	si.nMax  = int(width);
 	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
 
 	PositionChildren();
@@ -736,7 +736,7 @@ void CPicWindow::GetClientRect(RECT * pRect)
 	}
 }
 
-void CPicWindow::SetZoom(double dZoom)
+void CPicWindow::SetZoom(double dZoom, double dZoom2)
 {
 	// Set the interpolation mode depending on zoom
 	if (dZoom < 1.0)
@@ -750,6 +750,22 @@ void CPicWindow::SetZoom(double dZoom)
 	else
 	{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
 		picture.SetInterpolationMode(InterpolationModeBilinear);
+	}
+
+	if (pSecondPic)
+	{
+		if (dZoom2 < 1.0)
+		{	// Zoomed out, use high quality bicubic
+			pSecondPic->SetInterpolationMode(InterpolationModeHighQualityBicubic);
+		}
+		else if (!((int)(dZoom2*100.0)%100))
+		{	// "Even" zoom sizes should be shown w-o any interpolation
+			pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
+		}
+		else
+		{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
+			pSecondPic->SetInterpolationMode(InterpolationModeBilinear);
+		}
 	}
 
 	// adjust the scrollbar positions according to the new zoom and the
@@ -772,6 +788,10 @@ void CPicWindow::SetZoom(double dZoom)
 		}
 	}
 	picscale = dZoom;
+	picscale2 = dZoom;
+	if (dZoom2 != 0.0)
+		picscale2 = dZoom2;
+
 	SetupScrollBars();
 	PositionChildren();
 	InvalidateRect(*this, NULL, TRUE);
@@ -875,6 +895,30 @@ void CPicWindow::FitImageInWindow()
 	PositionChildren();
 }
 
+void CPicWindow::FitTogether()
+{
+	if (pSecondPic == NULL)
+		return;
+
+	RECT rect;
+	double dZoom1 = 1.0;
+	double dZoom2 = 1.0;
+	GetClientRect(&rect);
+	if (rect.right-rect.left)
+	{
+		double xscale1 = double(rect.right-rect.left)/double(picture.m_Width);
+		double yscale1 = double(rect.bottom-rect.top)/double(picture.m_Height);
+
+		double xscale2 = double(rect.right-rect.left)/double(pSecondPic->m_Width);
+		double yscale2 = double(rect.bottom-rect.top)/double(pSecondPic->m_Height);
+
+
+		SetZoom(min(xscale1, yscale1), min(xscale2, yscale2));
+		SetupScrollBars();
+	}
+	PositionChildren();
+}
+
 void CPicWindow::Paint(HWND hwnd)
 {
 	PAINTSTRUCT ps;
@@ -927,9 +971,9 @@ void CPicWindow::Paint(HWND hwnd)
 
 				RECT picrect2;
 				picrect2.left =  rect.left-nHScrollPos;
-				picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale));
+				picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale2));
 				picrect2.top = rect.top-nVScrollPos;
-				picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale));
+				picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale2));
 
 				SetBkColor(secondhdc, ::GetSysColor(COLOR_WINDOW));
 				::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
@@ -1147,7 +1191,7 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 	// than ExtTextOut(), and to keep the output aligned we therefore
 	// need two different strings.
 	// Note: some translations could end up with two identical strings, but
-	// in english we need two - even if we wouldn't need two in english, some
+	// in English we need two - even if we wouldn't need two in English, some
 	// translation might then need two again.
 	if (pSecondPic)
 	{
@@ -1161,7 +1205,8 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 			pSecondPic->GetFileSizeAsText().c_str(),
 			pSecondPic->GetWidth(), pSecondPic->GetHeight(),
 			pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
-			pSecondPic->GetColorDepth());
+			pSecondPic->GetColorDepth(),
+			(UINT)(GetZoom2()*100.0));
 	}
 	else
 	{

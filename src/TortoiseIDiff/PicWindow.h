@@ -112,10 +112,14 @@ public:
 	}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
+	/// Makes both images the same size, fitting into the window
+	void FitTogether();
 	/// Sets the zoom factor of the image
-	void SetZoom(double dZoom);
+	void SetZoom(double dZoom, double dZoom2 = 0.0);
 	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
+	/// Returns the currently used zoom factor in which the second image is shown.
+	double GetZoom2() {return picscale2;}
 	/// Zooms in (true) or out (false) in nice steps
 	void Zoom(bool in);
 	/// Sets the 'Other' pic window
@@ -168,6 +172,7 @@ protected:
 	CPicture			picture;			///< the picture object of the image
 	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
 	double				picscale;			///< the scale factor of the image
+	double				picscale2;			///< the scale factor of the second image
 	bool				bFirstpaint;		///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
 	CPicture *			pSecondPic;			///< if set, this is the picture to draw transparently above the original
 	CPicWindow *		pTheOtherPic;		///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...
