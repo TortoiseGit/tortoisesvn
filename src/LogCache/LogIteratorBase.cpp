@@ -158,6 +158,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 
 	// close examination of all changes
 
+	CRevisionInfoContainer::CChangesIterator bestRename = last;
 	for ( CRevisionInfoContainer::CChangesIterator iter = first
 		; iter != last
 		; ++iter)
@@ -189,18 +190,22 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 				{
 					// continue search on copy source path
 
-					searchPath = searchPath.ReplaceParent ( iter.GetPath()
-														  , iter.GetFromPath());
-					searchRevision = iter.GetFromRevision();
+					// The last copy found will also be the one closed
+					// to our searchPath (there may be multiple renames,
+					// if the base path got renamed).
+
+					bestRename = iter;
 				}
 				else
 				{
 					// end of path history
 
 					searchRevision = NO_REVISION;
+
+					return true;
 				}
 
-				return true;
+				break;
 			}
 
 			// there should be no other
@@ -211,6 +216,17 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 				assert (0);
 			}
 		}
+	}
+
+	// there was a rename / copy from some older path,rev
+
+	if (bestRename != last)
+	{
+		searchPath = searchPath.ReplaceParent ( bestRename.GetPath()
+											  , bestRename.GetFromPath());
+		searchRevision = bestRename.GetFromRevision();
+
+		return true;
 	}
 
 	// all fine, no special action required
