@@ -1539,6 +1539,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 	{
 		// drag-n-drop inside the repobrowser
 		CInputLogDlg input(this);
+		input.SetUUID(m_sUUID);
 		input.SetProjectProperties(&m_ProjectProperties);
 		CString sHint;
 		if (pathlist.GetCount() == 1)
