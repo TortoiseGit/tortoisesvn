@@ -83,6 +83,12 @@ private:
 
 		ILogReceiver* receiver;
 
+		// make sure, we can iterator over the given range for the given path
+
+		void MakeRangeIterable ( const CDictionaryBasedPath& path
+							   , revision_t startRevision
+							   , revision_t count);
+
 		// implement ILogReceiver
 
 		virtual void ReceiveLog ( LogChangedPathArray* changes

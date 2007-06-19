@@ -35,6 +35,45 @@
 #include "SVNInfo.h"
 #include "SVNError.h"
 
+// make sure, we can iterator over the given range for the given path
+
+void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath& path
+												   , revision_t startRevision
+												   , revision_t count)
+{
+	// trim the range to cover only missing data
+	// (we may already have enough information
+	// to iterate over the whole range -> don't
+	// ask the server in that case)
+
+	CStrictLogIterator iterator ( cache
+								, startRevision + count-1
+								, CDictionaryBasedTempPath (path));
+
+	iterator.Retry();
+	while (   !iterator.EndOfPath() 
+		   && !iterator.DataIsMissing() 
+		   && (iterator.GetRevision() >= startRevision))
+	{
+		iterator.Advance();
+	}
+
+	if (iterator.EndOfPath() || !iterator.DataIsMissing())
+		return;
+
+	// o.k., some data is missing. Ask for it.
+
+	CLogFiller().FillLog ( cache
+						 , URL
+						 , svnQuery
+						 , iterator.GetRevision()
+						 , startRevision
+						 , CDictionaryBasedTempPath (path)
+						 , 0
+						 , true
+						 , NULL);
+}
+
 // implement ILogReceiver
 
 void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
@@ -94,6 +133,16 @@ void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
 								, revision+1
 								, firstNARevision - revision);
 		}
+		else
+		{
+			// we must fill this range! Otherwise, we will stumble
+			// over this gap and will try to fetch the data again
+			// to no avail ... causing an endless loop.
+
+			MakeRangeIterable ( currentPath->GetBasePath()
+							  , revision+1
+							  , firstNARevision - revision);
+		}
 	}
 
 	// due to renames / copies, we may continue on a different path
@@ -151,14 +200,22 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 				  , strictNodeHistory
 				  , this);
 
-	if (   (firstNARevision == startRevision) 
-		&& currentPath->IsFullyCachedPath())
+	if (firstNARevision == startRevision) 
 	{
 		// the log was empty
 
-		cache->AddSkipRange ( currentPath->GetBasePath()
-							, endRevision
-							, startRevision - endRevision + 1);
+		if (currentPath->IsFullyCachedPath())
+		{
+			cache->AddSkipRange ( currentPath->GetBasePath()
+								, endRevision
+								, startRevision - endRevision + 1);
+		}
+		else
+		{
+			MakeRangeIterable ( currentPath->GetBasePath()
+							  , endRevision
+							  , startRevision - endRevision + 1);
+		}
 	}
 
 	return firstNARevision+1;
