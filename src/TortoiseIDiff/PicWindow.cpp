@@ -354,30 +354,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
 					NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
 					TCHAR infostring[8192];
-					if (pSecondPic)
-					{
-						_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-							(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFOTT),
-							picture.GetFileSizeAsText().c_str(),
-							picture.GetWidth(), picture.GetHeight(),
-							picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-							picture.GetColorDepth(),
-							(UINT)(GetZoom()*100.0),
-							pSecondPic->GetFileSizeAsText().c_str(),
-							pSecondPic->GetWidth(), pSecondPic->GetHeight(),
-							pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
-							pSecondPic->GetColorDepth());
-					}
-					else
-					{
-						_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-							(TCHAR const *)ResString(hResource, IDS_IMAGEINFOTT),
-							picture.GetFileSizeAsText().c_str(), 
-							picture.GetWidth(), picture.GetHeight(),
-							picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-							picture.GetColorDepth(),
-							(UINT)(GetZoom()*100.0));
-					}
+					BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), true);
 					if (pNMHDR->code == TTN_NEEDTEXTW)
 					{
 						lstrcpyn(m_wszTip, infostring, 8192);
@@ -981,30 +958,7 @@ void CPicWindow::Paint(HWND hwnd)
 			m_inforect.bottom = rect.bottom;
 
 			TCHAR infostring[8192];
-			if (pSecondPic)
-			{
-				_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-					(TCHAR const *)ResString(hResource, IDS_DUALIMAGEINFO),
-					picture.GetFileSizeAsText().c_str(),
-					picture.GetWidth(), picture.GetHeight(),
-					picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-					picture.GetColorDepth(),
-					(UINT)(GetZoom()*100.0),
-					pSecondPic->GetFileSizeAsText().c_str(),
-					pSecondPic->GetWidth(), pSecondPic->GetHeight(),
-					pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
-					pSecondPic->GetColorDepth());
-			}
-			else
-			{
-				_stprintf_s(infostring, sizeof(infostring)/sizeof(TCHAR), 
-					(TCHAR const *)ResString(hResource, IDS_IMAGEINFO),
-					picture.GetFileSizeAsText().c_str(), 
-					picture.GetWidth(), picture.GetHeight(),
-					picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-					picture.GetColorDepth(),
-					(UINT)(GetZoom()*100.0));
-			}
+			BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), false);
 			// set the font
 			NONCLIENTMETRICS metrics = {0};
 			metrics.cbSize = sizeof(NONCLIENTMETRICS);
@@ -1167,4 +1121,39 @@ HWND CPicWindow::CreateTrackbar(HWND hwndParent)
 		); 
 
 	return hwndTrack; 
+}
+
+void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
+{
+	// Unfortunately, we need two different strings for the tooltip
+	// and the info box. Because the tooltips use a different tab size
+	// than ExtTextOut(), and to keep the output aligned we therefore
+	// need two different strings.
+	// Note: some translations could end up with two identical strings, but
+	// in english we need two - even if we wouldn't need two in english, some
+	// translation might then need two again.
+	if (pSecondPic)
+	{
+		_stprintf_s(buf, size, 
+			(TCHAR const *)ResString(hResource, bTooltip ? IDS_DUALIMAGEINFOTT : IDS_DUALIMAGEINFO),
+			picture.GetFileSizeAsText().c_str(),
+			picture.GetWidth(), picture.GetHeight(),
+			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+			picture.GetColorDepth(),
+			(UINT)(GetZoom()*100.0),
+			pSecondPic->GetFileSizeAsText().c_str(),
+			pSecondPic->GetWidth(), pSecondPic->GetHeight(),
+			pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
+			pSecondPic->GetColorDepth());
+	}
+	else
+	{
+		_stprintf_s(buf, size, 
+			(TCHAR const *)ResString(hResource, bTooltip ? IDS_IMAGEINFOTT : IDS_IMAGEINFO),
+			picture.GetFileSizeAsText().c_str(), 
+			picture.GetWidth(), picture.GetHeight(),
+			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
+			picture.GetColorDepth(),
+			(UINT)(GetZoom()*100.0));
+	}
 }

@@ -160,6 +160,8 @@ protected:
 	HWND				CreateTrackbar(HWND hwndParent);
 	/// Moves the alpha slider trackbar to the correct position
 	void				PositionTrackBar();
+	/// creates the info string used in the info box and the tooltips
+	void				BuildInfoString(TCHAR * buf, int size, bool bTooltip);
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title
