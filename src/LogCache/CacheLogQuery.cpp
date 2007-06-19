@@ -96,6 +96,8 @@ void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
 		}
 	}
 
+	// due to renames / copies, we may continue on a different path
+
 	if (followRenames)
 	{
 		CCopyFollowingLogIterator iterator (cache, revision, *currentPath);
@@ -103,6 +105,9 @@ void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
 
 		*currentPath = iterator.GetPath();
 	}
+
+	// the first revision we may not have information about is the one
+	// immediately preceeding the on we just received from the server
 
 	firstNARevision = revision-1;
 
@@ -391,6 +396,11 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 	{
 		if (iterator->DataIsMissing())
 		{
+			// we must not fetch revisions twice
+			// (this may cause an indefinite loop)
+
+			assert (iterator->GetRevision() < lastReported);
+
 			// our cache is incomplete -> fill it.
 			// Report entries immediately to the receiver 
 			// (as to allow the user to cancel this action).
