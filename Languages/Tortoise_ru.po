@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 9799: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 9817: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-06-18 23:49+0300\n"
+"PO-Revision-Date: 2007-06-20 12:28+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2608,7 +2608,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "Размер файла:\t\t%s\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
@@ -2623,7 +2624,8 @@ msgstr ""
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
 "Разреш. по вертикали:\t%.1f dpi\n"
-"Глубина цвета:\t\t%d бит"
+"Глубина цвета:\t\t%d бит\n"
+"Увеличение:\t\t%d%%"
 
 #: ID:7
 #, c-format
@@ -2660,7 +2662,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "Размер файла:\t\t%s\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
@@ -2675,7 +2678,8 @@ msgstr ""
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
 "Разреш. по вертикали:\t%.1f dpi\n"
-"Глубина цвета:\t\t%d бит"
+"Глубина цвета:\t\t%d бит\n"
+"Увеличение:\t\t%d%%"
 
 # ? Исключить
 # ? (несколько путей разделите '*' )
@@ -2699,6 +2703,10 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "Закончено!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "&Вписать обе картинки"
 
 #: Control-ID:1315
 msgid "Floppy drives (A: B:)"
@@ -2979,6 +2987,12 @@ msgstr "ID:32796:V C +A"
 #: ; '&Filter'
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
