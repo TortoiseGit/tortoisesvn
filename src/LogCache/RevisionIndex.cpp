@@ -84,10 +84,10 @@ void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 		revision_t size = (revision_t)indices.size();
 		if (revision - firstRevision > size)
 		{
-			// efficently grow on the upper end
+			// efficiently grow on the upper end
 
 			size_t toAdd = max (size, revision - firstRevision - size);
-			indices.insert (indices.end(), toAdd, NO_INDEX);
+			indices.insert (indices.end(), toAdd+1, NO_INDEX);
 		}
 	}
 
