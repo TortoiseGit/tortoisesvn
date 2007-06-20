@@ -336,7 +336,7 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
 				picWindow1.SetSecondPicAlpha(127);
-
+				picWindow1.SetZoom2(picWindow2.GetZoom());
 			}
 			else
 			{
@@ -349,9 +349,6 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.dwMask = TBIF_STATE;
 			tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
-			// enable/disable the 'fit together' button
-			tbi.fsState = bOverlap ? TBSTATE_ENABLED : 0;
-			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_FITTOGETHER, (LPARAM)&tbi);
 
 			RECT rect;
 			GetClientRect(*this, &rect);
@@ -363,10 +360,21 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_FITTOGETHER:
 		{
-			if (bOverlap)
-			{
-				picWindow1.FitTogether();
-			}
+			bFitTogether = !bFitTogether;
+			picWindow1.FitTogether(bFitTogether);
+			picWindow2.FitTogether(bFitTogether);
+
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= bFitTogether ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_FITTOGETHER, uCheck);
+
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bFitTogether ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_FITTOGETHER, (LPARAM)&tbi);
 		}
 		break;
 	case ID_VIEW_LINKIMAGESTOGETHER:
@@ -824,7 +832,7 @@ bool CMainWindow::CreateToolbar()
 	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITTOGETHER));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_FITTOGETHER; 
-	tbb[index].fsState = 0; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 

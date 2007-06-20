@@ -736,36 +736,38 @@ void CPicWindow::GetClientRect(RECT * pRect)
 	}
 }
 
-void CPicWindow::SetZoom(double dZoom, double dZoom2)
+void CPicWindow::SetZoom(double dZoom)
 {
 	// Set the interpolation mode depending on zoom
 	if (dZoom < 1.0)
 	{	// Zoomed out, use high quality bicubic
 		picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
+		if (pSecondPic)
+			pSecondPic->SetInterpolationMode(InterpolationModeHighQualityBicubic);
 	}
 	else if (!((int)(dZoom*100.0)%100))
 	{	// "Even" zoom sizes should be shown w-o any interpolation
 		picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
+		if (pSecondPic)
+			pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
 	}
 	else
 	{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
 		picture.SetInterpolationMode(InterpolationModeBilinear);
-	}
-
-	if (pSecondPic)
-	{
-		if (dZoom2 < 1.0)
-		{	// Zoomed out, use high quality bicubic
-			pSecondPic->SetInterpolationMode(InterpolationModeHighQualityBicubic);
-		}
-		else if (!((int)(dZoom2*100.0)%100))
-		{	// "Even" zoom sizes should be shown w-o any interpolation
-			pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
-		}
-		else
-		{	// Arbitrary zoomed in, use bilinear that is semi-smoothed
+		if (pSecondPic)
 			pSecondPic->SetInterpolationMode(InterpolationModeBilinear);
-		}
+	}
+	picscale = dZoom;
+
+	if ((pSecondPic)&&(bFitTogether))
+	{
+		double width, height;
+		double zoomWidth, zoomHeight;
+		width = double(picture.m_Width)*dZoom;
+		height = double(picture.m_Height)*dZoom;
+		zoomWidth = width/double(pSecondPic->m_Width);
+		zoomHeight = height/double(pSecondPic->m_Height);
+		picscale2 = min(zoomWidth, zoomHeight);
 	}
 
 	// adjust the scrollbar positions according to the new zoom and the
@@ -787,10 +789,6 @@ void CPicWindow::SetZoom(double dZoom, double dZoom2)
 			pTheOtherPic->nVScrollPos = nVScrollPos;
 		}
 	}
-	picscale = dZoom;
-	picscale2 = dZoom;
-	if (dZoom2 != 0.0)
-		picscale2 = dZoom2;
 
 	SetupScrollBars();
 	PositionChildren();
@@ -801,7 +799,7 @@ void CPicWindow::Zoom(bool in)
 {
 	double zoomFactor;
 
-	// Find correct zoom factor	and quantize picscale
+	// Find correct zoom factor and quantize picscale
 	if (!in && picscale <= 0.2)
 	{
 		picscale = 0.1;
@@ -826,10 +824,14 @@ void CPicWindow::Zoom(bool in)
 	// Set zoom
 	if (in)
 	{
+		if ((pSecondPic)&&(!bFitTogether))
+			picscale2 = picscale2+zoomFactor;
 		SetZoom(picscale+zoomFactor);
 	}
 	else
 	{
+		if ((pSecondPic)&&(!bFitTogether))
+			picscale2 = picscale2-zoomFactor;
 		SetZoom(picscale-zoomFactor);
 	}
 }
@@ -879,14 +881,14 @@ void CPicWindow::FitImageInWindow()
 			if (((rect.right - rect.left) > pSecondPic->m_Width)&&((rect.bottom - rect.top)> pSecondPic->m_Height))
 			{
 				// image is smaller than the window
-				dZoom = min(1.0, dZoom);
+				picscale2 = min(1.0, dZoom);
 			}
 			else
 			{
 				// image is bigger than the window
 				double xscale = double(rect.right-rect.left)/double(pSecondPic->m_Width);
 				double yscale = double(rect.bottom-rect.top)/double(pSecondPic->m_Height);
-				dZoom = min(min(yscale, xscale), dZoom);
+				picscale2 = min(yscale, xscale);
 			}
 		}
 		SetZoom(dZoom);
@@ -895,28 +897,13 @@ void CPicWindow::FitImageInWindow()
 	PositionChildren();
 }
 
-void CPicWindow::FitTogether()
+void CPicWindow::FitTogether(bool bFit)
 {
+	bFitTogether = bFit;
+
 	if (pSecondPic == NULL)
 		return;
-
-	RECT rect;
-	double dZoom1 = 1.0;
-	double dZoom2 = 1.0;
-	GetClientRect(&rect);
-	if (rect.right-rect.left)
-	{
-		double xscale1 = double(rect.right-rect.left)/double(picture.m_Width);
-		double yscale1 = double(rect.bottom-rect.top)/double(picture.m_Height);
-
-		double xscale2 = double(rect.right-rect.left)/double(pSecondPic->m_Width);
-		double yscale2 = double(rect.bottom-rect.top)/double(pSecondPic->m_Height);
-
-
-		SetZoom(min(xscale1, yscale1), min(xscale2, yscale2));
-		SetupScrollBars();
-	}
-	PositionChildren();
+	SetZoom(GetZoom());
 }
 
 void CPicWindow::Paint(HWND hwnd)
