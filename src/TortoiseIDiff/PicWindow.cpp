@@ -892,9 +892,9 @@ void CPicWindow::FitImageInWindow()
 			}
 		}
 		SetZoom(dZoom);
-		SetupScrollBars();
 	}
 	PositionChildren();
+	InvalidateRect(*this, NULL, TRUE);
 }
 
 void CPicWindow::FitTogether(bool bFit)
@@ -923,11 +923,6 @@ void CPicWindow::Paint(HWND hwnd)
 		CMemDC memDC(hdc);
 
 		GetClientRect(&rect);
-		if (bFirstpaint)
-		{
-			FitImageInWindow();
-			bFirstpaint = false;
-		}
 		if (bValid)
 		{
 			RECT picrect;

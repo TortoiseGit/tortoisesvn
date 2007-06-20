@@ -101,6 +101,8 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 		}
 	}
 	if (hdwp) EndDeferWindowPos(hdwp);
+	picWindow1.SetupScrollBars();
+	picWindow2.SetupScrollBars();
 	InvalidateRect(*this, NULL, FALSE);
 }
 
@@ -123,6 +125,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			GetClientRect(hwnd, &rect);
 			nSplitterPos = (rect.right-rect.left)/2;
 			CreateToolbar();
+			PositionChildren(&rect);
+			picWindow1.FitImageInWindow();
+			picWindow2.FitImageInWindow();
 		}
 		break;
 	case WM_COMMAND:
@@ -285,9 +290,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			if (OpenDialog())
 			{
 				picWindow1.SetPic(leftpicpath, _T(""));
-				picWindow1.FitImageInWindow();
 				picWindow2.SetPic(rightpicpath, _T(""));
-				picWindow2.FitImageInWindow();
 				if (bOverlap)
 				{
 					picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
@@ -299,6 +302,8 @@ LRESULT CMainWindow::DoCommand(int id)
 				RECT rect;
 				GetClientRect(*this, &rect);
 				PositionChildren(&rect);
+				picWindow1.FitImageInWindow();
+				picWindow2.FitImageInWindow();
 			}
 		}
 		break;

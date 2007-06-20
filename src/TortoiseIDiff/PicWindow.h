@@ -55,7 +55,6 @@ class CPicWindow : public CWindow
 public:
 	CPicWindow(HINSTANCE hInst, const WNDCLASSEX* wcx = NULL) : CWindow(hInst, wcx)
 		, bValid(false)
-		, bFirstpaint(true)
 		, nHScrollPos(0)
 		, nVScrollPos(0)
 		, picscale(1.0)
@@ -130,6 +129,8 @@ public:
 	void LinkWindows(bool bLink) {bLinked = bLink;}
 
 	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
+	/// Sets up the scrollbars as needed
+	void SetupScrollBars();
 
 	bool HasMultipleImages();
 protected:
@@ -139,8 +140,6 @@ protected:
 	void				DrawViewTitle(HDC hDC, RECT * rect);
 	/// Creates the image buttons
 	bool				CreateButtons();
-	/// Sets up the scrollbars as needed
-	void				SetupScrollBars();
 	/// Handles vertical scrolling
 	void				OnVScroll(UINT nSBCode, UINT nPos);
 	/// Handles horizontal scrolling
