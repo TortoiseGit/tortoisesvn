@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-06-05 09:16+0800\n"
+"PO-Revision-Date: 2007-06-20 10:57+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -210,44 +210,6 @@ msgid ""
 msgstr ""
 "%s\n"
 "確定真的要移除嗎?"
-
-# ID:7,
-#: ID:7
-#, c-format
-msgid ""
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
-msgstr ""
-"%s\n"
-"檔案大小:\t\t\t%s\n"
-"寬度:\t\t\t%ld 像素\n"
-"高度:\t\t\t%ld 像素\n"
-"水平解析度:\t%.1f dpi\n"
-"垂直解析度:\t\t%.1f dpi\n"
-"色深:\t\t\t%d bit\n"
-"比例:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"檔案大小:\t\t\t%s\n"
-"寬度:\t\t\t%ld 像素\n"
-"高度:\t\t\t%ld 像素\n"
-"水平解析度:\t%.1f dpi\n"
-"垂直解析度:\t\t%.1f dpi\n"
-"色深:\t\t\t%d bit"
 
 # ID:69,
 #: ID:69
@@ -3168,6 +3130,61 @@ msgstr "檔案補綴"
 #: ID:7
 #, c-format
 msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"檔案大小:\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%"
+
+# ID:7,
+#: ID:8
+#, c-format
+msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"檔案大小:\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%\n"
+"\n"
+"檔案大小:\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t%.1f dpi\n"
+"色深:\t\t\t%d bit比例:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
 "File size:\t\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
@@ -3176,6 +3193,42 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"檔案大小:\t\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"檔案大小:\t\t\t%s\n"
+"寬度:\t\t\t%ld 像素\n"
+"高度:\t\t\t%ld 像素\n"
+"水平解析度:\t%.1f dpi\n"
+"垂直解析度:\t\t%.1f dpi\n"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%\n"
+"\n"
 "檔案大小:\t\t\t%s\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
@@ -3207,6 +3260,10 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "完成!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "符合影像大小(&T)"
 
 # Control-ID:1315,
 #: Control-ID:1315
@@ -3528,6 +3585,12 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3595,8 +3658,8 @@ msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋及右鍵選單."
 
 # ID:198,
 #: ID:198
@@ -6041,8 +6104,8 @@ msgstr "顯示記錄(&L)..."
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Show &overlays only in explorer"
-msgstr "僅在檔案總管中顯示圖示覆蓋(&O)"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "僅在檔案總管中顯示圖示覆蓋與右鍵選單(&O)"
 
 # Control-ID:1073,
 #: Control-ID:1073
