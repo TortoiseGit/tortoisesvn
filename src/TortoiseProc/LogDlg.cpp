@@ -527,7 +527,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	}
 	CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
 	// sort according to the settings
-	SetSortArrow(&m_ChangedFileListCtrl, -1, false);
+	if (m_nSortColumnPathList > 0)
+		SetSortArrow(&m_ChangedFileListCtrl, m_nSortColumnPathList, m_bAscendingPathList);
+	else
+		SetSortArrow(&m_ChangedFileListCtrl, -1, false);
 	m_ChangedFileListCtrl.SetRedraw(TRUE);
 }
 
