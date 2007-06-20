@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-19 09:28+0100\n"
+"PO-Revision-Date: 2007-06-20 11:18+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2569,7 +2569,7 @@ msgstr "Datei Patches"
 
 # ID:7,
 #: ID:7
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2589,7 +2589,7 @@ msgstr ""
 
 # ID:7,
 #: ID:8
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2604,7 +2604,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "Dateigröße:\t\t%s\n"
 "Breite:\t\t\t%ld pixel\n"
@@ -2619,7 +2620,8 @@ msgstr ""
 "Höhe:\t\t\t%ld pixel\n"
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
-"Farbtiefe:\t\t%d bit"
+"Farbtiefe:\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 # ID:7,
 #: ID:7
@@ -2643,7 +2645,7 @@ msgstr ""
 
 # ID:7,
 #: ID:7
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2658,7 +2660,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "Dateigröße:\t\t%s\n"
 "Breite:\t\t\t%ld pixel\n"
@@ -2673,7 +2676,8 @@ msgstr ""
 "Höhe:\t\t\t%ld pixel\n"
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
-"Farbtiefe:\t\t\t%d bit"
+"Farbtiefe:\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2696,6 +2700,10 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "Fertig!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "Bildgrößen &angleichen"
 
 # Control-ID:1315,
 #: Control-ID:1315
@@ -2989,6 +2997,12 @@ msgstr "ID:32796:V C +A"
 #: ; '&Filter'
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
