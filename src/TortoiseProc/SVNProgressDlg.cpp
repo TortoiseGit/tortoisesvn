@@ -1286,7 +1286,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	{
 		CString sFinalInfo;
 		CTimeSpan time = CTime::GetCurrentTime() - startTime;
-		temp.Format(IDS_PROGRS_TIME, time.GetTotalMinutes(), time.GetSeconds());
+		temp.Format(IDS_PROGRS_TIME, (LONG)time.GetTotalMinutes(), (LONG)time.GetSeconds());
 		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, temp);
 		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(sFinalInfo);
 	}
