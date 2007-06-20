@@ -197,7 +197,8 @@ BOOL CLogDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	// use the state of the "stop on copy/rename" option from the last time
-	m_bStrict = m_regLastStrict;
+	if (!m_bStrict)
+		m_bStrict = m_regLastStrict;
 	UpdateData(FALSE);
 	CString temp;
 	if (m_limit)
