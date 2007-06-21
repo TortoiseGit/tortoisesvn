@@ -375,6 +375,10 @@ LRESULT CMainWindow::DoCommand(int id)
 			bFitTogether = !bFitTogether;
 			picWindow1.FitTogether(bFitTogether);
 			picWindow2.FitTogether(bFitTogether);
+			if (!bFitTogether)
+			{
+				picWindow1.SetZoom2(picWindow1.GetZoom());
+			}
 
 			HMENU hMenu = GetMenu(*this);
 			UINT uCheck = MF_BYCOMMAND;
