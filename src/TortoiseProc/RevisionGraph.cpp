@@ -445,10 +445,9 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 #define TRACELEVELSPACE {for (int traceloop = 1; traceloop < m_nRecurseLevel; traceloop++) TRACE(_T(" "));}
 	m_nRecurseLevel++;
 	TRACELEVELSPACE;
-	TRACE(_T("Analyzing %s  - recurse level %d\n"), (LPCTSTR)CString(url), m_nRecurseLevel);
+	TRACE(_T("Analyzing %s  - startrev %ld\n"), (LPCTSTR)CString(url), (LONG)startrev);
 
 	bool bRenamed = false;
-	bool bDeleted = false;
 	CRevisionEntry * lastchangedreventry = NULL;
 	for (svn_revnum_t currentrev=startrev; currentrev <= m_lHeadRevision; ++currentrev)
 	{
@@ -478,19 +477,8 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 				// we have an entry
 				if (IsParentOrItself(reventry->url, url))
 				{
-					if ((bDeleted)&&(reventry->action != CRevisionEntry::added))
-					{
-						++it;
-						continue;
-					}
 					bool bIsSame = (reventry->url == url);
-					if ((bDeleted)&&(!bIsSame))
-					{
-						++it;
-						continue;
-					}
 
-					bDeleted = false;
 					reventry->level = m_nRecurseLevel;
 					if (reventry->action == CRevisionEntry::deleted)
 					{
@@ -535,9 +523,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 							reventry->url += child;
 						}
 						reventry->bUsed = true;
-						bDeleted = true;
-						++it;
-						continue;
+						goto endloop;
 					}
 					if (reventry->action == CRevisionEntry::replaced)
 					{
@@ -548,7 +534,24 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 					{
 						if (!child.IsEmpty())
 						{
-							reventry->url += child;
+							CRevisionEntry * reventry2 = GetRevisionEntry(reventry->url + child, currentrev, true);
+							reventry2->action = reventry->action;
+							reventry2->author = reventry->author;
+							reventry2->date = reventry->date;
+							reventry2->level = reventry->level;
+							reventry2->message = reventry->message;
+							reventry2->realurl = reventry->realurl;
+							for (INT_PTR si=0; si<reventry->sourcearray.GetCount(); ++si)
+							{
+								source_entry * sentry = (source_entry*)reventry->sourcearray[si];
+								source_entry * sentry2 = new source_entry();
+								sentry2->pathto = sentry->pathto + child;
+								sentry2->revisionto = sentry->revisionto;
+								reventry2->sourcearray.Add(sentry2);
+							}
+
+							reventry = reventry2;
+							ATLTRACE("created url %ws, rev %ld\n", reventry->url, currentrev);
 						}
 					}
 					// and the entry is for us
@@ -582,7 +585,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 					}
 					if (bIsSame)
 					{
-						if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
+						if ((reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 						{
 							++it;
 							continue;
@@ -608,7 +611,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 				}
 				else if (IsParentOrItself(url, reventry->url))
 				{
-					if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
+					if ((reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 					{
 						++it;
 						continue;
@@ -635,6 +638,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 			++it;
 		}
 	}
+endloop:
 	if ((lastchangedreventry)&&((!lastchangedreventry->bUsed)||(lastchangedreventry->action == CRevisionEntry::nothing)))
 	{
 		// This is the last entry for that url. That means after this revision, there are no more
@@ -811,6 +815,11 @@ bool CRevisionGraph::Cleanup(bool bArrangeByPath)
 	// step two: sort the entries
 	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevUrl);
 	
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		ATLTRACE(_T("%s - rev%ld - level %d\n"), reventry->url, reventry->revision, reventry->level);
+	}
 	// step three: combine entries with the same revision and url
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
