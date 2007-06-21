@@ -22,7 +22,7 @@
 #include "Debug.h"
 
 
-#define NIL ((void *)0xFFFFFFFF)
+const HINSTANCE NIL = (HINSTANCE)((char*)(0)-1);
 
 static HINSTANCE hInst = NULL;
 
