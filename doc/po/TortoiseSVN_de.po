@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-15 16:03+0100\n"
+"PO-Revision-Date: 2007-06-21 15:00+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5063,9 +5063,8 @@ msgstr "Ein Programm zum Vergleichen von Bildern"
 
 #: source/TortoiseSVN_en.xml:5926
 #: (para)
-#, fuzzy
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr "<placeholder-1/> <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Vergleich</guimenuitem> </menuchoice> für jedes übliche Bildformat, wird TortoiseIDiff starten, um die Unterschiede anzuzeigen. In der Standardansicht werden die Bilder nebeneinander dargestellt. Mit der Symbolleiste oder dem Menü können Sie die Bilder auch übereinander darstellen beziehungsweise überlagern. Der Schieber ermöglicht Ihnen die Transparenz der Überlagerung einstellen."
+msgstr "<placeholder-1/> <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Vergleich</guimenuitem> </menuchoice> für jedes übliche Bildformat, wird TortoiseIDiff starten, um die Unterschiede anzuzeigen. In der Standardansicht werden die Bilder nebeneinander dargestellt. Mit der Symbolleiste oder dem Menü können Sie die Bilder auch übereinander darstellen beziehungsweise überlagern. Der Schieber ermöglicht es Ihnen, die Transparenz der Überlagerung einstellen."
 
 #: source/TortoiseSVN_en.xml:5941
 #: (para)
@@ -6768,7 +6767,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8264
 #: (para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "Annotiert jede Zeile der Datei mit dem Autor und dem Änderungsdatum"
 
 #: source/TortoiseSVN_en.xml:8269
 #: (para)
@@ -6778,7 +6777,7 @@ msgstr "Datei löschen oder umbenennen"
 #: source/TortoiseSVN_en.xml:8274
 #: (para)
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Erstellt eine Kopie der Datei, entweder in einem anderen Teil des Projektarchivs oder in einer Arbeitskopie die auf dem selben Projektarchiv basiert."
 
 #: source/TortoiseSVN_en.xml:8280
 #: (para)
@@ -6793,17 +6792,17 @@ msgstr "Das Kontextmenü einer Datei erlaubt Ihnen: <placeholder-1/>"
 #: source/TortoiseSVN_en.xml:8291
 #: (para)
 msgid "Show the revision log for that folder, or show a graph of all revisions so you can see where the folder came from."
-msgstr ""
+msgstr "Zeigt das Revisionslog des Ordners oder den Graphen aller Revisionen, so dass Sie sehen können, woher der Ordner stammt."
 
 #: source/TortoiseSVN_en.xml:8297
 #: (para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "Exportiert den Ordner in eine lokale, unversionierte Kopie."
 
 #: source/TortoiseSVN_en.xml:8302
 #: (para)
 msgid "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "Check den Ordner in eine lokale Arbeitskopie aus."
 
 #: source/TortoiseSVN_en.xml:8307
 #: (para)
@@ -6823,7 +6822,7 @@ msgstr "Ordner löschen oder umbenennen"
 #: source/TortoiseSVN_en.xml:8322
 #: (para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Erstellt eine Kopie des Ordners, entweder in einem anderen Teil des Projektarchivs oder in einer Arbeitskopie die auf dem selben Projektarchiv basiert."
 
 #: source/TortoiseSVN_en.xml:8328
 #: (para)
@@ -6833,7 +6832,7 @@ msgstr "Die Eigenschaften des Ordners anzeigen (Sie können die Eigenschaften ni
 #: source/TortoiseSVN_en.xml:8334
 #: (para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Markiert den Ordner für den Vergleich. Ein markierte Ordner wird durch Fettdruck gekennzeichnet"
 
 #: source/TortoiseSVN_en.xml:8339
 #: (para)
@@ -6853,7 +6852,7 @@ msgstr "Wenn Sie in der rechten Fläche zwei Ordner markieren, können Sie sich 
 #: source/TortoiseSVN_en.xml:8353
 #: (para)
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr ""
+msgstr "Wenn Sie mehrere Ordner im rechten Bereich markieren, können Sie diese Ordner alle gleichzeitig in einen gemeinsamen Elternordner auschecken."
 
 #: source/TortoiseSVN_en.xml:8357
 #: (para)
@@ -8119,7 +8118,7 @@ msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, 
 #: source/TortoiseSVN_en.xml:9964
 #: (para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
-msgstr ""
+msgstr "Sie können auch ein eigenes Programm für Subversion Eigenschaften angeben. Da es sich dabei um einfache, kurze Texte handelt, wollen Sie vielleicht einen einfachen, kompakten Betrachter verwenden"
 
 #: source/TortoiseSVN_en.xml:9971
 #: (title)
