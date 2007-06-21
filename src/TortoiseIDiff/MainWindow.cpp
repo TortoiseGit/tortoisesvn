@@ -359,8 +359,15 @@ LRESULT CMainWindow::DoCommand(int id)
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
 			if (bOverlap)
+            {
 				picWindow1.FitImageInWindow();
-			return 0;
+            }
+            else
+            {
+                picWindow1.FitImageInWindow();
+                picWindow2.FitImageInWindow();
+            }
+            return 0;
 		}
 		break;
 	case ID_VIEW_FITTOGETHER:
