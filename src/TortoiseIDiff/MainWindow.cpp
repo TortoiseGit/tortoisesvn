@@ -148,52 +148,12 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			EndPaint(hwnd, &ps);
 		}
 		break;
-	case WM_SIZING:
+    case WM_GETMINMAXINFO:
 		{
-			RECT * pRect = (RECT *)lParam;
-			switch (wParam)
-			{
-			case WMSZ_BOTTOM:
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->bottom = pRect->top+WINDOW_MINHEIGTH;
-				break;
-			case WMSZ_BOTTOMLEFT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->left = pRect->right-WINDOW_MINWIDTH;
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->bottom = pRect->top+WINDOW_MINHEIGTH;
-				break;
-			case WMSZ_BOTTOMRIGHT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->right = pRect->left+WINDOW_MINWIDTH;
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->bottom = pRect->top+WINDOW_MINHEIGTH;
-				break;
-			case WMSZ_LEFT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->left = pRect->right-WINDOW_MINWIDTH;
-				break;
-			case WMSZ_RIGHT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->right = pRect->left+WINDOW_MINWIDTH;
-				break;
-			case WMSZ_TOP:
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->top = pRect->bottom-WINDOW_MINHEIGTH;
-				break;
-			case WMSZ_TOPLEFT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->left = pRect->right-WINDOW_MINWIDTH;
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->top = pRect->bottom-WINDOW_MINHEIGTH;
-				break;
-			case WMSZ_TOPRIGHT:
-				if ((pRect->right-pRect->left)<WINDOW_MINWIDTH)
-					pRect->right = pRect->left+WINDOW_MINWIDTH;
-				if ((pRect->bottom-pRect->top)<WINDOW_MINHEIGTH)
-					pRect->top = pRect->bottom-WINDOW_MINHEIGTH;
-				break;
-			}
+			MINMAXINFO * mmi = (MINMAXINFO*)lParam;
+			mmi->ptMinTrackSize.x = WINDOW_MINWIDTH;
+			mmi->ptMinTrackSize.y = WINDOW_MINHEIGTH;
+			return 0;
 		}
 		break;
 	case WM_SIZE:
