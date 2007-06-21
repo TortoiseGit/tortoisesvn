@@ -1110,7 +1110,7 @@ CString CRevisionGraph::GetRename(const CString& url, LONG rev)
 						&& (change2->sPath == change->sCopyFromPath))
 					{
 						CString child = url.Mid (change2->sPath.GetLength());
-						return change2->sPath + url;
+						return change->sPath + child;
 					}
 				}	
 			}
