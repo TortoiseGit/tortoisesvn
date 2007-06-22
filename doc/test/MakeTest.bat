@@ -1,18 +1,21 @@
 @echo off
 :: There is no easy way to avoid using an absolute path here.
 :: It is used for a file:/// URL, so must have forward slashes.
-:: Sorry, but you will have to edit it.
-set doctest=c:/TortoiseSVN/doc/test/temp
+:: To avoid editing a versioned file you should create a text file
+:: called DocPath.txt which contains the path to the TSVN doc folder.
+:: It must use forward slashes and URL escaping if necessary - no spaces!
+if not exist DocPath.txt echo c:/TortoiseSVN/doc > DocPath.txt
+for /f %%p in (DocPath.txt) do @set docpath=%%p
 
-if exist Temp rd /s/q temp
+if exist temp rd /s/q temp
 md temp
 cd temp
 md repos
 md doc
 md docs
 svnadmin create repos --fs-type fsfs
-svn co -q file:///%doctest%/repos doc
-svn co -q file:///%doctest%/repos docs
+svn co -q file:///%docpath%/test/temp/repos doc
+svn co -q file:///%docpath%/test/temp/repos docs
 cd doc
 :: Copy some files from the docs to create content
 for %%f in (add blame checkout commit export ignore relocate revert showlog) do (
@@ -34,4 +37,4 @@ copy /y ..\..\subwcrev3.txt subwcrev.txt > nul
 svn up -q
 
 cd ..\..
-set doctest=
+set docpath=
