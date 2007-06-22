@@ -280,8 +280,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			if (CTSVNPath::CheckChild(CTSVNPath(CString(regDefCheckoutPath)), CTSVNPath(m_strCheckoutDirectory)))
 			{
 				// the default url is the parent of the specified url
-				m_strCheckoutDirectory = CString(regDefCheckoutPath) + url.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
-				m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+				m_strCheckoutDirectory = CString(regDefCheckoutPath).TrimRight('\\') + url.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
 				UpdateData(FALSE);
 			}
 		}
@@ -300,8 +299,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			name = tempURL.Mid(tempURL.ReverseFind('/')+1);
 			tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 		}
-		m_strCheckoutDirectory = m_sCheckoutDirOrig+_T('\\')+name;
-		m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
 		UpdateData(FALSE);
 	}
 }
