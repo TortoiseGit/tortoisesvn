@@ -869,9 +869,7 @@ UINT CLogDlg::LogThread()
 
 		// The URL is escaped because SVN::logReceiver
 		// returns the path in a native format
-		CStringA urla = CUnicodeUtils::GetUTF8(sUrl);
-		urla = CPathUtils::PathUnescape(urla);
-		sUrl = CUnicodeUtils::GetUnicode(urla);
+		sUrl = CPathUtils::PathUnescape(sUrl);
 	}
 	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
 	
@@ -3735,10 +3733,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				fileURL = sUrlRoot + fileURL.Trim();
 				// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
 				// sUrl = http://mydomain.com/repos/trunk/folder
-				CStringA sTempA = CStringA(sUrl);
-				CPathUtils::Unescape(sTempA.GetBuffer());
-				sTempA.ReleaseBuffer();
-				CString sUnescapedUrl = CUnicodeUtils::GetUnicode(sTempA);
+				CString sUnescapedUrl = CPathUtils::PathUnescape(sUrl);
 				// find out until which char the urls are identical
 				int i=0;
 				while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))

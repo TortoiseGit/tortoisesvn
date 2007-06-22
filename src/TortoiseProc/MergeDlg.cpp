@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,21 +111,16 @@ BOOL CMergeDlg::OnInitDialog()
 	}
 	else
 	{
+		CString urlunescaped = CPathUtils::PathUnescape(url);
 		if (!bRepeating)
 		{
 			// unescape the url, it's shown to the user: unescaped url look better
-			CStringA urla = CUnicodeUtils::GetUTF8(url);
-			CPathUtils::Unescape(urla.GetBuffer());
-			urla.ReleaseBuffer();
 			// do not overwrite the "from" url if set on the commandline
 			if (m_URLFrom.IsEmpty())
-				m_URLFrom = CUnicodeUtils::GetUnicode(urla);
-			m_URLTo = CUnicodeUtils::GetUnicode(urla);
+				m_URLFrom = urlunescaped;
+			m_URLTo = urlunescaped;
 		}
-		CStringA urla = CUnicodeUtils::GetUTF8(url);
-		CPathUtils::Unescape(urla.GetBuffer());
-		urla.ReleaseBuffer();
-		GetDlgItem(IDC_WCURL)->SetWindowText(CUnicodeUtils::GetUnicode(urla));
+		GetDlgItem(IDC_WCURL)->SetWindowText(urlunescaped);
 		m_tooltips.AddTool(IDC_WCURL, url);
 		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath.GetWinPath());
 		m_tooltips.AddTool(IDC_WCPATH, m_wcPath.GetWinPathString());

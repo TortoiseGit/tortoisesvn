@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,10 @@ class CPathUtils
 public:
 	static BOOL			MakeSureDirectoryPathExists(LPCTSTR path);
 	static void			ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len);
+	/**
+	 * Replaces escaped sequences with the corresponding characters in a string.
+	 */
+	static void Unescape(char * psz);
 
 #ifdef _MFC_VER
 	/**
@@ -76,11 +80,6 @@ public:
 	static CString GetAppDataDirectory();
 
 	/**
-	 * Replaces escaped sequences with the corresponding characters in a string.
-	 */
-	static void Unescape(char * psz);
-
-	/**
 	 * Replaces non-URI chars with the corresponding escape sequences.
 	 */
 	static CStringA PathEscape(const CStringA& path);
@@ -89,6 +88,7 @@ public:
 	 * Replaces escaped sequences with the corresponding characters in a string.
 	 */
 	static CStringA PathUnescape(const CStringA& path);
+	static CStringW PathUnescape(const CStringW& path);
 
 	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.

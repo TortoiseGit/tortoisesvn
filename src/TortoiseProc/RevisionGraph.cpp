@@ -317,13 +317,8 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 		url = entry ? entry->url : "";
 	}
 
-	CPathUtils::Unescape(url.GetBuffer(url.GetLength()+1));
-	url.ReleaseBuffer();
-
-	CStringA sRepoRoot = m_sRepoRoot;
-	CPathUtils::Unescape(sRepoRoot.GetBuffer(sRepoRoot.GetLength()+1));
-	sRepoRoot.ReleaseBuffer();
-	url = url.Mid(sRepoRoot.GetLength());
+	url = CPathUtils::PathUnescape(url);
+	url = url.Mid(CPathUtils::PathUnescape(m_sRepoRoot).GetLength());
 	m_nRecurseLevel = 0;
 	BuildForwardCopies();
 	

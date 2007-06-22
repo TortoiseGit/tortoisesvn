@@ -176,10 +176,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			CString temp = it->infodata.url.Mid(it->rootpath.GetContainingDirectory().GetSVNPathString().GetLength()+1);
 			// we have to unescape the urls since the local filesystem doesn't need them
 			// escaped and it would only look really ugly (and be wrong).
-			CStringA tempa = CUnicodeUtils::GetUTF8(temp);
-			CPathUtils::Unescape(tempa.GetBuffer());
-			tempa.ReleaseBuffer();
-			temp = CUnicodeUtils::GetUnicode(tempa);
+			temp = CPathUtils::PathUnescape(temp);
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
 			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI;
 			files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;

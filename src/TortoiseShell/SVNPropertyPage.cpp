@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,11 +21,10 @@
 #include "ShellExt.h"
 #include "svnpropertypage.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
 #include "SVNStatus.h"
 
 #define MAX_STRING_LENGTH		4096			//should be big enough
-
-extern void Unescape(char * psz);
 
 // Nonmember function prototypes
 BOOL CALLBACK PageProc (HWND, UINT, WPARAM, LPARAM);
@@ -301,7 +300,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				}
 				if (svn.status->entry->url)
 				{
-					Unescape((char*)svn.status->entry->url);
+					CPathUtils::Unescape((char*)svn.status->entry->url);
 					_tcsncpy_s(tbuf, MAX_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
 				}
@@ -357,7 +356,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				LoadLangDll();
 				if (svn.status->entry->url)
 				{
-					Unescape((char*)svn.status->entry->url);
+					CPathUtils::Unescape((char*)svn.status->entry->url);
 					_tcsncpy_s(tbuf, MAX_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 					TCHAR * ptr = _tcsrchr(tbuf, '/');
 					if (ptr != 0)

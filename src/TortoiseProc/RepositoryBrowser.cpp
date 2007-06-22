@@ -358,9 +358,7 @@ void CRepositoryBrowser::InitRepo()
 	m_bCancelled = false;
 	m_strReposRoot = data->reposRoot;
 	m_sUUID = data->reposUUID;
-	CStringA urla = CUnicodeUtils::GetUTF8(m_strReposRoot);
-	urla = CPathUtils::PathUnescape(urla);
-	m_strReposRoot = CUnicodeUtils::GetUnicode(urla);
+	m_strReposRoot = CPathUtils::PathUnescape(m_strReposRoot);
 	// now check the repository root for the url type, then
 	// set the corresponding background image
 	if (!m_strReposRoot.IsEmpty())

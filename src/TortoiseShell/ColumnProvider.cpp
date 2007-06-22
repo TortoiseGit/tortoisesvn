@@ -23,11 +23,11 @@
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "SVNStatus.h"
+#include "PathUtils.h"
 #include "..\TSVNCache\CacheInterface.h"
 
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
-extern void Unescape(char * psz);
 
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
@@ -424,14 +424,14 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	{
 		char url[INTERNET_MAX_URL_LENGTH];
 		strcpy_s(url, INTERNET_MAX_URL_LENGTH, status->url);
-		Unescape(url);
+		CPathUtils::Unescape(url);
 		itemurl = UTF8ToWide(url);
 	}
 	else if (t == ShellCache::exe)
 	{
 		char url[INTERNET_MAX_URL_LENGTH];
 		strcpy_s(url, INTERNET_MAX_URL_LENGTH, itemStatus.m_url);
-		Unescape(url);
+		CPathUtils::Unescape(url);
 		itemurl = UTF8ToWide(url);
 	}
 }

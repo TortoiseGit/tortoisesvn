@@ -736,13 +736,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
 		if (pSVNStatus->entry->url)
 		{
-			CPathUtils::Unescape((char *)pSVNStatus->entry->url);
-			entry->url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->url);
+			entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->entry->url));
 		}
 		if (pSVNStatus->entry->copyfrom_url)
 		{
-			CPathUtils::Unescape((char *)pSVNStatus->entry->copyfrom_url);
-			entry->copyfrom_url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->copyfrom_url);
+			entry->copyfrom_url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->entry->copyfrom_url));
 			entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
 		}
 		else
@@ -2920,8 +2918,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 											{
 												if (s->entry->url)
 												{
-													CPathUtils::Unescape((char *)s->entry->url);
-													entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+													entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
 												}
 											}
 											if (s->entry && s->entry->present_props)
@@ -3064,8 +3061,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										{
 											if (s->entry->url)
 											{
-												CPathUtils::Unescape((char *)s->entry->url);
-												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+												entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
 											}
 										}
 										if (s->entry && s->entry->present_props)
@@ -4302,22 +4298,16 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 		{
 			if (fentry->copied)
 			{
-				CStringA url;
-				url.Format(IDS_STATUSLIST_COPYFROM, CUnicodeUtils::GetUTF8(fentry->copyfrom_url), fentry->copyfrom_rev);
-				CPathUtils::Unescape(url.GetBuffer());
-				url.ReleaseBuffer();
-				CString urlW = CUnicodeUtils::GetUnicode(url);
-				lstrcpyn(pTTTW->szText, urlW, 80);
+				CString url;
+				url.Format(IDS_STATUSLIST_COPYFROM, (LPCTSTR)CPathUtils::PathUnescape(fentry->copyfrom_url), (LONG)fentry->copyfrom_rev);
+				lstrcpyn(pTTTW->szText, url, 80);
 				return TRUE;
 			}
 			if (fentry->switched)
 			{
-				CStringA url;
-				url.Format(IDS_STATUSLIST_SWITCHEDTO, CUnicodeUtils::GetUTF8(fentry->url));
-				CPathUtils::Unescape(url.GetBuffer());
-				url.ReleaseBuffer();
-				CString urlW = CUnicodeUtils::GetUnicode(url);
-				lstrcpyn(pTTTW->szText, urlW, 80);
+				CString url;
+				url.Format(IDS_STATUSLIST_SWITCHEDTO, CPathUtils::PathUnescape(fentry->url));
+				lstrcpyn(pTTTW->szText, url, 80);
 				return TRUE;
 			}
 			if (fentry->keeplocal)

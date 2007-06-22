@@ -1486,10 +1486,7 @@ void SVN::UrlToPath(CString &url)
 		url = url.Mid(1);
 	SVN::preparePath(url);
 	// now we need to unescape the url
-	CStringA urla = CStringA(url);
-	CPathUtils::Unescape(urla.GetBuffer());
-	urla.ReleaseBuffer();
-	url = CString(urla);
+	url = CPathUtils::PathUnescape(url);
 }
 
 void	SVN::preparePath(CString &path)
@@ -2131,8 +2128,7 @@ CString SVN::MakeUIUrlOrPath(CStringA UrlOrPath)
 {
 	if (svn_path_is_url(UrlOrPath))
 	{
-		CPathUtils::Unescape(UrlOrPath.GetBuffer());
-		UrlOrPath.ReleaseBuffer();
+		UrlOrPath = CPathUtils::PathUnescape(UrlOrPath);
 	}
 	CString url = CUnicodeUtils::GetUnicode(UrlOrPath);
 	return url;

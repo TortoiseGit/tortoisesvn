@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,128 +49,6 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	delete buf;
 	delete internalpathbuf;
 	return bRet;
-}
-
-#ifdef _MFC_VER
-void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
-{
-	_tcscpy_s(dest, len, src);
-	TCHAR * p = dest;
-	for (; *p != '\0'; ++p)
-		if (*p == '/')
-			*p = '\\';
-}
-
-CString CPathUtils::GetFileNameFromPath(CString sPath)
-{
-	CString ret;
-	sPath.Replace(_T("/"), _T("\\"));
-	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
-	return ret;
-}
-
-CString CPathUtils::GetFileExtFromPath(const CString& sPath)
-{
-	int dotPos = sPath.ReverseFind('.');
-	int slashPos = sPath.ReverseFind('\\');
-	if (slashPos < 0)
-		slashPos = sPath.ReverseFind('/');
-	if (dotPos > slashPos)
-		return sPath.Mid(dotPos);
-	return CString();
-}
-
-CString CPathUtils::GetLongPathname(const CString& path)
-{
-	if (path.IsEmpty())
-		return path;
-	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
-	DWORD ret = 0;
-	CString sRet;
-	if (PathCanonicalize(pathbufcanonicalized, path))
-	{
-		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];	
-		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
-		sRet = CString(pathbuf, ret);
-		delete pathbuf;
-	}
-	else
-	{
-		ret = ::GetLongPathName(path, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];
-		ret = ::GetLongPathName(path, pathbuf, ret+1);
-		sRet = CString(pathbuf, ret);
-		delete pathbuf;
-	}
-	if (ret == 0)
-		return path;
-	return sRet;
-}
-
-BOOL CPathUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
-{
-	srcPath.Replace('/', '\\');
-	destPath.Replace('/', '\\');
-	CString destFolder = destPath.Left(destPath.ReverseFind('\\'));
-	MakeSureDirectoryPathExists(destFolder);
-	return (CopyFile(srcPath, destPath, !force));
-}
-
-CString CPathUtils::ParsePathInString(const CString& Str)
-{
-	CString sToken;
-	int curPos = 0;
-	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
-	while (!sToken.IsEmpty())
-	{
-		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
-		{
-			sToken.Trim(_T("'\""));
-			return sToken;
-		}
-		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
-	}
-	sToken.Empty();
-	return sToken;
-}
-
-CString CPathUtils::GetAppDirectory()
-{
-	CString path;
-	DWORD len = 0;
-	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
-	path.GetBuffer(bufferlen);
-	do 
-	{
-		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
-		path.ReleaseBuffer(0);
-		len = GetModuleFileName(NULL, path.GetBuffer(bufferlen+1), bufferlen);				
-	} while(len == bufferlen);
-	path.ReleaseBuffer();
-	path = path.Left(path.ReverseFind('\\')+1);
-	return path;
-}
-
-CString CPathUtils::GetAppParentDirectory()
-{
-	CString path = GetAppDirectory();
-	path = path.Left(path.ReverseFind('\\'));
-	path = path.Left(path.ReverseFind('\\')+1);
-	return path;
-}
-
-CString CPathUtils::GetAppDataDirectory()
-{
-	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
-		return CString();
-
-	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
-	if (!PathIsDirectory(path))
-		CreateDirectory(path, NULL);
-
-	return CString (path) + _T('\\');
 }
 
 void CPathUtils::Unescape(char * psz)
@@ -298,6 +176,129 @@ static const char uri_char_validity[256] = {
 	0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
 };
 
+
+void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
+{
+	_tcscpy_s(dest, len, src);
+	TCHAR * p = dest;
+	for (; *p != '\0'; ++p)
+		if (*p == '/')
+			*p = '\\';
+}
+
+#ifdef _MFC_VER
+CString CPathUtils::GetFileNameFromPath(CString sPath)
+{
+	CString ret;
+	sPath.Replace(_T("/"), _T("\\"));
+	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
+	return ret;
+}
+
+CString CPathUtils::GetFileExtFromPath(const CString& sPath)
+{
+	int dotPos = sPath.ReverseFind('.');
+	int slashPos = sPath.ReverseFind('\\');
+	if (slashPos < 0)
+		slashPos = sPath.ReverseFind('/');
+	if (dotPos > slashPos)
+		return sPath.Mid(dotPos);
+	return CString();
+}
+
+CString CPathUtils::GetLongPathname(const CString& path)
+{
+	if (path.IsEmpty())
+		return path;
+	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
+	DWORD ret = 0;
+	CString sRet;
+	if (PathCanonicalize(pathbufcanonicalized, path))
+	{
+		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];	
+		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
+	}
+	else
+	{
+		ret = ::GetLongPathName(path, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];
+		ret = ::GetLongPathName(path, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
+	}
+	if (ret == 0)
+		return path;
+	return sRet;
+}
+
+BOOL CPathUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
+{
+	srcPath.Replace('/', '\\');
+	destPath.Replace('/', '\\');
+	CString destFolder = destPath.Left(destPath.ReverseFind('\\'));
+	MakeSureDirectoryPathExists(destFolder);
+	return (CopyFile(srcPath, destPath, !force));
+}
+
+CString CPathUtils::ParsePathInString(const CString& Str)
+{
+	CString sToken;
+	int curPos = 0;
+	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	while (!sToken.IsEmpty())
+	{
+		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
+		{
+			sToken.Trim(_T("'\""));
+			return sToken;
+		}
+		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	}
+	sToken.Empty();
+	return sToken;
+}
+
+CString CPathUtils::GetAppDirectory()
+{
+	CString path;
+	DWORD len = 0;
+	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
+	path.GetBuffer(bufferlen);
+	do 
+	{
+		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
+		path.ReleaseBuffer(0);
+		len = GetModuleFileName(NULL, path.GetBuffer(bufferlen+1), bufferlen);				
+	} while(len == bufferlen);
+	path.ReleaseBuffer();
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
+}
+
+CString CPathUtils::GetAppParentDirectory()
+{
+	CString path = GetAppDirectory();
+	path = path.Left(path.ReverseFind('\\'));
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
+}
+
+CString CPathUtils::GetAppDataDirectory()
+{
+	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
+		return CString();
+
+	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
+	if (!PathIsDirectory(path))
+		CreateDirectory(path, NULL);
+
+	return CString (path) + _T('\\');
+}
+
 CStringA CPathUtils::PathEscape(const CStringA& path)
 {
 	CStringA ret2;
@@ -351,6 +352,29 @@ CStringA CPathUtils::PathUnescape(const CStringA& path)
 	Unescape(urlabuf.get());
 
 	return urlabuf.get();
+}
+
+CStringW CPathUtils::PathUnescape(const CStringW& path)
+{
+	char * buf;
+	CStringA patha;
+	int len = path.GetLength();
+	if (len==0)
+		return CStringW();
+	buf = patha.GetBuffer(len*4 + 1);
+	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, path, -1, buf, len*4, NULL, NULL);
+	patha.ReleaseBuffer(lengthIncTerminator-1);
+
+	patha = PathEscape(patha);
+
+	WCHAR * bufw;
+	len = patha.GetLength();
+	bufw = new WCHAR[len*4 + 1];
+	ZeroMemory(bufw, (len*4 + 1)*sizeof(WCHAR));
+	MultiByteToWideChar(CP_UTF8, 0, patha, -1, bufw, len*4);
+	CStringW ret = CStringW(bufw);
+	delete [] bufw;
+	return ret;
 }
 
 CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)

@@ -192,10 +192,7 @@ const CString& CTSVNPath::GetUIPathString() const
 		//BUGBUG HORRIBLE!!! - CPathUtils::IsEscaped doesn't need to be MFC-only
 		if (IsUrl())
 		{
-			CStringA sUIPathA = GetSVNApiPath();
-			CPathUtils::Unescape(sUIPathA.GetBuffer());
-			sUIPathA.ReleaseBuffer();
-			m_sUIPath = CUnicodeUtils::GetUnicode(sUIPathA);
+			m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
 		}
 		else
 #endif 
