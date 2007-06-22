@@ -12,10 +12,24 @@ cd temp
 md repos
 md doc
 md docs
+md repos2
+md ext
 svnadmin create repos --fs-type fsfs
+svnadmin create repos2 --fs-type fsfs
 svn co -q file:///%docpath%/test/temp/repos doc
 if errorlevel 1 goto checkout_fail
 svn co -q file:///%docpath%/test/temp/repos docs
+svn co -q file:///%docpath%/test/temp/repos2 ext
+
+:: This is used to add content to the 'external' repository.
+cd ext
+:: Copy some files from the docs to create content
+copy ..\..\..\source\en\TortoiseSVN\tsvn_server\server*.xml > nul
+@svn add server*.xml
+@svn ci -q -m "Document the server" .
+cd ..
+rd /s/q ext
+
 cd doc
 :: Copy some files from the docs to create content
 for %%f in (add blame checkout commit export ignore relocate revert showlog) do (
@@ -23,6 +37,12 @@ for %%f in (add blame checkout commit export ignore relocate revert showlog) do 
 	@svn add dug_%%f.xml
 	@svn ci -q -m "Document the %%f command" .
 )
+
+:: Add a reference to the external repository
+svn ps -q svn:externals "ext file:///%docpath%/test/temp/repos2/" .
+svn ci -q -m "create externals reference" .
+svn up -q
+
 copy ..\..\subwcrev1.txt subwcrev.txt > nul
 svn add subwcrev.txt
 svn ci -q -m "Document the SubWCRev program" .
@@ -31,6 +51,8 @@ svn up -q ../docs
 :: Force a current timestamp by using type instead of copy.
 type ..\..\subwcrev2.txt > subwcrev.txt
 svn ci -q -m "Clarify the description of SubWCRev" .
+:: Add an unversioned file
+echo Read Me > readme.txt
 
 cd ..\docs
 copy /y ..\..\subwcrev3.txt subwcrev.txt > nul
