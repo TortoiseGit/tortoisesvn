@@ -94,6 +94,11 @@ void CPathUtils::Unescape(char * psz)
 						(pszLow - szHex));
 				}
 			}
+			else
+			{
+				pszSource--;
+				nValue = *pszSource;
+			}
 			*pszDest++ = nValue;
 		} 
 		else
@@ -365,7 +370,7 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
 	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, path, -1, buf, len*4, NULL, NULL);
 	patha.ReleaseBuffer(lengthIncTerminator-1);
 
-	patha = PathEscape(patha);
+	patha = PathUnescape(patha);
 
 	WCHAR * bufw;
 	len = patha.GetLength();
@@ -431,3 +436,27 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
 
 
 #endif
+
+#if defined(_DEBUG) && defined(_MFC_VER)
+// Some test cases for these classes
+static class CPathTests
+{
+public:
+	CPathTests()
+	{
+		UnescapeTest();
+	}
+
+private:
+	void UnescapeTest()
+	{
+		CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%%20NewTest"));
+		CString test2 = CPathUtils::PathUnescape(test);
+		ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
+		CStringA test3 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
+		ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%%20NewTest") == 0);
+	}
+
+} CPathTests;
+#endif
+
