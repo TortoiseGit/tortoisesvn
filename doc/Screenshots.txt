@@ -1,4 +1,4 @@
-This file is a guide to grabbing screenshots for the user manual.
+<div class="moz-text-flowed" style="font-family: -moz-fixed">This file is a guide to grabbing screenshots for the user manual.
 Although there are not many hard and fast rules, some screenshots need
 care to set up as they are demonstrating a range of features.
 
@@ -18,8 +18,12 @@ Windows XP style preferred
 
 Test Repository
 ===============
-We need a batch file to create a repository and some working copies
-in various states of modification and conflict.
+We now have a batch file to create a repository and some working copies
+in various states of modification and conflict. In the test folder,
+create a file called DocPath.txt which contains the path to your doc
+folder, but with forward slashes and URI escaping of spaces and other
+funny characters. Now simply run MakeTest.bat to create the test folders
+in the 'temp' subfolder.
 
 Instructions for each screenshot
 ================================
@@ -35,10 +39,11 @@ ch02dia1-7.png
 	These are 'borrowed' from the Subversion Book
 
 Changelist.png
-	Modify some files in the doc DUG folder, say 3.
-	Open the commit dialog and add one of these to a new changelist.
+	Use the 'doc' test WC.
+	Modify 3 files, say dug_add.xml, dug_blame.xml and dug_commit.xml
+	Open the commit dialog and add dug_blame.xml to a new changelist 'Blame doc update'.
 	Screenshot shows context menu for the changelist.
-	Revert the changes.
+	Remove dug_blame.xml from the changelist and revert the folder.
 
 Checkout.png
 	Just pretend to checkout the TSVN docs:
@@ -116,3 +121,4 @@ TortoiseBlame.png
 TortoiseIDiff.png
 UpdateFinished.png
 upgradecheck.png
+</div>

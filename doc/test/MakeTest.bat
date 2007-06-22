@@ -1,6 +1,5 @@
 @echo off
 :: There is no easy way to avoid using an absolute path here.
-:: It is used for a file:/// URL, so must have forward slashes.
 :: To avoid editing a versioned file you should create a text file
 :: called DocPath.txt which contains the path to the TSVN doc folder.
 :: It must use forward slashes and URL escaping if necessary - no spaces!
@@ -15,6 +14,7 @@ md doc
 md docs
 svnadmin create repos --fs-type fsfs
 svn co -q file:///%docpath%/test/temp/repos doc
+if errorlevel 1 goto checkout_fail
 svn co -q file:///%docpath%/test/temp/repos docs
 cd doc
 :: Copy some files from the docs to create content
@@ -32,9 +32,14 @@ svn up -q ../docs
 type ..\..\subwcrev2.txt > subwcrev.txt
 svn ci -q -m "Clarify the description of SubWCRev" .
 
-cd ../docs
+cd ..\docs
 copy /y ..\..\subwcrev3.txt subwcrev.txt > nul
 svn up -q
 
-cd ..\..
+cd ..
+goto end
+:checkout_fail
+echo Perhaps you have not set the correct unix-style path in DocPath.txt
+:end
+cd ..
 set docpath=
