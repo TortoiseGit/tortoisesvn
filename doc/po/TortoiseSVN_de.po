@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-21 15:00+0100\n"
+"PO-Revision-Date: 2007-06-22 10:08+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5079,12 +5079,12 @@ msgstr "Die Infobox im Bild zeigt Details, wie Größe, Auflösung und Farbtiefe
 #: source/TortoiseSVN_en.xml:5957
 #: (para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <action>Ctrl-Shift-Wheel</action> to change the blend."
-msgstr ""
+msgstr "Wenn die Bilder überlagert sind, wird die relative Intensität der Bilder (Alpha Überblendung) durch einen Schieber am linken Rand gesteuert. Sie können direkt auf den Schieber klicken, um einen Wert einzustellen, Sie können den Schieber auf einen bestimmten Wert ziehen oder per <action>Strg-Umsch-Mausrad</action> einstellen."
 
 #: source/TortoiseSVN_en.xml:5964
 #: (para)
 msgid "The button above the slider toggles between two preset blends, indicated by the markers on either side of the blend slider. By default one is at the top and the other at the bottom, so the toggle button just switches between one image and the other. You can move the markers to choose the two blend values that the toggle button will use."
-msgstr ""
+msgstr "Die Schaltfläche oberhalb des Schiebers schaltet zwischen zwei voreingestellten Werten um, die durch Marken an beiden Seiten des Schiebers angezeigt werden. Per Vorgabe steht eine Marke am oberen und eine am unteren Ende des Schiebers, so dass zwischen den beiden Bildern hin und her geschaltet wird. Sie können die Marken mit der Maus auf die beiden Helligkeitswerte setzen, zwischen denen Sie umschalten möchten."
 
 #: source/TortoiseSVN_en.xml:5973
 #: (title)
@@ -5269,17 +5269,17 @@ msgstr "Dateien kopieren"
 #: source/TortoiseSVN_en.xml:6182
 #: (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
-msgstr ""
+msgstr "Es kommt sicher häufiger vor, dass sich einige benötigte Dateien bereits an einer anderen Stelle in Ihrem Projektarchiv befinden und Sie diese einfach an den richtige Ort kopieren wollen. Sie könnten die Dateien einfach herüberkopieren und, wie oben beschrieben, hinzufügen. Aber dabei würde die Historie der Datei verloren gehen. Wenn Sie später einen Fehler beseitigen, können Sie diese Änderungne nur dann automatisch zusammenführen, wenn die neue Datei mit dem Original in Subversion verbunden ist."
 
 #: source/TortoiseSVN_en.xml:6190
 #: (para)
 msgid "The easiest way to copy files and folders from within a working copy is to use the right-drag menu. When you <action>right-drag</action> a file or folder from one working copy to another, or even within the same folder, a context menu appears when you release the mouse. <placeholder-1/> Now you can copy existing versioned content to a new location, possibly renaming it at the same time."
-msgstr ""
+msgstr "Die einfachste Methode, um Dateien und Ordner innerhalb einer Arbeitskopie zu verschieben ist das <action>rechts-Ziehen</action>. Wenn Sie eine Datei oder einen Ordner mit der rechten Maustaste an einen neuen Ort ziehen, erscheint beim Loslassen der Maustaste ein Kontextmenü. <placeholder-1/> Damit können Sie versionierte Objekte an eine andere Stell kopieren und dabei gegebenenfalls umbenennen."
 
 #: source/TortoiseSVN_en.xml:6202
 #: (para)
 msgid "You can also use the repository browser to locate content you want, and copy it into your working copy directly from the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr ""
+msgstr "Sie können auch mit Hilfe des Projektarchiv-Betrachters Objekte lokalisieren und von dort aus direkt in Ihre Arbeitskopie kopieren. Lesen Sie in <xref linkend=\"tsvn-dug-repobrowser\"/> nach, wie man mit dem Betrachter arbeitet."
 
 #: source/TortoiseSVN_en.xml:6209
 #: (title)
@@ -5459,7 +5459,7 @@ msgstr "Wenn Sie eine Datei/Ordner mit TortoiseSVN löschen, wird diese aus der 
 #: source/TortoiseSVN_en.xml:6418
 #: (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. This difference in behaviour is a part of Subversion, not TortoiseSVN."
-msgstr ""
+msgstr "Wenn Sie mittels <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Löschen</guimenuitem> </menuchoice> eine Datei löschen, wird sie sofort aus der Arbeitskopie entfernt und markiert, damit sie bei der nächsten Übertragung auch aus dem Projektarchiv entfernt wird.Wenn Sie mittels <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Löschen</guimenuitem> </menuchoice> einen Ordner löschen, bleibt dieser in der Arbeitskopie, wird aber durch ein anderes überlagertes Symbol als gelöscht gekennzeichnet. Dieses Verhalten ist Teil von Subversion, nicht von TortoiseSVN."
 
 #: source/TortoiseSVN_en.xml:6435
 #: (para)
@@ -6762,7 +6762,7 @@ msgstr "Eine nicht versionierte Kopie der Datei auf Ihrer Festplatte speichern."
 #: source/TortoiseSVN_en.xml:8258
 #: (para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
-msgstr ""
+msgstr "Zeigt das Revisionslog der Datei oder den Graphen aller Revisionen, so dass Sie sehen können, woher die Datei stammt."
 
 #: source/TortoiseSVN_en.xml:8264
 #: (para)
@@ -7849,7 +7849,7 @@ msgstr "Der <quote>Prüfe auf Änderungen</quote>-Dialog prüft in der Standarde
 #: source/TortoiseSVN_en.xml:9689
 #: (term)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Zeige den Sperrdialog bevor Dateien gesperrt werden"
 
 #: source/TortoiseSVN_en.xml:9691
 #: (para)
