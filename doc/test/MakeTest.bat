@@ -2,11 +2,11 @@
 :: There is no easy way to avoid using an absolute path here.
 :: It is used for a file:/// URL, so must have forward slashes.
 :: Sorry, but you will have to edit it.
-set doctest=c:/TortoiseSVN/doc/test
+set doctest=c:/TortoiseSVN/doc/test/temp
 
-if exist repos rd /s/q repos
-if exist doc rd /s/q doc
-if exist docs rd /s/q docs
+if exist Temp rd /s/q temp
+md temp
+cd temp
 md repos
 md doc
 md docs
@@ -16,22 +16,22 @@ svn co -q file:///%doctest%/repos docs
 cd doc
 :: Copy some files from the docs to create content
 for %%f in (add blame checkout commit export ignore relocate revert showlog) do (
-	@copy ..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml > nul
+	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml > nul
 	@svn add dug_%%f.xml
 	@svn ci -q -m "Document the %%f command" .
 )
-copy ..\subwcrev1.txt subwcrev.txt > nul
+copy ..\..\subwcrev1.txt subwcrev.txt > nul
 svn add subwcrev.txt
 svn ci -q -m "Document the SubWCRev program" .
 svn up -q ../docs
 :: Change detection is broken when timestamps are the same.
 :: Force a current timestamp by using type instead of copy.
-type ..\subwcrev2.txt > subwcrev.txt
+type ..\..\subwcrev2.txt > subwcrev.txt
 svn ci -q -m "Clarify the description of SubWCRev" .
 
 cd ../docs
-copy /y ..\subwcrev3.txt subwcrev.txt > nul
+copy /y ..\..\subwcrev3.txt subwcrev.txt > nul
 svn up -q
 
-cd ..
+cd ..\..
 set doctest=
