@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-06-21 12:26+0900\n"
+"PO-Revision-Date: 2007-06-21 23:11+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3660,7 +3660,7 @@ msgstr "最後のコミットを行ったリビジョン。"
 #: source/TortoiseSVN_en.xml:5075(term)
 #: source/TortoiseSVN_en.xml:10925(entry)
 msgid "Author"
-msgstr "作者"
+msgstr "Author"
 
 #: source/TortoiseSVN_en.xml:5077(para)
 msgid "Author who made the last known commit."
@@ -4398,7 +4398,7 @@ msgstr "作業コピーにあるファイルを、コミットダイアログへ
 
 #: source/TortoiseSVN_en.xml:6178(title)
 msgid "Copying Existing Files and Folders"
-msgstr ""
+msgstr "既存ファイル・フォルダのコピー"
 
 #: source/TortoiseSVN_en.xml:6180(primary)
 msgid "copy files"
@@ -5602,63 +5602,59 @@ msgstr "時に、作業コピーではなくリポジトリを直接操作する
 
 #: source/TortoiseSVN_en.xml:8229(para)
 msgid "The repository browser looks very similar to the Windows explorer, except that it is showing the content of the repository at a particular revision rather than files on your computer. In the left pane you can see a directory tree, and in the right pane are the contents of the selected directory. At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse."
-msgstr ""
+msgstr "リポジトリブラウザは、Windows エクスプローラによく似ており、あなたのコンピュータ上のファイルと同じように、特定リビジョンのリポジトリの内容を表示できます。左ペインでディレクトリツリーを表示し、右ペインで選択したディレクトリの内容を表示します。リポジトリブラウザウインドウの上部では、参照したいリポジトリのURLやリビジョンを入力できます。"
 
 #: source/TortoiseSVN_en.xml:8238(para)
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
-msgstr ""
+msgstr "Windows エクスプローラのように、右ペインの列見出しをクリックして、並び順をお好みに変更できます。また、エクスプローラのように両方のペインでコンテキストメニューを利用できます。"
 
 #: source/TortoiseSVN_en.xml:8253(para)
-#, fuzzy
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr "ハードディスクに新しい空のフォルダを作成"
+msgstr "あなたのハードディスクに、そのファイルのバージョン管理外のコピーを保存します。"
 
 #: source/TortoiseSVN_en.xml:8258(para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
-msgstr ""
+msgstr "そのファイルのリビジョンログの表示や、そのファイルの出自がわかるような全リビジョンのグラフを表示します。"
 
 #: source/TortoiseSVN_en.xml:8264(para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "誰が、どの行をいつ変更したのかを参照する、ファイルの注釈履歴を表示します。"
 
 #: source/TortoiseSVN_en.xml:8269(para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "ファイルの削除や名前の変更をします。"
 
 #: source/TortoiseSVN_en.xml:8274(para)
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "リポジトリの別の場所や、同じリポジトリに属する作業コピーにファイルをコピーします。"
 
 #: source/TortoiseSVN_en.xml:8280(para)
-#, fuzzy
 msgid "View the file's properties (you cannot edit properties directly in the repository)."
-msgstr "リポジトリに直接フォルダを作るのに、リポジトリブラウザも使用できます。"
+msgstr "ファイルのプロパティを参照します。(直接リポジトリ上で、プロパティの編集はできません)"
 
 #: source/TortoiseSVN_en.xml:8243(para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "ファイルに対するコンテキストメニューでは、以下のことができます。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:8291(para)
 msgid "Show the revision log for that folder, or show a graph of all revisions so you can see where the folder came from."
-msgstr ""
+msgstr "そのフォルダのリビジョンログの表示や、そのフォルダの出自がわかるような全リビジョンのグラフを表示します。"
 
 #: source/TortoiseSVN_en.xml:8297(para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "あなたのハードディスクに、フォルダのバージョン管理外のコピーをエクスポートします。"
 
 #: source/TortoiseSVN_en.xml:8302(para)
 msgid "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "あなたのハードディスクに、フォルダの作業コピーをチェックアウトします。"
 
 #: source/TortoiseSVN_en.xml:8307(para)
-#, fuzzy
 msgid "Create a new folder in the repository."
-msgstr "リポジトリに追加した項目。"
+msgstr "リポジトリに新しいフォルダを作成します。"
 
 #: source/TortoiseSVN_en.xml:8312(para)
-#, fuzzy
 msgid "Add files or folders directly to the repository."
-msgstr "リポジトリに追加した項目。"
+msgstr "リポジトリに直接ファイルやフォルダを追加します。"
 
 #: source/TortoiseSVN_en.xml:8317(para)
 msgid "Delete or rename the folder."
@@ -5666,34 +5662,31 @@ msgstr "フォルダの削除や名前の変更"
 
 #: source/TortoiseSVN_en.xml:8322(para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "リポジトリの別の場所や、同じリポジトリに属する作業コピーにフォルダをコピーします。"
 
 #: source/TortoiseSVN_en.xml:8328(para)
-#, fuzzy
 msgid "View the folder's properties (you cannot edit properties directly in the repository)."
-msgstr "リポジトリに直接フォルダを作るのに、リポジトリブラウザも使用できます。"
+msgstr "フォルダのプロパティを参照します。(直接リポジトリ上で、プロパティの編集はできません)"
 
 #: source/TortoiseSVN_en.xml:8334(para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "比較用にフォルダをマークします。マークしたフォルダは太字で表示されます。"
 
 #: source/TortoiseSVN_en.xml:8339(para)
-#, fuzzy
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr "2 つの項目を選択する場合、unified-diff として、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは 2 つのタグにどんな変更があるのか比較するのに便利です。"
+msgstr "あらかじめマークを付けたフォルダに対して、unified-diff として、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは 2 つのタグや、トランクとブランチにどんな変更があるのか比較するのに便利です。"
 
 #: source/TortoiseSVN_en.xml:8287(para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "フォルダに対するコンテキストメニューでは、以下のことができます。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:8348(para)
-#, fuzzy
 msgid "If you select two folders in the right pane, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool."
-msgstr "2 つの項目を選択する場合、unified-diff として、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは 2 つのタグにどんな変更があるのか比較するのに便利です。"
+msgstr "右ペインで 2 つの項目を選択する場合、unified-diff として、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。"
 
 #: source/TortoiseSVN_en.xml:8353(para)
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr ""
+msgstr "右ペインで複数のフォルダを選択すると、一度にすべてを共通の親フォルダにチェックアウトできます。"
 
 #: source/TortoiseSVN_en.xml:8357(para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
@@ -5744,9 +5737,8 @@ msgid "This command analyses the revision history and attempts to create a tree 
 msgstr "このコマンドは、リビジョンの履歴を解析し、どのポイントからコピーを取得したか、いつブランチ・タグを削除したかを表示するツリーを作成しようとします。"
 
 #: source/TortoiseSVN_en.xml:8438(para)
-#, fuzzy
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <literal>Apache</literal> project which currently has over 500,000 revisions you could be waiting for some time."
-msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルートからログメッセージをすべて取得しなければなりません。言うまでもなく、数千リビジョンのリポジトリがあれば、サーバの速度やネットワークの帯域などににもよりますが、数分かかるでしょう。現在 300,000 リビジョンを越えている <literal>Apache</literal> プロジェクトのようなところで試せば、しばらく待っていなければなりません。"
+msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルートからログメッセージをすべて取得しなければなりません。言うまでもなく、数千リビジョンのリポジトリがある場合 (サーバの速度やネットワークの帯域などににもよりますが) 数分かかるでしょう。現在 500,000 リビジョンを越えている <literal>Apache</literal> プロジェクトのようなところで試せば、しばらく待っていなければなりません。"
 
 #: source/TortoiseSVN_en.xml:8451(term)
 msgid "Added file/folder"
@@ -6808,9 +6800,8 @@ msgid "<placeholder-1/> In the advanced settings, you can define a different dif
 msgstr "<placeholder-1/> 高度な設定では、ファイルの拡張子ごとに異なる差分・マージプログラムを定義できます。たとえば、.jpg ファイルの <quote>差分</quote> を取るのに Photoshop を関連付けできます。:-) <literal>svn:mime-type</literal> で差分・マージプログラムと関連付けることもできます。"
 
 #: source/TortoiseSVN_en.xml:10077(para)
-#, fuzzy
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr "拡張子を関連付けるには、拡張子をワイルドカードを使用せずに、ドットを含めてきちんと指定する必要があります。Windows ビットマップファイルを指定するには、<literal>*.BMP</literal> <emphasis>ではなく</emphasis>、<literal>.BMP</literal>としてください。<literal>svn:mime-type</literal> プロパティを使用して関連付けるには、<literal>text/xml</literal> のようにスラッシュを含めて mime type を指定してください。"
+msgstr "拡張子を関連付けるには、拡張子を指定する必要があります。Windows ビットマップファイルを指定するには、<literal>.BMP</literal>としてください。<literal>svn:mime-type</literal> プロパティを使用して関連付けるには、<literal>text/xml</literal> のようにスラッシュを含めて mime type を指定してください。"
 
 #: source/TortoiseSVN_en.xml:10086(title)
 msgid "Unified Diff Viewer"
@@ -7494,9 +7485,8 @@ msgid "COM/automation methods supported"
 msgstr "COM/オートメーションをサポートします。"
 
 #: source/TortoiseSVN_en.xml:10890(entry)
-#, fuzzy
 msgid "Method"
-msgstr "アクセス方法"
+msgstr "メソッド"
 
 #: source/TortoiseSVN_en.xml:10896(entry)
 msgid "GetWCInfo"
