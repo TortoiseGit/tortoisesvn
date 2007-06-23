@@ -442,10 +442,12 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 	TRACELEVELSPACE;
 	TRACE(_T("Analyzing %s  - startrev %ld\n"), (LPCTSTR)CString(url), (LONG)startrev);
 
-	bool bRenamed = false;
+	bool bStopAtNextRevision = false;
 	CRevisionEntry * lastchangedreventry = NULL;
 	for (svn_revnum_t currentrev=startrev; currentrev <= m_lHeadRevision; ++currentrev)
 	{
+		if (bStopAtNextRevision)
+			break;
 		// show progress info
 		if (m_nRecurseLevel==1)
 		{
@@ -489,6 +491,11 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 							{
 								lastchangedreventry = NULL;
 							}
+							// find the target entry of the rename
+							CRevisionEntry * reventry2 = GetRevisionEntry(url, currentrev, false);
+							ATLASSERT(reventry2);
+							reventry2->bUsed = true;
+							reventry2->action = CRevisionEntry::renamed;
 							delete reventry;
 							if (it == m_mapEntryPtrs.begin())
 							{
@@ -502,7 +509,6 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 								m_mapEntryPtrs.erase(it);
 								it = it2;
 							}
-							bRenamed = true;
 							continue;
 						}
 						
@@ -515,10 +521,33 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						CString child = url.Mid (reventry->url.GetLength());
 						if (!child.IsEmpty())
 						{
-							reventry->url += child;
+							CRevisionEntry * reventry2 = GetRevisionEntry(reventry->url + child, currentrev, false);
+							if (reventry2 == NULL)
+							{
+								reventry2 = GetRevisionEntry(reventry->url + child, currentrev, true);
+								reventry2->action = reventry->action;
+								reventry2->author = reventry->author;
+								reventry2->date = reventry->date;
+								reventry2->level = reventry->level;
+								reventry2->message = reventry->message;
+								reventry2->realurl = reventry->realurl;
+								for (INT_PTR si=0; si<reventry->sourcearray.GetCount(); ++si)
+								{
+									source_entry * sentry = (source_entry*)reventry->sourcearray[si];
+									source_entry * sentry2 = new source_entry();
+									sentry2->pathto = sentry->pathto + child;
+									sentry2->revisionto = sentry->revisionto;
+									reventry2->sourcearray.Add(sentry2);
+								}
+
+								reventry = reventry2;
+								ATLTRACE("created deleted url %ws, rev %ld\n", reventry->url, currentrev);
+							}
 						}
 						reventry->bUsed = true;
-						goto endloop;
+						bStopAtNextRevision = true;
+						++it;
+						continue;
 					}
 					if (reventry->action == CRevisionEntry::replaced)
 					{
@@ -529,24 +558,28 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 					{
 						if (!child.IsEmpty())
 						{
-							CRevisionEntry * reventry2 = GetRevisionEntry(reventry->url + child, currentrev, true);
-							reventry2->action = reventry->action;
-							reventry2->author = reventry->author;
-							reventry2->date = reventry->date;
-							reventry2->level = reventry->level;
-							reventry2->message = reventry->message;
-							reventry2->realurl = reventry->realurl;
-							for (INT_PTR si=0; si<reventry->sourcearray.GetCount(); ++si)
+							CRevisionEntry * reventry2 = GetRevisionEntry(reventry->url + child, currentrev, false);
+							if (reventry2 == NULL)
 							{
-								source_entry * sentry = (source_entry*)reventry->sourcearray[si];
-								source_entry * sentry2 = new source_entry();
-								sentry2->pathto = sentry->pathto + child;
-								sentry2->revisionto = sentry->revisionto;
-								reventry2->sourcearray.Add(sentry2);
-							}
+								reventry2 = GetRevisionEntry(reventry->url + child, currentrev, true);
+								reventry2->action = reventry->action;
+								reventry2->author = reventry->author;
+								reventry2->date = reventry->date;
+								reventry2->level = reventry->level;
+								reventry2->message = reventry->message;
+								reventry2->realurl = reventry->realurl;
+								for (INT_PTR si=0; si<reventry->sourcearray.GetCount(); ++si)
+								{
+									source_entry * sentry = (source_entry*)reventry->sourcearray[si];
+									source_entry * sentry2 = new source_entry();
+									sentry2->pathto = sentry->pathto + child;
+									sentry2->revisionto = sentry->revisionto;
+									reventry2->sourcearray.Add(sentry2);
+								}
 
-							reventry = reventry2;
-							ATLTRACE("created url %ws, rev %ld\n", reventry->url, currentrev);
+								reventry = reventry2;
+								ATLTRACE("created url %ws, rev %ld\n", reventry->url, currentrev);
+							}
 						}
 					}
 					// and the entry is for us
@@ -555,12 +588,6 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						reventry->bUsed = true;
 						if (reventry->action == CRevisionEntry::nothing)
 							reventry->action = CRevisionEntry::source;
-					}
-					if (bRenamed)
-					{
-						reventry->bUsed = true;
-						reventry->action = CRevisionEntry::renamed;
-						bRenamed = false;
 					}
 					if 	((reventry->action != CRevisionEntry::modified)&&
 						(reventry->action != CRevisionEntry::lastcommit)&&
@@ -611,6 +638,8 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						++it;
 						continue;
 					}
+					if (reventry->action == CRevisionEntry::lastcommit)
+						reventry->action = CRevisionEntry::modified;
 					if (lastchangedreventry)
 					{
 						if (reventry->revision > lastchangedreventry->revision)
@@ -633,7 +662,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 			++it;
 		}
 	}
-endloop:
+
 	if ((lastchangedreventry)&&((!lastchangedreventry->bUsed)||(lastchangedreventry->action == CRevisionEntry::nothing)))
 	{
 		// This is the last entry for that url. That means after this revision, there are no more
@@ -641,7 +670,6 @@ endloop:
 		lastchangedreventry->bUsed = true;
 		lastchangedreventry->action = CRevisionEntry::lastcommit;
 		lastchangedreventry->level = m_nRecurseLevel;
-		lastchangedreventry->url = url;
 	}
 	m_nRecurseLevel--;
 	return true;
