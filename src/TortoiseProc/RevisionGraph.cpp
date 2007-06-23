@@ -574,7 +574,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						{
 							source_entry * sentry = (source_entry*)reventry->sourcearray[copytoindex];
 							// follow all copy to targets
-							CString targetURL = sentry->pathto + url.Mid (reventry->realurl.GetLength());
+							CString targetURL = sentry->pathto + url.Mid (reventry->url.GetLength());
 							AnalyzeRevisions(targetURL, sentry->revisionto, bShowAll);
 						}
 					}
