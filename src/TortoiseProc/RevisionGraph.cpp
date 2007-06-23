@@ -483,7 +483,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 							// we got renamed in this revision.
 							TRACELEVELSPACE;
 							TRACE(_T("%s renamed to %s in revision %ld\n"), (LPCTSTR)CString(url), (LPCTSTR)CString(newname), currentrev);
-							url = newname;
+							url = newname + url.Mid(reventry->url.GetLength());
 							ATLASSERT(reventry->sourcearray.GetCount()==0);
 							if (reventry == lastchangedreventry)
 							{
