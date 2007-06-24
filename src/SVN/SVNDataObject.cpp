@@ -178,8 +178,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			// escaped and it would only look really ugly (and be wrong).
 			temp = CPathUtils::PathUnescape(temp);
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
-			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI;
+			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE;
 			files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+			files->fgd[i].nFileSizeLow = it->infodata.size;
+			files->fgd[i].nFileSizeHigh = 0;
 			++i;
 		}
 
@@ -191,7 +193,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	}
 	// handling CF_PREFERREDDROPEFFECT is necessary to tell the shell that it should *not* ask for the
 	// CF_FILEDESCRIPTOR until the drop actually occurs. If we don't handle CF_PREFERREDDROPEFFECT, the shell
-	// will ask for the file descriptor for every object (file/folder) the mousepointer hoovers over and is
+	// will ask for the file descriptor for every object (file/folder) the mouse pointer hovers over and is
 	// a potential drop target.
 	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->cfFormat == CF_PREFERREDDROPEFFECT))
 	{
