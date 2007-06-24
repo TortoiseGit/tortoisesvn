@@ -43,6 +43,7 @@ public:
 	bool				lock_davcomment;
 	__time64_t			lock_createtime;
 	__time64_t			lock_expirationtime;
+	apr_size_t			size;
 
 	bool				hasWCInfo;
 	svn_wc_schedule_t	schedule;
@@ -58,6 +59,7 @@ public:
 
 	CString				changelist;
 	svn_depth_t			depth;
+	apr_size_t			working_size;
 
 	// convenience methods:
 

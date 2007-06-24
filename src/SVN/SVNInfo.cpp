@@ -132,6 +132,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 	if (info->last_changed_author)
 		data.author = CUnicodeUtils::GetUnicode(info->last_changed_author);
 	data.depth = info->depth;
+	data.size = info->size;
 
 	if (info->lock)
 	{
@@ -169,6 +170,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 			data.prejfile = CUnicodeUtils::GetUnicode(info->prejfile);
 		if (info->changelist)
 			data.changelist = CUnicodeUtils::GetUnicode(info->changelist);
+		data.working_size = info->working_size;
 	}
 	pThis->m_arInfo.push_back(data);
 	pThis->Receiver(&data);
