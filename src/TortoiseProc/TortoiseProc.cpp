@@ -1323,7 +1323,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					else
 						sFilemask.Empty();
-					CString sNewMask = destinationPath.GetFilename();
+					CString sNewMask = sNewName;
 					if (sNewMask.ReverseFind('.'>=0))
 					{
 						sNewMask = sNewMask.Left(sNewMask.ReverseFind('.'));
