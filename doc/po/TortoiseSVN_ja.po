@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-06-21 23:11+0900\n"
+"PO-Revision-Date: 2007-06-24 23:22+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2921,9 +2921,8 @@ msgstr ""
 "</screen> 次いで <guibutton>設定</guibutton> をクリックしコミットしてください。作業コピーを更新すると、Subversion は <filename>D:\\dev\\project1\\sounds</filename> サブフォルダを作成し、sounds プロジェクトをチェックアウトします。また、<filename>D:\\dev\\project1\\quick graphs</filename> サブフォルダには graphics プロジェクトを含み、ネストした <filename>D:\\dev\\project1\\skins\\toolkit</filename> サブフォルダには、skin-maker プロジェクトのリビジョン 21 が入っています。"
 
 #: source/TortoiseSVN_en.xml:3826(para)
-#, fuzzy
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr "外部参照定義のすべてにおいて、明示的なリビジョン番号を使用することを強く意識するべきです。そうすることは、異なる外部参照情報のスナップショットを取り出す際、正確にどのスナップショットを取り出すかを決めることを意味します。コントロールが及ばないサードパーティのリポジトリに変更があっても驚かないと言う常識に加え、明示的なリビジョン番号を使用するということは、作業コピーを以前のリビジョンに戻すということでもあります。外部参照定義はまた、以前のリビジョンを見るように元に戻り、リポジトリが過去のリビジョンになっているなら、<emphasis>外部参照の作業コピー</emphasis>は一致するように以前を参照するように更新されます。ソフトウェアプロジェクトにおいて、これは複雑な古いコードベースを構築するのが成功するか失敗するかと言った違いに現れます。"
+msgstr "前述のように、外部参照定義のすべてにおいて、明示的なリビジョン番号を使用することを強く意識するべきです。そうすることは、異なる外部参照情報のスナップショットを取り出す際、正確にどのスナップショットを取り出すかを決めることを意味します。コントロールが及ばないサードパーティのリポジトリに変更があっても驚かないと言う常識に加え、明示的なリビジョン番号を使用するということは、作業コピーを以前のリビジョンに戻すということでもあります。外部参照定義はまた、以前のリビジョンを見るように元に戻り、リポジトリが過去のリビジョンになっているなら、<emphasis>外部参照の作業コピー</emphasis>は一致するように以前を参照するように更新されます。ソフトウェアプロジェクトにおいて、これは複雑な古いコードベースを構築するのが成功するか失敗するかと言った違いに現れます。"
 
 #: source/TortoiseSVN_en.xml:3845(para)
 #: source/TortoiseSVN_en.xml:11384(para)
@@ -2972,9 +2971,8 @@ msgid "Select a directory in windows explorer where you want to place your worki
 msgstr "Windows エクスプローラの作業コピーを作成したい場所でディレクトリを選択してください。<action>右クリック</action> してコンテキストメニューを表示し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>チェックアウト...</guimenuitem></menuchoice> コマンドを選択してください。すると以下のダイアログが表示されます。<placeholder-1/> 存在しないフォルダ名を指定すると、その名前のディレクトリが作成されます。"
 
 #: source/TortoiseSVN_en.xml:3912(para)
-#, fuzzy
 msgid "When you checkout an existing source tree from the repository, you should do so in an empty directory. If you try to check out your source tree into the same directory that you imported from, Subversion will throw an error message because it will not overwrite the existing unversioned files with versioned ones, even if they are identical. You will have to check out into a different directory or delete the existing sourcetree first. Better still, read <xref linkend=\"tsvn-dug-import-in-place\"/> which describes a method that avoids this problem."
-msgstr "空のディレクトリにチェックアウトするべきです。チェックアウトするソースツリーに同じ名前のディレクトリがある場合、バージョン管理外のファイルをバージョン管理下のファイルで上書きしないので、Subversion はエラーメッセージを表示します。別のディレクトリにチェックアウトするか、すでにあるソースツリーを先に削除しなければなりません。"
+msgstr "リポジトリから既存のソースツリーをチェックアウトする際は、空のディレクトリにチェックアウトするべきです。インポートしたディレクトリと同じ場所にチェックアウトしようとすると、バージョン管理外のファイルがバージョン管理下のファイルと同じであっても上書きしないので、Subversion はエラーメッセージを表示します。別の場所にチェックアウトするか、既存ソースツリーを削除する必要があります。<xref linkend=\"tsvn-dug-import-in-place\"/> で、この問題を避けるよりよい方法を説明しています。"
 
 #: source/TortoiseSVN_en.xml:3931(term)
 #: source/TortoiseSVN_en.xml:4456(term)
@@ -3018,21 +3016,19 @@ msgstr "ディレクトリのみチェックアウトします。その中のフ
 
 #: source/TortoiseSVN_en.xml:3924(para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
-msgstr ""
+msgstr "チェックアウトの際、子フォルダを再帰する <firstterm>深さ</firstterm> を選択できます。大きなツリーの一部が必要なだけなら、トップレベルフォルダのみをチェックアウトし、それから選択したフォルダを再帰的に更新します。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3968(para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
 msgstr "プロジェクトに外部参照プロジェクトへの参照が含まれていて、同時にチェックアウト<emphasis>したくない</emphasis>場合、<guilabel>外部参照を除外する</guilabel> チェックボックスを使用してください。"
 
 #: source/TortoiseSVN_en.xml:3974(para)
-#, fuzzy
 msgid "If <guilabel>Omit externals</guilabel> is checked, or if you wish to increase the depth value, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
-msgstr "このオプションのどちらかにチェックがついている場合、作業コピーを更新するのに <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice><menuchoice> ではなく、<guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を実行する必要があります。標準の更新時にはサブフォルダや外部参照を全て取得してしまいます。"
+msgstr "<guilabel>外部参照を除外する</guilabel> にチェックがついていたり、深さを増やしたい場合、作業コピーを更新するのに <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice><menuchoice> ではなく、<guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を実行する必要があります。通常のの更新ではサブフォルダや外部参照を全て取得してしまいます。"
 
 #: source/TortoiseSVN_en.xml:3990(para)
-#, fuzzy
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "ディレクトリツリーの <literal>トランク (trunk)</literal> 部分のみチェックアウトするのをお奨めします。URL でディレクトリツリーの親パスを指定すると、プロジェクトのあらゆるブランチとタグを取得してしまうのでハードディスクを使い切ってしまうかもしれません!"
+msgstr "ディレクトリツリーの <literal>トランク (trunk)</literal> 部分か、それ以下をチェックアウトするのをお奨めします。URL でディレクトリツリーの親パスを指定すると、プロジェクトのあらゆるブランチとタグを取得してしまうのでハードディスクを使い切ってしまうかもしれません!"
 
 #: source/TortoiseSVN_en.xml:3998(title)
 msgid "Exporting"
@@ -3117,7 +3113,7 @@ msgstr "下のペインに表示された列は、カスタマイズできます
 
 #: source/TortoiseSVN_en.xml:4129(para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion config file."
-msgstr ""
+msgstr "デフォルトでは変更をコミットする際に、保持していたファイルのロックが、コミット完了後自動的に開放されます。ロックを保持したままにしたい場合は、<guilabel>ロックを保持</guilabel> チェックボックスにチェックしておきます。チェックボックスのデフォルト状態は、Subversion 設定ファイルの <literal>no_unlock</literal> オプションから取得します。Subversion 設定ファイルの編集については、<xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:4140(para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
@@ -3330,9 +3326,8 @@ msgid "When the update is complete, the progress dialog shows a summary of the n
 msgstr "更新が完了すると、更新された項目について、追加・削除・競合などの概略を進行ダイアログに表示します。概略情報は <action>CTRL+C</action> でクリップボードにコピーできます。"
 
 #: source/TortoiseSVN_en.xml:4438(para)
-#, fuzzy
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. <placeholder-1/> You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "標準の更新コマンドでは、オプションを付けず、作業コピーをリポジトリの最新 (HEAD) リビジョンに更新するだけです。これが最も一般的なケースです。更新プロセスをもっと制御したければ、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を代わりに使用してください。これで作業コピーを最新のものだけでなく、指定したリビジョンに更新できます。作業コピーがリビジョン 100 だったとして、リビジョン 50 にある状態を反映したい場合、単純にリビジョン 50 へ更新します。このダイアログでは、カレントフォルダのみの (サブフォルダを含まない) 更新をしたかったり、更新時に外部プロジェクト (<literal>svn:externals</literal> で関連づけたプロジェクト) を無視したい場合に、そのように更新できます。"
+msgstr "標準の更新コマンドでは、オプションを付けず、作業コピーをリポジトリの最新 (HEAD) リビジョンに更新するだけです。これが最も一般的なケースです。更新プロセスをもっと制御したければ、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を代わりに使用してください。これで作業コピーを最新のものだけでなく、指定したリビジョンに更新できます。作業コピーがリビジョン 100 だったとして、リビジョン 50 にある状態を反映したい場合、単純にリビジョン 50 へ更新します。同じダイアログで、現在のフォルダを更新する際の <firstterm>深さ</firstterm> を選択できます。<placeholder-1/> また、更新時に外部プロジェクト (<literal>svn:externals</literal> で関連づけたプロジェクト) を無視して更新できます。"
 
 #: source/TortoiseSVN_en.xml:4496(para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
@@ -7497,18 +7492,16 @@ msgid "This method traverses the working copy gathering the revision information
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10912(entry)
-#, fuzzy
 msgid "The highest commit revision in the working copy. Equivalent to $WCREV$"
-msgstr "作業コピーのもっとも大きいリビジョン番号に展開されます。"
+msgstr "作業コピーのもっとも大きいコミットリビジョン番号にです。$WCREV$ と等価です。"
 
 #: source/TortoiseSVN_en.xml:10919(entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to $WCDATE$"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10926(entry)
-#, fuzzy
 msgid "The author of the highest commit revision, ie the last person to commit changes to the working copy."
-msgstr "作業コピーのもっとも大きいリビジョン番号に展開されます。"
+msgstr "もっとも大きいコミットリビジョン番号の作者です。変更した作業コピーを最後にコミットした人などです。"
 
 #: source/TortoiseSVN_en.xml:10932(entry)
 msgid "MinRev"
@@ -7531,18 +7524,16 @@ msgid "HasModifications"
 msgstr "HasModifications"
 
 #: source/TortoiseSVN_en.xml:10941(entry)
-#, fuzzy
 msgid "True if there are local modifications"
-msgstr "手元に変更があれば TText に、そうでなければ FText に置換します。"
+msgstr "ローカルに変更がある場合 True となります。"
 
 #: source/TortoiseSVN_en.xml:10944(entry)
 msgid "Url"
 msgstr "Url"
 
 #: source/TortoiseSVN_en.xml:10945(entry)
-#, fuzzy
 msgid "Replaced with the repository URL of the working copy path used in GetWCInfo. Equivalent to $WCURL$"
-msgstr "SubWCRev に渡した作業コピーのパスの URL に置換します。"
+msgstr "GetWCInfo を使用して、作業コピーパスのリポジトリ URL に置換します。$WCURL$ と等価です。"
 
 #: source/TortoiseSVN_en.xml:10878(para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object.1</literal>, and the following methods are supported: <placeholder-1/>"
@@ -7914,19 +7905,16 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr "まだコミットしていなければ、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>取り消し...</guimenuitem></menuchoice> で追加を取り消せば済みます。また間違えて追加しないように、そのファイルを無視リストに追加しておくといいでしょう。"
 
 #: source/TortoiseSVN_en.xml:11511(para)
-#, fuzzy
 msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr "作業コピーのあるフォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> としてください。"
+msgstr "<keycap>Shift</keycap> キーを押しながら拡張コンテキストメニューを表示し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除 - ローカルファイルを保持</guimenuitem></menuchoice> を使用して、ローカルコピーを消さずにマークしたリポジトリのファイル・フォルダを削除してください。"
 
 #: source/TortoiseSVN_en.xml:11523(para)
-#, fuzzy
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr "削除したフォルダをリポジトリから削除するように、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>コミット</guimenuitem></menuchoice> としてください。"
+msgstr "親フォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>コミット</guimenuitem></menuchoice> としてください。"
 
 #: source/TortoiseSVN_en.xml:11532(para)
-#, fuzzy
 msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr "また同じトラブルに見舞われないように、そのフォルダを無視リストに追加します。"
+msgstr "また同じトラブルに見舞われないように、そのファイル・フォルダを無視リストに追加します。"
 
 #: source/TortoiseSVN_en.xml:11506(para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
