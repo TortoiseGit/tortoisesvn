@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-06-24 23:22+0900\n"
+"PO-Revision-Date: 2007-06-25 21:07+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3818,9 +3818,8 @@ msgid "Update your working copy to the selected revision. Useful if you want to 
 msgstr "選択したリビジョンに作業コピーを更新します。作業コピーを過去の状態に時間をさかのぼるのに便利です。1 ファイルだけでなく、作業コピー全体のディレクトリを更新するのが最善です。そうでなければ作業コピーに矛盾が生じ、変更をコミットできなくなってしまいます。"
 
 #: source/TortoiseSVN_en.xml:5306(para)
-#, fuzzy
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since. If you have made local changes, this command will merge these changes into your working copy."
-msgstr "選択したリビジョンの変更を取り消します。作業コピーの変更が取り消されるので、この操作はリポジトリ全体には影響を<emphasis>及ぼしません</emphasis>! そのリビジョンのみの変更を元に戻すということに注意してください。以前のリビジョンのファイル全体を作業コピーするわけではありません。変更があったときから他に関係する変更がなかったとき、その変更に戻すのに便利です。"
+msgstr "選択したリビジョンの変更を取り消します。作業コピーの変更が取り消されるので、この操作はリポジトリ全体には影響を<emphasis>及ぼしません</emphasis>! そのリビジョンのみの変更を元に戻すということに注意してください。以前のリビジョンで作業コピーのファイル全体を置き換えるわけではありません。他に関係ない変更をおこなってから、以前の変更を元に戻すのに便利です。ローカルで変更する場合は、このコマンドは作業コピーに変更をマージします。"
 
 #: source/TortoiseSVN_en.xml:5320(para)
 #, fuzzy
@@ -6224,9 +6223,8 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr "USB フラッシュドライブは、ドライブタイプがデバイスそのもので特定されるので、特殊なケースのように思えます。ある種のものは固定ドライブに見え、別のある種のものはリムーバブルドライブに見えます。"
 
 #: source/TortoiseSVN_en.xml:9292(para)
-#, fuzzy
 msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr "デフォルトでは、オーバレイアイコンは 開く・保存ダイアログでも、Windows エクスプローラのように表示されます。Windows エクスプローラで<emphasis>のみ</emphasis>表示するようにするなら、<guilabel>エクスプローラ上でのみオーバレイを表示する</guilabel> をチェックしてください。"
+msgstr "デフォルトでは、オーバレイアイコンやコンテキストメニューは 開く・保存ダイアログでも、Windows エクスプローラのように表示されます。Windows エクスプローラで<emphasis>のみ</emphasis>表示するようにするなら、<guilabel>エクスプローラ上でのみオーバレイを表示する</guilabel> をチェックしてください。"
 
 #: source/TortoiseSVN_en.xml:9306(term)
 msgid "Default"
@@ -6483,19 +6481,19 @@ msgstr "このチェックをつけると、デフォルトで変更ダイアロ
 
 #: source/TortoiseSVN_en.xml:9689(term)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "ファイルをロックする前にロックダイアログを表示する"
 
 #: source/TortoiseSVN_en.xml:9691(para)
 msgid "When you select one or more files and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lock</guimenuitem></menuchoice> to take out a lock on those files, on some projects it is customary to write a lock message explaining why you have locked the files. If you do not use lock messages, you can uncheck this box to skip that dialog and lock the files immediately."
-msgstr ""
+msgstr "ひとつないし複数のファイルを選択し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ロック</guimenuitem></menuchoice> を使用してそのファイルをロックする際、プロジェクトによっては、なぜそのファイルをロックしたかを説明するロックメッセージを書くことになっています。ロックメッセージを使用しない場合には、このチェックボックスのチェックをはずすと、ダイアログをスキップし、すぐにファイルをロックします。"
 
 #: source/TortoiseSVN_en.xml:9703(para)
 msgid "If you use the lock command on a folder, you are always presented with the lock dialog as that also gives you the option to select files for locking."
-msgstr ""
+msgstr "フォルダにたいしてロックコマンドを使用する場合、ロックするファイルを選択するため、常にロックダイアログを表示します。"
 
 #: source/TortoiseSVN_en.xml:9708(para)
 msgid "If your project is using the <literal>tsvn:lockmsgminsize</literal> property, you will see the lock dialog regardless of this setting because the project <emphasis>requires</emphasis> lock messages."
-msgstr ""
+msgstr "プロジェクトで <literal>tsvn:lockmsgminsize</literal> プロパティを使用している場合、そのプロジェクトはロックメッセージが <emphasis>必須</emphasis> なので、設定がどうであってもロックダイアログを表示します。"
 
 #: source/TortoiseSVN_en.xml:9718(title)
 msgid "TortoiseSVN Colour Settings"
@@ -6680,7 +6678,6 @@ msgid "The window titles are not pure filenames. TortoiseSVN treats that as a na
 msgstr "ウィンドウタイトルは純粋なファイル名ではありません。TortoiseSVN は表示するための名前で扱い、それによって名前を作成します。つまり、リビジョン 123 のファイルから作業コピーのファイルへ差分を取る場合、名前は <filename>filename : revision 123</filename> と <filename>filename : 作業コピー</filename> となります。"
 
 #: source/TortoiseSVN_en.xml:9931(para)
-#, fuzzy
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine\n"
@@ -6701,7 +6698,7 @@ msgstr ""
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
 "</screen> Araxis の場合: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"\t%base %mine\n"
+"    %base %mine\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:9950(para)
@@ -6935,9 +6932,8 @@ msgid "The Settings Dialog, Hook Scripts Page"
 msgstr "設定ダイアログ、フックスクリプトページ"
 
 #: source/TortoiseSVN_en.xml:10270(para)
-#, fuzzy
 msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
-msgstr "<placeholder-1/> このダイアログでは、Subversion のアクションに合わせて自動的に実行される、フックスクリプトのセットアップを行えます。"
+msgstr "<placeholder-1/> このダイアログでは、Subversion のアクションに合わせて自動的に実行される、フックスクリプトのセットアップを行えます。対照的に <xref linkend=\"tsvn-repository-hooks\"/> で説明しているフックスクリプトは、クライアントのローカルで実行されます。"
 
 #: source/TortoiseSVN_en.xml:10280(para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
@@ -7073,7 +7069,7 @@ msgstr "コマンドラインには、TortoiseSVN が設定するパラメータ
 
 #: source/TortoiseSVN_en.xml:10442(para)
 msgid "A path to a temporary file which contains all the paths for which the operation was started. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "操作を開始したときのすべてのパスを格納した一時ファイルのパスです。各パスは、一時ファイル内に 1 行ごと格納されています。"
 
 #: source/TortoiseSVN_en.xml:10452(para)
 msgid "The paths which were selected when the operation was started, eg. the paths selected in Explorer when invoking the Commit dialog. If multiple paths were selected they are separated by a <literal>*</literal> character."
@@ -7081,11 +7077,11 @@ msgstr "操作を始めたときに選択していたパスです。例えば、
 
 #: source/TortoiseSVN_en.xml:10459(para)
 msgid "Note that if possible, you should use <literal>%PATH%</literal> instead of <literal>%PATHS%</literal> to avoid running into the size limit of the command line."
-msgstr ""
+msgstr "注意: 可能なら、コマンドラインのサイズ制限以上を実行しないように、<literal>%PATHS%</literal> ではなく <literal>%PATH%</literal> を使うべきです。"
 
 #: source/TortoiseSVN_en.xml:10469(para)
 msgid "The depth with which the commit/update is done."
-msgstr ""
+msgstr "コミット・更新が完了した際の深さです。"
 
 #: source/TortoiseSVN_en.xml:10476(term)
 msgid "-2"
@@ -7141,7 +7137,7 @@ msgstr "以下のような有効な値があります。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10518(para)
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF8 encoding."
-msgstr ""
+msgstr "コミット用のログメッセージを格納しているファイルのパスです。このファイルには、UTF8 エンコードのテキストが格納されています。"
 
 #: source/TortoiseSVN_en.xml:10528(para)
 msgid "The repository revision to which the update should be done or after a commit completes."
@@ -7489,19 +7485,19 @@ msgstr "GetWCInfo"
 
 #: source/TortoiseSVN_en.xml:10897(entry)
 msgid "This method traverses the working copy gathering the revision information. Naturally you must call this before you can access the information using the remaining methods. The first parameter is the path. The second parameter should be true if you want to include folder revisions. Equivalent to the <placeholder-1/> command line switch. The third parameter should be true if you want to include svn:externals. Equivalent to the <placeholder-2/> command line switch."
-msgstr ""
+msgstr "この方法は作業コピーを横断してリビジョン情報を集めます。当然、以下のメソッドを呼び出す前に、これを呼び出さなくてはなりません。第 1 引数はパスです。第 2 引数は、フォルダのリビジョンを含める場合に true としてください。コマンドラインスイッチ <placeholder-1/> と等価です。第 3 引数は、svn:externals を含める場合に true としてください。コマンドラインスイッチ <placeholder-2/> と等価です。"
 
 #: source/TortoiseSVN_en.xml:10912(entry)
 msgid "The highest commit revision in the working copy. Equivalent to $WCREV$"
-msgstr "作業コピーのもっとも大きいコミットリビジョン番号にです。$WCREV$ と等価です。"
+msgstr "作業コピーのもっとも大きいコミットリビジョン番号。$WCREV$ と等価です。"
 
 #: source/TortoiseSVN_en.xml:10919(entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to $WCDATE$"
-msgstr ""
+msgstr "もっとも大きいコミットリビジョンのコミット日時。$WCDATE$ と等価です。"
 
 #: source/TortoiseSVN_en.xml:10926(entry)
 msgid "The author of the highest commit revision, ie the last person to commit changes to the working copy."
-msgstr "もっとも大きいコミットリビジョン番号の作者です。変更した作業コピーを最後にコミットした人などです。"
+msgstr "もっとも大きいコミットリビジョン番号の作者。変更した作業コピーを最後にコミットした人などです。"
 
 #: source/TortoiseSVN_en.xml:10932(entry)
 msgid "MinRev"
@@ -7525,7 +7521,7 @@ msgstr "HasModifications"
 
 #: source/TortoiseSVN_en.xml:10941(entry)
 msgid "True if there are local modifications"
-msgstr "ローカルに変更がある場合 True となります。"
+msgstr "ローカルに変更がある場合 True"
 
 #: source/TortoiseSVN_en.xml:10944(entry)
 msgid "Url"
@@ -7537,7 +7533,7 @@ msgstr "GetWCInfo を使用して、作業コピーパスのリポジトリ URL 
 
 #: source/TortoiseSVN_en.xml:10878(para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object.1</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr ""
+msgstr "他のプログラムから Subversion のリビジョン情報にアクセスする必要がある場合、SubWCRev のCOM インターフェースを使用できます。作成するオブジェクトは <literal>SubWCRev.object.1</literal> で、以下のメソッドをサポートしています。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:10954(para)
 msgid ""
@@ -7590,6 +7586,54 @@ msgid ""
 "WScript.Echo(sInfo3);\n"
 "</screen>"
 msgstr ""
+"インターフェースの使いかたは、以下の例のようにしてください。<screen>\n"
+"// test script for the SubWCRev COM/Automation-object\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"SubWCRev1 = new ActiveXObject(\"SubWCRev.object.1\");\n"
+"SubWCRev2 = new ActiveXObject(\"SubWCRev.object.1\");\n"
+"SubWCRev3 = new ActiveXObject(\"SubWCRev.object.1\");\n"
+"\n"
+"SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName(\".\"), 0, 0);\n"
+"SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 0, 0);\n"
+"\n"
+"sInfo1 = \"Revision = \" + SubWCRev1.Revision + \"\\n"
+"Min Revision = \" + SubWCRev1.MinRev +\n"
+"         \"\\n"
+"Max Revision = \" + SubWCRev1.MaxRev + \"\\n"
+"Date = \" + SubWCRev1.Date +\n"
+"         \"\\n"
+"URL = \" + SubWCRev1.Url + \"\\n"
+"Author = \" + SubWCRev1.Author +\n"
+"         \"\\n"
+"HasMods = \" + SubWCRev1.HasModifications;\n"
+"sInfo2 = \"Revision = \" + SubWCRev2.Revision + \"\\n"
+"Min Revision = \" + SubWCRev2.MinRev +\n"
+"         \"\\n"
+"Max Revision = \" + SubWCRev2.MaxRev + \"\\n"
+"Date = \" + SubWCRev2.Date +\n"
+"         \"\\n"
+"URL = \" + SubWCRev2.Url + \"\\n"
+"Author = \" + SubWCRev2.Author +\n"
+"         \"\\n"
+"HasMods = \" + SubWCRev2.HasModifications;\n"
+"sInfo3 = \"Revision = \" + SubWCRev3.Revision + \"\\n"
+"Min Revision = \" + SubWCRev3.MinRev +\n"
+"         \"\\n"
+"Max Revision = \" + SubWCRev3.MaxRev + \"\\n"
+"Date = \" + SubWCRev3.Date +\n"
+"         \"\\n"
+"URL = \" + SubWCRev3.Url + \"\\n"
+"Author = \" + SubWCRev3.Author +\n"
+"         \"\\n"
+"HasMods = \" + SubWCRev3.HasModifications;\n"
+"\n"
+"WScript.Echo(sInfo1);\n"
+"WScript.Echo(sInfo2);\n"
+"WScript.Echo(sInfo3);\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:10994(title)
 msgid "Frequently Asked Questions (FAQ)"
