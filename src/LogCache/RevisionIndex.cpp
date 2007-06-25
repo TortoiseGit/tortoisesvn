@@ -82,16 +82,16 @@ void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 	else
 	{
 		revision_t size = (revision_t)indices.size();
-		if (revision - firstRevision > size)
+		if (revision - firstRevision >= size)
 		{
 			// efficiently grow on the upper end
 
-			size_t toAdd = max (size, revision - firstRevision - size);
-			indices.insert (indices.end(), toAdd+1, NO_INDEX);
+			size_t toAdd = max (size, revision + 1 - firstRevision - size);
+			indices.insert (indices.end(), toAdd, NO_INDEX);
 		}
 	}
 
-	// bucked exists -> just write the value
+	// bucket exists -> just write the value
 
 	indices [revision - firstRevision] = index;
 }
