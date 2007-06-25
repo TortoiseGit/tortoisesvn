@@ -62,6 +62,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
 	DDX_Check(pDX, IDC_USEFROMURL, m_bUseFromURL);
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, m_bIgnoreAncestry);
+	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
 BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
@@ -165,6 +166,14 @@ BOOL CMergeDlg::OnInitDialog()
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	}
 	OnBnClickedUsefromurl();
+
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
+	m_depthCombo.SetCurSel(0);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;
@@ -215,6 +224,28 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 		if (bShowErrors)
 			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_HEAD1), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
 		return FALSE;
+	}
+
+	switch (m_depthCombo.GetCurSel())
+	{
+	case 0:
+		m_depth = svn_depth_unknown;
+		break;
+	case 1:
+		m_depth = svn_depth_infinity;
+		break;
+	case 2:
+		m_depth = svn_depth_immediates;
+		break;
+	case 3:
+		m_depth = svn_depth_files;
+		break;
+	case 4:
+		m_depth = svn_depth_empty;
+		break;
+	default:
+		m_depth = svn_depth_empty;
+		break;
 	}
 
 	UpdateData(FALSE);
