@@ -828,7 +828,7 @@ public:
 	LogCache::CLogCachePool* GetLogCachePool() {return &logCachePool;}
 
 	svn_error_t *				Err;			///< Global error object struct
-private:
+protected:
 	svn_client_ctx_t * 			m_pctx;			///< pointer to client context
 	apr_hash_t *				statushash;		///< holds the status
 	apr_array_header_t *		statusarray;	///< an array of all status
