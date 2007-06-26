@@ -110,6 +110,7 @@ public:
 	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
 	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
+	void SetMergePath(const CTSVNPath& mergepath) {m_mergePath = mergepath;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -155,6 +156,7 @@ private:
 	CProgressCtrl		m_LogProgress;
 	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;
+	CTSVNPath			m_mergePath;
 	SVNRev				m_pegrev;
 	SVNRev				m_startrev;
 	SVNRev				m_LogRevision;
@@ -201,6 +203,7 @@ private:
 	bool				m_bSelect;
 	bool				m_bShowBugtraqColumn;
 	CString				m_sLogInfo;
+	std::set<svn_revnum_t> m_mergedRevs;
 
 	CTime				m_timFrom;
 	CTime				m_timTo;

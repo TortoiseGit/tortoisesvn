@@ -42,6 +42,7 @@
 #include "BrowseFolder.h"
 #include "BlameDlg.h"
 #include "Blame.h"
+#include "SVNHelpers.h"
 
 #define ICONITEMBORDER 5
 
@@ -386,6 +387,8 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_SHOWRANGE);
 	m_btnShow.AddEntry(temp);
 	m_btnShow.SetCurrentEntry((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")));
+
+	m_mergedRevs.clear();
 
 	// first start a thread to obtain the log messages without
 	// blocking the dialog
@@ -873,6 +876,47 @@ UINT CLogDlg::LogThread()
 	}
 	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
 	
+	if (!m_mergePath.IsEmpty() && m_mergedRevs.empty())
+	{
+		// in case we got a merge path set, retrieve the merge info
+		// of that path and check whether one of the merge URLs
+		// match the URL we show the log for.
+		SVNPool localpool(pool);
+		svn_error_clear(Err);
+		apr_hash_t * mergeinfo = NULL;
+		if (svn_client_get_mergeinfo(&mergeinfo, m_mergePath.GetSVNApiPath(), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
+		{
+			// now check the relative paths
+			apr_hash_index_t *hi;
+			const void *key;
+			void *val;
+
+			for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
+			{
+				apr_hash_this(hi, &key, NULL, &val);
+				if (m_sRelativeRoot.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+				{
+					apr_array_header_t * arr = (apr_array_header_t*)val;
+					if (val)
+					{
+						for (long i=0; i<arr->nelts; ++i)
+						{
+							svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
+							if (pRange)
+							{
+								for (svn_revnum_t r=pRange->start; r<=pRange->end; ++r)
+								{
+									m_mergedRevs.insert(r);
+								}
+							}
+						}
+					}
+					break;
+				}
+			}
+		}
+	}
+
 	m_LogProgress.SetPos(1);
 	if (m_startrev == SVNRev::REV_HEAD)
 	{
@@ -1831,8 +1875,14 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 			if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 			{
-				if (((PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec))->bCopies)
-					crText = m_Colors.GetColor(CColors::Modified);
+				PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec);
+				if (data)
+				{
+					if (data->bCopies)
+						crText = m_Colors.GetColor(CColors::Modified);
+					if (m_mergedRevs.find(data->Rev) != m_mergedRevs.end())
+						crText = GetSysColor(COLOR_GRAYTEXT);
+				}
 			}
 			if (m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec)
 			{

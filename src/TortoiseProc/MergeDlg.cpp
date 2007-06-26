@@ -358,6 +358,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetParams(CTSVNPath(url), StartRev, StartRev, 1, limit, TRUE, FALSE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ContinuousSelection(true);
+		m_pLogDlg->SetMergePath(m_wcPath);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -394,6 +395,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->SetParams(CTSVNPath(url), EndRev, EndRev, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->ContinuousSelection(true);
+		m_pLogDlg2->SetMergePath(m_wcPath);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
