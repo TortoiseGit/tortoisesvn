@@ -589,9 +589,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						if (reventry->action == CRevisionEntry::nothing)
 							reventry->action = CRevisionEntry::source;
 					}
-					if 	((reventry->action != CRevisionEntry::modified)&&
-						(reventry->action != CRevisionEntry::lastcommit)&&
-						(reventry->sourcearray.GetCount() > 0))
+					if 	(reventry->sourcearray.GetCount() > 0)
 					{
 						// the entry is a source of a copy
 						reventry->bUsed = true;
