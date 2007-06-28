@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-19 11:16+0800\n"
+"PO-Revision-Date: 2007-06-28 14:36+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3119,7 +3119,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "文件大小：\t\t%s\n"
 "宽度：\t\t\t%ld 像素\n"
@@ -3134,7 +3135,7 @@ msgstr ""
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
 "垂直分辨率：\t%.1f dpi\n"
-"色深：\t\t\t%d 位"
+"色深：\t\t\t%d 位缩放比例：\t\t\t%d%%"
 
 # ID:7,
 #: ID:7,
@@ -3173,7 +3174,8 @@ msgid ""
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
 "Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 msgstr ""
 "文件大小：\t\t\t%s\n"
 "宽度：\t\t\t%ld 像素\n"
@@ -3188,7 +3190,7 @@ msgstr ""
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
 "垂直分辨率：\t\t%.1f dpi\n"
-"色深：\t\t\t%d 位"
+"色深：\t\t\t%d 位缩放比例:\t\t\t%d%%"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -3214,6 +3216,10 @@ msgstr ""
 #: ID:77,#: ID:219,
 msgid "Finished!"
 msgstr "完成！"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "优化图像显示尺寸(&T)"
 
 # Control-ID:1315,
 #: Control-ID:1315,
@@ -3520,6 +3526,11 @@ msgstr "ID:32796:V C +A"
 #: Corresponding Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601; '&Open Ctrl-O'
@@ -4255,6 +4266,12 @@ msgstr "合并"
 msgid "Merge - TortoiseSVN"
 msgstr "合并 - TortoiseSVN"
 
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: Control-ID:1377,
+msgid "Merge Depth"
+msgstr "合并深度"
+
 # ID:263,#:
 # ID:263,
 #: ID:263,#: ID:263,
@@ -4943,8 +4960,8 @@ msgstr "正在获取差异，请稍候..."
 
 # ID:104,
 #: ID:104,
-msgid "Please wait while the repository browser is initialized..."
-msgstr "请稍候，正在启动版本库浏览器"
+msgid "Please wait while the repository browser is initializing..."
+msgstr "请稍候，正在启动版本库浏览器 ..."
 
 # ID:119,#:
 # ID:146,#:
@@ -7507,6 +7524,11 @@ msgstr "工作拷贝"
 #: Control-ID:1335,
 msgid "Working Copy Path:"
 msgstr "工作拷贝路径"
+
+# Control-ID:1183,
+#: ID:267,
+msgid "Working copy"
+msgstr "工作副本"
 
 # ID:80,
 #: ID:80,
