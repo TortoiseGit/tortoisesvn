@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -175,6 +175,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	// since the shell calls each and every overlay handler with the same filepath
 	// we use a small 'fast' cache of just one path here.
 	// To make sure that cache expires, clear it as soon as one handler is used.
+
+	AutoLocker lock(g_csGlobalCOMGuard);
 	if (_tcscmp(pPath, g_filepath.c_str())==0)
 	{
 		status = g_filestatus;
@@ -198,7 +200,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			{
 				TSVNCacheResponse itemStatus;
 				ZeroMemory(&itemStatus, sizeof(itemStatus));
-				if (g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
+				if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
 				{
 					status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 					if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&((itemStatus.m_needslock && itemStatus.m_owner[0]==0)||(itemStatus.m_readonly)))
@@ -210,10 +212,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			break;
 		case ShellCache::dll:
 			{
-				AutoLocker lock(g_csCacheGuard);
-
 				// Look in our caches for this item 
-				const FileStatusCacheEntry * s = g_pCachedStatus->GetCachedItem(CTSVNPath(pPath));
+				const FileStatusCacheEntry * s = m_CachedStatus.GetCachedItem(CTSVNPath(pPath));
 				if (s)
 				{
 					status = s->status;
@@ -235,7 +235,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 							}
 							else
 							{
-								const FileStatusCacheEntry * s = g_pCachedStatus->GetFullStatus(CTSVNPath(pPath), TRUE);
+								const FileStatusCacheEntry * s = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
 								status = s->status;
 								status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 							}
@@ -247,7 +247,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					}
 					else
 					{
-						const FileStatusCacheEntry * s = g_pCachedStatus->GetFullStatus(CTSVNPath(pPath), FALSE);
+						const FileStatusCacheEntry * s = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
 						status = s->status;
 					}
 				}
@@ -263,7 +263,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			{
 				// no cache means we only show a 'versioned' overlay on folders
 				// with an admin directory
-				AutoLocker lock(g_csCacheGuard);
 				if (PathIsDirectory(pPath))
 				{
 					if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))

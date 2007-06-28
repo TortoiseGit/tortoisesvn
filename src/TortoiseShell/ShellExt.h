@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,8 +31,6 @@ using namespace Gdiplus;
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
-extern	SVNFolderStatus *	g_pCachedStatus;		// status cache
-extern	CRemoteCacheLink	g_remoteCacheLink;
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 extern	DWORD				g_langid;
 extern	DWORD				g_langTimeout;
@@ -52,7 +50,7 @@ extern bool					g_addedovlloaded;
 extern LPCTSTR				g_MenuIDString;
 
 extern	void				LoadLangDll();
-extern  CComCriticalSection	g_csCacheGuard;
+extern  CComCriticalSection	g_csGlobalCOMGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
 
@@ -188,6 +186,10 @@ protected:
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	svn_wc_status_kind	filestatus;
 	std::map<UINT, HBITMAP> bitmaps;
+
+	SVNFolderStatus		m_CachedStatus;		// status cache
+	CRemoteCacheLink	m_remoteCacheLink;
+
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
 	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags);

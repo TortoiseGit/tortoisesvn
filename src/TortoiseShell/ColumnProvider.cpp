@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -327,17 +327,15 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	const FileStatusCacheEntry * status = NULL;
 	TSVNCacheResponse itemStatus;
 	ShellCache::CacheType t = ShellCache::exe;
-	{
-		AutoLocker lock(g_csCacheGuard);
-		t = g_ShellCache.GetCacheType();
-	}
+	AutoLocker lock(g_csGlobalCOMGuard);
+	t = g_ShellCache.GetCacheType();
 
 	switch (t)
 	{
 	case ShellCache::exe:
 		{
 			ZeroMemory(&itemStatus, sizeof(itemStatus));
-			if(g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
+			if(m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
 			{
 				filestatus = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 			}
@@ -355,14 +353,13 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		break;
 	case ShellCache::dll:
 		{
-			status = g_pCachedStatus->GetFullStatus(CTSVNPath(path), bIsDir, TRUE);
+			status = m_CachedStatus.GetFullStatus(CTSVNPath(path), bIsDir, TRUE);
 			filestatus = status->status;
 		}
 		break;
 	default:
 	case ShellCache::none:
 		{
-			AutoLocker lock(g_csCacheGuard);
 			if (g_ShellCache.HasSVNAdminDir(path, bIsDir))
 				filestatus = svn_wc_status_normal;
 			else

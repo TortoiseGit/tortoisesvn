@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,9 +24,7 @@
 UINT				g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE			g_hmodThisDll = NULL;			///< handle to this DLL itself.
 int					g_cAprInit = 0;
-SVNFolderStatus *	g_pCachedStatus = NULL;			///< status cache
 ShellCache			g_ShellCache;					///< caching of registry entries, ...
-CRemoteCacheLink	g_remoteCacheLink;
 DWORD				g_langid;
 DWORD				g_langTimeout = 0;
 HINSTANCE			g_hResInst = NULL;
@@ -42,7 +40,7 @@ bool				g_readonlyovlloaded = false;
 bool				g_deletedovlloaded = false;
 bool				g_lockedovlloaded = false;
 bool				g_addedovlloaded = false;
-CComCriticalSection	g_csCacheGuard;
+CComCriticalSection	g_csGlobalCOMGuard;
 
 LPCTSTR				g_MenuIDString = _T("TortoiseSVN");
 extern std::set<CShellExt *> g_exts;
@@ -87,7 +85,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     {
 		if (g_hmodThisDll == NULL)
 		{
-			g_csCacheGuard.Init();
+			g_csGlobalCOMGuard.Init();
 		}
 
         // Extension DLL one-time initialization
@@ -100,21 +98,19 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		// in that case, we do it ourselves
 		if (g_cRefThisDll > 0)
 		{
-			if (g_pCachedStatus)
-				delete g_pCachedStatus;
-			while (g_cAprInit--)
-			{
-				g_SVNAdminDir.Close();
-				apr_terminate();
-			}
 			std::set<CShellExt *>::iterator it = g_exts.begin();
 			while (it != g_exts.end())
 			{
 				delete *it;
 				it = g_exts.begin();
 			}
+			while (g_cAprInit--)
+			{
+				g_SVNAdminDir.Close();
+				apr_terminate();
+			}
 		}
-		g_csCacheGuard.Term();
+		g_csGlobalCOMGuard.Term();
     }
     return 1;   // ok
 }
@@ -153,8 +149,6 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 		apr_initialize();
 		g_SVNAdminDir.Init();
 		g_cAprInit++;
-		if (g_pCachedStatus == NULL)
-			g_pCachedStatus = new SVNFolderStatus();
 		
 		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
 		return pcf->QueryInterface(riid, ppvOut);
