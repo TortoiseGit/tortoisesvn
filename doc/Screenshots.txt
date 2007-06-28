@@ -50,25 +50,72 @@ Checkout.png
 	TortoiseProc.exe /command:checkout /path:"C:\TortoiseSVN\Doc" /url:"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc"
 
 Commit.png
-	(show externals warning symbol and context menu)
-	
+	Use the 'doc' test WC.
+	Modify 3 files, say dug_add.xml, dug_blame.xml and dug_commit.xml
+	Modify a server.xml in the 'ext' folder
+	Open the commit dialog for the 'doc' folder
+	Type a message with spelling problem, eg.
+		Update documentation to explain new Frobnicate checkbox.
+	Right click on dug_blame and include context menu in screenshot.
+	This setup is also used for CommitSpellCheck.png and CreatePatch.png
+
 CommitSpellcheck.png
+	As above, but right click on the mis-spelled word to get the context menu.
+
 CommitProgress.png
+	Capture the progress dialog at the end of any commit.
+
 ContextMenuDirControl.png
-	(show tortoise+folder icon for TSVN entry)
+	In explorer, right click on a versioned folder (eg. TSVN docs) and
+	capture the main context menu and the large TSVN sub menu.
+	You will probably have to capture the entire explorer window and
+	then edit out everything except the context menus. Ideally, also edit
+	out all non-TSVN items from the main context menu.
+	Because of the manual editing, this item (and the next 3) is a bit of
+	a pain and generally best left until just before a new release in case
+	something else changes.
+
 ContextMenuDirNoControl.png
-	(as above)
+	As above, but capture for an unversioned folder.
+
 ContextMenuFileControl.png
-	(show tortoise+file icon for TSVN entry)
+	As above, but capture for a single versioned file.
+
 ContextMenuFileNoControl.png
-	(as above)
+	As above, but capture for a single unversioned file.
+	Expand the 'add to ignore list' entry.
+
 Copy.png
+	Open the branch/tag dialog for the TSVN doc folder and enter a
+	fictitious URL for the target. It is easiest to copy and paste the
+	source URL and edit /trunk/ to /branches_1.4.x/ or something like that.
+
 CreatePatch.png
+	Set up as for the commit dialog, but create a patch instead.
+	The dialog shows the files selected for the patch.
+
 ExplorerFileMenu.png
-	(File menu, select shortcut in versioned folder)
+	Use the 'doc' test WC.
+	In explorer, right click on showlog.xml and 'Create shortcut'
+	Select the newly created shortcut.
+	Click on the explorer file menu and capture the menu which opens.
+	There should be 3 TSVN entries (shortcut, shortcut-target and folder).
+	Delete the shortcut when you're done.
+
 ExportURL.png
+	Right click on the TSVN doc folder and Export
+	Enter a folder name in the Export directory box
+
 GetLock.png
+	Make sure you have the 'Show lock dialog before locking files' option
+	checked in Settings->Dialogs 2
+	Select a bunch of versioned files and use TSVN->GetLock
+
 Import.png
+	Right click on any unversioned folder and TSVN->import
+	Make up a URL like http://svn.example.com/svn/paint/trunk
+	Add a suitable message like 'Initial import of paint files'.
+
 LogContextMenu1.png
 	(select 2 revision in top panel, capture for file, not folder)
 LogContextMenu2.png
