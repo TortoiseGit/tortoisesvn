@@ -96,5 +96,5 @@ void CDropFiles::CreateStructure()
 	memcpy( ::GlobalLock(hMem), GetBuffer(), GetBufferSize() );
 	::GlobalUnlock(hMem);
 	dropData.CacheGlobalData( CF_HDROP, hMem );
-	dropData.DoDragDrop(DROPEFFECT_COPY|DROPEFFECT_MOVE,NULL);
+	dropData.DoDragDrop(DROPEFFECT_COPY,NULL);
 }
