@@ -589,7 +589,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 						if (reventry->action == CRevisionEntry::nothing)
 							reventry->action = CRevisionEntry::source;
 					}
-					if 	(reventry->sourcearray.GetCount() > 0)
+					if ((reventry->sourcearray.GetCount() > 0)&&(!reventry->analyzed))
 					{
 						// the entry is a source of a copy
 						reventry->bUsed = true;
@@ -602,6 +602,7 @@ bool CRevisionGraph::AnalyzeRevisions (CString url, svn_revnum_t startrev, bool 
 							CString targetURL = sentry->pathto + url.Mid (reventry->url.GetLength());
 							AnalyzeRevisions(targetURL, sentry->revisionto, bShowAll);
 						}
+						reventry->analyzed = true;
 					}
 					if (bIsSame)
 					{
