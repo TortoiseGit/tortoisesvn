@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2354,16 +2354,14 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 
 BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& cmdLineSavePath)
 {
-	OPENFILENAME ofn;		// common dialog box structure
+	OPENFILENAME ofn = {0};				// common dialog box structure
 	CString temp;
 	CTSVNPath savePath;
 
 	if (cmdLineSavePath.IsEmpty())
 	{
-		TCHAR szFile[MAX_PATH];  // buffer for file name
-		ZeroMemory(szFile, sizeof(szFile));
+		TCHAR szFile[MAX_PATH] = {0};  // buffer for file name
 		// Initialize OPENFILENAME
-		ZeroMemory(&ofn, sizeof(OPENFILENAME));
 		ofn.lStructSize = sizeof(OPENFILENAME);
 		ofn.hwndOwner = (EXPLORERHWND);
 		ofn.lpstrFile = szFile;

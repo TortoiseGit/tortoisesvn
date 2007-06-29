@@ -4,6 +4,7 @@
 //
 //    Desc: See Utility.h
 //
+// Copyright (c) 2007 TortoiseSVN
 // Copyright (c) 2003 Michael Carruth
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -87,11 +88,9 @@ string CUtility::getSaveFileName()
 {
    string sFilter = _T("Zip Files (*.zip)");
 
-   OPENFILENAME ofn;		// common dialog box structure
-   TCHAR szFile[MAX_PATH] = {0};  // buffer for file name
-   ZeroMemory(szFile, sizeof(szFile));
+   OPENFILENAME ofn = {0};			// common dialog box structure
+   TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
    // Initialize OPENFILENAME
-   ZeroMemory(&ofn, sizeof(OPENFILENAME));
    ofn.lStructSize = sizeof(OPENFILENAME);
    ofn.hwndOwner = NULL;
    ofn.lpstrFile = szFile;

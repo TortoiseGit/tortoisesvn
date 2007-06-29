@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -142,15 +142,13 @@ void COpenDlg::OnBnClickedHelp()
 
 BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 {
-	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
-	ZeroMemory(szFile, sizeof(szFile));
+	OPENFILENAME ofn = {0};			// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
 	if (!filepath.IsEmpty())
 	{
 		_tcscpy_s(szFile, filepath);
 	}
 	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;

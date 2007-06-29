@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2007 - Stefan Kueng
+// Copyright (C) 2006 - 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -717,9 +717,8 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
 
 bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
 {
-	OPENFILENAME ofn;		// common dialog box structure
+	OPENFILENAME ofn = {0};			// common dialog box structure
 	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = owner;
 	ofn.lpstrFile = path;

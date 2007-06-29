@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,11 +95,9 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 {
 	UpdateData(TRUE);
 
-	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
-	ZeroMemory(szFile, sizeof(szFile));
+	OPENFILENAME ofn = {0};				// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;

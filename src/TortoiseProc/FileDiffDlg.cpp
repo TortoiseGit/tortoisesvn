@@ -531,14 +531,12 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (m_cFileList.GetSelectedCount() > 0)
 				{
 					// ask where to save the list
-					OPENFILENAME ofn;		// common dialog box structure
+					OPENFILENAME ofn = {0};				// common dialog box structure
 					CString temp;
 					CTSVNPath savePath;
 
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
+					TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
 					ofn.lStructSize = sizeof(OPENFILENAME);
 					ofn.hwndOwner = m_hWnd;
 					ofn.lpstrFile = szFile;

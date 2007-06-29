@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -338,13 +338,11 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 void CEditPropertyValueDlg::OnBnClickedLoadprop()
 {
 	// now save the property value
-	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
+	OPENFILENAME ofn = {0};				// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 	_tcscpy_s(szFile, (LPCTSTR)m_sPropName);
 	CString temp;
-	ZeroMemory(szFile, sizeof(szFile));
 	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = m_hWnd;
 	ofn.lpstrFile = szFile;

@@ -950,10 +950,8 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 			}
 		}
 	}
-	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
-	ZeroMemory(szFile, sizeof(szFile));
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	OPENFILENAME ofn = {0};			// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;

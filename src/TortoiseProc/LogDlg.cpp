@@ -3306,9 +3306,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_SAVEAS:
 			{
 				//now first get the revision which is selected
-				OPENFILENAME ofn;		// common dialog box structure
-				TCHAR szFile[MAX_PATH];  // buffer for file name
-				ZeroMemory(szFile, sizeof(szFile));
+				OPENFILENAME ofn = {0};				// common dialog box structure
+				TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 				if (m_hasWC)
 				{
 					CString revFilename;
@@ -3321,7 +3320,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					_tcscpy_s(szFile, MAX_PATH, revFilename);
 				}
 				// Initialize OPENFILENAME
-				ZeroMemory(&ofn, sizeof(OPENFILENAME));
 				ofn.lStructSize = sizeof(OPENFILENAME);
 				ofn.hwndOwner = this->m_hWnd;
 				ofn.lpstrFile = szFile;
@@ -3900,9 +3898,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				}
 				else
 				{
-					OPENFILENAME ofn;		// common dialog box structure
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
+					OPENFILENAME ofn = {0};				// common dialog box structure
+					TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 					CString revFilename;
 					temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
 					int rfind = temp.ReverseFind('.');
@@ -3912,7 +3909,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						revFilename.Format(_T("%s-%ld"), temp, rev1);
 					_tcscpy_s(szFile, MAX_PATH, revFilename);
 					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
 					ofn.lStructSize = sizeof(OPENFILENAME);
 					ofn.hwndOwner = this->m_hWnd;
 					ofn.lpstrFile = szFile;

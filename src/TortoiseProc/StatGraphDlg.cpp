@@ -1115,11 +1115,9 @@ void CStatGraphDlg::OnFileSavestatgraphas()
 {
 	CString temp;
 	// ask for the filename to save the picture
-	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
-	ZeroMemory(szFile, sizeof(szFile));
+	OPENFILENAME ofn = {0};				// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;

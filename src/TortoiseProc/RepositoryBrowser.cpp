@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2273,11 +2273,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_IMPORT:
 			{
-				OPENFILENAME ofn;		// common dialog box structure
-				TCHAR szFile[MAX_PATH];  // buffer for file name
-				ZeroMemory(szFile, sizeof(szFile));
+				OPENFILENAME ofn = {0};				// common dialog box structure
+				TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 				// Initialize OPENFILENAME
-				ZeroMemory(&ofn, sizeof(OPENFILENAME));
 				ofn.lStructSize = sizeof(OPENFILENAME);
 				ofn.hwndOwner = this->m_hWnd;
 				ofn.lpstrFile = szFile;
@@ -2559,9 +2557,8 @@ bool CRepositoryBrowser::AskForSavePath(const CTSVNPathList& urlList, CTSVNPath 
 	bool bSavePathOK = false;
 	if (urlList.GetCount() == 1)
 	{
-		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name
-		ZeroMemory(szFile, sizeof(szFile));
+		OPENFILENAME ofn = {0};				// common dialog box structure
+		TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
 		CString filename = m_path.GetFileOrDirectoryName();
 		_tcscpy_s(szFile, MAX_PATH, filename);
 		// Initialize OPENFILENAME
