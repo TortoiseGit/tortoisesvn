@@ -763,6 +763,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					rev = dlg.Revision;
 					depth = dlg.m_depth;
+					options |= dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0;
 				}
 				else 
 					return FALSE;
