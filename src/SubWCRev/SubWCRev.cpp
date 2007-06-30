@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // thisobject program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -315,6 +315,29 @@ int abort_on_pool_failure (int /*retcode*/)
 }
 #pragma warning(pop)
 
+int nCRTIn = -1;
+int nCRTOut = -1;
+
+void closehandles()
+{
+	if (nCRTIn >= 0)
+		_close(nCRTIn);
+	if (nCRTOut >= 0)
+		_close(nCRTOut);
+
+	// since we attach ourselves to the parent console
+	// or create a new console if that's not possible, simply quitting
+	// SubWCRev still leaves the console 'open' until you press a key. So...
+	// simulate return pressing
+	INPUT input;
+	memset(&input,0,sizeof(input));
+	input.type=INPUT_KEYBOARD;
+	input.ki.wVk=VK_RETURN;
+	SendInput(1,&input,sizeof(input));
+	input.ki.dwFlags=KEYEVENTF_KEYUP;
+	SendInput(1,&input,sizeof(input)); 
+}
+
 int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 					   HINSTANCE /*hPrevInstance*/,
 					   LPTSTR    /*lpCmdLine*/,
@@ -399,17 +422,6 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 			wc = NULL;
 		}
 	}
-	if (wc == NULL)
-	{
-		_tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),
-			TSVN_VERMAJOR, TSVN_VERMINOR,
-			TSVN_VERMICRO, TSVN_VERBUILD,
-			_T(TSVN_PLATFORM));
-		_putts(_T(HelpText1));
-		_putts(_T(HelpText2));
-		_putts(_T(HelpText3));
-		return ERR_SYNTAX;
-	}
 
 	// If we get here, that means we're used 'standalone', i.e., not in
 	// automation mode. And that again means we should try to get a
@@ -429,9 +441,8 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	}
 	if (!bCon)
 		AllocConsole();
-
 	// now attach the std and c-runtime handles to the console
-	int nCRTIn= _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
+	nCRTIn = _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
 	if (nCRTIn != -1)
 	{
 		FILE * fpCRTIn = _fdopen(nCRTIn, "r");
@@ -442,7 +453,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 			std::cin.clear();
 		}
 	}
-	int nCRTOut= _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
+	nCRTOut = _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
 	if (nCRTOut != -1)
 	{
 		FILE * fpCRTOut = _fdopen(nCRTOut, "w");
@@ -453,9 +464,22 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 			std::cout.clear();
 		}
 	}
+	atexit(closehandles);
 
+	if (!bCon)
+		AllocConsole();
+	if (wc == NULL)
+	{
+		_tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),
+			TSVN_VERMAJOR, TSVN_VERMINOR,
+			TSVN_VERMICRO, TSVN_VERBUILD,
+			_T(TSVN_PLATFORM));
+		_putts(_T(HelpText1));
+		_putts(_T(HelpText2));
+		_putts(_T(HelpText3));
+		return ERR_SYNTAX;
+	}
 
-	AllocConsole();
 	if (!PathFileExists(wc))
 	{
 		_tprintf(_T("Directory or file '%s' does not exist\n"), wc);
@@ -543,7 +567,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 
 	if (svnerr)
 	{
-		svn_handle_error2(svnerr, stderr, FALSE, "SubWCRev : ");
+		svn_handle_error2(svnerr, stdout, FALSE, "SubWCRev : ");
 	}
 	TCHAR wcfullpath[MAX_PATH];
 	LPTSTR dummy;
@@ -644,7 +668,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	}
 
 	// The file is only written if its contents would change.
-	// thisobject prevents the timestamp from changing.
+	// this object prevents the timestamp from changing.
 	if (!sameFileContent)
 	{
 		SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
