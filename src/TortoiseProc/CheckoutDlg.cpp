@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -273,35 +273,24 @@ void CCheckoutDlg::OnBnClickedBrowse()
 		if (!CString(regDefCheckoutUrl).IsEmpty())
 		{
 			m_URL = m_URLCombo.GetString();
-			CTSVNPath url = CTSVNPath(m_URL);
-			CTSVNPath defurl = CTSVNPath(CString(regDefCheckoutUrl));
-			if (defurl.IsAncestorOf(url))
-			{
-				if (CTSVNPath::CheckChild(CTSVNPath(CString(regDefCheckoutPath)), CTSVNPath(m_strCheckoutDirectory)))
-				{
-					// the default url is the parent of the specified url
-					m_strCheckoutDirectory = CString(regDefCheckoutPath).TrimRight('\\') + url.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
-					UpdateData(FALSE);
-				}
-			}
 		}
 		else
 		{
 			m_URLCombo.GetWindowText(m_URL);
 			if (m_URL.IsEmpty())
 				return;
-			CString tempURL = m_URL;
-			CString name;
-			while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
-				(name.CompareNoCase(_T("tags"))==0) ||
-				(name.CompareNoCase(_T("trunk"))==0))
-			{
-				name = tempURL.Mid(tempURL.ReverseFind('/')+1);
-				tempURL = tempURL.Left(tempURL.ReverseFind('/'));
-			}
-			m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
-			UpdateData(FALSE);
 		}
+		CString tempURL = m_URL;
+		CString name;
+		while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
+			(name.CompareNoCase(_T("tags"))==0) ||
+			(name.CompareNoCase(_T("trunk"))==0))
+		{
+			name = tempURL.Mid(tempURL.ReverseFind('/')+1);
+			tempURL = tempURL.Left(tempURL.ReverseFind('/'));
+		}
+		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+		UpdateData(FALSE);
 	}
 }
 
