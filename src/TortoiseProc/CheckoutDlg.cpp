@@ -110,6 +110,14 @@ BOOL CCheckoutDlg::OnInitDialog()
 		m_editRevision.SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+		m_strCheckoutDirectory = lastCheckoutPath;
+		if (m_strCheckoutDirectory.GetLength() <= 2)
+			m_strCheckoutDirectory += _T("\\");
+	}
+	UpdateData(FALSE);
 
 	AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
@@ -248,6 +256,8 @@ void CCheckoutDlg::OnOK()
 		break;
 	}
 	UpdateData(FALSE);
+	CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+	lastCheckoutPath = m_strCheckoutDirectory.Left(m_strCheckoutDirectory.ReverseFind('\\'));
 	CResizableStandAloneDialog::OnOK();
 }
 
@@ -290,6 +300,13 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 		}
 		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+		if (m_strCheckoutDirectory.IsEmpty())
+		{
+			CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+			m_strCheckoutDirectory = lastCheckoutPath;
+			if (m_strCheckoutDirectory.GetLength() <= 2)
+				m_strCheckoutDirectory += _T("\\");
+		}
 		UpdateData(FALSE);
 	}
 }
@@ -406,5 +423,12 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 		tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 	}
 	m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+		m_strCheckoutDirectory = lastCheckoutPath;
+		if (m_strCheckoutDirectory.GetLength() <= 2)
+			m_strCheckoutDirectory += _T("\\");
+	}
 	UpdateData(FALSE);
 }
