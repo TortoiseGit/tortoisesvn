@@ -476,7 +476,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 			// found an entry. Report it if not already done.
 
 			revision_t revision = iterator->GetRevision();
-			if (revision < lastReported)
+			if ((revision < lastReported) && (receiver != NULL))
 			{
 				index_t logIndex = cache->GetRevisions()[revision];
 				const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
@@ -558,21 +558,34 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 
 CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData& info)
 {
-	// load cache
+	// resolve URL
 
 	URL.Empty();
 	if (info.reposUUID.IsEmpty())
 	{
 		SVN svn;
-		URL = CUnicodeUtils::GetUTF8(svn.GetRepositoryRootAndUUID(
-										CTSVNPath(info.url), info.reposUUID));
+		URL = CUnicodeUtils::GetUTF8 
+				(svn.GetRepositoryRootAndUUID ( CTSVNPath (info.url)
+											  , info.reposUUID));
 	}
-
-	assert(!info.reposUUID.IsEmpty());
-	cache = caches->GetCache (info.reposUUID);
 
 	if (URL.IsEmpty())
 		URL = CUnicodeUtils::GetUTF8 (info.reposRoot);
+
+	// load / create cache
+
+	assert(!info.reposUUID.IsEmpty());
+	if (caches != NULL)
+	{
+		cache = caches->GetCache (info.reposUUID);
+	}
+	else
+	{
+		delete tempCache;
+		tempCache = new CCachedLogInfo(L"");
+
+		cache = tempCache;
+	}
 
 	// workaround for 1.2.x (and older) working copies
 
@@ -696,6 +709,7 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
 CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 	: caches (caches)
 	, cache (NULL)
+	, tempCache (NULL)
 	, URL()
 	, svnQuery (svnQuery)
 {
@@ -703,6 +717,7 @@ CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 
 CCacheLogQuery::~CCacheLogQuery(void)
 {
+	delete tempCache;
 }
 
 // query a section from log for multiple paths
