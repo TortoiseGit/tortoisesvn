@@ -80,7 +80,8 @@ enum LogDlgContextMenuCommands
 	ID_VIEWPATHREV,
 	ID_EXPORT,
 	ID_COMPAREWITHPREVIOUS,
-	ID_BLAMEWITHPREVIOUS
+	ID_BLAMEWITHPREVIOUS,
+	ID_GETMERGELOGS
 };
 
 
@@ -109,6 +110,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
+	, m_childCounter(0)
+	, m_bIncludeMerges(FALSE)
 {
 }
 
@@ -144,6 +147,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
 	DDX_Control(pDX, IDC_GETALL, m_btnShow);
 	DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
+	DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
 }
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
@@ -176,6 +180,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATEFROM, &CLogDlg::OnDtnDropdownDatefrom)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATETO, &CLogDlg::OnDtnDropdownDateto)
 	ON_WM_SIZE()
+	ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -329,6 +334,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);	
 	AddAnchor(IDC_HIDEPATHS, BOTTOM_LEFT);	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
+	AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
 	AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
 	AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
@@ -749,6 +755,10 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions)
 {
+	return Log(rev, author, date, message, cpaths, time, filechanges, copies, actions, 0);
+}
+BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children)
+{
 	// this is the callback function which receives the data for every revision we ask the log for
 	// we store this information here one by one.
 	int found = 0;
@@ -793,6 +803,12 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->sShortMessage = sShortMessage;
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
+	pLogItem->children = children;
+	pLogItem->isChild = (m_childCounter > 0);
+
+	if (m_childCounter > 0)
+		m_childCounter--;
+	m_childCounter += children;
 	
 	// split multi line log entries and concatenate them
 	// again but this time with \r\n as line separators
@@ -948,9 +964,19 @@ UINT CLogDlg::LogThread()
 	size_t startcount = m_logEntries.size();
 	m_lowestRev = -1;
 	m_bStrictStopped = false;
-	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
+	if (m_bIncludeMerges)
 	{
-		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		if (!GetLogWithMergeInfo(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
+		{
+			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
+	}
+	else
+	{
+		if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
+		{
+			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
 	}
 	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
@@ -1880,7 +1906,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
-					if (m_mergedRevs.find(data->Rev) != m_mergedRevs.end())
+					if ((data->isChild)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
 				}
 			}
@@ -2194,7 +2220,12 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 		case 0:	//revision
 			if (itemid < m_arShownList.GetCount())
-				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+			{
+				if (pLogEntry->isChild)
+					_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+				else
+					_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld  "), pLogEntry->Rev);
+			}
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
@@ -2940,10 +2971,16 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 	//  we see immediately after switching to
 	//  copy-following)
 
-	m_logEntries.clear();
 	m_endrev = 1;
 
 	// now, restart the query
+
+	Refresh();
+}
+
+void CLogDlg::OnBnClickedIncludemerge()
+{
+	m_endrev = 1;
 
 	Refresh();
 }
@@ -3114,6 +3151,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CHECKOUT, temp);
 			temp.LoadString(IDS_MENUEXPORT);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
+			popup.AppendMenu(MF_SEPARATOR, NULL);
+			temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GETMERGELOGS, temp);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		else if (m_LogList.GetSelectedCount() >= 2)
@@ -3537,6 +3577,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
 					url, revSelected);
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
+			}
+			break;
+		case ID_GETMERGELOGS:
+			{
+				CString sCmd;
+				CString url = _T("tsvn:")+pathURL;
+				sCmd.Format(_T("%s /command:log /path:\"%s\" /revision:%ld /merge"),
+					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
+					pathURL, revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
@@ -4193,3 +4243,4 @@ CLogDlg::CStoreSelection::~CStoreSelection()
 		}
 	}
 }
+

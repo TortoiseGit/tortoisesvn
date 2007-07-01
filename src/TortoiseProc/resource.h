@@ -262,6 +262,7 @@
 #define IDC_SHOWLOCKDLG                 1126
 #define IDC_SHOWEXCLUDEDASNORMAL        1126
 #define IDC_CACHELOGS                   1126
+#define IDC_INCLUDEMERGE                1126
 #define IDC_F5HINT                      1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
@@ -714,6 +715,7 @@
 #define IDS_LOG_POPUP_BLAMEWITHPREVIOUS 1817
 #define IDS_LOG_POPUP_BLAME             1818
 #define IDS_LOG_POPUP_GNUDIFF_CH        1819
+#define IDS_LOG_POPUP_GETMERGELOGS      1820
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_MESSAGEEDITTITLE        1831
 #define IDS_LOG_AUTHOREDITTITLE         1832

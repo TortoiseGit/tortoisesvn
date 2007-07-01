@@ -2330,6 +2330,10 @@ msgstr ""
 msgid "Get loc&k..."
 msgstr ""
 
+#: ID:114,
+msgid "Get merge logs"
+msgstr ""
+
 #: ID:89,
 msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
@@ -2692,6 +2696,10 @@ msgstr ""
 
 #: Control-ID:1266,
 msgid "Include ignored files"
+msgstr ""
+
+#: Control-ID:1126,
+msgid "Include merged revisions"
 msgstr ""
 
 #: Control-ID:65535,

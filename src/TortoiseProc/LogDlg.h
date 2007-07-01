@@ -60,6 +60,7 @@ public:
 protected:
 	//implement the virtual methods from SVN base class
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -93,7 +94,9 @@ protected:
 	afx_msg void OnDtnDropdownDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDropdownDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-virtual void OnCancel();
+	afx_msg void OnBnClickedIncludemerge();
+
+	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -105,6 +108,7 @@ virtual void OnCancel();
 public:
 	void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, 
 				BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
+	void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
@@ -167,6 +171,7 @@ private:
 	volatile LONG 		m_bThreadRunning;
 	BOOL				m_bStrict;
 	bool				m_bStrictStopped;
+	BOOL				m_bIncludeMerges;
 	svn_revnum_t		m_lowestRev;
 	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
@@ -214,6 +219,7 @@ private:
 	HICON				m_hAddedIcon;
 	HICON				m_hDeletedIcon;
 
+	DWORD				m_childCounter;
 private:
 	/**
 	 * Instances of CStoreSelection save the selection of the CLogDlg. When the instance
@@ -242,6 +248,8 @@ private:
         LogChangedPathArray* pArChangedPaths;
         BOOL bCopies;
         DWORD actions;
+		DWORD children;
+		BOOL isChild;
     } LOGENTRYDATA, *PLOGENTRYDATA;
     class CLogDataVector : 
         public std::vector<PLOGENTRYDATA>

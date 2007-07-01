@@ -587,6 +587,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
 			dlg.SetParams(cmdLinePath, pegrev, revstart, revend, limit, bStrict);
+			dlg.SetIncludeMerge(!!parser.HasKey(_T("merge")));
 			val = parser.GetVal(_T("propspath"));
 			if (!val.IsEmpty())
 				dlg.SetProjectPropertiesPath(CTSVNPath(val));
