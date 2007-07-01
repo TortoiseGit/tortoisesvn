@@ -783,3 +783,11 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 				, strictNodeHistory
 				, receiver);
 }
+
+// access to the cache
+
+CCachedLogInfo* CCacheLogQuery::GetCache()
+{
+	assert (cache != NULL);
+	return cache;
+}

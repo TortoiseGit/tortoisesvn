@@ -223,4 +223,9 @@ public:
 					 , int limit
 					 , bool strictNodeHistory
 					 , ILogReceiver* receiver);
+
+	// access to the cache
+	// (only valid after calling Log())
+
+	CCachedLogInfo* GetCache();
 };
