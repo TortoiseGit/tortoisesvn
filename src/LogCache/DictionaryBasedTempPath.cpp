@@ -73,7 +73,7 @@ CDictionaryBasedTempPath CDictionaryBasedTempPath::GetCommonRoot
 
 CDictionaryBasedTempPath CDictionaryBasedTempPath::ReplaceParent 
 	( const CDictionaryBasedPath& oldParent
-	, const CDictionaryBasedPath& newParent)
+	, const CDictionaryBasedPath& newParent) const
 {
 	assert (oldParent.IsSameOrParentOf (*this));
 

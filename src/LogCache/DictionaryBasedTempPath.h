@@ -104,7 +104,7 @@ public:
 
 	CDictionaryBasedTempPath ReplaceParent 
 		( const CDictionaryBasedPath& oldParent
-		, const CDictionaryBasedPath& newParent);
+		, const CDictionaryBasedPath& newParent) const;
 
 	// call this after cache updates:
 	// try to remove the leading entries from relPathElements, if possible
