@@ -36,6 +36,14 @@ SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev r
 
 SVNDataObject::~SVNDataObject()
 {
+	for (size_t i = 0; i < m_vecStgMedium.size(); ++i)
+	{
+		ReleaseStgMedium(m_vecStgMedium[i]);
+		delete m_vecStgMedium[i];
+	}
+
+	for (size_t j = 0; j < m_vecFormatEtc.size(); ++j)
+		delete m_vecFormatEtc[j];
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -178,7 +186,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			// escaped and it would only look really ugly (and be wrong).
 			temp = CPathUtils::PathUnescape(temp);
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
-			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE;
+			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
 			files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
 			files->fgd[i].nFileSizeLow = it->infodata.size;
 			files->fgd[i].nFileSizeHigh = 0;
@@ -263,10 +271,21 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		return S_OK;
 	}
 
+	for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
+	{
+		if ((pformatetcIn->tymed == m_vecFormatEtc[i]->tymed) &&
+			(pformatetcIn->dwAspect == m_vecFormatEtc[i]->dwAspect) &&
+			(pformatetcIn->cfFormat == m_vecFormatEtc[i]->cfFormat))
+		{
+			CopyMedium(pmedium, m_vecStgMedium[i], m_vecFormatEtc[i]);
+			return S_OK;
+		}
+	}
+
 	return DV_E_FORMATETC;
 }
 
-STDMETHODIMP SVNDataObject::GetDataHere(FORMATETC* /*pformatetc*/, STGMEDIUM* /*pmedium*/)
+STDMETHODIMP SVNDataObject::GetDataHere(FORMATETC* pformatetc, STGMEDIUM* /*pmedium*/)
 {
 	return E_NOTIMPL;
 }
@@ -279,21 +298,27 @@ STDMETHODIMP SVNDataObject::QueryGetData(FORMATETC* pformatetc)
 	if (!(DVASPECT_CONTENT & pformatetc->dwAspect))
 		return DV_E_DVASPECT;
 
-	if ((pformatetc->tymed & TYMED_ISTREAM) || (pformatetc->tymed & TYMED_HGLOBAL))
+	if ((pformatetc->tymed & TYMED_ISTREAM) &&
+		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
+		(pformatetc->cfFormat == CF_FILECONTENTS))
 	{
-		if (pformatetc->dwAspect == DVASPECT_CONTENT)
-		{
-			if ((pformatetc->cfFormat == CF_FILECONTENTS) ||
-				(pformatetc->cfFormat == CF_FILEDESCRIPTOR) ||
-				(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT) ||
-				(pformatetc->cfFormat == CF_TEXT) ||
-				(pformatetc->cfFormat == CF_UNICODETEXT))
-				return S_OK;
-			return DV_E_FORMATETC;
-		}
-		else
-			return DV_E_DVASPECT;
+		return S_OK;
 	}
+	if ((pformatetc->tymed & TYMED_HGLOBAL) &&
+		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
+		((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_FILEDESCRIPTOR)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
+	{
+		return S_OK;
+	}
+
+	for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
+	{
+		if ((pformatetc->tymed == m_vecFormatEtc[i]->tymed) &&
+			(pformatetc->dwAspect == m_vecFormatEtc[i]->dwAspect) &&
+			(pformatetc->cfFormat == m_vecFormatEtc[i]->cfFormat))
+			return S_OK;
+	}
+
 	return DV_E_TYMED;
 }
 
@@ -304,9 +329,32 @@ STDMETHODIMP SVNDataObject::GetCanonicalFormatEtc(FORMATETC* /*pformatectIn*/, F
 	return DATA_S_SAMEFORMATETC;
 }
 
-STDMETHODIMP SVNDataObject::SetData(FORMATETC* /*pformatetc*/, STGMEDIUM* /*pmedium*/, BOOL /*fRelease*/)
+STDMETHODIMP SVNDataObject::SetData(FORMATETC* pformatetc, STGMEDIUM* pmedium, BOOL fRelease)
 { 
-	return E_NOTIMPL;
+	if ((pformatetc == NULL) || (pmedium == NULL))
+		return E_INVALIDARG;
+
+	FORMATETC* fetc = new FORMATETC;
+	STGMEDIUM* pStgMed = new STGMEDIUM;
+
+	if ((fetc == NULL) || (pStgMed == NULL))
+		return E_OUTOFMEMORY;
+
+	ZeroMemory(fetc,sizeof(FORMATETC));
+	ZeroMemory(pStgMed,sizeof(STGMEDIUM));
+
+	*fetc = *pformatetc;
+	m_vecFormatEtc.push_back(fetc);
+
+	if (fRelease)
+		*pStgMed = *pmedium;
+	else
+	{
+		CopyMedium(pStgMed, pmedium, pformatetc);
+	}
+	m_vecStgMedium.push_back(pStgMed);
+
+	return S_OK;
 }
 
 STDMETHODIMP SVNDataObject::EnumFormatEtc(DWORD dwDirection, IEnumFORMATETC** ppenumFormatEtc)
@@ -318,7 +366,7 @@ STDMETHODIMP SVNDataObject::EnumFormatEtc(DWORD dwDirection, IEnumFORMATETC** pp
 	switch (dwDirection)
 	{
 	case DATADIR_GET:
-		*ppenumFormatEtc= new CSVNEnumFormatEtc();
+		*ppenumFormatEtc= new CSVNEnumFormatEtc(m_vecFormatEtc);
 		if (*ppenumFormatEtc == NULL)
 			return E_OUTOFMEMORY;
 		(*ppenumFormatEtc)->AddRef(); 
@@ -343,6 +391,47 @@ HRESULT STDMETHODCALLTYPE SVNDataObject::EnumDAdvise(IEnumSTATDATA** /*ppenumAdv
 {
 	return OLE_E_ADVISENOTSUPPORTED;
 }
+
+void SVNDataObject::CopyMedium(STGMEDIUM* pMedDest, STGMEDIUM* pMedSrc, FORMATETC* pFmtSrc)
+{
+	switch(pMedSrc->tymed)
+	{
+	case TYMED_HGLOBAL:
+		pMedDest->hGlobal = (HGLOBAL)OleDuplicateData(pMedSrc->hGlobal,pFmtSrc->cfFormat, NULL);
+		break;
+	case TYMED_GDI:
+		pMedDest->hBitmap = (HBITMAP)OleDuplicateData(pMedSrc->hBitmap,pFmtSrc->cfFormat, NULL);
+		break;
+	case TYMED_MFPICT:
+		pMedDest->hMetaFilePict = (HMETAFILEPICT)OleDuplicateData(pMedSrc->hMetaFilePict,pFmtSrc->cfFormat, NULL);
+		break;
+	case TYMED_ENHMF:
+		pMedDest->hEnhMetaFile = (HENHMETAFILE)OleDuplicateData(pMedSrc->hEnhMetaFile,pFmtSrc->cfFormat, NULL);
+		break;
+	case TYMED_FILE:
+		pMedSrc->lpszFileName = (LPOLESTR)OleDuplicateData(pMedSrc->lpszFileName,pFmtSrc->cfFormat, NULL);
+		break;
+	case TYMED_ISTREAM:
+		pMedDest->pstm = pMedSrc->pstm;
+		pMedSrc->pstm->AddRef();
+		break;
+	case TYMED_ISTORAGE:
+		pMedDest->pstg = pMedSrc->pstg;
+		pMedSrc->pstg->AddRef();
+		break;
+	case TYMED_NULL:
+	default:
+		break;
+	}
+	pMedDest->tymed = pMedSrc->tymed;
+	pMedDest->pUnkForRelease = NULL;
+	if(pMedSrc->pUnkForRelease != NULL)
+	{
+		pMedDest->pUnkForRelease = pMedSrc->pUnkForRelease;
+		pMedSrc->pUnkForRelease->AddRef();
+	}
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 // IAsyncOperation
@@ -388,10 +477,7 @@ HRESULT STDMETHODCALLTYPE SVNDataObject::EndOperation(HRESULT /*hResult*/, IBind
 
 
 
-
-
-CSVNEnumFormatEtc::CSVNEnumFormatEtc() : m_cRefCount(0)
-	, m_iCur(0)
+void CSVNEnumFormatEtc::Init()
 {
 	m_formats[0].cfFormat = CF_UNICODETEXT;
 	m_formats[0].dwAspect = DVASPECT_CONTENT;
@@ -422,6 +508,22 @@ CSVNEnumFormatEtc::CSVNEnumFormatEtc() : m_cRefCount(0)
 	m_formats[4].lindex = -1;
 	m_formats[4].ptd = NULL;
 	m_formats[4].tymed = TYMED_HGLOBAL;
+}
+
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec) : m_cRefCount(0)
+	, m_iCur(0)
+{
+	for (size_t i = 0; i < vec.size(); ++i)
+		m_vecFormatEtc.push_back(vec[i]);
+	Init();
+}
+
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC*>& vec) : m_cRefCount(0)
+	, m_iCur(0)
+{
+	for (size_t i = 0; i < vec.size(); ++i)
+		m_vecFormatEtc.push_back(*vec[i]);
+	Init();
 }
 
 STDMETHODIMP  CSVNEnumFormatEtc::QueryInterface(REFIID refiid, void** ppv)
@@ -461,15 +563,18 @@ STDMETHODIMP CSVNEnumFormatEtc::Next(ULONG celt, LPFORMATETC lpFormatEtc, ULONG*
 
 	ULONG cReturn = celt;
 
-	if(celt <= 0 || lpFormatEtc == NULL || m_iCur >= SVNDATAOBJECT_NUMFORMATS)
+	if (celt <= 0 || lpFormatEtc == NULL || m_iCur >= SVNDATAOBJECT_NUMFORMATS)
 		return S_FALSE;
 
 	if (pceltFetched == NULL && celt != 1) // pceltFetched can be NULL only for 1 item request
 		return S_FALSE;
 
-	while (m_iCur < SVNDATAOBJECT_NUMFORMATS && cReturn > 0)
+	while (m_iCur < (SVNDATAOBJECT_NUMFORMATS + m_vecFormatEtc.size()) && cReturn > 0)
 	{
-		*lpFormatEtc++ = m_formats[m_iCur++];
+		if (m_iCur < SVNDATAOBJECT_NUMFORMATS)
+			*lpFormatEtc++ = m_formats[m_iCur++];
+		else
+			*lpFormatEtc++ = m_vecFormatEtc[m_iCur++ - SVNDATAOBJECT_NUMFORMATS];
 		--cReturn;
 	}
 
@@ -481,7 +586,7 @@ STDMETHODIMP CSVNEnumFormatEtc::Next(ULONG celt, LPFORMATETC lpFormatEtc, ULONG*
 
 STDMETHODIMP CSVNEnumFormatEtc::Skip(ULONG celt)
 {
-	if ((m_iCur + int(celt)) >= SVNDATAOBJECT_NUMFORMATS)
+	if ((m_iCur + int(celt)) >= (SVNDATAOBJECT_NUMFORMATS + m_vecFormatEtc.size()))
 		return S_FALSE;
 	m_iCur += celt;
 	return S_OK;
@@ -498,7 +603,7 @@ STDMETHODIMP CSVNEnumFormatEtc::Clone(IEnumFORMATETC** ppCloneEnumFormatEtc)
 	if (ppCloneEnumFormatEtc == NULL)
 		return E_POINTER;
 
-	CSVNEnumFormatEtc *newEnum = new CSVNEnumFormatEtc();
+	CSVNEnumFormatEtc *newEnum = new CSVNEnumFormatEtc(m_vecFormatEtc);
 	if (newEnum == NULL)
 		return E_OUTOFMEMORY;
 

@@ -73,6 +73,9 @@ public:
 	virtual HRESULT STDMETHODCALLTYPE EndOperation(HRESULT hResult, IBindCtx* pbcReserved, DWORD dwEffects);
 
 private:
+	void CopyMedium(STGMEDIUM* pMedDest, STGMEDIUM* pMedSrc, FORMATETC* pFmtSrc);
+
+private:
 	struct SVNObjectInfoData
 	{
 		CTSVNPath				rootpath;
@@ -88,6 +91,8 @@ private:
 	long						m_cRefCount;
 	BOOL						m_bInOperation;
 	BOOL						m_bIsAsync;
+	vector<FORMATETC*>			m_vecFormatEtc;
+	vector<STGMEDIUM*>			m_vecStgMedium;
 };
 
 
@@ -98,7 +103,8 @@ private:
 class CSVNEnumFormatEtc : public IEnumFORMATETC
 {
 public:
-	CSVNEnumFormatEtc();
+	CSVNEnumFormatEtc(const vector<FORMATETC*>& vec);
+	CSVNEnumFormatEtc(const vector<FORMATETC>& vec);
 	//IUnknown members
 	STDMETHOD(QueryInterface)(REFIID, void**);
 	STDMETHOD_(ULONG, AddRef)(void);
@@ -110,8 +116,11 @@ public:
 	STDMETHOD(Reset)(void);
 	STDMETHOD(Clone)(IEnumFORMATETC**);
 private:
+	void						Init();
+private:
+	vector<FORMATETC>			m_vecFormatEtc;
 	FORMATETC					m_formats[SVNDATAOBJECT_NUMFORMATS];
 	ULONG						m_cRefCount;
-	int							m_iCur;
+	size_t						m_iCur;
 };
 
