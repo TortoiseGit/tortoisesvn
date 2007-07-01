@@ -224,11 +224,23 @@ public:
 			return CDictionaryBasedPath (&container->paths, pathID);
 		}
 
+		index_t GetPathID() const
+		{
+			assert (IsValid());
+			return container->changedPaths[changeOffset];
+		}
+
 		CDictionaryBasedPath GetFromPath() const
 		{
 			assert (HasFromPath());
 			index_t pathID = container->copyFromPaths [copyFromOffset];
 			return CDictionaryBasedPath (&container->paths, pathID);
+		}
+
+		index_t GetFromPathID() const
+		{
+			assert (HasFromPath());
+			return container->copyFromPaths [copyFromOffset];
 		}
 
 		revision_t GetFromRevision() const
