@@ -145,6 +145,10 @@ protected:
 				   , CPathDictionary* writableDictionary = NULL
 				   , std::vector<std::string>* relPath = NULL);
 
+	// comparison utility
+
+	bool IsSameOrParentOf (index_t lhsIndex, index_t rhsIndex) const;
+
 public:
 
 	// construction / destruction
@@ -203,7 +207,25 @@ public:
 
 	CDictionaryBasedPath GetCommonRoot (index_t rhsIndex) const;
 
-	bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const;
+	bool IsSameOrParentOf (index_t rhsIndex) const
+	{
+		return IsSameOrParentOf (index, rhsIndex);
+	}
+
+	bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
+	{
+		return IsSameOrParentOf (index, rhs.index);
+	}
+
+	bool IsSameOrChildOf (index_t rhsIndex) const
+	{
+		return IsSameOrParentOf (rhsIndex, index);
+	}
+
+	bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
+	{
+		return IsSameOrParentOf (rhs.index, index);
+	}
 
 	// convert to string
 

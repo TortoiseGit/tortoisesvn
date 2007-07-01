@@ -237,20 +237,19 @@ CDictionaryBasedPath::CDictionaryBasedPath ( CPathDictionary* aDictionary
 	ParsePath (path, nextParent ? NULL : aDictionary);
 }
 
-bool CDictionaryBasedPath::IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
+bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
+											, index_t rhsIndex) const
 {
 	// the root is always a parent of / the same as rhs
 
-	if (index == 0)
+	if (lhsIndex == 0)
 		return true;
 
 	// crawl rhs up to the root until we find it to be equal to *this
 
-	for ( index_t rhsIndex = rhs.index
-		; rhsIndex != 0
-		; rhsIndex = dictionary->GetParent (rhsIndex))
+	for (; rhsIndex >= lhsIndex; rhsIndex = dictionary->GetParent (rhsIndex))
 	{
-		if (index == rhsIndex)
+		if (lhsIndex == rhsIndex)
 			return true;
 	}
 
