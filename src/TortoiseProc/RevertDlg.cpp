@@ -63,6 +63,8 @@ BOOL CRevertDlg::OnInitDialog()
 	m_RevertList.SetSelectButton(&m_SelectAll);
 	m_RevertList.SetCancelBool(&m_bCancelled);
 	m_RevertList.SetBackgroundImage(IDI_REVERT);
+
+	GetWindowText(m_sWindowTitle);
 	
 	AdjustControlSize(IDC_SELECTALL);
 
@@ -106,6 +108,9 @@ UINT CRevertDlg::RevertThread()
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES, 
 						// do not select all files, only the ones the user has selected directly
 						SVNSLC_SHOWDIRECTFILES);
+
+	CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
+	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;
