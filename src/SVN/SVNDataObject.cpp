@@ -285,7 +285,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	return DV_E_FORMATETC;
 }
 
-STDMETHODIMP SVNDataObject::GetDataHere(FORMATETC* pformatetc, STGMEDIUM* /*pmedium*/)
+STDMETHODIMP SVNDataObject::GetDataHere(FORMATETC* /*pformatetc*/, STGMEDIUM* /*pmedium*/)
 {
 	return E_NOTIMPL;
 }
