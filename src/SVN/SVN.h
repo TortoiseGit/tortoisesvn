@@ -64,6 +64,7 @@ public:
 							const CString& changelistname,
 							svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
 	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
 	virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
@@ -526,7 +527,22 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
-	
+
+	/**
+	 * Receives all log messages between \revisionStart and \c revisionEnd
+	 * including the 'child' log entries from merges.
+	 * 
+	 * \param path the file/directory to get the log of
+	 * \param revisionPeg the peg revision to anchor the log on
+	 * \param revisionStart	the revision to start the logs from
+	 * \param revisionEnd the revision to stop the logs
+	 * \param limit number of log messages to fetch, or zero for all
+	 * \param strict if TRUE, then the log won't follow copies
+	 * \param changed TRUE if the log should follow changed paths 
+	 * \return TRUE if successful
+	 */
+	BOOL GetLogWithMergeInfo(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
+
 	/**
 	 * Checks out a file with \a revision to \a localpath.
 	 * \param revision the revision of the file to checkout
@@ -868,6 +884,8 @@ protected:
 					const svn_lock_t *lock, 
 					const char *abs_path, 
 					apr_pool_t *pool);
+	static svn_error_t* logMergeReceiver(void* baton,
+					svn_log_entry_t* log_entry, apr_pool_t* pool);
 
 	// implement ILogReceiver
 

@@ -155,6 +155,7 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 				const CString& changelistname,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
@@ -1165,6 +1166,126 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
 	}
 
 	return TRUE;
+}
+
+BOOL SVN::GetLogWithMergeInfo(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict /* = FALSE */)
+{
+	svn_error_clear(Err);
+	SVNPool localpool(pool);
+	Err = svn_client_log4(pathlist.MakePathArray(localpool),
+							revisionPeg,
+							revisionStart, 
+							revisionEnd, 
+							limit,
+							TRUE,			// discover changed paths
+							strict,
+							TRUE,			// include merged revisions
+							FALSE,			// omit log messages
+							logMergeReceiver,
+							(void *)this, m_pctx, localpool);
+
+	if(Err != NULL)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+svn_error_t * SVN::logMergeReceiver(void* baton, svn_log_entry_t* log_entry, apr_pool_t* pool)
+{
+	svn_error_t * error = NULL;
+	TCHAR date_native[SVN_DATE_BUFFER] = {0};
+	CString author_native;
+	CString msg_native;
+	DWORD actions = 0;
+
+	if (log_entry == NULL)
+		return SVN_NO_ERROR;
+
+	SVN * svn = (SVN *)baton;
+	author_native = CUnicodeUtils::GetUnicode(log_entry->author);
+	apr_time_t time_temp = NULL;
+
+	if (log_entry->date && log_entry->date[0])
+	{
+		//Convert date to a format for humans.
+		error = svn_time_from_cstring (&time_temp, log_entry->date, pool);
+		if (error)
+			return error;
+
+		formatDate(date_native, time_temp);
+	}
+	else
+		_tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
+
+	if (log_entry->message == NULL)
+		log_entry->message = "";
+
+	msg_native = CUnicodeUtils::GetUnicode(log_entry->message);
+	int filechanges = 0;
+	BOOL copies = FALSE;
+	std::auto_ptr<LogChangedPathArray> arChangedPaths (new LogChangedPathArray);
+	try
+	{
+		if (log_entry->changed_paths)
+		{
+			apr_array_header_t *sorted_paths;
+			sorted_paths = svn_sort__hash(log_entry->changed_paths, svn_sort_compare_items_as_paths, pool);
+			filechanges = sorted_paths->nelts;
+			for (int i = 0; i < sorted_paths->nelts; i++)
+			{
+				std::auto_ptr<LogChangedPath> changedpath (new LogChangedPath);
+				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
+				CString path_native;
+				const char *path = (const char *)item->key;
+				svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get(log_entry->changed_paths, item->key, item->klen);
+				path_native = MakeUIUrlOrPath(path);
+				changedpath->sPath = path_native;
+				switch (log_item->action)
+				{
+				case 'M':
+					changedpath->action = LOGACTIONS_MODIFIED;
+					actions |= LOGACTIONS_MODIFIED;
+					break;
+				case 'R':
+					changedpath->action = LOGACTIONS_REPLACED;
+					actions |= LOGACTIONS_REPLACED;
+					break;
+				case 'A':
+					changedpath->action = LOGACTIONS_ADDED;
+					actions |= LOGACTIONS_ADDED;
+					break;
+				case 'D':
+					changedpath->action = LOGACTIONS_DELETED;
+					actions |= LOGACTIONS_DELETED;
+				default:
+					break;
+				}
+				if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				{
+					changedpath->sCopyFromPath = MakeUIUrlOrPath(log_item->copyfrom_path);
+					changedpath->lCopyFromRev = log_item->copyfrom_rev;
+					copies = TRUE;
+				}
+				else
+				{
+					changedpath->lCopyFromRev = 0;
+				}
+				arChangedPaths->Add(changedpath.release());
+			} // for (int i = 0; i < sorted_paths->nelts; i++) 
+		} // if (ch_paths)
+	}
+	catch (CMemoryException * e)
+	{
+		e->Delete();
+	}
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
+	SVN_ERR (svn->cancel(baton));
+#pragma warning(pop)
+
+	svn->Log(log_entry->revision, author_native, date_native, msg_native, arChangedPaths.release(), time_temp, filechanges, copies, actions, (DWORD)log_entry->nbr_children);
+	return error;
 }
 
 BOOL SVN::Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const CTSVNPath& localpath)
