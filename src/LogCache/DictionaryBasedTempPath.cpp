@@ -69,6 +69,17 @@ CDictionaryBasedTempPath CDictionaryBasedTempPath::GetCommonRoot
 }
 
 
+// general comparison
+
+bool CDictionaryBasedTempPath::operator==(const CDictionaryBasedTempPath& rhs) const
+{
+    return (GetBasePath() == rhs.GetBasePath())
+        && (relPathElements.size() == rhs.relPathElements.size())
+        && (std::equal ( relPathElements.begin()
+                       , relPathElements.end()
+                       , rhs.relPathElements.begin()));
+}
+
 // create a path object with the parent renamed
 
 CDictionaryBasedTempPath CDictionaryBasedTempPath::ReplaceParent 

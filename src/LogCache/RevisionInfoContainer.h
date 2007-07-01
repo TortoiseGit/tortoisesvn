@@ -44,7 +44,8 @@ namespace LogCache
 //		be appended here).
 //
 //		Every entry holds the data for exactly one revision.
-//		You may add change paths to the last revision, only.
+//		You may add change paths and merged revision info 
+//		to the last revision, only.
 //
 //		Internal storage for revision "index" is as follows:
 //
@@ -129,11 +130,7 @@ private:
 
 	// index checking utility
 
-	void CheckIndex (index_t index) const
-	{
-		if (index >= (index_t)size())
-			throw std::exception ("revision info index out of range");
-	}
+	void CheckIndex (index_t index) const;
 
 public:
 
@@ -148,6 +145,8 @@ public:
 
 	enum TChangeAction
 	{
+		HAS_COPY_FROM   = 0x01,
+
 		ACTION_ADDED	= 0x04,
 		ACTION_CHANGED	= 0x08,
 		ACTION_REPLACED	= 0x10,
@@ -186,117 +185,43 @@ public:
 
 		// construction
 
-		CChangesIterator()
-			: container (NULL)
-			, changeOffset(0)
-			, copyFromOffset(0)
-		{
-		}
-
+		CChangesIterator();
 		CChangesIterator ( const CRevisionInfoContainer* aContainer
 						 , index_t aChangeOffset
-						 , index_t aCopyFromOffset)
-			: container (aContainer)
-			, changeOffset (aChangeOffset)
-			, copyFromOffset (aCopyFromOffset)
-		{
-		}
+						 , index_t aCopyFromOffset);
 
 		// data access
 
-		CRevisionInfoContainer::TChangeAction GetAction() const
-		{
-			assert (IsValid());
-			int action = container->changes[changeOffset] & ANY_ACTION;
-			return (CRevisionInfoContainer::TChangeAction)(action);
-		}
+		CRevisionInfoContainer::TChangeAction GetAction() const;
+		CDictionaryBasedPath GetPath() const;
+		index_t GetPathID() const;
 
-		bool HasFromPath() const
-		{
-			assert (IsValid());
-			return (container->changes[changeOffset] & ~ANY_ACTION) != 0;
-		}
-
-		CDictionaryBasedPath GetPath() const
-		{
-			assert (IsValid());
-			index_t pathID = container->changedPaths[changeOffset];
-			return CDictionaryBasedPath (&container->paths, pathID);
-		}
-
-		index_t GetPathID() const
-		{
-			assert (IsValid());
-			return container->changedPaths[changeOffset];
-		}
-
-		CDictionaryBasedPath GetFromPath() const
-		{
-			assert (HasFromPath());
-			index_t pathID = container->copyFromPaths [copyFromOffset];
-			return CDictionaryBasedPath (&container->paths, pathID);
-		}
-
-		index_t GetFromPathID() const
-		{
-			assert (HasFromPath());
-			return container->copyFromPaths [copyFromOffset];
-		}
-
-		revision_t GetFromRevision() const
-		{
-			assert (HasFromPath());
-			return container->copyFromRevisions [copyFromOffset];
-		}
+		bool HasFromPath() const;
+		CDictionaryBasedPath GetFromPath() const;
+		index_t GetFromPathID() const;
+		revision_t GetFromRevision() const;
 
 		// general status (points to an action)
 
-		bool IsValid() const
-		{
-			return (container != NULL)
-				&& (changeOffset < (index_t)container->changes.size())
-				&& (copyFromOffset <= (index_t)container->copyFromPaths.size());
-		}
+		bool IsValid() const;
 
 		// move pointer
 
-		CChangesIterator& operator++()		// prefix
-		{
-			if (HasFromPath())
-				++copyFromOffset;
-			++changeOffset;
-
-			return *this;
-		}
-
-		CChangesIterator operator++(int)	// postfix
-		{
-			CChangesIterator result (*this);
-			operator++();
-			return result;
-		}
+		CChangesIterator& operator++();		// prefix
+		CChangesIterator operator++(int);	// postfix
 
 		// comparison
 
-		bool operator== (const CChangesIterator& rhs)
-		{
-			return (container == rhs.container)
-				&& (changeOffset == rhs.changeOffset);
-		}
-		bool operator!= (const CChangesIterator& rhs)
-		{
-			return !operator==(rhs);
-		}
+		bool operator== (const CChangesIterator& rhs);
+		bool operator!= (const CChangesIterator& rhs);
 
 		// pointer-like behavior
 
-		const CChangesIterator* operator->() const
-		{
-			return this;
-		}
+		const CChangesIterator* operator->() const;
 	};
 
 	friend class CChangesIterator;
+
 
 	// construction / destruction
 
@@ -304,7 +229,7 @@ public:
 	~CRevisionInfoContainer(void);
 
 	// add information
-	// AddChange() always adds to the last revision
+	// AddChange() and AddMergedRevision() always adds to the last revision
 
 	index_t Insert ( const std::string& author
 				   , const std::string& comment
@@ -321,75 +246,25 @@ public:
 
 	// get information
 
-	index_t size() const
-	{
-		return (index_t)authors.size();
-	}
+	index_t size() const;
 
-    index_t GetAuthorID (index_t index) const
-	{
-		CheckIndex (index);
-		return authors [index];
-	}
+	const char* GetAuthor (index_t index) const;
+	__time64_t GetTimeStamp (index_t index) const;
+	std::string GetComment (index_t index) const;
 
-	const char* GetAuthor (index_t index) const
-	{
-		CheckIndex (index);
-		return authorPool [authors [index]];
-	}
-
-	__time64_t GetTimeStamp (index_t index) const
-	{
-		CheckIndex (index);
-		return timeStamps [index];
-	}
-
-	std::string GetComment (index_t index) const
-	{
-		CheckIndex (index);
-		return comments [index];
-	}
-
-	CDictionaryBasedPath GetRootPath (index_t index) const
-	{
-		CheckIndex (index);
-		return CDictionaryBasedPath (&paths, rootPaths [index]);
-	}
+	index_t GetAuthorID (index_t index) const;
+	CDictionaryBasedPath GetRootPath (index_t index) const;
 
 	// iterate over all changes
 
-	CChangesIterator GetChangesBegin (index_t index) const
-	{
-		CheckIndex (index);
-		return CChangesIterator ( this
-								, changesOffsets[index]
-								, copyFromOffsets[index]);
-	}
-
-	CChangesIterator GetChangesEnd (index_t index) const
-	{
-		CheckIndex (index);
-		return CChangesIterator ( this
-								, changesOffsets[index+1]
-								, copyFromOffsets[index+1]);
-	}
+	CChangesIterator GetChangesBegin (index_t index) const;
+	CChangesIterator GetChangesEnd (index_t index) const;
 
 	// r/o access to internal pools
 
-	const CStringDictionary& GetAuthors() const
-	{
-		return authorPool;
-	}
-
-	const CPathDictionary& GetPaths() const
-	{
-		return paths;
-	}
-
-	const CTokenizedStringContainer& GetComments() const
-	{
-		return comments;
-	}
+	const CStringDictionary& GetAuthors() const;
+	const CPathDictionary& GetPaths() const;
+	const CTokenizedStringContainer& GetComments() const;
 
 	// stream I/O
 
@@ -399,7 +274,239 @@ public:
 											  , const CRevisionInfoContainer& container);
 };
 
+///////////////////////////////////////////////////////////////
+// inlines
+///////////////////////////////////////////////////////////////
+// CMergedRevisionsIterator
+///////////////////////////////////////////////////////////////
+// construction
+///////////////////////////////////////////////////////////////
+
+inline CRevisionInfoContainer::CChangesIterator::CChangesIterator()
+	: container (NULL)
+	, changeOffset(0)
+	, copyFromOffset(0)
+{
+}
+
+inline CRevisionInfoContainer::CChangesIterator::CChangesIterator 
+	( const CRevisionInfoContainer* aContainer
+	, index_t aChangeOffset
+	, index_t aCopyFromOffset)
+	: container (aContainer)
+	, changeOffset (aChangeOffset)
+	, copyFromOffset (aCopyFromOffset)
+{
+}
+
+///////////////////////////////////////////////////////////////
+// data access
+///////////////////////////////////////////////////////////////
+
+inline CRevisionInfoContainer::TChangeAction 
+CRevisionInfoContainer::CChangesIterator::GetAction() const
+{
+	assert (IsValid());
+	int action = container->changes[changeOffset] & ANY_ACTION;
+	return (CRevisionInfoContainer::TChangeAction)(action);
+}
+
+inline bool 
+CRevisionInfoContainer::CChangesIterator::HasFromPath() const
+{
+	assert (IsValid());
+	return (container->changes[changeOffset] & HAS_COPY_FROM) != 0;
+}
+
+inline CDictionaryBasedPath 
+CRevisionInfoContainer::CChangesIterator::GetPath() const
+{
+	assert (IsValid());
+	index_t pathID = container->changedPaths[changeOffset];
+	return CDictionaryBasedPath (&container->paths, pathID);
+}
+
+inline index_t 
+CRevisionInfoContainer::CChangesIterator::GetPathID() const
+{
+	assert (IsValid());
+	return container->changedPaths[changeOffset];
+}
+
+inline CDictionaryBasedPath 
+CRevisionInfoContainer::CChangesIterator::GetFromPath() const
+{
+	assert (HasFromPath());
+	index_t pathID = container->copyFromPaths [copyFromOffset];
+	return CDictionaryBasedPath (&container->paths, pathID);
+}
+
+inline index_t 
+CRevisionInfoContainer::CChangesIterator::GetFromPathID() const
+{
+	assert (HasFromPath());
+	return container->copyFromPaths [copyFromOffset];
+}
+
+inline revision_t 
+CRevisionInfoContainer::CChangesIterator::GetFromRevision() const
+{
+	assert (HasFromPath());
+	return container->copyFromRevisions [copyFromOffset];
+}
+
+///////////////////////////////////////////////////////////////
+// general status (points to an action)
+///////////////////////////////////////////////////////////////
+
+inline bool CRevisionInfoContainer::CChangesIterator::IsValid() const
+{
+	return (container != NULL)
+		&& (changeOffset < (index_t)container->changes.size())
+		&& (copyFromOffset <= (index_t)container->copyFromPaths.size());
+}
+
+///////////////////////////////////////////////////////////////
+// move pointer
+///////////////////////////////////////////////////////////////
+
+inline CRevisionInfoContainer::CChangesIterator& 
+CRevisionInfoContainer::CChangesIterator::operator++()		// prefix
+{
+	if (HasFromPath())
+		++copyFromOffset;
+	++changeOffset;
+
+	return *this;
+}
+
+inline CRevisionInfoContainer::CChangesIterator 
+CRevisionInfoContainer::CChangesIterator::operator++(int)	// postfix
+{
+	CChangesIterator result (*this);
+	operator++();
+	return result;
+}
+
+///////////////////////////////////////////////////////////////
+// comparison
+///////////////////////////////////////////////////////////////
+
+inline bool CRevisionInfoContainer::CChangesIterator::operator== 
+	(const CChangesIterator& rhs)
+{
+	return (container == rhs.container)
+		&& (changeOffset == rhs.changeOffset);
+}
+
+inline bool CRevisionInfoContainer::CChangesIterator::operator!= 
+	(const CChangesIterator& rhs)
+{
+	return !operator==(rhs);
+}
+
+///////////////////////////////////////////////////////////////
+// pointer-like behavior
+///////////////////////////////////////////////////////////////
+
+inline const CRevisionInfoContainer::CChangesIterator* 
+CRevisionInfoContainer::CChangesIterator::operator->() const
+{
+	return this;
+}
+
+///////////////////////////////////////////////////////////////
+// CRevisionInfoContainer
+///////////////////////////////////////////////////////////////
+// index checking utility
+///////////////////////////////////////////////////////////////
+
+inline void CRevisionInfoContainer::CheckIndex (index_t index) const
+{
+	if (index >= (index_t)size())
+		throw std::exception ("revision info index out of range");
+}
+
+///////////////////////////////////////////////////////////////
+// get information
+///////////////////////////////////////////////////////////////
+
+inline index_t CRevisionInfoContainer::size() const
+{
+	return (index_t)authors.size();
+}
+
+inline index_t CRevisionInfoContainer::GetAuthorID (index_t index) const
+{
+	CheckIndex (index);
+	return authors [index];
+}
+
+inline const char* CRevisionInfoContainer::GetAuthor (index_t index) const
+{
+	CheckIndex (index);
+	return authorPool [authors [index]];
+}
+
+inline __time64_t CRevisionInfoContainer::GetTimeStamp (index_t index) const
+{
+	CheckIndex (index);
+	return timeStamps [index];
+}
+
+inline std::string CRevisionInfoContainer::GetComment (index_t index) const
+{
+	CheckIndex (index);
+	return comments [index];
+}
+
+inline CDictionaryBasedPath 
+CRevisionInfoContainer::GetRootPath (index_t index) const
+{
+	CheckIndex (index);
+	return CDictionaryBasedPath (&paths, rootPaths [index]);
+}
+
+// iterate over all changes
+
+inline CRevisionInfoContainer::CChangesIterator 
+CRevisionInfoContainer::GetChangesBegin (index_t index) const
+{
+	CheckIndex (index);
+	return CChangesIterator ( this
+							, changesOffsets[index]
+							, copyFromOffsets[index]);
+}
+
+inline CRevisionInfoContainer::CChangesIterator 
+CRevisionInfoContainer::GetChangesEnd (index_t index) const
+{
+	CheckIndex (index);
+	return CChangesIterator ( this
+							, changesOffsets[index+1]
+							, copyFromOffsets[index+1]);
+}
+
+// r/o access to internal pools
+
+inline const CStringDictionary& CRevisionInfoContainer::GetAuthors() const
+{
+	return authorPool;
+}
+
+inline const CPathDictionary& CRevisionInfoContainer::GetPaths() const
+{
+	return paths;
+}
+
+inline const CTokenizedStringContainer& CRevisionInfoContainer::GetComments() const
+{
+	return comments;
+}
+
+///////////////////////////////////////////////////////////////
 // stream I/O
+///////////////////////////////////////////////////////////////
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CRevisionInfoContainer& container);

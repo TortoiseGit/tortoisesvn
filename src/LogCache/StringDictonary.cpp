@@ -83,10 +83,7 @@ CStringDictionary::CHashFunction::equal
 	( CStringDictionary::CHashFunction::value_type value
 	, CStringDictionary::CHashFunction::index_type index) const
 {
-	// special cases
-
-	if (index == NO_INDEX)
-		return (value == NULL) || (*value == 0);
+	// special case
 
 	if (value == NULL)
 		return index == 0;
@@ -145,6 +142,7 @@ void CStringDictionary::Initialize()
 	packedStrings.push_back (0);
 	offsets.push_back (0);
 	offsets.push_back (1);
+	hashIndex.insert ("", 0);
 }
 
 // construction / destruction
@@ -267,7 +265,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.hashIndex.reserve (dictionary.offsets.size());
 
 	const char* stringBase = &dictionary.packedStrings.at(0);
-	for (index_t i = 1, count = (index_t)dictionary.offsets.size()-1; i < count; ++i)
+	for (index_t i = 0, count = (index_t)dictionary.offsets.size()-1; i < count; ++i)
 		dictionary.hashIndex.insert ( stringBase + dictionary.offsets[i]
 									, i);
 

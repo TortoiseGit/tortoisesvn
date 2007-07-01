@@ -234,8 +234,9 @@ public:
 	quick_hash (const quick_hash& rhs) 
 		: data (NULL)
 		, hf (rhs.hf)
-		, grower()
+		, grower (rhs.grower)
 	{
+		create_data();
 		operator= (rhs);
 	}
 	
@@ -305,7 +306,6 @@ public:
 			data = new index_type [rhs.grower.capacity()];
 		}
 
-		hf = rhs.hf;
 		grower = rhs.grower;
 
 		stdext::unchecked_copy (rhs.data, rhs.data + rhs.grower.capacity(), data);

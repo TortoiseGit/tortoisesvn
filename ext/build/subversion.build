@@ -186,14 +186,24 @@
 			</do>
 		</foreach>
 
-		<mkdir dir="${configuration}_${platform}\svn" />
+		<foreach item="Folder" property="foldername">
+			<in>
+				<items>
+					<include name="subversion\svn" />
+					<include name="subversion\svnadmin" />
+				</items>
+			</in>
+			<do>
+				<property name="toolname" value="${path::get-file-name(foldername)}" />
+				<mkdir dir="${configuration}_${platform}\${toolname}" />
 		<rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res">
 			<includedirs>
 				<include name="..\apr\include" />
 				<include name="subversion\include" />
 			</includedirs>
 		</rc>
-		<cl outputdir="${configuration}_${platform}\svn">
+				<echo message="now building ${toolname}" />
+				<cl outputdir="${configuration}_${platform}\${toolname}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
@@ -210,13 +220,13 @@
 			<arg value="/Zi" />
 			<arg value="/errorReport:prompt" />
 			<sources>
-				<include name="subversion\svn\*.c" />
+						<include name="subversion\${toolname}\*.c" />
 				<exclude name="subversion\libsvn_subr\win32_crash**.c" />
 			</sources>
 			<includedirs>
 				<include name="subversion" />
 				<include name="subversion\include" />
-				<include name="subversion\svn" />
+						<include name="subversion\${toolname}" />
 				<include name="..\apr\include" />
 				<include name="..\apr-util\include" />
 				<include name="..\apr-util\xml\expat\lib" />
@@ -248,7 +258,7 @@
 				<define name="_DEBUG" if="${configuration != 'release'}"/>
 			</defines>
 		</cl>
-		<echo message="now linking" />
+				<echo message="now linking ${toolname}" />
 		<property name="confletter" value="" />
 		<if test="${configuration == 'debug'}">
 			<property name="confletter" value="D" />
@@ -256,18 +266,21 @@
 		<property name="bdbpath" value="..\berkeley-db\db4.4-win32" />
 		<property name="bdbpath" value="..\berkeley-db\db4.4-x64" if="${platform == 'x64'}" />
 		<link 
-			output="${configuration}_${platform}\svn.exe" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\svn.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/svn.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_fs_util.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_neon.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb44${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib ..\sqlite\${configuration}_${platform}\sqlite.lib ..\cyrus-SASL\2.1.22-${platform}\lib\${configuration}\libsasl.lib ${machineoption} ${configuration}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib'>
+					output="${configuration}_${platform}\${toolname}.exe" 
+					options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_fs_util.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_neon.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb44${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib ..\sqlite\${configuration}_${platform}\sqlite.lib ..\cyrus-SASL\2.1.22-${platform}\lib\${configuration}\libsasl.lib ${machineoption} ${configuration}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib'>
 			<sources>
-				<include name="${configuration}_${platform}\svn\*.obj" />
+						<include name="${configuration}_${platform}\${toolname}\*.obj" />
 			</sources>
 		</link>
 		<exec program="mt.exe">
 			<arg value="-nologo" />
 			<arg value="-manifest" />
-			<arg value=".\${configuration}_${platform}\svn.exe.intermediate.manifest" />
-			<arg value='/outputresource:".\${configuration}_${platform}\svn.exe;#1"' />
+					<arg value=".\${configuration}_${platform}\${toolname}.exe.intermediate.manifest" />
+					<arg value='/outputresource:".\${configuration}_${platform}\${toolname}.exe;#1"' />
 		</exec>
+			</do>
+		</foreach>
+
 		<exec program="svn" failonerror="false">
 			<arg value="revert" />
 			<arg value="subversion\libsvn_subr\utf.c" />

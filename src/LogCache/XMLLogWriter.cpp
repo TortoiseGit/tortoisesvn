@@ -43,9 +43,9 @@ void CXMLLogWriter::WriteTimeStamp ( CBufferedOutFile& file
 
 	int musecs = (int)(timeStamp % 1000000);
 	timeStamp /= 1000000;
-	const tm* time = _gmtime64 (&timeStamp);
+	tm time;
 
-	if (time == NULL)
+	if (_gmtime64_s (&time, &timeStamp) != 0)
 		return;
 
 	// fill the template & write to stream
@@ -53,16 +53,16 @@ void CXMLLogWriter::WriteTimeStamp ( CBufferedOutFile& file
 	enum {BUFFER_SIZE = 100};
 	char buffer[BUFFER_SIZE];
 
-	_snprintf ( buffer
-			  , BUFFER_SIZE
-			  , "<date>%04d-%02d-%02dT%02d:%02d:%02d.%06dZ</date>\n"
-			  , time->tm_year + 1900
-			  , time->tm_mon + 1
-			  , time->tm_mday
-			  , time->tm_hour
-			  , time->tm_min
-			  , time->tm_sec
-			  , musecs);
+	_snprintf_s ( buffer
+ 			    , BUFFER_SIZE
+			    , "<date>%04d-%02d-%02dT%02d:%02d:%02d.%06dZ</date>\n"
+			    , time.tm_year + 1900
+			    , time.tm_mon + 1
+			    , time.tm_mday
+			    , time.tm_hour
+			    , time.tm_min
+			    , time.tm_sec
+			    , musecs);
 
 	file << buffer;
 }

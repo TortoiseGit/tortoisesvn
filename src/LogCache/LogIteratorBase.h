@@ -152,7 +152,7 @@ inline const CDictionaryBasedTempPath& CLogIteratorBase::GetPath() const
 
 inline bool CLogIteratorBase::EndOfPath() const
 {
-	return revision == NO_REVISION;
+	return (revision == NO_REVISION) || (revision == 0);
 }
 
 ///////////////////////////////////////////////////////////////

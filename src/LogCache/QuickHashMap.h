@@ -19,25 +19,19 @@
 #pragma once
 
 ///////////////////////////////////////////////////////////////
+// necessary includes
+///////////////////////////////////////////////////////////////
+
+#include "QuickHash.h"
+
+///////////////////////////////////////////////////////////////
 //
 // quick_hash_map<>
 //
-//		A quick linear (array) hash index class. It requires HF
-//		to provide the following interface
+//		A quick associative container that maps K (key) to
+//		V (value) instances. 
 //
-//		value_type	data type to hash
-//		index_type	type of the index to store in the hash
-//		NO_INDEX an index_type to mark empty buckets
-//
-//		operator()	value_type -> size_t hash function
-//		value()		index_type -> value_type
-//		equal()		(value_type, index_type) -> bool 
-//		
-//		The capacity approximately doubles by each rehash().
-//		Only insertion and lookup are povided. Collisions are
-//		resolved using linear probing.
-//
-//		Use statistics() to monitor the cache performance.
+//		K must implicitly convert to size_t.
 //
 ///////////////////////////////////////////////////////////////
 	 
@@ -141,6 +135,8 @@ public:
     private:
 
         typedef typename quick_hash_map<K,V>::data_type::const_iterator iterator;
+        typedef typename quick_hash_map<K,V>::element_type value_type;
+
         iterator iter;
 
     public:
@@ -159,9 +155,9 @@ public:
 			return iter->value;
 		}
 
-        const const_iterator* operator->() const
+        const value_type* operator->() const
 		{
-			return this;
+			return &*iter;
 		}
 
         // comparison
@@ -217,11 +213,27 @@ public:
     friend class const_iterator;
 
 	// construction
-    // (default-implemented assignment and destruction work as desired)
+    // (default-implemented destruction works as desired)
 
 	quick_hash_map() 
 		: hash (CHashFunction (&data))
 	{
+	}
+	
+	quick_hash_map (const quick_hash_map& rhs) 
+		: hash (CHashFunction (&data))
+	{
+		operator=(rhs);
+	}
+
+	// assignment
+
+	quick_hash_map& operator= (const quick_hash_map& rhs) 
+	{
+		hash = rhs.hash;
+		data = rhs.data;
+
+		return *this;
 	}
 	
 	// data access
@@ -239,7 +251,7 @@ public:
     const_iterator find (key_type key) const
 	{
         size_t index = hash.find (key);
-        return index == NO_INDEX 
+        return index == LogCache::NO_INDEX 
             ? end() 
             : begin() + index;
 	}

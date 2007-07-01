@@ -158,8 +158,6 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 
 	// close examination of all changes
 
-	bool plainAddFound = false;
-
 	CRevisionInfoContainer::CChangesIterator bestRename = last;
 	for ( CRevisionInfoContainer::CChangesIterator iter = first
 		; iter != last
@@ -196,18 +194,16 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 					// to our searchPath (there may be multiple renames,
 					// if the base path got renamed).
 
-					bestRename = iter;
+                    assert (   (bestRename == last)
+                            || (bestRename.GetPathID() < iter.GetPathID())
+                            || "parent ADDs are not in strict order");
+
+                    bestRename = iter;
 				}
 				else
 				{
-					searchRevision = NO_REVISION;
-					plainAddFound = true;
-
-					// we don't return here immediately, since an ADD without
-					// a copyfrom doesn't mean necessarily that our path got
-					// added in this revision. Instead, just set a flag indicating
-					// that this method should return true if we don't find
-					// another real rename of our path.
+					// as part of a copy / rename, the parent path
+                    // may have been added in just the same revision.
 					//
 					// example:
 					//
@@ -218,6 +214,17 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 					// this can only happen if
 					// /trunk/project
 					// is added first (usually without a copyfrom path)
+                    //
+                    // Stop iteration only if we found and ADD of
+                    // the exact search path.
+
+                    if (searchPath == changedPath)
+                    {
+                        // the path we are following actually started here.
+
+    					searchRevision = NO_REVISION;
+                        return true;
+                    }
 				}
 			}
 			break;
@@ -248,11 +255,6 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 
 		return true;
 	}
-
-    // we did not rename this item but actually reached the end of the history
-
-	if (plainAddFound)
-		return true;
 
 	// all fine, no special action required
 

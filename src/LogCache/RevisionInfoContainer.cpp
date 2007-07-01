@@ -111,7 +111,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 	}
 	else
 	{
-		changes.push_back ((char)action + 1);
+		changes.push_back ((char)action + HAS_COPY_FROM);
 
 		// add fromPath info
 
