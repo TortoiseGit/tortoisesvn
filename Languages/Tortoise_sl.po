@@ -1,6 +1,6 @@
 #
 # Slovenian translation of TortoiseSVN
-# Copyright (C) 2006 the TortoieSVN team
+# Copyright (C) 2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN 1.3.3\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-11 20:04+0100\n"
+"PO-Revision-Date: 2007-07-01 21:47+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -235,44 +235,6 @@ msgid ""
 msgstr ""
 "%s\n"
 "Ga želite kljub temu odstraniti?"
-
-# ID:7,
-#: ID:7
-#, c-format
-msgid ""
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
-msgstr ""
-"%s\n"
-"Velikost datoteke:\t\t\t%s\n"
-"Širina:\t\t\t%ld pixel\n"
-"Višina:\t\t\t%ld pixel\n"
-"Vodoravna resolucija:\t%.1f dpi\n"
-"Navpična resolucija:\t\t%.1f dpi\n"
-"Globina:\t\t\t%d bit\n"
-"Povečava:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"Velikost datoteke:\t\t\t%s\n"
-"Širina:\t\t\t%ld pixel\n"
-"Višina:\t\t\t%ld pixel\n"
-"Vodoravna resolucija:\t%.1f dpi\n"
-"Navpična resolucija:\t\t%.1f dpi\n"
-"Globina:\t\t\t%d bit"
 
 # ID:145,
 # ID:69,
@@ -1802,7 +1764,7 @@ msgstr "Razlike ni mogoče prikazati zaradi nedoslednih novih vrstic v datoteki.
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
-msgstr "Kaskadni pojavni meni"
+msgstr "Kaskadni kontekstni meni"
 
 # ID:82,
 #: ID:82
@@ -1916,7 +1878,7 @@ msgstr "Preverite pot in/ali URL, ki ste ju vnesli"
 # ID:194,
 #: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
-msgstr "Označite tiste menijske vnose, ki bi jih radi videli v podmeniju namesto na vrhu pojavnega menija"
+msgstr "Označite tiste menijske vnose, ki bi jih radi videli v podmeniju namesto na vrhu kontekstnega menija"
 
 # ID:80,
 #: ID:80
@@ -3188,6 +3150,62 @@ msgstr "Popravki datoteke"
 #: ID:7
 #, c-format
 msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Velikost datoteke:\t\t%s\n"
+"Širina:\t\t\t%ld pixel\n"
+"Višina:\t\t\t%ld pixel\n"
+"Vodoravna resolucija:\t%.1f dpi\n"
+"Navpična resolucija:\t%.1f dpi\n"
+"Globina:\t\t\t%d bit\n"
+"Povečava:\t\t\t%d%%"
+
+# ID:7,
+#: ID:8
+#, c-format
+msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Velikost datoteke:\t\t%s\n"
+"Širina:\t\t\t%ld pixel\n"
+"Višina:\t\t\t%ld pixel\n"
+"Vodoravna resolucija:\t%.1f dpi\n"
+"Navpična resolucija:\t%.1f dpi\n"
+"Globina:\t\t\t%d bit\n"
+"Povečava:\t\t\t%d%%\n"
+"\n"
+"Velikost datoteke:\t\t%s\n"
+"Širina:\t\t\t%ld pixel\n"
+"Višina:\t\t\t%ld pixel\n"
+"Vodoravna resolucija:\t%.1f dpi\n"
+"Navpična resolucija:\t%.1f dpi\n"
+"Globina:\t\t\t%d bit\n"
+"Povečava:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
 "File size:\t\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
@@ -3201,6 +3219,42 @@ msgstr ""
 "Višina:\t\t\t%ld pixel\n"
 "Vodoravna resolucija:\t%.1f dpi\n"
 "navpična resolucija:\t\t%.1f dpi\n"
+"Globina:\t\t\t%d bit\n"
+"Povečava:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Velikost datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld pixel\n"
+"Višina:\t\t\t%ld pixel\n"
+"Vodoravna resolucija:\t%.1f dpi\n"
+"Navpična resolucija:\t\t%.1f dpi\n"
+"Globina:\t\t\t%d bit\n"
+"Povečava:\t\t\t%d%%\n"
+"\n"
+"Velikost datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld pixel\n"
+"Višina:\t\t\t%ld pixel\n"
+"Vodoravna resolucija:\t%.1f dpi\n"
+"Navpična resolucija:\t\t%.1f dpi\n"
 "Globina:\t\t\t%d bit\n"
 "Povečava:\t\t\t%d%%"
 
@@ -3227,6 +3281,10 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "Dokončano!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "&Poveži slike"
 
 # Control-ID:1315,
 #: Control-ID:1315
@@ -3306,6 +3364,11 @@ msgstr "Tvorba datoteke popravka ..."
 #: ID:16
 msgid "Get loc&k..."
 msgstr "Dobi &zaklep ..."
+
+# ID:114,
+#: ID:114
+msgid "Get merge logs"
+msgstr "Prenesi zapise spajanj"
 
 # ID:89,
 #: ID:89
@@ -3549,6 +3612,12 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3615,8 +3684,8 @@ msgstr "Ikone/oblikovanje/koda:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Če je vključen, preprečuje prepisom prikaz v pogovornih oknih \"Shrani kot ...\" in \"Odpri\""
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "Če je vključen, prepreči prikaz prekrivnih ikon in kontekstnega menija  v pogovornih oknih \"Shrani kot ...\" in \"Odpri\""
 
 # ID:198,
 #: ID:198
@@ -3836,6 +3905,11 @@ msgstr "Uvozi mapo v skladišče"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Vključi prezrte datoteke"
+
+# Dlg-ID:173,
+#: Control-ID:1126
+msgid "Include merged revisions"
+msgstr "Vključi spojene revizije"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4304,6 +4378,12 @@ msgstr "Spoji"
 #: ID:78
 msgid "Merge - TortoiseSVN"
 msgstr "Spoji - TortoiseSVN"
+
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: Control-ID:1377
+msgid "Merge Depth"
+msgstr "Globina spajanja"
 
 # ID:263,
 #: ID:263
@@ -5007,7 +5087,7 @@ msgstr "Prosimo, počakajte na pridobitev razlik ..."
 
 # ID:104,
 #: ID:104
-msgid "Please wait while the repository browser is initialized..."
+msgid "Please wait while the repository browser is initializing..."
 msgstr "Prosimo, počakajte, da se vzpostavi brskalnik po skladišču ..."
 
 # ID:119,
@@ -6090,8 +6170,8 @@ msgstr "Pokaži &dnevnik ..."
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Show &overlays only in explorer"
-msgstr "Pokaži &prekrivanje samo v raziskovalcu"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "Pokaži &prekrivanje ikon in kontekstni meni samo v raziskovalcu"
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -7637,6 +7717,11 @@ msgstr "Delovna kopija"
 #: Control-ID:1335
 msgid "Working Copy Path:"
 msgstr "Pot delovne kopije:"
+
+# Control-ID:1183,
+#: ID:267
+msgid "Working copy"
+msgstr "Delovna kopija"
 
 # ID:80,
 #: ID:80
