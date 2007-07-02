@@ -315,16 +315,9 @@ int abort_on_pool_failure (int /*retcode*/)
 }
 #pragma warning(pop)
 
-int nCRTIn = -1;
-int nCRTOut = -1;
 
 void closehandles()
 {
-	if (nCRTIn >= 0)
-		_close(nCRTIn);
-	if (nCRTOut >= 0)
-		_close(nCRTOut);
-
 	// since we attach ourselves to the parent console
 	// or create a new console if that's not possible, simply quitting
 	// SubWCRev still leaves the console 'open' until you press a key. So...
@@ -442,7 +435,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	if (!bCon)
 		AllocConsole();
 	// now attach the std and c-runtime handles to the console
-	nCRTIn = _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
+	int nCRTIn = _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
 	if (nCRTIn != -1)
 	{
 		FILE * fpCRTIn = _fdopen(nCRTIn, "r");
@@ -453,7 +446,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 			std::cin.clear();
 		}
 	}
-	nCRTOut = _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
+	int nCRTOut = _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
 	if (nCRTOut != -1)
 	{
 		FILE * fpCRTOut = _fdopen(nCRTOut, "w");
