@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-06-22 10:08+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2007-07-02 19:06+0100\n"
+"Last-Translator: Tobias Schäfer <tobiasschaefer@gmx.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6581,12 +6581,12 @@ msgstr "Dies sind zwei verschiedene Wege, um dasselbe Ziel zu erreichen. Mit der
 #: source/TortoiseSVN_en.xml:8007
 #: (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr "Sobald Sie eine Datei gewählt haben, wird TortoiseMerge gestartet, um die Änderungen in Ihrer Arbeitskopie zusammenführen. Ein kleines Fenster zeigt die die Liste der Dateien an, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt. Prüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
+msgstr "Sobald Sie eine Datei gewählt haben, wird TortoiseMerge gestartet, um die Änderungen in Ihrer Arbeitskopie zusammenzuführen. Ein kleines Fenster zeigt die Liste der Dateien an, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt. Prüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
 
 #: source/TortoiseSVN_en.xml:8014
 #: (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr "Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so dass die Veränderungen nun zum Projektarchiv übertragen werden müssen, um anderen  Projekteilnehmern zur Verfügung zu stehen."
+msgstr "Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so dass die Veränderungen nun zum Projektarchiv übertragen werden müssen, um anderen  Projektteilnehmern zur Verfügung zu stehen."
 
 #: source/TortoiseSVN_en.xml:8022
 #: (title)
@@ -6692,7 +6692,7 @@ msgstr "Unterschiede annotieren"
 #: source/TortoiseSVN_en.xml:8145
 #: (para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr "Eine Einschränkung des Annotierens ist, dass die Datei nur in einer bestimmten Revision sowie die letzte Person, die eine bestimmte Zeile geändert hat, angezeigt werden. Manchmal möchte man zusätzlich auch wissen, welche Änderungen durchgeführt wurden. Dazu bietet TortoiseSVN eine Kombination aus Diff und Annotieren."
+msgstr "Eine Einschränkung des Annotierens ist, dass die Datei nur in einer bestimmten Revision sowie die letzte Person, die eine bestimmte Zeile geändert hat, angezeigt wird. Manchmal möchte man zusätzlich auch wissen, welche Änderungen durchgeführt wurden. Dazu bietet TortoiseSVN eine Kombination aus Diff und Annotieren."
 
 #: source/TortoiseSVN_en.xml:8155
 #: (term)
@@ -6872,7 +6872,7 @@ msgstr "Sie können den Projektarchivbetrachter auch für <action>Ziehen und Abl
 #: source/TortoiseSVN_en.xml:8379
 #: (para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <action>Ctrl left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr "Wenn Sie ein Objekt innerhalb des Projektarchivs verschieben wollen, <action>ziehen</action> Sie es einfach mit der linken Maustaste an seien nuen Ort. Wenn Sie stattdessen eine Kopie erstellen wollen, halten Sie dabei die <keycap>Strg</keycap> Taste gedrückt. Beim Kopieren erhält der Mauszeiger, wie im Explorer, ein <quote>Plus</quote> Symbol."
+msgstr "Wenn Sie ein Objekt innerhalb des Projektarchivs verschieben wollen, <action>ziehen</action> Sie es einfach mit der linken Maustaste an seinen neuen Ort. Wenn Sie stattdessen eine Kopie erstellen wollen, halten Sie dabei die <keycap>Strg</keycap> Taste gedrückt. Beim Kopieren erhält der Mauszeiger, wie im Explorer, ein <quote>Plus</quote> Symbol."
 
 #: source/TortoiseSVN_en.xml:8385
 #: (para)
@@ -6909,7 +6909,7 @@ msgstr "Ein Revisionsgraph"
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
 msgstr ""
 "<placeholder-1/>\n"
-"Manchmal möchten Sie wissen, wann Äste oder Markierungen von trunk abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür ist gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
+"Manchmal möchten Sie wissen, wann Äste oder Markierungen von trunk abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
 
 #: source/TortoiseSVN_en.xml:8432
 #: (para)
@@ -7899,7 +7899,7 @@ msgstr "Diese Farbe wird auch für Fehlermeldungen im Fortschrittsdialog verwend
 #: source/TortoiseSVN_en.xml:9743
 #: (term)
 msgid "Added files"
-msgstr "Hinzufügte Dateien"
+msgstr "Hinzugefügte Dateien"
 
 #: source/TortoiseSVN_en.xml:9745
 #: (para)
@@ -7974,7 +7974,7 @@ msgstr "Knoten ersetzt"
 #: source/TortoiseSVN_en.xml:9807
 #: (para)
 msgid "The original item has been deleted and a new item with the same name replaces it."
-msgstr "Das Originale Objekt wurde"
+msgstr "Das originale Objekt wurde gelöscht und eines mit dem selben Namen ersetzt es."
 
 #: source/TortoiseSVN_en.xml:9818
 #: (title)
@@ -8113,7 +8113,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9950
 #: (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
-msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <literal>Revision</literal> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
+msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <literal>Revision</literal> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Konvertiere Dateien mit BASE vergleichen</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
 
 #: source/TortoiseSVN_en.xml:9964
 #: (para)
@@ -8230,7 +8230,7 @@ msgstr "Standard Diff-Betrachter"
 #: source/TortoiseSVN_en.xml:10088
 #: (para)
 msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
-msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Sie brauchen keine Parameter anzugeben. Der <guilabel>Standard</guilabel> ist, erste nach einem Betrachter für <filename>.diff</filename> und dann für <filename>.txt</filename> Dateien zu suchen. Wenn Sie keinen Betrachter für <filename>.diff</filename> Dateien eingerichtet haben, wird höchstwahrscheinlich Notepad aufgerufen. "
+msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Sie brauchen keine Parameter anzugeben. Der <guilabel>Standard</guilabel> ist, erst nach einem Betrachter für <filename>.diff</filename> und dann für <filename>.txt</filename> Dateien zu suchen. Wenn Sie keinen Betrachter für <filename>.diff</filename> Dateien eingerichtet haben, wird höchstwahrscheinlich Notepad aufgerufen. "
 
 #: source/TortoiseSVN_en.xml:10097
 #: (para)
@@ -8250,7 +8250,7 @@ msgstr "Der Einstellungsdialog, gespeicherte Daten"
 #: source/TortoiseSVN_en.xml:10114
 #: (para)
 msgid "<placeholder-1/> For your convenience, TortoiseSVN saves many of the settings you use, and remembers where you have been lately. If you want to clear out that cache of data, you can do it here."
-msgstr "<placeholder-1/> Zu Ihrer Bequemlichkeit speichert TortoiseSVN viele Ihrer Einstellungen und merkt sich, welche Sie zuletzt verwendet haben. Auf diese Seite können Sie die Informationen wieder löschen."
+msgstr "<placeholder-1/> Zu Ihrer Bequemlichkeit speichert TortoiseSVN viele Ihrer Einstellungen und merkt sich, welche Sie zuletzt verwendet haben. Auf dieser Seite können Sie die Informationen wieder löschen."
 
 #: source/TortoiseSVN_en.xml:10125
 #: (term)
@@ -8722,7 +8722,7 @@ msgstr "Wunschliste"
 #: source/TortoiseSVN_en.xml:10609
 #: (para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
-msgstr "Obwohl TortoiseSVN und TortoiseMerge für Sie als Anwender kostenlos sind, können Sie uns auf viele Weise helfen. Sie können uns Patches schicken und damit bei der Entwicklung direkt mithelfen, oder Sie können uns bei unserer Arbeit motivieren."
+msgstr "Obwohl TortoiseSVN und TortoiseMerge für Sie als Anwender kostenlos sind, können Sie uns unterstützen. Sie können uns Patches schicken und damit bei der Entwicklung direkt mithelfen, oder Sie können uns bei unserer Arbeit motivieren."
 
 #: source/TortoiseSVN_en.xml:10615
 #: (para)
