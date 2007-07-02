@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-07 09:30+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2007-07-02 09:30+0100\n"
+"Last-Translator: Tim Morley <t_morle@argonet.co.uk>\n"
 "Language-Team: OOo:Eo team <dev@eo.openoffice.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,7 +145,7 @@ msgstr "%ld vojprefiksoj"
 #: ID:226,
 #, c-format
 msgid "%s - at revision: %d"
-msgstr "%s – je version: %d"
+msgstr "%s – je revizio: %d"
 
 #: ID:151,
 #, c-format
@@ -241,7 +241,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "estas dosierujo, ne dosiero!\n"
-"TortoiseMerge ne povas fari kompari dosierujojn."
+"TortoiseMerge ne povas kompari dosierujojn."
 
 #: MenuEntry
 msgid "&?"
@@ -264,7 +264,7 @@ msgstr "&Specialaĵoj..."
 
 #: Control-ID:1013,
 msgid "&Apply unified diff"
-msgstr "&Apliki flikon je formato 'unified diff'"
+msgstr "&Apliki flikon laŭ formato 'unified diff'"
 
 #: Control-ID:65535,
 msgid "&Autoclose:"
@@ -345,7 +345,7 @@ msgstr "&Kontakti la deponejon tuj post lanĉo"
 
 #: Control-ID:1073,
 msgid "&Convert files when diffing against BASE"
-msgstr "&Konverti dosierojn dum 'diff' kontraŭ BAZO"
+msgstr "&Konverti dosierojn dum diff-komparado kontraŭ BAZO"
 
 #: MenuEntry
 msgid "&Copy"
@@ -1130,7 +1130,7 @@ msgstr ""
 
 #: Dlg-ID:170,
 msgid "Advanced Diff/Merge Settings"
-msgstr "Specialaj Agordaĵoj de 'diff'/kunfando"
+msgstr "Specialaj agordaĵoj de 'diff'/kunfando"
 
 #: ID:110,
 msgid "Advanced diff settings"
@@ -1353,123 +1353,125 @@ msgstr "Aŭtomate renomi"
 
 #: ID:222,
 msgid "Auto-close for local operations"
-msgstr ""
+msgstr "Aŭtomate fermi por lokaj operacioj"
 
 #: ID:222,
 msgid "Auto-close if no conflicts"
-msgstr ""
+msgstr "Aŭtomate fermi se ne estas konfliktoj"
 
 #: ID:222,
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "Aŭtomate fermi se ne estas eraroj"
 
 #: ID:222,
 msgid "Auto-close if no merges, adds or deletes"
-msgstr ""
+msgstr "Aŭtomate fermi se ne estas kunfandoj, aldonoj nek forigoj"
 
 #: ID:195,
 msgid ""
 "Autocomplete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
+"La aŭtomata kompletigilo proponas vortojn (plej ofte nomoj de klasoj aŭ membroj)\n"
+"el la dosieroj, kiujn vi ŝanĝis dum kiam vi tajpas vian protokolan mesaĝon."
 
 #: ID:438,#:
 #: ID:438,
 msgid "Automatic"
-msgstr ""
+msgstr "Aŭtomate"
 
 #: Control-ID:1073,
 msgid "Automatically check for &newer versions every week"
-msgstr ""
+msgstr "Aŭtomate kontroli por &novaj versioj ĉiusemajne"
 
 #: Control-ID:1157,
 msgid "Average"
-msgstr ""
+msgstr "Mezumo"
 
 #: Control-ID:1001,
 msgid "B&rowse..."
-msgstr ""
+msgstr "F&oliumi"
 
 #: ID:246,
 msgid "Bar Graph"
-msgstr ""
+msgstr "Histogramo"
 
 #: Control-ID:65535,
 msgid "Base file:"
-msgstr ""
+msgstr "Baza dosiero:"
 
 #: ID:114,#:
 #: Dlg-ID:162,
 msgid "Blame"
-msgstr ""
+msgstr "Kulpo"
 
 #: ID:132,
 msgid "Blame - TortoiseSVN"
-msgstr ""
+msgstr "Kulpo - TortoiseSVN"
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "Kulpigas aŭtoron pri ĉiu linio de dosiero"
 
 #: Control-ID:1003,
 msgid "Br&owse..."
-msgstr ""
+msgstr "F&oliumi"
 
 #: ID:115,
 msgid "Branch / tag created successfully!"
-msgstr ""
+msgstr "Branĉo / etikedo sukcese kreita!"
 
 #: ID:9,
 msgid "Branch/&tag..."
-msgstr ""
+msgstr "Branĉo/e&tikedo..."
 
 #: ID:16,
 msgid "Break loc&k"
-msgstr ""
+msgstr "&Rompi la ŝloson"
 
 #: Control-ID:1009,
 msgid "Bro&wse..."
-msgstr ""
+msgstr "Foli&umi..."
 
 #: Control-ID:1007,
 msgid "Brows&e..."
-msgstr ""
+msgstr "Folium&i..."
 
 #: ID:78,
 msgid "Browse for the external diff program"
-msgstr ""
+msgstr "Foliumi por eksterna diff-programo"
 
 #: Control-ID:1069,
 msgid "Browse..."
-msgstr ""
+msgstr "Foliumi..."
 
 #: Control-ID:1119,
 msgid "Bug-&ID / Issue-Nr:"
-msgstr ""
+msgstr "Cim-&identigilo / N-ro de cimo:"
 
 #: ID:116,
 msgid "Bug-ID"
-msgstr ""
+msgstr "Cim-identigilo"
 
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
-msgstr ""
+msgstr "Cim-identigilo / N-ro de cimo:"
 
 #: Control-ID:1215,
 msgid "C&heck now"
-msgstr ""
+msgstr "Kontroli nun"
 
 #: ID:77,
 msgid "C&reate branch/tag from revision"
-msgstr ""
+msgstr "Krei branĉon/etikedon el revizio"
 
 #: ID:101,
 msgid "C&reate folder..."
-msgstr ""
+msgstr "K&rei dosierujon..."
 
 #: ID:3697,
 msgid "CAP"
-msgstr ""
+msgstr "MAJ"
 
 #: ID:82,
 #, c-format
@@ -1479,6 +1481,10 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
+"Ne eblas kopii \n"
+"%s\n"
+"al\n"
+"%s"
 
 #: ID:73,#:
 #: ID:99,#:
@@ -1486,110 +1492,112 @@ msgstr ""
 #: Control-ID:2,#:
 #: Control-ID:2,
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: ID:132,
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr ""
+msgstr "Nuligado de TortoiseSVN-Kulpo..."
 
 #: ID:270,
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "Nuligado de operacio..."
 
 #: ID:68,
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr ""
+msgstr "Ne eblas montri 'diff' pro nekoheraj linifiniloj."
 
 #: Control-ID:65535,
 msgid "Cascaded context menu"
-msgstr ""
+msgstr "Kaskadita kunteksta menuo"
 
 #: ID:82,
 msgid "Certificate expired or not yet valid"
-msgstr ""
+msgstr "Atestilo eksdatiĝita aŭ ankoraŭ ne valida"
 
 #: ID:82,
 #, c-format
 msgid "Certificate expired. Valid until: %s"
-msgstr ""
+msgstr "Atestilo eksdatiĝita. Validis ĝis: %s"
 
 #: ID:82,
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr ""
+msgstr "Atestilo ankoraŭ ne valid. Validos ekde: %s"
 
 #: ID:157,
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "Atestiloj|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 #: ID:3825,
 msgid "Change the window position"
-msgstr ""
+msgstr "Movi la fenestron"
 
 #: ID:3825,
 msgid "Change the window size"
-msgstr ""
+msgstr "Ŝanĝi la grandon de la fenestro"
 
 #: Dlg-ID:199,
 msgid "Changed Files"
-msgstr ""
+msgstr "Ŝanĝitaj dosieroj"
 
 #: ID:324,
 #, c-format
 msgid "Changed files between %s, %s and %s, %s"
-msgstr ""
+msgstr "Ŝanĝitaj dosieroj inter %s, %s kaj %s, %s"
 
 #: ID:163,
 #, c-format
 msgid "Changed files: %d"
-msgstr ""
+msgstr "Ŝanĝitaj dosieroj: %d"
 
 #: Control-ID:1242,
 msgid "Changes made (double-click on file for diff):"
-msgstr ""
+msgstr "Ŝanĝoj faritaj (duoble klaku dosieron por vidi la ŝanĝojn)"
 
 #: ID:8,
 msgid "Chec&kout..."
-msgstr ""
+msgstr "El&preni..."
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Check"
-msgstr ""
+msgstr "Kontroli"
 
 #: Dlg-ID:174,
 msgid "Check For Updates"
-msgstr ""
+msgstr "Kontoli por ĝisdatigoj"
 
 #: Control-ID:1031,
 msgid "Check For Updates..."
-msgstr ""
+msgstr "Kontoli por ĝisdatigoj..."
 
 #: ID:13,
 msgid "Check for modi&fications"
-msgstr ""
+msgstr "Kontroli por modi&foj"
 
 #: Control-ID:65535,
 msgid "Check for modifications"
-msgstr ""
+msgstr "Kontroli por modifoj"
 
 #: ID:9,
 msgid "Check out a working copy from a repository"
-msgstr ""
+msgstr "Elpreni laborkopion el la deponejo"
 
 #: Control-ID:1132,
 msgid "Check repository"
-msgstr ""
+msgstr "Kontroli deponejon"
 
 #: ID:95,
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
+"Kontroli dosierojn, kiujn vi volas\n"
+"forigi antaŭ ol importi."
 
 #: ID:251,
 msgid "Check the path and/or URL you've entered."
-msgstr ""
+msgstr "Kontrolu la vojon kaj/aŭ la URL-on, kiun vi entajpis."
 
 #: ID:194,
 msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
