@@ -42,12 +42,12 @@
 		     If someone know a better way to check for the presence of MFC80, please tell me! -->
     <Property Id="VERSIONMFC">
       <DirectorySearch Id="DirSearchMFCDll" Path="[SystemFolder]">
-        <FileSearch Id="FileSearchMFCDll" Name="mfc80u.dll" MinVersion="8.0.50727.41" MaxVersion="9.0.0.0" />
+        <FileSearch Id="FileSearchMFCDll" Name="mfc80u.dll" MinVersion="8.0.50727.762" MaxVersion="9.0.0.0" />
       </DirectorySearch>
     </Property>
     <Property Id="VERSIONMFC1">
       <DirectorySearch Id="DirSearchMFCDll1" Path="[WindowsFolder]" Depth="3">
-        <FileSearch Id="FileSearchMFCDll1" Name="mfc80u.dll" MinVersion="8.0.50727.41" MaxVersion="9.0.0.0" />
+        <FileSearch Id="FileSearchMFCDll1" Name="mfc80u.dll" MinVersion="8.0.50727.762" MaxVersion="9.0.0.0" />
       </DirectorySearch>
     </Property>
 
