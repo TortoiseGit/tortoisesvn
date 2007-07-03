@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9577
+# Based on Tortoise.pot r9799
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-29 14:26+0100\n"
+"PO-Revision-Date: 2007-07-03 10:19+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -226,11 +226,6 @@ msgstr "%s\\Eksport af %s"
 #, c-format
 msgid "%s\nDo you want to remove it anyway?"
 msgstr "%s\nVil du fjerne alligevel?"
-
-#: ID:7,
-#, c-format
-msgid "%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\n%s\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit"
-msgstr "%s\nFilstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\n%s\nFilstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit"
 
 #: ID:69,
 #, c-format
@@ -1292,6 +1287,14 @@ msgstr "O&pret mappe..."
 msgid "CAP"
 msgstr "CAP"
 
+#: Control-ID:1126,
+msgid "Cache log messages"
+msgstr "Cache logbeskeder"
+
+#: ID:197,
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Cacher logbeskederne for hurtigere at hente logs"
+
 #: ID:82,
 #, c-format
 msgid "Can't copy \n%s\nto\n%s"
@@ -2092,14 +2095,6 @@ msgstr "Navn eller IP-adresse på proxyserveren"
 msgid "Empty"
 msgstr "Tom"
 
-#: Control-ID:1240,
-msgid "Enable &accelerators on the top level menu"
-msgstr "Slå genvejst&aster til for øverste kontekstmenu"
-
-#: ID:196,
-msgid "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
-msgstr "Slå denne til, hvis du også ønsker genvejstaster på den øverste kontekstmenu.\nBemærk, at ikonerne i kontekstmenuen ser pænere ud, når dette er slået fra."
-
 #: ID:196,
 msgid "Enable this only if you're working with web projects on VS.NET2003!\nYou must restart the system for this setting to take effect."
 msgstr "Slå kun denne til, hvis du arbejder med web-projekter på VS.NET2003!\nDu skal genstarte computeren, før denne ændring træder i kraft."
@@ -2311,8 +2306,23 @@ msgstr "Korrekturark"
 
 #: ID:7,
 #, c-format
+msgid "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+msgstr "Filstørrelse:\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+
+#: ID:8,
+#, c-format
+msgid "File size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+msgstr "Filstørrelse:\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%Filstørrelse:\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t%.1f dpi\nFarvedybde:\t\t\t%d bit"
+
+#: ID:7,
+#, c-format
 msgid "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
 msgstr "Filstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+
+#: ID:7,
+#, c-format
+msgid "File size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t\t%s\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
+msgstr "Filstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit\nZoom:\t\t\t%d%%Filstørrelse:\t\t\t%s\nBredde:\t\t\t%ld pixel\nHøjde:\t\t\t%ld pixel\nVandret opløsning:\t%.1f dpi\nLodret opløsning:\t\t%.1f dpi\nFarvedybde:\t\t\t%d bit"
 
 #: Control-ID:65535,
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -2329,6 +2339,10 @@ msgstr "Find den angivne tekst\nFind"
 #: ID:77,#: ID:219,
 msgid "Finished!"
 msgstr "Færdig!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "Tilpas billeder &sammen"
 
 #: Control-ID:1315,
 msgid "Floppy drives (A: B:)"
@@ -2387,6 +2401,10 @@ msgstr "Opretter korrekturfil..."
 #: ID:16,
 msgid "Get loc&k..."
 msgstr "Ta&g lås..."
+
+#: ID:114,
+msgid "Get merge logs"
+msgstr "Hent flet-logbeskeder"
 
 #: ID:89,
 msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
@@ -2562,6 +2580,11 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601; '&Open Ctrl-O'
 msgid "ID:57601:V C +O"
@@ -2616,8 +2639,8 @@ msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Ikoner/design/kode:    Luebbe Onken"
 
 #: ID:194,
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Hvis valgt, så vises overdækningerne ikke i dialogerne \"gem som...\" eller \"åbn\""
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "Hvis valgt, så vises overdækningerne og kontekstmenuen ikke i dialogerne \"gem som...\" eller \"åbn\""
 
 #: ID:198,
 msgid "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
@@ -2750,6 +2773,10 @@ msgstr "Importerer mappen til et versionsarkiv"
 #: Control-ID:1266,
 msgid "Include ignored files"
 msgstr "Inkluder ignorerede filer"
+
+#: Control-ID:1126,
+msgid "Include merged revisions"
+msgstr "Inkluder flettede revisioner"
 
 #: Control-ID:65535,
 msgid "Include only the following revision range:"
@@ -3030,6 +3057,10 @@ msgstr "Flet"
 #: ID:78,
 msgid "Merge - TortoiseSVN"
 msgstr "Flet - TortoiseSVN"
+
+#: Control-ID:1377,
+msgid "Merge Depth"
+msgstr "Flet-dybde"
 
 #: ID:263,#: ID:263,
 msgid "Merged"
@@ -3528,7 +3559,7 @@ msgid "Please wait while differences are obtained..."
 msgstr "Vent venligst mens forskellene findes..."
 
 #: ID:104,
-msgid "Please wait while the repository browser is initialized..."
+msgid "Please wait while the repository browser is initializing..."
 msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 
 #: ID:104,#: ID:119,#: ID:146,#: ID:213,
@@ -4310,8 +4341,8 @@ msgid "Show &log..."
 msgstr "Vis &log..."
 
 #: Control-ID:1088,
-msgid "Show &overlays only in explorer"
-msgstr "Vis kun &overdækninger i Windows Stifinder"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "Vis kun &overdækninger og kontekstmenu i Windows Stifinder"
 
 #: Control-ID:1073,
 msgid "Show &unversioned files"
@@ -5258,6 +5289,10 @@ msgstr "Arbejdskopi"
 #: Control-ID:1335,
 msgid "Working Copy Path:"
 msgstr "Sti for arbejdskopi:"
+
+#: ID:267,
+msgid "Working copy"
+msgstr "Arbejdskopi"
 
 #: ID:80,
 #, c-format
