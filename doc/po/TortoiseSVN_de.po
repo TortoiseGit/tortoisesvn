@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-02 19:06+0100\n"
-"Last-Translator: Tobias Schäfer <tobiasschaefer@gmx.de>\n"
+"PO-Revision-Date: 2007-07-03 10:26+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3927,12 +3927,12 @@ msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierun
 #: source/TortoiseSVN_en.xml:4431
 #: (para)
 msgid "When the update is complete, the progress dialog shows a summary of the number of items updated, added, removed, conflicted, etc. below the file list. This summary information can be copied to the clipboard using <action>CTRL+C</action>."
-msgstr "Sobald die Aktualisierung beendet ist, zeigt der Fortschrittsdialog eine Zusammenfassung der aktualiserten, hinzugefügten und gelöschten Objekte unterhalb der Dateiliste an. Diese Information kann mittels<action>Strg+C</action> in die Zwischenablage kopiert werden."
+msgstr "Sobald die Aktualisierung beendet ist, zeigt der Fortschrittsdialog eine Zusammenfassung der aktualisierten, hinzugefügten und gelöschten Objekte unterhalb der Dateiliste an. Diese Information kann mittels<action>Strg+C</action> in die Zwischenablage kopiert werden."
 
 #: source/TortoiseSVN_en.xml:4438
 #: (para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. <placeholder-1/> You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch die <firstterm>Tiefe</firstterm> beim Aktualiseren festlegen. <placeholder-1/>Weiterhin können Sie wählen, ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
+msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch die <firstterm>Tiefe</firstterm> beim Aktualisieren festlegen. <placeholder-1/>Weiterhin können Sie wählen, ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
 
 #: source/TortoiseSVN_en.xml:4496
 #: (para)
@@ -5269,7 +5269,7 @@ msgstr "Dateien kopieren"
 #: source/TortoiseSVN_en.xml:6182
 #: (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
-msgstr "Es kommt sicher häufiger vor, dass sich einige benötigte Dateien bereits an einer anderen Stelle in Ihrem Projektarchiv befinden und Sie diese einfach an den richtige Ort kopieren wollen. Sie könnten die Dateien einfach herüberkopieren und, wie oben beschrieben, hinzufügen. Aber dabei würde die Historie der Datei verloren gehen. Wenn Sie später einen Fehler beseitigen, können Sie diese Änderungne nur dann automatisch zusammenführen, wenn die neue Datei mit dem Original in Subversion verbunden ist."
+msgstr "Es kommt sicher häufiger vor, dass sich einige benötigte Dateien bereits an einer anderen Stelle in Ihrem Projektarchiv befinden und Sie diese einfach an den richtige Ort kopieren wollen. Sie könnten die Dateien einfach herüberkopieren und, wie oben beschrieben, hinzufügen. Aber dabei würde die Historie der Datei verloren gehen. Wenn Sie später einen Fehler beseitigen, können Sie diese Änderungen nur dann automatisch zusammenführen, wenn die neue Datei mit dem Original in Subversion verbunden ist."
 
 #: source/TortoiseSVN_en.xml:6190
 #: (para)
