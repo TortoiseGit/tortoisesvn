@@ -52,6 +52,8 @@ All user/site specific configuration is stored in doc.build.user.
 			<echo message="Creating '${doc.target.name}' documentation"/>
 
 			<call target="translate" unless="${lang.base==lang.target}"/>
+
+			<call target="spellcheck" if="${property::exists('spellcheck')}"/>
 			<call target="copyimages"/>
 
 			<property name="xslt.source" value="${doc.target.source}"/>
@@ -250,6 +252,7 @@ All user/site specific configuration is stored in doc.build.user.
 								commandline='xml2po.py -t "${lang.target}.mo" -o "${file.target}" "${file.base}"'
 								verbose="false"/>
 				</if>
+
 			</do>
 		</foreach>
 
@@ -266,6 +269,62 @@ All user/site specific configuration is stored in doc.build.user.
 -->
 
 		<delete file="${lang.target}.mo"/>
+	</target>
+
+<!-- ====================================================================== -->
+<!-- Run spellchecker on files                                              -->
+<!-- ====================================================================== -->
+
+	<target name="spellcheck" description="Run spellchecker on files">
+		<echo message="Spellchecking: '${lang.target}' This may take a few minutes"/>
+		
+		<echo 
+			message="--- Spellchecking: '${lang.target}'"
+			file="ASpell/spellcheck_${lang.target}.log"
+			failonerror="false"/>
+
+		<copy file="Aspell/TortoiseSVN.tmpl.pws" tofile="Aspell/Temp.pws" overwrite="true">
+			<filterchain>
+				<replacetokens begintoken="$" endtoken="$">
+					<token key="LANG" value="${lang.target}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
+		<foreach item="File" property="file.base">
+			<in>
+				<items>
+					<include name="source/${lang.base}/${app}/**/*.xml"/>
+					<include name="source/${lang.base}/pubdate.xml"/>
+					<include name="source/${lang.base}/glossary.xml"/>
+					<include name="source/${lang.base}/wishlist.xml"/>
+					<include name="source/${lang.base}/version.xml"/>
+				</items>
+			</in>
+			<do>
+				<property name="file.target" value="${string::replace(file.base,'\'+lang.base+'\','\'+lang.target+'\')}"/>
+
+<!--
+				<uptodate property="file.target.uptodate">
+					<sourcefiles>
+						<include name="${file.target}"/>
+					</sourcefiles>
+					<targetfiles>
+						<include name="ASpell/spellcheck_${lang.target}.log"/>
+					</targetfiles>
+				</uptodate>
+
+				<if test="${not file.target.uptodate}">
+-->
+					<echo message="Checking: ${file.target}"/>
+					<exec program="aspell.bat"
+						commandline="${path.spellcheck} ${lang.target} ${file.target}"
+						failonerror="false"/>
+<!--
+				</if>
+-->
+			</do>
+		</foreach>
 	</target>
 	
 <!-- ====================================================================== -->
