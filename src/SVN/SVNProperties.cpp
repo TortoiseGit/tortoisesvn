@@ -73,7 +73,7 @@ svn_error_t*	SVNProperties::Refresh()
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
 #endif
-	m_error = svn_client_proplist3 (m_path.GetSVNApiPath(),
+	m_error = svn_client_proplist3 (m_path.GetSVNApiPath(m_pool),
 								&rev,
 								&rev,
 								svn_depth_empty,
@@ -329,7 +329,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 				{
 					// a versioned folder, so set the property!
 					svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
-					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, m_rev, m_pctx, subpool);
+					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(subpool), false, false, m_rev, m_pctx, subpool);
 				}
 			}
 			status = stat.GetNextFileStatus(path);
@@ -350,7 +350,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 			baton->pool = subpool;
 			m_pctx->log_msg_baton3 = baton;
 		}
-		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, m_rev, m_pctx, subpool);
+		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), recurse, false, m_rev, m_pctx, subpool);
 	}
 	if (m_error != NULL)
 	{
@@ -390,7 +390,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse, const TCHAR * messa
 		m_pctx->log_msg_baton3 = baton;
 	}
 
-	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, false, m_rev, m_pctx, subpool);
+	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), recurse, false, m_rev, m_pctx, subpool);
 
 	if (m_error != NULL)
 	{

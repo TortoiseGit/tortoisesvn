@@ -403,7 +403,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			svn_error_t* pErr = svn_client_status3 (
 				NULL,
-				m_directoryPath.GetSVNApiPath(),
+				m_directoryPath.GetSVNApiPath(subPool),
 				&revision,
 				GetStatusCallback,
 				this,

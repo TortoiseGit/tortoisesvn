@@ -71,7 +71,7 @@ public:
 	 * Returns the path completely prepared to be fed the the SVN APIs
 	 * It will be in UTF8, with URLs escaped, if necessary
 	 */
-	const char* GetSVNApiPath() const;
+	const char* GetSVNApiPath(apr_pool_t *pool) const;
 	/**
 	 * Returns the path for showing in an UI.
 	 *

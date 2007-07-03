@@ -162,7 +162,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			{
 				folderpath = filepath;
 				err = svn_client_status3 (&youngest,
-					filepath.GetDirectory().GetSVNApiPath(),
+					filepath.GetDirectory().GetSVNApiPath(pool),
 					&rev,
 					findfolderstatus,
 					this,
@@ -213,7 +213,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	try
 	{
 		err = svn_client_status3 (&youngest,
-			filepath.GetDirectory().GetSVNApiPath(),
+			filepath.GetDirectory().GetSVNApiPath(pool),
 			&rev,
 			fillstatusmap,
 			this,

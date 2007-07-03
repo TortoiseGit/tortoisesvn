@@ -154,7 +154,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 							 svn_wc_notify_state_t prop_state, LONG rev,
 							 const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 							 const CString& changelistname,
-							 svn_error_t * err, apr_pool_t * /*pool*/)
+							 svn_error_t * err, apr_pool_t * pool)
 {
 	bool bNoNotify = false;
 	bool bDoAddData = true;
@@ -307,7 +307,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				// This item will now be added after the switch statement
 			}
 			if (!m_basePath.IsEmpty())
-				m_FinishedRevMap[m_basePath.GetSVNApiPath()] = rev;
+				m_FinishedRevMap[m_basePath.GetSVNApiPath(pool)] = rev;
 			m_RevisionEnd = rev;
 			m_bFinishedItemAdded = true;
 		}
@@ -782,7 +782,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						if (st.status->entry != NULL)
 						{
 
-							m_UpdateStartRevMap[targetPath.GetSVNApiPath()] = st.status->entry->cmt_rev;
+							m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->entry->cmt_rev;
 							if (st.status->entry->uuid)
 							{
 								uuid = st.status->entry->uuid;
@@ -805,7 +805,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
 						{
 							if (st.status->entry != NULL)
-								m_UpdateStartRevMap[targetPath.GetSVNApiPath()] = st.status->entry->cmt_rev;
+								m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->entry->cmt_rev;
 						}
 					}
 					if (uuidmap.size() > 1)
@@ -1069,7 +1069,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				bFailed = true;
 				break;
 			}
-			m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath()] = rev;
+			m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath(pool)] = rev;
 			if ((m_RevisionEnd >= 0)&&(rev >= 0)
 				&&((LONG)m_RevisionEnd > (LONG)rev))
 				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
@@ -1778,7 +1778,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (data->basepath.IsEmpty())
 									it = m_UpdateStartRevMap.begin();
 								else
-									it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath());
+									it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath(pool));
 								if (it != m_UpdateStartRevMap.end())
 									rev = it->second;
 								// if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
@@ -1936,7 +1936,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								svn_revnum_t rev = m_RevisionEnd;
 								if (!data->basepath.IsEmpty())
 								{
-									StringRevMap::iterator it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath());
+									StringRevMap::iterator it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath(pool));
 									if (it != m_FinishedRevMap.end())
 										rev = it->second;
 								}

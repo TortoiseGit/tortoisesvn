@@ -154,7 +154,7 @@ const CString& CTSVNPath::GetSVNPathString() const
 }
 
 
-const char* CTSVNPath::GetSVNApiPath() const
+const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 {
 	// This funny-looking 'if' is to avoid a subtle problem with empty paths, whereby
 	// each call to GetSVNApiPath returns a different pointer value.
@@ -181,6 +181,8 @@ const char* CTSVNPath::GetSVNApiPath() const
 		return m_sUTF8FwdslashPathEscaped;
 	}
 #endif // _MFC_VER
+	m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
+
 	return m_sUTF8FwdslashPath;
 }
 
@@ -1008,7 +1010,7 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
 
 	for(int nItem = 0; nItem < GetCount(); nItem++)
 	{
-		const char * target = svn_path_canonicalize(m_paths[nItem].GetSVNApiPath(), pool);
+		const char * target = m_paths[nItem].GetSVNApiPath(pool);
 		(*((const char **) apr_array_push (targets))) = target;
 	}
 
@@ -1023,8 +1025,10 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
 static class CPathTests
 {
 public:
+		apr_pool_t * pool;
 	CPathTests()
 	{
+		pool = svn_pool_create(NULL);
 		GetDirectoryTest();
 		AdminDirTest();
 		SortTest();
@@ -1254,18 +1258,18 @@ private:
 	{
 		CTSVNPath testPath;
 		testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "c:/a/b/c/d/e") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/a/b/c/d/e") == 0);
 		testPath.SetFromUnknown(_T("http://testing/"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
 		testPath.SetFromSVN(NULL);
-		ATLASSERT(strlen(testPath.GetSVNApiPath())==0);
+		ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
 #if defined(_MFC_VER)
 		testPath.SetFromUnknown(_T("http://testing again"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing%20again"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing special chars \344\366\374"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20%C3%A4%C3%B6%C3%BC") == 0);		
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%C3%A4%C3%B6%C3%BC") == 0);		
 #endif
 	}
 

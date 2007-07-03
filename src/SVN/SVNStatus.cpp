@@ -196,7 +196,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 	rev.kind = svn_opt_revision_unspecified;
 	statuskind = svn_wc_status_none;
 	err = svn_client_status3 (&youngest,
-							path.GetSVNApiPath(),
+							path.GetSVNApiPath(pool),
 							&rev,
 							getallstatus,
 							&statuskind,
@@ -287,7 +287,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	hashbaton.exthash = exthash;
 	hashbaton.pThis = this;
 	m_err = svn_client_status3 (&youngest,
-							path.GetSVNApiPath(),
+							path.GetSVNApiPath(m_pool),
 							&rev,
 							getstatushash,
 							&hashbaton,
@@ -335,7 +335,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	hashbaton.pThis = this;
 	m_statushashindex = 0;
 	m_err = svn_client_status3 (&headrev,
-							path.GetSVNApiPath(),
+							path.GetSVNApiPath(m_pool),
 							&rev,
 							getstatushash,
 							&hashbaton,
@@ -397,7 +397,7 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 
 bool SVNStatus::IsExternal(const CTSVNPath& path)
 {
-	if (apr_hash_get(m_externalhash, path.GetSVNApiPath(), APR_HASH_KEY_STRING))
+	if (apr_hash_get(m_externalhash, path.GetSVNApiPath(m_pool), APR_HASH_KEY_STRING))
 		return true;
 	return false;
 }
@@ -644,7 +644,7 @@ void SVNStatus::SetFilter(const CTSVNPathList& fileList)
 	m_filterFileList.clear();
 	for(int fileIndex = 0; fileIndex < fileList.GetCount(); fileIndex++)
 	{
-		m_filterFileList.push_back(fileList[fileIndex].GetSVNApiPath());
+		m_filterFileList.push_back(fileList[fileIndex].GetSVNApiPath(m_pool));
 	}
 	// Sort the list so that we can do binary searches
 	std::sort(m_filterFileList.begin(), m_filterFileList.end());

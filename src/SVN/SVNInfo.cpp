@@ -95,7 +95,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
 	svn_error_clear(m_err);
 	m_arInfo.clear();
 	m_pos = 0;
-	m_err = svn_client_info(path.GetSVNApiPath(), pegrev, revision, infoReceiver, this, recurse, m_pctx, m_pool);
+	m_err = svn_client_info(path.GetSVNApiPath(m_pool), pegrev, revision, infoReceiver, this, recurse, m_pctx, m_pool);
 	if (m_err != NULL)
 		return NULL;
 	if (m_arInfo.size() == 0)
