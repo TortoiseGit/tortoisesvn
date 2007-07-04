@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-21 18:47+0900\n"
+"PO-Revision-Date: 2007-07-04 17:49+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3989,6 +3989,11 @@ msgstr "パッチファイルを作成中 ..."
 msgid "Get loc&k..."
 msgstr "ロックを取得(&K) ..."
 
+# ID:114,
+#: ID:114
+msgid "Get merge logs"
+msgstr "マージのログを取得する"
+
 # ID:89,
 # ID:89,
 #: ID:89
@@ -4585,6 +4590,12 @@ msgstr "ディレクトリをリポジトリにインポート"
 msgid "Include ignored files"
 msgstr "無視ファイルを含める"
 
+# Dlg-ID:173,
+# ID:276,
+#: Control-ID:1126
+msgid "Include merged revisions"
+msgstr "マージされたリビジョンを含める"
+
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5115,6 +5126,13 @@ msgstr "マージ"
 #: ID:78
 msgid "Merge - TortoiseSVN"
 msgstr "マージ - TortoiseSVN"
+
+# Dlg-ID:141,
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: Control-ID:1377
+msgid "Merge Depth"
+msgstr "マージする深さ"
 
 # Dlg-ID:141,
 # ID:263,#:
@@ -9039,6 +9057,12 @@ msgstr "作業コピー"
 #: Control-ID:1335
 msgid "Working Copy Path:"
 msgstr "作業コピーのパス:"
+
+# ID:151,
+# Control-ID:1183,
+#: ID:267
+msgid "Working copy"
+msgstr "作業コピー"
 
 # ID:80,
 # ID:80,
