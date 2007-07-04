@@ -1593,6 +1593,12 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
 	}
+	// make sure the view header is redrawn
+	CRect rcScroll;
+	GetClientRect(&rcScroll);
+	rcScroll.bottom = GetLineHeight()+HEADERHEIGHT;
+	InvalidateRect(&rcScroll, FALSE);
+
 	m_nScreenLines = -1;
 	m_nScreenChars = -1;
 	RecalcVertScrollBar();
