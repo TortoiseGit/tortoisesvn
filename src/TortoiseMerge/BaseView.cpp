@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -909,6 +909,11 @@ void CBaseView::ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar /*= TRUE*/
 		rcScroll.left += GetMarginWidth();
 		rcScroll.top += GetLineHeight()+HEADERHEIGHT;
 		ScrollWindow(nScrollChars * GetCharWidth(), 0, &rcScroll, &rcScroll);
+		// update the view header
+		rcScroll.left = 0;
+		rcScroll.top = 0;
+		rcScroll.bottom = GetLineHeight()+HEADERHEIGHT;
+		InvalidateRect(&rcScroll, FALSE);
 		UpdateWindow();
 		if (bTrackScrollBar)
 			RecalcHorzScrollBar(TRUE);
@@ -1031,6 +1036,62 @@ int CBaseView::GetMarginWidth()
 	return MARGINWIDTH;
 }
 
+void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
+{
+	CRect textrect(rect.left, rect.top, rect.Width(), GetLineHeight()+HEADERHEIGHT);
+	CDiffData diffdata;
+	COLORREF crBk, crFg;
+	diffdata.GetColors(CDiffData::DIFFSTATE_NORMAL, crBk, crFg);
+	crBk = ::GetSysColor(COLOR_SCROLLBAR);
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	{
+		pdc->SetBkColor(crBk);
+	}
+	else
+	{
+
+		if (this == m_pwndRight)
+		{
+			diffdata.GetColors(CDiffData::DIFFSTATE_ADDED, crBk, crFg);
+			pdc->SetBkColor(crBk);
+		}
+		else
+		{
+			diffdata.GetColors(CDiffData::DIFFSTATE_REMOVED, crBk, crFg);
+			pdc->SetBkColor(crBk);
+		}
+	}
+	pdc->FillSolidRect(textrect, crBk);
+
+	pdc->SetTextColor(crFg);
+
+	pdc->SelectObject(GetFont(FALSE, TRUE, FALSE));
+	if (IsModified())
+	{
+		if (m_sWindowName.Left(2).Compare(_T("* "))!=0)
+			m_sWindowName = _T("* ") + m_sWindowName;
+	}
+	else
+	{
+		if (m_sWindowName.Left(2).Compare(_T("* "))==0)
+			m_sWindowName = m_sWindowName.Mid(2);
+	}
+	CString sViewTitle = m_sWindowName;
+	int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
+	if (nStringLength > rect.Width())
+	{
+		int offset = min(m_nOffsetChar, (nStringLength-rect.Width())/GetCharWidth());
+
+		sViewTitle = m_sWindowName.Mid(offset);
+	}
+	pdc->ExtTextOut(max(rect.left + (rect.Width()-nStringLength)/2, 1), 
+		rect.top+(HEADERHEIGHT/2), ETO_CLIPPED, textrect, sViewTitle, NULL);
+	if (this->GetFocus() == this)
+		pdc->DrawEdge(textrect, EDGE_BUMP, BF_RECT);
+	else
+		pdc->DrawEdge(textrect, EDGE_ETCHED, BF_RECT);
+}
+
 void CBaseView::OnDraw(CDC * pDC)
 {
 	CRect rcClient;
@@ -1048,51 +1109,7 @@ void CBaseView::OnDraw(CDC * pDC)
 	}
 	CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
-	CRect textrect(rcClient.left, rcClient.top, rcClient.Width(), nLineHeight+HEADERHEIGHT);
-	CDiffData diffdata;
-	COLORREF crBk, crFg;
-	diffdata.GetColors(CDiffData::DIFFSTATE_NORMAL, crBk, crFg);
-	crBk = ::GetSysColor(COLOR_SCROLLBAR);
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
-	{
-		pDC->SetBkColor(crBk);
-	}
-	else
-	{
-
-		if (this == m_pwndRight)
-		{
-			diffdata.GetColors(CDiffData::DIFFSTATE_ADDED, crBk, crFg);
-			pDC->SetBkColor(crBk);
-		}
-		else
-		{
-			diffdata.GetColors(CDiffData::DIFFSTATE_REMOVED, crBk, crFg);
-			pDC->SetBkColor(crBk);
-		}
-	}
-	pDC->FillSolidRect(textrect, crBk);
-	if (this->GetFocus() == this)
-		pDC->DrawEdge(textrect, EDGE_BUMP, BF_RECT);
-	else
-		pDC->DrawEdge(textrect, EDGE_ETCHED, BF_RECT);
-
-	pDC->SetTextColor(crFg);
-
-	pDC->SelectObject(GetFont(FALSE, TRUE, FALSE));
-	if (IsModified())
-	{
-		if (m_sWindowName.Left(2).Compare(_T("* "))!=0)
-			m_sWindowName = _T("* ") + m_sWindowName;
-	}
-	else
-	{
-		if (m_sWindowName.Left(2).Compare(_T("* "))==0)
-			m_sWindowName = m_sWindowName.Mid(2);
-	}
-	int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
-	pDC->ExtTextOut(max(rcClient.left + (rcClient.Width()-nStringLength)/2, 1), 
-		rcClient.top+(HEADERHEIGHT/2), ETO_CLIPPED, textrect, m_sWindowName, NULL);
+	DrawHeader(pDC, rcClient);
 	
 	CRect rcLine;
 	rcLine = rcClient;

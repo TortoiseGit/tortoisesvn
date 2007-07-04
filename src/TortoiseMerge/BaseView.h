@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,6 +116,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 protected:
+	void			DrawHeader(CDC *pdc, const CRect &rect);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
 	void			DrawSingleLine(CDC *pdc, const CRect &rc, int nLineIndex);
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
