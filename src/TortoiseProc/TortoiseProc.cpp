@@ -72,6 +72,9 @@
 #include "SVNAdminDir.h"
 #include "Hooks.h"
 #include "svn_types.h"
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+
 
 #include "..\version.h"
 #define STRUCT_IOVEC_DEFINED
@@ -218,6 +221,14 @@ CTortoiseProcApp::CTortoiseProcApp()
 CTortoiseProcApp::~CTortoiseProcApp()
 {
 	sasl_done();
+
+	// global application exit cleanup (after all SSL activity is shutdown)
+	// we have to clean up SSL ourselves, since neon doesn't do that (can't do it)
+	// because those cleanup functions work globally per process.
+	ERR_free_strings();
+	EVP_cleanup();
+	CRYPTO_cleanup_all_ex_data();
+
 	// since it is undefined *when* the global object SVNAdminDir is
 	// destroyed, we tell it to destroy the memory pools and terminate apr
 	// *now* instead of later when the object itself is destroyed.
