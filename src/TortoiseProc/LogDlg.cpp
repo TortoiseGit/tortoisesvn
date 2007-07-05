@@ -43,6 +43,7 @@
 #include "BlameDlg.h"
 #include "Blame.h"
 #include "SVNHelpers.h"
+#include "LogDlgHelper.h"
 
 #define ICONITEMBORDER 5
 
@@ -4200,46 +4201,4 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 	SetSplitterRange();
 }
 
-CLogDlg::CStoreSelection::CStoreSelection(CLogDlg* dlg)
-{
-	m_logdlg = dlg;
-
-	int selIndex = m_logdlg->m_LogList.GetSelectionMark();
-	if ( selIndex>=0 )
-	{
-		POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
-		int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-		if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
-		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
-			m_SetSelectedRevisions.insert(pLogEntry->Rev);
-			while (pos)
-			{
-				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-				if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
-				{
-					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
-					m_SetSelectedRevisions.insert(pLogEntry->Rev);
-				}
-			}
-		}
-	}
-}
-
-CLogDlg::CStoreSelection::~CStoreSelection()
-{
-	if ( m_SetSelectedRevisions.size()>0 )
-	{
-		for (int i=0; i<m_logdlg->m_arShownList.GetCount(); ++i)
-		{
-			LONG nRevision = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(i))->Rev;
-			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )
-			{
-				m_logdlg->m_LogList.SetSelectionMark(i);
-				m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-				m_logdlg->m_LogList.EnsureVisible(i, FALSE);
-			}
-		}
-	}
-}
 
