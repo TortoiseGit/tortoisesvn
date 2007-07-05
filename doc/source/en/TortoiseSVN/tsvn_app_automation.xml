@@ -179,7 +179,7 @@ Don't touch these lines:
 								Or, if you don't want to pass the log message on the
 								command line, use /logmsgfile:path, where <option>path</option>
 								points to a file containing the log message.
-								To prefill the bug ID box (in case you've set up
+								To pre-fill the bug ID box (in case you've set up
 								integration with bugtrackers properly), you can use
 								the <option>/bugid:"the bug id here"</option> to
 								do that.
@@ -289,7 +289,7 @@ Don't touch these lines:
 								specifies the first file.
 								If the option <option>/path2</option>
 								is set, then the diff program is started with those
-								two files. If <option>/path2</option> is ommitted,
+								two files. If <option>/path2</option> is omitted,
 								then the diff is done between the file in
 								<option>/path</option> and its BASE.
 							</entry>

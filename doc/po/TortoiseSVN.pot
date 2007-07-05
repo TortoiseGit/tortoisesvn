@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2007-06-15 21:34 +0000\n"
+"POT-Creation-Date: 2007-07-05 08:15 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1267,7 +1267,7 @@ msgid "Note that checking every path can be an expensive operation, particularly
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2091(para) 
-msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
+msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2099(title) 
@@ -1375,7 +1375,7 @@ msgid "A common scenario is to use both Windows domain authentication and a <lit
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2302(para) 
-msgid "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\nAuthAthoritative Off\nSSPIAuthoritative Off\n</screen>"
+msgid "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\nAuthAuthoritative Off\nSSPIAuthoritative Off\n</screen>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2313(para) 
@@ -6058,7 +6058,7 @@ msgid "The Settings Dialog, Hook Scripts Page"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10270(para) 
-msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
+msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10280(para) 
@@ -7080,7 +7080,7 @@ msgid "/bugid:\"the bug id here\""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11818(entry) 
-msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
+msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11834(entry) 
@@ -7152,7 +7152,7 @@ msgid "/path2"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11930(entry) 
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11943(entry) 

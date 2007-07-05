@@ -626,7 +626,7 @@ trevor = rw
 			affect large numbers of files.
 		</para>
 		<para>
-			Authentication and authorizarion are separate processes. If
+			Authentication and authorization are separate processes. If
 			a user wants to gain access to a repository path, she has to meet
 			<emphasis>both</emphasis>, the usual authentication requirements
 			and the authorization requirements of the access file.
@@ -841,7 +841,7 @@ SetEnvIf User-Agent ".*MSIE.*" \
 					add the following entries within the 
 					<literal>&lt;Location&gt;</literal> block of your Apache config file:
 <screen>
-AuthAthoritative Off
+AuthAuthoritative Off
 SSPIAuthoritative Off
 </screen>
 				</para>
