@@ -805,6 +805,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->actions = actions;
 	pLogItem->children = children;
 	pLogItem->isChild = (m_childCounter > 0);
+	pLogItem->sBugIDs = m_ProjectProperties.FindBugID(message).Trim();
 
 	if (m_childCounter > 0)
 		m_childCounter--;
@@ -2249,9 +2250,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				if (itemid < m_arShownList.GetCount())
 				{
-					CString sTemp = m_ProjectProperties.FindBugID(pLogEntry->sMessage);
-					sTemp.Trim();
-					lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
 				}
 				else
 					lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -2743,7 +2742,10 @@ void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 	case 4: // Message or bug id
 		if (m_bShowBugtraqColumn)
 		{
-			// no sorting!
+			if(bAscending)
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscBugIDSort());
+			else
+				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescBugIDSort());
 			break;
 		}
 		// fall through here
@@ -2770,13 +2772,10 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	m_bAscending = nColumn == m_nSortColumn ? !m_bAscending : TRUE;
 	m_nSortColumn = nColumn;
 	SortByColumn(m_nSortColumn, m_bAscending);
-	if ((!m_bShowBugtraqColumn)||(m_nSortColumn != 4))
-	{
-		SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
-		SortShownListArray();
-		m_LogList.Invalidate();
-		UpdateLogInfoLabel();
-	}
+	SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
+	SortShownListArray();
+	m_LogList.Invalidate();
+	UpdateLogInfoLabel();
 	// the "next 100" button only makes sense if the log messages
 	// are sorted by revision in descending order
 	if ((m_nSortColumn)||(m_bAscending))

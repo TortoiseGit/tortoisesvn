@@ -244,6 +244,7 @@ private:
         CString sAuthor;
         CString sMessage;
         CString sShortMessage;
+		CString sBugIDs;
         DWORD dwFileChanges;
         LogChangedPathArray* pArChangedPaths;
         BOOL bCopies;
@@ -307,28 +308,50 @@ private:
 				return pStart->Rev > pEnd->Rev;
             }
         };
-        // Ascending author sorting.
-        struct AscAuthorSort
-        {
-            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-            {
+		// Ascending author sorting.
+		struct AscAuthorSort
+		{
+			bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
 				int ret = pStart->sAuthor.CompareNoCase(pEnd->sAuthor);
 				if (ret == 0)
 					return pStart->Rev < pEnd->Rev;
 				return ret<0;
-            }
-        };
-        // Descending author sorting.
-        struct DescAuthorSort
-        {
-            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-            {
+			}
+		};
+		// Descending author sorting.
+		struct DescAuthorSort
+		{
+			bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
 				int ret = pStart->sAuthor.CompareNoCase(pEnd->sAuthor);
 				if (ret == 0)
 					return pStart->Rev > pEnd->Rev;
 				return ret>0;
-            }
-        };
+			}
+		};
+		// Ascending bugID sorting.
+		struct AscBugIDSort
+		{
+			bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
+				int ret = pStart->sBugIDs.CompareNoCase(pEnd->sBugIDs);
+				if (ret == 0)
+					return pStart->Rev < pEnd->Rev;
+				return ret<0;
+			}
+		};
+		// Descending bugID sorting.
+		struct DescBugIDSort
+		{
+			bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
+				int ret = pStart->sBugIDs.CompareNoCase(pEnd->sBugIDs);
+				if (ret == 0)
+					return pStart->Rev > pEnd->Rev;
+				return ret>0;
+			}
+		};
         // Ascending message sorting.
         struct AscMessageSort
         {
