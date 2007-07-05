@@ -226,6 +226,8 @@ Version 1.4.5
        were ignored. (Stefan)
 - BUG: The commit dialog wrongly showed added files in external folders.
        (Tobias Schäfer)
+- BUG: Selecting the 'to:' date in the log dialog didn't include the
+       selected date. (Stefan)
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their

@@ -2630,7 +2630,7 @@ void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	CTime _time;
 	m_DateTo.GetTime(_time);
-	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
+	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 23, 59, 59);
 	
 	if (time.GetTime() != m_tTo)
 	{
