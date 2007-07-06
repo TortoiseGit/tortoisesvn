@@ -32,7 +32,20 @@ namespace LogCache
 {
 
 /**
- * 
+ * Represents a path that may not be stored explicitly
+ * in a path dictionary. This will happen frequently 
+ * when following a path's copy history, for instance.
+ *
+ * For that, it extends the CDictionaryBasedPath class with 
+ * a list of plain string path elements. So, it is always as
+ * sub-path of some dictionary based path.
+ *
+ * IsFullyCachedPath() returns true, if this list is empty.
+ *
+ * Use RepeatLookup() when the path dictionary got extended.
+ * This method will try to find and use a dictionary based path 
+ * that is closer to this one (i.e. requires less additional
+ * path elements).
  */
 class CDictionaryBasedTempPath : private CDictionaryBasedPath
 {
