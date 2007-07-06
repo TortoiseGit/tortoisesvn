@@ -41,15 +41,15 @@
 			<graphic fileref="images/mergeprinciple.png"/>
 		</figure>
 		<para>
-			A conflict can also occur if you try to apply an outdated patchfile.
+			A conflict can also occur if you try to apply an outdated patch file.
 			In such cases, without TortoiseMerge, you would either have to ask
-			the person you got that patchfile from for a current version or try
-			to apply that patchfile manually.
+			the person you got that patch file from for a current version or try
+			to apply that patch file manually.
 		</para>
 		<para>
 			But now with TortoiseMerge this isn't necessary anymore -
 			at least not if you're working with a version control system like
-			Subversion. TortoiseMerge parses the patchfile for the
+			Subversion. TortoiseMerge parses the patch file for the
 			revision/version the patch was created for and automatically tries
 			to fetch that specific version from your source-control.
 			Then it applies the patch and lets you review both your changes
@@ -88,8 +88,8 @@
 			with those it was easier to apply patches.
 		</para>
 		<para>
-			So we spent a lot of time, searching the internet for a GUI tool
-			which could apply patchfiles, but all we found was that such a tool
+			So we spent a lot of time, searching the Internet for a GUI tool
+			which could apply patch files, but all we found was that such a tool
 			didn't exist. So to cut a long story short: We decided that if
 			no-one else could provide such a tool we would have to write our
 			own. That's when TortoiseMerge was born.
@@ -99,7 +99,7 @@
 			nice diffing engine built in, it was just natural to use this
 			library instead of the GNU diff. Also it reduces the size of the
 			executable since TortoiseSVN and TortoiseMerge can both use the
-			same dll's.
+			same DLLs.
 		</para>
 	</sect1>
 </chapter>
