@@ -341,6 +341,7 @@ void CTokenizedStringContainer::Append (const std::string& s)
 	index_t lastToken = EMPTY_TOKEN;
 	size_t nextPos = std::string::npos;
 
+	size_t stringStart = stringData.size();
 	for (size_t pos = 0, length = s.length(); pos < length; pos = nextPos)
 	{
 		// extract the next word / token
@@ -352,18 +353,39 @@ void CTokenizedStringContainer::Append (const std::string& s)
 		std::string word = s.substr (pos, nextPos - pos);
 		index_t token = GetWordToken (words.AutoInsert (word.c_str()));
 
-		// auto-compress, if pair with last token is already known
+		// auto-compress as long as we can fold token pairs
 
-		index_t pairIndex = pairs.Find (std::make_pair (lastToken, token));
-		if (pairIndex == NO_INDEX)
+		for ( index_t pairIndex = pairs.Find (std::make_pair (lastToken, token))
+			; pairIndex != NO_INDEX
+			; pairIndex = pairs.Find (std::make_pair (lastToken, token)))
 		{
-			Append (lastToken);
-			lastToken = token;
+			// the current token can be paired up with lastToken
+
+			token = GetPairToken (pairIndex);
+			size_t dataSize = stringData.size();
+			if (dataSize == stringStart)
+			{
+				// there is no previous token -> end of compression chain
+
+				lastToken = NO_INDEX;
+			}
+			else
+			{
+				// replace (lastToken,token) with pair token
+				// next try: combine with the token before lastToken
+
+				std::vector<index_t>::iterator dataIter
+					= stringData.begin() + dataSize-1;
+
+				lastToken = *dataIter;
+				stringData.erase (dataIter);
+			}
 		}
-		else
-		{
-			lastToken = GetPairToken (pairIndex);
-		}
+
+		// currently, we cannot compress lastToken anymore
+
+		Append (lastToken);
+		lastToken = token;
 	}
 
 	// don't forget the last one 
