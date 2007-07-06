@@ -278,7 +278,7 @@ revision_t CLogIteratorBase::SkipNARevisions()
 
 void CLogIteratorBase::InternalAdvance()
 {
-	// find next entry that mentiones the path
+	// find next entry that mentions the path
 	// stop @ revision 0 or missing log data
 
 	do
@@ -354,7 +354,7 @@ void CLogIteratorBase::Advance()
 		}
 		else
 		{
-			// find next entry that mentiones the path
+			// find next entry that mentions the path
 			// stop @ revision 0 or missing log data
 
 			InternalAdvance();

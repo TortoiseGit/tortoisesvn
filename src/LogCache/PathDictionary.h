@@ -32,20 +32,16 @@
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CPathDictionary
-//
-//		A very efficient storage for file paths. Every path
-//		is decomposed into its elements (separented by '/').
-//		Those elements are uniquely stored in a string dictionary.
-//		Paths are stored as (parentPathID, elementID) pairs
-//		with index/ID 0 designating the root path.
-//
-//		Parent(root) == root.
-//
-///////////////////////////////////////////////////////////////
 
+/**
+ * A very efficient storage for file paths. Every path is decomposed into its 
+ * elements (separated by '/').
+ * Those elements are uniquely stored in a string dictionary.
+ * Paths are stored as (parentPathID, elementID) pairs with index/ID 0 
+ * designating the root path.
+ *
+ * Parent(root) == root.
+ */
 class CPathDictionary
 {
 private:

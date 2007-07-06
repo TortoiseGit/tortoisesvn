@@ -18,17 +18,12 @@
 //
 #pragma once
 
-///////////////////////////////////////////////////////////////
-//
-// CMappedInFile
-//
-//		class that maps arbitrary files into memory.
-//
-//		The file must be small enough to fit into your address
-//		space (i.e. less than about 1 GB under win32).
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * class that maps arbitrary files into memory.
+ *
+ * The file must be small enough to fit into your address space (i.e., less than
+ * about 1GB on win32).
+ */
 class CMappedInFile
 {
 private:

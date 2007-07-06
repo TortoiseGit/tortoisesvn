@@ -18,29 +18,25 @@
 //
 #pragma once
 
-///////////////////////////////////////////////////////////////
-//
-// quick_hash<>
-//
-//		A quick linear (array) hash index class. It requires HF
-//		to provide the following interface
-//
-//		value_type	data type to hash
-//		index_type	type of the index to store in the hash
-//		NO_INDEX an index_type to mark empty buckets
-//
-//		operator()	value_type -> size_t hash function
-//		value()		index_type -> value_type
-//		equal()		(value_type, index_type) -> bool 
-//		
-//		The capacity approximately doubles by each rehash().
-//		Only insertion and lookup are povided. Collisions are
-//		resolved using linear probing.
-//
-//		Use statistics() to monitor the cache performance.
-//
-///////////////////////////////////////////////////////////////
-	 
+
+/**
+ * A quick linear (array) hash index class. It requires HF to
+ * provide the following interface:
+ *
+ * value_type		data type of the hash
+ * index_type		type of the index to store the hash
+ * NO_INDEX			an index type to mark empty buckets
+ *
+ * operator()		value_type -> size_t hash function
+ * value()			index_type -> value_type
+ * equal()			(value_type, index_type) -> bool
+ *
+ * The capacity approximately doubles by each rehash().
+ * Only insertion and lookup are provided. Collisions are
+ * resolved using linear probing.
+ *
+ * Use statistics() to monitor the cache performance.
+ */
 template<class HF>
 class quick_hash
 {
@@ -148,9 +144,8 @@ private:
 	
 private:
 
-	// are we allowed to add new entries to the hash
-	// without re-hashing?
-
+	/// check if we're allowed to add new entries to the hash
+	/// without re-hashing.
 	bool should_grow() const
 	{
 		// grow, if there are many collisions 
@@ -160,8 +155,7 @@ private:
 		return grower.size() + grower.collisions() + 1 >= grower.capacity();
 	}
 
-	// initialize the new array before re-hashing
-	
+	/// initialize the new array before re-hashing
 	void create_data()
 	{
 		size_t new_capacity = grower.capacity();
@@ -170,12 +164,11 @@ private:
 		stdext::unchecked_fill_n (data, new_capacity, NO_INDEX);
 	}
 	
-	// add a value to the hash 
-	// (must not be in it already; hash must not be full)
-	
+	/// add a value to the hash 
+	/// (must not be in it already; hash must not be full)
 	void internal_insert (const value_type& value, index_type index)
 	{
-		// first try: uncollisioned insertion
+		// first try: un-collisioned insertion
 
 		size_t bucket = grower.map (hf (value));
 		index_type* target = data + bucket;
@@ -221,8 +214,7 @@ private:
 	
 public:
 
-	// construction / destruction
-
+	/// construction / destruction
 	quick_hash (const HF& hash_function) 
 		: data(NULL)
 		, hf (hash_function)
@@ -245,9 +237,8 @@ public:
 		delete[] data;
 	}
 
-	// find the bucket containing the desired value;
-	// return NO_INDEX if not contained in hash
-	
+	/// find the bucket containing the desired value;
+	/// return NO_INDEX if not contained in hash
 	index_type find (const value_type& value) const
 	{
 		size_t bucket = grower.map (hf (value));
@@ -325,8 +316,7 @@ public:
 		}
 	}
 
-	// read cache performance statistics
-
+	/// read cache performance statistics
 	const statistics_t& statisitics() const
 	{
 		return grower.get_statistics();

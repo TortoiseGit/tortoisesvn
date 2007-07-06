@@ -321,7 +321,7 @@ void CTokenizedStringContainer::AppendToken ( std::string& target
 	}
 }
 
-// insertion utilties
+// insertion utilities
 
 void CTokenizedStringContainer::Append (index_t token)
 {
@@ -415,7 +415,7 @@ std::string CTokenizedStringContainer::operator[] (index_t index) const
 		throw std::exception ("string container index out of range");
 
 	// the iterators over the (compressed) tokens 
-	// to buid the string from
+	// to build the string from
 
 	TSDIterator first = stringData.begin() + offsets[index];
 	TSDIterator last = stringData.begin() + offsets[index+1];
@@ -459,10 +459,10 @@ void CTokenizedStringContainer::AutoCompress()
 	// In typical repositories, the relation of string
 	// tokens to used token pairs is ~10:1.
 	
-	// We will favour compressing in small caches while
+	// We will favor compressing in small caches while
 	// making this expensive operation less likely for
 	// larger caches with already a reasonable number of
-	// token pairs. Threashold: log n > n / p
+	// token pairs. Threshold: log n > n / p
 
 	size_t relation = stringData.size() / ((size_t)pairs.size() + 1);
 	if (stringData.size() < ((size_t)1 << relation))

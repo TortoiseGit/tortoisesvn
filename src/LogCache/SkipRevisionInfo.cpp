@@ -182,7 +182,7 @@ index_t CSkipRevisionInfo::CPacker::RemoveParentRanges()
 
 			if (!removed)
 			{
-				// the range wasn't entierely covered
+				// the range wasn't entirely covered
 
 				revision_t end = iter->first + iter->second-1;
 				revision_t previous = parent->GetPreviousRevision (parentPath, end);
@@ -299,7 +299,7 @@ void CSkipRevisionInfo::CPacker::RemoveEmptyRanges()
 		}
 
 		// remove path data if there are no ranges left 
-		// for the respecitive path ID
+		// for the respective path ID
 
 		if (ranges.empty())
 		{
@@ -440,7 +440,7 @@ revision_t CSkipRevisionInfo::GetPreviousRevision ( const CDictionaryBasedPath& 
 	if (!path.IsValid() || (revision == NO_REVISION))
 		return NO_REVISION;
 
-	// lookup the extry for this path
+	// lookup the entry for this path
 
 	index_t dataIndex = index.find (path.GetIndex());
 	SPerPathRanges* ranges = dataIndex == NO_INDEX

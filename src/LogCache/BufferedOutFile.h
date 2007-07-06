@@ -18,15 +18,10 @@
 //
 #pragma once
 
-///////////////////////////////////////////////////////////////
-//
-// CBufferedOutFile
-//
-//		class that provides a simple, buffered file write stream.
-//		Future enhancements may include async. file I/O.
-//
-///////////////////////////////////////////////////////////////
 
+/**
+ * class that provides a simple, buffered file write stream.
+ */
 class CBufferedOutFile
 {
 private:

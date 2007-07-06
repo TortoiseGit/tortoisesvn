@@ -39,17 +39,12 @@ class IHierarchicalOutStream;
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CStringDictionary
-//
-//		efficiently stores a pool unique (UTF8) strings.
-//		Each string is assigned an unique, immutable index.
-//
-//		Under most circumstances, O(1) lookup is provided.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * efficiently stores a pool unique (UTF8) strings.
+ * Each string is assigned an unique, immutable index.
+ *
+ * Under most circumstances, O(1) lookup is provided.
+ */
 class CStringDictionary
 {
 private:

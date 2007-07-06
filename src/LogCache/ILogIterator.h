@@ -37,10 +37,10 @@ namespace LogCache
 
 class CDictionaryBasedTempPath;
 
-///////////////////////////////////////////////////////////////
-// ILogIterator
-///////////////////////////////////////////////////////////////
 
+/**
+ * Iterator interface for iterating over the log entries.
+ */
 class ILogIterator
 {
 public:

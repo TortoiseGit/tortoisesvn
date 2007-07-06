@@ -39,21 +39,16 @@ enum
 	MAX_LOG_CACHE_FILE_VERSION = 0x20060701,
 };
 
-///////////////////////////////////////////////////////////////
-//
-// CCacheFileInBuffer
-//
-//		class that maps files created by CCacheFileOutBuffer
-//		(see there for format details) into memory.
-//
-//		The file must be small enough to fit into your address
-//		space (i.e. less than about 1 GB under win32).
-//
-//		GetLastStream() will return the index of the root stream.
-//		Streams will be returned as half-open ranges [first, last).
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * class that maps files created by CCacheFileOutBuffer (see there for format
+ * details) into memory.
+ * 
+ * The file must be small enough to fit into your address space (i.e., less than
+ * about 1GB on win32).
+ *
+ * GetLastStream() will return the index of the root stream.
+ * Streams will be returned as half-open ranges [first, last).
+ */
 class CCacheFileInBuffer : private CMappedInFile
 {
 private:

@@ -32,42 +32,32 @@
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CTokenizedStringContainer
-//
-//		A very efficient storage for text strings. Every string
-//		gets tokenized into "words" (actually, word + delimiter).
-//		While the words are stored in a dictionary, the stringData
-//		contains the token indices (see below). A string i is
-//		the part of stringData at indices offsets[i] .. offsets[i+1]-1.
-//
-//		The token sequences themselves are further compressed
-//		by replacing common pairs of tokens with special "pair"
-//		tokens. Those pairs can be combined with further tokens
-//		and so on. Only pairs that have been found more than
-//		twice will be replaced by a pair token.
-//
-//		Thus, the tokens are intepreted as follows:
-//
-//		-1				empty token (allowed only temporarily)
-//		-2 .. MIN_INT	word dictionary index 1 .. MAX_INT-1
-//		0 .. MAX_INT	pair dictionary index 0 .. MAX_INT
-//		
-//		A word token overflow is not possible since the
-//		word dictionary can hold only 4G chars, i.e. 
-//		less than 1G words. 
-//		For a pair token overflow you need 6G (original) 
-//		pairs, i.e. at least 6G uncompressed words. So,
-//		that is impossible as well.
-//
-//		Strings newly added to the container will automatically
-//		be compressed using the existing pair tokens. Compress()
-//		should be called before writing the data to disk since
-//		the new strings may allow for further compression.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * A very efficient storage for text strings. Every string gets tokenized into 
+ * "words" (actually, word + delimiter). While the words are stored in a 
+ * dictionary, the stringData contains the token indices (see below). A string 
+ * 'i' is the part of stringData at indices offsets[i] .. offsets[i+1]-1.
+ *
+ * The token sequences themselves are further compressed by replacing common 
+ * pairs of tokens with special "pair" tokens. Those pairs can be combined with 
+ * further tokens and so on. Only pairs that have been found more than twice 
+ * will be replaced by a pair token.
+ *
+ * Thus, the tokens are intepreted as follows:
+ *
+ * -1				empty token (allowed only temporarily)
+ * -2 .. MIN_INT	word dictionary index 1 .. MAX_INT-1
+ * 0 .. MAX_INT		pair dictionary index 0 .. MAX_INT
+ *
+ * A word token overflow is not possible since the word dictionary can hold 
+ * only 4G chars, i.e. less than 1G words.
+ * For a pair token overflow you need 6G (original) pairs, i.e. at least 6G 
+ * uncompressed words. So, that is impossible as well.
+ *
+ * Strings newly added to the container will automatically be compressed using 
+ * the existing pair tokens. Compress() should be called before writing the 
+ * data to disk since the new strings may allow for further compression.
+ */
 class CTokenizedStringContainer
 {
 private:

@@ -253,7 +253,7 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 			return true;
 	}
 
-	// *this has not been found amoung rhs' parent paths
+	// *this has not been found among rhs' parent paths
 
 	return false;
 }

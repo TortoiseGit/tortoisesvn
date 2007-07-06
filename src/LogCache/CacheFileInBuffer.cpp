@@ -23,7 +23,7 @@
 
 void CCacheFileInBuffer::ReadStreamOffsets()
 {
-	// minimun size: 3 DWORDs
+	// minimum size: 3 DWORDs
 
 	if (GetSize() < 3 * sizeof (DWORD))
 		throw std::exception ("log cache file too small");

@@ -45,16 +45,11 @@ namespace LogCache
 
 using namespace LogCache;
 
-///////////////////////////////////////////////////////////////
-//
-// CCacheLogQuery
-//
-//		Implements ILogQuery on the log cache. It requires
-//		another query to fill the gaps in the cache it may
-//		encounter. Those will be filled on-the-fly.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * Implements the ILogQuery interface on the log cache. It requires another
+ * query to fill the gaps in the cache it may encounter. Those gaps will be
+ * filled on-the-fly.
+ */
 class CCacheLogQuery : public ILogQuery
 {
 private:
@@ -63,34 +58,28 @@ private:
 	{
 	private:
 
-		// cache to use & update
-
+		/// cache to use & update
 		CCachedLogInfo* cache;
 		CStringA URL;
 
-		// connection to the SVN repository
-
+		/// connection to the SVN repository
 		ILogQuery* svnQuery;
 
-		// path to log for and the begin of the current gap 
-		// in the log for that path
-
+		/// path to log for and the begin of the current gap 
+		/// in the log for that path
 		std::auto_ptr<CDictionaryBasedTempPath> currentPath;
 		revision_t firstNARevision;
 		bool followRenames;
 
-		// the original log receiver (may be NULL)
-
+		/// the original log receiver (may be NULL)
 		ILogReceiver* receiver;
 
-		// make sure, we can iterator over the given range for the given path
-
+		/// make sure, we can iterator over the given range for the given path
 		void MakeRangeIterable ( const CDictionaryBasedPath& path
 							   , revision_t startRevision
 							   , revision_t count);
 
-		// implement ILogReceiver
-
+		/// implement ILogReceiver
 		virtual void ReceiveLog ( LogChangedPathArray* changes
 								, svn_revnum_t rev
 								, const CString& author
@@ -99,9 +88,8 @@ private:
 
 	public:
 
-		// actually call SVN
-		// return the last revision sent to the receiver
-
+		/// actually call SVN
+		/// return the last revision sent to the receiver
 		revision_t FillLog ( CCachedLogInfo* cache
 						   , const CStringA& URL
 						   , ILogQuery* svnQuery
@@ -113,44 +101,36 @@ private:
 						   , ILogReceiver* receiver);
 	};
 
-	// we get our cache from here
-
+	/// we get our cache from here
 	CLogCachePool* caches;
 
-	// cache to use & update
-
+	/// cache to use & update
 	CCachedLogInfo* cache;
 	CStringA URL;
 
-	// used, if caches is NULL
-
+	/// used, if caches is NULL
 	CCachedLogInfo* tempCache;
 
-	// connection to the SVN repository (may be NULL)
-
+	/// connection to the SVN repository (may be NULL)
 	ILogQuery* svnQuery;
 
-    // efficient map cached string / path -> CString
-
+    /// efficient map cached string / path -> CString
     typedef quick_hash_map<index_t, CString> TID2String;
 
     TID2String authorToStringMap;
     TID2String pathToStringMap;
 
-	// Determine the revision range to pass to SVN.
-
+	/// Determine the revision range to pass to SVN.
 	revision_t NextAvailableRevision ( const CDictionaryBasedTempPath& path
 									 , revision_t firstMissingRevision
 								     , revision_t endRevision) const;
 
-	// Determine an end-revision that would fill many cache gaps efficiently
-
+	/// Determine an end-revision that would fill many cache gaps efficiently
 	revision_t FindOldestGap ( revision_t startRevision
 							 , revision_t endRevision) const;
 
-	// ask SVN to fill the log -- at least a bit
-	// Possibly, it will stop long before endRevision and limit!
-
+	/// ask SVN to fill the log -- at least a bit
+	/// Possibly, it will stop long before endRevision and limit!
 	revision_t FillLog ( revision_t startRevision
 					   , revision_t endRevision
 					   , const CDictionaryBasedTempPath& startPath
@@ -158,14 +138,12 @@ private:
 					   , bool strictNodeHistory
 					   , ILogReceiver* receiver);
 
-	// fill the receiver's change list buffer 
-
+	/// fill the receiver's change list buffer 
 	std::auto_ptr<LogChangedPathArray> GetChanges 
 		( CRevisionInfoContainer::CChangesIterator& first
 		, CRevisionInfoContainer::CChangesIterator& last);
 
-	// crawl the history and forward it to the receiver
-
+	/// crawl the history and forward it to the receiver
 	void InternalLog ( revision_t startRevision
 					 , revision_t endRevision
 					 , const CDictionaryBasedTempPath& startPath
@@ -173,37 +151,32 @@ private:
 					 , bool strictNodeHistory
 					 , ILogReceiver* receiver);
 
-	// follow copy history until the startRevision is reached
-
+	/// follow copy history until the startRevision is reached
 	CDictionaryBasedTempPath TranslatePegRevisionPath 
 		( revision_t pegRevision
 		, revision_t startRevision
 		, const CDictionaryBasedTempPath& startPath);
 
-	// extract the repository-relative path of the URL / file name
-	// and open the cache
-
+	/// extract the repository-relative path of the URL / file name
+	/// and open the cache
 	CDictionaryBasedTempPath GetRelativeRepositoryPath (SVNInfoData& info);
 
-	// get UUID & repository-relative path
-
+	/// get UUID & repository-relative path
 	SVNInfoData& GetRepositoryInfo ( const CTSVNPath& path
 								   , const SVNRev& pegRevision
  								   , SVNInfoData& baseInfo
 								   , SVNInfoData& headInfo) const;
 
-	// decode special revisions:
-	// base / head must be initialized with NO_REVISION
-	// and will be used to cache these values.
-
+	/// decode special revisions:
+	/// base / head must be initialized with NO_REVISION
+	/// and will be used to cache these values.
 	revision_t DecodeRevision ( const CTSVNPath& path
 				  			  , const SVNRev& revision
 							  , SVNInfoData& baseInfo
 							  , SVNInfoData& headInfo) const;
 
-	// get the (exactly) one path from targets
-	// throw an exception, if there are none or more than one
-
+	/// get the (exactly) one path from targets
+	/// throw an exception, if there are none or more than one
 	CTSVNPath GetPath (const CTSVNPathList& targets) const;
 
 public:
@@ -213,9 +186,8 @@ public:
 	CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery);
 	virtual ~CCacheLogQuery(void);
 
-	// query a section from log for multiple paths
-	// (special revisions, like "HEAD", supported)
-
+	/// query a section from log for multiple paths
+	/// (special revisions, like "HEAD", are supported)
 	virtual void Log ( const CTSVNPathList& targets
 					 , const SVNRev& peg_revision
 					 , const SVNRev& start
@@ -224,8 +196,7 @@ public:
 					 , bool strictNodeHistory
 					 , ILogReceiver* receiver);
 
-	// access to the cache
-	// (only valid after calling Log())
-
+	/// access to the cache
+	/// (only valid after calling Log())
 	CCachedLogInfo* GetCache();
 };

@@ -39,17 +39,14 @@ class IHierarchicalOutStream;
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CIndexPairDictionary
-//
-//		efficiently stores unique pairs of integers in a pool.
-//		Each pair is assigned an unique, immutable index.
-//
-//		Under most circumstances, O(1) lookup is provided.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * efficiently stores unique pairs of integers in a pool.
+ * Each pair is assigned an unique, immutable index.
+ *
+ * Under most circumstances, O(1) lookup is provided.
+ *
+ * 
+ */
 class CIndexPairDictionary
 {
 private:

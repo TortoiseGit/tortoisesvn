@@ -38,20 +38,13 @@ class IHierarchicalOutStream;
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CRevisionIndex
-//
-//		a simple class to map from revision number to revision
-//		index.
-//
-//		To handle high revision counts efficiently, only that
-//		range of revisions is stored that actually maps to
-//		revision indices (i.e. revisions at the upper and 
-//		lower ends may be ommitted).
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * a simple class to map from revision number to revision index.
+ *
+ * To handle high revision counts efficiently, only the range of revisions is 
+ * stored which actually maps to revision indices (i.e. revisions at the 
+ * upper and lower ends may be ommitted).
+ */
 class CRevisionIndex
 {
 private:

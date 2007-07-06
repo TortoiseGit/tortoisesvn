@@ -27,18 +27,13 @@ class SVNRev;
 
 class ILogReceiver;
 
-///////////////////////////////////////////////////////////////
-//
-// ILogQuery
-//
-//		This interface will be implemented by all log 
-//		providers (mimics svn_client_log3). 
-//
-//		Errors will be reported back by SVNError exceptions
-//		being thrown.
-//
-///////////////////////////////////////////////////////////////
 
+/**
+ * Interface for log queries. It mimics svn_client_log3.
+ * svn_client_log4 is not currently supported.
+ *
+ * Errors are reported by throwing SVNError exceptions.
+ */
 class ILogQuery
 {
 public:

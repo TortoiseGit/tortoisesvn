@@ -18,12 +18,10 @@
 //
 #pragma once
 
-///////////////////////////////////////////////////////////////
-//
-// define global types and their associated "invalid" values.
-//
-///////////////////////////////////////////////////////////////
 
+/**
+ * defines global types and their associated "invalid" values.
+ */
 namespace LogCache
 {
 #ifdef HUGE_LOG_CACHE
@@ -39,12 +37,16 @@ namespace LogCache
 
 #else
 
+	/// log caching index
 	typedef DWORD index_t;
+	/// revision number
 	typedef index_t revision_t;
 
 	enum
 	{
+		/// invalid/unknown index
 		NO_INDEX = 0xffffffff,
+		/// invalid/unknown revision
 		NO_REVISION = NO_INDEX,
 	};
 

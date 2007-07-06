@@ -33,26 +33,20 @@
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CCachedLogInfo
-//
-//		contains the whole cached log information: It just
-//		combines the exisiting logInfo structure with the
-//		revision index (lookup is revision=>revIndex=>revData).
-//
-//		The interface is that of the logInfo component, except
-//		that it uses proper revision numbers.
-//
-//		As the cache root object, it is associated with a
-//		fileName. You have to load and save the data explicitly.
-//
-//		It also maintains a "modified" flag to check whether
-//		new data has been added / removed at all. You don't 
-//		need to call Save() if there was no change.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * Contains the whole cached log information:
+ * It just combines the existing logInfo structure with the revision index
+ * (lookup is revision=>revIndex=>revData).
+ *
+ * The interface is that of the logInfo component, except that it uses proper
+ * revision numbers.
+ *
+ * As the cache root object, it is associated with a fileName. You have to load
+ * and save the data explicitly.
+ *
+ * It also maintains a "modified" flag to check whether new data has been
+ * added or removed. You don't need to call Save() if there was no change.
+ */
 class CCachedLogInfo
 {
 private:
@@ -95,7 +89,7 @@ public:
 	CCachedLogInfo (const std::wstring& aFileName);
 	~CCachedLogInfo (void);
 
-	// cache persistency
+	// cache persistence
 
 	void Load();
 	bool IsModified();
@@ -130,7 +124,7 @@ public:
 };
 
 ///////////////////////////////////////////////////////////////
-// cache persistency
+// cache persistence
 ///////////////////////////////////////////////////////////////
 
 inline bool CCachedLogInfo::IsModified()

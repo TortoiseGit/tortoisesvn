@@ -31,19 +31,15 @@ namespace LogCache
 
 class CCachedLogInfo;
 
-///////////////////////////////////////////////////////////////
-// 
-// CLogCachePool
-//
-//		Central storage for all repository specific log
-//		caches currently in use. New caches will be created
-//		automatically.
-//
-//		Currently, there is no method to delete unused cache
-//		files or to selectively remove cache info from RAM.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * Central storage for all repository specific log caches currently in use. New
+ * caches will be created automatically.
+ *
+ * Currently, there is no method to delete unused cache files or to selectively
+ * remove cache info from RAM.
+ *
+ * The filenames of the log caches are the repository UUIDs.
+ */
 class CLogCachePool
 {
 private:

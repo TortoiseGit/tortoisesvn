@@ -47,24 +47,16 @@ class CPathDictionary;
 class CDictionaryBasedPath;
 class CRevisionIndex;
 
-///////////////////////////////////////////////////////////////
-//
-// CSkipRevisionInfo
-//
-//		associates paths with a list of revision ranges. It will
-//		be used to store those ranges that definitely contain no
-//		log information for the respective path. Hence, even if
-//		we have no cached log information for that range at all,
-//		we don't need to ask the server for the log.
-//
-//		Compress() should be called to reduce the number of 
-//		entries in this data structure. CRevisionInfoContainer 
-//		has been designed to allow for very fast scanning -
-//		eliminating the need to use CSkipRevisionInfo as an
-//		optimization.
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * associates paths with a list of revision ranges. It will be used to store 
+ * those ranges that definitely contain no log information for the respective 
+ * path. Hence, even if we have no cached log information for that range at all,
+ * we don't need to ask the server for the log.
+ *
+ * Compress() should be called to reduce the number of entries in this data 
+ * structure. CRevisionInfoContainer has been designed to allow for very fast 
+ * scanning - eliminating the need to use CSkipRevisionInfo as an optimization.
+ */
 class CSkipRevisionInfo
 {
 private:

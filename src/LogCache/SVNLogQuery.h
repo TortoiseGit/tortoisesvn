@@ -21,6 +21,11 @@
 #include "ILogQuery.h"
 #include "svn_client.h"
 
+
+/**
+ * Implements the ILogQuery interface by using the SVN API, circumventing the
+ * cache.
+ */
 class CSVNLogQuery : public ILogQuery
 {
 private:

@@ -42,38 +42,28 @@ enum
 	MIN_LOG_CACHE_FILE_VERSION = 0x20060701
 };
 
-///////////////////////////////////////////////////////////////
-//
-// CCacheFileOutBuffer
-//
-//		class that allows arbitrary numbers of streams to be
-//		written sequentially to a single file. Usually, stream
-//		write there data during their "Close()" operation.
-//
-//		The purpose	of this class is to provide a directory for 
-//		all streams so they may be found again when reading the 
-//		file.
-//
-//		Streams can be written only one at a time. OpenStream()
-//		will return a unique stream index to be used to address
-//		the stream within the file. Add will then put arbitrary
-//		chunks of data to the stream. Smaller data chunks will 
-//		be buffered. 
-//
-//		The number of streams and the size of each stream is
-//		limited to 2^32-1 (bytes). As the data will be mapped
-//		to memory, this is only an issue on 64 bit machines.
-//
-//		File format:
-//
-//		* our version ID (4 bytes. current value: 0x20060701)
-//		* min. version ID (4 bytes. current value: 0x20060701)
-//		* stream(s) (N BLOBs)
-//		* stream sizes (N 4 byte integers)
-//		* N (4 bytes unsigned integer)
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * class that allows arbitrary numbers of streams to be written sequentially to
+ * a single file. Usually, streams write data here during their Close() operation.
+ *
+ * The purpose of this class is to provide a directory for all streams so they
+ * may be found again when reading the file.
+ *
+ * Streams can be written only one at a time. OpenStream() will return a unique
+ * stream index to be used to address the stream within the file. Add will then
+ * put arbitrary chunks of data to the stream. Smaller data chunks will be
+ * buffered.
+ *
+ * The number of streams and the size of each stream is limited to 2^32-1 bytes.
+ * As the data will be mapped to memory, this is only an issue on 64-bit machines.
+ *
+ * File format:
+ * - our version ID (4 bytes. Current value: 0x20060701)
+ * - min. version ID (4 bytes. Current value: 0x20060701)
+ * - stream(s) (N BLOBs)
+ * - stream size in (N 4 byte integers)
+ * - N (4 bytes unsigned integer)
+ */
 class CCacheFileOutBuffer : public CBufferedOutFile
 {
 private:

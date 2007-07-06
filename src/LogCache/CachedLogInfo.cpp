@@ -43,7 +43,7 @@ CCachedLogInfo::~CCachedLogInfo (void)
 {
 }
 
-// cache persistency
+// cache persistence
 
 void CCachedLogInfo::Load()
 {

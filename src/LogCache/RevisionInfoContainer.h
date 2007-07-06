@@ -33,48 +33,30 @@
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-//
-// CRevisionInfoContainer
-//
-//		stores all log information except the actual version
-//		number. So, please note, that the indices used here
-//		are not the revision number (revisons may come in
-//		in arbitrary order while new information will only
-//		be appended here).
-//
-//		Every entry holds the data for exactly one revision.
-//		You may add change paths and merged revision info 
-//		to the last revision, only.
-//
-//		Internal storage for revision "index" is as follows:
-//
-//			* comments[index], authors[authors[index]] and
-//			  timeStamps[index] contain the values passed to 
-//			  Insert()
-//
-//			* CDictionaryBasedPath (&paths, rootPaths[index])
-//			  is the common root path for all changed paths
-//			  in that revision (returns true in IsInvalid(),
-//			  if there are no changed paths for this revision).
-//
-//			* changesOffsets[index] .. changesOffsets[index+1]-1
-//			  is the range within changes and changedPaths 
-//			  that contains all changes to the revision
-//
-//			* copyFromOffsets[index] .. copyFromOffsets[index+1]-1
-//			  is the corresponding range within copyFromPaths 
-//			  and copyFromRevisions 
-//
-//		changes contains the TChangeAction values. If a non-
-//		empty fromPath has been passed to AddChange(), "1" is
-//		added to the action value. Only in that case, there
-//		will be entries in copyFromPaths and copyFromRevisions.
-//		(so, iterators need two differen change indices to
-//		represent their current position).
-//
-///////////////////////////////////////////////////////////////
-
+/**
+ * stores all log information except the actual revision number. So, please note,
+ * that the indices used here are not the revision number (revisions may come in
+ * in arbitrary order while new information will only be \b appended here).
+ *
+ * Every entry holds the data for exactly one revision.
+ * You may add change paths and merged revision info to the last revision only.
+ *
+ * Internal storage for revision "index" is as follows:
+ *  - comments[index], authors[authors[index]] and timeStamps[index] contain 
+ *    the values passed to Insert()
+ *  - CDictionaryBasedPath (&paths, rootPaths[index]) is the common root path 
+ *    for all changed paths in that revision (returns true in IsInvalid(), if 
+ *    there are no changed paths for this revision).
+ *  - changesOffsets[index] .. changesOffsets[index+1]-1 is the range within 
+ *    changes and changedPaths that contains all changes to the revision
+ *  - copyFromOffsets[index] .. copyFromOffsets[index+1]-1 is the corresponding 
+ *    range within copyFromPaths and copyFromRevisions
+ *
+ * changes contains the TChangeAction values. If a non-empty fromPath has been 
+ * passed to AddChange(), "1" is added to the action value. Only in that case, 
+ * there will be entries in copyFromPaths and copyFromRevisions. (so, iterators 
+ * need two differen change indices to represent their current position).
+ */
 class CRevisionInfoContainer
 {
 private:

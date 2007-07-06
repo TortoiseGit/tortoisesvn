@@ -24,24 +24,17 @@
 
 #include "QuickHash.h"
 
-///////////////////////////////////////////////////////////////
-//
-// quick_hash_map<>
-//
-//		A quick associative container that maps K (key) to
-//		V (value) instances. 
-//
-//		K must implicitly convert to size_t.
-//
-///////////////////////////////////////////////////////////////
-	 
+
+/**
+ * A quick associative container that maps K (key) to V (value) instances.
+ * K must implicitly convert to size_t.
+ */
 template<class K, class V>
 class quick_hash_map
 {
 private:
 
-    // our actual data container
-
+    /// our actual data container
     struct element_type
     {
         K key;
@@ -56,26 +49,19 @@ private:
     typedef std::vector<element_type> data_type;
     data_type data;
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CHashFunction
-	//
-	//		A simple string hash function that satisfies quick_hash'
-	//		interface requirements.
-	//
-	//		NULL strings are supported and are mapped to index 0.
-	//		Hence, the dictionary must contain the empty string at
-	//		index 0.
-	//
-	///////////////////////////////////////////////////////////////
-
+	/**
+	 * A simple string hash function that satisfies quick_hash interface
+	 * requirements.
+	 *
+	 * NULL strings are supported and are mapped to index 0.
+	 * Hence, the dictionary must contain the empty string at index 0.
+	 */
 	class CHashFunction
 	{
 	private:
 
-		// the data container we index with the hash
-		// (used to map key -> (key, value))
-
+		/// the data container we index with the hash
+		/// (used to map key -> (key, value))
         typedef typename quick_hash_map<K, V>::data_type data_type; 
         data_type* data;
 
@@ -95,22 +81,19 @@ private:
 
 		enum {NO_INDEX = LogCache::NO_INDEX};
 
-		// the actual hash function
-
+		/// the actual hash function
         size_t operator() (value_type value) const
         {
             return value;
         }
 
-		// dictionary lookup
-
+		/// dictionary lookup
 		value_type value (index_type index) const
         {
             return (*data)[index].key;
         }
 
-		// lookup and comparison
-
+		/// lookup and comparison
 		bool equal (value_type value, index_type index) const
         {
             return value == (*data)[index].key;
@@ -125,7 +108,7 @@ private:
 
 public:
 
-    // publically available types
+    // publicly available types
 
 	typedef typename K key_type;
 	typedef typename V value_type;

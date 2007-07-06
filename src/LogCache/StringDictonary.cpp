@@ -257,7 +257,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 
 //	dictionary.CheckOffsets();
 
-	// build the hash (ommit the empty string at index 0)
+	// build the hash (omit the empty string at index 0)
 
 	dictionary.hashIndex 
 		= quick_hash<CStringDictionary::CHashFunction>

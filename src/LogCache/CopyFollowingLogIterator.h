@@ -26,6 +26,10 @@
 namespace LogCache
 {
 
+/**
+ * Iterator class which follows the copies back in the log history.
+ * Used in CCacheLogQuery to find 'renamed' paths.
+ */
 class CCopyFollowingLogIterator :
 	public CLogIteratorBase
 {

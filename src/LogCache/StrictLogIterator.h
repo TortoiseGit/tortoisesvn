@@ -26,6 +26,10 @@
 namespace LogCache
 {
 
+/**
+ * Iterator class which iterates over log entries without following the
+ * copy history.
+ */
 class CStrictLogIterator :
 	public CLogIteratorBase
 {

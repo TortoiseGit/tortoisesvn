@@ -31,10 +31,10 @@
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-// CLogBatchIteratorBase
-///////////////////////////////////////////////////////////////
 
+/**
+ * 
+ */
 class CLogBatchIteratorBase : public CLogIteratorBase
 {
 public:
@@ -50,7 +50,7 @@ protected:
 
 	TPathRevisions pathRevisions;
 
-	// path list folding utilties
+	// path list folding utilities
 
 	static revision_t MaxRevision (const TPathRevisions& pathRevisions);
 	static CDictionaryBasedTempPath BasePath ( const CCachedLogInfo* cachedLog

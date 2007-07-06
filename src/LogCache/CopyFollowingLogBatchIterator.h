@@ -26,6 +26,10 @@
 namespace LogCache
 {
 
+/**
+ * Iterator class which follows copies back in the log history.
+ * Not currently used!
+ */
 class CCopyFollowingLogBatchIterator :
 	public CLogBatchIteratorBase
 {

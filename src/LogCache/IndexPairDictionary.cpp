@@ -121,7 +121,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	for (index_t i = 0; i < count; ++i)
 		dictionary.data[i].second = secondStream->GetValue();
 
-	// build the hash (ommit the empty string at index 0)
+	// build the hash (omit the empty string at index 0)
 
 	dictionary.hashIndex 
 		= quick_hash<CIndexPairDictionary::CHashFunction>

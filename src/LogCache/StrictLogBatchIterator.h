@@ -26,6 +26,9 @@
 namespace LogCache
 {
 
+/**
+ * 
+ */
 class CStrictLogBatchIterator :	public CLogBatchIteratorBase
 {
 protected:

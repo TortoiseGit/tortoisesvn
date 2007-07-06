@@ -156,7 +156,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog ( LogChangedPathArray* changes
 	}
 
 	// the first revision we may not have information about is the one
-	// immediately preceeding the on we just received from the server
+	// immediately preceding the on we just received from the server
 
 	firstNARevision = revision-1;
 
@@ -270,7 +270,7 @@ revision_t CCacheLogQuery::FindOldestGap ( revision_t startRevision
 									     , revision_t endRevision) const
 {
 	// consider the following trade-off:
-	// 1 server roundtrip takes about as long as receiving
+	// 1 server round trip takes about as long as receiving
 	// 100 log entries.
 	//
 	// -> filling cache data gaps of up to 100 revisions
@@ -417,7 +417,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 								 , bool strictNodeHistory
 								 , ILogReceiver* receiver)
 {
-    // clear string translatin caches
+    // clear string translating caches
 
     authorToStringMap.clear();
     pathToStringMap.clear();
@@ -648,7 +648,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 		throw SVNError ( SVN_ERR_CLIENT_BAD_REVISION
 					   , "Invalid revision passed to Log().");
 
-	// efficently decode standard cases: revNum, HEAD, BASE/WORKING
+	// efficiently decode standard cases: revNum, HEAD, BASE/WORKING
 
 	switch (revision.GetKind())
 	{

@@ -32,11 +32,10 @@
 
 #include "svn_types.h"
 
-///////////////////////////////////////////////////////////////
-// data structures to accomodate the change list 
-// (taken from the SVN class)
-///////////////////////////////////////////////////////////////
 
+/**
+ * data structure to acomodate the change list.
+ */
 struct LogChangedPath
 {
 	CString sPath;
@@ -44,14 +43,12 @@ struct LogChangedPath
 	svn_revnum_t lCopyFromRev;
 	DWORD action;
 
-	// convenience method
-
+	/// returns the action as a string
 	const CString& GetAction() const;
 
 private:
 
-	// cached return value of GetAction()
-
+	/// cached return value of GetAction()
 	mutable CString actionAsString;
 };
 
@@ -65,27 +62,21 @@ enum
 
 typedef CArray<LogChangedPath*, LogChangedPath*> LogChangedPathArray;
 
-///////////////////////////////////////////////////////////////
-//
-// ILogReceiver
-//
-//		Implement this to receive log information. It will
-//		be used as a callback in ILogQuery::Log().
-//
-//		To cancel the log and / or indicate errors, throw
-//		a SVNError exception.
-//
-///////////////////////////////////////////////////////////////
 
+/**
+ * Interface for receiving log information. It will be used as a callback
+ * in ILogQuery::Log().
+ *
+ * To cancel the log and/or indicate errors, throw an SVNError exception.
+ */
 class ILogReceiver
 {
 public:
 
-	// call-back for every revision found
-	// (called at most once per revision)
-
-	// may throw a SVNError to cancel the log
-
+	/// call-back for every revision found
+	/// (called at most once per revision)
+	///
+	/// may throw a SVNError to cancel the log
 	virtual void ReceiveLog ( LogChangedPathArray* changes
 							, svn_revnum_t rev
 							, const CString& author
