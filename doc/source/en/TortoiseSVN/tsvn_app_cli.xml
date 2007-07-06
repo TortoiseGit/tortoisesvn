@@ -476,10 +476,10 @@ svn propset svn:ignore -F tempfile PATH
 		<sect2 id="tsvn-cli-createpatch">
 			<title>Create Patch</title>
 <screen>
-svn diff PATH > patchfile
+svn diff PATH > patch-file
 </screen>
 			<para>
-				TortoiseSVN creates a patchfile in unified diff format
+				TortoiseSVN creates a patch file in unified diff format
 				by comparing the working copy with its BASE version.
 			</para>
 		</sect2>

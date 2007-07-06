@@ -62,7 +62,7 @@
 				or too short log message.
 			</para>
 			<para>
-				In the repository folder on the server, there's a subfolder
+				In the repository folder on the server, there's a sub-folder
 				<filename>hooks</filename>
 				which contains some example hook scripts you can use. The file
 				<filename>pre-commit.tmpl</filename>
@@ -343,7 +343,7 @@
 			<para>
 				Set the <literal>svn:externals</literal> property for a folder
 				in your project. This property consists of one or more lines;
-				each line has the name of a subfolder which you want the use
+				each line has the name of a sub-folder which you want the use
 				as the checkout folder for common code, and the repository URL
 				that you want to be checked out there. For full details
 				refer to <xref linkend="tsvn-dug-import-4"/>.
@@ -351,7 +351,7 @@
 			<para>
 				Commit the new folder. Now when you update, Subversion
 				will pull a copy of that project from its repository
-				into your working copy. The subfolders will be created
+				into your working copy. The sub-folders will be created
 				automatically if required.
 				Each time you update your main working copy, you will also
 				receive the latest version of all external projects.

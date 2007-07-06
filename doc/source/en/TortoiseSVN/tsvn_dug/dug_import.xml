@@ -164,7 +164,7 @@ C:\Temp\New\tags
 				<listitem>
 					<para>
 						Organize the files in folders and
-						subfolders. Although it is possible to rename/move
+						sub-folders. Although it is possible to rename/move
 						files later it is highly recommended to get your project's
 						structure straight before importing!
 					</para>
@@ -350,10 +350,10 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 </screen>
 			Now click <guibutton>Set</guibutton> and commit your changes.
 			When you (or any other user) update your working copy, Subversion
-			will create a subfolder 
+			will create a sub-folder 
 			<filename>D:\dev\project1\sounds</filename> and checkout the sounds
-			project, another subfolder <filename>D:\dev\project1\quick graphs</filename>
-			containing the graphics project, and finally a nested subfolder
+			project, another sub-folder <filename>D:\dev\project1\quick graphs</filename>
+			containing the graphics project, and finally a nested sub-folder
 			<filename>D:\dev\project1\skins\toolkit</filename> containing
 			revision 21 of the skin-maker project.
 		</para>
