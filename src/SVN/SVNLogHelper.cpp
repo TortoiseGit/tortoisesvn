@@ -54,3 +54,10 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 	}
 	return rev;
 }
+
+bool SVNLogHelper::GetLogMessagesAndAuthors(CTSVNPath url, SVNRev start, SVNRev end, SVNRev pegrev)
+{
+	messages.clear();
+	authors.clear();
+	return !!ReceiveLog(CTSVNPathList(url), pegrev, start, end, 0, FALSE);
+}
