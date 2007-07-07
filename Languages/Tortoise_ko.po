@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-06-25 18:44+0900\n"
+"PO-Revision-Date: 2007-07-07 15:13+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3336,6 +3336,11 @@ msgstr "패치 파일 생성 중..."
 msgid "Get loc&k..."
 msgstr "잠그기(&K)..."
 
+# ID:114,
+#: ID:114
+msgid "Get merge logs"
+msgstr "병합 로그 보기"
+
 # ID:89,
 #: ID:89
 msgid ""
@@ -3873,6 +3878,11 @@ msgstr "현재 디렉토리를 저장소에 넣습니다."
 msgid "Include ignored files"
 msgstr "무시되는 파일 포함"
 
+# Dlg-ID:173,
+#: Control-ID:1126
+msgid "Include merged revisions"
+msgstr "병합된 리비전들도 포함"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include only the following revision range:"
@@ -4330,6 +4340,11 @@ msgstr "병합"
 #: ID:78
 msgid "Merge - TortoiseSVN"
 msgstr "병합 - TortoiseSVN"
+
+# Dlg-ID:141,
+#: Control-ID:1377
+msgid "Merge Depth"
+msgstr "병합 단계"
 
 # Dlg-ID:141,
 #: ID:263
@@ -7647,6 +7662,11 @@ msgstr "작업 사본"
 #: Control-ID:1335
 msgid "Working Copy Path:"
 msgstr "작업 사본 경로:"
+
+# ID:151,
+#: ID:267
+msgid "Working copy"
+msgstr "작업 사본"
 
 # ID:80,
 #: ID:80
