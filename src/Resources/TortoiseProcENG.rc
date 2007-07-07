@@ -2938,6 +2938,13 @@ BEGIN
     IDS_SVN_DEPTH_WORKING   "Working copy"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_SVNPROGRESS_MERGELOGMSGONE "Merged revision %s from %s:\n"
+    IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE "Merged revisions %s to %s from %s:\n"
+    IDS_SVNPROGRESS_MERGELOGMSG "%s\nr%s | %s\n\n%s\n"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

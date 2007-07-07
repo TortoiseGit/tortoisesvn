@@ -177,6 +177,11 @@ msgstr ""
 msgid "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
 msgstr ""
 
+#: ID:286,
+#, c-format
+msgid "%s\nr%s | %s\n\n%s\n"
+msgstr ""
+
 #: MenuEntry
 msgid "&?"
 msgstr ""
@@ -2986,6 +2991,16 @@ msgstr ""
 
 #: ID:263,#: ID:263,
 msgid "Merged"
+msgstr ""
+
+#: ID:286,
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr ""
+
+#: ID:286,
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
 msgstr ""
 
 #: ID:10,

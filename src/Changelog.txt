@@ -157,6 +157,10 @@
        between sessions. See issue #353 for details. (Stefan)
 - NEW: The view title scrolls now with the view. See issue #358
        for details. (Stefan)
+- NEW: After a merge, the log messages of each merged revision are fetched
+       and inserted in the commit log history. Which means after a merge,
+       the user can get a pre-filled commit message from the history 
+       button. See issue #369 for details. (Stefan)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: When copying selected lines to the clipboard, a newline is added
