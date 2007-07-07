@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-05 01:02+0900\n"
+"PO-Revision-Date: 2007-07-06 19:12+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1578,8 +1578,8 @@ msgid "Note that checking every path can be an expensive operation, particularly
 msgstr "すべてのパスをチェックするのは、(特にリビジョンログに関して) 時間がかかる操作だということに注意してください。サーバは、リビジョンごとにすべてのパスを変更があるかチェックし、そこが読み込めるかどうかをチェックします。リビジョンにあるファイルが多くなれば、時間をどんどん消費してしまいます。"
 
 #: source/TortoiseSVN_en.xml:2091(para)
-msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr "認証と許可は独立したプロセスです。ユーザがリポジトリパスへアクセスしたい場合、通常の認証条件とファイルへのアクセス許可条件を<emphasis>両方</emphasis>満たさなくてはなりません。"
+msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
+msgstr "認証 (authentication) と許可 (authorization) は独立したプロセスです。ユーザがリポジトリパスへアクセスしたい場合、通常の認証条件とファイルへのアクセス許可条件を<emphasis>両方</emphasis>満たさなくてはなりません。"
 
 #: source/TortoiseSVN_en.xml:2099(title)
 msgid "Authentication With a Windows Domain"
@@ -1734,12 +1734,12 @@ msgstr "Windows ドメイン認証と <literal>passwd</literal> ファイル両�
 #: source/TortoiseSVN_en.xml:2302(para)
 msgid ""
 "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\n"
-"AuthAthoritative Off\n"
+"AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
 "Windows ドメイン認証と passwd ファイル認証の両方を有効にするには、Apache 設定ファイルの <literal>&lt;Location&gt;</literal> ブロックに以下のエントリを追加してください。<screen>\n"
-"AuthAthoritative Off\n"
+"AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 
@@ -6924,7 +6924,7 @@ msgid "The Settings Dialog, Hook Scripts Page"
 msgstr "設定ダイアログ、フックスクリプトページ"
 
 #: source/TortoiseSVN_en.xml:10270(para)
-msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
+msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
 msgstr "<placeholder-1/> このダイアログでは、Subversion のアクションに合わせて自動的に実行される、フックスクリプトのセットアップを行えます。対照的に <xref linkend=\"tsvn-repository-hooks\"/> で説明しているフックスクリプトは、クライアントのローカルで実行されます。"
 
 #: source/TortoiseSVN_en.xml:10280(para)
@@ -8216,7 +8216,7 @@ msgid "/bugid:\"the bug id here\""
 msgstr "/bugid:\"the bug id here\""
 
 #: source/TortoiseSVN_en.xml:11818(entry)
-msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
+msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
 msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、パスに指定します。/logmsg スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、/logmsgfile:path を使用してください。<placeholder-1/> にはログメッセージのファイルを指定します。(バグトラッカのプロパティで統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-2/> を使用できます。"
 
 #: source/TortoiseSVN_en.xml:11834(entry)
@@ -8291,7 +8291,7 @@ msgid "/path2"
 msgstr "/path2"
 
 #: source/TortoiseSVN_en.xml:11930(entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE."
 msgstr "TortoiseSVN 設定で指定した外部 diff プログラムを起動します。<placeholder-1/> には初めのファイルを指定します。<placeholder-2/> オプションを設定すると、その 2 ファイルに対して diff プログラムが起動します。<placeholder-3/> を省略すると、<placeholder-4/> とその BASE に対する diff を行います。"
 
 #: source/TortoiseSVN_en.xml:11943(entry)
