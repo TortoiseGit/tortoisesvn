@@ -909,27 +909,30 @@ UINT CLogDlg::LogThread()
 			const void *key;
 			void *val;
 
-			for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
+			if (mergeinfo)
 			{
-				apr_hash_this(hi, &key, NULL, &val);
-				if (m_sRelativeRoot.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+				for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
 				{
-					apr_array_header_t * arr = (apr_array_header_t*)val;
-					if (val)
+					apr_hash_this(hi, &key, NULL, &val);
+					if (m_sRelativeRoot.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
 					{
-						for (long i=0; i<arr->nelts; ++i)
+						apr_array_header_t * arr = (apr_array_header_t*)val;
+						if (val)
 						{
-							svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
-							if (pRange)
+							for (long i=0; i<arr->nelts; ++i)
 							{
-								for (svn_revnum_t r=pRange->start; r<=pRange->end; ++r)
+								svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
+								if (pRange)
 								{
-									m_mergedRevs.insert(r);
+									for (svn_revnum_t r=pRange->start; r<=pRange->end; ++r)
+									{
+										m_mergedRevs.insert(r);
+									}
 								}
 							}
 						}
+						break;
 					}
-					break;
 				}
 			}
 		}
