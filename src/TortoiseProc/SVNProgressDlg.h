@@ -103,6 +103,8 @@ private:
 			bAuxItem(false),
 			lock_state(svn_wc_notify_lock_state_unchanged)
 		{
+			merge_range.end = 0;
+			merge_range.start = 0;
 		}
 	public:
 		// The text we put into the first column (the SVN action for normal items, just text for aux items)
@@ -117,6 +119,7 @@ private:
 		svn_wc_notify_state_t	content_state;
 		svn_wc_notify_state_t	prop_state;
 		svn_wc_notify_lock_state_t lock_state;
+		svn_merge_range_t		merge_range;
 		svn_revnum_t			rev;
 		COLORREF				color;
 		CString					owner;						///< lock owner
@@ -162,6 +165,7 @@ protected:
 		svn_wc_notify_state_t prop_state, LONG rev,
 		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 		const CString& changelistname,
+		svn_merge_range_t * range,
 		svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL	Cancel();
 	virtual void	OnCancel();
