@@ -34,7 +34,7 @@
 
 
 /**
- * data structure to acomodate the change list.
+ * data structure to accommodate the change list.
  */
 struct LogChangedPath
 {
