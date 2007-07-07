@@ -45,6 +45,7 @@
 #include "RepoDrags.h"
 #include "SVNInfo.h"
 #include "SVNDataObject.h"
+#include "SVNLogHelper.h"
 
 
 enum RepoBrowserContextMenuCommands
@@ -2015,14 +2016,15 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					// get log of first URL
 					CString sCopyFrom1, sCopyFrom2;
-					LogHelper helper;
-					SVNRev rev1 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[0])), sCopyFrom1, GetRevision());
+					SVNLogHelper helper;
+					helper.SetRepositoryRoot(m_strReposRoot);
+					SVNRev rev1 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), sCopyFrom1);
 					if (!rev1.IsValid())
 					{
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;
 					}
-					SVNRev rev2 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[1])), sCopyFrom2, GetRevision());
+					SVNRev rev2 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), sCopyFrom2);
 					if (!rev2.IsValid())
 					{
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
