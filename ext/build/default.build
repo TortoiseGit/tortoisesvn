@@ -25,6 +25,7 @@
 		<nant target="build" buildfile="zlib.build" />
 		<nant target="build" buildfile="sqlite.build" />
 		<nant target="build" buildfile="neon.build" />
+		<nant target="build" buildfile="serf.build" />
 		<nant target="build" buildfile="subversion.build" />
 	</target>
 
