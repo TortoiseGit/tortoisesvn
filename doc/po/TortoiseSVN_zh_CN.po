@@ -27,8 +27,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2007-06-15 21:34 +0000\n"
-"PO-Revision-Date: 2007-06-15 10:28+0800\n"
+"POT-Creation-Date: 2007-07-05 08:15 +0000\n"
+"PO-Revision-Date: 2007-07-08 13:06+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1579,8 +1579,8 @@ msgid "Note that checking every path can be an expensive operation, particularly
 msgstr "请注意，检查每一条路径是一件消耗极大的操作，特别是修订版本日志，服务器会检查在每一个修订版本的每一条路径是否可读，对于影响很多文件的修订将会花费很多时间。"
 
 #: source/TortoiseSVN_en.xml:2091(para)
-msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr "认证和授权是不同的过程，如果用户希望获得对版本库的访问，他需要同时实现这<emphasis>两个步骤</emphasis>，对于要访问文件的普通认证请求和授权请求。"
+msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
+msgstr "认证和授权是不同的处理过程，如果用户希望获得对版本库的访问，他需要通过<emphasis>全部</emphasis>检查，即通常的认证需求和访问控制文件的授权需求。"
 
 #: source/TortoiseSVN_en.xml:2099(title)
 msgid "Authentication With a Windows Domain"
@@ -1735,11 +1735,11 @@ msgstr "一个常见的场景就是同时使用Windows域和<literal>passwd</lit
 #: source/TortoiseSVN_en.xml:2302(para)
 msgid ""
 "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\n"
-"AuthAthoritative Off\n"
+"AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
-"为了开启Windows域和密码文件认证，在Apache配置文件的<literal>&lt;Location&gt;</literal>中添加下面的条目: <screen>\n"
+"为了同时启用 Windows 域认证和密码文件认证，在 Apache 配置文件的 <literal>&lt;Location&gt;</literal> 块中添加如下条目: <screen>\n"
 "AuthAthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
@@ -6885,8 +6885,8 @@ msgid "The Settings Dialog, Hook Scripts Page"
 msgstr "设置对话框，钩子脚本页"
 
 #: source/TortoiseSVN_en.xml:10270(para)
-msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
-msgstr "<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动作执行时，自动执行的钩子脚本。与 <xref linkend=\"tsvn-repository-hooks\"/> 中钩子脚本的解释相反，这些脚本在客户端本地执行。"
+msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
+msgstr "<placeholder-1/> 这个对话框允许你指定当特定 Subversion 动作执行时，自动执行的钩子脚本。与 <xref linkend=\"tsvn-repository-hooks\"/> 中说明的钩子脚本相反，这些脚本在客户端本地执行。"
 
 #: source/TortoiseSVN_en.xml:10280(para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
@@ -8134,7 +8134,8 @@ msgid "/bugid:\"the bug id here\""
 msgstr "/bugid:\"the bug id here\""
 
 #: source/TortoiseSVN_en.xml:11818(entry)
-msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
+#, fuzzy
+msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
 msgstr "打开提交对话框，路经指定了目标路径或需要提交的文件列表，你也可以使用参数/logmsg给提交窗口传递预定义的日志信息，或者你不希望将日志传递给命令行，你也可以使用/logmsgfile:path，<placeholder-1/>指向了保存日志信息的文件。为了预先填入bug的ID(如果你设置了集成bug追踪属性)，你可以使用<placeholder-2/>完成这个任务。"
 
 #: source/TortoiseSVN_en.xml:11834(entry)
@@ -8209,8 +8210,8 @@ msgid "/path2"
 msgstr "/path2"
 
 #: source/TortoiseSVN_en.xml:11930(entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
-msgstr "启动TortoiseSVN设置的外置比较程序，<placeholder-1/>指定了第一个文件，如果设置了<placeholder-2/>，比较程序会启动两个文件，如果省略<placeholder-3/>，比较程序会比较<placeholder-4/>和它的BASE。"
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE."
+msgstr "启动 TortoiseSVN 设置的外置比较程序，<placeholder-1/>指定了第一个文件，如果设置了<placeholder-2/>选项，比较程序会用这两个文件启动，如果省略<placeholder-3/>，比较程序会比较<placeholder-4/>和它的 BASE。"
 
 #: source/TortoiseSVN_en.xml:11943(entry)
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
