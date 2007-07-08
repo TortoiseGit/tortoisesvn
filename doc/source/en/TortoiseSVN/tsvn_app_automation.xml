@@ -385,17 +385,17 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:lock</entry>
 							<entry>
-								Locks a file or all files in a directory.
+								Locks a file or all files in a directory given in
+								<option>/path</option>.
 								The 'lock' dialog is shown so the
 								user can enter a comment for the lock.
-								<option>/path</option>
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:unlock</entry>
 							<entry>
-								Unlocks a file or all files in a directory..
-								<option>/path</option>
+								Unlocks a file or all files in a directory given in
+								<option>/path</option>.
 							</entry>
 						</row>
 						<row>
@@ -405,7 +405,7 @@ Don't touch these lines:
 								case the windows icons are corrupted. A side effect
 								of this (which can't be avoided) is that the icons
 								on the desktop get rearranged.
-								<option>/noquestion</option>
+								To suppress the message box, pass <option>/noquestion</option>.
 							</entry>
 						</row>
 						<row>

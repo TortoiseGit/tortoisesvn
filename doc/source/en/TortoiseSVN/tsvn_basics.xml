@@ -680,7 +680,7 @@ calc/Makefile:6
 					<listitem>
 						<para>
 							The file has been changed both in the
-							working directory, and in the repository.  An <command>commit
+							working directory, and in the repository.  A <command>commit
 							</command> of the file will fail with an "out-of-date"
 							error.  The file should be updated first; an <command>update
 							</command> command will attempt to merge the public
