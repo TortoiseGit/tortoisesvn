@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-28 14:36+0800\n"
+"PO-Revision-Date: 2007-07-08 12:13+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -254,6 +254,19 @@ msgstr ""
 "%s\n"
 "是个文件夹，不是文件！\n"
 "TortoiseMerge 无法比较文件夹的差异。"
+
+#: ID:286,
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -3300,6 +3313,10 @@ msgstr "正在生成补丁文件..."
 msgid "Get loc&k..."
 msgstr "获取锁定(&K)..."
 
+#: ID:114,
+msgid "Get merge logs"
+msgstr "取得合并日志"
+
 # ID:89,
 #: ID:89,
 msgid ""
@@ -3808,6 +3825,11 @@ msgstr "导入目录至版本库"
 msgid "Include ignored files"
 msgstr "包括忽略的文件"
 
+# ID:276,
+#: Control-ID:1126,
+msgid "Include merged revisions"
+msgstr "包含合并版本"
+
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid "Include only the following revision range:"
@@ -4278,6 +4300,17 @@ msgstr "合并深度"
 msgid "Merged"
 msgstr "已合并"
 
+# ID:313,
+#: ID:286,
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "合并版本 %s 自 %s:\n"
+
+#: ID:286,
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "合并版本 %s 到 %s 自 %s:\n"
+
 # ID:10,
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -4297,6 +4330,17 @@ msgstr "合并 %s，自版本 %s 至 %s 到 %s，%s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "从 %s 合并, 版本 %s 至 %s，版本 %s 到 %s， %s%s"
+
+# Control-ID:65535,
+#: ID:264,
+#, c-format
+msgid "Merging r%ld"
+msgstr "正在合并 r%ld"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr ""
 
 # ID:83,
 #: ID:83,
