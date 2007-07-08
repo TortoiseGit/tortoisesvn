@@ -42,6 +42,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_pLogDlg(NULL)
 	, m_pLogDlg2(NULL)
 	, bRepeating(FALSE)
+	, m_bRecordOnly(FALSE)
 {
 }
 
@@ -63,6 +64,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_USEFROMURL, m_bUseFromURL);
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, m_bIgnoreAncestry);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
+	DDX_Control(pDX, IDOK, m_mergeButton);
 }
 
 BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
@@ -174,6 +176,14 @@ BOOL CMergeDlg::OnInitDialog()
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
 	m_depthCombo.SetCurSel(0);
 
+	// set the choices for the "Show All" button
+	CString temp;
+	temp.LoadString(IDS_MERGE_MERGE);
+	m_mergeButton.AddEntry(temp);
+	temp.LoadString(IDS_MERGE_RECORDONLY);
+	m_mergeButton.AddEntry(temp);
+	m_mergeButton.SetCurrentEntry(0);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;
@@ -247,6 +257,10 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 		m_depth = svn_depth_empty;
 		break;
 	}
+
+	INT_PTR entry = m_mergeButton.GetCurrentEntry();
+	if (entry == 1)
+		m_bRecordOnly = TRUE;
 
 	UpdateData(FALSE);
 	return TRUE;

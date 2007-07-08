@@ -80,6 +80,7 @@ protected:
 	CComboBox	m_depthCombo;
 	BOOL		m_bUseFromURL;
 	CBalloon	m_tooltips;
+	CMenuButton	m_mergeButton;
 public:
 	CTSVNPath	m_wcPath;
 	CString		m_URLFrom;
@@ -89,5 +90,6 @@ public:
 	BOOL		m_bDryRun;
 	BOOL		bRepeating;
 	BOOL		m_bIgnoreAncestry;
+	BOOL		m_bRecordOnly;
 	svn_depth_t	m_depth;
 };

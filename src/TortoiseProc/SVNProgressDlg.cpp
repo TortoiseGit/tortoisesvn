@@ -708,6 +708,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString sIgnoreAncestry(MAKEINTRESOURCE(IDS_PROGRS_IGNOREANCESTRY));
 	CString sRespectAncestry(MAKEINTRESOURCE(IDS_PROGRS_RESPECTANCESTRY));
 	CString sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN));
+	CString sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY));
 	switch (m_Command)
 	{
 	case SVNProgress_Checkout:			//no tempfile!
@@ -1115,6 +1116,10 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				sWindowTitle += _T(" ") + sDryRun;
 			}
+			if (m_options & ProgOptRecordOnly)
+			{
+				sWindowTitle += _T(" ") + sRecordOnly;
+			}
 			SetWindowText(sWindowTitle);
 			// Eeek!  m_sMessage is actually a path for this command...
 			CTSVNPath urlTo(m_sMessage);
@@ -1137,7 +1142,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					// if the merge fails with the peg revision set to the end revision of the merge,
 					// try again with HEAD as the peg revision.
 					if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, SVNRev::REV_HEAD,
-						m_targetPathList[0], true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
+						m_targetPathList[0], true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -1156,7 +1161,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				ReportCmd(sCmdInfo);
 
 				if (!m_pSvn->Merge(m_url, m_Revision, urlTo, m_RevisionEnd, m_targetPathList[0], 
-					true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
+					true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 				{
 					ReportSVNError();
 					bFailed = true;

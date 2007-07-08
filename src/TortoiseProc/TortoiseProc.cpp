@@ -1140,6 +1140,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
 					options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+					options |= dlg.m_bRecordOnly ? ProgOptRecordOnly : 0;
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
 					// use the depth of the working copy
 					progDlg.SetDepth(dlg.m_depth);
