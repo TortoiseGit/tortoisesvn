@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-02 10:12+0100\n"
+"PO-Revision-Date: 2007-07-09 12:15+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -205,6 +205,19 @@ msgstr ""
 "%s\n"
 "ist ein Verzeichnis, keine Datei!\n"
 "TortoiseMerge kann Verzeichnisse nicht vergleichen."
+
+#: ID:286,
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -3739,6 +3752,7 @@ msgstr "Maximum"
 msgid "Max. items to keep in the log message history"
 msgstr "Maximale Anzahl der zu merkenden Log-Einträge"
 
+#: ID:276,#:
 #: Dlg-ID:141,#:
 #: Control-ID:65535,
 msgid "Merge"
@@ -3756,6 +3770,17 @@ msgstr "Rekursionstiefe"
 #: ID:263,
 msgid "Merged"
 msgstr "Zusammengeführt"
+
+#: ID:286,
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Revision %s von %s zusammengeführt:\n"
+
+# ID:229,
+#: ID:286,
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Revisionen %s bis %s von %s zusammengeführt:\n"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -3776,6 +3801,16 @@ msgstr "Zusammenführen %s von Revision %s bis %s in %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Zusammenführen von %s, Revision %s bis %s, Revision %s in %s, %s%s"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld"
+msgstr "r%ld zusammenführen"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Von r%ld bis r%ld zusammenführen"
 
 # ID:83,
 #: ID:83,
@@ -4497,6 +4532,10 @@ msgstr "Die schnelle Hilfe bei vielen täglichen Problemen."
 #: Control-ID:65535,
 msgid "Recently modified lines"
 msgstr "Kürzlich geänderte Zeilen"
+
+#: ID:276,
+msgid "Record Only"
+msgstr "Nur aufzeichnen"
 
 #: Control-ID:1260,
 msgid "Recurse into unversioned folders"
