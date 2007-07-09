@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2007-05-05 22:50 +0000\n"
+"POT-Creation-Date: 2007-07-09 09:58 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Preface"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:33(para) 
-msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your sourcecode, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
+msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:45(para) 
@@ -82,7 +82,7 @@ msgid "TortoiseMerge is an Open Source project. That means you have full access 
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:90(title) 
-msgid "Wishlist"
+msgid "Wish List"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:91(para) 
@@ -90,7 +90,7 @@ msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the d
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:97(para) 
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:113(title) 
@@ -110,7 +110,7 @@ msgid "Lübbe Onken"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:131(para) 
-msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
+msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:138(term) 
@@ -166,11 +166,11 @@ msgid "File Conflict"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:214(para) 
-msgid "A conflict can also occur if you try to apply an outdated patchfile. In such cases, without TortoiseMerge, you would either have to ask the person you got that patchfile from for a current version or try to apply that patchfile manually."
+msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:220(para) 
-msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
+msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:235(title) 
@@ -186,11 +186,11 @@ msgid "This was also the main reason why TortoiseSVN did not originally have a <
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:261(para) 
-msgid "So we spent a lot of time, searching the internet for a GUI tool which could apply patchfiles, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
+msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:268(para) 
-msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same dll's."
+msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same DLLs."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:278(title) 
@@ -210,7 +210,7 @@ msgid "The Open Dialog"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:301(para) 
-msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patchfile. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
+msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:308(title) 
@@ -270,19 +270,19 @@ msgid "Applying Patches"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:399(para) 
-msgid "If you want to apply a patchfile you have to set both the path to the patchfile itself and the path to the folder where the patchfile should be applied."
+msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:405(para) 
-msgid "Currently, only patchfiles in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patchfiles generated by CVS are currently not supported!"
+msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:418(title) 
-msgid "Patch Filelist"
+msgid "Patch File List"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:413(para) 
-msgid "If TortoiseMerge is able to parse the patchfile it will show you a small window with all the files which have changes according to the patchfile. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
+msgid "If TortoiseMerge is able to parse the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:427(para) 
@@ -290,7 +290,7 @@ msgid "But don't worry. If you're working with Subversion you can retrieve an ol
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:438(para) 
-msgid "The patchfile window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:446(para) 
@@ -422,7 +422,7 @@ msgid "<guilabel>Backup original file</guilabel> renames the original file in th
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:701(para) 
-msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
+msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:705(para) 
@@ -646,7 +646,7 @@ msgid "Toggles between showing whitespaces or not"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:923(term) 
-msgid "Ctrl-wheelmouse"
+msgid "Ctrl-mousewheel"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:925(para) 
@@ -754,7 +754,7 @@ msgid "very long"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1065(entry) 
-msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patchfile, but that can take <placeholder-1/>."
+msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:1074(entry) 
