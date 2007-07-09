@@ -501,7 +501,7 @@
 			Related paths are those which contain the path used to display
 			the log. If you fetch the log for a folder, that means anything
 			in that folder or below it. For a file it means just that one file.
-			The checkbox is tri-state: you can show all paths, grey out the
+			The checkbox is tristate: you can show all paths, grey out the
 			unrelated ones, or hide the unrelated paths completely.
 		</para>
 	</sect2>
@@ -546,7 +546,7 @@
 				Where there are a few major authors and many minor contributors,
 				the number of tiny segments can make the graph more difficult to
 				read. The slider at the bottom allows you to set a threshold
-				(as a per centage of total commits) below which any activity is
+				(as a percentage of total commits) below which any activity is
 				grouped into an <emphasis>Others</emphasis> category.
 			</para>
 		</sect3>
@@ -575,7 +575,7 @@
 		<para>
 			By default the analysis is case-sensitive, so users
 			<literal>PeterEgan</literal> and <literal>PeteRegan</literal>
-			are treated as different authors. However, in many cases usernames
+			are treated as different authors. However, in many cases user names
 			are not case-sensitive, and are sometimes entered inconsistently,
 			so you may want <literal>DavidMorgan</literal> and
 			<literal>davidmorgan</literal> to be treated as the same person.

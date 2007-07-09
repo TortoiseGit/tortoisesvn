@@ -23,7 +23,7 @@
 						The Apache based Subversion server uses the
 						WebDAV protocol which is supported by many other
 						programs as well. You could e.g. mount such
-						a repository as a "Webfolder" in the Windows
+						a repository as a "Web folder" in the Windows
 						explorer and then access it like any other
 						folder in the filesystem
 					</para>
@@ -66,10 +66,10 @@
 		<title>Installing Apache</title>
 		<para>
 			The first thing you need before installing Apache is a computer
-			with either Windows2000 / WinXP+SP1 or Windows2003.
+			with Windows 2000, Windows XP+SP1 or Windows 2003.
 			<warning>
 				<para>
-					Please note that Windows XP without the servicepack 1
+					Please note that Windows XP without the service pack 1
 					will lead to bogus network data and could therefore
 					corrupt your repository!
 				</para>
@@ -78,7 +78,7 @@
 				<listitem>
 					<para>
 						Download the latest version of the Apache
-						webserver from
+						web server from
 						<ulink url="http://httpd.apache.org/download.cgi">
 							<citetitle>http://httpd.apache.org/download.cgi</citetitle>
 						</ulink>.
@@ -91,10 +91,10 @@
 				<listitem>
 					<para>
 						Once you have the Apache2 installer you
-						can doubleclick on it and it will guide you through
+						can double click on it and it will guide you through
 						the installation process. Make sure that you enter
-						the server-URL correctly (if you don't have a dns name
-						for your server just enter the ip-address). I recommend
+						the server-URL correctly (if you don't have a DNS name
+						for your server just enter the IP-address). I recommend
 						to install apache
 						<literal>for All Users, on Port 80, as a Service</literal>.
 						Note: if you already have IIS or any other
@@ -112,8 +112,8 @@
 				</listitem>
 				<listitem>
 					<para>
-						Now test if the Apache-webserver is running
-						correctly by pointing your webbrowser to
+						Now test if the Apache web server is running
+						correctly by pointing your web browser to
 						<systemitem class="url">http://localhost/</systemitem>
 						- a preconfigured Website should show up.
 					</para>
@@ -340,7 +340,7 @@ bin\htpasswd passwd &lt;username&gt;
 						<row>
 							<entry>SVNIndexXSLT "/svnindex.xsl"</entry>
 							<entry>
-								Used to make the browsing with a webbrowser
+								Used to make the browsing with a web browser
 								more pretty.
 							</entry>
 						</row>						
@@ -382,7 +382,7 @@ bin\htpasswd passwd &lt;username&gt;
 				</tgroup>
 			</table>
 			But that's just an example. There are many, many more
-			possibilities of what you can do with the Apache webserver.
+			possibilities of what you can do with the Apache web server.
 			<itemizedlist>
 				<listitem>
 					<para>
@@ -451,7 +451,7 @@ Require valid-user
 					</para>
 					<para>
 						The xsl file from the TortoiseSVN repository has a nice
-						gimmick: if you browse the repository with your webbrowser, then
+						gimmick: if you browse the repository with your web browser, then
 						every folder in your repository has an icon on the right shown.
 						If you click on that icon, the TortoiseSVN checkout dialog
 						is started for this URL.
@@ -470,7 +470,7 @@ Require valid-user
 		</indexterm>
 		<para>
 			If you used the SVNParentPath directive then you don't have to
-			change the Apache config file everytime you add a new Subversion
+			change the Apache config file every time you add a new Subversion
 			repository. Simply create the new repository under the same
 			location as the first repository and you're done! In my company
 			I have direct access to that specific folder on the server via
@@ -582,7 +582,7 @@ Require valid-user
 		</indexterm>
 		<para>
 			The mod_authz_svn module permits fine-grained control of access
-			permissions based on usernames and repository paths. This is
+			permissions based on user names and repository paths. This is
 			available with the Apache server, and as of Subversion 1.3
 			it is available with svnserve as well.
 		</para>
@@ -727,7 +727,7 @@ SSPIOfferBasic On
 				regard to user names ("JUser" is different from "juser"). 
 			</para>
 			<para>
-				In Microsoft's world, Windows domains and usernames are not
+				In Microsoft's world, Windows domains and user names are not
 				case sensitive.  Even so, some network administrators like 
 				to create user accounts in CamelCase (e.g. "JUser").
 			</para>
@@ -759,7 +759,7 @@ SSPIOfferBasic On
 			</para>
 		</tip>
 		<important>
-			<title>SSL and InternetExplorer</title>
+			<title>SSL and Internet Explorer</title>
 			<para>
 				If you're securing your server with SSL and use authentication
 				against a windows domain you will encounter that browsing

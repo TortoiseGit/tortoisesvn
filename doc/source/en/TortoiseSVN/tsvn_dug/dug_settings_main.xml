@@ -114,15 +114,15 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Set filedates to the "last commit time"</term>
+			<term>Set file dates to the "last commit time"</term>
 			<listitem>
 				<para>
-					This option tells TortoiseSVN to set the filedates to
+					This option tells TortoiseSVN to set the file dates to
 					the last commit time when doing a checkout or an update.
 					Otherwise TortoiseSVN will use the current date.
 					If you are developing software it is generally best
 					to use the current date because build systems normally
-					look at the datestamps to decide which files need
+					look at the date stamps to decide which files need
 					compiling. If you use "last commit time" and revert
 					to an older file revision, your project may not compile
 					as you expect it to.

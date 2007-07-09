@@ -3,10 +3,10 @@
 <sect1 id="tsvn-dug-repoviewer">
 	<title>Integration with Web-based Repository Viewers</title>
 	<indexterm>
-		<primary>webview</primary>
+		<primary>web view</primary>
 	</indexterm>
 	<indexterm>
-		<primary>repoviewer</primary>
+		<primary>repo viewer</primary>
 	</indexterm>
 	<para>
 		There are several web-based repository viewers available for use with
@@ -21,7 +21,7 @@
 		TortoiseSVN provides a means to link with these viewers.
 	</para>
 	<para>
-		You can integrate a repoviewer of your choice in TortoiseSVN.
+		You can integrate a repo viewer of your choice in TortoiseSVN.
 		To do this, you have to define some properties which define the linkage.
 		They must be set on Folders: (<xref linkend="tsvn-dug-propertypage"/>)
 	</para>
@@ -31,7 +31,7 @@
 				<term>webviewer:revision</term>
 				<listitem>
 					<para>
-						Set this property to the url of your repoviewer to view all
+						Set this property to the url of your repo viewer to view all
 						changes in a specific revision.
 						It must be properly URI encoded and it has to contain
 						<literal>%REVISION%</literal>.
@@ -50,7 +50,7 @@
 				<term>webviewer:pathrevision</term>
 				<listitem>
 					<para>
-						Set this property to the url of your repoviewer to view
+						Set this property to the url of your repo viewer to view
 						changes to a specific file in a specific revision.
 						It must be properly URI encoded and it has to contain
 						<literal>%REVISION%</literal> and <literal>%PATH%</literal>.
