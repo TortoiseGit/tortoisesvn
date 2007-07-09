@@ -313,6 +313,7 @@ void CRepositoryBrowser::InitRepo()
 {
 	CWaitCursorEx wait;
 
+	m_InitialUrl = CPathUtils::PathUnescape(m_InitialUrl);
 	if (m_InitialUrl.Find('?')>=0)
 	{
 		m_initialRev = SVNRev(m_InitialUrl.Mid(m_InitialUrl.Find('?')+1));
