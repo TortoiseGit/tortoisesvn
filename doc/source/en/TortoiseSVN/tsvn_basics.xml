@@ -250,7 +250,7 @@
 			</para>
 			<para>
 				There is one common situation where the lock-modify-unlock
-				model comes out better, and that is where you have un-mergeable
+				model comes out better, and that is where you have unmergeable
 				files. For example if your repository contains some graphic
 				images, and two people change the image at the same time, there
 				is no way for those changes to be merged together. Either Harry
@@ -516,8 +516,8 @@ file:///X|/path/to/repos
 			</para>
 			<para>
 				In the repository, each commit is treated as an atomic
-				transaction: either all the commit's changes take place, or
-				none of them take place.  Subversion tries to retain this
+				transaction: either all the commits changes take place, or
+				none of them take place.  Subversion retains this
 				atomicity in the face of program crashes, system crashes,
 				network problems, and other users' actions.
 			</para>

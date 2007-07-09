@@ -150,7 +150,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							<entry>
 								Replaced with the commit date/time of the
 								highest commit revision. To avoid confusion,
-								international format is used, ie.
+								international format is used:
 								<literal>yyyy-mm-dd hh:mm:ss</literal>
 							</entry>
 						</row>
@@ -215,7 +215,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 char *Revision = "$WCREV$";
 char *Modified = "$WCMODS?Modified:Not modified$";
 char *Date     = "$WCDATE$";
-char *RevRange = "$WCRANGE$";
+char *Range    = "$WCRANGE$";
 char *Mixed    = "$WCMIXED?Mixed revision WC:Not mixed$";
 char *URL      = "$WCURL$";
 
@@ -223,7 +223,7 @@ char *URL      = "$WCURL$";
 #error Source is modified
 #endif
 
-// EndOfFile
+// End of file
 </screen>
 		<para>
 			After running SubWCRev.exe, the output file looks like this:
@@ -234,7 +234,7 @@ char *URL      = "$WCURL$";
 char *Revision = "3701";
 char *Modified = "Modified";
 char *Date     = "2005/06/15 11:15:12";
-char *RevRange = "3699:3701";
+char *Range    = "3699:3701";
 char *Mixed    = "Mixed revision WC";
 char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev";
 
@@ -242,7 +242,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 #error Source is modified
 #endif
 
-// EndOfFile
+// End of file
 </screen>
 	</sect1>
 	<!-- ================================================================= -->
@@ -299,7 +299,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 						<row>
 							<entry>Author</entry>
 							<entry>
-								The author of the highest commit revision, ie the
+								The author of the highest commit revision, that is, the
 								last person to commit changes to the working copy.
 							</entry>
 						</row>
@@ -329,6 +329,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 		<para>
 			The following example shows how the interface might be used.
 <screen>
+<![CDATA[
 // test script for the SubWCRev COM/Automation-object
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");
@@ -357,6 +358,7 @@ sInfo3 = "Revision = " + SubWCRev3.Revision + "\nMin Revision = " + SubWCRev3.Mi
 WScript.Echo(sInfo1);
 WScript.Echo(sInfo2);
 WScript.Echo(sInfo3);
+]]>
 </screen>
 		</para>
 	</sect1>

@@ -174,7 +174,7 @@ svn diff PATH
 				in unified-diff format. However, this is not what TortoiseSVN
 				is using. TortoiseSVN uses TortoiseMerge (or a diff program of
 				your choosing) to display differences visually between
-				fulltext files, so there is no direct CLI equivalent.
+				full-text files, so there is no direct CLI equivalent.
 			</para>
 			<para>
 				You can also diff any 2 files using TortoiseSVN, whether or
@@ -456,7 +456,7 @@ svn log -r N:M PATH
 			<para>
 				If you use TortoiseBlame to view the blame info, the file
 				log is also required to show log messages in a tooltip.
-				If you view blame as a textfile, this information is not
+				If you view blame as a text file, this information is not
 				required.
 			</para>
 		</sect2>

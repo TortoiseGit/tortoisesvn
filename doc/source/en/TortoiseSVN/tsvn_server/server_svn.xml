@@ -100,7 +100,7 @@ svn://localhost/repos/TestRepo
 			when prompted by the repo browser.
 		</para>
 		<para>
-			You can also increase security and save time entering Url's with
+			You can also increase security and save time entering URLs with
 			svnserve by using the --root switch to set the root
 			location and restrict access to a specified directory on the server:
 <screen>
@@ -205,7 +205,7 @@ obj= "NT AUTHORITY\LocalService"
 			</para>
 			<para>
 				If you installed an earlier version of svnserve using the
-				<literal>SvnService</literal> wrapper, and you now want to use
+				<literal>SVNService</literal> wrapper, and you now want to use
 				the native support instead, you will need to unregister the wrapper
 				as a service (remember to stop the service first!).
 				Simply use the command
@@ -251,7 +251,7 @@ password-db = userfile
 </screen>
 			Where <literal>userfile</literal> is a file which exists in
 			the same directory as <filename>svnserve.conf</filename>.  This
-			file can live elsewhere in your filesytem (useful for when you
+			file can live elsewhere in your file system (useful for when you
 			have multiple repositories which require the same access rights)
 			and may be referenced using an absolute path, or a path
 			relative to the <filename>conf</filename> directory.

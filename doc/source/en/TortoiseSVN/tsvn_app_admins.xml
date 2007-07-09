@@ -18,12 +18,12 @@
 			<primary>GPO</primary>
 		</indexterm>
 		<para>
-			The TortoiseSVN installer comes as an msi file, which means you
-			should have no problems adding that msi file to the group policies
+			The TortoiseSVN installer comes as an MSI file, which means you
+			should have no problems adding that MSI file to the group policies
 			of your domain controller.
 		</para>
 		<para>
-			A good walkthrough on how to do that can be found in the knowledge
+			A good walk-through on how to do that can be found in the knowledge
 			base article 314934 from Microsoft:
 			<ulink url="http://support.microsoft.com/?kbid=314934">
 				<citetitle>http://support.microsoft.com/?kbid=314934</citetitle>
@@ -33,7 +33,7 @@
 			Versions 1.3.0 and later of TortoiseSVN must be installed under
 			<emphasis>Computer Configuration</emphasis> and not under
 			<emphasis>User Configuration</emphasis>. This is because those versions
-			need the new CRT and MFC dlls, which can only be deployed <emphasis>per
+			need the new CRT and MFC DLLs, which can only be deployed <emphasis>per
 			computer</emphasis> and not <emphasis>per user</emphasis>.
 			If you really must install TortoiseSVN on a per user basis, then you must
 			first install the MFC and CRT package version 8 from Microsoft on each
@@ -64,7 +64,7 @@
 			Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade
 			check to your intranet server. You can set the registry key
 			<filename>HKCU\Software\TortoiseSVN\UpdateCheckURL</filename> (string value)
-			to an URL pointing to a text file in your intranet. That textfile must have
+			to an URL pointing to a text file in your intranet. That text file must have
 			the following format:
 <screen>
 1.4.1.6000
@@ -78,10 +78,10 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
 			limited. Too long messages will get truncated!
 			The third line is the URL to the new installation package. This URL is opened
 			when the user clicks on the custom message label in the upgrade dialog.
-			You can also just point the user to a webpage instead of the msi file directly.
-			The URL is opened with the default web browser, so if you specify a webpage,
-			that page is opened and shown to the user. If you specify the msi package,
-			the browser will ask the user to save the msi file locally.
+			You can also just point the user to a web page instead of the MSI file directly.
+			The URL is opened with the default web browser, so if you specify a web page,
+			that page is opened and shown to the user. If you specify the MSI package,
+			the browser will ask the user to save the MSI file locally.
 		</para>
 	</sect1>
 	<sect1 id="tsvn-admins-aspdotnethack">
