@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,7 +118,7 @@ UINT CChangedDlg::ChangedStatusThread()
 {
 	InterlockedExchange(&m_bBlock, TRUE);
 	m_bCanceled = false;
-	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
+	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
 	DialogEnableWindow(IDC_CHECKREPO, FALSE);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, FALSE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, FALSE);
@@ -137,7 +137,7 @@ UINT CChangedDlg::ChangedStatusThread()
 
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
-	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
+	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
 	DialogEnableWindow(IDC_CHECKREPO, TRUE);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, TRUE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
@@ -257,15 +257,15 @@ void CChangedDlg::UpdateStatistics()
 	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
 	{
 		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
-		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+		SetDlgItemText(IDC_SUMMARYTEXT, temp);
 	}
 	else
 	{
 		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
-		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+		SetDlgItemText(IDC_SUMMARYTEXT, temp);
 	}
 	temp = m_FileListCtrl.GetStatisticsString();
 	temp.Replace(_T(" = "), _T("="));
 	temp.Replace(_T("\n"), _T(", "));
-	GetDlgItem(IDC_INFOLABEL)->SetWindowText(temp);
+	SetDlgItemText(IDC_INFOLABEL, temp);
 }

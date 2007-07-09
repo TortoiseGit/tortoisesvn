@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -139,7 +139,7 @@ LPARAM CUpdateDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
 	CString temp;
 	temp.Format(_T("%ld"), lParam);
-	GetDlgItem(IDC_REVNUM)->SetWindowText(temp);
+	SetDlgItemText(IDC_REVNUM, temp);
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 	return 0;
 }

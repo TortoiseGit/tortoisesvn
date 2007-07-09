@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -92,7 +92,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetWindowText(m_sTitle);
 	if (m_sLabel.IsEmpty())
 		GetDlgItem(IDC_URLLABEL)->GetWindowText(m_sLabel);
-	GetDlgItem(IDC_URLLABEL)->SetWindowText(m_sLabel);
+	SetDlgItemText(IDC_URLLABEL, m_sLabel);
 
 	// set head revision as default revision
 	SetRevision(SVNRev::REV_HEAD);
@@ -207,7 +207,7 @@ LPARAM CSwitchDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
 	CString temp;
 	temp.Format(_T("%ld"), lParam);
-	GetDlgItem(IDC_REVISION_NUM)->SetWindowText(temp);
+	SetDlgItemText(IDC_REVISION_NUM, temp);
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	return 0;
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ BOOL CInputLogDlg::OnInitDialog()
 		m_cInput.SetText(m_pProjectProperties->sLogTemplate);
 	}
 
-	GetDlgItem(IDC_ACTIONLABEL)->SetWindowText(m_sActionText);
+	SetDlgItemText(IDC_ACTIONLABEL, m_sActionText);
 
 	AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_GROUPBOX, TOP_LEFT, BOTTOM_RIGHT);

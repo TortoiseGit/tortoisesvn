@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 
 	CString temp;
 	temp.Format(IDS_CHECKNEWER_YOURVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
-	GetDlgItem(IDC_YOURVERSION)->SetWindowText(temp);
+	SetDlgItemText(IDC_YOURVERSION, temp);
 
 	DialogEnableWindow(IDOK, FALSE);
 
@@ -136,14 +136,14 @@ UINT CCheckForUpdatesDlg::CheckThread()
 				if (_ttoi(ver)!=0)
 				{
 					temp.Format(IDS_CHECKNEWER_CURRENTVERSION, (LPCTSTR)ver);
-					GetDlgItem(IDC_CURRENTVERSION)->SetWindowText(temp);
+					SetDlgItemText(IDC_CURRENTVERSION, temp);
 					temp.Format(_T("%d.%d.%d.%d"), TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 				}
 
 				if (_ttoi(ver)==0)
 				{
 					temp.LoadString(IDS_CHECKNEWER_NETERROR);
-					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					SetDlgItemText(IDC_CHECKRESULT, temp);
 				}
 				else if (bNewer)
 				{
@@ -157,13 +157,13 @@ UINT CCheckForUpdatesDlg::CheckThread()
 					else{
 						temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
 					}
-					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					SetDlgItemText(IDC_CHECKRESULT, temp);
 					m_bShowInfo = TRUE;
 				}
 				else
 				{
 					temp.LoadString(IDS_CHECKNEWER_YOURUPTODATE);
-					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					SetDlgItemText(IDC_CHECKRESULT, temp);
 				}
 			}
 		}
@@ -171,13 +171,13 @@ UINT CCheckForUpdatesDlg::CheckThread()
 		{
 			e->Delete();
 			temp.LoadString(IDS_CHECKNEWER_NETERROR);
-			GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+			SetDlgItemText(IDC_CHECKRESULT, temp);
 		}
 	}
 	else
 	{
 		temp.LoadString(IDS_CHECKNEWER_NETERROR);
-		GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+		SetDlgItemText(IDC_CHECKRESULT, temp);
 	}
 	DeleteFile(tempfile);
 	m_bThreadRunning = FALSE;

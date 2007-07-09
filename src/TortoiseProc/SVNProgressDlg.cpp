@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1376,7 +1376,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString info = BuildInfoString();
 	if (bFailed)
 		info.LoadString(IDS_PROGRS_INFOFAILED);
-	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+	SetDlgItemText(IDC_INFOTEXT, info);
 	ResizeColumns();
 	int count = m_ProgList.GetItemCount();
 	if (count > 0)
@@ -1391,7 +1391,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		CTimeSpan time = CTime::GetCurrentTime() - startTime;
 		temp.Format(IDS_PROGRS_TIME, (LONG)time.GetTotalMinutes(), (LONG)time.GetSeconds());
 		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, temp);
-		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(sFinalInfo);
+		SetDlgItemText(IDC_PROGRESSLABEL, sFinalInfo);
 	}
 	else
 		GetDlgItem(IDC_PROGRESSLABEL)->ShowWindow(SW_HIDE);
@@ -1610,7 +1610,7 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
 	else
 		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));
 	progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, pProgressData->SpeedString);
-	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
+	SetDlgItemText(IDC_PROGRESSLABEL, progText);
 	return 0;
 }
 
@@ -1620,7 +1620,7 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 	{
 		CString progText;
 		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, m_sTotalBytesTransferred, _T("0 Bytes/s"));
-		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
+		SetDlgItemText(IDC_PROGRESSLABEL, progText);
 		KillTimer(TRANSFERTIMER);
 	}
 }
@@ -2014,7 +2014,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_ProgList.Invalidate();
 									
 									CString info = BuildInfoString();
-									GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+									SetDlgItemText(IDC_INFOTEXT, info);
 
 									if (m_nConflicts==0)
 									{

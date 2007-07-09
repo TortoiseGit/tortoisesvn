@@ -73,13 +73,13 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	// fill in the path edit control
 	if (m_pathlist.GetCount() == 1)
 	{
-		GetDlgItem(IDC_PROPPATH)->SetWindowText(m_pathlist[0].GetWinPathString());
+		SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetWinPathString());
 	}
 	else
 	{
 		CString sTemp;
 		sTemp.Format(IDS_EDITPROPS_NUMPATHS, m_pathlist.GetCount());
-		GetDlgItem(IDC_PROPPATH)->SetWindowText(sTemp);
+		SetDlgItemText(IDC_PROPPATH, sTemp);
 	}
 
 	// initialize the property list control

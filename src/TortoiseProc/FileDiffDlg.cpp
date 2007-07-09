@@ -760,8 +760,8 @@ void CFileDiffDlg::SetURLLabels()
 	m_cRev1Btn.SetWindowText(m_rev1.ToString());
 	m_cRev2Btn.SetWindowText(m_rev2.ToString());
 
-	GetDlgItem(IDC_FIRSTURL)->SetWindowText(m_path1.GetSVNPathString());
-	GetDlgItem(IDC_SECONDURL)->SetWindowText(m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
+	SetDlgItemText(IDC_FIRSTURL, m_path1.GetSVNPathString());
+	SetDlgItemText(IDC_SECONDURL, m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
 	m_tooltips.AddTool(IDC_FIRSTURL, m_path1.GetSVNPathString());
 	m_tooltips.AddTool(IDC_SECONDURL, m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString());
 }

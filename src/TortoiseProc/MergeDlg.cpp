@@ -123,9 +123,9 @@ BOOL CMergeDlg::OnInitDialog()
 				m_URLFrom = urlunescaped;
 			m_URLTo = urlunescaped;
 		}
-		GetDlgItem(IDC_WCURL)->SetWindowText(urlunescaped);
+		SetDlgItemText(IDC_WCURL, urlunescaped);
 		m_tooltips.AddTool(IDC_WCURL, url);
-		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath.GetWinPath());
+		SetDlgItemText(IDC_WCPATH, m_wcPath.GetWinPath());
 		m_tooltips.AddTool(IDC_WCPATH, m_wcPath.GetWinPathString());
 	}
 
@@ -424,14 +424,14 @@ LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 		if (wParam & MERGE_REVSELECTMINUSONE)
 			lParam--;
 		temp.Format(_T("%ld"), lParam);
-		GetDlgItem(IDC_REVISION_START)->SetWindowText(temp);
+		SetDlgItemText(IDC_REVISION_START, temp);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 		DialogEnableWindow(IDC_REVISION_START, TRUE);
 	}
 	if (wParam & MERGE_REVSELECTEND)
 	{
 		temp.Format(_T("%ld"), lParam);
-		GetDlgItem(IDC_REVISION_END)->SetWindowText(temp);
+		SetDlgItemText(IDC_REVISION_END, temp);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 		DialogEnableWindow(IDC_REVISION_END, TRUE);
 	}

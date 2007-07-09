@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,7 +96,7 @@ BOOL CCopyDlg::OnInitDialog()
 	{
 		DialogEnableWindow(IDC_COPYWC, FALSE);
 		DialogEnableWindow(IDC_DOSWITCH, FALSE);
-		GetDlgItem(IDC_COPYSTARTLABEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
+		SetDlgItemText(IDC_COPYSTARTLABEL, CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
 	}
 	
 	m_bFile = !path.IsDirectory();
@@ -113,7 +113,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo.AddString(CTSVNPath(m_wcURL).GetUIPathString(), 0);
 	m_URLCombo.SelectString(-1, CTSVNPath(m_wcURL).GetUIPathString());
-	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
+	SetDlgItemText(IDC_FROMURL, m_wcURL);
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
@@ -133,7 +133,7 @@ BOOL CCopyDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
 		if (!m_ProjectProperties.sLabel.IsEmpty())
-			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
+			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 
@@ -324,7 +324,7 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
 	CString temp;
 	temp.Format(_T("%ld"), lParam);
-	GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+	SetDlgItemText(IDC_COPYREVTEXT, temp);
 	CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
 	DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 	return 0;
@@ -383,7 +383,7 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			// is enabled for HEAD
 			CString temp;
 			temp.Format(_T("%ld"), m_maxrev);
-			GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+			SetDlgItemText(IDC_COPYREVTEXT, temp);
 			CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
 			DialogEnableWindow(IDC_COPYREVTEXT, TRUE);			
 		}
@@ -404,6 +404,6 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
 		DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 		CString temp;
 		temp.Format(_T("%ld"), (LONG)rev);
-		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+		SetDlgItemText(IDC_COPYREVTEXT, temp);
 	}
 }

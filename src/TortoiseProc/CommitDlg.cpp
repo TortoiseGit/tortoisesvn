@@ -137,7 +137,7 @@ BOOL CCommitDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
 		if (!m_ProjectProperties.sLabel.IsEmpty())
-			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
+			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 		
@@ -484,7 +484,7 @@ UINT CCommitDlg::StatusThread()
 			GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
 			DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
 		}
-		GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
+		SetDlgItemText(IDC_COMMIT_TO, m_ListCtrl.m_sURL);
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	}
 	CString logmsg;
@@ -1025,7 +1025,7 @@ void CCommitDlg::OnBnClickedHistory()
 			CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
 			if (!sBugID.IsEmpty())
 			{
-				GetDlgItem(IDC_BUGID)->SetWindowText(sBugID);
+				SetDlgItemText(IDC_BUGID, sBugID);
 			}
 			if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
 				m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());

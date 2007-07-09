@@ -656,38 +656,38 @@ void CStatGraphDlg::ShowStats()
 	// so fill in the labels...
 	CString number;
 	number.Format(_T("%ld"), nWeeks);
-	GetDlgItem(IDC_NUMWEEKVALUE)->SetWindowText(number);
+	SetDlgItemText(IDC_NUMWEEKVALUE, number);
 	number.Format(_T("%ld"), numAuthors);
-	GetDlgItem(IDC_NUMAUTHORVALUE)->SetWindowText(number);
+	SetDlgItemText(IDC_NUMAUTHORVALUE, number);
 	number.Format(_T("%ld"), m_parDates->GetCount());
-	GetDlgItem(IDC_NUMCOMMITSVALUE)->SetWindowText(number);
+	SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
 	number.Format(_T("%ld"), nFileChanges);
-	GetDlgItem(IDC_NUMFILECHANGESVALUE)->SetWindowText(number);
+	SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
 
 	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
-	GetDlgItem(IDC_COMMITSEACHWEEKAVG)->SetWindowText(number);
+	SetDlgItemText(IDC_COMMITSEACHWEEKAVG, number);
 	number.Format(_T("%ld"), nCommitsMax);
-	GetDlgItem(IDC_COMMITSEACHWEEKMAX)->SetWindowText(number);
+	SetDlgItemText(IDC_COMMITSEACHWEEKMAX, number);
 	number.Format(_T("%ld"), nCommitsMin);
-	GetDlgItem(IDC_COMMITSEACHWEEKMIN)->SetWindowText(number);
+	SetDlgItemText(IDC_COMMITSEACHWEEKMIN, number);
 
 	number.Format(_T("%ld"), nFileChanges / nWeeks);
-	GetDlgItem(IDC_FILECHANGESEACHWEEKAVG)->SetWindowText(number);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKAVG, number);
 	number.Format(_T("%ld"), nFileChangesMax);
-	GetDlgItem(IDC_FILECHANGESEACHWEEKMAX)->SetWindowText(number);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKMAX, number);
 	number.Format(_T("%ld"), nFileChangesMin);
-	GetDlgItem(IDC_FILECHANGESEACHWEEKMIN)->SetWindowText(number);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKMIN, number);
 
 	if (AuthorCommits.empty())
 	{
-		GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(_T(""));
-		GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(_T("0"));
-		GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(_T("0"));
-		GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(_T("0"));
-		GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(_T(""));
-		GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(_T("0"));
-		GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(_T("0"));
-		GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(_T("0"));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, _T(""));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, _T("0"));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, _T("0"));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, _T(""));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, _T("0"));
 	}
 	else // AuthorCommits isn't empty
 	{
@@ -702,21 +702,21 @@ void CStatGraphDlg::ShowStats()
 			iter++;
 		}
 		// assuming AuthorCommitsMax and AuthorCommitsMin aren't empty too
-		GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(most_it->first.c_str());
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, most_it->first.c_str());
 		number.Format(_T("%ld"), most_it->second / nWeeks);
-		GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(number);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, number);
 		number.Format(_T("%ld"), AuthorCommitsMax[most_it->first]);
-		GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(number);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, number);
 		number.Format(_T("%ld"), AuthorCommitsMin[most_it->first]);
-		GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(number);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, number);
 
-		GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(least_it->first.c_str());
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, least_it->first.c_str());
 		number.Format(_T("%ld"), least_it->second / nWeeks);
-		GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(number);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, number);
 		number.Format(_T("%ld"), AuthorCommitsMax[least_it->first]);
-		GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(number);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, number);
 		number.Format(_T("%ld"), AuthorCommitsMin[least_it->first]);
-		GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(number);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, number);
 	}
 }
 

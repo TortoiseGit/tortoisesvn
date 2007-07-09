@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ BOOL CAboutDlg::OnInitDialog()
 	// set the version string
 	CString temp, boxtitle;
 	boxtitle.Format(IDS_ABOUTVERSIONBOX, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE));
-	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(boxtitle);
+	SetDlgItemText(IDC_VERSIONBOX, boxtitle);
 	const svn_version_t * svnver = svn_client_version();
 
 	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE), 
@@ -66,7 +66,7 @@ BOOL CAboutDlg::OnInitDialog()
 		_T(NEON_VERSION),
 		_T(OPENSSL_VERSION_TEXT),
 		_T(ZLIB_VERSION));
-	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
+	SetDlgItemText(IDC_VERSIONABOUT, temp);
 	this->SetWindowText(_T("TortoiseSVN"));
 
 	CPictureHolder tmpPic;

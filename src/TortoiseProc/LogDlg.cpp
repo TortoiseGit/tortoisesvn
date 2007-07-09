@@ -213,7 +213,7 @@ BOOL CLogDlg::OnInitDialog()
 	else
 		temp.Format(IDS_LOG_SHOWNEXT, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
 
-	GetDlgItem(IDC_NEXTHUNDRED)->SetWindowText(temp);
+	SetDlgItemText(IDC_NEXTHUNDRED, temp);
 
 	// set the font to use in the log message view, configured in the settings dialog
 	CAppUtils::CreateFontForLogs(m_logFont);
@@ -382,7 +382,7 @@ BOOL CLogDlg::OnInitDialog()
 	{
 		// the dialog is used to just view log messages
 		GetDlgItem(IDOK)->GetWindowText(temp);
-		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+		SetDlgItemText(IDCANCEL, temp);
 		GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 	}
 	
@@ -868,7 +868,7 @@ UINT CLogDlg::LogThread()
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
 		temp.LoadString(IDS_MSGBOX_CANCEL);
-		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+		SetDlgItemText(IDCANCEL, temp);
 	}
 	// We use a progress bar while getting the logs
 	m_LogProgress.SetRange32(0, 100);
@@ -1028,7 +1028,7 @@ UINT CLogDlg::LogThread()
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
 		temp.LoadString(IDS_MSGBOX_OK);
-		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+		SetDlgItemText(IDCANCEL, temp);
 	}
 	POINT pt;
 	GetCursorPos(&pt);
