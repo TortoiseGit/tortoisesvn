@@ -3749,10 +3749,18 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	ASSERT(entry != NULL);
 	if (entry == NULL)
 		return;
-	if ((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))
-		return;		// normal files won't show anything interesting in a diff
-	if (entry->status == svn_wc_status_unversioned)
-		return;		// we don't compare new files with nothing
+	if (((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))||
+		(entry->status == svn_wc_status_unversioned))
+	{
+		int ret = (int)ShellExecute(this->m_hWnd, NULL, entry->path.GetWinPath(), NULL, NULL, SW_SHOW);
+		if (ret <= HINSTANCE_ERROR)
+		{
+			CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+			cmd += entry->path.GetWinPathString();
+			CAppUtils::LaunchApplication(cmd, NULL, false);
+		}
+		return;
+	}
 
 	SVNDiff diff(NULL, m_hWnd, true);
 	diff.DiffWCFile(entry->path, entry->textstatus, entry->propstatus, entry->remotetextstatus, entry->remotepropstatus);
