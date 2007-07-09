@@ -277,10 +277,10 @@ All user/site specific configuration is stored in doc.build.user.
 
 	<target name="spellcheck" description="Run spellchecker on files">
 		<echo message="Spellchecking: '${lang.target}' This may take a few minutes"/>
+		<property name="spellcheck.log" value="ASpell/${app}_${lang.target}.log"/>
 		
-		<echo 
-			message="--- Spellchecking: '${lang.target}'"
-			file="ASpell/spellcheck_${lang.target}.log"
+		<echo message="--- Spellchecking: '${lang.target}'"
+			file="${spellcheck.log}"
 			failonerror="false"/>
 
 		<copy file="Aspell/TortoiseSVN.tmpl.pws" tofile="Aspell/Temp.pws" overwrite="true">
@@ -310,7 +310,7 @@ All user/site specific configuration is stored in doc.build.user.
 						<include name="${file.target}"/>
 					</sourcefiles>
 					<targetfiles>
-						<include name="ASpell/spellcheck_${lang.target}.log"/>
+						<include name="${spellcheck.log}"/>
 					</targetfiles>
 				</uptodate>
 
@@ -318,7 +318,7 @@ All user/site specific configuration is stored in doc.build.user.
 -->
 					<echo message="Checking: ${file.target}"/>
 					<exec program="aspell.bat"
-						commandline="${path.spellcheck} ${lang.target} ${file.target}"
+						commandline="${path.spellcheck} ${lang.target} ${file.target} ${spellcheck.log}"
 						failonerror="false"/>
 <!--
 				</if>
