@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2007-06-16 21:29+0100\n"
+"PO-Revision-Date: 2007-07-06 10:28+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -718,7 +718,7 @@ msgstr "Prestavte si takúto situáciu: predpokladajme, ze mame dvoch spolupraco
 #: source/TortoiseSVN_en.xml:821
 #: (title)
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "Problém, ktorému sa treba vyhnúť"
 
 #: source/TortoiseSVN_en.xml:826
 #: (title) source/TortoiseSVN_en.xml:842
@@ -728,7 +728,7 @@ msgstr "Riešenie typu Zmknúť-Upraviť-Odomknúť"
 #: source/TortoiseSVN_en.xml:827
 #: (para)
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must \"lock\" the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr ""
+msgstr "Veľa systémov na správu verzií používa model <firstterm>zamknúť-upraviť-odomknúť</firstterm>, aby sa vyhli tomuto problému., čo je veľmi jednoduché riešenie. V takomto systéme úložisko umožní menenie súborov v danom čase iba jednej osobe. Najprv Harry musí \"zamknúť\" súbor, aby ho mohol upravovať. Zamknutie sa podobá na požičanie si knihy z knižnice; keď Harry zamkol súbor, tak Sally ho nemôže zmeniť. Ak sa pokúsi súbor zamknúť, úložisko odmietne požiadavku. Všetko čo môže je čítať súbor a čakať kým Harry dokočí zmeny a uvoľní zámok. Keď Harry odomkne súbor jeho ťah skončil a Sally si može vziať svoj ťah zamknutím súboru a potom môže súbor upravovať."
 
 #: source/TortoiseSVN_en.xml:845
 #: (para)
@@ -738,12 +738,12 @@ msgstr "Tento model je trochu restriktívny a často vedie k zastaveniu uživate
 #: source/TortoiseSVN_en.xml:852
 #: (para)
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr ""
+msgstr "<emphasis>Zamykanie môže spôsobiť administratívne problémy.</emphasis> Harry zamkne súbor a zabudne na to. Medzi tím Sally stále čaká, aby mohla upravovať súbor a má zviazané ruky. Potom Harry odíde na dovolenku. Sally teda musí požiadať administrátora aby uvoľnil Harry-ho zámok. Situácia končí nežiadaným oneskorením a stratou času."
 
 #: source/TortoiseSVN_en.xml:863
 #: (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr ""
+msgstr "<emphasis>Zamykanie môže spôsobiť nežiadanú serializáciu.</emphasis> Čo ak Harry upravuje začiatok textového súboru Sally chce jednoducho upraviť koniec súboru v tom istom čase? Tieto zmeny sa neprekrývajú. Mohli by jednoducho a bez škody upravovať súbor súčasne, predpokladajúc, že by boli zmeny správne zlúčené. Nie je potreba aby v tejto situácií získavali ťah."
 
 #: source/TortoiseSVN_en.xml:875
 #: (para)
@@ -1775,7 +1775,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2091
 #: (para)
-msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
+msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2099
@@ -1935,7 +1935,7 @@ msgstr ""
 #: (para)
 msgid ""
 "To enable both Windows domain and passwd file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\n"
-"AuthAthoritative Off\n"
+"AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
@@ -4483,7 +4483,7 @@ msgstr "Filtrovanie sráv denníka"
 #: source/TortoiseSVN_en.xml:5591
 #: (primary)
 msgid "filter"
-msgstr ""
+msgstr "filter"
 
 #: source/TortoiseSVN_en.xml:5593
 #: (para)
@@ -4528,17 +4528,17 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5639
 #: (title)
 msgid "Commits by Author Page"
-msgstr ""
+msgstr "Odovzdania podľa autora"
 
 #: source/TortoiseSVN_en.xml:5642
 #: (title)
 msgid "Commits-by-Author Histogram"
-msgstr ""
+msgstr "Histogram Odovzdania podľa Autorov"
 
 #: source/TortoiseSVN_en.xml:5649
 #: (title)
 msgid "Commits-by-Author Pie Chart"
-msgstr ""
+msgstr "Koláčový graf odovzdania podľa autorov"
 
 #: source/TortoiseSVN_en.xml:5640
 #: (para)
@@ -4563,7 +4563,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5663
 #: (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr ""
+msgstr "<placeholder-1/> Táto strana vám dáva grafický prehľad o projekte v zmysle počtu odovzdaní <emphasis>a</emphasis> autor. Toto vám dá presdtavu kedy sa na projekte pracovalo a kto na nom kedy pracoval."
 
 #: source/TortoiseSVN_en.xml:5673
 #: (para)
@@ -4608,12 +4608,12 @@ msgstr "Miestne zmeny"
 #: source/TortoiseSVN_en.xml:5723
 #: (para)
 msgid "If you want to see what changes <emphasis>you</emphasis> have made in your working copy, just use the explorer context menu and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Keď chcete vidieť zmeny, ktoré ste <emphasis>vy</emphasis>urobili v pracovnej kópií, jednoducho vyberte kontextové menu<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porovnať</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:5735
 #: (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Porovnanie s inými vetvami/značkami"
 
 #: source/TortoiseSVN_en.xml:5737
 #: (para)
@@ -4628,12 +4628,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5760
 #: (term)
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Zmeny od predchádzajúcej verzie"
 
 #: source/TortoiseSVN_en.xml:5762
 #: (para)
 msgid "If you want to see the difference between a particular revision and your working copy, use the Revision Log dialog, select the revision of interest, then select <guimenuitem>Compare with working copy</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Keď chcete zobraziť rozdiely medzi konkrétnou revízou a pracovnou kópiou, pozužite dialóg Denníka revízií, vyberte reviziu, ktorá vás zaujíma a z kontextového menu vyberte <guimenuitem>Porovnať s pracovou kópiu</guimenuitem>."
 
 #: source/TortoiseSVN_en.xml:5772
 #: (term)
@@ -4803,7 +4803,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5973
 #: (title)
 msgid "External Diff/Merge Tools"
-msgstr ""
+msgstr "Externé Porovnávacie/Zlučovacie Nástroje"
 
 #: source/TortoiseSVN_en.xml:5975
 #: (primary)
@@ -4818,47 +4818,47 @@ msgstr "spájacie nástroje"
 #: source/TortoiseSVN_en.xml:5980
 #: (para)
 msgid "If the tools we provide don't do what you need, try one of the many open-source or commercial programs available. Everyone has their own favourites, and this list is by no means complete, but here are a few that you might consider:"
-msgstr ""
+msgstr "Keď vám nevyhovujú nástroje, ktoré poskytujeme, skúste niektorý z množstva dostupných voľných, či komerčných programov. Každý má svoje obúbené, a tento list nie je v žiadnom zmysle kompletný, ale sú tu niektoré, ktoeé by vás mohli zaujať:"
 
 #: source/TortoiseSVN_en.xml:5988
 #: (term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #: source/TortoiseSVN_en.xml:5990
 #: (para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> je veľkolepý porovnávací nástroj s voľným kódom, ktorý tiež podporuje porovnaie adresárov."
 
 #: source/TortoiseSVN_en.xml:6000
 #: (term)
 msgid "Perforce Merge"
-msgstr ""
+msgstr "Perforce Merge"
 
 #: source/TortoiseSVN_en.xml:6002
 #: (para)
 msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr "Perforceje komerčný RCS, ale porovnávací/zlučovací nástroj je si možné stiahnuť zdarma. Viac sa môžete dozvedieť na <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:6012
 #: (term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #: source/TortoiseSVN_en.xml:6014
 #: (para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr "KDiff3 je porovnávací nástroj, ktorý podporuje aj adresáre. Možete si ho stiahnuť <ulink url=\"http://kdiff3.sf.net/\"><citetitle>tu</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:6024
 #: (term)
 msgid "ExamDiff"
-msgstr ""
+msgstr "ExamDiff"
 
 #: source/TortoiseSVN_en.xml:6026
 #: (para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
-msgstr ""
+msgstr "ExamDiff Standard je voľný. Podporuje súbory, ale nie adresáre. ExamDiff Pro je shareware a má množtsvo pridaných funkcií vrátane adresárov a možnosti úpravy súborov. Pri oboch od verzie 3.2 je podporovaný unicode. Môžete si ho stiahnuť z <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:6041
 #: (term)
@@ -5008,17 +5008,18 @@ msgstr "ignorovať"
 #: source/TortoiseSVN_en.xml:6214
 #: (para)
 msgid "<placeholder-1/> In most projects you will have files and folders that should not be subject to version control. These might include files created by the compiler, <filename>*.obj, *.lst</filename>, maybe an output folder used to store the executable. Whenever you commit changes, TSVN shows your unversioned files, which fills up the file list in the commit dialog. Of course you can turn off this display, but then you might forget to add a new source file."
-msgstr ""
+msgstr "<placeholder-1/> Vo väčšine projektov budete mať súbory a adresáre, ktoré nie sú objektami pre správu verzií. Tieto môžu obsahovať súbory vytvorené kompilatorom\" <filename>*.obj, *.lst</filename>, možno výstupný adresár, v ktorom sú výsledky prekladu. Kedykoľvek odovzdávate zmeny, TSVN zobrazí vaše neverziovane súbory v zozname súborov odovzdávacieho dialógu. Samozrejme možete tot zobrazovanie vypnúť, ale potom sa môže stať, že zabudnete pridať sdrojový súbor."
 
 #: source/TortoiseSVN_en.xml:6227
 #: (para)
+#, fuzzy
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
-msgstr ""
+msgstr "Najlepší spôsob, ako sa tomuto problému vyhnúť je pridať derivované (výtvárane) súbory do zoznamu vylučení pre daný projekt. Takto sa vám nebudú zobrazovať v odovzdávacom dialógu, ale originálne zdrojové súbory budú stále ..."
 
 #: source/TortoiseSVN_en.xml:6233
 #: (para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr ""
+msgstr "Keď pravý <action>praví klik</action> na jeden neverziovaný súbor, a vyberiete z kontextového menu príkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pridať do zoznamu vylúčenia</guimenuitem></menuchoice>, objaví sa podmenu, ktoré vám umožní vybrať, či chcete vybrať iba tento súbor, alebo všetky súbory s rovnakou príponov. Ak vyberiete viacero súborov, toto podmenu sa vám nezobrazí a vylúčite iba vybrané súbory."
 
 #: source/TortoiseSVN_en.xml:6245
 #: (para)
@@ -5028,7 +5029,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6260
 #: (title)
 msgid "The Global Ignore List"
-msgstr ""
+msgstr "Globálný zoznam vylúčenia"
 
 #: source/TortoiseSVN_en.xml:6261
 #: (para)
@@ -5258,17 +5259,17 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6570
 #: (para)
 msgid "There are (at least) two possible solutions to rename a file without losing its log history. It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!!!"
-msgstr ""
+msgstr "Sú (najmnej) dve možné riešenia na premenovanie súboru bez straty jeho histórie. Je dôležité ho premenovať vrámci subversion. Premenovanie len explorer-i poruší vašu pracovnú kópiu!!!"
 
 #: source/TortoiseSVN_en.xml:6580
 #: (para)
 msgid "Commit the changes in your working copy."
-msgstr ""
+msgstr "Odovzdať zmeny vo vašej pracovnaj kópií."
 
 #: source/TortoiseSVN_en.xml:6585
 #: (para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
-msgstr ""
+msgstr "Premenovať súbor z UPPERcase na upperCASE priamo v úložisku pomocou prehliadača úložiska."
 
 #: source/TortoiseSVN_en.xml:6591
 #: (para)
@@ -5278,12 +5279,12 @@ msgstr "Aktulizuje vašu pravnú kópiu."
 #: source/TortoiseSVN_en.xml:6576
 #: (para)
 msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr ""
+msgstr "Riešenie A) (odporučané) <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6601
 #: (para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
-msgstr ""
+msgstr "Premenovať z UPPERcase na UPPERcase_ pomocou príkazu v podpomenu TortoiseSVN."
 
 #: source/TortoiseSVN_en.xml:6607
 #: (para) source/TortoiseSVN_en.xml:6617
@@ -5293,7 +5294,7 @@ msgstr "Odovzdať zmeny"
 #: source/TortoiseSVN_en.xml:6612
 #: (para)
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr ""
+msgstr "Premenovať z UPPERcase_ na upperCASE."
 
 #: source/TortoiseSVN_en.xml:6597
 #: (para)
@@ -8067,7 +8068,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10270
 #: (para)
-msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scrips are executed locally on the client."
+msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10280
@@ -9542,7 +9543,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11818
 #: (entry)
-msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To prefill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
+msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bugtrackers properly), you can use the <placeholder-2/> to do that."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11834
@@ -9633,7 +9634,7 @@ msgstr "/path2"
 
 #: source/TortoiseSVN_en.xml:11930
 #: (entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11943

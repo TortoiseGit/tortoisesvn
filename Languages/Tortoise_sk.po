@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-06-16 20:40+0100\n"
+"PO-Revision-Date: 2007-07-09 05:10+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -226,44 +226,6 @@ msgstr ""
 "%s\n"
 "Chcete napriek tomu odstrániť?"
 
-# ID:7,
-#: ID:7
-#, c-format
-msgid ""
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
-msgstr ""
-"%s\n"
-"Veľkosť súboru:\t\t\t%s\n"
-"Šírka:\t\t\t%ld bodov\n"
-"Výška:\t\t\t%ld bodov\n"
-"Horizontálne rozlíšenie:\t%.1f dpi\n"
-"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
-"Hĺbka:\t\t\t%d bit-ov\n"
-"Zväčšenie:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"Veľkosť súboru:\t\t\t%s\n"
-"Šírka:\t\t\t%ld pixel\n"
-"Výška:\t\t\t%ld pixel\n"
-"Horizontálne rozlíšenie:\t%.1f dpi\n"
-"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
-"Hĺbka:\t\t\t%d bit-ov"
-
 # ID:69,
 #: ID:69
 #, c-format
@@ -275,6 +237,20 @@ msgstr ""
 "%s\n"
 "je adresár (a nie súbor)!\n"
 "TortoiseMerge nevie porovnávať adresáre."
+
+# ID:286,
+#: ID:286
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -3211,6 +3187,61 @@ msgstr "Záplaty súboru"
 #: ID:7
 #, c-format
 msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veľkosť súboru:\t%s\n"
+"Šírka:\t\t\t%ld pixlov\n"
+"Výška:\t\t\t%ld pixlov\n"
+"Horizontálne rozlíšenie:\t%.1f dpi\n"
+"Vertikálne rozlíšenie:\t%.1f dpi\n"
+"Farebná hĺbka:\t\t%d bit\n"
+"Zväčšenie:\t\t%d%%"
+
+# ID:7,
+#: ID:8
+#, c-format
+msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veľkosť súboru:\t\t%s\n"
+"Šírka:\t\t\t%ld pixlov\n"
+"Výška:\t\t\t%ld pixlov\n"
+"Horizontálne rozlíšenie:\t%.1f dpi\n"
+"Vertikálne rozlíšenie:\t%.1f dpi\n"
+"Hĺbka:\t\t\t%d bitov\n"
+"Zväčšenie:\t\t\t%d%%\n"
+"\n"
+"Veľkosť súboru:\t\t\t%s\n"
+"Šírka:\t\t\t%ld pixlov\n"
+"Výška:\t\t\t%ld pixlov\n"
+"Horizontálne rozlíšenie:\t%.1f dpi\n"
+"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
+"Hĺbka:\t\t\t%d bitovZväčšenie:\t\t\t%d%%\n"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
 "File size:\t\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
@@ -3226,6 +3257,41 @@ msgstr ""
 "Vertikálne rozlíšenie:\t%.1f dpi\n"
 "Farebná hĺbka:\t\t%d bit\n"
 "Zväčšenie:\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veľkosť súboru:\t\t\t%s\n"
+"Šírka:\t\t\t%ld pixlov\n"
+"Výška:\t\t\t%ld pixlov\n"
+"Horizontálne rozlíšenie:\t%.1f dpi\n"
+"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
+"Hĺbka:\t\t\t%d bitov\n"
+"Zväčšenie:\t\t\t%d%%\n"
+"\n"
+"Veľkosť súboru:\t\t%s\n"
+"Šírka:\t\t\t%ld pixlov\n"
+"Výška:\t\t\t%ld pixlov\n"
+"Horizontálne rozlíšenie:\t%.1f dpi\n"
+"Vertikálne rozlíšenie:\t\t%.1f dpi\n"
+"Hĺbka:\t\t\t%d bitovZväčšenie:\t\t\t%d%%\n"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3251,6 +3317,11 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "Ukončené!"
+
+# Spojiť, naviazať
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "Zväčšiť obrá&zky na veľkosť okna"
 
 # Control-ID:1315,
 #: Control-ID:1315
@@ -3332,6 +3403,11 @@ msgstr "Vztváram súbor záplaty..."
 #: ID:16
 msgid "Get loc&k..."
 msgstr "Uzam&knuť..."
+
+# ID:114,
+#: ID:114
+msgid "Get merge logs"
+msgstr "Ziskať denník zlučovania"
 
 # ID:89,
 #: ID:89
@@ -3574,6 +3650,12 @@ msgstr "ID:32796:V C +A"
 #: ; '&Filter'
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
@@ -3866,6 +3948,11 @@ msgstr "Importuje adresár do úložiska"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Vrátane ignorovaných súborov"
+
+# ID:276,
+#: Control-ID:1126
+msgid "Include merged revisions"
+msgstr "Zahrunúť zlúčené revízie"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4327,6 +4414,7 @@ msgstr "Maximálny počet záznamov, ktoré majú byť uchované v pamäti denn�
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: ID:276
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
@@ -4338,11 +4426,29 @@ msgstr "Spájať"
 msgid "Merge - TortoiseSVN"
 msgstr "Zlúčiť - TortoiseSVN"
 
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: Control-ID:1377
+msgid "Merge Depth"
+msgstr "Hĺbka Spájania"
+
 # ID:263,#:
 # ID:263,
 #: ID:263
 msgid "Merged"
 msgstr "Zlúčené"
+
+# ID:313,
+#: ID:286
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Zlúčená revízia %s z %s:\n"
+
+# ID:229,
+#: ID:286
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Zlúčené revízie %s do %s z %s:\n"
 
 # ID:10,
 #: ID:10
@@ -4358,13 +4464,25 @@ msgstr "Zlúčovanie"
 #: ID:229
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr "Zločovanie %s od revízie %s až %s v %s, %s%s"
+msgstr "Zlučovanie %s od revízie %s až %s v %s, %s%s"
 
 # ID:229,
 #: ID:229
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Zlučovanie z %s, revízia %s až %s, revízia %s v %s, %s%s"
+
+# Control-ID:65535,
+#: ID:264
+#, c-format
+msgid "Merging r%ld"
+msgstr "Zlučovanie r%ld"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Zučovanie r%ld po r%ld"
 
 # ID:83,
 #: ID:83
@@ -5044,7 +5162,7 @@ msgstr "Prosím počkajte na získanie rozdielov..."
 
 # ID:104,
 #: ID:104
-msgid "Please wait while the repository browser is initialized..."
+msgid "Please wait while the repository browser is initializing..."
 msgstr "Prosím čakajte, prehliadač úložiska sa inicializuje..."
 
 # ID:119,#:
@@ -5224,6 +5342,11 @@ msgstr "Pred tím ako sa zaseknete si prečítajte 'Návod pre denné použite' 
 #: Control-ID:65535
 msgid "Recently modified lines"
 msgstr "Naposledy menené riadky"
+
+# ID:276,
+#: ID:276
+msgid "Record Only"
+msgstr "Iba záznam"
 
 # Control-ID:1260,
 #: Control-ID:1260
@@ -6969,7 +7092,7 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Na riadku%d je ešte stále nevyriešený konflikt!\n"
+"Na riadku %d je ešte stále nevyriešený konflikt!\n"
 "Pred uložením, by ste všetky konflikty vyriešiť.\n"
 "Chcete uložiť súbor aj s kofliktom?\n"
 "Keď vyberiete ANO, potom budete musieť vyriešiť konflikty ručne v inom editore!"
@@ -7672,6 +7795,11 @@ msgstr "Pracovná kópia"
 #: Control-ID:1335
 msgid "Working Copy Path:"
 msgstr "Cesta pracovnej kópie:"
+
+# Control-ID:1183,
+#: ID:267
+msgid "Working copy"
+msgstr "Pracovná kópia"
 
 # ID:80,
 #: ID:80
