@@ -27,8 +27,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2007-05-05 22:50 +0000\n"
-"PO-Revision-Date: 2007-05-06 11:50+0800\n"
+"POT-Creation-Date: 2007-07-09 09:58 +0000\n"
+"PO-Revision-Date: 2007-07-09 21:06+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -76,8 +76,8 @@ msgid "Preface"
 msgstr "前言"
 
 #: source/TortoiseMerge_en.xml:33(para)
-msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your sourcecode, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr "　　当开发一个项目的时候，无论是只有几个人审察你的代码的开源项目还是包括源代码的商业软件，总有一些人或使用者会发现一些错误或希望改进你的项目。因此，他们需要发送给你补丁，由你来审查并决定是否使用它们。"
+msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
+msgstr "当开发一个项目的时候，无论是只有几个人审察你的代码的开源项目还是包括源代码的商业软件，总有一些人或客户会发现错误或希望改进你的项目。因此，他们发送给你补丁，你需要来审查并决定是否使用它们。"
 
 #: source/TortoiseMerge_en.xml:45(para)
 msgid "Reviewing patches"
@@ -108,16 +108,16 @@ msgid "TortoiseMerge is an Open Source project. That means you have full access 
 msgstr "　　TortoiseMerge 是一个开源软件项目。换言之，你可以取得它的全部源代码。你可以访问以下链接得到源代码：<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>（用户名：guest，无密码） 。最新的版本（我们当前正在开发的）放在 <filename>/trunk/</filename> ，已发布版本放在 <filename>/tags/</filename>  。"
 
 #: source/TortoiseMerge_en.xml:90(title)
-msgid "Wishlist"
-msgstr "愿望"
+msgid "Wish List"
+msgstr "愿望列表"
 
 #: source/TortoiseMerge_en.xml:91(para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
 msgstr "　　虽然 TortoiseSVN 和 TortoiseMerge 是免费软件，但是你可以通过发送一些补丁和积极参与开发来帮助开发者。此外，你还可以使我们在计算机前度过的漫长时间更加愉快。"
 
 #: source/TortoiseMerge_en.xml:97(para)
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "　　我们喜欢一边聆听音乐，一边开发 TortoiseSVN。由于我们在这个项目上花费了大量时间，我们需要<emphasis>很多的</emphasis>音乐。因此，我们创建了喜欢的音乐 CD 和 DVD 列表：<ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> 。此外，也请看一看那些为项目提供了补丁或翻译的人员名单。"
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgstr "我们喜欢一边聆听音乐，一边开发 TortoiseSVN。因为我们在这个项目上花费了大量时间，所以我们需要<emphasis>很多</emphasis>音乐。因此，我们创建了喜欢的音乐 CD 和 DVD 列表：<ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> 。此外，也请看一看那些为项目提供了补丁或翻译的人员名单。"
 
 #: source/TortoiseMerge_en.xml:113(title)
 msgid "Acknowledgments"
@@ -136,7 +136,7 @@ msgid "Lübbe Onken"
 msgstr "Lübbe Onken"
 
 #: source/TortoiseMerge_en.xml:131(para)
-msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
+msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
 msgstr "制作了漂亮的图标、LOGO，检查错误及维护文档"
 
 #: source/TortoiseMerge_en.xml:138(term)
@@ -193,12 +193,12 @@ msgid "File Conflict"
 msgstr "文件冲突"
 
 #: source/TortoiseMerge_en.xml:214(para)
-msgid "A conflict can also occur if you try to apply an outdated patchfile. In such cases, without TortoiseMerge, you would either have to ask the person you got that patchfile from for a current version or try to apply that patchfile manually."
-msgstr "　　应用一个过时的补丁时也可能出现冲突。在这种情况下，不应该使用TortoiseMerge，你要么向补丁提供者索取一个当前版本的补丁，要么手工的应用该补丁。"
+msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
+msgstr "应用一个过时的补丁时也可能出现冲突。在这种情况下，没有 TortoiseMerge 时，你要么向补丁提供者索取一个当前版本的补丁，要么手工的应用该补丁。"
 
 #: source/TortoiseMerge_en.xml:220(para)
-msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "　　但是现在 TortoiseMerge 不再是必需的了——至少当你使用类似 Subversion 这样的版本控制系统时不是必需的。TortoiseMerge 解析某次修订/某个版本的补丁文件并自动尝试从你的版本控制系统中获取对应的版本，然后应用该补丁并让你对比文件的原始内容及其修改后的内容。因此你能决定是否接受那些修改。"
+msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
+msgstr "但是现在有了 TortoiseMerge，它就不再是必需的了 —— 至少当你使用类似 Subversion 这样的版本控制系统时不是必需的。TortoiseMerge 解析补丁文件创建的修订版/版本号，并自动尝试从你的版本控制系统中获取对应的版本。然后应用该补丁，让你对比文件的原始内容及其修改后的内容。因此你能决定是否接受那些修改。"
 
 #: source/TortoiseMerge_en.xml:235(title)
 msgid "TortoiseMerge's History"
@@ -213,11 +213,11 @@ msgid "This was also the main reason why TortoiseSVN did not originally have a <
 msgstr "这也是最初的 TortoiseSVN 没有实现 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>创建补丁</guimenuitem></menuchoice> 的主要理由：我们期望用户发送给我们整个文件，这样容易打补丁。"
 
 #: source/TortoiseMerge_en.xml:261(para)
-msgid "So we spent a lot of time, searching the internet for a GUI tool which could apply patchfiles, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
-msgstr "于是我们花费了大量时间，在互联网搜索一个打补丁的图形工具，但是我们没有发现这样的工具。长话短说：既然没有人提供这样的工具，我们决定自行编写。就在那时，TortoiseMerge 出世了。"
+msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
+msgstr "于是我们花费了大量时间，在互联网搜索打补丁的图形工具，但是没有发现。简而言之：既然没有人提供这样的工具，我们决定自行编写。就在那时，TortoiseMerge 出世了。"
 
 #: source/TortoiseMerge_en.xml:268(para)
-msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same dll's."
+msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same DLLs."
 msgstr "因为 TortoiseSVN 已经使用了 Subversion 库，它内置了一个很好的差异比较工具。很自然的，我们使用这个库代替 GNU diff。而且因为 TortoiseSVN 和 TortoiseMerge 使用了同样的 dll，可执行文件也变小了。"
 
 #: source/TortoiseMerge_en.xml:278(title)
@@ -237,8 +237,8 @@ msgid "The Open Dialog"
 msgstr "打开文件对话框"
 
 #: source/TortoiseMerge_en.xml:301(para)
-msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patchfile. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "你要作的第一件事，就是决定是否比较/合并文件，或者是否使用补丁。根据你的选择，相应的编辑框和浏览按钮被激活。"
+msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
+msgstr "你要作的第一件事，就是决定是否比较/合并文件，或者是否使用补丁。根据你的选择，相应的编辑框和浏览按钮会被激活。"
 
 #: source/TortoiseMerge_en.xml:308(title)
 msgid "Viewing / Merging"
@@ -297,19 +297,19 @@ msgid "Applying Patches"
 msgstr "应用补丁"
 
 #: source/TortoiseMerge_en.xml:399(para)
-msgid "If you want to apply a patchfile you have to set both the path to the patchfile itself and the path to the folder where the patchfile should be applied."
+msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
 msgstr "如果你想应用一个补丁文件，你要设置补丁文件的路径，以及在哪个路径打补丁。"
 
 #: source/TortoiseMerge_en.xml:405(para)
-msgid "Currently, only patchfiles in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patchfiles generated by CVS are currently not supported!"
+msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
 msgstr "当前仅支持<emphasis>标准差异格式</emphasis>。并且是在 Subversion 工作副本中生成的补丁。其它格式，例如 CVS 生成的补丁文件不受支持！"
 
 #: source/TortoiseMerge_en.xml:418(title)
-msgid "Patch Filelist"
+msgid "Patch File List"
 msgstr "补丁文件列表"
 
 #: source/TortoiseMerge_en.xml:413(para)
-msgid "If TortoiseMerge is able to parse the patchfile it will show you a small window with all the files which have changes according to the patchfile. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
+msgid "If TortoiseMerge is able to parse the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 msgstr "如果 TortoiseMerge 能解析补丁文件，它会显示一个小窗口，给出此补丁修改的文件列表。<placeholder-1/> 如果文件名称用黑色显示，那么这个补丁可以没有任何问题的应用。它表示此补丁针对的文件没有过时。如果文件名称用红色显示，那么这个补丁不能直接应用，因为你的修改造成了这个文件出现冲突。"
 
 #: source/TortoiseMerge_en.xml:427(para)
@@ -317,8 +317,8 @@ msgid "But don't worry. If you're working with Subversion you can retrieve an ol
 msgstr "但是别担心。如果你使用 Subversion，可以取出这个文件的老版本来解决冲突。实际上，TortoiseMerge 自动尝试取出老版本，给出<literal>基础版本</literal> (此文件的老版本), <literal>我的版本</literal> (你的工作副本中的文件)，和<literal>他人的版本</literal> (已经打补丁的老版本)之间的差异。然后你可以手工解决冲突。"
 
 #: source/TortoiseMerge_en.xml:438(para)
-msgid "The patchfile window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "补丁文件窗口有一个上下文菜单，允许你预览在当前文件打补丁的结果(没有保存)，为选择的文件打补丁和保存改变，或者为列表内的<emphasis>所有</emphasis>文件打补丁和保存改变。双击动作是预览结果。"
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
+msgstr "补丁文件窗口有一个上下文菜单，允许你预览在当前文件打补丁的结果(没有保存)，为选择的文件打补丁和保存修改，或者为列表内的<emphasis>所有</emphasis>文件打补丁和保存修改。双击动作是预览结果。"
 
 #: source/TortoiseMerge_en.xml:446(para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
@@ -449,8 +449,8 @@ msgid "<guilabel>Backup original file</guilabel> renames the original file in th
 msgstr "　　<guilabel>备份原始文件</guilabel> 在保存修改后的版本时，先将工作拷贝中的原始文件重命名为<literal>filename.bak</literal>。"
 
 #: source/TortoiseMerge_en.xml:701(para)
-msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr "　　<guilabel>忽略换行类型</guilabel> 隐藏换行类型的改变。"
+msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
+msgstr "<guilabel>忽略换行类型</guilabel> 隐藏换行类型的改变。"
 
 #: source/TortoiseMerge_en.xml:705(para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
@@ -673,7 +673,7 @@ msgid "Toggles between showing whitespaces or not"
 msgstr "切换是否显示空白字符"
 
 #: source/TortoiseMerge_en.xml:923(term)
-msgid "Ctrl-wheelmouse"
+msgid "Ctrl-mousewheel"
 msgstr "Ctrl-鼠标滚轮"
 
 #: source/TortoiseMerge_en.xml:925(para)
@@ -787,7 +787,7 @@ msgid "very long"
 msgstr "很长"
 
 #: source/TortoiseMerge_en.xml:1065(entry)
-msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patchfile, but that can take <placeholder-1/>."
+msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
 msgstr "使用补丁文件的路径。如果你不设置此路径，TortoiseMerge 将自己查找匹配补丁文件的路径，但会花费<placeholder-1/>时间。"
 
 #: source/TortoiseMerge_en.xml:1074(entry)
