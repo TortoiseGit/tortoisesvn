@@ -418,7 +418,7 @@ BEGIN
     PUSHBUTTON      "&Configure",IDC_SOUNDS,212,59,72,14
     LTEXT           "Global ignore &pattern:",IDC_STATIC,14,103,84,18,SS_CENTERIMAGE
     EDITTEXT        IDC_TEMPEXTENSIONS,108,105,176,14,ES_AUTOHSCROLL
-    CONTROL         "Set filedates to the ""last commit &time""",IDC_COMMITFILETIMES,
+    CONTROL         "Set file dates to the ""last commit &time""",IDC_COMMITFILETIMES,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,127,270,10
     LTEXT           "Subversion configuration &file:",IDC_STATIC,14,150,192,8
     PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
@@ -933,9 +933,9 @@ BEGIN
     CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,21,269,10
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,94
-    CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
+    CONTROL         "&Use auto-completion of file paths and keywords",IDC_AUTOCOMPLETION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,57,271,10
-    LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,14,74,231,8,SS_NOTIFY
+    LTEXT           "&Timeout in seconds to stop the auto-completion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,14,74,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,72,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,90,271,10
@@ -2344,9 +2344,9 @@ BEGIN
     IDS_SETTINGS_READONLYNAME "readonly"
     IDS_SETTINGS_LOCKEDNAME "locked"
     IDS_SETTINGS_AUTOCOMPLETION_TT 
-                            "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
+                            "Auto-complete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
     IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT 
-                            "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
+                            "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the auto-completion list available sooner,\nbut maybe not scan all files."
     IDS_SETTINGS_RECURSIVE_TT 
                             "Disable this option if you have really big working copies and experience\ntoo much disk access when browsing the working copy."
     IDS_SETTINGS_USEWCURL_TT 
