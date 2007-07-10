@@ -1114,7 +1114,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 						}
 						// we define group 1 as the whole issue text
 						// and group 2 as the issue number
-						if (results.cbackrefs() > 2)
+						if ((results.cbackrefs() > 2)&&(results.backref(2).matched))
 						{
 							if (results.backref(2).str().empty())
 								Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLD);
