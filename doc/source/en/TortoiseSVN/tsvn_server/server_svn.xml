@@ -249,7 +249,7 @@ anon-access = none
 auth-access = write
 password-db = userfile
 </screen>
-			Where <literal>userfile</literal> is a file which exists in
+			Where <filename>userfile</filename> is a file which exists in
 			the same directory as <filename>svnserve.conf</filename>.  This
 			file can live elsewhere in your file system (useful for when you
 			have multiple repositories which require the same access rights)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2007-07-09 22:20 +0000\n"
+"POT-Creation-Date: 2007-07-10 09:22 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -414,7 +414,7 @@ msgid "install"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:571(para) 
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. If you want to install TortoiseSVN for <literal>all users</literal> then you must have administrator rights on your system. If you don't have those rights, TortoiseSVN will automatically install for the current user only."
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. If you want to install TortoiseSVN for <emphasis>all users</emphasis> then you must have administrator rights on your system. If you don't have those rights, TortoiseSVN will automatically install for the current user only."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:581(para) 
@@ -994,7 +994,7 @@ msgid "Download the latest version of the Apache web server from <ulink url=\"ht
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:1555(para) 
-msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install apache <literal>for All Users, on Port 80, as a Service</literal>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
+msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:1577(para) 
@@ -1575,7 +1575,7 @@ msgid "You can enable anonymous write access by simply setting: <screen>\n[gener
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2796(para) 
-msgid "One way to overcome this is to create a password database: <screen>\n[general]\nanon-access = none\nauth-access = write\npassword-db = userfile\n</screen> Where <literal>userfile</literal> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your file system (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. If you include a path, it must be written <filename>/the/unix/way</filename>. Using \\ or drive letters will not work. The <filename>userfile</filename> should have a structure of: <screen>\n[users]\nusername = password\n...\n</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
+msgid "One way to overcome this is to create a password database: <screen>\n[general]\nanon-access = none\nauth-access = write\npassword-db = userfile\n</screen> Where <filename>userfile</filename> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your file system (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. If you include a path, it must be written <filename>/the/unix/way</filename>. Using \\ or drive letters will not work. The <filename>userfile</filename> should have a structure of: <screen>\n[users]\nusername = password\n...\n</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2824(para) 
@@ -2162,7 +2162,7 @@ msgid "Sometimes you need to have a file under version control which contains us
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3743(para) 
-msgid "In such cases we suggest to use <literal>template</literal> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
+msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3751(para) 
@@ -2206,7 +2206,7 @@ msgid "If the external project is in a different repository, any changes you mak
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3856(para) 
-msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
+msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <emphasis>Added</emphasis>, rather than being <emphasis>Updated</emphasis> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3866(para) 
@@ -2530,7 +2530,7 @@ msgid "Progress dialog showing finished update"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4347(para) 
-msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
+msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <emphasis>updating</emphasis>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4376(para) 
@@ -2566,7 +2566,7 @@ msgid "The progress dialog uses colour coding to highlight different update acti
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4424(para) 
-msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
+msgid "If you get any <emphasis>conflicts</emphasis> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4431(para) 
@@ -2578,7 +2578,7 @@ msgid "The standard Update command has no options and just updates your working 
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4496(para) 
-msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
+msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4506(para) 
@@ -2682,15 +2682,15 @@ msgid "Now that you have checked out a working copy from a Subversion repository
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4703(para) 
-msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
+msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <emphasis>normal</emphasis>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4708(para) 
-msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
+msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <emphasis>modified</emphasis> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4716(para) 
-msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
+msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <emphasis>conflict</emphasis> occurs then the icon changes to a yellow exclamation mark."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4721(para) 
@@ -2698,15 +2698,15 @@ msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <li
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4728(para) 
-msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
+msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <emphasis>normal</emphasis>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4735(para) 
-msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
+msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4741(para) 
-msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control."
+msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <emphasis>added</emphasis> to version control."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4746(para) 
@@ -2718,23 +2718,23 @@ msgid "In fact, you may find that not all of these icons are used on your system
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4762(para) 
-msgid "<literal>Normal</literal>, <literal>Modified</literal> and <literal>Conflicted</literal> are always loaded and visible."
+msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4770(para) 
-msgid "<literal>Deleted</literal> is loaded if possible, but falls back to <literal>Modified</literal> if there are not enough slots."
+msgid "<emphasis>Deleted</emphasis> is loaded if possible, but falls back to <emphasis>Modified</emphasis> if there are not enough slots."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4777(para) 
-msgid "<literal>Read-Only</literal> is loaded if possible, but falls back to <literal>Normal</literal> if there are not enough slots."
+msgid "<emphasis>Read-Only</emphasis> is loaded if possible, but falls back to <emphasis>Normal</emphasis> if there are not enough slots."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4784(para) 
-msgid "<literal>Locked</literal> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
+msgid "<emphasis>Locked</emphasis> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <emphasis>Normal</emphasis> if there are not enough slots."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4792(para) 
-msgid "<literal>Added</literal> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
+msgid "<emphasis>Added</emphasis> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <emphasis>Modified</emphasis> if there are not enough slots."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4802(title) 
@@ -2810,7 +2810,7 @@ msgid "From the context menu of the dialog you can show a diff of the changes. C
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4948(para) 
-msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
+msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <emphasis>Missing</emphasis> and you can use <emphasis>Revert</emphasis> to recover it."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4953(para) 
@@ -2830,7 +2830,7 @@ msgid "If you are working on several unrelated tasks at once, you can also group
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4980(para) 
-msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <literal>commit</literal> revisions, not the <literal>update</literal> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
+msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4991(para) 
@@ -2982,19 +2982,19 @@ msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons 
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5196(para) 
-msgid "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision modified a file or directory, the <literal>modified</literal> icon is shown in the first column."
+msgid "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision modified a file or directory, the <emphasis>modified</emphasis> icon is shown in the first column."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5201(para) 
-msgid "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a file or directory, the <literal>added</literal> icon is shown in the second column."
+msgid "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a file or directory, the <emphasis>added</emphasis> icon is shown in the second column."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5206(para) 
-msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <literal>deleted</literal> icon is shown in the third column."
+msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <emphasis>deleted</emphasis> icon is shown in the third column."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5211(para) 
-msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <literal>replaced</literal> icon is shown in the fourth column."
+msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <emphasis>replaced</emphasis> icon is shown in the fourth column."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5218(title) 
@@ -3118,7 +3118,7 @@ msgid "The Log Dialog Bottom Pane with Context Menu"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5433(para) 
-msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
+msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <emphasis>modified</emphasis>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5440(para) 
@@ -4166,7 +4166,7 @@ msgid "Another feature of version control systems is the ability to mark particu
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7101(para) 
-msgid "Subversion does not have special commands for branching or tagging, but uses so-called <literal>cheap copies</literal> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
+msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7111(title) 
@@ -4906,7 +4906,7 @@ msgid "This command analyses the revision history and attempts to create a tree 
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8438(para) 
-msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <literal>Apache</literal> project which currently has over 500,000 revisions you could be waiting for some time."
+msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <emphasis>Apache</emphasis> project which currently has over 500,000 revisions you could be waiting for some time."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8451(term) 
@@ -5118,7 +5118,7 @@ msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you 
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8753(para) 
-msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/>"
+msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <emphasis>regular expressions</emphasis>. The properties used by both approaches are: <placeholder-1/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8800(term) 
@@ -5126,7 +5126,7 @@ msgid "bugtraq:message"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8802(para) 
-msgid "<emphasis> This property activates the bug tracking system in <literal>Input field</literal> mode. </emphasis> If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
+msgid "<emphasis> This property activates the bug tracking system in <emphasis>Input field</emphasis> mode. </emphasis> If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8823(term) 
@@ -5182,7 +5182,7 @@ msgid "If you are unfamiliar with regular expressions, take a look at the online
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8867(para) 
-msgid "In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
+msgid "In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8915(para) 
@@ -5770,7 +5770,7 @@ msgid "<placeholder-1/> Here you can configure your proxy server, if you need on
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9830(para) 
-msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
+msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <filename>servers</filename> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.advanced.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9840(para) 
@@ -5846,7 +5846,7 @@ msgid "For example, with ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9950(para) 
-msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
+msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <emphasis>revision</emphasis> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9964(para) 
@@ -7724,7 +7724,7 @@ msgid "A Subversion command which creates a local working copy in an empty direc
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12654(para) 
-msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
+msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12671(para) 

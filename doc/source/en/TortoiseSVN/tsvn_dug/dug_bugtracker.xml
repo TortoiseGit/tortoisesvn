@@ -53,7 +53,7 @@
 	</para>
 	<para>
 		There are two ways to integrate TortoiseSVN with issue trackers. One is
-		based on simple strings, the other is based on <literal>regular expressions</literal>.
+		based on simple strings, the other is based on <emphasis>regular expressions</emphasis>.
 		The properties used by both approaches are:
 		<variablelist>
 			<varlistentry>
@@ -103,7 +103,7 @@
 					<para>
 						<emphasis>
 							This property activates the bug tracking system
-							in <literal>Input field</literal> mode.
+							in <emphasis>Input field</emphasis> mode.
 						</emphasis>
 						If this property is set, then TortoiseSVN
 						will prompt you to enter an issue number when you commit
@@ -166,7 +166,7 @@
 		</variablelist>
 	</para>
 	<para>
-		In the approach with <literal>regular expressions</literal>, TortoiseSVN
+		In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN
 		doesn't show a separate input field but marks the part of the log message the user
 		enters which is recognized by the issue tracker. This is done while the user
 		writes the log message. This also means that the bug ID can be anywhere inside a log

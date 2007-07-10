@@ -13,7 +13,7 @@
 		Periodically, you should ensure that changes done by others get
 		incorporated in your local working copy. The process of
 		getting changes from the server to your local copy is
-		known as <literal>updating</literal>. Updating may be done on
+		known as <emphasis>updating</emphasis>. Updating may be done on
 		single files, a set of selected files, or recursively on
 		entire directory hierarchies. To update, select the files
 		and/or directories you want, <action>right click</action> and select
@@ -83,7 +83,7 @@
 		Read <xref linkend="tsvn-dug-settings-colours"/> for more information.
 	</para>
 	<para>
-		If you get any <literal>conflicts</literal> during an update (this
+		If you get any <emphasis>conflicts</emphasis> during an update (this
 		can happen if others changed the same lines in the same file as
 		you did and those changes don't match) then the dialog shows those
 		conflicts in red. You can <action>double click</action> on these lines
@@ -156,7 +156,7 @@
 	<caution>
 		<para>
 			If you update a file or folder to a specific revision, you should not
-			make changes to those files. You will get <literal>out of date</literal>
+			make changes to those files. You will get <quote>out of date</quote>
 			error messages when you try to commit them!
 			If you want to undo changes to a file and start afresh from an earlier
 			revision, you can rollback to a previous revision from the revision log

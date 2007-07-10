@@ -80,11 +80,11 @@
 				<quote>
 					Recursively clean up the working copy, removing locks and resuming
 					unfinished operations. If you ever get a
-					<literal>working copy locked</literal> error,
+					<emphasis>working copy locked</emphasis> error,
 					run this command to remove stale locks and get your working copy
 					into a usable state again.
 				</quote>
-				Note that in this context <quote>lock</quote> refers to local filesystem
+				Note that in this context <emphasis>lock</emphasis> refers to local filesystem
 				locking, not repository locking.
 			</para>
 		</glossdef>

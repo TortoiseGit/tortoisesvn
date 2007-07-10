@@ -88,22 +88,22 @@
 		<para>
 			<graphic fileref="../images/ActionModifiedIcon.png"/>
 			If a revision modified a file or directory, the
-			<literal>modified</literal> icon is shown in the first column.
+			<emphasis>modified</emphasis> icon is shown in the first column.
 		</para>
 		<para>
 			<graphic fileref="../images/ActionAddedIcon.png"/>
 			If a revision added a file or directory, the
-			<literal>added</literal> icon is shown in the second column.
+			<emphasis>added</emphasis> icon is shown in the second column.
 		</para>
 		<para>
 			<graphic fileref="../images/ActionDeletedIcon.png"/>
 			If a revision deleted a file or directory, the
-			<literal>deleted</literal> icon is shown in the third column.
+			<emphasis>deleted</emphasis> icon is shown in the third column.
 		</para>
 		<para>
 			<graphic fileref="../images/ActionReplacedIcon.png"/>
 			If a revision replaced a file or directory, the
-			<literal>replaced</literal> icon is shown in the fourth column.
+			<emphasis>replaced</emphasis> icon is shown in the fourth column.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-2">
@@ -325,7 +325,7 @@
 					<para>
 						Show differences made in the selected revision for the
 						selected file. This context menu is only available for
-						files shown as <literal>Modified</literal>.
+						files shown as <emphasis>modified</emphasis>.
 					</para>
 				</listitem>
 				<listitem>

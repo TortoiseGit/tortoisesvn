@@ -35,19 +35,19 @@
 		<para>
 			<graphic fileref="../images/InSubVersionIcon.png"/>
 			A fresh checked out working copy has a green checkmark as overlay.
-			That means the Subversion status is <literal>normal</literal>.
+			That means the Subversion status is <emphasis>normal</emphasis>.
 		</para>
 		<para>
 			<graphic fileref="../images/ModifiedIcon.png"/>
 			As soon as you start editing a file,
-			the status changes to <literal>modified</literal>
+			the status changes to <emphasis>modified</emphasis>
 			and the icon overlay then changes to a red exclamation
 			mark. That way you can easily see which files were changed
 			since you last updated your working copy and need to be committed.
 		</para>
 		<para>
 			<graphic fileref="../images/ConflictIcon.png"/>
-			If during an update a <literal>conflict</literal> occurs then
+			If during an update a <emphasis>conflict</emphasis> occurs then
 			the icon changes to a yellow exclamation mark.
 		</para>
 		<para>
@@ -60,20 +60,20 @@
 		<para>
 			<graphic fileref="../images/LockedIcon.png"/> 
 			If you hold a lock on a file, and the Subversion status is
-			<literal>normal</literal>, this icon overlay reminds you that you
+			<emphasis>normal</emphasis>, this icon overlay reminds you that you
 			should release the lock if you are not using it to allow others to
 			commit their changes to the file.
 		</para>
 		<para>
 			<graphic fileref="../images/DeletedIcon.png"/> 
 			This icon shows you that some files or folders inside the current folder
-			have been scheduled to be <literal>deleted</literal> from version control
+			have been scheduled to be <emphasis>deleted</emphasis> from version control
 			or a file under version control is missing in a folder.
 		</para>
 		<para>
 			<graphic fileref="../images/AddedIcon.png"/> 
 			The plus sign tells you that a file or folder has been scheduled to be
-			<literal>added</literal> to version control.
+			<emphasis>added</emphasis> to version control.
 		</para>
 		<para>
 			Unlike TortoiseCVS (the CVS shell
@@ -92,39 +92,39 @@
 		<itemizedlist>
 			<listitem>
 				<para>
-					<literal>Normal</literal>,
-					<literal>Modified</literal> and
-					<literal>Conflicted</literal>
+					<emphasis>Normal</emphasis>,
+					<emphasis>Modified</emphasis> and
+					<emphasis>Conflicted</emphasis>
 					are always loaded and visible.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-					<literal>Deleted</literal>
+					<emphasis>Deleted</emphasis>
 					is loaded if possible, but falls back to
-					<literal>Modified</literal> if there are not enough slots.
+					<emphasis>Modified</emphasis> if there are not enough slots.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-					<literal>Read-Only</literal>
+					<emphasis>Read-Only</emphasis>
 					is loaded if possible, but falls back to
-					<literal>Normal</literal> if there are not enough slots.
+					<emphasis>Normal</emphasis> if there are not enough slots.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-					<literal>Locked</literal>
+					<emphasis>Locked</emphasis>
 					is only loaded if there are fewer than 13 overlays already loaded.
-					It falls back to <literal>Normal</literal>
+					It falls back to <emphasis>Normal</emphasis>
 					if there are not enough slots.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-					<literal>Added</literal>
+					<emphasis>Added</emphasis>
 					is only loaded if there are fewer than 14 overlays already loaded.
-					It falls back to <literal>Modified</literal>
+					It falls back to <emphasis>Modified</emphasis>
 					if there are not enough slots.
 				</para>
 			</listitem>
@@ -279,8 +279,8 @@
 		</para>
 		<para>
 			You can also revert changes in individual files. If you have deleted
-			a file accidentally, it will show up as <literal>Missing</literal>
-			and you can use <literal>Revert</literal> to recover it.
+			a file accidentally, it will show up as <emphasis>Missing</emphasis>
+			and you can use <emphasis>Revert</emphasis> to recover it.
 		</para>
 		<para>
 			Unversioned and ignored files can be sent to the recycle bin from here using
@@ -311,8 +311,8 @@
 		</para>
 		<para>
 			At the bottom of the dialog you can see a summary of the range of repository
-			revisions in use in your working copy. These are the <literal>commit</literal>
-			revisions, not the <literal>update</literal> revisions; they represent the
+			revisions in use in your working copy. These are the <emphasis>commit</emphasis>
+			revisions, not the <emphasis>update</emphasis> revisions; they represent the
 			range of revisions where these files were last committed, not the revisions
 			to which they have been updated. Note that the revision range shown applies
 			only to the items displayed, not to the entire working copy. If you want to

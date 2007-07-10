@@ -276,7 +276,7 @@ C:\Temp\New\tags
 			time to the repository.
 		</para>
 		<para>
-			In such cases we suggest to use <literal>template</literal> files.
+			In such cases we suggest to use <emphasis>template</emphasis> files.
 			You create a file which contains all the data your developers
 			will need, add that file to version control and let the developers
 			check this file out. Then, each developer has to <emphasis>make a copy</emphasis>
@@ -392,8 +392,8 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			Note that if you change the URL in an <literal>svn:externals</literal>
 			property, then next time you update your working copy Subversion will
 			delete the old external folder and make a fresh checkout, so you
-			will see files being <literal>Added</literal>, rather than being
-			<literal>Updated</literal> as you might have expected. This
+			will see files being <emphasis>Added</emphasis>, rather than being
+			<emphasis>Updated</emphasis> as you might have expected. This
 			situation might occur if you reference a tag from another
 			project. When a new version of that project is released, you
 			change your external reference to point to the new tag.

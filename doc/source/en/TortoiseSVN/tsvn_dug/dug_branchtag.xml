@@ -30,7 +30,7 @@
 	</para>
 	<para>
 		Subversion does not have special commands for branching
-		or tagging, but uses so-called <literal>cheap copies</literal>
+		or tagging, but uses so-called <quote>cheap copies</quote>
 		instead. Cheap copies are similar to hard links in Unix, which means
 		that instead of making a complete copy in the repository, an internal
 		link is created, pointing to a specific tree/revision. As a result
