@@ -189,8 +189,14 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 	currentPath.reset (new CDictionaryBasedTempPath (startPath));
 	followRenames = !strictNodeHistory;
 
+    // full path to be passed to SVN.
+    // don't append a trailing "/", if the path is empty (i.e. root)
+
 	CTSVNPath path;
-	path.SetFromSVN (URL + startPath.GetPath().c_str());
+    if (startPath.IsRoot())
+	    path.SetFromSVN (URL);
+    else
+	    path.SetFromSVN (URL + startPath.GetPath().c_str());
 
 	svnQuery->Log ( CTSVNPathList (path)
 				  , static_cast<long>(startRevision)
