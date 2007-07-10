@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-23 14:15+0100\n"
+"PO-Revision-Date: 2007-07-09 21:34+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -232,44 +232,6 @@ msgstr ""
 "%s\n"
 "Da li to ipak želite ukloniti?"
 
-# ID:7,
-#: ID:7
-#, c-format
-msgid ""
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"File size:\t\t\t%s\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit"
-msgstr ""
-"%s\n"
-"Veličina datoteke:\t\t\t%s\n"
-"Širina:\t\t\t%ld točkica\n"
-"Visina:\t\t\t%ld točkica\n"
-"Vodoravna rezolucija:\t%.1f dpi\n"
-"Okomita rezolucija:\t\t%.1f dpi\n"
-"Dubina:\t\t\t%d bita\n"
-"Zoom:\t\t\t%d%%\n"
-"\n"
-"%s\n"
-"Veličina datoteke:\t\t\t%s\n"
-"Širina:\t\t\t%ld točkica\n"
-"Visina:\t\t\t%ld točkica\n"
-"Vodoravna rezolucija:\t%.1f dpi\n"
-"Okomita rezolucija:\t\t%.1f dpi\n"
-"Dubina:\t\t\t%d bita"
-
 # ID:69,
 #: ID:69
 #, c-format
@@ -281,6 +243,20 @@ msgstr ""
 "%s\n"
 "je direktorij a ne datoteka!\n"
 "TortoiseMerge ne može uspoređivati direktorije."
+
+# ID:286,
+#: ID:286
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -415,6 +391,11 @@ msgstr "&Pretvorite datoteke dok uspoređujete s BASE (osnovom)"
 #: MenuEntry
 msgid "&Copy"
 msgstr "&Kopiraj"
+
+# ID:257,
+#: MenuEntry
+msgid "&Copy log message to clipboard"
+msgstr "&Kopiraj poruku dnevnika u međuspremnik"
 
 # ID:257,
 #: MenuEntry
@@ -1744,6 +1725,16 @@ msgstr "N&apravi mapu..."
 msgid "CAP"
 msgstr "CAP"
 
+# ID:113,
+#: Control-ID:1126
+msgid "Cache log messages"
+msgstr "Pohranjuje poruke dnevnika"
+
+# ID:197,
+#: ID:197
+msgid "Caches the log messages to speed up log fetching"
+msgstr "Pohranjuje poruke dnevnika u spremnik kako bi ubrzao dohvaćanje dnevnika"
+
 # ID:82,
 #: ID:82
 #, c-format
@@ -1935,6 +1926,11 @@ msgstr "Preuzmi &direktorij:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Preuzmi - TortoiseSVN"
 
+# ID:8,
+#: Control-ID:1377
+msgid "Checkout Depth"
+msgstr "Dubina preuzimanja"
+
 # ID:119,
 #: ID:229
 #, c-format
@@ -1959,9 +1955,9 @@ msgstr "Čisti prekinute operacije, zaključane datoteke, ..."
 # Control-ID:1059,
 #: Control-ID:1273
 #: Control-ID:1275
+#: Control-ID:1281
 #: Control-ID:1276
 #: Control-ID:1279
-#: Control-ID:1281
 msgid "Clear"
 msgstr "Briši"
 
@@ -2079,11 +2075,6 @@ msgstr "Pohrane"
 #: ID:77
 msgid "Commit - TortoiseSVN"
 msgstr "Pohran - TortoiseSVN"
-
-# Dlg-ID:130,
-#: Control-ID:1274
-msgid "Commit Log Messages"
-msgstr "Poruke dnevnika"
 
 # Control-ID:1110,
 #: Control-ID:1262
@@ -2869,20 +2860,6 @@ msgstr "Ime ili IP zamjenskog poslužitelja"
 msgid "Empty"
 msgstr "Prazno"
 
-# Control-ID:1240,
-#: Control-ID:1240
-msgid "Enable &accelerators on the top level menu"
-msgstr "Omogućite &kratice na glavnom izborniku"
-
-# ID:196,
-#: ID:196
-msgid ""
-"Enable this if you want keyboard accelerators on the top level context menu too.\n"
-"Note that the context menu icons look nicer with this disabled."
-msgstr ""
-"Ovo omogućite ako želite kratice tipkovnice i na glavnom izborniku.\n"
-"Primijetite da ikone na izborniku izgledaju ljepše ako je ovo onemogućeno."
-
 # ID:196,
 #: ID:196
 msgid ""
@@ -3189,6 +3166,61 @@ msgstr "Zakrpe datoteke"
 #: ID:7
 #, c-format
 msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veličina datoteke:\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita\n"
+"Zoom:\t\t\t%d%%"
+
+# ID:7,
+#: ID:8
+#, c-format
+msgid ""
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bitaZoom:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
 "File size:\t\t\t%s\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
@@ -3204,6 +3236,41 @@ msgstr ""
 "Okomita rezolucija:\t\t%.1f dpi\n"
 "Dubina:\t\t\t%d bita\n"
 "Zoom:\t\t\t%d%%"
+
+# ID:7,
+#: ID:7
+#, c-format
+msgid ""
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"File size:\t\t\t%s\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bita\n"
+"Zoom:\t\t\t%d%%\n"
+"\n"
+"Veličina datoteke:\t\t\t%s\n"
+"Širina:\t\t\t%ld točkica\n"
+"Visina:\t\t\t%ld točkica\n"
+"Vodoravna rezolucija:\t%.1f dpi\n"
+"Okomita rezolucija:\t\t%.1f dpi\n"
+"Dubina:\t\t\t%d bitaZoom:\t\t\t%d%%"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3228,6 +3295,10 @@ msgstr ""
 #: ID:219
 msgid "Finished!"
 msgstr "Gotov!"
+
+#: MenuEntry
+msgid "Fit Images &together"
+msgstr "Uklopi slike &zajedno"
 
 # Control-ID:1315,
 #: Control-ID:1315
@@ -3306,6 +3377,11 @@ msgstr "Izrađujem datoteku zakrpa..."
 #: ID:16
 msgid "Get loc&k..."
 msgstr "Pribavi lo&kot..."
+
+# ID:114,
+#: ID:114
+msgid "Get merge logs"
+msgstr "Dohvati dnevnik stapanja"
 
 # ID:89,
 #: ID:89
@@ -3549,6 +3625,12 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
+#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#: Corresponding Menu ID:32810
+#: ; 'Fit Images &together'
+msgid "ID:32810:V   +T"
+msgstr "ID:32810:V   +Z"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3616,8 +3698,8 @@ msgstr "Ikone/Dizajn/Kod:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
-msgid "If activated, prevents the overlays from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Ukoliko je uključeno, sprječava da se preklapanja prikazuju u  \"snimi kao..\" ili \"otvori\" dijalozima"
+msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "Ukoliko je uključeno, sprječava da se preklapanja ikona i skočni izbornik prikazuju u  \"snimi kao..\" ili \"otvori\" dijalozima"
 
 # ID:198,
 #: ID:198
@@ -3840,6 +3922,11 @@ msgstr "Uvoz direktorija u skladište"
 #: Control-ID:1266
 msgid "Include ignored files"
 msgstr "Uključi zanemarene datoteke"
+
+# Dlg-ID:173,
+#: Control-ID:1126
+msgid "Include merged revisions"
+msgstr "Uključi stopljene revizije"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4177,11 +4264,6 @@ msgstr "Zaključava datoteku za ostale korisnike, Vi ju i dalje možete mijenjat
 msgid "Log"
 msgstr "Dnevnik"
 
-# Control-ID:1280,
-#: Control-ID:1280
-msgid "Log Data"
-msgstr "Podaci za dnevnik"
-
 # ID:80,
 #: Dlg-ID:211
 msgid "Log History"
@@ -4201,6 +4283,16 @@ msgstr "Poruka dnevnika"
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Poruke dnevnika"
+
+# Dlg-ID:130,
+#: Control-ID:1274
+msgid "Log messages (Input dialog)"
+msgstr "Poruke dnevnika (dijalog za upis)"
+
+# Control-ID:1280,
+#: Control-ID:1280
+msgid "Log messages (Show log dialog)"
+msgstr "Poruke dnevnika (prikaži dijalog dnevnika)"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -4295,6 +4387,7 @@ msgid "Max. items to keep in the log message history"
 msgstr "Dopušteni broj poruka za pregled dnevnika"
 
 # Dlg-ID:141,
+#: ID:276
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
@@ -4306,10 +4399,27 @@ msgstr "Stopi"
 msgid "Merge - TortoiseSVN"
 msgstr "Stopi - TortoiseSVN"
 
+# Dlg-ID:141,
+#: Control-ID:1377
+msgid "Merge Depth"
+msgstr "Dubina stapanja"
+
 # ID:263,
 #: ID:263
 msgid "Merged"
 msgstr "Stopljeno"
+
+# ID:313,
+#: ID:286
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Stopljena revizija %s od %s:\n"
+
+# ID:229,
+#: ID:286
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Stopljene revizije %s do %s od %s:\n"
 
 # ID:10,
 #: ID:10
@@ -4332,6 +4442,18 @@ msgstr "Stapanje %s od revizije %s do %s u %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Stapanje od %s, revizije %s do %s, revizija %s u %s, %s%s"
+
+# Control-ID:65535,
+#: ID:264
+#, c-format
+msgid "Merging r%ld"
+msgstr "Stapanje r%ld"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Stapanje r%ld do r%ld"
 
 # ID:83,
 #: ID:83
@@ -4680,6 +4802,11 @@ msgstr "U redu"
 msgid "OVR"
 msgstr "OVR"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Older lines"
+msgstr "stariji retci"
+
 # ID:13,
 #: ID:99
 #: Control-ID:1202
@@ -5008,7 +5135,7 @@ msgstr "Molim pričekajte dohvaćanje razlika..."
 
 # ID:104,
 #: ID:104
-msgid "Please wait while the repository browser is initialized..."
+msgid "Please wait while the repository browser is initializing..."
 msgstr "Molim pričekajte inicijalizaciju preglednika skladišta..."
 
 # ID:119,
@@ -5180,6 +5307,16 @@ msgstr "Vra&ti na staro..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Pročitajte 'Vodič za dnevnu uporabu' prije no što zaglavite..."
+
+# Control-ID:1065,
+#: Control-ID:65535
+msgid "Recently modified lines"
+msgstr "nedavno izmijenjeni retci"
+
+# ID:276,
+#: ID:276
+msgid "Record Only"
+msgstr "Samo snimanje"
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -6084,8 +6221,8 @@ msgstr "Prikaži &dnevnik..."
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Show &overlays only in explorer"
-msgstr "Prikaži p&reklapanja samo u exploreru"
+msgid "Show &overlays and context menu only in explorer"
+msgstr "Prikaži p&reklapanja i skočni izbornik samo u exploreru"
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -7638,6 +7775,11 @@ msgstr "Radna kopija"
 msgid "Working Copy Path:"
 msgstr "Staza radne kopije:"
 
+# ID:151,
+#: ID:267
+msgid "Working copy"
+msgstr "Radna kopija"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -8097,11 +8239,6 @@ msgstr "normalno"
 msgid "obstructed"
 msgstr "zapriječen"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "older lines"
-msgstr "stariji retci"
-
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
@@ -8122,11 +8259,6 @@ msgstr "tromjesečje"
 #: ID:195
 msgid "readonly"
 msgstr "samo za čitanje"
-
-# Control-ID:1065,
-#: Control-ID:65535
-msgid "recently modified lines"
-msgstr "nedavno izmijenjeni retci"
 
 # ID:10,
 #: ID:10
