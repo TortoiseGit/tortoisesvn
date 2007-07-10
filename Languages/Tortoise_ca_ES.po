@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-07-02 11:01+0100\n"
+"PO-Revision-Date: 2007-07-10 12:56+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -234,6 +234,20 @@ msgstr ""
 "és un directori, no un fitxer!\n"
 "TortoiseMerge no pot comparar directoris."
 
+# ID:286,
+#: ID:286
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+
 #: MenuEntry
 msgid "&?"
 msgstr "&?"
@@ -371,7 +385,7 @@ msgstr "&Copia"
 # ID:101,
 #: MenuEntry
 msgid "&Copy log message to clipboard"
-msgstr "Copia el missatge de log al portapapers"
+msgstr "&Copia missatge de log al portapapers"
 
 #: MenuEntry
 msgid "&Copy to clipboard"
@@ -4349,6 +4363,7 @@ msgstr "Max. número d'items per conservar en el històric de missatges de log"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: ID:276
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
@@ -4372,6 +4387,18 @@ msgstr "Profunditat de la Fusió"
 msgid "Merged"
 msgstr "Fusionats"
 
+# ID:313,
+#: ID:286
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Revisió Fusionada %s de %s:\n"
+
+# ID:229,
+#: ID:286
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Revisions fusionades %s a %s de %s:\n"
+
 # ID:10,
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -4393,6 +4420,18 @@ msgstr "Merging %s from revision %s to %s into %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Fusionant de %s, revisió %s a %s, revisió %s cap a %s, %s%s"
+
+# Control-ID:65535,
+#: ID:264
+#, c-format
+msgid "Merging r%ld"
+msgstr "Fusionant r%ld"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Fusionant r%ld amb r%ld"
 
 # ID:83,
 #: ID:83
@@ -5247,6 +5286,11 @@ msgstr "Llegeix la  'Guia d'Us Diari' abans de que et quedis bloquejat..."
 #: Control-ID:65535
 msgid "Recently modified lines"
 msgstr "Línies recentment modificades"
+
+# ID:276,
+#: ID:276
+msgid "Record Only"
+msgstr "Només Registre"
 
 # Control-ID:1260,
 #: Control-ID:1260
