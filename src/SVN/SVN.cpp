@@ -1161,7 +1161,8 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
 				   , revisionEnd
 				   , limit
 				   , strict != FALSE
-				   , this);
+				   , this
+                   , false);
 	}
 	catch (SVNError& e)
 	{

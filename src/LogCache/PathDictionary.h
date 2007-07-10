@@ -87,6 +87,7 @@ public:
 
 	index_t GetParent (index_t index) const;
 	const char* GetPathElement (index_t index) const;
+	index_t GetPathElementID (index_t index) const;
 
 	index_t Find (index_t parent, const char* pathElement) const;
 	index_t Insert (index_t parent, const char* pathElement);
@@ -95,6 +96,13 @@ public:
 	// reset content
 
 	void Clear();
+
+    // access to internals
+
+	const CStringDictionary& GetPathElements() const
+    {
+        return pathElements;
+    }
 
 	// stream I/O
 
@@ -222,6 +230,8 @@ public:
 	{
 		return IsSameOrParentOf (rhs.index, index);
 	}
+
+    bool Contains (index_t pathElementID) const;
 
     // general comparison
 

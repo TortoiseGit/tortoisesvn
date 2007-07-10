@@ -46,10 +46,16 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
-	, m_bShowAll(false)
-	, m_bArrangeByPath(false)
 	, m_fZoomFactor(1.0)
 {
+    m_options.groupBranches = false;
+    m_options.includeSubPathChanges = false;
+    m_options.oldestAtTop = false;
+    m_options.showHEAD = false;
+    m_options.reduceCrossLines = false;
+    m_options.exactCopySources = false;
+    m_options.splitBranches = false;
+    m_options.foldTags = false;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -78,6 +84,11 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnViewShowallrevisions)
 	ON_COMMAND(ID_VIEW_ARRANGEDBYPATH, &CRevisionGraphDlg::OnViewArrangedbypath)
 	ON_COMMAND(ID_FILE_SAVEGRAPHAS, &CRevisionGraphDlg::OnFileSavegraphas)
+	ON_COMMAND(ID_VIEW_TOPDOWN, &CRevisionGraphDlg::OnViewTopDown)
+	ON_COMMAND(ID_VIEW_SHOWHEAD, &CRevisionGraphDlg::OnViewShowHEAD)
+	ON_COMMAND(ID_VIEW_EXACTCOPYSOURCE, &CRevisionGraphDlg::OnViewExactCopySource)
+	ON_COMMAND(ID_VIEW_SPLITBRANCHES, &CRevisionGraphDlg::OnViewSplitBranches)
+	ON_COMMAND(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnViewFoldTags)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -161,6 +172,21 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWOVERVIEW) index++;
 	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_TOPDOWN) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWHEAD) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_EXACTCOPYSOURCE) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_SPLITBRANCHES) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_FOLDTAGS) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
 
 	CMenu * pMenu = GetMenu();
 	if (pMenu)
@@ -230,7 +256,10 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 		goto cleanup;
 	}
 	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
-	if (!pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_bShowAll, pDlg->m_bArrangeByPath))
+
+    // standard plus user settings
+
+	if (!pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_Graph.m_bNoGraph = TRUE;
@@ -418,34 +447,34 @@ void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 	m_Graph.UnifiedDiffRevs(true);
 }
 
-void CRevisionGraphDlg::OnViewShowallrevisions()
+void CRevisionGraphDlg::OnToggleOption (int controlID, bool& option)
 {
 	if (m_Graph.m_bThreadRunning)
 	{
-		int state = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWALLREVISIONS);
+		int state = m_ToolBar.GetToolBarCtrl().GetState(controlID);
 		if (state & TBSTATE_CHECKED)
 			state &= ~TBSTATE_CHECKED;
 		else
 			state |= TBSTATE_CHECKED;
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, state);
+		m_ToolBar.GetToolBarCtrl().SetState(controlID, state);
 		return;
 	}
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
-	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWALLREVISIONS);
-	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND);
+	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(controlID);
+	UINT state = pMenu->GetMenuState(controlID, MF_BYCOMMAND);
 	if (state & MF_CHECKED)
 	{
-		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_UNCHECKED);
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, tbstate & (~TBSTATE_CHECKED));
-		m_bShowAll = false;
+		pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_UNCHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate & (~TBSTATE_CHECKED));
+		option = false;
 	}
 	else
 	{
-		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_SHOWALLREVISIONS, tbstate | TBSTATE_CHECKED);
-		m_bShowAll = true;
+		pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_CHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate | TBSTATE_CHECKED);
+		option = true;
 	}
 
 	InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
@@ -455,41 +484,39 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 	}
 }
 
+void CRevisionGraphDlg::OnViewShowallrevisions()
+{
+    OnToggleOption (ID_VIEW_SHOWALLREVISIONS, m_options.includeSubPathChanges);
+}
+
 void CRevisionGraphDlg::OnViewArrangedbypath()
 {
-	if (m_Graph.m_bThreadRunning)
-	{
-		int state = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_ARRANGEDBYPATH);
-		if (state & TBSTATE_CHECKED)
-			state &= ~TBSTATE_CHECKED;
-		else
-			state |= TBSTATE_CHECKED;
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, state);
-		return;
-	}
-	CMenu * pMenu = GetMenu();
-	if (pMenu == NULL)
-		return;
-	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_ARRANGEDBYPATH);
-	UINT state = pMenu->GetMenuState(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND);
-	if (state & MF_CHECKED)
-	{
-		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_UNCHECKED);
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, tbstate & (~TBSTATE_CHECKED));
-		m_bArrangeByPath = false;
-	}
-	else
-	{
-		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_CHECKED);
-		m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_ARRANGEDBYPATH, tbstate | TBSTATE_CHECKED);
-		m_bArrangeByPath = true;
-	}
+    OnToggleOption (ID_VIEW_ARRANGEDBYPATH, m_options.groupBranches);
+}
 
-	InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
-	if (AfxBeginThread(WorkerThread, this)==NULL)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+void CRevisionGraphDlg::OnViewTopDown()
+{
+    OnToggleOption (ID_VIEW_TOPDOWN, m_options.oldestAtTop);
+}
+
+void CRevisionGraphDlg::OnViewShowHEAD()
+{
+    OnToggleOption (ID_VIEW_SHOWHEAD, m_options.showHEAD);
+}
+
+void CRevisionGraphDlg::OnViewExactCopySource()
+{
+    OnToggleOption (ID_VIEW_EXACTCOPYSOURCE, m_options.exactCopySources);
+}
+
+void CRevisionGraphDlg::OnViewSplitBranches()
+{
+    OnToggleOption (ID_VIEW_SPLITBRANCHES, m_options.splitBranches);
+}
+
+void CRevisionGraphDlg::OnViewFoldTags()
+{
+    OnToggleOption (ID_VIEW_FOLDTAGS, m_options.foldTags);
 }
 
 void CRevisionGraphDlg::OnCancel()
@@ -576,7 +603,7 @@ void CRevisionGraphDlg::UpdateStatusBar()
 	CString sFormat;
 	sFormat.Format(IDS_REVGRAPH_STATUSBARURL, m_Graph.m_sPath);
 	m_StatusBar.SetText(sFormat,1,0);
-	sFormat.Format(IDS_REVGRAPH_STATUSBARNUMNODES, m_Graph.m_arEntryPtrs.GetCount());
+	sFormat.Format(IDS_REVGRAPH_STATUSBARNUMNODES, m_Graph.m_entryPtrs.size());
 	m_StatusBar.SetText(sFormat,0,0);
 }
 

@@ -39,7 +39,33 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 {
 	// where to send the pre-processed in-format
 
-	ILogReceiver* receiver = reinterpret_cast<ILogReceiver*>(baton);
+    SBaton* receiverBaton = reinterpret_cast<SBaton*>(baton);
+    ILogReceiver* receiver = receiverBaton->receiver;
+
+    // report revision numbers only?
+
+    if (receiverBaton->revs_only)
+    {
+	    try
+	    {
+            static const CString emptyString;
+		    receiver->ReceiveLog ( NULL
+							     , revision
+							     , emptyString
+							     , 0
+							     , emptyString);
+	    }
+	    catch (SVNError& e)
+	    {
+		    return svn_error_create (e.GetCode(), NULL, e.GetMessage());
+	    }
+	    catch (...)
+	    {
+		    // we must not leak exceptions back into SVN
+	    }
+
+        return NULL;
+    }
 
 	// convert strings
 
@@ -150,18 +176,21 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
 					   , const SVNRev& end
 					   , int limit
 					   , bool strictNodeHistory
-					   , ILogReceiver* receiver)
+					   , ILogReceiver* receiver
+                       , bool revs_only)
 {
+    SBaton baton = {receiver, revs_only};
+
 	SVNPool localpool (pool);
 	svn_error_t *result = svn_client_log3 ( targets.MakePathArray (pool)
 										  , peg_revision
 										  , start
 										  , end
 										  , limit
-										  , true
+                                          , revs_only ? FALSE : TRUE
 										  , strictNodeHistory ? TRUE : FALSE
 										  , LogReceiver
-										  , (void *)receiver
+										  , (void *)&baton
 										  , context
 										  , localpool);
 

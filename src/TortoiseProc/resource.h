@@ -85,6 +85,8 @@
 #define IDI_REVGRAPH_LASTCOMMIT         220
 #define IDI_REVGRAPH_RENAMED            221
 #define IDI_REVGRAPH_REPLACED           222
+#define IDI_REVGRAPH_SPLIT              223
+#define IDI_REVGRAPH_TAGGED             224
 #define IDR_REVGRAPHBAR                 223
 #define IDI_SAVEDDATA                   225
 #define IDD_EDITPROPERTIES              226
@@ -1013,6 +1015,7 @@
 #define IDS_REVGRAPH_STATUSBARURL       4341
 #define IDS_REVGRAPH_STATUSBARNUMNODES  4342
 #define IDS_REVGRAPH_BOXREVISIONTITLE   4343
+#define IDS_REVGRAPH_BOXTOOLTIP_TAGGED  4344
 #define IDS_REVGRAPH_SAVEPIC            4350
 #define IDS_REVGRAPH_ERR_GDIINIT        4360
 #define IDS_REVGRAPH_ERR_NOBITMAP       4361
@@ -1109,6 +1112,11 @@
 #define ID_FILTER_EXCLUDEREVISIONS      32808
 #define ID_VIEW_FILTER                  32809
 #define ID_VIEW_SHOWOVERVIEW            32813
+#define ID_VIEW_TOPDOWN                 32814
+#define ID_VIEW_SHOWHEAD                32815
+#define ID_VIEW_EXACTCOPYSOURCE         32816
+#define ID_VIEW_SPLITBRANCHES           32817
+#define ID_VIEW_FOLDTAGS                32818
 
 // Next default values for new objects
 // 

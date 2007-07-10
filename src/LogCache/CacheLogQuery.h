@@ -70,6 +70,7 @@ private:
 		std::auto_ptr<CDictionaryBasedTempPath> currentPath;
 		revision_t firstNARevision;
 		bool followRenames;
+        bool revs_only;
 
 		/// the original log receiver (may be NULL)
 		ILogReceiver* receiver;
@@ -98,7 +99,8 @@ private:
 						   , const CDictionaryBasedTempPath& startPath
 						   , int limit
 						   , bool strictNodeHistory
-						   , ILogReceiver* receiver);
+                           , ILogReceiver* receiver
+                           , bool revs_only);
 	};
 
 	/// we get our cache from here
@@ -136,7 +138,8 @@ private:
 					   , const CDictionaryBasedTempPath& startPath
 					   , int limit
 					   , bool strictNodeHistory
-					   , ILogReceiver* receiver);
+					   , ILogReceiver* receiver
+					   , bool revs_only);
 
 	/// fill the receiver's change list buffer 
 	std::auto_ptr<LogChangedPathArray> GetChanges 
@@ -149,7 +152,8 @@ private:
 					 , const CDictionaryBasedTempPath& startPath
 					 , int limit
 					 , bool strictNodeHistory
-					 , ILogReceiver* receiver);
+					 , ILogReceiver* receiver
+                     , bool revs_only);
 
 	/// follow copy history until the startRevision is reached
 	CDictionaryBasedTempPath TranslatePegRevisionPath 
@@ -194,7 +198,8 @@ public:
 					 , const SVNRev& end
 					 , int limit
 					 , bool strictNodeHistory
-					 , ILogReceiver* receiver);
+					 , ILogReceiver* receiver
+                     , bool revs_only);
 
 	/// access to the cache
 	/// (only valid after calling Log())

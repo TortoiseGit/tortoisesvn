@@ -31,6 +31,8 @@
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include "RevisionGraphDlg.h"
+#include "CachedLogInfo.h"
+#include "RevisionIndex.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -318,9 +320,9 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	if (!m_OverviewRect.PtInRect(point))
 	{
-		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 		{
-			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+			CRevisionEntry * reventry = m_entryPtrs[i];
 			if (reventry->drawrect.PtInRect(point))
 			{
 				if (bControl)
@@ -446,9 +448,10 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	if (m_bThreadRunning)
 		return -1;
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+
+	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		CRevisionEntry * reventry = m_entryPtrs[i];
 		if (reventry->drawrect.PtInRect(point))
 		{
 			pTI->hwnd = this->m_hWnd;
@@ -475,9 +478,9 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	ScreenToClient(&point);
 	if (pNMHDR->idFrom == (UINT)m_hWnd)
 	{
-		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 		{
-			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+			CRevisionEntry * reventry = m_entryPtrs[i];
 			if (reventry->drawrect.PtInRect(point))
 			{
 				rentry = reventry;
@@ -485,14 +488,39 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 		}
 		if (rentry)
 		{
+			const CCachedLogInfo* cache = query->GetCache();
+			const CRevisionIndex& revisions = cache->GetRevisions();
+			const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
+
+			index_t index = revisions[rentry->revision];
+
 			TCHAR date[SVN_DATE_BUFFER];
-			SVN::formatDate(date, rentry->date);
-			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-							rentry->revision,
-							(LPCTSTR)rentry->realurl,
-							(LPCTSTR)rentry->author, 
-							date,
-							(LPCTSTR)rentry->message);
+			apr_time_t timeStamp = revisionInfo.GetTimeStamp(index);
+			SVN::formatDate(date, timeStamp);
+
+            if (rentry->tagNames.empty())
+            {
+			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
+							    rentry->revision,
+							    rentry->realPath.GetPath().c_str(),
+							    revisionInfo.GetAuthor(index), 
+							    date,
+							    revisionInfo.GetComment(index).c_str());
+            }
+            else
+            {
+                std::string tags;
+                for (size_t i = 0; i < rentry->tagNames.size(); ++i)
+                    tags += "\r\n" + rentry->tagNames[i].GetPath();
+
+			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
+							    rentry->revision,
+							    rentry->realPath.GetPath().c_str(),
+							    revisionInfo.GetAuthor(index), 
+							    date,
+                                tags.c_str(),
+							    revisionInfo.GetComment(index).c_str());
+            }
 		}
 	}
 	else
@@ -698,9 +726,10 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	CPoint clientpoint = point;
 	this->ScreenToClient(&clientpoint);
 	ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+
+	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		CRevisionEntry * reventry = m_entryPtrs[i];
 		if (reventry->drawrect.PtInRect(clientpoint))
 		{
 			clickedentry = reventry;
@@ -732,7 +761,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||((m_SelectedEntry2)&&(m_SelectedEntry2->action == CRevisionEntry::deleted)))
 			return;	// we can't compare with deleted items
 
-		bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->url == m_SelectedEntry2->url));
+		bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->path == m_SelectedEntry2->path));
 		CString temp;
 		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 		{
@@ -778,7 +807,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			{
 				CString sCmd;
-				CString URL = GetReposRoot() + m_SelectedEntry1->url;
+				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,

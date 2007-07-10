@@ -85,12 +85,7 @@ protected:
 	CRect			m_OverviewPosRect;
 	CRect			m_OverviewRect;
 	CPtrArray		m_arConnections;
-	CDWordArray		m_arVertPositions;
 	BOOL			m_bShowOverview;
-	
-	std::multimap<source_entry*, CRevisionEntry*>		m_targetsbottom;
-	std::multimap<source_entry*, CRevisionEntry*>		m_targetsright;
-
 	
 	CRevisionEntry * m_SelectedEntry1;
 	CRevisionEntry * m_SelectedEntry2;
@@ -142,9 +137,6 @@ private:
 	void			CompareRevs(bool bHead);
 	void			UnifiedDiffRevs(bool bHead);
 	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder);
-	CRevisionEntry* GetRevisionEntry(LONG rev) const;
-	CRevisionEntry* GetRevisionEntry(source_entry * sentry) const;
-	INT_PTR			GetIndexOfRevision(source_entry * sentry);
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect *			GetViewSize();
 	CRect *			GetGraphSize();
@@ -157,11 +149,7 @@ private:
 	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
 
 	void			BuildConnections();
-	void			ClearEntryConnections();
-	void			CountEntryConnections();
-	void			MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev);
-	void			DecrementSpaceLines(source_entry * reventry);
-	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end);
+	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(float nZoomFactor);
 	void			DrawRubberBand();

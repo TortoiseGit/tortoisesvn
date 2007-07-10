@@ -59,8 +59,7 @@ public:
 	float			m_fZoomFactor;
 protected:
 	bool			m_bFetchLogs;
-	bool			m_bShowAll;
-	bool			m_bArrangeByPath;
+    CRevisionGraph::SOptions m_options;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 
@@ -85,6 +84,11 @@ protected:
 	afx_msg void	OnViewUnifieddiffofheadrevisions();
 	afx_msg void	OnViewShowallrevisions();
 	afx_msg void	OnViewArrangedbypath();
+	afx_msg void	OnViewTopDown();
+	afx_msg void    OnViewShowHEAD();
+	afx_msg void    OnViewExactCopySource();
+	afx_msg void    OnViewSplitBranches();
+	afx_msg void    OnViewFoldTags();
 	afx_msg void	OnViewShowoverview();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnMenuexit();
@@ -94,7 +98,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	void			GetGraphRect(LPRECT rect);
+    void            OnToggleOption (int controlID, bool& option);
+
+    void			GetGraphRect(LPRECT rect);
 	void			UpdateStatusBar();
 
 private:

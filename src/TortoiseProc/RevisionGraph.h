@@ -19,7 +19,8 @@
 #pragma once
 
 #include "SVNPrompt.h"
-#include "ILogReceiver.h"
+#include "SVNLogQuery.h"
+#include "CacheLogQuery.h"
 
 #include <map>
 
@@ -47,10 +48,131 @@ private:
 	log_entry& operator= (const log_entry&);
 };
 
-struct source_entry
+class CRevisionEntry;
+
+struct SCopyInfo
 {
-	CString	pathto;
-	LONG	revisionto;
+	revision_t fromRevision;
+	index_t fromPathIndex;
+	revision_t toRevision;
+	index_t toPathIndex;
+
+	struct STarget
+	{
+		CRevisionEntry* source;
+		CDictionaryBasedTempPath path;
+
+		STarget ( CRevisionEntry* source
+				, const CDictionaryBasedTempPath& path)
+			: source (source)
+			, path (path)
+		{
+		}
+	};
+
+	std::vector<STarget> targets;
+};
+
+class CSearchPathTree
+{
+private:
+
+	CDictionaryBasedTempPath path;
+
+	revision_t startRevision;
+	CRevisionEntry* lastEntry;
+
+	CSearchPathTree* parent;
+	CSearchPathTree* firstChild;
+	CSearchPathTree* lastChild;
+	CSearchPathTree* previous;
+	CSearchPathTree* next;
+
+	// utilities: handle node insertion / removal
+
+	void DeLink();
+	void Link (CSearchPathTree* newParent);
+
+public:
+
+	// construction / destruction
+
+	CSearchPathTree (const CPathDictionary* dictionary);
+	CSearchPathTree ( const CDictionaryBasedTempPath& path
+					, revision_t startrev
+					, CSearchPathTree* parent);
+
+	~CSearchPathTree();
+
+	// add a node for the given path and rev. to the tree
+
+	CSearchPathTree* Insert ( const CDictionaryBasedTempPath& path
+							, revision_t startrev);
+	void Remove();
+
+	// there is a new revision entry for this path
+
+	void ChainEntries (CRevisionEntry* entry);
+
+	// property access
+
+	const CDictionaryBasedTempPath& GetPath() const
+	{
+		return path;
+	}
+
+	revision_t GetStartRevision() const
+	{
+		return startRevision;
+	}
+
+	CRevisionEntry* GetLastEntry() const
+	{
+		return lastEntry;
+	}
+
+	CSearchPathTree* GetParent() const
+	{
+		return parent;
+	}
+
+	CSearchPathTree* GetFirstChild() const
+	{
+		return firstChild;
+	}
+
+	CSearchPathTree* GetLastChild() const
+	{
+		return lastChild;
+	}
+
+	CSearchPathTree* GetNext() const
+	{
+		return next;
+	}
+
+	CSearchPathTree* GetPrevious() const
+	{
+		return previous;
+	}
+
+	bool IsActive() const
+	{
+		return startRevision != NO_REVISION;
+	}
+
+	bool IsEmpty() const
+	{
+		return !IsActive() && (firstChild == NULL);
+	}
+
+    // return true for active paths that don't have a revEntry for this revision
+
+    bool YetToCover (revision_t revision) const;
+
+    // return next node in pre-order
+
+    CSearchPathTree* GetPreOrderNext (CSearchPathTree* lastNode = NULL);
 };
 
 /**
@@ -63,49 +185,41 @@ class CRevisionEntry
 public:
 	enum Action
 	{
-		nothing,
-		modified,
-		deleted,
-		added,
-		addedwithhistory,
-		renamed,
-		replaced,
-		lastcommit,
-		initial,
-		source
+		nothing = 0,
+		modified = 8,
+		deleted = 32,
+		added = 4,
+		addedwithhistory = 5,
+		renamed = 49,
+		replaced = 17,
+		lastcommit = 50,
+		initial = 51,
+		source = 1,
+        splitStart = 64,
+        splitEnd = 65
 	};
 	//methods
-	CRevisionEntry(void) : analyzed(false), revision(0), url(), realurl(), author(), 
-		date(0), message(), action(nothing), level(1), bUsed(false),
-		leftconnections(0),	rightconnections(0), bottomconnections(0),
-		rightlines(0), bottomlines(0),
-		leftconnectionsleft(0),	rightconnectionsleft(0), bottomconnectionsleft(0),
-		rightlinesleft(0), bottomlinesleft(0) {};
-	//members
-	bool			analyzed;
-	svn_revnum_t	revision;
-	CString			url;
-	CString			realurl;
-	CString			author;
-	apr_time_t		date;
-	CString			message;
-	Action			action;
-	int				level;
-	CPtrArray		sourcearray;
-	bool			bUsed;
-	int				leftconnections;
-	int				rightconnections;
-	int				bottomconnections;
-	int				rightlines;
-	int				bottomlines;
+	CRevisionEntry ( const CDictionaryBasedTempPath& path
+				   , revision_t revision
+				   , Action action)
+		: path (path), realPath (path.GetBasePath()), revision (revision), action (action)
+		, next (NULL)
+		, row (0), column (0) {};
 
-	int				leftconnectionsleft;
-	int				rightconnectionsleft;
-	int				bottomconnectionsleft;
-	int				rightlinesleft;
-	int				bottomlinesleft;
-	std::set<INT_PTR>	connections;
-	
+	//members
+	revision_t		revision;
+	CDictionaryBasedTempPath path;
+	CDictionaryBasedPath realPath;
+
+	Action			action;
+	CRevisionEntry* next;
+
+	std::vector<CRevisionEntry*>	copyTargets;
+    std::vector<CDictionaryBasedPath> tagNames;
+
+	int				column;
+	int				row;
+
 	CRect			drawrect;
 };
 
@@ -125,56 +239,95 @@ public:
 class CRevisionGraph : private ILogReceiver
 {
 public:
+
+    struct SOptions
+    {
+        bool groupBranches;         // one row per revision, if false
+        bool includeSubPathChanges; // "show all"
+        bool oldestAtTop;           // start with latest revision (not first / oldest revision)
+        bool showHEAD;              // show HEAD change for all branches
+        bool exactCopySources;      // create a copy-source node, even if there was no change in that revision
+        bool splitBranches;         // long sections with no change will be replaced by "split nodes"
+        bool foldTags;              // show tags as property to the source - not as separate nodes
+
+        // not implemented yet:
+
+        bool reduceCrossLines;      // minimize places with lines crossing a node box
+    };
+
 	CRevisionGraph(void);
 	~CRevisionGraph(void);
 	BOOL						FetchRevisionData(CString path);
-	BOOL						AnalyzeRevisionData(CString path, bool bShowAll = false, bool bArrangeByPath = false);
+	BOOL						AnalyzeRevisionData(CString path, const SOptions& options);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
 	svn_revnum_t				GetHeadRevision() {return m_lHeadRevision;}
 	bool						SetFilter(svn_revnum_t minrev, svn_revnum_t maxrev, const CString& sPathFilter);
 
 	CString						GetLastErrorMessage();
-	static bool					IsParentOrItself(const char * parent, const char * child);
-	static bool					IsParentOrItself(const wchar_t * parent, const wchar_t * child);
-	CPtrArray					m_arEntryPtrs;
+	std::vector<CRevisionEntry*> m_entryPtrs;
 	size_t						m_maxurllength;
 	CString						m_maxurl;
-	int							m_maxlevel;
-	svn_revnum_t				m_numRevisions;
+	int							m_maxColumn;
+	int							m_maxRow;
 
-	typedef std::multimap<svn_revnum_t, CRevisionEntry*>::iterator EntryPtrsIterator;
-	typedef std::pair<svn_revnum_t, CRevisionEntry*> EntryPair;
-	std::multimap<svn_revnum_t, CRevisionEntry*> m_mapEntryPtrs;
+	std::auto_ptr<CSVNLogQuery> svnQuery;
+	std::auto_ptr<CCacheLogQuery> query;
+
 	CString						GetReposRoot() {return CString(m_sRepoRoot);}
 
 	BOOL						m_bCancelled;
 
-	typedef std::map<svn_revnum_t, log_entry*> TLogDataMap;
-	TLogDataMap					m_logdata;
 	apr_pool_t *				pool;			///< memory pool
 	svn_client_ctx_t 			m_ctx;
 	SVNPrompt					m_prompt;
 
 private:
-	bool						BuildForwardCopies();
-	bool						AnalyzeRevisions(CString url, svn_revnum_t startrev, bool bShowAll);
-	bool						Cleanup(bool bArrangeByPath);
+
+	typedef std::vector<SCopyInfo*>::const_iterator TSCopyIterator;
+
+	void						BuildForwardCopies();
+	void						AnalyzeRevisions ( const CDictionaryBasedTempPath& url
+												 , revision_t startrev
+												 , const SOptions& options);
+	void						AnalyzeRevisions ( revision_t revision
+												 , CRevisionInfoContainer::CChangesIterator first
+												 , CRevisionInfoContainer::CChangesIterator last
+												 , CSearchPathTree* startNode
+												 , bool bShowAll
+												 , std::vector<CSearchPathTree*>& toRemove);
+	void						AddCopiedPaths ( revision_t revision
+											   , CSearchPathTree* rootNode
+											   , TSCopyIterator& lastToCopy);
+	void						FillCopyTargets ( revision_t revision
+											    , CSearchPathTree* rootNode
+											    , TSCopyIterator& lastFromCopy
+                                                , bool exactCopy);
+    void                        AddMissingHeads (CSearchPathTree* rootNode);
+    void                        AnalyzeHeadRevision ( revision_t revision
+    									            , CRevisionInfoContainer::CChangesIterator first
+	    								            , CRevisionInfoContainer::CChangesIterator last
+		    							            , CSearchPathTree* searchNode
+				    					            , std::vector<CSearchPathTree*>& toRemove);
+	void						AssignColumns ( CRevisionEntry* start
+											  , std::vector<int>& columnByRow
+                                              , int column);
+
+    void                        FindReplacements();
+    void                        FoldTags();
+	void						Optimize (const SOptions& options);
+
+	int							AssignOneRowPerRevision();
+	int							AssignOneRowPerBranchNode (CRevisionEntry* start, int row);
+    void                        AutoSplitBranch ( CRevisionEntry* entry
+                                                , CRevisionEntry*& nextEntry);
+    void                        SplitBranches();
+    void                        ReverseRowOrder (int maxRow);
+	void						AssignCoordinates (const SOptions& options);
+	void						Cleanup();
+	void						ClearRevisionEntries();
 	
-	bool						SetCopyTo(const CString& uiCopyFromPath, svn_revnum_t copyfrom_rev, 
-											const CString& copyto_path, svn_revnum_t copyto_rev);
-	CRevisionEntry *			GetRevisionEntry(const CString& uiPath, svn_revnum_t rev, 
-													bool bCreate = true);
-	CString 					GetRename(const CString& url, LONG rev);
-
-#ifdef DEBUG	
-	void						PrintDebugInfo();
-#endif
-
-	static int __cdecl			SortCompareRevUrl(const void * pElem1, const void * pElem2);	///< sort callback function
-	static int __cdecl			SortCompareRevLevels(const void * pElem1, const void * pElem2);	///< sort callback function
-	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
-	LONG						m_lHeadRevision;
+	revision_t					m_lHeadRevision;
 
 	std::set<std::wstring>		m_filterpaths;
 	svn_revnum_t				m_FilterMinRev;
@@ -184,6 +337,9 @@ private:
 	svn_error_t *				Err;			///< Global error object struct
 	apr_pool_t *				parentpool;
 	static svn_error_t*			cancel(void *baton);
+
+	std::vector<SCopyInfo*>		copyToRelation;
+	std::vector<SCopyInfo*>		copyFromRelation;
 
 	// implement ILogReceiver
 

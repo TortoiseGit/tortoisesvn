@@ -71,6 +71,11 @@ const char* CPathDictionary::GetPathElement (index_t index) const
 	return pathElements [paths [index].second];
 }
 
+index_t CPathDictionary::GetPathElementID (index_t index) const
+{
+	return paths [index].second;
+}
+
 index_t CPathDictionary::Find (index_t parent, const char* pathElement) const
 {
 	index_t pathElementIndex = pathElements.Find (pathElement);
@@ -323,6 +328,21 @@ CDictionaryBasedPath CDictionaryBasedPath::GetCommonRoot (index_t rhsIndex) cons
 	}
 
 	return CDictionaryBasedPath (dictionary, lhsIndex);
+}
+
+bool CDictionaryBasedPath::Contains (index_t pathElementID) const
+{
+    for ( index_t pathIndex = index
+        ; pathIndex != 0
+        ; pathIndex = dictionary->GetParent (pathIndex))
+    {
+        if (dictionary->GetPathElementID (pathIndex) == pathElementID)
+            return true;
+    }
+
+    // not found
+
+    return false;
 }
 
 ///////////////////////////////////////////////////////////////
