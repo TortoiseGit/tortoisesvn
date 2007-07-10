@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-07-04 09:10+0800\n"
+"PO-Revision-Date: 2007-07-10 09:34+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,6 +222,20 @@ msgstr ""
 "%s\n"
 "是目錄, 不是檔案!\n"
 "TortoiseMerge無法比對目錄差異."
+
+# ID:286,
+#: ID:286
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -4337,6 +4351,7 @@ msgid "Max. items to keep in the log message history"
 msgstr "訊息紀錄最大保留筆數"
 
 # Dlg-ID:141,
+#: ID:276
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
@@ -4357,6 +4372,18 @@ msgstr "合併層數"
 #: ID:263
 msgid "Merged"
 msgstr "已合併"
+
+# ID:313,
+#: ID:286
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "合併版本 %s 從 %s:\n"
+
+# ID:229,
+#: ID:286
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "合併版本 %s 至 %s 從%s:\n"
 
 # ID:10,
 #: ID:10
@@ -4379,6 +4406,18 @@ msgstr "合併 %s 自版本 %s 至 %s, 併入 %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "正在自 %s 合併檔案, 版本 %s 至 %s, 版本 %s 併入 %s, %s%s"
+
+# Control-ID:65535,
+#: ID:264
+#, c-format
+msgid "Merging r%ld"
+msgstr "正在合併 r%ld"
+
+# ID:264,
+#: ID:264
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "合併版本 r%ld ~ r%ld "
 
 # ID:83,
 #: ID:83
@@ -5228,6 +5267,11 @@ msgstr "在你卡住之前, 請先閱讀日常使用指南..."
 #: Control-ID:65535
 msgid "Recently modified lines"
 msgstr "最近異動過的行"
+
+# ID:276,
+#: ID:276
+msgid "Record Only"
+msgstr "僅紀錄"
 
 # Control-ID:1073,
 #: Control-ID:1260
