@@ -836,8 +836,8 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 		if ((!m_OverviewRect.IsRectEmpty())&&(m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
 		{
 			// scrolling
-			int x = (point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) * m_ViewRect.Width() / m_OverviewRect.Width();
-			int y = (point.y - (m_OverviewPosRect.Height()/2)) * m_ViewRect.Height() / m_OverviewRect.Height();
+			int x = (point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) * m_ViewRect.Width() / m_previewWidth;
+			int y = (point.y - (m_OverviewPosRect.Height()/2)) * m_ViewRect.Height() / m_previewHeight;
 			SetScrollbars(y, x);
 			Invalidate(FALSE);
 			return __super::OnMouseMove(nFlags, point);

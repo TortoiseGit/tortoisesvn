@@ -113,6 +113,8 @@ protected:
 	CPoint			m_ptRubberEnd;
 
 	CBitmap			m_Preview;
+	int				m_previewWidth;
+	int				m_previewHeight;
 	
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

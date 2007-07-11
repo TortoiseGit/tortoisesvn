@@ -447,8 +447,8 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		// now draw a rectangle where the current view is located in the overview
 		LONG width = REVGRAPH_PREVIEW_WIDTH * rect.Width() / m_ViewRect.Width();
 		LONG heigth = REVGRAPH_PREVIEW_HEIGTH * rect.Height() / m_ViewRect.Height();
-		LONG xpos = nHScrollPos * REVGRAPH_PREVIEW_WIDTH / m_ViewRect.Width();
-		LONG ypos = nVScrollPos * REVGRAPH_PREVIEW_HEIGTH / m_ViewRect.Height();
+		LONG xpos = nHScrollPos * m_previewWidth / m_ViewRect.Width();
+		LONG ypos = nVScrollPos * m_previewHeight / m_ViewRect.Height();
 		RECT tempRect;
 		tempRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
 		tempRect.top = ypos;

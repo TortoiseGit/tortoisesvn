@@ -78,6 +78,8 @@ void CRevisionGraphWnd::BuildPreview()
 		fZoom *= 0.95f;
 		trycounter++;
 	}
+	m_previewWidth = m_GraphRect.Width();
+	m_previewHeight = m_GraphRect.Height();
 
 	CClientDC ddc(this);
 	CDC dc;
