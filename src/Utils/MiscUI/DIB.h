@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,7 +62,7 @@ public:
 	 * Creates a DIB from a CPictureHolder object with the specified width and height.
 	 * \param pPicture the CPictureHolder object
 	 * \param iWidth the width of the resulting picture
-	 * \param iHeight the heigth of the resulting picture
+	 * \param iHeight the height of the resulting picture
 	 */
 	void		Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHeight);
 

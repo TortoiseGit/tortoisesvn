@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2007 - Stefan Kueng
+// Copyright (C) 2006 - 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -239,8 +239,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				}
 
 				bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
-				bool bPicHeigthBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
-				if (bPicHeigthBigger || bPicWidthBigger)
+				bool bPicHeightBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
+				if (bPicHeightBigger || bPicWidthBigger)
 				{
 					// only show the hand cursors if the image can be dragged
 					// an image can be dragged if it's bigger than the window it is shown in
@@ -546,20 +546,20 @@ void CPicWindow::SetupScrollBars()
 	}
 
 	bool bPicWidthBigger = (int(width) > (rect.right-rect.left));
-	bool bPicHeigthBigger = (int(height) > (rect.bottom-rect.top));
+	bool bPicHeightBigger = (int(height) > (rect.bottom-rect.top));
 	// set the scroll position so that the image is drawn centered in the window
 	// if the window is bigger than the image
 	if (!bPicWidthBigger)
 	{
 		nHScrollPos = -((rect.right-rect.left)-int(width))/2;
 	}
-	if (!bPicHeigthBigger)
+	if (!bPicHeightBigger)
 	{
 		nVScrollPos = -((rect.bottom-rect.top)-int(height))/2;
 	}
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
-	ShowScrollBar(*this, SB_VERT, bPicHeigthBigger);
+	ShowScrollBar(*this, SB_VERT, bPicHeightBigger);
 
 	si.nPos  = nVScrollPos;
 	si.nPage = rect.bottom-rect.top;

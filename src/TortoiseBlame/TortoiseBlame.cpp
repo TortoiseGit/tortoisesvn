@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -774,7 +774,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
 	LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
 	LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
-	LONG_PTR heigth = SendEditor(SCI_TEXTHEIGHT);
+	LONG_PTR height = SendEditor(SCI_TEXTHEIGHT);
 	LONG_PTR Y = 0;
 	TCHAR buf[MAX_PATH];
 	RECT rc;
@@ -833,7 +833,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				HGDIOBJ hPenOld = SelectObject(hDC, pen);
 				RECT rc2 = rc;
 				rc2.top = Y;
-				rc2.bottom = Y + heigth;
+				rc2.bottom = Y + height;
 				::MoveToEx(hDC, rc2.left, rc2.top, NULL);
 				::LineTo(hDC, rc2.right, rc2.top);
 				::LineTo(hDC, rc2.right, rc2.bottom);
@@ -842,7 +842,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				SelectObject(hDC, hPenOld); 
 				DeleteObject(pen); 
 			}
-			Y += heigth;
+			Y += height;
 		}
 		else
 		{
@@ -850,7 +850,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			for (int i=0; i< MAX_PATH; ++i)
 				buf[i]=' ';
 			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
-			Y += heigth;
+			Y += height;
 		}
 	}
 	::SelectObject(hDC, oldfont);
@@ -1343,8 +1343,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				::GetCursorPos(&point);
 				::ScreenToClient(app.wBlame, &point);
 				LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-				LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
-				line = line + (point.y/heigth);
+				LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
+				line = line + (point.y/height);
 				if (line >= (LONG)app.revs.size())
 					break;
 				if (line < 0)
@@ -1426,8 +1426,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			}
 			int y = ((int)(short)HIWORD(lParam));
 			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-			LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
-			line = line + (y/heigth);
+			LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
+			line = line + (y/height);
 			app.ttVisible = (line < (LONG)app.revs.size());
 			if ( app.ttVisible )
 			{
@@ -1454,8 +1454,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		{
 			int y = ((int)(short)HIWORD(lParam));
 			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-			LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
-			line = line + (y/heigth);
+			LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
+			line = line + (y/height);
 			if (line < (LONG)app.revs.size())
 			{
 				app.SetSelectedLine(line);

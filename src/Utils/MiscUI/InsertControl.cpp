@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@ static LPCTSTR g_szDataRight = _T("InsertControlDataRight");
 struct Data
 {
 	UINT m_uControlWidth;
-	UINT m_uControlHeigth;
+	UINT m_uControlHeight;
 	HWND m_hwndControl;
 };
 
@@ -88,8 +88,8 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 				rc.left = rc.right;
 				rc.right = rc.left + pDataRight->m_uControlWidth;
 				// center the control vertically
-				rc.top += (((rc.bottom - rc.top) - pDataRight->m_uControlHeigth)/2);
-				rc.bottom -= (((rc.bottom - rc.top) - pDataRight->m_uControlHeigth)/2);
+				rc.top += (((rc.bottom - rc.top) - pDataRight->m_uControlHeight)/2);
+				rc.bottom -= (((rc.bottom - rc.top) - pDataRight->m_uControlHeight)/2);
 				::MapWindowPoints(hwnd, GetParent(hwnd), (LPPOINT)&rc, 2);
 
 				//	Move the control into the edit control, but don't adjust it's z-order
@@ -101,8 +101,8 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 				rc.right = rc.left;
 				rc.left = rc.left - pDataLeft->m_uControlWidth;
 				// center the control vertically
-				rc.top += (((rc.bottom - rc.top) - pDataLeft->m_uControlHeigth)/2);
-				rc.bottom -= (((rc.bottom - rc.top) - pDataLeft->m_uControlHeigth)/2);
+				rc.top += (((rc.bottom - rc.top) - pDataLeft->m_uControlHeight)/2);
+				rc.bottom -= (((rc.bottom - rc.top) - pDataLeft->m_uControlHeight)/2);
 				::MapWindowPoints(hwnd, GetParent(hwnd), (LPPOINT)&rc, 2);
 
 				//	Move the control into the edit control, but don't adjust it's z-order
@@ -175,7 +175,7 @@ bool InsertControl(HWND hwndEdit, HWND hwndControl, UINT uStyle)
 			::GetWindowRect(hwndControl, rcControl);
 
 			pData->m_uControlWidth = rcControl.Width();
-			pData->m_uControlHeigth = rcControl.Height();
+			pData->m_uControlHeight = rcControl.Height();
 			pData->m_hwndControl = hwndControl;
 
 			if (uStyle == INSERTCONTROL_LEFT)

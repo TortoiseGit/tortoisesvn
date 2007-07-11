@@ -376,7 +376,7 @@ void CRevisionGraphDlg::OnViewZoomin()
 void CRevisionGraphDlg::OnViewZoomout()
 {
 	if ((m_Graph.m_node_space_left > 1) || (m_Graph.m_node_space_right > 1) || (m_Graph.m_node_space_line > 1) ||
-		(m_Graph.m_node_rect_heigth > 1) || (m_Graph.m_node_space_top > 1) || (m_Graph.m_node_space_bottom > 1))
+		(m_Graph.m_node_rect_height > 1) || (m_Graph.m_node_space_top > 1) || (m_Graph.m_node_space_bottom > 1))
 	{
 		m_fZoomFactor = m_fZoomFactor - (m_fZoomFactor*0.1f);
 		m_Graph.DoZoom(m_fZoomFactor);

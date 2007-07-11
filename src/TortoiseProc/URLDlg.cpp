@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ BOOL CURLDlg::OnInitDialog()
 
 	RECT rect;
 	GetWindowRect(&rect);
-	m_heigth = rect.bottom - rect.top;
+	m_height = rect.bottom - rect.top;
 	AddAnchor(IDC_LABEL, TOP_LEFT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -85,12 +85,12 @@ void CURLDlg::OnSizing(UINT fwSide, LPRECT pRect)
 	case WMSZ_BOTTOM:
 	case WMSZ_BOTTOMLEFT:
 	case WMSZ_BOTTOMRIGHT:
-		pRect->bottom = pRect->top + m_heigth;
+		pRect->bottom = pRect->top + m_height;
 		break;
 	case WMSZ_TOP:
 	case WMSZ_TOPLEFT:
 	case WMSZ_TOPRIGHT:
-		pRect->top = pRect->bottom - m_heigth;
+		pRect->top = pRect->bottom - m_height;
 		break;
 	}
 	CResizableStandAloneDialog::OnSizing(fwSide, pRect);	

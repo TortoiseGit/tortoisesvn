@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -282,16 +282,16 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			pDC->GetOutputTextMetrics(&textMetric);
 			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 			pDC->DrawText(temp, &r, DT_CALCRECT);
-			int offset = (int)m_node_rect_heigth;
+			int offset = (int)m_node_rect_height;
 			bool bShowUrl = true;
 			int th = r.Height();
-			if ((th-2) < (m_node_rect_heigth/2))
+			if ((th-2) < (m_node_rect_height/2))
 			{
 				offset = (offset - (m_nFontSize*2) - 2)/4;
 				if (offset == 0)
 				{
 					bShowUrl = false;
-					offset = ((int)m_node_rect_heigth - m_nFontSize - 2)/2;
+					offset = ((int)m_node_rect_height - m_nFontSize - 2)/2;
 				}
 			}
 			else
@@ -386,9 +386,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		CRevisionEntry * entry = m_entryPtrs[i];
 
 		CRect noderect;
-		float top = (entry->row - 1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos);
+		float top = (entry->row - 1)*(m_node_rect_height+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos);
 		noderect.top = long(top);
-		noderect.bottom = long(top + m_node_rect_heigth);
+		noderect.bottom = long(top + m_node_rect_height);
 		float left = (entry->column - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos);
 		noderect.left = long(left);
 		noderect.right = long(left + m_node_rect_width);
@@ -459,25 +459,25 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		CMemDC memDC2(memDC, true);
 		memDC2.SetWindowOrg(0, 0);
 		HBITMAP oldhbm = (HBITMAP)memDC2.SelectObject(&m_Preview);
-		memDC->BitBlt(rect.Width()-REVGRAPH_PREVIEW_WIDTH, 0, REVGRAPH_PREVIEW_WIDTH, REVGRAPH_PREVIEW_HEIGTH, 
+		memDC->BitBlt(rect.Width()-REVGRAPH_PREVIEW_WIDTH, 0, REVGRAPH_PREVIEW_WIDTH, REVGRAPH_PREVIEW_HEIGHT, 
 			&memDC2, 0, 0, SRCCOPY);
 		memDC2.SelectObject(oldhbm);
 		// draw the border for the overview rectangle
 		m_OverviewRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH;
 		m_OverviewRect.top = 0;
 		m_OverviewRect.right = rect.Width();
-		m_OverviewRect.bottom = REVGRAPH_PREVIEW_HEIGTH;
+		m_OverviewRect.bottom = REVGRAPH_PREVIEW_HEIGHT;
 		memDC->DrawEdge(&m_OverviewRect, EDGE_BUMP, BF_RECT);
 		// now draw a rectangle where the current view is located in the overview
 		LONG width = REVGRAPH_PREVIEW_WIDTH * rect.Width() / m_ViewRect.Width();
-		LONG heigth = REVGRAPH_PREVIEW_HEIGTH * rect.Height() / m_ViewRect.Height();
+		LONG height = REVGRAPH_PREVIEW_HEIGHT * rect.Height() / m_ViewRect.Height();
 		LONG xpos = nHScrollPos * m_previewWidth / m_ViewRect.Width();
 		LONG ypos = nVScrollPos * m_previewHeight / m_ViewRect.Height();
 		RECT tempRect;
 		tempRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
 		tempRect.top = ypos;
 		tempRect.right = tempRect.left + width;
-		tempRect.bottom = tempRect.top + heigth;
+		tempRect.bottom = tempRect.top + height;
 		// make sure the position rect is not bigger than the preview window itself
 		::IntersectRect(&m_OverviewPosRect, &m_OverviewRect, &tempRect);
 		memDC->SetROP2(R2_MASKPEN);

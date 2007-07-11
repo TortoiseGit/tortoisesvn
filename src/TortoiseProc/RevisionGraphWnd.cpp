@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_node_space_left(NODE_SPACE_LEFT)
 	, m_node_space_right(NODE_SPACE_RIGHT)
 	, m_node_space_line(NODE_SPACE_LINE)
-	, m_node_rect_heigth(NODE_RECT_HEIGTH)
+	, m_node_rect_height(NODE_RECT_HEIGHT)
 	, m_node_space_top(NODE_SPACE_TOP)
 	, m_node_space_bottom(NODE_SPACE_BOTTOM)
 	, m_nIconSize(32)

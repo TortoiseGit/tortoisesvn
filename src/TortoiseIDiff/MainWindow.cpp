@@ -152,7 +152,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		{
 			MINMAXINFO * mmi = (MINMAXINFO*)lParam;
 			mmi->ptMinTrackSize.x = WINDOW_MINWIDTH;
-			mmi->ptMinTrackSize.y = WINDOW_MINHEIGTH;
+			mmi->ptMinTrackSize.y = WINDOW_MINHEIGHT;
 			return 0;
 		}
 		break;
