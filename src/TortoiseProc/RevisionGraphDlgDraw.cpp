@@ -395,7 +395,6 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
 		// skip it, if not visible
 
-		entry->drawrect = noderect;
 		if (   (noderect.right < rect.left) || (noderect.left > rect.right) 
 			|| (noderect.bottom < rect.top) || (noderect.top > rect.bottom))
 		{

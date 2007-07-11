@@ -142,6 +142,8 @@ private:
 	CRect *			GetGraphSize();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
+    CRevisionEntry* GetHitNode (CPoint point) const;
+
 	void			DrawOctangle(CDC * pDC, const CRect& rect);
 	void			DrawNode(CDC * pDC, const CRect& rect,
 							COLORREF contour, CRevisionEntry *rentry,

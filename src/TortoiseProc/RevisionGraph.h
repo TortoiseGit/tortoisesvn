@@ -219,8 +219,6 @@ public:
 
 	int				column;
 	int				row;
-
-	CRect			drawrect;
 };
 
 /**
