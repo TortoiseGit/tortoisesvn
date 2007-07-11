@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-06 19:12+0900\n"
+"PO-Revision-Date: 2007-07-11 14:04+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgid "Preface"
 msgstr "序"
 
 #: source/TortoiseMerge_en.xml:33(para)
-msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your sourcecode, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
+msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
 msgstr "複数の眼がソースコードを検査してくれるオープンソースプロジェクトや、ソースコードをコンポーネントと共に販売する商用プロジェクトのどちらでも、プロジェクトで作業する際には、バグを発見したり、プロジェクトの改良をしたい人、顧客がいることでしょう。彼らはパッチを送ってくれるので、そのパッチを検査し、適用するかどうか判断しなければなりません。"
 
 #: source/TortoiseMerge_en.xml:45(para)
@@ -93,7 +93,7 @@ msgid "TortoiseMerge is an Open Source project. That means you have full access 
 msgstr "TortoiseMerge はオープンソースプロジェクトです。これは、あなたがこのプログラムのソースコードに完全にアクセスできることを意味しています。このリンク <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> (Username:guest, パスワードには enter のみ押す) から、ソースを閲覧できます。(私たちが現在作業している) 最新のバージョンは <filename>/trunk/</filename> に、既にリリースされたバージョンは <filename>/tags/</filename> に配置しています。"
 
 #: source/TortoiseMerge_en.xml:90(title)
-msgid "Wishlist"
+msgid "Wish List"
 msgstr "欲しいものリスト"
 
 #: source/TortoiseMerge_en.xml:91(para)
@@ -101,7 +101,7 @@ msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the d
 msgstr "TortoiseSVN と TortoiseMerge はフリーですが、パッチを送ったり、開発体制内で積極的に役割をこなしたりして、開発者をサポートできます。また、コンピュータの前で過ごす私たちを限りなく応援できます。"
 
 #: source/TortoiseMerge_en.xml:97(para)
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
 msgstr "私たちは TortoiseSVN の作業中、音楽を聴くのが大好きです。また長時間このプロジェクトに関わっているために、音楽が<emphasis>たくさん</emphasis>必要です。そこで、私たちの好きな CD や DVD の欲しいものリストを用意しました。<ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> パッチや翻訳を送ってプロジェクトに貢献している人の一覧もご覧ください。"
 
 #: source/TortoiseMerge_en.xml:113(title)
@@ -121,7 +121,7 @@ msgid "Lübbe Onken"
 msgstr "Lübbe Onken"
 
 #: source/TortoiseMerge_en.xml:131(para)
-msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
+msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
 msgstr "きれいなアイコン、ロゴ、バグつぶし、文書整備に"
 
 #: source/TortoiseMerge_en.xml:138(term)
@@ -178,11 +178,11 @@ msgid "File Conflict"
 msgstr "ファイルの競合"
 
 #: source/TortoiseMerge_en.xml:214(para)
-msgid "A conflict can also occur if you try to apply an outdated patchfile. In such cases, without TortoiseMerge, you would either have to ask the person you got that patchfile from for a current version or try to apply that patchfile manually."
+msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
 msgstr "古くなってしまったパッチファイルを適用しようとしたときにも、競合は発生します。この場合 TortoiseMerge ではなく、現在のバージョンに対するパッチファイルがないか人に訊いたり、パッチファイルを手で適用する必要があるでしょう。"
 
 #: source/TortoiseMerge_en.xml:220(para)
-msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
+msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
 msgstr "ですが、TortoiseMerge を使うとこういったことがもう必要ありません。少なくとも Subversion のようなバージョン管理システムを使用する限りにおいては。TortoiseMerge はパッチを作成したリビジョン・バージョンを解析し、ソース管理システムからその特定のバージョンを自動的に取得します。その後パッチを適用し、自分の行った変更と他の人の行った変更の両方を確認できるようにします。これにより、変更点を保持するかどうか決めることができます。"
 
 #: source/TortoiseMerge_en.xml:235(title)
@@ -198,12 +198,12 @@ msgid "This was also the main reason why TortoiseSVN did not originally have a <
 msgstr "また、TortoiseSVN がもともと<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>パッチの作成</guimenuitem></menuchoice> を実装していなかった主な理由なのですが、パッチの適用が簡単だったので、私たちはユーザがファイル全体を送ってくれるのを歓迎していました。"
 
 #: source/TortoiseMerge_en.xml:261(para)
-msgid "So we spent a lot of time, searching the internet for a GUI tool which could apply patchfiles, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
+msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
 msgstr "パッチファイルを適用する GUI ツールをインターネットで探すのに長時間費やしましたが、そのようなツールがありませんでした。はしょって言うと、そんなツールがないのなら自分たちで作ってしまおうということです。そうして TortoiseMerge が生まれました。"
 
 #: source/TortoiseMerge_en.xml:268(para)
-msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same dll's."
-msgstr "TortoiseSVN は既に (すばらしい差分エンジンを内蔵した) Subversion ライブラリを使用していたので、GNU diff の代わりにこのライブラリを使用するのは自然なことでした。また、TortoiseSVN と TortoiseMerge は同じ dll を使用するので、実行ファイルのサイズを小さくもできました。"
+msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff. Also it reduces the size of the executable since TortoiseSVN and TortoiseMerge can both use the same DLLs."
+msgstr "TortoiseSVN は既に (すばらしい差分エンジンを内蔵した) Subversion ライブラリを使用していたので、GNU diff の代わりにこのライブラリを使用するのは自然なことでした。また、TortoiseSVN と TortoiseMerge は同じ DLL を使用するので、実行ファイルのサイズを小さくもできました。"
 
 #: source/TortoiseMerge_en.xml:278(title)
 msgid "Using TortoiseMerge"
@@ -222,7 +222,7 @@ msgid "The Open Dialog"
 msgstr "開くダイアログ"
 
 #: source/TortoiseMerge_en.xml:301(para)
-msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patchfile. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
+msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
 msgstr "まず始めにあなたがすることは、ファイルの比較・マージをしたいのか、パッチを適用したいのかを決めることです。その選択により、該当するエディットボックスやブラウズボタンが有効になります。"
 
 #: source/TortoiseMerge_en.xml:308(title)
@@ -282,19 +282,19 @@ msgid "Applying Patches"
 msgstr "パッチを適用"
 
 #: source/TortoiseMerge_en.xml:399(para)
-msgid "If you want to apply a patchfile you have to set both the path to the patchfile itself and the path to the folder where the patchfile should be applied."
+msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
 msgstr "パッチファイルを適用する場合、パッチファイルそのもののパスと、パッチファイルを適用するフォルダのパスの両方を、設定しなければなりません。"
 
 #: source/TortoiseMerge_en.xml:405(para)
-msgid "Currently, only patchfiles in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patchfiles generated by CVS are currently not supported!"
+msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
 msgstr "現在、<emphasis>Unified Diff Format</emphasis> しかサポートしていません。さらに、Subversion の作業コピーで作成されたファイルのみです。CVS で作成されたパッチファイルのような他の形式は、現在サポートしていません!"
 
 #: source/TortoiseMerge_en.xml:418(title)
-msgid "Patch Filelist"
+msgid "Patch File List"
 msgstr "パッチをあてるファイル一覧"
 
 #: source/TortoiseMerge_en.xml:413(para)
-msgid "If TortoiseMerge is able to parse the patchfile it will show you a small window with all the files which have changes according to the patchfile. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
+msgid "If TortoiseMerge is able to parse the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 msgstr "TortoiseMerge がパッチファイルをマージできると、そのパッチファイルで変更するファイルを表示する、小さなウィンドウを表示します。<placeholder-1/> ファイル名が黒で表示されている場合、問題なくパッチを当てられます。ファイルがパッチに対して古くなっているわけではないということを表します。しかし、ファイル名が赤で表示されている場合、既にファイルを変更してしまっているため、直接パッチを当てることができません。"
 
 #: source/TortoiseMerge_en.xml:427(para)
@@ -302,7 +302,7 @@ msgid "But don't worry. If you're working with Subversion you can retrieve an ol
 msgstr "でも、ご心配なく。Subversion で作業していれば、古いバージョンのファイルを取り出し、競合を解消できます。実際、TortoiseMerge は自動で古いバージョンのファイルを取り出し、<literal>Base</literal> (古いバージョンのファイル)、<literal>Mine</literal> (現在作業コピーにあるファイル)、<literal>Theirs</literal> (古いバージョンのファイルにパッチが当たった物) の差分を表示します。それから自分で競合を解消できます。"
 
 #: source/TortoiseMerge_en.xml:438(para)
-msgid "The patchfile window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
 msgstr "パッチファイルウィンドウは、現在のファイルにパッチを適用した結果をプレビュー (保存せず適用) したり、選択したファイルのみ適用して保存したり、一覧にあるファイルすべてに適用・保存を行うといった、コンテキストメニューがあります。ダブルクリックするとプレビューします。"
 
 #: source/TortoiseMerge_en.xml:446(para)
@@ -434,7 +434,7 @@ msgid "<guilabel>Backup original file</guilabel> renames the original file in th
 msgstr "<guilabel>オリジナルファイルをバックアップする</guilabel> 変更したバージョンを保存する前に、作業コピーにあるファイルを <literal>filename.bak</literal> に名前を変更します。"
 
 #: source/TortoiseMerge_en.xml:701(para)
-msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
+msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr "<guilabel>改行コードを無視する</guilabel> 改行コードの違いがないかのように違いを隠します。"
 
 #: source/TortoiseMerge_en.xml:705(para)
@@ -658,7 +658,7 @@ msgid "Toggles between showing whitespaces or not"
 msgstr "空白の表示・非表示を切り替える"
 
 #: source/TortoiseMerge_en.xml:923(term)
-msgid "Ctrl-wheelmouse"
+msgid "Ctrl-mousewheel"
 msgstr "Ctrl-マウスホイール"
 
 #: source/TortoiseMerge_en.xml:925(para)
@@ -772,7 +772,7 @@ msgid "very long"
 msgstr "非常に長い時間"
 
 #: source/TortoiseMerge_en.xml:1065(entry)
-msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patchfile, but that can take <placeholder-1/>."
+msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
 msgstr "適用するパッチファイルのパスです。このパスを設定しない場合、TortoiseMerge はパッチファイルのあるパスと一致するパスから探そうとしますが、<placeholder-1/> がかかります。"
 
 #: source/TortoiseMerge_en.xml:1074(entry)
