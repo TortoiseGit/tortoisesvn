@@ -108,8 +108,6 @@ protected:
 	float			m_fZoomFactor;
 	CColors			m_Colors;
 	bool			m_bFetchLogs;
-	bool			m_bShowAll;
-	bool			m_bArrangeByPath;
 	bool			m_bIsRubberBand;
 	CPoint			m_ptRubberStart;
 	CPoint			m_ptRubberEnd;
