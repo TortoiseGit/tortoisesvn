@@ -507,6 +507,10 @@ msgstr ""
 msgid "&New "
 msgstr ""
 
+#: MenuEntry
+msgid "&Newest on top"
+msgstr ""
+
 #: ID:115,#: Control-ID:1208,
 #, c-format
 msgid "&Next %ld"
@@ -612,6 +616,10 @@ msgstr ""
 msgid "&Settings"
 msgstr ""
 
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr ""
+
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
 msgstr ""
@@ -637,7 +645,7 @@ msgid "&Tab size:"
 msgstr ""
 
 #: Control-ID:1222,
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr ""
 
 #: Control-ID:65535,
@@ -701,7 +709,7 @@ msgid "&Update to revision..."
 msgstr ""
 
 #: Control-ID:1184,
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
@@ -1131,7 +1139,7 @@ msgid "Auto-close if no merges, adds or deletes"
 msgstr ""
 
 #: ID:195,
-msgid "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
+msgid "Auto-complete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
 msgstr ""
 
 #: ID:438,#: ID:438,
@@ -1176,6 +1184,10 @@ msgstr ""
 
 #: ID:115,
 msgid "Branch / tag created successfully!"
+msgstr ""
+
+#: ID:2052,
+msgid "Branch at copy-from-rev even if there was no change in that revision"
 msgstr ""
 
 #: ID:9,
@@ -1979,6 +1991,10 @@ msgid "Dry Run"
 msgstr ""
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr ""
+
+#: MenuEntry
 msgid "E&xit"
 msgstr ""
 
@@ -2281,6 +2297,10 @@ msgstr ""
 
 #: Control-ID:1315,
 msgid "Floppy drives (A: B:)"
+msgstr ""
+
+#: MenuEntry
+msgid "Fold &tags"
 msgstr ""
 
 #: Control-ID:65535,
@@ -3938,7 +3958,12 @@ msgstr ""
 
 #: ID:272,
 #, c-format
-msgid "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nLogmessage:\r\n%S"
+msgstr ""
+
+#: ID:272,
+#, c-format
+msgid "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%S"
 msgstr ""
 
 #: ID:116,
@@ -4213,7 +4238,7 @@ msgid "Server &address:"
 msgstr ""
 
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr ""
 
 #: ID:13,
@@ -4288,6 +4313,10 @@ msgstr ""
 msgid "Show File List"
 msgstr ""
 
+#: ID:2051,
+msgid "Show HEAD revision nodes"
+msgstr ""
+
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
 msgstr ""
@@ -4324,6 +4353,10 @@ msgstr ""
 msgid "Show linenumber&s"
 msgstr ""
 
+#: ID:2051,
+msgid "Show oldest node at top"
+msgstr ""
+
 #: ID:3713,
 msgid "Show or hide the status bar\nToggle StatusBar"
 msgstr ""
@@ -4334,6 +4367,10 @@ msgstr ""
 
 #: ID:2049,
 msgid "Show special characters for whitespaces\nShow Whitespaces"
+msgstr ""
+
+#: ID:2052,
+msgid "Show tags on the copy source, not as separate nodes"
 msgstr ""
 
 #: Control-ID:1209,
@@ -4417,6 +4454,14 @@ msgstr ""
 
 #: ID:376,
 msgid "Split lines"
+msgstr ""
+
+#: MenuEntry
+msgid "Split long &branches"
+msgstr ""
+
+#: ID:2052,
+msgid "Split long, inactive branches into segments"
 msgstr ""
 
 #: ID:3604,
@@ -4746,7 +4791,7 @@ msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/
 msgstr ""
 
 #: ID:195,
-msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
+msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the auto-completion list available sooner,\nbut maybe not scan all files."
 msgstr ""
 
 #: ID:82,
