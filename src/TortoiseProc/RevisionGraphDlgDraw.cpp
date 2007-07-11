@@ -362,10 +362,12 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		CRevisionEntry * entry = m_entryPtrs[i];
 
 		CRect noderect;
-		noderect.top = long((entry->row - 1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos));
-		noderect.bottom = long(noderect.top + m_node_rect_heigth);
-		noderect.left = long((entry->column - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos));
-		noderect.right = long(noderect.left + m_node_rect_width);
+		float top = (entry->row - 1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - float(nVScrollPos);
+		noderect.top = long(top);
+		noderect.bottom = long(top + m_node_rect_heigth);
+		float left = (entry->column - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - float(nHScrollPos);
+		noderect.left = long(left);
+		noderect.right = long(left + m_node_rect_width);
 
 		// skip it, if not visible
 
