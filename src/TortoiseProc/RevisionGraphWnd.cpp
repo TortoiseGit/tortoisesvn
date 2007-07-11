@@ -856,6 +856,13 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 	if ((m_ptRubberEnd.x != 0)||(m_ptRubberEnd.y != 0))
 		DrawRubberBand();
 	m_ptRubberEnd = point;
+	if (m_ptRubberEnd.x < m_ptRubberStart.x)
+	{
+		// switch the points
+		CPoint temppt = m_ptRubberStart;
+		m_ptRubberStart = m_ptRubberEnd;
+		m_ptRubberEnd = temppt;
+	}
 	CRect rect;
 	GetClientRect(&rect);
 	m_ptRubberEnd.x = max(m_ptRubberEnd.x, rect.left);
