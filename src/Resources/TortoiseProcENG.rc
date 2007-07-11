@@ -128,7 +128,7 @@ BEGIN
     BUTTON      ID_REVGRAPH_ZOOMCOMBO
     SEPARATOR
     BUTTON      ID_VIEW_SHOWALLREVISIONS
-    BUTTON      ID_VIEW_ARRANGEDBYPATH
+    BUTTON      ID_VIEW_GROUPBRANCHES
     BUTTON      ID_VIEW_TOPDOWN
     BUTTON      ID_VIEW_SHOWHEAD
     BUTTON      ID_VIEW_EXACTCOPYSOURCE
@@ -1774,7 +1774,7 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "Show &all revisions",         ID_VIEW_SHOWALLREVISIONS
-        MENUITEM "Arranged by &path",           ID_VIEW_ARRANGEDBYPATH, CHECKED
+        MENUITEM "&Group branches",             ID_VIEW_GROUPBRANCHES, CHECKED
         MENUITEM "&Newest on top",              ID_VIEW_TOPDOWN
         MENUITEM "&Show HEAD revisions",        ID_VIEW_SHOWHEAD
         MENUITEM "E&xact copy sources",         ID_VIEW_EXACTCOPYSOURCE
@@ -2729,7 +2729,7 @@ STRINGTABLE
 BEGIN
     ID_VIEW_SHOWALLREVISIONS 
                             "Shows all revisions where changes were made to this item"
-    ID_VIEW_ARRANGEDBYPATH  "Arranges the nodes sorted by path"
+    ID_VIEW_GROUPBRANCHES   "Groups branches together"
 END
 
 STRINGTABLE 

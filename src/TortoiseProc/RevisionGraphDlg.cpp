@@ -82,7 +82,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
 	ON_COMMAND(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnViewShowallrevisions)
-	ON_COMMAND(ID_VIEW_ARRANGEDBYPATH, &CRevisionGraphDlg::OnViewArrangedbypath)
+	ON_COMMAND(ID_VIEW_GROUPBRANCHES, &CRevisionGraphDlg::OnViewArrangedbypath)
 	ON_COMMAND(ID_FILE_SAVEGRAPHAS, &CRevisionGraphDlg::OnFileSavegraphas)
 	ON_COMMAND(ID_VIEW_TOPDOWN, &CRevisionGraphDlg::OnViewTopDown)
 	ON_COMMAND(ID_VIEW_SHOWHEAD, &CRevisionGraphDlg::OnViewShowHEAD)
@@ -164,7 +164,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_ToolBar.m_ZoomCombo.ShowWindow(SW_SHOW);
 
 	index = 0;
-	while (m_ToolBar.GetItemID(index) != ID_VIEW_ARRANGEDBYPATH) index++;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_GROUPBRANCHES) index++;
 	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX|TBBS_CHECKED);
 	index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWALLREVISIONS) index++;
@@ -491,7 +491,7 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 
 void CRevisionGraphDlg::OnViewArrangedbypath()
 {
-    OnToggleOption (ID_VIEW_ARRANGEDBYPATH, m_options.groupBranches);
+    OnToggleOption (ID_VIEW_GROUPBRANCHES, m_options.groupBranches);
 }
 
 void CRevisionGraphDlg::OnViewTopDown()
