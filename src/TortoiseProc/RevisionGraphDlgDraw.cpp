@@ -276,19 +276,43 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			CString temp;
 			CRect r;
 			CRect textrect = rect;
-			textrect.left += 10;
-			textrect.right -= 10;
+			textrect.left += (m_nIconSize+2);
+			textrect.right -= (m_nIconSize+2);
 			TEXTMETRIC textMetric;
 			pDC->GetOutputTextMetrics(&textMetric);
 			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 			pDC->DrawText(temp, &r, DT_CALCRECT);
-			pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), int(textrect.top + m_node_rect_heigth/4.0f), ETO_CLIPPED, NULL, temp, NULL);
+			int offset = (int)m_node_rect_heigth;
+			bool bShowUrl = true;
+			int th = r.Height();
+			if ((th-2) < (m_node_rect_heigth/2))
+			{
+				offset = (offset - (m_nFontSize*2) - 2)/4;
+				if (offset == 0)
+				{
+					bShowUrl = false;
+					offset = ((int)m_node_rect_heigth - m_nFontSize - 2)/2;
+				}
+			}
+			else
+			{
+				offset = (offset - m_nFontSize - 2)/2;
+				bShowUrl = false;
+			}
+			if (offset > 0)
+			{
+				// only draw the revision text if the node rectangle is big enough for it
+				pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + offset, ETO_CLIPPED, NULL, temp, NULL);
+			}
 
-			// draw the url
-			pDC->SelectObject(GetFont(TRUE));
-			temp = CUnicodeUtils::GetUnicode (rentry->path.GetPath().c_str());
-			r = textrect;
-			pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), int(textrect.top + m_node_rect_heigth/4.0f + m_node_rect_heigth/3.0f), ETO_CLIPPED, &textrect, temp, NULL);
+			if (bShowUrl)
+			{
+				// draw the url only if the rectangle is big enough, otherwise we only draw the revision
+				pDC->SelectObject(GetFont(TRUE));
+				temp = CUnicodeUtils::GetUnicode (rentry->path.GetPath().c_str());
+				r = textrect;
+				pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + (2*offset) + th, ETO_CLIPPED, &textrect, temp, NULL);
+			}
 		}
 
 		if (m_nIconSize)
