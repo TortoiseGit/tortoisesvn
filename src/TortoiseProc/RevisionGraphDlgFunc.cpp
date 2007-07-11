@@ -453,6 +453,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 
 void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 {
+	float oldzoom = m_fZoomFactor;
 	m_fZoomFactor = fZoomFactor;
 	m_node_space_left = NODE_SPACE_LEFT * fZoomFactor;
 	m_node_space_right = NODE_SPACE_RIGHT * fZoomFactor;
@@ -473,7 +474,17 @@ void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 		}
 		m_apFonts[i] = NULL;
 	}
+	SCROLLINFO si1 = {0};
+	si1.cbSize = sizeof(SCROLLINFO);
+	GetScrollInfo(SB_VERT, &si1);
+	SCROLLINFO si2 = {0};
+	si2.cbSize = sizeof(SCROLLINFO);
+	GetScrollInfo(SB_HORZ, &si2);
 	InitView();
+	si1.nPos = int(float(si1.nPos)*m_fZoomFactor/oldzoom);
+	si2.nPos = int(float(si2.nPos)*m_fZoomFactor/oldzoom);
+	SetScrollInfo(SB_VERT, &si1);
+	SetScrollInfo(SB_HORZ, &si2);
 	Invalidate();
 }
 
