@@ -48,7 +48,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(1.0)
 {
-    m_options.groupBranches = false;
+    m_options.groupBranches = true;
     m_options.includeSubPathChanges = false;
     m_options.oldestAtTop = false;
     m_options.showHEAD = false;
@@ -165,7 +165,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 	index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_VIEW_ARRANGEDBYPATH) index++;
-	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX|TBBS_CHECKED);
 	index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWALLREVISIONS) index++;
 	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);

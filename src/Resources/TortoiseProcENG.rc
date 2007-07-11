@@ -1774,7 +1774,7 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "Show &all revisions",         ID_VIEW_SHOWALLREVISIONS
-        MENUITEM "Arranged by &path",           ID_VIEW_ARRANGEDBYPATH
+        MENUITEM "Arranged by &path",           ID_VIEW_ARRANGEDBYPATH, CHECKED
         MENUITEM "&Newest on top",              ID_VIEW_TOPDOWN
         MENUITEM "&Show HEAD revisions",        ID_VIEW_SHOWHEAD
         MENUITEM "E&xact copy sources",         ID_VIEW_EXACTCOPYSOURCE
@@ -2454,10 +2454,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nLogmessage:\r\n%S"
-    IDS_REVGRAPH_BOXTOOLTIP_TAGGED "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%S"
     IDS_REVGRAPH_STATUSBARURL "Showing graph for %s"
     IDS_REVGRAPH_STATUSBARNUMNODES "Showing %ld nodes"
     IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
+    IDS_REVGRAPH_BOXTOOLTIP_TAGGED 
+                            "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%S"
     IDS_REVGRAPH_SAVEPIC    "&Save graph as..."
 END
 
@@ -2729,8 +2730,19 @@ BEGIN
     ID_VIEW_SHOWALLREVISIONS 
                             "Shows all revisions where changes were made to this item"
     ID_VIEW_ARRANGEDBYPATH  "Arranges the nodes sorted by path"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOM100         "Zoom 100%"
+    ID_VIEW_ZOOMALL         "Zoom to fit"
+    ID_VIEW_SHOWOVERVIEW    "Show an overview of the whole graph"
     ID_VIEW_TOPDOWN         "Show oldest node at top"
     ID_VIEW_SHOWHEAD        "Show HEAD revision nodes"
+END
+
+STRINGTABLE 
+BEGIN
     ID_VIEW_EXACTCOPYSOURCE "Branch at copy-from-rev even if there was no change in that revision"
     ID_VIEW_SPLITBRANCHES   "Split long, inactive branches into segments"
     ID_VIEW_FOLDTAGS        "Show tags on the copy source, not as separate nodes"
@@ -2932,13 +2944,6 @@ BEGIN
     IDS_PROGRS_CMD_MERGEPEG "Merging %s from revision %s to %s into %s, %s%s"
     IDS_PROGRS_CMD_MERGEURL "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
     IDS_PROGRS_CMD_COPY     "Copy %s to %s, Revision %s"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_VIEW_ZOOM100         "Zoom 100%"
-    ID_VIEW_ZOOMALL         "Zoom to fit"
-    ID_VIEW_SHOWOVERVIEW    "Show an overview of the whole graph"
 END
 
 STRINGTABLE 
