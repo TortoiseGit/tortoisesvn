@@ -140,11 +140,11 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 #define SNAP_WIDTH 60 //the width of the combo box
 	// set up the ComboBox control as a snap mode select box
-	// First get the index of the placeholder's position in the toolbar
+	// First get the index of the placeholders position in the toolbar
 	int index = 0;
 	while (m_ToolBar.GetItemID(index) != ID_REVGRAPH_ZOOMCOMBO) index++;
 
-	// next convert that button to a seperator and get its position
+	// next convert that button to a separator and get its position
 	m_ToolBar.SetButtonInfo(index, ID_REVGRAPH_ZOOMCOMBO, TBBS_SEPARATOR,
 		SNAP_WIDTH);
 	RECT rect;
@@ -674,7 +674,7 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 		lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
 		pTTTW->lpszText = m_wszTip;
 	}
-	// bring the tooltip window above other popup windows
+	// bring the tooltip window above other pop up windows
 	::SetWindowPos(pNMHDR->hwndFrom, HWND_TOP, 0, 0, 0, 0,
 		SWP_NOACTIVATE|SWP_NOSIZE|SWP_NOMOVE|SWP_NOOWNERZORDER);
 	return TRUE;    // message was handled
