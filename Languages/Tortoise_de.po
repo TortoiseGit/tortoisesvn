@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-09 12:15+0100\n"
+"PO-Revision-Date: 2007-07-12 09:22+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,11 @@ msgstr "&Von Revision:"
 msgid "&Go To Line..."
 msgstr "&Gehe zu Zeile..."
 
+# ID:213,
+#: MenuEntry
+msgid "&Group branches"
+msgstr "Verzweigungen &gruppieren"
+
 #: Control-ID:1115,#:
 #: Control-ID:1032,
 msgid "&HEAD Revision"
@@ -569,6 +574,10 @@ msgstr "&Netzlaufwerke"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "&Neu"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "&Neuester nach oben"
 
 #: ID:115,#:
 #: Control-ID:1208,
@@ -686,6 +695,10 @@ msgstr "&Speichern..."
 msgid "&Settings"
 msgstr "&Optionen"
 
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "HEAD Revisionen &zeigen"
+
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
 msgstr "&Revisionsnummer im Projektarchiv"
@@ -711,7 +724,7 @@ msgid "&Tab size:"
 msgstr "&Tab Größe:"
 
 #: Control-ID:1222,
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Wartezeit für Aufbau der Wortliste aus Quelldateien (sek)"
 
 #: Control-ID:65535,
@@ -780,7 +793,7 @@ msgid "&Update to revision..."
 msgstr "&Aktualisiere zu Revision..."
 
 #: Control-ID:1184,
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch &vervollständigen"
 
 #: Control-ID:65535,#:
@@ -1259,14 +1272,6 @@ msgstr ""
 msgid "Arrange &Vertical"
 msgstr "Übereinander &anzeigen"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Nach &Pfad geordnet"
-
-#: ID:2050,
-msgid "Arranges the nodes sorted by path"
-msgstr "Ordnet die Knoten nach Pfad"
-
 #: ID:264,
 #, c-format
 msgid "Assigned to changelist \"%s\""
@@ -1331,11 +1336,12 @@ msgstr "Falls kein Löschen, Hinzufügen oder Zusammenführen"
 
 #: ID:195,
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"Automatisch Vervollständigen schlägt bei der Eingabe der Logmeldung\n"
-"Wörter (üblicherweise Klassen- oder Membernamen) aus den geänderten Dateien vor."
+"Automatisch Vervollständigen schlägt bei der Eingabe der\n"
+"Logmeldung Wörter (üblicherweise Klassen- oder Variablennamen)\n"
+"aus den geänderten  Dateien vor."
 
 # ID:438,#:
 # ID:438,
@@ -1385,6 +1391,10 @@ msgstr "Su&chen..."
 #: ID:115,
 msgid "Branch / tag created successfully!"
 msgstr "Verzweigung / Markierung erfolgreich erstellt!"
+
+#: ID:2052,
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "An 'Kopiert-von' Revision verzweigen, selbst wenn dort keine Änderungen vorliegen"
 
 #: ID:9,
 msgid "Branch/&tag..."
@@ -2340,6 +2350,10 @@ msgid "Dry Run"
 msgstr "Trockenlauf"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "E&xakte Kopiequellen"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "&Beenden"
 
@@ -2780,6 +2794,10 @@ msgstr "Bildgrößen &angleichen"
 msgid "Floppy drives (A: B:)"
 msgstr "Diskettenlaufwerke (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "Verzweigungen &zusammenfalten"
+
 #: Control-ID:65535,
 msgid "Font"
 msgstr "&Schriftart:"
@@ -2939,6 +2957,10 @@ msgstr "Diagrammtyp:"
 #: ID:214,
 msgid "Group changelists"
 msgstr "Änderungslisten gruppieren"
+
+#: ID:2050,
+msgid "Groups branches together"
+msgstr "Verzweigungen gruppieren"
 
 # Control-ID:1229,
 #: Control-ID:1229,
@@ -4886,20 +4908,43 @@ msgstr "Revision:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%S"
 msgstr ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Autor: %s\r\n"
+"URL: %S\r\n"
+"Autor: %S\r\n"
 "Datum: %s\r\n"
 "\r\n"
 "Logmeldung:\r\n"
-"%s"
+"%S"
+
+#: ID:272,
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%S\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%S"
+msgstr ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Autor: %S\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Marken: %S\r\n"
+"\r\n"
+"Logmeldung:\r\n"
+"%S"
 
 #: ID:116,
 msgid "Revisions"
@@ -5203,7 +5248,7 @@ msgid "Server &address:"
 msgstr "&Server Adresse:"
 
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr "Dateidatum auf '&Datum der letzten Übertragung' setzen"
 
 #: ID:13,
@@ -5281,6 +5326,10 @@ msgstr "Zeige &nicht versionierte Dateien"
 msgid "Show File List"
 msgstr "Zeige Dateiliste"
 
+#: ID:2051,
+msgid "Show HEAD revision nodes"
+msgstr "Zeige Knoten der HEAD Revisionen"
+
 # Control-ID:1126,
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
@@ -5320,6 +5369,10 @@ msgstr "Zeige Zeilen&unterschiede"
 msgid "Show linenumber&s"
 msgstr "Zeige Zeilen&nummern"
 
+#: ID:2051,
+msgid "Show oldest node at top"
+msgstr "Den ältesten Knoten oben anzeigen"
+
 #: ID:3713,
 msgid ""
 "Show or hide the status bar\n"
@@ -5343,6 +5396,10 @@ msgid ""
 msgstr ""
 "Leerzeichen durch Sonderzeichen hervorheben\n"
 "Leerzeichen anzeigen"
+
+#: ID:2052,
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Zeige Markierungen an der Quelle, nicht als separate Knoten"
 
 #: Control-ID:1209,
 msgid "Show unmodified files"
@@ -5439,6 +5496,15 @@ msgstr "Geben Sie den Revisionsbereich ein, den Sie zusammenführen möchten:"
 #: ID:376,
 msgid "Split lines"
 msgstr "Zeilen splitten"
+
+# ID:376,
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "Lange Zweige &segmentieren"
+
+#: ID:2052,
+msgid "Split long, inactive branches into segments"
+msgstr "Lange, inaktive Verzweigungen segmentieren"
 
 #: ID:3604,
 msgid ""
@@ -5952,12 +6018,13 @@ msgstr ""
 #: ID:195,
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"Die Zeit in Sekunden, nach der die Analyse der ausgewählten Dateien angehalten wird.\n"
-"Ein kleiner Wert stellt die Liste zum automatischen Vervollständigen schneller\n"
-"zur Verfügung, wird aber manchmal nicht alle Dateien analysieren."
+"Die Zeit in Sekunden, nach der die Analyse der ausgewählten Dateien\n"
+"angehalten wird. Ein kleiner Wert stellt die Liste zum automatischen\n"
+"Vervollständigen schneller zur Verfügung, wird aber manchmal nicht\n"
+"alle Dateien analysieren."
 
 # ID:82,
 #: ID:82,
