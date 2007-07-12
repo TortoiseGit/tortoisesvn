@@ -275,6 +275,11 @@ void CRepositoryBar::OnBnClicked()
 	}
 }
 
+void CRepositoryBar::SetFocusToURL()
+{
+	m_cbxUrl.GetEditCtrl()->SetFocus();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar *repository_bar) :
