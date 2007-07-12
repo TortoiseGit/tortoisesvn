@@ -485,8 +485,8 @@ void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 	InitView();
 	si1.nPos = int(float(si1.nPos)*m_fZoomFactor/oldzoom);
 	si2.nPos = int(float(si2.nPos)*m_fZoomFactor/oldzoom);
-	SetScrollInfo(SB_VERT, &si1);
-	SetScrollInfo(SB_HORZ, &si2);
+	SetScrollPos(SB_VERT, si1.nPos);
+	SetScrollPos(SB_HORZ, si2.nPos);
 	Invalidate();
 }
 
