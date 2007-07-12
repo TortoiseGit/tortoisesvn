@@ -281,10 +281,14 @@ cleanup:
 void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
+	CRect rect;
+	GetClientRect(&rect);
+	if (IsWindow(m_ToolBar))
+	{
+		RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
+	}
 	if (IsWindow(m_StatusBar))
 	{
-		CRect rect;
-		GetClientRect(&rect);
 		CRect statusbarrect;
 		m_StatusBar.GetClientRect(&statusbarrect);
 		statusbarrect.top = rect.bottom - statusbarrect.top + statusbarrect.bottom;
@@ -296,8 +300,6 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 		GetGraphRect(&rect);
 		m_Graph.MoveWindow(&rect);
 	}
-	if (IsWindow(m_ToolBar)) 
-		RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0); 
 }
 
 BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
