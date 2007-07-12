@@ -117,13 +117,33 @@ Import.png
 	Add a suitable message like 'Initial import of paint files'.
 
 LogContextMenu1.png
-	(select 2 revision in top panel, capture for file, not folder)
+	Right click on any versioned file or folder and TSVN->show log
+	Select 2 revisions in the top pane
+	Right click on the selected revisions (top pane) and capture the context menu
+
 LogContextMenu2.png
-	(bottom panel)
+	Right click on any versioned file or folder and TSVN->show log
+	Select 1 revision in the top panel
+	Right click on a file in the bottom pane and capture the context menu
+
 LogContextMenu.png
-	(top panel, capture for file, not folder)
+	Right click on any versioned file (not folder) and TSVN->show log
+	Select 1 revision in the top panel
+	Right click on the selected revisions (top pane) and capture the context menu
+
 LogMessages.png
+	Show the log dialog for the TSVN src directory (use the repo browser if you
+	do not have this in a working copy
+	Use 'Show range' to get revisions 5000 to 5100
+	Centre r5050 in the top pane
+	Position the mouse over the hyperlink for issue #198
+
 Merge.png
+	Open the merge dialog for the TSVN doc folder
+	Edit the URL to point to the quivalent folder on the stable branch
+	Make sure 'Use From: URL' is checked
+	Enter 2 consecutive revisions, eg. From: 5376 to To: 5377
+
 MergeOnePane.png
 MergeOpen.png
 MergePatchWindow.png
@@ -143,20 +163,34 @@ RepoStatus.png
 Revert.png
 RevisionGraph.png
 RightDragMenu.png
-SettingsBlame.png
+
+SettingsHooks.png
+	TortoiseSVN->Settings->Hooks scripts
+	If you do have any hooks, create 2 (see below) eg. start commit and post update
+	Capture the settings dialog with the 2 hooks displayed
+
+SettingsHookEdit.png
+	Add a new client hook
+	Type eg. Start commit hook
+	Working copy path - your doc folder
+	Command line - some fictitious path + start-commit.bat
+	(the hook does not have to exist)
+
+SettingsMain.png
+	Include an ignore pattern. If you don't have one, use "*.tmp *.~*"
+
 SettingsColors.png
 SettingsContext.png
 SettingsDialog.png
 SettingsDialog2.png
-SettingsHooks.png
-SettingsHookEdit.png
-SettingsMain.png
 SettingsOverlay.png
 SettingsOverlayChooser.png
 SettingsProgs.png
 SettingsProgsAdv.png
 SettingsProxy.png
 SettingsSavedData.png
+	All other settings dialogs, just get a screenshot of the appropriate page.
+
 StatsByAuthor.png
 	(Use TSVN Languages)
 StatsByAuthPie.png
