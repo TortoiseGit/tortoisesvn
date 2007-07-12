@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-11 14:04+0900\n"
+"PO-Revision-Date: 2007-07-12 10:11+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -862,8 +862,8 @@ msgid "Cleanup"
 msgstr "クリーンアップ"
 
 #: source/TortoiseMerge_en.xml:1196(para)
-msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <literal>working copy locked</literal> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <quote>lock</quote> refers to local filesystem locking, not repository locking."
-msgstr "以下 Subversion book から引用します。<quote>作業コピーを再帰的にクリーンアップ (ロックの削除、未完操作の回復) を行います。<literal>作業コピーがロックされています</literal>というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote> ここで言う <quote>ロック</quote> は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
+msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
+msgstr "以下 Subversion book から引用します。<quote>作業コピーを再帰的にクリーンアップ (ロックの削除、未完操作の回復) を行います。<emphasis>作業コピーがロックされています</emphasis> というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote> ここで言う <emphasis>ロック</emphasis> は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
 
 #: source/TortoiseMerge_en.xml:1211(glossterm)
 msgid "Commit"
