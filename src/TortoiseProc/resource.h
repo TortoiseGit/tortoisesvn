@@ -86,8 +86,8 @@
 #define IDI_REVGRAPH_RENAMED            221
 #define IDI_REVGRAPH_REPLACED           222
 #define IDI_REVGRAPH_SPLIT              223
-#define IDI_REVGRAPH_TAGGED             224
 #define IDR_REVGRAPHBAR                 223
+#define IDI_REVGRAPH_TAGGED             224
 #define IDI_SAVEDDATA                   225
 #define IDD_EDITPROPERTIES              226
 #define IDD_EDITPROPERTYVALUE           227
@@ -117,6 +117,7 @@
 #define IDC_PANCUR                      250
 #define IDC_PANCURDOWN                  251
 #define IDI_TORTOISEBLAME               252
+#define IDR_ACC_REPOBROWSER             253
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1113,17 +1114,21 @@
 #define ID_VIEW_FILTER                  32809
 #define ID_VIEW_SHOWOVERVIEW            32813
 #define ID_VIEW_TOPDOWN                 32814
+#define ID_URL_FOCUS                    32814
 #define ID_VIEW_SHOWHEAD                32815
+#define ID_REFRESHBROWSER               32815
 #define ID_VIEW_EXACTCOPYSOURCE         32816
+#define ID_INLINEEDIT                   32816
 #define ID_VIEW_SPLITBRANCHES           32817
+#define ID_COPY                         32817
 #define ID_VIEW_FOLDTAGS                32818
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        253
-#define _APS_NEXT_COMMAND_VALUE         32814
+#define _APS_NEXT_RESOURCE_VALUE        254
+#define _APS_NEXT_COMMAND_VALUE         32819
 #define _APS_NEXT_CONTROL_VALUE         1382
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

@@ -165,6 +165,10 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_ENDLABELEDIT, IDC_REPOLIST, &CRepositoryBrowser::OnLvnEndlabeleditRepolist)
 	ON_NOTIFY(TVN_ENDLABELEDIT, IDC_REPOTREE, &CRepositoryBrowser::OnTvnEndlabeleditRepotree)
 	ON_WM_TIMER()
+	ON_COMMAND(ID_URL_FOCUS, &CRepositoryBrowser::OnUrlFocus)
+	ON_COMMAND(ID_COPY, &CRepositoryBrowser::OnCopy)
+	ON_COMMAND(ID_INLINEEDIT, &CRepositoryBrowser::OnInlineedit)
+	ON_COMMAND(ID_REFRESHBROWSER, &CRepositoryBrowser::OnRefresh)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -180,6 +184,8 @@ CString CRepositoryBrowser::GetPath() const
 BOOL CRepositoryBrowser::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
 
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -1075,56 +1081,57 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 			::DispatchMessage(pMsg);
 			return TRUE;
 		}
-	}
-	if (pMsg->message == WM_KEYDOWN)
-	{
-		switch (pMsg->wParam)
+		if (m_hAccel)
 		{
-		case VK_F5:
-			m_blockEvents = true;
-			RefreshNode(m_RepoTree.GetSelectedItem(), true, !!(GetAsyncKeyState(VK_CONTROL)&0x8000));
-			m_blockEvents = false;
-			break;
-		case VK_F2:
-			{
-				POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-				int selIndex = m_RepoList.GetNextSelectedItem(pos);
-				m_blockEvents = true;
-				if (selIndex >= 0)
-				{
-					m_RepoList.SetFocus();
-					m_RepoList.EditLabel(selIndex);
-				}
-				else
-				{
-					m_RepoTree.SetFocus();
-					m_RepoTree.EditLabel(m_RepoTree.GetSelectedItem());
-				}
-				m_blockEvents = false;
-			}
-			break;
-		case 'C':
-		case 'c':
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					// Ctrl-C : copy the selected item urls to the clipboard
-					CStringA url;
-					POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-					int index = -1;
-					while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
-					{
-						CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-						url += CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)) + "\r\n";
-					}
-					if (!url.IsEmpty())
-						CStringUtils::WriteAsciiStringToClipboard(url);
-				}
-			}
-			break;
+			return TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CRepositoryBrowser::OnUrlFocus()
+{
+	m_barRepository.SetFocusToURL();
+}
+
+void CRepositoryBrowser::OnCopy()
+{
+	// Ctrl-C : copy the selected item urls to the clipboard
+	CStringA url;
+	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int index = -1;
+	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+	{
+		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
+		url += CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)) + "\r\n";
+	}
+	if (!url.IsEmpty())
+		CStringUtils::WriteAsciiStringToClipboard(url);
+}
+
+void CRepositoryBrowser::OnInlineedit()
+{
+	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int selIndex = m_RepoList.GetNextSelectedItem(pos);
+	m_blockEvents = true;
+	if (selIndex >= 0)
+	{
+		m_RepoList.SetFocus();
+		m_RepoList.EditLabel(selIndex);
+	}
+	else
+	{
+		m_RepoTree.SetFocus();
+		m_RepoTree.EditLabel(m_RepoTree.GetSelectedItem());
+	}
+	m_blockEvents = false;
+}
+
+void CRepositoryBrowser::OnRefresh()
+{
+	m_blockEvents = true;
+	RefreshNode(m_RepoTree.GetSelectedItem(), true, !!(GetKeyState(VK_CONTROL)&0x8000));
+	m_blockEvents = false;
 }
 
 void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2661,3 +2668,4 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 		regColWidth = sWidths;
 	}
 }
+

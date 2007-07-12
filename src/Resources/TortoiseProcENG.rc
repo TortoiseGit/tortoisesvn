@@ -1833,6 +1833,16 @@ BEGIN
     "F",            ID_VIEW_FILTER,         VIRTKEY, CONTROL, NOINVERT
 END
 
+IDR_ACC_REPOBROWSER ACCELERATORS 
+BEGIN
+    "C",            ID_COPY,                VIRTKEY, CONTROL, NOINVERT
+    VK_F2,          ID_INLINEEDIT,          VIRTKEY, NOINVERT
+    VK_F5,          ID_REFRESHBROWSER,      VIRTKEY, NOINVERT
+    VK_F5,          ID_REFRESHBROWSER,      VIRTKEY, CONTROL, NOINVERT
+    "D",            ID_URL_FOCUS,           VIRTKEY, ALT, NOINVERT
+    "L",            ID_URL_FOCUS,           VIRTKEY, CONTROL, NOINVERT
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

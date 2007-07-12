@@ -177,6 +177,11 @@ protected:
 	afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
+	afx_msg void OnUrlFocus();
+	afx_msg void OnCopy();
+	afx_msg void OnInlineedit();
+	afx_msg void OnRefresh();
+
 	DECLARE_MESSAGE_MAP()
 
 	/// called after the init thread has finished
@@ -253,6 +258,8 @@ protected:
 
 	CString				m_strReposRoot;
 	CString				m_sUUID;
+
+	HACCEL				m_hAccel;
 
 private:
 	bool				m_bStandAlone;
