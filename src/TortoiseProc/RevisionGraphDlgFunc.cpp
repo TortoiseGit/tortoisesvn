@@ -463,7 +463,7 @@ void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 	m_node_rect_height = NODE_RECT_HEIGHT * fZoomFactor;
 	m_node_space_top = NODE_SPACE_TOP * fZoomFactor;
 	m_node_space_bottom = NODE_SPACE_BOTTOM * fZoomFactor;
-	m_nFontSize = max(6, int(12.0f * fZoomFactor));
+	m_nFontSize = max(7, int(12.0f * fZoomFactor));
 	m_RoundRectPt.x = int(ROUND_RECT * fZoomFactor);
 	m_RoundRectPt.y = int(ROUND_RECT * fZoomFactor);
 	m_nIconSize = int(32 * fZoomFactor);
