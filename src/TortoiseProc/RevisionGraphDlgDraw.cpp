@@ -462,22 +462,22 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		CMemDC memDC2(memDC, true);
 		memDC2.SetWindowOrg(0, 0);
 		HBITMAP oldhbm = (HBITMAP)memDC2.SelectObject(&m_Preview);
-		memDC->BitBlt(rect.Width()-REVGRAPH_PREVIEW_WIDTH, 0, REVGRAPH_PREVIEW_WIDTH, REVGRAPH_PREVIEW_HEIGHT, 
+		memDC->BitBlt(rect.Width()-m_previewWidth, 0, m_previewWidth, m_previewHeight, 
 			&memDC2, 0, 0, SRCCOPY);
 		memDC2.SelectObject(oldhbm);
 		// draw the border for the overview rectangle
-		m_OverviewRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH;
+		m_OverviewRect.left = rect.Width()-m_previewWidth;
 		m_OverviewRect.top = 0;
 		m_OverviewRect.right = rect.Width();
-		m_OverviewRect.bottom = REVGRAPH_PREVIEW_HEIGHT;
+		m_OverviewRect.bottom = m_previewHeight;
 		memDC->DrawEdge(&m_OverviewRect, EDGE_BUMP, BF_RECT);
 		// now draw a rectangle where the current view is located in the overview
-		LONG width = REVGRAPH_PREVIEW_WIDTH * rect.Width() / m_ViewRect.Width();
-		LONG height = REVGRAPH_PREVIEW_HEIGHT * rect.Height() / m_ViewRect.Height();
+		LONG width = m_previewWidth * rect.Width() / m_ViewRect.Width();
+		LONG height = m_previewHeight * rect.Height() / m_ViewRect.Height();
 		LONG xpos = nHScrollPos * m_previewWidth / m_ViewRect.Width();
 		LONG ypos = nVScrollPos * m_previewHeight / m_ViewRect.Height();
 		RECT tempRect;
-		tempRect.left = rect.Width()-REVGRAPH_PREVIEW_WIDTH+xpos;
+		tempRect.left = rect.Width()-m_previewWidth+xpos;
 		tempRect.top = ypos;
 		tempRect.right = tempRect.left + width;
 		tempRect.bottom = tempRect.top + height;
