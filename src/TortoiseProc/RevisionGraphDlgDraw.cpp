@@ -310,7 +310,11 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 				// draw the url only if the rectangle is big enough, otherwise we only draw the revision
 				pDC->SelectObject(GetFont(TRUE));
 				temp = CUnicodeUtils::GetUnicode (rentry->path.GetPath().c_str());
+				temp.Replace('/','\\');
 				r = textrect;
+				pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
+				temp.ReleaseBuffer();
+				temp.Replace('\\','/');
 				pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + (2*offset) + th, ETO_CLIPPED, &textrect, temp, NULL);
 			}
 		}
