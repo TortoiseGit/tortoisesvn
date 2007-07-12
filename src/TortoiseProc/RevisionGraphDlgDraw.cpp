@@ -285,7 +285,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			int offset = (int)m_node_rect_height;
 			bool bShowUrl = true;
 			int th = r.Height();
-			if ((th-2) < (m_node_rect_height/2))
+			if ((th+2) < (m_node_rect_height/2))
 			{
 				offset = (offset - (m_nFontSize*2) - 2)/4;
 				if (offset == 0)
