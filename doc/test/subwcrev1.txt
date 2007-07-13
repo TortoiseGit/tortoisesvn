@@ -31,9 +31,6 @@ international format, ie. yyyy-mm-dd hh:mm:ss
 Finally, an optional switch may be added to abort SubWCRev if certain
 conditions are not met.
 
-The -n switch causes SubWCRev to abort with ERRORLEVEL 7 if there are
-any local modifications.
-
 The -d switch causes SubWCRev to abort with ERRORLEVEL 8 if the destination
 file already exists.
 
