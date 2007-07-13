@@ -1120,7 +1120,6 @@
 #define ID_VIEW_EXACTCOPYSOURCE         32816
 #define ID_INLINEEDIT                   32816
 #define ID_VIEW_SPLITBRANCHES           32817
-#define ID_COPY                         32817
 #define ID_VIEW_FOLDTAGS                32818
 
 // Next default values for new objects
