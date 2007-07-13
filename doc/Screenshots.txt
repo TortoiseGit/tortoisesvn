@@ -1,4 +1,4 @@
-<div class="moz-text-flowed" style="font-family: -moz-fixed">This file is a guide to grabbing screenshots for the user manual.
+This file is a guide to grabbing screenshots for the user manual.
 Although there are not many hard and fast rules, some screenshots need
 care to set up as they are demonstrating a range of features.
 
@@ -145,14 +145,32 @@ Merge.png
 	Enter 2 consecutive revisions, eg. From: 5376 to To: 5377
 
 MergeOnePane.png
+	Select doc/test/subwcrev2.txt and doc/test/subwcrev3.txt
+	Right click on subwcrev3.txt and TSVN->Diff
+	Use 1-pane view
+	Make sure the 3 areas with changes are showing
+
 MergeOpen.png
+	Start TortoiseMerge from the start menu
+
 MergePatchWindow.png
-	(Show context menu)
+	TODO: (Show context menu)
+
 mergeprinciple.png
+	Borrowed from the Subversion docs
+
 MergeSettingsColors.png
 MergeSettingsGeneral.png
+	Simple snapshots of the settings
+
 MergeThreePane.png
+	Use the 'docs' test WC
+	TSVN->Edit conflicts for subwcrev.txt
+	Jump to first conflict
+
 MergeTwoPane.png
+	As for MergeOnePane, but use 2-pane view.
+
 Properties.png
 PropertyAdd.png
 PropertyList.png
@@ -202,4 +220,3 @@ TortoiseBlame.png
 TortoiseIDiff.png
 UpdateFinished.png
 upgradecheck.png
-</div>
