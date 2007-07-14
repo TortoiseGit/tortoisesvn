@@ -565,6 +565,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 					if (lRemoveLine == 0)
 						lRemoveLine++;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
+						(sPatchLine.Compare(PatchLines.GetAt(lAddLine))!=0) &&
 						(!HasExpandedKeyWords(sPatchLine)) &&
 						(lRemoveLine <= PatchLines.GetCount()) &&
 						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
