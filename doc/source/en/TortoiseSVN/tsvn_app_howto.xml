@@ -213,7 +213,7 @@
 				<listitem>
 					<para>
 						In the <guilabel>From:</guilabel> field enter the full
-						folder url of the branch or tag containing the changes
+						folder URL of the branch or tag containing the changes
 						you want to revert in your working copy. This should come
 						up as the default URL.
 					</para>
@@ -251,7 +251,7 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-howto-rollback-dumpload">
-			<title>Use svndumpfilter</title>
+			<title>Use <literal>svndumpfilter</literal></title>
 			<para>
 				Since TortoiseSVN never loses data, your <quote>rolled back</quote>
 				revisions still exist as intermediate revisions in the repository. Only 

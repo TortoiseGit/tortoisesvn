@@ -28,10 +28,10 @@
 	<para>
 		<variablelist>
 			<varlistentry>
-				<term>webviewer:revision</term>
+				<term condition="pot">webviewer:revision</term>
 				<listitem>
 					<para>
-						Set this property to the url of your repo viewer to view all
+						Set this property to the URL of your repo viewer to view all
 						changes in a specific revision.
 						It must be properly URI encoded and it has to contain
 						<literal>%REVISION%</literal>.
@@ -47,10 +47,10 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>webviewer:pathrevision</term>
+				<term condition="pot">webviewer:pathrevision</term>
 				<listitem>
 					<para>
-						Set this property to the url of your repo viewer to view
+						Set this property to the URL of your repo viewer to view
 						changes to a specific file in a specific revision.
 						It must be properly URI encoded and it has to contain
 						<literal>%REVISION%</literal> and <literal>%PATH%</literal>.
@@ -64,7 +64,7 @@
 						</menuchoice>
 						For example, if you right-click in the log dialog bottom pane
 						on a file entry <literal>/trunk/src/file</literal> then the
-						<literal>%PATH%</literal> in the url will be replaced with
+						<literal>%PATH%</literal> in the URL will be replaced with
 						<literal>/trunk/src/file</literal>.
 					</para>
 				</listitem>

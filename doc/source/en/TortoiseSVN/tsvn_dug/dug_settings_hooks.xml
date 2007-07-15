@@ -180,7 +180,7 @@
 		The meaning of each of these variables is described here:
 		<variablelist>
 			<varlistentry>
-				<term>%PATH%</term>
+				<term condition="pot">%PATH%</term>
 				<listitem>
 					<para>
 						A path to a temporary file which contains all the
@@ -190,7 +190,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%PATHS%</term>
+				<term condition="pot">%PATHS%</term>
 				<listitem>
 					<para>
 						The paths which were selected when the operation was
@@ -207,7 +207,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%DEPTH%</term>
+				<term condition="pot">%DEPTH%</term>
 				<listitem>
 					<para>
 						The depth with which the commit/update is done.
@@ -218,37 +218,49 @@
 						<varlistentry>
 							<term>-2</term>
 							<listitem>
-								<para>svn_depth_unknown</para>
+								<para>
+									<literal>svn_depth_unknown</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 						<varlistentry>
 							<term>-1</term>
 							<listitem>
-								<para>svn_depth_exclude</para>
+								<para>
+									<literal>svn_depth_exclude</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 						<varlistentry>
 							<term>0</term>
 							<listitem>
-								<para>svn_depth_empty</para>
+								<para>
+									<literal>svn_depth_empty</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 						<varlistentry>
 							<term>1</term>
 							<listitem>
-								<para>svn_depth_files</para>
+								<para>
+									<literal>svn_depth_files</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 						<varlistentry>
 							<term>2</term>
 							<listitem>
-								<para>svn_depth_immediates</para>
+								<para>
+									<literal>svn_depth_immediates</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 						<varlistentry>
 							<term>3</term>
 							<listitem>
-								<para>svn_depth_infinity</para>
+								<para>
+									<literal>svn_depth_infinity</literal>
+								</para>
 							</listitem>
 						</varlistentry>
 					</variablelist>
@@ -256,7 +268,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%MESSAGEPATH%</term>
+				<term condition="pot">%MESSAGEPATH%</term>
 				<listitem>
 					<para>
 						Path to a file containing the log message for
@@ -266,7 +278,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%REVISION%</term>
+				<term condition="pot">%REVISION%</term>
 				<listitem>
 					<para>
 						The repository revision to which the update should
@@ -275,7 +287,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%ERROR%</term>
+				<term condition="pot">%ERROR%</term>
 				<listitem>
 					<para>
 						Empty if the operation was successful, or the error message

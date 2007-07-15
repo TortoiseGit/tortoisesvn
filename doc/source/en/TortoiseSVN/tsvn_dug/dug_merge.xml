@@ -69,7 +69,7 @@
 				<listitem>
 					<para>
 						In the <guilabel>From:</guilabel> field enter the full
-						folder url of the branch or tag containing the changes
+						folder URL of the branch or tag containing the changes
 						you want to port into your working copy.
 						You may also click
 						<guibutton>...</guibutton>
@@ -107,7 +107,7 @@ Rev Comments
 34. Working on trunk
          ...
 </screen>
-						If you now want to merge all the changes from MyBranch into
+						If you now want to merge all the changes from <filename>MyBranch</filename> into
 						the trunk you have to choose 36 as the
 						<guilabel>From Revision</guilabel>, not 37 as you might think.
 						If you select revision 37 as the start point, then the
@@ -200,7 +200,7 @@ Rev Comments
 				folders to folders and files to files. If you click on a file and
 				open up the merge dialog, then you have to give a path to a file
 				in that dialog. If you select a folder and bring up the dialog,
-				then you must specify a folder url for the merge.
+				then you must specify a folder URL for the merge.
 			</para>
 		</important>
 	</sect2>
@@ -229,7 +229,7 @@ Rev Comments
 				<listitem>
 					<para>
 						In the <guilabel>From:</guilabel> field enter the full
-						folder url of the <emphasis>trunk</emphasis>. This
+						folder URL of the <emphasis>trunk</emphasis>. This
 						may sound wrong, but remember that the trunk is the
 						start point to which you want to add the branch changes.
 						You may also click
@@ -247,7 +247,7 @@ Rev Comments
 				<listitem>
 					<para>
 						In the <guilabel>To:</guilabel> field enter the full
-						folder url of the feature branch.
+						folder URL of the feature branch.
 					</para>
 				</listitem>
 				<listitem>

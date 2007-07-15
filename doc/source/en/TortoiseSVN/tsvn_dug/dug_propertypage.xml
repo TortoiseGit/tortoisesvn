@@ -196,7 +196,7 @@
 						Subversion allows you to set <quote>autoprops</quote> which
 						will be applied to newly added or imported files, based on
 						the file extension. This depends on every client having set
-						appropriate autoprops in their subversion config file.
+						appropriate autoprops in their subversion configuration file.
 						<literal>tsvn:autoprops</literal> can be set on folders
 						and these will be merged with the user's local autoprops
 						when importing or adding files.
@@ -259,12 +259,12 @@
 		</para>
 		<para>
 			Some <literal>tsvn:</literal> properties require a
-			<literal>true/false</literal> value. TSVN also understands
+			<literal>true/false</literal> value. TortoiseSVN also understands
 			<literal>yes</literal> as a synonym for <literal>true</literal> and
 			<literal>no</literal> as a synonym for <literal>false</literal>.
 		</para>
 		<important>
-			<title>Set the tsvn: properties on folders</title>
+			<title>Set the <literal>tsvn:</literal> properties on folders</title>
 			<para>
 				These <literal>tsvn:</literal> properties must be set on
 				<emphasis>folders</emphasis> for the system to work. 

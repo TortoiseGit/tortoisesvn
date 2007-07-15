@@ -110,7 +110,7 @@ svnserve.exe --daemon --root drive:\path\to\repository\root
 <screen>
 svnserve.exe --daemon --root c:\repos
 </screen>
-			And in TortoiseSVN our repo-browser Url is now shortened to:
+			And in TortoiseSVN our repo-browser URL is now shortened to:
 <screen>
 svn://localhost/TestRepo
 </screen>
@@ -137,7 +137,7 @@ svn://localhost/TestRepo
 		<sect3 id="tsvn-serversetup-svnservice">
 			<title>Run svnserve as a Service</title>
 			<indexterm>
-				<primary>svnservice</primary>
+				<primary>svnserve</primary>
 			</indexterm>
 			<para>
 				Running svnserve as a user is usually not the best way.
@@ -220,7 +220,7 @@ svnservice -remove
 		<title>Authentication with svnserve</title>
 		<para>
 			The default svnserve setup provides anonymous read-only access.
-			This means that you can use an <filename>svn://</filename> Url
+			This means that you can use an <filename>svn://</filename> URL
 			to checkout and update, or use the repo-browser in TortoiseSVN
 			to view the repository, but you won't be able to commit any changes.
 		</para>

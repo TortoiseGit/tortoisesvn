@@ -415,7 +415,7 @@
 					for local access, although it can be used with UNC paths to
 					a networked host.  The URL therefore takes the form
 					<literal>file://hostname/path/to/repos</literal>.  For the
-					local machine, the hostname portion of the URL is required
+					local machine, the <literal>hostname</literal> portion of the URL is required
 					to be either absent or <literal>localhost</literal>.  For
 					this reason, local paths normally appear with three slashes,
 					<literal>file:///path/to/repos</literal>.

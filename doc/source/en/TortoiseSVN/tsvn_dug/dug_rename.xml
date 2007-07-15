@@ -275,7 +275,8 @@
 		<title>Dealing with filename case conflicts</title>
 		<para>
 			If the repository already contains two files with the same name
-			but differing only in case (e.g. TEST.TXT and test.txt), you
+			but differing only in case (e.g. <filename>TEST.TXT</filename>
+			and <filename>test.txt</filename>), you
 			will not be able to update or checkout the parent directory
 			on a Windows client. Whilst Subversion supports case-sensitive
 			filenames, Windows does not.

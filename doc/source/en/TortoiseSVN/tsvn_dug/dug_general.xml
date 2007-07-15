@@ -164,7 +164,8 @@
 			If you want to clear the authentication cache for <emphasis>all</emphasis>
 			servers, you can do so from the <guilabel>General</guilabel> page
 			of TortoiseSVN's settings dialog. That button will clear all cached
-			auth data from the Subversion auth directories, as well as any auth
+			authentication data from the Subversion <filename>auth</filename>
+			directories, as well as any authentication
 			data stored in the registry by earlier versions of TortoiseSVN.
 			Refer to <xref linkend="tsvn-dug-settings-main"/>.
 		</para>

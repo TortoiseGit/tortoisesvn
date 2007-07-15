@@ -152,7 +152,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 	<warning>
 		<para>
 			Do not create or access a Berkeley DB repository on a network share.
-			It <emphasis>cannot</emphasis> exist on a remote filesystem.
+			It <emphasis>cannot</emphasis> exist on a remote file system.
 			Not even if you have the network drive mapped to a drive letter.
 			If you attempt to use Berkeley DB on a network share,
 			the results are unpredictable - you may see mysterious errors
@@ -163,7 +163,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 	<tip>
 		<para>
 			If you really need to access a repository through a network share,
-			create the repository with fsfs format. If you need to provide
+			create the repository with FSFS format. If you need to provide
 			server access as well, you will need Subversion Server 1.1 or higher.
 		</para>
 	</tip>

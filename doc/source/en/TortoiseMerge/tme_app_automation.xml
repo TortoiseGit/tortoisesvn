@@ -36,7 +36,7 @@ Don't touch these lines:
 
   The condition="pot" prevents the strings from being extracted into
   the .pot file, so nobody translates them.
-  The colons in front of the command have to stay there to prevent these strings
+  The '/' in front of the command has to stay there to prevent these strings
   from being translated if the po file "by chance" contains a matching translation.
 -->
 		<para>

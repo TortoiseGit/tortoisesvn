@@ -25,7 +25,7 @@
 						programs as well. You could e.g. mount such
 						a repository as a "Web folder" in the Windows
 						explorer and then access it like any other
-						folder in the filesystem
+						folder in the file system.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -167,7 +167,7 @@
 				</listitem>
 				<listitem>
 					<indexterm>
-						<primary>mod_authz_svn</primary>
+						<primary condition="pot">mod_authz_svn</primary>
 					</indexterm>
 					<para>
 						Using the windows explorer, go to the installation
@@ -219,15 +219,15 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 		<para>
 			Now you have set up Apache and Subversion, but Apache doesn't
 			know how to handle Subversion clients like TortoiseSVN yet.
-			To get Apache to know which URL shall be used for Subversion
-			repositories you have to edit the Apache config file (usually
+			To get Apache to know which URL will be used for Subversion
+			repositories you have to edit the Apache configuration file (usually
 			located in
 			<filename>c:\program files\apache group\apache2\conf\httpd.conf</filename>)
 			with any text editor you like (e.g. Notepad):
 		<orderedlist>
 				<listitem>
 					<para>
-						At the end of the Config file add the following lines:
+						At the end of the config file add the following lines:
 <screen>
 &lt;Location /svn&gt;
 DAV svn
@@ -263,7 +263,7 @@ Require valid-user
 <screen>
 bin\htpasswd -c passwd &lt;username&gt;
 </screen>
-						This will create a file with the name passwd which is
+						This will create a file with the name <filename>passwd</filename> which is
 						used for authentication. Additional users can be added
 						with
 <screen>
@@ -290,10 +290,10 @@ bin\htpasswd passwd &lt;username&gt;
 			</orderedlist>
 		</para>
 		<indexterm>
-			<primary>SVNPath</primary>
+			<primary condition="pot">SVNPath</primary>
 		</indexterm>
 		<indexterm>
-			<primary>SVNParentPath</primary>
+			<primary condition="pot">SVNParentPath</primary>
 		</indexterm>
 		<para>
 			A short explanation of what you just entered:
@@ -310,69 +310,69 @@ bin\htpasswd passwd &lt;username&gt;
 					</thead>
 					<tbody>
 						<row>
-							<entry>&lt;Location /svn&gt;</entry>
+							<entry condition="pot">&lt;Location /svn&gt;</entry>
 							<entry>
 								means that the Subversion repositories are available from the URL
 								<systemitem class="url">http://MyServer/svn/</systemitem>
 							</entry>
 						</row>
 						<row>
-							<entry>DAV svn</entry>
+							<entry condition="pot">DAV svn</entry>
 							<entry>
 								tells Apache which module will be responsible to serve
 								that URL - in this case the Subversion module.
 							</entry>
 						</row>
 						<row>
-							<entry>SVNListParentPath on</entry>
+							<entry condition="pot">SVNListParentPath on</entry>
 							<entry>
 								For Subversion version 1.3 and higher, this directive enables
 								listing all the available repositories under SVNParentPath.
 							</entry>
 						</row>
 						<row>
-							<entry>SVNParentPath D:\SVN</entry>
+							<entry condition="pot">SVNParentPath D:\SVN</entry>
 							<entry>
 								tells Subversion to look for repositories below
 								<filename>D:\SVN</filename>
 							</entry>
 						</row>
 						<row>
-							<entry>SVNIndexXSLT "/svnindex.xsl"</entry>
+							<entry condition="pot">SVNIndexXSLT "/svnindex.xsl"</entry>
 							<entry>
 								Used to make the browsing with a web browser
 								more pretty.
 							</entry>
 						</row>						
 						<row>
-							<entry>AuthType Basic</entry>
+							<entry condition="pot">AuthType Basic</entry>
 							<entry>
 								is to activate basic authentication, i.e.
 								Username/password
 							</entry>
 						</row>
 						<row>
-							<entry>AuthName "Subversion repositories"</entry>
+							<entry condition="pot">AuthName "Subversion repositories"</entry>
 							<entry>
 								is used as an information whenever an authentication
 								dialog pops up to tell the user what the authentication is for
 							</entry>
 						</row>
 						<row>
-							<entry>AuthUserFile passwd</entry>
+							<entry condition="pot">AuthUserFile passwd</entry>
 							<entry>
 								specifies which password file to use for authentication
 							</entry>
 						</row>
 						<row>
-							<entry>AuthzSVNAccessFile</entry>
+							<entry condition="pot">AuthzSVNAccessFile</entry>
 							<entry>
 								Location of the Access file for paths inside a
 								Subversion repository
 							</entry>
 						</row>
 						<row>
-							<entry>Require valid-user</entry>
+							<entry condition="pot">Require valid-user</entry>
 							<entry>
 								specifies that only users who entered a correct
 								username/password are allowed to access the URL
@@ -578,10 +578,10 @@ Require valid-user
 			<primary>Authorization</primary>
 		</indexterm>
 		<indexterm>
-			<primary>mod_authz_svn</primary>
+			<primary condition="pot">mod_authz_svn</primary>
 		</indexterm>
 		<para>
-			The mod_authz_svn module permits fine-grained control of access
+			The <literal>mod_authz_svn</literal> module permits fine-grained control of access
 			permissions based on user names and repository paths. This is
 			available with the Apache server, and as of Subversion 1.3
 			it is available with svnserve as well.
@@ -714,7 +714,7 @@ SSPIOfferBasic On
 		</itemizedlist>
 		<para>
 			Note that if you are authenticating using SSPI, then you don't
-			need the <filename>AuthUserFile</filename> line to define a
+			need the <literal>AuthUserFile</literal> line to define a
 			password file any more. Apache authenticates your username and
 			password against your windows domain instead.  You will need to 
 			update the users list in your <filename>svnaccessfile</filename> 
@@ -723,13 +723,14 @@ SSPIOfferBasic On
 		</para>
 		<tip>
 			<para>
-				Subversion AuthzSVNAccessFile files are case sensitive in 
-				regard to user names ("JUser" is different from "juser"). 
+				Subversion <filename>AuthzSVNAccessFile</filename> files are
+				case sensitive in regard to user names (<literal>JUser</literal>
+				is different from <literal>juser</literal>). 
 			</para>
 			<para>
 				In Microsoft's world, Windows domains and user names are not
 				case sensitive.  Even so, some network administrators like 
-				to create user accounts in CamelCase (e.g. "JUser").
+				to create user accounts in CamelCase (e.g. <literal>JUser</literal>).
 			</para>
 			<para>
 				This difference can bite you when using SSPI authentication 
@@ -805,13 +806,13 @@ SetEnvIf User-Agent ".*MSIE.*" \
 						<ulink url="http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49">
 								<citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle>
 							</ulink>
-						But if you want ntlm authentication you have to use keepalive:
+						But if you want NTLM authentication you have to use <literal>keepalive:</literal>
 						<ulink url="http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp">
 								<citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle>
 							</ulink>
-						If You uncomment the whole "SetEnvIf" You should be able to
+						If You uncomment the whole <literal>SetEnvIf</literal> you should be able to
 						authenticate IE with windows authentication over SSL against 
-						the apache on Win32 with included mod_auth_sspi.
+						the apache on Win32 with included <literal>mod_auth_sspi</literal>.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -907,7 +908,7 @@ Require valid-user
 				<para>
 					Open the file
 					<filename>ssl.conf</filename>
-					in the Apache conf folder with a text editor.
+					in the Apache <filename>conf</filename> folder with a text editor.
 				</para>
 			</listitem>
 			<listitem>
@@ -987,7 +988,7 @@ SSLMutex  default
 			</listitem>
 			<listitem>
 				<para>
-					Openssl needs a config file. You can download
+					OpenSSL needs a config file. You can download
 					a working one from
 					<ulink url="http://tud.at/programm/openssl.cnf">
 						<citetitle>http://tud.at/programm/openssl.cnf</citetitle>
