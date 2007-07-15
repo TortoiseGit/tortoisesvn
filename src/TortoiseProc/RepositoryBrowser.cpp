@@ -94,6 +94,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_pListDropTarget(NULL)
 	, m_bCancelled(false)
 	, m_diffKind(svn_node_none)
+	, m_hAccel(NULL)
 {
 }
 
