@@ -90,6 +90,15 @@ All user/site specific configuration is stored in doc.build.user.
 				]]>
 			</code>
 		</script>
+		<!-- tune path to xsltproc.exe in aspell.bat -->
+		<copy file="aspell.in" tofile="aspell.bat" overwrite="true">
+			<filterchain>
+				<replacetokens begintoken="$" endtoken="$">
+					<token key="XSLTProcPath" value="${path.bin}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
 	</target>
 
 <!-- ====================================================================== -->
