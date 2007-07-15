@@ -1086,7 +1086,7 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 		{
 			int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
 			if (ret)
-				return ret;
+				return TRUE;
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
