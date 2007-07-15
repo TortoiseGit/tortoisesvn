@@ -1070,13 +1070,13 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 	if (pMsg->message>=WM_KEYFIRST && pMsg->message<=WM_KEYLAST)
 	{
 		// Check if there is an Inplace Edit active:
-		// Done in a fast check. Inplace edit controls are child
-		// windows of our dialog. So if we check the parent of the
-		// window with the focus we will find it.
+		// inplace edits are done with an edit control, where the parent
+		// is the control with the editable item (tree or list control here)
 		HWND hWndFocus = ::GetFocus();
-		if (hWndFocus && ::GetParent(hWndFocus)!=m_hWnd)
+		if (hWndFocus)
+			hWndFocus = ::GetParent(hWndFocus);
+		if (hWndFocus && ((hWndFocus == m_RepoTree.GetSafeHwnd())||(hWndFocus == m_RepoList.GetSafeHwnd())))
 		{
-			// Might be the sub control of the tree control that has the focus
 			// Do a direct translation.
 			::TranslateMessage(pMsg);
 			::DispatchMessage(pMsg);
@@ -1084,7 +1084,9 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 		}
 		if (m_hAccel)
 		{
-			return TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
+			int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
+			if (ret)
+				return ret;
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
