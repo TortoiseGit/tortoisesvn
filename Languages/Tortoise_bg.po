@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-06-27 14:55+0200\n"
+"PO-Revision-Date: 2007-07-16 00:10+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr "%d файла маркирани, %d файла общо"
 #: ID:226,
 #, c-format
 msgid "%ld minute(s) and %ld second(s)"
-msgstr "%ld минута(-и) и %ld секунда(-и)"
+msgstr "%ld минута(и) и %ld секунда(и)"
 
 # ID:7,
 #: ID:7,
@@ -272,6 +272,19 @@ msgstr ""
 "%s\n"
 "е директория, а не файл!\n"
 "TortoiseMerge не може да сравнява директории."
+
+#: ID:286,
+#, c-format
+msgid ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
+msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -570,6 +583,11 @@ msgstr "&От ревизия"
 msgid "&Go To Line..."
 msgstr "&Преход до ред..."
 
+# ID:13,
+#: MenuEntry
+msgid "&Group branches"
+msgstr "&Групиране на разклоненията"
+
 # Control-ID:1032,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
@@ -702,6 +720,10 @@ msgstr "&Мрежови устройства"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "&Нов"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "&Най-новите - на върха"
 
 # Control-ID:1208,
 #: ID:115,#:
@@ -850,6 +872,13 @@ msgstr "&Запис..."
 msgid "&Settings"
 msgstr "&Настройки"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "Показване на &главните ревизии"
+
 # Control-ID:1185,
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
@@ -881,7 +910,7 @@ msgstr "Размер на &табулатора:"
 
 # Control-ID:1222,
 #: Control-ID:1222,
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Изчакване (в секунди) на разбора за автоматично дописване"
 
 # Control-ID:65535,#:
@@ -973,7 +1002,7 @@ msgstr "&Обновяване до ревизия..."
 
 # Control-ID:1184,
 #: Control-ID:1184,
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Автоматично дописване на имена на файлове и ключови думи"
 
 # Control-ID:65535,#:
@@ -1301,7 +1330,7 @@ msgstr "Файл е дОбавен отдалечено"
 # ID:126,
 #: ID:126,
 msgid "Added a folder remotely"
-msgstr "Папка е дОбавена отдалечено"
+msgstr "Папка е добавена отдалечено"
 
 # ID:126,
 #: ID:126,
@@ -1556,14 +1585,6 @@ msgstr "Сигурни ли сте, че желаете да отмените п
 msgid "Arrange &Vertical"
 msgstr "&Вертикално подреждане"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Подреждане според &пътя"
-
-#: ID:2050,
-msgid "Arranges the nodes sorted by path"
-msgstr "Подреждане на възлите според пътя"
-
 # ID:13,
 #: ID:264,
 #, c-format
@@ -1644,9 +1665,11 @@ msgstr "Автоматично затваряне, ако няма сливан�
 # ID:195,
 #: ID:195,
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
-msgstr "Автоматичното дописване подсказва думи (обикновено имена на класове или членове) от файловете, които сте променили, докато пишете съобщение за дневника."
+msgstr ""
+"Автоматичното дописване подсказва думи (обикновено имена на класове или членове)\n"
+"от файловете, които сте променили, докато пишете съобщение за дневника."
 
 # ID:438,#:
 # ID:438,
@@ -1705,6 +1728,10 @@ msgstr "Из&бор..."
 #: ID:115,
 msgid "Branch / tag created successfully!"
 msgstr "Разклонението / етикетът е създаден успешно!"
+
+#: ID:2052,
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "Разклонение при \"copy-from-rev\", дори и когато в тази ревизия няма промени"
 
 # ID:9,
 #: ID:9,
@@ -2857,6 +2884,10 @@ msgid "Dry Run"
 msgstr "Симулация"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "&Точни източници на копиране"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "&Изход"
 
@@ -3366,6 +3397,10 @@ msgstr "Напасване на картинките &заедно"
 msgid "Floppy drives (A: B:)"
 msgstr "Дискетни устройства (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "&Сгъване на етикетите"
+
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid "Font"
@@ -3438,6 +3473,10 @@ msgstr "Създаване на файл с кръпка..."
 #: ID:16,
 msgid "Get loc&k..."
 msgstr "&Заключване..."
+
+#: ID:114,
+msgid "Get merge logs"
+msgstr "Получаване на дневниците за сливанията"
 
 # ID:89,
 #: ID:89,
@@ -3544,6 +3583,10 @@ msgstr "Тип на диаграмата:"
 #: ID:214,
 msgid "Group changelists"
 msgstr "Групиране на списъци с промени"
+
+#: ID:2050,
+msgid "Groups branches together"
+msgstr "Групира разклоненията заедно"
 
 # Control-ID:1229,
 #: Control-ID:1229,
@@ -3687,6 +3730,18 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814;
+#: '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814;
+#: '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601;
 #: '&Open Ctrl-O'
@@ -3705,6 +3760,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
 #: '&Copy'
@@ -3977,6 +4033,11 @@ msgstr "Внася директорията в хранилище"
 #: Control-ID:1266,
 msgid "Include ignored files"
 msgstr "Включване и на игнорираните файлове"
+
+# Dlg-ID:173,
+#: Control-ID:1126,
+msgid "Include merged revisions"
+msgstr "Включване на слетите ревизии"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -4431,6 +4492,7 @@ msgid "Max. items to keep in the log message history"
 msgstr "Максимален брой съобщения за съхранение в хронологията"
 
 # Dlg-ID:141,
+#: ID:276,#:
 #: Dlg-ID:141,#:
 #: Control-ID:65535,
 msgid "Merge"
@@ -4453,6 +4515,18 @@ msgstr "Дълбочина на сливане"
 msgid "Merged"
 msgstr "Слят"
 
+# ID:313,
+#: ID:286,
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Слята ревизия %s от %s:\n"
+
+# ID:229,
+#: ID:286,
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Слети ревизии %s до %s от %s:\n"
+
 # ID:10,
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -4474,6 +4548,17 @@ msgstr "Сливане на %s от ревизия %s до %s в %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Сливане от %s, ревизия %s до %s, ревизия %s в %s, %s%s"
+
+# Control-ID:65535,
+#: ID:264,
+#, c-format
+msgid "Merging r%ld"
+msgstr "Сливане на r%ld"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Сливане от r%ld до r%ld"
 
 # ID:83,
 #: ID:83,
@@ -5350,6 +5435,10 @@ msgstr "Прочетете 'Упътване за всекидневна упо�
 msgid "Recently modified lines"
 msgstr "Наскоро променени редове"
 
+#: ID:276,
+msgid "Record Only"
+msgstr "Само запис"
+
 # Control-ID:1073,
 #: Control-ID:1260,
 msgid "Recurse into unversioned folders"
@@ -5779,20 +5868,44 @@ msgstr "Ревизия:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%S"
 msgstr ""
 "Ревизия: %ld\n"
-"URL: %s\r\n"
-"Автор: %s\r\n"
+"URL: %S\r\n"
+"Автор: %S\r\n"
 "Дата: %s\r\n"
 "\r\n"
 "Съобщение от дневника:\r\n"
-"%s"
+"%S"
+
+# ID:272,
+#: ID:272,
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%S\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%S"
+msgstr ""
+"Ревизия: %ld\n"
+"URL: %S\r\n"
+"Автор: %S\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Етикети:%S\r\n"
+"\r\n"
+"Съобщение от дневника:\r\n"
+"%S"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -6168,8 +6281,8 @@ msgstr "&Адрес на сървъра:"
 
 # Control-ID:1088,
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit &time\""
-msgstr "Установяване на датите на файловете според \"&време на последното поверяване\""
+msgid "Set file dates to the \"last commit &time\""
+msgstr "Установяване на датата на файловете според \"&време на последното поверяване\""
 
 # ID:13,
 #: ID:13,
@@ -6263,6 +6376,11 @@ msgstr "Показване на &неконтролираните файлове
 msgid "Show File List"
 msgstr "Показване на списъкa с файлове"
 
+# ID:76,
+#: ID:2051,
+msgid "Show HEAD revision nodes"
+msgstr "Показване на възли за главната ревизия"
+
 # Control-ID:1126,
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
@@ -6307,6 +6425,11 @@ msgstr "Лента с разликите в &реда"
 msgid "Show linenumber&s"
 msgstr "&Номерация на редовете"
 
+# Control-ID:1073,
+#: ID:2051,
+msgid "Show oldest node at top"
+msgstr "Най-старият възел - на върха"
+
 # ID:3713,
 #: ID:3713,
 msgid ""
@@ -6333,6 +6456,10 @@ msgid ""
 msgstr ""
 "Показване на специални символи за празните символи\n"
 "Показване на празните символи"
+
+#: ID:2052,
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Показване на етикетите при източниците на копиране, а не като самостоятелни възли"
 
 # Control-ID:1073,
 #: Control-ID:1209,
@@ -6442,6 +6569,15 @@ msgstr "Укажете обхвата от ревизии, която желае
 #: ID:376,
 msgid "Split lines"
 msgstr "Разделяне на редовете"
+
+# ID:376,
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "&Разделяне на дълги разклонения"
+
+#: ID:2052,
+msgid "Split long, inactive branches into segments"
+msgstr "Разделя дълги, неактивни разклонения на сегменти"
 
 # ID:3604,
 #: ID:3604,
@@ -7015,7 +7151,7 @@ msgstr ""
 #: ID:195,
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
 "Време (в секунди), след изтичането на което спира разбора на избраните файлове.\n"
