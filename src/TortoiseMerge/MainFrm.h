@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,6 @@ protected:
 	afx_msg void	OnEditUseMine();
 	afx_msg void	OnEditUseTheirsThenMine();
 	afx_msg void	OnEditUseMineThenTheirs();
-	afx_msg void	OnUpdateTextBlockSelection(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
 	afx_msg void	OnMergeMarkasresolved();
 	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);

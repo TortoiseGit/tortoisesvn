@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,32 +32,7 @@ CLeftView::~CLeftView(void)
 {
 }
 
-BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
-{
-	//The left view is always visible - even in one-way diff...
-	if (!m_pwndRight->IsWindowVisible())
-	{
-		//Right view is not visible -> one way diff
-		return FALSE;		//no editing in one way diff
-	}
-	
-	//The left view is always "Theirs" in both two and three-way diff
-	switch (state)
-	{
-	case CDiffData::DIFFSTATE_ADDED:
-	case CDiffData::DIFFSTATE_REMOVED:
-	case CDiffData::DIFFSTATE_CONFLICTED:
-	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-	case CDiffData::DIFFSTATE_CONFLICTADDED:
-	case CDiffData::DIFFSTATE_EMPTY:
-		return TRUE;
-	default:
-		return FALSE;
-	}
-	//return FALSE;
-}
-
-void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
+void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates state)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())
@@ -68,12 +43,26 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
 #define ID_USEYOURANDTHEIRBLOCK 4
 #define ID_USEBOTHTHISFIRST 5
 #define ID_USEBOTHTHISLAST 6
-		UINT uEnabled = MF_ENABLED;
+
+		UINT uFlags = MF_ENABLED;
 		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-			uEnabled |= MF_DISABLED | MF_GRAYED;
+			uFlags |= MF_DISABLED | MF_GRAYED;
 		CString temp;
+		
+		bool bImportantBlock = false;
+		switch (state)
+		{
+		case CDiffData::DIFFSTATE_ADDED:
+		case CDiffData::DIFFSTATE_REMOVED:
+		case CDiffData::DIFFSTATE_CONFLICTED:
+		case CDiffData::DIFFSTATE_CONFLICTEMPTY:
+		case CDiffData::DIFFSTATE_CONFLICTADDED:
+		case CDiffData::DIFFSTATE_EMPTY:
+			bImportantBlock = true;
+			break;
+		}
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USEBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBLOCK, temp);
 
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
@@ -81,16 +70,16 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
 		if (m_pwndBottom->IsWindowVisible())
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEYOURANDTHEIRBLOCK, temp);
+			popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USETHEIRANDYOURBLOCK, temp);
+			popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
 		}
 		else
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEBOTHTHISFIRST, temp);
+			popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISFIRST, temp);
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEBOTHTHISLAST, temp);
+			popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);

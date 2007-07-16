@@ -1698,13 +1698,8 @@ int CBaseView::GetLineFromPoint(CPoint point)
 	return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/)
+void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, CDiffData::DiffStates /*state*/)
 {
-}
-
-BOOL CBaseView::ShallShowContextMenu(CDiffData::DiffStates /*state*/, int /*nLine*/)
-{
-	return FALSE;
 }
 
 void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -1723,7 +1718,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		{
 			// if there's nothing selected, or if the selection is outside the window then
 			// select the diff block under the cursor.
-			if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine)))||
+			if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0))||
 				((m_nSelBlockEnd < m_nTopLine)||(m_nSelBlockStart > m_nTopLine+m_nScreenLines)))
 			{
 				while (nIndex >= 0)
@@ -1749,9 +1744,9 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				Invalidate();
 			}
 		}
-		if ((m_nSelBlockStart <= (nLine-1))&&(m_nSelBlockEnd >= (nLine-1))&&(ShallShowContextMenu(state, nLine)))
+		//if ((m_nSelBlockStart <= (nLine-1))&&(m_nSelBlockEnd >= (nLine-1)))
 		{
-			OnContextMenu(point, nLine);
+			OnContextMenu(point, nLine, state);
 			m_nSelBlockStart = -1;
 			m_nSelBlockEnd = -1;
 			RefreshViews();

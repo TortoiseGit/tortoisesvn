@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,31 +32,7 @@ CRightView::~CRightView(void)
 {
 }
 
-BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
-{
-	//The right view is not visible in one-way diff...
-	if (!this->IsWindowVisible())
-	{
-		return FALSE;
-	}
-
-	//The right view is always "Yours" in both two and three-way diff
-	switch (state)
-	{
-	case CDiffData::DIFFSTATE_ADDED:
-	case CDiffData::DIFFSTATE_REMOVED:
-	case CDiffData::DIFFSTATE_CONFLICTED:
-	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-	case CDiffData::DIFFSTATE_CONFLICTADDED:
-	case CDiffData::DIFFSTATE_EMPTY:
-		return TRUE;
-	default:
-		return FALSE;
-	}
-	//return FALSE;
-}
-
-void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
+void CRightView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates state)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())
@@ -72,13 +48,27 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
 			uEnabled |= MF_DISABLED | MF_GRAYED;
 		CString temp;
+
+		bool bImportantBlock = false;
+		switch (state)
+		{
+		case CDiffData::DIFFSTATE_ADDED:
+		case CDiffData::DIFFSTATE_REMOVED:
+		case CDiffData::DIFFSTATE_CONFLICTED:
+		case CDiffData::DIFFSTATE_CONFLICTEMPTY:
+		case CDiffData::DIFFSTATE_CONFLICTADDED:
+		case CDiffData::DIFFSTATE_EMPTY:
+			bImportantBlock = true;
+			break;
+		}
+
 		if (!m_pwndBottom->IsWindowVisible())
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
 		}
 		else
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USEBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBLOCK, temp);
 
 		if (!m_pwndBottom->IsWindowVisible())
 		{
@@ -91,16 +81,16 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		if (m_pwndBottom->IsWindowVisible())
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEYOURANDTHEIRBLOCK, temp);
+			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USETHEIRANDYOURBLOCK, temp);
+			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
 		}
 		else
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEBOTHTHISFIRST, temp);
+			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISFIRST, temp);
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-			popup.AppendMenu(MF_STRING | uEnabled, ID_USEBOTHTHISLAST, temp);
+			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);

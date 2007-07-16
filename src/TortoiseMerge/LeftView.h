@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,6 @@ public:
 	CLeftView(void);
 	~CLeftView(void);
 protected:
-	void	OnContextMenu(CPoint point, int nLine);
-	BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
+	void	OnContextMenu(CPoint point, int nLine, CDiffData::DiffStates state);
 	
 };

@@ -164,8 +164,7 @@ protected:
 	void			RefreshViews();
 	COLORREF		IntenseColor(long scale, COLORREF col);
 
-	virtual BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
-	virtual	void	OnContextMenu(CPoint point, int nLine);
+	virtual	void	OnContextMenu(CPoint point, int nLine, CDiffData::DiffStates state);
 	/**
 	 * Updates the status bar pane. Call this if the document changed.
 	 */

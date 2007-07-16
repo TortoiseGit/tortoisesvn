@@ -84,10 +84,6 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
     ON_COMMAND(ID_EDIT_USEMYBLOCK, &CMainFrame::OnEditUseMine)
     ON_COMMAND(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnEditUseTheirsThenMine)
     ON_COMMAND(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnEditUseMineThenTheirs)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnUpdateTextBlockSelection)
 	ON_COMMAND(ID_EDIT_UNDO, &CMainFrame::OnEditUndo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, &CMainFrame::OnUpdateEditUndo)
 END_MESSAGE_MAP()
@@ -1409,15 +1405,6 @@ void CMainFrame::OnEditUseMineThenTheirs()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseMyThenTheirTextBlock();
-}
-
-void CMainFrame::OnUpdateTextBlockSelection(CCmdUI *pCmdUI)
-{
-	BOOL bEnable = FALSE;
-	if (m_pwndBottomView)
-		bEnable = m_pwndBottomView->CanSelectTextBlocks();
-
-	pCmdUI->Enable(bEnable);
 }
 
 void CMainFrame::OnFileReload()

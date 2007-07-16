@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,43 +32,7 @@ CBottomView::~CBottomView(void)
 {
 }
 
-BOOL CBottomView::CanSelectTextBlocks()
-{
-BOOL bEnable = FALSE;
-
-	if (m_nSelBlockEnd >= 0)
-	{
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockEnd);
-		bEnable = ShallShowContextMenu(state, 0);
-	}
-	return bEnable;
-}
-
-BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
-{
-	//The bottom view is not visible in one and two-way diff...
-	if (!this->IsWindowVisible())
-	{
-		return FALSE;
-	}
-
-	//The bottom view is always "Merged" in three-way diff
-	switch (state)
-	{
-	case CDiffData::DIFFSTATE_ADDED:
-	case CDiffData::DIFFSTATE_REMOVED:
-	case CDiffData::DIFFSTATE_CONFLICTED:
-	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-	case CDiffData::DIFFSTATE_CONFLICTADDED:
-	case CDiffData::DIFFSTATE_EMPTY:
-		return TRUE;
-	default:
-		return FALSE;
-	}
-	//return FALSE;
-}
-
-void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
+void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates state)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())
@@ -81,14 +45,28 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
 		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
 			uEnabled |= MF_DISABLED | MF_GRAYED;
 		CString temp;
+
+		bool bImportantBlock = false;
+		switch (state)
+		{
+		case CDiffData::DIFFSTATE_ADDED:
+		case CDiffData::DIFFSTATE_REMOVED:
+		case CDiffData::DIFFSTATE_CONFLICTED:
+		case CDiffData::DIFFSTATE_CONFLICTEMPTY:
+		case CDiffData::DIFFSTATE_CONFLICTADDED:
+		case CDiffData::DIFFSTATE_EMPTY:
+			bImportantBlock = true;
+			break;
+		}
+
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USETHEIRBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRBLOCK, temp);
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USEYOURBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURBLOCK, temp);
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USEYOURANDTHEIRBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled, ID_USETHEIRANDYOURBLOCK, temp);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
