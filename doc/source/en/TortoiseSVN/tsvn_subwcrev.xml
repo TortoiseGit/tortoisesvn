@@ -70,7 +70,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">-n</entry>
+							<entry>-n</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								ERRORLEVEL 7 if the working copy contains
@@ -79,7 +79,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">-m</entry>
+							<entry>-m</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								ERRORLEVEL 8 if the working copy contains
@@ -88,7 +88,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">-d</entry>
+							<entry>-d</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								ERRORLEVEL 9 if the destination file already
@@ -96,7 +96,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">-f</entry>
+							<entry>-f</entry>
 							<entry>
 								If this switch is given, SubWCRev will include
 								the last-changed revision of folders. The default
@@ -105,7 +105,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">-e</entry>
+							<entry>-e</entry>
 							<entry>
 								If this switch is given, SubWCRev will examine
 								directories which are included with svn:externals,
@@ -139,14 +139,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">$WCREV$</entry>
+							<entry>$WCREV$</entry>
 							<entry>
 								Replaced with the highest commit revision
 								in the working copy.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCDATE$</entry>
+							<entry>$WCDATE$</entry>
 							<entry>
 								Replaced with the commit date/time of the
 								highest commit revision. To avoid confusion,
@@ -155,7 +155,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCNOW$</entry>
+							<entry>$WCNOW$</entry>
 							<entry>
 								Replaced with the current system date/time.
 								This can be used to indicate the build time.
@@ -163,7 +163,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCRANGE$</entry>
+							<entry>$WCRANGE$</entry>
 							<entry>
 								Replaced with the update revision range in
 								the working copy. If the working copy is in a
@@ -175,21 +175,21 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCMIXED?TText:FText$</entry>
+							<entry>$WCMIXED?TText:FText$</entry>
 							<entry>
 								Replaced with <literal>TText</literal> if there are mixed update
 								revisions, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCMODS?TText:FText$</entry>
+							<entry>$WCMODS?TText:FText$</entry>
 							<entry>
 								Replaced with <literal>TText</literal> if there are local
 								modifications, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCURL$</entry>
+							<entry>$WCURL$</entry>
 							<entry>
 								Replaced with the repository URL of the working
 								copy path passed to SubWCRev.
@@ -268,7 +268,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">GetWCInfo</entry>
+							<entry>GetWCInfo</entry>
 							<entry>
 								This method traverses the working copy gathering the
 								revision information. Naturally you must call this before
@@ -283,40 +283,40 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">Revision</entry>
+							<entry>Revision</entry>
 							<entry>
 								The highest commit revision in the working copy.
 								Equivalent to <literal>$WCREV$</literal>
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">Date</entry>
+							<entry>Date</entry>
 							<entry>
 								The commit date/time of the highest commit revision.
 								Equivalent to <literal>$WCDATE$</literal>
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">Author</entry>
+							<entry>Author</entry>
 							<entry>
 								The author of the highest commit revision, that is, the
 								last person to commit changes to the working copy.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">MinRev</entry>
+							<entry>MinRev</entry>
 							<entry>The minimum update revision, as shown in <literal>$WCRANGE$</literal></entry>
 						</row>
 						<row>
-							<entry condition="pot">MaxRev</entry>
+							<entry>MaxRev</entry>
 							<entry>The maximum update revision, as shown in <literal>$WCRANGE$</literal></entry>
 						</row>
 						<row>
-							<entry condition="pot">HasModifications</entry>
+							<entry>HasModifications</entry>
 							<entry>True if there are local modifications</entry>
 						</row>
 						<row>
-							<entry condition="pot">Url</entry>
+							<entry>Url</entry>
 							<entry>
 								Replaced with the repository URL of the working
 								copy path used in <literal>GetWCInfo</literal>.

@@ -167,7 +167,7 @@
 				</listitem>
 				<listitem>
 					<indexterm>
-						<primary condition="pot">mod_authz_svn</primary>
+						<primary>mod_authz_svn</primary>
 					</indexterm>
 					<para>
 						Using the windows explorer, go to the installation
@@ -290,10 +290,10 @@ bin\htpasswd passwd &lt;username&gt;
 			</orderedlist>
 		</para>
 		<indexterm>
-			<primary condition="pot">SVNPath</primary>
+			<primary>SVNPath</primary>
 		</indexterm>
 		<indexterm>
-			<primary condition="pot">SVNParentPath</primary>
+			<primary>SVNParentPath</primary>
 		</indexterm>
 		<para>
 			A short explanation of what you just entered:
@@ -310,69 +310,69 @@ bin\htpasswd passwd &lt;username&gt;
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">&lt;Location /svn&gt;</entry>
+							<entry>&lt;Location /svn&gt;</entry>
 							<entry>
 								means that the Subversion repositories are available from the URL
 								<systemitem class="url">http://MyServer/svn/</systemitem>
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">DAV svn</entry>
+							<entry>DAV svn</entry>
 							<entry>
 								tells Apache which module will be responsible to serve
 								that URL - in this case the Subversion module.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">SVNListParentPath on</entry>
+							<entry>SVNListParentPath on</entry>
 							<entry>
 								For Subversion version 1.3 and higher, this directive enables
 								listing all the available repositories under SVNParentPath.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">SVNParentPath D:\SVN</entry>
+							<entry>SVNParentPath D:\SVN</entry>
 							<entry>
 								tells Subversion to look for repositories below
 								<filename>D:\SVN</filename>
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">SVNIndexXSLT "/svnindex.xsl"</entry>
+							<entry>SVNIndexXSLT "/svnindex.xsl"</entry>
 							<entry>
 								Used to make the browsing with a web browser
 								more pretty.
 							</entry>
 						</row>						
 						<row>
-							<entry condition="pot">AuthType Basic</entry>
+							<entry>AuthType Basic</entry>
 							<entry>
 								is to activate basic authentication, i.e.
 								Username/password
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">AuthName "Subversion repositories"</entry>
+							<entry>AuthName "Subversion repositories"</entry>
 							<entry>
 								is used as an information whenever an authentication
 								dialog pops up to tell the user what the authentication is for
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">AuthUserFile passwd</entry>
+							<entry>AuthUserFile passwd</entry>
 							<entry>
 								specifies which password file to use for authentication
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">AuthzSVNAccessFile</entry>
+							<entry>AuthzSVNAccessFile</entry>
 							<entry>
 								Location of the Access file for paths inside a
 								Subversion repository
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">Require valid-user</entry>
+							<entry>Require valid-user</entry>
 							<entry>
 								specifies that only users who entered a correct
 								username/password are allowed to access the URL
@@ -578,7 +578,7 @@ Require valid-user
 			<primary>Authorization</primary>
 		</indexterm>
 		<indexterm>
-			<primary condition="pot">mod_authz_svn</primary>
+			<primary>mod_authz_svn</primary>
 		</indexterm>
 		<para>
 			The <literal>mod_authz_svn</literal> module permits fine-grained control of access
