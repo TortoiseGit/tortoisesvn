@@ -251,6 +251,16 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-subwcrev-com-interface">
 		<title>COM interface</title>
+<!--
+ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
+Don't touch these lines:
+<entry condition="pot">.GetWCInfo</entry>
+
+	The condition="pot" prevents the strings from being extracted into
+	the .pot file, so nobody translates them.
+	The dot in front of the command has to stay there to prevent these strings
+	from being translated if the po file "by chance" contains a matching translation.
+-->
 		<para>
 			If you need to access Subversion revision information from other
 			programs, you can use the COM interface of SubWCRev. The object to
@@ -269,7 +279,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 					</thead>
 					<tbody>
 						<row>
-							<entry>GetWCInfo</entry>
+							<entry condition="pot">.GetWCInfo</entry>
 							<entry>
 								This method traverses the working copy gathering the
 								revision information. Naturally you must call this before
@@ -284,40 +294,40 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 							</entry>
 						</row>
 						<row>
-							<entry>Revision</entry>
+							<entry condition="pot">.Revision</entry>
 							<entry>
 								The highest commit revision in the working copy.
 								Equivalent to <literal>$WCREV$</literal>
 							</entry>
 						</row>
 						<row>
-							<entry>Date</entry>
+							<entry condition="pot">.Date</entry>
 							<entry>
 								The commit date/time of the highest commit revision.
 								Equivalent to <literal>$WCDATE$</literal>
 							</entry>
 						</row>
 						<row>
-							<entry>Author</entry>
+							<entry condition="pot">.Author</entry>
 							<entry>
 								The author of the highest commit revision, that is, the
 								last person to commit changes to the working copy.
 							</entry>
 						</row>
 						<row>
-							<entry>MinRev</entry>
+							<entry condition="pot">.MinRev</entry>
 							<entry>The minimum update revision, as shown in <literal>$WCRANGE$</literal></entry>
 						</row>
 						<row>
-							<entry>MaxRev</entry>
+							<entry condition="pot">.MaxRev</entry>
 							<entry>The maximum update revision, as shown in <literal>$WCRANGE$</literal></entry>
 						</row>
 						<row>
-							<entry>HasModifications</entry>
+							<entry condition="pot">.HasModifications</entry>
 							<entry>True if there are local modifications</entry>
 						</row>
 						<row>
-							<entry>Url</entry>
+							<entry condition="pot">.Url</entry>
 							<entry>
 								Replaced with the repository URL of the working
 								copy path used in <literal>GetWCInfo</literal>.
