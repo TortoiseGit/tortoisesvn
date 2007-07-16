@@ -6,6 +6,7 @@
               indent="no"/>
 
   <xsl:template match="screen|literal|filename|programlisting|option|primary"/>
+  <xsl:template match='*[@condition="pot"]'/>
 
   <xsl:template match="node() | @*">
     <xsl:copy>
