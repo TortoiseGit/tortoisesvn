@@ -296,27 +296,30 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			{
 				if (*(pTextBuf+1) == '\n')
 				{
-					// crlf lineending
+					// crlf line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
 					Add(line);
+					m_endings.push_back(CFileTextLines::CRLF);
 					pLineStart = pTextBuf+2;
 					++pTextBuf;
 					++i;
 				}
 				else
 				{
-					// cr lineending
+					// cr line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
 					Add(line);
+					m_endings.push_back(CFileTextLines::CR);
 					pLineStart =pTextBuf+1;
 				}
 			}
 		}
 		else if (*pTextBuf == '\n')
 		{
-			// lf lineending
+			// lf line ending
 			CString line(pLineStart, pTextBuf-pLineStart);
 			Add(line);
+			m_endings.push_back(CFileTextLines::LF);
 			pLineStart =pTextBuf+1;
 		}
 		++pTextBuf;

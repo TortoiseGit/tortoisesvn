@@ -21,6 +21,10 @@
 #define IDD_FIND                        139
 #define IDI_WHITESPACELINE              140
 #define IDI_EQUALLINE                   141
+#define IDI_LINEENDINGCR                142
+#define IDI_LINEENDINGCRLF              143
+#define IDI_ICON1                       144
+#define IDI_LINEENDINGLF                144
 #define IDB_LOGOFLIPPED                 168
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDS_SELECTFILE                  200
@@ -213,7 +217,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        142
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         32825
 #define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101

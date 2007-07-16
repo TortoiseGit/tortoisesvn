@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #pragma once
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
-// is infact based on a STL array, which is much faster at large sizes
+// is in fact based on a STL array, which is much faster at large sizes
 template <typename T> class CStdArray
 {
 public:
@@ -44,7 +44,7 @@ typedef CStdArray<DWORD> CStdDWORDArray;
  * \ingroup TortoiseMerge
  *
  * Represents an array of text lines which are read from a file.
- * This class is also responsible for determing the encoding of
+ * This class is also responsible for determining the encoding of
  * the file (e.g. UNICODE, UTF8, ASCII, ...).
  */
 class CFileTextLines  : public CStdCStringArray
@@ -95,6 +95,7 @@ public:
 	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
 	CFileTextLines::LineEndings GetLineEndings() const {return m_LineEndings;}
 
+	std::vector<CFileTextLines::LineEndings>	m_endings;
 private:
 	/**
 	 * Checks the line endings in a text buffer
@@ -103,7 +104,7 @@ private:
 	 */
 	CFileTextLines::LineEndings CheckLineEndings(LPVOID pBuffer, int cb); 
 	/**
-	 * Checks the unicode type in a text buffer
+	 * Checks the Unicode type in a text buffer
 	 * \param pBuffer pointer to the buffer containing text
 	 * \param cd size of the text buffer in bytes
 	 */
@@ -118,8 +119,8 @@ private:
 
 
 private:
-	CString		m_sErrorString;
-	CFileTextLines::UnicodeType	m_UnicodeType;
-	CFileTextLines::LineEndings m_LineEndings;
-	bool		m_bReturnAtEnd;
+	CString										m_sErrorString;
+	CFileTextLines::UnicodeType					m_UnicodeType;
+	CFileTextLines::LineEndings					m_LineEndings;
+	bool										m_bReturnAtEnd;
 };

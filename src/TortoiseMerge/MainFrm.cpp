@@ -568,6 +568,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
 				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
+				m_pwndLeftView->m_endings = &m_Data.m_endingsYourBaseBoth;
 				m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 				m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}
@@ -589,6 +590,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
 				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseLeft;
+				m_pwndLeftView->m_endings = &m_Data.m_endingsYourBaseLeft;
 				m_pwndLeftView->texttype = m_Data.m_arBaseFile.GetUnicodeType();
 				m_pwndLeftView->lineendings = m_Data.m_arBaseFile.GetLineEndings();
 			}
@@ -599,6 +601,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
 				m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
 				m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseRight;
+				m_pwndRightView->m_endings = &m_Data.m_endingsYourBaseRight;
 				m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 				m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}

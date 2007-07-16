@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,12 +130,15 @@ public:
 	CStdCStringArray			m_arDiffYourBaseBoth;
 	CStdDWORDArray				m_arStateYourBaseBoth;
 	CStdDWORDArray				m_arLinesYourBaseBoth;
+	CStdDWORDArray				m_endingsYourBaseBoth;
 	CStdCStringArray			m_arDiffYourBaseLeft;
 	CStdDWORDArray				m_arStateYourBaseLeft;
 	CStdDWORDArray				m_arLinesYourBaseLeft;
+	CStdDWORDArray				m_endingsYourBaseLeft;
 	CStdCStringArray			m_arDiffYourBaseRight;
 	CStdDWORDArray				m_arStateYourBaseRight;
 	CStdDWORDArray				m_arLinesYourBaseRight;
+	CStdDWORDArray				m_endingsYourBaseRight;
 
 	CStdCStringArray			m_arDiffTheirBaseBoth;
 	CStdDWORDArray				m_arStateTheirBaseBoth;

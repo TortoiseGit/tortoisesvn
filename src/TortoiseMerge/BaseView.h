@@ -67,6 +67,7 @@ public:
 	BOOL			GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
 
 	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
+	CStdDWORDArray* m_endings;			///< lineendings of each line in the file
 	CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
 	CStdDWORDArray* m_arDiffDiffStates;///< Array containing the diff states for each line of the 'other' text file
 	CStdDWORDArray*	m_arLineStates;		///< Array containing the diff states for each line
@@ -207,6 +208,10 @@ protected:
 	HICON			m_hConflictedIcon;
 	HICON			m_hWhitespaceBlockIcon;
 	HICON			m_hEqualIcon;
+
+	HICON			m_hLineEndingCR;
+	HICON			m_hLineEndingCRLF;
+	HICON			m_hLineEndingLF;
 
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[8];
