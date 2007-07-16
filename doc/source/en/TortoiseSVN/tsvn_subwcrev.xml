@@ -70,33 +70,33 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry>-n</entry>
+							<entry><option>-n</option></entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
-								ERRORLEVEL 7 if the working copy contains
-								local modifications. This may be used to prevent
-								building with uncommitted changes present.
+								<literal>ERRORLEVEL 7</literal> if the working copy
+								contains local modifications. This may be used to
+								prevent building with uncommitted changes present.
 							</entry>
 						</row>
 						<row>
-							<entry>-m</entry>
+							<entry><option>-m</option></entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
-								ERRORLEVEL 8 if the working copy contains
-								mixed revisions. This may be used to prevent
+								<literal>ERRORLEVEL 8</literal> if the working copy
+								contains mixed revisions. This may be used to prevent
 								building with a partially updated working copy.
 							</entry>
 						</row>
 						<row>
-							<entry>-d</entry>
+							<entry><option>-d</option></entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
-								ERRORLEVEL 9 if the destination file already
-								exists.
+								<literal>ERRORLEVEL 9</literal> if the destination file
+								already exists.
 							</entry>
 						</row>
 						<row>
-							<entry>-f</entry>
+							<entry><option>-f</option></entry>
 							<entry>
 								If this switch is given, SubWCRev will include
 								the last-changed revision of folders. The default
@@ -105,10 +105,11 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry>-e</entry>
+							<entry><option>-e</option></entry>
 							<entry>
 								If this switch is given, SubWCRev will examine
-								directories which are included with svn:externals,
+								directories which are included with
+								<literal>svn:externals</literal>,
 								but only if they are from the same repository.
 								The default behaviour is to ignore externals.
 							</entry>
@@ -139,14 +140,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry>$WCREV$</entry>
+							<entry><option>$WCREV$</option></entry>
 							<entry>
 								Replaced with the highest commit revision
 								in the working copy.
 							</entry>
 						</row>
 						<row>
-							<entry>$WCDATE$</entry>
+							<entry><option>$WCDATE$</option></entry>
 							<entry>
 								Replaced with the commit date/time of the
 								highest commit revision. To avoid confusion,
@@ -155,7 +156,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry>$WCNOW$</entry>
+							<entry><option>$WCNOW$</option></entry>
 							<entry>
 								Replaced with the current system date/time.
 								This can be used to indicate the build time.
@@ -163,7 +164,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry>$WCRANGE$</entry>
+							<entry><option>$WCRANGE$</option></entry>
 							<entry>
 								Replaced with the update revision range in
 								the working copy. If the working copy is in a
@@ -175,21 +176,21 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry>$WCMIXED?TText:FText$</entry>
+							<entry><option>$WCMIXED?TText:FText$</option></entry>
 							<entry>
 								Replaced with <literal>TText</literal> if there are mixed update
 								revisions, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry>$WCMODS?TText:FText$</entry>
+							<entry><option>$WCMODS?TText:FText$</option></entry>
 							<entry>
 								Replaced with <literal>TText</literal> if there are local
 								modifications, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry>$WCURL$</entry>
+							<entry><option>$WCURL$</option></entry>
 							<entry>
 								Replaced with the repository URL of the working
 								copy path passed to SubWCRev.

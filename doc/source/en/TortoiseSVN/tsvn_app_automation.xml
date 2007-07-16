@@ -57,7 +57,7 @@
 			from your batch file or from the TortoiseSVN context menu.
 		</para>
 		<para>
-			To specify a different location of the configuration file, use the param
+			To specify a different location of the configuration file, use the parameter
 			<option>/configdir:"path\to\config\directory"</option>.
 			This will override the default path, including any registry setting.
 		</para>
@@ -174,10 +174,11 @@ Don't touch these lines:
 							<entry>
 								Opens the commit dialog. The path specifies the
 								target directory or the list of files to commit.
-								You can also specify the /logmsg switch to pass
-								a predefined log message to the commit dialog.
+								You can also specify the <option>/logmsg</option> switch
+								to pass a predefined log message to the commit dialog.
 								Or, if you don't want to pass the log message on the
-								command line, use /logmsgfile:path, where <option>path</option>
+								command line, use <option>/logmsgfile:path</option>,
+								where <option>path</option>
 								points to a file containing the log message.
 								To pre-fill the bug ID box (in case you've set up
 								integration with bug trackers properly), you can use
@@ -338,9 +339,9 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:ignore</entry>
 							<entry>
-							Adds all targets in <option>/path</option> to the
-							ignore list, i.e. adds the svn:ignore property
-							to those files.
+								Adds all targets in <option>/path</option> to the
+								ignore list, i.e. adds the <literal>svn:ignore</literal>
+								property to those files.
 							</entry>
 						</row>
 						<row>

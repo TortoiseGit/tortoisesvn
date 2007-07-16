@@ -180,7 +180,7 @@
 		The meaning of each of these variables is described here:
 		<variablelist>
 			<varlistentry>
-				<term>%PATH%</term>
+				<term><option>%PATH%</option></term>
 				<listitem>
 					<para>
 						A path to a temporary file which contains all the
@@ -190,7 +190,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%PATHS%</term>
+				<term><option>%PATHS%</option></term>
 				<listitem>
 					<para>
 						The paths which were selected when the operation was
@@ -207,7 +207,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%DEPTH%</term>
+				<term><option>%DEPTH%</option></term>
 				<listitem>
 					<para>
 						The depth with which the commit/update is done.
@@ -268,7 +268,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%MESSAGEPATH%</term>
+				<term><option>%MESSAGEPATH%</option></term>
 				<listitem>
 					<para>
 						Path to a file containing the log message for
@@ -278,7 +278,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%REVISION%</term>
+				<term><option>%REVISION%</option></term>
 				<listitem>
 					<para>
 						The repository revision to which the update should
@@ -287,7 +287,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>%ERROR%</term>
+				<term><option>%ERROR%</option></term>
 				<listitem>
 					<para>
 						Empty if the operation was successful, or the error message

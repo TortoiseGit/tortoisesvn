@@ -30,7 +30,7 @@
 			on the Diff program you use.
 			<variablelist>
 				<varlistentry>
-					<term>%base</term>
+					<term><option>%base</option></term>
 					<listitem>
 						<para>
 							The original file without your changes
@@ -38,7 +38,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%bname</term>
+					<term><option>%bname</option></term>
 					<listitem>
 						<para>
 							The window title for the base file
@@ -46,7 +46,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%mine</term>
+					<term><option>%mine</option></term>
 					<listitem>
 						<para>
 							Your own file, with your changes
@@ -54,7 +54,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%yname</term>
+					<term><option>%yname</option></term>
 					<listitem>
 						<para>
 							The window title for your file
@@ -121,7 +121,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 			as with the Diff Program.
 			<variablelist>
 				<varlistentry>
-					<term>%base</term>
+					<term><option>%base</option></term>
 					<listitem>
 						<para>
 							the original file without your or
@@ -130,7 +130,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%bname</term>
+					<term><option>%bname</option></term>
 					<listitem>
 						<para>
 							The window title for the base file
@@ -138,7 +138,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%mine</term>
+					<term><option>%mine</option></term>
 					<listitem>
 						<para>
 							your own file, with your changes
@@ -146,7 +146,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%yname</term>
+					<term><option>%yname</option></term>
 					<listitem>
 						<para>
 							The window title for your file
@@ -154,7 +154,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%theirs</term>
+					<term><option>%theirs</option></term>
 					<listitem>
 						<para>
 							the file as it is in the repository
@@ -162,7 +162,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%tname</term>
+					<term><option>%tname</option></term>
 					<listitem>
 						<para>
 							The window title for the file in the repository
@@ -170,7 +170,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%merged</term>
+					<term><option>%merged</option></term>
 					<listitem>
 						<para>
 							the conflicted file, the result of
@@ -179,7 +179,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>%mname</term>
+					<term><option>%mname</option></term>
 					<listitem>
 						<para>
 							The window title for the merged file

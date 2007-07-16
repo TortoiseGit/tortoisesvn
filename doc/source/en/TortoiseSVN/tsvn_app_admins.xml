@@ -91,14 +91,16 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
 		</indexterm>
 		<para>
 			As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide
-			the user with the option to set the SVN_ASP_DOT_NET_HACK environment variable
+			the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal>
+			environment variable
 			anymore, since that caused many problems and confusions with users which
 			always install <emphasis>everything</emphasis> no matter if they know
 			what it is for.
 		</para>
 		<para>
 			But that option is only hidden for the user. You still can force the
-			TortoiseSVN installer to set that environment variable by setting the ASPDOTNETHACK
+			TortoiseSVN installer to set that environment variable by setting the
+			<literal>ASPDOTNETHACK</literal>
 			property to TRUE. For example, you can start the installer like this:
 <screen>
 msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
