@@ -68,7 +68,7 @@ function print_langpack($i, $postat, $v, $w)
    $dlmanTMerge="";
   }
 
-  echo "<tr class=\"ok\">";
+  echo "<tr class=\"stat_ok\">";
   echo "<td>$i</td>";
   echo "<td>$flagtag&nbsp;$lang_name</td>";
   echo "<td>$dlfile32</td>";
