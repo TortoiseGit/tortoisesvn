@@ -5,7 +5,7 @@
               encoding="UTF-8"
               indent="no"/>
 
-  <xsl:template match="screen|literal|filename|programlisting"/>
+  <xsl:template match="screen|literal|filename|programlisting|option|primary"/>
 
   <xsl:template match="node() | @*">
     <xsl:copy>
