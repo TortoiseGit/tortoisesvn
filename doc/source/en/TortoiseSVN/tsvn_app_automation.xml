@@ -127,14 +127,14 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:about</entry>
 							<entry>
-								Shows the About-dialog. This is also shown if no
+								Shows the about dialog. This is also shown if no
 								command is given.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:log</entry>
 							<entry>
-								Opens the log dialog. The path specifies the
+								Opens the log dialog. The <option>/path</option> specifies the
 								file or folder for which the log should be shown.
 								Three additional options can be set:
 								<option>/startrev:xxx</option>, 
@@ -172,7 +172,7 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:commit</entry>
 							<entry>
-								Opens the commit dialog. The path specifies the
+								Opens the commit dialog. The <option>/path</option> specifies the
 								target directory or the list of files to commit.
 								You can also specify the <option>/logmsg</option> switch
 								to pass a predefined log message to the commit dialog.
@@ -227,7 +227,7 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:switch</entry>
 							<entry>
-								Opens the switch dialog. The path specifies the
+								Opens the switch dialog. The <option>/path</option> specifies the
 								target directory.
 							</entry>
 						</row>
@@ -243,7 +243,7 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:merge</entry>
 							<entry>
-								Opens the merge dialog. The path specifies the
+								Opens the merge dialog. The <option>/path</option> specifies the
 								target directory.
 								Three additional options can be set:
 								<option>/mergefrom:xxx</option>, 
@@ -319,7 +319,7 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:repostatus</entry>
 							<entry>
-								Opens the check-for-modifications dialog. The path
+								Opens the check-for-modifications dialog. The <option>/path</option>
 								specifies the working copy directory.
 							</entry>
 						</row>
