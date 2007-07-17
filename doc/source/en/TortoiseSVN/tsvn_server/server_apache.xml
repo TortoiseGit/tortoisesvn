@@ -95,7 +95,7 @@
 						the installation process. Make sure that you enter
 						the server-URL correctly (if you don't have a DNS name
 						for your server just enter the IP-address). I recommend
-						to install apache
+						to install Apache
 						<emphasis>for All Users, on Port 80, as a Service</emphasis>.
 						Note: if you already have IIS or any other
 						program running which listens on port 80 the
@@ -256,7 +256,7 @@ Require valid-user
 					<para>
 						To create the <filename>passwd</filename>
 						file, open the command prompt (DOS-Box) again,
-						change to the apache2 folder (usually
+						change to the <filename>apache2</filename> folder (usually
 						<filename>c:\program files\apache
 						group\apache2</filename>)
 						and create the file by entering
@@ -327,7 +327,8 @@ bin\htpasswd passwd &lt;username&gt;
 							<entry condition="pot">SVNListParentPath on</entry>
 							<entry>
 								For Subversion version 1.3 and higher, this directive enables
-								listing all the available repositories under SVNParentPath.
+								listing all the available repositories under
+								<literal>SVNParentPath</literal>.
 							</entry>
 						</row>
 						<row>
@@ -341,7 +342,7 @@ bin\htpasswd passwd &lt;username&gt;
 							<entry condition="pot">SVNIndexXSLT "/svnindex.xsl"</entry>
 							<entry>
 								Used to make the browsing with a web browser
-								more pretty.
+								prettier.
 							</entry>
 						</row>						
 						<row>
@@ -412,7 +413,7 @@ Require valid-user
 						and create a Subversion access file. Apache will 
 						make sure that only valid users are able to access 
 						your <filename>/svn</filename> location, and will then 
-						pass the username to Subversion's AuthzSVNAccessFile 
+						pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> 
 						module so that it can enforce more granular access 
 						based upon rules listed in the Subversion access file.
 						Note that paths are specified either as
@@ -429,7 +430,7 @@ Require valid-user
 				<listitem>
 					<para>
 						To make browsing the repository with a web browser
-						more 'pretty', uncomment the line
+						'prettier', uncomment the line
 <screen>
 #SVNIndexXSLT "/svnindex.xsl"
 </screen>
@@ -450,7 +451,7 @@ Require valid-user
 						empty.
 					</para>
 					<para>
-						The xsl file from the TortoiseSVN repository has a nice
+						The XSL file from the TortoiseSVN repository has a nice
 						gimmick: if you browse the repository with your web browser, then
 						every folder in your repository has an icon on the right shown.
 						If you click on that icon, the TortoiseSVN checkout dialog
@@ -469,7 +470,7 @@ Require valid-user
 			<primary>Index of projects</primary>
 		</indexterm>
 		<para>
-			If you used the SVNParentPath directive then you don't have to
+			If you used the <literal>SVNParentPath</literal> directive then you don't have to
 			change the Apache config file every time you add a new Subversion
 			repository. Simply create the new repository under the same
 			location as the first repository and you're done! In my company
@@ -558,7 +559,7 @@ Require valid-user
 					</listitem>
 					<listitem>
 						<para>
-						Add the following lines just below your &lt;Location&gt;
+						Add the following lines just below your <literal>&lt;Location&gt;</literal>
 						block where you define your Subversion stuff:
 <screen>
     RewriteEngine on
@@ -650,7 +651,7 @@ trevor = rw
 		<para>
 			But there's a solution for that problem - at least if you're
 			accessing the repository from inside a LAN with a windows
-			domain controller: mod_auth_sspi!
+			domain controller: <literal>mod_auth_sspi</literal>!
 		</para>
 		<indexterm>
 			<primary>SSPI</primary>
@@ -678,8 +679,8 @@ trevor = rw
 <screen>
 LoadModule sspi_auth_module modules/mod_auth_sspi.so
 </screen>
-					to the LoadModule's section. Make sure you insert this
-					line <emphasis>before</emphasis> the line
+					to the <literal>LoadModule</literal> section. Make sure you
+					insert this line <emphasis>before</emphasis> the line
 <screen>
 LoadModule auth_module modules/mod_auth.so
 </screen>
@@ -706,9 +707,9 @@ SSPIUsernameCase lower
 SSPIPerRequestAuth on
 SSPIOfferBasic On
 </screen>
-					within the &lt;Location /svn&gt; block.
-					If you don't have a domain controller, leave the
-					name of the domain control as &lt;domaincontroller&gt;.
+					within the <literal>&lt;Location /svn&gt;</literal> block.
+					If you don't have a domain controller, leave the name of
+					the domain control as <literal>&lt;domaincontroller&gt;</literal>.
 				</para>
 			</listitem>
 		</itemizedlist>
@@ -742,7 +743,7 @@ SSPIOfferBasic On
 			</para>
 			<para>
 				The end result is that you may need at least two entries in your
-				AuthzSVNAccessFile for each user -- a lowercase entry and an 
+				<literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an 
 				entry in the same case that Internet Explorer passes to Apache.  
 				You will also need to train your users to also type in their 
 				credentials	using lower case when accessing repositories via
@@ -752,8 +753,9 @@ SSPIOfferBasic On
 				Apache's Error and Access logs are your best friend in 
 				deciphering problems such as these as they will help you 
 				determine the username string passed onto Subversion's 
-				AuthzSVNAccessFile module. You may need to experiment with
-				the exact format of the user string in the svnaccessfile
+				<literal>AuthzSVNAccessFile</literal> module. You may need to
+				experiment with the exact format of the user string in the
+				<literal>svnaccessfile</literal>
 				(e.g. <literal>DOMAIN\user</literal> vs. 
 				<literal>DOMAIN//user</literal>) in order to get 
 				everything working.
@@ -776,8 +778,8 @@ SSPIOfferBasic On
 				<itemizedlist>
 					<listitem>
 						<para>
-							define a separate &lt;Location /path&gt;
-							directive in the apache config file, and add the
+							define a separate <literal>&lt;Location /path&gt;</literal>
+							directive in the Apache config file, and add the
 							<literal>SSPIBasicPreferred On</literal>.
 							This will allow IE to authenticate again, but
 							other browsers and Subversion won't be able to
@@ -794,8 +796,8 @@ SSPIOfferBasic On
 					</listitem>
 					<listitem>
 						<para>
-						In the ssl "standard" setup there's often the 
-						following statement in apache's virtual ssl host:
+						In the SSL "standard" setup there's often the 
+						following statement in Apache's virtual SSL host:
 <screen>
 SetEnvIf User-Agent ".*MSIE.*" \
              nokeepalive ssl-unclean-shutdown \
@@ -812,7 +814,7 @@ SetEnvIf User-Agent ".*MSIE.*" \
 							</ulink>
 						If You uncomment the whole <literal>SetEnvIf</literal> you should be able to
 						authenticate IE with windows authentication over SSL against 
-						the apache on Win32 with included <literal>mod_auth_sspi</literal>.
+						the Apache on Win32 with included <literal>mod_auth_sspi</literal>.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -838,8 +840,8 @@ SetEnvIf User-Agent ".*MSIE.*" \
 		<itemizedlist>
 			<listitem>
 				<para>
-					To enable both Windows domain and passwd file authentication,
-					add the following entries within the 
+					To enable both Windows domain and <filename>passwd</filename>
+					file authentication, add the following entries within the 
 					<literal>&lt;Location&gt;</literal> block of your Apache config file:
 <screen>
 AuthAuthoritative Off
@@ -850,7 +852,7 @@ SSPIAuthoritative Off
 		</itemizedlist>
 		<para>
 			Here is an example of the full Apache configuration for combined Windows 
-			domain &amp; <literal>passwd</literal> file authentication:
+			domain and <literal>passwd</literal> file authentication:
 <screen>
 &lt;Location /svn&gt;
 DAV svn
@@ -883,7 +885,7 @@ Require valid-user
 			<primary>SSL</primary>
 		</indexterm>
 		<para>
-			The apache server doesn't have SSL support installed by default
+			The Apache server doesn't have SSL support installed by default
 			due to US-export restrictions. But you can easily download the
 			required module from somewhere else and install it yourself.
 		</para>
@@ -966,15 +968,15 @@ SSLMutex  default
 			</listitem>
 			<listitem>
 				<para>
-					If you want that all the apache modules are aware of the
+					If you want that all the Apache modules are aware of the
 					SSL ability, change the registry key
 					<filename>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Apache2\ImagePath</filename>
 					from <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -k runservice</filename>
 					to <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -D SSL -k runservice</filename>.
 				</para>
 				<para>
-					This will set an internal flag which apache modules can 
-					read the next time you start the apache service.
+					This will set an internal flag which Apache modules can 
+					read the next time you start the Apache service.
 				</para>
 			</listitem>
 			<listitem>
@@ -1004,7 +1006,7 @@ SSLMutex  default
 				<para>
 					Next you need to create an SSL certificate.
 					To do that open a command prompt (DOS-Box) and change to
-					the apache folder (e.g.
+					the Apache folder (e.g.
 					<filename>C:\program files\apache group\apache2</filename>)
 					and type the following command:
 <screen>
@@ -1054,7 +1056,7 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 			</listitem>
 			<listitem>
 				<para>
-					Restart the apache service.
+					Restart the Apache service.
 				</para>
 			</listitem>
 			<listitem>
@@ -1069,13 +1071,13 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 			<title>Forcing SSL access</title>
 			<para>
 				When you've set up SSL to make your repository more secure, you
-				might want to disable the normal access via non-ssl (http) and
+				might want to disable the normal access via non-SSL (http) and
 				only allow https access.
 				To do this, you have to add another directive to the Subversion
-				&lt;Location&gt; block: <literal>SSLRequireSSL</literal>.
+				<literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>.
 			</para>
 			<para>
-					An example &lt;Location&gt; block would look like this:
+					An example <literal>&lt;Location&gt;</literal> block would look like this:
 <screen>
 &lt;Location /svn&gt;
 DAV svn
