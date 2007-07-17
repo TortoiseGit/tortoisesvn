@@ -345,17 +345,26 @@ SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName("."), 0, 0);
 SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
 SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 0, 0);
 
-sInfo1 = "Revision = " + SubWCRev1.Revision + "\nMin Revision = " + SubWCRev1.MinRev +
-         "\nMax Revision = " + SubWCRev1.MaxRev + "\nDate = " + SubWCRev1.Date +
-         "\nURL = " + SubWCRev1.Url + "\nAuthor = " + SubWCRev1.Author +
+sInfo1 = "Revision = " + SubWCRev1.Revision + 
+         "\nMin Revision = " + SubWCRev1.MinRev +
+         "\nMax Revision = " + SubWCRev1.MaxRev +
+         "\nDate = " + SubWCRev1.Date +
+         "\nURL = " + SubWCRev1.Url +
+         "\nAuthor = " + SubWCRev1.Author +
          "\nHasMods = " + SubWCRev1.HasModifications;
-sInfo2 = "Revision = " + SubWCRev2.Revision + "\nMin Revision = " + SubWCRev2.MinRev +
-         "\nMax Revision = " + SubWCRev2.MaxRev + "\nDate = " + SubWCRev2.Date +
-         "\nURL = " + SubWCRev2.Url + "\nAuthor = " + SubWCRev2.Author +
+sInfo2 = "Revision = " + SubWCRev2.Revision +
+         "\nMin Revision = " + SubWCRev2.MinRev +
+         "\nMax Revision = " + SubWCRev2.MaxRev +
+         "\nDate = " + SubWCRev2.Date +
+         "\nURL = " + SubWCRev2.Url +
+         "\nAuthor = " + SubWCRev2.Author +
          "\nHasMods = " + SubWCRev2.HasModifications;
-sInfo3 = "Revision = " + SubWCRev3.Revision + "\nMin Revision = " + SubWCRev3.MinRev +
-         "\nMax Revision = " + SubWCRev3.MaxRev + "\nDate = " + SubWCRev3.Date +
-         "\nURL = " + SubWCRev3.Url + "\nAuthor = " + SubWCRev3.Author +
+sInfo3 = "Revision = " + SubWCRev3.Revision +
+         "\nMin Revision = " + SubWCRev3.MinRev +
+         "\nMax Revision = " + SubWCRev3.MaxRev +
+         "\nDate = " + SubWCRev3.Date +
+         "\nURL = " + SubWCRev3.Url +
+         "\nAuthor = " + SubWCRev3.Author +
          "\nHasMods = " + SubWCRev3.HasModifications;
 
 WScript.Echo(sInfo1);
@@ -365,8 +374,3 @@ WScript.Echo(sInfo3);
 		</para>
 	</sect1>
 </chapter>
-<!--
-local variables:
-sgml-parent-document: ("book.xml" "chapter")
-end:
--->
