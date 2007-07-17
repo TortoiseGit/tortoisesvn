@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-07-10 12:56+0100\n"
+"PO-Revision-Date: 2007-07-17 11:39+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -542,6 +542,11 @@ msgstr "&De la revisió"
 msgid "&Go To Line..."
 msgstr "&Vés a la línea ..."
 
+# Control-ID:1126,
+#: MenuEntry
+msgid "&Group branches"
+msgstr "A&grupa branques"
+
 # Control-ID:1115,#:
 # Control-ID:1032,
 #: Control-ID:1115
@@ -669,6 +674,10 @@ msgstr "&Unitats de xarxa"
 #: Control-ID:65535
 msgid "&New "
 msgstr "&Nou"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "Els més &nous a dalt"
 
 # Control-ID:1208,
 #: ID:115
@@ -806,6 +815,13 @@ msgstr "&Desa..."
 msgid "&Settings"
 msgstr "&Configuració"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1034,
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "&Mostra revisions HEAD"
+
 # Control-ID:1185,
 #: Control-ID:1185
 msgid "&Specific revision in repository"
@@ -837,7 +853,7 @@ msgstr "&Longitud del tabulador:"
 
 # Control-ID:1222,
 #: Control-ID:1222
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Temps d'espera en segons per aturar parsing d'autocompletació"
 
 # Control-ID:65535,
@@ -921,8 +937,8 @@ msgstr "&Actualitza a revisió..."
 
 # Control-ID:1184,
 #: Control-ID:1184
-msgid "&Use autocompletion of filepaths and keywords"
-msgstr "&Autocompleta paths de fitxers i paraules clau"
+msgid "&Use auto-completion of file paths and keywords"
+msgstr "&Usar autocompletació de paths de fitxers i paraules clau"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -1489,15 +1505,6 @@ msgstr "Esteu segur que voleu revertir %d item(s)? Perdreu <b>tots</b> els canvi
 msgid "Arrange &Vertical"
 msgstr "Disposició &Vertical"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Arranjats per &path"
-
-# ID:2050,
-#: ID:2050
-msgid "Arranges the nodes sorted by path"
-msgstr "Arranja els nodes ordenats per path"
-
 # ID:209,
 #: ID:264
 #, c-format
@@ -1579,10 +1586,10 @@ msgstr "Tanca automàticament si no hi ha fusions, afegits o supressions"
 # ID:195,
 #: ID:195
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"Autocompleta sugereix paraules (usualment noms de classes o membres)\n"
+"Autocompleta sugereix paraules (normalment noms de classes o membres)\n"
 "dels fitxers que has canviat quan escrius un texte de log."
 
 # ID:438,#:
@@ -1642,6 +1649,11 @@ msgstr "E&xplora..."
 #: ID:115
 msgid "Branch / tag created successfully!"
 msgstr "Branca / etiqueta creada satisfactòriament!"
+
+# ID:2052,
+#: ID:2052
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "Fer branca a revisió de la còpia encara que no hi hagi canvia a la revisió"
 
 # ID:9,
 #: ID:9
@@ -2778,6 +2790,10 @@ msgid "Dry Run"
 msgstr "Simulació"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "Còpies E&xactes de les fonts"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "S&urt"
 
@@ -3290,6 +3306,10 @@ msgstr "Encaixa Imatges &juntes"
 msgid "Floppy drives (A: B:)"
 msgstr "Unitats de disquet (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "Doblega &etiquetes"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font"
@@ -3476,6 +3496,11 @@ msgstr "Tipus de gràfic:"
 msgid "Group changelists"
 msgstr "Agrupa changelists"
 
+# ID:2050,
+#: ID:2050
+msgid "Groups branches together"
+msgstr "Agrupa branques juntes"
+
 # Control-ID:1229,
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
@@ -3617,6 +3642,18 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3635,6 +3672,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634
 #: ; '&Copy'
@@ -5723,20 +5761,43 @@ msgstr "Revisió: "
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%S"
 msgstr ""
 "Revisió: %ld\n"
-"URL: %s\r\n"
-"Autor: %s\r\n"
+"URL: %S\r\n"
+"Autor: %S\r\n"
 "Data: %s\r\n"
 "\r\n"
 "Missatge de log:\r\n"
-"%s"
+"%S"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%S\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%S"
+msgstr ""
+"Revisió: %ld\n"
+"URL: %S\r\n"
+"Autor: %S\r\n"
+"Data: %s\r\n"
+"Etiquetes:%S\r\n"
+"\r\n"
+"Missatge de log:\r\n"
+"%S"
 
 # ID:116,
 #: ID:116
@@ -6100,8 +6161,8 @@ msgstr "&Adressa del Servidor:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit &time\""
-msgstr "Ajusta les dates dels fitxers amb \"&Data darera entrega\""
+msgid "Set file dates to the \"last commit &time\""
+msgstr "Ajusta les dates dels fitxers amb \"temps darera entrega\""
 
 # ID:13,
 #: ID:13
@@ -6199,6 +6260,10 @@ msgstr "Mostra fitxers se&nse versionar"
 msgid "Show File List"
 msgstr "Mostra Llista de Fitxers"
 
+#: ID:2051
+msgid "Show HEAD revision nodes"
+msgstr "Mostra nodes revisió HEAD"
+
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Show Lock dialog before locking files"
@@ -6243,6 +6308,11 @@ msgstr "Mostra barra de diff de  lí&nea"
 msgid "Show linenumber&s"
 msgstr "Mostra número&s de línea"
 
+# ID:2051,
+#: ID:2051
+msgid "Show oldest node at top"
+msgstr "Mostra node més vell a dalt"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -6269,6 +6339,11 @@ msgid ""
 msgstr ""
 "Mostra caràcters especials pels espais en blanc\n"
 "Mostra espais en blanc"
+
+# ID:2052,
+#: ID:2052
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Mostra etiquetes a les fonts de lacòpia, no com a nodes separats"
 
 # Control-ID:1209,
 #: Control-ID:1209
@@ -6378,6 +6453,16 @@ msgstr "Espcifiqueu el rang de revisions que voleu fusionar:"
 #: ID:376
 msgid "Split lines"
 msgstr "Parteix línies"
+
+# ID:376,
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "Separa &branques llargues"
+
+# ID:2052,
+#: ID:2052
+msgid "Split long, inactive branches into segments"
+msgstr "Separa branques llargues no actives en segments"
 
 # ID:3604,
 #: ID:3604
@@ -6953,11 +7038,11 @@ msgstr ""
 #: ID:195
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
 "Temps en segons després del qual el parsing dels fitxers seleccionats s'atura.\n"
-"Un valor baix fa que la llista d'autocompletat es generi més aviat,\n"
+"Un valor baix fa que la llista d'autocompletació es generi més aviat,\n"
 "però pot fer que no s'escanegin tot els fitxers."
 
 # ID:82,
