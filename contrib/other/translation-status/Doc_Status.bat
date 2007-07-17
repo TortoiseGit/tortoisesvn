@@ -30,7 +30,7 @@ FOR %%i in (_TortoiseMerg_*.po) DO (
 )
 
 echo. > %LogFile%
-echo TortoiseSVN doc translation status for trunk/branch^(r!version:~0,4!^) >> %LogFile%
+echo TortoiseSVN doc translation status for trunk/branch^(r!version:~0,5!^) >> %LogFile%
 echo ===================================================== >> %LogFile%
 echo TortoiseSVN   = !totSVN! strings >> %LogFile%
 echo TortoiseMerge = !totMrg! strings >> %LogFile%
@@ -39,7 +39,7 @@ echo Language                       : SVN   - Merge >> %Logfile%
 echo ---------------------------------------------- >> %Logfile%
 
 echo.
-echo TortoiseSVN doc translation status for trunk/branch^(r!version:~0,4!^)
+echo TortoiseSVN doc translation status for trunk/branch^(r!version:~0,5!^)
 echo =====================================================
 echo TortoiseSVN   = !totSVN! strings
 echo TortoiseMerge = !totMrg! strings

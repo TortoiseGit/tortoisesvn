@@ -27,7 +27,7 @@ FOR %%i in (_Tortois_*.po) DO (
 )
 
 echo. > %LogFile%
-echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,4!^) >> %LogFile%
+echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,5!^) >> %LogFile%
 echo ===================================================== >> %LogFile%
 echo Total=!totSVN! strings >> %LogFile%
 echo. >> %LogFile%
@@ -37,7 +37,7 @@ echo Language                       : Status  (fu/un/ma) >> %Logfile%
 echo --------------------------------------------------- >> %Logfile%
 
 echo.
-echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,4!^)
+echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,5!^)
 echo =====================================================
 echo Total=!totSVN! strings
 echo.
