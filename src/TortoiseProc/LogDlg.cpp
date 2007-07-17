@@ -182,6 +182,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATETO, &CLogDlg::OnDtnDropdownDateto)
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
+	ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -338,6 +339,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
 	AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
+	AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
 	AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -626,6 +628,11 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
+}
+
+void CLogDlg::OnBnClickedRefresh()
+{
+	Refresh();
 }
 
 void CLogDlg::Refresh()
@@ -4203,5 +4210,6 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 	//set range
 	SetSplitterRange();
 }
+
 
 

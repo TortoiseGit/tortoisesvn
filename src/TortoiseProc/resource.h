@@ -627,6 +627,8 @@
 #define IDC_NEWLINESCOLOR               1378
 #define IDC_OLDLINESCOLOR               1380
 #define IDC_TABSIZE                     1381
+#define IDC_BUTTON1                     1382
+#define IDC_REFRESH                     1382
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1128,7 +1130,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        254
 #define _APS_NEXT_COMMAND_VALUE         32819
-#define _APS_NEXT_CONTROL_VALUE         1382
+#define _APS_NEXT_CONTROL_VALUE         1383
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

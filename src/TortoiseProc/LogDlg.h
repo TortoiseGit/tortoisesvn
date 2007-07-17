@@ -95,6 +95,7 @@ protected:
 	afx_msg void OnDtnDropdownDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnBnClickedIncludemerge();
+	afx_msg void OnBnClickedRefresh();
 
 	virtual void OnCancel();
 	virtual void OnOK();
