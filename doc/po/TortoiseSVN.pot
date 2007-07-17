@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2007-07-17 07:24 +0000\n"
+"POT-Creation-Date: 2007-07-17 08:54 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7049,7 +7049,11 @@ msgid "Command"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11851(entry) 
-msgid "Shows the About-dialog. This is also shown if no command is given."
+msgid "Shows the about dialog. This is also shown if no command is given."
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:11859(option) source/TortoiseSVN_en.xml:11870(option) source/TortoiseSVN_en.xml:11885(option) source/TortoiseSVN_en.xml:11897(option) source/TortoiseSVN_en.xml:11914(option) source/TortoiseSVN_en.xml:11922(option) source/TortoiseSVN_en.xml:11930(option) source/TortoiseSVN_en.xml:11937(option) source/TortoiseSVN_en.xml:11946(option) source/TortoiseSVN_en.xml:11952(option) source/TortoiseSVN_en.xml:11959(option) source/TortoiseSVN_en.xml:11960(option) source/TortoiseSVN_en.xml:11962(option) source/TortoiseSVN_en.xml:11968(option) source/TortoiseSVN_en.xml:11981(option) source/TortoiseSVN_en.xml:11994(option) source/TortoiseSVN_en.xml:12001(option) source/TortoiseSVN_en.xml:12011(option) source/TortoiseSVN_en.xml:12017(option) source/TortoiseSVN_en.xml:12025(option) source/TortoiseSVN_en.xml:12031(option) source/TortoiseSVN_en.xml:12044(option) source/TortoiseSVN_en.xml:12053(option) source/TortoiseSVN_en.xml:12053(option) source/TortoiseSVN_en.xml:12064(option) source/TortoiseSVN_en.xml:12073(option) source/TortoiseSVN_en.xml:12088(option) source/TortoiseSVN_en.xml:12098(option) source/TortoiseSVN_en.xml:12105(option) source/TortoiseSVN_en.xml:12112(option) source/TortoiseSVN_en.xml:12121(option) source/TortoiseSVN_en.xml:12138(option) 
+msgid "/path"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11862(option) 
@@ -7065,11 +7069,7 @@ msgid "/strict"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11858(entry) 
-msgid "Opens the log dialog. The path specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:11870(option) source/TortoiseSVN_en.xml:11885(option) source/TortoiseSVN_en.xml:11914(option) source/TortoiseSVN_en.xml:11922(option) source/TortoiseSVN_en.xml:11930(option) source/TortoiseSVN_en.xml:11937(option) source/TortoiseSVN_en.xml:11946(option) source/TortoiseSVN_en.xml:11959(option) source/TortoiseSVN_en.xml:11960(option) source/TortoiseSVN_en.xml:11962(option) source/TortoiseSVN_en.xml:11981(option) source/TortoiseSVN_en.xml:11994(option) source/TortoiseSVN_en.xml:12001(option) source/TortoiseSVN_en.xml:12011(option) source/TortoiseSVN_en.xml:12017(option) source/TortoiseSVN_en.xml:12025(option) source/TortoiseSVN_en.xml:12031(option) source/TortoiseSVN_en.xml:12053(option) source/TortoiseSVN_en.xml:12053(option) source/TortoiseSVN_en.xml:12064(option) source/TortoiseSVN_en.xml:12073(option) source/TortoiseSVN_en.xml:12088(option) source/TortoiseSVN_en.xml:12098(option) source/TortoiseSVN_en.xml:12105(option) source/TortoiseSVN_en.xml:12112(option) source/TortoiseSVN_en.xml:12121(option) source/TortoiseSVN_en.xml:12138(option) 
-msgid "/path"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11871(option) 
@@ -7121,7 +7121,7 @@ msgid "/bugid:\"the bug id here\""
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11896(entry) 
-msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the <placeholder-1/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-2/>, where <placeholder-3/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-4/> to do that."
+msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11913(entry) 
@@ -7149,7 +7149,7 @@ msgid "Creates a repository in <placeholder-1/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11951(entry) 
-msgid "Opens the switch dialog. The path specifies the target directory."
+msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11958(entry) 
@@ -7169,7 +7169,7 @@ msgid "/fromurl:URL"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11967(entry) 
-msgid "Opens the merge dialog. The path specifies the target directory. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>. These pre-fill the relevant fields in the merge dialog."
+msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>. These pre-fill the relevant fields in the merge dialog."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:11979(entry) 
@@ -7209,7 +7209,7 @@ msgid "Opens the help file."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12043(entry) 
-msgid "Opens the check-for-modifications dialog. The path specifies the working copy directory."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12055(option) source/TortoiseSVN_en.xml:12057(option) 
