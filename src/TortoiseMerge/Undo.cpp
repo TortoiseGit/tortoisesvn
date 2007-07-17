@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,6 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 		state = m_viewstates.back();
 		Undo(state, pBottom);
 		m_viewstates.pop_back();
-
 		return true;
 	}
 	return false;
@@ -67,6 +66,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 	{
 		int nLineStart = INT_MAX;
 		int nLineEnd = -1;
+		bool bModified = false;
 		for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 		{
 			if (pView->m_arDiffLines)
@@ -75,6 +75,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 				pView->m_arLineLines->RemoveAt(*it);
 			if (pView->m_arLineStates)
 				pView->m_arLineStates->RemoveAt(*it);
+			bModified = true;
 		}
 		for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
 		{
@@ -83,6 +84,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arLineLines->SetAt(it->first, it->second);
+				bModified = true;
 			}
 		}
 		for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
@@ -92,6 +94,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arLineStates->SetAt(it->first, it->second);
+				bModified = true;
 			}
 		}
 		for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
@@ -101,10 +104,12 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
 				pView->m_arDiffLines->SetAt(it->first, it->second);
+				bModified = true;
 			}
 		}
 		pView->DocumentUpdated();
-		pView->SetModified();
+		if (bModified)
+			pView->SetModified();
 		if (nLineEnd >= 0)
 		{
 			pView->GoToLine(nLineEnd, true);
