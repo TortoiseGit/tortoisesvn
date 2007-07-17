@@ -358,8 +358,8 @@ BOOL CLogDlg::OnInitDialog()
 		m_wndSplitter1.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos1 - rectSplitter.top;
-		DoSizeV1(delta);
 		m_wndSplitter1.SetWindowPos(NULL, 0, yPos1, 0, 0, SWP_NOSIZE);
+		DoSizeV1(delta);
 	}
 	if (yPos2)
 	{
@@ -367,8 +367,8 @@ BOOL CLogDlg::OnInitDialog()
 		m_wndSplitter2.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos2 - rectSplitter.top;
-		DoSizeV2(delta);
 		m_wndSplitter2.SetWindowPos(NULL, 0, yPos2, 0, 0, SWP_NOSIZE);
+		DoSizeV2(delta);
 	}
 
 	
