@@ -323,7 +323,7 @@ All user/site specific configuration is stored in doc.build.user.
 
 				<if test="${not file.target.uptodate}">
 -->
-					<echo message="Checking: ${file.target}"/>
+					<echo message="Checking: ${path::get-file-name(file.target)}"/>
 					<exec program="Aspell/aspell.bat"
 						commandline="${path.spellcheck} ${lang.target} ${file.target} ${spellcheck.log}"
 						failonerror="false"/>
