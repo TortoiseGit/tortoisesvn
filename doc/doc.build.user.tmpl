@@ -7,29 +7,34 @@
 	
 	<!-- for which applications the help file/docs should be generated -->
 	<property name="applications" value="TortoiseSVN,TortoiseMerge" />
-	<!-- select the output format of the docs (chm, pdf, html) -->
+	<!-- select the output format of the docs (chm, pdf, html, htmlsingle) -->
 	<property name="docformats" value="chm" />
 	<!-- select the languages of the docs -->
 	<property name="languages" value="en,de" />
 	
 	
+	<!-- if you want to use the spellchecker, enable it here -->
+	<property name="spellcheck" value="true"/> 
+	<!-- and set the path to aspell. NOTE: avoid spaces in the path here -->
+	<property name="path.spellcheck" value="C:\Progra~1\Aspell\bin\Aspell.exe"/>
+
 	<!-- if you've put the 'Tools' folder not below the TortoiseSVN source
 	root, you must set the paths here! -->
-		<property name="path.bin" 
-			value="${path::get-full-path('c:/Tools')}"
-			unless="${property::exists('path.bin')}"
-		/>
-		<property name="path.fop" 
-			value="${path::get-full-path('c:/Tools/fop')}"
-			unless="${property::exists('path.fop')}"
-		/>
-		<property name="path.xsl" 
-			value="${string::replace(path::get-full-path('c:/Tools/xsl'), '\', '/')}"
-			unless="${property::exists('path.xsl')}"
-		/>
-		<property name="path.gettext" 
-			value="${path::get-full-path('c:/Tools')}"
-			unless="${property::exists('path.gettext')}"
-		/>
+	<property name="path.bin" 
+		value="${path::get-full-path('c:/Tools')}"
+		unless="${property::exists('path.bin')}"
+	/>
+	<property name="path.fop" 
+		value="${path::get-full-path('c:/Tools/fop')}"
+		unless="${property::exists('path.fop')}"
+	/>
+	<property name="path.xsl" 
+		value="${string::replace(path::get-full-path('c:/Tools/xsl'), '\', '/')}"
+		unless="${property::exists('path.xsl')}"
+	/>
+	<property name="path.gettext" 
+		value="${path::get-full-path('c:/Tools')}"
+		unless="${property::exists('path.gettext')}"
+	/>
 
 </project>
