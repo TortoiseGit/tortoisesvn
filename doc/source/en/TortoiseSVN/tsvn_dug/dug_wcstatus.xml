@@ -385,7 +385,7 @@
 			file itself. Keywords currently supported are:
 			<variablelist>
 				<varlistentry>
-					<term>Date</term>
+					<term condition="pot">$Date$</term>
 					<listitem>
 						<para>
 							Date of last known commit. This is based on
@@ -396,7 +396,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Revision</term>
+					<term condition="pot">$Revision$</term>
 					<listitem>
 						<para>
 							Revision of last known commit.
@@ -404,7 +404,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Author</term>
+					<term condition="pot">$Author$</term>
 					<listitem>
 						<para>
 							Author who made the last known commit.
@@ -412,7 +412,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>HeadURL</term>
+					<term condition="pot">$HeadURL$</term>
 					<listitem>
 						<para>
 							The full URL of this file in the repository.
@@ -420,7 +420,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Id</term>
+					<term condition="pot">$Id$</term>
 					<listitem>
 						<para>
 							A compressed combination of the previous
