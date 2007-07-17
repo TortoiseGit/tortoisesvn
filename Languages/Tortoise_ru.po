@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10024: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10115: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-07-09 11:39+0300\n"
+"PO-Revision-Date: 2007-07-17 10:48+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -477,6 +477,10 @@ msgstr "&Начиная с ревизии"
 msgid "&Go To Line..."
 msgstr "&Перейти к строке..."
 
+#: MenuEntry
+msgid "&Group branches"
+msgstr "С&группировать ответвления"
+
 #: Control-ID:1115
 #: Control-ID:1032
 msgid "&HEAD Revision"
@@ -578,6 +582,10 @@ msgstr "С&етевые диски"
 #: Control-ID:65535
 msgid "&New "
 msgstr "&Новый"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "Новые свер&ху"
 
 #: ID:115
 #: Control-ID:1208
@@ -689,6 +697,10 @@ msgstr "&Сохранить..."
 msgid "&Settings"
 msgstr "&Настройки"
 
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "Показать ведущие &ревизии"
+
 # д.б. согласовано с "из ..."
 #: Control-ID:1185
 msgid "&Specific revision in repository"
@@ -716,7 +728,7 @@ msgid "&Tab size:"
 msgstr "Размер &табул.:"
 
 #: Control-ID:1222
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Таймаут для остановки разбора автозавершения (сек)"
 
 # до ревизии?
@@ -785,7 +797,7 @@ msgid "&Update to revision..."
 msgstr "Обновить &до ревизии..."
 
 #: Control-ID:1184
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Использовать автозавершение путей файлов и ключевых слов"
 
 #: Control-ID:65535
@@ -1235,14 +1247,6 @@ msgstr "Вы действительно хотите убрать изменен
 msgid "Arrange &Vertical"
 msgstr "Выстроить по &вертикали"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Выстраивать по &пути"
-
-#: ID:2050
-msgid "Arranges the nodes sorted by path"
-msgstr "Выстраивает узлы в зависимости от пути"
-
 #: ID:264
 #, c-format
 msgid "Assigned to changelist \"%s\""
@@ -1308,7 +1312,7 @@ msgstr "Автозакрытие: не было слияний, добавлен
 
 #: ID:195
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
 "Автозавершение во время набора сообщения журнала предлагает слова\n"
@@ -1359,6 +1363,10 @@ msgstr "Об&зор..."
 #: ID:115
 msgid "Branch / tag created successfully!"
 msgstr "Ответвление / метка создано(а) успешно!"
+
+#: ID:2052
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "Создавать ответвление из ревизии-источника копирования, даже если в этой ревизии не было изменений"
 
 #: ID:9
 msgid "Branch/&tag..."
@@ -2294,6 +2302,10 @@ msgid "Dry Run"
 msgstr "Пробный запуск"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "&Точные источники копирования"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "В&ыход"
 
@@ -2725,6 +2737,10 @@ msgstr "&Вписать обе картинки"
 msgid "Floppy drives (A: B:)"
 msgstr "Гибкие диски (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "Свернуть &метки"
+
 #: Control-ID:65535
 msgid "Font"
 msgstr "Шрифт"
@@ -2881,6 +2897,10 @@ msgstr "Тип графика:"
 msgid "Group changelists"
 msgstr "Разбить по группам изменений"
 
+#: ID:2050
+msgid "Groups branches together"
+msgstr "Сгруппировать ответвления друг с другом"
+
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
 msgstr "&Скрыть несвязанные изменённые пути"
@@ -3011,6 +3031,18 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3029,6 +3061,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634
 #: ; '&Copy'
@@ -4749,20 +4782,43 @@ msgstr "Ревизия:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%S"
 msgstr ""
 "Ревизия:%ld\n"
-"URL: %s\r\n"
-"Автор: %s\r\n"
+"URL: %S\r\n"
+"Автор: %S\r\n"
 "Дата: %s\r\n"
 "\r\n"
 "Сообщение журнала:\r\n"
-"%s"
+"%S"
+
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%S\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%S"
+msgstr ""
+"Ревизия:%ld\n"
+"URL: %S\r\n"
+"Автор: %S\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Метки:%S\r\n"
+"\r\n"
+"Сообщение журнала:\r\n"
+"%S"
 
 #: ID:116
 msgid "Revisions"
@@ -5053,7 +5109,7 @@ msgid "Server &address:"
 msgstr "&Адрес сервера:"
 
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr "Устанавливать даты файлов на \"время последнего &фиксирования\""
 
 #: ID:13
@@ -5129,6 +5185,10 @@ msgstr "Показать &неверсированные файлы"
 msgid "Show File List"
 msgstr "Показать список файлов"
 
+#: ID:2051
+msgid "Show HEAD revision nodes"
+msgstr "Показать узлы ведущей ревизии"
+
 #: Control-ID:1126
 msgid "Show Lock dialog before locking files"
 msgstr "Показывать диалог блокировки перед блокированием файлов"
@@ -5166,6 +5226,10 @@ msgstr "Показывать панель &строковых различий"
 msgid "Show linenumber&s"
 msgstr "Показывать номера ст&рок"
 
+#: ID:2051
+msgid "Show oldest node at top"
+msgstr "Показать старейшие узлы сверху"
+
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -5189,6 +5253,10 @@ msgid ""
 msgstr ""
 "Показать специальные символы для непечатаемых знаков\n"
 "Показать непечатаемые знаки"
+
+#: ID:2052
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Показать метки на источнике копирования, а не как отдельные узлы"
 
 #: Control-ID:1209
 msgid "Show unmodified files"
@@ -5279,6 +5347,14 @@ msgstr "Укажите ряд ревизий, которые вы хотите �
 #: ID:376
 msgid "Split lines"
 msgstr "Разбить на строки"
+
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "Разделять большие от&ветвления"
+
+#: ID:2052
+msgid "Split long, inactive branches into segments"
+msgstr "Разделять большие и неактивные ответвления на части"
 
 #: ID:3604
 msgid ""
@@ -5774,7 +5850,7 @@ msgstr ""
 #: ID:195
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
 "Время в секундах, после которого прекращается разбор выбранных файлов.\n"
