@@ -91,7 +91,7 @@ All user/site specific configuration is stored in doc.build.user.
 			</code>
 		</script>
 		<!-- tune path to xsltproc.exe in aspell.bat -->
-		<copy file="aspell.in" tofile="aspell.bat" overwrite="true">
+		<copy file="Aspell/aspell.in" tofile="Aspell/aspell.bat" overwrite="true">
 			<filterchain>
 				<replacetokens begintoken="$" endtoken="$">
 					<token key="XSLTProcPath" value="${path.bin}" />
@@ -324,7 +324,7 @@ All user/site specific configuration is stored in doc.build.user.
 				<if test="${not file.target.uptodate}">
 -->
 					<echo message="Checking: ${file.target}"/>
-					<exec program="aspell.bat"
+					<exec program="Aspell/aspell.bat"
 						commandline="${path.spellcheck} ${lang.target} ${file.target} ${spellcheck.log}"
 						failonerror="false"/>
 <!--
