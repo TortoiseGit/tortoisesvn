@@ -28,7 +28,7 @@
 	<para>
 		<variablelist>
 			<varlistentry>
-				<term><option>webviewer:revision</option></term>
+				<term condition="pot">webviewer:revision</term>
 				<listitem>
 					<para>
 						Set this property to the URL of your repo viewer to view all
@@ -47,7 +47,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term><option>webviewer:pathrevision</option></term>
+				<term condition="pot">webviewer:pathrevision</term>
 				<listitem>
 					<para>
 						Set this property to the URL of your repo viewer to view

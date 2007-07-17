@@ -174,6 +174,20 @@ like:
 
 if you want to inform the reader about something special.
 
+Special markers for translation
+===============================
+Some tags are marked like this:
+<entry condition="pot">:about</entry>
+
+The condition="pot" prevents the strings from being extracted into the .pot file,
+so that nobody translates them. Mostly these strings will have some feature
+such as a leading colon, slash, dot or dollar. Those chars have to stay there to
+prevent these strings from being translated if the po file "by chance" contains
+a matching translation.
+
+Be careful using this attribute. It must only be applied at paragraph level,
+not inline, otherwise the translation process will break.
+
 Add To this Document
 ====================
 Please add missing stuff to these docs and correct errors.

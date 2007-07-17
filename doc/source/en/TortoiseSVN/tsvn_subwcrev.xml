@@ -70,7 +70,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry><option>-n</option></entry>
+							<entry condition="pot">-n</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								<literal>ERRORLEVEL 7</literal> if the working copy
@@ -79,7 +79,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>-m</option></entry>
+							<entry condition="pot">-m</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								<literal>ERRORLEVEL 8</literal> if the working copy
@@ -88,7 +88,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>-d</option></entry>
+							<entry condition="pot">-d</entry>
 							<entry>
 								If this switch is given, SubWCRev will exit with
 								<literal>ERRORLEVEL 9</literal> if the destination file
@@ -96,7 +96,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>-f</option></entry>
+							<entry condition="pot">-f</entry>
 							<entry>
 								If this switch is given, SubWCRev will include
 								the last-changed revision of folders. The default
@@ -105,7 +105,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>-e</option></entry>
+							<entry condition="pot">-e</entry>
 							<entry>
 								If this switch is given, SubWCRev will examine
 								directories which are included with
@@ -140,14 +140,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 					</thead>
 					<tbody>
 						<row>
-							<entry><option>$WCREV$</option></entry>
+							<entry condition="pot">$WCREV$</entry>
 							<entry>
 								Replaced with the highest commit revision
 								in the working copy.
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCDATE$</option></entry>
+							<entry condition="pot">$WCDATE$</entry>
 							<entry>
 								Replaced with the commit date/time of the
 								highest commit revision. To avoid confusion,
@@ -156,7 +156,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCNOW$</option></entry>
+							<entry condition="pot">$WCNOW$</entry>
 							<entry>
 								Replaced with the current system date/time.
 								This can be used to indicate the build time.
@@ -164,7 +164,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCRANGE$</option></entry>
+							<entry condition="pot">$WCRANGE$</entry>
 							<entry>
 								Replaced with the update revision range in
 								the working copy. If the working copy is in a
@@ -176,21 +176,23 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCMIXED?TText:FText$</option></entry>
+							<entry condition="pot">$WCMIXED$</entry>
 							<entry>
-								Replaced with <literal>TText</literal> if there are mixed update
+								<literal>$WCMIXED?TText:FText$</literal> is
+								replaced with <literal>TText</literal> if there are mixed update
 								revisions, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCMODS?TText:FText$</option></entry>
+							<entry condition="pot">$WCMODS$</entry>
 							<entry>
-								Replaced with <literal>TText</literal> if there are local
+								<literal>$WCMODS?TText:FText$</literal> is
+								replaced with <literal>TText</literal> if there are local
 								modifications, or <literal>FText</literal> if not.
 							</entry>
 						</row>
 						<row>
-							<entry><option>$WCURL$</option></entry>
+							<entry condition="pot">$WCURL$</entry>
 							<entry>
 								Replaced with the repository URL of the working
 								copy path passed to SubWCRev.
@@ -251,16 +253,6 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-subwcrev-com-interface">
 		<title>COM interface</title>
-<!--
-ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
-Don't touch these lines:
-<entry condition="pot">.GetWCInfo</entry>
-
-	The condition="pot" prevents the strings from being extracted into
-	the .pot file, so nobody translates them.
-	The dot in front of the command has to stay there to prevent these strings
-	from being translated if the po file "by chance" contains a matching translation.
--->
 		<para>
 			If you need to access Subversion revision information from other
 			programs, you can use the COM interface of SubWCRev. The object to
