@@ -1312,7 +1312,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 							}
 							tempdiff = tempdiff->next;
 						}
-						if ((origcounts > diffcounts)&&(origsize > diffsize))
+						if ((origcounts >= diffcounts)&&(origsize > diffsize))
 						{
 							tempdiff = diff;
 							int lineoffset = 0;
