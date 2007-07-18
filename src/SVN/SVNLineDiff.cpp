@@ -39,11 +39,38 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 		{
 		case svn_diff_datasource_original:
 			{
+				int chartype = SVNLINEDIFF_CHARTYPE_NONE;
 				for (unsigned long i=0; i<linediff->m_line1length; ++i)
 				{
 					if (IsCharAlphaNumeric(linediff->m_line1[i]))
 					{
-						token += linediff->m_line1[i];
+						if ((chartype == SVNLINEDIFF_CHARTYPE_ALPHANUMERIC)||
+							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
+						{
+							token += linediff->m_line1[i];
+						}
+						else
+						{
+							if (!token.empty())
+								linediff->m_line1tokens.push_back(token);
+							token = linediff->m_line1[i];
+						}
+						chartype = SVNLINEDIFF_CHARTYPE_ALPHANUMERIC;
+					}
+					else if (IsCharWhiteSpace(linediff->m_line1[i]))
+					{
+						if ((chartype == SVNLINEDIFF_CHARTYPE_SPACE)||
+							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
+						{
+							token += linediff->m_line1[i];
+						}
+						else
+						{
+							if (!token.empty())
+								linediff->m_line1tokens.push_back(token);
+							token = linediff->m_line1[i];
+						}
+						chartype = SVNLINEDIFF_CHARTYPE_SPACE;
 					}
 					else
 					{
@@ -52,6 +79,7 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 						token = linediff->m_line1[i];
 						linediff->m_line1tokens.push_back(token);
 						token.clear();
+						chartype = SVNLINEDIFF_CHARTYPE_OTHER;
 					}
 				}
 				if (!token.empty())
@@ -65,10 +93,39 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 			break;
 		case svn_diff_datasource_modified:
 			{
+				int chartype = SVNLINEDIFF_CHARTYPE_NONE;
 				for (unsigned long i=0; i<linediff->m_line2length; ++i)
 				{
 					if (IsCharAlphaNumeric(linediff->m_line2[i]))
-						token += linediff->m_line2[i];
+					{
+						if ((chartype == SVNLINEDIFF_CHARTYPE_ALPHANUMERIC)||
+							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
+						{
+							token += linediff->m_line2[i];
+						}
+						else
+						{
+							if (!token.empty())
+								linediff->m_line2tokens.push_back(token);
+							token = linediff->m_line2[i];
+						}
+						chartype = SVNLINEDIFF_CHARTYPE_ALPHANUMERIC;
+					}
+					else if (IsCharWhiteSpace(linediff->m_line2[i]))
+					{
+						if ((chartype == SVNLINEDIFF_CHARTYPE_SPACE)||
+							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
+						{
+							token += linediff->m_line2[i];
+						}
+						else
+						{
+							if (!token.empty())
+								linediff->m_line2tokens.push_back(token);
+							token = linediff->m_line2[i];
+						}
+						chartype = SVNLINEDIFF_CHARTYPE_SPACE;
+					}
 					else
 					{
 						if (!token.empty())
@@ -76,8 +133,10 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 						token = linediff->m_line2[i];
 						linediff->m_line2tokens.push_back(token);
 						token.clear();
+						chartype = SVNLINEDIFF_CHARTYPE_OTHER;
 					}
 				}
+
 				if (!token.empty())
 				{
 					linediff->m_line2tokens.push_back(token);
@@ -265,4 +324,11 @@ apr_uint32_t SVNLineDiff::Adler32(apr_uint32_t checksum, const WCHAR *data, apr_
 	}
 
 	return ((s2 % ADLER_MOD_BASE) << 16) | (s1 % ADLER_MOD_BASE);
+}
+
+bool SVNLineDiff::IsCharWhiteSpace(TCHAR c)
+{
+	if ((c == ' ')||(c == '\t'))
+		return true;
+	return false;
 }

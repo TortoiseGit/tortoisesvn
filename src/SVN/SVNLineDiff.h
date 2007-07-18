@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,11 @@
 #include "diff.h"
 #include "svn_pools.h"
 
+#define SVNLINEDIFF_CHARTYPE_NONE			0
+#define SVNLINEDIFF_CHARTYPE_ALPHANUMERIC	1
+#define SVNLINEDIFF_CHARTYPE_SPACE			2
+#define SVNLINEDIFF_CHARTYPE_OTHER			3
+
 class SVNLineDiff
 {
 public:
@@ -36,10 +41,12 @@ public:
 	static svn_error_t * compare_token(void * baton, void * token1, void * token2, int * compare);
 	static void discard_token(void * baton, void * token);
 	static void discard_all_token(void *baton);
+	static bool IsCharWhiteSpace(TCHAR c);
 
 	apr_uint32_t Adler32(apr_uint32_t checksum, const WCHAR *data, apr_size_t len);
 	std::vector<std::wstring>	m_line1tokens;
 	std::vector<std::wstring>	m_line2tokens;
+
 private:
 	apr_pool_t *		m_pool;
 	apr_pool_t *		m_subpool;
