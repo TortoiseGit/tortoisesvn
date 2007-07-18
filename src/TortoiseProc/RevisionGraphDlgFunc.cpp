@@ -79,7 +79,7 @@ void CRevisionGraphWnd::BuildPreview()
 		trycounter++;
 	}
 	// make sure the preview window has a minimal size
-	if (m_GraphRect.Width() && m_GraphRect.Height())
+	if ((m_GraphRect.Width()>10) && (m_GraphRect.Height()>10))
 	{
 		m_previewWidth = max(m_GraphRect.Width(), 30);
 		m_previewHeight = max(m_GraphRect.Height(), 30);
