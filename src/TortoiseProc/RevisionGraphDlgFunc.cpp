@@ -78,8 +78,19 @@ void CRevisionGraphWnd::BuildPreview()
 		fZoom *= 0.95f;
 		trycounter++;
 	}
-	m_previewWidth = m_GraphRect.Width();
-	m_previewHeight = m_GraphRect.Height();
+	// make sure the preview window has a minimal size
+	if (m_GraphRect.Width() && m_GraphRect.Height())
+	{
+		m_previewWidth = max(m_GraphRect.Width(), 30);
+		m_previewHeight = max(m_GraphRect.Height(), 30);
+	}
+	else
+	{
+		// if the preview window is too small (at least one side is zero)
+		// then don't show the preview at all.
+		m_previewHeight = 0;
+		m_previewWidth = 0;
+	}
 
 	CClientDC ddc(this);
 	CDC dc;
