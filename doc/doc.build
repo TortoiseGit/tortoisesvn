@@ -223,7 +223,7 @@ All user/site specific configuration is stored in doc.build.user.
 	<target name="translate" description="Create translated source file">
 		<property name="lang.pofile" value="po/${app}_${lang.target}.po"/>
 
-		<echo message="Translating: '${lang.target}' This may take a few minutes"/>
+		<echo message="Translating: '${app} ${lang.target}' This may take a few minutes"/>
 		
 		<exec program="msgfmt"
 					commandline="${lang.pofile} -o ${lang.target}.mo"
@@ -254,7 +254,8 @@ All user/site specific configuration is stored in doc.build.user.
 				</uptodate>
 
 				<if test="${not file.target.uptodate}">
-					<echo message="${file.target}"/>
+
+					<echo message="Translating: ${path::get-file-name(file.target)}"/>
 					<property name="dir.target" value="${path::get-directory-name(file.target)}"/>
 					<mkdir dir="${dir.target}" unless="${directory::exists(dir.target)}"/>
 					<exec program="python"
@@ -285,7 +286,7 @@ All user/site specific configuration is stored in doc.build.user.
 <!-- ====================================================================== -->
 
 	<target name="spellcheck" description="Run spellchecker on files">
-		<echo message="Spellchecking: '${lang.target}' This may take a few minutes"/>
+		<echo message="Spellchecking: '${app} ${lang.target}' This may take a few minutes"/>
 		<property name="spellcheck.log" value="ASpell/${app}_${lang.target}.log"/>
 		
 		<echo message="--- Spellchecking: '${lang.target}'"
