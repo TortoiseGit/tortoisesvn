@@ -203,7 +203,7 @@ public:
 				   , revision_t revision
 				   , Action action)
 		: path (path), realPath (path.GetBasePath()), revision (revision), action (action)
-		, next (NULL)
+		, prev (NULL), next (NULL)
 		, row (0), column (0) {};
 
 	//members
@@ -212,9 +212,11 @@ public:
 	CDictionaryBasedPath realPath;
 
 	Action			action;
+	CRevisionEntry* prev;
 	CRevisionEntry* next;
 
 	std::vector<CRevisionEntry*>	copyTargets;
+	std::vector<CRevisionEntry*>	copySources;
     std::vector<CDictionaryBasedPath> tagNames;
 
 	int				column;
@@ -312,6 +314,7 @@ private:
 
     void                        FindReplacements();
     void                        FoldTags();
+	void						ApplyFilter();
 	void						Optimize (const SOptions& options);
 
 	int							AssignOneRowPerRevision();
@@ -327,7 +330,7 @@ private:
 	CStringA					m_sRepoRoot;
 	revision_t					m_lHeadRevision;
 
-	std::set<std::wstring>		m_filterpaths;
+	std::set<std::string>		m_filterpaths;
 	svn_revnum_t				m_FilterMinRev;
 	svn_revnum_t				m_FilterMaxRev;
 

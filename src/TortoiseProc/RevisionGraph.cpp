@@ -201,9 +201,15 @@ void CSearchPathTree::ChainEntries (CRevisionEntry* entry)
 		// branch or chain?
 
 		if (entry->action == CRevisionEntry::addedwithhistory)
+		{
 			lastEntry->copyTargets.push_back (entry);
+			entry->copySources.push_back (lastEntry);
+		}
 		else
+		{
 			lastEntry->next = entry;
+			entry->prev = lastEntry;
+		}
 	}
 
 	lastEntry = entry;
@@ -235,7 +241,7 @@ CSearchPathTree* CSearchPathTree::GetPreOrderNext (CSearchPathTree* lastNode)
 
 CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	, m_FilterMinRev(-1)
-	, m_FilterMaxRev(-1)
+	, m_FilterMaxRev(LONG_MAX)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -310,14 +316,14 @@ bool CRevisionGraph::SetFilter(svn_revnum_t minrev, svn_revnum_t maxrev, const C
 			CString sTemp = sPathFilter;
 			while (pos>=0)
 			{
-				m_filterpaths.insert((LPCWSTR)sTemp.Left(pos));
+				m_filterpaths.insert(CUnicodeUtils::StdGetUTF8((LPCTSTR)sTemp.Left(pos)));
 				sTemp = sTemp.Mid(pos+1);
 				pos = sTemp.Find('*');
 			}
-			m_filterpaths.insert((LPCWSTR)sTemp);
+			m_filterpaths.insert(CUnicodeUtils::StdGetUTF8((LPCTSTR)sTemp));
 		}
 		else
-			m_filterpaths.insert((LPCWSTR)sPathFilter);
+			m_filterpaths.insert(CUnicodeUtils::StdGetUTF8((LPCTSTR)sPathFilter));
 	}
 	return true;
 }
@@ -1177,13 +1183,62 @@ void CRevisionGraph::FoldTags()
 	}
 }
 
+void CRevisionGraph::ApplyFilter()
+{
+	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
+	{
+		CRevisionEntry * entry = m_entryPtrs[i];
+
+		bool bRemove = false;
+		if (m_filterpaths.size() > 0)
+		{
+			for (std::set<std::string>::iterator fi = m_filterpaths.begin(); fi != m_filterpaths.end(); ++fi)
+			{
+				if (entry->realPath.GetPath().find(fi->c_str()) != std::string::npos)
+				{
+					bRemove = true;
+					break;
+				}
+			}
+		}
+		if (((svn_revnum_t)entry->revision < m_FilterMinRev) ||
+			((svn_revnum_t)entry->revision > m_FilterMaxRev) ||
+			(bRemove))
+		{
+			std::vector<CRevisionEntry*>& sources = entry->copySources;
+			for (size_t k = 0, sourcesCount = sources.size(); k < sourcesCount; ++k)
+			{
+				CRevisionEntry * src = sources[k];
+
+				for (std::vector<CRevisionEntry*>::iterator it = src->copyTargets.begin(); it != src->copyTargets.end(); ++it)
+				{
+					if (*it == entry)
+					{
+						src->copyTargets.erase(it);
+						break;
+					}
+				}
+			}
+			if (entry->prev)
+			{
+				entry->prev->next = entry->next;
+			}
+			entry->action = CRevisionEntry::nothing;
+		}
+	}
+}
+
 void CRevisionGraph::Optimize (const SOptions& options)
 {
 	// say "renamed" for "Deleted"/"Added" entries
 
     FindReplacements();
 
-    // fold tags if requested
+	// apply the custom filter
+
+	ApplyFilter();
+	
+	// fold tags if requested
 
     if (options.foldTags)
         FoldTags();
