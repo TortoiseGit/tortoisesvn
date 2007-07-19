@@ -193,6 +193,10 @@ void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 	{
 		result = ShellExecute(NULL, _T("open"), m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
 	}
+	if ((UINT)result > HINSTANCE_ERROR)
+	{
+		EndDialog(0);
+	}
 }
 
 void CCheckForUpdatesDlg::OnTimer(UINT_PTR nIDEvent)
