@@ -3719,7 +3719,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					if (selRealIndex == nItem)
 					{
 						selIndex = hiddenindex;
-						changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
+						changedlogpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
 						break;
 					}
 				}
