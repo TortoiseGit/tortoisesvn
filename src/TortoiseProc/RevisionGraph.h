@@ -173,6 +173,10 @@ public:
     // return next node in pre-order
 
     CSearchPathTree* GetPreOrderNext (CSearchPathTree* lastNode = NULL);
+
+    // return next node in pre-order but skip this sub-tree
+
+    CSearchPathTree* GetSkipSubTreeNext (CSearchPathTree* lastNode = NULL);
 };
 
 /**

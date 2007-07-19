@@ -230,6 +230,15 @@ CSearchPathTree* CSearchPathTree::GetPreOrderNext (CSearchPathTree* lastNode)
 	if (firstChild != NULL)
         return firstChild;
 
+    // there is no sub-tree
+
+    return GetSkipSubTreeNext (lastNode);
+}
+
+// return next node in pre-order but skip this sub-tree
+
+CSearchPathTree* CSearchPathTree::GetSkipSubTreeNext (CSearchPathTree* lastNode)
+{
     CSearchPathTree* result = this;
     while ((result != lastNode) && (result->next == NULL))
 		result = result->parent;
@@ -698,11 +707,7 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 			// this sub-tree has fully been covered (or been no match at all)
 			// -> to the next node
 
-			while (   (searchNode->GetNext() == NULL)
-				   && (searchNode->GetParent() != NULL))
-				searchNode = searchNode->GetParent();
-
-			searchNode = searchNode->GetNext();
+            searchNode = searchNode->GetSkipSubTreeNext();
 		}
 
 		// handle remaining copy-to entries
@@ -935,19 +940,12 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 
 			// select next node
 
-			if (   (searchNode->GetFirstChild() != NULL)
-                && (sameOrChild || path.IsSameOrParentOf (copy->fromPathIndex)))
-			{
-				searchNode = searchNode->GetFirstChild();
-			}
-			else
-			{
-				while (    (searchNode->GetNext() == NULL)
-						&& (searchNode->GetParent() != NULL))
-					searchNode = searchNode->GetParent();
+            bool copyInSubTree = sameOrChild 
+                              || path.IsSameOrParentOf (copy->fromPathIndex);
 
-				searchNode = searchNode->GetNext();
-			}
+			searchNode = copyInSubTree
+                       ? searchNode->GetPreOrderNext()
+                       : searchNode->GetSkipSubTreeNext();
 		}
 	}
 }
@@ -1039,11 +1037,7 @@ void CRevisionGraph::AddMissingHeads (CSearchPathTree* rootNode)
 
 			// continue with right next
 
-			while (   (searchNode->GetNext() == NULL)
-				   && (searchNode->GetParent() != NULL))
-				searchNode = searchNode->GetParent();
-
-			searchNode = searchNode->GetNext();
+            searchNode = searchNode->GetSkipSubTreeNext();
 		}
 	}
 }
