@@ -1242,7 +1242,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					}
 					if (!sMergedLogMessage.IsEmpty())
 					{
-						sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + _T("\n") + sSeparator;
+						sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + sSeparator;
 						CHistoryDlg	HistoryDlg;
 						HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 						CString reg;
