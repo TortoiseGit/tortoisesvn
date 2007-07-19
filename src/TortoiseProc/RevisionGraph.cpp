@@ -1121,6 +1121,7 @@ void CRevisionGraph::FindReplacements()
 					// make it part of this line (not a branch)
 
 					entry->next = target;
+                    target->prev = entry;
 					entry->copyTargets.clear();
 
 					// mark the old "deleted" entry for removal
@@ -1217,6 +1218,10 @@ void CRevisionGraph::ApplyFilter()
 			{
 				entry->prev->next = entry->next;
 			}
+            if (entry->next)
+            {
+				entry->next->prev = entry->prev;
+            }
 			entry->action = CRevisionEntry::nothing;
 		}
 	}
@@ -1391,8 +1396,11 @@ void CRevisionGraph::AutoSplitBranch ( CRevisionEntry* entry
 
         // chain them
 
+        splitStart->prev = nextEntry;
         splitStart->next = splitEnd;
+        splitEnd->prev = splitStart;
         splitEnd->next = nextEntry;
+        nextEntry->prev = splitEnd;
         nextEntry = splitStart;
     }
 }
