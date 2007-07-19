@@ -868,6 +868,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
 	DialogEnableWindow(IDC_STATBUTTON, FALSE);
+	DialogEnableWindow(IDC_REFRESH, FALSE);
 	
 	// change the text of the close button to "Cancel" since now the thread
 	// is running, and simply closing the dialog doesn't work.
@@ -1007,6 +1008,7 @@ UINT CLogDlg::LogThread()
 		DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
 	DialogEnableWindow(IDC_STATBUTTON, TRUE);
+	DialogEnableWindow(IDC_REFRESH, TRUE);
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
