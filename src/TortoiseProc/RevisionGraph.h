@@ -253,9 +253,6 @@ public:
         bool exactCopySources;      // create a copy-source node, even if there was no change in that revision
         bool splitBranches;         // long sections with no change will be replaced by "split nodes"
         bool foldTags;              // show tags as property to the source - not as separate nodes
-
-        // not implemented yet:
-
         bool reduceCrossLines;      // minimize places with lines crossing a node box
     };
 
@@ -314,7 +311,8 @@ private:
 				    					            , std::vector<CSearchPathTree*>& toRemove);
 	void						AssignColumns ( CRevisionEntry* start
 											  , std::vector<int>& columnByRow
-                                              , int column);
+                                              , int column
+											  , const SOptions& options);
 
     void                        FindReplacements();
     void                        FoldTags();

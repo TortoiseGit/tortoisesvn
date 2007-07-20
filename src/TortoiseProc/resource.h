@@ -1123,13 +1123,14 @@
 #define ID_INLINEEDIT                   32816
 #define ID_VIEW_SPLITBRANCHES           32817
 #define ID_VIEW_FOLDTAGS                32818
+#define ID_VIEW_REDUCECROSSLINES        32819
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        254
-#define _APS_NEXT_COMMAND_VALUE         32819
+#define _APS_NEXT_COMMAND_VALUE         32820
 #define _APS_NEXT_CONTROL_VALUE         1383
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

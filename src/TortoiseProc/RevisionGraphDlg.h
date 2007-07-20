@@ -67,6 +67,8 @@ protected:
 	
 	HACCEL			m_hAccel;
 
+	BOOL			InitializeToolbar();
+
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL	OnInitDialog();
 	virtual void	OnCancel();
@@ -89,6 +91,7 @@ protected:
 	afx_msg void    OnViewExactCopySource();
 	afx_msg void    OnViewSplitBranches();
 	afx_msg void    OnViewFoldTags();
+	afx_msg void    OnViewReduceCrosslines();
 	afx_msg void	OnViewShowoverview();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnMenuexit();

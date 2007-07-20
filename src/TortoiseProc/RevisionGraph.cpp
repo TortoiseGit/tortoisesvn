@@ -1269,12 +1269,28 @@ void CRevisionGraph::Optimize (const SOptions& options)
 
 void CRevisionGraph::AssignColumns ( CRevisionEntry* start
 								   , std::vector<int>& columnByRow
-                                   , int column)
+                                   , int column
+								   , const SOptions& options)
 {
+	// find the first row that will be occupied by this branch
+
+	int startRow = start->row;
+	if (options.reduceCrossLines && (startRow > 0))
+	{
+		// in most cases of lines cross boxes, the reason is
+		// one branch ending on one line with the next one
+		// starting at the next (using the same column)
+		// -> just mark one additional row as "used" by this
+		//    branch. So, there will be at least one "space"
+		//    row between branches in the same column.
+
+		--startRow;
+	}
+
 	// find largest column for the chain starting at "start"
     // skip split branch sections
 
-	int lastRow = start->row;
+	int lastRow = startRow;
 	for (CRevisionEntry* entry = start; entry != NULL; entry = entry->next)
     {
         if (entry->action != CRevisionEntry::splitEnd)
@@ -1296,7 +1312,7 @@ void CRevisionGraph::AssignColumns ( CRevisionEntry* start
 
 	// block the column for the whole chain except for split branch sections
 
-	lastRow = start->row;
+	lastRow = startRow;
 	for (CRevisionEntry* entry = start; entry != NULL; entry = entry->next)
     {
         if (entry->action != CRevisionEntry::splitEnd)
@@ -1315,7 +1331,7 @@ void CRevisionGraph::AssignColumns ( CRevisionEntry* start
 	{
 		const std::vector<CRevisionEntry*>& targets = (*iter)->copyTargets;
 		for (size_t i = 0, count = targets.size(); i < count; ++i)
-			AssignColumns (targets[i], columnByRow, column+1);
+			AssignColumns (targets[i], columnByRow, column+1, options);
 	}
 }
 
@@ -1456,7 +1472,7 @@ void CRevisionGraph::AssignCoordinates (const SOptions& options)
 	std::vector<int> columnByRow;
 	columnByRow.insert (columnByRow.begin(), row+1, 0);
 
-	AssignColumns (m_entryPtrs[0], columnByRow, 1);
+	AssignColumns (m_entryPtrs[0], columnByRow, 1, options);
 
     // invert order (show newest rev in first row)
 
