@@ -294,6 +294,18 @@
               <File Id="F__TortoiseUDiff" Name="TUDIFF.EXE" LongName="TortoiseUDiff.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseUDiff.exe" KeyPath="yes" />
             </Component>
 
+            <Component Id="C__PlainSettingsShortcuts" Guid="$(var.GuidPlainSettingsShortcuts)" Win64="$(var.Win64YesNo)">
+              <Condition><![CDATA[NOT VersionNT64]]></Condition>
+              <Shortcut Id="S__PlainConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings" Advertise="no"
+                Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
+            </Component>
+
+            <Component Id="C__PlatformSettingsShortcuts" Guid="$(var.GuidPlatformSettingsShortcuts)" Win64="$(var.Win64YesNo)">
+              <Condition>VersionNT64</Condition>
+              <Shortcut Id="S__PlatformConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings $(var.PlatformUserVisible)" Advertise="no"
+                Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
+            </Component>
+
           </Directory>
 
           <Directory Id="D__Languages" Name="Language" LongName="Languages" >
