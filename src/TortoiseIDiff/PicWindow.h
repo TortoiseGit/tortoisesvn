@@ -32,6 +32,8 @@
 #define RIGHTBUTTON_ID			102
 #define PLAYBUTTON_ID			103
 #define ALPHATOGGLEBUTTON_ID	104
+#define BLENDALPHA_ID			105
+#define BLENDXOR_ID				106
 
 #define TRACKBAR_ID 101
 #define SLIDER_HEIGHT 30
@@ -70,10 +72,16 @@ public:
 		, bLinked(true)
 		, hwndAlphaSlider(NULL)
 		, bFitTogether(false)
+		, m_blend(BLEND_ALPHA)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
 
+	enum BlendType
+	{
+		BLEND_ALPHA,
+		BLEND_XOR,
+	};
 	/// Registers the window class and creates the window
 	bool RegisterAndCreateWindow(HWND hParent);
 
@@ -179,6 +187,7 @@ protected:
 	CPicWindow *		pTheOtherPic;		///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...
 	bool				bLinked;			///< if true, the two image windows are linked together for scrolling/zooming/...
 	bool				bFitTogether;		///< if true, the two image windows are always zoomed so they match their size
+	BlendType			m_blend;			///< type of blending to use
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
 	BYTE				alphalive;			///< the alpha value for the transparency live-preview of the second picture
@@ -202,11 +211,15 @@ protected:
 	HWND				hwndPlayBtn;
 	HWND				hwndAlphaSlider;
 	HWND				hwndAlphaToggleBtn;
+	HWND				hwndAlphaBlendBtn;
+	HWND				hwndXORBlendBtn;
 	HICON				hLeft;
 	HICON				hRight;
 	HICON				hPlay;
 	HICON				hStop;
 	HICON				hAlphaToggle;
+	HICON				hAlphaBlend;
+	HICON				hXORBlend;
 	bool				bPlaying;
 	RECT				m_inforect;
 };

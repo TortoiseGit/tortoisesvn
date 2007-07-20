@@ -55,7 +55,7 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 
 void CPicWindow::PositionTrackBar()
 {
-	if (pSecondPic)
+	if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
 	{
 		MoveWindow(hwndAlphaSlider, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4+SLIDER_WIDTH, SLIDER_WIDTH, m_inforect.bottom-m_inforect.top-SLIDER_WIDTH+8, true);
 		ShowWindow(hwndAlphaSlider, SW_SHOW);
@@ -302,6 +302,20 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				{
 					ToggleAlpha();
 					return 0;
+				}
+				break;
+			case BLENDALPHA_ID:
+				{
+					m_blend = BLEND_ALPHA;
+					PositionTrackBar();
+					InvalidateRect(*this, NULL, TRUE);
+				}
+				break;
+			case BLENDXOR_ID:
+				{
+					m_blend = BLEND_XOR;
+					PositionTrackBar();
+					InvalidateRect(*this, NULL, TRUE);
 				}
 				break;
 			}
@@ -917,7 +931,7 @@ void CPicWindow::Paint(HWND hwnd)
 	hdc = BeginPaint(hwnd, &ps);
 	{
 		// Exclude the alpha control and button
-		if(pSecondPic)
+		if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
 			ExcludeClipRect(hdc, 0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4);
 
 		CMemDC memDC(hdc);
@@ -971,29 +985,47 @@ void CPicWindow::Paint(HWND hwnd)
 				}
 
 				pSecondPic->Show(secondhdc, picrect2);
-				BLENDFUNCTION blender;
-				blender.AlphaFormat = 0;
-				blender.BlendFlags = 0;
-				blender.BlendOp = AC_SRC_OVER;
-				blender.SourceConstantAlpha = alphalive;
-				AlphaBlend(memDC, 
-					rect.left,
-					rect.top,
-					rect.right-rect.left,
-					rect.bottom-rect.top,
-					secondhdc,
-					rect.left,
-					rect.top,
-					rect.right-rect.left,
-					rect.bottom-rect.top,
-					blender);
+
+				if (m_blend == BLEND_ALPHA)
+				{
+					BLENDFUNCTION blender;
+					blender.AlphaFormat = 0;
+					blender.BlendFlags = 0;
+					blender.BlendOp = AC_SRC_OVER;
+					blender.SourceConstantAlpha = alphalive;
+					AlphaBlend(memDC, 
+						rect.left,
+						rect.top,
+						rect.right-rect.left,
+						rect.bottom-rect.top,
+						secondhdc,
+						rect.left,
+						rect.top,
+						rect.right-rect.left,
+						rect.bottom-rect.top,
+						blender);
+				}
+				else if (m_blend == BLEND_XOR)
+				{
+					BitBlt(memDC, 
+						rect.left,
+						rect.top,
+						rect.right-rect.left,
+						rect.bottom-rect.top,
+						secondhdc,
+						rect.left,
+						rect.top,
+						//rect.right-rect.left,
+						//rect.bottom-rect.top,
+						SRCINVERT);
+					InvertRect(memDC, &rect);
+				}
 				SelectObject(secondhdc, hOldBitmap);
 				DeleteObject(hBitmap);
 				DeleteDC(secondhdc);
-
 			}
 			int sliderwidth = 0;
-			if (pSecondPic)
+			if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
 				sliderwidth = SLIDER_WIDTH;
 			m_inforect.left = rect.left+4+sliderwidth;
 			m_inforect.top = rect.top;
@@ -1119,6 +1151,35 @@ bool CPicWindow::CreateButtons()
 	hAlphaToggle = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_ALPHATOGGLE), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndAlphaToggleBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaToggle);
 
+	// buttons to switch between the different blending options
+	hwndAlphaBlendBtn = CreateWindowEx(0, 
+		_T("BUTTON"), 
+		(LPCTSTR)NULL,
+		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+		0, 0, 0, 0, 
+		(HWND)*this,
+		(HMENU)BLENDALPHA_ID,
+		hResource, 
+		NULL);
+	if (hwndAlphaBlendBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hAlphaBlend = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BLENDALPHA), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndAlphaBlendBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaBlend);
+
+	hwndXORBlendBtn = CreateWindowEx(0, 
+		_T("BUTTON"), 
+		(LPCTSTR)NULL,
+		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+		0, 0, 0, 0, 
+		(HWND)*this,
+		(HMENU)BLENDXOR_ID,
+		hResource, 
+		NULL);
+	if (hwndXORBlendBtn == INVALID_HANDLE_VALUE)
+		return false;
+	hXORBlend = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BLENDXOR), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
+	SendMessage(hwndXORBlendBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hXORBlend);
+
 	return true;
 }
 
@@ -1134,9 +1195,33 @@ void CPicWindow::PositionChildren()
 			SetWindowPos(hwndPlayBtn, HWND_TOP, rect.left+43, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 		else
 			ShowWindow(hwndPlayBtn, SW_HIDE);
+		if (pSecondPic)
+		{
+			long xpos = rect.left+53;
+			if (nFrames > 1)
+				xpos += 20;
+			SetWindowPos(hwndAlphaBlendBtn, HWND_TOP, xpos, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+			SetWindowPos(hwndXORBlendBtn, HWND_TOP, xpos+20, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		}
+		else
+		{
+			ShowWindow(hwndAlphaBlendBtn, SW_HIDE);
+			ShowWindow(hwndXORBlendBtn, SW_HIDE);
+		}
 	}
 	else
 	{
+		if (pSecondPic)
+		{
+			long xpos = rect.left+3;
+			SetWindowPos(hwndAlphaBlendBtn, HWND_TOP, xpos, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+			SetWindowPos(hwndXORBlendBtn, HWND_TOP, xpos+20, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+		}
+		else
+		{
+			ShowWindow(hwndAlphaBlendBtn, SW_HIDE);
+			ShowWindow(hwndXORBlendBtn, SW_HIDE);
+		}
 		ShowWindow(hwndLeftBtn, SW_HIDE);
 		ShowWindow(hwndRightBtn, SW_HIDE);
 		ShowWindow(hwndPlayBtn, SW_HIDE);

@@ -39,6 +39,9 @@
 #define IDI_UNDO                        148
 #define IDI_ICON1                       149
 #define IDI_FITTOGETHER                 149
+#define IDI_BLENDALPHA                  150
+#define IDI_ICON4                       151
+#define IDI_BLENDXOR                    151
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001
 #define IDC_LEFTBROWSE                  1002
@@ -68,7 +71,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        150
+#define _APS_NEXT_RESOURCE_VALUE        152
 #define _APS_NEXT_COMMAND_VALUE         32812
 #define _APS_NEXT_CONTROL_VALUE         1004
 #define _APS_NEXT_SYMED_VALUE           110
