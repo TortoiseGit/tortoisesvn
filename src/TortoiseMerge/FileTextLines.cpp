@@ -328,6 +328,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		CString line(pLineStart, pTextBuf-pLineStart);
 		Add(line);
+		m_endings.push_back(CFileTextLines::NOENDING);
 		m_bReturnAtEnd = false;		
 	}
 	else

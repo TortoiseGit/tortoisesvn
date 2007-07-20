@@ -60,6 +60,7 @@ public:
 		CRLF,
 		LFCR,
 		CR,
+		NOENDING,
 	};
 	enum UnicodeType
 	{
