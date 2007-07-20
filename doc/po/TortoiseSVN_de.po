@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-18 11:07+0100\n"
+"PO-Revision-Date: 2007-07-20 11:55+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4825,7 +4825,7 @@ msgstr "Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil ein
 
 #: source/TortoiseSVN_en.xml:6953(title)
 msgid "Automatic property setting"
-msgstr "Automatisches setzen von Eigenschaften"
+msgstr "Eigenschaften automatisch setzen"
 
 #: source/TortoiseSVN_en.xml:6954(para)
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
@@ -4853,11 +4853,11 @@ msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Rege
 
 #: source/TortoiseSVN_en.xml:7012(para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files."
-msgstr ""
+msgstr "Subversion erlaubt Ihnen, <literal>autoprops</literal> anzugeben, die für jede neu hinzugefügte oder importierte Datei, abhängig von der Dateierweiterung, gesetzt werden. Das erfordert, dass jeder Client die gleichen <literal>autoprops</literal> in seiner Subversion Konfigurationsdatei stehen hat. <literal>tsvn:autoprops</literal> können auch auf Ordner gesetzt werden und werden mit den lokalen <literal>autoprops</literal> des Anwenders zusammengeführt, wenn Dateien zu einem Projektarchiv hinzugefügt oder importiert werden."
 
 #: source/TortoiseSVN_en.xml:7021(para)
 msgid "If there is a conflict between the local autoprops and <literal>tsvn:autoprops</literal>, the project settings take precedence because they are specific to that project."
-msgstr ""
+msgstr "Wenn es einen Konflikt zwischen den lokalen <literal>autoprops</literal> und <literal>tsvn:autoprops</literal> gibt, haben die Projekteinstellungen Vorrang vor den allgemeinen Einstellungen."
 
 #: source/TortoiseSVN_en.xml:7028(para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in English or in the localized language. If the property is not set, the default is <literal>true</literal>."
@@ -4908,7 +4908,7 @@ msgstr "TortoiseSVN kann auch mit einige webbasierten Projektarchivbetrachtern z
 
 #: source/TortoiseSVN_en.xml:7116(para)
 msgid "Although the <literal>tsvn:xxx</literal> properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. <literal>tsvn:</literal> properties can only help to implement a policy, they cannot enforce it."
-msgstr ""
+msgstr "Obwohl die <literal>tsvn:xxx</literal> Eigenschaften sehr nützlich sind, gelten sie nur für TortoiseSVN und einige von ihnen sogar nur für neuere Versionen von TortoiseSVN. Wenn Projektmitarbeiter verschiedene Subversion Clients oder eventuell alte Versionen von TortoiseSVN einsetzen, sollten Sie besser mit Aktionsskripten im Projektarchiv Projektregeln durchsetzen. <literal>tsvn:</literal> Eigenschaften können nur beim Einrichten von Regeln helfen, jedoch nicht dabei, diese durchzusetzen."
 
 #: source/TortoiseSVN_en.xml:7129(title)
 msgid "Branching / Tagging"
@@ -5525,11 +5525,11 @@ msgstr "Sie können auch mittels <menuchoice> <guimenu>Bearbeiten</guimenu> <gui
 
 #: source/TortoiseSVN_en.xml:8170(para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "Wenn die Maus sich über dem Annotieren Fenster befindet, steht ein Kontextmenü zur Verfügung, mit dessen Hilfe Sie Revisionen vergleichen und die Historie, unter Verwendung der Revisionsnummer auf die die Maus zeigt, betrachten können.<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vorherige Revision annotieren</guimenuitem> </menuchoice> erzeugt eine Annotierung derselben Datei unter Verwendung der vorherigen Revisionsnummer als Obergrenze. Dies zeigt Ihnen den Zustand der Datei bevor die Zeile, die Sie gerade betrachen, geändert wurde, an. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Änderungen</guimenuitem> </menuchoice> startet den Diff-Betrachter mit den Änderungen der Revision. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> startet den Log-Dialog in der gewählten Revision."
 
 #: source/TortoiseSVN_en.xml:8192(para)
 msgid "Although TortoiseBlame has no settings dialog of its own, it uses the same font as TortoiseMerge, so if you want to change it, start TortoiseMerge and use the settings dialog there."
-msgstr ""
+msgstr "TortoiseBlame verfügt über keinen eigenen Einstellungsdialog, sondern verwendet dieselbe Schrift wie TortoiseMerge. Wenn Sie die Schrift ändern wollen, starten Sie TortoiseMerge und nehmen Sie die Einstellungen dort vor."
 
 #: source/TortoiseSVN_en.xml:8199(title)
 #: source/TortoiseSVN_en.xml:8224(term)
