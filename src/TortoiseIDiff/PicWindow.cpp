@@ -956,6 +956,7 @@ void CPicWindow::Paint(HWND hwnd)
 				border.right = picrect.right+1;
 				border.bottom = picrect.bottom+1;
 				FillRect(memDC, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+				::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &picrect, NULL, 0, NULL);
 			}
 			picture.Show(memDC, picrect);
 			if (pSecondPic)
@@ -982,6 +983,7 @@ void CPicWindow::Paint(HWND hwnd)
 					border.right = picrect2.right+1;
 					border.bottom = picrect2.bottom+1;
 					FillRect(secondhdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+					::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &picrect2, NULL, 0, NULL);
 				}
 
 				pSecondPic->Show(secondhdc, picrect2);
