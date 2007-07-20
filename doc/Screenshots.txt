@@ -40,10 +40,9 @@ ch02dia1-7.png
 
 Changelist.png
 	Use the 'doc' test WC.
-	Modify 3 files, say dug_add.xml, dug_blame.xml and dug_commit.xml
 	Open the commit dialog and add dug_blame.xml to a new changelist 'Blame doc update'.
 	Screenshot shows context menu for the changelist.
-	Remove dug_blame.xml from the changelist and revert the folder.
+	Remove dug_blame.xml from the changelist.
 
 Checkout.png
 	Just pretend to checkout the TSVN docs:
@@ -51,8 +50,7 @@ Checkout.png
 
 Commit.png
 	Use the 'doc' test WC.
-	Modify 3 files, say dug_add.xml, dug_blame.xml and dug_commit.xml
-	Modify a server.xml in the 'ext' folder
+	Modify server.xml in the 'ext' folder
 	Open the commit dialog for the 'doc' folder
 	Type a message with spelling problem, eg.
 		Update documentation to explain new Frobnicate checkbox.
@@ -154,7 +152,12 @@ MergeOpen.png
 	Start TortoiseMerge from the start menu
 
 MergePatchWindow.png
-	TODO: (Show context menu)
+	Use the 'doc' test WC
+	TSVN->Apply Patch
+	Select doc/test/temp/docs.patch
+	In the patch list, right click on one of the files to show the
+	  context menu, making sure it is within the patch window
+	Capture just the patch list window
 
 mergeprinciple.png
 	Borrowed from the Subversion docs
@@ -172,10 +175,28 @@ MergeTwoPane.png
 	As for MergeOnePane, but use 2-pane view.
 
 Properties.png
+	Right click on the TSVN doc folder and open Explorer properties
+	  (not TSVN properties).
+	Capture the Subversion tab
+
 PropertyAdd.png
+	For any versioned folder, TSVN->Properties
+	In the list, click Add
+	Capture the add properties dialog with the combo expanded
+
 PropertyList.png
+	For the TSVN doc folder, TSVN->properties
+
 Relocate.png
+	For the TSVN doc folder, TSVN->relocate
+	Edit the To URL to show a different hostname
+	  eg. http://repos.tortoisesvn.net
+	Do NOT click OK ;)
+
 Repobrowser.png
+	Open the repo browser to show the contents of TSVN trunk in the left pane
+	In the right pane, right click on the TortoiseBlame folder to show context menu
+
 RepoStatus.png
 	(Show context menu for locally modified file)
 Revert.png
