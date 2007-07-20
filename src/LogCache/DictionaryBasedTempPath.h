@@ -122,7 +122,7 @@ public:
 
 	bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
 	{
-		return inherited::IsSameOrParentOf (rhs);
+		return inherited::IsSameOrChildOf (rhs);
 	}
 
 	bool IsSameOrChildOf (index_t rhsIndex) const
