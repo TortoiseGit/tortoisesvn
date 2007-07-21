@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-21 01:17+0900\n"
+"PO-Revision-Date: 2007-07-21 15:07+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4537,27 +4537,24 @@ msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guim
 msgstr "ポップアップメニューの <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN バージョン管理ファイルをここに移動する</guimenuitem></menuchoice> を選択してください。"
 
 #: source/TortoiseSVN_en.xml:6524(para)
-#, fuzzy
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-1/>"
-msgstr "作業コピー内に移動したい場合、ドラッグ &amp; ドロップハンドラを以下のようにまた使用します。<placeholder-1/>"
+msgstr "別のサブフォルダへなど、作業コピー内に移動する場合、右ドラッグ &amp; ドロップハンドラを以下のように使用してください。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6557(title)
 msgid "Commit the parent folder"
 msgstr "親フォルダでのコミット"
 
 #: source/TortoiseSVN_en.xml:6558(para)
-#, fuzzy
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and when your co-workers update, the old file will not be removed. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr "名前の変更や移動は、追加に続いて削除として動作するため、名前の変更・移動したファイルの親フォルダに対してコミットしなければなりません。そうでないと、名前の変更・移動したファイルがコミットダイアログに表示されません。名前の変更・移動した部分を除いてコミットしないと、リポジトリの陰に隠れてしまい、共同作業者が更新しても古いファイルを削除できません。つまり、新旧のファイルの<emphasis>両方</emphasis>がある状態になります。"
+msgstr "名前の変更や移動は、追加に続いて削除として動作するため、名前の変更・移動したファイルの親フォルダに対してコミットしなければなりません。そうでないと、名前の変更・移動したファイルがコミットダイアログに表示されません。名前の変更・移動した部分を除いてコミットしないと、リポジトリの陰に隠れてしまい、共同作業者が更新すると、古いファイルが削除されません。つまり、新旧のファイルの<emphasis>両方</emphasis>がある状態になります。"
 
 #: source/TortoiseSVN_en.xml:6568(para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr "このとき、フォルダ内のファイルにいずれの変更を加える前に、フォルダの名前の変更を<emphasis>コミットしなければなりません</emphasis>。そうしないと、作業コピーが台無しになってしまいます。"
 
 #: source/TortoiseSVN_en.xml:6574(para)
-#, fuzzy
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr "また、リポジトリブラウザを用いて、ご希望の場所に配置したり、リポジトリから直接作業コピーにコピーできます。詳細は <xref linkend=\"tsvn-dug-repobrowser\"/> をご覧ください。"
+msgstr "また、リポジトリブラウザを用いて、項目を移動できます。詳細は <xref linkend=\"tsvn-dug-repobrowser\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:6579(title)
 msgid "Do Not SVN Move Externals"
@@ -4576,9 +4573,8 @@ msgid "Making case-only changes to a filename is tricky with Subversion on Windo
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6603(para)
-#, fuzzy
 msgid "Fortunately there are (at least) two possible methods to rename a file without losing its log history. It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr "ログの履歴を失わずにファイルの名前を変更する、(少なくとも) 2つの有効な解決法があります。重要なのは subversion で名前を変更することです。単にエクスプローラで名前を変更すると、作業コピーが壊れてしまいます!!!"
+msgstr "幸い、ログの履歴を失わずにファイルの名前を変更する、(少なくとも) 2 つの有効な解決法があります。重要なのは Subversion で名前を変更することです。単にエクスプローラで名前を変更すると、作業コピーが壊れてしまいます!"
 
 #: source/TortoiseSVN_en.xml:6613(para)
 msgid "Commit the changes in your working copy."
@@ -4618,9 +4614,8 @@ msgid "Dealing with filename case conflicts"
 msgstr "ファイル名の大文字小文字が競合した場合の対処"
 
 #: source/TortoiseSVN_en.xml:6659(para)
-#, fuzzy
 msgid "If the repository already contains two files with the same name but differing only in case (e.g. <filename>TEST.TXT</filename> and <filename>test.txt</filename>), you will not be able to update or checkout the parent directory on a Windows client. Whilst Subversion supports case-sensitive filenames, Windows does not."
-msgstr "リポジトリ内に、文字の大小のみが異なる同じ名前のファイル (例: TEST.TXT と test.txt) がある場合、そのファイルのあるディレクトリの更新・チェックアウトがそれ以上できなくなります。"
+msgstr "リポジトリ内に、文字の大小のみが異なる同じ名前のファイル (例: <filename>TEST.TXT</filename> と <filename>test.txt</filename>) がある場合、Windows のクライアントで、親ディレクトリの更新・チェックアウトができなくなります。Subversion は文字の大小を区別していますが、Windows はそうではないからです。"
 
 #: source/TortoiseSVN_en.xml:6667(para)
 msgid "This sometimes happens when two people commit, from separate working copies, files which happen to have the same name, but with a case difference. It can also happen when files are committed from a system with a case-sensitive file system, like Linux."
@@ -4842,7 +4837,6 @@ msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rule
 msgstr "<literal>tsvn:logtemplate</literal> はログメッセージを整形するルールを持つプロジェクトで使用します。このプロパティは複数行の文字列を保持しており、コミットを開始するとコミットメッセージボックスにそれが挿入されます。これにより必要な情報を持つコミットメッセージを編集できます。注: <literal>tsvn:logminsize</literal> も使用している場合、テンプレートより長い値を必ずセットするか、そうでなければ保護機構を失うかのどちらかとなります。"
 
 #: source/TortoiseSVN_en.xml:7012(para)
-#, fuzzy
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files."
 msgstr "新しくファイルの追加やインポートした際に、拡張子を元にプロパティを付加するように、Subversion は <quote>autoprops</quote> を設定できます。これはクライアントごとに、Subversion 設定ファイルに適切に autoprops が設定されているかどうかに依存します。<literal>tsvn:autoprops</literal> をフォルダに設定しておくと、インポートやファイル追加の際に、ユーザのローカルに autoprops をマージするようになります。"
 
@@ -5091,7 +5085,6 @@ msgid "The Merge Dialog"
 msgstr "マージダイアログ"
 
 #: source/TortoiseSVN_en.xml:7440(para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
 msgstr "<guilabel>元:</guilabel> フィールドには、作業コピーに取り込みたい変更があるブランチやタグのフォルダの URL をすべて入力してください。<guibutton>...</guibutton> をクリックしてリポジトリを閲覧し望みのブランチを探すこともできます。このブランチから以前マージしていれば、以前に使用した URL の履歴のドロップダウンリストを使うだけです。"
 
@@ -5100,7 +5093,6 @@ msgid "Because you are porting a range of revisions from the same branch into yo
 msgstr "作業コピーの同じブランチからのリビジョン範囲を取り込むため、<guilabel>\"元:\" URL を使用する</guilabel> チェックボックスがチェックされているのを確認してください。"
 
 #: source/TortoiseSVN_en.xml:7461(para)
-#, fuzzy
 msgid ""
 "In the <guilabel>From Revision</guilabel> field enter the start revision number. This is the revision <emphasis>before</emphasis> the changes you want to merge. Remember that Subversion will create a diff file in order to perform the merge, so the start point has to be just before the first change you are interested in. For example, your log messages may look something like this: <screen>\n"
 "Rev Comments\n"
@@ -5122,7 +5114,7 @@ msgstr ""
 "35. Working on trunk\n"
 "34. Working on trunk\n"
 "         ...\n"
-"</screen> MyBranch から trunk へすべての変更点をマージしたい場合、あなたが思いつく 37 ではなく、36 を <guilabel>元リビジョン</guilabel> に設定しなければなりません。始点に 37 を設定すると、比較エンジンが終点を 37 としてしまい、リビジョン 37 で行った変更を見失ってしまいます。複雑なように見えますが、ご心配なく。TortoiseSVN にはもっと簡単な方法があります..."
+"</screen> <filename>MyBranch</filename> から trunk へすべての変更点をマージしたい場合、あなたが考える 37 ではなく、36 を <guilabel>元リビジョン</guilabel> に設定しなければなりません。始点に 37 を設定すると、比較エンジンが終点を 37 としてしまい、リビジョン 37 自身で行った変更を見失ってしまいます。複雑なように見えますが、ご心配なく。TortoiseSVN にはもっと簡単な方法があります..."
 
 #: source/TortoiseSVN_en.xml:7489(para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
@@ -5162,7 +5154,6 @@ msgid "Branch management is important. If you want to keep this branch up to dat
 msgstr "ブランチ管理は重要です。このブランチをトランクに合わせて最新の状態を維持したければ、たびたびマージを確実に行わないと、ブランチとトランクがだんだん離れていってしまうのです。もちろん上で説明したように、変更点のマージを繰り返してしまうのは避けなければなりません。"
 
 #: source/TortoiseSVN_en.xml:7568(para)
-#, fuzzy
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder URL for the merge."
 msgstr "Subversion ファイルをフォルダとマージはできませんし、逆もまた同様です。ただフォルダとフォルダ、ファイルとファイルで行えます。ファイルをクリックしてマージダイアログを開いたら、ファイルのパスを与えなければなりません。フォルダを選択してダイアログを開いたらマージするフォルダの URL を指定しなければなりません。"
 
@@ -5175,7 +5166,6 @@ msgid "This method covers the case when you have made a feature branch as discus
 msgstr "この方法は、Subversion book で述べた機能ブランチを作成する際の場合を扱います。トランクのすべての変更を、週ごとに機能ブランチに移し、機能が完全になったらトランクにマージします。機能ブランチをトランクと同期させておかねばならないため、ブランチの最新バージョンとトランクは、ブランチへの変更を除いて、絶対に一致するでしょう。そのため特別な場合に、トランクとブランチを比較してマージできます。"
 
 #: source/TortoiseSVN_en.xml:7600(para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
 msgstr "<guilabel>元:</guilabel> フィールドには、<emphasis>トランク</emphasis> の完全なフォルダ URL を入力してください。間違っているように思われるかもしれませんが、トランクが、ブランチの変更を追加する起点となることを思い出してください。<guibutton>...</guibutton> をクリックして、リポジトリの参照もできます。"
 
@@ -5416,9 +5406,8 @@ msgid "Applying a Patch File"
 msgstr "パッチファイルの適用"
 
 #: source/TortoiseSVN_en.xml:8012(para)
-#, fuzzy
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patch file is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TortoiseSVN will notice and suggest the correct level."
-msgstr "作業コピーにパッチファイルを適用します。パッチを作成したフォルダと同じ階層で行う必要があります。よくわからなければ、パッチファイルの最初の行を見てください。たとえば、最初のファイルが <filename>doc/source/english/chapter1.xml</filename> に対するもので、パッチファイルの最初の行が <filename>Index: english/chapter1.xml</filename> なら、<filename>doc/source/</filename> フォルダでパッチを適用する必要があります。適切な作業コピーを使用していても、適用するフォルダ階層が間違っていると、TSVN は適切な階層を使用するよう注意を促します。"
+msgstr "作業コピーにパッチファイルを適用します。パッチを作成したフォルダと同じ階層で行う必要があります。よくわからなければ、パッチファイルの最初の行を見てください。たとえば、最初のファイルが <filename>doc/source/english/chapter1.xml</filename> に対するもので、パッチファイルの最初の行が <filename>Index: english/chapter1.xml</filename> なら、<filename>doc/source/</filename> フォルダでパッチを適用する必要があります。適切な作業コピーを使用していても、適用するフォルダ階層が間違っていると、TortoiseSVN は適切な階層を使用するよう注意を促します。"
 
 #: source/TortoiseSVN_en.xml:8026(para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
@@ -5667,7 +5656,6 @@ msgid "You can use <action>F5</action> to refresh the view as usual. This will r
 msgstr "いつものように、表示を再読み込みするのに <action>F5</action> を使用できます。これで現在表示しているものを、すべて再読み込みします。先読みをしたり、まだ取得していないノードの情報を再表示するには、<action>CTRL-F5</action> を使用してください。この後では、いずれのノードを展開しても、情報を取得するのにかかるネットワーク遅延は発生しません。"
 
 #: source/TortoiseSVN_en.xml:8428(para)
-#, fuzzy
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo-browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr "リポジトリブラウザをドラッグ &amp; ドロップでも操作できます。エクスプローラからリポジトリブラウザへフォルダをドラッグすると、リポジトリにインポートを行います。複数の項目をドラッグすると、それぞれコミットを行うことに注意してください。"
 
@@ -5904,7 +5892,6 @@ msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To d
 msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まるプロパティを使用します。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #: source/TortoiseSVN_en.xml:8816(para)
-#, fuzzy
 msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
 msgstr "このプロパティには、バグ追跡ツールの URL を設定します。適切に URI エンコードし、<literal>%BUGID%</literal> を含まなければなりません。<literal>%BUGID%</literal> は入力した課題番号に置換されます。これにより TortoiseSVN はログダイアログにリンクを生成し、リビジョンログ参照時に、バグ追跡ツールへ直接ジャンプできるようになります。このプロパティがないと、TortoiseSVN は課題番号を表示するだけで、リンクを生成しません。例: TortoiseSVN プロジェクトは <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal> を使用しています。"
 
@@ -6003,12 +5990,10 @@ msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this
 msgstr "TortoiseSVN はお好みのリポジトリビューアと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #: source/TortoiseSVN_en.xml:9046(para)
-#, fuzzy
 msgid "Set this property to the URL of your repo viewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
 msgstr "指定したリビジョンの全変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> を含んでいる必要があります。<literal>%REVISION%</literal> は問い合わせるリビジョン番号に置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。"
 
 #: source/TortoiseSVN_en.xml:9065(para)
-#, fuzzy
 msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr "指定したリビジョン、指定したファイルの変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> と <literal>%PATH%</literal> を含んでいる必要があります。<literal>%PATH%</literal> は、リポジトリのルートからの取得するパスに置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンとパスをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。例えば、ログダイアログの下部ペインにある <literal>/trunk/src/file</literal> エントリで右クリックした場合、URL の <literal>%PATH%</literal> は <literal>/trunk/src/file</literal> に置換されます。"
 
@@ -6390,9 +6375,8 @@ msgid "The auto-completion parser can be quite slow if there are a lot of large 
 msgstr "大きなファイルをチェックしていて、自動補完パーサが遅すぎることがあります。コミットダイアログが長い時間止まってしまうのなら、ここで指定した時間でタイムアウトするようになります。重要な自動補完情報を見逃してしまうのなら、タイムアウトを長くできます。"
 
 #: source/TortoiseSVN_en.xml:9696(term)
-#, fuzzy
 msgid "Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set"
-msgstr "tsvn:projectlanguage が設定されている場合はスペルチェッカを利用する"
+msgstr "<literal>tsvn:projectlanguage</literal> が設定されている場合はスペルチェッカを利用する"
 
 #: source/TortoiseSVN_en.xml:9698(para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
@@ -6625,9 +6609,8 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:10003(para)
-#, fuzzy
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <emphasis>revision</emphasis> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TortoiseSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TortoiseSVN will skip pre-processing the files."
-msgstr "キーワード、特にファイルの <emphasis>リビジョン</emphasis> 展開に <literal>svn:keywords</literal> を使用する場合、キーワードの現在値によって、厳密には違いがでるかもしれません。また、<literal>svn:eol-style = native</literal> を使用しているなら、BASE ファイルの行末は純粋に <literal>LF</literal>になっているでしょうが、手元のファイルの行末は <literal>CR-LF</literal> かもしれません。通常 TSVN は 差分操作の前に、BASE ファイルに対しキーワード展開や行末を分析して自動的にこの違いを隠蔽します。しかしこの操作は時間がかかる可能性があります。<guilabel>BASE に対する差分の時はファイルを変換する</guilabel> にチェックがなければ、TSVN はファイルに対する事前処理をスキップします。"
+msgstr "キーワード、特にファイルの <emphasis>リビジョン</emphasis> 展開に <literal>svn:keywords</literal> を使用する場合、キーワードの現在値によって、厳密には違いがでるかもしれません。また、<literal>svn:eol-style = native</literal> を使用しているなら、BASE ファイルの行末は純粋に <literal>LF</literal>になっているでしょうが、手元のファイルの行末は <literal>CR-LF</literal> かもしれません。通常 TortoiseSVN は 差分操作の前に、BASE ファイルに対しキーワード展開や行末を分析して自動的にこの違いを隠蔽します。しかしこの操作は時間がかかる可能性があります。<guilabel>BASE に対する差分の時はファイルを変換する</guilabel> にチェックがなければ、TSVN はファイルに対する事前処理をスキップします。"
 
 #: source/TortoiseSVN_en.xml:10017(para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
@@ -6696,9 +6679,8 @@ msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr "設定ダイアログの差分／マージ の高度な設定ダイアログ"
 
 #: source/TortoiseSVN_en.xml:10119(para)
-#, fuzzy
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for <filename>.jpg</filename> files :-) You can also associate the <literal>svn:mime-type</literal> property with a diff or merge program."
-msgstr "<placeholder-1/> 高度な設定では、ファイルの拡張子ごとに異なる差分・マージプログラムを定義できます。たとえば、.jpg ファイルの <quote>差分</quote> を取るのに Photoshop を関連付けできます。:-) <literal>svn:mime-type</literal> で差分・マージプログラムと関連付けることもできます。"
+msgstr "<placeholder-1/> 高度な設定では、ファイルの拡張子ごとに異なる差分・マージプログラムを定義できます。たとえば、<filename>.jpg</filename> ファイルの <quote>差分</quote> を取るのに Photoshop を関連付けできます。:-) <literal>svn:mime-type</literal> で差分・マージプログラムと関連付けることもできます。"
 
 #: source/TortoiseSVN_en.xml:10130(para)
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
@@ -6773,7 +6755,6 @@ msgid "When you authenticate with a Subversion server, the username and password
 msgstr "Subversion サーバの認証を通れば、ユーザ名とパスワードを毎回入力しなくてもいいように、手元にキャッシュしています。セキュリティ上の理由や、リポジトリに別のユーザ名でアクセスするのにクリアしたいかもしれません……ジョンはあなたが彼の PC を使うのを知っていますか?"
 
 #: source/TortoiseSVN_en.xml:10237(para)
-#, fuzzy
 msgid "If you want to clear authentication data for one particular server only, read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to find the cached data."
 msgstr "特定のサーバのみ、認証データをクリアしたければ、キャッシュデータの探し方について、<xref linkend=\"tsvn-dug-general-auth\"/> をご覧ください。"
 
@@ -7176,27 +7157,24 @@ msgid "ERRORLEVEL 7"
 msgstr "ERRORLEVEL 7"
 
 #: source/TortoiseSVN_en.xml:10764(entry)
-#, fuzzy
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr "このスイッチが与えられた場合、SubWCRev はERRORLEVEL 7 で終了します。このとき作業コピーにはローカルの変更が含まれています。これは、コミットしていない変更が残っていたまま構築するのを防ぎます。"
+msgstr "このスイッチが与えられた場合、SubWCRev は <placeholder-1/> で終了します。このとき作業コピーにはローカルの変更が含まれています。これは、コミットしていない変更が残っていたまま構築するのを防ぎます。"
 
 #: source/TortoiseSVN_en.xml:10775(literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
 #: source/TortoiseSVN_en.xml:10773(entry)
-#, fuzzy
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr "このスイッチが与えられた場合、SubWCRev はERRORLEVEL 8 で終了します。このとき作業コピーはリビジョンが混ざった状態です。これは、作業コピーに一部が更新された状態で構築するのを防ぎます。"
+msgstr "このスイッチが与えられた場合、SubWCRev は <placeholder-1/> で終了します。このとき作業コピーはリビジョンが混ざった状態です。これは、作業コピーに一部が更新された状態で構築するのを防ぎます。"
 
 #: source/TortoiseSVN_en.xml:10784(literal)
 msgid "ERRORLEVEL 9"
 msgstr "ERRORLEVEL 9"
 
 #: source/TortoiseSVN_en.xml:10782(entry)
-#, fuzzy
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
-msgstr "このスイッチが与えられた場合、先方のファイルがすでに存在すれば SubWCRev は ERRORLEVEL 9 で終了します。"
+msgstr "このスイッチが与えられた場合、先方のファイルがすでに存在すれば SubWCRev は <placeholder-1/> で終了します。"
 
 #: source/TortoiseSVN_en.xml:10790(entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
@@ -7207,9 +7185,8 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #: source/TortoiseSVN_en.xml:10799(entry)
-#, fuzzy
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr "このスイッチが与えられた場合、SubWCRev は同じリポジトリからだけでなく、svn:externals が含まれているかディレクトリを検査します。"
+msgstr "このスイッチが与えられた場合、SubWCRev は同じリポジトリからだけでなく、<placeholder-1/> が含まれているかディレクトリを検査します。"
 
 #: source/TortoiseSVN_en.xml:10744(para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
@@ -7258,18 +7235,16 @@ msgid "FText"
 msgstr "FText"
 
 #: source/TortoiseSVN_en.xml:10870(entry)
-#, fuzzy
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
-msgstr "更新リビジョンが混ざっていれば TText に、そうでなければ FText に置換します。"
+msgstr "<placeholder-1/> は、更新リビジョンが混ざっていれば <placeholder-2/> に、そうでなければ <placeholder-3/> に置換します。"
 
 #: source/TortoiseSVN_en.xml:10879(literal)
 msgid "$WCMODS?TText:FText$"
 msgstr "$WCMODS?TText:FText$"
 
 #: source/TortoiseSVN_en.xml:10878(entry)
-#, fuzzy
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
-msgstr "手元に変更があれば TText に、そうでなければ FText に置換します。"
+msgstr "<placeholder-1/> は、ローカルで変更があれば <placeholder-2/> に、そうでなければ <placeholder-3/> に置換します。"
 
 #: source/TortoiseSVN_en.xml:10886(entry)
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
@@ -7390,18 +7365,16 @@ msgid "$WCREV$"
 msgstr "$WCREV$"
 
 #: source/TortoiseSVN_en.xml:10980(entry)
-#, fuzzy
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr "作業コピーのもっとも大きいコミットリビジョン番号。$WCREV$ と等価です。"
+msgstr "作業コピーのもっとも大きいコミットリビジョン番号。<placeholder-1/> と等価です。"
 
 #: source/TortoiseSVN_en.xml:10989(literal)
 msgid "$WCDATE$"
 msgstr "$WCDATE$"
 
 #: source/TortoiseSVN_en.xml:10987(entry)
-#, fuzzy
 msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
-msgstr "もっとも大きいコミットリビジョンのコミット日時。$WCDATE$ と等価です。"
+msgstr "もっとも大きいコミットリビジョンのコミット日時。<placeholder-1/> と等価です。"
 
 #: source/TortoiseSVN_en.xml:10994(entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
@@ -7413,14 +7386,12 @@ msgid "$WCRANGE$"
 msgstr "$WCRANGE$"
 
 #: source/TortoiseSVN_en.xml:11001(entry)
-#, fuzzy
 msgid "The minimum update revision, as shown in <placeholder-1/>"
-msgstr "$WCRANGE$ で参照できる更新リビジョンの最小値"
+msgstr "<placeholder-1/> で参照できる更新リビジョンの最小値"
 
 #: source/TortoiseSVN_en.xml:11005(entry)
-#, fuzzy
 msgid "The maximum update revision, as shown in <placeholder-1/>"
-msgstr "$WCRANGE$ で参照できる更新リビジョンの最大値"
+msgstr "<placeholder-1/> で参照できる更新リビジョンの最大値"
 
 #: source/TortoiseSVN_en.xml:11009(entry)
 msgid "True if there are local modifications"
@@ -7435,16 +7406,15 @@ msgid "$WCURL$"
 msgstr "$WCURL$"
 
 #: source/TortoiseSVN_en.xml:11013(entry)
-#, fuzzy
 msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr "GetWCInfo を使用して、作業コピーパスのリポジトリ URL に置換します。$WCURL$ と等価です。"
+msgstr "<placeholder-1/> を使用して、作業コピーパスのリポジトリ URL に置換します。<placeholder-2/> と等価です。"
 
 #: source/TortoiseSVN_en.xml:10946(para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object.1</literal>, and the following methods are supported: <placeholder-1/>"
 msgstr "他のプログラムから Subversion のリビジョン情報にアクセスする必要がある場合、SubWCRev のCOM インターフェースを使用できます。作成するオブジェクトは <literal>SubWCRev.object.1</literal> で、以下のメソッドをサポートしています。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:11025(programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "// test script for the SubWCRev COM/Automation-object\n"
@@ -7503,7 +7473,6 @@ msgid ""
 "WScript.Echo(sInfo2);\n"
 "WScript.Echo(sInfo3);\n"
 msgstr ""
-"インターフェースの使いかたは、以下の例のようにしてください。<screen>\n"
 "\n"
 "// test script for the SubWCRev COM/Automation-object\n"
 "\n"
@@ -7517,33 +7486,42 @@ msgstr ""
 "SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
 "SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 0, 0);\n"
 "\n"
-"sInfo1 = \"Revision = \" + SubWCRev1.Revision + \"\\n"
+"sInfo1 = \"Revision = \" + SubWCRev1.Revision + \n"
+"         \"\\n"
 "Min Revision = \" + SubWCRev1.MinRev +\n"
 "         \"\\n"
-"Max Revision = \" + SubWCRev1.MaxRev + \"\\n"
+"Max Revision = \" + SubWCRev1.MaxRev +\n"
+"         \"\\n"
 "Date = \" + SubWCRev1.Date +\n"
 "         \"\\n"
-"URL = \" + SubWCRev1.Url + \"\\n"
+"URL = \" + SubWCRev1.Url +\n"
+"         \"\\n"
 "Author = \" + SubWCRev1.Author +\n"
 "         \"\\n"
 "HasMods = \" + SubWCRev1.HasModifications;\n"
-"sInfo2 = \"Revision = \" + SubWCRev2.Revision + \"\\n"
+"sInfo2 = \"Revision = \" + SubWCRev2.Revision +\n"
+"         \"\\n"
 "Min Revision = \" + SubWCRev2.MinRev +\n"
 "         \"\\n"
-"Max Revision = \" + SubWCRev2.MaxRev + \"\\n"
+"Max Revision = \" + SubWCRev2.MaxRev +\n"
+"         \"\\n"
 "Date = \" + SubWCRev2.Date +\n"
 "         \"\\n"
-"URL = \" + SubWCRev2.Url + \"\\n"
+"URL = \" + SubWCRev2.Url +\n"
+"         \"\\n"
 "Author = \" + SubWCRev2.Author +\n"
 "         \"\\n"
 "HasMods = \" + SubWCRev2.HasModifications;\n"
-"sInfo3 = \"Revision = \" + SubWCRev3.Revision + \"\\n"
+"sInfo3 = \"Revision = \" + SubWCRev3.Revision +\n"
+"         \"\\n"
 "Min Revision = \" + SubWCRev3.MinRev +\n"
 "         \"\\n"
-"Max Revision = \" + SubWCRev3.MaxRev + \"\\n"
+"Max Revision = \" + SubWCRev3.MaxRev +\n"
+"         \"\\n"
 "Date = \" + SubWCRev3.Date +\n"
 "         \"\\n"
-"URL = \" + SubWCRev3.Url + \"\\n"
+"URL = \" + SubWCRev3.Url +\n"
+"         \"\\n"
 "Author = \" + SubWCRev3.Author +\n"
 "         \"\\n"
 "HasMods = \" + SubWCRev3.HasModifications;\n"
@@ -7551,8 +7529,6 @@ msgstr ""
 "WScript.Echo(sInfo1);\n"
 "WScript.Echo(sInfo2);\n"
 "WScript.Echo(sInfo3);\n"
-"\n"
-"</screen>"
 
 #: source/TortoiseSVN_en.xml:11023(para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
@@ -7704,7 +7680,6 @@ msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><gu
 msgstr "作業コピーで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージ</guimenuitem></menuchoice> を選択してください。"
 
 #: source/TortoiseSVN_en.xml:11313(para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
 msgstr "<guilabel>元:</guilabel> フィールドに、作業コピーで取り消したい変更のあるブランチやタグの完全なフォルダ URL を入力してください。デフォルト URL が入力されているはずです。"
 
@@ -7725,9 +7700,8 @@ msgid "Click <guibutton>OK</guibutton> to complete the merge."
 msgstr "マージを完了するには <guibutton>OK</guibutton> をクリックしてください"
 
 #: source/TortoiseSVN_en.xml:11353(title)
-#, fuzzy
 msgid "Use <literal>svndumpfilter</literal>"
-msgstr "svndumpfilter の使用"
+msgstr "<literal>svndumpfilter</literal> の使用"
 
 #: source/TortoiseSVN_en.xml:11354(para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
@@ -7957,9 +7931,8 @@ msgstr ""
 "</screen> ファイルの最初の行はバージョン文字列です。TortoiseSVN インストールパッケージのバージョン文字列とピッタリ一致しなくてはなりません。2 行目は、アップグレードダイアログに表示するカスタムテキストです。ご希望のテキストをなんでも書けます。アップグレードダイアログの大きさには限りがあることだけ注意してください。長すぎる文字列は切り取られてしまいます! 3 行目は、新しいインストールパッケージの URL です。アップグレードダイアログのカスタムメッセージラベルをクリックすると、この URL を開きます。msi ファイルを直接指定する代わりに、Web ページを指定しておくこともできます。Web ページを指定しておくと、URL をデフォルト Web ブラウザで開き、ユーザが見ることになります。msi パッケージを指定しておくと、ブラウザは msi ファイルを保存するかどうか、ユーザに確認してきます。"
 
 #: source/TortoiseSVN_en.xml:11700(title)
-#, fuzzy
 msgid "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
-msgstr "SVN_ASP_DOT_NET_HACK 環境変数の設定"
+msgstr "<literal>SVN_ASP_DOT_NET_HACK</literal> 環境変数の設定"
 
 #: source/TortoiseSVN_en.xml:11702(primary)
 msgid "SVN_ASP_DOT_NET_HACK"
@@ -7970,13 +7943,12 @@ msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide 
 msgstr "バージョン 1.4.0 以降では、TortoiseSVN のインストーラは <literal>SVN_ASP_DOT_NET_HACK</literal> 環境変数を設定するオプションを、もうユーザに提供しません。このオプションが何をするためのものなのか知っているにもかかわらず、常に <emphasis>すべて</emphasis> インストールするユーザを混乱させ、問題を引き起こすからです。"
 
 #: source/TortoiseSVN_en.xml:11712(para)
-#, fuzzy
 msgid ""
 "But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
-"しかし、このオプションはユーザに対して隠されているだけです。TortoiseSVN のインストーラにこの環境変数を設定するように強制するには、ASPDOTNETHACK プロパティを TRUE にしてください。例えば、インストーラを起動する際に以下のようにしてください。<screen>\n"
+"しかし、このオプションはユーザに対して隠されているだけです。TortoiseSVN のインストーラにこの環境変数を設定するように強制するには、<literal>ASPDOTNETHACK</literal> プロパティを TRUE にしてください。例えば、インストーラを起動する際に以下のようにしてください。<screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
@@ -8022,7 +7994,6 @@ msgid "The progress dialog which is used for commits, updates and many more comm
 msgstr "コミットや更新、その他たくさんのコマンドで使用する進行ダイアログは、通常 <guibutton>OK</guibutton> ボタンを押すまで、コマンドが終了した後も開いたままになります。設定ダイアログにある該当オプションをチェックして、動作を変更できます。しかしそれでは、バッチファイルからコマンドを起動しても、TortoiseSVN コンテキストメニューから起動しても、進行ダイアログは閉じてしまいます。"
 
 #: source/TortoiseSVN_en.xml:11779(para)
-#, fuzzy
 msgid "To specify a different location of the configuration file, use the parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. This will override the default path, including any registry setting."
 msgstr "異なる場所にある設定ファイルを指定するには、<option>/configdir:\"path\\to\\config\\directory\"</option> パラメータを使用してください。レジストリに設定されているデフォルトパスを上書きします。"
 
@@ -8113,9 +8084,8 @@ msgid "/strict"
 msgstr "/strict"
 
 #: source/TortoiseSVN_en.xml:11856(entry)
-#, fuzzy
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
-msgstr "ログダイアログを開きます。パスにはログを表示するファイルやフォルダを指定します。以下の 3 種のオプションを設定できます。<placeholder-1/>, <placeholder-2/>, <placeholder-3/>"
+msgstr "ログダイアログを開きます。<placeholder-1/> にはログを表示するファイルやフォルダを指定します。以下の 3 種のオプションを設定できます。<placeholder-2/>, <placeholder-3/>, <placeholder-4/>"
 
 #: source/TortoiseSVN_en.xml:11869(option)
 msgid "/url"
@@ -8166,9 +8136,8 @@ msgid "/bugid:\"the bug id here\""
 msgstr "/bugid:\"the bug id here\""
 
 #: source/TortoiseSVN_en.xml:11894(entry)
-#, fuzzy
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、パスに指定します。/logmsg スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、/logmsgfile:path を使用してください。<placeholder-1/> にはログメッセージのファイルを指定します。(バグトラッカのプロパティで統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-2/> を使用できます。"
+msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、<placeholder-1/> に指定します。<placeholder-2/> スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、<placeholder-3/> を使用してください。<placeholder-4/> にはログメッセージのファイルを指定します。(バグトラッカのプロパティで統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-5/> を使用できます。"
 
 #: source/TortoiseSVN_en.xml:11911(entry)
 msgid "Adds the files in <placeholder-1/> to version control."
@@ -8197,9 +8166,8 @@ msgid "Creates a repository in <placeholder-1/>"
 msgstr "<placeholder-1/> にリポジトリを作成します。"
 
 #: source/TortoiseSVN_en.xml:11949(entry)
-#, fuzzy
 msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
-msgstr "切り替えダイアログを開きます。パスに対象ディレクトリを指定します。"
+msgstr "切り替えダイアログを開きます。<placeholder-1/> に対象ディレクトリを指定します。"
 
 #: source/TortoiseSVN_en.xml:11956(entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the directory in <placeholder-3/>."
@@ -8218,9 +8186,8 @@ msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
 #: source/TortoiseSVN_en.xml:11965(entry)
-#, fuzzy
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>. These pre-fill the relevant fields in the merge dialog."
-msgstr "マージダイアログを開きます。パスにはターゲットディレクトリを指定します。<placeholder-1/>, <placeholder-2/>, <placeholder-3/> といった 3 種のオプションを設定できます。これはマージダイアログにあらかじめ設定した状態になります。"
+msgstr "マージダイアログを開きます。<placeholder-1/> にはターゲットディレクトリを指定します。<placeholder-2/>, <placeholder-3/>, <placeholder-4/> といった 3 種のオプションを設定できます。これはマージダイアログにあらかじめ設定した状態になります。"
 
 #: source/TortoiseSVN_en.xml:11977(entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from."
@@ -8277,9 +8244,8 @@ msgid "svn:ignore"
 msgstr "svn:ignore"
 
 #: source/TortoiseSVN_en.xml:12061(entry)
-#, fuzzy
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
-msgstr "<placeholder-1/> の全対象を無視リストに追加します。つまり svn:ignore プロパティをそのファイルに追加します。"
+msgstr "<placeholder-1/> の全対象を無視リストに追加します。つまり <placeholder-2/> プロパティをそのファイルに追加します。"
 
 #: source/TortoiseSVN_en.xml:12072(option)
 msgid "startrev"
@@ -8376,9 +8342,8 @@ msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember 
 msgstr "TortoiseSVN で行うことと同等な物が CLI にありますが、TortoiseSVN が CLI を呼ぶことは<emphasis>なく</emphasis>、直接 Subversion ライブラリを使用するのを覚えていてください。"
 
 #: source/TortoiseSVN_en.xml:12181(para)
-#, fuzzy
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr "TortoiseSVN のバグを見つけたら、Subversion の問題か TSVN の問題かを切り分けるために、CLI を使用してそれを再現するようにお願いするかもしれません。このリファレンスで、どのコマンドを行うべきか確認してください。"
+msgstr "TortoiseSVN のバグを見つけたら、Subversion の問題か TortoiseSVN の問題かを切り分けるために、CLI を使用してそれを再現するようにお願いするかもしれません。このリファレンスで、どのコマンドを行うべきか確認してください。"
 
 #: source/TortoiseSVN_en.xml:12189(title)
 msgid "Conventions and Basic Rules"
