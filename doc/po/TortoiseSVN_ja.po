@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-20 19:28+0900\n"
+"PO-Revision-Date: 2007-07-21 01:17+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1288,7 +1288,6 @@ msgstr ""
 "</screen>Apache は確実に、有効なユーザのみが <filename>/svn</filename> にアクセスできるようにします。また、Subversion の <literal>AuthzSVNAccessFile</literal> モジュールにユーザ名を渡し、Subversion アクセスファイルに列挙したルールに基づく、よりきめの細かいアクセス制御を行うことができます。パスが <literal>repos:path</literal> か、単に <literal>path</literal> として指定されるのに注意してください。特定のリポジトリを指定しない場合、アクセスルールは <literal>SVNParentPath</literal> の下のすべてのリポジトリに適用されます。<literal>mod_authz_svn</literal> で使用する認証ポリシーファイルの書式は、<xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> で説明しています。"
 
 #: source/TortoiseSVN_en.xml:1893(para)
-#, fuzzy
 msgid ""
 "To make browsing the repository with a web browser 'prettier', uncomment the line <screen>\n"
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
@@ -1319,9 +1318,8 @@ msgid "Index of projects"
 msgstr "プロジェクトのインデックス"
 
 #: source/TortoiseSVN_en.xml:1934(para)
-#, fuzzy
 msgid "If you used the <literal>SVNParentPath</literal> directive then you don't have to change the Apache config file every time you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr "SVNParentPath ディレクティブを使用する場合、新しいリポジトリを作成する際に Apache 設定ファイルを変更する必要はありません。単にはじめのリポジトリと同じ場所に、新しいリポジトリを作成してください。これで終わりです!  筆者の会社では、SMB (通常の Windows ファイルアクセス) で指定のフォルダに直接アクセスできています。ここに新しいフォルダを作成し、TortoiseSVN コマンド <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ここにリポジトリを作成...</guimenuitem></menuchoice> を実行すると新しいプロジェクトのホームができます..."
+msgstr "<literal>SVNParentPath</literal> ディレクティブを使用する場合、新しいリポジトリを作成する際に Apache 設定ファイルを変更する必要はありません。単にはじめのリポジトリと同じ場所に、新しいリポジトリを作成してください。これで終わりです!  筆者の会社では、SMB (通常の Windows ファイルアクセス) で指定のフォルダに直接アクセスできています。ここに新しいフォルダを作成し、TortoiseSVN コマンド <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ここにリポジトリを作成...</guimenuitem></menuchoice> を実行すると新しいプロジェクトのホームができます..."
 
 #: source/TortoiseSVN_en.xml:1948(para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
@@ -1443,7 +1441,6 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2023(para)
-#, fuzzy
 msgid ""
 "Add the following lines just below your <literal>&lt;Location&gt;</literal> block where you define your Subversion stuff: <screen>\n"
 "    RewriteEngine on\n"
@@ -1452,7 +1449,7 @@ msgid ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 msgstr ""
-"以下の行を Subversion 用に定義した &lt;Location&gt; ブロックに追加してください。<screen>\n"
+"以下の行を Subversion 用に定義した <literal>&lt;Location&gt;</literal> ブロックに追加してください。<screen>\n"
 "    RewriteEngine on\n"
 "    RewriteRule ^/svn$ /svn_index.php [PT]\n"
 "    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
@@ -1866,7 +1863,6 @@ msgid "OpenSSL needs a config file. You can download a working one from <ulink u
 msgstr "OpenSSL には設定ファイルが必要です。動作する物を <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink> からダウンロードできます。<filename>bin/openssl.cnf</filename> に保存してください。ファイルタイプが <filename>*.cnf</filename> であることに注意してください。Windows はそういったファイルを特別に扱いますが、本当はただのテキストファイルです。"
 
 #: source/TortoiseSVN_en.xml:2468(para)
-#, fuzzy
 msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the Apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
 "bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
@@ -1919,12 +1915,10 @@ msgid "Forcing SSL access"
 msgstr "SSL アクセスを強制"
 
 #: source/TortoiseSVN_en.xml:2534(para)
-#, fuzzy
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
-msgstr "リポジトリが安全になるよう SSL をセットアップするにあたり、通常の非 SSL (http) アクセスを無効にして、https のみを許可したいかもしれません。このため、Subversion の &lt;Location&gt; ブロックに別のディレクティブ <literal>SSLRequireSSL</literal> を追加しなければなりません。"
+msgstr "リポジトリが安全になるよう SSL をセットアップするにあたり、通常の非 SSL (http) アクセスを無効にして、https のみを許可したいかもしれません。このため、Subversion の <literal>&lt;Location&gt;</literal> ブロックに別のディレクティブ <literal>SSLRequireSSL</literal> を追加しなければなりません。"
 
 #: source/TortoiseSVN_en.xml:2541(para)
-#, fuzzy
 msgid ""
 "An example <literal>&lt;Location&gt;</literal> block would look like this: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -1939,7 +1933,7 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
-"&lt;Location&gt; ブロックの例は以下のようになります。<screen>\n"
+"<literal>&lt;Location&gt;</literal> ブロックの例は以下のようになります。<screen>\n"
 "&lt;Location /svn&gt;\n"
 "DAV svn\n"
 "SVNParentPath D:\\SVN\n"
@@ -2017,7 +2011,6 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2658(para)
-#, fuzzy
 msgid ""
 "You can also increase security and save time entering URLs with svnserve by using the --root switch to set the root location and restrict access to a specified directory on the server: <screen>\n"
 "svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
@@ -2029,7 +2022,7 @@ msgid ""
 msgstr ""
 "セキュリティを高め、URL を入力する時間を節約するために、--root スイッチを用いてサーバ上の指定したディレクトリにルートを設定し、そこだけアクセスするようにできます。<screen>\n"
 "svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
-"</screen> ガイドのように以前行ったテストの物を使用してsvnserve を以下のように実行します。<screen>\n"
+"</screen> ガイドのように以前行ったテストの物を使用して、svnserve を以下のように実行します。<screen>\n"
 "svnserve.exe --daemon --root c:\\repos\n"
 "</screen> すると TortoiseSVN のリポジトリブラウザでは、次のように省略できるようになります。<screen>\n"
 "svn://localhost/TestRepo\n"
@@ -2106,7 +2099,6 @@ msgid "Authentication with svnserve"
 msgstr "svnserve での認証"
 
 #: source/TortoiseSVN_en.xml:2775(para)
-#, fuzzy
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
 msgstr "デフォルトの svnserve セットアップでは読取専用の匿名アクセスを提供しています。これは <filename>svn://</filename> URL を、チェックアウト・更新に使用でき、リポジトリを見るのに TortoiseSVN のリポジトリブラウザを利用できるということです。しかしいずれの変更もコミットできません。"
 
@@ -2314,14 +2306,12 @@ msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <sys
 msgstr "SVN 1.2 以前では、UNC パスは <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem> というもっと曖昧な形でした。この形もまだサポートしていますが、お奨めしません。"
 
 #: source/TortoiseSVN_en.xml:3070(para)
-#, fuzzy
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote file system. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
 msgstr "ネットワーク共有上で Berkeley DB リポジトリを、作成したりアクセスしたりしないでください。これはリモートファイルシステム上に<emphasis>存在できません</emphasis>。ドライブレターにマッピングしたネットワークドライブでもダメです。ネットワーク共有上で Berkeley DB を使おうとした場合、(すぐに不可思議なエラーに遭遇するか、数ヶ月後にリポジトリデータベースが破損するか) 結果が予想できません。"
 
 #: source/TortoiseSVN_en.xml:3081(para)
-#, fuzzy
 msgid "If you really need to access a repository through a network share, create the repository with FSFS format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
-msgstr "本当にネットワーク共有越しのリポジトリへのアクセスが必要なら、FSFS フォーマットでリポジトリを作成してください。サーバへのアクセスを提供するなら、Subversion サーバ 1.1 以上が必要です。"
+msgstr "本当にネットワーク共有越しのリポジトリへのアクセスが必要なら、FSFS フォーマットでリポジトリを作成してください。サーバへのアクセスを提供するなら、Subversion サーバ 1.1 以降が必要です。"
 
 #: source/TortoiseSVN_en.xml:3089(title)
 msgid "Repository Backup"
@@ -2394,14 +2384,12 @@ msgid "checkout link"
 msgstr "チェックアウトリンク"
 
 #: source/TortoiseSVN_en.xml:3184(para)
-#, fuzzy
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TortoiseSVN users."
-msgstr "Subversion リポジトリを他の人に利用できるようにするにあたり、自分のウェブサイトからリンクを張りたくなるかもしれません。他の TSVN ユーザに<firstterm>チェックアウトリンク</firstterm>を提供するというアクセスしやすい方法があります。"
+msgstr "Subversion リポジトリを他の人に利用できるようにするにあたり、自分のウェブサイトからリンクを張ることになるかもしれません。他の TortoiseSVN のユーザに<firstterm>チェックアウトリンク</firstterm>を提供するというアクセスしやすい方法があります。"
 
 #: source/TortoiseSVN_en.xml:3190(para)
-#, fuzzy
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "TortoiseSVN をインストールするときに、新しく <literal>tsvn:</literal> プロトコルを登録します。TSVN ユーザがそういったリンクをクリックするとリポジトリの URL が入力された状態でチェックアウトダイアログが開くようになります。"
+msgstr "TortoiseSVN をインストールするときに、新しく <literal>tsvn:</literal> プロトコルを登録します。TortoiseSVN のユーザがそういったリンクをクリックするとリポジトリの URL が入力された状態でチェックアウトダイアログが開くようになります。"
 
 #: source/TortoiseSVN_en.xml:3196(para)
 msgid ""
@@ -2594,9 +2582,8 @@ msgid "If the repository that you are trying to access is password protected, an
 msgstr "アクセスしようとしているリポジトリがパスワードで保護されている場合、認証ダイアログが表示されます。<placeholder-1/> ユーザ名とパスワードを入力してください。TortoiseSVN が証明書を Subversion のデフォルトディレクトリ (<filename>%APPDATA%\\Subversion\\auth</filename>) にある、以下の 3 つのサブディレクトリに格納するかどうかチェックボックスで指定できます。<placeholder-2/> アクセスするサーバごとに 1 ファイルです。プレーンテキスト形式ですから、どのサーバに適用されるかテキストエディタで確認できます。Subversion や TortoiseSVN (またその他の Subversion クライアント) が特定のサーバの証明書を忘れるようにしたければ、該当するファイルを削除してください。"
 
 #: source/TortoiseSVN_en.xml:3434(para)
-#, fuzzy
 msgid "If you want to clear the authentication cache for <emphasis>all</emphasis> servers, you can do so from the <guilabel>General</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr "<emphasis>全</emphasis>サーバの認証キャッシュをクリアしたければ、TortoiseSVN 設定ダイアログの<guilabel>一般</guilabel> ページから行えます。以前のバージョンでレジストリに格納した認証情報と同様に、Subversion auth ディレクトリからキャッシュされた認証データをクリアします。<xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
+msgstr "<emphasis>全サーバ</emphasis>の認証キャッシュをクリアしたければ、TortoiseSVN 設定ダイアログの<guilabel>一般</guilabel> ページから行えます。以前のバージョンでレジストリに格納した認証情報と同様に、Subversion の <filename>auth</filename> ディレクトリからキャッシュされた認証データをクリアします。<xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:3443(para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
@@ -2883,7 +2870,6 @@ msgid "Sometimes it is useful to construct a working copy that is made out of a 
 msgstr "時には、たくさんの異なるチェックアウトから作業コピーを構成するのは、便利なことがあります。たとえば、リポジトリ内の異なる場所もしくは異なるリポジトリにある、異なるサブディレクトリが必要になるかもしれません。全てのユーザに同じレイアウトを保持して欲しければ、<literal>svn:externals</literal> プロパティを設定できます。"
 
 #: source/TortoiseSVN_en.xml:3789(para)
-#, fuzzy
 msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
@@ -3073,9 +3059,8 @@ msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice>
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice> で <literal>svn:ignore</literal> にファイルを追加します。<literal>svn:ignore</literal> プロパティを設定したディレクトリにのみ影響します。SVN プロパティダイアログで そのディレクトリの <literal>svn:ignore</literal> プロパティを修正できます。"
 
 #: source/TortoiseSVN_en.xml:4081(para)
-#, fuzzy
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "TSVN コミットダイアログにバージョン管理外のファイル (コンパイラが生成したファイルやエディタのバックアップなど) を表示しすぎる場合は、対処するのにいくつか方法があります。以下のようにできます。<placeholder-1/> 詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
+msgstr "コミットダイアログにバージョン管理外のファイル (コンパイラが生成したファイルやエディタのバックアップなど) を表示しすぎだと思う場合は、以下のようないくつかの方法で対処できます。<placeholder-1/> 詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:4111(para)
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
@@ -3090,7 +3075,6 @@ msgid "The columns displayed in the bottom pane are customizable. If you <action
 msgstr "下のペインに表示された列は、カスタマイズできます。列見出しの上で <action>右クリック</action> すると、表示する列を選択するコンテキストメニューを表示します。また、列の境界上にマウスを持っていくとドラッグハンドルを表示し、列幅を変更できます。以上のカスタマイズは保存されるので、次回以降も同じ列見出しになります。"
 
 #: source/TortoiseSVN_en.xml:4132(para)
-#, fuzzy
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
 msgstr "デフォルトでは変更をコミットする際に、保持していたファイルのロックが、コミット完了後自動的に開放されます。ロックを保持したままにしたい場合は、<guilabel>ロックを保持</guilabel> チェックボックスにチェックしておきます。チェックボックスのデフォルト状態は、Subversion 設定ファイルの <literal>no_unlock</literal> オプションから取得します。Subversion 設定ファイルの編集については、<xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
 
@@ -4373,9 +4357,8 @@ msgid "ignore"
 msgstr "無視"
 
 #: source/TortoiseSVN_en.xml:6217(para)
-#, fuzzy
 msgid "<placeholder-1/> In most projects you will have files and folders that should not be subject to version control. These might include files created by the compiler, <filename>*.obj, *.lst</filename>, maybe an output folder used to store the executable. Whenever you commit changes, TortoiseSVN shows your unversioned files, which fills up the file list in the commit dialog. Of course you can turn off this display, but then you might forget to add a new source file."
-msgstr "<placeholder-1/> ほとんどのプロジェクトで、バージョン管理下にあるべきでないファイルやフォルダがあることでしょう。コンパイラが作成したファイル、<filename>*.obj, *.lst</filename> や、もしかしたら実行ファイルを格納する出力フォルダもそうでしょう。変更をコミットの際、TSVN はコミットダイアログにバージョン管理外のファイルを表示します。もちろんこの表示を off にできますが、そうすると、新しいソースファイルの追加を忘れるかもしれません。"
+msgstr "<placeholder-1/> ほとんどのプロジェクトで、バージョン管理下にあるべきでないファイルやフォルダがあることでしょう。コンパイラが作成したファイル、<filename>*.obj, *.lst</filename> や、もしかしたら実行ファイルを格納する出力フォルダもそうでしょう。変更をコミットの際、TortoiseSVN はコミットダイアログにバージョン管理外のファイルを表示します。もちろんこの表示を off にできますが、そうすると、新しいソースファイルの追加を忘れるかもしれません。"
 
 #: source/TortoiseSVN_en.xml:6230(para)
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
@@ -4502,19 +4485,16 @@ msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimen
 msgstr "subversionから、ファイルやフォルダを削除するには、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> としてください。"
 
 #: source/TortoiseSVN_en.xml:6413(para)
-#, fuzzy
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a \"deleted\" icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr "TSVN でファイル・ディレクトリを削除すると、そのファイルは作業コピーから削除され削除マークがつきます。そのファイルの親フォルダには「削除」アイコンオーバレイが付きます。親フォルダ上で <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>元に戻す</guimenuitem></menuchoice> を実行すると、いつでも元に戻せます。"
+msgstr "ファイルを <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> すると、作業コピーからすぐに削除し、次のコミットでリポジトリから削除するようにマークを付けます。ファイルの親フォルダには「削除」オーバーレイアイコンを表示します。変更をコミットする前なら、親フォルダで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>元に戻す</guimenuitem></menuchoice> で元に戻せます。"
 
 #: source/TortoiseSVN_en.xml:6429(para)
-#, fuzzy
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
-msgstr "ファイルを <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> すると、作業コピーからすぐに削除し、次のコミットでリポジトリから削除するようにマークを付けます。フォルダを <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> すると、作業コピーには残りますが、オーバーレイアイコンが変わり削除のマークが付きます。この違いは、Subversion の部分によるもので、TortoiseSVN によるものではありません。"
+msgstr "フォルダを <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>削除</guimenuitem></menuchoice> すると、作業コピーには残りますが、オーバーレイアイコンが変わり削除のマークが付きます。変更をコミットする前なら、そのフォルダで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>元に戻す</guimenuitem></menuchoice> で元に戻せます。この違いは、Subversion の部分によるもので、TortoiseSVN によるものではありません。"
 
 #: source/TortoiseSVN_en.xml:6446(para)
-#, fuzzy
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
-msgstr "リポジトリから削除したい、でもバージョン管理外のファイル・フォルダとして保持しておきたい場合には、<menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>削除 - ローカルファイルを保持</guimenuitem></menuchoice> をお使いください。エクスプローラのリストペイン (右ペイン) で <keycap>Shift</keycap> キーを押したまま、項目を右クリックすると、拡張コンテキストメニューを表示します。"
+msgstr "リポジトリから削除したい、でもバージョン管理外のファイル・フォルダとして保持しておきたい場合には、<menuchoice><guimenu>拡張コンテキストメニュー</guimenu><guimenuitem>削除 - ローカルファイルを保持</guimenuitem></menuchoice> をお使いください。エクスプローラのリストペイン (右ペイン) で <keycap>Shift</keycap> キーを押したまま、項目を右クリックすると、拡張コンテキストメニューを表示します。"
 
 #: source/TortoiseSVN_en.xml:6457(para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
@@ -4545,9 +4525,8 @@ msgid "move"
 msgstr "移動"
 
 #: source/TortoiseSVN_en.xml:6515(para)
-#, fuzzy
 msgid "If you want to do a simple in-place rename of a file or folder, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice> Enter the new name for the item and you're done."
-msgstr "リビジョン上で <action>右クリック</action> すると、履歴を表示するのに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>ログ表示</guimenuitem></menuchoice> を使用できます。"
+msgstr "ファイル・フォルダの名前の変更をその場で行う場合、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>名前の変更...</guimenuitem></menuchoice> を使用してください。新しい項目名を入力すると完了します。"
 
 #: source/TortoiseSVN_en.xml:6530(para)
 msgid "select the files or directories you want to move"
@@ -4893,14 +4872,12 @@ msgstr "TortoiseSVN は自身が持つ特殊なプロパティをいくつか持
 
 #: source/TortoiseSVN_en.xml:7077(para)
 #: source/TortoiseSVN_en.xml:8979(para)
-#, fuzzy
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TortoiseSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr "<literal>tsvn:</literal> プロパティのいくつかは <literal>true/false</literal> 値をとります。TSVN は <literal>yes</literal> を <literal>true</literal> と同義に、<literal>no</literal> を <literal>false</literal> と同義に解釈します。"
+msgstr "<literal>tsvn:</literal> プロパティのいくつかは <literal>true/false</literal> 値をとります。TortoiseSVN は <literal>yes</literal> を <literal>true</literal> と同義に、<literal>no</literal> を <literal>false</literal> と同義に解釈します。"
 
 #: source/TortoiseSVN_en.xml:7084(title)
-#, fuzzy
 msgid "Set the <literal>tsvn:</literal> properties on folders"
-msgstr "フォルダへの tsvn: プロパティの設定"
+msgstr "フォルダへの <literal>tsvn:</literal> プロパティの設定"
 
 #: source/TortoiseSVN_en.xml:7085(para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
@@ -5207,7 +5184,6 @@ msgid "Because you are comparing two different trees, make sure the <guilabel>Us
 msgstr "2 種類のツリーを比較するので、<guilabel>\"元:\" URL を使用する</guilabel> チェックボックスをチェック<emphasis>しないでください</emphasis>。"
 
 #: source/TortoiseSVN_en.xml:7618(para)
-#, fuzzy
 msgid "In the <guilabel>To:</guilabel> field enter the full folder URL of the feature branch."
 msgstr "<guilabel>先:</guilabel> フィールドに、機能ブランチの URL を入力してください。"
 
@@ -8056,7 +8032,7 @@ msgstr "<option>/closeonend:0</option> 自動でダイアログを閉じませ�
 
 #: source/TortoiseSVN_en.xml:11795(para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> エラーがなければ自動で閉じます。"
 
 #: source/TortoiseSVN_en.xml:11800(para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
