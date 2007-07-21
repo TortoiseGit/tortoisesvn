@@ -45,7 +45,7 @@ Changelist.png
 	Remove dug_blame.xml from the changelist.
 
 Checkout.png
-	Just pretend to checkout the TSVN docs:
+	Just pretend to checkout the TSVN doc folder:
 	TortoiseProc.exe /command:checkout /path:"C:\TortoiseSVN\Doc" /url:"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc"
 
 Commit.png
@@ -64,7 +64,7 @@ CommitProgress.png
 	Capture the progress dialog at the end of any commit.
 
 ContextMenuDirControl.png
-	In explorer, right click on a versioned folder (eg. TSVN docs) and
+	In explorer, right click on a versioned folder (eg. TSVN doc folder) and
 	capture the main context menu and the large TSVN sub menu.
 	You will probably have to capture the entire explorer window and
 	then edit out everything except the context menus. Ideally, also edit
@@ -168,6 +168,7 @@ MergeSettingsGeneral.png
 
 MergeThreePane.png
 	Use the 'docs' test WC
+	TSVN->Update (after fresh repo/WC creation)
 	TSVN->Edit conflicts for subwcrev.txt
 	Jump to first conflict
 
@@ -198,10 +199,31 @@ Repobrowser.png
 	In the right pane, right click on the TortoiseBlame folder to show context menu
 
 RepoStatus.png
-	(Show context menu for locally modified file)
+	Use the 'doc' test WC
+	TSVN->Check for Modifications
+	Click the 'check repository' button
+	Show context menu for locally modified file (dug_add.xml)
+	Make sure context menu is not obscuring useful columns -
+	  position the mouse at the left edge of remote property status
+
 Revert.png
+	Use the 'doc' test WC
+	TSVN->Revert
+
 RevisionGraph.png
+	Show revision graph for the TSVN doc folder
+	  (this may take a couple of minutes if the log cache is empty)
+	Make sure these settings are used on the toolbar:
+	Show-all-revisions 		OFF
+	Group-branches together ON
+	Oldest-at-top  			OFF
+	Show HEAD  				ON
+	Show overview  			ON
+	Set the zoom such that there are about 10-15 nodes showing
+	Select 2 revisions and show the context menu
+
 RightDragMenu.png
+	Right-drag a versioned item to a versioned folder
 
 SettingsHooks.png
 	TortoiseSVN->Settings->Hooks scripts
@@ -231,13 +253,39 @@ SettingsSavedData.png
 	All other settings dialogs, just get a screenshot of the appropriate page.
 
 StatsByAuthor.png
-	(Use TSVN Languages)
+	Use TortoiseSVN/doc/po
+	TSVN->Showlog
+	Show 'Commits by author' in bar graph view
+	Make sure there are several authors - 7 or 8 is good
+
 StatsByAuthPie.png
-	(As above but pie chart)
+	As above but view as pie chart
+
 StatsByDate.png
-	(3-4 authors on graph)
+	Use TortoiseSVN/doc/po
+	TSVN->Showlog
+	Show 'Commits by date' in line graph view
+	Adjust the slider so that there are about 4 traces shown
+
 Switch.png
+	TortoiseSVN->switch for TSVN doc folder
+
 TortoiseBlame.png
+	TortoiseSVN->Blame for tsvn_app_faq.xml
+	Hover the mouse over a revision that appears a few times,
+	  and has a reasonable comment attached, eg. r419.
+	Capture with the log message tooltip showing.
+
 TortoiseIDiff.png
+	Ideally diff one of the screenshots you have updated.
+
 UpdateFinished.png
+	Use a freshly created 'docs' test WC
+	TSVN->update
+	Capture the progress dialog when update is finished
+	
 upgradecheck.png
+	Downgrade to an older version of TSVN or capture this as the opportunity arises
+	TSVN->About
+	Click on 'Check for updates'
+	Hover the mouse over the URL of the TSVN site

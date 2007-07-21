@@ -71,6 +71,8 @@ type ..\..\subwcrev2.txt > subwcrev.txt
 for %%f in (ignore showlog) do (
 	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
 )
+:: Add text which will need merging on next update
+type ..\..\footnote1.txt >> dug_export.xml
 svn ci -q -m "Clarify the description of SubWCRev" .
 
 :: Add yet more files
@@ -107,7 +109,6 @@ for %%f in (checkout commit export ignore showlog) do (
 	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote3.txt dug_%%f.xml> nul
 )
 svn diff . > ..\docs.patch
-svn up -q
 
 cd ..
 del targets
