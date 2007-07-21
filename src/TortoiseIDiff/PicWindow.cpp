@@ -191,7 +191,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				pt.x += 15;
 				pt.y += 15;
 				SendMessage(hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(pt.x, pt.y));
-				TOOLINFO ti;
+				TOOLINFO ti = {0};
 				ti.cbSize = sizeof(TOOLINFO);
 				ti.hwnd = *this;
 				ti.uId = 0;
@@ -367,17 +367,15 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				{
 					NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
 					NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
-					TCHAR infostring[8192];
-					BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), true);
+					BuildInfoString(m_wszTip, sizeof(m_wszTip)/sizeof(TCHAR), true);
 					if (pNMHDR->code == TTN_NEEDTEXTW)
 					{
-						lstrcpyn(m_wszTip, infostring, 8192);
 						pTTTW->lpszText = m_wszTip;
 					}
 					else
 					{
 						pTTTA->lpszText = m_szTip;
-						::WideCharToMultiByte(CP_ACP, 0, infostring, -1, m_szTip, 8192, NULL, NULL);
+						::WideCharToMultiByte(CP_ACP, 0, m_wszTip, -1, m_szTip, 8192, NULL, NULL);
 					}
 				}
 			}
@@ -1267,24 +1265,24 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 		_stprintf_s(buf, size, 
 			(TCHAR const *)ResString(hResource, bTooltip ? IDS_DUALIMAGEINFOTT : IDS_DUALIMAGEINFO),
 			picture.GetFileSizeAsText().c_str(),
-			picture.GetWidth(), picture.GetHeight(),
+			picture.m_Width, picture.m_Height,
 			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-			picture.GetColorDepth(),
+			picture.m_ColorDepth,
 			(UINT)(GetZoom()*100.0),
 			pSecondPic->GetFileSizeAsText().c_str(),
-			pSecondPic->GetWidth(), pSecondPic->GetHeight(),
+			pSecondPic->m_Width, pSecondPic->m_Height,
 			pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
-			pSecondPic->GetColorDepth(),
+			pSecondPic->m_ColorDepth,
 			(UINT)(GetZoom2()*100.0));
 	}
 	else
 	{
 		_stprintf_s(buf, size, 
 			(TCHAR const *)ResString(hResource, bTooltip ? IDS_IMAGEINFOTT : IDS_IMAGEINFO),
-			picture.GetFileSizeAsText().c_str(), 
-			picture.GetWidth(), picture.GetHeight(),
+			picture.m_FileSize.c_str(), 
+			picture.m_Width, picture.m_Height,
 			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
-			picture.GetColorDepth(),
+			picture.m_ColorDepth,
 			(UINT)(GetZoom()*100.0));
 	}
 }
