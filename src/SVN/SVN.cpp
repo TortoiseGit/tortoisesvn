@@ -842,7 +842,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	return TRUE;
 }
 
-BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL allow_unver_obstruction)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
@@ -851,6 +851,7 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, s
 							 url.GetSVNApiPath(subpool),
 							 revision,
 							 depth,
+							 ignore_externals,
 							 allow_unver_obstruction,
 							 m_pctx,
 							 subpool);

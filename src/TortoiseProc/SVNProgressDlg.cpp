@@ -1076,7 +1076,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				(LPCTSTR)m_Revision.ToString());
 			ReportCmd(sCmdInfo);
 
-			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, m_depth))
+			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1275,7 +1275,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			if (m_options & ProgOptSwitchAfterCopy)
 			{
-				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth))
+				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth, m_options & ProgOptIgnoreExternals))
 				{
 					ReportSVNError();
 					bFailed = true;
