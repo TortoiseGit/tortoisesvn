@@ -1084,6 +1084,19 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 		}
 		if (m_hAccel)
 		{
+			if (pMsg->message == WM_KEYDOWN)
+			{
+				switch (pMsg->wParam)
+				{
+				case 'C':
+				case 'c':
+					{
+						if ((pMsg->hwnd == m_barRepository.GetSafeHwnd())||(::IsChild(m_barRepository.GetSafeHwnd(), pMsg->hwnd)))
+							return __super::PreTranslateMessage(pMsg);
+					}
+					break;
+				}
+			}
 			int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
 			if (ret)
 				return TRUE;
