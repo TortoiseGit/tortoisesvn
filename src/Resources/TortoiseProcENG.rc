@@ -134,7 +134,7 @@ BEGIN
     BUTTON      ID_VIEW_EXACTCOPYSOURCE
     BUTTON      ID_VIEW_SPLITBRANCHES
     BUTTON      ID_VIEW_FOLDTAGS
-	BUTTON		ID_VIEW_REDUCECROSSLINES
+    BUTTON      ID_VIEW_REDUCECROSSLINES
     SEPARATOR
     BUTTON      ID_VIEW_SHOWOVERVIEW
 END
@@ -278,7 +278,7 @@ BEGIN
     CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | BS_FLAT | WS_TABSTOP,405,0,14,14,WS_EX_TRANSPARENT
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,24,405,57
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,81,405,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",ES_MULTILINE | ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,86,405,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | WS_TABSTOP | 0x1804,7,86,405,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,182,405,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,187,405,58
     CONTROL         "H&ide unrelated changed paths",IDC_HIDEPATHS,"Button",BS_AUTO3STATE | WS_TABSTOP,7,259,293,10
@@ -2466,12 +2466,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nLogmessage:\r\n%S"
+    IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
     IDS_REVGRAPH_STATUSBARURL "Showing graph for %s"
     IDS_REVGRAPH_STATUSBARNUMNODES "Showing %ld nodes"
     IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
     IDS_REVGRAPH_BOXTOOLTIP_TAGGED 
-                            "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%S"
+                            "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%s"
     IDS_REVGRAPH_SAVEPIC    "&Save graph as..."
 END
 
@@ -2759,8 +2759,8 @@ BEGIN
     ID_VIEW_EXACTCOPYSOURCE "Branch at copy-from-rev even if there was no change in that revision"
     ID_VIEW_SPLITBRANCHES   "Split long, inactive branches into segments"
     ID_VIEW_FOLDTAGS        "Show tags on the copy source, not as separate nodes"
-	ID_VIEW_REDUCECROSSLINES 
-							"Prevents most cases in which connection lines cross revision nodes"
+    ID_VIEW_REDUCECROSSLINES 
+                            "Prevents most cases in which connection lines cross revision nodes"
 END
 
 STRINGTABLE 
