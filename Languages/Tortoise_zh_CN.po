@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-07-09 20:41+0800\n"
+"PO-Revision-Date: 2007-07-22 10:46+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -551,6 +551,11 @@ msgstr "从版本(&F)"
 msgid "&Go To Line..."
 msgstr "跳转到指定行(&G)..."
 
+# ID:213,
+#: MenuEntry
+msgid "&Group branches"
+msgstr "分组分支(&G)"
+
 # Control-ID:1115,#:
 # Control-ID:1032,
 #: Control-ID:1115,#: Control-ID:1032,
@@ -675,6 +680,10 @@ msgstr "网络磁盘(&N)"
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&New "
 msgstr "新建(&N)"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "最新的在顶部(&N)"
 
 # Control-ID:1208,
 #: ID:115,#: Control-ID:1208,
@@ -808,6 +817,14 @@ msgstr "保存(&S)..."
 msgid "&Settings"
 msgstr "设置(&S)"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1034,#:
+# Control-ID:1032,
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "显示 HEAD 版本(&S)"
+
 # Control-ID:1185,
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
@@ -839,8 +856,8 @@ msgstr "Tab 宽度(&T)："
 
 # Control-ID:1222,
 #: Control-ID:1222,
-msgid "&Timeout in seconds to stop the autocompletion parsing"
-msgstr "对自动完成进行多长时间的分析(秒)(&T)"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
+msgstr "停止自动完成分析的超时时间(秒)(&T)"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -920,7 +937,7 @@ msgstr "更新至版本(&U)..."
 
 # Control-ID:1184,
 #: Control-ID:1184,
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "自动完成文件路径和关键词(&U)"
 
 # Control-ID:65535,#:
@@ -1472,15 +1489,6 @@ msgstr "是否确定要复原 %d 个项目? 从上次更新之后的<b>所有</b
 msgid "Arrange &Vertical"
 msgstr "垂直排列(&V)"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "按照路径排序(&P)"
-
-# ID:2050,
-#: ID:2050,
-msgid "Arranges the nodes sorted by path"
-msgstr "按照路径排序"
-
 # ID:15,
 #: ID:264,
 #, c-format
@@ -1559,11 +1567,9 @@ msgstr "如无合并、添加、删除操作，自动关闭"
 # ID:195,
 #: ID:195,
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
-msgstr ""
-"输入日志信息时，根据所修改的文件自动完成日志内容（常\n"
-"用的类或成员名称）。"
+msgstr "输入日志信息时，根据所修改的文件自动完成建议词（通常是类或成员名称）。"
 
 # ID:438,#:
 # ID:438,
@@ -1620,6 +1626,10 @@ msgstr "浏览(&O)..."
 #: ID:115,
 msgid "Branch / tag created successfully!"
 msgstr "分支/标记创建成功！"
+
+#: ID:2052,
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "在 copy-from-rev 分支，不管此版本是否修改"
 
 # ID:9,
 #: ID:9,
@@ -2739,6 +2749,10 @@ msgid "Dry Run"
 msgstr "预检"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "解开复制源(&X)"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "退出(&X)"
 
@@ -3239,6 +3253,10 @@ msgstr "优化图像显示尺寸(&T)"
 msgid "Floppy drives (A: B:)"
 msgstr "软盘驱动器 (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "折叠标签(&T)"
+
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid "Font"
@@ -3423,6 +3441,10 @@ msgstr "MIME 类型"
 msgid "Group changelists"
 msgstr "分组修改列表"
 
+#: ID:2050,
+msgid "Groups branches together"
+msgstr "分组分支"
+
 # Control-ID:1229,
 #: Control-ID:1229,
 msgid "H&ide unrelated changed paths"
@@ -3549,6 +3571,16 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601; '&Open Ctrl-O'
 msgid "ID:57601:V C +O"
@@ -3564,6 +3596,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
@@ -5034,6 +5067,10 @@ msgstr "Pre-Commit Hook"
 msgid "Pre-Update Hook"
 msgstr "Pre-Update Hook"
 
+#: ID:2052,
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "防止大多数连接行交叉版本节点的情况"
+
 # ID:376,
 #: ID:376,
 msgid "Preview patched file"
@@ -5201,6 +5238,10 @@ msgstr ""
 "重做上次还原的动作\n"
 "重做"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "减少交叉行(&L)"
+
 # ID:3825,
 #: ID:3825,
 msgid "Reduce the window to an icon"
@@ -5208,7 +5249,7 @@ msgstr "缩小窗口为图标"
 
 # ID:101,#:
 # ID:135,
-#: ID:101,#: ID:135,
+#: ID:101,#: ID:135,#: Control-ID:1382,
 msgid "Refresh"
 msgstr "重新整理"
 
@@ -5599,20 +5640,44 @@ msgstr "版本："
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%S"
 msgstr ""
 "版本：%ld\n"
-"URL：%s\r\n"
-"作者：%s\r\n"
+"URL：%S\r\n"
+"作者：%S\r\n"
 "日期：%s\r\n"
 "\r\n"
 "日志信息：\r\n"
-"%s"
+"%S"
+
+# ID:272,
+#: ID:272,
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %S\r\n"
+"Author: %S\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%S\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%S"
+msgstr ""
+"版本：%ld\n"
+"URL：%S\r\n"
+"作者：%S\r\n"
+"日期：%s\r\n"
+"\r\n"
+"标签：%S\r\n"
+"\r\n"
+"日志信息：\r\n"
+"%S"
 
 # ID:116,
 #: ID:116,
@@ -5975,7 +6040,7 @@ msgstr "服务器地址(&A)："
 
 # Control-ID:1088,
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr "将文件日期设置为“最后提交时间”(&T)"
 
 # ID:13,
@@ -6074,6 +6139,10 @@ msgstr "显示无版本控制的文件(&U)"
 msgid "Show File List"
 msgstr "显示文件列表"
 
+#: ID:2051,
+msgid "Show HEAD revision nodes"
+msgstr "显示 HEAD 版本节点"
+
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
 msgstr "在文件加锁之前显示加锁对话框"
@@ -6115,6 +6184,11 @@ msgstr "显示行差异工具栏(&N)"
 msgid "Show linenumber&s"
 msgstr "显示行号(&S)"
 
+# ID:272,
+#: ID:2051,
+msgid "Show oldest node at top"
+msgstr "在顶部显示最老的节点"
+
 # ID:3713,
 #: ID:3713,
 msgid ""
@@ -6141,6 +6215,10 @@ msgid ""
 msgstr ""
 "以特殊字符显示空白字符\n"
 "显示空白字符"
+
+#: ID:2052,
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "在复制源显示标签，而不是单独节点"
 
 # Control-ID:1209,
 #: Control-ID:1209,
@@ -6249,6 +6327,14 @@ msgstr "指定合并的版本范围："
 #: ID:376,
 msgid "Split lines"
 msgstr "分割行"
+
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "分割长分支(&B)"
+
+#: ID:2052,
+msgid "Split long, inactive branches into segments"
+msgstr "将长而不活动的分支分段"
 
 # ID:3604,
 #: ID:3604,
@@ -6816,11 +6902,11 @@ msgstr ""
 #: ID:195,
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"对选中文件进行多长时间的分析，单位为秒。\n"
-"如果设置得比较低，会使得自动完成列表很快显示出来，\n"
+"对选中文件进行分析的时间，单位为秒。\n"
+"如果设置得小，会使自动完成列表很快显示出来，\n"
 "但是可能并没有扫描所有的文件。"
 
 # ID:82,
@@ -8334,3 +8420,6 @@ msgstr "对应版本库URL："
 #: ID:245,
 msgid "year"
 msgstr "年"
+
+#~ msgid "Arranged by &path"
+#~ msgstr "按照路径排序(&P)"
