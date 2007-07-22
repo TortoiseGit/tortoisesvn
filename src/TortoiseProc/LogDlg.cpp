@@ -867,6 +867,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_GETALL, FALSE);
 	DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
+	DialogEnableWindow(IDC_INCLUDEMERGE, FALSE);
 	DialogEnableWindow(IDC_STATBUTTON, FALSE);
 	DialogEnableWindow(IDC_REFRESH, FALSE);
 	
@@ -1007,6 +1008,7 @@ UINT CLogDlg::LogThread()
 	if (!m_bShowedAll)
 		DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
+	DialogEnableWindow(IDC_INCLUDEMERGE, TRUE);
 	DialogEnableWindow(IDC_STATBUTTON, TRUE);
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 
