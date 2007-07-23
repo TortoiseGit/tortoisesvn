@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "StdAfx.h"
 #include "SVNHelpers.h"
-
+#include "svn_config.h"
 
 SVNPool::SVNPool()
 {
@@ -50,12 +50,17 @@ SVNHelper::SVNHelper(void)
 	svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
 	m_ctx->cancel_func = cancelfunc;
 	m_ctx->cancel_baton = this;
-
+	svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
 }
 
 SVNHelper::~SVNHelper(void)
 {
 	svn_pool_destroy (m_pool);
+}
+
+void SVNHelper::ReloadConfig()
+{
+	svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
 }
 
 svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)

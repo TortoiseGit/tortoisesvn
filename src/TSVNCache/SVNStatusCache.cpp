@@ -247,6 +247,7 @@ CSVNStatusCache::~CSVNStatusCache(void)
 void CSVNStatusCache::Refresh()
 {
 	m_shellCache.ForceRefresh();
+	m_pInstance->m_svnHelp.ReloadConfig();
 	if (m_pInstance->m_directoryCache.size())
 	{
 		CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin();
@@ -310,7 +311,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 	}
 	cdir->m_childDirectories.clear();
 	m_directoryCache.erase(cdir->m_directoryPath);
-	ATLTRACE("removed path %ws from cache\n", cdir->m_directoryPath);
+	ATLTRACE(_T("removed path %s from cache\n"), cdir->m_directoryPath);
 	delete cdir;
 	cdir = NULL;
 	return true;
