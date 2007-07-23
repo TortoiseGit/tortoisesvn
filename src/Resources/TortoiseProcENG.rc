@@ -2466,12 +2466,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+    IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
     IDS_REVGRAPH_STATUSBARURL "Showing graph for %s"
     IDS_REVGRAPH_STATUSBARNUMNODES "Showing %ld nodes"
     IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
     IDS_REVGRAPH_BOXTOOLTIP_TAGGED 
-                            "Revision: %ld\nURL: %S\r\nAuthor: %S\r\nDate: %s\r\n\r\nTags:%S\r\n\r\nLogmessage:\r\n%s"
+                            "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags:%s\r\n\r\nLogmessage:\r\n%s"
     IDS_REVGRAPH_SAVEPIC    "&Save graph as..."
 END
 

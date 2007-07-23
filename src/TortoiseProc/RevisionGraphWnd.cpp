@@ -527,8 +527,8 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
             {
 			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
 							    rentry->revision,
-							    rentry->realPath.GetPath().c_str(),
-								revisionInfo.GetAuthor(index), 
+							    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
+								CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
 							    date,
 								CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
             }
@@ -540,10 +540,10 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 
 			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
 							    rentry->revision,
-							    rentry->realPath.GetPath().c_str(),
-							    revisionInfo.GetAuthor(index), 
+							    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
+							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
 							    date,
-                                tags.c_str(),
+                                CUnicodeUtils::StdGetUnicode(tags).c_str(),
 							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
             }
 		}
