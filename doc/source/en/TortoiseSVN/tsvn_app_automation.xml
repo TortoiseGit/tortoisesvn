@@ -153,8 +153,8 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:import</entry>
 							<entry>
-								Opens the import dialog. The path specifies
-								the directory with the data to import.
+								Opens the import dialog. The <option>/path</option>
+								specifies the directory with the data to import.
 							</entry>
 						</row>
 						<row>
@@ -349,8 +349,8 @@ Don't touch these lines:
 							<entry>
 								Opens the blame dialog for the file specified 
 								in <option>/path</option>.
-								If the options <option>startrev</option> and
-								<option>endrev</option> are set, then the dialog
+								If the options <option>/startrev</option> and
+								<option>/endrev</option> are set, then the dialog
 								asking for the blame range is not shown but
 								the revision values of those options are used
 								instead.
@@ -423,7 +423,8 @@ Don't touch these lines:
 		<para>
 			Examples (which should be entered on one line):
 <screen>
-TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
+TortoiseProc.exe /command:commit
+                 /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
                  /logmsg:"test log message" /closeonend
 
 TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend
