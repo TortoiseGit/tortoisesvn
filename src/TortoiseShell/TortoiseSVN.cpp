@@ -20,6 +20,7 @@
 #include "ShellExt.h"
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
+#include "svn_dso.h"
 
 UINT				g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE			g_hmodThisDll = NULL;			///< handle to this DLL itself.
@@ -147,6 +148,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     if (state != FileStateInvalid)
     {
 		apr_initialize();
+		svn_dso_initialize();
 		g_SVNAdminDir.Init();
 		g_cAprInit++;
 		

@@ -72,6 +72,7 @@
 #include "SVNAdminDir.h"
 #include "Hooks.h"
 #include "svn_types.h"
+#include "svn_dso.h"
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
@@ -213,6 +214,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 	int argc = 0;
 	const char* const * argv = NULL;
 	apr_app_initialize(&argc, &argv, NULL);
+	svn_dso_initialize();
 	SYS_IMAGE_LIST();
 	CHooks::Create();
 	g_SVNAdminDir.Init();

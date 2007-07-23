@@ -32,6 +32,7 @@
 #include "svn_path.h"
 #include "SubWCRev.h"
 #include "..\version.h"
+#include "svn_dso.h"
 
 STDAPI DllUnregisterServer();
 STDAPI DllRegisterServer();
@@ -538,6 +539,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	const char * internalpath;
 
 	apr_initialize();
+	svn_dso_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
 

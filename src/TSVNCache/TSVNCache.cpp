@@ -31,6 +31,7 @@
 #include <initguid.h>
 #include "ioevent.h"
 #include "..\version.h"
+#include "svn_dso.h"
 
 #include <ShellAPI.h>
 
@@ -139,6 +140,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	}
 
 	apr_initialize();
+	svn_dso_initialize();
 	g_SVNAdminDir.Init();
 	CSVNStatusCache::Create();
 	CSVNStatusCache::Instance().Init();

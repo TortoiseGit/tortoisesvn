@@ -12,6 +12,7 @@
 #include "svn_error.h"
 #include "svn_client.h"
 #include "svn_path.h"
+#include "svn_dso.h"
 #include "SubWCRev.h"
 #include "Register.h"
 
@@ -25,6 +26,7 @@ void AutomationMain()
 	svn_client_ctx_t ctx;
 
 	apr_initialize();
+	svn_dso_initialize();
 	apr_pool_create_ex (&pool, NULL, NULL, NULL);
 	memset (&ctx, 0, sizeof (ctx));
 

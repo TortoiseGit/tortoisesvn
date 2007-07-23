@@ -24,6 +24,7 @@
 #include "Diffdata.h"
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
+#include "svn_dso.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -37,6 +38,7 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 CDiffData::CDiffData(void)
 {
 	apr_initialize();
+	svn_dso_initialize();
 	g_SVNAdminDir.Init();
 
 	m_bBlame = false;
