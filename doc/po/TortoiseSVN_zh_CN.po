@@ -306,14 +306,12 @@ msgid "In 2002, Tim Kemp found that Subversion was a very good version control s
 msgstr "在2002年，Tim Kemp 发现 Subversion 是一个很好的版本控制系统，但是没有好的图形化客户端，创建一个作为 Windows 外壳集成的 Subversion 客户端的创意来自 TortoiseCVS，一个非常类似的 CVS 客户端。"
 
 #: source/TortoiseSVN_en.xml:367(para)
-#, fuzzy
 msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr "Tim 学习了 TortoiseCVS 的源代码，将其作为 TortoiseSVN 的基础，然后开始这个项目，注册了域名 tortoisesvn.org，并将源代码提交到网上。此时 Stefan Küng 正在寻找一个好的免费版本控制系统，他发现了 Subversion 和 TortoiseSVN，TortoiseSVN 依然还不能够使用，他加入了这个项目并开始编程。很快他便编写了大多数现在的代码，并开始添加命令和特性，此时，最初的代码都已经不复存在了。"
+msgstr "Tim 学习了 TortoiseCVS 的源代码，将其作为 TortoiseSVN 的基础，然后开始这个项目，注册了域名 <literal>tortoisesvn.org</literal>，并将源代码提交到网上。此时 Stefan Küng 正在寻找一个好的免费版本控制系统，他发现了 Subversion 和 TortoiseSVN，由于 TortoiseSVN 还不能够使用，他加入了这个项目并开始编程。很快他便重写了大多数代码，并且开始添加命令和特性，此时，最初的代码都已经不复存在了。"
 
 #: source/TortoiseSVN_en.xml:378(para)
-#, fuzzy
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
-msgstr "随着 Subversion 越来越稳定，吸引了越来越多的用户开始使用 TortoiseSVN 作为他们的 Subversion 客户端，用户基础增长迅速(每天都持续增长)。Lübbe Onken 提供了许多漂亮图标和 TortoiseSVN 的 logo，细心照料网站并且管理翻译。"
+msgstr "随着 Subversion 越来越稳定，吸引了越来越多的用户开始使用 TortoiseSVN 作为他们的 Subversion 客户端。用户群增长迅速(每天都持续增长)。Lübbe Onken 提供了许多漂亮图标和 TortoiseSVN 的 logo，细心照料网站并且管理翻译。"
 
 #: source/TortoiseSVN_en.xml:391(title)
 msgid "TortoiseSVN's Features"
@@ -444,9 +442,8 @@ msgid "install"
 msgstr "安装"
 
 #: source/TortoiseSVN_en.xml:571(para)
-#, fuzzy
 msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. If you want to install TortoiseSVN for <emphasis>all users</emphasis> then you must have administrator rights on your system. If you don't have those rights, TortoiseSVN will automatically install for the current user only."
-msgstr "TortoiseSVN 有一个简单易用的安装程序。双击安装文件，根据指示，安装程序会完成剩下的工作。如果你希望为<literal>所有用户</literal>安装 TortoiseSVN，你必须有系统的管理员权限。如果你没有那些权限，TortoiseSVN 只会为当前用户安装。"
+msgstr "TortoiseSVN 有一个简单易用的安装程序。双击安装文件，根据指示，安装程序会完成剩下的工作。如果你希望为<emphasis>所有用户</emphasis>安装 TortoiseSVN，你必须有系统的管理员权限。如果你没有那些权限，TortoiseSVN 会自动为当前用户安装。"
 
 #: source/TortoiseSVN_en.xml:581(para)
 msgid "If you don't have the latest C-runtime and MFC libraries installed, you still must have Administrator privileges to install TortoiseSVN. But once those libraries are installed, you can update or install TortoiseSVN without those privileges."
@@ -651,7 +648,6 @@ msgid "In the end, it all comes down to one critical factor: user communication.
 msgstr "最后，一切都要归结到一条重要的因素: 用户交流。当用户交流贫乏，语法和语义的冲突就会增加，没有系统可以强制用户完美的交流，没有系统可以检测语义上的冲突，所以没有任何证据能够承诺锁定系统可以防止冲突，实践中，锁定除了约束了生产力，并没有做什么事。"
 
 #: source/TortoiseSVN_en.xml:965(para)
-#, fuzzy
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have unmergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
 msgstr "有一种情况下锁定-修改-解锁模型会更好，也就是你有不可合并的文件，例如你的版本库包含了图片，两个人同时编辑这个文件，没有办法将这两个修改合并，Harry 或 Sally 会丢失他们的修改。"
 
@@ -792,21 +788,18 @@ msgid "svnserve"
 msgstr "svnserve"
 
 #: source/TortoiseSVN_en.xml:1150(entry)
-#, fuzzy
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr "通过未认证的 TCP/IP 自定义协议访问 <placeholder-1/> 服务。"
+msgstr "通过未认证的 TCP/IP 自定义协议访问 <placeholder-1/> 服务器。"
 
 #: source/TortoiseSVN_en.xml:1157(literal)
 msgid "svn+ssh://"
 msgstr "svn+ssh://"
 
 #: source/TortoiseSVN_en.xml:1159(entry)
-#, fuzzy
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr "通过认证并加密的 TCP/IP 自定义协议访问 <placeholder-1/> 服务。"
+msgstr "通过认证并加密的 TCP/IP 自定义协议访问 <placeholder-1/> 服务器。"
 
 #: source/TortoiseSVN_en.xml:1167(para)
-#, fuzzy
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file:</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <literal>file://hostname/path/to/repos</literal>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <literal>file:///path/to/repos</literal>."
 msgstr "大多数情况下，Subversion 的 URL 使用标准语法，允许服务器名称和端口号作为 URL 的一部分。<literal>file:</literal>访问方法通常用来本地访问，尽管也可以使用 UNC 路径访问网络主机，采用的 URL 形式为 <literal>file://hostname/path/to/repos</literal>。对于本地主机，主机部分可以为空或者是<literal>localhost</literal>，因此，本地路径通常出现三个斜线－<literal>file:///path/to/repos</literal>。"
 
@@ -834,9 +827,8 @@ msgid "Note that a URL uses ordinary slashes even though the native (non-URL) fo
 msgstr "注意 URL 使用普通的斜杠，而不是 Windows 本地(非 URL)形式的路径。"
 
 #: source/TortoiseSVN_en.xml:1200(para)
-#, fuzzy
 msgid "You can safely access a FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "你可以安全的访问网络共享上 FSFS 版本库，但是你<emphasis>不能</emphasis>以这种方式访问 BDB 版本库。"
+msgstr "你可以安全的访问网络共享的 FSFS 版本库，但是你<emphasis>不能</emphasis>以这种方式访问 BDB 版本库。"
 
 #: source/TortoiseSVN_en.xml:1206(para) source/TortoiseSVN_en.xml:2683(para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
@@ -852,12 +844,10 @@ msgid "revision"
 msgstr "修订版本"
 
 #: source/TortoiseSVN_en.xml:1222(para)
-#, fuzzy
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
-msgstr "一个 <command>svn commit</command> 操作可以作为一个原子事务操作发布任意数量文件和目录的修改，在你的工作副本里，你可以改变文件内容、删除、改名和复制文件和目录，然后作为一个整体提交。"
+msgstr "<command>svn commit</command> 操作可以作为一个原子事务操作发布任意数量文件和目录的修改。在你的工作副本中，你可以改变文件内容，创建、删除、改名和复制文件和目录，然后作为一个整体提交。"
 
 #: source/TortoiseSVN_en.xml:1230(para)
-#, fuzzy
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
 msgstr "在版本库中，每次提交被当作一次原子事务操作: 要么所有的改变发生，要么都不发生，Subversion 努力保持原子性以应对程序错误、系统错误、网络问题和其他用户行为。"
 
@@ -965,27 +955,24 @@ msgid "Locally changed, and current"
 msgstr "本地已修改且是当前的"
 
 #: source/TortoiseSVN_en.xml:1366(para)
-#, fuzzy
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus a <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
-msgstr "工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 <command>svn commit</command> 会成功的提交，<command>svn update</command> 不做任何事情。"
+msgstr "工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 <command>commit</command> 会成功的提交，<command>update</command> 不做任何事情。"
 
 #: source/TortoiseSVN_en.xml:1378(term)
 msgid "Unchanged, and out-of-date"
 msgstr "本地未修改且过时"
 
 #: source/TortoiseSVN_en.xml:1380(para)
-#, fuzzy
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
-msgstr "这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。<command>svn commit</command> 不做任何事情，<command>svn update</command> 将会更新工作副本到最新的版本。"
+msgstr "这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。<command>commit</command> 不做任何事情，<command>update</command> 将会更新工作副本到最新的版本。"
 
 #: source/TortoiseSVN_en.xml:1392(term)
 msgid "Locally changed, and out-of-date"
 msgstr "本地已修改且过时"
 
 #: source/TortoiseSVN_en.xml:1394(para)
-#, fuzzy
 msgid "The file has been changed both in the working directory, and in the repository. A <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr "这个文件在工作副本和版本库都被修改。<command>svn commit</command> 将会失败，这个文件必须首先更新，<command>svn update</command> 命令会合并公共和本地修改，如果 Subversion 不能自动完成，将会让用户解决冲突。"
+msgstr "这个文件在工作副本和版本库都被修改。<command>commit</command> 将会失败，这个文件必须首先更新，<command>update</command> 命令会尝试合并公共和本地修改，如果 Subversion 不能自动完成，将会让用户解决冲突。"
 
 #: source/TortoiseSVN_en.xml:1411(title)
 msgid "Summary"
@@ -1037,7 +1024,6 @@ msgid "WebDAV"
 msgstr "WebDAV"
 
 #: source/TortoiseSVN_en.xml:1484(para)
-#, fuzzy
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a \"Web folder\" in the Windows explorer and then access it like any other folder in the file system."
 msgstr "基于 Apache 的 Subversion 服务器使用 WebDAV 协议，许多程序支持这个协议。例如你可以在 Windows 资源管理器中将这样的版本库装载为一个“网络文件夹”，就像访问文件系统的目录一样访问它。"
 
@@ -1074,19 +1060,16 @@ msgid "Please note that Windows XP without the service pack 1 will lead to bogus
 msgstr "请注意，Windows XP 如果没有安装 SP1 将会导致不正常的网络传输，从而搞坏你的版本库！"
 
 #: source/TortoiseSVN_en.xml:1541(para)
-#, fuzzy
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version &gt; 2.0.54 - the version 1.3.xx won't work! Also, versions lower than 2.0.54 won't work with Subversion 1.2 because of a bug in how Apache &lt; 2.0.54 was built for Windows."
-msgstr "从Apache网站<ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>下载最新版本的Apache，请确定你下载的版本高于2.0.54－1.3.xx的版本不能工作！同样，低于2.0.54的版本不能与Subversion 1.2一起工作，因为Apache低于2.0.54的Windows版本的编译存在问题。"
+msgstr "从 <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink> 下载最新版本的 Apache，请确认你下载的版本高于 2.0.54 － 1.3.xx 的版本不能工作！同样，低于 2.0.54 的版本不能与 Subversion 1.2 一起工作，因为 Apache 低于 2.0.54 的 Windows 版本的编译存在问题。"
 
 #: source/TortoiseSVN_en.xml:1554(para)
-#, fuzzy
 msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install Apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr "一旦你有了Apache2安装程序，你可以双击它，然后它会指导你的安装过程，请确认你输入的server的URL正确(如果你的服务器没有dns名称，请直接输入IP地址)。我建议安装Apache<literal>为所有用户，在80端口，作为一个服务</literal>。注意: 如果你已经有了IIS或其他监听80段口的程序，安装会失败，如果发生这种情况，直接到程序的安装目录<filename>\\Apache Group\\Apache2\\conf</filename>，打开<filename>httpd.conf</filename>。编辑文件的<literal>Listen 80</literal>为其他可用的端口，例如<literal>Listen 81</literal>，然后重新启动－这样就不会那个问题了。"
+msgstr "一旦你有了 Apache2 安装程序，你可以双击它，然后它会指导你的安装过程。请确认你输入的服务器 URL 正确(如果你的服务器没有 DNS 名称，请直接输入 IP 地址)。我建议<emphasis>为所有用户在 80 端口安装 Apache 服务</emphasis>。注意: 如果你已经有了 IIS 或其他监听 80 端口的程序，安装会失败。如果发生这种情况，直接到程序的安装目录 <filename>\\Apache Group\\Apache2\\conf</filename>，打开 <filename>httpd.conf</filename>。编辑文件的 <literal>Listen 80</literal> 为其他可用的端口，例如 <literal>Listen 81</literal>，然后重新启动 － 这样就不会那个问题了。"
 
 #: source/TortoiseSVN_en.xml:1576(para)
-#, fuzzy
 msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr "现在可以测试Apache服务器了，将浏览器指向<systemitem class=\"url\">http://localhost/</systemitem>－将会看到一个预先配置的网站。"
+msgstr "现在可以测试 Apache 服务器是否正确运行，将浏览器指向 <systemitem class=\"url\">http://localhost/</systemitem> － 将会看到一个预先配置的网站。"
 
 #: source/TortoiseSVN_en.xml:1585(para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
@@ -1102,12 +1085,11 @@ msgstr "即使Apache运行于本地系统，你仍然需要这个条目(这种�
 
 #: source/TortoiseSVN_en.xml:1601(para)
 msgid "If Apache does not have this permission set up, your users will get \"Access denied\" error messages, which show up in the Apache error log as error 500."
-msgstr "如果没有设置Apache的访问权限，你的用户会得到“拒绝访问(Access denied)”的错误信息，在Apache的错误日志中为错误500。"
+msgstr "如果没有设置 Apache 的访问权限，你的用户会得到“拒绝访问(Access denied)”的错误信息，在 Apache 的错误日志中为错误 500。"
 
 #: source/TortoiseSVN_en.xml:1529(para)
-#, fuzzy
 msgid "The first thing you need before installing Apache is a computer with Windows 2000, Windows XP+SP1 or Windows 2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
-msgstr "无论是Windows2000、WinXP+SP1还是Windows2003，在安装Apache之前需要做的第一件事。<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
+msgstr "安装 Apache 的先决条件是有一台安装了 Windows 2000，WinXP SP1+，或 Windows 2003 的计算机。<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #: source/TortoiseSVN_en.xml:1610(title)
 msgid "Installing Subversion"
@@ -1189,10 +1171,9 @@ msgstr ""
 "#AuthzSVNAccessFile svnaccessfile\n"
 "Require valid-user\n"
 "&lt;/Location&gt;\n"
-"</screen>这个配置告诉 Apache 你的所有 Subversion 版本库位于<filename>D:\\SVN</filename>，版本库对外的URL是: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>。访问被文件<filename>passwd</filename>中的用户/密码限制。"
+"</screen>这个配置告诉 Apache 你的所有 Subversion 版本库位于 <filename>D:\\SVN</filename>。版本库对外的 URL 是: <systemitem class=\"url\">http://MyServer/svn/</systemitem>。访问被文件 <filename>passwd</filename> 中的用户/密码限制。"
 
 #: source/TortoiseSVN_en.xml:1718(para)
-#, fuzzy
 msgid ""
 "To create the <filename>passwd</filename> file, open the command prompt (DOS-Box) again, change to the <filename>apache2</filename> folder (usually <filename>c:\\program files\\apache group\\apache2</filename>) and create the file by entering <screen>\n"
 "bin\\htpasswd -c passwd &lt;username&gt;\n"
@@ -1200,9 +1181,9 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
-"为了创建<filename>passwd</filename>文件，再次打开命令行提示符(DOS)，来到apache2目录(通常是<filename>c:\\program files\\apache group\\apache2</filename>)通过输入下面的命令创建文件<screen>\n"
+"为了创建 <filename>passwd</filename> 文件，再次打开命令行提示符(DOS 窗口)，进入 <filename>apache2</filename> 目录(通常是 <filename>c:\\program files\\apache group\\apache2</filename>)，通过输入下面的命令创建文件<screen>\n"
 "bin\\htpasswd -c passwd &lt;username&gt;\n"
-"</screen> This will create a file with the name passwd which is used for authentication. Additional users can be added with <screen>\n"
+"</screen>它将会创建名为 passwd 的文件用于认证。用下面的命令增加其它用户<screen>\n"
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 
@@ -1215,9 +1196,8 @@ msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNew
 msgstr "将浏览器指向<systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem>(<filename>MyNewRepository</filename>是你此前创建的版本库名)，如果一切正常，你会被提示输入用户名和密码，然后你会看到版本库的内容。"
 
 #: source/TortoiseSVN_en.xml:1681(para)
-#, fuzzy
 msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL will be used for Subversion repositories you have to edit the Apache configuration file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
-msgstr "现在你已经设置了Apache和Subversion，但是Apache不知道如何处理Subversion客户端，例如TortoiseSVN。为了让Apache知道哪个目录是用来作为Subversion版本库，你需要使用编辑器(例如记事本)编辑Apache的配置文件(通常是<filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>): <placeholder-1/>"
+msgstr "现在你已经配置了 Apache 和 Subversion，但是 Apache 不知道如何处理 Subversion 客户端，例如TortoiseSVN。为了让 Apache 知道哪个 URL 是用作 Subversion 版本库，你需要使用任意文本编辑器(例如记事本)编辑 Apache 的配置文件(通常是 <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>): <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:1755(primary)
 msgid "SVNPath"
@@ -1254,9 +1234,8 @@ msgid "tells Apache which module will be responsible to serve that URL - in this
 msgstr "告诉Apache是哪个模块响应那个URL的请求－此刻是Subversion模块。"
 
 #: source/TortoiseSVN_en.xml:1790(entry)
-#, fuzzy
 msgid "For Subversion version 1.3 and higher, this directive enables listing all the available repositories under <placeholder-1/>."
-msgstr "对于Subversion1.3或者更高版本，这个指示表示显示所有SVNParentPath下的版本库。"
+msgstr "对于 Subversion 1.3 或者更高版本，这个指示会列出所有 <placeholder-1/> 中的版本库。"
 
 #: source/TortoiseSVN_en.xml:1800(filename)
 msgid "D:\\SVN"
@@ -1267,7 +1246,6 @@ msgid "tells Subversion to look for repositories below <placeholder-1/>"
 msgstr "告诉Subversion需要查看的版本库位于<placeholder-1/>之下"
 
 #: source/TortoiseSVN_en.xml:1805(entry)
-#, fuzzy
 msgid "Used to make the browsing with a web browser prettier."
 msgstr "使用它可以在用浏览器浏览时更好看。"
 
@@ -1310,40 +1288,36 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:1866(para)
-#, fuzzy
 msgid ""
 "Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access to each folder inside a repository you can uncomment the line <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 msgstr ""
-"使用<filename>passwd</filename>可以整体的控制对版本库的访问，但是如果你希望精确的控制版本库目录访问，你可以修改需要下面几行<screen>\n"
+"使用 <filename>passwd</filename> 可以整体的控制对版本库的访问，但是如果你希望精确的控制版本库目录访问，你可以去掉下行的注释<screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen>，并且创建Subversion的访问控制文件。Apache将会确保只有有效的用户可以访问你的<filename>/svn</filename>目录，然后将用户名传递给Subversion的AuthzSVNAccessFile模块，这样就可以根据Subversion访问控制文件实现更细粒度的访问控制。请注意路径可以是<literal>repos:path</literal>或简单的<literal>path</literal>，如果你不指定特定的版本库，访问控制规则会应用到<literal>SVNParentPath</literal>下所有的版本库，使用的授权策略文件的格式将在<xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>描述。"
+"</screen>，并且创建 Subversion 的访问控制文件。Apache 将会确保只有有效的用户可以访问你的 <filename>/svn</filename> 目录，然后将用户名传递给 Subversion 的 AuthzSVNAccessFile 模块，这样就可以根据 Subversion 访问控制文件内的规则实现更细粒度的访问控制。请注意路径可以是 <literal>repos:path</literal> 或简单的 <literal>path</literal>，如果你不指定特定的版本库，访问控制规则会应用到 <literal>SVNParentPath</literal> 下所有的版本库。使用的授权策略文件的格式在<xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>描述。"
 
 #: source/TortoiseSVN_en.xml:1893(para)
-#, fuzzy
 msgid ""
 "To make browsing the repository with a web browser 'prettier', uncomment the line <screen>\n"
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
-"如果要使浏览器浏览仓库时更“漂亮”，请将下行去掉注释 <screen>\n"
+"如果要使浏览器浏览仓库时更“漂亮”，请将去掉下行注释 <screen>\n"
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
-"</screen>，将文件 <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> 和 <filename>menucheckout.ico</filename> 放到你的文档根目录中(通常是 <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>)。 这个目录在 Apache 配置文件中用 <literal>DocumentRoot</literal> 指示。"
+"</screen>，将文件 <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> 和 <filename>menucheckout.ico</filename> 放到你的文档根目录中(通常是 <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>)。 这个目录在 Apache 配置文件中用 <literal>DocumentRoot</literal> 指示设置。"
 
 #: source/TortoiseSVN_en.xml:1906(para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. If you're asked for authentication for this link, enter <literal>guest</literal> as username and leave the password empty."
 msgstr "你可以直接在我们的代码库<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>中拿到这三个文件。如果访问这个链接需要认证，输入用户名称 <literal>guest</literal>，无需密码。"
 
 #: source/TortoiseSVN_en.xml:1915(para)
-#, fuzzy
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr "TortoiseSVN 版本库中的 xsl 文件有个特性：如果你用浏览器浏览版本库，那么每个版本库中的目录右边会有个图标。如果你点击此图标，那么 TortoiseSVN 会为此 URL 启动检出对话框。"
+msgstr "TortoiseSVN 版本库中的 XSL 文件有个特性：如果你用浏览器浏览版本库，那么每个版本库中的目录右边会有个图标。如果你点击此图标，那么 TortoiseSVN 会为此 URL 启动检出对话框。"
 
 #: source/TortoiseSVN_en.xml:1760(para)
-#, fuzzy
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
-msgstr "你刚才输入的解释是: <placeholder-1/>但是那只是一个例子，对于Apache你有很多的选择。<placeholder-2/>"
+msgstr "你刚才输入的简短解释是: <placeholder-1/>但是那只是一个例子。对于 Apache 你有很多可能的选择。<placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:1927(title)
 msgid "Multiple Repositories"
@@ -1354,17 +1328,16 @@ msgid "Index of projects"
 msgstr "项目索引"
 
 #: source/TortoiseSVN_en.xml:1934(para)
-#, fuzzy
 msgid "If you used the <literal>SVNParentPath</literal> directive then you don't have to change the Apache config file every time you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr "如果你使用SVNParentPath指示，你就不必在每次添加新Subversion版本库时修改Apache的配置文件，只需要在第一个版本库所在的位置建立新的版本库就可以了。在我的公司，我可以使用SMB(普通的windows文件访问)直接访问服务器的文件夹，所以我直接在那里创建一个目录，运行TortoiseSVN命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>在此创建版本库...</guimenuitem></menuchoice>，然后一个新的项目..."
+msgstr "如果你使用 SVNParentPath 指示，你就不必在每次添加新 Subversion 版本库时修改 Apache 的配置文件，只需要在第一个版本库所在的位置建立新的版本库就可以了。在我的公司，我可以使用 SMB(普通的 windows 文件访问)直接访问服务器的文件夹，所以我直接在那里创建一个目录，运行 TortoiseSVN 命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>在此创建版本库...</guimenuitem></menuchoice>，然后一个新的项目建立了..."
 
 #: source/TortoiseSVN_en.xml:1948(para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
-msgstr "如果你使用Subversion 1.3或更高版本，可以使用<literal>SVNListParentPath on</literal>指示，这样当你使用浏览器访问父路径而不是具体某个版本库时就会显示所有版本库列表。"
+msgstr "如果你使用 Subversion 1.3 或更高版本，可以使用 <literal>SVNListParentPath on</literal> 指示，这样当你使用浏览器访问父路径而不是具体某个版本库时 Apache 就会显示所有版本库列表。"
 
 #: source/TortoiseSVN_en.xml:1954(para)
 msgid "If your Subversion server is earlier than 1.3 you will just get a nasty error page showing. To get a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the script shown below)."
-msgstr "如果你的Subversion是早于1.3的版本，你会得到错误页，为了得到一个更好看的项目列表，你可以使用下面PHP脚本为你自动生成索引。(为了使用下面的PHP，你需要安装PHP)。"
+msgstr "如果你的 Subversion 是早于 1.3 的版本，你会得到错误页。为了得到一个更好看的项目列表，你可以使用下面的 PHP 脚本为你自动生成索引。(为了使用下面的脚本，你需要安装 PHP)。"
 
 #: source/TortoiseSVN_en.xml:1963(programlisting)
 #, no-wrap
@@ -1470,7 +1443,6 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2023(para)
-#, fuzzy
 msgid ""
 "Add the following lines just below your <literal>&lt;Location&gt;</literal> block where you define your Subversion stuff: <screen>\n"
 "    RewriteEngine on\n"
@@ -1479,7 +1451,7 @@ msgid ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 msgstr ""
-"在你的&lt;Location&gt;里定义Subversion功能的下面增加如下几行: <screen>\n"
+"在你的 <literal>&lt;Location&gt;</literal> 里定义 Subversion 功能的下面增加如下几行: <screen>\n"
 "    RewriteEngine on\n"
 "    RewriteRule ^/svn$ /svn_index.php [PT]\n"
 "    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
