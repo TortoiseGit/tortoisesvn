@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-07-16 00:10+0200\n"
+"PO-Revision-Date: 2007-07-23 22:18+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5290,6 +5290,10 @@ msgstr "Кука за преди поверяване"
 msgid "Pre-Update Hook"
 msgstr "Кука за преди обновяване"
 
+#: ID:2052,
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "Предотвратява повечето случаи, в които свързващи линии пресичат възли на ревизии"
+
 # ID:376,
 #: ID:376,
 msgid "Preview patched file"
@@ -5458,6 +5462,10 @@ msgstr ""
 "Възстановявa отменено преди това действие\n"
 "Възстановяване"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "&Намаляване на пресичащите линии"
+
 # ID:3825,
 #: ID:3825,
 msgid "Reduce the window to an icon"
@@ -5466,7 +5474,8 @@ msgstr "Смали прозореца до иконка"
 # ID:101,#:
 # ID:135,
 #: ID:101,#:
-#: ID:135,
+#: ID:135,#:
+#: Control-ID:1382,
 msgid "Refresh"
 msgstr "Опресняване"
 
@@ -5868,44 +5877,44 @@ msgstr "Ревизия:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Ревизия: %ld\n"
-"URL: %S\r\n"
-"Автор: %S\r\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
 "Дата: %s\r\n"
 "\r\n"
 "Съобщение от дневника:\r\n"
-"%S"
+"%s"
 
 # ID:272,
 #: ID:272,
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%S\r\n"
+"Tags:%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Ревизия: %ld\n"
-"URL: %S\r\n"
-"Автор: %S\r\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
 "Дата: %s\r\n"
 "\r\n"
-"Етикети:%S\r\n"
+"Етикети:%s\r\n"
 "\r\n"
 "Съобщение от дневника:\r\n"
-"%S"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
