@@ -751,6 +751,7 @@ void CPicWindow::GetClientRect(RECT * pRect)
 void CPicWindow::SetZoom(double dZoom)
 {
 	// Set the interpolation mode depending on zoom
+	double oldPicscale = picscale;
 	if (dZoom < 1.0)
 	{	// Zoomed out, use high quality bicubic
 		picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
@@ -793,8 +794,8 @@ void CPicWindow::SetZoom(double dZoom)
 	if (PtInRect(&clientrect, cpos))
 	{
 		// the mouse pointer is over our window
-		nHScrollPos = int(double(nHScrollPos + cpos.x)*(dZoom/picscale))-cpos.x;
-		nVScrollPos = int(double(nVScrollPos + cpos.y)*(dZoom/picscale))-cpos.y;
+		nHScrollPos = int(double(nHScrollPos + cpos.x)*(dZoom/oldPicscale))-cpos.x;
+		nVScrollPos = int(double(nVScrollPos + cpos.y)*(dZoom/oldPicscale))-cpos.y;
 		if ((bLinked)&&(pTheOtherPic))
 		{
 			pTheOtherPic->nHScrollPos = nHScrollPos;
