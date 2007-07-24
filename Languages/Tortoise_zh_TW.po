@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-07-17 09:55+0800\n"
+"PO-Revision-Date: 2007-07-24 09:15+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5162,6 +5162,11 @@ msgstr "送交前掛勾"
 msgid "Pre-Update Hook"
 msgstr "更新前掛勾"
 
+# ID:2052,
+#: ID:2052
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "儘量防止發生連接線與節點交錯的情形"
+
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
@@ -5331,6 +5336,10 @@ msgstr ""
 "重做上次還原的動作\n"
 "重做"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "減少連接線交叉(&L)"
+
 # ID:3825,
 #: ID:3825
 msgid "Reduce the window to an icon"
@@ -5340,6 +5349,7 @@ msgstr "縮小視窗為圖示"
 # ID:135,
 #: ID:101
 #: ID:135
+#: Control-ID:1382
 msgid "Refresh"
 msgstr "重新整理"
 
@@ -5738,44 +5748,44 @@ msgstr "版本: "
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "版本: %ld\n"
-"URL: %S\r\n"
-"作者: %S\r\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
 "日期: %s\r\n"
 "\r\n"
 "記錄訊息:\r\n"
-"%S"
+"%s"
 
 # ID:272,
 #: ID:272
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%S\r\n"
+"Tags:%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "版本: %ld\n"
-"URL: %S\r\n"
-"作者: %S\r\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
 "日期: %s\r\n"
 "\r\n"
-"標籤:%S\r\n"
+"標籤:%s\r\n"
 "\r\n"
 "記錄訊息:\r\n"
-"%S"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
