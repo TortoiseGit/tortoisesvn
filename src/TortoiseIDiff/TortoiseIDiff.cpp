@@ -91,6 +91,14 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		{
 			PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
 		}
+		if (parser.HasKey(_T("overlay")))
+		{
+			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_OVERLAPIMAGES, 0);
+		}
+		if (parser.HasKey(_T("fit")))
+		{
+			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
+		}
 		// Main message loop:
 		while (GetMessage(&msg, NULL, 0, 0))
 		{

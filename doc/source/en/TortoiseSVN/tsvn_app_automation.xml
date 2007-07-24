@@ -434,4 +434,99 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
 </screen>
 		</para>
 	</sect1>
+
+	<sect1 id="tsvn-automation-idiff">
+		<title>TortoiseIDiff Commands</title>
+		<indexterm>
+			<primary>automation</primary>
+		</indexterm>
+		<indexterm>
+			<primary>command line</primary>
+		</indexterm>
+		<para>
+			The image diff tool has a few command line options which you
+			can use to control how the tool is started.
+			The program is called <literal>TortoiseIDiff.exe</literal>.
+		</para>
+		<para>
+			The table below lists all the options which can be passed
+			to the image diff tool on the command line.
+		</para>
+<!--
+ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
+Don't touch these lines:
+<entry condition="pot">:about</entry>
+
+  The condition="pot" prevents the strings from being extracted into
+	the .pot file, so nobody translates them.
+  The colons in front of the command have to stay there to prevent these strings
+  from being translated if the po file "by chance" contains a matching translation.
+-->
+		<para>
+			<table id="tsvn-automation-idiff-1-table">
+				<title>List of available options</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="2" colwidth="3*"/>
+					<thead>
+						<row>
+							<entry>Option</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry condition="pot">:left</entry>
+							<entry>
+								Path to the file shown on the left.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:lefttitle</entry>
+							<entry>
+								A title string. This string is used in the image view
+								title instead of the full path to the image file.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:right</entry>
+							<entry>
+								Path to the file shown on the right.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:righttitle</entry>
+							<entry>
+								A title string. This string is used in the image view
+								title instead of the full path to the image file.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:overlay</entry>
+							<entry>
+								If specified, the image diff tool switches
+								to the overlay mode (alpha blend).
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">:fit</entry>
+							<entry>
+								If specified, the image diff tool fits both
+								images together.
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</para>
+		<para>
+			Example (which should be entered on one line):
+<screen>
+TortoiseIDiff.exe /left:"c:\images\img1.jpg" /lefttitle:"image 1"
+                  /right:"c:\images\img2.jpg" /righttitle:"image 2"
+                  /fit /overlay
+</screen>
+		</para>
+	</sect1>
+
 </appendix>
