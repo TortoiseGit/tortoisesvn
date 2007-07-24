@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-07-17 11:39+0100\n"
+"PO-Revision-Date: 2007-07-24 09:20+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -5177,6 +5177,11 @@ msgstr "Hook Pre-Entrega"
 msgid "Pre-Update Hook"
 msgstr "Hook Pre-Actualització"
 
+# ID:2052,
+#: ID:2052
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "Evita molts casos on les línies de connexió creuen nodes de revisió"
+
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
@@ -5349,6 +5354,10 @@ msgstr ""
 "Torna a fer la acció prèvia desfeta\n"
 "Refés"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "Redueix &linies de creuament"
+
 # ID:3825,
 #: ID:3825
 msgid "Reduce the window to an icon"
@@ -5358,6 +5367,7 @@ msgstr "Redueix la finestra a una icona"
 # ID:135,
 #: ID:101
 #: ID:135
+#: Control-ID:1382
 msgid "Refresh"
 msgstr "Refresca"
 
@@ -5761,43 +5771,44 @@ msgstr "Revisió: "
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Revisió: %ld\n"
-"URL: %S\r\n"
-"Autor: %S\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
 "Missatge de log:\r\n"
-"%S"
+"%s"
 
 # ID:272,
 #: ID:272
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%S\r\n"
+"Tags:%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Revisió: %ld\n"
-"URL: %S\r\n"
-"Autor: %S\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
 "Data: %s\r\n"
-"Etiquetes:%S\r\n"
+"\r\n"
+"Etiquetes:%s\r\n"
 "\r\n"
 "Missatge de log:\r\n"
-"%S"
+"%s"
 
 # ID:116,
 #: ID:116
