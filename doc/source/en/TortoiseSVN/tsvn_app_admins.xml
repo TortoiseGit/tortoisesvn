@@ -107,4 +107,201 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 </screen>
 		</para>
 	</sect1>
+	<sect1 id="tsvn-admins-disablemenus">
+		<title>Disable context menu entries</title>
+		<indexterm>
+			<primary>context menu entries</primary>
+		</indexterm>
+		<para>
+			As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide)
+			context menu entries. Since this is a feature which should not be lightly used
+			but only if there is a compelling reason, there is no GUI for this but has
+			to be done directly in the registry.
+			This can be used to disable certain commands for users who should not use them.
+			But please note that only the context menu entries in the <emphasis>explorer</emphasis>
+			are hidden, and the commands are still available through other means, e.g., the
+			command line or even other dialogs in TortoiseSVN itself!
+		</para>
+		<para>
+			The registry keys which hold the information on which context menus to show are
+			<filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskLow</filename>
+			and <filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskHigh</filename>.
+		</para>
+		<para>
+			Each of these registry entries are DWORD values with each bit corresponding to
+			a specific menu entry. A set bit means the corresponding menu entry is deactivated.
+		</para>
+		<para>
+			<table id="tsvn-admins-disablemenus-1-table">
+				<title>Menu entries and their values</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="2" colwidth="3*"/>
+					<thead>
+						<row>
+							<entry>Value</entry>
+							<entry>Menu entry</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry condition="pot">0x0000000000000001</entry>
+							<entry>Checkout</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000002</entry>
+							<entry>Update</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000004</entry>
+							<entry>Commit</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000008</entry>
+							<entry>Add</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000010</entry>
+							<entry>Revert</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000020</entry>
+							<entry>Cleanup</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000040</entry>
+							<entry>Resolve</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000080</entry>
+							<entry>Switch</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000100</entry>
+							<entry>Import</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000200</entry>
+							<entry>Export</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000400</entry>
+							<entry>Create Repository here</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000000800</entry>
+							<entry>Branch/Tag</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000001000</entry>
+							<entry>Merge</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000002000</entry>
+							<entry>Delete</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000004000</entry>
+							<entry>Rename</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000008000</entry>
+							<entry>Update to revision</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000010000</entry>
+							<entry>Diff</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000020000</entry>
+							<entry>Show Log</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000040000</entry>
+							<entry>Edit Conflicts</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000080000</entry>
+							<entry>Relocate</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000100000</entry>
+							<entry>Check for modifications</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000200000</entry>
+							<entry>Ignore</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000400000</entry>
+							<entry>Repository Browser</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000000800000</entry>
+							<entry>Blame</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000001000000</entry>
+							<entry>Create Patch</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000002000000</entry>
+							<entry>Apply Patch</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000004000000</entry>
+							<entry>Revision graph</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000008000000</entry>
+							<entry>Lock</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000010000000</entry>
+							<entry>Remove Lock</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000020000000</entry>
+							<entry>Properties</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000040000000</entry>
+							<entry>Diff with URL</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x0000000080000000</entry>
+							<entry>Delete unversioned items</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x2000000000000000</entry>
+							<entry>Settings</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x4000000000000000</entry>
+							<entry>Help</entry>
+						</row>
+						<row>
+							<entry condition="pot">0x8000000000000000</entry>
+							<entry>About</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</para>
+		<para>
+			Example: to disable the "Relocate" the "Delete unversioned items"
+			and the "Settings" menu entries, add the values assigned
+			to the entries like this:
+<screen>
+0x0000000000080000 + 0x0000000080000000 + 0x2000000000000000 = 2000000080080000
+</screen>
+			The lower DWORD value (0x80080000) must then be stored in
+			<filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskLow</filename>,
+			the higher DWORD value (0x20000000) in <filename>
+			HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskHigh</filename>.
+		</para>
+		<para>
+			To enable the menu entries again, simply delete the two registry keys.
+		</para>
+	</sect1>
 </appendix>
