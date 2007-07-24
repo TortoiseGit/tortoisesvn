@@ -123,14 +123,14 @@ public:
 	/// Makes both images the same size, fitting into the window
 	void FitTogether(bool bFit);
 	/// Sets the zoom factor of the image
-	void SetZoom(double dZoom);
+	void SetZoom(double dZoom, bool centermouse);
 	void SetZoom2(double dZoom) {picscale2 = dZoom;}
 	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
 	/// Returns the currently used zoom factor in which the second image is shown.
 	double GetZoom2() {return picscale2;}
 	/// Zooms in (true) or out (false) in nice steps
-	void Zoom(bool in);
+	void Zoom(bool in, bool centermouse);
 	/// Sets the 'Other' pic window
 	void SetOtherPicWindow(CPicWindow * pWnd) {pTheOtherPic = pWnd;}
 	/// Links/Unlinks the two pic windows

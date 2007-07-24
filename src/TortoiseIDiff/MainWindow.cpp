@@ -392,20 +392,20 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_ORININALSIZE:
 		{
-			picWindow1.SetZoom(1.0);
-			picWindow2.SetZoom(1.0);
+			picWindow1.SetZoom(1.0, false);
+			picWindow2.SetZoom(1.0, false);
 		}
 		break;
 	case ID_VIEW_ZOOMIN:
 		{
-			picWindow1.Zoom(true);
-			picWindow2.Zoom(true);
+			picWindow1.Zoom(true, false);
+			picWindow2.Zoom(true, false);
 		}
 		break;
 	case ID_VIEW_ZOOMOUT:
 		{
-			picWindow1.Zoom(false);
-			picWindow2.Zoom(false);
+			picWindow1.Zoom(false, false);
+			picWindow2.Zoom(false, false);
 		}
 		break;
 	case ID_VIEW_ARRANGEVERTICAL:

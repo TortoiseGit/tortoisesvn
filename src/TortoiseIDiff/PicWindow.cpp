@@ -720,7 +720,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 	else if (fwKeys & MK_CONTROL)
 	{
 		// control means adjusting the scale factor
-		Zoom(zDelta>0);
+		Zoom(zDelta>0, true);
 		InvalidateRect(*this, NULL, FALSE);
 		SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
 		PositionChildren();
@@ -748,7 +748,7 @@ void CPicWindow::GetClientRect(RECT * pRect)
 	}
 }
 
-void CPicWindow::SetZoom(double dZoom)
+void CPicWindow::SetZoom(double dZoom, bool centermouse)
 {
 	// Set the interpolation mode depending on zoom
 	double oldPicscale = picscale;
@@ -791,16 +791,16 @@ void CPicWindow::SetZoom(double dZoom)
 	ScreenToClient(*this, &cpos);
 	RECT clientrect;
 	GetClientRect(&clientrect);
-	if (PtInRect(&clientrect, cpos))
+	if ((PtInRect(&clientrect, cpos))&&(centermouse))
 	{
 		// the mouse pointer is over our window
 		nHScrollPos = int(double(nHScrollPos + cpos.x)*(dZoom/oldPicscale))-cpos.x;
 		nVScrollPos = int(double(nVScrollPos + cpos.y)*(dZoom/oldPicscale))-cpos.y;
-		if ((bLinked)&&(pTheOtherPic))
-		{
-			pTheOtherPic->nHScrollPos = nHScrollPos;
-			pTheOtherPic->nVScrollPos = nVScrollPos;
-		}
+	}
+	else
+	{
+		nHScrollPos = int(double(nHScrollPos + ((clientrect.right-clientrect.left)/2))*(dZoom/oldPicscale))-((clientrect.right-clientrect.left)/2);
+		nVScrollPos = int(double(nVScrollPos + ((clientrect.bottom-clientrect.top)/2))*(dZoom/oldPicscale))-((clientrect.bottom-clientrect.top)/2);
 	}
 
 	SetupScrollBars();
@@ -808,7 +808,7 @@ void CPicWindow::SetZoom(double dZoom)
 	InvalidateRect(*this, NULL, TRUE);
 }
 
-void CPicWindow::Zoom(bool in)
+void CPicWindow::Zoom(bool in, bool centermouse)
 {
 	double zoomFactor;
 
@@ -839,13 +839,13 @@ void CPicWindow::Zoom(bool in)
 	{
 		if ((pSecondPic)&&(!bFitTogether))
 			picscale2 = picscale2+zoomFactor;
-		SetZoom(picscale+zoomFactor);
+		SetZoom(picscale+zoomFactor, centermouse);
 	}
 	else
 	{
 		if ((pSecondPic)&&(!bFitTogether))
 			picscale2 = picscale2-zoomFactor;
-		SetZoom(picscale-zoomFactor);
+		SetZoom(picscale-zoomFactor, centermouse);
 	}
 }
 
@@ -904,7 +904,7 @@ void CPicWindow::FitImageInWindow()
 				picscale2 = min(yscale, xscale);
 			}
 		}
-		SetZoom(dZoom);
+		SetZoom(dZoom, false);
 	}
 	PositionChildren();
 	InvalidateRect(*this, NULL, TRUE);
@@ -916,7 +916,7 @@ void CPicWindow::FitTogether(bool bFit)
 
 	if (pSecondPic == NULL)
 		return;
-	SetZoom(GetZoom());
+	SetZoom(GetZoom(), false);
 }
 
 void CPicWindow::Paint(HWND hwnd)
