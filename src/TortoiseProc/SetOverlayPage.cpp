@@ -168,6 +168,12 @@ int CSetOverlayPage::SaveData()
 				::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 			}
 		}
+		m_regUnversionedAsModified = m_bUnversionedAsModified;
+		if (m_regUnversionedAsModified.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regUnversionedAsModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regShowExcludedAsNormal = m_bShowExcludedAsNormal;
+		if (m_regShowExcludedAsNormal.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regShowExcludedAsNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		if (m_dwCacheType==1)
 		{
 			// tell the cache to refresh everything
@@ -236,12 +242,6 @@ int CSetOverlayPage::SaveData()
 				}
 			}
 		}
-		m_regUnversionedAsModified = m_bUnversionedAsModified;
-		if (m_regUnversionedAsModified.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regUnversionedAsModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		m_regShowExcludedAsNormal = m_bShowExcludedAsNormal;
-		if (m_regShowExcludedAsNormal.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regShowExcludedAsNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	return 0;
 }
