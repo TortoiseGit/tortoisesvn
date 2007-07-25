@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-25 12:00+0100\n"
+"PO-Revision-Date: 2007-07-25 13:18+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6866,25 +6866,55 @@ msgstr "Der Einstellungsdialog, Aktionsskripte einrichten"
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
 msgstr "<placeholder-1/> Um ein neues Aktionsskript anzulegen, klicken Sie einfach auf die <guibutton>Hinzufügen</guibutton> Schaltfläche und füllen die Details aus."
 
+#: source/TortoiseSVN_en.xml:10356(term)
+#: source/TortoiseSVN_en.xml:10424(term)
+msgid "Start-commit"
+msgstr "Start Übertragung"
+
 #: source/TortoiseSVN_en.xml:10358(para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
 msgstr "Wird aufgerufen, bevor der Übertragen-Dialog angezeigt wird. Dieses Skript können Sie zum Beispiel benutzen, wenn sich durch die Aktion die Liste der zu übertragenden Dateien ändert."
+
+#: source/TortoiseSVN_en.xml:10366(term)
+#: source/TortoiseSVN_en.xml:10433(term)
+msgid "Pre-commit"
+msgstr "Vor Übertragung"
 
 #: source/TortoiseSVN_en.xml:10368(para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
 msgstr "Wird aufgerufen, nachdem der Anwender die <guibutton>OK</guibutton> Schaltfläche im Übertragen-Dialog geklickt hat und bevor die Übertragung selbst beginnt."
 
+#: source/TortoiseSVN_en.xml:10375(term)
+#: source/TortoiseSVN_en.xml:10444(term)
+msgid "Post-commit"
+msgstr "Nach Übertragung"
+
 #: source/TortoiseSVN_en.xml:10377(para)
 msgid "Called after the commit finishes (whether successful or not)."
 msgstr "Wird nach dem Ende der Übertragung aufgerufen, unabhängig davon, ob die Übertragung erfolgreich war oder nicht."
+
+#: source/TortoiseSVN_en.xml:10383(term)
+#: source/TortoiseSVN_en.xml:10457(term)
+msgid "Start-update"
+msgstr "Start Aktualisierung"
 
 #: source/TortoiseSVN_en.xml:10385(para)
 msgid "Called before the update-to-revision dialog is shown."
 msgstr "Wird aufgerufen, bevor der <quote>Aktualisiere zu Revision</quote> angezeigt wird."
 
+#: source/TortoiseSVN_en.xml:10391(term)
+#: source/TortoiseSVN_en.xml:10466(term)
+msgid "Pre-update"
+msgstr "Vor Aktualisierung"
+
 #: source/TortoiseSVN_en.xml:10393(para)
 msgid "Called before the actual Subversion update begins."
 msgstr "Wird aufgerufen, bevor die Aktualisierung beginnt."
+
+#: source/TortoiseSVN_en.xml:10399(term)
+#: source/TortoiseSVN_en.xml:10477(term)
+msgid "Post-update"
+msgstr "Nach Aktualisierung"
 
 #: source/TortoiseSVN_en.xml:10401(para)
 msgid "Called after the update finishes (whether successful or not)."
