@@ -3552,9 +3552,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_REPOBROWSE:
 			{
 				CString sCmd;
-				sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%ld"),
+				sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%s"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, revSelected);
+					pathURL, revSelected.ToString());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
