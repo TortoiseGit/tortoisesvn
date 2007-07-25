@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2007-07-24 17:49 +0000\n"
+"POT-Creation-Date: 2007-07-25 09:58 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5981,48 +5981,24 @@ msgstr ""
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10356(term) source/TortoiseSVN_en.xml:10424(term) 
-msgid "Start-commit"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10358(para) 
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10366(term) source/TortoiseSVN_en.xml:10433(term) 
-msgid "Pre-commit"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10368(para) 
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10375(term) source/TortoiseSVN_en.xml:10444(term) 
-msgid "Post-commit"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10377(para) 
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10383(term) source/TortoiseSVN_en.xml:10457(term) 
-msgid "Start-update"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10385(para) 
 msgid "Called before the update-to-revision dialog is shown."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10391(term) source/TortoiseSVN_en.xml:10466(term) 
-msgid "Pre-update"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10393(para) 
 msgid "Called before the actual Subversion update begins."
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10399(term) source/TortoiseSVN_en.xml:10477(term) 
-msgid "Post-update"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10401(para) 
@@ -6085,48 +6061,24 @@ msgstr ""
 msgid "The depth with which the commit/update is done."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10529(term) 
-msgid "-2"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10532(literal) 
 msgid "svn_depth_unknown"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10537(term) 
-msgid "-1"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10540(literal) 
 msgid "svn_depth_exclude"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10545(term) 
-msgid "0"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10548(literal) 
 msgid "svn_depth_empty"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10553(term) 
-msgid "1"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10556(literal) 
 msgid "svn_depth_files"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:10561(term) 
-msgid "2"
-msgstr ""
-
 #: source/TortoiseSVN_en.xml:10564(literal) 
 msgid "svn_depth_immediates"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:10569(term) 
-msgid "3"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10572(literal) 
