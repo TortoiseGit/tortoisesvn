@@ -76,59 +76,22 @@
 			<emphasis>added</emphasis> to version control.
 		</para>
 		<para>
-			Unlike TortoiseCVS (the CVS shell
-			integration) no overlay icon for unversioned files is shown.
-			We do this because the number of icon overlays are limited system wide
-			and should be used economically.
+			Unlike TortoiseCVS (the CVS shell integration) no overlay icon
+			is shown for unversioned files. We do this because the number
+			of icon overlays is limited system wide and should be used economically.
 		</para>
 		<para>
 			In fact, you may find that not all of these icons are used on your system.
-			This is because the number of overlays allowed by Windows is limited to 15.
-			Windows uses 4 of those, and the remaining 11 can be used by other applications.
-			If you are also using TortoiseCVS, then there are not enough overlay slots
-			available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote>
-			and limits its use of overlays to give other apps a chance.
+			This is because the number of overlays allowed by Windows is very limited
+			and if you are also using TortoiseCVS, then there are not enough overlay
+			slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote>
+			and limits its use of overlays to give other apps a chance too.
 		</para>
-		<itemizedlist>
-			<listitem>
-				<para>
-					<emphasis>Normal</emphasis>,
-					<emphasis>Modified</emphasis> and
-					<emphasis>Conflicted</emphasis>
-					are always loaded and visible.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<emphasis>Deleted</emphasis>
-					is loaded if possible, but falls back to
-					<emphasis>Modified</emphasis> if there are not enough slots.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<emphasis>Read-Only</emphasis>
-					is loaded if possible, but falls back to
-					<emphasis>Normal</emphasis> if there are not enough slots.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<emphasis>Locked</emphasis>
-					is only loaded if there are fewer than 13 overlays already loaded.
-					It falls back to <emphasis>Normal</emphasis>
-					if there are not enough slots.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<emphasis>Added</emphasis>
-					is only loaded if there are fewer than 14 overlays already loaded.
-					It falls back to <emphasis>Modified</emphasis>
-					if there are not enough slots.
-				</para>
-			</listitem>
-		</itemizedlist>
+		<para>
+			For a description of how icon overlays correspond to Subversion
+			status and other technical details, read
+			<xref linkend="tsvn-app-internals-overlays"/>.
+		</para>
 	</sect2>
 	<sect2>
 		<title>TortoiseSVN Columns In Windows Explorer</title>
