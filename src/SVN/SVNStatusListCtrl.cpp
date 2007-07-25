@@ -3750,7 +3750,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	if (entry == NULL)
 		return;
 	if (((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))||
-		(entry->status == svn_wc_status_unversioned))
+		(entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_none))
 	{
 		int ret = (int)ShellExecute(this->m_hWnd, NULL, entry->path.GetWinPath(), NULL, NULL, SW_SHOW);
 		if (ret <= HINSTANCE_ERROR)
