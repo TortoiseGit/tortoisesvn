@@ -803,6 +803,66 @@ void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
 		svn_config_set(cfg, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, "yes");
 }
 
+bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
+{
+	if (!path.IsDirectory())
+		return true;	// no error, but nothing to do
+
+	bool bRet = true;
+
+	char buf[1024] = {0};
+	SVNProperties props(path);
+	if (!sLabel.IsEmpty())
+		bRet = props.Add(BUGTRAQPROPNAME_LABEL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLabel)) && bRet;
+	if (!sMessage.IsEmpty())
+		bRet = props.Add(BUGTRAQPROPNAME_MESSAGE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sMessage)) && bRet;
+	if (!bNumber)
+		bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "false") && bRet;
+	if (!sCheckRe.IsEmpty())
+		bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
+	if (!sUrl.IsEmpty())
+		bRet = props.Add(BUGTRAQPROPNAME_URL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sUrl)) && bRet;
+	if (bWarnIfNoIssue)
+		bRet = props.Add(BUGTRAQPROPNAME_WARNIFNOISSUE, "true") && bRet;
+	if (!bAppend)
+		bRet = props.Add(BUGTRAQPROPNAME_APPEND, "false") && bRet;
+	if (nLogWidthMarker)
+	{
+		sprintf_s(buf, sizeof(buf), "%ld", nLogWidthMarker);
+		bRet = props.Add(PROJECTPROPNAME_LOGWIDTHLINE, buf) && bRet;
+	}
+	if (!sLogTemplate.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_LOGTEMPLATE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogTemplate)) && bRet;
+	if (nMinLogSize)
+	{
+		sprintf_s(buf, sizeof(buf), "%ld", nMinLogSize);
+		bRet = props.Add(PROJECTPROPNAME_LOGMINSIZE, buf) && bRet;
+	}
+	if (nMinLockMsgSize)
+	{
+		sprintf_s(buf, sizeof(buf), "%ld", nMinLockMsgSize);
+		bRet = props.Add(PROJECTPROPNAME_LOCKMSGMINSIZE, buf) && bRet;
+	}
+	if (!bFileListInEnglish)
+		bRet = props.Add(PROJECTPROPNAME_LOGFILELISTLANG, "false") && bRet;
+	if (lProjectLanguage)
+	{
+		sprintf_s(buf, sizeof(buf), "%ld", lProjectLanguage);
+		bRet = props.Add(PROJECTPROPNAME_PROJECTLANGUAGE, buf) && bRet;
+	}
+	if (!sFPPath.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_USERFILEPROPERTY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sFPPath)) && bRet;
+	if (!sDPPath.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_USERDIRPROPERTY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sDPPath)) && bRet;
+	if (!sWebViewerRev.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_REV, CUnicodeUtils::StdGetUTF8((LPCTSTR)sWebViewerRev)) && bRet;
+	if (!sWebViewerPathRev.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_PATHREV, CUnicodeUtils::StdGetUTF8((LPCTSTR)sWebViewerPathRev)) && bRet;
+	if (!sAutoProps.IsEmpty())
+		bRet = props.Add(PROJECTPROPNAME_AUTOPROPS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sAutoProps)) && bRet;
+	return bRet;
+}
+
 #ifdef DEBUG
 static class PropTest
 {
