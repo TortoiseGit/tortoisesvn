@@ -50,38 +50,91 @@ be available unless both client and server are the latest version
 
 </div>  <!-- compatibility -->
 
-<div class="h2" id="new-features" title="new-features">
-<h2>New Features</h2>
+<div class="h2" id="merge-tracking" title="merge-tracking">
+<h2>Merge Tracking</h2>
 
-<p>XXX: Describe each new feature.</p>
+<p>Merge Tracking in Subversion 1.5.0 is roughly equivalent in
+functionality to <a
+href="http://www.orcaware.com/svn/wiki/Svnmerge.py">svnmerge.py</a>,
+recording and using merge history to avoid common cases of the
+repeated merge problem, and allowing for cherry-picking of changes.
+It exposes merge history via properties, and allows for repository
+dump/load (including the ability to re-create the merge history
+index).  It adds <a href="http://www.sqlite.org/">sqlite</a> as a
+dependency, and supports both the FSFS and BerkeleyDB Subversion file
+system backends.</p>
 
-<div class="h3" id="merge-tracking" title="merge-tracking">
-<h3>Merge Tracking (<em>client and server</em>)</h3>
+<p>Some merge tracking features can't be used for repositories served
+by pre-1.5.x servers</p>
 
-<p>XXX</p>
+<div class="h3" id="repeated-merge">
+<h3>Repeated Merge</h3>
+
+<p>When working on a branch, Subversion now tracks each revision which
+gets merged. This makes it easier to merge changes e.g., from trunk
+because it is possible to always merge the whole revision range without
+the risk of merging the same revision twice. Subversion will automatically
+ommit the already merged revisions when doing the merge.</p>
+
+<p>When showing the log from the merge dialog to find the revisions to
+merge, TortoiseSVN shows the already merged revisions grayed out as
+a visual hint. If a grayed out revision is selected, Subversion does
+not merge that revision again because it was already merged.</p>
+
+</div>  <!-- repeated-merge -->
+
+<div class="h3" id="manual-merge">
+<h3>Record Manual Merge</h3>
+
+<p>To block a revision from being merged, TortoiseSVN provides a button
+in the merge dialog named "record only". This will tell Subversion that
+the revision has already been merged, without doing the merge itself.</p>
+
+</div>  <!-- manual-merge -->
 
 </div> <!-- merge-tracking -->
 
-<div class="h3" id="sparse-checkouts" title="sparse-checkouts">
-<h3>Sparse checkouts (<em>client and server</em>)</h3>
 
-<p>XXX: Described <a
-href="http://svn.collab.net/repos/svn/trunk/notes/sparse-directories.txt"
->here</a>.</p>
+
+<div class="h2" id="sparse-checkouts" title="sparse-checkouts">
+<h2>Sparse checkouts</h2>
+
+<p>Many users have very large trees of which they only want to checkout 
+certain parts. In case of folders with many subfolders, some of the
+subfolders might not be needed.</p>
+<p>TortoiseSVN provides the user with a combo box to choose the depth
+of a checkout:
+<ul>
+<li>Fully recursive</li>
+<li>Immediate children, including folders</li>
+<li>Only file children</li>
+<li>Only this item</li>
+</ul>
+The depth of the checkout is remembered, so that a later <em>update</em>
+will respect that depth and not fetch everything again.</p>
 
 </div> <!-- sparse-checkouts -->
 
-<div class="h3" id="cyrus-sasl" title="cyrus-sasl">
-<h3>Cyrus SASL support for ra_svn and <tt>svnserve</tt> (<em>client
-and server</em>)</h3>
+<div class="h2" id="cyrus-sasl" title="cyrus-sasl">
+<h2>Cyrus SASL support for <tt>svnserve</tt></h2>
 
-<p>XXX: Described <a
-href="http://svn.collab.net/repos/svn/trunk/notes/sasl.txt">here</a>.</p>
+<p>In Subversion 1.5, svnserve can use SASL for authentication. 
+TortoiseSVN has SASL implemented too. The following SASL authentication
+methods are available with TortoiseSVN 1.5.x:
+<ul>
+<li>ANONYMOUS</li>
+<li>CRAM-MD5</li>
+<li>PLAIN</li>
+<li>DIGEST-MD5</li>
+<li>LOGIN</li>
+<li>NTLM</li>
+</ul>
+</p>
 
 </div> <!-- cyrus-sasl -->
 
-<div class="h3" id="changelist-support" title="changelist-support">
-<h3>Changelist support (<em>client</em>)</h3>
+<div class="h2" id="changelist-support" title="changelist-support">
+<h2>Changelist support</h2>
 
 <p>XXX: Described <a
 href="http://svn.collab.net/repos/svn/trunk/notes/changelist-design.txt"
@@ -89,7 +142,6 @@ href="http://svn.collab.net/repos/svn/trunk/notes/changelist-design.txt"
 
 </div>  <!-- changelist-support -->
 
-</div>  <!-- new-features -->
 
 
 <div class="h2" id="enhancements" title="enhancements">
