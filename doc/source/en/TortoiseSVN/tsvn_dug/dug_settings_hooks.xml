@@ -43,7 +43,7 @@
 		There are currently six types of hook script available
 		<variablelist>
 			<varlistentry>
-				<term condition="pot">Start-commit</term>
+				<term>Start-commit</term>
 				<listitem>
 					<para>
 						Called before the commit dialog is shown.
@@ -53,7 +53,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Pre-commit</term>
+				<term>Pre-commit</term>
 				<listitem>
 					<para>
 						Called after the user clicks <guibutton>OK</guibutton>
@@ -62,7 +62,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Post-commit</term>
+				<term>Post-commit</term>
 				<listitem>
 					<para>
 						Called after the commit finishes (whether successful or not).
@@ -70,7 +70,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Start-update</term>
+				<term>Start-update</term>
 				<listitem>
 					<para>
 						Called before the update-to-revision dialog is shown.
@@ -78,7 +78,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Pre-update</term>
+				<term>Pre-update</term>
 				<listitem>
 					<para>
 						Called before the actual Subversion update begins.
@@ -86,7 +86,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Post-update</term>
+				<term>Post-update</term>
 				<listitem>
 					<para>
 						Called after the update finishes (whether successful or not).
@@ -111,7 +111,7 @@
 		by TortoiseSVN. The parameters available depend upon which hook is called.
 		<variablelist>
 			<varlistentry>
-				<term condition="pot">Start-commit</term>
+				<term>Start-commit</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
@@ -120,7 +120,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Pre-commit</term>
+				<term>Pre-commit</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
@@ -131,7 +131,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Post-commit</term>
+				<term>Post-commit</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
@@ -144,7 +144,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Start-update</term>
+				<term>Start-update</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
@@ -153,7 +153,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Pre-update</term>
+				<term>Pre-update</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
@@ -164,7 +164,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">Post-update</term>
+				<term>Post-update</term>
 				<listitem>
 					<para>
 						<literal>%PATH%</literal>
