@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-23 21:07+0100\n"
-"Last-Translator: Tobias Schäfer <tobiasschaefer@gmx.de>\n"
+"PO-Revision-Date: 2007-07-25 12:00+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1301,11 +1301,11 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:1906(para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. If you're asked for authentication for this link, enter <literal>guest</literal> as username and leave the password empty."
-msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchib <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> herunterladen. Falls sie nach einer Anmeldung gefragt werden, geben Sie einfach <literal>guest</literal> als Benutzername ein und lassen das Passwort frei."
+msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchiv <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> herunterladen. Falls sie nach einer Anmeldung gefragt werden, geben Sie einfach <literal>guest</literal> als Benutzername ein und lassen das Passwort frei."
 
 #: source/TortoiseSVN_en.xml:1915(para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr "Die XSL Datei aus dem TortoiseSVN Projektachtiv enthält einen netten Kniff. Wenn Sie das Projektarchiv mit ihrem Web-Browser betrachten, wird neben jedem Ordner Ihres Projektarchivs ein Symbol angezeigt. Wenn Sie auf dieses Symbol klicken, wird sofort der Auschecken-Dialog von TortoiseSVN für die entsprechende URL aufgerufen."
+msgstr "Die XSL Datei aus dem TortoiseSVN Projektarchiv enthält einen netten Kniff. Wenn Sie das Projektarchiv mit ihrem Web-Browser betrachten, wird neben jedem Ordner Ihres Projektarchivs ein Symbol angezeigt. Wenn Sie auf dieses Symbol klicken, wird sofort der Auschecken-Dialog von TortoiseSVN für die entsprechende URL aufgerufen."
 
 #: source/TortoiseSVN_en.xml:1760(para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
@@ -1839,7 +1839,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2432(para)
 msgid "If you want that all the Apache modules are aware of the SSL ability, change the registry key <filename>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</filename> from <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</filename> to <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -D SSL -k runservice</filename>."
 msgstr ""
-"Wenn Sie möchten, dass alle Apache Module über die Verfügbarkeit von SSL informiert werden, ändern Sie den Registryschlüssel\n"
+"Wenn Sie möchten, dass alle Apache Module über die Verfügbarkeit von SSL informiert werden, ändern Sie den Registrierungsschlüssel\n"
 "<screen>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</screen>\n"
 "von\n"
 "<screen>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</screen>\n"
@@ -2355,7 +2355,7 @@ msgstr "hooks"
 
 #: source/TortoiseSVN_en.xml:3139(para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm, welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch."
+msgstr "Ein Aktionsskript <literal>(Hook-Script)</literal> ist ein Programm, welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch."
 
 #: source/TortoiseSVN_en.xml:3154(para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
@@ -2480,7 +2480,7 @@ msgstr "Kontextmenü für einen Ordner unter Versionskontrolle"
 
 #: source/TortoiseSVN_en.xml:3295(para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
-msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextmenü des Windows Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Rechtklick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab ob das angeklickte Objekt oder sein übergeordneter Ordner unter Versionskontrolle stehen oder nicht. Das TortoiseSVN Menü wird auch im Dateimenü des Explorers angezeigt."
+msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextmenü des Windows Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Rechtsklick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab ob das angeklickte Objekt oder sein übergeordneter Ordner unter Versionskontrolle stehen oder nicht. Das TortoiseSVN Menü wird auch im Dateimenü des Explorers angezeigt."
 
 #: source/TortoiseSVN_en.xml:3309(title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -2510,7 +2510,7 @@ msgstr "Rechts-Ziehen"
 #: source/TortoiseSVN_en.xml:3334(title)
 #: source/TortoiseSVN_en.xml:6199(title)
 msgid "Right drag menu for a directory under version control"
-msgstr "Rechts-Zieh-Menü für einen Ordner unter Versionskontrolle"
+msgstr "Rechts-Ziehen-Menü für einen Ordner unter Versionskontrolle"
 
 #: source/TortoiseSVN_en.xml:3332(para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
@@ -2582,7 +2582,7 @@ msgstr "Wenn das Projektarchiv, auf das Sie zugreifen wollen, passwortgeschützt
 
 #: source/TortoiseSVN_en.xml:3434(para)
 msgid "If you want to clear the authentication cache for <emphasis>all</emphasis> servers, you can do so from the <guilabel>General</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr "Wenn Sie die Anmeldedaten für <emphasis>alle</emphasis> Server löschen wollen, können Sie dies von der <guilabel>Allgemein</guilabel> Seite der TortoiseSVN Optionen aus tun. Die Schaltfläche löscht sämtliche Anmeldedaten aus den Subversion <filename>auth</filename> Verzeichnissen sowie die durch ältere Versionen von TortoiseSVN in der Registry abgelegten Anmeldedaten. Weitere Informationen stehen in <xref linkend=\"tsvn-dug-settings-main\"/>."
+msgstr "Wenn Sie die Anmeldedaten für <emphasis>alle</emphasis> Server löschen wollen, können Sie dies von der <guilabel>Allgemein</guilabel> Seite der TortoiseSVN Optionen aus tun. Die Schaltfläche löscht sämtliche Anmeldedaten aus den Subversion <filename>auth</filename> Verzeichnissen sowie die durch ältere Versionen von TortoiseSVN in der Registrierung abgelegten Anmeldedaten. Weitere Informationen stehen in <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #: source/TortoiseSVN_en.xml:3443(para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
@@ -2613,7 +2613,7 @@ msgid "import"
 msgstr "import"
 
 #: source/TortoiseSVN_en.xml:3477(primary)
-#: source/TortoiseSVN_en.xml:12934(glossterm)
+#: source/TortoiseSVN_en.xml:13227(glossterm)
 msgid "Repository"
 msgstr "Projektarchiv"
 
@@ -2754,8 +2754,9 @@ msgid "You can also use the repository browser to create new folders directly in
 msgstr "Sie können auch den Projektarchivbetrachter benutzen, um neue Ordner direkt im Projektarchiv zu erstellen."
 
 #: source/TortoiseSVN_en.xml:3617(title)
-#: source/TortoiseSVN_en.xml:12595(title)
-#: source/TortoiseSVN_en.xml:12834(glossterm)
+#: source/TortoiseSVN_en.xml:11793(entry)
+#: source/TortoiseSVN_en.xml:12888(title)
+#: source/TortoiseSVN_en.xml:13127(glossterm)
 msgid "Import"
 msgstr "Importieren"
 
@@ -2853,7 +2854,7 @@ msgstr "Als Beispiel sehen Sie sich das Build-Skript von TortoiseSVN mal an. Es 
 
 #: source/TortoiseSVN_en.xml:3765(para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr "Um die Benutzer nicht zu stören, ist die Datei <filename>TortoiseVars.bat</filename> auch in der Liste der ignorierten Dateien eingetragen. Das heißt wir haben die Subversion Eigenschaft <literal>svn:ignored</literal> für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem Übertragungsdialog als (noch) nicht versioniert."
+msgstr "Um die Benutzer nicht zu stören, ist die Datei <filename>TortoiseVars.bat</filename> auch in der Liste der ignorierten Dateien eingetragen. Das heißt wir haben die Subversion Eigenschaft <literal>svn:ignored</literal> für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem Übertragen-Dialog als (noch) nicht versioniert."
 
 #: source/TortoiseSVN_en.xml:3774(title)
 msgid "Referenced Projects"
@@ -2893,7 +2894,7 @@ msgstr "Sie sollten in Erwägung ziehen, in allen <quote>externals</quote> Defin
 #: source/TortoiseSVN_en.xml:3848(para)
 #: source/TortoiseSVN_en.xml:11458(para)
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragungsdialog mit aufgelistet und auch mit dem Hauptprojekt übertragen."
+msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragen-Dialog aufgelistet und gemeinsam mit dem Hauptprojekt übertragen."
 
 #: source/TortoiseSVN_en.xml:3853(para)
 #: source/TortoiseSVN_en.xml:11463(para)
@@ -3063,11 +3064,11 @@ msgstr "Fügen Sie diese Dateien mit dem Befehl <menuchoice> <guimenu>TortoiseSV
 
 #: source/TortoiseSVN_en.xml:4081(para)
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien im Übertragungsdialog anzeigt die nicht unter Versionskontrolle stehen (z.B. vom Compiler erzeugte Dateien oder Sicherungsdateien vom Editor), haben Sie mehrere Möglichkeiten dies einzugrenzen. Sie können: <placeholder-1/> Siehe <xref linkend=\"tsvn-dug-ignore\"/> für weitere Information."
+msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien im Übertragen-Dialog anzeigt die nicht unter Versionskontrolle stehen (z.B. vom Compiler erzeugte Dateien oder Sicherungsdateien vom Editor), haben Sie mehrere Möglichkeiten dies einzugrenzen. Sie können: <placeholder-1/> Siehe <xref linkend=\"tsvn-dug-ignore\"/> für weitere Information."
 
 #: source/TortoiseSVN_en.xml:4111(para)
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet, so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können. Das Kontextmenü bietet, wie Sie im Bild sehen können, weitere Optionen. Sie können von hier aus auch Dateien in eine andere Anwendung, z.B. einen Texteditor oder eine Entwicklungsumgebung ziehen."
+msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragen-Dialog wird das Vergleichsprogramm gestartet, so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können. Das Kontextmenü bietet, wie Sie im Bild sehen können, weitere Optionen. Sie können von hier aus auch Dateien in eine andere Anwendung, z.B. einen Texteditor oder eine Entwicklungsumgebung ziehen."
 
 #: source/TortoiseSVN_en.xml:4118(para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <action>SHIFT-Select</action> to make the action recursive."
@@ -3113,7 +3114,7 @@ msgstr "In einer idealen Welt würden Sie normalerweise nur an einer Aufgabe zur
 
 #: source/TortoiseSVN_en.xml:4190(para)
 msgid "The changelist feature is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr "Die Änderungslisten stehen nur under Windows XP und neuer zur Verfügung, da sie eine Shell-Funktion beötigen, die unter Windows 2000 nicht zur Verfügung steht. Sorry, Win2K ist mittleweile recht alt, also bitte nicht beschweren."
+msgstr "Die Änderungslisten stehen nur under Windows XP und neuer zur Verfügung, da sie eine Shell-Funktion benötigen, die unter Windows 2000 nicht zur Verfügung steht. Sorry, Win2K ist mittleweile recht alt, also bitte nicht beschweren."
 
 #: source/TortoiseSVN_en.xml:4208(title)
 msgid "Commit dialog with Changelists"
@@ -3508,7 +3509,7 @@ msgid "modifications"
 msgstr "Änderungen"
 
 #: source/TortoiseSVN_en.xml:4843(title)
-#: source/TortoiseSVN_en.xml:12359(title)
+#: source/TortoiseSVN_en.xml:12652(title)
 msgid "Check for Modifications"
 msgstr "Prüfe auf Änderungen"
 
@@ -3590,7 +3591,7 @@ msgstr "vergleichen"
 
 #: source/TortoiseSVN_en.xml:5024(para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr "Oft möchten Sie sehen, was Sie in einer Datei geändert haben. Das können Sie durch das Markieren einer Datei mit dem TortoiseSVN Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> tun. Diese Funktion das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die lokalen Änderungen (gegenüber der <literal>BASE</literal> Revision) seit dem letzten Auschecken oder Aktualisieren anzeigt."
+msgstr "Oft möchten Sie sehen, was Sie in einer Datei geändert haben. Das können Sie durch das Markieren einer Datei mit dem TortoiseSVN Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> tun. Diese Funktion das TortoiseMerge (oder ein externes Vergleichsprogramm), das Ihnen die lokalen Änderungen (gegenüber der <literal>BASE</literal> Revision) seit dem letzten Auschecken oder Aktualisieren anzeigt."
 
 #: source/TortoiseSVN_en.xml:5034(para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
@@ -3730,7 +3731,7 @@ msgstr "Das Kontextmenü des Log-Dialogs"
 
 #: source/TortoiseSVN_en.xml:5230(para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr "Ein Diff-Programm zu starten, um Ihnen die Änderungen zu zeigen welche seit der gewählten Revision vorgenommen worden. Das mit installierte Diff-Programm ist TortoiseMerge. Wurde der Log-Dialog für ein Verzeichnis aufgerufen, so wird in TortoiseMerge eine Liste der geänderten Dateien angezeigt. Aus dieser Liste können Sie einen Eintrag wählen, um die Änderungen für jede Datei einzeln nachprüfen."
+msgstr "Ein Vergleichsprogramm zu starten, um Ihnen die Änderungen zu zeigen welche seit der gewählten Revision vorgenommen worden. Das mit installierte Vergleichsprogramm ist TortoiseMerge. Wurde der Log-Dialog für ein Verzeichnis aufgerufen, so wird in TortoiseMerge eine Liste der geänderten Dateien angezeigt. Aus dieser Liste können Sie einen Eintrag wählen, um die Änderungen für jede Datei einzeln nachprüfen."
 
 #: source/TortoiseSVN_en.xml:5240(para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
@@ -3742,11 +3743,11 @@ msgstr "Vergleicht die gewählte Revision mit der vorherigen Revision. Dies funk
 
 #: source/TortoiseSVN_en.xml:5256(para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the results using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Annotiere die gewählte Revision sowie die BASE Version Ihrer Arbeitskopie und vergleiche die Ergebnisse mit einem Diff-Programm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
+msgstr "Annotiere die gewählte Revision sowie die BASE Version Ihrer Arbeitskopie und vergleiche die Ergebnisse mit einem Vergleichsprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:5263(para)
 msgid "Blame the selected revision, and the previous revision, and compare the results using a visual diff tool."
-msgstr "Annotiere die gewählte Revision sowie vorherige Version und vergleiche die Ergebnisse mit einem Diff-Programm."
+msgstr "Annotiere die gewählte Revision sowie vorherige Version und vergleiche die Ergebnisse mit einem Vergleichsprogramm."
 
 #: source/TortoiseSVN_en.xml:5269(para)
 msgid "Save the selected revision to a file so you have an older version of that file. This option is only available when you access the log for a file, and it saves a version of that one file only."
@@ -3809,7 +3810,7 @@ msgstr "Kontextmenü des Log-Dialogs für zwei ausgewählte Revisionen"
 
 #: source/TortoiseSVN_en.xml:5384(para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
-msgstr "Vergleiche die gewählten Revisionen in einem Diff-Programm. Das Standard Diff-Programm ist TortoiseMerge, welches mit TortoiseSVN installiert wird."
+msgstr "Vergleiche die gewählten Revisionen in einem Vergleichsprogramm. Das Standard Vergleichsprogramm ist TortoiseMerge, welches mit TortoiseSVN installiert wird."
 
 #: source/TortoiseSVN_en.xml:5389(para)
 msgid "If you select this option for a folder, a further dialog pops up listing the changed files and offering you further diff options. Read more about the Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
@@ -3817,7 +3818,7 @@ msgstr "Wenn Sie diese Option für einen Ordner wählen, erschein ein weiterer D
 
 #: source/TortoiseSVN_en.xml:5397(para)
 msgid "Blame the two revisions and compare the results using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Annotiere die gewählten Revisionen und vergleiche die Ergebnisse mit einem Diff-Programm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
+msgstr "Annotiere die gewählten Revisionen und vergleiche die Ergebnisse mit einem Vergleichsprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:5404(para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
@@ -3849,7 +3850,7 @@ msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. 
 
 #: source/TortoiseSVN_en.xml:5443(para)
 msgid "Blame the selected revision and the previous revision for the selected file, and show the differences using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Annotiere die markierte sowie die vorherige Revision der gewählten Datei und vergleiche die Ergebnisse mit einem Diff-Programm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
+msgstr "Annotiere die markierte sowie die vorherige Revision der gewählten Datei und vergleiche die Ergebnisse mit einem Vergleichsprogramm. Lesen Sie <xref linkend=\"tsvn-dug-blame-diffs\"/> für weitere Informationen."
 
 #: source/TortoiseSVN_en.xml:5450(para)
 #: source/TortoiseSVN_en.xml:8302(para)
@@ -3962,7 +3963,7 @@ msgstr "Beachten Sie dass diese Filter nur auf die bereits heruntergeladenen Mel
 
 #: source/TortoiseSVN_en.xml:5609(para)
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tristate: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
-msgstr "Sie können auch die Pfade in der unteren Liste filtern indem sie die <guilabel>Geänderte Pfade ohne Bezug ausblenden</guilabel> Checkbox nutzen. Pfade mit Bezug sind Pfade welche den Pfad für welchen sie den Log anzeigen drin haben. Wenn sie den Log für einen Ordner anzeigen heißt dies dass alle Pfade unterhalb dieses Ordners einen Bezug haben, alle anderen Pfade nicht. Bei Dateien hat nur die Datei selbst einen Bezug mit sich selbst. Die Checkbox hat drei Zustände: sie können entweder alle Pfade anzeigen, Pfade ohne Bezug grau anzeigen oder ganz ausblenden."
+msgstr "Sie können auch die Pfade in der unteren Liste filtern indem sie die <guilabel>Geänderte Pfade ohne Bezug ausblenden</guilabel> Option nutzen. Pfade mit Bezug sind Pfade welche den Pfad für welchen sie den Log anzeigen drin haben. Wenn sie den Log für einen Ordner anzeigen heißt dies dass alle Pfade unterhalb dieses Ordners einen Bezug haben, alle anderen Pfade nicht. Bei Dateien hat nur die Datei selbst einen Bezug mit sich selbst. Das Optionsfeld hat drei Zustände: sie können entweder alle Pfade anzeigen, Pfade ohne Bezug grau anzeigen oder ganz ausblenden."
 
 #: source/TortoiseSVN_en.xml:5621(title)
 msgid "Statistical Information"
@@ -4058,11 +4059,11 @@ msgstr "Unterschiede zu einem anderen Zweig"
 
 #: source/TortoiseSVN_en.xml:5740(para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
-msgstr "Wenn Sie sehen wollen, was sich im Stamm (wenn Sie auf einem Ast arbeiten) oder in einem bestimmten Ast (wenn Sie am Stamm arbeiten) geändert hat, können Sie das Explorer Kontextmenü verwenden. Halten Sie die<keycap>Umsch</keycap> Taste gedrückt, währen Sie einen Rechtsklick auf die Datei machen. Dann wählen Sie<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Diff mit URL</guimenuitem></menuchoice>. Im folgenden Dialog geben Sie die URL im Projektarchiv an, mit der Sie die lokale Datei vergleichen wollen."
+msgstr "Wenn Sie sehen wollen, was sich im Stamm (wenn Sie auf einem Ast arbeiten) oder in einem bestimmten Ast (wenn Sie am Stamm arbeiten) geändert hat, können Sie das Explorer Kontextmenü verwenden. Halten Sie die<keycap>Umsch</keycap> Taste gedrückt, währen Sie einen Rechtsklick auf die Datei machen. Dann wählen Sie<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Vergleich mit URL</guimenuitem></menuchoice>. Im folgenden Dialog geben Sie die URL im Projektarchiv an, mit der Sie die lokale Datei vergleichen wollen."
 
 #: source/TortoiseSVN_en.xml:5753(para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Sie können auch den Projektarchivbetrachter zum Vergleich zweier Bäume verwenden, indem Sie zwei Markierungen oder auch eine Verzeweigung und den Hauptast auswählen. Das Kontextmenü bietet Ihnen dann die Option an, diese Bäume zu vergleichen <guimenuitem>Compare revisions</guimenuitem>. Lesen Sie weiter in <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Sie können auch den Projektarchivbetrachter zum Vergleich zweier Bäume verwenden, indem Sie zwei Markierungen oder auch eine Verzweigung und den Stamm auswählen. Das Kontextmenü bietet Ihnen dann die Option an, diese Bäume zu vergleichen <guimenuitem>Compare revisions</guimenuitem>. Lesen Sie weiter in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #: source/TortoiseSVN_en.xml:5763(term)
 msgid "Difference from a previous revision"
@@ -4106,7 +4107,7 @@ msgstr "Unterschiede zwischen Arbeitskopie Datei/Ordner und URL"
 
 #: source/TortoiseSVN_en.xml:5827(para)
 msgid "If you want to see the differences between a file in your working copy, and a file in any Subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. You can do the same thing for a working copy folder. TortoiseMerge shows these differences in the same way as it shows a patch file - a list of changed files which you can view one at a time."
-msgstr "Wenn Sie die Unterschiede zwischen einer Datei in der Arbeitskopie und einer Datei im Subversion Projektarchiv sehen möchten, können sie das erreichen, indem Sie die <keycap>Umsch</keycap> Taste drücken, während sie einen Rechtsklick auf die Datei machen. Wählen sie dann <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Vergleichen mit URL</guimenuitem> </menuchoice>. Sie können diese Aktion ebenso für einen Ordner in der Arbeitskopie durchfühgen. TortoiseMerge wird Ihnen die Unterschiede wie eine Patchdatei anzeigen - eine Liste von Dateien, die Sie einzeln betrachten können."
+msgstr "Wenn Sie die Unterschiede zwischen einer Datei in der Arbeitskopie und einer Datei im Subversion Projektarchiv sehen möchten, können sie das erreichen, indem Sie die <keycap>Umsch</keycap> Taste drücken, während sie einen Rechtsklick auf die Datei machen. Wählen sie dann <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Vergleichen mit URL</guimenuitem> </menuchoice>. Sie können diese Aktion ebenso für einen Ordner in der Arbeitskopie durchführen. TortoiseMerge wird Ihnen die Unterschiede wie eine Patchdatei anzeigen - eine Liste von Dateien, die Sie einzeln betrachten können."
 
 #: source/TortoiseSVN_en.xml:5845(term)
 msgid "Difference with blame information"
@@ -4381,7 +4382,7 @@ msgstr "Die beste Möglichkeit diese Probleme zu vermeiden besteht darin, die ge
 
 #: source/TortoiseSVN_en.xml:6236(para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis>-Liste hinzugefügt."
+msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihnen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis>-Liste hinzugefügt."
 
 #: source/TortoiseSVN_en.xml:6248(para)
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
@@ -4597,7 +4598,7 @@ msgstr "Übertragen Sie die Änderungen der Arbeitskopie."
 
 #: source/TortoiseSVN_en.xml:6618(para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
-msgstr "Benennen Sie mit dem Projektarchivbetrachter die Datei von 'GROSSbuchstaben' in 'grossBuchstaben' direkt im Projektarchiv um."
+msgstr "Benennen Sie mit dem Projektarchivbetrachter die Datei von <literal>GROSSbuchstaben</literal> in <literal>grossBUCHSTABEN</literal> direkt im Projektarchiv um."
 
 #: source/TortoiseSVN_en.xml:6624(para)
 msgid "Update your working copy."
@@ -4609,7 +4610,7 @@ msgstr "Lösung A) (empfohlen) <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6634(para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
-msgstr "Benennen Sie die Datei mit dem <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Umbennennen...</guimenuitem></menuchoice> von 'GROSSbuchstaben' in 'GROSSbuchstaben_' um."
+msgstr "Benennen Sie die Datei mit dem <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Umbennennen...</guimenuitem></menuchoice> von <literal>GROSSbuchstaben</literal> in <literal>GROSSbuchstaben_</literal> um."
 
 #: source/TortoiseSVN_en.xml:6640(para)
 #: source/TortoiseSVN_en.xml:6650(para)
@@ -4618,7 +4619,7 @@ msgstr "Änderungen übertragen."
 
 #: source/TortoiseSVN_en.xml:6645(para)
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "Benenen Sie die Datei von 'GROSSbuchstaben_' in 'grossBUCHSTABEN' um."
+msgstr "Benennen Sie die Datei von <literal>GROSSbuchstaben_</literal> in <literal>grossBUCHSTABEN</literal> um."
 
 #: source/TortoiseSVN_en.xml:6630(para)
 msgid "Solution B) <placeholder-1/>"
@@ -4634,7 +4635,7 @@ msgstr "Wenn das Projektarchiv bereits zwei Dateien mit demselben Namen aber unt
 
 #: source/TortoiseSVN_en.xml:6667(para)
 msgid "This sometimes happens when two people commit, from separate working copies, files which happen to have the same name, but with a case difference. It can also happen when files are committed from a system with a case-sensitive file system, like Linux."
-msgstr "Dies passiert manchmal, wenn aus verschiedenen Arbeitskopien Dateien mit dem gleichen Namen aber unterschiedlicher Groß-/Kleinschreibung eingecheckt werden. Eine weitere Möglichkeit sind Übertragungen aus einem Betriebssystem wie Linux, das Groß-/Kleinschreibung berücksichtigt."
+msgstr "Dies passiert manchmal, wenn aus verschiedenen Arbeitskopien Dateien mit dem gleichen Namen aber unterschiedlicher Groß-/Kleinschreibung übertragen werden. Eine weitere Möglichkeit sind Übertragungen aus einem Betriebssystem wie Linux, das Groß-/Kleinschreibung berücksichtigt."
 
 #: source/TortoiseSVN_en.xml:6674(para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
@@ -4646,15 +4647,15 @@ msgstr "Zwei Dateien mit demselben Namen verhindern"
 
 #: source/TortoiseSVN_en.xml:6680(para)
 msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
-msgstr "Es gibt ein serverseitiges Aktionsskript hier: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> welches verhindert, dass jemals zwei Dateien mit demselben Namen aber unterschiedlicher Schreibweise in das Projektarchiv gelangen."
+msgstr "Es gibt ein serverseitiges Aktionsskript hier: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> welches verhindert, dass zwei Dateien mit demselben Namen aber unterschiedlicher Schreibweise in das Projektarchiv gelangen."
 
 #: source/TortoiseSVN_en.xml:6690(title)
 msgid "Repairing File Renames"
-msgstr "Repairing External Renames"
+msgstr "Externes Umbenennen reparieren"
 
 #: source/TortoiseSVN_en.xml:6691(para)
 msgid "Sometimes your friendly IDE will rename files for you as part of a refactoring exercise, and of course it doesn't tell Subversion. If you try to commit your changes, Subversion will see the old filename as missing and the new one as an unversioned file. You could just check the new filename to get it added in, but you would then lose the history tracing, as Subversion does not know the files are related."
-msgstr "Manchmal wird Ihre freundliche Entwicklungsumgebung beim Umarbeiten von Projekten Dateien für Sie umbenennen und Subversion nicht davon in Kenntnis setzen. Wenn Sie dann Ihre Änderungen übertragen wollen, zeigt Ihnen Subversion die alte Datei als fehlend und die neue als nicht versioniert an. Sie könnten jetzt einfach die neue Datei einchecken, aber Sie würden dadurch die Historie der Datei verlieren, da Subversion nicht weiß, dass die beiden Dateien zusammenhängen."
+msgstr "Manchmal wird Ihre freundliche Entwicklungsumgebung beim Umarbeiten von Projekten Dateien für Sie umbenennen und Subversion nicht davon in Kenntnis setzen. Wenn Sie dann Ihre Änderungen übertragen wollen, zeigt Ihnen Subversion die alte Datei als fehlend und die neue als nicht versioniert an. Sie könnten jetzt einfach die neue Datei übertragen, aber Sie würden dadurch die Historie der Datei verlieren, da Subversion nicht weiß, dass die beiden Dateien zusammenhängen."
 
 #: source/TortoiseSVN_en.xml:6699(para)
 msgid "A better way is to notify Subversion that this change is actually a rename, and you can do this within the <guilabel>Commit</guilabel> and <guilabel>Check for Modifications</guilabel> dialogs. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
@@ -4678,11 +4679,11 @@ msgstr "Wenn solche Objekte gelöscht werden, werden sie in den Papierkorb versc
 
 #: source/TortoiseSVN_en.xml:6741(title)
 msgid "Undo Changes"
-msgstr "Änderungen rückgängig"
+msgstr "Änderungen rückgängig machen"
 
 #: source/TortoiseSVN_en.xml:6743(primary)
 msgid "revert"
-msgstr "Änderungen rückgängig"
+msgstr "Rückgängig"
 
 #: source/TortoiseSVN_en.xml:6746(primary)
 msgid "undo"
@@ -4710,8 +4711,9 @@ msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo
 msgstr "Der <menuchoice> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl kann nur lokale Änderungen rückgängig machen. Er kann <emphasis>keine</emphasis> Änderungen, welche bereits übertragen wurden rückgängig machen. Wenn Sie solche Änderungen rückgängig machen wollen, schlagen Sie dazu <xref linkend=\"tsvn-dug-showlog\"/> für weitere Informationen nach."
 
 #: source/TortoiseSVN_en.xml:6784(title)
-#: source/TortoiseSVN_en.xml:12464(title)
-#: source/TortoiseSVN_en.xml:12727(glossterm)
+#: source/TortoiseSVN_en.xml:11781(entry)
+#: source/TortoiseSVN_en.xml:12757(title)
+#: source/TortoiseSVN_en.xml:13020(glossterm)
 msgid "Cleanup"
 msgstr "Aufräumen"
 
@@ -4773,11 +4775,11 @@ msgstr "Eigenschaften hinzufügen"
 
 #: source/TortoiseSVN_en.xml:6877(para)
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr "<placeholder-1/> Um eine Eigenschaft hinzuzufügen, klicken Sie zunächst auf <guilabel>Hinzufügen...</guilabel>. Wählen Sie den Eigenschaftsnamen aus dem Kombinationsfeld oder geben Sie einen eigenen Namen ein und tragen Sie den gewünschten Wert in das darunter stehende Feld ein. Für Eigenschaften, die mehrere Werte akzeptieren z.B. <literal>svn:ignore, svn:externals</literal> geben Sie einfach mehrere Zeilen ein. Klicken Sie auf <guibutton>OK</guibutton>, um die Eigenschaft zur Liste hinzuzufügen."
+msgstr "<placeholder-1/> Um eine Eigenschaft hinzuzufügen, klicken Sie zunächst auf <guilabel>Hinzufügen...</guilabel>. Wählen Sie den Eigenschaftsnamen aus der Kombinationsliste oder geben Sie einen eigenen Namen ein und tragen Sie den gewünschten Wert in das darunter stehende Feld ein. Für Eigenschaften, die mehrere Werte akzeptieren z.B. <literal>svn:ignore, svn:externals</literal> geben Sie einfach mehrere Zeilen ein. Klicken Sie auf <guibutton>OK</guibutton>, um die Eigenschaft zur Liste hinzuzufügen."
 
 #: source/TortoiseSVN_en.xml:6889(para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr "Wenn Sie eine Eigenschaft für mehrere Objekte gleichzeitig setzen wollen, markeiren Sie die Dateien / Ordner im Explorer und wählen Sie <menuchoice> <guimenu>Kontext Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice>."
+msgstr "Wenn Sie eine Eigenschaft für mehrere Objekte gleichzeitig setzen wollen, markieren Sie die Dateien / Ordner im Explorer und wählen Sie <menuchoice> <guimenu>Kontext Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice>."
 
 #: source/TortoiseSVN_en.xml:6897(para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
@@ -4785,7 +4787,7 @@ msgstr "Wenn Sie die Eigenschaft rekursiv für <emphasis>alle</emphasis> Dateien
 
 #: source/TortoiseSVN_en.xml:6902(para)
 msgid "Some properties, for example <literal>svn:needs-lock</literal>, can only be applied to files, so the property name doesn't appear in the drop down list for folders. You can still apply such a property recursively to all files in a hierarchy, but you have to type in the property name yourself."
-msgstr "Manche Eigenschaften, wie z.B. <literal>svn:needs-lock</literal>, können nur für Dateien gesetzt werden. Deshalb sind diese Eigenschaften nicht in dem Kombinationsfeld für Ordner aufgelistet. Sie können solche Eigenschaften trotzdem rekursiv auf alle Dateien in einer Ordnerstruktur setzen, müssen aber den Eigenschaftsnamen selbst eingeben."
+msgstr "Manche Eigenschaften, wie z.B. <literal>svn:needs-lock</literal>, können nur für Dateien gesetzt werden. Deshalb sind diese Eigenschaften nicht in der Kombinationsliste für Ordner aufgeführt. Sie können solche Eigenschaften trotzdem rekursiv auf alle Dateien in einer Ordnerstruktur setzen, müssen aber den Eigenschaftsnamen selbst eingeben."
 
 #: source/TortoiseSVN_en.xml:6909(para)
 msgid "If you wish to edit an existing property, select that property from the list of existing properties, then click on <guibutton>Edit...</guibutton>."
@@ -4849,7 +4851,7 @@ msgstr "<literal>tsvn:logwidthmarker</literal> kann für Projekte benutzt werden
 
 #: source/TortoiseSVN_en.xml:7001(para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Regeln für die Formatierung der Logmeldungen haben. Diese Eigenschaft enthält einen mehrzeiligen Text, der automatisch im Übertragungsdialog in die Textbox eingefügt wird. Sie können dann diesen Text bei der Übertragung bearbeiten. Wenn Sie gleichzeitig <literal>tsvn:logminsize</literal> verwenden, stellen Sie sicher dass diese Wert größer als die Länge der Schablone ist, da sonst dieser Schutz wegfällt"
+msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Regeln für die Formatierung der Logmeldungen haben. Diese Eigenschaft enthält einen mehrzeiligen Text, der automatisch im Übertragen-Dialog in die Textbox eingefügt wird. Sie können dann diesen Text bei der Übertragung bearbeiten. Wenn Sie gleichzeitig <literal>tsvn:logminsize</literal> verwenden, stellen Sie sicher dass diese Wert größer als die Länge der Schablone ist, da sonst dieser Schutz wegfällt"
 
 #: source/TortoiseSVN_en.xml:7012(para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files."
@@ -4890,7 +4892,7 @@ msgstr "Setzen Sie die <literal>tsvn:</literal> Eigenschaften für Ordner"
 
 #: source/TortoiseSVN_en.xml:7085(para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "Die <literal>tsvn:</literal> Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften regkursiv auf die Unterordner Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für übergeordnete Ordner."
+msgstr "Die <literal>tsvn:</literal> Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften rekursiv auf die Unterordner Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für übergeordnete Ordner."
 
 #: source/TortoiseSVN_en.xml:7099(para)
 #: source/TortoiseSVN_en.xml:9001(para)
@@ -4966,7 +4968,7 @@ msgstr ""
 "Wenn Sie sich nicht mehr daran erinnern, welchen Namen Sie zuletzt vergeben hatten, klicken Sie einfach auf die rechte Schaltfläche. Damit öffnet sich der Projektarchivbetrachter und Sie können sich die Struktur des Projektarchivs ansehen."
 
 #: source/TortoiseSVN_en.xml:7202(term)
-#: source/TortoiseSVN_en.xml:12510(listitem)
+#: source/TortoiseSVN_en.xml:12803(listitem)
 msgid "HEAD revision in the repository"
 msgstr "HEAD Revision im Projektarchiv"
 
@@ -4983,7 +4985,7 @@ msgid "The new branch is copied directly in the repository but you can choose an
 msgstr "Der neue Ast wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markierung zu erstellen, als das Release in der letzten Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Ast sehr schnell erstellt werden kann."
 
 #: source/TortoiseSVN_en.xml:7228(term)
-#: source/TortoiseSVN_en.xml:12512(listitem)
+#: source/TortoiseSVN_en.xml:12805(listitem)
 msgid "Working copy"
 msgstr "Arbeitskopie"
 
@@ -5229,7 +5231,7 @@ msgstr "<guibutton>Standard-Diff</guibutton> erzeugt eine Diffdatei (Sie erinner
 
 #: source/TortoiseSVN_en.xml:7670(para)
 msgid "<guibutton>Diff</guibutton> shows you a list of changed files. <action>Double click</action> on any of the listed files to start the diff viewer. Unlike the unified diff, this shows you the changes in their full contextual detail. As with the unified diff, the changes you see here are the changes between the <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions. It does not show how your working copy will be affected by applying that change."
-msgstr "<guibutton>Diff</guibutton> zeigt Ihnen eine Liste der geänderten Dateien. Ein <action>Doppelklick</action> auf eine der Dateien startet den Diff-Betrachter. Anders als beim Standard-Diff sehen Sie hier die Unterschiede im vollen Kontext. Wie beim Standard-Diff werden die Unterschiede zwischen der <guilabel>Von:</guilabel> und der <guilabel>Bis:</guilabel> Revision angezeigt. Sie sehen keine Vorschau, wie Ihre Arbeitskopie durch die Änderungen beeinflusst wird."
+msgstr "<guibutton>Vergleich</guibutton> zeigt Ihnen eine Liste der geänderten Dateien. Ein <action>Doppelklick</action> auf eine der Dateien startet das Vergleichsprogramm. Anders als beim Standard-Diff sehen Sie hier die Unterschiede im vollen Kontext. Wie beim Standard-Diff werden die Unterschiede zwischen der <guilabel>Von:</guilabel> und der <guilabel>Bis:</guilabel> Revision angezeigt. Sie sehen keine Vorschau, wie Ihre Arbeitskopie durch die Änderungen beeinflusst wird."
 
 #: source/TortoiseSVN_en.xml:7679(para)
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
@@ -5513,7 +5515,7 @@ msgstr "Wenn Sie auf eine Zeile <action>Links klicken</action> werden alle Zeile
 
 #: source/TortoiseSVN_en.xml:8147(para)
 msgid "The revision comments (log message) are shown in a hint box whenever the mouse hovers over the blame info column. If you want to copy the log message for that revision, use the context menu which appears when you right click on the blame info column."
-msgstr "Die Revisionskommentare (Logmeldungen) werden in einem Hinweistext angezeigt, wenn sich die Maus über der Informationsspalte befindet. Falls sie diese Logmeldung in die Zwischenablage kopieren wollen, benutzen Sie dazu das Kontextmenü, das bei einem Rechtsklick auf die Infospalte erscheint."
+msgstr "Die Revisionskommentare (Logmeldungen) werden in einem Hinweistext angezeigt, wenn sich die Maus über der Informationsspalte befindet. Falls sie diese Logmeldung in die Zwischenablage kopieren wollen, benutzen Sie dazu das Kontextmenü, das bei einem Rechtsklick auf die Informationsspalte erscheint."
 
 #: source/TortoiseSVN_en.xml:8153(para)
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
@@ -5525,7 +5527,7 @@ msgstr "Sie können auch mittels <menuchoice> <guimenu>Bearbeiten</guimenu> <gui
 
 #: source/TortoiseSVN_en.xml:8170(para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr "Wenn die Maus sich über dem Annotieren Fenster befindet, steht ein Kontextmenü zur Verfügung, mit dessen Hilfe Sie Revisionen vergleichen und die Historie, unter Verwendung der Revisionsnummer auf die die Maus zeigt, betrachten können.<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vorherige Revision annotieren</guimenuitem> </menuchoice> erzeugt eine Annotierung derselben Datei unter Verwendung der vorherigen Revisionsnummer als Obergrenze. Dies zeigt Ihnen den Zustand der Datei bevor die Zeile, die Sie gerade betrachten, geändert wurde, an. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Änderungen</guimenuitem> </menuchoice> startet den Diff-Betrachter mit den Änderungen der Revision. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> startet den Log-Dialog in der gewählten Revision."
+msgstr "Wenn die Maus sich über dem Annotieren Fenster befindet, steht ein Kontextmenü zur Verfügung, mit dessen Hilfe Sie Revisionen vergleichen und die Historie, unter Verwendung der Revisionsnummer auf die die Maus zeigt, betrachten können.<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vorherige Revision annotieren</guimenuitem> </menuchoice> erzeugt eine Annotierung derselben Datei unter Verwendung der vorherigen Revisionsnummer als Obergrenze. Dies zeigt Ihnen den Zustand der Datei bevor die Zeile, die Sie gerade betrachten, geändert wurde, an. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Änderungen</guimenuitem> </menuchoice> startet das Vergleichsprogramm mit den Änderungen der Revision. <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> startet den Log-Dialog in der gewählten Revision."
 
 #: source/TortoiseSVN_en.xml:8192(para)
 msgid "Although TortoiseBlame has no settings dialog of its own, it uses the same font as TortoiseMerge, so if you want to change it, start TortoiseMerge and use the settings dialog there."
@@ -5538,7 +5540,7 @@ msgstr "Unterschiede annotieren"
 
 #: source/TortoiseSVN_en.xml:8200(para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr "Eine Einschränkung des Annotierens ist, dass die Datei nur in einer bestimmten Revision sowie die letzte Person, die eine bestimmte Zeile geändert hat, angezeigt wird. Manchmal möchte man zusätzlich auch wissen, welche Änderungen durchgeführt wurden. Dazu bietet TortoiseSVN eine Kombination aus Diff und Annotieren."
+msgstr "Eine Einschränkung des Annotierens ist, dass die Datei nur in einer bestimmten Revision sowie die letzte Person, die eine bestimmte Zeile geändert hat, angezeigt wird. Manchmal möchte man zusätzlich auch wissen, welche Änderungen durchgeführt wurden. Dazu bietet TortoiseSVN eine Kombination aus Vergleichen und Annotieren."
 
 #: source/TortoiseSVN_en.xml:8210(term)
 msgid "Blame Revisions"
@@ -5546,11 +5548,11 @@ msgstr "Revisionen annotieren"
 
 #: source/TortoiseSVN_en.xml:8212(para)
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
-msgstr "Selektieren sie im oberen Teil zwei Revisionen und wählen dann <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revisionen annotieren</guimenuitem> </menuchoice>. Dadurch wird die Annotierungsinformation für die zwei Revisionen geholt und dann der Diff-Viewer gestartet um die zwei Annotierungen zu vergleichen."
+msgstr "Selektieren sie im oberen Teil zwei Revisionen und wählen dann <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revisionen annotieren</guimenuitem> </menuchoice>. Dadurch wird die Annotierungsinformation für die zwei Revisionen geholt und anschließend das Vergleichsprogramm gestartet, um die zwei Annotierungen zu vergleichen."
 
 #: source/TortoiseSVN_en.xml:8226(para)
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame differences</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
-msgstr "Markieren Sie eine Revision in der oberen Liste und wählen Sie eine Datei aus der unteren Liste. Wählen Sie dann <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Unterschiede annotieren</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte und die vorherige Revision erstellen und im Diff-Programm anzeigen."
+msgstr "Markieren Sie eine Revision in der oberen Liste und wählen Sie eine Datei aus der unteren Liste. Wählen Sie dann <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Unterschiede annotieren</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte und die vorherige Revision erstellen und im Vergleichsprogramm anzeigen."
 
 #: source/TortoiseSVN_en.xml:8240(term)
 msgid "Compare and Blame with Working BASE"
@@ -5558,7 +5560,7 @@ msgstr "Vergleiche und Annotiere mit Arbeitskopie BASE"
 
 #: source/TortoiseSVN_en.xml:8242(para)
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr "Zeigen Sie das Log für eine einzelne Datei an und markieren Sie in der oberen Liste eine einzelne Revision. Wählen Sie<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche und Annotiere mit Arbeitskopie BASE</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte Revision sowie für die BASE Revision der Arbeitskopie erstellen und im Diff-Programm anzeigen."
+msgstr "Zeigen Sie das Log für eine einzelne Datei an und markieren Sie in der oberen Liste eine einzelne Revision. Wählen Sie<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche und Annotiere mit Arbeitskopie BASE</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte Revision sowie für die BASE Revision der Arbeitskopie erstellen und im Vergleichsprogramm anzeigen."
 
 #: source/TortoiseSVN_en.xml:8206(para)
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
@@ -5611,7 +5613,7 @@ msgstr "Erstellt eine Kopie der Datei, entweder in einem anderen Teil des Projek
 
 #: source/TortoiseSVN_en.xml:8335(para)
 msgid "View the file's properties (you cannot edit properties directly in the repository)."
-msgstr "Die Ordnereigenschaften anzeigen (Sie können Eigenschaften nicht direkt im Projektarchiv bearbeíten)."
+msgstr "Die Ordnereigenschaften anzeigen (Sie können Eigenschaften nicht direkt im Projektarchiv bearbeiten)."
 
 #: source/TortoiseSVN_en.xml:8298(para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -5825,7 +5827,7 @@ msgstr "Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-Ziehen
 
 #: source/TortoiseSVN_en.xml:8674(para)
 msgid "When exporting from a working copy, if the target folder already contains a folder of the same name as the one you are exporting, you will be given the option to overwrite the existing content, or to create a new folder with an automatically generated name, eg. <literal>Target (1)</literal>."
-msgstr "Falls Sie eine Arbeitskopie exportieren und der Zielordner bereits einen Ordner mit demselben Namen enthält, wie derjenige, den sie gerade exportieren, können Sie auf Nachfrage den exisitierenden Ordner überschreiben oder einen neuen Ordner mit einem <literal>(n)</literal> Suffix angelegen lassen, z.B. <literal>Ziel (1)</literal>."
+msgstr "Falls Sie eine Arbeitskopie exportieren und der Zielordner bereits einen Ordner mit demselben Namen enthält, wie derjenige, den sie gerade exportieren, können Sie auf Nachfrage den existierenden Ordner überschreiben oder einen neuen Ordner mit einem <literal>(n)</literal> Suffix angelegen lassen, z.B. <literal>Ziel (1)</literal>."
 
 #: source/TortoiseSVN_en.xml:8683(title)
 msgid "Relocating a working copy"
@@ -6143,7 +6145,7 @@ msgstr "Wenn Sie das Verhalten von Subversion und TortoiseSVN verändern wollen 
 
 #: source/TortoiseSVN_en.xml:9294(para)
 msgid "You should note that changing this option will not automatically convert existing working copies to use the new admin directory. You will have to do that yourself using a script (See our FAQ) or simply check out a fresh working copy."
-msgstr "Beachten Sie dass das Ändern dieser Option nicht automatisch exisitierende Arbeitskopien auf das neue Adminverzeichnis umstellt. Sie müssen das selbst mit Hilfe eines Skripts erledigen (Siehe FAQ) oder eine neue Arbeitskopie auschecken."
+msgstr "Beachten Sie dass das Ändern dieser Option nicht automatisch existierende Arbeitskopien auf das neue Adminverzeichnis umstellt. Sie müssen das selbst mit Hilfe eines Skripts erledigen (Siehe FAQ) oder eine neue Arbeitskopie auschecken."
 
 #: source/TortoiseSVN_en.xml:9305(title)
 msgid "Look and Feel Settings"
@@ -6200,7 +6202,7 @@ msgstr "Shell"
 
 #: source/TortoiseSVN_en.xml:9390(para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
-msgstr "Die Daten direkt in der Shellerweiterungs-dll zwischengespeichert, aber nur für den aktuellen Ordner. Jedes Mal wenn Sie einen anderen Ordner öffnen, wird die Statusinformation erneut geladen."
+msgstr "Die Daten direkt in der Shell Erweiterungs-DLL zwischengespeichert, aber nur für den aktuellen Ordner. Jedes Mal wenn Sie einen anderen Ordner öffnen, wird die Statusinformation erneut geladen."
 
 #: source/TortoiseSVN_en.xml:9396(para)
 msgid "Advantage: needs only very little memory (around 1 MB of RAM) and can show the status in <emphasis>real time</emphasis>."
@@ -6296,7 +6298,7 @@ msgstr "Zeichensatz für Logmeldungen"
 
 #: source/TortoiseSVN_en.xml:9524(para)
 msgid "Selects the font face and size used to display the log message itself in the middle pane of the Revision Log dialog, and when composing log messages in the Commit dialog."
-msgstr "Legt die Schriftart und -größe fest, in der Logmeldungen im Log-Dialog angezeigt und im Übertragen-Dialog eingegeben werden."
+msgstr "Legt die Schriftart und Größe fest, in der Logmeldungen im Log-Dialog angezeigt und im Übertragen-Dialog eingegeben werden."
 
 #: source/TortoiseSVN_en.xml:9533(term)
 msgid "Short date / time format in log messages"
@@ -6412,7 +6414,7 @@ msgstr "Maximale Anzahl zu merkender Log-Einträge"
 
 #: source/TortoiseSVN_en.xml:9708(para)
 msgid "TortoiseSVN stores the last 25 log messages you entered for each repository. You can customize the number stored here. If you have many different repositories, you may wish to reduce this to avoid filling your registry."
-msgstr "TortoiseSVN speichert die letzten 25 Logmeldungen für jedes Projektarchiv. Sie können die Anzahl hier festlegen. Wenn Sie viele verschiedene Projektarchive nutzen, wollen Sie die Zahl vielleicht heruntersetzen, um weniger Registryeinträge zu belegen."
+msgstr "TortoiseSVN speichert die letzten 25 Logmeldungen für jedes Projektarchiv. Sie können die Anzahl hier festlegen. Wenn Sie viele verschiedene Projektarchive nutzen, wollen Sie die Zahl vielleicht heruntersetzen, um weniger Einträge in der Registrierung zu belegen."
 
 #: source/TortoiseSVN_en.xml:9717(term)
 msgid "Re-open commit dialog after a commit failed"
@@ -6576,11 +6578,11 @@ msgstr "<placeholder-1/> Hier können Sie Ihre eigenen Vergleichs- und Konflikte
 
 #: source/TortoiseSVN_en.xml:9923(para)
 msgid "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the external diff/merge programs that people are using with TortoiseSVN."
-msgstr "Lesen Sie <xref linkend=\"tsvn-dug-diff-tools\"/> nach, welche externen Vergleichs- und Konflikteditor mit TortoiseSVN genutzt werden können."
+msgstr "Lesen Sie <xref linkend=\"tsvn-dug-diff-tools\"/> nach, welche externen Vergleichs- und Konflikteditoren mit TortoiseSVN genutzt werden können."
 
 #: source/TortoiseSVN_en.xml:9928(title)
 msgid "Diff Viewer"
-msgstr "Diff Betrachter"
+msgstr "Vergleichsprogramm"
 
 #: source/TortoiseSVN_en.xml:9943(para)
 msgid "The original file without your changes"
@@ -6602,11 +6604,11 @@ msgstr "Der Fenstertitel für Ihre Datei"
 
 #: source/TortoiseSVN_en.xml:9930(para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
-msgstr "Ein externes Diff-Programm, mit dem Sie verschiedene Revisionen einer Datei vergleichen können. Die Dateinamen müssen gemeinsam mit anderen Parametern per Kommandozeile übergeben werden. TortoiseSVN verwendet dazu Platzhalter, denen ein <literal>%</literal> vorangestellt wird. Die Reihenfolge der Parameter auf der Kommandozeile hängt von dem von Ihnen verwendeten Diff Programm ab. <placeholder-1/>"
+msgstr "Ein externes Vergleichsprogramm, mit dem Sie verschiedene Revisionen einer Datei vergleichen können. Die Dateinamen müssen gemeinsam mit anderen Parametern per Kommandozeile übergeben werden. TortoiseSVN verwendet dazu Platzhalter, denen ein <literal>%</literal> vorangestellt wird. Die Reihenfolge der Parameter auf der Kommandozeile hängt von dem von Ihnen verwendeten Vergleichsprogramm ab. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9974(para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
-msgstr "Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen. TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei in Revision 123 und der Arbeitskopie machen, werden die Titel <filename>Dateiname : Revision 123</filename> und <filename>Dateiname : Arbeitskopie</filename> sein."
+msgstr "Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen. TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel entsprechend zusammen. Wenn Sie z.B. ein Vergleich zwischen einer Datei in Revision 123 und der Arbeitskopie machen, werden die Titel <filename>Dateiname : Revision 123</filename> und <filename>Dateiname : Arbeitskopie</filename> sein."
 
 #: source/TortoiseSVN_en.xml:9984(para)
 msgid ""
@@ -6633,7 +6635,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10003(para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <emphasis>revision</emphasis> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TortoiseSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TortoiseSVN will skip pre-processing the files."
-msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <emphasis>Revision</emphasis> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Dateien beim Vergleich mit BASE konvertieren</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
+msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <emphasis>Revision</emphasis> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Vergleichsoperation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Dateien beim Vergleich mit BASE konvertieren</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
 
 #: source/TortoiseSVN_en.xml:10017(para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
@@ -6702,7 +6704,7 @@ msgstr "Erweiterte Einstellungen für Vergleichs- und Konflikteditor"
 
 #: source/TortoiseSVN_en.xml:10119(para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for <filename>.jpg</filename> files :-) You can also associate the <literal>svn:mime-type</literal> property with a diff or merge program."
-msgstr "<placeholder-1/> In den erweiterten Einstellungen können Sie für jede Dateiendung ein eigenes Vergleichsprogramm oder Konflikteditor angeben, wenn Sie möchten. So können Sie z.B. Photoshop als <quote>Diff</quote> Programm für <filename>.jpg</filename> Dateien festlegen :-). Sie können auch allgemein einen <literal>svn:mime-type</literal> mit einem Vergleichsprogramm oder Konflikteditor verknüpfen."
+msgstr "<placeholder-1/> In den erweiterten Einstellungen können Sie für jede Dateiendung ein eigenes Vergleichsprogramm oder Konflikteditor angeben, wenn Sie möchten. So können Sie z.B. Photoshop als <quote>Vergleichsprogramm</quote> für <filename>.jpg</filename> Dateien festlegen :-). Sie können auch allgemein einen <literal>svn:mime-type</literal> mit einem Vergleichsprogramm oder Konflikteditor verknüpfen."
 
 #: source/TortoiseSVN_en.xml:10130(para)
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
@@ -6710,11 +6712,11 @@ msgstr "Um Dateierweiterungen mit Anwendungen zu verknüpfen, geben Sie die Erwe
 
 #: source/TortoiseSVN_en.xml:10139(title)
 msgid "Unified Diff Viewer"
-msgstr "Standard Diff-Betrachter"
+msgstr "Standard-Diff Betrachter"
 
 #: source/TortoiseSVN_en.xml:10141(para)
 msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
-msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Sie brauchen keine Parameter anzugeben. Der <guilabel>Standard</guilabel> ist, erst nach einem Betrachter für <filename>.diff</filename> und dann für <filename>.txt</filename> Dateien zu suchen. Wenn Sie keinen Betrachter für <filename>.diff</filename> Dateien eingerichtet haben, wird höchstwahrscheinlich Notepad aufgerufen. "
+msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Sie brauchen keine Parameter anzugeben. Der <guilabel>Standard</guilabel> ist, erst nach einem Betrachter für <filename>.diff</filename> und dann für <filename>.txt</filename> Dateien zu suchen. Wenn Sie keinen Betrachter für <filename>.diff</filename> Dateien eingerichtet haben, wird normalerweise Notepad aufgerufen. "
 
 #: source/TortoiseSVN_en.xml:10150(para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
@@ -6742,7 +6744,7 @@ msgstr "Jedes Mal, wenn Sie eine Arbeitskopie auschecken, Änderungen zusammenf�
 
 #: source/TortoiseSVN_en.xml:10187(para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <action>SHIFT+DELETE</action>."
-msgstr "Wenn Sie einen einzelnen Eintrag aus einem Kombinationsfeld löschen wollen, können Sie das direkt in der Liste tun. Klicken Sie auf den Pfeil, um das Kombinationsfeld zu öffnen, fahren Sie mit der Maus auf den zu löschenden Eintragund drücken Sie <action>Umsch+Löschen</action>."
+msgstr "Wenn Sie einen einzelnen Eintrag aus eine Kombinationsliste löschen wollen, können Sie das direkt in der Liste tun. Klicken Sie auf den Pfeil, um die Kombinationsliste zu öffnen, fahren Sie mit der Maus auf den zu löschenden Eintrag und drücken Sie <action>Umsch+Löschen</action>."
 
 #: source/TortoiseSVN_en.xml:10196(term)
 msgid "Log messages (Input dialog)"
@@ -6750,7 +6752,7 @@ msgstr "Logmeldungen (Eingabedialog)"
 
 #: source/TortoiseSVN_en.xml:10198(para)
 msgid "TortoiseSVN stores recent commit log messages that you enter. These are stored per repository, so if you access many repositories this list can grow quite large."
-msgstr "TortoiseSVN speichert die letzen von Ihnen eingegebenen Logmeldungen. Diese werden für jedes Projektarchiv einzeln abgespeichert, so dass die Liste, wenn Sie viele Projektarchive nutzen, recht groß werden kann."
+msgstr "TortoiseSVN speichert die letzten von Ihnen eingegebenen Logmeldungen. Diese werden für jedes Projektarchiv einzeln abgespeichert, so dass die Liste, wenn Sie viele Projektarchive nutzen, recht groß werden kann."
 
 #: source/TortoiseSVN_en.xml:10206(term)
 msgid "Log messages (Show log dialog)"
@@ -6782,15 +6784,15 @@ msgstr "Wie Sie die Anmeldedaten für einen bestimmten Server löschen, können 
 
 #: source/TortoiseSVN_en.xml:10247(title)
 msgid "Registry Settings"
-msgstr "Registry-Einstellungen"
+msgstr "Einstellungen in der Registrierung"
 
 #: source/TortoiseSVN_en.xml:10249(primary)
 msgid "registry"
-msgstr "Registry"
+msgstr "Registrierung"
 
 #: source/TortoiseSVN_en.xml:10251(para)
 msgid "A few infrequently used settings are available only by editing the registry directly."
-msgstr "Einige selten verwendete Einstellungen können nur über die Windows Registry verändert werden."
+msgstr "Einige selten verwendete Einstellungen können nur über die Windows Registrierung verändert werden."
 
 #: source/TortoiseSVN_en.xml:10259(para)
 msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
@@ -6858,61 +6860,31 @@ msgstr "Aus verschiedenen implementierungs- und sicherheitstechnischen Gründen 
 
 #: source/TortoiseSVN_en.xml:10346(title)
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr "Der Einstellungsdialog, Aktiosskripte einrichten"
+msgstr "Der Einstellungsdialog, Aktionsskripte einrichten"
 
 #: source/TortoiseSVN_en.xml:10344(para)
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
 msgstr "<placeholder-1/> Um ein neues Aktionsskript anzulegen, klicken Sie einfach auf die <guibutton>Hinzufügen</guibutton> Schaltfläche und füllen die Details aus."
 
-#: source/TortoiseSVN_en.xml:10356(term)
-#: source/TortoiseSVN_en.xml:10424(term)
-msgid "Start-commit"
-msgstr "Start-commit"
-
 #: source/TortoiseSVN_en.xml:10358(para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
 msgstr "Wird aufgerufen, bevor der Übertragen-Dialog angezeigt wird. Dieses Skript können Sie zum Beispiel benutzen, wenn sich durch die Aktion die Liste der zu übertragenden Dateien ändert."
-
-#: source/TortoiseSVN_en.xml:10366(term)
-#: source/TortoiseSVN_en.xml:10433(term)
-msgid "Pre-commit"
-msgstr "Pre-commit"
 
 #: source/TortoiseSVN_en.xml:10368(para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
 msgstr "Wird aufgerufen, nachdem der Anwender die <guibutton>OK</guibutton> Schaltfläche im Übertragen-Dialog geklickt hat und bevor die Übertragung selbst beginnt."
 
-#: source/TortoiseSVN_en.xml:10375(term)
-#: source/TortoiseSVN_en.xml:10444(term)
-msgid "Post-commit"
-msgstr "Post-commit"
-
 #: source/TortoiseSVN_en.xml:10377(para)
 msgid "Called after the commit finishes (whether successful or not)."
 msgstr "Wird nach dem Ende der Übertragung aufgerufen, unabhängig davon, ob die Übertragung erfolgreich war oder nicht."
-
-#: source/TortoiseSVN_en.xml:10383(term)
-#: source/TortoiseSVN_en.xml:10457(term)
-msgid "Start-update"
-msgstr "Start-update"
 
 #: source/TortoiseSVN_en.xml:10385(para)
 msgid "Called before the update-to-revision dialog is shown."
 msgstr "Wird aufgerufen, bevor der <quote>Aktualisiere zu Revision</quote> angezeigt wird."
 
-#: source/TortoiseSVN_en.xml:10391(term)
-#: source/TortoiseSVN_en.xml:10466(term)
-msgid "Pre-update"
-msgstr "Pre-update"
-
 #: source/TortoiseSVN_en.xml:10393(para)
 msgid "Called before the actual Subversion update begins."
 msgstr "Wird aufgerufen, bevor die Aktualisierung beginnt."
-
-#: source/TortoiseSVN_en.xml:10399(term)
-#: source/TortoiseSVN_en.xml:10477(term)
-msgid "Post-update"
-msgstr "Post-update"
 
 #: source/TortoiseSVN_en.xml:10401(para)
 msgid "Called after the update finishes (whether successful or not)."
@@ -6990,49 +6962,25 @@ msgstr "Beachten Sie bitte, dass Sie nach Möglichkeit <literal>%PATH%</literal>
 msgid "The depth with which the commit/update is done."
 msgstr "Die Tiefe mit der die Übertragung/Aktualisierung durchgeführt wird."
 
-#: source/TortoiseSVN_en.xml:10529(term)
-msgid "-2"
-msgstr "-2"
-
 #: source/TortoiseSVN_en.xml:10532(literal)
 msgid "svn_depth_unknown"
 msgstr "svn_depth_unknown"
-
-#: source/TortoiseSVN_en.xml:10537(term)
-msgid "-1"
-msgstr "-1"
 
 #: source/TortoiseSVN_en.xml:10540(literal)
 msgid "svn_depth_exclude"
 msgstr "svn_depth_exclude"
 
-#: source/TortoiseSVN_en.xml:10545(term)
-msgid "0"
-msgstr "0"
-
 #: source/TortoiseSVN_en.xml:10548(literal)
 msgid "svn_depth_empty"
 msgstr "svn_depth_empty"
-
-#: source/TortoiseSVN_en.xml:10553(term)
-msgid "1"
-msgstr "1"
 
 #: source/TortoiseSVN_en.xml:10556(literal)
 msgid "svn_depth_files"
 msgstr "svn_depth_files"
 
-#: source/TortoiseSVN_en.xml:10561(term)
-msgid "2"
-msgstr "2"
-
 #: source/TortoiseSVN_en.xml:10564(literal)
 msgid "svn_depth_immediates"
 msgstr "svn_depth_immediates"
-
-#: source/TortoiseSVN_en.xml:10569(term)
-msgid "3"
-msgstr "3"
 
 #: source/TortoiseSVN_en.xml:10572(literal)
 msgid "svn_depth_infinity"
@@ -7084,7 +7032,7 @@ msgstr "Farben"
 
 #: source/TortoiseSVN_en.xml:10635(para)
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr "TortoiseBlame kann mit Hilfe der Hintergrundfarbe das Alter der Zeilen in einer Datei anzeigen. Sie können die Anfangs- und Endfarben für die neueste bzw. älteste Revision festlegen. TortoiseBlame wird, entsprechend der Revisionsnummer, der Zeile eine Farbe zwischen diesen Werten zuordnen."
+msgstr "TortoiseBlame kann mit Hilfe der Hintergrundfarbe das Alter der Zeilen in einer Datei anzeigen. Sie können die Anfangs- und Endfarbe für die neueste bzw. älteste Revision festlegen. TortoiseBlame wird, entsprechend der Revisionsnummer, der Zeile eine Farbe zwischen diesen Werten zuordnen."
 
 #: source/TortoiseSVN_en.xml:10645(term)
 msgid "Font"
@@ -7092,7 +7040,7 @@ msgstr "Schrift"
 
 #: source/TortoiseSVN_en.xml:10647(para)
 msgid "You can select the font used to display the text, and the point size to use. This applies both to the file content, and to the author and revision information shown in the left pane."
-msgstr "Sie können die Schriftart und -größe zur Anzeige des Texts festlegen. Diese Einstellung wird sowohl für den Inhalt als auch für die Autor- und Revisionsinformationen auf der linken Seite verwendet."
+msgstr "Sie können die Schriftart und Größe zur Anzeige des Textes festlegen. Diese Einstellung wird sowohl für den Inhalt als auch für die Autor- und Revisionsinformationen auf der linken Seite verwendet."
 
 #: source/TortoiseSVN_en.xml:10655(term)
 msgid "Tabs"
@@ -7161,17 +7109,19 @@ msgid "List of available command line switches"
 msgstr "Liste der Kommandozeilenoptionen"
 
 #: source/TortoiseSVN_en.xml:10757(entry)
-#: source/TortoiseSVN_en.xml:12522(title)
-#: source/TortoiseSVN_en.xml:13010(glossterm)
+#: source/TortoiseSVN_en.xml:11789(entry)
+#: source/TortoiseSVN_en.xml:12815(title)
+#: source/TortoiseSVN_en.xml:13303(glossterm)
 msgid "Switch"
 msgstr "Wechseln zu"
 
 #: source/TortoiseSVN_en.xml:10758(entry)
 #: source/TortoiseSVN_en.xml:10828(entry)
 #: source/TortoiseSVN_en.xml:10959(entry)
-#: source/TortoiseSVN_en.xml:11843(entry)
+#: source/TortoiseSVN_en.xml:12040(entry)
+#: source/TortoiseSVN_en.xml:12391(entry)
 msgid "Description"
-msgstr "Description"
+msgstr "Beschreibung"
 
 #: source/TortoiseSVN_en.xml:10766(literal)
 msgid "ERRORLEVEL 7"
@@ -7901,7 +7851,7 @@ msgid "group policies"
 msgstr "Gruppenrichtlinien"
 
 #: source/TortoiseSVN_en.xml:11630(primary)
-#: source/TortoiseSVN_en.xml:12818(glossterm)
+#: source/TortoiseSVN_en.xml:13111(glossterm)
 msgid "GPO"
 msgstr "GPO"
 
@@ -7915,7 +7865,7 @@ msgstr "Eine gute Anleitung findet sich in Artikel 314934 von Microsofts Wissens
 
 #: source/TortoiseSVN_en.xml:11644(para)
 msgid "Versions 1.3.0 and later of TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because those versions need the new CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 8 from Microsoft on each computer you want to install TortoiseSVN as per user."
-msgstr "Versionen 1.3.0 und neuer von TortoiseSVN müssen unter <emphasis>Computerkonfiguration</emphasis> und nicht unter <emphasis>Benutzerkonfiguration</emphasis> installiert werden. Das liegt daran, dass diese Versionen die neuen CRT und MFC dlls benötigen, die nur <emphasis>per computer</emphasis> und nicht <emphasis>per Benutzer</emphasis> eingesetzt werden.Wenn Sie TortoiseSVN wirklich pro Benutzer installieren wollen, müssen Sie zunächst die MFC and CRT Pakete in der Version 8 von Microsoft auf jedem davon betroffenen Rechner installieren."
+msgstr "Versionen 1.3.0 und neuer von TortoiseSVN müssen unter <emphasis>Computerkonfiguration</emphasis> und nicht unter <emphasis>Benutzerkonfiguration</emphasis> installiert werden. Das liegt daran, dass diese Versionen die neuen CRT und MFC DLLs benötigen, die nur <emphasis>per computer</emphasis> und nicht <emphasis>per Benutzer</emphasis> eingesetzt werden.Wenn Sie TortoiseSVN wirklich pro Benutzer installieren wollen, müssen Sie zunächst die MFC and CRT Pakete in der Version 8 von Microsoft auf jedem davon betroffenen Rechner installieren."
 
 #: source/TortoiseSVN_en.xml:11656(title)
 msgid "Redirect the upgrade check"
@@ -7945,7 +7895,7 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the upgrade dialog. You can write there whatever you want. Just note that the space in the upgrade dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the upgrade dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
-"Versionen 1.4.0 und neuer von TortoiseSVN ermöglichen es Ihnen die Aktualisierungsprüfung auf einen eigenen Server umzuleiten.Sie können den Registryschlüssel <literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> (Stringwert) auf eine URL setzen, die auf eine Textdatei in Ihrem Intranet zeigt.Diese Textdatei muss das folgende Format haben:\n"
+"Versionen 1.4.0 und neuer von TortoiseSVN ermöglichen es Ihnen die Aktualisierungsprüfung auf einen eigenen Server umzuleiten.Sie können den Registrierungsschlüssel <literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> (Stringwert) auf eine URL setzen, die auf eine Textdatei in Ihrem Intranet zeigt.Diese Textdatei muss das folgende Format haben:\n"
 "<screen>1.4.1.6000\n"
 "Eine neue Version von TortoiseSVN steht zur Verfügung!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
@@ -7970,361 +7920,569 @@ msgid ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
-"Aber diese Option ist nur vor dem Anwender verborgen. Sie können den TortoiseSVN Installer weiterhin dazu zwingen, diese Umgebungsvariable zu setzen, indem Sie die <literal>ASPDOTNETHACK</literal> Eigenschaft auf TRUE setzen. Zum Beispiek können Sie den Installer wie folgt aufrufen: <screen>\n"
+"Aber diese Option ist nur vor dem Anwender verborgen. Sie können den TortoiseSVN Installer weiterhin dazu zwingen, diese Umgebungsvariable zu setzen, indem Sie die <literal>ASPDOTNETHACK</literal> Eigenschaft auf TRUE setzen. Zum Beispiel können Sie den Installer wie folgt aufrufen: <screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
-#: source/TortoiseSVN_en.xml:11724(title)
+#: source/TortoiseSVN_en.xml:11723(title)
+msgid "Disable context menu entries"
+msgstr "Kontextmenüeinträge deaktivieren"
+
+#: source/TortoiseSVN_en.xml:11725(primary)
+msgid "context menu entries"
+msgstr "Kontextmenüeinträge"
+
+#: source/TortoiseSVN_en.xml:11727(para)
+msgid "As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide) context menu entries. Since this is a feature which should not be lightly used but only if there is a compelling reason, there is no GUI for this but has to be done directly in the registry. This can be used to disable certain commands for users who should not use them. But please note that only the context menu entries in the <emphasis>explorer</emphasis> are hidden, and the commands are still available through other means, e.g., the command line or even other dialogs in TortoiseSVN itself!"
+msgstr "Seit Version 1.5.0 können Sie in TortoiseSVN Kontextmenüeinträge deaktivieren (eigentlich nur verstecken). Da diese Funktion nicht leichtfertig, sondern nur mit gutem Grund genutzt werden sollte, steht dafür keine Benutzeroberfläche zur Verfügung und die Einstellungen müssen direkt in der Registrierung vorgenommen werden. Auf diese Weise können bestimmte Befehle vor Anwendern verborgen werden. Bitte beachten Sie, dass nur die Kontextmenüs im <emphasis>Explorer</emphasis> verschwinden. Die Befehle stehen weiterhin per Kommandozeile oder auch in anderen Dialogen von TortoiseSVN selbst zur Verfügung."
+
+#: source/TortoiseSVN_en.xml:11737(para)
+msgid "The registry keys which hold the information on which context menus to show are <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> and <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+msgstr "Die Registrierungsschlüssel, welche die Information über die anzuzeigenden Kontextmenüs enthalten, heißen <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> und <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+
+#: source/TortoiseSVN_en.xml:11742(para)
+msgid "Each of these registry entries are DWORD values with each bit corresponding to a specific menu entry. A set bit means the corresponding menu entry is deactivated."
+msgstr "Jeder dieser Registrierungsschlüssel ist ein DWORD Wert, bei dem jedes Bit einem bestimmten Menüeintrag entspricht. Ein gesetztes Bit bedeutet, dass der Menüeintrag deaktiviert ist."
+
+#: source/TortoiseSVN_en.xml:11748(title)
+msgid "Menu entries and their values"
+msgstr "Menüeinträge und ihre Werte"
+
+#: source/TortoiseSVN_en.xml:11754(entry)
+msgid "Value"
+msgstr "Wert"
+
+#: source/TortoiseSVN_en.xml:11755(entry)
+msgid "Menu entry"
+msgstr "Menüeintrag"
+
+#: source/TortoiseSVN_en.xml:11761(entry)
+#: source/TortoiseSVN_en.xml:12509(title)
+#: source/TortoiseSVN_en.xml:13011(glossterm)
+msgid "Checkout"
+msgstr "Auschecken"
+
+#: source/TortoiseSVN_en.xml:11765(entry)
+#: source/TortoiseSVN_en.xml:12527(title)
+#: source/TortoiseSVN_en.xml:13317(glossterm)
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: source/TortoiseSVN_en.xml:11769(entry)
+#: source/TortoiseSVN_en.xml:12566(title)
+#: source/TortoiseSVN_en.xml:13037(glossterm)
+msgid "Commit"
+msgstr "Übertragen"
+
+#: source/TortoiseSVN_en.xml:11773(entry)
+#: source/TortoiseSVN_en.xml:12878(title)
+#: source/TortoiseSVN_en.xml:12954(glossterm)
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: source/TortoiseSVN_en.xml:11777(entry)
+#: source/TortoiseSVN_en.xml:12735(title)
+#: source/TortoiseSVN_en.xml:13250(glossterm)
+msgid "Revert"
+msgstr "Rückgängig"
+
+#: source/TortoiseSVN_en.xml:11785(entry)
+#: source/TortoiseSVN_en.xml:13238(glossterm)
+msgid "Resolve"
+msgstr "Konflikt lösen"
+
+#: source/TortoiseSVN_en.xml:11797(entry)
+#: source/TortoiseSVN_en.xml:12839(title)
+#: source/TortoiseSVN_en.xml:13092(glossterm)
+msgid "Export"
+msgstr "Exportieren"
+
+#: source/TortoiseSVN_en.xml:11801(entry)
+msgid "Create Repository here"
+msgstr "Projektarchiv hier erstellen"
+
+#: source/TortoiseSVN_en.xml:11805(entry)
+#: source/TortoiseSVN_en.xml:12791(title)
+msgid "Branch/Tag"
+msgstr "Verzweigen / Markieren"
+
+#: source/TortoiseSVN_en.xml:11809(entry)
+#: source/TortoiseSVN_en.xml:12822(title)
+#: source/TortoiseSVN_en.xml:13164(glossterm)
+msgid "Merge"
+msgstr "Zusammenführen"
+
+#: source/TortoiseSVN_en.xml:11813(entry)
+#: source/TortoiseSVN_en.xml:12729(title)
+#: source/TortoiseSVN_en.xml:13071(glossterm)
+msgid "Delete"
+msgstr "Löschen"
+
+#: source/TortoiseSVN_en.xml:11817(entry)
+#: source/TortoiseSVN_en.xml:12723(title)
+msgid "Rename"
+msgstr "Umbenennen"
+
+#: source/TortoiseSVN_en.xml:11821(entry)
+msgid "Update to revision"
+msgstr "Aktualisiere zu Revision"
+
+#: source/TortoiseSVN_en.xml:11825(entry)
+#: source/TortoiseSVN_en.xml:12613(title)
+#: source/TortoiseSVN_en.xml:13083(glossterm)
+msgid "Diff"
+msgstr "Vergleich"
+
+#: source/TortoiseSVN_en.xml:11829(entry)
+#: source/TortoiseSVN_en.xml:12634(title)
+msgid "Show Log"
+msgstr "Zeige Log"
+
+#: source/TortoiseSVN_en.xml:11833(entry)
+#: source/TortoiseSVN_en.xml:12709(title)
+msgid "Edit Conflicts"
+msgstr "Konflikt bearbeiten"
+
+#: source/TortoiseSVN_en.xml:11837(entry)
+#: source/TortoiseSVN_en.xml:12864(title)
+#: source/TortoiseSVN_en.xml:13210(glossterm)
+msgid "Relocate"
+msgstr "Umplatzieren"
+
+#: source/TortoiseSVN_en.xml:11841(entry)
+msgid "Check for modifications"
+msgstr "Prüfe auf Änderungen"
+
+#: source/TortoiseSVN_en.xml:11845(entry)
+msgid "Ignore"
+msgstr "Ignorieren"
+
+#: source/TortoiseSVN_en.xml:11849(entry)
+msgid "Repository Browser"
+msgstr "Projektarchivbetrachter"
+
+#: source/TortoiseSVN_en.xml:11853(entry)
+#: source/TortoiseSVN_en.xml:12898(title)
+#: source/TortoiseSVN_en.xml:12975(glossterm)
+msgid "Blame"
+msgstr "Annotieren"
+
+#: source/TortoiseSVN_en.xml:11857(entry)
+#: source/TortoiseSVN_en.xml:12924(title)
+msgid "Create Patch"
+msgstr "Erzeuge Patch"
+
+#: source/TortoiseSVN_en.xml:11861(entry)
+#: source/TortoiseSVN_en.xml:12934(title)
+msgid "Apply Patch"
+msgstr "Patch anwenden"
+
+#: source/TortoiseSVN_en.xml:11865(entry)
+msgid "Revision graph"
+msgstr "Revisionsgraph"
+
+#: source/TortoiseSVN_en.xml:11869(entry)
+#: source/TortoiseSVN_en.xml:13136(glossterm)
+msgid "Lock"
+msgstr "Sperren"
+
+#: source/TortoiseSVN_en.xml:11873(entry)
+msgid "Remove Lock"
+msgstr "Sperre freigeben"
+
+#: source/TortoiseSVN_en.xml:11877(entry)
+msgid "Properties"
+msgstr "Eigenschaften"
+
+#: source/TortoiseSVN_en.xml:11881(entry)
+msgid "Diff with URL"
+msgstr "Vergleiche mit URL"
+
+#: source/TortoiseSVN_en.xml:11885(entry)
+msgid "Delete unversioned items"
+msgstr "Nicht versionierte Dateien löschen"
+
+#: source/TortoiseSVN_en.xml:11889(entry)
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: source/TortoiseSVN_en.xml:11893(entry)
+msgid "Help"
+msgstr "Hilfe"
+
+#: source/TortoiseSVN_en.xml:11897(entry)
+msgid "About"
+msgstr "Über"
+
+#: source/TortoiseSVN_en.xml:11903(para)
+msgid ""
+"Example: to disable the \"Relocate\" the \"Delete unversioned items\" and the \"Settings\" menu entries, add the values assigned to the entries like this: <screen>\n"
+"0x0000000000080000 + 0x0000000080000000 + 0x2000000000000000 = 2000000080080000\n"
+"</screen> The lower DWORD value (0x80080000) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher DWORD value (0x20000000) in <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+msgstr ""
+"Beispiel: Um die <quote>Umplatzieren</quote>, <quote>Nicht versionierte Objekte Löschen</quote> und die <quote>Einstellungen</quote> Menüeinträge zu deaktivieren, addieren Sie die zu den Einträgen gehörenden Werte zusammen:\n"
+"<screen>0x0000000000080000 + 0x0000000080000000 + 0x2000000000000000 = 2000000080080000</screen>\n"
+"Der niedrige DWORD Wert (0x80080000) muss dann in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, der hohe DWORD Wert (0x20000000) in <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> gespeichert werden."
+
+#: source/TortoiseSVN_en.xml:11915(para)
+msgid "To enable the menu entries again, simply delete the two registry keys."
+msgstr "Um die Kontextmenüeinträge wieder zu aktivieren, löschen Sie einfach die beiden Registrierungsschlüssel."
+
+#: source/TortoiseSVN_en.xml:11921(title)
 msgid "Automating TortoiseSVN"
 msgstr "TortoiseSVN automatisieren"
 
-#: source/TortoiseSVN_en.xml:11726(para)
+#: source/TortoiseSVN_en.xml:11923(para)
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
 msgstr "Da alle Befehle von TortoiseSVN über Kommandozeilenparameter beeinflusst werden können, haben Sie die Möglichkeit automatische Prozessen mit Batch Skripten zu erstellen oder Dialoge aus anderen Programmen (z.B. Ihrem Lieblingseditor) heraus aufzurufen."
 
-#: source/TortoiseSVN_en.xml:11732(para)
+#: source/TortoiseSVN_en.xml:11929(para)
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
 msgstr "Beachten Sie, dass TortoiseSVN eine graphische Anwendung ist und dass diese Automatisierungsanleitung Ihnen erklärt, wie man die Dialoge von TortoiseSVN zur Abfrage von Benutzereingaben verwendet. Wenn Sie ein Skript schreiben wollen, das keine Eingaben erfordert, sollten Sie dafür das offizielle Subversion Kommandozeilenprogramm verwenden."
 
-#: source/TortoiseSVN_en.xml:11744(title)
-#: source/TortoiseSVN_en.xml:12214(title)
+#: source/TortoiseSVN_en.xml:11941(title)
+#: source/TortoiseSVN_en.xml:12507(title)
 msgid "TortoiseSVN Commands"
 msgstr "TortoiseSVN Befehle"
 
-#: source/TortoiseSVN_en.xml:11746(primary)
+#: source/TortoiseSVN_en.xml:11943(primary)
+#: source/TortoiseSVN_en.xml:12358(primary)
 msgid "automation"
 msgstr "Automatisierung"
 
-#: source/TortoiseSVN_en.xml:11749(primary)
+#: source/TortoiseSVN_en.xml:11946(primary)
+#: source/TortoiseSVN_en.xml:12361(primary)
 msgid "command line"
 msgstr "Kommandozeile"
 
-#: source/TortoiseSVN_en.xml:11751(para)
+#: source/TortoiseSVN_en.xml:11948(para)
 msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>. All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
 msgstr "Das TortoiseSVN GUI Programm heißt <literal>TortoiseProc.exe</literal>. Alle Befehle werden in der Form <option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form <option>/path:\"some\\path\"</option> übergeben wird. In der folgenden Tabelle bezieht sich der Befehl auf den <option>/command:abcd</option> Parameter und der Pfad auf den <option>/path:\"some\\path\"</option> Parameter."
 
-#: source/TortoiseSVN_en.xml:11760(para)
+#: source/TortoiseSVN_en.xml:11957(para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
 msgstr "Da einige Befehle eine Liste von Zielpfaden akzeptieren (z.B. Übertragen mehrerer Dateien), kann der <option>/path</option> Parameter mehrere, durch <literal>*</literal> getrennte Pfade enthalten."
 
-#: source/TortoiseSVN_en.xml:11765(para)
+#: source/TortoiseSVN_en.xml:11962(para)
 msgid "TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program. From TortoiseSVN 1.5.0 on and later, <option>/notempfile</option> parameter is obsolete and there is no need to add it anymore."
 msgstr "TortoiseSVN verwendet Temporärdateien, um Parameter zwischen der Shell-Erweiterung und dem Hauptprogramm zu übergeben. Ab der Version 1.5.0 von TortoiseSVN, entfällt der <option>/notempfile</option> Parameter und muss nicht mehr angegeben werden."
 
-#: source/TortoiseSVN_en.xml:11771(para)
+#: source/TortoiseSVN_en.xml:11968(para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
 msgstr "Der Fortschrittsdialog, der für Übertragungen, Aktualisierungen und viele weitere Aktionen verwendet wird, bleibt normalerweise geöffnet nachdem die Aktion beendet ist bis der Anwender die <guibutton>OK</guibutton> Schaltfläche betätigt. Dieses Verhalten kann durch Auswahl der entsprechenden Option in den Einstellungen verändert werden. Die Verwendung dieser Einstellung wird den Dialog, unabhängig davon ob der Befehl aus dem TortoiseSVN Kontextmenü oder aus einer Batchdatei heraus aufgerufen wurde, schließen."
 
-#: source/TortoiseSVN_en.xml:11779(para)
+#: source/TortoiseSVN_en.xml:11976(para)
 msgid "To specify a different location of the configuration file, use the parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. This will override the default path, including any registry setting."
-msgstr "Um einen anderen Ort für die Konfigurationsdatei anzugeben, verwenden Sie den <option>/configdir:\"path\\to\\config\\dir\"</option> Parameter. Dies überschreibt alle Vorgaben, auch aus der Registry."
+msgstr "Um einen anderen Ort für die Konfigurationsdatei anzugeben, verwenden Sie den <option>/configdir:\"path\\to\\config\\dir\"</option> Parameter. Dies überschreibt alle Vorgaben, auch die aus der Registrierung."
 
-#: source/TortoiseSVN_en.xml:11790(para)
+#: source/TortoiseSVN_en.xml:11987(para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
 msgstr "<option>/closeonend:0</option> Den Dialog nicht automatisch schließen."
 
-#: source/TortoiseSVN_en.xml:11795(para)
+#: source/TortoiseSVN_en.xml:11992(para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
 msgstr "<option>/closeonend:1</option> Schließen, wenn keine Fehler aufgetreten sind."
 
-#: source/TortoiseSVN_en.xml:11800(para)
+#: source/TortoiseSVN_en.xml:11997(para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
 msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler und keine Konflikte aufgetreten sind."
 
-#: source/TortoiseSVN_en.xml:11805(para)
+#: source/TortoiseSVN_en.xml:12002(para)
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
 msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind."
 
-#: source/TortoiseSVN_en.xml:11810(para)
+#: source/TortoiseSVN_en.xml:12007(para)
 msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
 msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen bei lokalen Operationen aufgetreten sind."
 
-#: source/TortoiseSVN_en.xml:11784(para)
+#: source/TortoiseSVN_en.xml:11981(para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
 msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen, ohne die Standardeinstellung zu berücksichtigen, können Sie den <option>/closeonend</option> Parameter übergeben. <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:11817(para)
+#: source/TortoiseSVN_en.xml:12014(para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
 msgstr "Die untenstehende Tabell listet alle Befehle, die mittels TortoiseProc.exe ausgeführt werden können. Wie oben beschrieben, müssen sie in der Form <literal>/command:abcd</literal> aufgerufen werden. In der Tabelle wird der <literal>/command</literal> Präfix weggelassen, um Platz zu sparen."
 
-#: source/TortoiseSVN_en.xml:11836(title)
+#: source/TortoiseSVN_en.xml:12033(title)
 msgid "List of available commands and options"
 msgstr "Liste der Befehle und Parameter"
 
-#: source/TortoiseSVN_en.xml:11842(entry)
+#: source/TortoiseSVN_en.xml:12039(entry)
 msgid "Command"
 msgstr "Befehl"
 
-#: source/TortoiseSVN_en.xml:11849(entry)
+#: source/TortoiseSVN_en.xml:12046(entry)
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr "Öffnet den <quote>Über TortoiseSVN</quote>-Dialog. Dies ist das Standardverhalten, wenn kein Befehl angegeben wird."
 
-#: source/TortoiseSVN_en.xml:11857(option)
-#: source/TortoiseSVN_en.xml:11868(option)
-#: source/TortoiseSVN_en.xml:11883(option)
-#: source/TortoiseSVN_en.xml:11895(option)
-#: source/TortoiseSVN_en.xml:11912(option)
-#: source/TortoiseSVN_en.xml:11920(option)
-#: source/TortoiseSVN_en.xml:11928(option)
-#: source/TortoiseSVN_en.xml:11935(option)
-#: source/TortoiseSVN_en.xml:11944(option)
-#: source/TortoiseSVN_en.xml:11950(option)
-#: source/TortoiseSVN_en.xml:11957(option)
-#: source/TortoiseSVN_en.xml:11958(option)
-#: source/TortoiseSVN_en.xml:11960(option)
-#: source/TortoiseSVN_en.xml:11966(option)
-#: source/TortoiseSVN_en.xml:11979(option)
-#: source/TortoiseSVN_en.xml:11992(option)
-#: source/TortoiseSVN_en.xml:11999(option)
-#: source/TortoiseSVN_en.xml:12009(option)
-#: source/TortoiseSVN_en.xml:12015(option)
-#: source/TortoiseSVN_en.xml:12023(option)
-#: source/TortoiseSVN_en.xml:12029(option)
-#: source/TortoiseSVN_en.xml:12042(option)
-#: source/TortoiseSVN_en.xml:12051(option)
-#: source/TortoiseSVN_en.xml:12062(option)
-#: source/TortoiseSVN_en.xml:12071(option)
-#: source/TortoiseSVN_en.xml:12086(option)
-#: source/TortoiseSVN_en.xml:12096(option)
-#: source/TortoiseSVN_en.xml:12103(option)
-#: source/TortoiseSVN_en.xml:12110(option)
-#: source/TortoiseSVN_en.xml:12119(option)
-#: source/TortoiseSVN_en.xml:12136(option)
+#: source/TortoiseSVN_en.xml:12054(option)
+#: source/TortoiseSVN_en.xml:12065(option)
+#: source/TortoiseSVN_en.xml:12073(option)
+#: source/TortoiseSVN_en.xml:12080(option)
+#: source/TortoiseSVN_en.xml:12092(option)
+#: source/TortoiseSVN_en.xml:12109(option)
+#: source/TortoiseSVN_en.xml:12117(option)
+#: source/TortoiseSVN_en.xml:12125(option)
+#: source/TortoiseSVN_en.xml:12132(option)
+#: source/TortoiseSVN_en.xml:12141(option)
+#: source/TortoiseSVN_en.xml:12147(option)
+#: source/TortoiseSVN_en.xml:12154(option)
+#: source/TortoiseSVN_en.xml:12155(option)
+#: source/TortoiseSVN_en.xml:12157(option)
+#: source/TortoiseSVN_en.xml:12163(option)
+#: source/TortoiseSVN_en.xml:12176(option)
+#: source/TortoiseSVN_en.xml:12189(option)
+#: source/TortoiseSVN_en.xml:12196(option)
+#: source/TortoiseSVN_en.xml:12206(option)
+#: source/TortoiseSVN_en.xml:12212(option)
+#: source/TortoiseSVN_en.xml:12220(option)
+#: source/TortoiseSVN_en.xml:12226(option)
+#: source/TortoiseSVN_en.xml:12239(option)
+#: source/TortoiseSVN_en.xml:12248(option)
+#: source/TortoiseSVN_en.xml:12259(option)
+#: source/TortoiseSVN_en.xml:12268(option)
+#: source/TortoiseSVN_en.xml:12283(option)
+#: source/TortoiseSVN_en.xml:12293(option)
+#: source/TortoiseSVN_en.xml:12300(option)
+#: source/TortoiseSVN_en.xml:12307(option)
+#: source/TortoiseSVN_en.xml:12316(option)
+#: source/TortoiseSVN_en.xml:12333(option)
 msgid "/path"
 msgstr "/path"
 
-#: source/TortoiseSVN_en.xml:11860(option)
+#: source/TortoiseSVN_en.xml:12057(option)
 msgid "/startrev:xxx"
 msgstr "/startrev:xxx"
 
-#: source/TortoiseSVN_en.xml:11861(option)
+#: source/TortoiseSVN_en.xml:12058(option)
 msgid "/endrev:xxx"
 msgstr "/endrev:xxx"
 
-#: source/TortoiseSVN_en.xml:11862(option)
+#: source/TortoiseSVN_en.xml:12059(option)
 msgid "/strict"
 msgstr "/strict"
 
-#: source/TortoiseSVN_en.xml:11856(entry)
+#: source/TortoiseSVN_en.xml:12053(entry)
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
 msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Drei weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/> und <placeholder-4/>"
 
-#: source/TortoiseSVN_en.xml:11869(option)
+#: source/TortoiseSVN_en.xml:12066(option)
 msgid "/url"
 msgstr "/url"
 
-#: source/TortoiseSVN_en.xml:11867(entry)
+#: source/TortoiseSVN_en.xml:12064(entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
 msgstr "Öffnet den <quote>Auschecken</quote>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL von der ausgecheckt werden soll."
 
-#: source/TortoiseSVN_en.xml:11875(entry)
-msgid "Opens the import dialog. The path specifies the directory with the data to import."
-msgstr "Öffnet den <quote>Import</quote>-Dialog. Der Pfad bezeichnet das Verzeichnis mit den zu importierenden Daten."
+#: source/TortoiseSVN_en.xml:12072(entry)
+msgid "Opens the import dialog. The <placeholder-1/> specifies the directory with the data to import."
+msgstr "Öffnet den <quote>Import</quote>-Dialog. Der <placeholder-1/> bezeichnet das Verzeichnis mit den zu importierenden Daten."
 
-#: source/TortoiseSVN_en.xml:11884(option)
+#: source/TortoiseSVN_en.xml:12081(option)
 msgid "/rev"
 msgstr "/rev"
 
-#: source/TortoiseSVN_en.xml:11887(option)
+#: source/TortoiseSVN_en.xml:12084(option)
 msgid "/rev:1234"
 msgstr "/rev:1234"
 
-#: source/TortoiseSVN_en.xml:11888(option)
+#: source/TortoiseSVN_en.xml:12085(option)
 msgid "/nonrecursive"
 msgstr "/nonrecursive"
 
-#: source/TortoiseSVN_en.xml:11889(option)
+#: source/TortoiseSVN_en.xml:12086(option)
 msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
-#: source/TortoiseSVN_en.xml:11882(entry)
+#: source/TortoiseSVN_en.xml:12079(entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
 msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/> und <placeholder-5/>."
 
-#: source/TortoiseSVN_en.xml:11897(option)
+#: source/TortoiseSVN_en.xml:12094(option)
 msgid "/logmsg"
 msgstr "/logmsg"
 
-#: source/TortoiseSVN_en.xml:11900(option)
+#: source/TortoiseSVN_en.xml:12097(option)
 msgid "/logmsgfile:path"
 msgstr "/logmsgfile:path"
 
-#: source/TortoiseSVN_en.xml:11901(option)
+#: source/TortoiseSVN_en.xml:12098(option)
 msgid "path"
 msgstr "path"
 
-#: source/TortoiseSVN_en.xml:11905(option)
+#: source/TortoiseSVN_en.xml:12102(option)
 msgid "/bugid:\"the bug id here\""
 msgstr "/bugid:\"Hier liegt der Fehler\""
 
-#: source/TortoiseSVN_en.xml:11894(entry)
+#: source/TortoiseSVN_en.xml:12091(entry)
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
 msgstr "Öffnet den Übertragen-Dialog. Der <placeholder-1/> gibt das Zielverzeichnis oder die Liste der zu übertragenden Dateien an. Sie können mit Hilfe des <placeholder-2/> Parameters eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-3/> verwenden, wobei <placeholder-4/> auf eine Datei zeigt, die die Logmeldung enthält. Falls Sie ein Fehlerverfolgungssystem nutzen, können Sie das Eingabefeld für die Fehler-ID mittels <placeholder-5/> vorbelegen."
 
-#: source/TortoiseSVN_en.xml:11911(entry)
+#: source/TortoiseSVN_en.xml:12108(entry)
 msgid "Adds the files in <placeholder-1/> to version control."
 msgstr "Fügt die Datei(en) in <placeholder-1/> der Versionskontrolle hinzu."
 
-#: source/TortoiseSVN_en.xml:11918(entry)
+#: source/TortoiseSVN_en.xml:12115(entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
 msgstr "Macht lokale Änderungen in der Arbeitskopie rückgängig. Der <placeholder-1/> gibt die Objekte an."
 
-#: source/TortoiseSVN_en.xml:11926(entry)
+#: source/TortoiseSVN_en.xml:12123(entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
 msgstr "Räumt die Hinterlassenschaften unterbrochener oder fehlgeschlagener Operationen auf und entsperrt die Arbeitskopie in <placeholder-1/>."
 
-#: source/TortoiseSVN_en.xml:11936(option)
-#: source/TortoiseSVN_en.xml:12002(option)
-#: source/TortoiseSVN_en.xml:12129(option)
+#: source/TortoiseSVN_en.xml:12133(option)
+#: source/TortoiseSVN_en.xml:12199(option)
+#: source/TortoiseSVN_en.xml:12326(option)
 msgid "/noquestion"
 msgstr "/noquestion"
 
-#: source/TortoiseSVN_en.xml:11933(entry)
+#: source/TortoiseSVN_en.xml:12130(entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
 msgstr "Markiert den Konflikt der in <placeholder-1/> angegebenen Datei als gelöst. Bei Angabe von <placeholder-2/> wird der Konflikt ohne Rückfrage aufgelöst."
 
-#: source/TortoiseSVN_en.xml:11943(entry)
+#: source/TortoiseSVN_en.xml:12140(entry)
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Erstellt ein Projektarchiv in <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:11949(entry)
+#: source/TortoiseSVN_en.xml:12146(entry)
 msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
 msgstr "Öffnet den <quote>Wechseln Zu</quote>-Dialog. Der <placeholder-1/> bezeichnet das Zielverzeichnis."
 
-#: source/TortoiseSVN_en.xml:11956(entry)
+#: source/TortoiseSVN_en.xml:12153(entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the directory in <placeholder-3/>."
 msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in ein anderes Verzeichnis. Wenn <placeholder-2/> auf ein nicht versioniertes Verzeichnis zeigt, wird ein Dialog angezeigt, der eine URL erfragt, die in das in <placeholder-3/> angegebene Verzeichnis exportiert wird."
 
-#: source/TortoiseSVN_en.xml:11969(option)
+#: source/TortoiseSVN_en.xml:12166(option)
 msgid "/mergefrom:xxx"
 msgstr "/mergefrom:xxx"
 
-#: source/TortoiseSVN_en.xml:11970(option)
+#: source/TortoiseSVN_en.xml:12167(option)
 msgid "/mergeto:xxx"
 msgstr "/mergeto:xxx"
 
-#: source/TortoiseSVN_en.xml:11971(option)
+#: source/TortoiseSVN_en.xml:12168(option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
-#: source/TortoiseSVN_en.xml:11965(entry)
+#: source/TortoiseSVN_en.xml:12162(entry)
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>. These pre-fill the relevant fields in the merge dialog."
 msgstr "Öffnet den Zusammenführen-Dialog. Der <placeholder-1/> definiert den Zielordner.Drei weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/> und <placeholder-4/>. Diese tragen Vorgabewerte in die Eingabefelder des Dialogs ein."
 
-#: source/TortoiseSVN_en.xml:11977(entry)
+#: source/TortoiseSVN_en.xml:12174(entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from."
 msgstr "Zeigt den <quote>Verzweigen/Markieren</quote>-Dialog. Der <placeholder-1/> bezeichnet die zu verzweigende/markierende Arbeitskopie."
 
-#: source/TortoiseSVN_en.xml:11985(entry)
+#: source/TortoiseSVN_en.xml:12182(entry)
 msgid "Opens the settings dialog."
 msgstr "Öffnet den Einstellungsdialog"
 
-#: source/TortoiseSVN_en.xml:11991(entry)
+#: source/TortoiseSVN_en.xml:12188(entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
 msgstr "Entfernt die Datei(en) in <placeholder-1/> aus der Versionskontrolle."
 
-#: source/TortoiseSVN_en.xml:11998(entry)
+#: source/TortoiseSVN_en.xml:12195(entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
 msgstr "Benennt die Datei in <placeholder-1/> um. Der neue Dateiname wird über einen Dialog abgefragt. Um die Frage nach dem Umbenennen ähnlicher Dateien in einem Schritt zu umgehen, übergeben Sie <placeholder-2/>."
 
-#: source/TortoiseSVN_en.xml:12011(option)
-#: source/TortoiseSVN_en.xml:12013(option)
+#: source/TortoiseSVN_en.xml:12208(option)
+#: source/TortoiseSVN_en.xml:12210(option)
 msgid "/path2"
 msgstr "/path2"
 
-#: source/TortoiseSVN_en.xml:12007(entry)
+#: source/TortoiseSVN_en.xml:12204(entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE."
 msgstr "Startet das externe, in den TortoiseSVN Einstellungen angegebene Vergleichsprogramm. Der <placeholder-1/> spezifiziert die erste Datei. Bei Angabe von <placeholder-2/>, werden diese beiden Dateien verglichen. Ohne Angabe von <placeholder-3/>, wird die Datei in <placeholder-4/> mit ihrer BASE Revision verglichen."
 
-#: source/TortoiseSVN_en.xml:12020(entry)
+#: source/TortoiseSVN_en.xml:12217(entry)
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
 msgstr "Startet den in der TortoiseSVN Einstellungen angegebenen Konflikteditor mit der konfliktbehafteten Datei in <placeholder-1/>."
 
-#: source/TortoiseSVN_en.xml:12028(entry)
+#: source/TortoiseSVN_en.xml:12225(entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
 msgstr "Zeigt den <quote>Umplatzieren</quote>-Dialog. Der <placeholder-1/> bezeichnet die umzuplatzierende Arbeitskopie."
 
-#: source/TortoiseSVN_en.xml:12035(entry)
+#: source/TortoiseSVN_en.xml:12232(entry)
 msgid "Opens the help file."
 msgstr "Öffnet die Hilfedatei"
 
-#: source/TortoiseSVN_en.xml:12041(entry)
+#: source/TortoiseSVN_en.xml:12238(entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
 msgstr "Öffnet den <quote>Prüfe auf Änderungen</quote>-Dialog. Der <placeholder-1/> bezeichnet die Arbeitskopie."
 
-#: source/TortoiseSVN_en.xml:12053(option)
-#: source/TortoiseSVN_en.xml:12055(option)
+#: source/TortoiseSVN_en.xml:12250(option)
+#: source/TortoiseSVN_en.xml:12252(option)
 msgid "/rev:xxx"
 msgstr "/rev:xxx"
 
-#: source/TortoiseSVN_en.xml:12048(entry)
+#: source/TortoiseSVN_en.xml:12245(entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD."
 msgstr "Startet den Projektarchivbetrachter mit der URL der in <placeholder-1/> angegebenen Arbeitskopie beziehungsweise der in <placeholder-1/> angegebenen URL. Mit der Option <placeholder-3/> kann die vom Projektarchivbetrachter anzuzeigende Revision festgelegt werden. Ohne <placeholder-4/>, wird die HEAD Revision angezeigt."
 
-#: source/TortoiseSVN_en.xml:12063(literal)
+#: source/TortoiseSVN_en.xml:12260(literal)
 msgid "svn:ignore"
 msgstr "svn:ignore"
 
-#: source/TortoiseSVN_en.xml:12061(entry)
+#: source/TortoiseSVN_en.xml:12258(entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
 msgstr "Fügt alle Objekte in <placeholder-1/> zur Liste der ignorierten Dateien hinzu, das heißt für alle Objekte wird die <placeholder-2/> Eigenschaft gesetzt."
 
-#: source/TortoiseSVN_en.xml:12072(option)
-msgid "startrev"
-msgstr "startrev"
+#: source/TortoiseSVN_en.xml:12269(option)
+msgid "/startrev"
+msgstr "/startrev"
 
-#: source/TortoiseSVN_en.xml:12073(option)
-msgid "endrev"
-msgstr "endrev"
+#: source/TortoiseSVN_en.xml:12270(option)
+msgid "/endrev"
+msgstr "/endrev"
 
-#: source/TortoiseSVN_en.xml:12077(option)
+#: source/TortoiseSVN_en.xml:12274(option)
 msgid "/line:nnn"
 msgstr "/line:nnn"
 
-#: source/TortoiseSVN_en.xml:12069(entry)
+#: source/TortoiseSVN_en.xml:12266(entry)
 msgid "Opens the blame dialog for the file specified in <placeholder-1/>. If the options <placeholder-2/> and <placeholder-3/> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead. If the option <placeholder-4/> is set, TortoiseBlame will open with the specified line number showing."
 msgstr "Öffnet den <quote>Annotieren</quote>-Dialog für die in <placeholder-1/> angegebene Datei. Wenn die Optionen <placeholder-2/> und <placeholder-3/> gesetzt sind, wird der Dialog, der den Bereich abfragt, nicht angezeigt. Stattdessen werden die angegebenen Werte verwendet. Bei Angabe von <placeholder-4/>, wird TortoiseBlame zur angegebenen Zeile der Datei springen."
 
-#: source/TortoiseSVN_en.xml:12087(option)
+#: source/TortoiseSVN_en.xml:12284(option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
-#: source/TortoiseSVN_en.xml:12088(option)
+#: source/TortoiseSVN_en.xml:12285(option)
 msgid "/revision:xxx"
 msgstr "/revision:xxx"
 
-#: source/TortoiseSVN_en.xml:12084(entry)
+#: source/TortoiseSVN_en.xml:12281(entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Speichert eine Datei von einer <placeholder-1/> angegebenen Arbeitskopie oder URL an der in <placeholder-2/> spezifizierten Stelle. Eine Revision kann in <placeholder-3/> angegeben werden, um eine Datei in einer bestimmten Revision zu holen."
 
-#: source/TortoiseSVN_en.xml:12094(entry)
+#: source/TortoiseSVN_en.xml:12291(entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Erzeugt eine Patchdatei für den in <placeholder-1/> angegebenen Pfad."
 
-#: source/TortoiseSVN_en.xml:12101(entry)
+#: source/TortoiseSVN_en.xml:12298(entry)
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
 msgstr "Zeigt den Revisionsgraphen für den in <placeholder-1/> angegebenen Pfad."
 
-#: source/TortoiseSVN_en.xml:12108(entry)
+#: source/TortoiseSVN_en.xml:12305(entry)
 msgid "Locks a file or all files in a directory given in <placeholder-1/>. The 'lock' dialog is shown so the user can enter a comment for the lock."
 msgstr "Sperrt eine oder alle Dateien in einem Verzeichnis. Der <quote>Sperren</quote>-Dialog wird angezeigt, damit der Anwender einen Kommentar für die Sperre eingeben kann. <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:12117(entry)
+#: source/TortoiseSVN_en.xml:12314(entry)
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
 msgstr "Entsperrt eine oder alle Dateien in einem Verzeichnis. <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:12124(entry)
+#: source/TortoiseSVN_en.xml:12321(entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass <placeholder-1/>."
 msgstr "Rekonstruiert den Windows Symbolspeicher. Verwenden Sie diese Funktion nur, wenn die Windows Symbole beschädigt sind. Ein nicht vermeidbarer Seiteneffekt dieser Aktion ist, dass die Desktopsymbole neu arrangiert werden. <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:12134(entry)
+#: source/TortoiseSVN_en.xml:12331(entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
 msgstr "Zeigt den Eingenschaftsdialog für den in <placeholder-1/> angegebenen Pfad."
 
-#: source/TortoiseSVN_en.xml:12143(para)
+#: source/TortoiseSVN_en.xml:12340(para)
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
-"TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"TortoiseProc.exe /command:commit\n"
+"                 /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
 "                 /logmsg:\"test log message\" /closeonend\n"
 "\n"
 "TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend\n"
@@ -8333,62 +8491,113 @@ msgid ""
 "                 /startrev:50 /endrev:60 /closeonend\n"
 "</screen>"
 msgstr ""
-"Beispielen (die auf einer Zeile eingegeben werden sollten):\n"
-"<screen>TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
-"                 /logmsg:\"test log message\" /closeonend\n"
+"Beispiele (die auf einer Zeile eingegeben werden sollten):\n"
+"<screen>TortoiseProc.exe /command:commit \n"
+"    /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"    /logmsg:\"test log message\" /closeonend\n"
 "\n"
 "TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend\n"
 "\n"
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
-"                 /revstart:50 /revend:60 /closeonend\n"
+"    /revstart:50 /revend:60 /closeonend\n"
 "</screen>"
 
-#: source/TortoiseSVN_en.xml:12158(title)
+#: source/TortoiseSVN_en.xml:12356(title)
+msgid "TortoiseIDiff Commands"
+msgstr "TortoiseIDiff Befehle"
+
+#: source/TortoiseSVN_en.xml:12363(para)
+msgid "The image diff tool has a few command line options which you can use to control how the tool is started. The program is called <literal>TortoiseIDiff.exe</literal>."
+msgstr "Das Programm zum Vergleichen von Bildern stellt ein paar Kommandozeilenbefehle zur Verfügung, mit denen Sie kontrollieren können, in welchen Modus das Programm startet. Die Anwendung selbst heißt <literal>TortoiseIDiff.exe</literal>."
+
+#: source/TortoiseSVN_en.xml:12368(para)
+msgid "The table below lists all the options which can be passed to the image diff tool on the command line."
+msgstr "Die untenstehende Tabelle listet alle Optionen, die per Kommandozeile an TortoiseIDiff übergeben werden können."
+
+#: source/TortoiseSVN_en.xml:12384(title)
+msgid "List of available options"
+msgstr "Liste der Parameter"
+
+#: source/TortoiseSVN_en.xml:12390(entry)
+msgid "Option"
+msgstr "Option"
+
+#: source/TortoiseSVN_en.xml:12397(entry)
+msgid "Path to the file shown on the left."
+msgstr "Die im linken Fenster angezeigte Datei"
+
+#: source/TortoiseSVN_en.xml:12403(entry)
+#: source/TortoiseSVN_en.xml:12416(entry)
+msgid "A title string. This string is used in the image view title instead of the full path to the image file."
+msgstr "Ein Titel. Dieser Text wird in der Bildansicht anstelle des vollständigen Dateipfades angezeigt."
+
+#: source/TortoiseSVN_en.xml:12410(entry)
+msgid "Path to the file shown on the right."
+msgstr "Die im rechten Fenster angezeigte Datei"
+
+#: source/TortoiseSVN_en.xml:12423(entry)
+msgid "If specified, the image diff tool switches to the overlay mode (alpha blend)."
+msgstr "Mit dieser Option werden die Bilder transparent überlagert."
+
+#: source/TortoiseSVN_en.xml:12430(entry)
+msgid "If specified, the image diff tool fits both images together."
+msgstr "Mit dieser Option werden die Bilder auf die gleiche Größe skaliert."
+
+#: source/TortoiseSVN_en.xml:12439(para)
+msgid ""
+"Example (which should be entered on one line): <screen>\n"
+"TortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n"
+"                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
+"                  /fit /overlay\n"
+"</screen>"
+msgstr ""
+"Beispiele (die auf einer Zeile eingegeben werden sollten):\n"
+"<screen>TortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n"
+"                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
+"                  /fit /overlay\n"
+"</screen>"
+
+#: source/TortoiseSVN_en.xml:12451(title)
 msgid "Command Line Interface Cross Reference"
 msgstr "Befehle der Kommandozeile"
 
-#: source/TortoiseSVN_en.xml:12160(primary)
+#: source/TortoiseSVN_en.xml:12453(primary)
 msgid "command line client"
 msgstr "Kommandozeilen-Client"
 
-#: source/TortoiseSVN_en.xml:12163(primary)
+#: source/TortoiseSVN_en.xml:12456(primary)
 msgid "CLI"
 msgstr "CLI"
 
-#: source/TortoiseSVN_en.xml:12166(para)
+#: source/TortoiseSVN_en.xml:12459(para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr "Manchmal finden sich in diesem Handbuch Verweise auf die allgemeine Subversion Dokumentation, die die Bedienung mit dem Kommandozeilen-Client (CLI) beschreibt. Um Ihnen zu verdeutlichen, welche Funktionen TortoiseSVN im Verborgenen aufruft, haben wir eine Liste der Kommandozeilenbefehle zusammengestellt, die den Funktionen der grafischen Oberfläche von TortoiseSVN entsprechen."
 
-#: source/TortoiseSVN_en.xml:12175(para)
+#: source/TortoiseSVN_en.xml:12468(para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
 msgstr "Obwohl es äquivalente Kommandozeilenbefehle gibt, beachten Sie bitte dass TortoiseSVN <emphasis>nicht</emphasis> das Subversion Kommandozeilenprogramm aufruft, sondern direkt auf die Subversion Bibliotheken zugreift."
 
-#: source/TortoiseSVN_en.xml:12181(para)
+#: source/TortoiseSVN_en.xml:12474(para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
 msgstr "Wenn Sie einen Fehler von TortoiseSVN berichten, kann es vorkommen, dass wir Sie auffordern, dieses Fehlverhalten mit dem Kommandozeilen-Client zu reproduzieren, damit wir TortoiseSVN Probleme von Subversion Problemen unterscheiden können. Diese Kurzreferenz zeigt Ihnen, welche Befehle Sie verwenden können."
 
-#: source/TortoiseSVN_en.xml:12189(title)
+#: source/TortoiseSVN_en.xml:12482(title)
 msgid "Conventions and Basic Rules"
 msgstr "Grundregeln und Konventionen"
 
-#: source/TortoiseSVN_en.xml:12190(para)
+#: source/TortoiseSVN_en.xml:12483(para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr "In der folgenden Beschreibung wird die URL eines Projektarchivs einfach als <literal>URL</literal> geschrieben. Ein Beispiel wäre <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. Der Pfad der Arbeitskopie wird stets als <literal>PFAD</literal> geschrieben. Ein Beispiel wäre <literal>C:\\TortoiseSVN\\trunk</literal>."
 
-#: source/TortoiseSVN_en.xml:12200(para)
+#: source/TortoiseSVN_en.xml:12493(para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr "Da es sich bei TortoiseSVN um eine Windows Shell Erweiterung handelt, kennt es das Konzept eines Arbeitsverzeichnisses nicht. Beim entsprechenden Aufruf der Kommandozeile müssen deshalb alle Pfade zu Arbeitskopien als absolute, nicht als relative Pfade angegeben werden."
 
-#: source/TortoiseSVN_en.xml:12207(para)
+#: source/TortoiseSVN_en.xml:12500(para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr "Einige Kommandozeilenbefehle besitzen Optionen. Diese werden in TortoiseSVN durch Optionsfelder gesteuert. In der Kommandozeilennotation werden diese optionalen Parameter durch [eckige Klammern] dargestellt."
 
-#: source/TortoiseSVN_en.xml:12216(title)
-#: source/TortoiseSVN_en.xml:12718(glossterm)
-msgid "Checkout"
-msgstr "Auschecken"
-
-#: source/TortoiseSVN_en.xml:12217(screen)
+#: source/TortoiseSVN_en.xml:12510(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8397,25 +8606,20 @@ msgstr ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12220(para)
+#: source/TortoiseSVN_en.xml:12513(para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12224(para)
-#: source/TortoiseSVN_en.xml:12267(para)
+#: source/TortoiseSVN_en.xml:12517(para)
+#: source/TortoiseSVN_en.xml:12560(para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12228(para)
+#: source/TortoiseSVN_en.xml:12521(para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr "Wenn Sie eine bestimmte Revision auschecken, geben Sie diese nach der URL mittels <literal>-r</literal> an."
 
-#: source/TortoiseSVN_en.xml:12234(title)
-#: source/TortoiseSVN_en.xml:13024(glossterm)
-msgid "Update"
-msgstr "Aktualisieren"
-
-#: source/TortoiseSVN_en.xml:12235(screen)
+#: source/TortoiseSVN_en.xml:12528(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8426,23 +8630,23 @@ msgstr ""
 "svn info URL_der_AK\n"
 "svn update [-r rev] PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12239(para)
+#: source/TortoiseSVN_en.xml:12532(para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
 msgstr "Das Aktualisieren mehrerer Dateien ist keine atomare Operation. TortoiseSVN zunächst die neueste Revision (HEAD) im Projektarchiv und aktualisiert anschließend alle Objekte zu dieser Revisionsnummer, damit Sie keine aus zwei Revisionen zusammengesetzte Arbeitskopie erhalten."
 
-#: source/TortoiseSVN_en.xml:12246(para)
+#: source/TortoiseSVN_en.xml:12539(para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
 msgstr "Wenn nur ein Objekt zur Aktualisierung ausgewählt ist oder die gewählten Objekte aus verschiedenen Projektarchiven stammen, aktualisiert TortoiseSVN zur neuesten Revision (HEAD)."
 
-#: source/TortoiseSVN_en.xml:12251(para)
+#: source/TortoiseSVN_en.xml:12544(para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr "An diese Stelle werden keine Kommandozeilenoptionen verwendet. <guilabel>Aktualisiere zu Revision</guilabel> implementiert ebenfalls den Aktualisieren Befehl, bietet jedoch weitere Optionen."
 
-#: source/TortoiseSVN_en.xml:12258(title)
+#: source/TortoiseSVN_en.xml:12551(title)
 msgid "Update to Revision"
 msgstr "Aktualisieren zu Revision"
 
-#: source/TortoiseSVN_en.xml:12259(screen)
+#: source/TortoiseSVN_en.xml:12552(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8453,22 +8657,17 @@ msgstr ""
 "svn info URL_der_AK\n"
 "svn update [-r rev] [-N] [--ignore-externals] PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12263(para)
+#: source/TortoiseSVN_en.xml:12556(para)
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12273(title)
-#: source/TortoiseSVN_en.xml:12744(glossterm)
-msgid "Commit"
-msgstr "Übertragen"
-
-#: source/TortoiseSVN_en.xml:12274(para)
+#: source/TortoiseSVN_en.xml:12567(para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr "In TortoiseSVN nutzt der Übertragen-Dialog mehrere Subversion Befehle. Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die übertragen werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie übertragen wollen, auswählen."
 
-#: source/TortoiseSVN_en.xml:12281(screen)
-#: source/TortoiseSVN_en.xml:12443(screen)
-#: source/TortoiseSVN_en.xml:12471(screen)
+#: source/TortoiseSVN_en.xml:12574(screen)
+#: source/TortoiseSVN_en.xml:12736(screen)
+#: source/TortoiseSVN_en.xml:12764(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8477,17 +8676,17 @@ msgstr ""
 "\n"
 "svn status -v PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12284(para)
-#: source/TortoiseSVN_en.xml:12372(para)
+#: source/TortoiseSVN_en.xml:12577(para)
+#: source/TortoiseSVN_en.xml:12665(para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr "Wenn <guilabel>Zeige nicht versionierte Dateien</guilabel> gewählt ist, wird TortoiseSVN alle nicht versionierten Dateien und Ordner in der Arbeitskopie unter Berücksichtigung der Ausschluß- / Ignorier-Regeln. Diese Funktion besitzt in Subversion kein Äquivalent, da der <literal>svn status</literal> Befehl nicht in unversionierte Ordner hinabsteigt."
+msgstr "Wenn <guilabel>Zeige nicht versionierte Dateien</guilabel> gewählt ist, wird TortoiseSVN alle nicht versionierten Dateien und Ordner in der Arbeitskopie unter Berücksichtigung der Ausschluss- / Ignorier-Regeln. Diese Funktion besitzt in Subversion kein Äquivalent, da der <literal>svn status</literal> Befehl nicht in unversionierte Ordner hinabsteigt."
 
-#: source/TortoiseSVN_en.xml:12292(para)
+#: source/TortoiseSVN_en.xml:12585(para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr "Wenn Sie nicht versionierte Dateien oder Ordner auswählen, werden diese vor dem Übertragen zur Arbeitskopie hinzugefügt."
 
-#: source/TortoiseSVN_en.xml:12296(screen)
-#: source/TortoiseSVN_en.xml:12586(screen)
+#: source/TortoiseSVN_en.xml:12589(screen)
+#: source/TortoiseSVN_en.xml:12879(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8496,11 +8695,11 @@ msgstr ""
 "\n"
 "svn add PFAD...\n"
 
-#: source/TortoiseSVN_en.xml:12299(para)
+#: source/TortoiseSVN_en.xml:12592(para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schritt rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
-#: source/TortoiseSVN_en.xml:12307(screen)
+#: source/TortoiseSVN_en.xml:12600(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8509,22 +8708,17 @@ msgstr ""
 "\n"
 "svn commit -m \"Logmeldung\" [-N] [--no-unlock] PFAD...\n"
 
-#: source/TortoiseSVN_en.xml:12310(para)
-#: source/TortoiseSVN_en.xml:12516(para)
-#: source/TortoiseSVN_en.xml:12599(para)
+#: source/TortoiseSVN_en.xml:12603(para)
+#: source/TortoiseSVN_en.xml:12809(para)
+#: source/TortoiseSVN_en.xml:12892(para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "Die <literal>Logmeldung</literal> entspricht dem Inhalt des Eingabefeldes für Logmeldungen und kann leer gelassen werden."
 
-#: source/TortoiseSVN_en.xml:12314(para)
+#: source/TortoiseSVN_en.xml:12607(para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr "Wenn <guilabel>Sperren behalten</guilabel> gewählt ist, verwenden Sie die <literal>--no-unlock</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12320(title)
-#: source/TortoiseSVN_en.xml:12790(glossterm)
-msgid "Diff"
-msgstr "Diff"
-
-#: source/TortoiseSVN_en.xml:12321(screen)
+#: source/TortoiseSVN_en.xml:12614(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8533,19 +8727,15 @@ msgstr ""
 "\n"
 "svn diff PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12324(para)
+#: source/TortoiseSVN_en.xml:12617(para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between full-text files, so there is no direct CLI equivalent."
-msgstr "Wenn Sie Diff aus dem Kontextmenü heraus aufrufen, bilden Sie die Differenzen zwischen einer geänderten Datei und deren BASE Revision. Die Subversion Kommandozeile tut dies auch, liefert jedoch die Ausgabe in einem standard (unified) Diff-Format. TortoiseSVN hingegen verwendet TortoiseMerge (oder ein Diff-Programm Ihrer Wahl), um die Unterschiede zwischen Textdateien graphisch anzuzeigen. Aus diesem Grunde gibt es keinen äquivalenten Befehl auf der Kommandozeile."
+msgstr "Wenn Sie Vergleich aus dem Kontextmenü heraus aufrufen, bilden Sie die Unterschiede zwischen einer geänderten Datei und deren BASE Revision. Die Subversion Kommandozeile tut dies auch, liefert jedoch die Ausgabe in einem standard (unified) Diff-Format. TortoiseSVN hingegen verwendet TortoiseMerge (oder ein Vergleichsprogramm Ihrer Wahl), um die Unterschiede zwischen Textdateien graphisch anzuzeigen. Aus diesem Grunde gibt es keinen äquivalenten Befehl auf der Kommandozeile."
 
-#: source/TortoiseSVN_en.xml:12333(para)
+#: source/TortoiseSVN_en.xml:12626(para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
 msgstr "Sie können auch die Differenzen von zwei beliebigen anderen Dateien anzeigen lassen, ob diese unter Versionskontrolle stehen oder nicht. TortoiseSVN reicht die markierten Dateien einfach an das gewählte Diff-Programm weiter und lässt dieses die Änderungen ermitteln."
 
-#: source/TortoiseSVN_en.xml:12341(title)
-msgid "Show Log"
-msgstr "Zeige Log"
-
-#: source/TortoiseSVN_en.xml:12342(screen)
+#: source/TortoiseSVN_en.xml:12635(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8558,15 +8748,15 @@ msgstr ""
 "  oder\n"
 "svn log -v -r M:N [--stop-on-copy] PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12347(para)
+#: source/TortoiseSVN_en.xml:12640(para)
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
 msgstr "Standardmäßig versucht TortoiseSVN 100 Logmeldungen mittels der <literal>--limit</literal> Option zu holen. Falls die Einstellungen jedoch den Einsatz der alten API für die Logmeldungen erfordern, wird die zweite Variante genutzt, um die Logmeldungen für 100 Revisionen im Projektarchiv zu holen."
 
-#: source/TortoiseSVN_en.xml:12353(para)
+#: source/TortoiseSVN_en.xml:12646(para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr "Wenn <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, verwenden Sie die <literal>--stop-on-copy</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12360(screen)
+#: source/TortoiseSVN_en.xml:12653(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8579,19 +8769,19 @@ msgstr ""
 "  oder\n"
 "svn status -u -v PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12365(para)
+#: source/TortoiseSVN_en.xml:12658(para)
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
 msgstr "Die erste Statusprüfung betrachtet nur Ihre lokale Arbeitskopie. Wenn Sie auf die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche klicken, wird im Projektarchiv nachgeschaut, welche Dateien durch eine Aktualisierung betroffen wären. Dies erfordert die Verwendung der <literal>-u</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12382(title)
+#: source/TortoiseSVN_en.xml:12675(title)
 msgid "Revision Graph"
 msgstr "Revisionsgraph"
 
-#: source/TortoiseSVN_en.xml:12383(para)
+#: source/TortoiseSVN_en.xml:12676(para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
 msgstr "Der Revisionsgraph ist eine Funktionalität, die nur in TortoiseSVN zur Verfügung steht und für die es kein Äquivalent in der Kommandozeile gibt."
 
-#: source/TortoiseSVN_en.xml:12387(para)
+#: source/TortoiseSVN_en.xml:12680(para)
 msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
@@ -8604,11 +8794,11 @@ msgstr ""
 "</screen>\n"
 "aus, wobei URL die <emphasis>Basis</emphasis> des Projektarchivs ist, und analysiert anschließend die zurückgegebenen Daten."
 
-#: source/TortoiseSVN_en.xml:12398(title)
+#: source/TortoiseSVN_en.xml:12691(title)
 msgid "Repo Browser"
 msgstr "Projektarchivbetrachter"
 
-#: source/TortoiseSVN_en.xml:12399(screen)
+#: source/TortoiseSVN_en.xml:12692(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8619,27 +8809,23 @@ msgstr ""
 "svn info URL_der_AK\n"
 "svn list [-r rev] -v URL\n"
 
-#: source/TortoiseSVN_en.xml:12403(para)
+#: source/TortoiseSVN_en.xml:12696(para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
 msgstr "Sie können <literal>svn info</literal> verwenden, um die Basis des Projektarchivs zu bestimmen. Dies ist die oberste, im Projektarchivbetrachter angezeigte Ebene. Sie können von dort aus nicht weiter nach <literal>Oben</literal> navigieren. Weiterhin gibt dieser Befehl alle Sperrinformationen des Projektarchivbetrachters aus."
 
-#: source/TortoiseSVN_en.xml:12410(para)
+#: source/TortoiseSVN_en.xml:12703(para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
 msgstr "Der <literal>svn list</literal> Befehl listet bei Angabe einer URL und einer Revision den Inhalt eines Verzeichnisses auf."
 
-#: source/TortoiseSVN_en.xml:12416(title)
-msgid "Edit Conflicts"
-msgstr "Konflikt bearbeiten"
-
-#: source/TortoiseSVN_en.xml:12417(para)
+#: source/TortoiseSVN_en.xml:12710(para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
 msgstr "Hierfür gibt es keinen entsprechenden Kommandozeilenbefehl. Es wird TortoiseMerge oder ein externer Konflikteditor aufgerufen, um die in den Konflikt verwickelten Dateien zu betrachten und den Konflikt aufzulösen."
 
-#: source/TortoiseSVN_en.xml:12424(title)
+#: source/TortoiseSVN_en.xml:12717(title)
 msgid "Resolved"
 msgstr "Konflikt aufgelöst"
 
-#: source/TortoiseSVN_en.xml:12425(screen)
+#: source/TortoiseSVN_en.xml:12718(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8648,11 +8834,7 @@ msgstr ""
 "\n"
 "svn resolved PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12430(title)
-msgid "Rename"
-msgstr "Umbenennen"
-
-#: source/TortoiseSVN_en.xml:12431(screen)
+#: source/TortoiseSVN_en.xml:12724(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8661,12 +8843,7 @@ msgstr ""
 "\n"
 "svn rename PFAD_AKT PFAD_NEU\n"
 
-#: source/TortoiseSVN_en.xml:12436(title)
-#: source/TortoiseSVN_en.xml:12778(glossterm)
-msgid "Delete"
-msgstr "Löschen"
-
-#: source/TortoiseSVN_en.xml:12437(screen)
+#: source/TortoiseSVN_en.xml:12730(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8675,20 +8852,15 @@ msgstr ""
 "\n"
 "svn delete PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12442(title)
-#: source/TortoiseSVN_en.xml:12957(glossterm)
-msgid "Revert"
-msgstr "Rückgängig"
-
-#: source/TortoiseSVN_en.xml:12446(para)
+#: source/TortoiseSVN_en.xml:12739(para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
 msgstr "Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die rückgängig gemacht werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie rückgängig machen wollen, auswählen."
 
-#: source/TortoiseSVN_en.xml:12452(para)
+#: source/TortoiseSVN_en.xml:12745(para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
 msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schritt rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
-#: source/TortoiseSVN_en.xml:12459(screen)
+#: source/TortoiseSVN_en.xml:12752(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8697,7 +8869,7 @@ msgstr ""
 "\n"
 "svn revert [-R] PFAD...\n"
 
-#: source/TortoiseSVN_en.xml:12465(screen)
+#: source/TortoiseSVN_en.xml:12758(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8706,15 +8878,15 @@ msgstr ""
 "\n"
 "svn cleanup PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12470(title)
+#: source/TortoiseSVN_en.xml:12763(title)
 msgid "Get Lock"
 msgstr "Sperre holen"
 
-#: source/TortoiseSVN_en.xml:12474(para)
+#: source/TortoiseSVN_en.xml:12767(para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
 msgstr "Der erste Schritt ist eine Statusprüfung, die die Dateien in Ihrer Arbeitskopie ermittelt, die gesperrt können. Sie können die Dateien, die Sie sperren wollen, auswählen."
 
-#: source/TortoiseSVN_en.xml:12479(screen)
+#: source/TortoiseSVN_en.xml:12772(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8723,19 +8895,19 @@ msgstr ""
 "\n"
 "svn commit -m \"SperrMeldung\" [-N] [--no-unlock] PFAD...\n"
 
-#: source/TortoiseSVN_en.xml:12482(para)
+#: source/TortoiseSVN_en.xml:12775(para)
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
 msgstr "Die <literal>Sperrmeldung</literal> entspricht dem Inhalt des Eingabefeldes für Logmeldungen und kann leer gelassen werden."
 
-#: source/TortoiseSVN_en.xml:12486(para)
+#: source/TortoiseSVN_en.xml:12779(para)
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
 msgstr "Wenn <guilabel>Sperren stehlen</guilabel> gewählt ist, verwenden Sie die <literal>--force</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12492(title)
+#: source/TortoiseSVN_en.xml:12785(title)
 msgid "Release Lock"
 msgstr "Sperre freigeben"
 
-#: source/TortoiseSVN_en.xml:12493(screen)
+#: source/TortoiseSVN_en.xml:12786(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8744,11 +8916,7 @@ msgstr ""
 "\n"
 "svn unlock PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12498(title)
-msgid "Branch/Tag"
-msgstr "Verzweigen / Markieren"
-
-#: source/TortoiseSVN_en.xml:12499(screen)
+#: source/TortoiseSVN_en.xml:12792(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8765,15 +8933,15 @@ msgstr ""
 "  oder\n"
 "svn copy -m \"LogMeldung\" PFAD URL\n"
 
-#: source/TortoiseSVN_en.xml:12511(listitem)
+#: source/TortoiseSVN_en.xml:12804(listitem)
 msgid "Specific revision in repository"
 msgstr "Revisionsnummer im Projektarchiv"
 
-#: source/TortoiseSVN_en.xml:12506(para)
+#: source/TortoiseSVN_en.xml:12799(para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
 msgstr "Der <quote>Verzweigen/Markieren</quote>-Dialog erzeugt eine Kopie im Projektarchiv. Es gibt drei Optionen: <placeholder-1/>, die den drei Kommandozeilenparametern entsprechen."
 
-#: source/TortoiseSVN_en.xml:12523(screen)
+#: source/TortoiseSVN_en.xml:12816(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8784,12 +8952,7 @@ msgstr ""
 "svn info URL_der_AK\n"
 "svn switch [-r rev] URL PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12529(title)
-#: source/TortoiseSVN_en.xml:12871(glossterm)
-msgid "Merge"
-msgstr "Zusammenführen"
-
-#: source/TortoiseSVN_en.xml:12530(screen)
+#: source/TortoiseSVN_en.xml:12823(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8798,11 +8961,11 @@ msgstr ""
 "\n"
 "svn merge [--dry-run] --force Von_URL@revN Bis_URL@revM PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12533(para)
+#: source/TortoiseSVN_en.xml:12826(para)
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr "Wenn <guilabel>Trockenlauf</guilabel> gewählt ist, verwenden Sie die <literal>--dry-run</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12537(screen)
+#: source/TortoiseSVN_en.xml:12830(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8811,16 +8974,11 @@ msgstr ""
 "\n"
 "svn diff Von_URL@revN Bis_URL@revM\n"
 
-#: source/TortoiseSVN_en.xml:12540(para)
+#: source/TortoiseSVN_en.xml:12833(para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr "Die <guibutton>Standard Diff</guibutton> Schaltfläche zeigt die Diff Operation, die zum Zusammenführen verwendet wird."
+msgstr "Die <guibutton>Standard-Diff</guibutton> Schaltfläche zeigt die Vergleichsoperation, die zum Zusammenführen verwendet wird."
 
-#: source/TortoiseSVN_en.xml:12546(title)
-#: source/TortoiseSVN_en.xml:12799(glossterm)
-msgid "Export"
-msgstr "Exportieren"
-
-#: source/TortoiseSVN_en.xml:12547(screen)
+#: source/TortoiseSVN_en.xml:12840(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8829,28 +8987,23 @@ msgstr ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12550(para)
+#: source/TortoiseSVN_en.xml:12843(para)
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
 msgstr "Dieser Dialog wird für nicht versionierte Ordner aufgerufen. Der Ordner ist das Ziel des Exports. "
 
-#: source/TortoiseSVN_en.xml:12554(para)
+#: source/TortoiseSVN_en.xml:12847(para)
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
 msgstr "Der Export einer Arbeitskopie an einen anderen Ort wird ohne die Subversion Bibliotheken durchgeführt. Deshalb gibt es auch keinen entsprechenden Kommandozeilenbefehl."
 
-#: source/TortoiseSVN_en.xml:12559(para)
+#: source/TortoiseSVN_en.xml:12852(para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
 msgstr "TortoiseSVN kopiert alle Dateien an den neuen Ort und zeigt Ihnen derweil den Fortschritt an. Nicht versionierte Dateien oder Ordner können ebenfalls exportiert werden."
 
-#: source/TortoiseSVN_en.xml:12564(para)
+#: source/TortoiseSVN_en.xml:12857(para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "In beiden Fällen gilt: wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
 
-#: source/TortoiseSVN_en.xml:12571(title)
-#: source/TortoiseSVN_en.xml:12917(glossterm)
-msgid "Relocate"
-msgstr "Umplatzieren"
-
-#: source/TortoiseSVN_en.xml:12572(screen)
+#: source/TortoiseSVN_en.xml:12865(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8859,11 +9012,11 @@ msgstr ""
 "\n"
 "svn switch --relocate Von_URL Nach_URL\n"
 
-#: source/TortoiseSVN_en.xml:12577(title)
+#: source/TortoiseSVN_en.xml:12870(title)
 msgid "Create Repository Here"
 msgstr "Projektarchiv hier erstellen"
 
-#: source/TortoiseSVN_en.xml:12578(screen)
+#: source/TortoiseSVN_en.xml:12871(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8876,16 +9029,11 @@ msgstr ""
 "  oder\n"
 "svnadmin create --fs-type bdb PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12585(title)
-#: source/TortoiseSVN_en.xml:12661(glossterm)
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: source/TortoiseSVN_en.xml:12589(para)
+#: source/TortoiseSVN_en.xml:12882(para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
 msgstr "Wenn Sie einen Ordner markiert haben, durchsucht TortoiseSVN diesen rekursiv nach Objekten, die hinzugefügt werden können."
 
-#: source/TortoiseSVN_en.xml:12596(screen)
+#: source/TortoiseSVN_en.xml:12889(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8894,12 +9042,7 @@ msgstr ""
 "\n"
 "svn import -m LogMeldung PFAD URL\n"
 
-#: source/TortoiseSVN_en.xml:12605(title)
-#: source/TortoiseSVN_en.xml:12682(glossterm)
-msgid "Blame"
-msgstr "Annotieren"
-
-#: source/TortoiseSVN_en.xml:12606(screen)
+#: source/TortoiseSVN_en.xml:12899(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8910,15 +9053,15 @@ msgstr ""
 "svn blame -r N:M -v PFAD\n"
 "svn log -r N:M PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12610(para)
+#: source/TortoiseSVN_en.xml:12903(para)
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a text file, this information is not required."
 msgstr "Wenn Sie die Annotierung mit TortoiseBlame betrachten, wird die Loginformation benötigt, um die Logmeldungen in einem Hinweistext anzuzeigen. Wenn Sie die Annotierungen als Textdatei betrachten, ist diese Information nicht erforderlich."
 
-#: source/TortoiseSVN_en.xml:12618(title)
+#: source/TortoiseSVN_en.xml:12911(title)
 msgid "Add to Ignore List"
 msgstr "Ignorieren"
 
-#: source/TortoiseSVN_en.xml:12619(screen)
+#: source/TortoiseSVN_en.xml:12912(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8931,15 +9074,11 @@ msgstr ""
 "{Einträge in Tempdatei bearbeiten}\n"
 "svn propset svn:ignore -F Tempdatei PFAD\n"
 
-#: source/TortoiseSVN_en.xml:12624(para)
+#: source/TortoiseSVN_en.xml:12917(para)
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
 msgstr "Da die svn:ignore Eigenschaft oft mehrere Zeilen hat, wird hier gezeigt, wie sie mit Hilfe einer Textdatei anstatt direkt per Kommandozeile geändert wird."
 
-#: source/TortoiseSVN_en.xml:12631(title)
-msgid "Create Patch"
-msgstr "Erzeuge Patch"
-
-#: source/TortoiseSVN_en.xml:12632(screen)
+#: source/TortoiseSVN_en.xml:12925(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8948,235 +9087,223 @@ msgstr ""
 "\n"
 "svn diff PFAD &gt; Patchdatei\n"
 
-#: source/TortoiseSVN_en.xml:12635(para)
+#: source/TortoiseSVN_en.xml:12928(para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
-msgstr "TortoiseSVN erzeugt eine Patchdatei im Standard Diff-Format, indem die Arbeitskopie mit ihrer BASE Version verglichen wird."
+msgstr "TortoiseSVN erzeugt eine Patchdatei im Standard-Diff Format, indem die Arbeitskopie mit ihrer BASE Version verglichen wird."
 
-#: source/TortoiseSVN_en.xml:12641(title)
-msgid "Apply Patch"
-msgstr "Patch anwenden"
-
-#: source/TortoiseSVN_en.xml:12642(para)
+#: source/TortoiseSVN_en.xml:12935(para)
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
 msgstr "Patches anzuwenden ist ein kniffliges Unterfangen, es sei denn der Patch und die Arbeitskopie befinden sich in der gleichen Revision. Zum Glück für Sie existiert TortoiseMerge, für das es keine entsprechende Funktion in Subversion gibt."
 
-#: source/TortoiseSVN_en.xml:12659(title)
+#: source/TortoiseSVN_en.xml:12952(title)
 msgid "Glossary"
 msgstr "Glossar"
 
-#: source/TortoiseSVN_en.xml:12663(para)
+#: source/TortoiseSVN_en.xml:12956(para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Ein Subversion Befehl, der zum Hinzufügen von Dateien oder Ordnern zu einem Projektarchiv benutzt wird. Die neuen Objekte werden beim Übertragen zum Projektarchiv hinzugefügt."
 
-#: source/TortoiseSVN_en.xml:12671(glossterm)
+#: source/TortoiseSVN_en.xml:12964(glossterm)
 msgid "BASE revision"
 msgstr "BASE Revision"
 
-#: source/TortoiseSVN_en.xml:12673(para)
+#: source/TortoiseSVN_en.xml:12966(para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "Die aktuelle Basisrevision einer Datei oder eines Ordners in Ihrer <emphasis>Arbeitskopie</emphasis>. Dies ist die Revision in der sich die Datei oder der Ordners befand als zuletzt Auschecken, Aktualisieren oder Übertragen aufgerufen wurde. Die BASE Revision entspricht normalerweise nicht der HEAD Revision"
 
-#: source/TortoiseSVN_en.xml:12684(para)
+#: source/TortoiseSVN_en.xml:12977(para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
 
-#: source/TortoiseSVN_en.xml:12694(glossterm)
+#: source/TortoiseSVN_en.xml:12987(glossterm)
 msgid "BDB"
 msgstr "BDB"
 
-#: source/TortoiseSVN_en.xml:12696(para)
+#: source/TortoiseSVN_en.xml:12989(para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "Berkeley DB. Ein bewährtes Datenbanksystem für Projektarchive. Kann nicht über Netzwerkfreigaben genutzt werden. Standard für Projektarchive von Subversion vor Version 1.2."
 
-#: source/TortoiseSVN_en.xml:12703(glossterm)
+#: source/TortoiseSVN_en.xml:12996(glossterm)
 msgid "Branch"
 msgstr "Verzweigen"
 
-#: source/TortoiseSVN_en.xml:12705(para)
+#: source/TortoiseSVN_en.xml:12998(para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Ein Begriff der häufig in Versionskontrollsystemen verwendet wird, um zu beschreiben, wenn sich die Entwicklung an einem bestimmten Punkt verzweigt und verschiedenen Wegen folgt. Sie können von der Hauptentwicklungslinie abzweigen, um neue Funktionen zu implementieren ohne den Hauptzweig instabil zu machen. Genauso können Sie eine stabile, freigegebene Version abzweigen, an der Sie nur noch Fehler beseitigen, während die Weiterentwicklung am instabilen Hauptzweig erfolgt. In Subversion sind Zweige als <quote>billige Kopien</quote> implementiert."
 
-#: source/TortoiseSVN_en.xml:12720(para)
+#: source/TortoiseSVN_en.xml:13013(para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Ein Subversionbefehl, der eine lokale Arbeitskopie in einem leeren Verzeichnis erstellt, indem versionierte Dateien aus einem Projektarchiv heruntergeladen werden."
 
-#: source/TortoiseSVN_en.xml:12729(para)
+#: source/TortoiseSVN_en.xml:13022(para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
 msgstr "Ein Zitat aus dem Subversion Buch: <quote>Räumt die Arbeitskopie rekursiv auf, entfernt dabei Sperren und setzt unvollendete Operationen fort. Wenn Sie jemals einen <emphasis>Arbeitskopie gesperrt</emphasis> Fehler bekommen, führen Sie diesen Befehl aus, um veraltete Sperren zu entfernen und Ihre Arbeitskopie wieder in einen nutzbaren Zustand zu versetzen.</quote> Beachten Sie, dass in diesem Zusammenhang <emphasis>Sperren</emphasis> lokale Dateisystemsperren bezeichnet und keine Sperren im Projektarchiv."
 
-#: source/TortoiseSVN_en.xml:12746(para)
+#: source/TortoiseSVN_en.xml:13039(para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Dieser Subversionbefehl wird verwendet, um die Änderungen in Ihrer lokalen Arbeitskopie zurück in das Projektarchiv zu übertragen."
 
-#: source/TortoiseSVN_en.xml:12754(glossterm)
+#: source/TortoiseSVN_en.xml:13047(glossterm)
 msgid "Conflict"
 msgstr "Konflikt"
 
-#: source/TortoiseSVN_en.xml:12756(para)
+#: source/TortoiseSVN_en.xml:13049(para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "Wenn Änderungen vom Projektarchiv mit den lokalen Änderungen zusammengeführt werden sollen, kann es vorkommen dass diese Änderungen in den selben Zeilen der Datei auftreten. In diesem Fall kann Subversion nicht selbst entscheiden welche Version zu verwenden ist und die Datei wird somit als <quote>in Konflikt</quote> markiert. Sie müssen die Datei von Hand editieren und den Konflikt auflösen, bevor Sie weitere Änderungen übertragen können."
 
-#: source/TortoiseSVN_en.xml:12766(glossterm)
+#: source/TortoiseSVN_en.xml:13059(glossterm)
 msgid "Copy"
 msgstr "Kopieren"
 
-#: source/TortoiseSVN_en.xml:12768(para)
+#: source/TortoiseSVN_en.xml:13061(para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "In einem Subversion Projektarchiv können Sie eine Kopie einer einzelnen Datei oder eines ganzen Baumes erstellen. Diese sind als <quote>billige Kopien</quote> in Form eines Verweises auf das Original implementiert. Somit benötigt selbst die Kopie eines Dateibaumes fast keinen Platz. Eine Kopie behält die Historie ihrer Vorgänger, so dass auch Log-Meldungen über die Kopie hinaus verfolgt werden können."
 
-#: source/TortoiseSVN_en.xml:12780(para)
+#: source/TortoiseSVN_en.xml:13073(para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Wenn Sie ein versioniertes Objekt löschen (und dann Übertragen), existiert die Datei oder Ordner nach der übertragenen Revision nicht mehr im Projektarchiv. Aber selbstverständlich existiert diese noch in früheren Revisionen und es kann immer noch darauf zugegriffen werden. Falls notwendig, können Sie das gelöschte Objekt wieder in die Arbeitskopie kopieren und diese so mit der kompletten Historie <quote>wieder herstellen</quote>."
 
-#: source/TortoiseSVN_en.xml:12792(para)
+#: source/TortoiseSVN_en.xml:13085(para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "Abkürzung für <quote>Zeige Unterschiede</quote>. Sehr nützlich, wenn Sie genau sehen wollen, welche Änderungen Sie vorgenommen haben."
 
-#: source/TortoiseSVN_en.xml:12801(para)
+#: source/TortoiseSVN_en.xml:13094(para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Dieser Befehl erzeugt eine Kopie eines versionierten Ordners. Wie eine Arbeitskopie jedoch ohne die lokalen <literal>.svn</literal> Verzeichnisse."
 
-#: source/TortoiseSVN_en.xml:12809(glossterm)
+#: source/TortoiseSVN_en.xml:13102(glossterm)
 msgid "FSFS"
 msgstr "FSFS"
 
-#: source/TortoiseSVN_en.xml:12811(para)
+#: source/TortoiseSVN_en.xml:13104(para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS Dateisystem. Ein proprietäres Subversion-Dateisystem für Projektarchive. Kann über Netzwerkfreigaben genutzt werden. Seit Version 1.2 Standard für neue Projektarchive."
 
-#: source/TortoiseSVN_en.xml:12820(para)
+#: source/TortoiseSVN_en.xml:13113(para)
 msgid "Group policy object"
 msgstr "Gruppenrichtlinienobjekt"
 
-#: source/TortoiseSVN_en.xml:12826(glossterm)
+#: source/TortoiseSVN_en.xml:13119(glossterm)
 msgid "HEAD revision"
 msgstr "HEAD Revision"
 
-#: source/TortoiseSVN_en.xml:12828(para)
+#: source/TortoiseSVN_en.xml:13121(para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "Die neueste Version einer Datei oder eines Ordners im <emphasis>Projektarchiv</emphasis>."
 
-#: source/TortoiseSVN_en.xml:12836(para)
+#: source/TortoiseSVN_en.xml:13129(para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Ein Subversionbefehl mit dem eine vollständige Ordnerhierarchie mit einer einzigen Revision in ein Projektarchiv importiert wird."
 
-#: source/TortoiseSVN_en.xml:12843(glossterm)
-msgid "Lock"
-msgstr "Sperren"
-
-#: source/TortoiseSVN_en.xml:12845(para)
+#: source/TortoiseSVN_en.xml:13138(para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "Wenn Sie eine Datei sperren, wird diese im Projektarchiv als nicht übertragbar markiert, mit Ausnahme der Arbeitskopie von der aus aus die Sperre gesetzt wurde."
 
-#: source/TortoiseSVN_en.xml:12853(glossterm)
+#: source/TortoiseSVN_en.xml:13146(glossterm)
 msgid "Log"
 msgstr "Protokoll"
 
-#: source/TortoiseSVN_en.xml:12855(para)
+#: source/TortoiseSVN_en.xml:13148(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "Zeigt das Änderigsprotokoll einer Datei oder eines Ordners. Auch <quote>Historie</quote> genannt."
 
-#: source/TortoiseSVN_en.xml:12862(glossterm)
+#: source/TortoiseSVN_en.xml:13155(glossterm)
 msgid "History"
 msgstr "Historie"
 
-#: source/TortoiseSVN_en.xml:12864(para)
+#: source/TortoiseSVN_en.xml:13157(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "Zeigt die Revisionshistorie einer Datei oder eines Ordners. Auch als <quote>Log</quote> bekannt."
 
-#: source/TortoiseSVN_en.xml:12873(para)
+#: source/TortoiseSVN_en.xml:13166(para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Der Prozess mit welchem Änderungen vom Projektarchiv zur Arbeitskopie hinzugefügt werden, ohne lokale Änderungen zu beeinträchtigen. Manchmal können diese Änderungen nicht automatisch hinzugefügt werden und die Arbeitskopie befindet sich dann in einem Konflikt."
 
-#: source/TortoiseSVN_en.xml:12879(para)
+#: source/TortoiseSVN_en.xml:13172(para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Das Zusammenführen passiert automatisch, wenn Sie ihre Arbeitskopie aktualisieren. Sie können auch mit dem TortoiseSVN Befehl <quote>Zusammenführen</quote> spezifische Änderungen von einem Zweig in der Arbeitskopie zusammenführen."
 
-#: source/TortoiseSVN_en.xml:12887(glossterm)
+#: source/TortoiseSVN_en.xml:13180(glossterm)
 msgid "Patch"
 msgstr "Patch"
 
-#: source/TortoiseSVN_en.xml:12889(para)
+#: source/TortoiseSVN_en.xml:13182(para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr "Wenn eine Arbeitskopie nur Änderungen an Textdateien aufweist, ist es möglich mit dem Diff-Befehl von Subversion eine Datei zu erstellen, welche diese Änderungen im Unified Diff Format enthält. Eine Datei mit solchem Inhalt wird üblicherweise als <quote>Patch</quote> bezeichnet und kann zum Beispiel jemand anderem per Mail geschickt werden, der diese Änderungen dann in seine Arbeitskopie übernehmen kann. Jemand ohne Übertragungsrechte zum Projektarchiv kann so Änderungen vornehmen, diese Änderungen an eine Person mit Übertragungsrechten schicken, welche dann diese Änderungen übertragen kann. Oder man kann eine solche Patchdatei anderen zuerst zur Diskussion schicken, bevor man die Änderungen überträgt."
+msgstr "Wenn eine Arbeitskopie nur Änderungen an Textdateien aufweist, ist es möglich mit dem Diff-Befehl von Subversion eine Datei zu erstellen, welche diese Änderungen im Standard-Diff Format enthält. Eine Datei mit solchem Inhalt wird üblicherweise als <quote>Patch</quote> bezeichnet und kann zum Beispiel jemand anderem per Mail geschickt werden, der diese Änderungen dann in seine Arbeitskopie übernehmen kann. Jemand ohne Übertragungsrechte zum Projektarchiv kann so Änderungen vornehmen, diese Änderungen an eine Person mit Übertragungsrechten schicken, welche dann diese Änderungen übertragen kann. Oder man kann eine solche Patchdatei anderen zuerst zur Diskussion schicken, bevor man die Änderungen überträgt."
 
-#: source/TortoiseSVN_en.xml:12902(glossterm)
+#: source/TortoiseSVN_en.xml:13195(glossterm)
 msgid "Property"
 msgstr "Eigenschaft"
 
-#: source/TortoiseSVN_en.xml:12904(para)
+#: source/TortoiseSVN_en.xml:13197(para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr "Zusätzlich zur Versionierung von Dateien und Ordnern erlaubt Subversion die Versionierung von Metadaten für Ordner und Dateien, auch als <quote>Eigenschaften</quote> bezeichnet. Jede Eigenschaft hat einen Namen und einen Wert, ähnlich wie ein Registry-Schlüssel. Subversion selbst hat einige spezielle Eigenschaften definiert, welche intern benutzt werden, wie zum Beispiel <literal>svn:eol-style</literal>. TortoiseSVN nutzt ebenfalls spezielle Eigenschaften, so zum Beispiel <literal>tsvn:logminsize</literal>. Sie können eigene Eigenschaften mit jedem Namen und Wert erstellen den sie möchten."
+msgstr "Zusätzlich zur Versionierung von Dateien und Ordnern erlaubt Subversion die Versionierung von Metadaten für Ordner und Dateien, auch als <quote>Eigenschaften</quote> bezeichnet. Jede Eigenschaft hat einen Namen und einen Wert, ähnlich wie ein Registrierungsschlüssel. Subversion selbst hat einige spezielle Eigenschaften definiert, welche intern benutzt werden, wie zum Beispiel <literal>svn:eol-style</literal>. TortoiseSVN nutzt ebenfalls spezielle Eigenschaften, so zum Beispiel <literal>tsvn:logminsize</literal>. Sie können eigene Eigenschaften mit jedem Namen und Wert erstellen den sie möchten."
 
-#: source/TortoiseSVN_en.xml:12919(para)
+#: source/TortoiseSVN_en.xml:13212(para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Wenn das Projektarchiv verschoben wird, vielleicht weil Sie es in einen anderen Ordner auf dem Server verschoben haben oder der Domänenname des Servers ändert, dann müssen Sie die Arbeitskopie <quote>umplatzieren</quote>, so dass die Projektarchiv-URL zum neuen Ort zeigt."
 
-#: source/TortoiseSVN_en.xml:12925(para)
+#: source/TortoiseSVN_en.xml:13218(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Hinweis: Sie sollten diesen Befehl nur benutzen wenn die Arbeitskopie zur selben Stelle im Projektarchiv selbst zeigt und nur das Projektarchiv selbst verschoben wurde. In allen anderen Situationen müssen Sie den Befehl <quote>Wechseln zu</quote> verwenden."
 
-#: source/TortoiseSVN_en.xml:12936(para)
+#: source/TortoiseSVN_en.xml:13229(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Ein Projektarchiv ist ein zentraler Platz in dem Daten gespeichert und verwaltet werden. Das Projektarchiv kann sowohl auf einem Server liegen und über das Netzwerk angesprochen werden, als auch auf der lokalen Platte liegen."
 
-#: source/TortoiseSVN_en.xml:12945(glossterm)
-msgid "Resolve"
-msgstr "Konflikt lösen"
-
-#: source/TortoiseSVN_en.xml:12947(para)
+#: source/TortoiseSVN_en.xml:13240(para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "Wenn sich Dateien in einer Arbeitskopie nach einem Zusammenführen in einem Konflikt befinden, müssen diese Konflikte von einer Person mittels eines Editors (oder vielleicht TortoiseMerge) aufgelöst werden. Dieser Prozess wird als <quote>Konflikt lösen</quote> bezeichnet. Wenn die Konflikte aufgelöst sind, können diese Dateien als aufgelöst markiert werden, was eine Übertragung erlaubt."
 
-#: source/TortoiseSVN_en.xml:12959(para)
+#: source/TortoiseSVN_en.xml:13252(para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion hält eine lokale <quote>Basis</quote>-Kopie von jeder Datei in dem Zustand, in dem sie zuletzt aktualisiert wurde in der Arbeitskopie. Wenn Sie Änderungen gemacht haben und diese rückgängig machen wollen, können Sie den Befehl <quote>Rückgängig</quote> verwenden, um zurück zur Basisversion der Datei zu kommen."
 
-#: source/TortoiseSVN_en.xml:12968(glossterm)
+#: source/TortoiseSVN_en.xml:13261(glossterm)
 msgid "Revision"
 msgstr "Revision"
 
-#: source/TortoiseSVN_en.xml:12970(para)
+#: source/TortoiseSVN_en.xml:13263(para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Jedes Mal, wenn Sie Änderungen übertragen, wird eine neue <quote>Revision</quote> im Projektarchiv erstellt. Jede Revision stellt den Status des Projektarchivs zu einem bestimmten Zeitpunkt in der Vergangenheit dar. Wenn Sie in der Zeit zurückgehen möchten, können Sie den Zustand des Projektarchivs, wie es zur Revision N war, ansehen."
 
-#: source/TortoiseSVN_en.xml:12977(para)
+#: source/TortoiseSVN_en.xml:13270(para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "Anders ausgedrückt bezieht sich eine Revision auf eine Menge von Änderungen, die, als diese Revision erstellt wurde, vorgenommen wurden."
 
-#: source/TortoiseSVN_en.xml:12984(glossterm)
+#: source/TortoiseSVN_en.xml:13277(glossterm)
 msgid "Revision Property (revprop)"
 msgstr "Revisionseigenschaft (revprop)"
 
-#: source/TortoiseSVN_en.xml:12986(para)
+#: source/TortoiseSVN_en.xml:13279(para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "So wie Dateien Eigenschaften haben können, hat auch jede Revision im Projektarchiv Eigenschaften. Einige spezielle Revisionseigenschaften werden automatisch hinzugefügt, wenn die Revision erstellt wird. Diese sind: <literal>svn:date, svn:author svn:log</literal> welche das Übertragungsdatum, die Person welche die Übertragung gemacht hat und die Log-Meldung darstellen. Diese Eigenschaften können verändert werden, aber sie sind nicht versioniert, was bedeutet dass jede Änderung permanent ist und nicht rückgängig gemacht werden kann."
 
-#: source/TortoiseSVN_en.xml:12998(glossterm)
+#: source/TortoiseSVN_en.xml:13291(glossterm)
 msgid "SVN"
 msgstr "SVN"
 
-#: source/TortoiseSVN_en.xml:13000(para)
+#: source/TortoiseSVN_en.xml:13293(para)
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Eine häfig verwendete Abkürzung für Subversion"
 
-#: source/TortoiseSVN_en.xml:13003(para)
+#: source/TortoiseSVN_en.xml:13296(para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "Der Name des spezifischen Protokolls, das von <quote>svnserve</quote> genutzt wird."
 
-#: source/TortoiseSVN_en.xml:13012(para)
+#: source/TortoiseSVN_en.xml:13305(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "So wie <quote>Aktualisieren zu Revision</quote> den Zeitpunkt der Arbeitskopie ändert, um auf einen anderen Punkt in der Vergangenheit zu zeigen, ändert <quote>Wecheln zu</quote> die Position der Arbeitskopie, so dass sie an einen anderen Ort im Projektarchiv zeigt. Dies ist vor allem nützlich, wenn Sie mit verschiedenen Ästen arbeiten, in denen nur wenige Dateien unterschiedlich sind. Sie können ihre Arbeitskopie zwischen den Ästen hin und her wechseln wobei jeweils nur die Unterschiede übertragen werden."
 
-#: source/TortoiseSVN_en.xml:13026(para)
+#: source/TortoiseSVN_en.xml:13319(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "Dieser Subversionbefehlt holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
 
-#: source/TortoiseSVN_en.xml:13034(glossterm)
+#: source/TortoiseSVN_en.xml:13327(glossterm)
 msgid "Working Copy"
 msgstr "Arbeitskopie"
 
-#: source/TortoiseSVN_en.xml:13036(para)
+#: source/TortoiseSVN_en.xml:13329(para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Dies ist Ihr lokaler <quote>Sandkasten</quote>, der Bereich, in dem Sie an versionierten Dateien arbeiten, und er liegt normalerweise auf Ihrer lokalen Festplatte. Sie erzeugen eine Arbeitskopie, indem Sie einen Ordner aus einem Projektarchiv <quote>Auschecken</quote> und Sie führen Ihre Änderungen mit einem <quote>Übertragen</quote> in das Projektarchiv zurück."
 
