@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-06-30 08:54+0200\n"
-"PO-Revision-Date: 2007-07-15 00:34+0300\n"
+"PO-Revision-Date: 2007-07-23 23:30+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,12 @@ msgstr "TortoiseMerge"
 #: (subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Инструмент сравнения/слияния для Windows"
+
+#. TRANSLATORS: don't translate the "$MajorVersion$.$MinorVersion$.$MicroVersion$", leave it as is, translate "Version" only
+#: source/TortoiseMerge_en.xml:7
+#: (subtitle)
+msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgstr "Версия $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #: source/TortoiseMerge_en.xml:9
 #: (edition)
@@ -90,7 +96,7 @@ msgstr "Применение заплаток"
 #: source/TortoiseMerge_en.xml:41
 #: (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge помогает вам в обеих задачах: <placeholder-1/>"
+msgstr "TortoiseMerge поможет вам в обеих задачах: <placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:56
 #: (para)
