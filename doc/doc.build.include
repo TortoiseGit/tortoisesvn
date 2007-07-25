@@ -15,8 +15,8 @@ Example content of doc.build.user:
 <property name="applications" value="TortoiseSVN" />
 <property name="docformats" value="chm" />
 <property name="languages" value="en" />
-  
-This will only build the english HTML helpf file for TortoiseSVN
+
+This will only build the english HTML help file for TortoiseSVN
 
 -->
 
@@ -159,7 +159,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 
 	<target name="prepare.custom" 
 		description="Prepare XSL files, create help context file"
-		depends="versioninfo">
+		depends="PrepareVersionInfo">
 
 		<exec program="SubWCRev.exe"
 			commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
@@ -194,37 +194,35 @@ This will only build the english HTML helpf file for TortoiseSVN
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Try creating the version file                                          -->
+<!-- Prepare version info for version file and output filenames             -->
 <!-- ====================================================================== -->
 
-	<target name="versioninfo" description="Creates the version file">
-		<!-- This task shouldn't run every time because it triggers a rebuild of all the docs.
-		     To work around this, version.xml is excluded from the files that trigger the build.-->
-		<if test="${environment::variable-exists('MajorVersion')}">
-		<property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}" />
-			<copy
-				file="source\en\version.in"
-				tofile="source\en\version.xml"
-				overwrite="true"
-				>
-				<filterchain>
-					<replacetokens begintoken="$" endtoken="$">
-						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
-						<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
-						<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
-						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
-					</replacetokens>
-				</filterchain>
-			</copy>
-		</if>
+	<target name="PrepareVersionInfo" description="Prepares version info for version file and output filenames">
+
 		<if test="${not environment::variable-exists('MajorVersion')}">
-			<copy
-				file="source\en\version.in"
-				tofile="source\en\version.xml"
-				overwrite="true"
-			/>
-			<echo>Note: version information not set!</echo>
+
+		        <if test="${file::exists('../versioninfo.build')}">
+				<!-- try to get version info even if full build environment is not available -->
+				<property name="SubWCRevFileName" value="${path.subwcrev}/subwcrev.exe" unless="${property::exists('configuration')}"/>
+					<nant target="versioninfo">
+						<buildfiles>
+							<include name="../versioninfo.build" />
+						</buildfiles>
+					</nant>
+<!--				<echo>Note: version information set!</echo> -->
+			</if>
+		        <if test="${not file::exists('../versioninfo.build')}">
+				<echo>Version information set to dummy values</echo>
+				<setenv>
+					<variable name="MajorVersion" value="ver" />
+					<variable name="MinorVersion" value="x" />
+					<variable name="MicroVersion" value="x" />
+				</setenv>
+			</if>                                            
 		</if>
+
+		<property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}"/>
+
 	</target>
 
 <!-- ====================================================================== -->
