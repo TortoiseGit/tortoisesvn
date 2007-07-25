@@ -114,12 +114,12 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 		</indexterm>
 		<para>
 			As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide)
-			context menu entries. Since this is a feature which should not be lightly used
-			but only if there is a compelling reason, there is no GUI for this but has
+			context menu entries. Since this is a feature which should not be used lightly
+			but only if there is a compelling reason, there is no GUI for this and it has
 			to be done directly in the registry.
 			This can be used to disable certain commands for users who should not use them.
 			But please note that only the context menu entries in the <emphasis>explorer</emphasis>
-			are hidden, and the commands are still available through other means, e.g., the
+			are hidden, and the commands are still available through other means, e.g. the
 			command line or even other dialogs in TortoiseSVN itself!
 		</para>
 		<para>
@@ -128,8 +128,9 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 			and <filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskHigh</filename>.
 		</para>
 		<para>
-			Each of these registry entries are DWORD values with each bit corresponding to
-			a specific menu entry. A set bit means the corresponding menu entry is deactivated.
+			Each of these registry entries is a <literal>DWORD</literal> value, with each
+			bit corresponding to a specific menu entry. A set bit means the corresponding
+			menu entry is deactivated.
 		</para>
 		<para>
 			<table id="tsvn-admins-disablemenus-1-table">
@@ -293,12 +294,16 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 			and the "Settings" menu entries, add the values assigned
 			to the entries like this:
 <screen>
-0x0000000000080000 + 0x0000000080000000 + 0x2000000000000000 = 2000000080080000
+  0x0000000000080000
++ 0x0000000080000000
++ 0x2000000000000000
+= 0x2000000080080000
 </screen>
-			The lower DWORD value (0x80080000) must then be stored in
+			The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>)
+			must then be stored in
 			<filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskLow</filename>,
-			the higher DWORD value (0x20000000) in <filename>
-			HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskHigh</filename>.
+			the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in
+			<filename>HKEY_CURRENT_USER\Software\TortoiseSVN\ContextMenuEntriesMaskHigh</filename>.
 		</para>
 		<para>
 			To enable the menu entries again, simply delete the two registry keys.
