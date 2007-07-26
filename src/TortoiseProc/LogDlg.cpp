@@ -796,7 +796,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	sShortMessage.Replace(_T("\t"), _T(" "));
 	
 	found = sShortMessage.Find(_T("\n\n"));
-	if (found >=0)
+	// to avoid too short 'short' messages 
+	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
+	// only use the emtpy newline as a separator if it comes
+	// after at least 15 chars.
+	if (found >= 15)
 	{
 		sShortMessage = sShortMessage.Left(found);
 	}
