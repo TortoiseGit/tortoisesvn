@@ -42,7 +42,7 @@
 #include "SwitchDlg.h"
 #include "MergeDlg.h"
 #include "CopyDlg.h"
-#include "Settings.h"
+#include "Settings\Settings.h"
 #include "RelocateDlg.h"
 #include "URLDlg.h"
 #include "ChangedDlg.h"
@@ -1179,10 +1179,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
 			dlg.SetTreeWidth(180);
 
-			if (dlg.DoModal()==IDOK)
-			{
-				dlg.SaveData();
-			}
+			dlg.DoModal();
+			dlg.HandleRestart();
 		}
 		//#endregion
 		//#region remove
