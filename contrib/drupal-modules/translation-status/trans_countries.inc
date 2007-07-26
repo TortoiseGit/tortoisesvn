@@ -27,6 +27,7 @@ $countries = array(
 "ja"    => array("0","10","ja","Japanese","Daisuke Deguchi (GUI), Kurasawa Nozomu (docs)"),
 "ko"    => array("0","00","ko","Korean","Hojin Choi, Jae-Hong Lee"),
 "ka"    => array("0","00","ka","Georgian","Gia Shervashidze"),
+"mk"    => array("0","00","mk","Macedonian","Srdjan Stokic"),
 "nb"    => array("0","01","nb","Norwegian, bokmål","Jostein Andersen"),
 "nl"    => array("0","01","nl","Dutch","Jean-Marc van Leerdam, Yves Reynhout"),
 "pl"    => array("0","01","pl","Polish","Michal Mielniczuk, Andrzej Rusin, Piotr Kontek"),
