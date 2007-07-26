@@ -38,10 +38,8 @@ objExcelApp.Visible = True
 'Create a compare side by side view
 objExcelApp.Windows.CompareSideBySideWith(objExcelApp.Windows(2).Caption)
 If Err.Number <> 0 Then
-   objExcelApp.DisplayAlerts = False
-   objExcelApp.Quit()
-   Wscript.Echo "You must have Excel 2003 or later installed to use compare side-by-side feature."
-   Wscript.Quit 1
+	objExcelApp.Application.WindowState = xlMaximized
+	objExcelApp.Windows.Arrange(-4128)
 End If
 
 'Mark differences in sNewDoc red
