@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-10 11:26+0100\n"
+"PO-Revision-Date: 2007-07-26 09:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,11 @@ msgstr "TortoiseMerge"
 #: source/TortoiseMerge_en.xml:6(subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Ein Vergleichs- und Konflikteditor für Windows"
+
+#. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
+#: source/TortoiseMerge_en.xml:7(subtitle)
+msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgstr "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #: source/TortoiseMerge_en.xml:9(edition)
 msgid "First"
