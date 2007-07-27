@@ -315,6 +315,7 @@ BOOL CLogDlg::OnInitDialog()
 	
 	AdjustControlSize(IDC_HIDEPATHS);
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
+	AdjustControlSize(IDC_INCLUDEMERGE);
 
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
