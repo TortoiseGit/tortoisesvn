@@ -295,6 +295,11 @@
 			It can also integrate with some web-based repository browsers.
 			Read <xref linkend="tsvn-dug-repoviewer"/> for further information.
 		</para>
+		<para>
+			When you add new sub-folders using TortoiseSVN, any
+			<literal>tsvn:</literal> properties present in the parent folder
+			will automatically be added to the new child folder too.
+		</para>
 		<caution>
 			<para>
 				Although the <literal>tsvn:xxx</literal> properties are extremely useful,
