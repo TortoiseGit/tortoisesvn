@@ -112,7 +112,7 @@
 		<variablelist>
 			<varlistentry>
 				<term>Start-commit</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
@@ -121,7 +121,7 @@
 			</varlistentry>
 			<varlistentry>
 				<term>Pre-commit</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
@@ -132,7 +132,7 @@
 			</varlistentry>
 			<varlistentry>
 				<term>Post-commit</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
@@ -145,7 +145,7 @@
 			</varlistentry>
 			<varlistentry>
 				<term>Start-update</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
@@ -154,7 +154,7 @@
 			</varlistentry>
 			<varlistentry>
 				<term>Pre-update</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
@@ -165,7 +165,7 @@
 			</varlistentry>
 			<varlistentry>
 				<term>Post-update</term>
-				<listitem>
+				<listitem condition="pot">
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
