@@ -54,7 +54,7 @@
 			<graphic fileref="../images/ReadOnlyIcon.png"/> 
 			If you have set the <literal>svn:needs-lock</literal> property on a file,
 			Subversion makes that file read-only until you get a lock on that file.
-			Read-only files have this overlay to indicate that you have to get a lock
+			Such files have this overlay to indicate that you have to get a lock
 			first before you can edit that file.
 		</para>
 		<para>
