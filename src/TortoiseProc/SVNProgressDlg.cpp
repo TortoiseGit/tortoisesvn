@@ -74,8 +74,9 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_bFinishedItemAdded(false)
 	, m_bLastVisible(false)
 	, m_depth(svn_depth_unknown)
+	, m_itemCount(-1)
+	, m_itemCountTotal(-1)
 {
-
 	m_pSvn = this;
 }
 
@@ -395,6 +396,15 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		{
 			m_arData.push_back(data);
 			AddItemToList(data);
+			if ((!data->bAuxItem)&&(m_itemCount > 0))
+			{
+				m_itemCount--;
+
+				CProgressCtrl * progControl = (CProgressCtrl *)GetDlgItem(IDC_PROGRESSBAR);
+				progControl->ShowWindow(SW_SHOW);
+				progControl->SetPos(m_itemCountTotal - m_itemCount);
+				progControl->SetRange32(0, m_itemCountTotal);
+			}
 		}
 		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
 		{
@@ -697,6 +707,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, TRUE);
 	SetAndClearProgressInfo(m_hWnd);
+	m_itemCount = m_itemCountTotal;
+
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	iFirstResized = 0;
 	bSecondResized = FALSE;
@@ -1590,7 +1602,7 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
 	{
 		progControl->ShowWindow(SW_SHOW);
 	}
-	if ((pProgressData->total < 0)&&(pProgressData->progress > 1000)&&(progControl->IsWindowVisible()))
+	if (((pProgressData->total < 0)&&(pProgressData->progress > 1000)&&(progControl->IsWindowVisible()))&&(m_itemCountTotal<0))
 	{
 		progControl->ShowWindow(SW_HIDE);
 	}

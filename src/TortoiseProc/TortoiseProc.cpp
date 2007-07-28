@@ -878,6 +878,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Commit, dlg.m_bKeepLocks ? ProgOptKeeplocks : 0, dlg.m_pathList, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
 					progDlg.SetSelectedList(dlg.m_selectedPathList);
+					progDlg.SetItemCount(dlg.m_itemsCount);
 					progDlg.DoModal();
 					CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 					err = (DWORD)progDlg.DidErrorsOccur();
@@ -914,6 +915,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					ProjectProperties props;
 					props.ReadPropsPathList(dlg.m_pathList);
 					progDlg.SetProjectProperties(props);
+					progDlg.SetItemCount(dlg.m_pathList.GetCount());
 					progDlg.DoModal();
 				}
 			}
@@ -933,6 +935,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				m_pMainWnd = &progDlg;
 				int options = (dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
 				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Revert, options, dlg.m_pathList);
+				progDlg.SetItemCount(dlg.m_pathList.GetCount());
 				progDlg.DoModal();
 			}
 		}

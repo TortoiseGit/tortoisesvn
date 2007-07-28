@@ -49,6 +49,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 	, m_pThread(NULL)
 	, m_bKeepLocks(FALSE)
 	, m_bKeepChangeList(TRUE)
+	, m_itemsCount(0)
 {
 }
 
@@ -369,43 +370,50 @@ void CCommitDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted)||(!m_bRecursive))
+	//the next step: find all deleted files and check if they're 
+	//inside a deleted folder. If that's the case, then remove those
+	//files from the list since they'll get deleted by the parent
+	//folder automatically.
+	m_ListCtrl.Block(TRUE, FALSE);
+	int nDeleted = arDeleted.GetCount();
+	for (int i=0; i<arDeleted.GetCount(); i++)
 	{
-		//the next step: find all deleted files and check if they're 
-		//inside a deleted folder. If that's the case, then remove those
-		//files from the list since they'll get deleted by the parent
-		//folder automatically.
-		m_ListCtrl.Block(TRUE, FALSE);
-		for (int i=0; i<arDeleted.GetCount(); i++)
+		if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
 		{
-			if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
+			const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
+			if (path.IsDirectory())
 			{
-				const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
-				if (path.IsDirectory())
+				//now find all children of this directory
+				for (int j=0; j<arDeleted.GetCount(); j++)
 				{
-					//now find all children of this directory
-					for (int j=0; j<arDeleted.GetCount(); j++)
+					if (i!=j)
 					{
-						if (i!=j)
+						CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
+						if (childEntry->IsChecked())
 						{
-							CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
-							if (childEntry->IsChecked())
+							if (path.IsAncestorOf(childEntry->GetPath()))
 							{
-								if (path.IsAncestorOf(childEntry->GetPath()))
-								{
-									m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
-								}
+								m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
+								nDeleted--;
 							}
 						}
 					}
 				}
 			}
-		} 
-		m_ListCtrl.Block(FALSE, FALSE);
+		}
+	} 
+	m_ListCtrl.Block(FALSE, FALSE);
+
+	if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted)||(!m_bRecursive))
+	{
 		//save only the files the user has checked into the temporary file
 		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
 	m_ListCtrl.WriteCheckedNamesToPathList(m_selectedPathList);
+	// the item count is used in the progress dialog to show the overall commit
+	// progress.
+	// deleted items only send one notification event, all others send two
+	m_itemsCount = ((m_selectedPathList.GetCount() - nDeleted - itemsToRemove.GetCount()) * 2) + nDeleted + itemsToRemove.GetCount();
 
 	if ((m_bRecursive)&&(checkedLists.size() == 1))
 	{

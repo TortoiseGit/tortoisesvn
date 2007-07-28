@@ -103,6 +103,7 @@ public:
 	CString				m_sBugID;
 	CString				m_sChangeList;
 	BOOL				m_bKeepChangeList;
+	int					m_itemsCount;
 
 private:
 	CWinThread*			m_pThread;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -152,6 +152,12 @@ public:
 	void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
 	void SetSelectedList(const CTSVNPathList& selPaths);
+	/**
+	 * If the number of items for which the operation is done on is known
+	 * beforehand, that number can be set here. It is then used to show a more
+	 * accurate progress bar during the operation.
+	 */
+	void SetItemCount(long count) {if(count) m_itemCountTotal = count;}
 	CString BuildInfoString();
 	
 	bool DidErrorsOccur() {return m_bErrorsOccurred;}
@@ -263,6 +269,9 @@ private:
 	bool		m_bLockExists;
 	bool		m_bFinishedItemAdded;
 	bool		m_bLastVisible;
+
+	int			m_itemCount;
+	int			m_itemCountTotal;
 
 private:
 	// In preparation for removing SVN as base class
