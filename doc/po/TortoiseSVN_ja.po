@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-07-28 14:16+0900\n"
+"PO-Revision-Date: 2007-07-29 06:29+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Subversion クライアント for Windows"
 #. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
 #: source/TortoiseSVN_en.xml:6(subtitle)
 msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr ""
+msgstr "バージョン $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #: source/TortoiseSVN_en.xml:8(edition)
 msgid "First"
@@ -1614,8 +1614,6 @@ msgstr ""
 "</screen> を <screen>\n"
 "AuthType SSPI\n"
 "</screen> に変更しなければなりません。また、<screen>\n"
-"AuthType SSPI\n"
-"</screen> also you need to add <screen>\n"
 "SSPIAuth On\n"
 "SSPIAuthoritative On\n"
 "SSPIDomain &lt;domaincontroller&gt;\n"
@@ -2136,7 +2134,7 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
-"これを解決するひとつの解答がパスワードデータベースを作成することです。screen>\n"
+"これを解決するひとつの解答がパスワードデータベースを作成することです。<screen>\n"
 "[general]\n"
 "anon-access = none\n"
 "auth-access = write\n"
@@ -3447,18 +3445,16 @@ msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you th
 msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> バージョン管理に <emphasis>追加</emphasis> されるファイルやフォルダには+サインがつきます。"
 
 #: source/TortoiseSVN_en.xml:4749(para)
-#, fuzzy
 msgid "Unlike TortoiseCVS (the CVS shell integration) no overlay icon is shown for unversioned files. We do this because the number of icon overlays is limited system wide and should be used economically."
-msgstr "TortoiseCVS (CVS のシェル統合) と違い、バージョン管理外のファイルにはオーバーレイアイコンはつきません。アイコンオーバーレイの数がシステムで制限されており、節約するべきなのでこうしてあります。"
+msgstr "TortoiseCVS (CVS のシェル統合) と違い、バージョン管理外のファイルにはオーバーレイアイコンは表示されません。アイコンオーバーレイの数がシステムで制限されており、節約するべきなのでこうしてあります。"
 
 #: source/TortoiseSVN_en.xml:4754(para)
-#, fuzzy
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
-msgstr "実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数は 15 個に制限されているからです。Windows は 4 個使用し、残りの 11 個を他のアプリケーションで使用できるようにしています。TortoiseCVS も使用していると、使用できるオーバーレイスロットが足りません。そのため TortoiseSVN は<quote>Good Citizen (TM)</quote> に挑戦し、オーバーレイを他のアプリケーションがしようできるように制限しているのです。"
+msgstr "実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数はかなり制限されており、また TortoiseCVS も使用していると、使用できるオーバーレイスロットが足らなくなります。そのため TortoiseSVN は<quote>Good Citizen (TM)</quote> に挑戦し、オーバーレイを他のアプリケーションがしようできるように制限しているのです。"
 
 #: source/TortoiseSVN_en.xml:4761(para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr ""
+msgstr "Subversion の状態に対応するアイコンオーバーレイの付き方や、その他の技術詳細は、<xref linkend=\"tsvn-app-internals-overlays\"/> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:4768(title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -7933,18 +7929,16 @@ msgid "context menu entries"
 msgstr "コンテキストメニューエントリ"
 
 #: source/TortoiseSVN_en.xml:11690(para)
-#, fuzzy
 msgid "As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide) context menu entries. Since this is a feature which should not be used lightly but only if there is a compelling reason, there is no GUI for this and it has to be done directly in the registry. This can be used to disable certain commands for users who should not use them. But please note that only the context menu entries in the <emphasis>explorer</emphasis> are hidden, and the commands are still available through other means, e.g. the command line or even other dialogs in TortoiseSVN itself!"
-msgstr "バージョン 1.5.0 以降では、TortoiseSVN はコンテキストメニューエントリを無効 (実際には非表示) にできます。コンパイル上の理由だけではなく、この機能は気軽につかうべきではありませんので、GUI は用意されておらず、レジストリを直接操作する必要があります。特定のコマンドを使うべきでないユーザがいる場合に、そのコマンドを無効にできます。しかし、<emphasis>エクスプローラ</emphasis> にあるコンテキストメニューエントリを隠しますが、他の方法では実行できることに注意してください。例えば、コマンドラインや、TortoiseSVN 自体の他のダイアログから実行する場合などです。"
+msgstr "バージョン 1.5.0 以降では、TortoiseSVN はコンテキストメニューエントリを無効 (実際には非表示) にできます。コンパイル上の理由だけではなく、この機能は気軽につかうべきではありませんので、GUI は用意されておらず、レジストリを直接操作する必要があります。特定のコマンドを使うべきでないユーザがいる場合に、そのコマンドを無効にできます。また、<emphasis>エクスプローラ</emphasis> のコンテキストメニューエントリを隠しますが、他の方法では実行できることに注意してください。例えば、コマンドラインや、TortoiseSVN 自体の他のダイアログから実行する場合などです。"
 
 #: source/TortoiseSVN_en.xml:11700(para)
 msgid "The registry keys which hold the information on which context menus to show are <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> and <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 msgstr "コンテキストメニューを表示する際の情報を保持しているレジストリキーは、<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> と <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> です。"
 
 #: source/TortoiseSVN_en.xml:11705(para)
-#, fuzzy
 msgid "Each of these registry entries is a <literal>DWORD</literal> value, with each bit corresponding to a specific menu entry. A set bit means the corresponding menu entry is deactivated."
-msgstr "それぞれのレジストリエントリは、特定のメニューエントリに対応する各ビットの DWORD 値です。ビットをセットすると対応するメニューエントリが無効になります。"
+msgstr "それぞれのレジストリエントリは、特定のメニューエントリに対応する各ビットの <literal>DWORD</literal> 値です。ビットをセットすると対応するメニューエントリが無効になります。"
 
 #: source/TortoiseSVN_en.xml:11712(title)
 msgid "Menu entries and their values"
@@ -8117,7 +8111,6 @@ msgid "About"
 msgstr "TortoiseSVNについて"
 
 #: source/TortoiseSVN_en.xml:11867(para)
-#, fuzzy
 msgid ""
 "Example: to disable the \"Relocate\" the \"Delete unversioned items\" and the \"Settings\" menu entries, add the values assigned to the entries like this: <screen>\n"
 "  0x0000000000080000\n"
@@ -8127,8 +8120,11 @@ msgid ""
 "</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 msgstr ""
 "例: \"再配置\"・\"バージョン管理外の項目を削除する\"・\"設定\" といったメニューエントリを無効にするには、以下のように値を設定してください。<screen>\n"
-"0x0000000000080000 + 0x0000000080000000 + 0x2000000000000000 = 2000000080080000\n"
-"</screen> 下位の DWORD 値 (0x80080000) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の DWORD 値 (0x20000000) は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
+"  0x0000000000080000\n"
+"+ 0x0000000080000000\n"
+"+ 0x2000000000000000\n"
+"= 0x2000000080080000\n"
+"</screen> 下位の <literal>DWORD</literal> 値 (<literal>0x80080000</literal>) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の <literal>DWORD</literal> 値 (<literal>0x20000000</literal>) は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
 
 #: source/TortoiseSVN_en.xml:11883(para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -8551,7 +8547,7 @@ msgstr "指定すると、画像差分ツールはどちらの画像も画面一
 
 #: source/TortoiseSVN_en.xml:12405(entry)
 msgid "Hides the image info box."
-msgstr ""
+msgstr "イメージ情報ボックスを隠します。"
 
 #: source/TortoiseSVN_en.xml:12413(para)
 msgid ""
@@ -9106,37 +9102,35 @@ msgstr "パッチと作業コピーが同じリビジョンになっていなけ
 
 #: source/TortoiseSVN_en.xml:12923(title)
 msgid "Implementation Details"
-msgstr ""
+msgstr "実装の詳細"
 
 #: source/TortoiseSVN_en.xml:12925(para)
-#, fuzzy
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
-msgstr "この付録には TortoiseSVN を使用する上での 問題や疑問に対する解決法があります。"
+msgstr "この付録には TortoiseSVN の機能を実装する上での、議論の詳細が納められています。"
 
 #: source/TortoiseSVN_en.xml:12933(primary)
 msgid "overlay priority"
-msgstr ""
+msgstr "オーバーレイの優先度"
 
 #: source/TortoiseSVN_en.xml:12935(para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
-msgstr ""
+msgstr "すべてのファイルやフォルダは、Subversion ライブラリが報告する Subversion の状態値を持っています。コマンドラインクライアントでは、1 文字のコードで表示しますが、TortoiseSVN ではアイコンオーバーレイでグラフィカルに表示します。オーバーレイアイコンの数は非常に制限されているので、オーバーレイアイコンごとに複数の状態値を持つこともありえます。"
 
 #: source/TortoiseSVN_en.xml:12943(para)
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
-msgstr ""
+msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> <emphasis>競合</emphasis> オーバーレイアイコンは、更新や切替の結果でローカルの変更とリポジトリからダウンロードした変更が競合した場合の、<literal>競合</literal>状態を表示するのに使用します。操作が完了できない時に陥る、<literal>妨害</literal>状態を表すときにも表示します。"
 
 #: source/TortoiseSVN_en.xml:12952(para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
-msgstr ""
+msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> <emphasis>修正</emphasis> オーバーレイアイコンは、ローカルで変更がある<literal>修正</literal>状態や、ローカルの変更にリポジトリからの変更点をマージした<literal>マージ</literal>状態、ファイルが削除されて、同名の異なるファイルに置き換わった <literal>置換</literal>状態を表示するのに使用します。"
 
 #: source/TortoiseSVN_en.xml:12962(para)
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12971(para)
-#, fuzzy
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
-msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> バージョン管理に <emphasis>追加</emphasis> されるファイルやフォルダには+サインがつきます。"
+msgstr "<graphic fileref=\"images/AddedIcon.png\"/> バージョン管理に <emphasis>追加</emphasis> されるファイルやフォルダには + 記号がつきます。"
 
 #: source/TortoiseSVN_en.xml:12977(para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
@@ -9147,9 +9141,8 @@ msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12992(para)
-#, fuzzy
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
-msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> 更新中に <emphasis>競合</emphasis> が発生したら、黄色いエクスクラメーションマークのアイコンに変わります。"
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> ローカルの作業コピーでファイルにロックされている場合、<emphasis>ロック</emphasis> オーバーレイアイコンが使われます。"
 
 #: source/TortoiseSVN_en.xml:12997(para)
 msgid "If no overlay is shown, the item status could be <literal>ignored</literal>, <literal>unversioned</literal> or <literal>none</literal> (if the item is not within a working copy)."
@@ -9164,9 +9157,8 @@ msgid "When TortoiseSVN displays the status recursively (the default setting), e
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:13018(para)
-#, fuzzy
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr "実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数は 15 個に制限されているからです。Windows は 4 個使用し、残りの 11 個を他のアプリケーションで使用できるようにしています。TortoiseCVS も使用していると、使用できるオーバーレイスロットが足りません。そのため TortoiseSVN は<quote>Good Citizen (TM)</quote> に挑戦し、オーバーレイを他のアプリケーションがしようできるように制限しているのです。"
+msgstr "実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数は 15 個に制限されているからです。Windows は 4 個使用し、残りの 11 個を他のアプリケーションで使用できるようにしています。TortoiseCVS も使用していると、使用できるオーバーレイスロットが足らなくならないように、TortoiseSVN は<quote>Good Citizen (TM)</quote> に徹し、オーバーレイを他のアプリケーションが使用できるように制限しているのです。"
 
 #: source/TortoiseSVN_en.xml:13029(para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
