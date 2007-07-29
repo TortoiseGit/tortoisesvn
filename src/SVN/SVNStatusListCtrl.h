@@ -116,6 +116,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_POPREPAIRMOVE			0x00040000
 #define SVNSLC_POPCHANGELISTS			0x00080000
 
+#define SVNSLC_IGNORECHANGELIST			_T("commit-ignore")
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 typedef CComCritSecLock<CComCriticalSection> Locker;
@@ -602,6 +603,9 @@ private:
 	afx_msg void OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+
+	void CreateChangeList(const CString& name);
+
 	afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);

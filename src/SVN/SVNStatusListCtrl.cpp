@@ -85,11 +85,12 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_REPAIRMOVE		26
 #define IDSVNLC_REMOVEFROMCS	27
 #define IDSVNLC_CREATECS		28
-#define IDSVNLC_CHECKGROUP		29
-#define IDSVNLC_UNCHECKGROUP	30
+#define IDSVNLC_CREATEIGNORECS	29
+#define IDSVNLC_CHECKGROUP		30
+#define IDSVNLC_UNCHECKGROUP	31
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		31
+#define IDSVNLC_MOVETOCS		32
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1034,7 +1035,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 					m_arListArray.push_back(i);
 					if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 					{
-						entry->checked = true;
+						if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+							entry->checked = true;
 					}
 					AddEntry(entry, langID, listIndex++);
 				}
@@ -1044,7 +1046,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					entry->checked = true;
+					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
 			}
@@ -1053,7 +1056,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					entry->checked = true;
+					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
 			}
@@ -1162,7 +1166,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 			{
 				if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
 				{
-					entry->checked = true;
+					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+						entry->checked = true;
 					break;
 				}
 			}
@@ -2455,9 +2460,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
 							changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
+							changelistSubMenu.AppendMenu(MF_SEPARATOR);
+							if (m_changelists.find(SVNSLC_IGNORECHANGELIST) == m_changelists.end())
+							{
+								changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATEIGNORECS, SVNSLC_IGNORECHANGELIST);
+							}
 							if (m_changelists.size() > 0)
 							{
-								changelistSubMenu.AppendMenu(MF_SEPARATOR);
 								// find the changelist names
 								int cmdID = IDSVNLC_MOVETOCS;
 								for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
@@ -3396,58 +3405,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 					break;
+				case IDSVNLC_CREATEIGNORECS:
+					CreateChangeList(SVNSLC_IGNORECHANGELIST);
+					break;
 				case IDSVNLC_CREATECS:
 					{
-						CTSVNPathList changelistItems;
-						FillListOfSelectedItemPaths(changelistItems);
 						CCreateChangelistDlg dlg;
 						if (dlg.DoModal() == IDOK)
 						{
-							SVN svn;
-							if (svn.AddToChangeList(changelistItems, dlg.m_sName))
-							{
-								// The changelists were removed, but we now need to run through the selected items again
-								// and update their changelist
-								PrepareGroups(true);
-								if (m_changelists.size() == 0)
-								{
-									// there are no groups defined yet.
-									// before we can add our new group, we must assign all entries
-									// to the null-group (not assigned to a changeset)
-									for (int ii = 0; ii < GetItemCount(); ++ii)
-										SetItemGroup(ii, 0);
-								}
-								TCHAR groupname[1024];
-								LVGROUP grp = {0};
-								grp.cbSize = sizeof(LVGROUP);
-								grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-								_tcsncpy_s(groupname, 1024, dlg.m_sName, 1023);
-								grp.pszHeader = groupname;
-								grp.iGroupId = m_changelists.size()+1;
-								grp.uAlign = LVGA_HEADER_LEFT;
-								m_changelists[dlg.m_sName] = InsertGroup(-1, &grp);
-								
-								POSITION pos = GetFirstSelectedItemPosition();
-								int index;
-								while ((index = GetNextSelectedItem(pos)) >= 0)
-								{
-									FileEntry * e = GetListEntry(index);
-									e->changelist = dlg.m_sName;
-								}
-
-								for (index = 0; index < GetItemCount(); ++index)
-								{
-									FileEntry * e = GetListEntry(index);
-									if (m_changelists.find(e->changelist)!=m_changelists.end())
-										SetItemGroup(index, m_changelists[e->changelist]);
-									else
-										SetItemGroup(index, 0);
-								}
-							}
-							else
-							{
-								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							}
+							CreateChangeList(dlg.m_sName);
 						}
 					}
 					break;
@@ -3585,6 +3551,57 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				EnableGroupView(!IsGroupViewEnabled());
 			}
 		}
+	}
+}
+
+void CSVNStatusListCtrl::CreateChangeList(const CString& name)
+{
+	CTSVNPathList changelistItems;
+	FillListOfSelectedItemPaths(changelistItems);
+	SVN svn;
+	if (svn.AddToChangeList(changelistItems, name))
+	{
+		// The changelists were removed, but we now need to run through the selected items again
+		// and update their changelist
+		PrepareGroups(true);
+		if (m_changelists.size() == 0)
+		{
+			// there are no groups defined yet.
+			// before we can add our new group, we must assign all entries
+			// to the null-group (not assigned to a changeset)
+			for (int ii = 0; ii < GetItemCount(); ++ii)
+				SetItemGroup(ii, 0);
+		}
+		TCHAR groupname[1024];
+		LVGROUP grp = {0};
+		grp.cbSize = sizeof(LVGROUP);
+		grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+		_tcsncpy_s(groupname, 1024, name, 1023);
+		grp.pszHeader = groupname;
+		grp.iGroupId = m_changelists.size()+1;
+		grp.uAlign = LVGA_HEADER_LEFT;
+		m_changelists[name] = InsertGroup(-1, &grp);
+
+		POSITION pos = GetFirstSelectedItemPosition();
+		int index;
+		while ((index = GetNextSelectedItem(pos)) >= 0)
+		{
+			FileEntry * e = GetListEntry(index);
+			e->changelist = name;
+		}
+
+		for (index = 0; index < GetItemCount(); ++index)
+		{
+			FileEntry * e = GetListEntry(index);
+			if (m_changelists.find(e->changelist)!=m_changelists.end())
+				SetItemGroup(index, m_changelists[e->changelist]);
+			else
+				SetItemGroup(index, 0);
+		}
+	}
+	else
+	{
+		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 }
 
