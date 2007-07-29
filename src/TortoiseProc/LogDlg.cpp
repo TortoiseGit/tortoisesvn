@@ -186,6 +186,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
 	ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
 	ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
+	ON_COMMAND(ID_LOGDLG_FOCUSFILTER,&CLogDlg::OnFocusFilter)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -4200,4 +4201,9 @@ void CLogDlg::OnFind()
 		m_pFindDialog = new CFindReplaceDialog();
 		m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
 	}
+}
+
+void CLogDlg::OnFocusFilter()
+{
+	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();	
 }

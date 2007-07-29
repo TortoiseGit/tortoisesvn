@@ -98,6 +98,7 @@ protected:
 	afx_msg void OnBnClickedRefresh();
 	afx_msg void OnRefresh();
 	afx_msg void OnFind();
+	afx_msg void OnFocusFilter();
 
 	virtual void OnCancel();
 	virtual void OnOK();

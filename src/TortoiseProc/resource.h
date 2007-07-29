@@ -1127,13 +1127,14 @@
 #define ID_VIEW_REDUCECROSSLINES        32819
 #define ID_LOGDLG_REFRESH               32820
 #define ID_LOGDLG_FIND                  32821
+#define ID_LOGDLG_FOCUSFILTER           32825
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        255
-#define _APS_NEXT_COMMAND_VALUE         32824
+#define _APS_NEXT_COMMAND_VALUE         32827
 #define _APS_NEXT_CONTROL_VALUE         1383
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
