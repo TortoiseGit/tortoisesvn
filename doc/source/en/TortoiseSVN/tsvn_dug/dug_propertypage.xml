@@ -142,7 +142,7 @@
 		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-propertypage-tsvn-props">
-		<title>TortoiseSVN Properties</title>
+		<title>TortoiseSVN Project Properties</title>
 		<para>
 			TortoiseSVN has a few special properties of its own, and these begin
 			with <literal>tsvn:</literal>.
@@ -263,10 +263,20 @@
 			<literal>yes</literal> as a synonym for <literal>true</literal> and
 			<literal>no</literal> as a synonym for <literal>false</literal>.
 		</para>
+		<para>
+			TortoiseSVN can integrate with some bug tracking tools. This uses
+			project properties that start with <literal>bugtraq:</literal>.
+			Read <xref linkend="tsvn-dug-bugtracker"/> for further information.
+		</para>
+		<para>
+			It can also integrate with some web-based repository browsers,
+			using project properties that start with <literal>webviewer:</literal>.
+			Read <xref linkend="tsvn-dug-repoviewer"/> for further information.
+		</para>
 		<important>
-			<title>Set the <literal>tsvn:</literal> properties on folders</title>
+			<title>Set the project properties on folders</title>
 			<para>
-				These <literal>tsvn:</literal> properties must be set on
+				These special project properties must be set on
 				<emphasis>folders</emphasis> for the system to work. 
 				When you commit a file or folder the properties are read from that folder.
 				If the properties are not found there, TortoiseSVN will search upwards
@@ -280,34 +290,25 @@
 				higher levels (closer to <filename>trunk/</filename>).
 			</para>
 			<para>
-				For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+				For project properties <emphasis>only</emphasis>
 				you can use the <guilabel>Recursive</guilabel> checkbox to set
 				the property to all sub-folders in the hierarchy, without also
 				setting it on all files.
 			</para>
 		</important>
 		<para>
-			TortoiseSVN can integrate with some bug tracking 
-			tools. This uses properties, which start with <literal>bugtraq:</literal>.
-			Read <xref linkend="tsvn-dug-bugtracker"/> for further information.
-		</para>
-		<para>
-			It can also integrate with some web-based repository browsers.
-			Read <xref linkend="tsvn-dug-repoviewer"/> for further information.
-		</para>
-		<para>
 			When you add new sub-folders using TortoiseSVN, any
-			<literal>tsvn:</literal> properties present in the parent folder
+			project properties present in the parent folder
 			will automatically be added to the new child folder too.
 		</para>
 		<caution>
 			<para>
-				Although the <literal>tsvn:xxx</literal> properties are extremely useful,
+				Although TortoiseSVN's project properties are extremely useful,
 				they only work with TortoiseSVN, and some will only work in newer versions
 				of TortoiseSVN. If people working on your project use a variety of
 				Subversion clients, or possibly have old versions of TortoiseSVN,
 				you may want to use repository hooks to enforce project policies.
-				<literal>tsvn:</literal> properties can only help to implement a
+				project properties can only help to implement a
 				policy, they cannot enforce it.
 			</para>
 		</caution>
