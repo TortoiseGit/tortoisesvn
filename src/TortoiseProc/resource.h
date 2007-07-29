@@ -118,6 +118,7 @@
 #define IDC_PANCURDOWN                  251
 #define IDI_TORTOISEBLAME               252
 #define IDR_ACC_REPOBROWSER             253
+#define IDR_ACC_LOGDLG                  254
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1124,13 +1125,15 @@
 #define ID_VIEW_SPLITBRANCHES           32817
 #define ID_VIEW_FOLDTAGS                32818
 #define ID_VIEW_REDUCECROSSLINES        32819
+#define ID_LOGDLG_REFRESH               32820
+#define ID_LOGDLG_FIND                  32821
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        254
-#define _APS_NEXT_COMMAND_VALUE         32820
+#define _APS_NEXT_RESOURCE_VALUE        255
+#define _APS_NEXT_COMMAND_VALUE         32824
 #define _APS_NEXT_CONTROL_VALUE         1383
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

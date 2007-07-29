@@ -113,6 +113,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_limit(0)
 	, m_childCounter(0)
 	, m_bIncludeMerges(FALSE)
+	, m_hAccel(NULL)
 {
 }
 
@@ -183,6 +184,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
 	ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
+	ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
+	ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -203,6 +206,8 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
 BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
 
 	// use the state of the "stop on copy/rename" option from the last time
 	if (!m_bStrict)
@@ -1741,51 +1746,13 @@ void CLogDlg::EditLogMessage(int index)
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (pMsg->message == WM_KEYDOWN)
+	if (m_hAccel)
 	{
-		switch (pMsg->wParam)
-		{
-		case VK_F5:
-			{
-				if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
-					return __super::PreTranslateMessage(pMsg);
-				Refresh();
-			}
-			break;
-		case 'F':
-			{
-				if (GetKeyState(VK_CONTROL)&0x8000)
-				{
-					if (m_pFindDialog)
-					{
-						break;
-					}
-					else
-					{
-						m_pFindDialog = new CFindReplaceDialog();
-						m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
-					}
-				}
-			}	
-			break;
-		case VK_F3:
-			{
-				if (m_pFindDialog)
-				{
-					break;
-				}
-				else
-				{
-					m_pFindDialog = new CFindReplaceDialog();
-					m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
-				}
-			}
-			break;
-		default:
-			break;
-		}
+		int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
+		if (ret)
+			return TRUE;
 	}
-
+	
 	return __super::PreTranslateMessage(pMsg);
 }
 
@@ -4220,5 +4187,17 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 	SetSplitterRange();
 }
 
+void CLogDlg::OnRefresh()
+{
+	if (GetDlgItem(IDC_GETALL)->IsWindowEnabled())
+		Refresh();
+}
 
-
+void CLogDlg::OnFind()
+{
+	if (!m_pFindDialog)
+	{
+		m_pFindDialog = new CFindReplaceDialog();
+		m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+	}
+}

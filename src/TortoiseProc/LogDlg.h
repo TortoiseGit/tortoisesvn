@@ -96,6 +96,8 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnBnClickedIncludemerge();
 	afx_msg void OnBnClickedRefresh();
+	afx_msg void OnRefresh();
+	afx_msg void OnFind();
 
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -221,6 +223,7 @@ private:
 	HICON				m_hDeletedIcon;
 
 	DWORD				m_childCounter;
+	HACCEL				m_hAccel;
 private:
 	CStoreSelection* m_pStoreSelection;
     CLogDataVector m_logEntries;
