@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,7 +115,7 @@ void CShellUpdater::UpdateShell()
 		{
 			for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 			{
-				ATLTRACE("Cache Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+				ATLTRACE(_T("Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
 				if (!m_pathsForUpdating[nPath].IsDirectory())
 				{
 					// send notifications to the shell for changed files - folders are updated by the cache itself.

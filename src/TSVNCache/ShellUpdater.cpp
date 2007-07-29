@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,7 +135,7 @@ void CShellUpdater::WorkerThread()
 			}
 			if (workingPath.IsEmpty())
 				continue;
-			ATLTRACE("Update notifications for: %ws\n", workingPath.GetWinPath());
+			ATLTRACE(_T("Update notifications for: %s\n"), workingPath.GetWinPath());
 			if (workingPath.IsDirectory())
 			{
 				// first send a notification about a subfolder change, so explorer doesn't discard

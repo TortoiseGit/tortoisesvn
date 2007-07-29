@@ -87,8 +87,6 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 					linediff->m_line1tokens.push_back(token);
 					token.clear();
 				}
-				//for (int i=0; i<linediff->m_line1tokens.size(); ++i)
-				//	ATLTRACE("token %ld is = \"%ws\"\n", i, linediff->m_line1tokens[i].c_str());
 			}
 			break;
 		case svn_diff_datasource_modified:

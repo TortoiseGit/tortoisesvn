@@ -363,7 +363,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					{
 						offset1 += results.rstart(0);
 						offset2 = offset1 + results.rlength(0);
-						ATLTRACE("matched %ws\n", results.backref(0).str().c_str());
+						ATLTRACE(_T("matched %s\n"), results.backref(0).str().c_str());
 						// now we have a full match. To create the links we need to extract the
 						// bare bug ID's first.
 						{
@@ -378,7 +378,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 								{
 									idoffset1 += idresults.rstart(0);
 									idoffset2 = idoffset1 + idresults.rlength(0);
-									ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
+									ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
 									CHARRANGE range = {(LONG)idoffset1, (LONG)idoffset2};
 									pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 									CHARFORMAT2 format;
@@ -412,13 +412,13 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					if( br.matched ) 
 					{
 						// clear the styles up to the match position
-						ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+						ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
 						offset1 += results.rstart(0);
 						{
 							ATLTRACE("matched results : %ld\n", results.cbackrefs());
 							for (size_t test=0; test<results.cbackrefs(); ++test)
 							{
-								ATLTRACE("matched (%d): %ws\n", test, results.backref(test).str().c_str());
+								ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
 							}
 							// we define group 1 as the whole issue text
 							// and group 2 as the issue number
@@ -560,7 +560,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 					{
 						offset1 += results.rstart(0);
 						offset2 = offset1 + results.rlength(0);
-						ATLTRACE("matched %ws\n", results.backref(0).str().c_str());
+						ATLTRACE(_T("matched %s\n"), results.backref(0).str().c_str());
 						// now we have a full match. To create the links we need to extract the
 						// bare bug ID's first.
 						{
@@ -575,7 +575,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 								{
 									idoffset1 += idresults.rstart(0);
 									idoffset2 = idoffset1 + idresults.rlength(0);
-									ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
+									ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
 									bugIDs.insert(CString(idresults.backref(0).str().c_str()));
 									idoffset1 = idoffset2;
 									bFound = true;
@@ -602,13 +602,13 @@ CString ProjectProperties::FindBugID(const CString& msg)
 					if( br.matched ) 
 					{
 						// clear the styles up to the match position
-						ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+						ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
 						offset1 += results.rstart(0);
 						{
 							ATLTRACE("matched results : %ld\n", results.cbackrefs());
 							for (size_t test=0; test<results.cbackrefs(); ++test)
 							{
-								ATLTRACE("matched (%d): %ws\n", test, results.backref(test).str().c_str());
+								ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
 							}
 							// we define group 1 as the whole issue text
 							// and group 2 as the issue number
@@ -889,7 +889,7 @@ public:
 			{
 				offset1 += results.rstart(0);
 				offset2 = offset1 + results.rlength(0);
-				ATLTRACE("matched : %ws\n", results.backref(0).str().c_str());
+				ATLTRACE(_T("matched : %s\n"), results.backref(0).str().c_str());
 				{
 					size_t idoffset1=offset1;
 					match_results idresults;
@@ -902,7 +902,7 @@ public:
 						{
 							idoffset1 += idresults.rstart(0);
 							idoffset1 += idresults.rlength(0);
-							ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
+							ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
 						}
 					} while(idbr.matched);
 				}
@@ -925,12 +925,12 @@ public:
 				rpattern pat( (LPCTSTR)sCheckRe, MULTILINE ); 
 
 				br = pat.match( reMsg, results, offset1);
-				ATLTRACE("matched : %ws\n", results.backref(0).str().c_str());
+				ATLTRACE(_T("matched : %s\n"), results.backref(0).str().c_str());
 				if( br.matched ) 
 				{
 					for (size_t i=1; i<results.cbackrefs(); ++i)
 					{
-						ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
+						ATLTRACE(_T("matched id : %s\n"), results.backref(i).str().c_str());
 					}
 				}
 				if (br.matched)

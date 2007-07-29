@@ -436,29 +436,29 @@ public:
 	{
 		CString longline = _T("this is a test of how a string can be splitted into several lines");
 		CString splittedline = CStringUtils::WordWrap(longline, 10);
-		ATLTRACE("WordWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline, 10);
-		ATLTRACE("LinesWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 		longline = _T("c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer");
 		splittedline = CStringUtils::WordWrap(longline, 10);
-		ATLTRACE("WordWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline, 10);
-		ATLTRACE("LinesWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 		longline = _T("Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error");
 		splittedline = CStringUtils::WordWrap(longline, 20);
-		ATLTRACE("WordWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline, 20);
-		ATLTRACE("LinesWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 		longline = _T("Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror");
 		splittedline = CStringUtils::WordWrap(longline, 40);
-		ATLTRACE("WordWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline, 40);
-		ATLTRACE("LinesWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 		longline = _T("Failed to add file\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO1.java\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO2.java");
 		splittedline = CStringUtils::WordWrap(longline);
-		ATLTRACE("WordWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline);
-		ATLTRACE("LinesWrap:\n%ws\n", splittedline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 	}
 } StringUtilsTest;
 

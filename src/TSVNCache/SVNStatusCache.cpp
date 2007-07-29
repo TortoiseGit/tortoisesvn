@@ -179,7 +179,7 @@ bool CSVNStatusCache::SaveCache()
 			fclose(pFile);
 		}
 	}
-	ATLTRACE("cache saved to disk at %ws\n", path);
+	ATLTRACE(_T("cache saved to disk at %s\n"), path);
 	return true;
 error:
 	fclose(pFile);
@@ -438,7 +438,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 			return m_mostRecentStatus;
 		}
 	}
-	ATLTRACE("ignored no good path %ws\n", path.GetWinPath());
+	ATLTRACE(_T("ignored no good path %s\n"), path.GetWinPath());
 	m_mostRecentStatus = CStatusCacheEntry();
 	if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.HasSVNAdminDir(path.GetWinPath(), true))
 	{

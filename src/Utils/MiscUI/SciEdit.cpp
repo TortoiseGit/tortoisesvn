@@ -1041,7 +1041,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
 					offset1 += results.rstart(0);
 					offset2 = offset1 + results.rlength(0);
-					ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+					ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
 					{
 						size_t idoffset1=offset1;
 						size_t idoffset2=offset2;
@@ -1057,7 +1057,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_ISSUEBOLD);
 								idoffset1 += idresults.rstart(0);
 								idoffset2 = idoffset1 + idresults.rlength(0);
-								ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
+								ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
 								// bold and recursive style for the bug ID itself
 								if (idoffset2-idoffset1 > 0)
 									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_ISSUEBOLDITALIC);
@@ -1102,7 +1102,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 				if( br.matched ) 
 				{
 					// clear the styles up to the match position
-					ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+					ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
 					Call(SCI_SETSTYLING, results.rstart(0), STYLE_DEFAULT);
 					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0));
 					offset1 += results.rstart(0);
@@ -1110,7 +1110,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 						ATLTRACE("matched results : %ld\n", results.cbackrefs());
 						for (size_t test=0; test<results.cbackrefs(); ++test)
 						{
-							ATLTRACE("matched (%d): %ws\n", test, results.backref(test).str().c_str());
+							ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
 						}
 						// we define group 1 as the whole issue text
 						// and group 2 as the issue number

@@ -987,7 +987,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
 		sTemp.ReleaseBuffer();
 		sUrl = sUrl.Mid(slash+1);
-		ATLTRACE("created tree entry %ws, url %ws\n", sTemp, pTreeItem->url);
+		ATLTRACE(_T("created tree entry %s, url %s\n"), sTemp, pTreeItem->url);
 	}
 	CTreeItem * pTreeItem = new CTreeItem();
 	sTemp = sUrl;
@@ -1487,7 +1487,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 
 bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect)
 {
-	ATLTRACE("dropped %ld items on %ws, dwEffect is %ld\n", pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), dwEffect);
+	ATLTRACE(_T("dropped %ld items on %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), dwEffect);
 	if (pathlist.GetCount() == 0)
 		return false;
 

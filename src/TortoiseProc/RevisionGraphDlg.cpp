@@ -646,7 +646,7 @@ void CRevisionGraphDlg::OnChangeZoom()
 		return;
 	m_fZoomFactor = (float)(_tstof(strItem)/100.0);
 	UpdateZoomBox();
-	ATLTRACE("OnChangeZoom to %ws\n", strItem);
+	ATLTRACE(_T("OnChangeZoom to %s\n"), strItem);
 	m_Graph.DoZoom(m_fZoomFactor);
 }
 

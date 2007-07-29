@@ -160,13 +160,13 @@ bool CPathWatcher::AddPath(const CTSVNPath& path)
 	}
 	if (!newroot.IsEmpty())
 	{
-		ATLTRACE("add path to watch %ws\n", newroot.GetWinPath());
+		ATLTRACE(_T("add path to watch %s\n"), newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		m_hCompPort = INVALID_HANDLE_VALUE;
 		return true;
 	}
-	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
+	ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
 	watchedPaths.AddPath(path);
 	m_hCompPort = INVALID_HANDLE_VALUE;
 	return true;
@@ -265,7 +265,7 @@ void CPathWatcher::WorkerThread()
 					}
 					AutoLocker lock(m_critSec);
 					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
-					ATLTRACE("watching path %ws\n", pDirInfo->m_DirName.GetWinPath());
+					ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
 				}
 			}
 			else
@@ -298,7 +298,7 @@ void CPathWatcher::WorkerThread()
 						}
 						buf[min(MAX_PATH*4-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
 						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-						ATLTRACE("change notification: %ws\n", buf);
+						ATLTRACE(_T("change notification: %s\n"), buf);
 						m_changedPaths.AddPath(CTSVNPath(buf));
 						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
 							break;

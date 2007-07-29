@@ -984,7 +984,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					for (INT_PTR i=0; i<updateList.GetCount(); ++i)
 					{
 						SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[i].GetWinPath(), NULL);
-						ATLTRACE("notify change for path %ws\n", updateList[i].GetWinPath());
+						ATLTRACE(_T("notify change for path %s\n"), updateList[i].GetWinPath());
 					}
 				}
 			}

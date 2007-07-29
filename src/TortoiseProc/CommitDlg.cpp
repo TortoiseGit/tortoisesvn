@@ -748,7 +748,7 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 	
 	// Always start the timer, since the status of an existing item might have changed
 	SetTimer(REFRESHTIMER, 200, NULL);
-	ATLTRACE("Item %ws dropped, timer started\n", path.GetWinPath());
+	ATLTRACE(_T("Item %s dropped, timer started\n"), path.GetWinPath());
 	return 0;
 }
 
@@ -903,7 +903,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
 		{
 			delete buffer;
-			ATLTRACE("file %ws is either binary or unicode\n", (LPCTSTR)sFilePath);
+			ATLTRACE(_T("file %s is either binary or unicode\n"), (LPCTSTR)sFilePath);
 			return;
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
@@ -938,7 +938,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 				for (size_t i=1; i<results.cbackrefs(); ++i)
 				{
 					m_autolist.insert((LPCTSTR)results.backref(i).str().c_str());
-					ATLTRACE("group %d is \"%ws\"\n", i, results.backref(i).str().c_str());
+					ATLTRACE(_T("group %d is \"%s\"\n"), i, results.backref(i).str().c_str());
 				}
 				offset += results.rstart(0);
 				offset += results.rlength(0);
@@ -946,8 +946,8 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 		} while((br.matched)&&(m_bRunThread));
 		sFileContent.ReleaseBuffer();
 	}
-	catch (bad_alloc) {ATLTRACE("bad alloc exception when parsing file %ws\n", (LPCTSTR)sFilePath);}
-	catch (bad_regexpr) {ATLTRACE("bad regexp exception when parsing file %ws\n", (LPCTSTR)sFilePath);}
+	catch (bad_alloc) {ATLTRACE(_T("bad alloc exception when parsing file %s\n"), (LPCTSTR)sFilePath);}
+	catch (bad_regexpr) {ATLTRACE(_T("bad regexp exception when parsing file %s\n"), (LPCTSTR)sFilePath);}
 }
 
 // CSciEditContextMenuInterface
