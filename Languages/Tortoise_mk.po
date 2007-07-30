@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-07-26 19:58+0100\n"
-"Last-Translator: Srdjan Stokic <srdjan.stokic@gmail.com>\n"
+"PO-Revision-Date: 2007-07-30 08:33+0100\n"
+"Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -2862,7 +2862,7 @@ msgstr "Превземам листа со обединети разлики"
 
 #: Control-ID:65535,
 msgid "Global ignore &pattern:"
-msgstr ""
+msgstr "Глобален шаблон за &игнорирање"
 
 #: Dlg-ID:130,
 msgid "Go to line"
@@ -4141,135 +4141,137 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr ""
+"Преспој го svn:eol-style својството.\n"
+"Датотеки кои го немаат ова својство нема да се погодени."
 
 #: ID:99,
 msgid "Overwrite"
-msgstr ""
+msgstr "Презапиши"
 
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr ""
+msgstr "П&ретходен конфликт"
 
 #: ID:76,
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 #: ID:76,
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69,
 msgid "Password:"
-msgstr ""
+msgstr "Лозинка:"
 
 #: ID:172,
 msgid "Paste filename list"
-msgstr ""
+msgstr "Вметни листа со датотеки"
 
 #: ID:376,
 msgid "Patch all"
-msgstr ""
+msgstr "Закрпи ги сите"
 
 #: ID:376,
 msgid "Patch selected"
-msgstr ""
+msgstr "Закрпи ги избраните"
 
 #: ID:157,#:
 #: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr ""
+msgstr "Закрпи (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 #: ID:77,#:
 #: ID:198,
 msgid "Path"
-msgstr ""
+msgstr "Патека"
 
 #: ID:116,
 msgid "Paths"
-msgstr ""
+msgstr "Патеки"
 
 #: ID:157,
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Слики (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #: ID:246,
 msgid "Pie Graph"
-msgstr ""
+msgstr "Кружен графикон"
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a GUID."
-msgstr ""
+msgstr "Внесете GUID."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a currency."
-msgstr ""
+msgstr "Внесете валута."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date and/or time."
-msgstr ""
+msgstr "Внесете дата и/или време."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date."
-msgstr ""
+msgstr "Внесете дата."
 
 #: ID:83,
 msgid "Please enter a hook script to execute."
-msgstr ""
+msgstr "Внесете има на hook script за извршување."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter a number between %1 and %2."
-msgstr ""
+msgstr "Внесете број помеѓу %1 и %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a number."
-msgstr ""
+msgstr "Внесете број."
 
 #: ID:83,
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
+msgstr "Внесете патека каде што ќе биде применета hook скриптата."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a positive integer."
-msgstr ""
+msgstr "Внесете позитивен број."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a time."
-msgstr ""
+msgstr "Внесете време."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter an integer between %1 and %2."
-msgstr ""
+msgstr "Внесете цел број помеѓу %1 и %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer between 0 and 255."
-msgstr ""
+msgstr "Внесете цел број помеѓу 0 и 255."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer."
-msgstr ""
+msgstr "Внесете цел број."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter no more than %1 characters."
-msgstr ""
+msgstr "Внесете не повеќе од %1 карактери."
 
 #: ID:251,
 msgid "Please execute the \"Cleanup\" command."
-msgstr ""
+msgstr "Извршете ја \"Исчисти\" командата."
 
 #: ID:78,
 msgid ""
@@ -4279,42 +4281,47 @@ msgid ""
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
 msgstr ""
+"Забелешка:\n"
+"Вашата работна копоја ќе остане на претходната патека. Доколкусакате вашите измени\n"
+" да бидат внесени на копија или на гранката која што ја креиравте\n"
+" тогаш морате да ја смените вашата работна копија на ново URL.\n"
+"Употребете ја Смени командата за тоа."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
-msgstr ""
+msgstr "Изберете копче."
 
 #: ID:83,
 msgid "Please select a hook type"
-msgstr ""
+msgstr "Изберете тип на hook."
 
 #: ID:76,
 msgid "Please specify the certificate type"
-msgstr ""
+msgstr "Специфицирајте го типот на сертификатот"
 
 #: ID:132,
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr ""
+msgstr "Почекајте - ова може да потрае неколку минути. Озбилно!"
 
 #: ID:13,
 msgid "Please wait while cancelling..."
-msgstr ""
+msgstr "Причекајте додека се откажува..."
 
 #: ID:319,
 msgid "Please wait while differences are obtained..."
-msgstr ""
+msgstr "Причекајте додека се превземаат разликите..."
 
 #: ID:104,
 msgid "Please wait while the repository browser is initializing..."
-msgstr ""
+msgstr "Причекајте додека прегледникот на складиштето се иницијализира..."
 
 #: ID:104,#:
 #: ID:119,#:
 #: ID:146,#:
 #: ID:213,
 msgid "Please wait..."
-msgstr ""
+msgstr "Причекајте..."
 
 #: ID:569,
 msgid "Post-Commit Hook"
@@ -4333,245 +4340,253 @@ msgid "Pre-Update Hook"
 msgstr ""
 
 #: ID:2052,
+#, fuzzy
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Ги оневозможува случаите каде што конекциските линии се вкрстуваат со ревизиските нодови"
 
 #: ID:376,
 msgid "Preview patched file"
-msgstr ""
+msgstr "Прегледај ја закрпената датотека"
 
 #: ID:132,
 #, c-format
 msgid "Processing revision %d of %d..."
-msgstr ""
+msgstr "Процесирам ревизија %d од %d..."
 
 #: ID:74,
 msgid "Program"
-msgstr ""
+msgstr "Програма"
 
 #: ID:157,
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Програми (*.exe)|*.exe|Сите (*.*)|*.*||"
 
 #: Dlg-ID:134,#:
 #: Control-ID:65535,
 msgid "Progress"
-msgstr ""
+msgstr "Напредок"
 
 #: ID:17,#:
 #: Dlg-ID:177,#:
 #: Dlg-ID:226,
 msgid "Properties"
-msgstr ""
+msgstr "Својства"
 
 #: Control-ID:1287,
 msgid "Properties for"
-msgstr ""
+msgstr "Својства за"
 
 #: ID:209,
 msgid "Properties..."
-msgstr ""
+msgstr "Својства..."
 
 #: ID:11,
 msgid "Property"
-msgstr ""
+msgstr "Својство"
 
 #: Dlg-ID:107,
 msgid "Property Page"
-msgstr ""
+msgstr "Страница со својства"
 
 #: Control-ID:65535,
 msgid "Property Status:"
-msgstr ""
+msgstr "Статус на својството:"
 
 #: Control-ID:1292,
 msgid "Property name:"
-msgstr ""
+msgstr "Име на својството:"
 
 #: ID:207,
 msgid "Property status"
-msgstr ""
+msgstr "Статус на својството"
 
 #: Control-ID:1293,
 msgid "Property value:"
-msgstr ""
+msgstr "Вредност на својството:"
 
 #: Control-ID:65535,
 msgid "Proxy &timeout in seconds:"
-msgstr ""
+msgstr "Прокси &timeout во секунди:"
 
 #: Control-ID:1080,
 msgid "Proxy Settings"
-msgstr ""
+msgstr "Подесување на Proxy-то"
 
 #: Control-ID:1338,
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr ""
+msgstr "Стави го \"Заклучи\" на врвното мени кога svn:needs-lock е сетиран"
 
 #: ID:246,
 #, c-format
 msgid "Q%d/%.2d"
-msgstr ""
+msgstr "Q%d/%.2d"
 
 #: ID:3605,
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
 msgstr ""
+"Затвори апликација; поставува прашање дали да се зачува документот\n"
+"Излез"
 
 #: Control-ID:1073,
 msgid "R&AM drives"
-msgstr ""
+msgstr "R&AM драјв"
 
 #: ID:114,
 msgid "R&evert to this revision"
-msgstr ""
+msgstr "П&овраток на оваа ревизија"
 
 #: ID:3697,
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #: Control-ID:1048,
 msgid "Re&movable drives"
-msgstr ""
+msgstr "Из&менливи дискови"
 
 #: ID:11,
 msgid "Re&name..."
-msgstr ""
+msgstr "Преи&менувај..."
 
 #: ID:8,
 msgid "Re&vert..."
-msgstr ""
+msgstr "По&врати..."
 
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr ""
+msgstr "Прочитајте го 'Daily Use Guide' пред да заглавите..."
 
 #: Control-ID:65535,
 msgid "Recently modified lines"
-msgstr ""
+msgstr "Скоро изменети линии"
 
 #: ID:276,
+#, fuzzy
 msgid "Record Only"
-msgstr ""
+msgstr "Само запис"
 
 #: Control-ID:1260,
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Навлези и во неверзионираните директориуми"
 
 #: ID:563,
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурзивно"
 
 #: ID:3603,
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
 msgstr ""
+"Повтори претходно поништена акција\n"
+"Повтори"
 
 #: MenuEntry
 msgid "Reduce cross-&lines"
-msgstr ""
+msgstr "Намали cross-&lines"
 
 #: ID:3825,
 msgid "Reduce the window to an icon"
-msgstr ""
+msgstr "Намали го прозорецот на икона"
 
 #: ID:101,#:
 #: ID:135,#:
 #: Control-ID:1382,
 msgid "Refresh"
-msgstr ""
+msgstr "Озвежи"
 
 #: ID:82,
 msgid "Reject"
-msgstr ""
+msgstr "Одбиј"
 
 #: ID:16,
 msgid "Release loc&k"
-msgstr ""
+msgstr "От&клучи"
 
 #: ID:16,
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr ""
+msgstr "Отклучи дури и ако не сте власник на клучевите."
 
 #: ID:16,
 msgid "Releases locks on files so other users can edit them again."
-msgstr ""
+msgstr "Отклучи ги датотеките за да може другите корисници да ги менуваат."
 
 #: ID:12,
 msgid "Relo&cate..."
-msgstr ""
+msgstr "Преме&сти..."
 
 #: MenuEntry
 msgid "Reload"
-msgstr ""
+msgstr "Вчитај повторно"
 
 #: ID:2050,
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
+"Вчитај повторно отворените датотеки и поврати ги промените.\n"
+"Вчитај повторно"
 
 #: Dlg-ID:157,
 msgid "Relocate"
-msgstr ""
+msgstr "Премести"
 
 #: ID:89,
 msgid "Relocate Warning"
-msgstr ""
+msgstr "Известување за преместување"
 
 #: ID:80,
 msgid "Relocating..."
-msgstr ""
+msgstr "Преместувам..."
 
 #: ID:207,
 msgid "Remote property status"
-msgstr ""
+msgstr "Одалечен статус на ставките..."
 
 #: ID:63,#:
 #: ID:207,
 msgid "Remote status"
-msgstr ""
+msgstr "Одалечен статус"
 
 #: ID:207,
 msgid "Remote text status"
-msgstr ""
+msgstr "Одалечен текстуален статус"
 
 #: ID:126,
 #, c-format
 msgid "Remove %ld items"
-msgstr ""
+msgstr "Отстрани %ld ставки"
 
 #: ID:126,
 #, c-format
 msgid "Remove %s"
-msgstr ""
+msgstr "Отстрани %s"
 
 #: ID:15,
 msgid "Remove from &ignore list"
-msgstr ""
+msgstr "Отстрани од листата за &игнорирање"
 
 #: ID:209,
 msgid "Remove from changelist"
-msgstr ""
+msgstr "Отстрани од листата со измени"
 
 #: Control-ID:1332,
 msgid "Remove..."
-msgstr ""
+msgstr "Острани..."
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Removed"
-msgstr ""
+msgstr "Острането"
 
 #: ID:126,
 msgid "Removed file/folder"
-msgstr ""
+msgstr "Остранета датотека/директориум"
 
 #: ID:264,
 msgid "Removed from changelist"
-msgstr ""
+msgstr "Отстрането од листата со измени"
 
 #: ID:145,
 #, c-format
@@ -4580,23 +4595,26 @@ msgid ""
 "%s\n"
 "from the ignore list."
 msgstr ""
+"Остранети се шаблоните\n"
+"%s\n"
+"од листата за игнорирање."
 
 #: ID:17,
 msgid "Removes all unversioned and ignored items"
-msgstr ""
+msgstr "Отстрани ги сите неверзионирани и игнорирани ставки"
 
 #: ID:15,
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr ""
+msgstr "Отстрани ја датотеката или маската од листата на игнорирани ставки"
 
 #: Dlg-ID:151,
 msgid "Rename"
-msgstr ""
+msgstr "Преименувај"
 
 #: ID:97,
 #, c-format
 msgid "Rename %s"
-msgstr ""
+msgstr "Преименувај %s"
 
 #: ID:127,
 #, c-format
@@ -4604,86 +4622,92 @@ msgid ""
 "Rename item from %s\r\n"
 "to %s"
 msgstr ""
+"Преименувај ставка %s\r\n"
+"во %s"
 
 #: ID:221,
 msgid "Rename/move - TortoiseSVN"
-msgstr ""
+msgstr "Преименувај/премести - TortoiseSVN"
 
 #: Control-ID:65535,
 msgid "Renamed node"
-msgstr ""
+msgstr "Преименуван јазол"
 
 #: ID:126,
 msgid "Renamed remotely"
-msgstr ""
+msgstr "Преименувано на далечина"
 
 #: ID:11,
 msgid "Renames files / folders inside version control"
-msgstr ""
+msgstr "Преименува датотеки/директориуми внатре во контролата на верзии"
 
 #: ID:209,
 msgid "Repair move"
-msgstr ""
+msgstr "Поправи поместување"
 
 #: ID:3603,
 msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
+"Повтори ја последната акција\n"
+"Повтори"
 
 #: ID:3603,
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
 msgstr ""
+"Замени го специфичниот текст со друг\n"
+"Замени"
 
 #: Control-ID:65535,
 msgid "Replaced node"
-msgstr ""
+msgstr "Заменет јазол"
 
 #: ID:74,
 msgid "Replacing"
-msgstr ""
+msgstr "Заменувам"
 
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Repository"
-msgstr ""
+msgstr "Складиште"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
-msgstr ""
+msgstr "Прегледник на складиштето"
 
 #: Control-ID:65535,
 msgid "Requests a username and a password"
-msgstr ""
+msgstr "Потребно е корисничко име и лозинка"
 
 #: ID:8,
 msgid "Res&olved..."
-msgstr ""
+msgstr "Разрешен&о..."
 
 #: Dlg-ID:207,
 msgid "Resolve"
-msgstr ""
+msgstr "Разреши"
 
 #: ID:77,
 msgid "Resolve - TortoiseSVN"
-msgstr ""
+msgstr "Разреши - TortoiseSVN"
 
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
-msgstr ""
+msgstr "Разреши конфликт користејќи \"мое\""
 
 #: ID:282,
 msgid "Resolve conflict using \"theirs\""
-msgstr ""
+msgstr "Разреши конфликт користејќи \"нивно\""
 
 #: ID:74,#:
 #: ID:209,
 msgid "Resolved"
-msgstr ""
+msgstr "Разрешено"
 
 #: ID:282,
 #, c-format
@@ -4691,47 +4715,49 @@ msgid ""
 "Resolved:\n"
 "%s"
 msgstr ""
+"Разрешено:\n"
+"%s"
 
 #: ID:9,
 msgid "Resolves conflicted files"
-msgstr ""
+msgstr "Ги разрешува конфликтните датотеки"
 
 #: Control-ID:1254,#:
 #: Control-ID:1254,
 msgid "Restore Default"
-msgstr ""
+msgstr "Поврати ги основните"
 
 #: ID:3826,
 msgid "Restore the window to normal size"
-msgstr ""
+msgstr "Поврати го прозорецот на нормална големина"
 
 #: ID:73,
 msgid "Restored"
-msgstr ""
+msgstr "Повратено"
 
 #: ID:73,
 msgid "Retry"
-msgstr ""
+msgstr "Повторен обид"
 
 #: Dlg-ID:175,
 msgid "Revert"
-msgstr ""
+msgstr "Поврати"
 
 #: ID:77,
 msgid "Revert - TortoiseSVN"
-msgstr ""
+msgstr "Поврати - TortoiseSVN"
 
 #: ID:114,
 msgid "Revert changes from these revisions"
-msgstr ""
+msgstr "Поврати ги измените од овие ревизии"
 
 #: ID:73,
 msgid "Reverted"
-msgstr ""
+msgstr "Повратено"
 
 #: ID:9,
 msgid "Reverts all changes you made since the last update"
-msgstr ""
+msgstr "Поврати ги сите измени од последното ажурирање"
 
 #: ID:76,#:
 #: ID:208,#:
@@ -4740,53 +4766,53 @@ msgstr ""
 #: Control-ID:65535,#:
 #: ID:19,
 msgid "Revision"
-msgstr ""
+msgstr "Ревизија"
 
 #: ID:119,
 #, c-format
 msgid "Revision %d"
-msgstr ""
+msgstr "Ревизија %d"
 
 #: ID:269,#:
 #: ID:270,#:
 #: ID:272,
 #, c-format
 msgid "Revision %ld"
-msgstr ""
+msgstr "Ревизија %ld"
 
 #: ID:120,
 #, c-format
 msgid "Revision %s"
-msgstr ""
+msgstr "Ревизија %s"
 
 #: ID:15,
 msgid "Revision &graph"
-msgstr ""
+msgstr "&Графикон на ревизијата"
 
 #: Control-ID:65535,
 msgid "Revision / Author:"
-msgstr ""
+msgstr "Ревизија / Автор:"
 
 #: Dlg-ID:182,
 msgid "Revision Graph"
-msgstr ""
+msgstr "Графикон на ревизијата"
 
 #: Dlg-ID:239,
 msgid "Revision Graph Filter"
-msgstr ""
+msgstr "Филтер за графиконот"
 
 #: Dlg-ID:228,
 msgid "Revision Range"
-msgstr ""
+msgstr "Опсег на ревизии"
 
 #: ID:269,#:
 #: Control-ID:65535,
 msgid "Revision graph"
-msgstr ""
+msgstr "Графикон на ревизиите"
 
 #: ID:75,
 msgid "Revision: "
-msgstr ""
+msgstr "Ревизија:"
 
 #: ID:272,
 #, c-format
@@ -4799,6 +4825,13 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
+"Ревизија: %ld\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Коментар:\r\n"
+"%s"
 
 #: ID:272,
 #, c-format
@@ -4813,10 +4846,19 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
+"Ревизија: %ld\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Етикета:%s\r\n"
+"\r\n"
+"Коментар:\r\n"
+"%s"
 
 #: ID:116,
 msgid "Revisions"
-msgstr ""
+msgstr "Ревизии"
 
 #: ID:188,
 msgid "Right View: "
@@ -6806,6 +6848,9 @@ msgid ""
 "Set this to the number of chars the log message should not exceed its width.\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
+"tsvn:logwidthmarker\n"
+"Подесете го ова на број на максимален број на карактери на лог пораката\n"
+"Избледена линија ќе се појави на тоа место во дијалогот за складиарње. Номиналната вредност е 80 карактери."
 
 #: ID:15,
 msgid ""
@@ -6813,6 +6858,9 @@ msgid ""
 "Set this to the language number you want your log messages written in.\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
+"tsvn:projectlanguage\n"
+"Сетирајте го ова на број на јазикот на кој сакате да ги пишувате\n"
+"логовите. TortoiseSVN ќе се обиде да го вчита правописот доколку е достапен."
 
 #: ID:17,
 msgid ""
@@ -6820,6 +6868,9 @@ msgid ""
 "Newline separated list of user defined properties for files which will\n"
 "be shown in the property dialog to choose from."
 msgstr ""
+"tsvn:userfileproperties\n"
+"Листа на кориснички дефинираните својства за датотеки која\n"
+"ќе биде прикажана во дијалогот за избор на својствата."
 
 #: ID:17,
 msgid ""
@@ -6827,16 +6878,21 @@ msgid ""
 "Newline separated list of user defined properties for folders which will\n"
 "be shown in the property dialog to choose from."
 msgstr ""
+"tsvn:userfolderproperties\n"
+"Листа на кориснички дефинираните својства за директориуми која\n"
+"ќе биде прикажана во дијалогот за избор на својствата."
 
 #: ID:15,
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
+"tsvn:warnifnoissue\n"
+"Поставете на \"yes\" доколку е потребно да се прикаже предупредување кога ништо не е внесено за спорното прашање."
 
 #: ID:563,
 msgid "values are different"
-msgstr ""
+msgstr "вредностите се различни"
 
 #: ID:17,
 #, c-format
@@ -6846,6 +6902,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:pathrevision\n"
+"URL покажува на место во складиштето за специфична датотека и ревизија.\n"
+"Текстот %REVISION% вој тој URL е заменет со бројот на ревизијата.\n"
+"a tekstot %PATH% е заменет со релативната патека до датотеката во однос на складиштето"
 
 #: ID:17,
 #, c-format
@@ -6854,16 +6914,19 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\n"
+"URL покажува на место во складиштето за изберена ревизија.\n"
+"Текстот %REVISION% вој тој URL е заменет со бројот на ревизијата."
 
 #: ID:245,
 msgid "week"
-msgstr ""
+msgstr "недела"
 
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
-msgstr ""
+msgstr "кој покажува на складиштето со URL:"
 
 #: ID:245,
 msgid "year"
-msgstr ""
+msgstr "година"
 
