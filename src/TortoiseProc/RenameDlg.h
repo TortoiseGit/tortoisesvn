@@ -46,4 +46,5 @@ public:
 	CString m_label;
 public:
 	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+	afx_msg void OnEnChangeName();
 };

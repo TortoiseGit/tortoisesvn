@@ -44,6 +44,7 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
 	ON_WM_SIZING()
+	ON_EN_CHANGE(IDC_NAME, OnEnChangeName)
 END_MESSAGE_MAP()
 
 BOOL CRenameDlg::OnInitDialog()
@@ -63,6 +64,7 @@ BOOL CRenameDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RenameDlg"));
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	return TRUE;
 }
 
@@ -98,4 +100,10 @@ void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
 		break;
 	}
 	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
+}
+
+void CRenameDlg::OnEnChangeName()
+{
+	UpdateData();
+	GetDlgItem(IDOK)->EnableWindow(!m_name.IsEmpty());
 }
