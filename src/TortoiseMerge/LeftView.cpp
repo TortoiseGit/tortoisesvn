@@ -34,6 +34,9 @@ CLeftView::~CLeftView(void)
 
 void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates state)
 {
+	if (!m_pwndRight->IsWindowVisible())
+		return;
+
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{

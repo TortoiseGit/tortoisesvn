@@ -34,6 +34,9 @@ CRightView::~CRightView(void)
 
 void CRightView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates state)
 {
+	if (!this->IsWindowVisible())
+		return;
+
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
