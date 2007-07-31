@@ -2460,19 +2460,30 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
 							changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
-							changelistSubMenu.AppendMenu(MF_SEPARATOR);
-							if (m_changelists.find(SVNSLC_IGNORECHANGELIST) == m_changelists.end())
+
+							if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST))
 							{
+								changelistSubMenu.AppendMenu(MF_SEPARATOR);
 								changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATEIGNORECS, SVNSLC_IGNORECHANGELIST);
 							}
+
 							if (m_changelists.size() > 0)
 							{
 								// find the changelist names
+								bool bNeedSeparator = true;
 								int cmdID = IDSVNLC_MOVETOCS;
 								for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 								{
-									changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, cmdID, it->first);
-									cmdID++;
+									if ((entry->changelist.Compare(it->first))&&(it->first.Compare(SVNSLC_IGNORECHANGELIST)))
+									{
+										if (bNeedSeparator)
+										{
+											changelistSubMenu.AppendMenu(MF_SEPARATOR);
+											bNeedSeparator = false;
+										}
+										changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, cmdID, it->first);
+										cmdID++;
+									}
 								}
 							}
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_MOVETOCS);
