@@ -53,6 +53,7 @@ TortoiseBlame::TortoiseBlame()
 	currentDialog = 0;
 	wMain = 0;
 	wEditor = 0;
+	wLocator = 0;
 
 	m_font = 0;
 	m_blamewidth = 0;
@@ -455,6 +456,20 @@ bool TortoiseBlame::GotoLine(long line)
 	return true;
 }
 
+bool TortoiseBlame::ScrollToLine(long line)
+{
+	if (line < 0)
+		return false;
+
+	int nCurrentPos = SendEditor(SCI_GETCURRENTPOS);
+	int nCurrentLine = SendEditor(SCI_LINEFROMPOSITION,nCurrentPos);
+
+	int scrolldelta = line - nCurrentLine;
+	SendEditor(SCI_LINESCROLL, 0, scrolldelta);
+
+	return true;
+}
+
 void TortoiseBlame::CopySelectedLogToClipboard()
 {
 	if (m_selectedrev <= 0)
@@ -619,6 +634,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
 		break;
 	case SCN_PAINTED:
 		InvalidateRect(wBlame, NULL, FALSE);
+		InvalidateRect(wLocator, NULL, FALSE);
 		break;
 	case SCN_GETBKCOLOR:
 		if ((m_colorage)&&(notification->line < (int)revs.size()))
@@ -661,7 +677,7 @@ void TortoiseBlame::Command(int id)
 			UINT uCheck = MF_BYCOMMAND;
 			uCheck |= m_colorage ? MF_CHECKED : MF_UNCHECKED;
 			CheckMenuItem(hMenu, ID_VIEW_COLORAGEOFLINES, uCheck);
-			::InvalidateRect(wEditor, NULL, FALSE);
+			InitSize();
 		}
 		break;
 	default:
@@ -771,6 +787,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 		return;
 	if (m_font == NULL)
 		return;
+
 	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
 	LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
 	LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
@@ -860,6 +877,7 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 {
 	if (hDC == NULL)
 		return;
+
 	RECT rc;
 	HFONT oldfont = (HFONT)::SelectObject(hDC, GetStockObject(DEFAULT_GUI_FONT));
 	GetClientRect(wHeader, &rc);
@@ -886,6 +904,52 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 
 	::SelectObject(hDC, oldfont);
+}
+
+void TortoiseBlame::DrawLocatorBar(HDC hDC)
+{
+	if (hDC == NULL)
+		return;
+
+	LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
+	LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
+	LONG_PTR Y = 0;
+	COLORREF blackColor = GetSysColor(COLOR_WINDOWTEXT);
+
+	RECT rc;
+	GetClientRect(wLocator, &rc);
+	RECT lineRect = rc;
+	LONG height = rc.bottom-rc.top;
+	LONG currentLine = 0;
+
+	// draw the colored bar
+	for (std::vector<LONG>::const_iterator it = revs.begin(); it != revs.end(); ++it)
+	{
+		currentLine++;
+		// get the line color
+		COLORREF cr = InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (*it - m_lowestrev)*100/((m_highestrev-m_lowestrev)+1));
+		if ((currentLine > line)&&(currentLine <= (line + linesonscreen)))
+		{
+			cr = InterColor(cr, blackColor, 10);
+		}
+		SetBkColor(hDC, cr);
+		lineRect.top = Y;
+		lineRect.bottom = (currentLine * height / revs.size());
+		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
+		Y = lineRect.bottom;
+	}
+
+	if (revs.size())
+	{
+		// now draw two lines indicating the scroll position of the source view
+		SetBkColor(hDC, blackColor);
+		lineRect.top = line * height / revs.size();
+		lineRect.bottom = lineRect.top+1;
+		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
+		lineRect.top = (line + linesonscreen) * height / revs.size();
+		lineRect.bottom = lineRect.top+1;
+		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
+	}
 }
 
 void TortoiseBlame::StringExpand(LPSTR str)
@@ -923,10 +987,12 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 ATOM				MyRegisterClass(HINSTANCE hResource);
 ATOM				MyRegisterBlameClass(HINSTANCE hResource);
 ATOM				MyRegisterHeaderClass(HINSTANCE hResource);
+ATOM				MyRegisterLocatorClass(HINSTANCE hResource);
 BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndHeaderProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	WndLocatorProc(HWND, UINT, WPARAM, LPARAM);
 UINT				uFindReplaceMsg;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -956,6 +1022,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	MyRegisterClass(app.hResource);
 	MyRegisterBlameClass(app.hResource);
 	MyRegisterHeaderClass(app.hResource);
+	MyRegisterLocatorClass(app.hResource);
 
 	// Perform application initialization:
 	if (!InitInstance (app.hResource, nCmdShow)) 
@@ -1106,6 +1173,27 @@ ATOM MyRegisterHeaderClass(HINSTANCE hResource)
 	return RegisterClassEx(&wcex);
 }
 
+ATOM MyRegisterLocatorClass(HINSTANCE hResource)
+{
+	WNDCLASSEX wcex;
+
+	wcex.cbSize = sizeof(WNDCLASSEX); 
+
+	wcex.style			= CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc	= (WNDPROC)WndLocatorProc;
+	wcex.cbClsExtra		= 0;
+	wcex.cbWndExtra		= 0;
+	wcex.hInstance		= hResource;
+	wcex.hIcon			= LoadIcon(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
+	wcex.lpszMenuName	= 0;
+	wcex.lpszClassName	= _T("TortoiseBlameLocator");
+	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
+
+	return RegisterClassEx(&wcex);
+}
+
 BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
 {
    app.wMain = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
@@ -1206,8 +1294,18 @@ void TortoiseBlame::InitSize()
     sourcerc.top = rc.top;
     sourcerc.bottom = rc.bottom;
     sourcerc.right = rc.right;
+	if (m_colorage)
+	{
+		::OffsetRect(&blamerc, LOCATOR_WIDTH, 0);
+		::OffsetRect(&sourcerc, LOCATOR_WIDTH, 0);
+		sourcerc.right -= LOCATOR_WIDTH;
+	}
     ::SetWindowPos(wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
-    ::SetWindowPos(wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
+	::SetWindowPos(wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
+	if (m_colorage)
+		::SetWindowPos(wLocator, 0, 0, blamerc.top, LOCATOR_WIDTH, blamerc.bottom - blamerc.top, SWP_SHOWWINDOW);
+	else
+		::ShowWindow(wLocator, SW_HIDE);
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -1267,6 +1365,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			app.hResource, 
 			NULL);
 		::ShowWindow(app.wHeader, SW_SHOW);
+		app.wLocator = ::CreateWindow(
+			_T("TortoiseBlameLocator"), 
+			_T("locator"), 
+			WS_CHILD | WS_CLIPCHILDREN | WS_BORDER,
+			CW_USEDEFAULT, 0, 
+			CW_USEDEFAULT, 0, 
+			hWnd, 
+			NULL, 
+			app.hResource, 
+			NULL);
+		::ShowWindow(app.wLocator, SW_SHOW);
 		return 0;
 
 	case WM_SIZE:
@@ -1542,4 +1651,35 @@ LRESULT CALLBACK WndHeaderProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 	}
 	return 0;
 }
+
+LRESULT CALLBACK WndLocatorProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	HDC hDC;
+	switch (message) 
+	{
+	case WM_PAINT:
+		hDC = BeginPaint(app.wLocator, &ps);
+		app.DrawLocatorBar(hDC);
+		EndPaint(app.wLocator, &ps);
+		break;
+	case WM_LBUTTONDOWN:
+	case WM_MOUSEMOVE:
+		if (wParam & MK_LBUTTON)
+		{
+			RECT rect;
+			::GetClientRect(hWnd, &rect); 
+			int nLine = HIWORD(lParam)*app.revs.size()/(rect.bottom-rect.top);
+
+			if (nLine < 0)
+				nLine = 0;
+			app.ScrollToLine(nLine);
+		}
+		break;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}
+
 #pragma warning(pop)

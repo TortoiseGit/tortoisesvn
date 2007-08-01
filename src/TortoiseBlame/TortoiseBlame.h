@@ -34,6 +34,7 @@ const int blockSize = 128 * 1024;
 
 #define BLAMESPACE 20
 #define HEADER_HEIGHT 18
+#define LOCATOR_WIDTH 20
 
 #define MAX_LOG_LENGTH 2000
 
@@ -59,6 +60,7 @@ public:
 	HWND wEditor;
 	HWND wBlame;
 	HWND wHeader;
+	HWND wLocator;
 	HWND hwndTT;
 
 	LRESULT SendEditor(UINT Msg, WPARAM wParam=0, LPARAM lParam=0);
@@ -78,6 +80,7 @@ public:
 	LONG GetBlameWidth();
 	void DrawBlame(HDC hDC);
 	void DrawHeader(HDC hDC);
+	void DrawLocatorBar(HDC hDC);
 	void StartSearch();
 	void CopySelectedLogToClipboard();
 	void BlamePreviousRevision();
@@ -85,6 +88,7 @@ public:
 	void ShowLog();
 	bool DoSearch(LPSTR what, DWORD flags);
 	bool GotoLine(long line);
+	bool ScrollToLine(long line);
 	void GotoLineDlg();
 	static INT_PTR CALLBACK GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

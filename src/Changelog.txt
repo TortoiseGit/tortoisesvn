@@ -168,6 +168,8 @@
        settings for 32 and 64 bit TSVN. (Stefan Fuhrmann)
 - NEW: The project properties are automatically added to new folders. (Stefan)
 - NEW: special changeset for 'ignoring' versioned files. (Stefan)
+- NEW: TortoiseBlame has a locator bar if the age coloring is active.
+       See issue #376 for details. (Stefan)
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog
