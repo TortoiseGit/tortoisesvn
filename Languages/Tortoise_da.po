@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r9799
+# Based on Tortoise.pot r10270
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-07-03 10:19+0100\n"
+"PO-Revision-Date: 2007-08-01 16:05+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -231,6 +231,11 @@ msgstr "%s\nVil du fjerne alligevel?"
 #, c-format
 msgid "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
 msgstr "%s\ner en mappe, ikke en fil.\nTortoiseMerge kan ikke sammenligne mapper."
+
+#: ID:286,
+#, c-format
+msgid "%s\nr%s | %s\n\n%s\n"
+msgstr "%s\nr%s | %s\n\n%s\n"
 
 #: MenuEntry
 msgid "&?"
@@ -463,6 +468,10 @@ msgstr "&Fra revision"
 msgid "&Go To Line..."
 msgstr "&Gå til linje..."
 
+#: MenuEntry
+msgid "&Group branches"
+msgstr "&Gruppér forgreninger"
+
 #: Control-ID:1115,#: Control-ID:1032,
 msgid "&HEAD Revision"
 msgstr "&HEAD-revision"
@@ -560,6 +569,10 @@ msgstr "&Netværksdrev"
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&New "
 msgstr "&Ny "
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "&Nyeste øverst"
 
 #: ID:115,#: Control-ID:1208,
 #, c-format
@@ -666,6 +679,10 @@ msgstr "&Gem..."
 msgid "&Settings"
 msgstr "In&dstillinger"
 
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "&Vis HEAD-revisioner"
+
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
 msgstr "&Specifik revision i versionsarkivet"
@@ -691,7 +708,7 @@ msgid "&Tab size:"
 msgstr "&Tab-størrelse:"
 
 #: Control-ID:1222,
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Timeout i sekunder før stop af filanalyse til automatisk udfyldning"
 
 #: Control-ID:65535,
@@ -755,7 +772,7 @@ msgid "&Update to revision..."
 msgstr "&Opdater til revision..."
 
 #: Control-ID:1184,
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Brug automatisk udfyldning af stier og nøgleord"
 
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
@@ -1119,14 +1136,6 @@ msgstr "Er du sikker på at du vil tilbageføre %d emne(r)? Du mister <b>alle</b
 msgid "Arrange &Vertical"
 msgstr "Arranger &lodret"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Arrangeret efter &sti"
-
-#: ID:2050,
-msgid "Arranges the nodes sorted by path"
-msgstr "Arranger knuderne efter sti"
-
 #: ID:264,
 #, c-format
 #, fuzzy
@@ -1188,7 +1197,7 @@ msgid "Auto-close if no merges, adds or deletes"
 msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet"
 
 #: ID:195,
-msgid "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
+msgid "Auto-complete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
 msgstr "Forslå automatisk ord (normalt klasse- og element-navne)\nfra filerne, som du har ændret, når du skriver en logbesked."
 
 #: ID:438,#: ID:438,
@@ -1234,6 +1243,10 @@ msgstr "Ge&nnemse..."
 #: ID:115,
 msgid "Branch / tag created successfully!"
 msgstr "Forgrening/mærkat blev oprettet."
+
+#: ID:2052,
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "Lav forgrening ud fra kopier-fra-revision selvom der ikke var nogen ændringer i denne revision"
 
 #: ID:9,
 msgid "Branch/&tag..."
@@ -2043,6 +2056,11 @@ msgid "Dry Run"
 msgstr "Testkørsel"
 
 #: MenuEntry
+#, fuzzy
+msgid "E&xact copy sources"
+msgstr "N&øjagtige kopi-kilder"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "&Afslut"
 
@@ -2348,6 +2366,11 @@ msgstr "Tilpas billeder &sammen"
 msgid "Floppy drives (A: B:)"
 msgstr "Diskettedrev (A: B:)"
 
+#: MenuEntry
+#, fuzzy
+msgid "Fold &tags"
+msgstr "Fold &mærkater sammen"
+
 #: Control-ID:65535,
 msgid "Font"
 msgstr "Skrifttype"
@@ -2472,6 +2495,10 @@ msgstr "Graftype:"
 msgid "Group changelists"
 msgstr "Gruppe-ændringslister"
 
+#: ID:2050,
+msgid "Groups branches together"
+msgstr "Grupperer forgreninger sammen"
+
 #: Control-ID:1229,
 msgid "H&ide unrelated changed paths"
 msgstr "Skjul &ikke-relaterede, ændrede stier"
@@ -2584,6 +2611,31 @@ msgstr "ID:32809:V C +F"
 #: Corresponding Menu ID:32810; 'Fit Images &together'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32821; ''
+#: Corresponding Menu ID:32821; ''
+msgid "ID:32821:V C +F"
+msgstr "ID:32821:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825; ''
+msgid "ID:32825:V C +L"
+msgstr "ID:32825:V C +L"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825; ''
+msgid "ID:32825:VA  +D"
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601; '&Open Ctrl-O'
@@ -3050,7 +3102,7 @@ msgstr "Maks"
 msgid "Max. items to keep in the log message history"
 msgstr "Maksimalt antal logbeskeder gemt i historikken"
 
-#: Dlg-ID:141,#: Control-ID:65535,
+#: ID:276,#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "Flet"
 
@@ -3065,6 +3117,16 @@ msgstr "Flet-dybde"
 #: ID:263,#: ID:263,
 msgid "Merged"
 msgstr "Flettet"
+
+#: ID:286,
+#, c-format
+msgid "Merged revision %s from %s:\n"
+msgstr "Flettede revision %s fra %s:\n"
+
+#: ID:286,
+#, c-format
+msgid "Merged revisions %s to %s from %s:\n"
+msgstr "Flettede revisionerne %s til %s fra %s:\n"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -3084,6 +3146,16 @@ msgstr "Fletter %s fra revision %s til %s ind i %s, %s%s"
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Fletter fra %s, revision %s til %s, revision %s ind i %s, %s%s"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld"
+msgstr "Fletter r%ld"
+
+#: ID:264,
+#, c-format
+msgid "Merging r%ld through r%ld"
+msgstr "Fletter fra r%ld til r%ld"
 
 #: ID:83,
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -3582,6 +3654,10 @@ msgstr "\"Før arkivering\"-hook"
 msgid "Pre-Update Hook"
 msgstr "\"Før opdatering\"-hook"
 
+#: ID:2052,
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "Undgår for det meste at forbindelseslinjer krydser revisions-knuder"
+
 #: ID:376,
 #, fuzzy
 msgid "Preview patched file"
@@ -3695,6 +3771,11 @@ msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 msgid "Recently modified lines"
 msgstr "Nyligt ændrede linjer"
 
+#: ID:276,
+#, fuzzy
+msgid "Record Only"
+msgstr "Kun historik"
+
 #: Control-ID:1260,
 #,fuzzy
 msgid "Recurse into unversioned folders"
@@ -3708,11 +3789,15 @@ msgstr "Rekursivt"
 msgid "Redo the previously undone action\nRedo"
 msgstr "Gentag den sidst fortrudte handling\nGentag"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "Færre kryds&linjer"
+
 #: ID:3825,
 msgid "Reduce the window to an icon"
 msgstr "Minimer vindue til et ikon"
 
-#: ID:101,#: ID:135,
+#: ID:101,#: ID:135,#: Control-ID:1382,
 msgid "Refresh"
 msgstr "Opdater"
 
@@ -4000,6 +4085,11 @@ msgstr "Revision: "
 msgid "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
 msgstr "Revision: %ld\nURL: %s\r\nForfatter: %s\r\nDato: %s\r\n\r\nLogbesked:\r\n%s"
 
+#: ID:272,
+#, c-format
+msgid "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags:%s\r\n\r\nLogmessage:\r\n%s"
+msgstr "Revision: %ld\nURL: %s\r\nForfatter: %s\r\nDato: %s\r\n\r\nMærkater:%s\r\n\r\nLogbesked:\r\n%s"
+
 #: ID:116,
 msgid "Revisions"
 msgstr "Revisioner"
@@ -4274,7 +4364,7 @@ msgid "Server &address:"
 msgstr "&Server-adresse:"
 
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr "Sæt filers datostempel til \"seneste arkiverings&tidspunkt\""
 
 #: ID:13,
@@ -4352,6 +4442,11 @@ msgstr "Vis &ikke-versionerede filer"
 msgid "Show File List"
 msgstr "Vis filliste"
 
+#: ID:2051,
+#, fuzzy
+msgid "Show HEAD revision nodes"
+msgstr "Vis knuder for HEAD-revision"
+
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
 msgstr "Vis låsedialog før låsning af filer"
@@ -4388,6 +4483,10 @@ msgstr "Vis område med li&nje-sammenligning"
 msgid "Show linenumber&s"
 msgstr "Vis lin&jenumre"
 
+#: ID:2051,
+msgid "Show oldest node at top"
+msgstr "Vis ældste knude øverst"
+
 #: ID:3713,
 msgid "Show or hide the status bar\nToggle StatusBar"
 msgstr "Vis eller skjul statuslinjen\nVis/skjul statuslinje"
@@ -4399,6 +4498,10 @@ msgstr "Vis eller skjul værktøjslinjen\nVis/skjul værktøjslinje"
 #: ID:2049,
 msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr "Vis specielle tegn for blanktegn\nVis blanktegn"
+
+#: ID:2052,
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Vis mærkater på kilden til kopering, ikke som separate knuder"
 
 #: Control-ID:1209,
 msgid "Show unmodified files"
@@ -4482,6 +4585,14 @@ msgstr "Angiv revisions-intervallet, som skal flettes:"
 #: ID:376,
 msgid "Split lines"
 msgstr "Bryd linjer"
+
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "Opdel lange &forgreninger"
+
+#: ID:2052,
+msgid "Split long, inactive branches into segments"
+msgstr "Opdel lange, inaktive forgreninger i segmenter"
 
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
@@ -4813,7 +4924,7 @@ msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/
 msgstr "Den valgte mappe \n%s\ner ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
 
 #: ID:195,
-msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
+msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the auto-completion list available sooner,\nbut maybe not scan all files."
 msgstr "Antallet af sekunder, der højst bruges på læse de valgte filer.\nEn lavere værdi vil gøre automatisk udfyldning hurtigere tilgængelig,\nmen måske skannes ikke alle filer."
 
 #: ID:82,
