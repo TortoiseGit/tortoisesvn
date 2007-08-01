@@ -281,6 +281,38 @@ bool CTSVNPath::Exists() const
 	return m_bExists;
 }
 
+bool CTSVNPath::Delete(bool bTrash) const
+{
+	EnsureBackslashPathSet();
+	::SetFileAttributes(m_sBackslashPath, FILE_ATTRIBUTE_NORMAL);
+	bool bRet = false;
+	if (Exists())
+	{
+		if ((bTrash)||(IsDirectory()))
+		{
+			TCHAR * buf = new TCHAR[m_sBackslashPath.GetLength()+2];
+			_tcscpy_s(buf, m_sBackslashPath.GetLength()+2, m_sBackslashPath);
+			buf[m_sBackslashPath.GetLength()] = 0;
+			buf[m_sBackslashPath.GetLength()+1] = 0;
+			SHFILEOPSTRUCT shop = {0};
+			shop.wFunc = FO_DELETE;
+			shop.pFrom = buf;
+			shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT;
+			if (bTrash)
+				shop.fFlags |= FOF_ALLOWUNDO;
+			bRet = (SHFileOperation(&shop) == 0);
+			delete [] buf;
+		}
+		else
+		{
+			bRet = !!::DeleteFile(m_sBackslashPath);
+		}
+	}
+	m_bExists = false;
+	m_bExistsKnown = true;
+	return bRet;
+}
+
 __int64  CTSVNPath::GetLastWriteTime() const
 {
 	if(!m_bLastWriteTimeKnown)
@@ -936,14 +968,39 @@ void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
 		std::reverse(m_paths.begin(), m_paths.end());
 }
 
-void CTSVNPathList::DeleteAllFiles()
+void CTSVNPathList::DeleteAllFiles(bool bTrash)
 {
 	PathVector::const_iterator it;
-	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	if (bTrash)
 	{
-		ATLASSERT(!it->IsDirectory());
-		::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
-		::DeleteFile(it->GetWinPath());
+		SortByPathname();
+		CString sPaths;
+		for (it = m_paths.begin(); it != m_paths.end(); ++it)
+		{
+			ATLASSERT(!it->IsDirectory());
+			::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+			if (it->Exists())
+			{
+				sPaths += it->GetWinPath();
+				sPaths += '\0';
+			}
+		}
+		sPaths += '\0';
+		sPaths += '\0';
+		SHFILEOPSTRUCT shop = {0};
+		shop.wFunc = FO_DELETE;
+		shop.pFrom = (LPCTSTR)sPaths;
+		shop.fFlags = FOF_ALLOWUNDO|FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT;
+		SHFileOperation(&shop);
+	}
+	else
+	{
+		for (it = m_paths.begin(); it != m_paths.end(); ++it)
+		{
+			ATLASSERT(!it->IsDirectory());
+			::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+			::DeleteFile(it->GetWinPath());
+		}
 	}
 	Clear();
 }

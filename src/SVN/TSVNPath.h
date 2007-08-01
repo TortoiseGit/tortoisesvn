@@ -189,6 +189,12 @@ public:
 	bool Exists() const;
 	
 	/**
+	 * Deletes the file/folder
+	 * \param bTrash if true, uses the Windows trashbin when deleting.
+	 */
+	bool Delete(bool bTrash) const;
+
+	/**
 	 * Checks if a Subversion admin directory is present. For files, the check
 	 * is done in the same directory. For folders, it checks if the folder itself
 	 * contains an admin directory.
@@ -302,9 +308,11 @@ public:
 	CTSVNPath GetCommonDirectory() const;
 	CTSVNPath GetCommonRoot() const;
 	void SortByPathname(bool bReverse = false);
-	/** Delete all the files in the list, then clear the list
+	/** 
+	 * Delete all the files in the list, then clear the list.
+	 * \param bTrash if true, the items are deleted using the Windows trash bin
 	 */
-	void DeleteAllFiles();
+	void DeleteAllFiles(bool bTrash);
 	/** Remove duplicate entries from the list (sorts the list as a side-effect */
 	void RemoveDuplicates();
 	/** Removes all paths which are on or in a Subversion admin directory */

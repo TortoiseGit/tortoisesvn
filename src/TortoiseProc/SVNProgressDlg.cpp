@@ -1002,14 +1002,20 @@ UINT CSVNProgressDlg::ProgressThread()
 		}
 		break;
 	case SVNProgress_Revert:
-		localoperation = true;
-		sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
-		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
 		{
-			ReportSVNError();
-			bFailed = true;
-			break;
+			localoperation = true;
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
+			SetWindowText(sWindowTitle);
+
+			CTSVNPathList delList = m_targetPathList;
+			delList.DeleteAllFiles(true);
+
+			if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
+			{
+				ReportSVNError();
+				bFailed = true;
+				break;
+			}
 		}
 		break;
 	case SVNProgress_Resolve:

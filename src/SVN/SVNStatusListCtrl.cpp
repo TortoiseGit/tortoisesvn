@@ -2570,6 +2570,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							targetList.SortByPathname(true);
 
 							SVN svn;
+							CTSVNPathList delList = targetList;
+							delList.DeleteAllFiles(true);
 							if (!svn.Revert(targetList, FALSE))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -3165,6 +3167,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 									break;
 								}
+								fentry->GetPath().Delete(true);
 								CopyFile(theirs.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
 								if (!svn.Resolve(fentry->GetPath(), FALSE))
 								{
@@ -3220,6 +3223,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 									break;
 								}
+								fentry->GetPath().Delete(true);
 								CopyFile(mine.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
 								if (!svn.Resolve(fentry->GetPath(), FALSE))
 								{

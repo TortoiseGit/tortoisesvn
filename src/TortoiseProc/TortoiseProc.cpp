@@ -1230,6 +1230,11 @@ BOOL CTortoiseProcApp::InitInstance()
 					// if something goes wrong or unversioned/modified items are
 					// to be deleted
 					CTSVNPathList removePathList(pathList[nPath]);
+					if (bForce)
+					{
+						CTSVNPath delPath = removePathList[0];
+						delPath.Delete(true);
+					}
 					if (!svn.Remove(removePathList, bForce, parser.HasKey(_T("keep"))))
 					{
 						if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
@@ -1251,10 +1256,14 @@ BOOL CTortoiseProcApp::InitInstance()
 							if (ret == 3)
 								bForce = TRUE;
 							if ((ret == 1)||(ret==3))
+							{
+								CTSVNPath delPath = removePathList[0];
+								delPath.Delete(true);
 								if (!svn.Remove(removePathList, TRUE, parser.HasKey(_T("keep"))))
 								{
 									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}
+							}
 						}
 						else
 							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
