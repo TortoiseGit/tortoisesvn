@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-07-09 12:25+0100\n"
+"PO-Revision-Date: 2007-08-02 22:35+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -547,6 +547,11 @@ msgstr "&Z revízie"
 msgid "&Go To Line..."
 msgstr "&Choď na riadok..."
 
+# ID:213,
+#: MenuEntry
+msgid "&Group branches"
+msgstr "&Vetvy do skupín"
+
 # Control-ID:1115,#:
 # Control-ID:1032,
 #: Control-ID:1115
@@ -677,6 +682,10 @@ msgstr "&Sieťové disky"
 #: Control-ID:65535
 msgid "&New "
 msgstr "&Nový"
+
+#: MenuEntry
+msgid "&Newest on top"
+msgstr "&Najnovšia na vrchu"
 
 # Control-ID:1208,
 #: ID:115
@@ -814,6 +823,13 @@ msgstr "&Uložiť..."
 msgid "&Settings"
 msgstr "&Nastavenia"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1034,
+#: MenuEntry
+msgid "&Show HEAD revisions"
+msgstr "&Zobraziť hlavné revízie"
+
 # Control-ID:1185,
 #: Control-ID:1185
 msgid "&Specific revision in repository"
@@ -845,7 +861,7 @@ msgstr "Veľkosť &tab.:"
 
 # Control-ID:1222,
 #: Control-ID:1222
-msgid "&Timeout in seconds to stop the autocompletion parsing"
+msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "Časový limi&t pre analýzu automatického doplňovania"
 
 # Control-ID:65535,
@@ -929,7 +945,7 @@ msgstr "Akt&ualizovať na revíziu..."
 
 # Control-ID:1184,
 #: Control-ID:1184
-msgid "&Use autocompletion of filepaths and keywords"
+msgid "&Use auto-completion of file paths and keywords"
 msgstr "Po&užiť automatické doplňovanie ciest súborov a kľúčových slov"
 
 # Control-ID:65535,#:
@@ -1505,15 +1521,6 @@ msgstr "Naozaj chcete vrátiť %d objekt(y)? Stratíte <b>všetky</b> zmeny vyko
 msgid "Arrange &Vertical"
 msgstr "&Vertikálne usporiadnie"
 
-#: MenuEntry
-msgid "Arranged by &path"
-msgstr "Usporiadané podľa &adresárov"
-
-# ID:2050,
-#: ID:2050
-msgid "Arranges the nodes sorted by path"
-msgstr "Usporiadať uzly podľa cesty"
-
 # ID:15,
 #: ID:264
 #, c-format
@@ -1596,11 +1603,11 @@ msgstr "Automatcky zavrieť ,keď nie sú zlúčenia, pridania alebo vymazania"
 # ID:195,
 #: ID:195
 msgid ""
-"Autocomplete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
 "Automatické dokončovanie slov (typicky tried a mien členov)\n"
-"počas písania správ denníka zo súborov, ktoré ste zmenili."
+"počas písania správ denníka zo zmenených súborov."
 
 # ID:438,#:
 # ID:438,
@@ -1659,6 +1666,11 @@ msgstr "P&rechádzaj..."
 #: ID:115
 msgid "Branch / tag created successfully!"
 msgstr "Vetva / značka bola úspešne vytvorená!"
+
+# ID:2052,
+#: ID:2052
+msgid "Branch at copy-from-rev even if there was no change in that revision"
+msgstr "Vetviť kópiu revizie i keď neobsahuje zmeny"
 
 # ID:9,
 #: ID:9
@@ -2809,6 +2821,10 @@ msgid "Dry Run"
 msgstr "Zkúšobný beh"
 
 #: MenuEntry
+msgid "E&xact copy sources"
+msgstr "P&resná kópia zdrojových kódov"
+
+#: MenuEntry
 msgid "E&xit"
 msgstr "U&končiť"
 
@@ -3330,6 +3346,10 @@ msgstr "Zväčšiť obrá&zky na veľkosť okna"
 msgid "Floppy drives (A: B:)"
 msgstr "Pružné disky (A: B:)"
 
+#: MenuEntry
+msgid "Fold &tags"
+msgstr "Zložiť &značky"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font"
@@ -3518,6 +3538,11 @@ msgstr "Typ grafu:"
 msgid "Group changelists"
 msgstr "Skupina zoznamu zmien"
 
+# ID:2050,
+#: ID:2050
+msgid "Groups branches together"
+msgstr "Spájať vetvy"
+
 # Control-ID:1229,
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
@@ -3659,6 +3684,36 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:V C +L"
+msgstr "ID:32814:V C +L"
+
+#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#: Corresponding Menu ID:32814
+#: ; '&Newest on top'
+msgid "ID:32814:VA  +D"
+msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32821; ''
+#: Corresponding Menu ID:32821
+#: ; ''
+msgid "ID:32821:V C +F"
+msgstr "ID:32821:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:V C +L"
+msgstr "ID:32825:V C +L"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:VA  +D"
+msgstr "ID:32825:VA  +D"
+
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
 #: ; '&Open Ctrl-O'
@@ -3677,6 +3732,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634
 #: ; '&Copy'
@@ -5197,6 +5253,11 @@ msgstr "Predodovzdavací pripnutý (hook)skript"
 msgid "Pre-Update Hook"
 msgstr "Predaktulizačný pripnutý (hook)skript"
 
+# ID:2052,
+#: ID:2052
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "Predchádza väčšine kríženiu čiar."
+
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
@@ -5369,6 +5430,10 @@ msgstr ""
 "Zopakovať predošlý vrátený úkon\n"
 "Zopakovať"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "Re&dukovať kríženia čiar"
+
 # ID:3825,
 #: ID:3825
 msgid "Reduce the window to an icon"
@@ -5378,6 +5443,7 @@ msgstr "Zmenšiť okno na ikonu"
 # ID:135,
 #: ID:101
 #: ID:135
+#: Control-ID:1382
 msgid "Refresh"
 msgstr "Obnoviť"
 
@@ -5799,6 +5865,30 @@ msgstr ""
 "Správa denníka:\r\n"
 "%s"
 
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Tags:%s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revízia: %ld\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Dátum: %s\r\n"
+"\r\n"
+"Značky:%s\r\n"
+"\r\n"
+"Správa denníka:\r\n"
+"%s"
+
 # ID:116,
 #: ID:116
 msgid "Revisions"
@@ -6162,7 +6252,7 @@ msgstr "&Adresa servera:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit &time\""
+msgid "Set file dates to the \"last commit &time\""
 msgstr "Nastaviť čas súborov na \"&čas posledného odovzdania\""
 
 # ID:13,
@@ -6262,6 +6352,10 @@ msgstr "Zobraziť &neverziované súbory"
 msgid "Show File List"
 msgstr "Zobraziť zoznam súborov"
 
+#: ID:2051
+msgid "Show HEAD revision nodes"
+msgstr "Zobraziť hlavnú revíziu"
+
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Show Lock dialog before locking files"
@@ -6306,6 +6400,11 @@ msgstr "Zobraz porovnania &riadkov"
 msgid "Show linenumber&s"
 msgstr "Zobraz &čísla riadkov"
 
+# ID:2051,
+#: ID:2051
+msgid "Show oldest node at top"
+msgstr "Zobraziť najstarší vrchol na vrchu"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -6332,6 +6431,11 @@ msgid ""
 msgstr ""
 "Zobraziť špeciálne znaky pre biele znaky\n"
 "Zobraziť biele znaky"
+
+# ID:2052,
+#: ID:2052
+msgid "Show tags on the copy source, not as separate nodes"
+msgstr "Zobrazí značky na kópií zdroja, nie ako samostatný vrchol"
 
 # Control-ID:1209,
 #: Control-ID:1209
@@ -6443,6 +6547,16 @@ msgstr "Zadajte rozsah revízií, ktoré chcete zlúčiť:"
 #: ID:376
 msgid "Split lines"
 msgstr "Rozdeliť riadky"
+
+# ID:376,
+#: MenuEntry
+msgid "Split long &branches"
+msgstr "Rozdeliť dlhé &vetvy"
+
+# ID:2052,
+#: ID:2052
+msgid "Split long, inactive branches into segments"
+msgstr "Rozdeliť dlhé, neaktívne vetvy do segmentov"
 
 # ID:3604,
 #: ID:3604
@@ -7019,11 +7133,11 @@ msgstr ""
 #: ID:195
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the autocompletion list available sooner,\n"
+"A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
 "Čas v sekundách, po ktorom bude zastavená analýza súborov.\n"
-"Menšia hodnota umožní zoznam pre automatické doplannie skorej,\n"
+"Menšia hodnota umožní zoznam automatického dopĺňania skorej,\n"
 "ale monžno nebudú zanalyzované všetky súbory."
 
 # ID:82,
@@ -8344,12 +8458,13 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Novými riadkami oddelený zoznam modulov. Každý pozostáva z relatívnej cesty, parametrami revízie a URL. Napríklad\n"
+"Novými riadkami oddelený zoznam modulov. Každý pozostáva z relatívnej cesty, a voliteľnými parametrami revízie a URL. Napríklad\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
