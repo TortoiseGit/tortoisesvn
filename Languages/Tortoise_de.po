@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-07-24 10:37+0100\n"
+"PO-Revision-Date: 2007-08-02 22:18+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3725,6 +3725,24 @@ msgstr "ID:32814:V C +L"
 #: ; '&Newest on top'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32821; ''
+#: Corresponding Menu ID:32821
+#: ; ''
+msgid "ID:32821:V C +F"
+msgstr "ID:32821:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:V C +L"
+msgstr "ID:32825:V C +L"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:VA  +D"
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
@@ -8563,7 +8581,8 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
