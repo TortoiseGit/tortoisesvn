@@ -1203,71 +1203,74 @@ UINT CSVNProgressDlg::ProgressThread()
 						end = min(end, (*it)->merge_range.start);
 					}
 				}
-				SVNLogHelper loghelper;
-				bool bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), 
-					m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)));
-				if (!bGotLogs)
+				if (end != INT_MAX)
 				{
-					// if this failed, try again with HEAD as the peg revision
-					bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), SVNRev::REV_HEAD);
-				}
-				if (bGotLogs)
-				{
-					CString sSuggestedMessage;
-					if ((svn_revnum_t)m_Revision == (svn_revnum_t)m_RevisionEnd)
+					SVNLogHelper loghelper;
+					bool bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), 
+						m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)));
+					if (!bGotLogs)
 					{
-						sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGONE, m_Revision.ToString(), m_url.GetUIPathString());
+						// if this failed, try again with HEAD as the peg revision
+						bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), SVNRev::REV_HEAD);
 					}
-					else
+					if (bGotLogs)
 					{
-						sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE, m_Revision.ToString(), m_RevisionEnd.ToString(), m_url.GetUIPathString());
-					}
-					CString sMergedLogMessage;
-					CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
-					for (NotificationDataVect::const_iterator it = m_arData.begin(); it != m_arData.end(); ++it)
-					{
-						if ((*it)->merge_range.end && (*it)->merge_range.start)
+						CString sSuggestedMessage;
+						if ((svn_revnum_t)m_Revision == (svn_revnum_t)m_RevisionEnd)
 						{
-							if ((*it)->merge_range.start <= (*it)->merge_range.end)
+							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGONE, m_Revision.ToString(), m_url.GetUIPathString());
+						}
+						else
+						{
+							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE, m_Revision.ToString(), m_RevisionEnd.ToString(), m_url.GetUIPathString());
+						}
+						CString sMergedLogMessage;
+						CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
+						for (NotificationDataVect::const_iterator it = m_arData.begin(); it != m_arData.end(); ++it)
+						{
+							if ((*it)->merge_range.end && (*it)->merge_range.start)
 							{
-								for (svn_revnum_t r = (*it)->merge_range.start;
-									r <= (*it)->merge_range.end; ++r)
+								if ((*it)->merge_range.start <= (*it)->merge_range.end)
 								{
-									if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
-										(loghelper.messages.find(r) != loghelper.messages.end()))
+									for (svn_revnum_t r = (*it)->merge_range.start;
+										r <= (*it)->merge_range.end; ++r)
 									{
-										temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
-											(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
-										sMergedLogMessage += temp;
+										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
+											(loghelper.messages.find(r) != loghelper.messages.end()))
+										{
+											temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
+												(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
+											sMergedLogMessage += temp;
+										}
 									}
 								}
-							}
-							else
-							{
-								for (svn_revnum_t r = (*it)->merge_range.end;
-									r <= (*it)->merge_range.start; --r)
+								else
 								{
-									if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
-										(loghelper.messages.find(r) != loghelper.messages.end()))
+									for (svn_revnum_t r = (*it)->merge_range.end;
+										r <= (*it)->merge_range.start; --r)
 									{
-										temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
-											(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
-										sMergedLogMessage += temp;
+										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
+											(loghelper.messages.find(r) != loghelper.messages.end()))
+										{
+											temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
+												(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
+											sMergedLogMessage += temp;
+										}
 									}
 								}
 							}
 						}
-					}
-					if (!sMergedLogMessage.IsEmpty())
-					{
-						sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + sSeparator;
-						CHistoryDlg	HistoryDlg;
-						HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
-						CString reg;
-						reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
-						HistoryDlg.LoadHistory(reg, _T("logmsgs"));
-						HistoryDlg.AddString(sMergedLogMessage);
-						HistoryDlg.SaveHistory();
+						if (!sMergedLogMessage.IsEmpty())
+						{
+							sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + sSeparator;
+							CHistoryDlg	HistoryDlg;
+							HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+							CString reg;
+							reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
+							HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+							HistoryDlg.AddString(sMergedLogMessage);
+							HistoryDlg.SaveHistory();
+						}
 					}
 				}
 			}
