@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-08-02 00:28+0900\n"
+"PO-Revision-Date: 2007-08-02 23:06+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4881,7 +4881,7 @@ msgstr "プロジェクトプロパティ <emphasis>だけ</emphasis> ですが�
 
 #: source/TortoiseSVN_en.xml:7079(para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr ""
+msgstr "TortoiseSVN で新しいサブフォルダを作成する際、親フォルダに設定されているプロジェクトプロパティは、新しいサブフォルダに自動的に追加されます。"
 
 #: source/TortoiseSVN_en.xml:7085(para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
@@ -9101,11 +9101,11 @@ msgstr "<graphic fileref=\"images/AddedIcon.png\"/> バージョン管理に <em
 
 #: source/TortoiseSVN_en.xml:12943(para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
-msgstr ""
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> <emphasis>In Subversion 下</emphasis> オーバーレイアイコンは、<literal>通常</literal>状態のファイルや、まだ状態が分からないファイルに表示します。これは、TortoiseSVN が状態を取得するバックグラウンドプロセスを用いているためで、それはオーバーレイアイコンを更新する数秒前かもしれません。"
 
 #: source/TortoiseSVN_en.xml:12952(para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> <emphasis>要ロック</emphasis> オーバーレイアイコンは、<literal>svn:needs-lock</literal> プロパティを設定しているファイルに表示されます。Subversion 1.4.0 以降で作成した作業コピー向けに、<literal>svn:needs-lock</literal> 状態は、Subversion がローカルにキャッシュし、このオーバーレイアイコンを表示するかどうか決めるにに使用します。1.4.x 以前の形式の作業コピー向けには、TortoiseSVN は読込専用ファイルにこのオーバーレイアイコンを表示します。Subversion は自動的に作業コピーをアップグレードしますが、<literal>svn:needs-lock</literal> プロパティのキャッシュは、そのファイル自体の更新が発生するまで更新されません。"
 
 #: source/TortoiseSVN_en.xml:12966(para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
@@ -9117,11 +9117,11 @@ msgstr "オーバーレイアイコンが表示されない場合、そのファ
 
 #: source/TortoiseSVN_en.xml:12976(para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
-msgstr ""
+msgstr "ファイルは Subversion 状態を 1 つしか持ちません。例えば、ファイルをローカルで変更し、そのファイルを同時に削除するようマークをつけることができます。Subversion は状態値を 1 つ返します。この場合、<literal>削除</literal>です。この優先順は、Subversion で定義しています。"
 
 #: source/TortoiseSVN_en.xml:12983(para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
-msgstr ""
+msgstr "TortoiseSVN が状態を再帰的に表示する (デフォルト) 際、各フォルダは、自身の状態と、そこにある全ての子ファイルの状態を反映させたオーバーレイアイコンを表示します。ひとつに<emphasis>まとめた</emphasis>オーバーレイアイコンを表示するのに、前述の優先順位を使用します。この際、もっとも優先順が高いのは、<emphasis>競合</emphasis> 状態です。"
 
 #: source/TortoiseSVN_en.xml:12992(para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
