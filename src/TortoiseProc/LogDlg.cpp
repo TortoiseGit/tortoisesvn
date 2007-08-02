@@ -912,7 +912,7 @@ UINT CLogDlg::LogThread()
 		// returns the path in a native format
 		sUrl = CPathUtils::PathUnescape(sUrl);
 	}
-	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
+	m_sRelativeRoot = sUrl.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
 	
 	if (!m_mergePath.IsEmpty() && m_mergedRevs.empty())
 	{
