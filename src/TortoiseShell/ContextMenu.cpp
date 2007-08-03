@@ -941,7 +941,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 					// handle special cases (submenus)
 					if ((menuInfo[menuIndex].command == ShellMenuIgnoreSub)||(menuInfo[menuIndex].command == ShellMenuUnIgnoreSub))
 					{
-						InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu);
+						InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu, bShowIcons);
 						bMenuEntryAdded = true;
 					}
 					else
@@ -1840,7 +1840,7 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
 	return false;
 }
 
-void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu)
+void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu, bool bShowIcons)
 {
 	HMENU ignoresubmenu = NULL;
 	int indexignoresub = 0;
@@ -1849,6 +1849,8 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 	TCHAR ignorepath[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
 	if (files_.size() == 0)
 		return;
+	UINT icon = bShowIcons ? IDI_IGNORE : 0;
+
 	std::vector<stdstring>::iterator I = files_.begin();
 	if (_tcsrchr(I->c_str(), '\\'))
 		_tcscpy_s(ignorepath, MAX_PATH, _tcsrchr(I->c_str(), '\\')+1);
@@ -1949,8 +1951,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 		menuiteminfo.cbSize = sizeof(menuiteminfo);
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
-		HBITMAP bmp = (fullver >= 0x600) ? IconToBitmapPARGB32(IDI_IGNORE) : IconToBitmap(IDI_IGNORE);
-		menuiteminfo.hbmpItem = (fullver >= 0x600) ? bmp : HBMMENU_CALLBACK;
+		HBITMAP bmp = (fullver >= 0x600) ? IconToBitmapPARGB32(icon) : IconToBitmap(icon);
+		if (icon)
+			menuiteminfo.hbmpItem = (fullver >= 0x600) ? bmp : HBMMENU_CALLBACK;
 		menuiteminfo.hbmpChecked = bmp;
 		menuiteminfo.hbmpUnchecked = bmp;
 		menuiteminfo.hSubMenu = ignoresubmenu;
