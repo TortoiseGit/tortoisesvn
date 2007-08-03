@@ -326,16 +326,16 @@ void CFileDiffDlg::DiffProps(int selIndex)
 
 	for (int wcindex = 0; wcindex < propsurl1.GetCount(); ++wcindex)
 	{
-		stdstring wcname = propsurl1.GetItemName(wcindex);
-		stdstring wcvalue = CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
-		stdstring basevalue;
+		stdstring url1name = propsurl1.GetItemName(wcindex);
+		stdstring url1value = CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
+		stdstring url2value;
 		bool bDiffRequired = true;
-		for (int baseindex = 0; baseindex < propsurl2.GetCount(); ++baseindex)
+		for (int url2index = 0; url2index < propsurl2.GetCount(); ++url2index)
 		{
-			if (propsurl2.GetItemName(baseindex).compare(wcname)==0)
+			if (propsurl2.GetItemName(url2index).compare(url1name)==0)
 			{
-				basevalue = CUnicodeUtils::StdGetUnicode((char *)propsurl2.GetItemValue(baseindex).c_str());
-				if (basevalue.compare(wcvalue)==0)
+				url2value = CUnicodeUtils::StdGetUnicode((char *)propsurl2.GetItemValue(url2index).c_str());
+				if (url2value.compare(url1value)==0)
 				{
 					// name and value are identical
 					bDiffRequired = false;
@@ -346,19 +346,19 @@ void CFileDiffDlg::DiffProps(int selIndex)
 		if (bDiffRequired)
 		{
 			// write both property values to temporary files
-			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
-			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath url1propfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath url2propfile = CTempFiles::Instance().GetTempFilePath(true);
 			FILE * pFile;
-			_tfopen_s(&pFile, wcpropfile.GetWinPath(), _T("wb"));
+			_tfopen_s(&pFile, url1propfile.GetWinPath(), _T("wb"));
 			if (pFile)
 			{
-				fputs(CUnicodeUtils::StdGetUTF8(wcvalue).c_str(), pFile);
+				fputs(CUnicodeUtils::StdGetUTF8(url1value).c_str(), pFile);
 				fclose(pFile);
 				FILE * pFile;
-				_tfopen_s(&pFile, basepropfile.GetWinPath(), _T("wb"));
+				_tfopen_s(&pFile, url2propfile.GetWinPath(), _T("wb"));
 				if (pFile)
 				{
-					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);
+					fputs(CUnicodeUtils::StdGetUTF8(url2value).c_str(), pFile);
 					fclose(pFile);
 				}
 				else
@@ -366,44 +366,44 @@ void CFileDiffDlg::DiffProps(int selIndex)
 			}
 			else
 				return;
-			SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-			SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+			SetFileAttributes(url1propfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+			SetFileAttributes(url2propfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			CString n1, n2;
 			if (m_rev1.IsWorking())
-				n1.Format(IDS_DIFF_WCNAME, wcname.c_str());
+				n1.Format(IDS_DIFF_WCNAME, url1name.c_str());
 			if (m_rev1.IsBase())
-				n1.Format(IDS_DIFF_BASENAME, wcname.c_str());
+				n1.Format(IDS_DIFF_BASENAME, url1name.c_str());
 			if (m_rev1.IsHead() || m_rev1.IsNumber())
 			{
 				if (m_bDoPegDiff)
 				{
-					n1.Format(_T("%s : %s Revision %ld"), wcname.c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
+					n1.Format(_T("%s : %s Revision %ld"), url1name.c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
 				}
 				else
 				{
-					CString sTemp = wcname.c_str();
+					CString sTemp = url1name.c_str();
 					sTemp += _T(" : ");
 					n1 = sTemp + m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}
 			}
 			if (m_rev2.IsWorking())
-				n2.Format(IDS_DIFF_WCNAME, wcname.c_str());
+				n2.Format(IDS_DIFF_WCNAME, url1name.c_str());
 			if (m_rev2.IsBase())
-				n2.Format(IDS_DIFF_BASENAME, wcname.c_str());
+				n2.Format(IDS_DIFF_BASENAME, url1name.c_str());
 			if (m_rev2.IsHead() || m_rev2.IsNumber())
 			{
 				if (m_bDoPegDiff)
 				{
-					n2.Format(_T("%s : %s Revision %ld"), wcname.c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
+					n2.Format(_T("%s : %s Revision %ld"), url1name.c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
 				}
 				else
 				{
-					CString sTemp = wcname.c_str();
+					CString sTemp = url1name.c_str();
 					sTemp += _T(" : ");
 					n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}
 			}
-			CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE);
+			CAppUtils::StartExtDiffProps(url1propfile, url2propfile, n1, n2, TRUE);
 		}
 	}
 }
