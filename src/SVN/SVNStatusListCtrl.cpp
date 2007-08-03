@@ -2446,7 +2446,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPY, temp);
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_COPYEXT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COPYEXT, temp);
-					if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)&&(XPorLater))
+					if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)&&(XPorLater)
+						&&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
 					{
 						popup.AppendMenu(MF_SEPARATOR);
 						// changelist commands
@@ -3444,11 +3445,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						int cmdID = IDSVNLC_MOVETOCS;
 						for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 						{
-							if (cmd == cmdID)
+							if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
 							{
-								sChangelist = it->first;
+								if (cmd == cmdID)
+								{
+									sChangelist = it->first;
+								}
+								cmdID++;
 							}
-							cmdID++;
 						}
 						if (!sChangelist.IsEmpty())
 						{
