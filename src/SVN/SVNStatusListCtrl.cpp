@@ -139,6 +139,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bHasLocks(false)
 	, m_bBlock(false)
 	, m_bBlockUI(false)
+	, m_bHasCheckboxes(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
@@ -202,6 +203,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer, dwColumns);
 	m_dwColumns = regColInfo;
 	m_dwContextMenus = dwContextMenus;
+	m_bHasCheckboxes = bHasCheckboxes;
 	// set the extended style of the listcontrol
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
 	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
@@ -2095,7 +2097,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			ClientToScreen(&rect);
 			point = rect.CenterPoint();
 		}
-		if ((GetSelectedCount() == 0)&&(XPorLater))
+		if ((GetSelectedCount() == 0)&&(XPorLater)&&(m_bHasCheckboxes))
 		{
 			// nothing selected could mean the context menu is requested for
 			// a group header

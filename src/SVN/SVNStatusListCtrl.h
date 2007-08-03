@@ -622,6 +622,7 @@ private:
 	bool *						m_pbCanceled;
 	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
+	bool						m_bHasCheckboxes;
 	bool						m_bUnversionedLast;
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
