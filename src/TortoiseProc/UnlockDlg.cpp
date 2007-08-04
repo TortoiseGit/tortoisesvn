@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ BOOL CUnlockDlg::OnInitDialog()
 	m_unlockListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_unlockListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOUNLOCK);
 	m_unlockListCtrl.SetCancelBool(&m_bCancelled);
-	m_unlockListCtrl.SetBackgroundImage(IDI_UNLOCK);
+	m_unlockListCtrl.SetBackgroundImage(IDI_UNLOCK_BKG);
 
 	AdjustControlSize(IDC_SELECTALL);
 

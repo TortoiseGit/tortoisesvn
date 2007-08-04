@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,7 +63,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	m_StatusList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_StatusList.SetSelectButton(&m_SelectAll);
 	m_StatusList.SetCancelBool(&m_bCancelled);
-	m_StatusList.SetBackgroundImage(IDI_DELUNVERSIONED);
+	m_StatusList.SetBackgroundImage(IDI_DELUNVERSIONED_BKG);
 
 	AdjustControlSize(IDC_SELECTALL);
 

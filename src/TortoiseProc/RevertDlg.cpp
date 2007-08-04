@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,7 +62,7 @@ BOOL CRevertDlg::OnInitDialog()
 	m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_RevertList.SetSelectButton(&m_SelectAll);
 	m_RevertList.SetCancelBool(&m_bCancelled);
-	m_RevertList.SetBackgroundImage(IDI_REVERT);
+	m_RevertList.SetBackgroundImage(IDI_REVERT_BKG);
 
 	GetWindowText(m_sWindowTitle);
 	

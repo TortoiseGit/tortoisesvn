@@ -70,7 +70,7 @@ BOOL CLockDlg::OnInitDialog()
 	m_cFileList.SetSelectButton(&m_SelectAll);
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
-	m_cFileList.SetBackgroundImage(IDI_LOCK);
+	m_cFileList.SetBackgroundImage(IDI_LOCK_BKG);
 	if (m_ProjectProperties)
 		m_cEdit.Init(*m_ProjectProperties);
 	else

@@ -78,7 +78,7 @@ BOOL CChangedDlg::OnInitDialog()
 						SVNSLC_COLREVISION | SVNSLC_COLDATE, _T("ChangedDlg"),
 						SVNSLC_POPALL, false);
 	m_FileListCtrl.SetCancelBool(&m_bCanceled);
-	m_FileListCtrl.SetBackgroundImage(IDI_SHOWCHANGED);
+	m_FileListCtrl.SetBackgroundImage(IDI_CFM_BKG);
 	
 	AdjustControlSize(IDC_SHOWUNVERSIONED);
 	AdjustControlSize(IDC_SHOWUNMODIFIED);
