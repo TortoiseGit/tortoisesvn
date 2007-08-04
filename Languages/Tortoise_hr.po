@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-07-14 11:29+0100\n"
+"PO-Revision-Date: 2007-08-05 01:57+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3670,11 +3670,23 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Split long &branches'
-#: Corresponding Menu ID:32817
-#: ; 'Split long &branches'
-msgid "ID:32817:V C +C"
-msgstr "ID:32817:V C +C"
+#. Accelerator Entry for Menu ID:32821; ''
+#: Corresponding Menu ID:32821
+#: ; ''
+msgid "ID:32821:V C +F"
+msgstr "ID:32821:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:V C +L"
+msgstr "ID:32825:V C +L"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825
+#: ; ''
+msgid "ID:32825:VA  +D"
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601
@@ -3694,6 +3706,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634
 #: ; '&Copy'
@@ -5211,6 +5224,11 @@ msgstr "Prije pohrane"
 msgid "Pre-Update Hook"
 msgstr "Skript prije obnavljanja"
 
+# ID:2052,
+#: ID:2052
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "Spriječava većinu slučajeva u kojima spojnice križaju čvorove revizija"
+
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
@@ -5383,6 +5401,10 @@ msgstr ""
 "Ponovi prethodno poništenu akciju\n"
 "Ponovi"
 
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "Smanji križanja &linija"
+
 # ID:3825,
 #: ID:3825
 msgid "Reduce the window to an icon"
@@ -5392,6 +5414,7 @@ msgstr "Smanji prozor u ikonu"
 # ID:135,
 #: ID:101
 #: ID:135
+#: Control-ID:1382
 msgid "Refresh"
 msgstr "Osvježi"
 
@@ -5802,44 +5825,44 @@ msgstr "Revizija:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Revizija: %ld\n"
-"URL: %S\r\n"
-"Autor: %S\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
 "Poruka dnevnika:\r\n"
-"%S"
+"%s"
 
 # ID:272,
 #: ID:272
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%S\r\n"
+"Tags:%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "Revizija: %ld\n"
-"URL: %S\r\n"
-"Autor: %S\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
-"Oznake:%S\r\n"
+"Oznake:%s\r\n"
 "\r\n"
 "Poruka dnevnika:\r\n"
-"%S"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -8399,12 +8422,14 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Popis opisnika modula odvojenih novim redom, pri čemu se svaki od njih sastoji od relativne staze direktorija, neobavezne zastavice revizije i URL-a. Na primjer:\n"
+"Popis opisnika modula odvojenih novim redom, pri čemu se svaki od njih sastoji od\n"
+"relativne staze mape, neobavezne zastavice revizije i URL-a. Na primjer:\n"
 "foo\t\thttp://primjer.hr/repos/cik\n"
 "foo/bar -r 1234\thttp://primjer.hr/repos/cak"
 
