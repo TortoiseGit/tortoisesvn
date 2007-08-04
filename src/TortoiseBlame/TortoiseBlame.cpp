@@ -461,8 +461,7 @@ bool TortoiseBlame::ScrollToLine(long line)
 	if (line < 0)
 		return false;
 
-	int nCurrentPos = SendEditor(SCI_GETCURRENTPOS);
-	int nCurrentLine = SendEditor(SCI_LINEFROMPOSITION,nCurrentPos);
+	int nCurrentLine = SendEditor(SCI_GETFIRSTVISIBLELINE);
 
 	int scrolldelta = line - nCurrentLine;
 	SendEditor(SCI_LINESCROLL, 0, scrolldelta);
