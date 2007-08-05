@@ -266,6 +266,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	CString sTemp;
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
+	progDlg.SetAnimation(IDR_DOWNLOAD);
 	progDlg.ShowModeless(this);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)m_path1.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, m_rev1.ToString());
@@ -641,7 +642,7 @@ UINT CFileDiffDlg::ExportThread()
 	long count = 0;
 	SetAndClearProgressInfo(m_pProgDlg, false);
 	m_pProgDlg->SetTitle(IDS_PROGRESSWAIT);
-	m_pProgDlg->SetAnimation(AfxGetResourceHandle(), IDR_ANIMATION);
+	m_pProgDlg->SetAnimation(AfxGetResourceHandle(), IDR_DOWNLOAD);
 	m_pProgDlg->ShowModeless(this);
 	for (INT_PTR i=0; (i<m_arSelectedFileList.GetCount())&&(!m_pProgDlg->HasUserCancelled()); ++i)
 	{

@@ -2004,6 +2004,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CProgressDlg progDlg;
 					int counter = 0;		// the file counter
 					progDlg.SetTitle(IDS_REPOBROWSE_SAVEASPROGTITLE);
+					progDlg.SetAnimation(IDR_DOWNLOAD);
 					progDlg.ShowModeless(GetSafeHwnd());
 					progDlg.SetProgress((DWORD)0, (DWORD)urlList.GetCount());
 					SetAndClearProgressInfo(&progDlg);
@@ -2185,6 +2186,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				CWaitCursorEx wait_cursor;
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);
+				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
 				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, urlList[0].GetFileOrDirectoryName(), GetRevision().ToString());
 				progDlg.SetLine(1, sInfoLine);
@@ -2436,6 +2438,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CWaitCursorEx wait_cursor;
 
 					CProgressDlg progDlg;
+					progDlg.SetAnimation(IDR_DOWNLOAD);
 					progDlg.SetTitle(IDS_APPNAME);
 					SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);

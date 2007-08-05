@@ -1593,6 +1593,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_APPNAME);
+	progDlg.SetAnimation(IDR_DOWNLOAD);
 	CString sInfoLine;
 	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, SVNRev(rev).ToString());
 	progDlg.SetLine(1, sInfoLine);
@@ -3383,6 +3384,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					SVN svn;
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
+					progDlg.SetAnimation(IDR_DOWNLOAD);
 					CString sInfoLine;
 					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
 					progDlg.SetLine(1, sInfoLine);
@@ -3413,6 +3415,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);
+				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
 				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
 				progDlg.SetLine(1, sInfoLine);
@@ -3981,6 +3984,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				{
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
+					progDlg.SetAnimation(IDR_DOWNLOAD);
 					for (std::vector<LogChangedPath*>::iterator it = changedlogpaths.begin(); it!= changedlogpaths.end(); ++it)
 					{
 						SVNRev getrev = ((*it)->action == LOGACTIONS_DELETED) ? rev2 : rev1;

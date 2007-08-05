@@ -128,6 +128,8 @@
 #define IDI_DELUNVERSIONED_BKG          261
 #define IDI_ICON1                       262
 #define IDI_UNLOCK_BKG                  262
+#define IDR_AVI1                        263
+#define IDR_DOWNLOAD                    263
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1142,7 +1144,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        263
+#define _APS_NEXT_RESOURCE_VALUE        264
 #define _APS_NEXT_COMMAND_VALUE         32827
 #define _APS_NEXT_CONTROL_VALUE         1383
 #define _APS_NEXT_SYMED_VALUE           195
