@@ -977,10 +977,9 @@ void CTSVNPathList::DeleteAllFiles(bool bTrash)
 		CString sPaths;
 		for (it = m_paths.begin(); it != m_paths.end(); ++it)
 		{
-			ATLASSERT(!it->IsDirectory());
-			::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
-			if (it->Exists())
+			if ((it->Exists())&&(!it->IsDirectory()))
 			{
+				::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 				sPaths += it->GetWinPath();
 				sPaths += '\0';
 			}
@@ -997,9 +996,11 @@ void CTSVNPathList::DeleteAllFiles(bool bTrash)
 	{
 		for (it = m_paths.begin(); it != m_paths.end(); ++it)
 		{
-			ATLASSERT(!it->IsDirectory());
-			::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
-			::DeleteFile(it->GetWinPath());
+			if (!it->IsDirectory())
+			{
+				::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+				::DeleteFile(it->GetWinPath());
+			}
 		}
 	}
 	Clear();
