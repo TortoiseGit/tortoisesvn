@@ -1007,7 +1007,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
 			SetWindowText(sWindowTitle);
 
-			CTSVNPathList delList = m_targetPathList;
+			CTSVNPathList delList = m_selectedPaths;
 			delList.DeleteAllFiles(true);
 
 			if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))

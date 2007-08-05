@@ -140,6 +140,7 @@ void CRevertDlg::OnOK()
 	{
 		m_RevertList.WriteCheckedNamesToPathList(m_pathList);
 	}
+	m_RevertList.WriteCheckedNamesToPathList(m_selectedPathList);
 
 	CResizableStandAloneDialog::OnOK();
 }

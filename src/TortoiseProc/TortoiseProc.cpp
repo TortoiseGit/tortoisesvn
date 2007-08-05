@@ -935,7 +935,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				m_pMainWnd = &progDlg;
 				int options = (dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
 				progDlg.SetParams(CSVNProgressDlg::SVNProgress_Revert, options, dlg.m_pathList);
-				progDlg.SetItemCount(dlg.m_pathList.GetCount());
+				progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());
+				progDlg.SetSelectedList(dlg.m_selectedPathList);
 				progDlg.DoModal();
 			}
 		}
