@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-08-02 22:18+0100\n"
+"PO-Revision-Date: 2007-08-06 15:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,13 @@ msgstr "! %d"
 #, c-format
 msgid "%.2f MBytes transferred"
 msgstr "%.2f MBytes übertragen"
+
+# ID:357,
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kBytes/s"
 
 # ID:3868,#:
 # ID:3868,
@@ -141,6 +148,12 @@ msgstr "%I64d KBytes übertragen"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d Dateien gewählt, %d Dateien insgesamt"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Bytes/s"
 
 # ID:226,
 # ID:226,
@@ -1483,7 +1496,7 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "Wendet eine Standard-Diffdatei auf Ihre Arbeitskopie an"
 
 # ID:15,
-#: ID:15
+#: ID:581
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -8303,7 +8316,7 @@ msgid "author"
 msgstr "Autor"
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -8316,7 +8329,7 @@ msgstr ""
 "die Logmeldung angehängt wird."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -8325,7 +8338,7 @@ msgstr ""
 "Beschriftung für das Eingabefeld der Bugtracker ID."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -8340,7 +8353,7 @@ msgstr ""
 "Zeichenkette zu extrahieren."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -8352,7 +8365,7 @@ msgstr ""
 "Die Zeichenkette muss '%BUGID%' enthalten, welches dann durch die eingegebene ID ersetzt wird."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -8361,7 +8374,7 @@ msgstr ""
 "Auf 'false' setzen, falls Ihr Bugtracker die Einträge nicht über Nummern referenziert."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -8558,7 +8571,7 @@ msgid "revisions %s-%s, %s"
 msgstr "Revisionen %s-%s, %s"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -8567,7 +8580,7 @@ msgstr ""
 "Mögliche Werte: 'native', 'LF', 'CR' oder 'CRLF'."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -8578,7 +8591,7 @@ msgstr ""
 "Ein nicht-rekursiver Versuch wird fehlschlagen, und ein rekursives Setzen wird nur die Eigenschaften der Dateien direkt unterhalb des Ordners verändern."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -8592,7 +8605,7 @@ msgstr ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -8601,7 +8614,7 @@ msgstr ""
 "Eine durch Zeilenumbruch getrennte Liste von zu ignorierenden Dateimustern."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -8620,7 +8633,7 @@ msgstr ""
 "Id\t\t\t\tEine komprimierte Zusammenfassung der vier genannten Schlüsselworte."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -8633,7 +8646,7 @@ msgstr ""
 "Alles Andere wird als Binärdatei behandelt."
 
 # ID:16,
-#: ID:16
+#: ID:576
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -8671,7 +8684,7 @@ msgstr "nach %s"
 
 # ID:18,
 # ID:18,
-#: ID:18
+#: ID:578
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -8684,7 +8697,7 @@ msgstr ""
 "Beispiel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:17,
-#: ID:17
+#: ID:578
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -8693,7 +8706,7 @@ msgstr ""
 "Minimale Anzahl von Zeichen, die ein Logeintrag haben muss, damit einer Sperrung erlaubt wird."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -8704,7 +8717,7 @@ msgstr ""
 "Dateien auf Englisch in den Übertragen-Dialog eingefügt wird."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -8713,7 +8726,7 @@ msgstr ""
 "Minimale Anzahl von Zeichen, die eine Logmeldung bei der Übertragung haben muss."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -8724,7 +8737,7 @@ msgstr ""
 "Verwenden Sie dies als Schablone, die die Anwender ausfüllen können."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -8735,7 +8748,7 @@ msgstr ""
 "Eine Begrenzungslinie wird an dieser Stelle angezeigt. Der Standardwert beträgt 80 Zeichen."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -8748,7 +8761,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -8760,7 +8773,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -8771,7 +8784,7 @@ msgstr ""
 "Ordner, die als Auswahl im Eigenschaftsdialog angezeigt wird."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -8787,7 +8800,7 @@ msgstr "Werte sind unterschiedlich"
 
 # ID:17,
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -8802,7 +8815,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:revision\n"
