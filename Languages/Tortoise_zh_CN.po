@@ -69,6 +69,12 @@ msgstr "! %d"
 msgid "%.2f MBytes transferred"
 msgstr "已传输 %.2f MB"
 
+# ID:357,
+#: ID:357,
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kBytes/s"
+
 # ID:3868,#:
 # ID:3868,
 #: ID:3868,#: ID:3868,
@@ -166,6 +172,12 @@ msgstr "已传输 %I64d KB"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "选择了 %d 个文件，共有 %d 个文件"
+
+# ID:563,
+#: ID:357,
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Bytes/s"
 
 # ID:226,
 #: ID:226,
@@ -1451,7 +1463,7 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "应用标准差异文件至工作拷贝"
 
 # ID:15,
-#: ID:15,
+#: ID:581,
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -7937,7 +7949,7 @@ msgid "author"
 msgstr "作者"
 
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -7949,7 +7961,7 @@ msgstr ""
 "开头；默认值是“是”， 表示 bug 编号是加在日志信息的最后。"
 
 # ID:14,
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -7958,7 +7970,7 @@ msgstr ""
 "用来提示使用者输入问题编号的信息。"
 
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -7971,7 +7983,7 @@ msgstr ""
 "第二个正则表达式用于从字符串获取问题编号。"
 
 # ID:14,
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -7983,7 +7995,7 @@ msgstr ""
 "必须含有“%BUGID%”, 用来代换问题编号。"
 
 # ID:14,
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -7992,7 +8004,7 @@ msgstr ""
 "如果你的错误追踪系统不是以编号来管理问题，请设为“否”"
 
 # ID:14,
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -8180,7 +8192,7 @@ msgid "revisions %s-%s, %s"
 msgstr "版本 %s-%s，%s"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -8189,7 +8201,7 @@ msgstr ""
 "'native'，'LF'，'CR'，'CRLF'四者之一。"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -8200,7 +8212,7 @@ msgstr ""
 "不能进行非递归操作，而递归操作将只对目录中的文件生效。"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -8214,7 +8226,7 @@ msgstr ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -8223,7 +8235,7 @@ msgstr ""
 "忽略以换行字符分隔的文件样式列表。"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -8242,7 +8254,7 @@ msgstr ""
 "Id\t\t\t\t\\上述四个关键词的组合。"
 
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -8255,7 +8267,7 @@ msgstr ""
 "其它则视为二进制文件。"
 
 # ID:16,
-#: ID:16,
+#: ID:576,
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -8286,7 +8298,7 @@ msgstr ""
 msgid "to %s"
 msgstr "至 %s"
 
-#: ID:18,
+#: ID:578,
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -8299,7 +8311,7 @@ msgstr ""
 "样例：*.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
-#: ID:17,
+#: ID:578,
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -8308,7 +8320,7 @@ msgstr ""
 "在允许锁定之前必须输入的最短日志长度。"
 
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -8319,7 +8331,7 @@ msgstr ""
 "请设置为“否”。"
 
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -8328,7 +8340,7 @@ msgstr ""
 "在允许提交之前必须输入的最短日志长度。"
 
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -8339,7 +8351,7 @@ msgstr ""
 "可以用作让使用者填写的日志信息模板。"
 
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -8350,7 +8362,7 @@ msgstr ""
 "提交窗口中会在指定位置显示一条淡淡的直线，默认是 80 字符。"
 
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -8361,7 +8373,7 @@ msgstr ""
 "如果该语言的拼写检查模块有效，则 TortoiseSVN 会自动载入。"
 
 # ID:17,
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -8372,7 +8384,7 @@ msgstr ""
 "这些属性将在属性选择对话框中列出。"
 
 # ID:17,
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -8383,7 +8395,7 @@ msgstr ""
 "这些属性将在属性选择对话框中列出。"
 
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -8397,7 +8409,7 @@ msgid "values are different"
 msgstr "所取值是不同的"
 
 # ID:17,
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -8411,7 +8423,7 @@ msgstr ""
 "字符串 %PATH% 将被文件相对于版本库的路径所替代。"
 
 # ID:17,
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:revision\n"
