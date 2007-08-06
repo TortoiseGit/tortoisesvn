@@ -244,58 +244,58 @@ void CEditPropertyValueDlg::CheckRecursive()
 		}
 		UINT nText = 0;
 		if (sName.Compare(_T("svn:externals"))==0)
-			nText = IDS_TT_EXTERNALS;
+			nText = IDS_PROP_TT_EXTERNALS;
 		if (sName.Compare(_T("svn:executable"))==0)
-			nText = IDS_TT_EXECUTABLE;
+			nText = IDS_PROP_TT_EXECUTABLE;
 		if (sName.Compare(_T("svn:needs-lock"))==0)
-			nText = IDS_TT_NEEDSLOCK;
+			nText = IDS_PROP_TT_NEEDSLOCK;
 		if (sName.Compare(_T("svn:mime-type"))==0)
-			nText = IDS_TT_MIMETYPE;
+			nText = IDS_PROP_TT_MIMETYPE;
 		if (sName.Compare(_T("svn:ignore"))==0)
-			nText = IDS_TT_IGNORE;
+			nText = IDS_PROP_TT_IGNORE;
 		if (sName.Compare(_T("svn:keywords"))==0)
-			nText = IDS_TT_KEYWORDS;
+			nText = IDS_PROP_TT_KEYWORDS;
 		if (sName.Compare(_T("svn:eol-style"))==0)
-			nText = IDS_TT_EOLSTYLE;
+			nText = IDS_PROP_TT_EOLSTYLE;
 
 		if (sName.Compare(_T("bugtraq:label"))==0)
-			nText = IDS_TT_BQLABEL;
+			nText = IDS_PROP_TT_BQLABEL;
 		if (sName.Compare(_T("bugtraq:logregex"))==0)
-			nText = IDS_TT_BQLOGREGEX;
+			nText = IDS_PROP_TT_BQLOGREGEX;
 		if (sName.Compare(_T("bugtraq:message"))==0)
-			nText = IDS_TT_BQMESSAGE;
+			nText = IDS_PROP_TT_BQMESSAGE;
 		if (sName.Compare(_T("bugtraq:number"))==0)
-			nText = IDS_TT_BQNUMBER;
+			nText = IDS_PROP_TT_BQNUMBER;
 		if (sName.Compare(_T("bugtraq:url"))==0)
-			nText = IDS_TT_BQURL;
+			nText = IDS_PROP_TT_BQURL;
 		if (sName.Compare(_T("bugtraq:warnifnoissue"))==0)
-			nText = IDS_TT_BQWARNNOISSUE;
+			nText = IDS_PROP_TT_BQWARNNOISSUE;
 		if (sName.Compare(_T("bugtraq:append"))==0)
-			nText = IDS_TT_BQAPPEND;
+			nText = IDS_PROP_TT_BQAPPEND;
 
 		if (sName.Compare(_T("tsvn:logtemplate"))==0)
-			nText = IDS_TT_TSVNLOGTEMPLATE;
+			nText = IDS_PROP_TT_TSVNLOGTEMPLATE;
 		if (sName.Compare(_T("tsvn:logwidthmarker"))==0)
-			nText = IDS_TT_TSVNLOGWIDTHMARKER;
+			nText = IDS_PROP_TT_TSVNLOGWIDTHMARKER;
 		if (sName.Compare(_T("tsvn:logminsize"))==0)
-			nText = IDS_TT_TSVNLOGMINSIZE;
+			nText = IDS_PROP_TT_TSVNLOGMINSIZE;
 		if (sName.Compare(_T("tsvn:lockmsgminsize"))==0)
-			nText = IDS_TT_TSVNLOCKMSGMINSIZE;
+			nText = IDS_PROP_TT_TSVNLOCKMSGMINSIZE;
 		if (sName.Compare(_T("tsvn:logfilelistenglish"))==0)
-			nText = IDS_TT_TSVNLOGFILELISTENGLISH;
+			nText = IDS_PROP_TT_TSVNLOGFILELISTENGLISH;
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
-			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfileproperties"))==0)
-			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfolderproperties"))==0)
-			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:autoprops"))==0)
-			nText = IDS_TT_TSVNAUTOPROPS;
+			nText = IDS_PROP_TT_TSVNAUTOPROPS;
 
 		if (sName.Compare(_T("webviewer:revision"))==0)
-			nText = IDS_TT_WEBVIEWERREVISION;
+			nText = IDS_PROP_TT_WEBVIEWERREVISION;
 		if (sName.Compare(_T("webviewer:pathrevision"))==0)
-			nText = IDS_TT_WEBVIEWERPATHREVISION;
+			nText = IDS_PROP_TT_WEBVIEWERPATHREVISION;
 
 		if (nText)
 		{

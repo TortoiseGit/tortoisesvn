@@ -282,44 +282,22 @@ STRINGTABLE
 BEGIN
     IDS_MENUDESCCREATEPATCH "Creates a unified diff file with all changes you made"
     IDS_MENUDESCAPPLYPATCH  "Applies a unified diff file to the working copy"
-    IDS_TT_IGNORE           "svn:ignore\nA newline separated list of file patterns to ignore."
-    IDS_TT_KEYWORDS         "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head revision of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
-    IDS_TT_EXECUTABLE       "svn:executable\nIf present, make the file executable. This property cannot be set on a directory.\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
-    IDS_TT_EOLSTYLE         "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
-    IDS_TT_MIMETYPE         "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
-    IDS_TT_EXTERNALS        "svn:externals\nA newline separated list of module specifiers, each of which consists of\na relative directory path, optional revision flags, and a URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
     IDS_COLTITLEMIMETYPE    "SVN mime-type"
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
     IDS_DROPEXPORTMENU      "SVN Export to here"
     IDS_DROPEXPORTEXTENDEDMENU "SVN Export all to here"
-    IDS_TT_BQLABEL          "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
-    IDS_TT_BQMESSAGE        "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain ""%BUGID%"" which gets replaced with the issue number."
-    IDS_TT_BQNUMBER         "bugtraq:number\nSet to ""false"" if your bugtracking system has issues which are referenced not by numbers."
-    IDS_TT_BQURL            "bugtraq:url\nURL pointing to the issue tracker. It must contain ""%BUGID%"" which\ngets replaced with the issue number."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_TT_TSVNLOGTEMPLATE  "tsvn:logtemplate\nString which is inserted in the log message boxes in the commit dialogs.\nUse this as a log message templates for users to fill in."
-    IDS_TT_TSVNLOGWIDTHMARKER 
-                            "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
-    IDS_TT_TSVNLOGMINSIZE   "tsvn:logminsize\nMinimum size in chars a log message must have before a commit is allowed."
-    IDS_TT_BQWARNNOISSUE    "tsvn:warnifnoissue\nSet to ""yes"" if a warning shall be shown when no issue is entered in the commit dialog."
-    IDS_TT_TSVNLOGFILELISTENGLISH 
-                            "tsvn:logfilelistenglish\nSet to ""false"" if you don't want the list of changed files to be pasted in english\nin the commit dialog."
-    IDS_TT_BQAPPEND         "bugtraq:append\nSet to ""false"" if you want the bugtracking ID to be inserted at the top of the\nlog message. The default is ""true"" which means the bugtracking ID\nis appended to the log message."
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
     IDS_MENUIGNOREMULTIPLE  "&Ignore %d items"
     IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."
     IDS_MENUREVISIONGRAPH   "Revision &graph"
     IDS_MENUDESCREVISIONGRAPH 
                             "Shows a graphical representation of copies/tags/branches"
-    IDS_TT_TSVNPROJECTLANGUAGE 
-                            "tsvn:projectlanguage\nSet this to the language number you want your log messages written in.\nTortoiseSVN will then load the appropriate spell checker module if available."
-    IDS_TT_BQLOGREGEX       "bugtraq:logregex\ntwo regular expressions separated by a newline.\nThe first expression is used to find a string referring to an issue,\nthe second expression is used to extract the bare bug ID from that string."
     IDS_MENUUNIGNORE        "Remove from &ignore list"
     IDS_MENUDESCUNIGNORE    "Removes the file or filemask from the list of ignored items"
-    IDS_TT_RECURSIVE        "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
 END
 
 STRINGTABLE 
@@ -332,18 +310,8 @@ BEGIN
     IDS_MENUURLDIFF         "&Diff with URL"
     IDS_MENUDESCURLDIFF     "Compares the selected file with a file in the repository"
     IDS_PROPBIN             "(binary value)"
-    IDS_TT_WEBVIEWERREVISION 
-                            "webviewer:revision\nURL pointing to the web viewer for the repository for a specific revision.\nThe string %REVISION% in that URL is replaced with the revision number."
-    IDS_TT_WEBVIEWERPATHREVISION 
-                            "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\nThe string %REVISION% in the URL is replaced with the revision number,\nthe string %PATH% is replaced with the path to the file relative to the repository root."
-    IDS_TT_USERFILEPROPERTIES 
-                            "tsvn:userfileproperties\nNewline separated list of user defined properties for files which will\nbe shown in the property dialog to choose from."
-    IDS_TT_USERFOLDERPROPERTIES 
-                            "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
     IDS_MENUDELUNVERSIONED  "Delete unversioned items..."
     IDS_MENUDESCDELUNVERSIONED "Removes all unversioned and ignored items"
-    IDS_TT_TSVNLOCKMSGMINSIZE 
-                            "tsvn:lockmsgminsize\nMinimum size in chars a lock message must have before a lock is allowed."
     IDS_MENUREMOVEKEEP      "&Delete (keep local)"
 END
 
@@ -359,7 +327,6 @@ BEGIN
     IDS_MENU_LOCKFORCE      "Steal loc&k"
     IDS_COLTITLEOWNER       "SVN Lock owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
-    IDS_TT_NEEDSLOCK        "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
     IDS_DROPCOPYRENAMEMENU  "SVN Copy and rename versioned file here"
     IDS_COLTITLEAUTHOR      "SVN Author"
     IDS_COLDESCAUTHOR       "The user who did the last commit"
@@ -371,7 +338,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_MENUDESCREMOVEKEEP  "Deletes files / folders from version control but keeps the file"
-    IDS_TT_TSVNAUTOPROPS    "tsvn:autoprops\nA list of properties separated by newlines which get applied automatically when adding/importing files.\nFormat: <filemask> = property=value;property=value\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 END
 
 #endif    // English (U.S.) resources
