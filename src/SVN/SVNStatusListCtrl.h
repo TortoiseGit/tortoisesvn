@@ -116,7 +116,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_POPREPAIRMOVE			0x00040000
 #define SVNSLC_POPCHANGELISTS			0x00080000
 
-#define SVNSLC_IGNORECHANGELIST			_T("commit-ignore")
+#define SVNSLC_IGNORECHANGELIST			_T("ignore-on-commit")
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 typedef CComCritSecLock<CComCriticalSection> Locker;
