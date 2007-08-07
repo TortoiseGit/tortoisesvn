@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10270: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10315: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-07-31 13:54+0300\n"
+"PO-Revision-Date: 2007-08-07 12:52+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,12 @@ msgstr "! %d"
 #: ID:357,
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f мБайт передано"
+msgstr "%.2f МБайт передано"
+
+#: ID:357,
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f КБайт/с"
 
 #: ID:3868,#:
 #: ID:3868,
@@ -153,12 +158,17 @@ msgstr "%I64d Байт передано"
 #: ID:357,
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%I64d кБайт передано"
+msgstr "%I64d КБайт передано"
 
 #: ID:169,
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "файлов выбрано:%d, файлов всего: %d"
+
+#: ID:357,
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Байт/с"
 
 #: ID:226,
 #, c-format
@@ -1259,7 +1269,7 @@ msgstr "Анализ данных ревизии..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Применяет объединённый файл различий к рабочей копии"
 
-#: ID:15,
+#: ID:581,
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -6872,7 +6882,7 @@ msgstr "и поддержать разработчиков"
 msgid "author"
 msgstr "автор"
 
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -6884,7 +6894,7 @@ msgstr ""
 "сообщения журнала. Значение по умолчанию \"true\" означает, что ID отслеживания ошибок\n"
 "добавляется в конец сообшения журнала."
 
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -6892,7 +6902,7 @@ msgstr ""
 "bugtraq:label\n"
 "Текст заголовка для ввода номера проблемы."
 
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -6904,7 +6914,7 @@ msgstr ""
 "Первое выражение используется для поиска строки, ссылающейся на выпуск,\n"
 "второе выражение используется для извлечения только ID ошибки из этой строки."
 
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -6915,7 +6925,7 @@ msgstr ""
 "Строка, которая добавляется к сообщению журнала, когда вводится номер проблемы.\n"
 "Строка должна содержать подстроку \"%BUGID%\" которая будет заменена на номер проблемы."
 
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -6923,7 +6933,7 @@ msgstr ""
 "bugtraq:number\n"
 "Установите в \"false\", если ваша система отслеживания ошибок ссылается на проблемы не по номерам."
 
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -7084,7 +7094,7 @@ msgstr "ревизия %s-%s, ревизия %s-%s"
 msgid "revisions %s-%s, %s"
 msgstr "ревизии %s-%s, %s"
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -7092,7 +7102,7 @@ msgstr ""
 "svn:eol-style\n"
 "Одно из 'native', 'LF', 'CR', 'CRLF'."
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -7102,20 +7112,22 @@ msgstr ""
 "Если присутствует, то помечает файл как выполняемый. Это свойство не может быть установлено на папки.\n"
 "Нерекурсивная попытка закончится неудачей, а рекурсивная - установит свойство только на дочерние файлы."
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Список определителей модулей, по одному в строке, каждый из которых содержит относительный путь к папке,\n"
-"необязательные флаги ревизий и URL. Например:\n"
+"Список описателей включаемых модулей, по одному в строке, каждый из которых\n"
+"состоит из относительного пути к папке, необязательных флагов ревизий и URL.\n"
+"Например:\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -7123,7 +7135,7 @@ msgstr ""
 "svn:ignore\n"
 "Список шаблонов игнорирования, по одному в строке."
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -7141,7 +7153,7 @@ msgstr ""
 "Rev, LastChangedRevision\tПоследняя ревизия изменения объекта.\n"
 "Id\t\t\t\t\t\t\tСжатая сводка предыдущих четырех ключевых слов."
 
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -7153,7 +7165,7 @@ msgstr ""
 "Mime-тип, начинающийся с 'text/' (или файл с отсутствующим mime-типом) обрабатывается как текст.\n"
 "Все остальное считается двоичным."
 
-#: ID:16,
+#: ID:576,
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -7183,7 +7195,7 @@ msgstr ""
 msgid "to %s"
 msgstr "в %s"
 
-#: ID:18,
+#: ID:578,
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -7195,7 +7207,7 @@ msgstr ""
 "Формат: <маска файла> = свойство=значение;свойство=значение\n"
 "Например: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
-#: ID:17,
+#: ID:578,
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -7203,7 +7215,7 @@ msgstr ""
 "tsvn:lockmsgminsize\n"
 "Минимальное разрешенное количество символов в сообщении блокирования."
 
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -7213,7 +7225,7 @@ msgstr ""
 "Установите в \"false\", если вы не хотите, чтобы список измененных файлов в диалоге фиксации\n"
 "копировался в буфер обмена на английском."
 
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -7221,7 +7233,7 @@ msgstr ""
 "tsvn:logminsize\n"
 "Минимальное разрешённое количество символов в сообщении журнала."
 
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -7231,7 +7243,7 @@ msgstr ""
 "Строка, вставляемая в поле сообщения журнала в диалоге фиксации.\n"
 "Используйте как заполняемый пользователем шаблон сообщения журнала."
 
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -7241,7 +7253,7 @@ msgstr ""
 "Установите в то количество символов, которое не должна превышать длина строки сообщения.\n"
 "Неяркая линия будет показана в диалоге фиксации в заданной позиции. По умолчанию 80 символов."
 
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -7251,7 +7263,7 @@ msgstr ""
 "Задайте в этом свойстве номер языка, на котором предполагается писать сообщения журнала.\n"
 "TortoiseSVN подгрузит соответствующий модуль проверки орфографии, если он будет доступен."
 
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -7261,7 +7273,7 @@ msgstr ""
 "Список определяемых пользователем свойств для файлов.\n"
 "Задать эти свойства можно будет в диалоге свойств. Разделитель в списке - новая строка."
 
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -7271,7 +7283,7 @@ msgstr ""
 "Список определяемых пользователем свойств для папок.\n"
 "Задать эти свойства можно будет в диалоге свойств. Разделитель в списке - новая строка."
 
-#: ID:15,
+#: ID:577,
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -7283,7 +7295,7 @@ msgstr ""
 msgid "values are different"
 msgstr "значения различны"
 
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -7296,7 +7308,7 @@ msgstr ""
 "Строка %REVISION% в URL заменяется на номер ревизии,\n"
 "строка %PATH% заменяется на путь к файлу относительно корня хранилища."
 
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:revision\n"
