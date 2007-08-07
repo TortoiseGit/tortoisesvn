@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-08-04 23:45 +0000\n"
-"PO-Revision-Date: 2007-08-06 19:22+0800\n"
+"PO-Revision-Date: 2007-08-07 10:17+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -251,15 +251,15 @@ msgstr "查看与合并差异"
 
 #: source/TortoiseMerge_en.xml:306(para)
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
-msgstr ""
+msgstr "此模式用于比较两个文件。左窗格中的文件认为是原始文件(有时称为 <emphasis>他人的</emphasis)，右窗格中的文件是已修改的文件(有时称为 <emphasis>我的</emphasis)。"
 
 #: source/TortoiseMerge_en.xml:317(para)
 msgid "Reverting changed lines back to the text shown in the left pane."
-msgstr ""
+msgstr "撤销这些修改行，恢复到左窗格的状态。"
 
 #: source/TortoiseMerge_en.xml:322(para)
 msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before <emphasis>Theirs</emphasis>."
-msgstr ""
+msgstr "使用所有组合，不是<emphasis>他人的</emphasis>在<emphasis>我的</emphasis>之前，就是<emphasis>我的</emphasis>在<emphasis>他人的</emphasis>之前。"
 
 #: source/TortoiseMerge_en.xml:312(para)
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
@@ -271,7 +271,7 @@ msgstr "编辑冲突"
 
 #: source/TortoiseMerge_en.xml:333(para)
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
-msgstr ""
+msgstr "这有时称为三路合并，用三窗格显示。然而它实际上涉及到四个文件。没有显示的文件是公共基础文件，是现在冲突的两个文件的最后祖先。这三个文件的关系用在下图解释："
 
 #: source/TortoiseMerge_en.xml:344(para)
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
@@ -279,7 +279,7 @@ msgstr "基础文件是最旧的版本，<emphasis>你的文件</emphasis>，<em
 
 #: source/TortoiseMerge_en.xml:356(para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
-msgstr ""
+msgstr "在解决冲突视图，你可以选择使用<emphasis>我的</emphasis>块，或者<emphasis>他人的</emphasis>块，或者两者兼有。此时，修改在底部窗格显示。"
 
 #: source/TortoiseMerge_en.xml:363(title)
 #: source/TortoiseMerge_en.xml:466(title)
@@ -289,15 +289,15 @@ msgstr "应用补丁"
 
 #: source/TortoiseMerge_en.xml:364(para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr ""
+msgstr "补丁文件是 Subversion 统一差异格式，它包含了使用补丁的信息。补丁可能是其他人提供的，所以你可以察看其修改，或许将它提交到版本库。或者补丁是 TortoiseSVN 比较两个目录生成的。例如你比较版本库中的版本与工作副本，或者比较两个版本库版本，或者比较两个不同的版本库路径。"
 
 #: source/TortoiseMerge_en.xml:374(para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr ""
+msgstr "无论如何，TortoiseMerge 都会用小窗口列出补丁中的文件名称。双击其中一个文件，就会对其打补丁。左窗格显示原始文件内容，右窗格显示打补丁之后的文件内容。"
 
 #: source/TortoiseMerge_en.xml:381(para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
-msgstr ""
+msgstr "你可以象在比较/编辑方式一样，编辑右窗格中的文件。"
 
 #: source/TortoiseMerge_en.xml:388(title)
 msgid "Using TortoiseMerge"
@@ -309,7 +309,7 @@ msgstr "查看方式"
 
 #: source/TortoiseMerge_en.xml:397(para)
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr ""
+msgstr "TortoiseMerge 有三种主要视图方式：单窗格，两窗格和三窗格。单窗格/两窗格视图用于察看修改，三窗格用来解决冲突。"
 
 #: source/TortoiseMerge_en.xml:403(title)
 #: source/TortoiseMerge_en.xml:767(title)

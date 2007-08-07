@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-07-29 21:59 +0000\n"
-"PO-Revision-Date: 2007-08-06 19:47+0800\n"
+"PO-Revision-Date: 2007-08-07 10:47+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1787,9 +1787,8 @@ msgid "First you need the required files to enable SSL. You can find those in th
 msgstr "首先，你需要一些文件来开启SSL，你可以在<ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>找到这些包，只需要解压缩这些文件，然后将<filename>mod_ssl.so</filename>复制到Apache的<filename>modules</filename>目录，将文件<filename>openssl.exe</filename>复制到<filename>bin</filename>目录，将文件<filename>conf/ssl.conf</filename>复制到Apache的<filename>conf</filename>目录。"
 
 #: source/TortoiseSVN_en.xml:2372(para)
-#, fuzzy
 msgid "Open the file <filename>ssl.conf</filename> in the Apache <filename>conf</filename> folder with a text editor."
-msgstr "使用文本编辑器打开Apache的conf目录的<filename>ssl.conf</filename>。"
+msgstr "使用文本编辑器打开 Apache 子目录 conf 中的文件 <filename>ssl.conf</filename>。"
 
 #: source/TortoiseSVN_en.xml:2379(para)
 msgid ""
@@ -1859,9 +1858,8 @@ msgid "If you want that all the Apache modules are aware of the SSL ability, cha
 msgstr "如果你想所有apache模块知道SSL能力，就将注册表键<filename>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</filename>的值从<filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</filename>修改为 <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -D SSL -k runservice</filename>。"
 
 #: source/TortoiseSVN_en.xml:2439(para)
-#, fuzzy
 msgid "This will set an internal flag which Apache modules can read the next time you start the Apache service."
-msgstr "这会设置一个内部标记，当下次启动apache服务时，apache模块会读取它。"
+msgstr "这会设置一个内部标记，当下次启动 Apache 服务时，Apache 模块会读取它。"
 
 #: source/TortoiseSVN_en.xml:2445(para)
 msgid ""
@@ -1874,9 +1872,8 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2454(para)
-#, fuzzy
 msgid "OpenSSL needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
-msgstr "Openssl需要一个配置文件，你可以从<ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>下载一个正在使用的，请注意: <filename>*.cnf</filename>类型的文件尽管是普通的文本文件，Windows对这种文件会特别处理！"
+msgstr "OpenSSL 需要一个配置文件，你可以从<ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>下载一个。保存到 <filename>bin/openssl.cnf</filename>。请注意: 文件具有类型 <filename>*.cnf</filename>。Windows 会对这种文件特别处理，但它确实是文本文件！"
 
 #: source/TortoiseSVN_en.xml:2468(para)
 #, fuzzy
@@ -2212,7 +2209,7 @@ msgstr "支持 SASL"
 
 #: source/TortoiseSVN_en.xml:2893(para)
 msgid "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus SASL (Simple Authentication and Security Layer) for the <filename>svn://</filename> protocol. You can find further information in this subversion app note: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "从 Subversion 1.5.0 开始，svnserve 和 TortoiseSVN 支持 <filename>svn://</filename> 协议的 Cyrus SASL(简单认证和安全层)。你可以在 Subversion 程序笔记中找到更多信息：<ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>在 Subversion 中使用 Cyrus SASL 认证</citetitle></ulink>。"
 
 #: source/TortoiseSVN_en.xml:2908(para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
@@ -3481,7 +3478,7 @@ msgstr "事实上，你会发现并不是所有的图标被使用在你的系统
 
 #: source/TortoiseSVN_en.xml:4761(para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr ""
+msgstr "要获得图表覆盖与 Subversion 状态的对应关系，或者其它技术细节，请阅读<xref linkend=\"tsvn-app-internals-overlays\"/>。"
 
 #: source/TortoiseSVN_en.xml:4768(title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -4657,7 +4654,7 @@ msgstr "万一在你的版本库中有两个名字相同但大小拼写不同(�
 
 #: source/TortoiseSVN_en.xml:6630(para)
 msgid "This sometimes happens when two people commit, from separate working copies, files which happen to have the same name, but with a case difference. It can also happen when files are committed from a system with a case-sensitive file system, like Linux."
-msgstr ""
+msgstr "它偶尔在两个人在独立的工作副本提交时发生，文件名称相同，只有大小写不同。它也会在具有大小写敏感的文件系统的系统中提交文件时发生，例如 Linux。"
 
 #: source/TortoiseSVN_en.xml:6637(para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
@@ -4938,7 +4935,7 @@ msgstr "对于<literal>tsvn:</literal>属性，你<emphasis>只能</emphasis>对
 
 #: source/TortoiseSVN_en.xml:7079(para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr ""
+msgstr "当你使用 TortoiseSVN 增加新的目录时，任何父目录的项目属性都会被自动增加到子目录。"
 
 #: source/TortoiseSVN_en.xml:7085(para)
 #, fuzzy
@@ -7964,7 +7961,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11666(para)
 msgid "The registry keys which hold the information on which context menus to show are <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> and <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "控制上下文菜单显示的注册表键是<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> 和 <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>。"
 
 #: source/TortoiseSVN_en.xml:11671(para)
 msgid "Each of these registry entries is a <literal>DWORD</literal> value, with each bit corresponding to a specific menu entry. A set bit means the corresponding menu entry is deactivated."
