@@ -77,6 +77,10 @@ protected:
 	afx_msg void	OnEditUseMine();
 	afx_msg void	OnEditUseTheirsThenMine();
 	afx_msg void	OnEditUseMineThenTheirs();
+	afx_msg void	OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateEditUsemyblock(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateEditUsetheirblock(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
 	afx_msg void	OnMergeMarkasresolved();
 	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);
@@ -87,6 +91,8 @@ protected:
 	afx_msg void	OnUpdateViewSwitchleft(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateViewShowfilelist(CCmdUI *pCmdUI);
 	afx_msg void	OnViewShowfilelist();
+	afx_msg void	OnEditUndo();
+	afx_msg void	OnUpdateEditUndo(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -142,10 +148,6 @@ public:
 	CDiffData		m_Data;
 	bool			m_bReadOnly;
 	bool			m_bBlame;
-public:
-	afx_msg void OnEditUndo();
-public:
-	afx_msg void OnUpdateEditUndo(CCmdUI *pCmdUI);
 };
 
 

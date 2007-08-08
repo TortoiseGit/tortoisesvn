@@ -95,6 +95,9 @@ void CBottomView::UseTheirTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
+	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+		return;
+
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
@@ -112,6 +115,9 @@ void CBottomView::UseMyTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
+	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+		return;
+
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
@@ -129,6 +135,9 @@ void CBottomView::UseTheirThenMyTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
+	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+		return;
+
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
@@ -179,6 +188,9 @@ void CBottomView::UseMyThenTheirTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
+	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+		return;
+
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);

@@ -86,6 +86,10 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
     ON_COMMAND(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnEditUseMineThenTheirs)
 	ON_COMMAND(ID_EDIT_UNDO, &CMainFrame::OnEditUndo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, &CMainFrame::OnUpdateEditUndo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMINETHENTHEIRBLOCK, &CMainFrame::OnUpdateEditUseminethentheirblock)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMYBLOCK, &CMainFrame::OnUpdateEditUsemyblock)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRBLOCK, &CMainFrame::OnUpdateEditUsetheirblock)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateEditUsetheirthenmyblock)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1388,24 +1392,60 @@ void CMainFrame::OnEditUseTheirs()
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseTheirTextBlock();
 }
+void CMainFrame::OnUpdateEditUsetheirblock(CCmdUI *pCmdUI)
+{
+	int nSelBlockStart = -1;
+	int nSelBlockEnd = -1;
+	if (m_pwndBottomView)
+		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
+	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+}
+
 
 void CMainFrame::OnEditUseMine()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseMyTextBlock();
 }
+void CMainFrame::OnUpdateEditUsemyblock(CCmdUI *pCmdUI)
+{
+	int nSelBlockStart = -1;
+	int nSelBlockEnd = -1;
+	if (m_pwndBottomView)
+		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
+	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+}
+
 
 void CMainFrame::OnEditUseTheirsThenMine()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseTheirThenMyTextBlock();
 }
+void CMainFrame::OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI)
+{
+	int nSelBlockStart = -1;
+	int nSelBlockEnd = -1;
+	if (m_pwndBottomView)
+		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
+	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+}
+
 
 void CMainFrame::OnEditUseMineThenTheirs()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseMyThenTheirTextBlock();
 }
+void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
+{
+	int nSelBlockStart = -1;
+	int nSelBlockEnd = -1;
+	if (m_pwndBottomView)
+		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
+	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+}
+
 
 void CMainFrame::OnFileReload()
 {
