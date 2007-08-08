@@ -73,6 +73,10 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	{
 		DiffProps(filePath, SVNRev::REV_HEAD, SVNRev::REV_WC);
 	}
+	else if (prop_status > svn_wc_status_normal)
+	{
+		DiffProps(filePath, SVNRev::REV_WC, SVNRev::REV_BASE);
+	}
 	if (filePath.IsDirectory())
 		return true;
 
