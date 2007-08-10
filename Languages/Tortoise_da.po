@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r10270
+# Based on Tortoise.pot r10315
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-01 16:05+0100\n"
+"PO-Revision-Date: 2007-08-10 12:00+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -101,6 +101,11 @@ msgstr "! %d"
 msgid "%.2f MBytes transferred"
 msgstr "%.2f MBytes overført"
 
+#: ID:357,
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kBytes/s"
+
 #: ID:3868,#: ID:3868,
 #, c-format
 msgid "%1 contained an unexpected object."
@@ -165,6 +170,11 @@ msgstr "%I64d kBytes overført"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
+
+#: ID:357,
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Bytes/s"
 
 #: ID:226,
 #, c-format
@@ -1107,7 +1117,7 @@ msgstr "Analyser revisionsdetaljer..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Påfører en unified diff-fil i arbejdskopien"
 
-#: ID:15,
+#: ID:581,
 msgid "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
 msgstr "Anvender rekursivt egenskaberne på alle filer/mapper.\nEgenskaberne bugtraq: og tsvn: anvendes kun på mapper."
 
@@ -5549,28 +5559,28 @@ msgstr "og hjælp udviklerne"
 msgid "author"
 msgstr "forfatter"
 
-#: ID:15,
+#: ID:577,
 msgid "bugtraq:append\nSet to \"false\" if you want the bugtracking ID to be inserted at the top of the\nlog message. The default is \"true\" which means the bugtracking ID\nis appended to the log message."
 msgstr "bugtraq:append\nSæt til \"false\", hvis du vil have indsat bugtracking-ID'et i starten af\nlogbeskeden. Standardværdien er \"true\", som betyder, at bugtracking-ID'et\ntilføjes slutningen af logbeskeden."
 
-#: ID:14,
+#: ID:577,
 msgid "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
 msgstr "bugtraq:label\nMærkattekst der vises i redigeringsfeltet, hvor brugeren indtaster problemnummeret."
 
-#: ID:15,
+#: ID:577,
 msgid "bugtraq:logregex\ntwo regular expressions separated by a newline.\nThe first expression is used to find a string referring to an issue,\nthe second expression is used to extract the bare bug ID from that string."
 msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linjeskift.\nDet første udtryk benyttes til at finde en streng, der refererer til et problem,\ndet andet udtryk benyttes til at udtrække fejl-ID'et fra denne streng."
 
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr "bugtraq:message\nDen streng, som tilføjes en logbesked, når et problemnummer udfyldes.\nStrengen skal indeholde \"%BUGID%\", som vil blive erstattet af fejl-ID'et."
 
-#: ID:14,
+#: ID:577,
 msgid "bugtraq:number\nSet to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr "bugtraq:number\nSæt til \"false\", hvis dit bugtracking-system ikke registrerer problemer via tal."
 
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid "bugtraq:url\nURL pointing to the issue tracker. It must contain \"%BUGID%\" which\ngets replaced with the issue number."
 msgstr "bugtraq:url\nURL, der peger på problem-trackeren. Værdien skal indeholde \"%BUGID%\", som\nerstattes af problemnummeret."
@@ -5706,31 +5716,31 @@ msgstr "revision %s-%s, revision %s-%s"
 msgid "revisions %s-%s, %s"
 msgstr "revisioner %s-%s, %s"
 
-#: ID:14,
+#: ID:576,
 msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr "svn:eol-style\nEn af følgende: \"native\", \"LF\", \"CR\", \"CRLF\"."
 
-#: ID:14,
+#: ID:576,
 msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory.\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr "svn:executable\nHvis denne er angivet, bliver filen eksekverbar. Denne egenskab kan ikke sættes på en mappe.\nEt ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på alle filerne i mappen."
 
-#: ID:14,
-msgid "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
-msgstr "svn:externals\nAngiv et antal moduler, adskilt af linjeskift, som hver indholder en relativ mappesti, evt. revisions-flag, og en URL. For eksempel:\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
+#: ID:576,
+msgid "svn:externals\nA newline separated list of module specifiers, each of which consists of\na relative directory path, optional revision flags, and a URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
+msgstr "svn:externals\nAngiv et antal moduler, adskilt af linjeskift, som hver indholder en\nrelativ mappesti, evt. revisions-flag, og en URL. For eksempel:\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
 
-#: ID:14,
+#: ID:576,
 msgid "svn:ignore\nA newline separated list of file patterns to ignore."
 msgstr "svn:ignore\nAngiv en liste, adskilt af linjeskift, med mønstre for filer, der skal ignoreres."
 
-#: ID:14,
+#: ID:576,
 msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head revision of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr "svn:keywords\nAngiv de nøgleord, som skal udfyldes. Følgende nøgleord er gyldige:\nURL, HeadURL\t\t\tURL'en for den nyeste revision af objektet.\nAuthor, LastChangedBy\t\tDen sidste person, som har ændret filen.\nDate, LastChangedDate\t\tDato/tidspunkt for hvornår sidste ændring fandt sted.\nRev, LastChangedRevision\tDen nyeste revision, hvor ændring fandt sted.\nId\t\t\t\tEn forkortelse for de 4 forrige nøgleord."
 
-#: ID:14,
+#: ID:576,
 msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
 msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om filen skal flettes, og Apache benytter den til at sende filen korrekt.\nEn mime-type, der begynder med \"text/\" (eller en manglende mime-type), opfattes som tekst.\nAlt andet opfattes som binært."
 
-#: ID:16,
+#: ID:576,
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr "svn:needs-lock\nSæt denne til en værdi (fx '*') for at kræve låsning for denne fil.\nFilen bliver gjort skrivebeskyttet, når den hentes eller opdateres\nog indikerer derved, at en bruger skal eje en lås på filen\nfør redigering og arkivering af ændringer er mulig."
 
@@ -5744,43 +5754,43 @@ msgstr "skiftet til\r\n%s"
 msgid "to %s"
 msgstr "til %s"
 
-#: ID:18,
+#: ID:578,
 msgid "tsvn:autoprops\nA list of properties separated by newlines which get applied automatically when adding/importing files.\nFormat: <filemask> = property=value;property=value\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr "tsvn:autoprops\nEn liste af egenskaber, adskilt af linjeskift, som automatisk påføres ved tilføjelse eller import af filer.\nFormat: <filmaske> = egenskab=værdi;egenskab=værdi\nEksempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
-#: ID:17,
+#: ID:578,
 msgid "tsvn:lockmsgminsize\nMinimum size in chars a lock message must have before a lock is allowed."
 msgstr "tsvn:lockmsgminsize\nAngiver det mindste antal tegn, en låsebesked skal indeholde, før låsning kan foretages."
 
-#: ID:15,
+#: ID:578,
 msgid "tsvn:logfilelistenglish\nSet to \"false\" if you don't want the list of changed files to be pasted in english\nin the commit dialog."
 msgstr "tsvn:logfilelistenglish\nSæt denne til \"false\", hvis du ikke ønsker at indsætte listen over ændrede filer på engelsk\ni arkiveringsdialogen."
 
-#: ID:15,
+#: ID:578,
 msgid "tsvn:logminsize\nMinimum size in chars a log message must have before a commit is allowed."
 msgstr "tsvn:logminsize\nAngiver det mindste antal tegn, en logbesked skal indeholde, før arkivering kan foretages."
 
-#: ID:15,
+#: ID:578,
 msgid "tsvn:logtemplate\nString which is inserted in the log message boxes in the commit dialogs.\nUse this as a log message templates for users to fill in."
 msgstr "tsvn:logtemplate:\nAngiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\nBenyt denne funktion til at lave skabeloner til logbeskeder."
 
-#: ID:15,
+#: ID:578,
 msgid "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr "tsvn:logwidthmarker\nSæt denne værdi til det antal tegn, som logbeskedens bredde skal holde sig inden for.\nEn streg vil blive vist i arkiveringsdialogen på dette sted. Standardværdien er 80 tegn."
 
-#: ID:15,
+#: ID:578,
 msgid "tsvn:projectlanguage\nSet this to the language number you want your log messages written in.\nTortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\nSæt denne til nummeret på det sprog, som du ønsker at skrive logbeskeder i.\nTortoiseSVN vil automatisk hente det tilsvarende modul til stavekontrol, hvis det findes."
 
-#: ID:17,
+#: ID:581,
 msgid "tsvn:userfileproperties\nNewline separated list of user defined properties for files which will\nbe shown in the property dialog to choose from."
 msgstr "tsvn:userfileproperties\nEn liste adskilt af linjeskift af brugerdefinerede egenskaber for filer.\nDisse vil kunne vælges i dialogen \"Egenskaber\"."
 
-#: ID:17,
+#: ID:581,
 msgid "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
 msgstr "tsvn:userfolderproperties\nEn liste adskilt af linjeskift af brugerdefinerede egenskaber for mapper.\nDisse vil kunne vælges i dialogen \"Egenskaber\"."
 
-#: ID:15,
+#: ID:577,
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\nSæt denne værdi til \"yes\", hvis der skal vises en advarsel, hvis der ikke indtastes et problemnummer i arkiveringsdialogen."
 
@@ -5788,12 +5798,12 @@ msgstr "tsvn:warnifnoissue\nSæt denne værdi til \"yes\", hvis der skal vises e
 msgid "values are different"
 msgstr "værdierne er forskellige"
 
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\nThe string %REVISION% in the URL is replaced with the revision number,\nthe string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr "webviewer:pathrevision\nURL, der peger på en web-visning af en bestemt fil og revision i versionsarkivet.\nStrengen %REVISION% i denne URL bliver erstattet med revisionsnummeret,\nog strengen %PATH% bliver erstattet af den relative sti til filen i forhold til versionsarkivets rod."
 
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid "webviewer:revision\nURL pointing to the web viewer for the repository for a specific revision.\nThe string %REVISION% in that URL is replaced with the revision number."
 msgstr "webviewer:revision\nURL, der peger på en web-visning af en bestemt revision i versionsarkivet.\nStrengen %REVISION% i denne URL bliver erstattet med revisionsnummeret."
