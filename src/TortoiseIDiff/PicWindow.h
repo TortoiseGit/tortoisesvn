@@ -102,8 +102,9 @@ public:
 	/// Returns the currently used alpha blending value (0-255)
 	BYTE GetSecondPicAlpha() {return alphalive;}
 	/// Sets the alpha blending value
-	void SetSecondPicAlpha(BYTE a) 
+	void SetSecondPicAlpha(BlendType type, BYTE a) 
 	{
+		m_blend = type;
 		alphalive = a;
 		if (hwndAlphaSlider)
 			SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
@@ -114,9 +115,9 @@ public:
 	{
 		UINT nLeft = (BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETLEFTPOS, 0, 0);
 		if(nLeft != GetSecondPicAlpha())
-			SetSecondPicAlpha(nLeft);
+			SetSecondPicAlpha(m_blend, nLeft);
 		else
-			SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETRIGHTPOS, 0, 0));
+			SetSecondPicAlpha(m_blend, (BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETRIGHTPOS, 0, 0));
 	}
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
@@ -211,15 +212,11 @@ protected:
 	HWND				hwndPlayBtn;
 	HWND				hwndAlphaSlider;
 	HWND				hwndAlphaToggleBtn;
-	HWND				hwndAlphaBlendBtn;
-	HWND				hwndXORBlendBtn;
 	HICON				hLeft;
 	HICON				hRight;
 	HICON				hPlay;
 	HICON				hStop;
 	HICON				hAlphaToggle;
-	HICON				hAlphaBlend;
-	HICON				hXORBlend;
 	bool				bPlaying;
 	RECT				m_inforect;
 };

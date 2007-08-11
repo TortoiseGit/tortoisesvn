@@ -300,7 +300,7 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
-				picWindow1.SetSecondPicAlpha(127);
+				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
 				picWindow1.SetZoom2(picWindow2.GetZoom());
 			}
 			else
@@ -315,6 +315,11 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
 
+			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED : 0;
+			if (bOverlap)
+				tbi.fsState |= TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
+
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
@@ -328,6 +333,27 @@ LRESULT CMainWindow::DoCommand(int id)
                 picWindow2.FitImageInWindow();
             }
             return 0;
+		}
+		break;
+	case ID_VIEW_BLENDALPHA:
+		{
+			if (m_BlendType == CPicWindow::BLEND_ALPHA)
+				m_BlendType = CPicWindow::BLEND_XOR;
+			else
+				m_BlendType = CPicWindow::BLEND_ALPHA;
+
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= (m_BlendType == CPicWindow::BLEND_ALPHA) ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_BLENDALPHA, uCheck);
+
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
+			picWindow1.SetSecondPicAlpha(m_BlendType, picWindow1.GetSecondPicAlpha());
 		}
 		break;
 	case ID_VIEW_FITTOGETHER:
@@ -373,13 +399,13 @@ LRESULT CMainWindow::DoCommand(int id)
 		}
 		break;
 	case ID_VIEW_ALPHA0:
-		picWindow1.SetSecondPicAlpha(0);
+		picWindow1.SetSecondPicAlpha(m_BlendType, 0);
 		break;
 	case ID_VIEW_ALPHA255:
-		picWindow1.SetSecondPicAlpha(255);
+		picWindow1.SetSecondPicAlpha(m_BlendType, 255);
 		break;
 	case ID_VIEW_ALPHA127:
-		picWindow1.SetSecondPicAlpha(127);
+		picWindow1.SetSecondPicAlpha(m_BlendType, 127);
 		break;
 	case ID_VIEW_ALPHATOGGLE:
 		picWindow1.ToggleAlpha();
@@ -759,9 +785,9 @@ bool CMainWindow::CreateToolbar()
 
 	SendMessage(hwndTB, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-	TBBUTTON tbb[11];
+	TBBUTTON tbb[12];
 	// create an imagelist containing the icons for the toolbar
-	hToolbarImgList = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, 10, 4);
+	hToolbarImgList = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, 12, 4);
 	if (hToolbarImgList == NULL)
 		return false;
 	int index = 0;
@@ -769,6 +795,14 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_BLEND));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_BLENDALPHA; 
+	tbb[index].fsState = 0; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 

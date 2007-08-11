@@ -47,6 +47,7 @@ public:
 		, bVertical(false)
 		, bLinked(true)
 		, bFitTogether(false)
+		, m_BlendType(CPicWindow::BLEND_ALPHA)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hResource, IDS_APP_TITLE));
 	};
@@ -113,6 +114,7 @@ protected:
 	bool			bVertical;
 	bool			bLinked;
 	bool			bFitTogether;
+	CPicWindow::BlendType	m_BlendType;
 
 };
 

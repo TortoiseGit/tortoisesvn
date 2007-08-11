@@ -145,7 +145,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				::SetTimer(*this, TIMER_ALPHASLIDER, 50, NULL);
 			}
 			else
-				SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+				SetSecondPicAlpha(m_blend, (BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
 		}
 		else
 		{
@@ -338,7 +338,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				break;
 			case TIMER_ALPHASLIDER:
 				{
-					SetSecondPicAlpha((BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
+					SetSecondPicAlpha(m_blend, (BYTE)SendMessage(hwndAlphaSlider, TBM_GETPOS, 0, 0));
 					KillTimer(*this, TIMER_ALPHASLIDER);
 				}
 				break;
@@ -703,7 +703,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 			alphalive = 255;
 		if (overflow < 0)
 			alphalive = 0;
-		SetSecondPicAlpha(alphalive);
+		SetSecondPicAlpha(m_blend, alphalive);
 	}
 	else if (fwKeys & MK_SHIFT)
 	{
@@ -1152,35 +1152,6 @@ bool CPicWindow::CreateButtons()
 	hAlphaToggle = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_ALPHATOGGLE), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
 	SendMessage(hwndAlphaToggleBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaToggle);
 
-	// buttons to switch between the different blending options
-	hwndAlphaBlendBtn = CreateWindowEx(0, 
-		_T("BUTTON"), 
-		(LPCTSTR)NULL,
-		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
-		0, 0, 0, 0, 
-		(HWND)*this,
-		(HMENU)BLENDALPHA_ID,
-		hResource, 
-		NULL);
-	if (hwndAlphaBlendBtn == INVALID_HANDLE_VALUE)
-		return false;
-	hAlphaBlend = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BLENDALPHA), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
-	SendMessage(hwndAlphaBlendBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaBlend);
-
-	hwndXORBlendBtn = CreateWindowEx(0, 
-		_T("BUTTON"), 
-		(LPCTSTR)NULL,
-		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
-		0, 0, 0, 0, 
-		(HWND)*this,
-		(HMENU)BLENDXOR_ID,
-		hResource, 
-		NULL);
-	if (hwndXORBlendBtn == INVALID_HANDLE_VALUE)
-		return false;
-	hXORBlend = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BLENDXOR), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
-	SendMessage(hwndXORBlendBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hXORBlend);
-
 	return true;
 }
 
@@ -1196,33 +1167,9 @@ void CPicWindow::PositionChildren()
 			SetWindowPos(hwndPlayBtn, HWND_TOP, rect.left+43, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 		else
 			ShowWindow(hwndPlayBtn, SW_HIDE);
-		if (pSecondPic)
-		{
-			long xpos = rect.left+53;
-			if (nFrames > 1)
-				xpos += 20;
-			SetWindowPos(hwndAlphaBlendBtn, HWND_TOP, xpos, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-			SetWindowPos(hwndXORBlendBtn, HWND_TOP, xpos+20, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-		}
-		else
-		{
-			ShowWindow(hwndAlphaBlendBtn, SW_HIDE);
-			ShowWindow(hwndXORBlendBtn, SW_HIDE);
-		}
 	}
 	else
 	{
-		if (pSecondPic)
-		{
-			long xpos = rect.left+3;
-			SetWindowPos(hwndAlphaBlendBtn, HWND_TOP, xpos, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-			SetWindowPos(hwndXORBlendBtn, HWND_TOP, xpos+20, rect.top + HEADER_HEIGHT + (HEADER_HEIGHT-16)/2, 16, 16, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-		}
-		else
-		{
-			ShowWindow(hwndAlphaBlendBtn, SW_HIDE);
-			ShowWindow(hwndXORBlendBtn, SW_HIDE);
-		}
 		ShowWindow(hwndLeftBtn, SW_HIDE);
 		ShowWindow(hwndRightBtn, SW_HIDE);
 		ShowWindow(hwndPlayBtn, SW_HIDE);
