@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@
  * The required information is a single URL to copy the current URL of the 
  * working copy to.
  */
-class CCopyDlg : public CStandAloneDialog, public SVN
+class CCopyDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CCopyDlg)
 

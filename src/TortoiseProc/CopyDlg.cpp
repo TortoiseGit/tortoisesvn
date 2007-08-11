@@ -28,9 +28,9 @@
 #include "TSVNPath.h"
 #include "AppUtils.h"
 
-IMPLEMENT_DYNAMIC(CCopyDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCopyDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_sBugID(_T(""))
@@ -51,7 +51,7 @@ CCopyDlg::~CCopyDlg()
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
@@ -60,7 +60,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCopyDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_MESSAGE(WM_TSVN_MAXREVFOUND, OnRevFound)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -76,7 +76,7 @@ END_MESSAGE_MAP()
 
 BOOL CCopyDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	AdjustControlSize(IDC_COPYHEAD);
 	AdjustControlSize(IDC_COPYREV);
@@ -137,8 +137,31 @@ BOOL CCopyDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 
+	AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_FROMGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_COPYHEAD, TOP_LEFT);
+	AddAnchor(IDC_COPYREV, TOP_LEFT);
+	AddAnchor(IDC_COPYREVTEXT, TOP_LEFT);
+	AddAnchor(IDC_BROWSEFROM, TOP_LEFT);
+	AddAnchor(IDC_COPYWC, TOP_LEFT);
+	AddAnchor(IDC_MSGGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_HISTORY, TOP_LEFT);
+	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
+	AddAnchor(IDC_BUGID, TOP_RIGHT);
+	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_DOSWITCH, BOTTOM_LEFT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("CopyDlg"));
 
 	m_bSettingChanged = false;
 	// start a thread to obtain the highest revision number of the working copy
@@ -231,7 +254,7 @@ void CCopyDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CStandAloneDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -265,7 +288,7 @@ void CCopyDlg::OnCancel()
 	}
 	m_HistoryDlg.AddString(m_cLogMessage.GetText());
 	m_HistoryDlg.SaveHistory();
-	CStandAloneDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
@@ -287,7 +310,7 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CStandAloneDialog::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCopyDlg::OnBnClickedBrowsefrom()
