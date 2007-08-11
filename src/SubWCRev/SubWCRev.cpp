@@ -72,24 +72,31 @@ are replaced with information about the working copy as follows:\n\
 \n\
 $WCREV$      Highest committed revision number\n\
 $WCDATE$     Date of highest committed revision\n\
+$WCDATE=$    Like $WCDATE$ with an added strftime format after the =\n\
 $WCRANGE$    Update revision range\n\
 $WCURL$      Repository URL of the working copy\n\
 $WCNOW$      Current system date & time\n\
+$WCNOW=$     Like $WCNOW$ with an added strftime format after the =\n\
 \n\
 Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n\
 TrueText if the tested condition is true, and FalseText if false.\n\
 \n\
 $WCMODS$     True if local modifications found\n\
-$WCMIXED$    True if mixed update revisions found\n"
+$WCMIXED$    True if mixed update revisions found\n\
+\n\
+The strftime format strings for $WCDATE=$ & $WCNOW=$ must not be longer\n\
+than 64 characters, and must not produce output greater than 128 characters.\n"
 // End of multi-line help text.
 
 #define VERDEF		"$WCREV$"
 #define DATEDEF		"$WCDATE$"
+#define DATEWFMTDEF	"$WCDATE="
 #define MODDEF		"$WCMODS?"
 #define RANGEDEF	"$WCRANGE$"
 #define MIXEDDEF	"$WCMIXED?"
 #define URLDEF		"$WCURL$"
 #define NOWDEF		"$WCNOW$"
+#define NOWWFMTDEF	"$WCNOW="
 
 // Internal error codes
 #define ERR_SYNTAX		1	// Syntax error
@@ -201,18 +208,47 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 	struct tm newtime;
 	if (_localtime64_s(&newtime, &ttime))
 		return FALSE;
-	// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-	char destbuf[32];
-	sprintf_s(destbuf, 32, "%04d/%02d/%02d %02d:%02d:%02d",
+	char destbuf[128];
+	char * pBuild = pBuf + index;
+	ptrdiff_t Expansion;
+	if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0))
+	{
+		// Format the date/time according to the supplied strftime format string
+		char format[65];
+		char * pStart = pBuf + index + strlen(def);
+		char * pEnd = pStart + 1;
+
+		while (*pEnd != '$')
+		{
+			pEnd++;
+			if (pEnd - pBuf >= (__int64)filelength)
+				return FALSE;	// No terminator - malformed so give up.
+		}
+		if ((pEnd - pStart) > 64)
+		{
+			return FALSE; // Format specifier too big
+		}
+		memset(format,0,65);
+		memcpy(format,pStart,pEnd - pStart);
+
+		strftime(destbuf,128,format,&newtime);
+
+		Expansion = strlen(destbuf) - (strlen(def) + pEnd - pStart + 1);
+	}
+	else
+	{
+		// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
+		sprintf_s(destbuf, 128, "%04d/%02d/%02d %02d:%02d:%02d",
 			newtime.tm_year + 1900,
 			newtime.tm_mon + 1,
 			newtime.tm_mday,
 			newtime.tm_hour,
 			newtime.tm_min,
 			newtime.tm_sec);
-	// Replace the $WCDATE$ string with the actual commit date
-	char * pBuild = pBuf + index;
-	ptrdiff_t Expansion = strlen(destbuf) - strlen(def);
+
+		Expansion = strlen(destbuf) - strlen(def);
+	}
+	// Replace the def string with the actual commit date
 	if (Expansion < 0)
 	{
 		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
@@ -624,8 +660,14 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	while (InsertDate(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
 	
 	index = 0;
+	while (InsertDate(DATEWFMTDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
+
+	index = 0;
 	while (InsertDate(NOWDEF, pBuf, index, filelength, maxlength, USE_TIME_NOW));
 	
+	index = 0;
+	while (InsertDate(NOWWFMTDEF, pBuf, index, filelength, maxlength, USE_TIME_NOW));
+
 	index = 0;
 	while (InsertBoolean(MODDEF, pBuf, index, filelength, SubStat.HasMods));
 	
