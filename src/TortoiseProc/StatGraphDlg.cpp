@@ -596,11 +596,18 @@ void CStatGraphDlg::ShowStats()
 	BOOL weekover = FALSE;
 	if (m_parDates->GetCount()>0)
 	{
-		nCurrentWeek = GetWeek(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
+		__time64_t t = (__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1);
+		if (t)
+			nCurrentWeek = GetWeek(CTime(t));
+		else
+			nCurrentWeek = 0;
 	}
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
-		CTime time((__time64_t)m_parDates->GetAt(i));
+		__time64_t t = (__time64_t)m_parDates->GetAt(i);
+		CTime time(t);
+		if (t == 0)
+			time = 0;
 		commits++;
 		filechanges += m_parFileChanges->GetAt(i);
 		weekover = FALSE;
@@ -764,7 +771,7 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 	iFirstDayOfWeek = int(loc[0]-'0');
 	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc));
 	iFirstWeekOfYear = int(loc[0]-'0');
-	CTime dDateFirstJanuary(iYear,1,1,0,0,0);
+	CTime dDateFirstJanuary(iYear,1,1,12,1,1);
 	int iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
 
 	// Select mode

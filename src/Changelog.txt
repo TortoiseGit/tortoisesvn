@@ -243,6 +243,8 @@ Version 1.4.5
        (Tobias Schäfer)
 - BUG: Selecting the 'to:' date in the log dialog didn't include the
        selected date. (Stefan)
+- BUG: Crash in the statistics dialog if for some reason the date of a 
+       revision is not available. (Stefan)
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
