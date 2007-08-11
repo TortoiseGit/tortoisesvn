@@ -62,7 +62,7 @@ public:
 		, picscale(1.0)
 		, pSecondPic(NULL)
 		, alphalive(0)
-		, bShowInfo(true)
+		, bShowInfo(false)
 		, nDimensions(0)
 		, nCurrentDimension(1)
 		, nFrames(0)
