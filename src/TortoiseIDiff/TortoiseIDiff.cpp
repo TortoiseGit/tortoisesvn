@@ -99,7 +99,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		{
 			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
 		}
-		if (parser.HasKey(_T("noinfo")))
+		if (parser.HasKey(_T("showinfo")))
 		{
 			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_IMAGEINFO, 0);
 		}

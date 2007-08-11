@@ -43,7 +43,7 @@ public:
 		, bDragMode(false)
 		, nSplitterPos(100)
 		, bOverlap(false)
-		, bShowInfo(true)
+		, bShowInfo(false)
 		, bVertical(false)
 		, bLinked(true)
 		, bFitTogether(false)
