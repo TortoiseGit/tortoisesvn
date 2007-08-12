@@ -79,7 +79,7 @@ BOOL CRevisionRangeDlg::OnInitDialog()
 			sRev = m_EndRev.GetDateString();
 		else
 			sRev.Format(_T("%ld"), (LONG)(m_EndRev));
-		GetDlgItem(IDC_REVNUM2)->SetWindowText(sRev);
+		SetDlgItemText(IDC_REVNUM2, sRev);
 	}
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))

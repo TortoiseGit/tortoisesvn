@@ -156,7 +156,7 @@ BOOL CMergeDlg::OnInitDialog()
 		else
 		{
 			DialogEnableWindow(IDC_URLCOMBO2, TRUE);
-			GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLTo);
+			SetDlgItemText(IDC_URLCOMBO2, m_URLTo);
 		}
 		UpdateData(FALSE);
 	}
