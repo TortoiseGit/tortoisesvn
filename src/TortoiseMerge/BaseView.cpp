@@ -1286,7 +1286,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					CString diffline;
 					ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
 					svn_diff_t * diff = NULL;
-					m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), true);
+					m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
 					if ((diff)&&(m_bShowInlineDiff))
 					{
 						svn_diff_t * tempdiff = diff;

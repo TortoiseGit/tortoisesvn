@@ -348,6 +348,7 @@ BEGIN
     BUTTON      ID_EDIT_MARKASRESOLVED
     SEPARATOR
     BUTTON      ID_VIEW_WHITESPACES
+    BUTTON      ID_VIEW_INLINEDIFFWORD
     BUTTON      ID_VIEW_ONEWAYDIFF
     BUTTON      ID_VIEW_SWITCHLEFT
     SEPARATOR
@@ -402,6 +403,7 @@ BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
+        MENUITEM "&Inline diff word-wise",      ID_VIEW_INLINEDIFFWORD
         MENUITEM "&Whitespaces",                ID_VIEW_WHITESPACES
         MENUITEM "Two-way &Diff",               ID_VIEW_ONEWAYDIFF
         MENUITEM "Switch Left<->Right",         ID_VIEW_SWITCHLEFT
@@ -719,6 +721,7 @@ BEGIN
                             "Use text block from ""theirs"" before ""mine""\nUse ""theirs"" text block then ""mine"""
     ID_EDIT_USEMINETHENTHEIRBLOCK 
                             "Use text block from ""mine"" before ""theirs""\nUse ""mine"" text block then ""theirs"""
+    ID_VIEW_INLINEDIFFWORD  "Show Inline-Diff word by word\nInline diff word-wise"
 END
 
 STRINGTABLE 

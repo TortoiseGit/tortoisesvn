@@ -65,6 +65,7 @@ public:
 	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
 	BOOL			HasSelection() {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
 	BOOL			GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
+	void			SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
 
 	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
 	CStdDWORDArray* m_endings;			///< lineendings of each line in the file
@@ -194,6 +195,7 @@ protected:
 	int				m_nOffsetChar;
 	int				m_nTabSize;
 	int				m_nDigits;
+	bool			m_bInlineWordDiff;
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;

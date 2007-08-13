@@ -212,13 +212,15 @@
 #define ID_EDIT_USEMYBLOCK              32820
 #define ID_EDIT_USETHEIRTHENMYBLOCK     32821
 #define ID_EDIT_USEMINETHENTHEIRBLOCK   32822
+#define ID_VIEW_INLINEDIFFWORD          32825
+#define ID_BUTTON32826                  32826
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
-#define _APS_NEXT_COMMAND_VALUE         32825
+#define _APS_NEXT_COMMAND_VALUE         32827
 #define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

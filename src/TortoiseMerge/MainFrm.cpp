@@ -90,6 +90,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEMYBLOCK, &CMainFrame::OnUpdateEditUsemyblock)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRBLOCK, &CMainFrame::OnUpdateEditUsetheirblock)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateEditUsetheirthenmyblock)
+	ON_COMMAND(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnViewInlinediffword)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnUpdateViewInlinediffword)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -114,6 +116,7 @@ CMainFrame::CMainFrame()
 	m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
 	m_bReversedPatch = FALSE;
 	m_bHasConflicts = false;
+	m_bInlineWordDiff = true;
 }
 
 CMainFrame::~CMainFrame()
@@ -1735,4 +1738,32 @@ int CMainFrame::CheckForSave()
 		}
 	}
 	return ret;
+}
+
+void CMainFrame::OnViewInlinediffword()
+{
+	m_bInlineWordDiff = !m_bInlineWordDiff;
+	if (m_pwndLeftView)
+	{
+		m_pwndLeftView->SetInlineWordDiff(m_bInlineWordDiff);
+		m_pwndLeftView->Invalidate();
+	}
+	if (m_pwndRightView)
+	{
+		m_pwndRightView->SetInlineWordDiff(m_bInlineWordDiff);
+		m_pwndRightView->Invalidate();
+	}
+	if (m_pwndBottomView)
+	{
+		m_pwndBottomView->SetInlineWordDiff(m_bInlineWordDiff);
+		m_pwndBottomView->Invalidate();
+	}
+	m_wndLineDiffBar.Invalidate();
+}
+
+void CMainFrame::OnUpdateViewInlinediffword(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(m_pwndLeftView && m_pwndLeftView->IsWindowVisible() &&
+		m_pwndRightView && m_pwndRightView->IsWindowVisible());
+	pCmdUI->SetCheck(m_bInlineWordDiff);
 }

@@ -144,6 +144,31 @@ svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e d
 			break;
 		}
 	}
+	else
+	{
+		std::wstring token;
+		switch (datasource)
+		{
+		case svn_diff_datasource_original:
+			{
+				for (unsigned long i=0; i<linediff->m_line1length; ++i)
+				{
+					token = linediff->m_line1[i];
+					linediff->m_line1tokens.push_back(token);
+				}
+			}
+			break;
+		case svn_diff_datasource_modified:
+			{
+				for (unsigned long i=0; i<linediff->m_line2length; ++i)
+				{
+					token = linediff->m_line2[i];
+					linediff->m_line2tokens.push_back(token);
+				}
+			}
+			break;
+		}
+	}
 	return SVN_NO_ERROR;
 }
 

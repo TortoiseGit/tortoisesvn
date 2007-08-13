@@ -93,6 +93,8 @@ protected:
 	afx_msg void	OnViewShowfilelist();
 	afx_msg void	OnEditUndo();
 	afx_msg void	OnUpdateEditUndo(CCmdUI *pCmdUI);
+	afx_msg void	OnViewInlinediffword();
+	afx_msg void	OnUpdateViewInlinediffword(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -139,6 +141,7 @@ protected:
 	CFindDlg *		m_pFindDialog;
 	bool			m_bHasConflicts;
 
+	bool			m_bInlineWordDiff;
 public:
 	CLeftView *		m_pwndLeftView;
 	CRightView *	m_pwndRightView;
