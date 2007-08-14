@@ -2327,6 +2327,27 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 	nMouseLine--;		//we need the index
 	ShowDiffLines(nMouseLine);
+
+	if (nFlags & MK_LBUTTON)
+	{
+		if (((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))&&
+			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
+		{
+			if (m_nSelBlockStart > nMouseLine)
+			{
+				m_nSelBlockStart = nMouseLine;
+				SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
+				Invalidate();
+			}
+			else if ((m_nSelBlockEnd < nMouseLine)&&(m_nSelBlockStart >= 0))
+			{
+				m_nSelBlockEnd = nMouseLine;
+				SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
+				Invalidate();
+			}
+		}
+	}
+
 	CView::OnMouseMove(nFlags, point);
 }
 
