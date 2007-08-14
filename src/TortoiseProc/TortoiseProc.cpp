@@ -1303,7 +1303,9 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (cmdLinePath.GetWinPathString().CompareNoCase(destinationPath.GetWinPathString())==0)
 			{
 				//rename to the same file!
-				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CASERENAME, IDS_APPNAME, MB_ICONERROR);
+				CString sHelpPath = m_pszHelpFilePath;
+				sHelpPath += _T("::/tsvn-dug-rename.html#tsvn-dug-renameincase");
+				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CASERENAME, IDS_APPNAME, MB_OK|MB_HELP, sHelpPath);
 			}
 			else
 			{
