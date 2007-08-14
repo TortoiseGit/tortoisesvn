@@ -1744,13 +1744,21 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				Invalidate();
 			}
 		}
-		//if ((m_nSelBlockStart <= (nLine-1))&&(m_nSelBlockEnd >= (nLine-1)))
+		if (((state == CDiffData::DIFFSTATE_NORMAL)||(state == CDiffData::DIFFSTATE_UNKNOWN)) &&
+			(m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
 		{
-			OnContextMenu(point, nLine, state);
-			m_nSelBlockStart = -1;
-			m_nSelBlockEnd = -1;
-			RefreshViews();
+			// find a more 'relevant' state in the selection
+			for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; ++i)
+			{
+				state = (CDiffData::DiffStates)m_arLineStates->GetAt(i);
+				if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN))
+					break;
+			}
 		}
+		OnContextMenu(point, nLine, state);
+		m_nSelBlockStart = -1;
+		m_nSelBlockEnd = -1;
+		RefreshViews();
 	}
 }
 
