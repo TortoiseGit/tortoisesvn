@@ -48,15 +48,14 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(1.0)
 {
-    m_options.groupBranches = true;
-    m_options.includeSubPathChanges = false;
-    m_options.oldestAtTop = false;
-    m_options.showHEAD = false;
-    m_options.reduceCrossLines = false;
-    m_options.exactCopySources = false;
-    m_options.splitBranches = false;
-    m_options.foldTags = false;
+	m_options.groupBranches = true;
+	m_options.includeSubPathChanges = false;
+	m_options.oldestAtTop = false;
+	m_options.showHEAD = false;
 	m_options.reduceCrossLines = false;
+	m_options.exactCopySources = false;
+	m_options.splitBranches = false;
+	m_options.foldTags = false;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
