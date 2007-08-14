@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -205,22 +205,39 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UIN
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, box.FillBoxStandard(uType));
 }
 
-UINT CMessageBox::Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType)
+UINT CMessageBox::Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR sHelpPath)
 {
 	CString sMessage;
 	CString sCaption;
 	sMessage.LoadString(nMessage);
 	sCaption.LoadString(nCaption);
-	return CMessageBox::Show(hWnd, sMessage, sCaption, uType);
+	return CMessageBox::Show(hWnd, sMessage, sCaption, uType, sHelpPath);
 }
 
-UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType)
+UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType, LPCTSTR sHelpPath)
 {
 	CMessageBox box;
 	
 	if (!IsWindow(hWnd))
 		hWnd = NULL;
+	if (sHelpPath)
+		box.SetHelpPath(sHelpPath);
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, box.FillBoxStandard(uType));
+}
+
+UINT CMessageBox::Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, UINT nHelpID)
+{
+	CMessageBox box;
+	CString sMessage;
+	CString sCaption;
+	sMessage.LoadString(nMessage);
+	sCaption.LoadString(nCaption);
+
+	if (!IsWindow(hWnd))
+		hWnd = NULL;
+	box.SetHelpID(nHelpID);
+
+	return box.GoModal(CWnd::FromHandle(hWnd), sCaption, sMessage, box.FillBoxStandard(uType));
 }
 
 int CMessageBox::FillBoxStandard(UINT uType)
@@ -385,6 +402,27 @@ int CMessageBox::FillBoxStandard(UINT uType)
 	case MB_DEFBUTTON3:
 		return 3;
 		break;
+	}
+	// do we need to add a help button?
+	if (uType & MB_HELP)
+	{
+		CString sHelpText;
+#ifndef IDS_MSGBOX_HELP
+		sHelpText = _T("Help");
+#else
+		m_i18l.LoadString(IDS_MSGBOX_HELP);
+		sHelpText = m_i18l;
+#endif
+		if (m_sButton2.IsEmpty())
+		{
+			m_sButton2 = sHelpText;
+			m_uButton2Ret = IDHELP;
+		}
+		else if (m_sButton3.IsEmpty())
+		{
+			m_sButton3 = sHelpText;
+			m_uButton3Ret = IDHELP;
+		}
 	}
 	return 1;
 }
@@ -640,14 +678,48 @@ void CMessageBox::OnButton2()
 {
 	if (GetDlgItem(IDC_MESSAGEBOX_CHECKBOX)->SendMessage(BM_GETCHECK, 0, 0)==BST_CHECKED)
 		SetRegistryValue(m_sRegistryValue, m_uButton2Ret);
-	EndDialog(m_uButton2Ret);
+	if ((m_uButton2Ret == IDHELP)&&(!m_sHelpPath.IsEmpty()))
+	{
+		typedef HWND (WINAPI* FPHH)(HWND, LPCWSTR, UINT, DWORD);
+		FPHH pHtmlHelp=NULL; // Function pointer
+		HINSTANCE hInstHtmlHelp = LoadLibrary(_T("HHCtrl.ocx"));
+		if (hInstHtmlHelp != NULL)
+		{
+			(FARPROC&)pHtmlHelp = GetProcAddress(hInstHtmlHelp, "HtmlHelpW");
+			if (pHtmlHelp)
+				pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
+		}
+	}
+	else if (m_uButton2Ret == IDHELP)
+	{
+		OnHelp();
+	}
+	else
+		EndDialog(m_uButton2Ret);
 }
 
 void CMessageBox::OnButton3()
 {
 	if (GetDlgItem(IDC_MESSAGEBOX_CHECKBOX)->SendMessage(BM_GETCHECK, 0, 0)==BST_CHECKED)
 		SetRegistryValue(m_sRegistryValue, m_uButton3Ret);
-	EndDialog(m_uButton3Ret);
+	if ((m_uButton3Ret == IDHELP)&&(!m_sHelpPath.IsEmpty()))
+	{
+		typedef HWND (WINAPI* FPHH)(HWND, LPCWSTR, UINT, DWORD);
+		FPHH pHtmlHelp=NULL; // Function pointer
+		HINSTANCE hInstHtmlHelp = LoadLibrary(_T("HHCtrl.ocx"));
+		if (hInstHtmlHelp != NULL)
+		{
+			(FARPROC&)pHtmlHelp = GetProcAddress(hInstHtmlHelp, "HtmlHelpW");
+			if (pHtmlHelp)
+				pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
+		}
+	}
+	else if (m_uButton3Ret == IDHELP)
+	{
+		OnHelp();
+	}
+	else
+		EndDialog(m_uButton3Ret);
 }
 
 void CMessageBox::OnCancel()

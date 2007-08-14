@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -246,18 +246,30 @@ public:
 	 * \param lpMessage the message string to show on the message box
 	 * \param lpCaption the dialog title
 	 * \param uType see class description for details
+	 * \param sHelpPath if uType has MB_HELP, the path for the help file
 	 * \return see class descriptions for details
 	 */
-	static UINT Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType);
+	static UINT Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType, LPCTSTR sHelpPath = NULL);
 	/**
 	 * Shows a message box. 
 	 * \param hWnd handle to the parent window or NULL
 	 * \param nMessage resource ID of the message string
 	 * \param nCaption resource ID of the title string
 	 * \param uType see class description for details
+	 * \param sHelpPath if uType has MB_HELP, this is the path of the helpfile to use
 	 * \return see class description for details
 	 */
-	static UINT Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType);
+	static UINT Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR sHelpPath = NULL);
+	/**
+	* Shows a message box. 
+	* \param hWnd handle to the parent window or NULL
+	* \param nMessage resource ID of the message string
+	* \param nCaption resource ID of the title string
+	* \param uType see class description for details
+	* \param nHelpID if uType has MB_HELP, this is the help ID to use
+	* \return see class description for details
+	*/
+	static UINT Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, UINT nHelpID);
 	/**
 	 * Shows a message box with a checkbox. If the user checks it then the next time
 	 * the message box isn't shown anymore - the method simply returns the same value as
@@ -270,7 +282,7 @@ public:
 	 * \param lpRegistry a value string to store the return value of this specific message box. 
 	 * Each one of your message boxes must have it's own value string! Examples for such values
 	 * might be "WarnOverwrite", "InformAboutMissingMailSubject", ...
-	 * \param lpCheckMessage the message to show on the checkbox label. If this parameter is ommitted
+	 * \param lpCheckMessage the message to show on the checkbox label. If this parameter is omitted
 	 * then it defaults to "do not show again" or the string with resource ID IDS_MSGBOX_DONOTSHOWAGAIN.
 	 * \return see class description for details
 	 */
@@ -396,6 +408,8 @@ protected:
 	 */
 	CSize GetButtonSize();
 
+	void SetHelpPath(LPCTSTR sHelpPath) {m_sHelpPath = sHelpPath;}
+
 	LOGFONT	m_LogFont;
 	CCursor m_Cursor;
 	CString m_sMessage;
@@ -406,6 +420,7 @@ protected:
 	CString m_sButton2;
 	CString m_sButton3;
 	CString m_sCheckbox;
+	CString m_sHelpPath;
 	UINT m_uButton1Ret;
 	UINT m_uButton2Ret;
 	UINT m_uButton3Ret;
