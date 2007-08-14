@@ -318,7 +318,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 		prog.SetCancelMsg(sTemp);
 		prog.SetTime(TRUE);
 		prog.SetShowProgressBar(TRUE);
-		prog.ShowModal(m_hWnd);
+		prog.ShowModeless(m_hWnd);
 		for (int i=0; i<m_pathlist.GetCount(); ++i)
 		{
 			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
@@ -414,7 +414,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 				prog.SetCancelMsg(sTemp);
 				prog.SetTime(TRUE);
 				prog.SetShowProgressBar(TRUE);
-				prog.ShowModal(m_hWnd);
+				prog.ShowModeless(m_hWnd);
 				for (int i=0; i<m_pathlist.GetCount(); ++i)
 				{
 					prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
