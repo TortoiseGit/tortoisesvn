@@ -145,7 +145,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_WM_KEYDOWN()
-	ON_WM_LBUTTONUP()
+	ON_WM_LBUTTONDOWN()
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_WM_MOUSEMOVE()
 	ON_COMMAND(ID_NAVIGATE_PREVIOUSCONFLICT, OnMergePreviousconflict)
@@ -2215,7 +2215,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
+void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	int nClickedLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 	nClickedLine--;		//we need the index
@@ -2252,7 +2252,7 @@ void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 		Invalidate();
 	}
 
-	CView::OnLButtonUp(nFlags, point);
+	CView::OnLButtonDown(nFlags, point);
 }
 
 void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
