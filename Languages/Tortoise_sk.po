@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-02 22:35+0100\n"
+"PO-Revision-Date: 2007-08-14 09:06+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,12 @@ msgstr "! %d"
 #, c-format
 msgid "%.2f MBytes transferred"
 msgstr "Prenesené dáta: %.2f MB"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kB/s"
 
 # ID:3868,#:
 # ID:3868,
@@ -149,6 +155,12 @@ msgstr "Prenesené dáta: %I64d kB"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d vybraných súborov, %d súborov celkom"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld B/s"
 
 # ID:226,
 #: ID:226
@@ -617,6 +629,11 @@ msgstr "&Informácie o obrázku"
 msgid "&Import..."
 msgstr "&Importovať"
 
+# ID:114,
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "Rozdiely v &riadkoch po slovách"
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "&Jump to first difference when loading"
@@ -871,6 +888,7 @@ msgstr "&Do revízie"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
+#: Control-ID:1384
 #: Control-ID:65535
 msgid "&To URL:"
 msgstr "&Na URL:"
@@ -1481,7 +1499,7 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "Aplikuje unifikované porovnanie na pracovnú kópiu"
 
 # ID:15,
-#: ID:15
+#: ID:581
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -1656,6 +1674,10 @@ msgstr "Obviniť - TortoiseSVN"
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Obviní každý riadok autora v súbore"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "Alfa zmiešania"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -2503,7 +2525,7 @@ msgid "Create Repository"
 msgstr "Vytvoriť úložisko"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1385
 msgid "Create copy in the repository from:"
 msgstr "Vytvoriť kópiu v úložisku z:"
 
@@ -4359,7 +4381,7 @@ msgid "Log Messages"
 msgstr "Správy denníka"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1386
 msgid "Log message"
 msgstr "Správa denníka"
 
@@ -5665,6 +5687,7 @@ msgstr "Nahradzujem"
 # Control-ID:65535,
 #: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:1383
 #: Control-ID:65535
 msgid "Repository"
 msgstr "Úložisko"
@@ -6355,6 +6378,15 @@ msgstr "Zobraziť zoznam súborov"
 #: ID:2051
 msgid "Show HEAD revision nodes"
 msgstr "Zobraziť hlavnú revíziu"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"Zobrazí zmeny v riaku slovo po slove\n"
+"Rozdiely v riadkoch po slovách"
 
 # Control-ID:1126,
 #: Control-ID:1126
@@ -8176,7 +8208,7 @@ msgid "author"
 msgstr "autor"
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -8189,7 +8221,7 @@ msgstr ""
 "je k správe denníka pripojená."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -8198,7 +8230,7 @@ msgstr ""
 "Menovka, ktorá bude zobrazená v editovacom boxe, kde uživateľ zadá číslo prípadu."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -8211,7 +8243,7 @@ msgstr ""
 "druhý výraz je použitý na vybranie vlastného ID chyby z reťazca."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -8223,7 +8255,7 @@ msgstr ""
 "Reťazec musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -8232,7 +8264,7 @@ msgstr ""
 "Nastavte \"false\" keď váš bugtracking systém nemá odkazy na prípady podľa čísiel."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -8435,7 +8467,7 @@ msgid "revisions %s-%s, %s"
 msgstr "Revízie %s-%s, %s"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -8444,7 +8476,7 @@ msgstr ""
 "Jeden z  'native', 'LF', 'CR', 'CRLF'."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -8455,7 +8487,7 @@ msgstr ""
 "Pokus o nerekurzívne použite zlyhá. Rekurzívne použite nastaví túto vlastnosť iba na súbory v adresáry."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -8469,7 +8501,7 @@ msgstr ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -8478,7 +8510,7 @@ msgstr ""
 "Riadkami oddelený zoznam vzoriek mien na vylúčenie."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -8497,7 +8529,7 @@ msgstr ""
 "Id\t\t\t\tZhustené zhrnutie predcházdajúcich štyroch."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -8510,7 +8542,7 @@ msgstr ""
 "Ostatné súbory sú považované za binárne."
 
 # ID:16,
-#: ID:16
+#: ID:576
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -8545,7 +8577,7 @@ msgid "to %s"
 msgstr "na %s"
 
 # ID:18,
-#: ID:18
+#: ID:578
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -8558,7 +8590,7 @@ msgstr ""
 "Príklad: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
-#: ID:17
+#: ID:578
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -8567,7 +8599,7 @@ msgstr ""
 "Minimálny počet znakov záznamu denníka, aby bolo povolené zamknutie."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -8578,7 +8610,7 @@ msgstr ""
 "bol vložený v angličtine."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -8587,7 +8619,7 @@ msgstr ""
 "Minimálny počet znakov záznamu denníka, aby bolo povolené odovzdanie."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -8598,7 +8630,7 @@ msgstr ""
 "Použite to ako šablónu na vypisovanie záznamov denníka."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -8609,7 +8641,7 @@ msgstr ""
 "Šedá čiara je zobrazená v odovzdávacom okne na tejto pozícií. Predvolená hodnota je 80."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -8620,7 +8652,7 @@ msgstr ""
 "TortoiseSVN načíta príslušnú kontrolu pravopisu - ak bude dostupná."
 
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -8631,7 +8663,7 @@ msgstr ""
 "súborov, ktorý bude na výber v dialogovom okne vlastností."
 
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -8642,7 +8674,7 @@ msgstr ""
 "adresára, ktorý bude na výber v dialogovom okne vlastností."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -8656,7 +8688,7 @@ msgid "values are different"
 msgstr "rozdielne hodnoty"
 
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -8670,7 +8702,7 @@ msgstr ""
 "Reťazec %PATH% bude nahradený cestou súboru relatívne od kmeňového adresára úložiska."
 
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:revision\n"
