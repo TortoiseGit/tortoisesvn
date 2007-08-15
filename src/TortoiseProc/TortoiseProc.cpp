@@ -1881,10 +1881,12 @@ BOOL CTortoiseProcApp::InitInstance()
 					bPossibleSwitch = false;
 				if (components1.nPort != components2.nPort)
 					bPossibleSwitch = false;
-				CString sWarning, sWarningTitle;
+				CString sWarning, sWarningTitle, sHelpPath;
 				sWarning.Format(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
 				sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
-				if ((!bPossibleSwitch)||(CMessageBox::Show((EXPLORERHWND), sWarning, sWarningTitle, MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2)==IDYES))
+				sHelpPath = m_pszHelpFilePath;
+				sHelpPath += _T("::/tsvn-dug-relocate.html");
+				if ((!bPossibleSwitch)||(CMessageBox::Show((EXPLORERHWND), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
 				{
 					SVN s;
 
