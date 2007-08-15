@@ -242,6 +242,7 @@ UINT CMessageBox::Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, UINT
 
 int CMessageBox::FillBoxStandard(UINT uType)
 {
+	int ret = 1;
 	m_uType = uType;
 	m_uCancelRet = IDCANCEL;
 	//load the icons according to uType
@@ -397,10 +398,10 @@ int CMessageBox::FillBoxStandard(UINT uType)
 	switch (uType & 0xf00)
 	{
 	case MB_DEFBUTTON2:
-		return 2;
+		ret = 2;
 		break;
 	case MB_DEFBUTTON3:
-		return 3;
+		ret = 3;
 		break;
 	}
 	// do we need to add a help button?
@@ -424,7 +425,7 @@ int CMessageBox::FillBoxStandard(UINT uType)
 			m_uButton3Ret = IDHELP;
 		}
 	}
-	return 1;
+	return ret;
 }
 
 UINT CMessageBox::GoModal(CWnd * pWnd, const CString& title, const CString& msg, int nDefaultButton)
@@ -683,12 +684,15 @@ void CMessageBox::OnButton2()
 		typedef HWND (WINAPI* FPHH)(HWND, LPCWSTR, UINT, DWORD);
 		FPHH pHtmlHelp=NULL; // Function pointer
 		HINSTANCE hInstHtmlHelp = LoadLibrary(_T("HHCtrl.ocx"));
+		HWND hHelp = NULL;
 		if (hInstHtmlHelp != NULL)
 		{
 			(FARPROC&)pHtmlHelp = GetProcAddress(hInstHtmlHelp, "HtmlHelpW");
 			if (pHtmlHelp)
-				pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
+				hHelp = pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
 		}
+		if (hHelp == NULL)
+			::MessageBox(m_hWnd, _T("could not show help file"), _T("Help"), MB_ICONERROR);
 	}
 	else if (m_uButton2Ret == IDHELP)
 	{
@@ -707,12 +711,15 @@ void CMessageBox::OnButton3()
 		typedef HWND (WINAPI* FPHH)(HWND, LPCWSTR, UINT, DWORD);
 		FPHH pHtmlHelp=NULL; // Function pointer
 		HINSTANCE hInstHtmlHelp = LoadLibrary(_T("HHCtrl.ocx"));
+		HWND hHelp = NULL;
 		if (hInstHtmlHelp != NULL)
 		{
 			(FARPROC&)pHtmlHelp = GetProcAddress(hInstHtmlHelp, "HtmlHelpW");
 			if (pHtmlHelp)
-				pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
+				hHelp = pHtmlHelp(m_hWnd, (LPCTSTR)m_sHelpPath, HH_DISPLAY_TOPIC, NULL);
 		}
+		if (hHelp == NULL)
+			::MessageBox(m_hWnd, _T("could not show help file"), _T("Help"), MB_ICONERROR);
 	}
 	else if (m_uButton3Ret == IDHELP)
 	{
