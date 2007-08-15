@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10315: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10352: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-07 12:52+0300\n"
+"PO-Revision-Date: 2007-08-15 15:03+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -559,6 +559,10 @@ msgstr "Информация о &картинке"
 msgid "&Import..."
 msgstr "И&мпортировать..."
 
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "Внутри&строчные различия по словам"
+
 #: Control-ID:1016,
 msgid "&Jump to first difference when loading"
 msgstr "&Перейти к первому различию при загрузке"
@@ -770,7 +774,7 @@ msgstr "&Таймаут для остановки разбора автозав�
 msgid "&To Revision"
 msgstr "&По ревизию"
 
-#: Control-ID:65535,#:
+#: Control-ID:1384,#:
 #: Control-ID:65535,
 msgid "&To URL:"
 msgstr "&В следующий URL:"
@@ -1411,6 +1415,10 @@ msgstr "Авторство - TortoiseSVN"
 #: ID:13,
 msgid "Blames each line of a file on an author"
 msgstr "Показывает для каждой строки файла её автора"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "Альфа-сопряжение"
 
 #: Control-ID:1003,
 msgid "Br&owse..."
@@ -2105,7 +2113,7 @@ msgstr "Создание заплатки"
 msgid "Create Repository"
 msgstr "Создание хранилища"
 
-#: Control-ID:65535,
+#: Control-ID:1385,
 msgid "Create copy in the repository from:"
 msgstr "Создать копию в хранилище из:"
 
@@ -3692,7 +3700,7 @@ msgstr "Предыдущие сообщения журнала"
 msgid "Log Messages"
 msgstr "Сообщения журнала"
 
-#: Control-ID:65535,
+#: Control-ID:1386,
 msgid "Log message"
 msgstr "Сообщение журнала"
 
@@ -4756,7 +4764,7 @@ msgstr "Перемещено"
 
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
-#: Control-ID:65535,#:
+#: Control-ID:1383,#:
 #: Control-ID:65535,
 msgid "Repository"
 msgstr "Хранилище"
@@ -5322,6 +5330,14 @@ msgstr "Показать список файлов"
 msgid "Show HEAD revision nodes"
 msgstr "Показать узлы ведущей ревизии"
 
+#: ID:2052,
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"Показывать внутристрочные различия по словам\n"
+"Внутристрочные различия по словам"
+
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
 msgstr "Показывать диалог блокировки перед блокированием файлов"
@@ -5507,7 +5523,7 @@ msgstr "График стопкой"
 
 #: ID:569,
 msgid "Start Commit Hook"
-msgstr "Привязка запуск-фиксации"
+msgstr "Привязка начало-фиксации"
 
 #: Control-ID:65535,
 msgid "Start Revision"
@@ -5515,7 +5531,7 @@ msgstr "Начальная ревизия"
 
 #: ID:569,
 msgid "Start Update Hook"
-msgstr "Привязка запуск-обновления"
+msgstr "Привязка начало-обновления"
 
 #: ID:245,#:
 #: Dlg-ID:179,
@@ -5722,7 +5738,7 @@ msgstr "Размер куска кода на соответствует кол�
 #: ID:63,
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "Начало \"@@\" куска кода ожидался на строке %d !"
+msgstr "Начало куска \"@@\" ожидалось в строке %d !"
 
 #: ID:197,
 msgid "The default URL to checkout from if nothing else is specified"
