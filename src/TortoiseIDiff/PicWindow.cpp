@@ -173,6 +173,10 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		ptPanStart.y = GET_Y_LPARAM(lParam);
 		startVScrollPos = nVScrollPos;
 		startHScrollPos = nHScrollPos;
+		SetCapture(*this);
+		break;
+	case WM_LBUTTONUP:
+		ReleaseCapture();
 		break;
 	case WM_MOUSELEAVE:
 		SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
