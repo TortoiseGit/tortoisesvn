@@ -55,11 +55,13 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 
 void CPicWindow::PositionTrackBar()
 {
+	RECT rc;
+	GetClientRect(&rc);
 	if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
 	{
-		MoveWindow(hwndAlphaSlider, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4+SLIDER_WIDTH, SLIDER_WIDTH, m_inforect.bottom-m_inforect.top-SLIDER_WIDTH+8, true);
+		MoveWindow(hwndAlphaSlider, 0, rc.top-4+SLIDER_WIDTH, SLIDER_WIDTH, rc.bottom-rc.top-SLIDER_WIDTH+8, true);
 		ShowWindow(hwndAlphaSlider, SW_SHOW);
-		MoveWindow(hwndAlphaToggleBtn, m_inforect.left-SLIDER_WIDTH-4, m_inforect.top-4, SLIDER_WIDTH, SLIDER_WIDTH, true);
+		MoveWindow(hwndAlphaToggleBtn, 0, rc.top-4, SLIDER_WIDTH, SLIDER_WIDTH, true);
 		ShowWindow(hwndAlphaToggleBtn, SW_SHOW);
 	}
 	else
@@ -450,8 +452,8 @@ void CPicWindow::SetPic(stdstring path, stdstring title)
 	if (bValid)
 	{
 		picscale = 1.0;
-		InvalidateRect(*this, NULL, FALSE);
 		PositionChildren();
+		InvalidateRect(*this, NULL, FALSE);
 	}
 }
 
@@ -635,8 +637,8 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	if (nVScrollPos < 0)
 		nVScrollPos = 0;
 	SetupScrollBars();
-	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
+	InvalidateRect(*this, NULL, TRUE);
 }
 
 void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
@@ -682,8 +684,8 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	if (nHScrollPos < 0)
 		nHScrollPos = 0;
 	SetupScrollBars();
-	InvalidateRect(*this, NULL, TRUE);
 	PositionChildren();
+	InvalidateRect(*this, NULL, TRUE);
 }
 
 void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
@@ -718,16 +720,16 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 		if (nHScrollPos < 0)
 			nHScrollPos = 0;
 		SetupScrollBars();
-		InvalidateRect(*this, NULL, FALSE);
 		PositionChildren();
+		InvalidateRect(*this, NULL, FALSE);
 	}
 	else if (fwKeys & MK_CONTROL)
 	{
 		// control means adjusting the scale factor
 		Zoom(zDelta>0, true);
+		PositionChildren();
 		InvalidateRect(*this, NULL, FALSE);
 		SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
-		PositionChildren();
 	}
 	else
 	{
@@ -737,8 +739,8 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 		if (nVScrollPos < 0)
 			nVScrollPos = 0;
 		SetupScrollBars();
-		InvalidateRect(*this, NULL, FALSE);
 		PositionChildren();
+		InvalidateRect(*this, NULL, FALSE);
 	}
 }
 
@@ -1040,22 +1042,23 @@ void CPicWindow::Paint(HWND hwnd)
 			m_inforect.right = rect.right+sliderwidth;
 			m_inforect.bottom = rect.bottom;
 
-			TCHAR infostring[8192];
-			BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), false);
-			// set the font
-			NONCLIENTMETRICS metrics = {0};
-			metrics.cbSize = sizeof(NONCLIENTMETRICS);
-			SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
-			HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
-			HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
-			// find out how big the rectangle for the text has to be
-			DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
-
-			// the text should be drawn with a four pixel offset to the window borders
-			m_inforect.top = rect.bottom - (m_inforect.bottom-m_inforect.top) - 4;
-			m_inforect.bottom = rect.bottom-4;
 			if (bShowInfo)
 			{
+				TCHAR infostring[8192];
+				BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), false);
+				// set the font
+				NONCLIENTMETRICS metrics = {0};
+				metrics.cbSize = sizeof(NONCLIENTMETRICS);
+				SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+				HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
+				HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
+				// find out how big the rectangle for the text has to be
+				DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
+
+				// the text should be drawn with a four pixel offset to the window borders
+				m_inforect.top = rect.bottom - (m_inforect.bottom-m_inforect.top) - 4;
+				m_inforect.bottom = rect.bottom-4;
+
 				// first draw an edge rectangle
 				RECT edgerect;
 				edgerect.left = m_inforect.left-4;
@@ -1068,9 +1071,8 @@ void CPicWindow::Paint(HWND hwnd)
 				SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
 				DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
 				SelectObject(memDC, (HGDIOBJ)hFontOld);
+				DeleteObject(hFont);
 			}
-			PositionTrackBar();
-			DeleteObject(hFont);
 		}
 		else
 		{
@@ -1181,6 +1183,7 @@ void CPicWindow::PositionChildren()
 		ShowWindow(hwndRightBtn, SW_HIDE);
 		ShowWindow(hwndPlayBtn, SW_HIDE);
 	}
+	PositionTrackBar();
 }
 
 bool CPicWindow::HasMultipleImages()
