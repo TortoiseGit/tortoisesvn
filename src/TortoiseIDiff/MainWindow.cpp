@@ -880,7 +880,7 @@ bool CMainWindow::CreateToolbar()
 	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_IMGINFO));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_IMAGEINFO; 
-	tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
