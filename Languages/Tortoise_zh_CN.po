@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-02 23:47+0800\n"
+"PO-Revision-Date: 2007-08-16 17:43+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,6 +628,11 @@ msgstr "图像信息(&I)"
 msgid "&Import..."
 msgstr "导入(&I)..."
 
+# ID:114,
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "识别单词的内嵌差异(&I)"
+
 # Control-ID:1016,
 #: Control-ID:1016,
 msgid "&Jump to first difference when loading"
@@ -878,7 +883,7 @@ msgstr "至版本(&T)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:1384,#: Control-ID:65535,
 msgid "&To URL:"
 msgstr "至URL(&T)："
 
@@ -1628,6 +1633,10 @@ msgstr "追溯 - TortoiseSVN"
 #: ID:13,
 msgid "Blames each line of a file on an author"
 msgstr "列出文件每一行的作者"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "Alpha 混和"
 
 # Control-ID:1003,
 #: Control-ID:1003,
@@ -2455,7 +2464,7 @@ msgid "Create Repository"
 msgstr "在此创建版本库"
 
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:1385,
 msgid "Create copy in the repository from:"
 msgstr "从此复制到版本库"
 
@@ -4227,7 +4236,7 @@ msgid "Log Messages"
 msgstr "日志信息"
 
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:1386,
 msgid "Log message"
 msgstr "日志信息"
 
@@ -5491,7 +5500,7 @@ msgstr "替换"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:1374,#: Control-ID:1055,#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:1374,#: Control-ID:1055,#: Control-ID:1383,#: Control-ID:65535,
 msgid "Repository"
 msgstr "版本库"
 
@@ -6169,6 +6178,14 @@ msgstr "显示文件列表"
 #: ID:2051,
 msgid "Show HEAD revision nodes"
 msgstr "显示 HEAD 版本节点"
+
+#: ID:2052,
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"按照单词显示内迁差异\n"
+"识别单词的内嵌差异"
 
 #: Control-ID:1126,
 msgid "Show Lock dialog before locking files"
@@ -8448,6 +8465,3 @@ msgstr "对应版本库URL："
 #: ID:245,
 msgid "year"
 msgstr "年"
-
-#~ msgid "Arranged by &path"
-#~ msgstr "按照路径排序(&P)"
