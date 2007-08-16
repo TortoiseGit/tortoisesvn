@@ -128,6 +128,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		InvalidateRect(*this, NULL, FALSE);
 		break;
 	case WM_ERASEBKGND:
+		return 1;
 		break;
 	case WM_PAINT:
 		Paint(hwnd);
@@ -175,7 +176,6 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_MOUSELEAVE:
 		SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
-		::InvalidateRect(*this, NULL, FALSE);
 		break;
 	case WM_MOUSEMOVE:
 		{
@@ -925,6 +925,9 @@ void CPicWindow::Paint(HWND hwnd)
 	HDC hdc;
 	RECT rect, fullrect;
 
+	GetUpdateRect(hwnd, &rect, FALSE);
+	if (IsRectEmpty(&rect))
+		return;
 
 	::GetClientRect(*this, &fullrect);
 	hdc = BeginPaint(hwnd, &ps);
