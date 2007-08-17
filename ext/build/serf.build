@@ -13,22 +13,24 @@
 		
 		<delete>
 			<fileset>
-				<include name="${configuration}_${platform}\**" />
+				<include name="${configuration}${static}_${platform}\**" />
 			</fileset>
 		</delete>
 	</target>
 
 	<target name="build" >
-		<mkdir dir="${configuration}_${platform}" />
-		<cl outputdir="${configuration}_${platform}">
+		<mkdir dir="${configuration}${static}_${platform}" />
+		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
 			<arg value="/GF" if="${configuration == 'release'}" />
 			<arg value="/FD" />
 			<arg value="/EHsc" />
-			<arg value="/MD" if="${configuration == 'release'}" />
-			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
 			<arg value="/Gy" />
 			<arg value="/W3" />
 			<arg value="/nologo" />
@@ -69,15 +71,15 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
-			output="${configuration}_${platform}\libserf.lib" 
+			output="${configuration}${static}_${platform}\libserf.lib" 
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
-				<include name="${configuration}_${platform}\*.obj" />
-				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
+				<include name="${configuration}${static}_${platform}\*.obj" />
+				<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" />
 				<include name="..\..\..\common\openssl\out32\libeay32.lib" />
 				<include name="..\..\..\common\openssl\out32\ssleay32.lib" />
-				<include name="..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib" />
-				<include name="..\apr\${configuration}_${platform}\libapr_tsvn.lib" />
+				<include name="..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib" />
+				<include name="..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib" />
 			</sources>
 		</lib>
 	</target>

@@ -13,13 +13,13 @@
 		
 		<delete>
 			<fileset>
-				<include name="${configuration}_${platform}\**" />
+				<include name="${configuration}${static}_${platform}\**" />
 			</fileset>
 		</delete>
 	</target>
 
 	<target name="build" >
-		<mkdir dir="${configuration}_${platform}" />
+		<mkdir dir="${configuration}${static}_${platform}" />
 		<if test="${platform == 'win32'}">
 			<copy todir="." overwrite="true">
 			    <fileset basedir="contrib/masmx86">
@@ -40,15 +40,17 @@
 			<exec program="ml64" commandline="-nologo -c -Zi gvmat64.asm" />
 			<exec program="ml64" commandline="-nologo -c -Zi inffasx64.asm" />
 		</if>
-		<cl outputdir="${configuration}_${platform}">
+		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
 			<arg value="/GF" if="${configuration == 'release'}" />
 			<arg value="/FD" />
 			<arg value="/EHsc" />
-			<arg value="/MD" if="${configuration == 'release'}" />
-			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
 			<arg value="/Gy" />
 			<arg value="/W3" />
 			<arg value="/nologo" />
@@ -65,7 +67,9 @@
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
-				<define name="APR_DECLARE_EXPORT" />
+				<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
+				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
@@ -77,11 +81,11 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
-			output="${configuration}_${platform}\zlibstat.lib" 
+			output="${configuration}${static}_${platform}\zlibstat.lib" 
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
-				<include name="${configuration}_${platform}\*.obj" />
-				<exclude name="${configuration}_${platform}\example.obj" />
+				<include name="${configuration}${static}_${platform}\*.obj" />
+				<exclude name="${configuration}${static}_${platform}\example.obj" />
 			</sources>
 		</lib>
 	</target>

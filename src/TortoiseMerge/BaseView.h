@@ -32,6 +32,7 @@
  */
 class CBaseView : public CView
 {
+    DECLARE_DYNCREATE(CBaseView)
 friend class CLineDiffBar;
 public:
 	CBaseView();

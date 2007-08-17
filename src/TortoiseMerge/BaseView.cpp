@@ -50,6 +50,8 @@ CLineDiffBar * CBaseView::m_pwndLineDiffBar = NULL;
 CStatusBar * CBaseView::m_pwndStatusBar = NULL;
 CMainFrame * CBaseView::m_pMainFrame = NULL;
 
+IMPLEMENT_DYNCREATE(CBaseView, CView)
+
 CBaseView::CBaseView()
 {
 	m_pCacheBitmap = NULL;

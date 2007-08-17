@@ -345,8 +345,8 @@
 		</Configuration>
 		<Configuration
 			Name="release_static|Win32"
-			OutputDirectory="..\..\bin\Release\bin"
-			IntermediateDirectory="..\..\obj\TortoiseIDiff\Release"
+			OutputDirectory="..\..\bin\ReleaseStatic\bin"
+			IntermediateDirectory="..\..\obj\TortoiseIDiff\ReleaseStatic"
 			ConfigurationType="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -708,11 +708,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\pan.cur"
+				RelativePath="..\Resources\pan.cur"
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\pan.cur"
+				RelativePath=".\pan.cur"
 				>
 			</File>
 			<File

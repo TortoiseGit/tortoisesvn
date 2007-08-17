@@ -13,7 +13,7 @@
 		
 		<delete>
 			<fileset>
-				<include name="${configuration}_${platform}\**" />
+				<include name="${configuration}${static}_${platform}\**" />
 				<include name=".version" />
 				<include name="config.hw" />
 			</fileset>
@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="build" >
-		<mkdir dir="${configuration}_${platform}" />
+		<mkdir dir="${configuration}${static}_${platform}" />
 		<loadfile file="NEWS" property="versionfile" />
 		<regex pattern="^Changes in release (?'NEON_MAJOR_VERSION'\d+)\.(?'NEON_MINOR_VERSION'\d+)\.(?'NEON_MICRO_VERSION'\d+):" input="${versionfile}" />
 		<echo file=".version" message="${NEON_MAJOR_VERSION}.${NEON_MINOR_VERSION}.${NEON_MICRO_VERSION}" />
@@ -38,15 +38,17 @@
 		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
 		<echo file="config.h" message="${configfile}" unless="${file::exists('config.h')}" />
 		<!-- patch neon to use our own default-ca file -->
-		<cl outputdir="${configuration}_${platform}">
+		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
 			<arg value="/GF" if="${configuration == 'release'}" />
 			<arg value="/FD" />
 			<arg value="/EHsc" />
-			<arg value="/MD" if="${configuration == 'release'}" />
-			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
 			<arg value="/Gy" />
 			<arg value="/W3" />
 			<arg value="/nologo" />
@@ -113,11 +115,11 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
-			output="${configuration}_${platform}\libneon.lib" 
+			output="${configuration}${static}_${platform}\libneon.lib" 
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
-				<include name="${configuration}_${platform}\*.obj" />
-				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
+				<include name="${configuration}${static}_${platform}\*.obj" />
+				<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" />
 				<include name="..\..\..\common\openssl\out32\libeay32.lib" />
 				<include name="..\..\..\common\openssl\out32\ssleay32.lib" />
 			</sources>

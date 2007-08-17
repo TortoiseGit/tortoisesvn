@@ -10,10 +10,12 @@
 	<!-- default build tool is VS.NET2005 -->
 	<property name="buildtool" value="devenv.com" />
 	<!-- default: don't add a platform specific extension 
-	     to the bin folders 'release' / 'debug'  -->
+		 to the bin folders 'release' / 'debug'	 -->
 	<property name="bindirextension" value="" />
 	<!-- default: we don't cross-compile -->
 	<property name="crosscompile" value="" />
+	<!-- default: we link dynamically -->
+	<property name="static" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -49,6 +51,13 @@
 		</description>
 		<property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
 		<echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
+	</target>
+	
+	<target name="static">
+		<description>
+			compiles some projects linking statically to the CRT
+		</description>
+		<property name="static" value="static" />
 	</target>
 
 <!-- ====================================================================== -->
@@ -161,6 +170,14 @@
 		</description>
 	</target>
 
+	<target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
+		<description>
+			Builds the libraries for static linking, and all the tools
+			we ship separately from TSVN (therefore statically linked
+			to all dependend libs).
+		</description>
+	</target>
+
 	<target name="setup" depends="env,binaries,docs,LanguagePacks">
 		<description>
 			Uses WiX to create an msi installer file.
@@ -179,7 +196,7 @@
 		<property name="processorarchitecture" value="x86" />
 		
 		<!-- The nant process seems to open a 32 bit shell. 
-		     Hence, we need to be clever about this check ... -->
+			 Hence, we need to be clever about this check ... -->
 		<if test="${not environment::variable-exists('PROCESSOR_ARCHITEW6432')}">
 			<property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
 		</if>
@@ -258,34 +275,34 @@
 <!-- ====================================================================== -->
 <!-- Help target															-->
 <!-- ====================================================================== -->
-    <target name="help">
+	<target name="help">
 		<echo message="You must specify a target to tell us what you want to build!" />
 		<echo />
 		<echo message="The following targets are available:" />
-		<echo message="clean        : this will clean up previous builds and force a" />
-		<echo message="               complete rebuild later" />
-		<echo message="docs         : builds the docs in all languages and all formats" />
-		<echo message="APIDocs      : Builds the API docs from the sourcecode comments" />
-		<echo message="docpot       : Generates the po template file of the docs" />
-		<echo message="Subversion   : builds the Subversion libraries, including its" />
-		<echo message="               dependencies" />
-		<echo message="TortoiseSVN  : builds TortoiseSVN. You must have build the" />
-		<echo message="               Subversion libraries before, or this will fail" />
-		<echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
-		<echo message="setup        : creates an msi installer for TortoiseSVN" />
+		<echo message="clean		: this will clean up previous builds and force a" />
+		<echo message="				  complete rebuild later" />
+		<echo message="docs			: builds the docs in all languages and all formats" />
+		<echo message="APIDocs		: Builds the API docs from the sourcecode comments" />
+		<echo message="docpot		: Generates the po template file of the docs" />
+		<echo message="Subversion	: builds the Subversion libraries, including its" />
+		<echo message="				  dependencies" />
+		<echo message="TortoiseSVN	: builds TortoiseSVN. You must have build the" />
+		<echo message="				  Subversion libraries before, or this will fail" />
+		<echo message="binaries		: builds all binaries (TortoiseSVN, Subversion, Libs)" />
+		<echo message="setup		: creates an msi installer for TortoiseSVN" />
 		<echo message="LanguagePacks: creates the Languagepack installers" />
 		<echo message="SourceTarball: creates a zip file with the sourcefiles" />
-		<echo message="msi          : creates the msi, but doesn't build the libs first" />
+		<echo message="msi			: creates the msi, but doesn't build the libs first" />
 		<echo />
 		<echo message="The following targets can be used to tweak the builds:" />
 		<echo message="debug   : if this target is called before other build targets," /> 
-		<echo message="          those targets are built with debug support" />
+		<echo message="			 those targets are built with debug support" />
 		<echo message="release : call this if you want to create official releases." />
-		<echo message="          It removes the '-dev' string from some builds" />
-		<echo message="x64     : call this if you want to create native 64 bit builds." />
-		<echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
+		<echo message="			 It removes the '-dev' string from some builds" />
+		<echo message="x64	   : call this if you want to create native 64 bit builds." />
+		<echo message="			 (AMD64/EM64T only -- will not work on Itanium systems.)" />
 		<echo message="cross   : cross-compile on win32 for the given target platform." />
-		<echo message="          (currently only available with x64.)" />
+		<echo message="			 (currently only available with x64.)" />
 		<echo />
 		<echo message="Please specify the configuration targets BEFORE the main target." />
 		<echo message="Examples:" />
@@ -293,7 +310,7 @@
 		<echo message="nant release setup" />
 		<echo message="nant -v x64 debug binaries" />
 		<echo />
-    </target>
+	</target>
 </project>
 
 
