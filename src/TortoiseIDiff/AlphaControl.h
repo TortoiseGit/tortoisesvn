@@ -61,6 +61,7 @@ private:
 	inline int ValueToPixel(int nValue);
 	/// Draw a marker
 	void DrawMarker(HDC& hdc, bool bLeft, UINT nHeight);
+	BOOL OnSetCursor(WPARAM wParam, LPARAM lParam);
 
 	HWND hwndControl;		///< Handle to this control
 	UINT nBorder;			///< Size of border around the guage

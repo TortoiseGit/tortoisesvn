@@ -37,13 +37,13 @@ CAlphaControl::CAlphaControl(HWND hwndControl)
 
 void CAlphaControl::RegisterCustomControl()
 {
-	WNDCLASSEX wc;
+	WNDCLASSEX wc = {0};
 
 	wc.cbSize			= sizeof(wc);
 	wc.lpszClassName	= sCAlphaControl;
 	wc.hInstance		= GetModuleHandle(0);
 	wc.lpfnWndProc		= stMsgHandler;
-	wc.hCursor			= LoadCursor(NULL, IDC_ARROW);
+	wc.hCursor			= NULL;
 	wc.hIcon			= 0;
 	wc.lpszMenuName		= 0;
 	wc.hbrBackground	= (HBRUSH)GetSysColorBrush(COLOR_BTNFACE);
@@ -98,6 +98,10 @@ LRESULT CAlphaControl::MsgHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPa
 		return LButtonDown(LOWORD(lParam), HIWORD(lParam));
 	case WM_LBUTTONUP:
 		return LButtonUp(LOWORD(lParam), HIWORD(lParam));
+	case WM_SETCURSOR:
+		if (OnSetCursor(wParam, lParam))
+			return TRUE;
+		break;
 	case TBM_GETPOS:
 		return nCurr;
 	case TBM_SETPOS:
@@ -345,15 +349,7 @@ LRESULT CAlphaControl::Paint()
 
 LRESULT CAlphaControl::MouseMove(UINT x, UINT y)
 {
-	if(eTracking == TRACKING_NONE)
-	{
-		// If the mouse is near the threshold, change it to a vertical-resize cursor
-		if(int(x) > rectGuage.left && int(x) < rectGuage.right && int(y) > nThreshold - 5 && int(y) < nThreshold + 5)
-			SetCursor(LoadCursor(NULL, IDC_SIZENS));
-		else
-			SetCursor(LoadCursor(NULL, IDC_ARROW));
-	}
-	else
+	if(eTracking != TRACKING_NONE)
 	{
 		// Do a little binary manipulation to get a negative value if necessary.
 		int nVert = y & 0x7fff;
@@ -414,11 +410,10 @@ LRESULT CAlphaControl::MouseMove(UINT x, UINT y)
 			}
 		}
 
-		// Always update the guage, no matter what we're dragging
-		if(nValuePos != nCurr)
+		// Adjust the value if it's outside the markers
+		if ((eTracking == TRACKING_VALUE)||((nLeftMarker < nCurr)||(nRightMarker > nCurr)))
 		{
 			nCurr = nValuePos;
-			SetCursor(LoadCursor(NULL, IDC_SIZENS));
 
 			// Find the area to invalidate, and calculate the new threshold
 			UINT nTemp = ValueToPixel(nCurr);
@@ -482,4 +477,50 @@ LRESULT CAlphaControl::LButtonUp(UINT x, UINT y)
 		ReleaseCapture();
 	}
 	return 0;
+}
+
+BOOL CAlphaControl::OnSetCursor(WPARAM wParam, LPARAM lParam)
+{
+	if ((hwndControl == (HWND)wParam)&&(LOWORD(lParam)==HTCLIENT))
+	{
+		if (eTracking == TRACKING_NONE)
+		{
+			POINT pt;
+			GetCursorPos(&pt);
+			ScreenToClient(hwndControl, &pt);
+
+			if ((pt.x > (rectGuage.left - LONG(nMarkerHalfSize))) && (pt.x < (rectGuage.left + LONG(nMarkerHalfSize))) &&
+				(pt.y > (LONG(nLeftMarkerPixel) - LONG(nMarkerHalfSize))) && (pt.y < (LONG(nLeftMarkerPixel) + LONG(nMarkerHalfSize))))
+			{
+				SetCursor(LoadCursor(NULL, IDC_SIZENS));
+			}
+			else if ((pt.x > (rectGuage.right - LONG(nMarkerHalfSize))) && (pt.x < (rectGuage.right + LONG(nMarkerHalfSize))) &&
+				(pt.y > (LONG(nRightMarkerPixel) - LONG(nMarkerHalfSize))) && (pt.y < (LONG(nRightMarkerPixel) + LONG(nMarkerHalfSize))))
+			{
+				SetCursor(LoadCursor(NULL, IDC_SIZENS));
+			}
+			else if ((int(pt.x) > rectGuage.left) && (int(pt.x) < rectGuage.right) && (int(pt.y) > rectGuage.top) && (int(pt.y) < rectGuage.bottom))
+			{
+				SetCursor(LoadCursor(NULL, IDC_ARROW));
+			}
+			else
+				return FALSE;	// Exit early
+		}
+		else
+		{
+			switch (eTracking)
+			{
+			case TRACKING_LEFT:
+			case TRACKING_RIGHT:
+				SetCursor(LoadCursor(NULL, IDC_SIZENS));
+				break;
+			case TRACKING_VALUE:
+			default:
+				SetCursor(LoadCursor(NULL, IDC_ARROW));
+				break;
+			}
+		}
+		return TRUE;
+	}
+	return FALSE;
 }
