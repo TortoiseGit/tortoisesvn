@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-10 00:52+0800\n"
+"PO-Revision-Date: 2007-08-18 11:24+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -631,6 +631,10 @@ msgstr "影像資訊(&I)"
 msgid "&Import..."
 msgstr "匯入(&I)..."
 
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "行內逐字比較差異"
+
 # Control-ID:1016,
 #: Control-ID:1016,
 msgid "&Jump to first difference when loading"
@@ -895,7 +899,7 @@ msgstr "至版本(&T)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
+#: Control-ID:1384,#:
 #: Control-ID:65535,
 msgid "&To URL:"
 msgstr "至URL(&T):"
@@ -1691,6 +1695,10 @@ msgstr "更新 - TortoiseSVN"
 #: ID:13,
 msgid "Blames each line of a file on an author"
 msgstr "列出檔案每一行的作者"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "透明化"
 
 # Control-ID:1003,
 #: Control-ID:1003,
@@ -2531,7 +2539,7 @@ msgid "Create Repository"
 msgstr "建立檔案庫"
 
 # Control-ID:1073,
-#: Control-ID:65535,
+#: Control-ID:1385,
 msgid "Create copy in the repository from:"
 msgstr "建立分支/標記於伺服器端:"
 
@@ -3577,6 +3585,7 @@ msgstr "HEAD"
 
 # Control-ID:1004,#:
 # ID:12,
+#: ID:73,#:
 #: Control-ID:1004,
 msgid "Help"
 msgstr "說明"
@@ -4370,7 +4379,7 @@ msgid "Log Messages"
 msgstr "紀錄訊息"
 
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:1386,
 msgid "Log message"
 msgstr "紀錄訊息"
 
@@ -5683,7 +5692,7 @@ msgstr "正在取代"
 # Control-ID:65535,
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
-#: Control-ID:65535,#:
+#: Control-ID:1383,#:
 #: Control-ID:65535,
 msgid "Repository"
 msgstr "檔案庫"
@@ -6379,6 +6388,14 @@ msgstr "顯示檔案列表"
 #: ID:2051,
 msgid "Show HEAD revision nodes"
 msgstr "顯示最新版本的節點"
+
+#: ID:2052,
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"逐字顯示行內差異\n"
+"行內逐字比較差異"
 
 # Control-ID:1126,
 #: Control-ID:1126,
