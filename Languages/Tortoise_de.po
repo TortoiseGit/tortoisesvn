@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-08-06 15:13+0100\n"
+"PO-Revision-Date: 2007-08-18 07:19+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,6 +628,11 @@ msgstr "Bild&information"
 msgid "&Import..."
 msgstr "&Importieren..."
 
+# Control-ID:65535,
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "&In Zeilen wortweise"
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "&Jump to first difference when loading"
@@ -881,6 +886,7 @@ msgstr "&Bis Revision"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
+#: Control-ID:1384
 #: Control-ID:65535
 msgid "&To URL:"
 msgstr "Zu &URL:"
@@ -1676,6 +1682,10 @@ msgstr "Annotieren - TortoiseSVN"
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Zeigt, welcher Autor eine Zeile zuletzt geändert hat."
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "Alpha-Blend"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -2536,7 +2546,7 @@ msgid "Create Repository"
 msgstr "Projektarchiv hier erstellen"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1385
 msgid "Create copy in the repository from:"
 msgstr "Erstelle Kopie im Projektarchiv aus:"
 
@@ -3594,6 +3604,7 @@ msgid "HEAD"
 msgstr "HEAD"
 
 # Control-ID:1004,
+#: ID:73
 #: Control-ID:1004
 msgid "Help"
 msgstr "Hilfe"
@@ -4420,7 +4431,7 @@ msgid "Log Messages"
 msgstr "Logmeldungen"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1386
 msgid "Log message"
 msgstr "Logmeldung"
 
@@ -5751,6 +5762,7 @@ msgstr "Ersetze"
 # Control-ID:65535,
 #: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:1383
 #: Control-ID:65535
 msgid "Repository"
 msgstr "Projektarchiv"
@@ -6444,6 +6456,15 @@ msgstr "Zeige Dateiliste"
 #: ID:2051
 msgid "Show HEAD revision nodes"
 msgstr "Zeige Knoten der HEAD Revisionen"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"Unterschiede in der Zeile\n"
+"Wort für Wort anzeigen."
 
 # Control-ID:1126,
 # Control-ID:1126,
