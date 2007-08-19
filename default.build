@@ -170,12 +170,18 @@
 		</description>
 	</target>
 
-	<target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
+<!--	<target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN"> -->
+	<target name="statictools" depends="env">
 		<description>
 			Builds the libraries for static linking, and all the tools
 			we ship separately from TSVN (therefore statically linked
 			to all dependend libs).
 		</description>
+		<nant target="setup">
+			<buildfiles>
+				<include name="src\TortoiseSVNSetup\staticsetup.build" />
+			</buildfiles>
+		</nant>
 	</target>
 
 	<target name="setup" depends="env,binaries,docs,LanguagePacks">
