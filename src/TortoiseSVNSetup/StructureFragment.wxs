@@ -218,6 +218,7 @@
 
               <File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <!-- register the SubWCRev COM-Object -->
+              <Environment Id="Environment" Name="PATH" Part="last" System="yes" Value="[INSTALLDIR]bin" Action="set" />
               <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}" Action="createKeyAndRemoveKeyOnUninstall" />
               <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\LocalServer32" Value="[INSTALLDIR]bin\SubWCRev.exe /automation" Type="string" />
               <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\ProgID" Value="SubWCRev.object.1" Type="string" />
