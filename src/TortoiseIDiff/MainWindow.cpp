@@ -21,6 +21,7 @@
 #include "Commdlg.h"
 #include "TortoiseIDiff.h"
 #include "MainWindow.h"
+#include "AboutDlg.h"
 
 #pragma comment(lib, "comctl32.lib")
 
@@ -459,6 +460,12 @@ LRESULT CMainWindow::DoCommand(int id)
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_ARRANGEVERTICAL, (LPARAM)&tbi);
 
 			PositionChildren(&rect);
+		}
+		break;
+	case ID_ABOUT:
+		{
+			CAboutDlg dlg(*this);
+			dlg.DoModal(hInst, IDD_ABOUT, *this);
 		}
 		break;
 	case IDM_EXIT:

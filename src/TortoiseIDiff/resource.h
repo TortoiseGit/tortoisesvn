@@ -3,6 +3,7 @@
 // Used by TortoiseIDiff.rc
 //
 #define IDD_TORTOISEIDIFF_DIALOG        102
+#define IDS_VERSION                     102
 #define IDS_APP_TITLE                   103
 #define IDM_ABOUT                       104
 #define IDS_COMMANDLINEHELP             104
@@ -41,10 +42,13 @@
 #define IDI_FITTOGETHER                 149
 #define IDI_ICON4                       151
 #define IDI_BLEND                       152
+#define IDD_ABOUT                       153
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001
 #define IDC_LEFTBROWSE                  1002
 #define IDC_RIGHTBROWSE                 1003
+#define IDC_ABOUTVERSION                1004
+#define IDC_WEBLINK                     1005
 #define ID_VIEW_OVERLAPIMAGES           32772
 #define ID_FILE_OPEN                    32773
 #define ID_VIEW_FITIMAGESINWINDOW       32778
@@ -64,6 +68,8 @@
 #define ID_VIEW_MAKESAMESIZE            32809
 #define ID_VIEW_FITTOGETHER             32810
 #define ID_VIEW_BLENDALPHA              32812
+#define ID_                             32813
+#define ID_ABOUT                        32814
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -71,9 +77,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        153
-#define _APS_NEXT_COMMAND_VALUE         32813
-#define _APS_NEXT_CONTROL_VALUE         1004
+#define _APS_NEXT_RESOURCE_VALUE        154
+#define _APS_NEXT_COMMAND_VALUE         32815
+#define _APS_NEXT_CONTROL_VALUE         1006
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
 #endif

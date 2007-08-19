@@ -520,7 +520,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\AboutDlg.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\AlphaControl.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\MiscUI\BaseDialog.cpp"
 				>
 			</File>
 			<File
@@ -529,6 +537,10 @@
 			</File>
 			<File
 				RelativePath="..\Utils\CmdLineParser.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\MiscUI\hyperlink_base.cpp"
 				>
 			</File>
 			<File
@@ -614,7 +626,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\AboutDlg.h"
+				>
+			</File>
+			<File
 				RelativePath=".\AlphaControl.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\MiscUI\BaseDialog.h"
 				>
 			</File>
 			<File
@@ -623,6 +643,10 @@
 			</File>
 			<File
 				RelativePath="..\Utils\CmdLineParser.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\MiscUI\hyperlink_base.h"
 				>
 			</File>
 			<File
@@ -708,11 +732,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\pan.cur"
+				RelativePath=".\pan.cur"
 				>
 			</File>
 			<File
-				RelativePath=".\pan.cur"
+				RelativePath="..\Resources\pan.cur"
 				>
 			</File>
 			<File

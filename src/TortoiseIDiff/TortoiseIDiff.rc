@@ -97,6 +97,7 @@ BEGIN
         MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO, CHECKED
         MENUITEM "Arrange &Vertical",           ID_VIEW_ARRANGEVERTICAL
     END
+    MENUITEM "?",                           ID_ABOUT
 END
 
 
@@ -120,6 +121,18 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,229,57,50,14
 END
 
+IDD_ABOUT DIALOGEX 0, 0, 258, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "TortoiseIDiff"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,201,65,50,14
+    ICON            IDI_TORTOISEIDIFF,IDC_STATIC,15,15,21,20
+    LTEXT           "TortoiseIDiff - An image diff tool, part of TortoiseSVN",IDC_STATIC,53,15,198,21
+    LTEXT           "Version",IDC_ABOUTVERSION,53,42,198,8
+    LTEXT           "http://tortoisesvn.net",IDC_WEBLINK,53,71,140,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -138,6 +151,15 @@ BEGIN
         VERTGUIDE, 258
         TOPMARGIN, 7
         BOTTOMMARGIN, 71
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        VERTGUIDE, 53
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -176,6 +198,7 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_VERSION             "Version %d.%d.%d.%d"
     IDS_APP_TITLE           "TortoiseIDiff"
     IDS_COMMANDLINEHELP     "TortoiseIDiff: the image diff viewer for TortoiseSVN\n\nAvailable command line parameters are:\n/left:""path to left picture""\n/lefttitle:""title to show for the left picture""\n/right:""path to right picture""\n/righttitle:""title to show for the right picture"""
     IDS_OPENIMAGEFILE       "Open image file..."
@@ -228,7 +251,7 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\0"
+    "\r\n\0"
 END
 
 #endif    // APSTUDIO_INVOKED
