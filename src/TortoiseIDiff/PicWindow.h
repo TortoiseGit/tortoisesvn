@@ -75,6 +75,8 @@ public:
 		, m_blend(BLEND_ALPHA)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
+		m_lastTTPos.x = 0;
+		m_lastTTPos.y = 0;
 	};
 
 	enum BlendType
@@ -195,6 +197,7 @@ protected:
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	TCHAR				m_wszTip[8192];
 	char				m_szTip[8192];
+	POINT				m_lastTTPos;
 	HWND				hwndTT;
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position

@@ -181,6 +181,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		ReleaseCapture();
 		break;
 	case WM_MOUSELEAVE:
+		m_lastTTPos.x = 0;
+		m_lastTTPos.y = 0;
 		SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
 		break;
 	case WM_MOUSEMOVE:
@@ -194,18 +196,24 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			if (pt.y < HEADER_HEIGHT)
 			{
 				ClientToScreen(*this, &pt);
-				pt.x += 15;
-				pt.y += 15;
-				SendMessage(hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(pt.x, pt.y));
-				TOOLINFO ti = {0};
-				ti.cbSize = sizeof(TOOLINFO);
-				ti.hwnd = *this;
-				ti.uId = 0;
-				SendMessage(hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
+				if ((abs(m_lastTTPos.x - pt.x) > 20)||(abs(m_lastTTPos.y - pt.y) > 10))
+				{
+					m_lastTTPos = pt;
+					pt.x += 15;
+					pt.y += 15;
+					SendMessage(hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(pt.x, pt.y));
+					TOOLINFO ti = {0};
+					ti.cbSize = sizeof(TOOLINFO);
+					ti.hwnd = *this;
+					ti.uId = 0;
+					SendMessage(hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
+				}
 			}
 			else
 			{
 				SendMessage(hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
+				m_lastTTPos.x = 0;
+				m_lastTTPos.y = 0;
 			}
 			if (wParam & MK_LBUTTON)
 			{
