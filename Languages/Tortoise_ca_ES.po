@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-08-01 10:59+0100\n"
+"PO-Revision-Date: 2007-08-20 16:10+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,12 @@ msgstr "! %d"
 #, c-format
 msgid "%.2f MBytes transferred"
 msgstr "%.2f MBytes copiats"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kBytes/s"
 
 # ID:3868,#:
 # ID:3868,
@@ -145,6 +151,12 @@ msgstr "%I64d kBytes transferits"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d fitxers seleccionats, %d fitxers totals"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Bytes/s"
 
 # ID:226,
 #: ID:226
@@ -610,6 +622,11 @@ msgstr "&Informació de la imatge"
 msgid "&Import..."
 msgstr "&Importa..."
 
+# ID:114,
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "&Inline diff de paraules"
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "&Jump to first difference when loading"
@@ -863,6 +880,7 @@ msgstr "&Cap a la Revisió"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
+#: Control-ID:1384
 #: Control-ID:65535
 msgid "&To URL:"
 msgstr "&Cap a la URL:"
@@ -1467,7 +1485,7 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "Associa un fitxer de comparació unificat a la còpia de treball"
 
 # ID:15,
-#: ID:15
+#: ID:581
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -1639,6 +1657,10 @@ msgstr "Mostra autor - TortoiseSVN"
 #: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "Mostra l'autor de cada línea d'un arxiu"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "Combinació Alpha"
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -2476,7 +2498,7 @@ msgid "Create Repository"
 msgstr "Crea Repositori"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1385
 msgid "Create copy in the repository from:"
 msgstr "Crea còpia al repositori des de:"
 
@@ -3514,6 +3536,7 @@ msgid "HEAD"
 msgstr "HEAD"
 
 # Control-ID:1004,
+#: ID:73
 #: Control-ID:1004
 msgid "Help"
 msgstr "Ajuda"
@@ -4307,7 +4330,7 @@ msgid "Log Messages"
 msgstr "Missatges de Log"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1386
 msgid "Log message"
 msgstr "Missatge de Log"
 
@@ -5603,6 +5626,7 @@ msgstr "Reemplaçant"
 # Control-ID:65535,
 #: Control-ID:1374
 #: Control-ID:1055
+#: Control-ID:1383
 #: Control-ID:65535
 msgid "Repository"
 msgstr "Repositori"
@@ -6292,6 +6316,15 @@ msgstr "Mostra Llista de Fitxers"
 #: ID:2051
 msgid "Show HEAD revision nodes"
 msgstr "Mostra nodes revisió HEAD"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"Mostra Diff de línea paraula per paraula\n"
+"diff de línea per paraula"
 
 # Control-ID:1126,
 #: Control-ID:1126
@@ -8099,7 +8132,7 @@ msgid "author"
 msgstr "autor"
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -8112,7 +8145,7 @@ msgstr ""
 "bugtracking es posa al final del missatge de log."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -8121,7 +8154,7 @@ msgstr ""
 "Etiqueta de texte que es mostra per la casella on l'usuari introdueix el número d'incidència."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -8134,7 +8167,7 @@ msgstr ""
 "i la segona per extreure la ID del bug de la cadena."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -8146,7 +8179,7 @@ msgstr ""
 "La cadena ha de contenir \"%BUGID%\" (que és substituït pel número d'incidència)."
 
 # ID:14,
-#: ID:14
+#: ID:577
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -8155,7 +8188,7 @@ msgstr ""
 "Establiu a  \"false\" si el vostre sistema de bugtracking té identificadors d'incidència no númerics."
 
 # ID:14,
-#: ID:14
+#: ID:577
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -8347,7 +8380,7 @@ msgid "revisions %s-%s, %s"
 msgstr "revisions %s-%s, %s"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -8356,7 +8389,7 @@ msgstr ""
 "Un de 'native', 'LF', 'CR', 'CRLF'."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -8367,20 +8400,22 @@ msgstr ""
 "Un intent no-recursiu serà fallit i un intent recursiu establirà la propiietat només al fitxers fills del directori."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Una llista d'especificadors de mòdul separada per retorns de línea, consistent cadascuna en un path relatiu del directori, flags opcionals de revisió, i una URL. Per exemple\n"
-"foo\t\thttp://exemple.com/repos/zig\n"
-"foo/bar -r 1234\thttp://exemple.com/repos/zag"
+"Una llista d'especificadors de mòdul separada per retorns de línea mostrant\n"
+" path relatiu del directori, flags opcionals de revisió, i una URL. Per exemple:\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -8389,7 +8424,7 @@ msgstr ""
 "Una llista separada per retorns de línea de patrons de fitxer a ignorar."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -8408,7 +8443,7 @@ msgstr ""
 "Id\t\t\t\tUn sumari resumit de les darreres 4  paraules clau."
 
 # ID:14,
-#: ID:14
+#: ID:576
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -8421,7 +8456,7 @@ msgstr ""
 "Tota la resta es tracta com a binari."
 
 # ID:16,
-#: ID:16
+#: ID:576
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -8456,7 +8491,7 @@ msgid "to %s"
 msgstr "a %s"
 
 # ID:18,
-#: ID:18
+#: ID:578
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -8469,7 +8504,7 @@ msgstr ""
 "Exemple: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
-#: ID:17
+#: ID:578
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -8478,7 +8513,7 @@ msgstr ""
 "Mínim tamany en caràcters que un missatge de lock ha de tenir perquè un lock sigui permès."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -8489,7 +8524,7 @@ msgstr ""
 "al diàleg d'entrega."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -8498,7 +8533,7 @@ msgstr ""
 "Tamany mínim en caracters que un missatge de log ha de tenir abans de que es permeti una entrega."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -8509,7 +8544,7 @@ msgstr ""
 "Utilitzeu això com a una plantilla de missatges perquè els usuaris la pugiuin omplr."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -8520,7 +8555,7 @@ msgstr ""
 "Es mostrarà una línea esborronadaA als diàlegs d'entrega en aquesta posició. Per defecte  és 80 caràcters."
 
 # ID:15,
-#: ID:15
+#: ID:578
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -8531,7 +8566,7 @@ msgstr ""
 "TortoiseSVN carregarà el corrector ortogràfic corresponent si està disponible."
 
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -8542,7 +8577,7 @@ msgstr ""
 "per fitxers que es mostraran al diàleg proprietari que es triï."
 
 # ID:17,
-#: ID:17
+#: ID:581
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -8553,7 +8588,7 @@ msgstr ""
 "per carpetes que es mostraran al diàleg proprietari que es triï."
 
 # ID:15,
-#: ID:15
+#: ID:577
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -8567,7 +8602,7 @@ msgid "values are different"
 msgstr "els valors són diferents"
 
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -8581,7 +8616,7 @@ msgstr ""
 "La cadena %PATH% és reemplaçada amb el path relatiu del fitxer (respecte l'arrel del repositori)."
 
 # ID:17,
-#: ID:17
+#: ID:579
 #, c-format
 msgid ""
 "webviewer:revision\n"
