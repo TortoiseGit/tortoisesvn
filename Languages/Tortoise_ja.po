@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-07-20 18:51+0900\n"
+"PO-Revision-Date: 2007-08-20 11:12+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,6 +49,13 @@ msgstr "! %d"
 #, c-format
 msgid "%.2f MBytes transferred"
 msgstr "%.2f Mバイトを転送しました"
+
+# ID:357,
+# ID:357,
+#: ID:357,
+#, c-format
+msgid "%.2f kBytes/s"
+msgstr "%.2f kBytes/s"
 
 # ID:3868,#:
 # ID:3868,
@@ -180,6 +187,13 @@ msgstr "%I64d Kバイトを転送しました"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "選択ファイル数 %d 、全体ファイル数 %d"
+
+# Control-ID:65535,
+# ID:563,
+#: ID:357,
+#, c-format
+msgid "%ld Bytes/s"
+msgstr "%ld Bytes/s"
 
 # ID:226,
 #: ID:226,
@@ -735,6 +749,11 @@ msgstr "画像情報を表示する(&I)"
 msgid "&Import..."
 msgstr "インポート(&I) ..."
 
+# Control-ID:65535,
+#: MenuEntry
+msgid "&Inline diff word-wise"
+msgstr "行内差分（単語単位）"
+
 # Control-ID:1016,
 # Control-ID:1016,
 #: Control-ID:1016,
@@ -1051,7 +1070,7 @@ msgstr "先リビジョン(&T)"
 # Control-ID:65535,
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
+#: Control-ID:1384,#:
 #: Control-ID:65535,
 msgid "&To URL:"
 msgstr "先 URL(&T):"
@@ -1808,7 +1827,7 @@ msgstr "Unified-Diff 形式のファイルを作業コピーに適用"
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:581,
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
@@ -2015,6 +2034,10 @@ msgstr "注釈履歴 - TortoiseSVN"
 #: ID:13,
 msgid "Blames each line of a file on an author"
 msgstr "ファイルのそれぞれの行に注釈履歴をつける"
+
+#: MenuEntry
+msgid "Blend Alpha"
+msgstr "アルファブレンド"
 
 # Control-ID:1003,
 # Control-ID:1003,
@@ -3009,7 +3032,7 @@ msgstr "リポジトリを作成"
 
 # ID:113,
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:1385,
 msgid "Create copy in the repository from:"
 msgstr "サーバー上でコピーを作成:"
 
@@ -4235,6 +4258,7 @@ msgstr "HEAD"
 # Control-ID:1004,#:
 # ID:12,
 # Control-ID:1004,
+#: ID:73,#:
 #: Control-ID:1004,
 msgid "Help"
 msgstr "ヘルプ"
@@ -4381,6 +4405,24 @@ msgstr "ID:32814:V C +L"
 #: '&Newest on top'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32821; ''
+#: Corresponding Menu ID:32821;
+#: ''
+msgid "ID:32821:V C +F"
+msgstr "ID:32821:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825;
+#: ''
+msgid "ID:32825:V C +L"
+msgstr "ID:32825:V C +L"
+
+#. Accelerator Entry for Menu ID:32825; ''
+#: Corresponding Menu ID:32825;
+#: ''
+msgid "ID:32825:VA  +D"
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
 #: Corresponding Menu ID:57601;
@@ -5101,7 +5143,7 @@ msgstr "ログメッセージ"
 
 # Control-ID:65535,
 # Control-ID:65535,
-#: Control-ID:65535,
+#: Control-ID:1386,
 msgid "Log message"
 msgstr "ログメッセージ"
 
@@ -6189,6 +6231,10 @@ msgstr "Pre-Commit フック"
 msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
 
+#: ID:2052,
+msgid "Prevents most cases in which connection lines cross revision nodes"
+msgstr "接続線がリビジョンノードを横切らないようにします"
+
 # ID:376,
 # ID:376,
 #: ID:376,
@@ -6390,6 +6436,10 @@ msgid ""
 msgstr ""
 "以前に行われた元に戻す操作をやり直す\n"
 "やり直し"
+
+#: MenuEntry
+msgid "Reduce cross-&lines"
+msgstr "線が交差しないようにする(&L)"
 
 # ID:3825,
 # ID:3825,
@@ -6661,7 +6711,7 @@ msgstr "置換"
 # Control-ID:65535,
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
-#: Control-ID:65535,#:
+#: Control-ID:1383,#:
 #: Control-ID:65535,
 msgid "Repository"
 msgstr "リポジトリ"
@@ -6888,20 +6938,20 @@ msgstr "リビジョン:"
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "リビジョン: %ld\n"
-"URL: %S\r\n"
-"作者: %S\r\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
 "日付: %s\r\n"
 "\r\n"
 "ログメッセージ:\r\n"
-"%S"
+"%s"
 
 # ID:272,
 # ID:272,
@@ -6909,24 +6959,24 @@ msgstr ""
 #, c-format
 msgid ""
 "Revision: %ld\n"
-"URL: %S\r\n"
-"Author: %S\r\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%S\r\n"
+"Tags:%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%S"
+"%s"
 msgstr ""
 "リビジョン: %ld\n"
-"URL: %S\r\n"
-"作者: %S\r\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
 "日付: %s\r\n"
 "\r\n"
-"タグ:%S\r\n"
+"タグ:%s\r\n"
 "\r\n"
 "ログメッセージ:\r\n"
-"%S"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -7501,6 +7551,14 @@ msgstr "ファイルリストを表示"
 #: ID:2051,
 msgid "Show HEAD revision nodes"
 msgstr "最新のリビジョンのノードを表示"
+
+#: ID:2052,
+msgid ""
+"Show Inline-Diff word by word\n"
+"Inline diff word-wise"
+msgstr ""
+"単語単位での行内差分を表示する\n"
+"行内差分（単語単位）"
 
 # Control-ID:1126,
 #: Control-ID:1126,
@@ -9602,7 +9660,7 @@ msgstr "作者"
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -9615,7 +9673,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -9625,7 +9683,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -9639,7 +9697,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:message\n"
@@ -9652,7 +9710,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:577,
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -9662,7 +9720,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:577,
 #, c-format
 msgid ""
 "bugtraq:url\n"
@@ -9888,7 +9946,7 @@ msgstr "リビジョン %s-%s, %s"
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -9898,7 +9956,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -9910,10 +9968,11 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and a URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
@@ -9925,7 +9984,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -9935,7 +9994,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -9955,7 +10014,7 @@ msgstr ""
 
 # ID:14,
 # ID:14,
-#: ID:14,
+#: ID:576,
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -9969,7 +10028,7 @@ msgstr ""
 
 # ID:16,
 # ID:16,
-#: ID:16,
+#: ID:576,
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -10006,7 +10065,7 @@ msgid "to %s"
 msgstr "%s へ"
 
 # ID:18,
-#: ID:18,
+#: ID:578,
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -10020,7 +10079,7 @@ msgstr ""
 
 # ID:15,
 # ID:17,
-#: ID:17,
+#: ID:578,
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -10030,7 +10089,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -10041,7 +10100,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -10051,7 +10110,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -10063,7 +10122,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -10075,7 +10134,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:578,
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -10087,7 +10146,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -10099,7 +10158,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17,
+#: ID:581,
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -10111,7 +10170,7 @@ msgstr ""
 
 # ID:15,
 # ID:15,
-#: ID:15,
+#: ID:577,
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -10127,7 +10186,7 @@ msgstr "値が異なっています"
 
 # ID:17,
 # ID:17,
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
@@ -10142,7 +10201,7 @@ msgstr ""
 
 # ID:17,
 # ID:17,
-#: ID:17,
+#: ID:579,
 #, c-format
 msgid ""
 "webviewer:revision\n"
