@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-08-13 00:14+0900\n"
+"PO-Revision-Date: 2007-08-20 16:06+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr "バージョン管理システム (例: Subversion) を利用して作�
 
 #: source/TortoiseMerge_en.xml:206(para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr "競合を含むファイルの関係を、以下の図に示します。"
+msgstr "競合時のファイルの関係を、以下の図に示します。"
 
 #: source/TortoiseMerge_en.xml:211(title)
 #: source/TortoiseMerge_en.xml:341(title)
@@ -236,7 +236,7 @@ msgstr "差分の表示・マージ"
 
 #: source/TortoiseMerge_en.xml:306(para)
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
-msgstr ""
+msgstr "このモードでは、2 つのファイルを比較できます。左ペインのファイルをオリジナルファイル (時に <emphasis>Theirs</emphasis> として参照) として扱い、右ペインのファイル (<emphasis>Mine</emphasis> として参照) を変更したファイルとして扱います。"
 
 #: source/TortoiseMerge_en.xml:317(para)
 msgid "Reverting changed lines back to the text shown in the left pane."
@@ -247,9 +247,8 @@ msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> be
 msgstr "両方のブロックを結合したり、<emphasis>Mine</emphasis> の前に <emphasis>Theirs</emphasis> や、<emphasis>Theirs</emphasis> の前に <emphasis>Mine</emphasis> といったことができます。"
 
 #: source/TortoiseMerge_en.xml:312(para)
-#, fuzzy
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
-msgstr "2 ペイン表示には、1 ペイン表示にはない以下の特徴があります。<placeholder-1/>"
+msgstr "右ペインにあるファイルに対して、以下のことを含む、単純な行ベースの変更を行うことができます。<placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:332(title)
 msgid "Editing Conflicts"
@@ -257,16 +256,15 @@ msgstr "競合の編集"
 
 #: source/TortoiseMerge_en.xml:333(para)
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
-msgstr ""
+msgstr "これは 3 ペインで表示する、3 方向マージで行います。しかし、実際には 4 つのファイルが関係しています。現在競合している 2 ファイルの共通の祖先である、共通ベースファイルは表示しません。3 ファイルの関係は、以下の図で説明します。"
 
 #: source/TortoiseMerge_en.xml:344(para)
-#, fuzzy
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
-msgstr "ベースファイルは <literal>自分</literal> と <literal>他人</literal> が変更を始める、ファイルの最も古いバージョンを表します。<literal>Mine</literal> はベースファイルに対して <emphasis>you</emphasis> が行ったすべての変更があるファイルを表します。また、<literal>Theirs</literal> は <emphasis>他人</emphasis>が行ったすべての変更があるファイルを表します。"
+msgstr "ベースファイルは <emphasis>You</emphasis> と <emphasis>They</emphasis> が変更を始めた、ファイルの最も古いバージョンを表します。<emphasis>Mine</emphasis> はベースファイルに対して <emphasis>you</emphasis> が行ったすべての変更があるファイルを表します。また、<emphasis>Theirs</emphasis> は <emphasis>他人</emphasis> が行ったすべての変更があるファイルを表します。左ペインはベースファイルに対する <emphasis>Theirs</emphasis> の変更を表示します。また、右ペインはベースファイルに対する <emphasis>Mine</emphasis> の変更を表示します。下ペインには、競合を解決しようとしている出力ファイルです。"
 
 #: source/TortoiseMerge_en.xml:356(para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
-msgstr ""
+msgstr "競合解決ビューでは、<emphasis>Mine</emphasis> や <emphasis>Theirs</emphasis> もしくは両方から、採用するブロックを選択できます。しかし、この場合、変更は下部ペインに表示します。"
 
 #: source/TortoiseMerge_en.xml:363(title)
 #: source/TortoiseMerge_en.xml:466(title)
@@ -276,15 +274,15 @@ msgstr "パッチを適用"
 
 #: source/TortoiseMerge_en.xml:364(para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr ""
+msgstr "パッチファイルは、Subversion の unified diff ファイルで、変更を適用するファイルの一覧が含まれています。パッチは、あなたが変更点を確認してからコミットできるように、他の開発者によって作成されたかもしれません。また、TortoiseSVN が 2 つのフォルダを比較する際に、内部的に作成したかもしれません。これは、リポジトリリビジョンと作業コピーフォルダを比較したり、2 つの異なるリポジトリリビジョンを比較したり、2 つの異なるリポジトリパスを比較したりすると発生します。"
 
 #: source/TortoiseMerge_en.xml:374(para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr ""
+msgstr "いずれの場合も、TortoiseMerge はパッチに含まれるファイルを表示する、小さなウィンドウを表示します。その中のファイルをダブルクリックすると、関連ファイルを取得し、変更を適用します。左ペインにはオリジナルファイルの内容を表示し、右ペインにはパッチを適用した結果を表示します。"
 
 #: source/TortoiseMerge_en.xml:381(para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
-msgstr ""
+msgstr "比較・編集モードで、右ペインに対して編集を行えます。"
 
 #: source/TortoiseMerge_en.xml:388(title)
 msgid "Using TortoiseMerge"
@@ -296,7 +294,7 @@ msgstr "表示モード"
 
 #: source/TortoiseMerge_en.xml:397(para)
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr ""
+msgstr "TortoiseMerge は、以下の 3 つのビューモードを持っています。1 ペインビュー、2 ペインビュー、3 ペインビューです。1 ペイン・2 ペインビューは変更の確認に、3 ペインビューは、競合の解決に使用します。"
 
 #: source/TortoiseMerge_en.xml:403(title)
 #: source/TortoiseMerge_en.xml:767(title)
@@ -336,22 +334,20 @@ msgid "Three Pane View"
 msgstr "3 ペイン画面"
 
 #: source/TortoiseMerge_en.xml:451(para)
-#, fuzzy
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "左ペインには <literal>Their</literal> ファイルと <literal>Base</literal> ファイルの差異を表示し、右ペインには <literal>Mine</literal> ファイルと <literal>Base</literal> ファイルの差異を表示します。下部ペインには、競合した <literal>Base</literal>, <literal>Mine</literal>, <literal>Theirs</literal> をマージした結果を表示します。ペインタイトルにマウスを持っていくと、比較している各ペインのファイル名をツールチップで表示します。"
+msgstr "左ペインには <emphasis>Their</emphasis> ファイルと <emphasis>Base</emphasis> ファイルの差異を表示し、右ペインには <emphasis>Mine</emphasis> ファイルと <emphasis>Base</emphasis> ファイルの差異を表示します。下部ペインには、競合した <emphasis>Base</emphasis>, <emphasis>Mine</emphasis>, <emphasis>Theirs</emphasis> をマージした結果を表示します。"
 
 #: source/TortoiseMerge_en.xml:460(para)
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
-msgstr ""
+msgstr "ペインタイトルにマウスを持っていくと、どちらのペインでも差分をとっているファイル名をツールチップに表示します。"
 
 #: source/TortoiseMerge_en.xml:472(title)
 msgid "Patch File List"
 msgstr "パッチをあてるファイル一覧"
 
 #: source/TortoiseMerge_en.xml:467(para)
-#, fuzzy
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "TortoiseMerge がパッチファイルをマージできると、そのパッチファイルで変更するファイルを表示する、小さなウィンドウを表示します。<placeholder-1/> ファイル名が黒で表示されている場合、問題なくパッチを当てられます。ファイルがパッチに対して古くなっているわけではないということを表します。しかし、ファイル名が赤で表示されている場合、既にファイルを変更してしまっているため、直接パッチを当てることができません。"
+msgstr "TortoiseMerge がパッチファイルをパースすると、そのパッチファイルで変更するファイルを表示する、小さなウィンドウを表示します。<placeholder-1/> ファイル名が黒で表示されている場合、問題なくパッチを当てられます。これはパッチがそのファイルに対して古くなっているわけではないということを表します。しかし、ファイル名が赤で表示されている場合、既にファイルを変更してしまっているため、直接パッチを当てることができません。"
 
 #: source/TortoiseMerge_en.xml:481(para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
@@ -494,14 +490,12 @@ msgid "The first thing you have to do is to decide whether you just want to comp
 msgstr "まず始めにあなたがすることは、ファイルの比較・マージをしたいのか、パッチを適用したいのかを決めることです。その選択により、該当するエディットボックスやブラウズボタンが有効になります。"
 
 #: source/TortoiseMerge_en.xml:768(para)
-#, fuzzy
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "ファイルの比較・マージを行う際には、<literal>Base</literal>, <literal>Mine</literal>, <literal>Theirs</literal> の 3 つのうち、少なくとも 2 つ以上パスを設定しなければなりません。2 つだけファイルを指定すると、TortoiseMerge は、その 2 つのファイルの差分を 2 ペインか 1 ペインのどちらかで表示します。この表示はメニューの <menuchoice><guimenu>表示</guimenu><guimenuitem>両方向の差分</guimenuitem></menuchoice> で切り換えられます。"
+msgstr "ファイルの比較・マージを行う際には、<literal>Base</literal>, <literal>Mine</literal>, <literal>Theirs</literal> の 3 つのうち、少なくとも 2 つパスを設定しなければなりません。2 つだけファイルを指定すると、TortoiseMerge は、その 2 つのファイルの差分を 2 ペインか 1 ペインのどちらかで表示します。"
 
 #: source/TortoiseMerge_en.xml:776(para)
-#, fuzzy
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "3 ファイルを比較・マージする場合、TortoiseMerge は 3 ペインで差分を表示します。ファイルの競合を解消する必要があるときにも便利です。"
+msgstr "3 ファイルを比較・マージする場合、TortoiseMerge は 3 ペインビューで差分を表示します。このビューはファイルの競合を解消する必要があるときにも便利です。この場合、出力ファイルには名前が付かず、結果の保存に <menuchoice><guimenu>File</guimenu><guimenuitem>名前を付けて保存...</guimenuitem></menuchoice> を使う必要があります。"
 
 #: source/TortoiseMerge_en.xml:791(para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
