@@ -85,6 +85,9 @@ IDI_LOCK_BKG            ICON                    "LockBackground.ico"
 IDI_CFM_BKG             ICON                    "CFMBackground.ico"
 IDI_DELUNVERSIONED_BKG  ICON                    "DelunversionedBackground.ico"
 IDI_UNLOCK_BKG          ICON                    "UnlockBackground.ico"
+IDI_CANCELNORMAL        ICON                    "cancel-normal.ico"
+IDI_CANCELPRESSED       ICON                    "cancel-pressed.ico"
+IDI_LOGFILTER           ICON                    "logfilter.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -93,7 +96,6 @@ IDI_UNLOCK_BKG          ICON                    "UnlockBackground.ico"
 
 IDB_LOGOFLIPPED         BITMAP                  "tortoisesvn_logoflipped.bmp"
 IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
-IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -282,12 +284,10 @@ BEGIN
     CONTROL         "",IDC_DATEFROM,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,38,7,61,15
     LTEXT           "To:",IDC_TOLABEL,106,9,12,8
     CONTROL         "",IDC_DATETO,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,129,7,61,15
-    EDITTEXT        IDC_SEARCHEDIT,216,7,196,14,ES_AUTOHSCROLL
-    CONTROL         "",IDC_FILTERCANCEL,"Button",BS_OWNERDRAW | BS_ICON | NOT WS_VISIBLE | WS_TABSTOP,356,0,14,14
-    CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | BS_FLAT | WS_TABSTOP,405,0,14,14,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_SEARCHEDIT,216,7,196,14,ES_MULTILINE | ES_AUTOHSCROLL
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,24,405,57
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,81,405,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | WS_TABSTOP | 0x1804,7,86,405,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20A",ES_MULTILINE | ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,86,405,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,182,405,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,187,405,58
     CONTROL         "H&ide unrelated changed paths",IDC_HIDEPATHS,"Button",BS_AUTO3STATE | WS_TABSTOP,7,259,293,10
@@ -3076,14 +3076,6 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_CANCELNORMAL        BITMAP                  "cancel-normal.bmp"
-IDB_CANCELPRESSED       BITMAP                  "cancel-pressed.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

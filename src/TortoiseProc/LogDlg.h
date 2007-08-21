@@ -28,6 +28,8 @@
 #include "Colors.h"
 #include "MenuButton.h"
 #include "LogDlgHelper.h"
+#include "FilterEdit.h"
+#include "afxwin.h"
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -44,7 +46,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN //CResizableStandAloneDialog
+class CLogDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CLogDlg)
 	
@@ -66,6 +68,8 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnClickedInfoIcon(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -79,8 +83,6 @@ protected:
 	afx_msg void OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnStnClickedFiltericon();
-	afx_msg void OnBnClickedFiltercancel();
 	afx_msg void OnEnChangeSearchedit();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
@@ -161,6 +163,7 @@ private:
 	CString				m_sRepositoryRoot;
 	CListCtrl			m_LogList;
 	CListCtrl			m_ChangedFileListCtrl;
+	CFilterEdit			m_cFilter;
 	CProgressCtrl		m_LogProgress;
 	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;
@@ -199,8 +202,6 @@ private:
 	DWORD				m_tTo;
 	int					m_limit;
 	int					m_limitcounter;
-	CBitmapButton		m_cFilterCancelButton;
-	CBitmapButton		m_cFilterIcon;
 	int                 m_nSortColumn;
 	bool                m_bAscending;
 	static int			m_nSortColumnPathList;

@@ -64,10 +64,7 @@
 #define IDI_DIALOGS                     198
 #define IDD_DIFFFILES                   199
 #define IDB_CANCELHIGHLIGHT             201
-#define IDB_CANCELNORMAL                202
 #define IDB_BITMAP1                     203
-#define IDB_CANCELPRESSED               203
-#define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
 #define IDI_WARNING_GENERAL             210
@@ -129,6 +126,12 @@
 #define IDI_ICON1                       262
 #define IDI_UNLOCK_BKG                  262
 #define IDR_DOWNLOAD                    263
+#define IDI_ICON2                       264
+#define IDI_CANCELNORMAL                264
+#define IDI_ICON3                       265
+#define IDI_CANCELPRESSED               265
+#define IDI_ICON4                       266
+#define IDI_LOGFILTER                   266
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1177,7 +1180,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        264
+#define _APS_NEXT_RESOURCE_VALUE        267
 #define _APS_NEXT_COMMAND_VALUE         32827
 #define _APS_NEXT_CONTROL_VALUE         1387
 #define _APS_NEXT_SYMED_VALUE           195

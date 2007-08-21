@@ -684,6 +684,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\Utils\MiscUI\FilterEdit.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\FilterEdit.h"
+					>
+				</File>
+				<File
 					RelativePath="..\Utils\MiscUI\FontPreviewCombo.cpp"
 					>
 				</File>
@@ -733,50 +741,6 @@
 				</File>
 				<File
 					RelativePath="..\Utils\MiscUI\HyperLink.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\MiscUI\InsertControl.cpp"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Debug|x64"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|x64"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\MiscUI\InsertControl.h"
 					>
 				</File>
 				<File
@@ -2186,11 +2150,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\cancel-normal.bmp"
+				RelativePath="..\Resources\cancel-normal.ico"
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\cancel-pressed.bmp"
+				RelativePath="..\Resources\cancel-pressed.ico"
 				>
 			</File>
 			<File
@@ -2286,7 +2250,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\logfilter.bmp"
+				RelativePath="..\Resources\logfilter.ico"
 				>
 			</File>
 			<File

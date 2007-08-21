@@ -35,7 +35,6 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include "TempFile.h"
-#include "InsertControl.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include "RevisionRangeDlg.h"
@@ -144,12 +143,11 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
 	DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
 	DDX_Control(pDX, IDC_DATETO, m_DateTo);
-	DDX_Control(pDX, IDC_FILTERCANCEL, m_cFilterCancelButton);
-	DDX_Control(pDX, IDC_FILTERICON, m_cFilterIcon);
 	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
 	DDX_Control(pDX, IDC_GETALL, m_btnShow);
 	DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
 	DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
+	DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
 }
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
@@ -164,7 +162,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
 	ON_BN_CLICKED(IDC_STATBUTTON, OnBnClickedStatbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGLIST, OnNMCustomdrawLoglist)
-	ON_STN_CLICKED(IDC_FILTERICON, OnStnClickedFiltericon)
+	ON_MESSAGE(WM_FILTEREDIT_INFOCLICKED, OnClickedInfoIcon)
+	ON_MESSAGE(WM_FILTEREDIT_CANCELCLICKED, OnClickedCancelFilter)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGLIST, OnLvnGetdispinfoLoglist)
 	ON_EN_CHANGE(IDC_SEARCHEDIT, OnEnChangeSearchedit)
 	ON_WM_TIMER()
@@ -173,7 +172,6 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawChangedFileList)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoChangedFileList)
-	ON_BN_CLICKED(IDC_FILTERCANCEL, OnBnClickedFiltercancel)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickChangedFileList)
 	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
@@ -314,10 +312,8 @@ BOOL CLogDlg::OnInitDialog()
 	SetSplitterRange();
 	
 	// the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
-	m_cFilterCancelButton.LoadBitmaps(IDB_CANCELNORMAL, IDB_CANCELPRESSED, 0, 0);
-	m_cFilterCancelButton.SizeToContent();
-	m_cFilterIcon.LoadBitmaps(IDB_LOGFILTER);
-	m_cFilterIcon.SizeToContent();
+	m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
+	m_cFilter.SetInfoIcon(IDI_LOGFILTER);
 	
 	AdjustControlSize(IDC_HIDEPATHS);
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
@@ -331,8 +327,6 @@ BOOL CLogDlg::OnInitDialog()
 
 	SetFilterCueText();
 	AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
-	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERICON)->GetSafeHwnd(), INSERTCONTROL_LEFT);
-	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERCANCEL)->GetSafeHwnd(), INSERTCONTROL_RIGHT);
 	
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
 	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
@@ -2124,13 +2118,12 @@ void CLogDlg::SetSplitterRange()
 	}
 }
 
-void CLogDlg::OnStnClickedFiltericon()
+LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 {
-	CRect rect;
+	RECT * rect = (LPRECT)lParam;
 	CPoint point;
 	CString temp;
-	GetDlgItem(IDC_FILTERICON)->GetWindowRect(rect);
-	point = CPoint(rect.left, rect.bottom);
+	point = CPoint(rect->left, rect->bottom);
 #define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_nSelectedFilter == x ? MF_CHECKED : MF_UNCHECKED))
 	CMenu popup;
 	if (popup.CreatePopupMenu())
@@ -2155,7 +2148,48 @@ void CLogDlg::OnStnClickedFiltericon()
 		SetFilterCueText();
 		SetTimer(LOGFILTER_TIMER, 1000, NULL);
 	}
+	return 0L;
 }
+
+LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+	KillTimer(LOGFILTER_TIMER);
+
+	m_sFilterText.Empty();
+	UpdateData(FALSE);
+	theApp.DoWaitCursor(1);
+	CStoreSelection storeselection(this);
+	FillLogMessageCtrl(false);
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
+	m_arShownList.RemoveAll();
+
+	// reset the time filter too
+	m_timFrom = (__time64_t(m_tFrom));
+	m_timTo = (__time64_t(m_tTo));
+	m_DateFrom.SetTime(&m_timFrom);
+	m_DateTo.SetTime(&m_timTo);
+	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
+	m_DateTo.SetRange(&m_timFrom, &m_timTo);
+
+	for (DWORD i=0; i<m_logEntries.size(); ++i)
+	{
+		m_arShownList.Add(m_logEntries[i]);
+	}
+	InterlockedExchange(&m_bNoDispUpdates, FALSE);
+	m_LogList.DeleteAllItems();
+	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+	m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+	m_LogList.SetRedraw(false);
+	ResizeAllListCtrlCols(m_LogList);
+	m_LogList.SetRedraw(true);
+	theApp.DoWaitCursor(-1);
+	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
+	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+	UpdateLogInfoLabel();
+	return 0L;	
+}
+
 
 void CLogDlg::SetFilterCueText()
 {
@@ -2176,8 +2210,9 @@ void CLogDlg::SetFilterCueText()
 		break;
 	}
 	// to make the cue banner text appear more to the right of the edit control
-	temp = _T("   ")+temp;	
-	::SendMessage(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), EM_SETCUEBANNER, 0, (LPARAM)(LPCTSTR)temp);
+	temp = _T("   ")+temp;
+	m_cFilter.SetCueBanner(temp);
+	//::SendMessage(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), EM_SETCUEBANNER, 0, (LPARAM)(LPCTSTR)temp);
 }
 
 void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2330,46 +2365,6 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-void CLogDlg::OnBnClickedFiltercancel()
-{
-	KillTimer(LOGFILTER_TIMER);
-	
-	m_sFilterText.Empty();
-	UpdateData(FALSE);
-	theApp.DoWaitCursor(1);
-	CStoreSelection storeselection(this);
-	FillLogMessageCtrl(false);
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	m_arShownList.RemoveAll();
-
-	// reset the time filter too
-	m_timFrom = (__time64_t(m_tFrom));
-	m_timTo = (__time64_t(m_tTo));
-	m_DateFrom.SetTime(&m_timFrom);
-	m_DateTo.SetTime(&m_timTo);
-	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
-	m_DateTo.SetRange(&m_timFrom, &m_timTo);
-
-	for (DWORD i=0; i<m_logEntries.size(); ++i)
-	{
-		m_arShownList.Add(m_logEntries[i]);
-	}
-	InterlockedExchange(&m_bNoDispUpdates, FALSE);
-	m_LogList.DeleteAllItems();
-	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
-	m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
-	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols(m_LogList);
-	m_LogList.SetRedraw(true);
-	theApp.DoWaitCursor(-1);
-	m_cFilterCancelButton.ShowWindow(SW_HIDE);
-	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
-	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
-	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-	UpdateLogInfoLabel();
-	return;	
-}
-
 void CLogDlg::OnEnChangeSearchedit()
 {
 	UpdateData();
@@ -2395,7 +2390,6 @@ void CLogDlg::OnEnChangeSearchedit()
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
-		m_cFilterCancelButton.ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
@@ -2603,7 +2597,6 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
 		}
 		theApp.DoWaitCursor(-1);
-		m_cFilterCancelButton.ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		if (bSetFocusToFilterControl)
