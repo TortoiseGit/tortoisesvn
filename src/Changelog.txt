@@ -246,6 +246,8 @@ Version 1.4.5
        selected date. (Stefan)
 - BUG: Crash in the statistics dialog if for some reason the date of a 
        revision is not available. (Stefan)
+- BUG: Thread leak in the status cache/handle lead in the 
+       shell extension. (Stefan)
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
