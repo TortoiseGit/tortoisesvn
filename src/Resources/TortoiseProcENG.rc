@@ -88,6 +88,7 @@ IDI_UNLOCK_BKG          ICON                    "UnlockBackground.ico"
 IDI_CANCELNORMAL        ICON                    "cancel-normal.ico"
 IDI_CANCELPRESSED       ICON                    "cancel-pressed.ico"
 IDI_LOGFILTER           ICON                    "logfilter.ico"
+IDI_FILTEREDIT          ICON                    "filteredit.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -287,7 +288,7 @@ BEGIN
     EDITTEXT        IDC_SEARCHEDIT,216,7,196,14,ES_MULTILINE | ES_AUTOHSCROLL
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,24,405,57
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,81,405,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",ES_MULTILINE | ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,86,405,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | WS_TABSTOP | 0x1804,7,86,405,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,182,405,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,187,405,58
     CONTROL         "H&ide unrelated changed paths",IDC_HIDEPATHS,"Button",BS_AUTO3STATE | WS_TABSTOP,7,259,293,10
@@ -887,7 +888,7 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,187,133,50,14
 END
 
-IDD_DIFFFILES DIALOGEX 0, 0, 255, 218
+IDD_DIFFFILES DIALOGEX 0, 0, 255, 249
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Changed Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -897,9 +898,10 @@ BEGIN
     EDITTEXT        IDC_FIRSTURL,7,23,186,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     LTEXT           "and",IDC_DIFFSTATIC2,7,34,83,8
     EDITTEXT        IDC_SECONDURL,7,47,186,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,66,241,145
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,87,241,155
     PUSHBUTTON      "HEAD",IDC_REV1BTN,198,23,50,14
     PUSHBUTTON      "HEAD",IDC_REV2BTN,198,47,50,14
+    EDITTEXT        IDC_FILTER,7,67,241,14,ES_MULTILINE | ES_AUTOHSCROLL
 END
 
 IDD_CREATEPATCH DIALOGEX 0, 0, 266, 204
@@ -1604,7 +1606,7 @@ BEGIN
         RIGHTMARGIN, 248
         VERTGUIDE, 193
         TOPMARGIN, 7
-        BOTTOMMARGIN, 211
+        BOTTOMMARGIN, 242
     END
 
     IDD_CREATEPATCH, DIALOG
@@ -3062,6 +3064,11 @@ BEGIN
     IDS_PROP_TT_USERFOLDERPROPERTIES 
                             "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
     IDS_PROP_TT_RECURSIVE   "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FILEDIFF_FILTERCUE  "Filter paths"
 END
 
 #endif    // English (U.S.) resources

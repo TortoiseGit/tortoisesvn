@@ -61,6 +61,7 @@ void CFileDiffDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SWITCHLEFTRIGHT, m_SwitchButton);
 	DDX_Control(pDX, IDC_REV1BTN, m_cRev1Btn);
 	DDX_Control(pDX, IDC_REV2BTN, m_cRev2Btn);
+	DDX_Control(pDX, IDC_FILTER, m_cFilter);
 }
 
 
@@ -76,6 +77,9 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, &CFileDiffDlg::OnHdnItemclickFilelist)
 	ON_BN_CLICKED(IDC_REV1BTN, &CFileDiffDlg::OnBnClickedRev1btn)
 	ON_BN_CLICKED(IDC_REV2BTN, &CFileDiffDlg::OnBnClickedRev2btn)
+	ON_MESSAGE(WM_FILTEREDIT_CANCELCLICKED, OnClickedCancelFilter)
+	ON_EN_CHANGE(IDC_FILTER, &CFileDiffDlg::OnEnChangeFilter)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -105,6 +109,7 @@ void CFileDiffDlg::SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath&
 BOOL CFileDiffDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+	CString temp;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SWITCHLEFTRIGHT, IDS_FILEDIFF_SWITCHLEFTRIGHT_TT);
@@ -120,11 +125,15 @@ BOOL CFileDiffDlg::OnInitDialog()
 	m_hSwitchIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_SWITCHLEFTRIGHT), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_SwitchButton.SetIcon(m_hSwitchIcon);
 
+	m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
+	m_cFilter.SetInfoIcon(IDI_FILTEREDIT);
+	temp.LoadString(IDS_FILEDIFF_FILTERCUE);
+	temp = _T("   ")+temp;
+	m_cFilter.SetCueBanner(temp);
 
 	int c = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_cFileList.DeleteColumn(c--);
-	CString temp;
 	temp.LoadString(IDS_FILEDIFF_FILE);
 	m_cFileList.InsertColumn(0, temp);
 	temp.LoadString(IDS_FILEDIFF_ACTION);
@@ -147,6 +156,7 @@ BOOL CFileDiffDlg::OnInitDialog()
 	AddAnchor(IDC_DIFFSTATIC2, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SECONDURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_REV2BTN, TOP_RIGHT);
+	AddAnchor(IDC_FILTER, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	
 	SetURLLabels();
@@ -202,12 +212,10 @@ UINT CFileDiffDlg::DiffThread()
 		return 0;
 	}
 
+	CString sFilterText;
+	m_cFilter.GetWindowText(sFilterText);
 	m_cFileList.SetRedraw(false);
-	for (size_t i=0; i<m_arFileList.size(); ++i)
-	{
-		FileDiff fd = m_arFileList[i];
-		AddEntry(&fd);
-	}
+	Filter(sFilterText);
 
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
@@ -227,7 +235,7 @@ UINT CFileDiffDlg::DiffThread()
 	return 0;
 }
 
-int CFileDiffDlg::AddEntry(FileDiff * fd)
+int CFileDiffDlg::AddEntry(const FileDiff * fd)
 {
 	int ret = -1;
 	if (fd)
@@ -250,7 +258,7 @@ int CFileDiffDlg::AddEntry(FileDiff * fd)
 
 void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 {
-	CFileDiffDlg::FileDiff fd = m_arFileList[selIndex];
+	CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
 	CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 	CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
@@ -316,7 +324,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 
 void CFileDiffDlg::DiffProps(int selIndex)
 {
-	CFileDiffDlg::FileDiff fd = m_arFileList[selIndex];
+	CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
 	CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 	CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
@@ -416,7 +424,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	int selIndex = pNMLV->iItem;
 	if (selIndex < 0)
 		return;
-	if (selIndex >= (int)m_arFileList.size())
+	if (selIndex >= (int)m_arFilteredList.size())
 		return;	
 	
 	DoDiff(selIndex, m_bBlame);
@@ -425,10 +433,10 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
-	if (pGetInfoTip->iItem >= (int)m_arFileList.size())
+	if (pGetInfoTip->iItem >= (int)m_arFilteredList.size())
 		return;
 
-	CString path = m_path1.GetSVNPathString() + _T("/") + m_arFileList[pGetInfoTip->iItem].path.GetSVNPathString();
+	CString path = m_path1.GetSVNPathString() + _T("/") + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
 	if (pGetInfoTip->cchTextMax > path.GetLength())
 			_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
 	*pResult = 0;
@@ -458,9 +466,9 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-		if (m_arFileList.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		if (m_arFilteredList.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			FileDiff fd = m_arFileList[pLVCD->nmcd.dwItemSpec];
+			FileDiff fd = m_arFilteredList[pLVCD->nmcd.dwItemSpec];
 			switch (fd.kind)
 			{
 			case svn_client_diff_summarize_kind_added:
@@ -585,7 +593,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						while (pos)
 						{
 							int index = m_cFileList.GetNextSelectedItem(pos);
-							FileDiff fd = m_arFileList[index];
+							FileDiff fd = m_arFilteredList[index];
 							file.WriteString(fd.path.GetSVNPathString());
 							file.WriteString(_T("\n"));
 						}
@@ -610,7 +618,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					while (pos)
 					{
 						int index = m_cFileList.GetNextSelectedItem(pos);
-						CFileDiffDlg::FileDiff fd = m_arFileList[index];
+						CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
 						m_arSelectedFileList.Add(fd);
 					}
 					m_pProgDlg = new CProgressDlg();
@@ -734,6 +742,9 @@ void CFileDiffDlg::OnBnClickedSwitchleftright()
 {
 	if (m_bThreadRunning)
 		return;
+	CString sFilterString;
+	m_cFilter.GetWindowText(sFilterString);
+
 	m_cFileList.SetRedraw(false);
 	m_cFileList.DeleteAllItems();
 	for (int i=0; i<(int)m_arFileList.size(); ++i)
@@ -744,8 +755,9 @@ void CFileDiffDlg::OnBnClickedSwitchleftright()
 		else if (fd.kind == svn_client_diff_summarize_kind_deleted)
 			fd.kind = svn_client_diff_summarize_kind_added;
 		m_arFileList[i] = fd;
-		AddEntry(&fd);
 	}
+	Filter(sFilterString);
+
 	m_cFileList.SetRedraw(true);
 	CTSVNPath path = m_path1;
 	m_path1 = m_path2;
@@ -839,10 +851,8 @@ void CFileDiffDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	CString temp;
 	m_cFileList.SetRedraw(FALSE);
 	m_cFileList.DeleteAllItems();
-	for (size_t i=0; i<m_arFileList.size(); i++)
-	{
-		AddEntry(&m_arFileList[i]);
-	} 
+	m_cFilter.GetWindowText(temp);
+	Filter(temp);
 
 	CHeaderCtrl * pHeader = m_cFileList.GetHeaderCtrl();
 	HDITEM HeaderItem = {0};
@@ -939,5 +949,69 @@ void CFileDiffDlg::OnBnClickedRev2btn()
 			InterlockedExchange(&m_bThreadRunning, FALSE);
 			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 		}
+	}
+}
+
+LRESULT CFileDiffDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+	if (m_bThreadRunning)
+	{
+		SetTimer(IDT_FILTER, 1000, NULL);
+		return 0L;
+	}
+
+	KillTimer(IDT_FILTER);
+
+	m_cFileList.SetRedraw(FALSE);
+	m_arFilteredList.clear();
+	m_cFileList.DeleteAllItems();
+
+	Filter(_T(""));
+
+	m_cFileList.SetRedraw(TRUE);
+	return 0L;
+}
+
+void CFileDiffDlg::OnEnChangeFilter()
+{
+	SetTimer(IDT_FILTER, 1000, NULL);
+}
+
+void CFileDiffDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	if (m_bThreadRunning)
+		return;
+
+	CString sFilterText;
+	KillTimer(IDT_FILTER);
+	m_cFilter.GetWindowText(sFilterText);
+
+	m_cFileList.SetRedraw(FALSE);
+	m_cFileList.DeleteAllItems();
+
+	Filter(sFilterText);
+
+	m_cFileList.SetRedraw(TRUE);
+
+	__super::OnTimer(nIDEvent);
+}
+
+void CFileDiffDlg::Filter(CString sFilterText)
+{
+	sFilterText.MakeLower();
+
+	m_arFilteredList.clear();
+	for (std::vector<FileDiff>::const_iterator it = m_arFileList.begin(); it != m_arFileList.end(); ++it)
+	{
+		CString sPath = it->path.GetSVNPathString();
+		sPath.MakeLower();
+		if (sPath.Find(sFilterText) >= 0)
+		{
+			m_arFilteredList.push_back(*it);
+		}
+	}
+	for (std::vector<FileDiff>::const_iterator it = m_arFilteredList.begin(); it != m_arFilteredList.end(); ++it)
+	{
+		AddEntry(&(*it));
 	}
 }

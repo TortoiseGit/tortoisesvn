@@ -132,6 +132,8 @@
 #define IDI_CANCELPRESSED               265
 #define IDI_ICON4                       266
 #define IDI_LOGFILTER                   266
+#define IDI_ICON5                       267
+#define IDI_FILTEREDIT                  267
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -648,6 +650,7 @@
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
 #define IDC_MSGGROUP                    1386
+#define IDC_FILTER                      1387
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1073,6 +1076,7 @@
 #define IDS_FILEDIFF_COMMENTCOPY        5102
 #define IDS_FILEDIFF_WAIT               5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
+#define IDS_FILEDIFF_FILTERCUE          5120
 #define IDS_FILEDIFF_POPBLAME           5150
 #define IDS_FILEDIFF_POPSAVELIST        5151
 #define IDS_FILEDIFF_POPEXPORT          5152
@@ -1180,9 +1184,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        267
+#define _APS_NEXT_RESOURCE_VALUE        268
 #define _APS_NEXT_COMMAND_VALUE         32827
-#define _APS_NEXT_CONTROL_VALUE         1387
+#define _APS_NEXT_CONTROL_VALUE         1388
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

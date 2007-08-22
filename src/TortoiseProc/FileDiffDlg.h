@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,10 @@
 #include "Colors.h"
 #include "XPImageButton.h"
 #include "Balloon.h"
-#include "afxwin.h"
+#include "FilterEdit.h"
+
+
+#define IDT_FILTER		101
 
 /**
  * \ingroup TortoiseProc
@@ -72,6 +75,11 @@ protected:
 	afx_msg void OnEnSetfocusFirsturl();
 	afx_msg void OnBnClickedSwitchleftright();
 	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedRev1btn();
+	afx_msg void OnBnClickedRev2btn();
+	afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnEnChangeFilter();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -80,10 +88,11 @@ protected:
 											bool propchanged, 
 											svn_node_kind_t node);
 
-	int					AddEntry(FileDiff * fd);
+	int					AddEntry(const FileDiff * fd);
 	void				DoDiff(int selIndex, bool blame);
 	void				DiffProps(int selIndex);
 	void				SetURLLabels();
+	void				Filter(CString sFilterText);
 private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();
@@ -96,6 +105,7 @@ private:
 
 	CButton				m_cRev1Btn;
 	CButton				m_cRev2Btn;
+	CFilterEdit			m_cFilter;
 
 	CXPImageButton		m_SwitchButton;
 	HICON				m_hSwitchIcon;
@@ -104,6 +114,7 @@ private:
 	bool				m_bBlame;
 	CBlame				m_blamer;
 	std::vector<FileDiff> m_arFileList;
+	std::vector<FileDiff> m_arFilteredList;
 	CArray<FileDiff, FileDiff> m_arSelectedFileList;
 
 	CString				m_strExportDir;
@@ -128,6 +139,4 @@ private:
 
 	static BOOL			m_bAscending;
 	static int			m_nSortedColumn;
-	afx_msg void OnBnClickedRev1btn();
-	afx_msg void OnBnClickedRev2btn();
 };
