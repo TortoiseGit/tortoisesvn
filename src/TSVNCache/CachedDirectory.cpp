@@ -206,8 +206,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
 		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-props"));
 	}
-	if ( (m_entriesFileTime == entriesFilePath.GetLastWriteTime()) && (!entriesFilePath.Exists() || (m_propsFileTime == propsDirPath.GetLastWriteTime())) )
+	if ( (m_entriesFileTime == entriesFilePath.GetLastWriteTime()) && ((entriesFilePath.GetLastWriteTime() == 0) || (m_propsFileTime == propsDirPath.GetLastWriteTime())) )
 	{
+		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
+		if (m_entriesFileTime)
+			m_propsFileTime = propsDirPath.GetLastWriteTime();
+
 		if(m_entriesFileTime == 0)
 		{
 			// We are a folder which is not in a working copy
@@ -234,7 +238,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// lock and not a write lock!
 				// So mark it for crawling, and let the crawler remove it
 				// later
-				CSVNStatusCache::Instance().AddFolderForCrawling(path.GetDirectory());
+				CSVNStatusCache::Instance().AddFolderForCrawling(path.GetContainingDirectory());
 				return CStatusCacheEntry();
 			}
 			else
@@ -554,7 +558,10 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 	if(status->entry)
 	{
-		svnPath.SetFromSVN(path, (status->entry->kind == svn_node_dir));
+		if ((status->text_status != svn_wc_status_none)&&(status->text_status != svn_wc_status_ignored))
+			svnPath.SetFromSVN(path, (status->entry->kind == svn_node_dir));
+		else
+			svnPath.SetFromSVN(path);
 
 		if(svnPath.IsDirectory())
 		{
