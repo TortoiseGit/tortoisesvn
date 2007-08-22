@@ -39,5 +39,5 @@ protected:
 
 private:
 	HWND					m_hParent;
-	HBITMAP					m_hBmp;
+	HICON					m_hIcon;
 };

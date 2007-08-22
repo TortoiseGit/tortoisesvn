@@ -9,7 +9,9 @@
 //
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "windows.h"
+#ifndef APSTUDIO_INVOKED
 #include "TortoiseUDiff.rc2"
+#endif
 #undef APSTUDIO_HIDDEN_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -26,10 +28,12 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Bitmap
+// Icon
 //
 
-IDB_CANCELNORMAL        BITMAP                  "..\\Resources\\cancel-normal.bmp"
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_CANCELNORMAL        ICON                    "D:\\Development\\SVN\\TortoiseSVN\\src\\Resources\\cancel-normal.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +94,7 @@ IDD_FINDBAR DIALOGEX 0, 0, 246, 21
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "",IDC_FINDEXIT,0,3,15,14,BS_BITMAP | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    PUSHBUTTON      "",IDC_FINDEXIT,0,3,15,14,BS_ICON | NOT WS_TABSTOP,WS_EX_TRANSPARENT
     LTEXT           "Find:",IDC_STATIC,19,5,17,8
     EDITTEXT        IDC_FINDTEXT,40,2,55,14,ES_AUTOHSCROLL
     PUSHBUTTON      "&Next",IDC_FINDNEXT,100,2,38,14
@@ -139,8 +143,10 @@ END
 BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
+    "#ifndef APSTUDIO_INVOKED\r\n"
     "#include ""TortoiseUDiff.rc2""\r\n"
-    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\0"
+    "#endif\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n\0"
 END
 
 3 TEXTINCLUDE 

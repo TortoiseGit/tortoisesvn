@@ -31,7 +31,7 @@ CFindBar::CFindBar()
 
 CFindBar::~CFindBar(void)
 {
-	DeleteObject(m_hBmp);
+	DestroyIcon(m_hIcon);
 }
 
 LRESULT CFindBar::DlgFunc(HWND /*hwndDlg*/, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -41,8 +41,8 @@ LRESULT CFindBar::DlgFunc(HWND /*hwndDlg*/, UINT uMsg, WPARAM wParam, LPARAM lPa
 	{
 	case WM_INITDIALOG:
 		{
-			m_hBmp = ::LoadBitmap(hResource, MAKEINTRESOURCE(IDB_CANCELNORMAL));
-			SendMessage(GetDlgItem(*this, IDC_FINDEXIT), BM_SETIMAGE, IMAGE_BITMAP, (LPARAM)m_hBmp);
+			m_hIcon = (HICON)::LoadImage(hResource, MAKEINTRESOURCE(IDI_CANCELNORMAL), IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
+			SendMessage(GetDlgItem(*this, IDC_FINDEXIT), BM_SETIMAGE, IMAGE_ICON, (LPARAM)m_hIcon);
 		}
 		return TRUE;
 	case WM_COMMAND:
