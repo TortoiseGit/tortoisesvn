@@ -248,6 +248,8 @@ Version 1.4.5
        revision is not available. (Stefan)
 - BUG: Thread leak in the status cache/handle lead in the 
        shell extension. (Stefan)
+- BUG: Missing items got crawled over and over again in the status cache.
+       (Stefan)
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
