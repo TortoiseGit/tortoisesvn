@@ -1216,13 +1216,19 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (bGotLogs)
 					{
 						CString sSuggestedMessage;
-						if ((svn_revnum_t)m_Revision == (svn_revnum_t)m_RevisionEnd)
+						SVNRev revEnd = m_RevisionEnd.IsHead() ? max(start, end) : m_RevisionEnd;
+						SVNRev revStart = m_Revision.IsHead() ? max(start, end) : m_Revision;
+						if ((svn_revnum_t)revEnd > (svn_revnum_t)revStart)
+							revStart = (svn_revnum_t)revStart + 1;
+						else
+							revEnd = (svn_revnum_t)revEnd - 1;
+						if (((svn_revnum_t)revStart+1) == (svn_revnum_t)revEnd)
 						{
-							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGONE, m_Revision.ToString(), m_url.GetUIPathString());
+							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGONE, revEnd.ToString(), m_url.GetUIPathString());
 						}
 						else
 						{
-							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE, m_Revision.ToString(), m_RevisionEnd.ToString(), m_url.GetUIPathString());
+							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE, revStart.ToString(), revEnd.ToString(), m_url.GetUIPathString());
 						}
 						CString sMergedLogMessage;
 						CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
@@ -1232,7 +1238,7 @@ UINT CSVNProgressDlg::ProgressThread()
 							{
 								if ((*it)->merge_range.start <= (*it)->merge_range.end)
 								{
-									for (svn_revnum_t r = (*it)->merge_range.start;
+									for (svn_revnum_t r = (*it)->merge_range.start+1;
 										r <= (*it)->merge_range.end; ++r)
 									{
 										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
@@ -1246,7 +1252,7 @@ UINT CSVNProgressDlg::ProgressThread()
 								}
 								else
 								{
-									for (svn_revnum_t r = (*it)->merge_range.end;
+									for (svn_revnum_t r = (*it)->merge_range.end-1;
 										r <= (*it)->merge_range.start; --r)
 									{
 										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
