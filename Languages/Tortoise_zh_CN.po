@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-16 17:43+0800\n"
+"PO-Revision-Date: 2007-08-24 23:05+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1075,6 +1075,10 @@ msgstr ""
 msgid "<new changelist>"
 msgstr "(新修改列表)"
 
+#: MenuEntry
+msgid "?"
+msgstr "?"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867,#: ID:3867,
@@ -2104,6 +2108,11 @@ msgstr "与工作拷贝比较并追溯(&B)"
 msgid "Compare and blame with previous revision"
 msgstr "与前一版本比较并追溯"
 
+# Control-ID:1019,
+#: Control-ID:1390,#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr "比较空白字符"
+
 # ID:76,
 #: ID:76,
 msgid "Compare with &working copy"
@@ -2621,6 +2630,11 @@ msgstr "以URL比较"
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "补丁文件："
+
+# Control-ID:1022,
+#: Control-ID:65535,
+msgid "Diff options"
+msgstr "差异选项"
 
 # Control-ID:1302,
 #: Control-ID:1302,
@@ -3245,6 +3259,12 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "过滤掉以下路径（多个路径之间用“*”字符分隔）："
 
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:321,
+msgid "Filter paths"
+msgstr "过滤器路径"
+
 # Dlg-ID:139,
 #: Dlg-ID:139,
 msgid "Find"
@@ -3478,7 +3498,7 @@ msgid "HEAD"
 msgstr "HEAD"
 
 # Control-ID:1004,
-#: Control-ID:1004,
+#: ID:73,#: Control-ID:1004,
 msgid "Help"
 msgstr "帮助"
 
@@ -3801,6 +3821,11 @@ msgstr "忽略所有空白字符(&A)"
 msgid "Ignore &case changes"
 msgstr "忽略大/小写(&C)"
 
+# Control-ID:1020,
+#: Control-ID:1392,#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr "忽略所有空白字符"
+
 # Control-ID:1267,
 #: Control-ID:1267,
 msgid "Ignore ancestry"
@@ -3810,6 +3835,16 @@ msgstr "忽略根源"
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
 msgstr "忽略行尾（建议）(&E)"
+
+# Control-ID:1018,
+#: Control-ID:1126,#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr "忽略 CRLF"
+
+# Control-ID:1021,
+#: Control-ID:1391,#: Control-ID:1391,
+msgid "Ignore whitespace changes"
+msgstr "忽略空白字符的变化"
 
 # ID:15,
 #: ID:226,
@@ -4359,9 +4394,14 @@ msgstr "合并 - TortoiseSVN"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Merge depth:"
+msgstr "合并深度:"
+
+# ID:110,
 #: Control-ID:1377,
-msgid "Merge Depth"
-msgstr "合并深度"
+msgid "Merge settings"
+msgstr "合并设置"
 
 # ID:263,#:
 # ID:263,
@@ -6617,6 +6657,10 @@ msgstr "Tab 宽度："
 msgid "Tagged the working copy to %s"
 msgstr "标记工作拷贝为 %s"
 
+#: Control-ID:65535,
+msgid "Target"
+msgstr "目标"
+
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid "Text Status:"
@@ -7152,9 +7196,13 @@ msgstr ""
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:7,
-#: ID:7,
+#: ID:7,#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseDiff"
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - 一个图像比较工具，包含于 TortoiseSVN"
 
 # ID:7,
 #: ID:7,
@@ -7631,9 +7679,15 @@ msgstr "值"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
-#: Control-ID:1075,#: Control-ID:1075,
+#: Control-ID:1075,#: Control-ID:1004,
 msgid "Version"
 msgstr "版本"
+
+# ID:201,
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "版本 %d.%d.%d.%d"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -8086,6 +8140,10 @@ msgstr ""
 #: ID:13,
 msgid "external"
 msgstr "外部"
+
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
 
 # ID:13,
 #: ID:13,
