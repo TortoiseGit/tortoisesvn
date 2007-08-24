@@ -35,10 +35,11 @@
           <Component Id='Main' Guid='EEE2185B-817B-4482-9D57-2D17291DCAEF'>
 
             <File Id='SUBWCREV' Name='SUBWCREV.EXE' LongName='SubWCRev.exe' DiskId='1' Source='..\..\bin\releasestatic\bin\SubWCRev.exe' Vital='yes'></File>
+            <File Id="SUBWCREVCOM" Name="SUBWCOM.EXE" LongName="SubWCRevCOM.exe" DiskId="1" src="..\..\bin\releasestatic\bin\SubWCRevCOM.exe" />
 
             <!-- register the SubWCRev COM-Object -->
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\LocalServer32" Value="[INSTALLDIR]\SubWCRev.exe /automation" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\LocalServer32" Value="[INSTALLDIR]\SubWCRevCOM.exe /automation" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\ProgID" Value="SubWCRev.object.1" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\VersionIndependentProgID" Value="SubWCRev.object" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidSubWCRev)}\TypeLib" Value="{$(var.GuidSubWCRevTypeLib)}" Type="string" />
@@ -56,7 +57,7 @@
             <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}" Action="createKeyAndRemoveKeyOnUninstall" />
             <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0" Value="LibSubWCRev" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0" Action="createKeyAndRemoveKeyOnUninstall" />
-            <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0\win32" Value="[INSTALLDIR]\SubWCRev.exe" Type="string" />
+            <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0\win32" Value="[INSTALLDIR]\SubWCRevCOM.exe" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\FLAGS" Value="0" Type="string" />
             <Registry Root="HKMU" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\HELPDIR" Value="[INSTALLDIR]" Type="string" />
 

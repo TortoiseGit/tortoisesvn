@@ -1,3 +1,18 @@
+// Copyright (C) 2007 - TortoiseSVN
+
+// thisobject program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// thisobject program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with thisobject program; if not, write to the Free Software Foundation,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "StdAfx.h"
 #include <objbase.h>
 #include "SubWCRev_h.h"
@@ -7,15 +22,46 @@
 #include <tchar.h>
 #include <windows.h>
 #include <shlwapi.h>
+#include <Shellapi.h>
 
 #include <apr_pools.h>
 #include "svn_error.h"
 #include "svn_client.h"
 #include "svn_path.h"
 #include "svn_dso.h"
-#include "SubWCRev.h"
 #include "Register.h"
+#include "UnicodeUtils.h"
 
+STDAPI DllRegisterServer();
+STDAPI DllUnregisterServer();
+
+int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
+					   HINSTANCE /*hPrevInstance*/,
+					   LPTSTR    /*lpCmdLine*/,
+					   int       /*nCmdShow*/)
+{
+	int argc = 0;
+	LPWSTR * argv = CommandLineToArgvW(GetCommandLine(), &argc);
+	if (argc >= 2 && argc <= 5)
+	{
+		if (_tcscmp(argv[1], _T("/automation"))==0)
+		{
+			AutomationMain();
+			return 0;
+		}
+		else if (_tcscmp(argv[1], _T("unregserver"))==0)
+		{
+			DllUnregisterServer();
+			return 0;
+		}
+		else if (_tcscmp(argv[1], _T("regserver"))==0)
+		{
+			DllRegisterServer();
+			return 0;
+		}
+	}
+	return 0;
+}
 
 void AutomationMain()
 {

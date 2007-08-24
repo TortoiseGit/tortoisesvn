@@ -31,11 +31,9 @@
 #include "svn_client.h"
 #include "svn_path.h"
 #include "SubWCRev.h"
+#include "UnicodeUtils.h"
 #include "..\version.h"
 #include "svn_dso.h"
-
-STDAPI DllUnregisterServer();
-STDAPI DllRegisterServer();
 
 
 // Define the help text as a multi-line macro
@@ -114,29 +112,6 @@ than 64 characters, and must not produce output greater than 128 characters.\n"
 #define USE_TIME_NOW	-2	// 0 and -1 might already be significant.
 
 
-char *AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
-{
-	// convert ANSI --> UTF16
-	int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
-	WCHAR * pwc = new WCHAR[utf16_count];
-	MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc, utf16_count);
-
-	// and now from URF16 --> UTF-8
-	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, NULL, 0, NULL, NULL);
-	char * pch = (char*) apr_palloc(pool, utf8_count);
-	WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, pch, utf8_count, NULL, NULL);
-	delete[] pwc;
-	return pch;
-}
-
-char *Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
-{
-	// from URF16 --> UTF-8
-	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, NULL, 0, NULL, NULL);
-	char * pch = (char*) apr_palloc(pool, utf8_count);
-	WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
-	return pch;
-}
 
 int FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
 {
@@ -353,28 +328,8 @@ int abort_on_pool_failure (int /*retcode*/)
 #pragma warning(pop)
 
 
-void closehandles()
+int _tmain(int argc, _TCHAR* argv[])
 {
-	// since we attach ourselves to the parent console
-	// or create a new console if that's not possible, simply quitting
-	// SubWCRev still leaves the console 'open' until you press a key. So...
-	// simulate return pressing
-	INPUT input;
-	memset(&input,0,sizeof(input));
-	input.type=INPUT_KEYBOARD;
-	input.ki.wVk=VK_RETURN;
-	SendInput(1,&input,sizeof(input));
-	input.ki.dwFlags=KEYEVENTF_KEYUP;
-	SendInput(1,&input,sizeof(input)); 
-}
-
-int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
-					   HINSTANCE /*hPrevInstance*/,
-					   LPTSTR    /*lpCmdLine*/,
-					   int       /*nCmdShow*/)
-{
-	int argc = 0;
-	LPWSTR * argv = CommandLineToArgvW(GetCommandLine(), &argc);
 	// we have three parameters
 	const TCHAR * src = NULL;
 	const TCHAR * dst = NULL;
@@ -388,21 +343,6 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 	{
 		// WC path is always first argument.
 		wc = argv[1];
-		if (_tcscmp(argv[1], _T("/automation"))==0)
-		{
-			AutomationMain();
-			return 0;
-		}
-		else if (_tcscmp(argv[1], _T("unregserver"))==0)
-		{
-			DllUnregisterServer();
-			return 0;
-		}
-		else if (_tcscmp(argv[1], _T("regserver"))==0)
-		{
-			DllRegisterServer();
-			return 0;
-		}
 	}
 	if (argc == 4 || argc == 5)
 	{
@@ -453,51 +393,6 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 		}
 	}
 
-	// If we get here, that means we're used 'standalone', i.e., not in
-	// automation mode. And that again means we should try to get a
-	// console so we have something to output text to.
-	bool bCon = false;
-	typedef BOOL(__stdcall *PFNATTACHCONSOLE)(DWORD dwProcessId);
-	HMODULE hMod = LoadLibrary(_T("Kernel32.dll"));
-	if (hMod)
-	{
-		PFNATTACHCONSOLE pfnAttachConsole = (PFNATTACHCONSOLE)GetProcAddress(hMod, "AttachConsole");
-		if (pfnAttachConsole)
-		{
-			if ((pfnAttachConsole)(ATTACH_PARENT_PROCESS))
-				bCon = true;
-		}
-		FreeLibrary(hMod);
-	}
-	if (!bCon)
-		AllocConsole();
-	// now attach the std and c-runtime handles to the console
-	int nCRTIn = _open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT);
-	if (nCRTIn != -1)
-	{
-		FILE * fpCRTIn = _fdopen(nCRTIn, "r");
-
-		if (fpCRTIn)
-		{
-			*stdin = *fpCRTIn;
-			std::cin.clear();
-		}
-	}
-	int nCRTOut = _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),	_O_TEXT);
-	if (nCRTOut != -1)
-	{
-		FILE * fpCRTOut = _fdopen(nCRTOut, "w");
-
-		if (fpCRTOut)
-		{
-			*stdout = *fpCRTOut;
-			std::cout.clear();
-		}
-	}
-	atexit(closehandles);
-
-	if (!bCon)
-		AllocConsole();
 	if (wc == NULL)
 	{
 		_tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),

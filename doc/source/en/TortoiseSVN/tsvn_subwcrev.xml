@@ -337,9 +337,9 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");
 
-SubWCRev1 = new ActiveXObject("SubWCRev.object.1");
-SubWCRev2 = new ActiveXObject("SubWCRev.object.1");
-SubWCRev3 = new ActiveXObject("SubWCRev.object.1");
+SubWCRev1 = new ActiveXObject("SubWCRev.object");
+SubWCRev2 = new ActiveXObject("SubWCRev.object");
+SubWCRev3 = new ActiveXObject("SubWCRev.object");
 
 SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName("."), 0, 0);
 SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);

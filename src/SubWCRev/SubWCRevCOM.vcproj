@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="SubWCRev"
-	ProjectGUID="{1F29DBDD-7DFF-4178-98F0-9137636788BC}"
-	RootNamespace="SubWCRev"
+	Name="SubWCRevCOM"
+	ProjectGUID="{E6D5CCE5-A4A9-43D3-88D2-6637365BF319}"
+	RootNamespace="SubWCRevCOM"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -21,8 +21,9 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
-			IntermediateDirectory="..\..\obj\SubWCRev\Debug"
+			IntermediateDirectory="..\..\obj\SubWCRevCOM\Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -40,7 +41,7 @@
 			<Tool
 				Name="VCMIDLTool"
 				GenerateTypeLibrary="true"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -67,12 +68,12 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\debug_win32\libsvn_wc-nonet.lib ../../ext/Subversion\debug_win32\libsvn_delta-nonet.lib ../../ext/Subversion\debug_win32\libsvn_diff-nonet.lib ../../ext/Subversion\debug_win32\libsvn_subr-nonet.lib ../../ext/Subversion\debug_win32\libsvn_client-nonet.lib ../../ext/apr\debug_win32\libapr_tsvn.lib ../../ext/apr-util\debug_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC.lib"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(OutDir)/SubWCRev.pdb"
-				SubSystem="1"
+				ProgramDatabaseFile="$(OutDir)/SubWCRevCOM.pdb"
+				SubSystem="2"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -103,7 +104,7 @@
 		<Configuration
 			Name="Debug|x64"
 			OutputDirectory="..\..\bin\Debug64\bin"
-			IntermediateDirectory="..\..\obj\SubWCRev\Debug64"
+			IntermediateDirectory="..\..\obj\SubWCRevCOM\Debug64"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
@@ -123,7 +124,7 @@
 			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="3"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -150,12 +151,12 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\debug_x64\libsvn_wc-nonet.lib ../../ext/Subversion\debug_x64\libsvn_delta-nonet.lib ../../ext/Subversion\debug_x64\libsvn_diff-nonet.lib ../../ext/Subversion\debug_x64\libsvn_subr-nonet.lib ../../ext/Subversion\debug_x64\libsvn_client-nonet.lib ../../ext/apr\debug_x64\libapr_tsvn.lib ../../ext/apr-util\debug_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC.lib"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(OutDir)/SubWCRev.pdb"
-				SubSystem="1"
+				ProgramDatabaseFile="$(OutDir)/SubWCRevCOM.pdb"
+				SubSystem="2"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -186,7 +187,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
-			IntermediateDirectory="..\..\obj\SubWCRev\Release"
+			IntermediateDirectory="..\..\obj\SubWCRevCOM\Release"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
@@ -206,7 +207,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -233,11 +234,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_win32\libsvn_wc-nonet.lib ../../ext/Subversion\release_win32\libsvn_delta-nonet.lib ../../ext/Subversion\release_win32\libsvn_diff-nonet.lib ../../ext/Subversion\release_win32\libsvn_subr-nonet.lib ../../ext/Subversion\release_win32\libsvn_client-nonet.lib ../../ext/apr\release_win32\libapr_tsvn.lib ../../ext/apr-util\release_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -270,7 +271,7 @@
 		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\bin\Release64\bin"
-			IntermediateDirectory="..\..\obj\SubWCRev\Release64"
+			IntermediateDirectory="..\..\obj\SubWCRevCOM\Release64"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
@@ -291,7 +292,7 @@
 			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="3"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -318,11 +319,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="17"
@@ -355,7 +356,7 @@
 		<Configuration
 			Name="release_static|Win32"
 			OutputDirectory="..\..\bin\ReleaseStatic\bin"
-			IntermediateDirectory="..\..\obj\SubWCRev\ReleaseStatic"
+			IntermediateDirectory="..\..\obj\SubWCRevCOM\ReleaseStatic"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
@@ -375,7 +376,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -402,11 +403,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib Rpcrt4.lib ../../ext/Subversion\releasestatic_win32\libsvn_wc-nonet.lib ../../ext/Subversion\releasestatic_win32\libsvn_delta-nonet.lib ../../ext/Subversion\releasestatic_win32\libsvn_diff-nonet.lib ../../ext/Subversion\releasestatic_win32\libsvn_subr-nonet.lib ../../ext/Subversion\releasestatic_win32\libsvn_client-nonet.lib ../../ext/apr\releasestatic_win32\libapr_tsvn.lib ../../ext/apr-util\releasestatic_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\releasestatic_win32\xml.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames=""
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -460,7 +461,7 @@
 			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="3"
-				TypeLibraryName="SubWCRev.tlb"
+				TypeLibraryName="SubWCRevCOM.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
@@ -487,11 +488,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
-				OutputFile="$(OutDir)/SubWCRev.exe"
+				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="17"
@@ -528,8 +529,12 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			UniqueIdentifier="{5177C4D5-40CE-44f7-94BC-4F18032C8B9E}"
 			>
+			<File
+				RelativePath=".\Register.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\status.cpp"
 				>
@@ -587,7 +592,11 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SubWCRev.cpp"
+				RelativePath=".\SubWCRev.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\SubWCRevCOM.cpp"
 				>
 			</File>
 			<File
@@ -598,7 +607,7 @@
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			UniqueIdentifier="{E201CD9D-7896-406f-BC84-96FE495AE0AA}"
 			>
 			<File
 				RelativePath=".\Register.h"
@@ -613,7 +622,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\SubWCRev.h"
+				RelativePath=".\SubWCRevCOM.h"
 				>
 			</File>
 			<File
@@ -624,7 +633,7 @@
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			UniqueIdentifier="{91D32AA0-A6C7-48e3-BD52-D8066B34910A}"
 			>
 			<File
 				RelativePath=".\SubWCRev.rc"

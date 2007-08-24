@@ -2,9 +2,9 @@
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");
 
-subwcrevObject1 = new ActiveXObject("SubWCRev.object.1");
-subwcrevObject2 = new ActiveXObject("SubWCRev.object.1");
-subwcrevObject3 = new ActiveXObject("SubWCRev.object.1");
+subwcrevObject1 = new ActiveXObject("SubWCRev.object");
+subwcrevObject2 = new ActiveXObject("SubWCRev.object");
+subwcrevObject3 = new ActiveXObject("SubWCRev.object");
 
 subwcrevObject1.GetWCInfo(filesystem.GetAbsolutePathName("."), 1, 1);
 subwcrevObject2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
