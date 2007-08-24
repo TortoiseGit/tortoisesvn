@@ -393,11 +393,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			CBlame blamer;
 			if (blame)
 			{
-				if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1))
+				if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1, _T("")))
 				{
 					if ((peg.IsValid())&&(blamer.Err->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
 					{
-						if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1))
+						if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1, _T("")))
 						{
 							progDlg.Stop();
 							m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -448,11 +448,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), rev2.ToString());
 			if (blame)
 			{
-				if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2))
+				if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2, _T("")))
 				{
 					if (peg.IsValid())
 					{
-						if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempfile2))
+						if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempfile2, _T("")))
 						{
 							progDlg.Stop();
 							m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -552,11 +552,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			if (blame)
 			{
 				CBlame blamer;
-				if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempfile))
+				if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempfile, _T("")))
 				{
 					if (peg.IsValid())
 					{
-						if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempfile))
+						if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempfile, _T("")))
 						{
 							progDlg.Stop();
 							m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -578,7 +578,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 					CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url1);
-					if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2))
+					if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, _T("")))
 					{
 						progDlg.Stop();
 						m_pSVN->SetAndClearProgressInfo((HWND)NULL);

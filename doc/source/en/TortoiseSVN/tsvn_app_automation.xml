@@ -347,16 +347,27 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:blame</entry>
 							<entry>
+								<para>
 								Opens the blame dialog for the file specified 
 								in <option>/path</option>.
+								</para>
+								<para>
 								If the options <option>/startrev</option> and
 								<option>/endrev</option> are set, then the dialog
 								asking for the blame range is not shown but
 								the revision values of those options are used
 								instead.
+								</para>
+								<para>
 								If the option <option>/line:nnn</option> is set,
 								TortoiseBlame will open with the specified line
 								number showing.
+								</para>
+								<para>
+								The options <option>/ignoreeol</option>, 
+								<option>/ignorespaces</option> and
+								<option>/ignoreallspaces</option> are also supported.
+								</para>
 							</entry>
 						</row>
 						<row>

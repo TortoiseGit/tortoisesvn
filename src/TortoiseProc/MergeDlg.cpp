@@ -43,6 +43,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_pLogDlg2(NULL)
 	, bRepeating(FALSE)
 	, m_bRecordOnly(FALSE)
+	, m_bIgnoreEOL(FALSE)
 {
 }
 
@@ -65,6 +66,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, m_bIgnoreAncestry);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 	DDX_Control(pDX, IDOK, m_mergeButton);
+	DDX_Check(pDX, IDC_IGNOREEOL, m_bIgnoreEOL);
 }
 
 BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
@@ -95,10 +97,17 @@ BOOL CMergeDlg::OnInitDialog()
 
 	AdjustControlSize(IDC_REVISION_HEAD1);
 	AdjustControlSize(IDC_REVISION_N1);
-	AdjustControlSize(IDC_IGNOREANCESTRY);
 	AdjustControlSize(IDC_USEFROMURL);
 	AdjustControlSize(IDC_REVISION_HEAD);
 	AdjustControlSize(IDC_REVISION_N);
+
+	AdjustControlSize(IDC_IGNOREANCESTRY);
+	AdjustControlSize(IDC_IGNOREEOL);
+	AdjustControlSize(IDC_COMPAREWHITESPACES);
+	AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
+	AdjustControlSize(IDC_IGNOREALLWHITESPACES);
+
+	CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
@@ -255,6 +264,21 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 		break;
 	default:
 		m_depth = svn_depth_empty;
+		break;
+	}
+
+	int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
+	switch (rb)
+	{
+	case IDC_IGNOREWHITESPACECHANGES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_change;
+		break;
+	case IDC_IGNOREALLWHITESPACES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_all;
+		break;
+	case IDC_COMPAREWHITESPACES:
+	default:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_none;
 		break;
 	}
 

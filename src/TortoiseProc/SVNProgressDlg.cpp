@@ -1155,12 +1155,12 @@ UINT CSVNProgressDlg::ProgressThread()
 
 				if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, 
 					m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
-					m_targetPathList[0], true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
+					m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 				{
 					// if the merge fails with the peg revision set to the end revision of the merge,
 					// try again with HEAD as the peg revision.
 					if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, SVNRev::REV_HEAD,
-						m_targetPathList[0], true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
+						m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -1179,7 +1179,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				ReportCmd(sCmdInfo);
 
 				if (!m_pSvn->Merge(m_url, m_Revision, urlTo, m_RevisionEnd, m_targetPathList[0], 
-					true, m_depth, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
+					true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 				{
 					ReportSVNError();
 					bFailed = true;

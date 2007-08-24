@@ -92,4 +92,6 @@ public:
 	BOOL		m_bIgnoreAncestry;
 	BOOL		m_bRecordOnly;
 	svn_depth_t	m_depth;
+	BOOL		m_bIgnoreEOL;
+	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
 };

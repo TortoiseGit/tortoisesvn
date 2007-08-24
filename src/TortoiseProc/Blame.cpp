@@ -94,7 +94,7 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, const CString& options, BOOL showprogress /* = TRUE */)
 {
 	// if the user specified to use another tool to show the blames, there's no
 	// need to fetch the log later: only TortoiseBlame uses those logs to give 
@@ -131,11 +131,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress(0, m_nHeadRev);
 
-	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev);
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options);
 	if ( !bBlameSuccesful && !pegrev.IsValid() )
 	{
 		// retry with the endrev as pegrev
-		if ( this->Blame(path, startrev, endrev, endrev) )
+		if ( this->Blame(path, startrev, endrev, endrev, options) )
 		{
 			bBlameSuccesful = TRUE;
 			pegrev = endrev;
@@ -190,7 +190,7 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/
 	return TRUE;
 }
 
-bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile)
+bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options)
 {
 	CString temp;
 	if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
@@ -199,11 +199,24 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
 	m_nHeadRev = endrev;
 	if (m_nHeadRev < 0)
 		m_nHeadRev = GetHEADRevision(path);
-	if (!this->Blame(path, startrev, endrev, peg))
+
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options);
+	if ( !bBlameSuccesful && !peg.IsValid() )
+	{
+		// retry with the endrev as pegrev
+		if ( this->Blame(path, startrev, endrev, endrev, options) )
+		{
+			bBlameSuccesful = TRUE;
+			peg = endrev;
+		}
+	}
+
+	if (!bBlameSuccesful)
 	{
 		m_saveFile.Close();
 		return false;
 	}
+
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 		m_saveFile.Close();
 

@@ -67,7 +67,7 @@ typedef enum
  * in a listbox. Since several Subversion commands have similar notify
  * messages they are grouped together in this single class.
  */
-class CSVNProgressDlg : public CResizableStandAloneDialog, SVN
+class CSVNProgressDlg : public CResizableStandAloneDialog, public SVN
 {
 public:
 	typedef enum
@@ -147,6 +147,7 @@ public:
 	 * \param revision the revision to work on or to get
 	 */
 	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
+	void SetDiffOptions(const CString& opts) {m_diffoptions = opts;}
 	void SetDepth(svn_depth_t depth = svn_depth_unknown) {m_depth = depth;}
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
 	void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
@@ -246,6 +247,7 @@ private:
 	CTSVNPathList m_selectedPaths;
 	CTSVNPath	m_url;
 	CString		m_sMessage;
+	CString		m_diffoptions;
 	SVNRev		m_Revision;
 	SVNRev		m_pegRev;
 

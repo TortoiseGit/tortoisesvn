@@ -282,7 +282,9 @@
 #define IDC_SHOWEXCLUDEDASNORMAL        1126
 #define IDC_CACHELOGS                   1126
 #define IDC_INCLUDEMERGE                1126
+#define IDC_IGNOREEOL                   1126
 #define IDC_F5HINT                      1127
+#define IDC_IGNOREEOL2                  1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
 #define IDC_CHECK_STOPONCOPY            1130
@@ -651,6 +653,9 @@
 #define IDC_FROMGROUP                   1385
 #define IDC_MSGGROUP                    1386
 #define IDC_FILTER                      1387
+#define IDC_COMPAREWHITESPACES          1390
+#define IDC_IGNOREWHITESPACECHANGES     1391
+#define IDC_IGNOREALLWHITESPACES        1392
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -1186,7 +1191,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        268
 #define _APS_NEXT_COMMAND_VALUE         32827
-#define _APS_NEXT_CONTROL_VALUE         1388
+#define _APS_NEXT_CONTROL_VALUE         1393
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

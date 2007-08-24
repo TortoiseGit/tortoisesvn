@@ -552,6 +552,12 @@ void TortoiseBlame::BlamePreviousRevision()
 	svnCmd += bufEndRev;
 	svnCmd += _T(" /line:");
 	svnCmd += bufLine;
+	if (bIgnoreEOL)
+		svnCmd += _T(" /ignoreeol");
+	if (bIgnoreSpaces)
+		svnCmd += _T(" /ignorespaces");
+	if (bIgnoreAllSpaces)
+		svnCmd += _T(" /ignoreallspaces");
 	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 	{
 		CloseHandle(process.hThread);
@@ -1064,6 +1070,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	{
 		_tcscpy_s(szOrigPath, MAX_PATH, parser.GetVal(_T("path")));
 	}
+	app.bIgnoreEOL = parser.HasKey(_T("ignoreeol"));
+	app.bIgnoreSpaces = parser.HasKey(_T("ignorespaces"));
+	app.bIgnoreAllSpaces = parser.HasKey(_T("ignoreallspaces"));
 
 	app.SendEditor(SCI_SETCODEPAGE, GetACP());
 	app.OpenFile(blamefile);

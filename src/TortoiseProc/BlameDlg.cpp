@@ -29,6 +29,7 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
 	, m_bTextView(FALSE)
+	, m_bIgnoreEOL(TRUE)
 {
 	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	m_bTextView = m_regTextView;
@@ -44,6 +45,7 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
+	DDX_Check(pDX, IDC_IGNOREEOL2, m_bIgnoreEOL);
 }
 
 
@@ -59,6 +61,10 @@ BOOL CBlameDlg::OnInitDialog()
 	CStandAloneDialog::OnInitDialog();
 
 	AdjustControlSize(IDC_USETEXTVIEWER);
+	AdjustControlSize(IDC_IGNOREEOL);
+	AdjustControlSize(IDC_COMPAREWHITESPACES);
+	AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
+	AdjustControlSize(IDC_IGNOREALLWHITESPACES);
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
@@ -70,6 +76,9 @@ BOOL CBlameDlg::OnInitDialog()
 		UpdateData(FALSE);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
+
+	CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;
@@ -101,6 +110,22 @@ void CBlameDlg::OnOK()
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	if (extBlame)
 		m_bTextView = true;
+
+	int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
+	switch (rb)
+	{
+	case IDC_IGNOREWHITESPACECHANGES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_change;
+		break;
+	case IDC_IGNOREALLWHITESPACES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_all;
+		break;
+	case IDC_COMPAREWHITESPACES:
+	default:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_none;
+		break;
+	}
+
 	UpdateData(FALSE);
 
 	CStandAloneDialog::OnOK();

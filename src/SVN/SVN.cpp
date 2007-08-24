@@ -49,13 +49,12 @@ static char THIS_FILE[] = __FILE__;
 
 LogCache::CLogCachePool SVN::logCachePool (CPathUtils::GetAppDataDirectory()+_T("logcache\\"));
 
-SVN::SVN(void) :
-	m_progressWnd(0),
-	m_pProgressDlg(NULL),
-	m_bShowProgressBar(false),
-	progress_total(0),
-	progress_lastprogress(0),
-	progress_lasttotal(0)
+SVN::SVN(void) : m_progressWnd(0)
+	, m_pProgressDlg(NULL)
+	, m_bShowProgressBar(false)
+	, progress_total(0)
+	, progress_lastprogress(0)
+	, progress_lasttotal(0)
 {
 	parentpool = svn_pool_create(NULL);
 	svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
@@ -925,10 +924,13 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, P
 }
 
 BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, 
-				const CTSVNPath& localPath, BOOL force, svn_depth_t depth, 
+				const CTSVNPath& localPath, BOOL force, svn_depth_t depth, const CString& options,
 				BOOL ignoreanchestry, BOOL dryrun, BOOL record_only)
 {
 	SVNPool subpool(pool);
+	apr_array_header_t *opts;
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
 
 	svn_error_clear(Err);
 	Err = svn_client_merge3(path1.GetSVNApiPath(subpool),
@@ -941,7 +943,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 							force,
 							record_only,
 							dryrun,
-							NULL,
+							opts,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -953,10 +955,13 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 }
 
 BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
-				   const CTSVNPath& destpath, BOOL force, svn_depth_t depth, 
+				   const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options,
 				   BOOL ignoreancestry, BOOL dryrun, BOOL record_only)
 {
 	SVNPool subpool(pool);
+	apr_array_header_t *opts;
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
 
 	svn_error_clear(Err);
 	Err = svn_client_merge_peg3 (source.GetSVNApiPath(subpool),
@@ -969,7 +974,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 		force,
 		record_only,
 		dryrun,
-		NULL,
+		opts,
 		m_pctx,
 		subpool);
 	if(Err != NULL)
@@ -1365,13 +1370,15 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	return TRUE;
 }
 
-BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, bool ignoremimetype)
+BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype)
 {
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
+	apr_array_header_t *opts;
 	svn_diff_file_options_t * options = svn_diff_file_options_create(subpool);
-	options->ignore_space = svn_diff_file_ignore_space_none;
-	options->ignore_eol_style = true;
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(diffoptions), " \t\n\r", TRUE, subpool);
+	svn_error_clear(svn_diff_file_options_parse(options, opts, subpool));
+
 	// Subversion < 1.4 silently changed a revision WC to BASE. Due to a bug
 	// report this was changed: now Subversion returns an error 'not implemented'
 	// since it actually blamed the BASE file and not the working copy file.
@@ -2284,6 +2291,38 @@ BOOL SVN::EnsureConfigFile()
 	}
 	return TRUE;
 }
+
+CString SVN::GetOptionsString(BOOL bIgnoreEOL, BOOL bIgnoreSpaces, BOOL bIgnoreAllSpaces)
+{
+	CString opts;
+	if (bIgnoreEOL)
+		opts += _T("--ignore-eol-style ");
+	if (bIgnoreAllSpaces)
+		opts += _T("-w");
+	else if (bIgnoreSpaces)
+		opts += _T("-b");
+	opts.Trim();
+	return opts;
+}
+
+CString SVN::GetOptionsString(BOOL bIgnoreEOL, svn_diff_file_ignore_space_t space)
+{
+	CString opts;
+	if (bIgnoreEOL)
+		opts += _T("--ignore-eol-style ");
+	switch (space)
+	{
+	case svn_diff_file_ignore_space_change:
+		opts += _T("-b");
+		break;
+	case svn_diff_file_ignore_space_all:
+		opts += _T("-w");
+		break;
+	}
+	opts.Trim();
+	return opts;
+}
+
 
 void SVN::UseIEProxySettings(apr_hash_t * cfg)
 {

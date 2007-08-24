@@ -63,6 +63,10 @@ public:
 	HWND wLocator;
 	HWND hwndTT;
 
+	BOOL bIgnoreEOL;
+	BOOL bIgnoreSpaces;
+	BOOL bIgnoreAllSpaces;
+
 	LRESULT SendEditor(UINT Msg, WPARAM wParam=0, LPARAM lParam=0);
 
 	void GetRange(int start, int end, char *text);

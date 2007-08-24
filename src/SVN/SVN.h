@@ -413,7 +413,7 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, 
-		const CTSVNPath& localPath, BOOL force, svn_depth_t depth, 
+		const CTSVNPath& localPath, BOOL force, svn_depth_t depth, const CString& options,
 		BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 
 	/**
@@ -449,7 +449,7 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
-		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, 
+		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options, 
 		BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
@@ -611,10 +611,11 @@ public:
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
 	 * \param peg the peg revision to use
+	 * \param diffoptions options for the internal diff to use when blaming
 	 * \param ignoremimetype set to true if you want to ignore the mimetype and blame everything
 	 * \return TRUE if successful
 	 */
-	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg = SVNRev(), bool ignoremimetype = false);
+	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype = false);
 	
 	/**
 	 * Lock a file for exclusive use so no other users are allowed to edit
@@ -837,6 +838,13 @@ public:
 	 * currently used.
 	 */
 	static void UseIEProxySettings(apr_hash_t * cfg);
+
+	/**
+	 * Returns a string which can be passed as the options string for the Merge()
+	 * methods and the Blame() method.
+	 */
+	static CString GetOptionsString(BOOL bIgnoreEOL, BOOL bIgnoreSpaces = FALSE, BOOL bIgnoreAllSpaces = FALSE);
+	static CString GetOptionsString(BOOL bIgnoreEOL, svn_diff_file_ignore_space_t space = svn_diff_file_ignore_space_none);
 
 	/**
 	 * Returns the log cache pool singleton. You will need that to 

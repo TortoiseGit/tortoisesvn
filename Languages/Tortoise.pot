@@ -805,6 +805,10 @@ msgstr ""
 msgid "<new changelist>"
 msgstr ""
 
+#: MenuEntry
+msgid "?"
+msgstr ""
+
 #: ID:3867,#: ID:3867,
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
@@ -1547,6 +1551,10 @@ msgstr ""
 msgid "Compare and blame with previous revision"
 msgstr ""
 
+#: Control-ID:1390,#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr ""
+
 #: ID:76,
 msgid "Compare with &working copy"
 msgstr ""
@@ -1913,6 +1921,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Diff file:"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Diff options"
 msgstr ""
 
 #: Control-ID:1302,
@@ -2291,6 +2303,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgstr ""
+
+#: ID:321,
+msgid "Filter paths"
 msgstr ""
 
 #: Dlg-ID:139,
@@ -2701,12 +2717,24 @@ msgstr ""
 msgid "Ignore &case changes"
 msgstr ""
 
+#: Control-ID:1392,#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr ""
+
 #: Control-ID:1267,
 msgid "Ignore ancestry"
 msgstr ""
 
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
+msgstr ""
+
+#: Control-ID:1126,#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr ""
+
+#: Control-ID:1391,#: Control-ID:1391,
+msgid "Ignore whitespace changes"
 msgstr ""
 
 #: ID:226,
@@ -3049,8 +3077,12 @@ msgstr ""
 msgid "Merge - TortoiseSVN"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Merge depth:"
+msgstr ""
+
 #: Control-ID:1377,
-msgid "Merge Depth"
+msgid "Merge settings"
 msgstr ""
 
 #: ID:263,#: ID:263,
@@ -3326,7 +3358,7 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -4684,6 +4716,10 @@ msgid "Tagged the working copy to %s"
 msgstr ""
 
 #: Control-ID:65535,
+msgid "Target"
+msgstr ""
+
+#: Control-ID:65535,
 msgid "Text Status:"
 msgstr ""
 
@@ -4962,8 +4998,12 @@ msgstr ""
 msgid "TortoiseBlame can't be started directly!\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
 
-#: ID:7,
+#: ID:7,#: Dlg-ID:153,
 msgid "TortoiseIDiff"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
 msgstr ""
 
 #: ID:7,
@@ -5264,8 +5304,13 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: Control-ID:1075,#: Control-ID:1075,
+#: Control-ID:1075,#: Control-ID:1075,#: Control-ID:1004,
 msgid "Version"
+msgstr ""
+
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
 msgstr ""
 
 #: ID:264,
@@ -5526,6 +5571,10 @@ msgstr ""
 
 #: ID:13,
 msgid "external"
+msgstr ""
+
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
 msgstr ""
 
 #: ID:13,

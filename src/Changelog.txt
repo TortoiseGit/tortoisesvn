@@ -171,6 +171,8 @@
 - NEW: TortoiseBlame has a locator bar if the age coloring is active.
        See issue #376 for details. (Stefan)
 - NEW: the file diff dialog has a filter. See issue #379 for details. (Stefan)
+- NEW: The merge and blame dialog have options to ignore eol and space
+       changes. (Stefan)
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog

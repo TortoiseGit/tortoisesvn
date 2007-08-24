@@ -1151,6 +1151,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					// use the depth of the working copy
 					progDlg.SetDepth(dlg.m_depth);
 					progDlg.m_RevisionEnd = dlg.EndRev;
+					progDlg.SetDiffOptions(SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));
 					progDlg.DoModal();
 					repeat = dlg.m_bDryRun;
 					dlg.bRepeating = TRUE;
@@ -2116,19 +2117,28 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			bool bShowDialog = true;
 			CBlameDlg dlg;
+			CString options;
 			dlg.EndRev = SVNRev::REV_HEAD;
 			if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
 			{
 				bShowDialog = false;
 				dlg.StartRev = parser.GetLongVal(_T("startrev"));
 				dlg.EndRev = parser.GetLongVal(_T("endrev"));
+				if (parser.HasKey(_T("ignoreeol")) || parser.HasKey(_T("ignorespaces")) || parser.HasKey(_T("ignoreallspaces")))
+				{
+					options = SVN::GetOptionsString(parser.HasKey(_T("ignoreeol")), parser.HasKey(_T("ignorespaces")), parser.HasKey(_T("ignoreallspaces")));
+				}
 			}
 			if ((!bShowDialog)||(dlg.DoModal() == IDOK))
 			{
 				CBlame blame;
 				CString tempfile;
 				CString logfile;
-				tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, TRUE);
+				if (bShowDialog)
+					options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+				tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
+					cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
+					options, TRUE);
 				if (!tempfile.IsEmpty())
 				{
 					if (dlg.m_bTextView)
@@ -2146,6 +2156,29 @@ BOOL CTortoiseProcApp::InitInstance()
 							sVal += _T(" ");
 						}
 						sVal += _T("/path:\"") + cmdLinePath.GetSVNPathString() + _T("\" ");
+						if (bShowDialog)
+						{
+							if (dlg.m_bIgnoreEOL)
+								sVal += _T("/ignoreeol ");
+							switch (dlg.m_IgnoreSpaces)
+							{
+							case svn_diff_file_ignore_space_change:
+								sVal += _T("/ignorespaces ");
+								break;
+							case svn_diff_file_ignore_space_all:
+								sVal += _T("/ignoreallspaces ");
+							}
+						}
+						else 
+						{
+							if (parser.HasKey(_T("ignoreeol")))
+								sVal += _T("/ignoreeol ");
+							if (parser.HasKey(_T("ignorespaces")))
+								sVal += _T("/ignorespaces ");
+							if (parser.HasKey(_T("ignoreallspaces")))
+								sVal += _T("/ignoreallspaces ");
+						}
+						
 						CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal);
 					}
 				}
