@@ -216,7 +216,7 @@ msgid ""
 "Depth:\t\t\t%d bit"
 msgstr ""
 "%s\n"
-"Doseirogrando:\t\t\t%s\n"
+"Dosierogrando:\t\t\t%s\n"
 "Larĝo:\t\t\t%ld bilderoj\n"
 "Alto:\t\t\t%ld bilderoj\n"
 "Horizontala Distingivo:\t%.1f dpi\n"
@@ -1714,137 +1714,137 @@ msgstr "Komandlinio"
 
 #: Control-ID:1336,
 msgid "Command Line To Execute:"
-msgstr ""
+msgstr "Rulota ĉe la komandlinio:"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Command failed."
-msgstr ""
+msgstr "Komando malsukcesis."
 
 #: ID:209,#:
 #: Dlg-ID:135,#:
 #: Control-ID:1083,
 msgid "Commit"
-msgstr ""
+msgstr "Enmeti"
 
 #: ID:77,
 msgid "Commit - TortoiseSVN"
-msgstr ""
+msgstr "Enmeti - TortoiseSVN"
 
 #: Control-ID:1262,
 msgid "Commit threshold:"
-msgstr ""
+msgstr "Limpunkto por enmeti"
 
 #: Control-ID:1110,
 msgid "Commit to:"
-msgstr ""
+msgstr "Enmeti al:"
 
 #: ID:244,
 msgid "Commits by author"
-msgstr ""
+msgstr "Enmetoj laŭ kontribuanto"
 
 #: ID:244,
 msgid "Commits by date"
-msgstr ""
+msgstr "Enmetoj laŭ dato"
 
 #: Control-ID:1135,
 msgid "Commits each week:"
-msgstr ""
+msgstr "Enmetoj ĉiu semajne:"
 
 #: ID:9,
 msgid "Commits your changes to the repository"
-msgstr ""
+msgstr "Enmetas viajn ŝanĝojn en la deponejon"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
-msgstr ""
+msgstr "Kompari &HEAD-reviziojn"
 
 #: ID:114,
 msgid "Compare and &blame with working BASE"
-msgstr ""
+msgstr "Kompari kaj trovi kulpojn kun loka BASE"
 
 #: ID:114,
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Kompari kaj trovi kulpojn kun antaŭa revizio"
 
 #: ID:76,
 msgid "Compare with &working copy"
-msgstr ""
+msgstr "Kompari kun laborkopio"
 
 #: ID:138,
 msgid "Compare with b&ase"
-msgstr ""
+msgstr "Kompari kun B&ASE"
 
 #: ID:114,
 msgid "Compare with previous revision"
-msgstr ""
+msgstr "Kompari kun antaŭa revizio"
 
 #: ID:12,
 msgid "Compares the file with the last committed revision to show you the changes you made"
-msgstr ""
+msgstr "Komparas la dosieron kun la laste enmetita revizio, por montri la ŝanĝojn faritajn de vi"
 
 #: ID:17,
 msgid "Compares the selected file with a file in the repository"
-msgstr ""
+msgstr "Komparas la elektitan dosieron kun dosiero en la deponejo"
 
 #: ID:120,
 #, c-format
 msgid "Comparing %s to %s"
-msgstr ""
+msgstr "Komparado de %s kaj %s"
 
 #: ID:74,
 msgid "Completed"
-msgstr ""
+msgstr "Finita"
 
 #: Dlg-ID:236,
 msgid "Configure Hook Scripts"
-msgstr ""
+msgstr "Agordi hokskriptojn"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files"
-msgstr ""
+msgstr "Agordi la programon uzatan por kompari malsamajn reviziojn de dosieroj"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of properties"
-msgstr ""
+msgstr "Agordi la programon uzatan por kompari malsamajn reviziojn de atributoj"
 
 #: Control-ID:65535,
 msgid "Configure the program used to resolve conflicted files."
-msgstr ""
+msgstr "Agordi la programon uzatan por solvi konfliktojn en dosieroj."
 
 #: Control-ID:65535,
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr ""
+msgstr "Agordi la programon uzatan por vidigi GNU-diff-dosierojn (flikdosierojn)."
 
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
-msgstr ""
+msgstr "Konflikto"
 
 #: ID:188,
 #, c-format
 msgid "Conflicts: %d"
-msgstr ""
+msgstr "Konfliktoj: %d"
 
 #: ID:73,
 msgid "Continue"
-msgstr ""
+msgstr "Daŭrigi"
 
 #: ID:376,
 msgid "Cop&y"
-msgstr ""
+msgstr "Kopii"
 
 #: ID:73,
 msgid "Copied"
-msgstr ""
+msgstr "Kopiita"
 
 #: ID:208,
 msgid "Copied from URL"
-msgstr ""
+msgstr "Kopiita de URL"
 
 #: ID:126,
 msgid "Copied remotely"
-msgstr ""
+msgstr "Kopiita malĉee"
 
 #: ID:127,
 #, c-format
@@ -1852,11 +1852,13 @@ msgid ""
 "Copy %ld items to\r\n"
 "%s"
 msgstr ""
+"Kopii %ld elementojn al\r\n"
+"%s"
 
 #: ID:103,
 #, c-format
 msgid "Copy %s"
-msgstr ""
+msgstr "Kopii %s"
 
 #: ID:126,
 #, c-format
@@ -1864,87 +1866,91 @@ msgid ""
 "Copy %s\r\n"
 "to %s"
 msgstr ""
+"Kopii %s\r\n"
+"al %s"
 
 #: Dlg-ID:142,
 msgid "Copy (Branch / Tag)"
-msgstr ""
+msgstr "Kopii (Branĉo / Etikedo)"
 
 #: ID:78,
 msgid "Copy - TortoiseSVN"
-msgstr ""
+msgstr "Kopii - TortoiseSVN"
 
 #: ID:101,
 msgid "Copy URL to clipboard"
-msgstr ""
+msgstr "Kopii URL al tondejo"
 
 #: ID:209,
 msgid "Copy all information to clipboard"
-msgstr ""
+msgstr "Kopii ĉiujn informojn al tondejo"
 
 #: ID:104,
 msgid "Copy and rename item to here"
-msgstr ""
+msgstr "Kopii kaj alinomi elementon ĉi-tien"
 
 #: ID:101,
 msgid "Copy error message to clipboard"
-msgstr ""
+msgstr "Kopii erarmesaĝon al tondejo"
 
 #: ID:76,
 msgid "Copy from path"
-msgstr ""
+msgstr "Kopii de vojprefikso"
 
 #: ID:103,
 msgid "Copy items to here"
-msgstr ""
+msgstr "Kopii elementojn ĉi-tien"
 
 #: ID:209,
 msgid "Copy paths to clipboard"
-msgstr ""
+msgstr "Kopii vojprefiksojn al tondejo"
 
 #: ID:3603,
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
+"Kopii la elektaĵon kaj meti ĝin sur la tondejon\n"
+"Kopii"
 
 #: ID:114,
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopii al tondejo"
 
 #: ID:103,
 msgid "Copy to working copy"
-msgstr ""
+msgstr "Kopii al laborkopio"
 
 #: ID:101,
 msgid "Copy to working copy..."
-msgstr ""
+msgstr "Kopii al laborkopio..."
 
 #: ID:98,
 #, c-format
 msgid "Copy: New name for %s"
-msgstr ""
+msgstr "Kopii: nova nomo por %s"
 
 #: ID:80,
 #, c-format
 msgid "Copying %s"
-msgstr ""
+msgstr "Kopiado de %s"
 
 #: ID:80,
 msgid "Copying..."
-msgstr ""
+msgstr "Kopiado..."
 
 #: ID:188,
 msgid "Corrections"
-msgstr ""
+msgstr "Korektoj"
 
 #: ID:81,
 #, c-format
 msgid "Could not add %s to the ignore list!"
-msgstr ""
+msgstr "Ne eblis aldoni %s al la ignorlisto!"
 
 #: ID:201,
 msgid "Could not check for a newer version!"
-msgstr ""
+msgstr "Ne eblis kontroli ĉu nova versio ekzistas!"
 
 #: ID:81,
 #, c-format
@@ -1953,10 +1959,13 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Ne eblis kopii la dosierojn!\n"
+"<hr=100%%>\n"
+"%s"
 
 #: ID:81,
 msgid "Could not get the status!"
-msgstr ""
+msgstr "Ne eblis akiri la staton!"
 
 #: ID:69,
 #, c-format
@@ -1964,11 +1973,13 @@ msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
+"Ne eblis malfermi la dosieron\n"
+"%s"
 
 #: ID:82,
 #, c-format
 msgid "Could not remove %s from the ignore list"
-msgstr ""
+msgstr "Ne eblis forigi %s de la ignorlisto"
 
 #: ID:81,
 #, c-format
@@ -1976,6 +1987,8 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
+"Ne eblis akiri URL-on de la dosiero!\n"
+"%s"
 
 #: ID:66,
 #, c-format
@@ -1983,11 +1996,13 @@ msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
+"Ne eblis akiri la revizion %s de la dosiero %s.\n"
+"Fliki ne eblas!"
 
 #: ID:64,
 #, c-format
 msgid "Could not save the file %s!"
-msgstr ""
+msgstr "Ne eblis konservi la dosieron %s!"
 
 #: ID:81,
 #, c-format
@@ -1996,6 +2011,9 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Ne eblis lanĉi la diff-montrilo!\n"
+"<hr=100%%>\n"
+"%s"
 
 #: ID:81,
 #, c-format
@@ -2004,6 +2022,9 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Ne eblis lanĉi la eksternan diff-programon!\n"
+"<hr=100%%>\n"
+"%s"
 
 #: ID:81,
 #, c-format
@@ -2012,35 +2033,38 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Ne eblis lanĉi la eksternan kunfand-programon!\n"
+"<hr=100%%>\n"
+"%s"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Could not start print job."
-msgstr ""
+msgstr "Ne eblis komenci la presadon."
 
 #: ID:81,
 msgid "Could not start thread!"
-msgstr ""
+msgstr "Ne eblis komenci fadenon!"
 
 #: ID:13,
 msgid "Create &patch..."
-msgstr ""
+msgstr "Krei &flikon..."
 
 #: Dlg-ID:243,
 msgid "Create Changelist"
-msgstr ""
+msgstr "Krei ŝanĝoliston"
 
 #: Dlg-ID:208,
 msgid "Create Patch"
-msgstr ""
+msgstr "Krei flikon"
 
 #: Dlg-ID:178,
 msgid "Create Repository"
-msgstr ""
+msgstr "Krei deponejon"
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
-msgstr ""
+msgstr "Krei kopion en la deponejo el:"
 
 #: ID:126,
 #, c-format
@@ -2048,30 +2072,32 @@ msgid ""
 "Create new directory:\r\n"
 "%s"
 msgstr ""
+"Krei novan dosierujon:\r\n"
+"%s"
 
 #: ID:8,
 msgid "Create repositor&y here..."
-msgstr ""
+msgstr "Krei deponejon ĉi-tie..."
 
 #: ID:126,
 msgid "Created folder remotely"
-msgstr ""
+msgstr "Krei dosierujon malĉee"
 
 #: ID:10,
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr ""
+msgstr "Kreas 'malmultekostan' kopion ene de la deponejo, uzota por branĉoj aŭ etikedoj"
 
 #: ID:10,
 msgid "Creates a repository database at the current location"
-msgstr ""
+msgstr "Kreas deponejan datumbazon en la aktuala loko"
 
 #: ID:14,
 msgid "Creates a unified diff file with all changes you made"
-msgstr ""
+msgstr "Kreas dosieron 'unified-diff', kiu enhavas ĉiujn ŝanĝojn faritajn de vi"
 
 #: Control-ID:65535,
 msgid "Credits:"
-msgstr ""
+msgstr "Agnoskoj:"
 
 #: ID:376,
 msgid "Cu&t"
