@@ -479,8 +479,11 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
 	{
 		Graphics graphics(hDC);
 		graphics.SetInterpolationMode(m_ip);
+		graphics.SetPixelOffsetMode(PixelOffsetModeHighQuality);
+		ImageAttributes attr;
+		attr.SetWrapMode(WrapModeTileFlipXY);
 		Rect rect(DrawRect.left, DrawRect.top, DrawRect.right-DrawRect.left, DrawRect.bottom-DrawRect.top);
-		graphics.DrawImage(pBitmap, rect);
+		graphics.DrawImage(pBitmap, rect, 0, 0, m_Width, m_Height, UnitPixel, &attr);
 		return true;
 	}
 
