@@ -104,6 +104,8 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 	if (hdwp) EndDeferWindowPos(hdwp);
 	picWindow1.SetupScrollBars();
 	picWindow2.SetupScrollBars();
+	picWindow1.SetBackColor(backColor);
+	picWindow2.SetBackColor(backColor);
 	InvalidateRect(*this, NULL, FALSE);
 }
 
@@ -355,6 +357,26 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
 			picWindow1.SetSecondPicAlpha(m_BlendType, picWindow1.GetSecondPicAlpha());
+		}
+		break;
+	case ID_VIEW_BACKGROUNDCOLOR:
+		{
+			static COLORREF customColors[16] = {0};
+			CHOOSECOLOR ccDlg;
+			memset(&ccDlg, 0, sizeof(ccDlg));
+			ccDlg.lStructSize = sizeof(ccDlg);
+			ccDlg.hwndOwner = m_hwnd;
+			ccDlg.rgbResult = backColor;
+			ccDlg.lpCustColors = customColors;
+			ccDlg.Flags = CC_RGBINIT | CC_FULLOPEN;
+			if(ChooseColor(&ccDlg))
+			{
+				backColor = ccDlg.rgbResult;
+				picWindow1.SetBackColor(backColor);
+				picWindow2.SetBackColor(backColor);
+				// The color picker takes the focus and we don't get it back.
+				::SetFocus(picWindow1);
+			}
 		}
 		break;
 	case ID_VIEW_FITTOGETHER:

@@ -60,6 +60,8 @@ public:
 		, nHScrollPos(0)
 		, nVScrollPos(0)
 		, picscale(1.0)
+		, picscale2(1.0)
+		, backColor(0)
 		, pSecondPic(NULL)
 		, alphalive(0)
 		, bShowInfo(false)
@@ -121,6 +123,10 @@ public:
 		else
 			SetSecondPicAlpha(m_blend, (BYTE)SendMessage(hwndAlphaSlider, ALPHA_GETRIGHTPOS, 0, 0));
 	}
+
+	/// Set the color that this PicWindow will display behind transparent images.
+	void SetBackColor(COLORREF back) { backColor = back; InvalidateRect(*this, NULL, false); }
+
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
 	/// Makes both images the same size, fitting into the window
@@ -162,6 +168,8 @@ protected:
 	void				GetClientRect(RECT * pRect);
 	/// the WM_PAINT function
 	void				Paint(HWND hwnd);
+	/// Draw pic to hdc, with a border, scaled by scale.
+	void				ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, double scale);
 	/// Positions the buttons
 	void				PositionChildren();
 	/// Rounds a double to a given precision
@@ -185,6 +193,7 @@ protected:
 	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
 	double				picscale;			///< the scale factor of the image
 	double				picscale2;			///< the scale factor of the second image
+	COLORREF			backColor;			///< the colour to draw under the images
 	bool				bFirstpaint;		///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
 	CPicture *			pSecondPic;			///< if set, this is the picture to draw transparently above the original
 	CPicWindow *		pTheOtherPic;		///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...

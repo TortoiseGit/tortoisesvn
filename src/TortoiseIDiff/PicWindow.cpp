@@ -933,6 +933,34 @@ void CPicWindow::FitTogether(bool bFit)
 	SetZoom(GetZoom(), false);
 }
 
+void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, double scale)
+{
+	::SetBkColor(hdc, ::GetSysColor(COLOR_WINDOW));
+	::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
+
+	RECT picrect;
+	picrect.left =  bounds.left - nHScrollPos;
+	picrect.right = (picrect.left + LONG(double(pic.m_Width) * scale));
+	picrect.top = bounds.top - nVScrollPos;
+	picrect.bottom = (picrect.top + LONG(double(pic.m_Height) * scale));
+
+	if ((bounds.left < picrect.left) ||
+		(bounds.top < picrect.top) ||
+		(bounds.right > picrect.right) ||
+		(bounds.bottom > picrect.bottom))
+	{
+		RECT border;
+		border.left = picrect.left-1;
+		border.top = picrect.top-1;
+		border.right = picrect.right+1;
+		border.bottom = picrect.bottom+1;
+		::FillRect(hdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
+	}
+	::SetBkColor(hdc, backColor);
+	::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &picrect, NULL, 0, NULL);
+	pic.Show(hdc, picrect);
+}
+
 void CPicWindow::Paint(HWND hwnd)
 {
 	PAINTSTRUCT ps;
@@ -955,26 +983,7 @@ void CPicWindow::Paint(HWND hwnd)
 		GetClientRect(&rect);
 		if (bValid)
 		{
-			RECT picrect;
-			picrect.left =  rect.left-nHScrollPos;
-			picrect.right = (picrect.left + LONG(double(picture.m_Width)*picscale));
-			picrect.top = rect.top-nVScrollPos;
-			picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
-
-			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-
-			if ((rect.left < picrect.left)&&(rect.top < picrect.top)&&(rect.right > picrect.right)&&(rect.bottom > picrect.bottom))
-			{
-				RECT border;
-				border.left = picrect.left-1;
-				border.top = picrect.top-1;
-				border.right = picrect.right+1;
-				border.bottom = picrect.bottom+1;
-				FillRect(memDC, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
-				::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &picrect, NULL, 0, NULL);
-			}
-			picture.Show(memDC, picrect);
+			ShowPicWithBorder(memDC, rect, picture, picscale);
 			if (pSecondPic)
 			{
 				HDC secondhdc = CreateCompatibleDC(hdc);
@@ -982,27 +991,7 @@ void CPicWindow::Paint(HWND hwnd)
 				HBITMAP hOldBitmap = (HBITMAP)SelectObject(secondhdc, hBitmap);
 				SetWindowOrgEx(secondhdc, rect.left, rect.top, NULL);
 
-				RECT picrect2;
-				picrect2.left =  rect.left-nHScrollPos;
-				picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale2));
-				picrect2.top = rect.top-nVScrollPos;
-				picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale2));
-
-				SetBkColor(secondhdc, ::GetSysColor(COLOR_WINDOW));
-				::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-
-				if ((rect.left < picrect2.left)&&(rect.top < picrect2.top)&&(rect.right > picrect2.right)&&(rect.bottom > picrect2.bottom))
-				{
-					RECT border;
-					border.left = picrect2.left-1;
-					border.top = picrect2.top-1;
-					border.right = picrect2.right+1;
-					border.bottom = picrect2.bottom+1;
-					FillRect(secondhdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
-					::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &picrect2, NULL, 0, NULL);
-				}
-
-				pSecondPic->Show(secondhdc, picrect2);
+				ShowPicWithBorder(secondhdc, rect, *pSecondPic, picscale2);
 
 				if (m_blend == BLEND_ALPHA)
 				{
@@ -1050,6 +1039,7 @@ void CPicWindow::Paint(HWND hwnd)
 			m_inforect.right = rect.right+sliderwidth;
 			m_inforect.bottom = rect.bottom;
 
+			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
 			if (bShowInfo)
 			{
 				TCHAR infostring[8192];
