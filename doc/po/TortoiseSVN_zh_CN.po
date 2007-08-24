@@ -27,8 +27,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2007-07-29 21:59 +0000\n"
-"PO-Revision-Date: 2007-08-07 10:47+0800\n"
+"POT-Creation-Date: 2007-08-11 08:33 +0000\n"
+"PO-Revision-Date: 2007-08-24 16:27+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1630,23 +1630,20 @@ msgid "Note that if you are authenticating using SSPI, then you don't need the <
 msgstr "请注意，当你使用SSPI认证时，没有必要使用<filename>AuthUserFile</filename>定义密码文件，Apache使用Windows域验证用户名和密码，你需要更新<filename>svnaccessfile</filename>中的用户列表来参考<literal>DOMAIN\\username</literal>。"
 
 #: source/TortoiseSVN_en.xml:2188(para)
-#, fuzzy
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
-msgstr "Subversion的AuthzSVNAccessFile文件对用户名大小写敏感(“JUser”与“juser”不同)。"
+msgstr "Subversion 的 <filename>AuthzSVNAccessFile</filename> 文件对用户名大小写敏感(<literal>JUser</literal> 与 <literal>juser</literal> 不同)。"
 
 #: source/TortoiseSVN_en.xml:2193(para)
-#, fuzzy
 msgid "In Microsoft's world, Windows domains and user names are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. <literal>JUser</literal>)."
-msgstr "在微软的世界，Windows域和用户名不是大小写敏感，即使如此，一些网络管理员还是喜欢创建首字母大写的用户帐号(例如“JUser”)。"
+msgstr "在微软的世界，Windows 域和用户名不是大小写敏感。即使如此，一些网络管理员还是喜欢创建首字母大写的用户帐号(例如 <literal>JUser</literal>)。"
 
 #: source/TortoiseSVN_en.xml:2198(para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
 msgstr "使用SSPI的一个问题是用户名和密码是用户在提示输入时发送到Subversion的，而IE经常会不管你的帐户是如何建立的都会自动发送你的用户名。"
 
 #: source/TortoiseSVN_en.xml:2206(para)
-#, fuzzy
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr "结果就是你必须为每一个用户在AuthzSVNAccessFile创建至少两个条目－－一个小写的条目和一个与IE传递给Apache一样的条目，你也需要训练你的用户在通过TortoiseSVN输入访问版本库的凭证时使用小写字母。"
+msgstr "结果就是你必须为每个用户在 <literal>AuthzSVNAccessFile</literal> 中至少创建两个条目：一个小写的条目和一个与 IE 传递给 Apache 一样的条目，你也需要训练你的用户在通过 TortoiseSVN 输入访问版本库的凭证时使用小写字母。"
 
 #: source/TortoiseSVN_en.xml:2214(para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's <literal>AuthzSVNAccessFile</literal> module. You may need to experiment with the exact format of the user string in the <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
@@ -1677,11 +1674,11 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want NTLM authentication you have to use <literal>keepalive:</literal><ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole <literal>SetEnvIf</literal> you should be able to authenticate IE with windows authentication over SSL against the Apache on Win32 with included <literal>mod_auth_sspi</literal>."
 msgstr ""
-"在SSL的“标准”设置，通常在apache的虚拟SSL主机有下面的内容: <screen>\n"
+"在 SSL 的“标准”配置中，通常在 apache 的虚拟 SSL 主机内下面的内容: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
 "             nokeepalive ssl-unclean-shutdown \\\n"
 "             downgrade-1.0 force-response-1.0\n"
-"</screen>对这种设置有好的原因吗，见<ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink>，但是如果你希望ntlm认证，你需要使用keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink>，如果你取消整个\"SetEnvIf\"的注释，你就可以使IE经过Win32上配置了mod_auth_sspi和SSL的认证。"
+"</screen>这种设置的充足理由参见<ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink>。但是如果你希望 NTLM 认证，你需要使用 <literal>keepalive:</literal> <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink>，如果启用 <literal>SetEnvIf</literal>，你就可以使 IE 用 Windows 认证访问运行在 Win32 上加载了 <literal>mod_auth_sspi</literal> 模块的 Apache。"
 
 #: source/TortoiseSVN_en.xml:2237(para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
@@ -1704,20 +1701,18 @@ msgid "A common scenario is to use both Windows domain authentication and a <lit
 msgstr "一个常见的场景就是同时使用Windows域和<literal>passwd</literal>文件认证，这样你可以为没有Windows域帐户的用户提供访问SVN的权限。"
 
 #: source/TortoiseSVN_en.xml:2304(para)
-#, fuzzy
 msgid ""
 "To enable both Windows domain and <filename>passwd</filename> file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\n"
 "AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
-"为了同时启用 Windows 域认证和密码文件认证，在 Apache 配置文件的 <literal>&lt;Location&gt;</literal> 块中添加如下条目: <screen>\n"
-"AuthAthoritative Off\n"
+"为了同时启用 Windows 域认证和 <filename>passwd</filename> 文件认证，在 Apache 配置文件的 <literal>&lt;Location&gt;</literal> 块中添加如下条目: <screen>\n"
+"AuthAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2315(para)
-#, fuzzy
 msgid ""
 "Here is an example of the full Apache configuration for combined Windows domain and <literal>passwd</literal> file authentication: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -1744,7 +1739,7 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
-"下面是组合使用 Windows 域&amp;<literal>passwd</literal> 文件认证的完整配置: <screen>\n"
+"下面是组合使用 Windows 域认证和 <literal>passwd</literal> 文件认证的完整配置: <screen>\n"
 "&lt;Location /svn&gt;\n"
 "DAV svn\n"
 "SVNListParentPath on\n"
@@ -1778,9 +1773,8 @@ msgid "SSL"
 msgstr "SSL"
 
 #: source/TortoiseSVN_en.xml:2349(para)
-#, fuzzy
 msgid "The Apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
-msgstr "Apache服务器缺省并不支持SSL，这是因为美国的出口限制，但是你可以从其他地方下载安装。"
+msgstr "Apache 服务器缺省并不安装 SSL 支持，这是因为美国的出口限制，但是你可以从其它地方下载安装。"
 
 #: source/TortoiseSVN_en.xml:2356(para)
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
@@ -1853,9 +1847,8 @@ msgstr ""
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:2432(para)
-#, fuzzy
 msgid "If you want that all the Apache modules are aware of the SSL ability, change the registry key <filename>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</filename> from <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</filename> to <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -D SSL -k runservice</filename>."
-msgstr "如果你想所有apache模块知道SSL能力，就将注册表键<filename>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</filename>的值从<filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</filename>修改为 <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -D SSL -k runservice</filename>。"
+msgstr "如果你想所有的 Apache 模块知道 SSL 能力，请将注册表键 <filename>HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\Apache2\\ImagePath</filename> 的值从 <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -k runservice</filename> 修改为 <filename>\"C:\\Program Files\\Apache Group\\Apache2\\bin\\Apache.exe\" -D SSL -k runservice</filename>。"
 
 #: source/TortoiseSVN_en.xml:2439(para)
 msgid "This will set an internal flag which Apache modules can read the next time you start the Apache service."
@@ -1876,15 +1869,14 @@ msgid "OpenSSL needs a config file. You can download a working one from <ulink u
 msgstr "OpenSSL 需要一个配置文件，你可以从<ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>下载一个。保存到 <filename>bin/openssl.cnf</filename>。请注意: 文件具有类型 <filename>*.cnf</filename>。Windows 会对这种文件特别处理，但它确实是文本文件！"
 
 #: source/TortoiseSVN_en.xml:2468(para)
-#, fuzzy
 msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the Apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
 "bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
 msgstr ""
-"然后你需要创建一个SSL证书，为此打开一个命令行窗口，进入apache目录(例如<filename>C:\\program files\\apache group\\apache2</filename>)，然后输入下面的命令: <screen>\n"
+"然后你需要创建一个 SSL 证书。为此打开一个命令行窗口，进入 Apache 目录(例如 <filename>C:\\program files\\apache group\\apache2</filename>)，然后输入命令: <screen>\n"
 "bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
-"</screen>你会被讯问密语，请不要使用简单的单词，而是使用整段话，例如一段诗，越长越好。你也需要输入server的URL，其他所有问题都是可选的，但是我们建议你最好输入这些信息。"
+"</screen> 你会被询问密句。请不要使用简单的单词，而是使用整段话，例如一段诗，越长越好。你也需要输入服务器的 URL，其他所有问题都是可选的，但是我们建议你输入这些信息。"
 
 #: source/TortoiseSVN_en.xml:2483(para)
 msgid ""
@@ -1929,12 +1921,10 @@ msgid "Forcing SSL access"
 msgstr "强制 SSL 访问"
 
 #: source/TortoiseSVN_en.xml:2534(para)
-#, fuzzy
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
-msgstr "当你设置了SSL让你的版本库更安全，你一定希望关闭普通的非ssl访问，为此，你需要在Subversion的&lt;Location&gt; 增加指示: <literal>SSLRequireSSL</literal>。"
+msgstr "当你设置了 SSL 让你的版本库更安全，你一定希望关闭普通的非 SSL (http) 访问。为此，你需要在 Subversion 的 <literal>&lt;Location&gt;</literal> 增加指示: <literal>SSLRequireSSL</literal>。"
 
 #: source/TortoiseSVN_en.xml:2541(para)
-#, fuzzy
 msgid ""
 "An example <literal>&lt;Location&gt;</literal> block would look like this: <screen>\n"
 "&lt;Location /svn&gt;\n"
@@ -1949,7 +1939,7 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
-"一个&lt;Location&gt;实例就像这个样子: <screen>\n"
+"这是一个 <literal>&lt;Location&gt;</literal> 实例: <screen>\n"
 "&lt;Location /svn&gt;\n"
 "DAV svn\n"
 "SVNParentPath D:\\SVN\n"
@@ -2103,13 +2093,12 @@ msgid "For more detailed information, refer to <ulink url=\"http://svn.collab.ne
 msgstr "为了得到更详细的信息，可参考 <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>。"
 
 #: source/TortoiseSVN_en.xml:2760(para)
-#, fuzzy
 msgid ""
 "If you installed an earlier version of svnserve using the <literal>SVNService</literal> wrapper, and you now want to use the native support instead, you will need to unregister the wrapper as a service (remember to stop the service first!). Simply use the command <screen>\n"
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
-"如果你已经使用 <literal>SvnService</literal> 包装安装了早期的 svnserve，现在想使用本机服务，那么你需要将其从服务中删除(切记先停止服务！)。使用简单的命令<screen>\n"
+"如果你已经使用 <literal>SvnService</literal> 包装安装了早期的 svnserve，现在想使用内置服务，那么你需要将其从服务中删除(切记先停止服务！)。使用简单的命令 <screen>\n"
 "svnservice -remove\n"
 "</screen> 即可删除服务。"
 
@@ -2118,9 +2107,8 @@ msgid "Authentication with svnserve"
 msgstr "svnserve 的认证"
 
 #: source/TortoiseSVN_en.xml:2775(para)
-#, fuzzy
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr "缺省的svnserve设置提供了匿名的只读访问，这意味着你可以使用<filename>svn://</filename>的URL进行检出和更新，或者使用TortoiseSVN的版本库浏览器查看版本库，但是不能提交任何修改。"
+msgstr "缺省的 svnserve 配置提供了匿名的只读访问。这意味着你可以使用 <filename>svn://</filename> 的 URL 进行检出和更新，或者使用 TortoiseSVN 的版本库浏览器查看版本库，但是不能提交任何修改。"
 
 #: source/TortoiseSVN_en.xml:2781(para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
@@ -2332,9 +2320,8 @@ msgid "Do not create or access a Berkeley DB repository on a network share. It <
 msgstr "不要创建和访问网络共享上的 Berkeley DB 版本库，它<emphasis>不能</emphasis>存在于一个远程的文件系统，即使是映射到盘符的共享。如果你希望在网络共享使用 Berkeley DB，结果难以预料－你可能会立刻看到奇怪的错误，也有可能几个月之后才发现数据库已经损坏了。"
 
 #: source/TortoiseSVN_en.xml:3081(para)
-#, fuzzy
 msgid "If you really need to access a repository through a network share, create the repository with FSFS format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
-msgstr "如果你需要访问网络共享中的版本库，请使用fsfs格式创建版本库，如果也希望提供服务器访问，你需要1.1或更高版本的Subversion服务器。"
+msgstr "如果你需要访问网络共享中的版本库，请使用 FSFS 格式创建版本库。如果还希望提供服务器访问，你需要 Subversion 1.1 或更高版本。"
 
 #: source/TortoiseSVN_en.xml:3089(title)
 msgid "Repository Backup"
@@ -2407,14 +2394,12 @@ msgid "checkout link"
 msgstr "检出链接"
 
 #: source/TortoiseSVN_en.xml:3184(para)
-#, fuzzy
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TortoiseSVN users."
-msgstr "如果你希望你的Subversion版本库对于别人可用，你可以在你的站点包含一个链接。为了让这些更加容易访问，你可以为其他TSVN用户包含一个<firstterm>检出链接</firstterm>。"
+msgstr "如果你希望你的 Subversion 版本库对于别人可用，你可以在你的站点包含一个链接。为了让其更加容易访问，你可以为其它 TortoiseSVN 用户包含一个<firstterm>检出链接</firstterm>。"
 
 #: source/TortoiseSVN_en.xml:3190(para)
-#, fuzzy
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "当你安装了TortoiseSVN，它会注册一个<literal>tsvn:</literal>协议，当TSVN用户点击这样一个链接，检出窗口会自动弹出，且版本库URL已经填入。"
+msgstr "当你安装了 TortoiseSVN，它会注册一个 <literal>tsvn:</literal> 协议，当 TortoiseSVN 用户点击这样一个链接，检出窗口会自动弹出，且版本库 URL 已经填入。"
 
 #: source/TortoiseSVN_en.xml:3196(para)
 msgid ""
@@ -2576,8 +2561,8 @@ msgid "... Copy the selected text."
 msgstr "... 复制选中的文本。"
 
 #: source/TortoiseSVN_en.xml:3345(para)
-msgid "Some common operations have well-know Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
-msgstr "一些常见的操作与Windows的快捷键是一样的，但没有出现在按钮或是菜单中。如果你找不到一些显而易见的操作，比如刷新视图，请参考以下内容。 <placeholder-1/>"
+msgid "Some common operations have well-known Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
+msgstr "一些常见的操作与 Windows 的快捷键是一样的，但没有出现在按钮或是菜单中。如果你找不到一些显而易见的操作，比如刷新视图，请参考以下内容。 <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3396(primary)
 msgid "authentication"
@@ -2790,9 +2775,8 @@ msgid "Remove all files which are not needed to build the project (temporary fil
 msgstr "删除所有构建工程不需要的文件(临时文件，编译器产生的文件，例如 *.obj，生成的二进制文件，...)"
 
 #: source/TortoiseSVN_en.xml:3633(para)
-#, fuzzy
 msgid "Organize the files in folders and sub-folders. Although it is possible to rename/move files later it is highly recommended to get your project's structure straight before importing!"
-msgstr "组织目录和子目录内的文件。尽管以后可能会改名/删除文件，我们还是建议你在导入之前使你的项目结构组织良好！"
+msgstr "组织目录和子目录内的文件。尽管以后可以改名/删除文件，我们还是建议你在导入之前使你的项目结构组织良好！"
 
 #: source/TortoiseSVN_en.xml:3621(para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
@@ -2867,9 +2851,8 @@ msgid "Sometimes you need to have a file under version control which contains us
 msgstr "有时候你需要版本控制一个包含用户专用的数据。它意味着你有一个文件，每个开发者/用户都需要修改，一边满足他/她的本地配置。但是版本控制这样的文件是困难的，因为每个用户可能都要提交他/她的修改。"
 
 #: source/TortoiseSVN_en.xml:3746(para)
-#, fuzzy
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr "在这种情况下，我们建议使用<literal>模版</literal>文件。创建你个包含所有开发者需要的数据的文件，增加到版本库中，让开发者检出。然后，每个开发者<emphasis>创建一个副本</emphasis>，改名此文件。于是，修改这个文件不再是问题。 "
+msgstr "在这种情况下，我们建议使用<emphasis>模版</emphasis>文件。创建一个包含所有开发者需要的数据的文件，增加到版本库中，让开发者检出。然后，每个开发者<emphasis>创建一个副本</emphasis>，改名此文件。于是，修改这个文件不再是问题。 "
 
 #: source/TortoiseSVN_en.xml:3754(para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
@@ -3011,9 +2994,8 @@ msgid "If <guilabel>Omit externals</guilabel> is checked, or if you wish to incr
 msgstr "如果这两个选项的任何一个选中了，你应该使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新至版本...</guimenuitem></menuchoice>来更新你的工作副本而不是使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。标准的更新将会包含所有的子文件夹和外部引用。"
 
 #: source/TortoiseSVN_en.xml:3993(para)
-#, fuzzy
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "强烈建议你只检出<literal>trunk</literal>的那部分目录树。如果你在URL中指定了目录树的父路径，你的硬盘有可能被塞满，因为你将会得到整个版本库树的副本，包括项目所有的分支和标签(tag)！"
+msgstr "强烈建议你只检出 <literal>trunk</literal> 或更低层的目录树。如果你在 URL 中指定了根路径，你的硬盘有可能被塞满，因为你将会得到整个版本库树的副本，包括项目所有的分支和标签(tag)！"
 
 #: source/TortoiseSVN_en.xml:4001(title)
 msgid "Exporting"
@@ -3080,14 +3062,12 @@ msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice>
 msgstr "使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>加入忽略列表</guimenuitem></menuchoice>，将文件加入<literal>svn:ignore</literal>列表。 这只对你设置了<literal>svn:ignore</literal>属性的路径有效。使用SVN属性对话框，你可以改变一个目录的<literal>svn:ignore</literal>属性。"
 
 #: source/TortoiseSVN_en.xml:4081(para)
-#, fuzzy
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "如果你认为TSVN提交对话框显示了太多的未受控文件(如编译器产生的文件或是编辑器的备份文件)，有几种方法可以处理这种情况。你可以: <placeholder-1/>参考<xref linkend=\"tsvn-dug-ignore\"/> 获得更多的信息。"
+msgstr "如果你认为提交对话框显示了太多的未受版本控制的文件(如编译器产生的文件或是编辑器的备份文件)，有几种方法可以处理这种情况。你可以: <placeholder-1/> 参考 <xref linkend=\"tsvn-dug-ignore\"/> 获得更多的信息。"
 
 #: source/TortoiseSVN_en.xml:4111(para)
-#, fuzzy
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr "在提交对话框中<action>双击</action>任何修改过的文件，将运行外部diff工具显示你作的改动。上下文菜单(右键菜单)将给你更多的选项，请看屏幕截图。你可以从这里将文件拖动到另一个应用程序中，如文本编辑器或是IDE。"
+msgstr "在提交对话框中<action>双击</action>任何修改过的文件，将运行外部 diff 工具显示你做的改动。上下文菜单将给你更多的选项，请看屏幕截图。你可以从这里将文件拖动到另一个应用程序中，如文本编辑器或 IDE。"
 
 #: source/TortoiseSVN_en.xml:4118(para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <action>SHIFT-Select</action> to make the action recursive."
@@ -8572,7 +8552,8 @@ msgid "If specified, the image diff tool fits both images together."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:12371(entry)
-msgid "Hides the image info box."
+#, fuzzy
+msgid "Shows the image info box."
 msgstr "隐藏图片信息框。"
 
 #: source/TortoiseSVN_en.xml:12379(para)
