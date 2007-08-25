@@ -409,7 +409,33 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		if (ptr)
 		{
 			*ptr = '\0';
-			itemshorturl = urlComponents.lpszUrlPath;
+			// to shorten the url even more, we check for 'trunk', 'branches' and 'tags'
+			// and simply assume that these are the folders attached to the repository
+			// root. If we find those, we strip the whole path before those folders too.
+			// Note: this will strip too much if such a folder is *below* the repository
+			// root - but it's called 'short url' and we're free to shorten it the way we
+			// like :)
+			ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/trunk"));
+			if (ptr == NULL)
+				ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\trunk"));
+			if ((ptr == NULL)||((*(ptr+6) != 0)&&(*(ptr+6) != '/')&&(*(ptr+6) != '\\')))
+			{
+				ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/branches"));
+				if (ptr == NULL)
+					ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\branches"));
+				if ((ptr == NULL)||((*(ptr+9) != 0)&&(*(ptr+9) != '/')&&(*(ptr+9) != '\\')))
+				{
+					ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/tags"));
+					if (ptr == NULL)
+						ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\tags"));
+					if ((ptr)&&(*(ptr+5) != 0)&&(*(ptr+5) != '/')&&(*(ptr+5) != '\\'))
+						ptr = NULL;
+				}
+			}
+			if (ptr)
+				itemshorturl = ptr;
+			else
+				itemshorturl = urlComponents.lpszUrlPath;
 		}
 		else 
 			itemshorturl = _T(" ");
