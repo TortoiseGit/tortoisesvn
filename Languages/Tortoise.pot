@@ -1337,6 +1337,10 @@ msgstr ""
 msgid "Changed files: %d"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Changelist:"
+msgstr ""
+
 #: Control-ID:1242,
 msgid "Changes made (double-click on file for diff):"
 msgstr ""
@@ -1416,6 +1420,10 @@ msgstr ""
 #: ID:229,
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Checksum:"
 msgstr ""
 
 #: ID:146,
@@ -1907,6 +1915,10 @@ msgstr ""
 msgid "Deleting"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Depth:"
+msgstr ""
+
 #: ID:213,
 msgid "Deselect changelist"
 msgstr ""
@@ -2357,7 +2369,7 @@ msgstr ""
 msgid "From: (start URL and revision of the range to merge)"
 msgstr ""
 
-#: ID:266,
+#: ID:19,
 msgid "Fully recursive"
 msgstr ""
 
@@ -2745,7 +2757,7 @@ msgstr ""
 msgid "Ignored items included"
 msgstr ""
 
-#: ID:266,
+#: ID:19,
 msgid "Immediate children, including folders"
 msgstr ""
 
@@ -3338,7 +3350,7 @@ msgstr ""
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr ""
 
-#: ID:266,
+#: ID:20,
 msgid "Not descending"
 msgstr ""
 
@@ -3390,7 +3402,7 @@ msgstr ""
 msgid "Only check out the &top folder"
 msgstr ""
 
-#: ID:266,
+#: ID:19,
 msgid "Only file children"
 msgstr ""
 
@@ -3398,7 +3410,7 @@ msgstr ""
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
 msgstr ""
 
-#: ID:266,
+#: ID:19,
 msgid "Only this item"
 msgstr ""
 
@@ -3922,6 +3934,10 @@ msgstr ""
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Repository UUID:"
 msgstr ""
 
 #: Control-ID:65535,
@@ -5088,7 +5104,7 @@ msgstr ""
 msgid "URL of Subversion items"
 msgstr ""
 
-#: ID:144,#: Control-ID:65535,
+#: ID:144,#: Control-ID:65535,#: Control-ID:11023,
 msgid "URL:"
 msgstr ""
 
@@ -5143,7 +5159,7 @@ msgstr ""
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr ""
 
-#: ID:266,
+#: ID:20,
 msgid "Unknown depth"
 msgstr ""
 
@@ -5369,7 +5385,7 @@ msgstr ""
 msgid "Working Copy Path:"
 msgstr ""
 
-#: ID:267,
+#: ID:20,
 msgid "Working copy"
 msgstr ""
 
@@ -5560,6 +5576,10 @@ msgstr ""
 msgid "copied from\r\n%s - revision %ld"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "copied:"
+msgstr ""
+
 #: ID:10,
 msgid "deleted"
 msgstr ""
@@ -5597,8 +5617,12 @@ msgstr ""
 msgid "item kept locally"
 msgstr ""
 
-#: ID:11,#: ID:195,#: Control-ID:1002,
+#: ID:11,#: ID:195,
 msgid "locked"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "locked:"
 msgstr ""
 
 #: ID:11,#: Control-ID:65535,
@@ -5623,6 +5647,10 @@ msgstr ""
 
 #: ID:245,
 msgid "month"
+msgstr ""
+
+#: ID:18,
+msgid "no"
 msgstr ""
 
 #: ID:10,
@@ -5708,6 +5736,10 @@ msgstr ""
 msgid "switched to\r\n%s"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "switched:"
+msgstr ""
+
 #: ID:80,#: ID:103,#: ID:103,#: ID:284,
 #, c-format
 msgid "to %s"
@@ -5777,5 +5809,9 @@ msgstr ""
 
 #: ID:245,
 msgid "year"
+msgstr ""
+
+#: ID:18,#: Control-ID:1002,#: Control-ID:1011,#: Control-ID:1012,
+msgid "yes"
 msgstr ""
 

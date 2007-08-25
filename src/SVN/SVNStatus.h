@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -99,6 +99,14 @@ public:
 	 */
 	static void GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string);
 	static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang);
+
+	/**
+	 * Returns the string representation of a depth.
+	 */
+#ifdef _MFC_VER
+	static CString GetDepthString(svn_depth_t depth);
+#endif
+	static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * string, int size, WORD lang);
 
 	/**
 	 * Returns the status of the first file of the given path. Use GetNextFileStatus() to obtain

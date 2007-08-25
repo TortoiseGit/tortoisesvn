@@ -741,7 +741,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				CString sCmdInfo;
 				sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT, 
 					(LPCTSTR)urls[i].GetSVNPathString(), (LPCTSTR)m_Revision.ToString(), 
-					(LPCTSTR)SVN::GetDepthString(m_depth), 
+					(LPCTSTR)SVNStatus::GetDepthString(m_depth), 
 					m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
 				ReportCmd(sCmdInfo);
 

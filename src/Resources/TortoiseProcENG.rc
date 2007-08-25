@@ -2980,16 +2980,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SVN_DEPTH_INFINITE  "Fully recursive"
-    IDS_SVN_DEPTH_IMMEDIATE "Immediate children, including folders"
-    IDS_SVN_DEPTH_FILES     "Only file children"
-    IDS_SVN_DEPTH_EMPTY     "Only this item"
-    IDS_SVN_DEPTH_EXCLUDE   "Not descending"
-    IDS_SVN_DEPTH_UNKNOWN   "Unknown depth"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_PROGRS_CMD_CHECKOUT "Checkout from %s, revision %s, %s, %s"
     IDS_PROGRS_CMD_IMPORT   "Import %s to %s%s"
     IDS_PROGRS_CMD_SWITCH   "Switch %s to %s, Revision %s"
@@ -3008,11 +2998,6 @@ STRINGTABLE
 BEGIN
     IDS_SVNDIFF_ONEURL      "revisions %s-%s, %s"
     IDS_SVNDIFF_TWOURLS     "revision %s-%s, revision %s-%s"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_SVN_DEPTH_WORKING   "Working copy"
 END
 
 STRINGTABLE 

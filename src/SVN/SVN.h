@@ -802,11 +802,6 @@ public:
 	static CString GetSummarizeActionText(svn_client_diff_summarize_kind_t kind);
 
 	/**
-	 * Returns the string representation of a depth.
-	 */
-	static CString GetDepthString(svn_depth_t depth);
-
-	/**
 	 * Returns the string representation of the error object \c Err, wrapped
 	 * (if possible) at \c wrap chars.
 	 */

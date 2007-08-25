@@ -156,6 +156,15 @@
 #define IDS_MENUDESCDELUNVERSIONED      269
 #define IDS_MENUREMOVEKEEP              271
 #define IDS_MENUDESCREMOVEKEEP          272
+#define IDS_YES                         273
+#define IDS_NO                          274
+#define IDS_SVN_DEPTH_INFINITE          300
+#define IDS_SVN_DEPTH_IMMEDIATE         301
+#define IDS_SVN_DEPTH_FILES             302
+#define IDS_SVN_DEPTH_EMPTY             303
+#define IDS_SVN_DEPTH_EXCLUDE           304
+#define IDS_SVN_DEPTH_UNKNOWN           305
+#define IDS_SVN_DEPTH_WORKING           306
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -167,7 +176,9 @@
 #define IDC_PROPSTATUS                  1009
 #define IDC_PROPDATE                    1010
 #define IDC_PROPLIST                    1011
+#define IDC_SWITCHED                    1011
 #define IDC_ADDBUTTON                   1012
+#define IDC_COPIED                      1012
 #define IDC_REMOVEBUTTON                1013
 #define IDC_EDITNAME                    1014
 #define IDC_EDITVALUE                   1015
@@ -190,6 +201,12 @@
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 #define IDC_EDITPROPERTIES              11021
+#define IDC_REPOURLUNESCAPED            11022
+#define IDC_ESCAPEDURLLABEL             11023
+#define IDC_REPOUUID                    11024
+#define IDC_CHANGELIST                  11025
+#define IDC_DEPTHEDIT                   11026
+#define IDC_CHECKSUM                    11027
 
 // Next default values for new objects
 // 
@@ -197,7 +214,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        5160
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         11022
+#define _APS_NEXT_CONTROL_VALUE         11026
 #define _APS_NEXT_SYMED_VALUE           5101
 #endif
 #endif
