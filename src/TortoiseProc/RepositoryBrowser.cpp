@@ -1379,6 +1379,11 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetUUID(m_sUUID);
 	input.SetProjectProperties(&m_ProjectProperties);
 	CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
+	if (!targetUrl.IsValidOnWindows())
+	{
+		if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+			return;
+	}
 	CString sHint;
 	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
@@ -1415,6 +1420,11 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetUUID(m_sUUID);
 	input.SetProjectProperties(&m_ProjectProperties);
 	CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->url.Left(pItem->url.ReverseFind('/')+1)+pTVDispInfo->item.pszText)));
+	if (!targetUrl.IsValidOnWindows())
+	{
+		if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+			return;
+	}
 	CString sHint;
 	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
@@ -1536,6 +1546,11 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					if (dlg.DoModal() != IDOK)
 						return false;
 					targetName = dlg.m_name;
+					if (!CTSVNPath(targetName).IsValidOnWindows())
+					{
+						if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+							return false;
+					}
 				}
 				break;
 			case 5: // move rename drop
@@ -1548,6 +1563,11 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					if (dlg.DoModal() != IDOK)
 						return false;
 					targetName = dlg.m_name;
+					if (!CTSVNPath(targetName).IsValidOnWindows())
+					{
+						if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+							return false;
+					}
 				}
 				break;
 			}
@@ -2413,6 +2433,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CString sHint;
 					sHint.Format(IDS_INPUT_COPY, (LPCTSTR)urlList[0].GetSVNPathString(), (LPCTSTR)dlg.m_name);
 					input.SetActionText(sHint);
+					if (!CTSVNPath(dlg.m_name).IsValidOnWindows())
+					{
+						if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+							break;
+					}
 					if (input.DoModal() == IDOK)
 					{
 						if (!Copy(urlList, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage()))
