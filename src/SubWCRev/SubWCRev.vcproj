@@ -105,7 +105,6 @@
 			OutputDirectory="..\..\bin\Debug64\bin"
 			IntermediateDirectory="..\..\obj\SubWCRev\Debug64"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -188,7 +187,6 @@
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\SubWCRev\Release"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -272,7 +270,6 @@
 			OutputDirectory="..\..\bin\Release64\bin"
 			IntermediateDirectory="..\..\obj\SubWCRev\Release64"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -357,7 +354,6 @@
 			OutputDirectory="..\..\bin\ReleaseStatic\bin"
 			IntermediateDirectory="..\..\obj\SubWCRev\ReleaseStatic"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -441,7 +437,6 @@
 			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -635,10 +630,6 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\testCOM.js"
-			>
-		</File>
 	</Files>
 	<Globals>
 		<Global
