@@ -92,6 +92,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateEditUsetheirthenmyblock)
 	ON_COMMAND(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnViewInlinediffword)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnUpdateViewInlinediffword)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnUpdateEditCreateunifieddifffile)
+	ON_COMMAND(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnEditCreateunifieddifffile)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1766,4 +1768,65 @@ void CMainFrame::OnUpdateViewInlinediffword(CCmdUI *pCmdUI)
 	pCmdUI->Enable(m_pwndLeftView && m_pwndLeftView->IsWindowVisible() &&
 		m_pwndRightView && m_pwndRightView->IsWindowVisible());
 	pCmdUI->SetCheck(m_bInlineWordDiff);
+}
+
+void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
+{
+	// "create unified diff file" is only available if two files
+	// are diffed, not three.
+	bool bEnabled = true;
+	if ((m_pwndLeftView == NULL)||(!m_pwndLeftView->IsWindowVisible()))
+		bEnabled = false;
+	if ((m_pwndRightView == NULL)||(!m_pwndRightView->IsWindowVisible()))
+		bEnabled = false;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
+		bEnabled = false;
+	pCmdUI->Enable(bEnabled);
+}
+
+void CMainFrame::OnEditCreateunifieddifffile()
+{
+	CString origFile, modifiedFile, outputFile;
+	// the original file is the one on the left
+	if (m_pwndLeftView)
+		origFile = m_pwndLeftView->m_sFullFilePath;
+	if (m_pwndRightView)
+		modifiedFile = m_pwndRightView->m_sFullFilePath;
+	if (!origFile.IsEmpty() && !modifiedFile.IsEmpty())
+	{
+		// ask for the path to save the unified diff file to
+		OPENFILENAME ofn = {0};			// common dialog box structure
+		TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+		ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		CString temp;
+		temp.LoadString(IDS_SAVEASTITLE);
+		if (!temp.IsEmpty())
+			ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_OVERWRITEPROMPT;
+		CString sFilter;
+		sFilter.LoadString(IDS_COMMONFILEFILTER);
+		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+		// Replace '|' delimiters with '\0's
+		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+		while (ptr != pszFilters)
+		{
+			if (*ptr == '|')
+				*ptr = '\0';
+			ptr--;
+		}
+		ofn.lpstrFilter = pszFilters;
+		ofn.nFilterIndex = 1;
+
+		// Display the Save dialog box. 
+		CString sFile;
+		if (GetSaveFileName(&ofn)==TRUE)
+		{
+			outputFile = CString(ofn.lpstrFile);
+			CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile);
+		}
+		delete [] pszFilters;
+	}
 }

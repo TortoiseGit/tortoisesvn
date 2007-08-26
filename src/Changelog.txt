@@ -173,6 +173,8 @@
 - NEW: the file diff dialog has a filter. See issue #379 for details. (Stefan)
 - NEW: The merge and blame dialog have options to ignore eol and space
        changes. (Stefan)
+- NEW: TortoiseMerge can create a unified diff (patch) file from the two
+       files it shows. See issue #381 for details. (Stefan)
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog

@@ -372,6 +372,56 @@ BOOL CTortoiseMergeApp::InitInstance()
 	else if (!sTheir.IsEmpty())
 		pFrame->SetWindowText(sTheir + _T(" - TortoiseMerge"));
 
+	if (parser.HasKey(_T("createunifieddiff")))
+	{
+		// user requested to create a unified diff file
+		CString origFile = parser.GetVal(_T("origfile"));
+		CString modifiedFile = parser.GetVal(_T("modifiedfile"));
+		if (!origFile.IsEmpty() && !modifiedFile.IsEmpty())
+		{
+			CString outfile = parser.GetVal(_T("outfile"));
+			if (outfile.IsEmpty())
+			{
+				OPENFILENAME ofn = {0};			// common dialog box structure
+				TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+				ofn.lStructSize = sizeof(OPENFILENAME);
+				ofn.lpstrFile = szFile;
+				ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+				CString temp;
+				temp.LoadString(IDS_SAVEASTITLE);
+				if (!temp.IsEmpty())
+					ofn.lpstrTitle = temp;
+				ofn.Flags = OFN_OVERWRITEPROMPT;
+				CString sFilter;
+				sFilter.LoadString(IDS_COMMONFILEFILTER);
+				TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+				_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+				// Replace '|' delimiters with '\0's
+				TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+				while (ptr != pszFilters)
+				{
+					if (*ptr == '|')
+						*ptr = '\0';
+					ptr--;
+				}
+				ofn.lpstrFilter = pszFilters;
+				ofn.nFilterIndex = 1;
+
+				// Display the Save dialog box. 
+				CString sFile;
+				if (GetSaveFileName(&ofn)==TRUE)
+				{
+					outfile = CString(ofn.lpstrFile);
+				}
+				delete [] pszFilters;
+			}
+			if (!outfile.IsEmpty())
+			{
+				CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile);
+				return FALSE;
+			}
+		}
+	}
 	// The one and only window has been initialized, so show and update it
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);

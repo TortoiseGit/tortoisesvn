@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,4 +40,10 @@ public:
 	 * \return TRUE if successful
 	 */
 	static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd = NULL);
+	
+	/**
+	 * Creates a unified diff from two files
+	 */
+	static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output);
+
 };

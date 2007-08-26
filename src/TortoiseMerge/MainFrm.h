@@ -151,6 +151,8 @@ public:
 	CDiffData		m_Data;
 	bool			m_bReadOnly;
 	bool			m_bBlame;
+	afx_msg void OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI);
+	afx_msg void OnEditCreateunifieddifffile();
 };
 
 

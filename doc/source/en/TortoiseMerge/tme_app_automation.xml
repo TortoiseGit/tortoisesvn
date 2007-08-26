@@ -173,6 +173,19 @@ Don't touch these lines:
 								two files to diff.
 							</entry>
 						</row>
+						<row>
+							<entry condition="pot">/createunifieddiff</entry>
+							<entry>
+								Creates a unified diff file (patchfile) of two files
+								specified with /origfile:"path_to_original_file"
+								and /modifiedfile:"path_to_modified_file". The target
+								path is set with /outfile:"path_to_resulting_patchfile".
+								If /outfile is not set, a file save dialog is shown so
+								the user can choose the location where to save the
+								patchfile to.
+								Note: If /createunifieddiff is set, all other parameters are ignored.
+							</entry>
+						</row>
 					</tbody>
 				</tgroup>
 			</table>

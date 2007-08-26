@@ -390,6 +390,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find",                       ID_EDIT_FIND
         MENUITEM "Mark as &resolved",           ID_EDIT_MARKASRESOLVED
+        MENUITEM SEPARATOR
+        MENUITEM "Create unified diff file",    ID_EDIT_CREATEUNIFIEDDIFFFILE
     END
     POPUP "&Navigate"
     BEGIN
