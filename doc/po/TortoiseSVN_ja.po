@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-08-12 22:54+0900\n"
+"PO-Revision-Date: 2007-08-26 22:19+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2458,7 +2458,7 @@ msgstr "さぁはじめましょう"
 
 #: source/TortoiseSVN_en.xml:3277(title)
 #: source/TortoiseSVN_en.xml:4685(title)
-#: source/TortoiseSVN_en.xml:12897(title)
+#: source/TortoiseSVN_en.xml:12908(title)
 msgid "Icon Overlays"
 msgstr "アイコンオーバーレイ"
 
@@ -2618,7 +2618,7 @@ msgid "import"
 msgstr "インポート"
 
 #: source/TortoiseSVN_en.xml:3477(primary)
-#: source/TortoiseSVN_en.xml:13322(glossterm)
+#: source/TortoiseSVN_en.xml:13333(glossterm)
 msgid "Repository"
 msgstr "リポジトリ"
 
@@ -2757,8 +2757,8 @@ msgstr "リポジトリに直接フォルダを作るのに、リポジトリブ
 
 #: source/TortoiseSVN_en.xml:3617(title)
 #: source/TortoiseSVN_en.xml:11723(entry)
-#: source/TortoiseSVN_en.xml:12828(title)
-#: source/TortoiseSVN_en.xml:13222(glossterm)
+#: source/TortoiseSVN_en.xml:12839(title)
+#: source/TortoiseSVN_en.xml:13233(glossterm)
 msgid "Import"
 msgstr "インポート"
 
@@ -3485,7 +3485,7 @@ msgid "modifications"
 msgstr "変更"
 
 #: source/TortoiseSVN_en.xml:4806(title)
-#: source/TortoiseSVN_en.xml:12592(title)
+#: source/TortoiseSVN_en.xml:12603(title)
 msgid "Check for Modifications"
 msgstr "更新をチェック"
 
@@ -4685,8 +4685,8 @@ msgstr "<menuchoice><guimenuitem>元に戻す</guimenuitem></menuchoice> は手�
 
 #: source/TortoiseSVN_en.xml:6747(title)
 #: source/TortoiseSVN_en.xml:11711(entry)
-#: source/TortoiseSVN_en.xml:12697(title)
-#: source/TortoiseSVN_en.xml:13115(glossterm)
+#: source/TortoiseSVN_en.xml:12708(title)
+#: source/TortoiseSVN_en.xml:13126(glossterm)
 msgid "Cleanup"
 msgstr "クリーンアップ"
 
@@ -4943,7 +4943,7 @@ msgstr ""
 "</screen> のようにするということです。前回使用した命名規則を思い出せなければ、既存のリポジトリ構造を見るのに、リポジトリブラウザを開く右のボタンを押してください。"
 
 #: source/TortoiseSVN_en.xml:7171(term)
-#: source/TortoiseSVN_en.xml:12743(listitem)
+#: source/TortoiseSVN_en.xml:12754(listitem)
 msgid "HEAD revision in the repository"
 msgstr "リポジトリの最新 (HEAD) リビジョン"
 
@@ -4960,7 +4960,7 @@ msgid "The new branch is copied directly in the repository but you can choose an
 msgstr "新しいブランチは直接リポジトリからコピーされますが、古いリビジョンを指定できます。先週プロジェクトをリリースした際に、タグを作り忘れたときなどに便利です。リビジョン番号を思い出せなければ、リビジョンログを表示する右のボタンを押し、そこからリビジョン番号を選択してください。こちらも作業コピーから移されるデータはありませんし、ブランチは非常に高速に作成されます。"
 
 #: source/TortoiseSVN_en.xml:7197(term)
-#: source/TortoiseSVN_en.xml:12745(listitem)
+#: source/TortoiseSVN_en.xml:12756(listitem)
 msgid "Working copy"
 msgstr "作業コピー"
 
@@ -7074,8 +7074,8 @@ msgstr "使用できるコマンドラインスイッチ一覧"
 
 #: source/TortoiseSVN_en.xml:10686(entry)
 #: source/TortoiseSVN_en.xml:11719(entry)
-#: source/TortoiseSVN_en.xml:12755(title)
-#: source/TortoiseSVN_en.xml:13398(glossterm)
+#: source/TortoiseSVN_en.xml:12766(title)
+#: source/TortoiseSVN_en.xml:13409(glossterm)
 msgid "Switch"
 msgstr "切り替え"
 
@@ -7083,7 +7083,7 @@ msgstr "切り替え"
 #: source/TortoiseSVN_en.xml:10757(entry)
 #: source/TortoiseSVN_en.xml:10888(entry)
 #: source/TortoiseSVN_en.xml:11974(entry)
-#: source/TortoiseSVN_en.xml:12325(entry)
+#: source/TortoiseSVN_en.xml:12336(entry)
 msgid "Description"
 msgstr "説明"
 
@@ -7815,7 +7815,7 @@ msgid "group policies"
 msgstr "グループポリシー"
 
 #: source/TortoiseSVN_en.xml:11559(primary)
-#: source/TortoiseSVN_en.xml:13206(glossterm)
+#: source/TortoiseSVN_en.xml:13217(glossterm)
 msgid "GPO"
 msgstr "GPO"
 
@@ -7920,43 +7920,43 @@ msgid "Menu entry"
 msgstr "メニューエントリ"
 
 #: source/TortoiseSVN_en.xml:11691(entry)
-#: source/TortoiseSVN_en.xml:12449(title)
-#: source/TortoiseSVN_en.xml:13106(glossterm)
+#: source/TortoiseSVN_en.xml:12460(title)
+#: source/TortoiseSVN_en.xml:13117(glossterm)
 msgid "Checkout"
 msgstr "チェックアウト"
 
 #: source/TortoiseSVN_en.xml:11695(entry)
-#: source/TortoiseSVN_en.xml:12467(title)
-#: source/TortoiseSVN_en.xml:13412(glossterm)
+#: source/TortoiseSVN_en.xml:12478(title)
+#: source/TortoiseSVN_en.xml:13423(glossterm)
 msgid "Update"
 msgstr "更新"
 
 #: source/TortoiseSVN_en.xml:11699(entry)
-#: source/TortoiseSVN_en.xml:12506(title)
-#: source/TortoiseSVN_en.xml:13132(glossterm)
+#: source/TortoiseSVN_en.xml:12517(title)
+#: source/TortoiseSVN_en.xml:13143(glossterm)
 msgid "Commit"
 msgstr "コミット"
 
 #: source/TortoiseSVN_en.xml:11703(entry)
-#: source/TortoiseSVN_en.xml:12818(title)
-#: source/TortoiseSVN_en.xml:13049(glossterm)
+#: source/TortoiseSVN_en.xml:12829(title)
+#: source/TortoiseSVN_en.xml:13060(glossterm)
 msgid "Add"
 msgstr "追加"
 
 #: source/TortoiseSVN_en.xml:11707(entry)
-#: source/TortoiseSVN_en.xml:12675(title)
-#: source/TortoiseSVN_en.xml:13345(glossterm)
+#: source/TortoiseSVN_en.xml:12686(title)
+#: source/TortoiseSVN_en.xml:13356(glossterm)
 msgid "Revert"
 msgstr "取り消し"
 
 #: source/TortoiseSVN_en.xml:11715(entry)
-#: source/TortoiseSVN_en.xml:13333(glossterm)
+#: source/TortoiseSVN_en.xml:13344(glossterm)
 msgid "Resolve"
 msgstr "解消"
 
 #: source/TortoiseSVN_en.xml:11727(entry)
-#: source/TortoiseSVN_en.xml:12779(title)
-#: source/TortoiseSVN_en.xml:13187(glossterm)
+#: source/TortoiseSVN_en.xml:12790(title)
+#: source/TortoiseSVN_en.xml:13198(glossterm)
 msgid "Export"
 msgstr "エクスポート"
 
@@ -7965,24 +7965,24 @@ msgid "Create Repository here"
 msgstr "ここにリポジトリを作成"
 
 #: source/TortoiseSVN_en.xml:11735(entry)
-#: source/TortoiseSVN_en.xml:12731(title)
+#: source/TortoiseSVN_en.xml:12742(title)
 msgid "Branch/Tag"
 msgstr "ブランチ・タグ"
 
 #: source/TortoiseSVN_en.xml:11739(entry)
-#: source/TortoiseSVN_en.xml:12762(title)
-#: source/TortoiseSVN_en.xml:13259(glossterm)
+#: source/TortoiseSVN_en.xml:12773(title)
+#: source/TortoiseSVN_en.xml:13270(glossterm)
 msgid "Merge"
 msgstr "マージ"
 
 #: source/TortoiseSVN_en.xml:11743(entry)
-#: source/TortoiseSVN_en.xml:12669(title)
-#: source/TortoiseSVN_en.xml:13166(glossterm)
+#: source/TortoiseSVN_en.xml:12680(title)
+#: source/TortoiseSVN_en.xml:13177(glossterm)
 msgid "Delete"
 msgstr "削除"
 
 #: source/TortoiseSVN_en.xml:11747(entry)
-#: source/TortoiseSVN_en.xml:12663(title)
+#: source/TortoiseSVN_en.xml:12674(title)
 msgid "Rename"
 msgstr "名前の変更"
 
@@ -7991,24 +7991,24 @@ msgid "Update to revision"
 msgstr "特定のリビジョンへ更新"
 
 #: source/TortoiseSVN_en.xml:11755(entry)
-#: source/TortoiseSVN_en.xml:12553(title)
-#: source/TortoiseSVN_en.xml:13178(glossterm)
+#: source/TortoiseSVN_en.xml:12564(title)
+#: source/TortoiseSVN_en.xml:13189(glossterm)
 msgid "Diff"
 msgstr "差分"
 
 #: source/TortoiseSVN_en.xml:11759(entry)
-#: source/TortoiseSVN_en.xml:12574(title)
+#: source/TortoiseSVN_en.xml:12585(title)
 msgid "Show Log"
 msgstr "ログの表示"
 
 #: source/TortoiseSVN_en.xml:11763(entry)
-#: source/TortoiseSVN_en.xml:12649(title)
+#: source/TortoiseSVN_en.xml:12660(title)
 msgid "Edit Conflicts"
 msgstr "競合の編集"
 
 #: source/TortoiseSVN_en.xml:11767(entry)
-#: source/TortoiseSVN_en.xml:12804(title)
-#: source/TortoiseSVN_en.xml:13305(glossterm)
+#: source/TortoiseSVN_en.xml:12815(title)
+#: source/TortoiseSVN_en.xml:13316(glossterm)
 msgid "Relocate"
 msgstr "再配置"
 
@@ -8025,18 +8025,18 @@ msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
 
 #: source/TortoiseSVN_en.xml:11783(entry)
-#: source/TortoiseSVN_en.xml:12838(title)
-#: source/TortoiseSVN_en.xml:13070(glossterm)
+#: source/TortoiseSVN_en.xml:12849(title)
+#: source/TortoiseSVN_en.xml:13081(glossterm)
 msgid "Blame"
 msgstr "注釈履歴"
 
 #: source/TortoiseSVN_en.xml:11787(entry)
-#: source/TortoiseSVN_en.xml:12864(title)
+#: source/TortoiseSVN_en.xml:12875(title)
 msgid "Create Patch"
 msgstr "パッチの作成"
 
 #: source/TortoiseSVN_en.xml:11791(entry)
-#: source/TortoiseSVN_en.xml:12874(title)
+#: source/TortoiseSVN_en.xml:12885(title)
 msgid "Apply Patch"
 msgstr "パッチの適用"
 
@@ -8045,7 +8045,7 @@ msgid "Revision graph"
 msgstr "リビジョングラフ"
 
 #: source/TortoiseSVN_en.xml:11799(entry)
-#: source/TortoiseSVN_en.xml:13231(glossterm)
+#: source/TortoiseSVN_en.xml:13242(glossterm)
 msgid "Lock"
 msgstr "ロック"
 
@@ -8110,17 +8110,17 @@ msgid "Remember that TortoiseSVN is a GUI client, and this automation guide show
 msgstr "TortoiseSVN は GUI クライアントであることを忘れないでください。またこの自動化ガイドは、ユーザの入力を集めるのに TortoiseSVN ダイアログを表示させる方法を説明しています。入力を全くさせないようなスクリプトを書く場合は、公式 Subversion コマンドラインクライアントの方を使用してください。"
 
 #: source/TortoiseSVN_en.xml:11875(title)
-#: source/TortoiseSVN_en.xml:12447(title)
+#: source/TortoiseSVN_en.xml:12458(title)
 msgid "TortoiseSVN Commands"
 msgstr "TortoiseSVN コマンド"
 
 #: source/TortoiseSVN_en.xml:11877(primary)
-#: source/TortoiseSVN_en.xml:12292(primary)
+#: source/TortoiseSVN_en.xml:12303(primary)
 msgid "automation"
 msgstr "自動化"
 
 #: source/TortoiseSVN_en.xml:11880(primary)
-#: source/TortoiseSVN_en.xml:12295(primary)
+#: source/TortoiseSVN_en.xml:12306(primary)
 msgid "command line"
 msgstr "コマンドライン"
 
@@ -8209,13 +8209,12 @@ msgstr "about ダイアログを表示します。コマンドを与えなくて
 #: source/TortoiseSVN_en.xml:12173(option)
 #: source/TortoiseSVN_en.xml:12182(option)
 #: source/TortoiseSVN_en.xml:12193(option)
-#: source/TortoiseSVN_en.xml:12202(option)
-#: source/TortoiseSVN_en.xml:12217(option)
-#: source/TortoiseSVN_en.xml:12227(option)
-#: source/TortoiseSVN_en.xml:12234(option)
-#: source/TortoiseSVN_en.xml:12241(option)
-#: source/TortoiseSVN_en.xml:12250(option)
-#: source/TortoiseSVN_en.xml:12267(option)
+#: source/TortoiseSVN_en.xml:12228(option)
+#: source/TortoiseSVN_en.xml:12238(option)
+#: source/TortoiseSVN_en.xml:12245(option)
+#: source/TortoiseSVN_en.xml:12252(option)
+#: source/TortoiseSVN_en.xml:12261(option)
+#: source/TortoiseSVN_en.xml:12278(option)
 msgid "/path"
 msgstr "/path"
 
@@ -8301,7 +8300,7 @@ msgstr "割り込み・中止した操作のクリーンアップをし、<place
 
 #: source/TortoiseSVN_en.xml:12067(option)
 #: source/TortoiseSVN_en.xml:12133(option)
-#: source/TortoiseSVN_en.xml:12260(option)
+#: source/TortoiseSVN_en.xml:12271(option)
 msgid "/noquestion"
 msgstr "/noquestion"
 
@@ -8395,59 +8394,59 @@ msgstr "svn:ignore"
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
 msgstr "<placeholder-1/> の全対象を無視リストに追加します。つまり <placeholder-2/> プロパティをそのファイルに追加します。"
 
-#: source/TortoiseSVN_en.xml:12203(option)
-msgid "/startrev"
-msgstr "/startrev"
+#: source/TortoiseSVN_en.xml:12201(para)
+msgid "Opens the blame dialog for the file specified in <option>/path</option>."
+msgstr "<option>/path</option> で指定したファイルの注釈ダイアログを開きます。"
 
-#: source/TortoiseSVN_en.xml:12204(option)
-msgid "/endrev"
-msgstr "/endrev"
+#: source/TortoiseSVN_en.xml:12205(para)
+msgid "If the options <option>/startrev</option> and <option>/endrev</option> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead."
+msgstr "<option>/startrev</option> オプションや <option>/endrev</option> オプションをセットすると、注釈範囲を指定するダイアログを表示せず、オプションで指定したリビジョンの値を使用します。"
 
-#: source/TortoiseSVN_en.xml:12208(option)
-msgid "/line:nnn"
-msgstr "/line:nnn"
+#: source/TortoiseSVN_en.xml:12212(para)
+msgid "If the option <option>/line:nnn</option> is set, TortoiseBlame will open with the specified line number showing."
+msgstr "<option>/line:nnn</option> オプションを指定すると、TortoiseBlame を開く際に指定した行番号を表示します。"
 
-#: source/TortoiseSVN_en.xml:12200(entry)
-msgid "Opens the blame dialog for the file specified in <placeholder-1/>. If the options <placeholder-2/> and <placeholder-3/> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead. If the option <placeholder-4/> is set, TortoiseBlame will open with the specified line number showing."
-msgstr "<placeholder-1/> で指定したファイルに対して注釈ダイアログを開きます。<placeholder-2/> オプションと <placeholder-3/> オプションがセットされると、注釈の範囲を入力するダイアログを表示せず、このオプションの値を使用します。<placeholder-4/> オプションをセットすると、指定行を TortoiseBlame で開きます。"
+#: source/TortoiseSVN_en.xml:12217(para)
+msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
+msgstr "<option>/ignoreeol</option> オプションや <option>/ignorespaces</option> オプション、<option>/ignoreallspaces</option> オプションもサポートしています。"
 
-#: source/TortoiseSVN_en.xml:12218(option)
+#: source/TortoiseSVN_en.xml:12229(option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
-#: source/TortoiseSVN_en.xml:12219(option)
+#: source/TortoiseSVN_en.xml:12230(option)
 msgid "/revision:xxx"
 msgstr "/revision:xxx"
 
-#: source/TortoiseSVN_en.xml:12215(entry)
+#: source/TortoiseSVN_en.xml:12226(entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "<placeholder-1/> で与えたURL や作業コピーパスから、<placeholder-2/> で与えた場所に保存します。<placeholder-3/> でリビジョンを指定します。指定したリビジョンのファイルを取得するのに使用できます。"
 
-#: source/TortoiseSVN_en.xml:12225(entry)
+#: source/TortoiseSVN_en.xml:12236(entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "<placeholder-1/> で与えたパスのパッチファイルを作成します。"
 
-#: source/TortoiseSVN_en.xml:12232(entry)
+#: source/TortoiseSVN_en.xml:12243(entry)
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
 msgstr "<placeholder-1/> で指定したパスのリビジョングラフを表示します。"
 
-#: source/TortoiseSVN_en.xml:12239(entry)
+#: source/TortoiseSVN_en.xml:12250(entry)
 msgid "Locks a file or all files in a directory given in <placeholder-1/>. The 'lock' dialog is shown so the user can enter a comment for the lock."
 msgstr "<placeholder-1/> で与えたファイルや、与えたディレクトリにあるすべてのファイルをロックします。ロック時のコメントを入力するよう「ロック」ダイアログを表示します。"
 
-#: source/TortoiseSVN_en.xml:12248(entry)
+#: source/TortoiseSVN_en.xml:12259(entry)
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
 msgstr "<placeholder-1/> で与えたファイルや、与えたディレクトリにあるすべてのファイルのロックを解除します。"
 
-#: source/TortoiseSVN_en.xml:12255(entry)
+#: source/TortoiseSVN_en.xml:12266(entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass <placeholder-1/>."
 msgstr "Windows のアイコンキャッシュを再生成します。Windows のアイコンが破損したときのみ使用します。これの (避けられない) 副作用として、デスクトップのアイコンを再配置してしまうことがあります。メッセージボックスの表示を抑制するには、<placeholder-1/> を渡してください。"
 
-#: source/TortoiseSVN_en.xml:12265(entry)
+#: source/TortoiseSVN_en.xml:12276(entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
 msgstr "<placeholder-1/> で指定したパスのプロパティダイアログを表示します。"
 
-#: source/TortoiseSVN_en.xml:12274(para)
+#: source/TortoiseSVN_en.xml:12285(para)
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
 "TortoiseProc.exe /command:commit\n"
@@ -8471,52 +8470,52 @@ msgstr ""
 "                 /startrev:50 /endrev:60 /closeonend\n"
 "</screen>"
 
-#: source/TortoiseSVN_en.xml:12290(title)
+#: source/TortoiseSVN_en.xml:12301(title)
 msgid "TortoiseIDiff Commands"
 msgstr "TortoiseIDiff コマンド"
 
-#: source/TortoiseSVN_en.xml:12297(para)
+#: source/TortoiseSVN_en.xml:12308(para)
 msgid "The image diff tool has a few command line options which you can use to control how the tool is started. The program is called <literal>TortoiseIDiff.exe</literal>."
 msgstr "画像差分ツールには、起動時のふるまいを制御するのに使用する、コマンドラインオプションが少しあります。オプションは <literal>TortoiseIDiff.exe</literal> により呼ばれます。"
 
-#: source/TortoiseSVN_en.xml:12302(para)
+#: source/TortoiseSVN_en.xml:12313(para)
 msgid "The table below lists all the options which can be passed to the image diff tool on the command line."
 msgstr "以下の表は、コマンドラインで画像差分ツールに渡す、全オプションの一覧です。"
 
-#: source/TortoiseSVN_en.xml:12318(title)
+#: source/TortoiseSVN_en.xml:12329(title)
 msgid "List of available options"
 msgstr "使用できるオプションの一覧"
 
-#: source/TortoiseSVN_en.xml:12324(entry)
+#: source/TortoiseSVN_en.xml:12335(entry)
 msgid "Option"
 msgstr "オプション"
 
-#: source/TortoiseSVN_en.xml:12331(entry)
+#: source/TortoiseSVN_en.xml:12342(entry)
 msgid "Path to the file shown on the left."
 msgstr "左に表示するファイルのパス。"
 
-#: source/TortoiseSVN_en.xml:12337(entry)
-#: source/TortoiseSVN_en.xml:12350(entry)
+#: source/TortoiseSVN_en.xml:12348(entry)
+#: source/TortoiseSVN_en.xml:12361(entry)
 msgid "A title string. This string is used in the image view title instead of the full path to the image file."
 msgstr "タイトルの文字列。イメージファイルのフルパスの代わりに、この文字列をイメージビューのタイトルに使用します。"
 
-#: source/TortoiseSVN_en.xml:12344(entry)
+#: source/TortoiseSVN_en.xml:12355(entry)
 msgid "Path to the file shown on the right."
 msgstr "右に表示するファイルのパス。"
 
-#: source/TortoiseSVN_en.xml:12357(entry)
+#: source/TortoiseSVN_en.xml:12368(entry)
 msgid "If specified, the image diff tool switches to the overlay mode (alpha blend)."
 msgstr "指定すると、画像差分ツールがオーバーレイモード (アルファブレンディング) に変わります。"
 
-#: source/TortoiseSVN_en.xml:12364(entry)
+#: source/TortoiseSVN_en.xml:12375(entry)
 msgid "If specified, the image diff tool fits both images together."
 msgstr "指定すると、画像差分ツールはどちらの画像も画面一杯に表示します。"
 
-#: source/TortoiseSVN_en.xml:12371(entry)
+#: source/TortoiseSVN_en.xml:12382(entry)
 msgid "Shows the image info box."
 msgstr "イメージ情報ボックスを表示します。"
 
-#: source/TortoiseSVN_en.xml:12379(para)
+#: source/TortoiseSVN_en.xml:12390(para)
 msgid ""
 "Example (which should be entered on one line): <screen>\n"
 "TortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n"
@@ -8530,47 +8529,47 @@ msgstr ""
 "                  /fit /overlay\n"
 "</screen>"
 
-#: source/TortoiseSVN_en.xml:12391(title)
+#: source/TortoiseSVN_en.xml:12402(title)
 msgid "Command Line Interface Cross Reference"
 msgstr "コマンドラインインターフェースクロスリファレンス"
 
-#: source/TortoiseSVN_en.xml:12393(primary)
+#: source/TortoiseSVN_en.xml:12404(primary)
 msgid "command line client"
 msgstr "コマンドラインクライアント"
 
-#: source/TortoiseSVN_en.xml:12396(primary)
+#: source/TortoiseSVN_en.xml:12407(primary)
 msgid "CLI"
 msgstr "CLI"
 
-#: source/TortoiseSVN_en.xml:12399(para)
+#: source/TortoiseSVN_en.xml:12410(para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr "時々このマニュアルは、コマンドラインインターフェース (CLI) の説明をしている Subversion のドキュメントを参照しています。TortoiseSVN があるシーンの裏で何を行っているか理解する助けになるよう、それぞれの TortoiseSVN の GUI 操作と同等な CLI コマンドを示すリストを用意しました。"
 
-#: source/TortoiseSVN_en.xml:12408(para)
+#: source/TortoiseSVN_en.xml:12419(para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
 msgstr "TortoiseSVN で行うことと同等な物が CLI にありますが、TortoiseSVN が CLI を呼ぶことは<emphasis>なく</emphasis>、直接 Subversion ライブラリを使用するのを覚えていてください。"
 
-#: source/TortoiseSVN_en.xml:12414(para)
+#: source/TortoiseSVN_en.xml:12425(para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
 msgstr "TortoiseSVN のバグを見つけたら、Subversion の問題か TortoiseSVN の問題かを切り分けるために、CLI を使用してそれを再現するようにお願いするかもしれません。このリファレンスで、どのコマンドを行うべきか確認してください。"
 
-#: source/TortoiseSVN_en.xml:12422(title)
+#: source/TortoiseSVN_en.xml:12433(title)
 msgid "Conventions and Basic Rules"
 msgstr "規約と基本規則"
 
-#: source/TortoiseSVN_en.xml:12423(para)
+#: source/TortoiseSVN_en.xml:12434(para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr "以下の説明では、リポジトリの位置を表す URL (例: <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>) は、単に <literal>URL</literal> と表します。作業コピーのパス (例: <literal>C:\\TortoiseSVN\\trunk</literal>) は、単に <literal>PATH</literal> と表します。"
 
-#: source/TortoiseSVN_en.xml:12433(para)
+#: source/TortoiseSVN_en.xml:12444(para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr "TortoiseSVN は Windows シェル拡張ですから、カレントワーキングディレクトリの概念は使用できません。作業コピーのパスは相対パスではなく絶対パスで与えられます。"
 
-#: source/TortoiseSVN_en.xml:12440(para)
+#: source/TortoiseSVN_en.xml:12451(para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr "いくつかの項目はオプションで、TortoiseSVN ではチェックボックスやラジオボタンで制御されています。こういったオプションはコマンドラインの定義では [角かっこ] で表されます。"
 
-#: source/TortoiseSVN_en.xml:12450(screen)
+#: source/TortoiseSVN_en.xml:12461(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8579,20 +8578,20 @@ msgstr ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 
-#: source/TortoiseSVN_en.xml:12453(para)
+#: source/TortoiseSVN_en.xml:12464(para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "<guilabel>トップフォルダのみチェックアウトする</guilabel> がチェックされているなら <literal>-N</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12457(para)
-#: source/TortoiseSVN_en.xml:12500(para)
+#: source/TortoiseSVN_en.xml:12468(para)
+#: source/TortoiseSVN_en.xml:12511(para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "<guilabel>外部参照を除外する</guilabel> がチェックされているなら、<literal>--ignore-externals</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12461(para)
+#: source/TortoiseSVN_en.xml:12472(para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr "特定のリビジョンをチェックアウトしたい場合、<literal>-r</literal> スイッチを使って指定してください。"
 
-#: source/TortoiseSVN_en.xml:12468(screen)
+#: source/TortoiseSVN_en.xml:12479(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8603,23 +8602,23 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 
-#: source/TortoiseSVN_en.xml:12472(para)
+#: source/TortoiseSVN_en.xml:12483(para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
 msgstr "複数の項目を更新するのに、現在の Subversion では不可分操作できません。そこで TortoiseSVN は、まず HEADリビジョンをリポジトリから探し出し、複数のリビジョン場混じった作業コピーを作らないように、特定のリビジョン番号を持つすべての項目を更新します。"
 
-#: source/TortoiseSVN_en.xml:12479(para)
+#: source/TortoiseSVN_en.xml:12490(para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
 msgstr "1 項目しか選択しないで更新したり、選択した項目がすべて同じリポジトリにない場合、TortoiseSVN は HEAD について更新します。"
 
-#: source/TortoiseSVN_en.xml:12484(para)
+#: source/TortoiseSVN_en.xml:12495(para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr "ここでのコマンドラインオプションはありません。<guilabel>特定のリビジョンへ更新</guilabel> も update コマンドを実装していますが、こちらはもっとオプションがあります。"
 
-#: source/TortoiseSVN_en.xml:12491(title)
+#: source/TortoiseSVN_en.xml:12502(title)
 msgid "Update to Revision"
 msgstr "リビジョンの更新"
 
-#: source/TortoiseSVN_en.xml:12492(screen)
+#: source/TortoiseSVN_en.xml:12503(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8630,17 +8629,17 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 
-#: source/TortoiseSVN_en.xml:12496(para)
+#: source/TortoiseSVN_en.xml:12507(para)
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "<guilabel>トップフォルダのみ更新する</guilabel> がチェックされているなら <literal>-N</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12507(para)
+#: source/TortoiseSVN_en.xml:12518(para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr "TortoiseSVN ではコミットダイアログを使って複数の Subversion コマンドを実行します。最初は、コミットできる作業コピーの項目について状態チェックを行います。リストを確認し、コミットするよう選択したファイルと BASE に diff をかけることができます。"
 
-#: source/TortoiseSVN_en.xml:12514(screen)
-#: source/TortoiseSVN_en.xml:12676(screen)
-#: source/TortoiseSVN_en.xml:12704(screen)
+#: source/TortoiseSVN_en.xml:12525(screen)
+#: source/TortoiseSVN_en.xml:12687(screen)
+#: source/TortoiseSVN_en.xml:12715(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8649,17 +8648,17 @@ msgstr ""
 "\n"
 "svn status -v PATH\n"
 
-#: source/TortoiseSVN_en.xml:12517(para)
-#: source/TortoiseSVN_en.xml:12605(para)
+#: source/TortoiseSVN_en.xml:12528(para)
+#: source/TortoiseSVN_en.xml:12616(para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr "<guilabel>バージョン管理外のファイルを表示する</guilabel> にチェックがあると、TortoiseSVN は作業コピーの階層にあるバージョン管理外のファイルやフォルダも (無視ルールを考慮して) 表示します。<literal>svn status</literal> コマンドはバージョン管理外のフォルダ以下は検索しないため、この特殊な機能は直接対応する Subversion コマンドがありません。"
 
-#: source/TortoiseSVN_en.xml:12525(para)
+#: source/TortoiseSVN_en.xml:12536(para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr "バージョン管理外のファイルやフォルダをチェックすると、最初にその項目を作業コピーへ追加します。"
 
-#: source/TortoiseSVN_en.xml:12529(screen)
-#: source/TortoiseSVN_en.xml:12819(screen)
+#: source/TortoiseSVN_en.xml:12540(screen)
+#: source/TortoiseSVN_en.xml:12830(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8668,11 +8667,11 @@ msgstr ""
 "\n"
 "svn add PATH...\n"
 
-#: source/TortoiseSVN_en.xml:12532(para)
+#: source/TortoiseSVN_en.xml:12543(para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr "OK をクリックすると、Subversion のコミットをそこで行います。すべてのファイルの選択チェックボックスを初期状態からはずすと、TortoiseSVN は作業コピーに対し再帰的コミットを一度行います。ファイルを選択しない場合、コミットコマンドラインで個々のパスを指定して、非再帰的コミット (<literal>-N</literal>) を使用しなければなりません。"
 
-#: source/TortoiseSVN_en.xml:12540(screen)
+#: source/TortoiseSVN_en.xml:12551(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8681,17 +8680,17 @@ msgstr ""
 "\n"
 "svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:12543(para)
-#: source/TortoiseSVN_en.xml:12749(para)
-#: source/TortoiseSVN_en.xml:12832(para)
+#: source/TortoiseSVN_en.xml:12554(para)
+#: source/TortoiseSVN_en.xml:12760(para)
+#: source/TortoiseSVN_en.xml:12843(para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "<literal>LogMessage</literal> にはログメッセージエディットボックスの内容を記述してください。空でもかまいません。"
 
-#: source/TortoiseSVN_en.xml:12547(para)
+#: source/TortoiseSVN_en.xml:12558(para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr "<guilabel>ロックを保持</guilabel> にチェックしているなら、<literal>--no-unlock</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12554(screen)
+#: source/TortoiseSVN_en.xml:12565(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8700,15 +8699,15 @@ msgstr ""
 "\n"
 "svn diff PATH\n"
 
-#: source/TortoiseSVN_en.xml:12557(para)
+#: source/TortoiseSVN_en.xml:12568(para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between full-text files, so there is no direct CLI equivalent."
 msgstr "メインのコンテキストメニューから Diff を使用する場合、BASE リビジョンから変更されたファイルに対して比較を行います。上記 CLI コマンドの出力では比較を行い、結果 をunified-diff 形式で出力します。しかし、TortoiseSVN がこれを使用しているわけではありません。TortoiseSVN は TortoiseMerge (や、お好みの diff プログラム) でフルテキストファイルの差分を視覚的に表示します、そのため、直接 CLI で相当するものはありません。"
 
-#: source/TortoiseSVN_en.xml:12566(para)
+#: source/TortoiseSVN_en.xml:12577(para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
 msgstr "TortoiseSVN で、バージョン管理下であるかどうかはともかく、任意の 2 ファイルを比較することもできます。TortoiseSVN は、2 つのファイルを選択した diff プログラムに単に渡し、どこに差分があるかを比較させます。"
 
-#: source/TortoiseSVN_en.xml:12575(screen)
+#: source/TortoiseSVN_en.xml:12586(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8721,15 +8720,15 @@ msgstr ""
 "  もしくは\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 
-#: source/TortoiseSVN_en.xml:12580(para)
+#: source/TortoiseSVN_en.xml:12591(para)
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
 msgstr "デフォルトでは TortoiseSVN は --limit を使用してログメッセージを 100 個取得しようとします。古い API を使用するような設定になっていれば、リポジトリのリビジョンを100個分、ログメッセージを取得するには、2 番目の形式を使用してください。"
 
-#: source/TortoiseSVN_en.xml:12586(para)
+#: source/TortoiseSVN_en.xml:12597(para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr "<guilabel>コピー／名前の変更が発生したら停止</guilabel> がチェックされている場合は、<literal>--stop-on-copy</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12593(screen)
+#: source/TortoiseSVN_en.xml:12604(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8742,19 +8741,19 @@ msgstr ""
 "  または\n"
 "svn status -u -v PATH\n"
 
-#: source/TortoiseSVN_en.xml:12598(para)
+#: source/TortoiseSVN_en.xml:12609(para)
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
 msgstr "状態チェックの初期状態では、作業コピーに対してのみ行います。<guibutton>リポジトリをチェック</guibutton> をクリックすると、更新時にどのファイルが変更されるかリポジトリもチェックしますが、これには <literal>-u</literal> スイッチが必要です。"
 
-#: source/TortoiseSVN_en.xml:12615(title)
+#: source/TortoiseSVN_en.xml:12626(title)
 msgid "Revision Graph"
 msgstr "リビジョングラフ"
 
-#: source/TortoiseSVN_en.xml:12616(para)
+#: source/TortoiseSVN_en.xml:12627(para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
 msgstr "リビジョングラフは TortoiseSVN のみの機能です。コマンドラインにはありません。"
 
-#: source/TortoiseSVN_en.xml:12620(para)
+#: source/TortoiseSVN_en.xml:12631(para)
 msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
@@ -8766,11 +8765,11 @@ msgstr ""
 "svn log -v URL\n"
 "</screen> を行い (URLはリポジトリの <emphasis>root</emphasis>)、返ってきたデータを解析します。"
 
-#: source/TortoiseSVN_en.xml:12631(title)
+#: source/TortoiseSVN_en.xml:12642(title)
 msgid "Repo Browser"
 msgstr "リポジトリブラウザ"
 
-#: source/TortoiseSVN_en.xml:12632(screen)
+#: source/TortoiseSVN_en.xml:12643(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8781,23 +8780,23 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 
-#: source/TortoiseSVN_en.xml:12636(para)
+#: source/TortoiseSVN_en.xml:12647(para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
 msgstr "リポジトリブラウザでトップレベルに表示されるリポジトリのルートを決めるのに <literal>svn info</literal> を使用できます。このレベル以上へは <literal>上</literal> へ行けません。またこのコマンドは、リポジトリブラウザに表示されるロック情報を返します。"
 
-#: source/TortoiseSVN_en.xml:12643(para)
+#: source/TortoiseSVN_en.xml:12654(para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
 msgstr "<literal>svn list</literal> は URL とリビジョンで指定した、ディレクトリの内容をリスト表示します。"
 
-#: source/TortoiseSVN_en.xml:12650(para)
+#: source/TortoiseSVN_en.xml:12661(para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
 msgstr "このコマンドには、同等の CLI がありません。競合したファイルを見て、どの行を使用するか整理するのに、TortoiseMerge や、その他の diff/merge ツールを起動します。"
 
-#: source/TortoiseSVN_en.xml:12657(title)
+#: source/TortoiseSVN_en.xml:12668(title)
 msgid "Resolved"
 msgstr "解消"
 
-#: source/TortoiseSVN_en.xml:12658(screen)
+#: source/TortoiseSVN_en.xml:12669(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8806,7 +8805,7 @@ msgstr ""
 "\n"
 "svn resolved PATH\n"
 
-#: source/TortoiseSVN_en.xml:12664(screen)
+#: source/TortoiseSVN_en.xml:12675(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8815,7 +8814,7 @@ msgstr ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 
-#: source/TortoiseSVN_en.xml:12670(screen)
+#: source/TortoiseSVN_en.xml:12681(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8824,15 +8823,15 @@ msgstr ""
 "\n"
 "svn delete PATH\n"
 
-#: source/TortoiseSVN_en.xml:12679(para)
+#: source/TortoiseSVN_en.xml:12690(para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
 msgstr "第一段階として、作業コピー内で取り消しが行える項目を決定するよう、状態チェックを行います。一覧を確認し、BASE に対するファイルの比較、取り消す項目の選択を行えます。"
 
-#: source/TortoiseSVN_en.xml:12685(para)
+#: source/TortoiseSVN_en.xml:12696(para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
 msgstr "OK をクリックすると、Subversion の revert が行われます。ファイル選択チェックボックスをすべてデフォルトのままにした場合、TortoiseSVN は 再帰 (<literal>-R</literal>) revert を作業コピーに対して行います。ファイルの選択を外すと、revert コマンドラインに選択したパスをすべて、個々に指定しなければなりません。"
 
-#: source/TortoiseSVN_en.xml:12692(screen)
+#: source/TortoiseSVN_en.xml:12703(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8841,7 +8840,7 @@ msgstr ""
 "\n"
 "svn revert [-R] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:12698(screen)
+#: source/TortoiseSVN_en.xml:12709(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8850,15 +8849,15 @@ msgstr ""
 "\n"
 "svn cleanup PATH\n"
 
-#: source/TortoiseSVN_en.xml:12703(title)
+#: source/TortoiseSVN_en.xml:12714(title)
 msgid "Get Lock"
 msgstr "ロックの取得"
 
-#: source/TortoiseSVN_en.xml:12707(para)
+#: source/TortoiseSVN_en.xml:12718(para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
 msgstr "第一段階として、作業コピー内でロックできる項目を決定するよう、状態チェックを行います。ロックしたい項目を選択できます。"
 
-#: source/TortoiseSVN_en.xml:12712(screen)
+#: source/TortoiseSVN_en.xml:12723(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8867,19 +8866,19 @@ msgstr ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 
-#: source/TortoiseSVN_en.xml:12715(para)
+#: source/TortoiseSVN_en.xml:12726(para)
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
 msgstr "<literal>LockMessage</literal> には、ロックメッセージエディットボックスの内容を記述してください。空でもかまいません。"
 
-#: source/TortoiseSVN_en.xml:12719(para)
+#: source/TortoiseSVN_en.xml:12730(para)
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
 msgstr "<guilabel>ロックを奪う</guilabel> にチェックが付いている場合、<literal>--force</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12725(title)
+#: source/TortoiseSVN_en.xml:12736(title)
 msgid "Release Lock"
 msgstr "ロックの解放"
 
-#: source/TortoiseSVN_en.xml:12726(screen)
+#: source/TortoiseSVN_en.xml:12737(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8888,7 +8887,7 @@ msgstr ""
 "\n"
 "svn unlock PATH\n"
 
-#: source/TortoiseSVN_en.xml:12732(screen)
+#: source/TortoiseSVN_en.xml:12743(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8905,15 +8904,15 @@ msgstr ""
 "  または\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 
-#: source/TortoiseSVN_en.xml:12744(listitem)
+#: source/TortoiseSVN_en.xml:12755(listitem)
 msgid "Specific revision in repository"
 msgstr "リポジトリのリビジョンを指定"
 
-#: source/TortoiseSVN_en.xml:12739(para)
+#: source/TortoiseSVN_en.xml:12750(para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
 msgstr "ブランチ/タグダイアログはリポジトリへのコピーを実行します。以下のようにラジオボタンのオプションが 3 つあります。<placeholder-1/> これは上記のコマンドライン 3 種に該当します。"
 
-#: source/TortoiseSVN_en.xml:12756(screen)
+#: source/TortoiseSVN_en.xml:12767(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8924,7 +8923,7 @@ msgstr ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 
-#: source/TortoiseSVN_en.xml:12763(screen)
+#: source/TortoiseSVN_en.xml:12774(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8933,11 +8932,11 @@ msgstr ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 
-#: source/TortoiseSVN_en.xml:12766(para)
+#: source/TortoiseSVN_en.xml:12777(para)
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr "<guibutton>動作チェック</guibutton> は、<literal>--dry-run</literal> スイッチ付きの merge と同じ動作をします。"
 
-#: source/TortoiseSVN_en.xml:12770(screen)
+#: source/TortoiseSVN_en.xml:12781(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8946,11 +8945,11 @@ msgstr ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 
-#: source/TortoiseSVN_en.xml:12773(para)
+#: source/TortoiseSVN_en.xml:12784(para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
 msgstr "<guibutton>Unified diff</guibutton> は merge で使用されるものを diff 操作で示します。"
 
-#: source/TortoiseSVN_en.xml:12780(screen)
+#: source/TortoiseSVN_en.xml:12791(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8959,23 +8958,23 @@ msgstr ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 
-#: source/TortoiseSVN_en.xml:12783(para)
+#: source/TortoiseSVN_en.xml:12794(para)
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
 msgstr "この形式はバージョン管理外フォルダからアクセスし、エクスポート先に指定フォルダを使用します。"
 
-#: source/TortoiseSVN_en.xml:12787(para)
+#: source/TortoiseSVN_en.xml:12798(para)
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
 msgstr "作業コピーを別の場所にエクスポートするのに、Subversion ライブラリを使用ません。そのため、相当するコマンドラインが存在しません。"
 
-#: source/TortoiseSVN_en.xml:12792(para)
+#: source/TortoiseSVN_en.xml:12803(para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
 msgstr "TortoiseSVN が行うのは、操作の進行を表示しながら、新しい場所に全ファイルをコピーすることです。バージョン管理外ファイル/フォルダも、オプションでエクスポートできます。"
 
-#: source/TortoiseSVN_en.xml:12797(para)
+#: source/TortoiseSVN_en.xml:12808(para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "どちらの場合でも、<guilabel>外部参照を除外する</guilabel> がチェックされていれば、<literal>--ignore-externals</literal> スイッチを使用してください。"
 
-#: source/TortoiseSVN_en.xml:12805(screen)
+#: source/TortoiseSVN_en.xml:12816(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -8984,11 +8983,11 @@ msgstr ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 
-#: source/TortoiseSVN_en.xml:12810(title)
+#: source/TortoiseSVN_en.xml:12821(title)
 msgid "Create Repository Here"
 msgstr "ここにリポジトリを作成"
 
-#: source/TortoiseSVN_en.xml:12811(screen)
+#: source/TortoiseSVN_en.xml:12822(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -9001,11 +9000,11 @@ msgstr ""
 "  または\n"
 "svnadmin create --fs-type bdb PATH\n"
 
-#: source/TortoiseSVN_en.xml:12822(para)
+#: source/TortoiseSVN_en.xml:12833(para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
 msgstr "フォルダを選択すると、TortoiseSVN はまず、追加できる項目を再帰的に検索します。"
 
-#: source/TortoiseSVN_en.xml:12829(screen)
+#: source/TortoiseSVN_en.xml:12840(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -9014,7 +9013,7 @@ msgstr ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 
-#: source/TortoiseSVN_en.xml:12839(screen)
+#: source/TortoiseSVN_en.xml:12850(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -9025,15 +9024,15 @@ msgstr ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 
-#: source/TortoiseSVN_en.xml:12843(para)
+#: source/TortoiseSVN_en.xml:12854(para)
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a text file, this information is not required."
 msgstr "注釈情報を参照するのに TortoiseBlame を使用する場合、ツールチップにログメッセージを表示するのに、ファイルのログも必要です。注釈をテキストファイルで参照する場合は、この情報は必要ありません。"
 
-#: source/TortoiseSVN_en.xml:12851(title)
+#: source/TortoiseSVN_en.xml:12862(title)
 msgid "Add to Ignore List"
 msgstr "無視リストに追加"
 
-#: source/TortoiseSVN_en.xml:12852(screen)
+#: source/TortoiseSVN_en.xml:12863(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -9046,11 +9045,11 @@ msgstr ""
 "{tempfile を編集し無視する項目を追加してください}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 
-#: source/TortoiseSVN_en.xml:12857(para)
+#: source/TortoiseSVN_en.xml:12868(para)
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
 msgstr "svn:ignore プロパティは複数行の値をとることがあるため、ここでは、直接コマンドラインで指定するのではなく、テキストファイルで変更する方法を示します。"
 
-#: source/TortoiseSVN_en.xml:12865(screen)
+#: source/TortoiseSVN_en.xml:12876(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -9059,303 +9058,303 @@ msgstr ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 
-#: source/TortoiseSVN_en.xml:12868(para)
+#: source/TortoiseSVN_en.xml:12879(para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
 msgstr "TortoiseSVN は、作業コピーと BASE リビジョンを比較して、unified diff 形式のパッチファイルを作成します。"
 
-#: source/TortoiseSVN_en.xml:12875(para)
+#: source/TortoiseSVN_en.xml:12886(para)
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
 msgstr "パッチと作業コピーが同じリビジョンになっていなければ、パッチの適用はやりにくい作業です。運良く TortoiseMerge を使用できます。TortoiseMerge は Subversion に該当する機能がありません。"
 
-#: source/TortoiseSVN_en.xml:12889(title)
+#: source/TortoiseSVN_en.xml:12900(title)
 msgid "Implementation Details"
 msgstr "実装の詳細"
 
-#: source/TortoiseSVN_en.xml:12891(para)
+#: source/TortoiseSVN_en.xml:12902(para)
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
 msgstr "この付録には TortoiseSVN の機能を実装する上での、議論の詳細が納められています。"
 
-#: source/TortoiseSVN_en.xml:12899(primary)
+#: source/TortoiseSVN_en.xml:12910(primary)
 msgid "overlay priority"
 msgstr "オーバーレイの優先度"
 
-#: source/TortoiseSVN_en.xml:12901(para)
+#: source/TortoiseSVN_en.xml:12912(para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
 msgstr "すべてのファイルやフォルダは、Subversion ライブラリが報告する Subversion の状態値を持っています。コマンドラインクライアントでは、1 文字のコードで表示しますが、TortoiseSVN ではアイコンオーバーレイでグラフィカルに表示します。オーバーレイアイコンの数は非常に制限されているので、オーバーレイアイコンごとに複数の状態値を持つこともありえます。"
 
-#: source/TortoiseSVN_en.xml:12909(para)
+#: source/TortoiseSVN_en.xml:12920(para)
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
 msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> <emphasis>競合</emphasis> オーバーレイアイコンは、更新や切替の結果でローカルの変更とリポジトリからダウンロードした変更が競合した場合の、<literal>競合</literal>状態を表示するのに使用します。操作が完了できない時に陥る、<literal>妨害</literal>状態を表すときにも表示します。"
 
-#: source/TortoiseSVN_en.xml:12918(para)
+#: source/TortoiseSVN_en.xml:12929(para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
 msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> <emphasis>修正</emphasis> オーバーレイアイコンは、ローカルで変更がある<literal>修正</literal>状態や、ローカルの変更にリポジトリからの変更点をマージした<literal>マージ</literal>状態、ファイルが削除されて、同名の異なるファイルに置き換わった <literal>置換</literal>状態を表示するのに使用します。"
 
-#: source/TortoiseSVN_en.xml:12928(para)
+#: source/TortoiseSVN_en.xml:12939(para)
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
 msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> <emphasis>削除</emphasis> オーバーレイアイコンは、削除するようスケジュールした <literal>削除</literal>状態や、見つからない <literal>紛失</literal>状態の場合に表示されます。通常、紛失ファイルは表示できませんが、紛失ファイルがあるはずの親フォルダに表示します。"
 
-#: source/TortoiseSVN_en.xml:12937(para)
+#: source/TortoiseSVN_en.xml:12948(para)
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
 msgstr "<graphic fileref=\"images/AddedIcon.png\"/> バージョン管理に <emphasis>追加</emphasis> されるファイルやフォルダには + 記号がつきます。"
 
-#: source/TortoiseSVN_en.xml:12943(para)
+#: source/TortoiseSVN_en.xml:12954(para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
 msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> <emphasis>In Subversion 下</emphasis> オーバーレイアイコンは、<literal>通常</literal>状態のファイルや、まだ状態が分からないファイルに表示します。これは、TortoiseSVN が状態を取得するバックグラウンドプロセスを用いているためで、それはオーバーレイアイコンを更新する数秒前かもしれません。"
 
-#: source/TortoiseSVN_en.xml:12952(para)
+#: source/TortoiseSVN_en.xml:12963(para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> <emphasis>要ロック</emphasis> オーバーレイアイコンは、<literal>svn:needs-lock</literal> プロパティを設定しているファイルに表示されます。Subversion 1.4.0 以降で作成した作業コピー向けに、<literal>svn:needs-lock</literal> 状態は、Subversion がローカルにキャッシュし、このオーバーレイアイコンを表示するかどうか決めるにに使用します。1.4.x 以前の形式の作業コピー向けには、TortoiseSVN は読込専用ファイルにこのオーバーレイアイコンを表示します。Subversion は自動的に作業コピーをアップグレードしますが、<literal>svn:needs-lock</literal> プロパティのキャッシュは、そのファイル自体の更新が発生するまで更新されません。"
 
-#: source/TortoiseSVN_en.xml:12966(para)
+#: source/TortoiseSVN_en.xml:12977(para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
 msgstr "<graphic fileref=\"images/LockedIcon.png\"/> ローカルの作業コピーでファイルにロックされている場合、<emphasis>ロック</emphasis> オーバーレイアイコンが使われます。"
 
-#: source/TortoiseSVN_en.xml:12971(para)
+#: source/TortoiseSVN_en.xml:12982(para)
 msgid "If no overlay is shown, the item status could be <literal>ignored</literal>, <literal>unversioned</literal> or <literal>none</literal> (if the item is not within a working copy)."
 msgstr "オーバーレイアイコンが表示されない場合、そのファイルの状態が、<literal>無視</literal>、<literal>バージョン管理外</literal>、<literal>なし</literal> (作業コピーにファイルが入っていない場合) である可能性があります。"
 
-#: source/TortoiseSVN_en.xml:12976(para)
+#: source/TortoiseSVN_en.xml:12987(para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
 msgstr "ファイルは Subversion 状態を 1 つしか持ちません。例えば、ファイルをローカルで変更し、そのファイルを同時に削除するようマークをつけることができます。Subversion は状態値を 1 つ返します。この場合、<literal>削除</literal>です。この優先順は、Subversion で定義しています。"
 
-#: source/TortoiseSVN_en.xml:12983(para)
+#: source/TortoiseSVN_en.xml:12994(para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
 msgstr "TortoiseSVN が状態を再帰的に表示する (デフォルト) 際、各フォルダは、自身の状態と、そこにある全ての子ファイルの状態を反映させたオーバーレイアイコンを表示します。ひとつに<emphasis>まとめた</emphasis>オーバーレイアイコンを表示するのに、前述の優先順位を使用します。この際、もっとも優先順が高いのは、<emphasis>競合</emphasis> 状態です。"
 
-#: source/TortoiseSVN_en.xml:12992(para)
+#: source/TortoiseSVN_en.xml:13003(para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
 msgstr "実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数は 15 個に制限されているからです。Windows は 4 個使用し、残りの 11 個を他のアプリケーションで使用できるようにしています。TortoiseCVS も使用していると、使用できるオーバーレイスロットが足らなくならないように、TortoiseSVN は<quote>Good Citizen (TM)</quote> に徹し、オーバーレイを他のアプリケーションが使用できるように制限しているのです。"
 
-#: source/TortoiseSVN_en.xml:13003(para)
+#: source/TortoiseSVN_en.xml:13014(para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
 msgstr "<emphasis>通常</emphasis>、<emphasis>変更</emphasis>、<emphasis>競合</emphasis> は常に読み込み・表示されます。"
 
-#: source/TortoiseSVN_en.xml:13011(para)
+#: source/TortoiseSVN_en.xml:13022(para)
 msgid "<emphasis>Deleted</emphasis> is loaded if possible, but falls back to <emphasis>Modified</emphasis> if there are not enough slots."
 msgstr "<emphasis>削除</emphasis> は可能ならばロードしますが、スロットが足りなければ <emphasis>変更</emphasis> にフォールバックします。"
 
-#: source/TortoiseSVN_en.xml:13018(para)
+#: source/TortoiseSVN_en.xml:13029(para)
 msgid "<emphasis>Read-Only</emphasis> is loaded if possible, but falls back to <emphasis>Normal</emphasis> if there are not enough slots."
 msgstr "<emphasis>読み取り専用</emphasis> は可能ならばロードしますが、スロットが足りなければ <emphasis>通常</emphasis> にフォールバックします。"
 
-#: source/TortoiseSVN_en.xml:13025(para)
+#: source/TortoiseSVN_en.xml:13036(para)
 msgid "<emphasis>Locked</emphasis> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <emphasis>Normal</emphasis> if there are not enough slots."
 msgstr "すでにロードされたオーバーレイが 13 個未満であるときのみ <emphasis>ロック</emphasis> をロードします。スロットが足りなければ <emphasis>通常</emphasis> にフォールバックします。"
 
-#: source/TortoiseSVN_en.xml:13033(para)
+#: source/TortoiseSVN_en.xml:13044(para)
 msgid "<emphasis>Added</emphasis> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <emphasis>Modified</emphasis> if there are not enough slots."
 msgstr "すでにロードされたオーバーレイが 14 個未満であるときのみ <emphasis>追加</emphasis> をロードします。スロットが足りなければ <emphasis>変更</emphasis> にフォールバックします。"
 
-#: source/TortoiseSVN_en.xml:13047(title)
+#: source/TortoiseSVN_en.xml:13058(title)
 msgid "Glossary"
 msgstr "用語集"
 
-#: source/TortoiseSVN_en.xml:13051(para)
+#: source/TortoiseSVN_en.xml:13062(para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "ファイルやディレクトリをリポジトリに追加する Subversion コマンドです。新しい項目は、コミットした際にリポジトリに追加されます。"
 
-#: source/TortoiseSVN_en.xml:13059(glossterm)
+#: source/TortoiseSVN_en.xml:13070(glossterm)
 msgid "BASE revision"
 msgstr "BASE リビジョン"
 
-#: source/TortoiseSVN_en.xml:13061(para)
+#: source/TortoiseSVN_en.xml:13072(para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "<emphasis>作業コピー</emphasis>にあるファイルやフォルダの現在のベースリビジョンで、最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダののリビジョンです。BASE リビジョンは、通常 HEAD リビジョンと同じではありません。"
 
-#: source/TortoiseSVN_en.xml:13072(para)
+#: source/TortoiseSVN_en.xml:13083(para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "このコマンドはテキストファイル専用で、すべての行に対して、最後に変更したリポジトリのリビジョンと、誰が変更したのかを注釈します。我々の GUI 実装では、TortoiseBlame を呼び出し、リビジョン番号の上にマウスを持っていくと、コミット日時やログメッセージも表示します。"
 
-#: source/TortoiseSVN_en.xml:13082(glossterm)
+#: source/TortoiseSVN_en.xml:13093(glossterm)
 msgid "BDB"
 msgstr "BDB"
 
-#: source/TortoiseSVN_en.xml:13084(para)
+#: source/TortoiseSVN_en.xml:13095(para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "Berkeley DB。十分テストされているリポジトリ用データベースバックエンドですが、ネットワーク共有できません。1.2 以前のリポジトリのデフォルトです。"
 
-#: source/TortoiseSVN_en.xml:13091(glossterm)
+#: source/TortoiseSVN_en.xml:13102(glossterm)
 msgid "Branch"
 msgstr "ブランチ"
 
-#: source/TortoiseSVN_en.xml:13093(para)
+#: source/TortoiseSVN_en.xml:13104(para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "ある点で開発が2つの独立したパスに分岐したことをと表す、リビジョン管理システムの用語です。メインラインを不安定にせずに新機能の開発を行うように、メインの開発ラインからブランチを作成できます。また、今後バグフィックスしか行わない安定版リリースのブランチを作成し、新機能の開発は不安定なトランクで行えます。Subversion のブランチは、<quote>チープコピー</quote> として実装されています。"
 
-#: source/TortoiseSVN_en.xml:13108(para)
+#: source/TortoiseSVN_en.xml:13119(para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "空のディレクトリにリポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion コマンドです。"
 
-#: source/TortoiseSVN_en.xml:13117(para)
+#: source/TortoiseSVN_en.xml:13128(para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
 msgstr "以下 Subversion book から引用します。<quote>作業コピーを再帰的にクリーンアップ (ロックの削除、未完操作の回復) を行います。<emphasis>作業コピーがロックされています</emphasis> というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote> ここで言う <emphasis>ロック</emphasis> は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
 
-#: source/TortoiseSVN_en.xml:13134(para)
+#: source/TortoiseSVN_en.xml:13145(para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion コマンドです。"
 
-#: source/TortoiseSVN_en.xml:13142(glossterm)
+#: source/TortoiseSVN_en.xml:13153(glossterm)
 msgid "Conflict"
 msgstr "競合"
 
-#: source/TortoiseSVN_en.xml:13144(para)
+#: source/TortoiseSVN_en.xml:13155(para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "リポジトリの変更が手元にマージされる際、時には同じ行に変更がある場合があります。この場合、Subversion はどちらを使用するか自動的に決定できません。これを競合と呼びます。それ以降の変更をコミットする前には、ファイルを手で修正し競合を解消しなければなりません。"
 
-#: source/TortoiseSVN_en.xml:13154(glossterm)
+#: source/TortoiseSVN_en.xml:13165(glossterm)
 msgid "Copy"
 msgstr "コピー"
 
-#: source/TortoiseSVN_en.xml:13156(para)
+#: source/TortoiseSVN_en.xml:13167(para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "Subversion リポジトリでは、単一ファイルやツリー全体のコピーを作成できます。これは、領域を消費しないように、オリジナルへのリンクに少し似ている <quote>チープコピー</quote> で実装されています。コピーの作成ではコピー内に履歴を保存します。そのためコピーされる前についても追跡できます。"
 
-#: source/TortoiseSVN_en.xml:13168(para)
+#: source/TortoiseSVN_en.xml:13179(para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "バージョン管理下のファイルを削除 (してコミット) すると、リポジトリ内のそのコミットを行ったバージョン以降に、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote> できます。"
 
-#: source/TortoiseSVN_en.xml:13180(para)
+#: source/TortoiseSVN_en.xml:13191(para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "<quote>差分表示 (Show Differences)</quote> の略。どのような変更が行われたのか正確に見たいときに便利です。"
 
-#: source/TortoiseSVN_en.xml:13189(para)
+#: source/TortoiseSVN_en.xml:13200(para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "このコマンドは、作業コピーと同様にバージョン管理下のフォルダをコピーしますが、<literal>.svn</literal> は作成しません。"
 
-#: source/TortoiseSVN_en.xml:13197(glossterm)
+#: source/TortoiseSVN_en.xml:13208(glossterm)
 msgid "FSFS"
 msgstr "FSFS"
 
-#: source/TortoiseSVN_en.xml:13199(para)
+#: source/TortoiseSVN_en.xml:13210(para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS ファイルシステム。リポジトリ用の Subversion が持つファイルシステムバックエンドです。ネットワーク共有が可能です。1.2 以降のリポジトリのデフォルトです。"
 
-#: source/TortoiseSVN_en.xml:13208(para)
+#: source/TortoiseSVN_en.xml:13219(para)
 msgid "Group policy object"
 msgstr "グループポリシーオブジェクト"
 
-#: source/TortoiseSVN_en.xml:13214(glossterm)
+#: source/TortoiseSVN_en.xml:13225(glossterm)
 msgid "HEAD revision"
 msgstr "HEAD リビジョン"
 
-#: source/TortoiseSVN_en.xml:13216(para)
+#: source/TortoiseSVN_en.xml:13227(para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダの最新リビジョンです。"
 
-#: source/TortoiseSVN_en.xml:13224(para)
+#: source/TortoiseSVN_en.xml:13235(para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "ひとつのリビジョンで、フォルダ階層のエントリをリポジトリにインポートするコマンドです。"
 
-#: source/TortoiseSVN_en.xml:13233(para)
+#: source/TortoiseSVN_en.xml:13244(para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除き、ロックが外れるまでリポジトリにコミット禁止の印を付けます。"
 
-#: source/TortoiseSVN_en.xml:13241(glossterm)
+#: source/TortoiseSVN_en.xml:13252(glossterm)
 msgid "Log"
 msgstr "ログ"
 
-#: source/TortoiseSVN_en.xml:13243(para)
+#: source/TortoiseSVN_en.xml:13254(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "ファイルやフォルダのリビジョンの歴史を表します。<quote>履歴</quote>とも表します。"
 
-#: source/TortoiseSVN_en.xml:13250(glossterm)
+#: source/TortoiseSVN_en.xml:13261(glossterm)
 msgid "History"
 msgstr "履歴"
 
-#: source/TortoiseSVN_en.xml:13252(para)
+#: source/TortoiseSVN_en.xml:13263(para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "ファイルやフォルダのリビジョンの歴史を表します。<quote>ログ</quote>とも表します。"
 
-#: source/TortoiseSVN_en.xml:13261(para)
+#: source/TortoiseSVN_en.xml:13272(para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "リポジトリに追加された変更を、手元で行った変更を壊さないように、作業コピーに追加するプロセスです。時には自動的に調整できず、作業コピーが競合と呼ばれる状態になります。"
 
-#: source/TortoiseSVN_en.xml:13267(para)
+#: source/TortoiseSVN_en.xml:13278(para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "作業コピーを更新する際に、自動的にマージが行われます。また、TortoiseSVN のマージツールを用いて、別のブランチにある変更を指定してマージすることもできます。"
 
-#: source/TortoiseSVN_en.xml:13275(glossterm)
+#: source/TortoiseSVN_en.xml:13286(glossterm)
 msgid "Patch"
 msgstr "パッチ"
 
-#: source/TortoiseSVN_en.xml:13277(para)
+#: source/TortoiseSVN_en.xml:13288(para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "作業コピーにテキストファイルの変更のみある場合、Unified Diff 形式で変更内容の単一ファイルを作成するのに、Subversion の Diff コマンドを使用できます。この形のファイルは、よく <quote>パッチ</quote> と言われており、他の誰か (やメーリングリスト) にメールで送ったり、他の作業コピーに適用したりできます。コミットアクセスできない人は、権限のあるコミッタが適用するように、変更をパッチファイルにして送ることができます。また、変更に自信がなければ、他の人に見てもらうようにパッチを送れます。"
 
-#: source/TortoiseSVN_en.xml:13290(glossterm)
+#: source/TortoiseSVN_en.xml:13301(glossterm)
 msgid "Property"
 msgstr "プロパティ"
 
-#: source/TortoiseSVN_en.xml:13292(para)
+#: source/TortoiseSVN_en.xml:13303(para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "ディレクトリやファイルをバージョン管理下に置くのに加えて、Subversion はバージョン管理下のメタデータを追加できます。これは、バージョン管理下のディレクトリ・ファイルごとの <quote>プロパティ</quote> として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。Subversion には、<literal>svn:eol-style</literal> のような内部で使用する特殊なプロパティがいくつかあります。TortoiseSVN にも <literal>tsvn:logminsize</literal> のような特殊なプロパティがあります。お好みの名前と値を持つプロパティの追加もできます。"
 
-#: source/TortoiseSVN_en.xml:13307(para)
+#: source/TortoiseSVN_en.xml:13318(para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "サーバ上の異なるディレクトリに移動したり、ドメイン名が変更されたりして、リポジトリが移動する場合、作業コピーを <quote>再配置</quote> して、リポジトリのURLを新しい場所に指し示してください。"
 
-#: source/TortoiseSVN_en.xml:13313(para)
+#: source/TortoiseSVN_en.xml:13324(para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "注意: このコマンドは、作業コピーが同じリポジトリ、同じ場所を指していて、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに <quote>切り替え</quote> コマンドを使用する必要があります。"
 
-#: source/TortoiseSVN_en.xml:13324(para)
+#: source/TortoiseSVN_en.xml:13335(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "データを格納し保守する中心部。複数のデータベースやファイルをネットワーク上に分散して置くこともでき、ネットワークに出ずに直接アクセスできる場所に置くこともできます。"
 
-#: source/TortoiseSVN_en.xml:13335(para)
+#: source/TortoiseSVN_en.xml:13346(para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "作業コピーのファイルが、マージ後に競合状態になったままになった場合、人間がエディタ (または TortoiseMerge) で競合を整理しなければなりません。このプロセスは <quote>競合の解消</quote> と言われています。競合したファイルに解消マークを付けると、コミットできるようになります。"
 
-#: source/TortoiseSVN_en.xml:13347(para)
+#: source/TortoiseSVN_en.xml:13358(para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "作業コピーを最後に更新したときから、Subversion はそれぞれのファイルの <quote>当初の</quote> コピーを手元に保持しています。変更を行い、その変更を取り消したい場合は、<quote>取り消し</quote> コマンドを使用して当初のコピーに戻せます。"
 
-#: source/TortoiseSVN_en.xml:13356(glossterm)
+#: source/TortoiseSVN_en.xml:13367(glossterm)
 msgid "Revision"
 msgstr "Revision"
 
-#: source/TortoiseSVN_en.xml:13358(para)
+#: source/TortoiseSVN_en.xml:13369(para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "変更セットのコミット時、常に新しい <quote>リビジョン</quote> をリポジトリに作成します。各リビジョンは、履歴の決まった場所にリポジトリツリーの状態を表します。過去にさかのぼる場合は、リビジョン N のような形でリポジトリを調べられます。"
 
-#: source/TortoiseSVN_en.xml:13365(para)
+#: source/TortoiseSVN_en.xml:13376(para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "言い換えると、リビジョンは、リビジョンが作成された時に行われた変更を指し示しています。"
 
-#: source/TortoiseSVN_en.xml:13372(glossterm)
+#: source/TortoiseSVN_en.xml:13383(glossterm)
 msgid "Revision Property (revprop)"
 msgstr "リビジョンプロパティ (revprop)"
 
-#: source/TortoiseSVN_en.xml:13374(para)
+#: source/TortoiseSVN_en.xml:13385(para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "ちょうどファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持てます。リビジョンが作成されるときに、<literal>svn:date svn:author svn:log</literal> といった特殊な revprops が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
 
-#: source/TortoiseSVN_en.xml:13386(glossterm)
+#: source/TortoiseSVN_en.xml:13397(glossterm)
 msgid "SVN"
 msgstr "SVN"
 
-#: source/TortoiseSVN_en.xml:13388(para)
+#: source/TortoiseSVN_en.xml:13399(para)
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Subversion のよく使われる省略表現。"
 
-#: source/TortoiseSVN_en.xml:13391(para)
+#: source/TortoiseSVN_en.xml:13402(para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "<quote>svnserve</quote> リポジトリサーバで使われる、Subversion カスタムプロトコルの名前です。"
 
-#: source/TortoiseSVN_en.xml:13400(para)
+#: source/TortoiseSVN_en.xml:13411(para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "ちょうど <quote>リビジョンへの更新</quote> が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>切り替え</quote> はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
 
-#: source/TortoiseSVN_en.xml:13414(para)
+#: source/TortoiseSVN_en.xml:13425(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "リポジトリから作業コピーへ最新の変更点を取得するコマンド。作業コピーの変更点に、他の人が行った変更をマージします。"
 
-#: source/TortoiseSVN_en.xml:13422(glossterm)
+#: source/TortoiseSVN_en.xml:13433(glossterm)
 msgid "Working Copy"
 msgstr "作業コピー"
 
-#: source/TortoiseSVN_en.xml:13424(para)
+#: source/TortoiseSVN_en.xml:13435(para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "手元の<quote>サンドボックス</quote>で、バージョン管理ファイルに対して作業を行う場所です。また通常手元のハードディスクに記録されています。リポジトリからの <quote>チェックアウト</quote> で作業コピーを作成し、<quote>コミット</quote> で変更点をリポジトリに反映します。"
 
