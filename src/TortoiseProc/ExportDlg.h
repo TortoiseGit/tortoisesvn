@@ -19,7 +19,6 @@
 #pragma once
 #include "SVNRev.h"
 #include "StandAloneDlg.h"
-#include "StandAloneDlg.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
@@ -32,7 +31,7 @@
  * Prompts the user for required information for an export command. The information
  * is the module name and the repository url. 
  */
-class CExportDlg : public CStandAloneDialog //CStandAloneDialog
+class CExportDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CExportDlg)
 

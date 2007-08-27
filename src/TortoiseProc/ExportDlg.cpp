@@ -26,9 +26,9 @@
 #include "AppUtils.h"
 
 
-IMPLEMENT_DYNAMIC(CExportDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CExportDlg, CResizableStandAloneDialog)
 CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CExportDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CExportDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_strExportDirectory(_T(""))
 	, m_sExportDirOrig(_T(""))
@@ -45,7 +45,7 @@ CExportDlg::~CExportDlg()
 
 void CExportDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
@@ -58,7 +58,7 @@ void CExportDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CExportDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CExportDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
@@ -72,7 +72,7 @@ END_MESSAGE_MAP()
 
 BOOL CExportDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_sExportDirOrig = m_strExportDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
@@ -80,6 +80,28 @@ BOOL CExportDlg::OnInitDialog()
 	AdjustControlSize(IDC_NOEXTERNALS);
 	AdjustControlSize(IDC_REVISION_HEAD);
 	AdjustControlSize(IDC_REVISION_N);
+
+	AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_REPOLABEL, TOP_LEFT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_EXPORT_CHECKOUTDIR, TOP_LEFT);
+	AddAnchor(IDC_CHECKOUTDIRECTORY, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_CHECKOUTDIRECTORY_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_NOEXTERNALS, TOP_LEFT);
+	AddAnchor(IDC_EOLLABEL, TOP_LEFT);
+	AddAnchor(IDC_EOLCOMBO, TOP_LEFT);
+
+	AddAnchor(IDC_REVISIONGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
+	AddAnchor(IDC_REVISION_N, TOP_LEFT);
+	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
+	AddAnchor(IDC_SHOW_LOG, TOP_LEFT);
+
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -124,6 +146,7 @@ BOOL CExportDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("ExportDlg"));
 	return TRUE;
 }
 
@@ -226,7 +249,7 @@ void CExportDlg::OnOK()
 	}
 
 	UpdateData(FALSE);
-	CStandAloneDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CExportDlg::OnBnClickedBrowse()
@@ -269,7 +292,7 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 BOOL CExportDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CStandAloneDialog::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CExportDlg::OnEnChangeCheckoutdirectory()
