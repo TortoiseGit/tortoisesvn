@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-08-18 07:19+0100\n"
+"PO-Revision-Date: 2007-08-27 09:47+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1101,6 +1101,10 @@ msgstr ""
 msgid "<new changelist>"
 msgstr "<neue Änderungsliste>"
 
+#: MenuEntry
+msgid "?"
+msgstr "?"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1655,6 +1659,10 @@ msgstr "Mittelwert"
 msgid "B&rowse..."
 msgstr "S&uchen..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "&Hintergrundfarbe..."
+
 # ID:246,
 # ID:246,
 #: ID:246
@@ -1877,6 +1885,11 @@ msgstr "Geänderte Dateien zwischen %s, %s und %s, %s"
 msgid "Changed files: %d"
 msgstr "Geänderte Dateien: %d"
 
+# Dlg-ID:243,
+#: Control-ID:65535
+msgid "Changelist:"
+msgstr "Änderungsliste:"
+
 # Control-ID:1242,
 # Control-ID:1242,
 #: Control-ID:1242
@@ -1985,6 +1998,12 @@ msgstr "Rekursionstiefe"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Auschecken von %s, Revision %s, %s, %s"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:65535
+msgid "Checksum:"
+msgstr "Prüfsumme:"
 
 # ID:146,
 #: ID:146
@@ -2180,6 +2199,11 @@ msgstr "Vergleiche und &Annotiere mit Arbeitskopie BASE"
 #: ID:114
 msgid "Compare and blame with previous revision"
 msgstr "Vergleiche und Annotiere mit vorheriger Revision"
+
+# Control-ID:1019,
+#: Control-ID:1390
+msgid "Compare whitespaces"
+msgstr "Vergleiche Leerzeichen"
 
 # ID:76,
 #: ID:76
@@ -2565,6 +2589,11 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "&Projektarchiv hier erstellen..."
 
+# ID:119,
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Standard-Diff erzeugen"
+
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
@@ -2681,6 +2710,11 @@ msgstr "Entfernt Dateien / Ordner aus der Versionskontrolle ohne die Objekte zu 
 msgid "Deleting"
 msgstr "Lösche"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Depth:"
+msgstr "Tiefe:"
+
 # ID:213,
 # ID:213,
 #: ID:213
@@ -2708,6 +2742,11 @@ msgstr "Vergleich mit URL"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Diffdatei:"
+
+# Control-ID:1022,
+#: Control-ID:65535
+msgid "Diff options"
+msgstr "Einstellungen"
 
 # Control-ID:1302,
 # Control-ID:1302,
@@ -3356,6 +3395,12 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Die folgenden Pfade ausfiltern (mehrfache Pfade durch '*' trennen):"
 
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:321
+msgid "Filter paths"
+msgstr "Pfade filtern"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -3421,7 +3466,7 @@ msgid "From: (start URL and revision of the range to merge)"
 msgstr "Von: (Start-URL und Revision des zusammenzuführenden Bereichs)"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Fully recursive"
 msgstr "Vollständig rekursiv"
 
@@ -3984,6 +4029,11 @@ msgstr "Ignoriere &alle Leerzeichen"
 msgid "Ignore &case changes"
 msgstr "Ignoriere &Groß- / Kleinschreibung"
 
+# Control-ID:1020,
+#: Control-ID:1392
+msgid "Ignore all whitespaces"
+msgstr "Ignoriere alle Leerzeichen"
+
 # Control-ID:1267,
 #: Control-ID:1267
 msgid "Ignore ancestry"
@@ -3994,6 +4044,17 @@ msgstr "Ignoriere &Vorfahren"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
 
+# Control-ID:1018,
+#: Control-ID:1126
+#: Control-ID:1127
+msgid "Ignore line endings"
+msgstr "Ignoriere Zeilenenden"
+
+# Control-ID:1021,
+#: Control-ID:1391
+msgid "Ignore whitespace changes"
+msgstr "Ignoriere Änderungen in der Anzahl von Leerzeichen"
+
 # ID:226,
 #: ID:226
 msgid "Ignored items included"
@@ -4001,7 +4062,7 @@ msgstr "Ignorierte Objekte eingeschlossen"
 
 # ID:266,
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Immediate children, including folders"
 msgstr "Direkte Unterobjekte, einschließlich Ordnern"
 
@@ -4560,9 +4621,14 @@ msgid "Merge - TortoiseSVN"
 msgstr "Zusammenführen - TortoiseSVN"
 
 # Control-ID:1377,
+#: Control-ID:65535
+msgid "Merge depth:"
+msgstr "Rekursionstiefe:"
+
+# ID:110,
 #: Control-ID:1377
-msgid "Merge Depth"
-msgstr "Rekursionstiefe"
+msgid "Merge settings"
+msgstr "Einstellungen"
 
 # ID:263,#:
 # ID:263,
@@ -4933,7 +4999,7 @@ msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelösc
 
 # ID:266,
 # ID:266,
-#: ID:266
+#: ID:20
 msgid "Not descending"
 msgstr "Nicht absteigend"
 
@@ -5006,7 +5072,7 @@ msgstr "Nur den &obersten Ordner auschecken"
 
 # ID:266,
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only file children"
 msgstr "Nur Dateiobjekte"
 
@@ -5021,7 +5087,7 @@ msgstr ""
 
 # ID:266,
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only this item"
 msgstr "Nur dieses Objekt"
 
@@ -5771,6 +5837,14 @@ msgstr "Projektarchiv"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Projektarchiv"
+
+# Control-ID:1374,#:
+# Control-ID:1055,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Repository UUID:"
+msgstr "UUID des Projektarchivs:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6931,6 +7005,11 @@ msgstr "Arbeitskopie als %s markiert"
 
 # Control-ID:65535,
 #: Control-ID:65535
+msgid "Target"
+msgstr "Ziel"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Text Status:"
 msgstr "Objekt / Inhalt:"
 
@@ -7160,12 +7239,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
-"Der Pfad/die URL, die Sie eingegeben haben, sind unter Windows nicht zulässig!\n"
-"Sie können es trotzdem versuchen, müssen aber mit Folgefehlern rechnen.\n"
+"Der Pfad/die URL, die Sie eingegeben haben, ist unter Windows nicht zulässig!\n"
+"Sie können es versuchen, müssen aber mit Folgefehlern rechnen.\n"
+"\n"
 "Eine gültige Pfadangabe unter Windows darf keine '<<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Wollen Sie trotzdem weitermachen?"
 
 # ID:314,
 #: ID:314
@@ -7492,8 +7576,14 @@ msgstr ""
 
 # ID:7,
 #: ID:7
+#: Dlg-ID:153
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - Ein Bildvergleicher, Teil von TortoiseSVN"
 
 # ID:7,
 # ID:7,
@@ -7647,6 +7737,7 @@ msgstr "URL von Subversion Objekten"
 # Control-ID:65535,
 #: ID:144
 #: Control-ID:65535
+#: Control-ID:11023
 msgid "URL:"
 msgstr "URL:"
 
@@ -7739,7 +7830,7 @@ msgstr ""
 "  Ermittelter Name: %s"
 
 # ID:266,
-#: ID:266
+#: ID:20
 msgid "Unknown depth"
 msgstr "Unbekannte Tiefe"
 
@@ -7988,8 +8079,15 @@ msgstr "Wert"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075
+#: Control-ID:1004
 msgid "Version"
 msgstr "Version"
+
+# ID:201,
+#: ID:7
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "Version %d.%d.%d.%d"
 
 # ID:264,
 #: ID:264
@@ -8066,7 +8164,7 @@ msgid "Working Copy Path:"
 msgstr "Pfad der Arbeitskopie:"
 
 # ID:267,
-#: ID:267
+#: ID:20
 msgid "Working copy"
 msgstr "Arbeitskopie"
 
@@ -8433,6 +8531,11 @@ msgstr ""
 "Kopiert von\r\n"
 "%s - revision %ld"
 
+# ID:73,
+#: Control-ID:65535
+msgid "copied:"
+msgstr "kopiert:"
+
 # ID:10,
 #: ID:10
 msgid "deleted"
@@ -8461,6 +8564,11 @@ msgstr ""
 msgid "external"
 msgstr "Extern"
 
+# Control-ID:1005,
+#: Control-ID:1005
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 # ID:13,
 #: ID:13
 msgid "ignored"
@@ -8487,9 +8595,15 @@ msgstr "Objekt lokal erhalten"
 # Control-ID:1002,
 #: ID:11
 #: ID:195
-#: Control-ID:1002
 msgid "locked"
 msgstr "Gesperrt"
+
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: Control-ID:65535
+msgid "locked:"
+msgstr "gesperrt:"
 
 # ID:11,#:
 # Control-ID:65535,
@@ -8524,6 +8638,11 @@ msgstr "Verändert / kopiert"
 #: ID:245
 msgid "month"
 msgstr "Monat"
+
+# ID:18,
+#: ID:18
+msgid "no"
+msgstr "nein"
 
 # ID:10,
 #: ID:10
@@ -8693,6 +8812,12 @@ msgstr ""
 "gewechselt zu\r\n"
 "%s"
 
+# ID:208,
+# ID:208,
+#: Control-ID:65535
+msgid "switched:"
+msgstr "gewechselt zu:"
+
 # ID:80,#:
 # ID:103,#:
 # ID:284,
@@ -8861,4 +8986,12 @@ msgstr "die auf folgendes Projektarchiv zeigt:"
 #: ID:245
 msgid "year"
 msgstr "Jahr"
+
+# ID:73,
+#: ID:18
+#: Control-ID:1002
+#: Control-ID:1011
+#: Control-ID:1012
+msgid "yes"
+msgstr "ja"
 
