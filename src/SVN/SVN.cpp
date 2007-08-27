@@ -485,7 +485,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t dep
 }
 
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message, 
-						 const CString& changelist, BOOL keepchangelist, BOOL recurse, BOOL keep_locks)
+						 const CString& changelist, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks)
 {
 	SVNPool localpool(pool);
 
@@ -496,7 +496,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit4 (&commit_info, 
 							pathlist.MakePathArray(pool), 
-							recurse,
+							depth,
 							keep_locks,
 							keepchangelist,
 							changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist),

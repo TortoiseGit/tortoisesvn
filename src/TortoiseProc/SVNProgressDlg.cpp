@@ -967,7 +967,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 
 			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
-				(m_Revision == 0), m_options & ProgOptKeeplocks))
+				(m_Revision == 0) ? svn_depth_infinity : svn_depth_empty, m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
 				bFailed = true;

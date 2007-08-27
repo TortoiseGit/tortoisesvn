@@ -216,12 +216,12 @@ public:
 	 *                   anything unless it's a member of changelist \c changelist. 
 	 * \param keepchangelist After the commit completes successfully, remove \c changelist 
 	 *                       associations from the targets, unless \c keepchangelist is set.
-	 * \param recurse 
+	 * \param depth how deep to commit 
 	 * \param keep_locks if TRUE, the locks are not removed on commit
 	 * \return the resulting revision number.
 	 */
 	svn_revnum_t Commit(const CTSVNPathList& pathlist, CString message, 
-		const CString& changelist, BOOL keepchangelist, BOOL recurse, BOOL keep_locks);
+		const CString& changelist, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
