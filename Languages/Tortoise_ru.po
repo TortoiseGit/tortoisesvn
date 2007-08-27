@@ -42,13 +42,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10352: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10427: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-15 16:23+0300\n"
+"PO-Revision-Date: 2007-08-27 12:56+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -940,6 +940,10 @@ msgstr ""
 msgid "<new changelist>"
 msgstr "<новая группа изменений>"
 
+#: MenuEntry
+msgid "?"
+msgstr "?"
+
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
@@ -1057,7 +1061,7 @@ msgstr "Добавить '%s' в словарь"
 
 #: ID:16,
 msgid "Add (as replacement)..."
-msgstr "Добавить (как перемещение)..."
+msgstr "Добавить (как замещение)..."
 
 #: ID:77,
 msgid "Add - TortoiseSVN"
@@ -1394,6 +1398,10 @@ msgstr "В среднем"
 msgid "B&rowse..."
 msgstr "О&бзор..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "&Цвет фона..."
+
 #: ID:246,
 msgid "Bar Graph"
 msgstr "Гистограмма"
@@ -1570,6 +1578,10 @@ msgstr "Изменённые файлы между %s, %s и %s, %s"
 msgid "Changed files: %d"
 msgstr "Изменённых файлов: %d"
 
+#: Control-ID:65535,
+msgid "Changelist:"
+msgstr "Группа изменений:"
+
 #: Control-ID:1242,
 msgid "Changes made (double-click on file for diff):"
 msgstr "Произведённые изменения (различия - по двойному щелчку на файле):"
@@ -1658,6 +1670,10 @@ msgstr "Глубина охвата при извлечении"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Извлечение из %s, ревизия %s, %s, %s"
+
+#: Control-ID:65535,
+msgid "Checksum:"
+msgstr "Контрольная сумма:"
 
 #: ID:146,
 msgid "Cleaning up."
@@ -1808,6 +1824,11 @@ msgstr "Сравнить с рабочей базой и посмотреть &�
 #: ID:114,
 msgid "Compare and blame with previous revision"
 msgstr "Сравнить с предыдущей ревизией и посмотреть авторство"
+
+#: Control-ID:1390,#:
+#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr "Сравнивать непечатаемые знаки"
 
 #: ID:76,
 msgid "Compare with &working copy"
@@ -2130,6 +2151,10 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "Создать здесь &хранилище..."
 
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Создать файл объединённых различий"
+
 #: ID:126,
 msgid "Created folder remotely"
 msgstr "Папка создана удаленно"
@@ -2223,6 +2248,10 @@ msgstr "Удаляет файлы/папки из управления верс�
 msgid "Deleting"
 msgstr "Удаление"
 
+#: Control-ID:65535,
+msgid "Depth:"
+msgstr "Глубина охвата:"
+
 #: ID:213,
 msgid "Deselect changelist"
 msgstr "Разотметить группу изменений"
@@ -2243,6 +2272,10 @@ msgstr "Различие с файлом по URL"
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "Файл различий:"
+
+#: Control-ID:65535,
+msgid "Diff options"
+msgstr "Параметры сравнения"
 
 #: Control-ID:1302,
 msgid "Difference between"
@@ -2787,6 +2820,10 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Отфильтровать следующие пути (при вводе нескольких путей - разделитель '*' ):                                                           "
 
+#: ID:321,
+msgid "Filter paths"
+msgstr "Фильтр путей"
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr "Найти"
@@ -2837,7 +2874,7 @@ msgstr "С:"
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "От: (начальные URL и ревизия в ряду для слияния)"
 
-#: ID:266,
+#: ID:19,
 msgid "Fully recursive"
 msgstr "Полностью рекурсивно"
 
@@ -2985,6 +3022,7 @@ msgstr "&Скрыть несвязанные изменённые пути"
 msgid "HEAD"
 msgstr "Ведущая"
 
+#: ID:73,#:
 #: Control-ID:1004,
 msgid "Help"
 msgstr "Справка"
@@ -3318,6 +3356,11 @@ msgstr "Игнорировать &все непечатаемые знаки"
 msgid "Ignore &case changes"
 msgstr "Игнорировать изменения &регистра"
 
+#: Control-ID:1392,#:
+#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr "Игнорировать все непечатаемые знаки"
+
 #: Control-ID:1267,
 msgid "Ignore ancestry"
 msgstr "Игнорировать предков"
@@ -3327,11 +3370,21 @@ msgstr "Игнорировать предков"
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнорировать &завершения строк(рекомендуется)"
 
+#: Control-ID:1126,#:
+#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr "Игнорировать завершения строк"
+
+#: Control-ID:1391,#:
+#: Control-ID:1391,
+msgid "Ignore whitespace changes"
+msgstr "Игнорировать изменения непечатаемых знаков"
+
 #: ID:226,
 msgid "Ignored items included"
 msgstr "Включая игнорируемые элементы"
 
-#: ID:266,
+#: ID:19,
 msgid "Immediate children, including folders"
 msgstr "Непосредственные потомки, включая папки"
 
@@ -3802,9 +3855,13 @@ msgstr "Слияние"
 msgid "Merge - TortoiseSVN"
 msgstr "Слияние - TortoiseSVN"
 
+#: Control-ID:65535,
+msgid "Merge depth:"
+msgstr "Глубина при слиянии:"
+
 #: Control-ID:1377,
-msgid "Merge Depth"
-msgstr "Глубина охвата при слиянии"
+msgid "Merge settings"
+msgstr "Настройки слияния"
 
 #: ID:263,#:
 #: ID:263,
@@ -4097,7 +4154,7 @@ msgstr "Нормальное"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не все компоненты в системном реестре (либо INI-файлы) удалены."
 
-#: ID:266,
+#: ID:20,
 msgid "Not descending"
 msgstr "Без спуска"
 
@@ -4155,7 +4212,7 @@ msgstr "Один или более файлов имеют конфликты."
 msgid "Only check out the &top folder"
 msgstr "Извлечь только папку &верхнего уровня"
 
-#: ID:266,
+#: ID:19,
 msgid "Only file children"
 msgstr "Только потомки-файлы"
 
@@ -4167,7 +4224,7 @@ msgstr ""
 "Разрешены только цифры\n"
 "(возможно, разделённые запятыми)!"
 
-#: ID:266,
+#: ID:19,
 msgid "Only this item"
 msgstr "Только этот элемент"
 
@@ -4773,6 +4830,10 @@ msgstr "Хранилище"
 #: Dlg-ID:153,
 msgid "Repository Browser"
 msgstr "Обозреватель хранилища"
+
+#: Control-ID:65535,
+msgid "Repository UUID:"
+msgstr "UUID хранилища:"
 
 #: Control-ID:65535,
 msgid "Requests a username and a password"
@@ -5707,6 +5768,10 @@ msgid "Tagged the working copy to %s"
 msgstr "Для рабочей копии назначена метка %s"
 
 #: Control-ID:65535,
+msgid "Target"
+msgstr "Результат"
+
+#: Control-ID:65535,
 msgid "Text Status:"
 msgstr "Статус текста:"
 
@@ -5901,13 +5966,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
-"Похоже, что путь/url, введенный Вами, недопустим в Windows!\n"
-"Вы можете оставить его так, как есть, но в этом случае Вы можете получить ошибку позже.\n"
+"Похоже, что введенный вами путь/url недопустим в Windows!\n"
+"Вы можете оставить его так, как есть, но в этом случае вы можете получить ошибку позже.\n"
 "\n"
 "Корректный путь в Windows не должен содержать '<<>|\"?*:' или одно из следующих имён устройств:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Вы действительно желаете использовать это значение?"
 
 #: ID:314,
 #, c-format
@@ -6183,9 +6252,14 @@ msgstr ""
 "TortoiseBlame не может быть запущена без параметров!\n"
 "TortoiseBlame.exe имя_файла [[файл_журнала] [заголовок]] [/line:номер_строки] [/path:исходный_путь]"
 
-#: ID:7,
+#: ID:7,#:
+#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - инструмент сравнения картинок, часть TortoiseSVN"
 
 #: ID:7,
 msgid ""
@@ -6314,7 +6388,8 @@ msgid "URL of Subversion items"
 msgstr "URL объектов Subversion"
 
 #: ID:144,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#:
+#: Control-ID:11023,
 msgid "URL:"
 msgstr "URL:"
 
@@ -6398,7 +6473,7 @@ msgstr ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 
-#: ID:266,
+#: ID:20,
 msgid "Unknown depth"
 msgstr "Неизвестная глубина"
 
@@ -6605,9 +6680,14 @@ msgid "Value"
 msgstr "Значение"
 
 #: Control-ID:1075,#:
-#: Control-ID:1075,
+#: Control-ID:1004,
 msgid "Version"
 msgstr "Версия"
+
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "Версия: %d.%d.%d.%d"
 
 #: ID:264,
 msgid "Versioned"
@@ -6667,7 +6747,7 @@ msgstr "Рабочая копия"
 msgid "Working Copy Path:"
 msgstr "Путь в рабочей копии:"
 
-#: ID:267,
+#: ID:20,
 msgid "Working copy"
 msgstr "Рабочая копия"
 
@@ -6704,7 +6784,7 @@ msgstr ""
 "Вы создаете хранилище на сетевом ресурсе.\n"
 "Эта операция безопасна, но получать доступ к этому хранилищу вы должны другими способами.\n"
 "Обращение к хранилищу посредством file:/// на сетевых ресурсах может повредить ваши данные!\n"
-"Все равно создавать хранилище?"
+"Продолжить создание хранилища?"
 
 #: ID:88,
 msgid ""
@@ -6798,7 +6878,7 @@ msgid ""
 "Do you want to proceed anyway?"
 msgstr ""
 "Вы отметили добавленные папки. Заплатка не будет содержать добавленные файлы из этих добавленных папок.\n"
-"Вы всё равно хотите продолжить?"
+"Следует ли продолжить выполнение?"
 
 #: ID:170,
 msgid ""
@@ -6824,9 +6904,10 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Похоже, ваша рабочая копия находится на пути к метке!\n"
-"Вы сначала должны переключиться на ответвление или главный ствол перед фиксированием.\n"
-"Вы действительно хотите попробовать зафиксировать в этой ситуации?"
+"Похоже, ваша рабочая копия содержит в пути признак метки!\n"
+"Вы сначала должны переключиться на ответвление или главный ствол перед фиксацией.\n"
+"\n"
+"Вы действительно желаете произвести фиксацию в этой ситуации?"
 
 #: ID:88,
 msgid ""
@@ -6982,6 +7063,10 @@ msgstr ""
 "скопировано из\r\n"
 "%s - ревизия %ld"
 
+#: Control-ID:65535,
+msgid "copied:"
+msgstr "скопировано:"
+
 #: ID:10,
 msgid "deleted"
 msgstr "удалён"
@@ -7007,6 +7092,10 @@ msgstr ""
 msgid "external"
 msgstr "внешний"
 
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 #: ID:13,
 msgid "ignored"
 msgstr "игнорируемый"
@@ -7024,10 +7113,13 @@ msgid "item kept locally"
 msgstr "элемент оставлен локально"
 
 #: ID:11,#:
-#: ID:195,#:
-#: Control-ID:1002,
+#: ID:195,
 msgid "locked"
 msgstr "заблокирован"
+
+#: Control-ID:65535,
+msgid "locked:"
+msgstr "заблокировано:"
 
 #: ID:11,#:
 #: Control-ID:65535,
@@ -7054,6 +7146,10 @@ msgstr "изменён / скопирован"
 #: ID:245,
 msgid "month"
 msgstr "месяц"
+
+#: ID:18,
+msgid "no"
+msgstr "нет"
 
 #: ID:10,
 msgid "no description for this command is available"
@@ -7204,6 +7300,10 @@ msgstr ""
 "переключено на\r\n"
 "%s"
 
+#: Control-ID:65535,
+msgid "switched:"
+msgstr "переключено:"
+
 #: ID:80,#:
 #: ID:103,#:
 #: ID:284,
@@ -7349,4 +7449,11 @@ msgstr "которая указывает на следующий URL в хра�
 #: ID:245,
 msgid "year"
 msgstr "год"
+
+#: ID:18,#:
+#: Control-ID:1002,#:
+#: Control-ID:1011,#:
+#: Control-ID:1012,
+msgid "yes"
+msgstr "да"
 
