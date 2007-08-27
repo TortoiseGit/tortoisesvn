@@ -1,3 +1,20 @@
+Version 1.4.5
+- BUG: The setting "unversioned files mark parent folder as modified" for the
+       overlays marked folders as modified even if the unversioned files
+       were ignored. (Stefan)
+- BUG: The commit dialog wrongly showed added files in external folders.
+       (Tobias Schäfer)
+- BUG: Selecting the 'to:' date in the log dialog didn't include the
+       selected date. (Stefan)
+- BUG: Saving a file which did not exist failed or wasn't possible,
+       only "Save as" worked. (Stefan)
+- BUG: Crash in the statistics dialog if for some reason the date of a 
+       revision is not available. (Stefan)
+- BUG: Thread leak in the status cache/handle lead in the 
+       shell extension. (Stefan)
+- BUG: Missing items got crawled over and over again in the status cache.
+       (Stefan)
+
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
        check mark. (Tobias Schäfer)
