@@ -1402,7 +1402,8 @@ BOOL CTortoiseProcApp::InitInstance()
 								CString sFilename = renlist[i].GetFilename();
 								CString sNewFilename = sNewMask + sFilename.Mid(sFilemask.GetLength());
 								sTemp.Format(_T("\n%s -> %s"), sFilename, sNewFilename);
-								sRenList += sTemp;
+								if (!renlist[i].IsEquivalentTo(cmdLinePath))
+									sRenList += sTemp;
 								renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+_T("\\")+sNewFilename;
 							}
 							CString sRenameMultipleQuestion;
