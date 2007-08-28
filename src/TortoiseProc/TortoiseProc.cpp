@@ -2528,7 +2528,8 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetDirectory().GetWinPathString().GetLength());
 		sRelativePath.Trim(_T("/\\"));
 		CTSVNPath diffpath = CTSVNPath(sRelativePath);
-		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, svn_depth_empty, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		svn_depth_t depth = path[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
+		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

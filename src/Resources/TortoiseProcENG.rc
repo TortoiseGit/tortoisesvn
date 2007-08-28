@@ -2735,12 +2735,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CREATEPATCH_ADDEDFOLDERS 
-                            "You've selected added folders. The patch won't contain added files within such added folders.\nDo you want to proceed anyway?"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SVN_PROGRESS_SPEED  "Transferring at %s"
     IDS_SVN_PROGRESS_TOTALTRANSFERRED "%I64d kBytes transferred"
     IDS_SVN_PROGRESS_TOTALMBTRANSFERRED "%.2f MBytes transferred"

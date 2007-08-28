@@ -239,6 +239,8 @@
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
+- BUG: "Create Patch" could include two copies of the same file. See
+       issue #241 for details. (Stefan)
 
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
