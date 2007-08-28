@@ -802,7 +802,7 @@
         </Control>
 
         <Control Id="ConfirmDowngradeText" Type="Text" X="135" Y="180" Width="220" Height="40" TabSkip="no">
-          <Text>[DlgFontBold8]NOTE: The package you are currently installing is older than you already have installed.  If you continue, you will downgrade your installation.</Text>
+          <Text>[DlgFontBold8]NOTE: The package you are currently installing is older than the one you already have installed.  If you continue, you will downgrade your installation.</Text>
           <Condition Action="hide">NOT NEWERVERSIONDETECTED</Condition>
         </Control>
 
