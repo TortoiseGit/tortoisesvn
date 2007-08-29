@@ -263,9 +263,14 @@ public:
 				stdstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
 					return TRUE;
+				if (str.size() && (str.at(str.size()-1) == '\\') && (str.size()-1 == _tcslen(path)))
+					return TRUE;
 			}
 			else if (_tcsicmp(I->c_str(), path)==0)
 				return TRUE;
+			else if ((I->at(I->size()-1) == '\\') && (I->size()-1 == _tcslen(path)))
+				return TRUE;
+
 		}
 		UINT drivetype = 0;
 		int drivenumber = PathGetDriveNumber(path);
