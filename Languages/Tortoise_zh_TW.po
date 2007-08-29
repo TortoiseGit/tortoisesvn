@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-21 22:17+0800\n"
+"PO-Revision-Date: 2007-08-29 21:43+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -932,7 +932,7 @@ msgstr "TortoiseSVN(&T)"
 # Control-ID:1058,
 #: Control-ID:1376,#:
 #: Control-ID:1058,#:
-#: Control-ID:65535,
+#: Control-ID:1394,
 msgid "&URL of repository:"
 msgstr "檔案庫 &URL:"
 
@@ -1107,6 +1107,10 @@ msgstr ""
 #: ID:209,
 msgid "<new changelist>"
 msgstr "<新變更列表>"
+
+#: MenuEntry
+msgid "?"
+msgstr "?"
 
 # ID:3867,#:
 # ID:3867,
@@ -1670,6 +1674,10 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "瀏覽(&R)..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "背景顏色(&C)..."
+
 # ID:246,
 #: ID:246,
 msgid "Bar Graph"
@@ -1885,6 +1893,11 @@ msgstr "%s, %s 至 %s, %s 間變更的檔案"
 msgid "Changed files: %d"
 msgstr "變動檔案數: %d"
 
+# ID:13,
+#: Control-ID:65535,
+msgid "Changelist:"
+msgstr "變更列表:"
+
 # Control-ID:1242,
 #: Control-ID:1242,
 msgid "Changes made (double-click on file for diff):"
@@ -1992,6 +2005,12 @@ msgstr "取出的層數"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "自 %s 取得檔案, 版本 %s, %s, %s"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:65535,
+msgid "Checksum:"
+msgstr "校驗和:"
 
 # ID:145,
 #: ID:146,
@@ -2177,6 +2196,12 @@ msgstr "與工作基礎版本比對並譴責(&B)"
 #: ID:114,
 msgid "Compare and blame with previous revision"
 msgstr "與前一個版本比對並譴責"
+
+# Control-ID:1019,
+#: Control-ID:1390,#:
+#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr "比對空白字元"
 
 # ID:76,
 #: ID:76,
@@ -2558,6 +2583,11 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "在此建立檔案庫(&Y)..."
 
+# ID:132,
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "建立單一差異檔"
+
 # ID:126,
 #: ID:126,
 msgid "Created folder remotely"
@@ -2683,6 +2713,13 @@ msgstr "從版本控制樹中刪除但保留檔案"
 msgid "Deleting"
 msgstr "正在刪除"
 
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535,
+msgid "Depth:"
+msgstr "層數:"
+
 # ID:13,
 #: ID:213,
 msgid "Deselect changelist"
@@ -2709,6 +2746,11 @@ msgstr "以URL比對差異"
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "差異檔:"
+
+# Control-ID:1022,
+#: Control-ID:65535,
+msgid "Diff options"
+msgstr "差異比對選項"
 
 # Control-ID:1302,
 #: Control-ID:1302,
@@ -3350,6 +3392,11 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "濾出下列路徑 (以 '*' 分隔多個路徑)"
 
+# Dlg-ID:135,
+#: ID:321,
+msgid "Filter paths"
+msgstr "過濾路徑"
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr "搜尋"
@@ -3409,7 +3456,7 @@ msgid "From: (start URL and revision of the range to merge)"
 msgstr "從: (URL以及合併範圍的起始版本)"
 
 # Control-ID:1018,
-#: ID:266,
+#: ID:19,
 msgid "Fully recursive"
 msgstr "全部遞迴"
 
@@ -3939,6 +3986,12 @@ msgstr "忽略所有空白字元(&A)"
 msgid "Ignore &case changes"
 msgstr "無視大小寫變更(&C)"
 
+# Control-ID:1021,
+#: Control-ID:1392,#:
+#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr "忽略所有空白字元"
+
 # Control-ID:1067,
 #: Control-ID:1267,
 msgid "Ignore ancestry"
@@ -3949,13 +4002,25 @@ msgstr "無視之前版本"
 msgid "Ignore line &endings (recommended)"
 msgstr "(建議)忽略換行(&E)"
 
+# Control-ID:1018,
+#: Control-ID:1126,#:
+#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr "忽略換行"
+
+# Control-ID:1067,
+#: Control-ID:1391,#:
+#: Control-ID:1391,
+msgid "Ignore whitespace changes"
+msgstr "無視空白字元變更"
+
 # Control-ID:1021,
 #: ID:226,
 msgid "Ignored items included"
 msgstr "包含忽略的項目"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Immediate children, including folders"
 msgstr "第一層檔案與目錄"
 
@@ -4503,9 +4568,14 @@ msgid "Merge - TortoiseSVN"
 msgstr "合併 - TortoiseSVN"
 
 # Dlg-ID:141,
+#: Control-ID:65535,
+msgid "Merge depth:"
+msgstr "合併層數:"
+
+# ID:110,
 #: Control-ID:1377,
-msgid "Merge Depth"
-msgstr "合併層數"
+msgid "Merge settings"
+msgstr "合併設定"
 
 # Dlg-ID:141,
 #: ID:263,#:
@@ -4864,7 +4934,7 @@ msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
 
 # ID:266,
-#: ID:266,
+#: ID:20,
 msgid "Not descending"
 msgstr "不展開"
 
@@ -4936,7 +5006,7 @@ msgid "Only check out the &top folder"
 msgstr "僅取出最上層目錄(&T)"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Only file children"
 msgstr "僅包含檔案"
 
@@ -4950,7 +5020,7 @@ msgstr ""
 "點分隔)!"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Only this item"
 msgstr "僅此項目"
 
@@ -5693,7 +5763,7 @@ msgstr "正在取代"
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
 #: Control-ID:1383,#:
-#: Control-ID:65535,
+#: Control-ID:1383,
 msgid "Repository"
 msgstr "檔案庫"
 
@@ -5701,6 +5771,13 @@ msgstr "檔案庫"
 #: Dlg-ID:153,
 msgid "Repository Browser"
 msgstr "檔案庫瀏覽器"
+
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535,
+msgid "Repository UUID:"
+msgstr "檔案庫 UUID:"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -5811,6 +5888,7 @@ msgstr "復原從上次更新之後全部的變動"
 #: Control-ID:1375,#:
 #: Control-ID:1306,#:
 #: Control-ID:65535,#:
+#: Control-ID:1393,#:
 #: ID:19,
 msgid "Revision"
 msgstr "版本"
@@ -6836,6 +6914,10 @@ msgstr "Tab 寬度:"
 msgid "Tagged the working copy to %s"
 msgstr "標記工作複本為 %s"
 
+#: Control-ID:65535,
+msgid "Target"
+msgstr "目標"
+
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid "Text Status:"
@@ -7063,13 +7145,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
 "您輸入的路徑/URL在Windows上有錯誤!\n"
 "您可以照用, 但之後可能發生問題.\n"
 "\n"
 "檔案名稱中不可以包含下列字元 '<<>|\"?*:' 或是下列的裝置名稱:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"確定要繼續嗎?"
 
 # ID:314,
 #: ID:314,
@@ -7380,9 +7466,14 @@ msgstr "不能直接使用 TortoiseBlame.exe!TortoiseBlame.exe blame檔名 [[紀
 
 # ID:9,#:
 # ID:80,
-#: ID:7,
+#: ID:7,#:
+#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - 影像差異比對工具, 屬於 TortoiseSVN"
 
 # ID:7,
 #: ID:7,
@@ -7532,7 +7623,8 @@ msgstr "Subversion 項目的 URL"
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: ID:144,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#:
+#: Control-ID:11023,
 msgid "URL:"
 msgstr "URL:"
 
@@ -7634,7 +7726,7 @@ msgstr ""
 "  識別名稱: %s"
 
 # Control-ID:1061,
-#: ID:266,
+#: ID:20,
 msgid "Unknown depth"
 msgstr "不明層數"
 
@@ -7886,9 +7978,15 @@ msgstr "值"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075,#:
-#: Control-ID:1075,
+#: Control-ID:1004,
 msgid "Version"
 msgstr "版本"
+
+# ID:201,
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "版本 %d.%d.%d.%d"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -7963,7 +8061,7 @@ msgid "Working Copy Path:"
 msgstr "工作複本路徑:"
 
 # ID:151,
-#: ID:267,
+#: ID:20,
 msgid "Working copy"
 msgstr "工作複本"
 
@@ -8101,15 +8199,6 @@ msgid ""
 msgstr ""
 "你已經將圖示組從 <i>%s</i> 變更為 <i>%s</i>.\n"
 "在重新登出登入或是重新開機之前變更並不會生效!"
-
-# ID:338,
-#: ID:338,
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"你選擇了新增的資料夾. 補綴檔不會包含新增資料夾中新增的檔案.\n"
-"確定要繼續嗎?"
 
 # ID:170,
 #: ID:170,
@@ -8317,6 +8406,11 @@ msgstr ""
 "複製自\r\n"
 "%s - 版本 %ld"
 
+# ID:74,
+#: Control-ID:65535,
+msgid "copied:"
+msgstr "複製:"
+
 # ID:10,
 #: ID:10,
 msgid "deleted"
@@ -8346,6 +8440,10 @@ msgstr ""
 msgid "external"
 msgstr "外部"
 
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 # ID:13,
 #: ID:13,
 msgid "ignored"
@@ -8369,10 +8467,15 @@ msgstr "檔案保留於本地端"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11,#:
-#: ID:195,#:
-#: Control-ID:1002,
+#: ID:195,
 msgid "locked"
 msgstr "鎖定"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:65535,
+msgid "locked:"
+msgstr "鎖定:"
 
 # ID:11,
 #: ID:11,#:
@@ -8404,6 +8507,10 @@ msgstr "已異動/複製"
 #: ID:245,
 msgid "month"
 msgstr "月"
+
+#: ID:18,
+msgid "no"
+msgstr "否"
 
 # ID:10,
 #: ID:10,
@@ -8569,6 +8676,11 @@ msgstr ""
 "切換至\r\n"
 "%s"
 
+# ID:208,
+#: Control-ID:65535,
+msgid "switched:"
+msgstr "切換:"
+
 # ID:80,
 #: ID:80,#:
 #: ID:103,#:
@@ -8728,4 +8840,12 @@ msgstr "指向檔案庫URL:"
 #: ID:245,
 msgid "year"
 msgstr "年"
+
+# ID:73,
+#: ID:18,#:
+#: Control-ID:1002,#:
+#: Control-ID:1011,#:
+#: Control-ID:1012,
+msgid "yes"
+msgstr "是"
 
