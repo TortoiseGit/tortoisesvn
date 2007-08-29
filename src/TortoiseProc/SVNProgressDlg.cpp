@@ -1222,7 +1222,7 @@ UINT CSVNProgressDlg::ProgressThread()
 							revStart = (svn_revnum_t)revStart + 1;
 						else
 							revEnd = (svn_revnum_t)revEnd - 1;
-						if (((svn_revnum_t)revStart+1) == (svn_revnum_t)revEnd)
+						if (((svn_revnum_t)revStart) == (svn_revnum_t)revEnd)
 						{
 							sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGMSGONE, revEnd.ToString(), m_url.GetUIPathString());
 						}
