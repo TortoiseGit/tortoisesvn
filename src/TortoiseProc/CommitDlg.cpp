@@ -181,8 +181,8 @@ BOOL CCommitDlg::OnInitDialog()
 		m_wndSplitter.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos - rectSplitter.top;
-		DoSize(delta);
 		m_wndSplitter.SetWindowPos(NULL, 0, yPos, 0, 0, SWP_NOSIZE);
+		DoSize(delta);
 	}
 
 	// add all directories to the watcher
@@ -819,7 +819,6 @@ void CCommitDlg::GetAutocompletionList()
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
-	ATLTRACE("start parsing regex file for autocompletion\n");
 	ParseRegexFile(sRegexFile, mapRegex);
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, sRegexFile.GetBuffer(MAX_PATH+1));
 	sRegexFile.ReleaseBuffer();
@@ -847,7 +846,6 @@ void CCommitDlg::GetAutocompletionList()
 		{
 			// add the path parts to the autocompletion list too
 			CString sPartPath = entry->GetRelativeSVNPath();
-			ATLTRACE(_T("parse file %s for autocompletion\n"), (LPCTSTR)sPartPath);
 			m_autolist.insert(sPartPath);
 			int pos = 0;
 			while ((pos = sPartPath.Find('/', pos)) >= 0)
@@ -903,7 +901,6 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
 		{
 			delete buffer;
-			ATLTRACE(_T("file %s is either binary or unicode\n"), (LPCTSTR)sFilePath);
 			return;
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
@@ -920,7 +917,6 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 	}
 	if (sFileContent.IsEmpty()|| !m_bRunThread)
 	{
-		ATLTRACE("file %ws is empty\n", (LPCTSTR)sFilePath);
 		return;
 	}
 	match_results results;
@@ -938,7 +934,6 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 				for (size_t i=1; i<results.cbackrefs(); ++i)
 				{
 					m_autolist.insert((LPCTSTR)results.backref(i).str().c_str());
-					ATLTRACE(_T("group %d is \"%s\"\n"), i, results.backref(i).str().c_str());
 				}
 				offset += results.rstart(0);
 				offset += results.rlength(0);
