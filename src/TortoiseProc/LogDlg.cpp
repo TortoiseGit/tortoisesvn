@@ -3567,9 +3567,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				CString url = _T("tsvn:")+pathURL;
-				sCmd.Format(_T("%s /command:log /path:\"%s\" /revision:%ld /merge"),
+				sCmd.Format(_T("%s /command:log /path:\"%s\" /revstart:%ld /pegrev:%ld /merge"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, (LONG)revSelected);
+					pathURL, (LONG)revSelected, (LONG)m_startrev);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
