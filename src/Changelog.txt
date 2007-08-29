@@ -242,6 +242,13 @@
 - BUG: "Create Patch" could include two copies of the same file. See
        issue #241 for details. (Stefan)
 
+Version 1.4.6
+- BUG: When upgrading, the MFC/CRT libs weren't updated if
+       the user didn't have Admin rights without an error. (Stefan)
+- BUG: The overlay include paths weren't checked correctly which lead
+       to paths directly below the include paths *not* to be included.
+       (Stefan)
+
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
        overlays marked folders as modified even if the unversioned files
