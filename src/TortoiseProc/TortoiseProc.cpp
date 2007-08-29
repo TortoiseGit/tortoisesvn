@@ -1064,6 +1064,11 @@ BOOL CTortoiseProcApp::InitInstance()
 					dlg.m_URL = cmdLinePath.GetSVNPathString();
 				else
 					dlg.m_strExportDirectory = cmdLinePath.GetWinPathString();
+				if (parser.HasKey(_T("revision")))
+				{
+					LONG lRev = parser.GetLongVal(_T("revision"));
+					dlg.Revision = lRev;
+				}	
 				if (dlg.DoModal() == IDOK)
 				{
 					CTSVNPath exportPath(dlg.m_strExportDirectory);

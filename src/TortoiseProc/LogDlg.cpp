@@ -3549,7 +3549,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:export /url:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					url, revSelected);
+					url, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
@@ -3559,7 +3559,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					url, revSelected);
+					url, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
@@ -3569,7 +3569,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:log /path:\"%s\" /revision:%ld /merge"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, revSelected);
+					pathURL, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
