@@ -763,6 +763,7 @@
 #define IDS_LOG_FILTER_AUTHORS          1852
 #define IDS_LOG_FILTER_MESSAGES         1853
 #define IDS_LOG_FILTER_REVS             1854
+#define IDS_LOG_FILTER_REGEX_TT         1860
 #define IDS_LOG_ACTIONS                 1870
 #define IDS_LOG_REVERTTOREV_CONFIRM     1890
 #define IDS_LOG_REVERTREV_ERROR         1891

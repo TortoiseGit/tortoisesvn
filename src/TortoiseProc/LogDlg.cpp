@@ -309,6 +309,9 @@ BOOL CLogDlg::OnInitDialog()
 	else
 		SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
 
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_SEARCHEDIT, IDS_LOG_FILTER_REGEX_TT);
+
 	SetSplitterRange();
 	
 	// the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
@@ -1749,6 +1752,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 			return TRUE;
 	}
 	
+	m_tooltips.RelayEvent(pMsg);
 	return __super::PreTranslateMessage(pMsg);
 }
 

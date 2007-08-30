@@ -29,7 +29,7 @@
 #include "MenuButton.h"
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
-#include "afxwin.h"
+#include "Balloon.h"
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -215,6 +215,8 @@ private:
 	CString				m_sLogInfo;
 	std::set<svn_revnum_t> m_mergedRevs;
 
+	CBalloon			m_tooltips;
+
 	CTime				m_timFrom;
 	CTime				m_timTo;
 	CColors				m_Colors;
@@ -226,8 +228,8 @@ private:
 
 	DWORD				m_childCounter;
 	HACCEL				m_hAccel;
-private:
-	CStoreSelection* m_pStoreSelection;
-    CLogDataVector m_logEntries;
+
+	CStoreSelection*	m_pStoreSelection;
+    CLogDataVector		m_logEntries;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
