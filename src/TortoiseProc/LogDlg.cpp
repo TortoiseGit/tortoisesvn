@@ -2502,7 +2502,8 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 		} // if (bRegex)
 		else
 		{
-			CString find = m_sFilterText.MakeLower();
+			CString find = m_sFilterText;
+			find.MakeLower();
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 			{
 				CString msg = m_logEntries[i]->sMessage;
