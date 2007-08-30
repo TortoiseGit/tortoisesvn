@@ -23,6 +23,15 @@
 #define WM_FILTEREDIT_CANCELCLICKED	(WM_USER + 101)
 
 /**
+ * Validator interface for the Filter edit control CFilterEdit
+ */
+class IFilterEditValidator
+{
+public:
+	virtual bool	Validate(LPCTSTR string) = 0;
+};
+
+/**
  * Filter edit control.
  * An edit control with a 'close' button on the right which clears the text
  * in the control, and an info button on the left (optional) where a context 
@@ -88,37 +97,43 @@ public:
 	 */
 	void SetButtonClickedMessageId(UINT iButtonClickedMessageId, UINT iCancelClickedMessageId);
 
+	void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
 protected:
 	virtual void	PreSubclassWindow( );
 	virtual BOOL	PreTranslateMessage( MSG* pMsg );
 
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
-	afx_msg void	OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg int		OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	afx_msg LRESULT OnSetFont(WPARAM wParam, LPARAM lParam);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg BOOL	OnEnChange();
+	afx_msg HBRUSH	CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
 	DECLARE_MESSAGE_MAP()
 
 
-	void ResizeWindow();
-	CSize GetIconSize(HICON hIcon);
+	void			ResizeWindow();
+	CSize			GetIconSize(HICON hIcon);
+	void			Validate();
 
 protected:
-	HICON	m_hIconCancelNormal;
-	HICON	m_hIconCancelPressed;
-	HICON	m_hIconInfo;
-	CSize   m_sizeCancelIcon;
-	CSize	m_sizeInfoIcon;
-	CRect	m_rcEditArea;
-	CRect	m_rcButtonArea;
-	CRect	m_rcInfoArea;
-	BOOL	m_bShowCancelButtonAlways;
-	BOOL	m_bPressed;
-	UINT	m_iButtonClickedMessageId;
-	UINT	m_iCancelClickedMessageId;
+	HICON					m_hIconCancelNormal;
+	HICON					m_hIconCancelPressed;
+	HICON					m_hIconInfo;
+	CSize					m_sizeCancelIcon;
+	CSize					m_sizeInfoIcon;
+	CRect					m_rcEditArea;
+	CRect					m_rcButtonArea;
+	CRect					m_rcInfoArea;
+	BOOL					m_bShowCancelButtonAlways;
+	BOOL					m_bPressed;
+	UINT					m_iButtonClickedMessageId;
+	UINT					m_iCancelClickedMessageId;
+	COLORREF				m_backColor;
+	HBRUSH					m_brBack;
+	IFilterEditValidator *	m_pValidator;
 };
 
 

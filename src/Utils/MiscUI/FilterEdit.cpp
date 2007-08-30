@@ -28,6 +28,9 @@ CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
 	, m_bShowCancelButtonAlways(FALSE)
 	, m_iButtonClickedMessageId(WM_FILTEREDIT_INFOCLICKED)
 	, m_iCancelClickedMessageId(WM_FILTEREDIT_CANCELCLICKED)
+	, m_pValidator(NULL)
+	, m_backColor(GetSysColor(COLOR_WINDOW))
+	, m_brBack(NULL)
 {
 	m_rcEditArea.SetRect(0, 0, 0, 0);
 	m_rcButtonArea.SetRect(0, 0, 0, 0);
@@ -44,6 +47,8 @@ CFilterEdit::~CFilterEdit()
 		DestroyIcon(m_hIconCancelPressed);
 	if (m_hIconInfo)
 		DestroyIcon(m_hIconInfo);
+	if (m_brBack)
+		DeleteObject(m_brBack);
 }
 
 BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
@@ -51,12 +56,13 @@ BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
 	ON_MESSAGE(WM_SETFONT, OnSetFont)
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
-	ON_WM_CHAR()
 	ON_WM_KEYDOWN()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
 	ON_WM_CREATE()
 	ON_WM_SETCURSOR()
+	ON_CONTROL_REFLECT_EX(EN_CHANGE, &CFilterEdit::OnEnChange)
+	ON_WM_CTLCOLOR_REFLECT()
 END_MESSAGE_MAP()
 
 
@@ -171,7 +177,7 @@ BOOL CFilterEdit::OnEraseBkgnd(CDC* pDC)
 {
 	RECT rc;
 	GetClientRect(&rc);
-	pDC->FillSolidRect(&rc, RGB(255,255,255));
+	pDC->FillSolidRect(&rc, m_backColor);
 
 	if (GetWindowTextLength() || m_bShowCancelButtonAlways)
 	{
@@ -195,15 +201,6 @@ BOOL CFilterEdit::OnEraseBkgnd(CDC* pDC)
 	return TRUE;
 }
 
-void CFilterEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
-{
-	// this will draw the background again
-	// so that the button will be drawn if the text exists
-	InvalidateRect(NULL);
-
-	CEdit::OnKeyDown(nChar, nRepCnt, nFlags);
-}
-
 void CFilterEdit::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	m_bPressed = FALSE;
@@ -216,6 +213,7 @@ void CFilterEdit::OnLButtonUp(UINT nFlags, CPoint point)
 		{
 			pOwner->SendMessage(m_iCancelClickedMessageId, 0, 0);
 		}
+		Validate();
 	}
 	if (m_rcInfoArea.PtInRect(point))
 	{
@@ -234,7 +232,7 @@ void CFilterEdit::OnLButtonUp(UINT nFlags, CPoint point)
 void CFilterEdit::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	m_bPressed = m_rcButtonArea.PtInRect(point);
-	InvalidateRect(NULL);
+	//InvalidateRect(NULL);
 	CEdit::OnLButtonDown(nFlags, point);
 }
 
@@ -276,4 +274,49 @@ BOOL CFilterEdit::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	}
 
 	return CEdit::OnSetCursor(pWnd, nHitTest, message);
+}
+
+BOOL CFilterEdit::OnEnChange()
+{
+	// check whether the entered text is valid
+	Validate();
+	InvalidateRect(NULL);
+	return FALSE;
+}
+
+HBRUSH CFilterEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
+{
+	if (m_backColor != GetSysColor(COLOR_WINDOW))
+	{
+		pDC->SetBkColor(m_backColor);
+		return m_brBack;
+	}
+	return NULL;
+}
+
+void CFilterEdit::Validate()
+{
+	if (m_pValidator)
+	{
+		int len = GetWindowTextLength();
+		TCHAR * pBuf = new TCHAR[len+1];
+		GetWindowText(pBuf, len+1);
+		if (m_pValidator->Validate(pBuf))
+		{
+			m_backColor = GetSysColor(COLOR_WINDOW);
+		}
+		else
+		{
+			// use a background color which goes to the red
+			int r;
+			m_backColor = GetSysColor(COLOR_WINDOW);
+			// The color components have to be treated individually.
+			r = (GetRValue(m_backColor) * 95) / 100;
+			m_backColor = RGB(GetRValue(m_backColor), r, r);
+			if (m_brBack)
+				DeleteObject(m_brBack);
+			m_brBack = CreateSolidBrush(m_backColor);
+		}
+		delete [] pBuf;
+	}
 }

@@ -317,6 +317,7 @@ BOOL CLogDlg::OnInitDialog()
 	// the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
 	m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
 	m_cFilter.SetInfoIcon(IDI_LOGFILTER);
+	m_cFilter.SetValidator(this);
 	
 	AdjustControlSize(IDC_HIDEPATHS);
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
@@ -2401,6 +2402,20 @@ void CLogDlg::OnEnChangeSearchedit()
 		return;
 	}
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
+}
+
+bool CLogDlg::Validate(LPCTSTR string)
+{
+	bool bRegex = false;
+	rpattern pat;
+	try
+	{
+		pat.init(string, MULTILINE | NOCASE);
+		bRegex = true;
+	}
+	catch (bad_alloc) {}
+	catch (bad_regexpr) {}
+	return bRegex;
 }
 
 void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)

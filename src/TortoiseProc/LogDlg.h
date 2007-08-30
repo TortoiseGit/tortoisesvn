@@ -46,7 +46,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN
+class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator
 {
 	DECLARE_DYNAMIC(CLogDlg)
 	
@@ -64,6 +64,7 @@ protected:
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
 	virtual BOOL Cancel();
+	virtual bool Validate(LPCTSTR string);
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
