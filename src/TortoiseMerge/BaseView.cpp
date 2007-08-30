@@ -80,6 +80,7 @@ CBaseView::CBaseView()
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
 	m_bOtherDiffChecked = false;
+	m_bInlineWordDiff = true;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	for (int i=0; i<MAXFONTS; i++)
 	{
