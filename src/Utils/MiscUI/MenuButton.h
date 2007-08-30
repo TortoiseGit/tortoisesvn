@@ -83,6 +83,7 @@ protected:
 	afx_msg void OnNMThemeChanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg LRESULT OnMouseLeave(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnDestroy();
 
 	void DrawArrow(CDC* pDC, RECT* pRect, COLORREF clrArrow = ::GetSysColor(COLOR_BTNTEXT));
 	bool ShowMenu();

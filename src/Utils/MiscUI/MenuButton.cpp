@@ -84,6 +84,7 @@ BEGIN_MESSAGE_MAP(CMenuButton, _Inherited)
 	ON_WM_CREATE()
 	ON_WM_MOUSEMOVE()
 	ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -334,4 +335,11 @@ BOOL CMenuButton::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return _Inherited::PreTranslateMessage(pMsg);
+}
+
+void CMenuButton::OnDestroy()
+{
+	m_sEntries.RemoveAll();
+
+	_Inherited::OnDestroy();
 }
