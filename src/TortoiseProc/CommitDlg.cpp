@@ -711,13 +711,15 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 	// restart the timer.
 	CTSVNPath path;
 	path.SetFromWin((LPCTSTR)lParam);
+
+	// just add all the items we get here.
+	// if the item was not unversioned, the add will fail but nothing
+	// more will happen.
+	SVN svn;
+	svn.Add(CTSVNPathList(path), &m_ProjectProperties, false, false, true);
+
 	if (!m_ListCtrl.HasPath(path))
 	{
-		// just add all the items we get here.
-		// if the item was not unversioned, the add will fail but nothing
-		// more will happen.
-		SVN svn;
-		svn.Add(CTSVNPathList(path), &m_ProjectProperties, false, false, true);
 		if (m_pathList.AreAllPathsFiles())
 		{
 			m_pathList.AddPath(path);
