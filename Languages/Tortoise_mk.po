@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-08-14 08:16+0100\n"
+"PO-Revision-Date: 2007-08-30 08:05+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -775,7 +775,7 @@ msgstr "&TortoiseSVN"
 
 #: Control-ID:1376,#:
 #: Control-ID:1058,#:
-#: Control-ID:65535,
+#: Control-ID:1394,
 msgid "&URL of repository:"
 msgstr "&URL на складиштето:"
 
@@ -915,6 +915,10 @@ msgstr ""
 #: ID:209,
 msgid "<new changelist>"
 msgstr "<нова листа со промени>"
+
+#: MenuEntry
+msgid "?"
+msgstr "&?"
 
 #: ID:3867,#:
 #: ID:3867,
@@ -1367,6 +1371,10 @@ msgstr "Просек"
 msgid "B&rowse..."
 msgstr "П&регледај..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "Позадинска &боја"
+
 #: ID:246,
 msgid "Bar Graph"
 msgstr "Bar Graph"
@@ -1541,6 +1549,10 @@ msgstr "Изменети датотеки помеѓу %s, %s и %s, %s"
 msgid "Changed files: %d"
 msgstr "Изменети датотеки: %d"
 
+#: Control-ID:65535,
+msgid "Changelist:"
+msgstr "Креирај листа со измени"
+
 #: Control-ID:1242,
 msgid "Changes made (double-click on file for diff):"
 msgstr "Направени измени (двоен клик на датотека за разлики):"
@@ -1627,6 +1639,10 @@ msgstr "Длабочина на превземање"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Превземање од %s, ревизија %s, %s, %s"
+
+#: Control-ID:65535,
+msgid "Checksum:"
+msgstr "Провери"
 
 #: ID:146,
 msgid "Cleaning up."
@@ -1777,6 +1793,11 @@ msgstr "Спореди и &blame со работната основа"
 #: ID:114,
 msgid "Compare and blame with previous revision"
 msgstr "Спореди и окриви со претходна ревизија"
+
+#: Control-ID:1390,#:
+#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr "&Спореди празни места"
 
 #: ID:76,
 msgid "Compare with &working copy"
@@ -2095,6 +2116,10 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "Креирај с&кладиште тука..."
 
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Превземам листа со обединети разлики"
+
 #: ID:126,
 msgid "Created folder remotely"
 msgstr "Креирај оддалечен директориум"
@@ -2187,6 +2212,10 @@ msgstr "Брише датотеки / директориуми од контро
 msgid "Deleting"
 msgstr "Бришење"
 
+#: Control-ID:65535,
+msgid "Depth:"
+msgstr "Стандардна патека:"
+
 #: ID:213,
 msgid "Deselect changelist"
 msgstr "Деселекција на листата со измени"
@@ -2207,6 +2236,10 @@ msgstr "Разлики со URL"
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "Датотека со разлики:"
+
+#: Control-ID:65535,
+msgid "Diff options"
+msgstr "Разликување"
 
 #: Control-ID:1302,
 msgid "Difference between"
@@ -2745,6 +2778,10 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Филтрирај ги следните патеки (одделени со знакот '*'):"
 
+#: ID:321,
+msgid "Filter paths"
+msgstr "Закрпи за датотеки"
+
 #: Dlg-ID:139,
 msgid "Find"
 msgstr "Најди"
@@ -2795,7 +2832,7 @@ msgstr "Од:"
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Од: (почетен URL и ревизија на опсегот за спојување)"
 
-#: ID:266,
+#: ID:19,
 msgid "Fully recursive"
 msgstr "Потполно рекурзивно"
 
@@ -2941,6 +2978,7 @@ msgstr "С&криј ги неповрзаните изменети патеки"
 msgid "HEAD"
 msgstr "ГЛАВНО"
 
+#: ID:73,#:
 #: Control-ID:1004,
 msgid "Help"
 msgstr "Помош"
@@ -3271,6 +3309,11 @@ msgstr "Занемари ги &сите празни места"
 msgid "Ignore &case changes"
 msgstr "Занемари &промена на големи и мали букви"
 
+#: Control-ID:1392,#:
+#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr "Занемари ги &сите празни места"
+
 #: Control-ID:1267,
 msgid "Ignore ancestry"
 msgstr "Занемари порекло"
@@ -3279,11 +3322,21 @@ msgstr "Занемари порекло"
 msgid "Ignore line &endings (recommended)"
 msgstr "Занемари ги завршетоците на &линиите (препорачано)"
 
+#: Control-ID:1126,#:
+#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr "Занемари ги завршетоците на &линиите (препорачано)"
+
+#: Control-ID:1391,#:
+#: Control-ID:1391,
+msgid "Ignore whitespace changes"
+msgstr "&Игнорирај промени на празнините"
+
 #: ID:226,
 msgid "Ignored items included"
 msgstr "Занемарените ставки се вклучени"
 
-#: ID:266,
+#: ID:19,
 msgid "Immediate children, including folders"
 msgstr "Непосредни деца, вклучувајќи ги директориумите"
 
@@ -3748,9 +3801,13 @@ msgstr "Спој"
 msgid "Merge - TortoiseSVN"
 msgstr "Спој - TortoiseSVN"
 
-#: Control-ID:1377,
-msgid "Merge Depth"
+#: Control-ID:65535,
+msgid "Merge depth:"
 msgstr "Длабочина на спојувањето"
+
+#: Control-ID:1377,
+msgid "Merge settings"
+msgstr "Напредни подесувања за спојување"
 
 #: ID:263,#:
 #: ID:263,
@@ -4041,7 +4098,7 @@ msgstr "Вообичаено"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не сите системски вредности во registry (или INI датотеката) се отстранети."
 
-#: ID:266,
+#: ID:20,
 msgid "Not descending"
 msgstr "Не е опаѓачки"
 
@@ -4097,7 +4154,7 @@ msgstr "Една или повеќе датотеки се во конфликт
 msgid "Only check out the &top folder"
 msgstr "Само превземи го &врвниот директориум."
 
-#: ID:266,
+#: ID:19,
 msgid "Only file children"
 msgstr "Само децата на датотеките."
 
@@ -4109,7 +4166,7 @@ msgstr ""
 "Само броеви (можат да бидат одвоени со запирка)\n"
 "се дозволени!"
 
-#: ID:266,
+#: ID:19,
 msgid "Only this item"
 msgstr "Само оваа ставка"
 
@@ -4706,13 +4763,17 @@ msgstr "Заменувам"
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
 #: Control-ID:1383,#:
-#: Control-ID:65535,
+#: Control-ID:1383,
 msgid "Repository"
 msgstr "Складиште"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
 msgstr "Прегледник на складиштето"
+
+#: Control-ID:65535,
+msgid "Repository UUID:"
+msgstr "Складиште"
 
 #: Control-ID:65535,
 msgid "Requests a username and a password"
@@ -4798,6 +4859,7 @@ msgstr "Поврати ги сите измени од последното аж
 #: Control-ID:1375,#:
 #: Control-ID:1306,#:
 #: Control-ID:65535,#:
+#: Control-ID:1393,#:
 #: ID:19,
 msgid "Revision"
 msgstr "Ревизија"
@@ -5637,6 +5699,10 @@ msgid "Tagged the working copy to %s"
 msgstr "Означена е работната копија на %s"
 
 #: Control-ID:65535,
+msgid "Target"
+msgstr "Цел"
+
+#: Control-ID:65535,
 msgid "Text Status:"
 msgstr "Статус на текстот:"
 
@@ -5831,7 +5897,9 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
 "Патеката / URLто кое го внесовте не е легално во Windows!\n"
 "Можете да се обидете, но можно е да добиете грешка подоцна.\n"
@@ -6110,9 +6178,14 @@ msgstr ""
 "TortoiseBlame не може да се стартува директно!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
-#: ID:7,
+#: ID:7,#:
+#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - Алатка за споредба, дел од TortoiseSVN"
 
 #: ID:7,
 msgid ""
@@ -6239,7 +6312,8 @@ msgid "URL of Subversion items"
 msgstr "URL на Верзионирани ставки"
 
 #: ID:144,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#:
+#: Control-ID:11023,
 msgid "URL:"
 msgstr "URL:"
 
@@ -6319,7 +6393,7 @@ msgstr ""
 "  Fingerprint: %s\n"
 "  Име: %s"
 
-#: ID:266,
+#: ID:20,
 msgid "Unknown depth"
 msgstr "Непозната длабочина"
 
@@ -6523,9 +6597,14 @@ msgid "Value"
 msgstr "Вредност"
 
 #: Control-ID:1075,#:
-#: Control-ID:1075,
+#: Control-ID:1004,
 msgid "Version"
 msgstr "Верзија"
+
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "Вашата верзија е: %d.%d.%d.%d"
 
 #: ID:264,
 msgid "Versioned"
@@ -6584,7 +6663,7 @@ msgstr "Работна копија"
 msgid "Working Copy Path:"
 msgstr "Патека кон работна копија:"
 
-#: ID:267,
+#: ID:20,
 msgid "Working copy"
 msgstr "Работна копија"
 
@@ -6706,14 +6785,6 @@ msgid ""
 msgstr ""
 "Сте го промениле множеството со икони од <i>%s</i> во <i>%s</i>.\n"
 "Оваа измена нема да има ефект се до рестартирање на компјутерот!"
-
-#: ID:338,
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"Сте избрале додадени директориуми. Закрпата нема да ги содржи додадените датотеки внатре во тие директориуми.\n"
-"Дали сакате да продолжите?"
 
 #: ID:170,
 msgid ""
@@ -6897,6 +6968,10 @@ msgstr ""
 "копирано од\r\n"
 "%s - ревизија %ld"
 
+#: Control-ID:65535,
+msgid "copied:"
+msgstr "Ископирано"
+
 #: ID:10,
 msgid "deleted"
 msgstr "избришано"
@@ -6922,6 +6997,10 @@ msgstr ""
 msgid "external"
 msgstr "надворешно"
 
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 #: ID:13,
 msgid "ignored"
 msgstr "игнорирано"
@@ -6939,9 +7018,12 @@ msgid "item kept locally"
 msgstr "ставките се копирани локално"
 
 #: ID:11,#:
-#: ID:195,#:
-#: Control-ID:1002,
+#: ID:195,
 msgid "locked"
+msgstr "заклучено"
+
+#: Control-ID:65535,
+msgid "locked:"
 msgstr "заклучено"
 
 #: ID:11,#:
@@ -6968,6 +7050,10 @@ msgstr "модифицирано / копирано"
 #: ID:245,
 msgid "month"
 msgstr "месец"
+
+#: ID:18,
+msgid "no"
+msgstr "не"
 
 #: ID:10,
 msgid "no description for this command is available"
@@ -7108,6 +7194,12 @@ msgstr ""
 msgid ""
 "switched to\r\n"
 "%s"
+msgstr ""
+"префрлено на\r\n"
+"%s"
+
+#: Control-ID:65535,
+msgid "switched:"
 msgstr ""
 "префрлено на\r\n"
 "%s"
@@ -7254,4 +7346,11 @@ msgstr "кој покажува на складиштето со URL:"
 #: ID:245,
 msgid "year"
 msgstr "година"
+
+#: ID:18,#:
+#: Control-ID:1002,#:
+#: Control-ID:1011,#:
+#: Control-ID:1012,
+msgid "yes"
+msgstr "Да"
 
