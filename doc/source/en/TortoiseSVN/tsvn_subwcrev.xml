@@ -150,9 +150,17 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							<entry condition="pot">$WCDATE$</entry>
 							<entry>
 								Replaced with the commit date/time of the
-								highest commit revision. To avoid confusion,
+								highest commit revision. By default,
 								international format is used:
-								<literal>yyyy-mm-dd hh:mm:ss</literal>
+								<literal>yyyy-mm-dd hh:mm:ss</literal>.
+								Alternatively, you can specify a custom format which
+								will be used with <literal>strftime()</literal>,
+								for example:
+								<literal>$WCDATE=%a %b %d %I:%M:%S %p$</literal>.
+								For a list of available formatting characters, look at the
+								<ulink url="http://www.cppreference.com/stddate/strftime.html">
+									<citetitle>online reference</citetitle>
+								</ulink>.
 							</entry>
 						</row>
 						<row>
@@ -160,7 +168,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							<entry>
 								Replaced with the current system date/time.
 								This can be used to indicate the build time.
-								International format is used as described above.
+								Time formatting is as described above.
 							</entry>
 						</row>
 						<row>
