@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-08-20 16:10+0100\n"
+"PO-Revision-Date: 2007-08-31 11:48+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -911,7 +911,7 @@ msgstr "&TortoiseSVN"
 # Control-ID:1058,
 #: Control-ID:1376
 #: Control-ID:1058
-#: Control-ID:65535
+#: Control-ID:1394
 msgid "&URL of repository:"
 msgstr "&URL del repositori:"
 
@@ -1085,6 +1085,10 @@ msgstr ""
 #: ID:209
 msgid "<new changelist>"
 msgstr "<nova changelist>"
+
+#: MenuEntry
+msgid "?"
+msgstr "?"
 
 # ID:3867,#:
 # ID:3867,
@@ -1631,6 +1635,10 @@ msgstr "Promig"
 msgid "B&rowse..."
 msgstr "E&xplora..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "&Color de fons..."
+
 # ID:246,
 #: ID:246
 msgid "Bar Graph"
@@ -1846,6 +1854,11 @@ msgstr "S'han canviat els fitxers entre %s, %s i %s, %s"
 msgid "Changed files: %d"
 msgstr "Fitxers modificats: %d"
 
+# Dlg-ID:208,
+#: Control-ID:65535
+msgid "Changelist:"
+msgstr "Llista de canvis:"
+
 # Control-ID:1242,
 #: Control-ID:1242
 msgid "Changes made (double-click on file for diff):"
@@ -1952,6 +1965,12 @@ msgstr "Obté Profunditat"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Obtenint fitxer de %s, revisió %s, %s, %s"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:65535
+msgid "Checksum:"
+msgstr "Checksum:"
 
 # ID:146,
 #: ID:146
@@ -2137,6 +2156,11 @@ msgstr "Compara i troba &autoria amb còpia BASE"
 #: ID:114
 msgid "Compare and blame with previous revision"
 msgstr "Compara i troba &autoria amb revisió prèvia"
+
+# Control-ID:1019,
+#: Control-ID:1390
+msgid "Compare whitespaces"
+msgstr "Compara espais en blanc"
 
 # ID:76,
 #: ID:76
@@ -2517,6 +2541,11 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "Crea repositor&i aquí..."
 
+# ID:119,
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Crea fitxer diff unificat"
+
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
@@ -2635,6 +2664,12 @@ msgstr "Esborra fitxers / carpetes del control de versions però conserva el fit
 msgid "Deleting"
 msgstr "Esborrant"
 
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Depth:"
+msgstr "Profunditat:"
+
 # Control-ID:1126,
 #: ID:213
 msgid "Deselect changelist"
@@ -2660,6 +2695,11 @@ msgstr "Comparació amb URL"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Fitxer Diff:"
+
+# Control-ID:1022,
+#: Control-ID:65535
+msgid "Diff options"
+msgstr "Opcions Diff"
 
 # Control-ID:1302,
 #: Control-ID:1302
@@ -3299,6 +3339,12 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Filtra els següents paths (separeu els múltiples paths amb el caràcter '*'):"
 
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:321
+msgid "Filter paths"
+msgstr "Paths de filtres"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -3359,7 +3405,7 @@ msgid "From: (start URL and revision of the range to merge)"
 msgstr "De: (URL inicial i revisió del rang a fusionar)"
 
 # ID:563,
-#: ID:266
+#: ID:19
 msgid "Fully recursive"
 msgstr "Totalment recursiu"
 
@@ -3893,6 +3939,11 @@ msgstr "ignora &tots els espais en blanc"
 msgid "Ignore &case changes"
 msgstr "Ignora ma&júscules/minúscules"
 
+# Control-ID:1020,
+#: Control-ID:1392
+msgid "Ignore all whitespaces"
+msgstr "Ignora tots els espais en blanc"
+
 # Control-ID:1267,
 #: Control-ID:1267
 msgid "Ignore ancestry"
@@ -3903,13 +3954,24 @@ msgstr "Ignora ancestre"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignora &finals de línea (recomanat)"
 
+# Control-ID:1018,
+#: Control-ID:1126
+#: Control-ID:1127
+msgid "Ignore line endings"
+msgstr "Ignora finals de línea"
+
+# Control-ID:1021,
+#: Control-ID:1391
+msgid "Ignore whitespace changes"
+msgstr "Ignora canvis d'espais en blanc"
+
 # ID:15,
 #: ID:226
 msgid "Ignored items included"
 msgstr "Items ignorats inclosos"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Immediate children, including folders"
 msgstr "Fills immediats, incolent-hi carpetes"
 
@@ -4456,9 +4518,14 @@ msgstr "Merge - TortoiseSVN"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: Control-ID:65535
+msgid "Merge depth:"
+msgstr "Profunditat de la Fusió:"
+
+# ID:110,
 #: Control-ID:1377
-msgid "Merge Depth"
-msgstr "Profunditat de la Fusió"
+msgid "Merge settings"
+msgstr "Configuració  de Fusionar"
 
 # ID:263,#:
 # ID:263,
@@ -4811,7 +4878,7 @@ msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Alguns valors del registre (o del fitxer INI) no s'han suprimit."
 
 # ID:266,
-#: ID:266
+#: ID:20
 msgid "Not descending"
 msgstr "No descendent"
 
@@ -4883,7 +4950,7 @@ msgid "Only check out the &top folder"
 msgstr "Obté només la carpeta &superior"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only file children"
 msgstr "Només fitxers fills"
 
@@ -4897,7 +4964,7 @@ msgstr ""
 "(opcionalment separats per comes)"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only this item"
 msgstr "Només aquest item"
 
@@ -5412,6 +5479,42 @@ msgstr "Redueix la finestra a una icona"
 msgid "Refresh"
 msgstr "Refresca"
 
+# ID:117,
+#: ID:117
+#, c-format
+msgid ""
+"Regular expressions filter:\n"
+".\t\t\tany character\n"
+"c+\t\t\tmatch character c one or more times\n"
+"c*\t\t\tmatch character c zero or more times\n"
+"^\t\t\tstart of line\n"
+"$\t\t\tend of line\n"
+"(string){n}\tmatch string n times\n"
+"(abcd)\t\tsubexpression\n"
+"[aei0-9]\t\tmatch a,e,i and 0..9\n"
+"[^aei0-9]\tanything but a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany non-alphanumeric character\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\twhitespaces"
+msgstr ""
+"Filtre d'expressions corrents:\n"
+".\t\t\tqualsevol caracter\n"
+"c+\t\t\tcerca concidències caracter c un o més cops\n"
+"c*\t\t\tcerca concidències caracter c zero o més cops\n"
+"^\t\t\tinici de línea\n"
+"$\t\t\tfinal de línea\n"
+"(string){n}\tcerca concidències cadena n cops\n"
+"(abcd)\t\tsubexpressió\n"
+"[aei0-9]\t\tcerca concidències a,e,i and 0..9\n"
+"[^aei0-9]\ttot menys a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tcoincideix amb a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany caràcter no-alfanumèric\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\tespais en blanc"
+
 # ID:82,
 #: ID:82
 msgid "Reject"
@@ -5627,7 +5730,6 @@ msgstr "Reemplaçant"
 #: Control-ID:1374
 #: Control-ID:1055
 #: Control-ID:1383
-#: Control-ID:65535
 msgid "Repository"
 msgstr "Repositori"
 
@@ -5635,6 +5737,13 @@ msgstr "Repositori"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Navega Repositori"
+
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Repository UUID:"
+msgstr "Repositori UUID:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5745,6 +5854,7 @@ msgstr "Reverteix canvis des de la darrera actualització"
 #: Control-ID:1375
 #: Control-ID:1306
 #: Control-ID:65535
+#: Control-ID:1393
 #: ID:19
 msgid "Revision"
 msgstr "Revisió"
@@ -6770,6 +6880,11 @@ msgstr "La còpia de treball s'ha etiquetat amb %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
+msgid "Target"
+msgstr "Destinació"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Text Status:"
 msgstr "Estat del Texte:"
 
@@ -6994,13 +7109,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
 "El path/URL introduit sembla que no és acceptat pel Windows!\n"
 "Podeu provar-lo igualment, però pot donar un error més endevant.\n"
 "\n"
 "Un path vàlid al Windows no ha de tenir '<>|\"?*:' ni cap dels següents noms de dispositu:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Voleu continuar igualment?"
 
 # ID:314,
 #: ID:314
@@ -7310,8 +7429,14 @@ msgstr ""
 
 # ID:7,
 #: ID:7
+#: Dlg-ID:153
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - Una eina visual per cercar diferències, part de TortoiseSVN"
 
 # ID:7,
 #: ID:7
@@ -7462,6 +7587,7 @@ msgstr "URL d'items de Subversion"
 # Control-ID:65535,
 #: ID:144
 #: Control-ID:65535
+#: Control-ID:11023
 msgid "URL:"
 msgstr "URL:"
 
@@ -7553,7 +7679,7 @@ msgstr ""
 "  Nom distinguit : %s"
 
 # Control-ID:1061,
-#: ID:266
+#: ID:20
 msgid "Unknown depth"
 msgstr "&Profunditat desconeguda"
 
@@ -7796,8 +7922,15 @@ msgstr "Valor"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075
+#: Control-ID:1004
 msgid "Version"
 msgstr "Versió"
+
+# ID:201,
+#: ID:7
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "Versió: %d.%d.%d.%d"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -7871,7 +8004,7 @@ msgid "Working Copy Path:"
 msgstr "Path de la còpia de Treball"
 
 # Control-ID:1183,
-#: ID:267
+#: ID:20
 msgid "Working copy"
 msgstr "Còpia de Treball"
 
@@ -8008,15 +8141,6 @@ msgid ""
 msgstr ""
 "Heu canviat el conjunt d'icones de <i>%s</i> a <i>%s</i>.\n"
 "El canvi no tindrà efecte fins que no reinicieu l'ordinador o tanqueu la sessió i torneu a entrar!"
-
-# ID:338,
-#: ID:338
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"Heu seleccionat carpetes afegides. El pedaç no contindrà fitxers afegits dins d'aquestes carpetes.\n"
-"Voleu fer-ho de totes maneres?"
 
 # ID:170,
 #: ID:170
@@ -8226,6 +8350,11 @@ msgstr ""
 "copiat de\r\n"
 "%s - revisió %ld"
 
+# ID:73,
+#: Control-ID:65535
+msgid "copied:"
+msgstr "copiat(s):"
+
 # ID:10,
 #: ID:10
 msgid "deleted"
@@ -8255,6 +8384,11 @@ msgstr ""
 msgid "external"
 msgstr "extern"
 
+# Control-ID:1005,
+#: Control-ID:1005
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 # ID:13,
 #: ID:13
 msgid "ignored"
@@ -8280,9 +8414,15 @@ msgstr "item guradat localment"
 # Control-ID:1002,
 #: ID:11
 #: ID:195
-#: Control-ID:1002
 msgid "locked"
 msgstr "bloquejat"
+
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: Control-ID:65535
+msgid "locked:"
+msgstr "bloquejat(s):"
 
 # ID:11,#:
 # Control-ID:65535,
@@ -8315,6 +8455,11 @@ msgstr "modificat / copiat"
 #: ID:245
 msgid "month"
 msgstr "mes"
+
+# ID:18,
+#: ID:18
+msgid "no"
+msgstr "no"
 
 # ID:10,
 #: ID:10
@@ -8480,6 +8625,11 @@ msgstr ""
 "canviat a\r\n"
 "%s"
 
+# ID:208,
+#: Control-ID:65535
+msgid "switched:"
+msgstr "canviat(s):"
+
 # ID:80,#:
 # ID:103,#:
 # ID:103,
@@ -8641,4 +8791,12 @@ msgstr "que apunta al repositori que es troba a la URL:"
 #: ID:245
 msgid "year"
 msgstr "any"
+
+# ID:73,
+#: ID:18
+#: Control-ID:1002
+#: Control-ID:1011
+#: Control-ID:1012
+msgid "yes"
+msgstr "sí"
 
