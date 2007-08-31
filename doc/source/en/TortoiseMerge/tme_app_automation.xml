@@ -176,14 +176,17 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">/createunifieddiff</entry>
 							<entry>
-								Creates a unified diff file (patchfile) of two files
-								specified with /origfile:"path_to_original_file"
-								and /modifiedfile:"path_to_modified_file". The target
-								path is set with /outfile:"path_to_resulting_patchfile".
-								If /outfile is not set, a file save dialog is shown so
-								the user can choose the location where to save the
-								patchfile to.
-								Note: If /createunifieddiff is set, all other parameters are ignored.
+								Creates a unified diff file (patch file) of two files
+								specified with
+								<literal>/origfile:"path_to_original_file"</literal> and
+								<literal>/modifiedfile:"path_to_modified_file"</literal>.
+								The target path is set with
+								<literal>/outfile:"path_to_resulting_patchfile"</literal>.
+								If <literal>/outfile</literal> is not set, a file save dialog
+								is shown so the user can choose the location to save the
+								patch file.
+								Note: If <literal>/createunifieddiff</literal> is set,
+								all other parameters are ignored.
 							</entry>
 						</row>
 					</tbody>
