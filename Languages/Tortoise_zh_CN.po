@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-29 18:34+0800\n"
+"PO-Revision-Date: 2007-08-31 20:15+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -53,9 +53,7 @@ msgstr ""
 # ID:10,#:
 # ID:126,#:
 # ID:126,
-#: ID:10,#:
-#: ID:126,#:
-#: ID:126,
+#: ID:10,#: ID:126,#: ID:126,
 msgid " "
 msgstr " "
 
@@ -79,72 +77,63 @@ msgstr "%.2f kBytes/s"
 
 # ID:3868,#:
 # ID:3868,
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3868,#: ID:3868,
 #, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 包含有未预期的对象。"
 
 # ID:3868,#:
 # ID:3868,
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3868,#: ID:3868,
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 包含有错误的结构。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1 包含有不合法的路径。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "因为目录已满，无法创建 %1。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "由于已经打开过多的文件，无法打开 %1。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 是当前目录，无法删除。"
 
 # ID:3868,#:
 # ID:3868,
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3868,#: ID:3868,
 #, c-format
 msgid "%1 has a bad format."
 msgstr "%1 格式错误。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "%1 was not found."
 msgstr "找不到 %1。"
 
 # ID:3860,#:
 # ID:3860,
-#: ID:3860,#:
-#: ID:3860,
+#: ID:3860,#: ID:3860,
 #, c-format
 msgid ""
 "%1: %2\n"
@@ -155,8 +144,7 @@ msgstr ""
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 #, c-format
 msgid ""
 "%1\n"
@@ -303,16 +291,13 @@ msgstr "关于 TortoiseMerge(&A)..."
 # ID:8,#:
 # Control-ID:1098,#:
 # Control-ID:1310,
-#: ID:8,#:
-#: Control-ID:1098,#:
-#: Control-ID:1310,
+#: ID:8,#: Control-ID:1098,#: Control-ID:1310,
 msgid "&Add..."
 msgstr "添加(&A)..."
 
 # Control-ID:1090,#:
 # Control-ID:1093,
-#: Control-ID:1090,#:
-#: Control-ID:1093,
+#: Control-ID:1090,#: Control-ID:1093,
 msgid "&Advanced..."
 msgstr "高级设置(&A)..."
 
@@ -349,8 +334,7 @@ msgstr "追溯以前的版本(&B)"
 
 # ID:114,#:
 # ID:322,
-#: ID:114,#:
-#: ID:322,
+#: ID:114,#: ID:322,
 msgid "&Blame revisions"
 msgstr "追溯版本(&B)"
 
@@ -376,8 +360,7 @@ msgstr "光驱(&C)"
 
 # Control-ID:2,#:
 # Control-ID:2,
-#: Control-ID:2,#:
-#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr "取消(&C)"
 
@@ -448,8 +431,7 @@ msgstr "定制(&C)"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
-#: Control-ID:1269,#:
-#: Control-ID:1096,
+#: Control-ID:1269,#: Control-ID:1096,
 msgid "&Default"
 msgstr "默认(&D)"
 
@@ -485,9 +467,7 @@ msgstr "预检(&D)"
 
 # Control-ID:1031,#:
 # MenuEntry#:
-#: Control-ID:1031,#:
-#: MenuEntry#:
-#: MenuEntry
+#: Control-ID:1031,#: MenuEntry#: MenuEntry
 msgid "&Edit"
 msgstr "编辑(&E)"
 
@@ -498,8 +478,7 @@ msgstr "编辑冲突(&E)"
 
 # Control-ID:1099,#:
 # Control-ID:1282,
-#: Control-ID:1099,#:
-#: Control-ID:1282,
+#: Control-ID:1099,#: Control-ID:1282,
 msgid "&Edit..."
 msgstr "编辑(&E)..."
 
@@ -524,15 +503,12 @@ msgstr "导出选择项(&E)..."
 
 # Control-ID:1092,#:
 # Control-ID:1095,
-#: Control-ID:1092,#:
-#: Control-ID:1094,#:
-#: Control-ID:1095,
+#: Control-ID:1092,#: Control-ID:1094,#: Control-ID:1095,
 msgid "&External"
 msgstr "外部(&E)"
 
 # MenuEntry#:
-#: MenuEntry#:
-#: MenuEntry
+#: MenuEntry#: MenuEntry
 msgid "&File"
 msgstr "文件(&F)"
 
@@ -563,15 +539,13 @@ msgid "&Font for log messages:"
 msgstr "日志信息字体(&F)："
 
 # Control-ID:65535,
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&Font:"
 msgstr "字体(&F)："
 
 # ID:501,#:
 # Control-ID:65535,
-#: ID:501,#:
-#: Control-ID:65535,
+#: ID:501,#: Control-ID:65535,
 msgid "&From URL:"
 msgstr "从 URL(&F)："
 
@@ -596,8 +570,7 @@ msgstr "分组分支(&G)"
 
 # Control-ID:1115,#:
 # Control-ID:1032,
-#: Control-ID:1115,#:
-#: Control-ID:1032,
+#: Control-ID:1115,#: Control-ID:1032,
 msgid "&HEAD Revision"
 msgstr "最新版本(&H)"
 
@@ -605,10 +578,7 @@ msgstr "最新版本(&H)"
 # Control-ID:1019,#:
 # Control-ID:1034,#:
 # Control-ID:1032,
-#: Control-ID:1032,#:
-#: Control-ID:1019,#:
-#: Control-ID:1034,#:
-#: Control-ID:1032,
+#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1034,#: Control-ID:1032,
 msgid "&HEAD revision"
 msgstr "最新版本(&H)"
 
@@ -619,9 +589,7 @@ msgstr "版本库中的最新版本(&H)"
 
 # MenuEntry#:
 # Control-ID:57670,#:
-#: MenuEntry#:
-#: Control-ID:57670,#:
-#: MenuEntry
+#: MenuEntry#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
 msgstr "帮助(&H)"
 
@@ -631,8 +599,7 @@ msgstr "帮助主题(&H)"
 
 # ID:3842,#:
 # ID:3842,
-#: ID:3842,#:
-#: ID:3842,
+#: ID:3842,#: ID:3842,
 msgid "&Hide"
 msgstr "隐藏 (&H)"
 
@@ -727,8 +694,7 @@ msgstr "网络磁盘(&N)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&New "
 msgstr "新建(&N)"
 
@@ -737,8 +703,7 @@ msgid "&Newest on top"
 msgstr "最新的在顶部(&N)"
 
 # Control-ID:1208,
-#: ID:115,#:
-#: Control-ID:1208,
+#: ID:115,#: Control-ID:1208,
 #, c-format
 msgid "&Next %ld"
 msgstr "下 %ld (&N)"
@@ -749,8 +714,7 @@ msgstr "下一条差异(&N)"
 
 # Control-ID:1,#:
 # Control-ID:1,
-#: Control-ID:1,#:
-#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr "确定(&O)"
 
@@ -768,8 +732,7 @@ msgstr "叠加图像(&O)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&Password:"
 msgstr "密码(&P)："
 
@@ -794,8 +757,7 @@ msgstr "属性(&P)..."
 
 # Control-ID:1246,#:
 # Control-ID:1246,
-#: Control-ID:1246,#:
-#: Control-ID:1246,
+#: Control-ID:1246,#: Control-ID:1246,
 msgid "&Recent messages"
 msgstr "最近信息(&R)"
 
@@ -806,8 +768,7 @@ msgstr "重做(&R)"
 
 # Control-ID:1100,#:
 # Control-ID:1285,
-#: Control-ID:1100,#:
-#: Control-ID:1285,
+#: Control-ID:1100,#: Control-ID:1285,
 msgid "&Remove"
 msgstr "删除(&R)"
 
@@ -835,10 +796,7 @@ msgstr "复原此版本中的变更(&R)"
 # Control-ID:1116,#:
 # Control-ID:1035,#:
 # Control-ID:1033,
-#: Control-ID:1033,#:
-#: Control-ID:1116,#:
-#: Control-ID:1035,#:
-#: Control-ID:1033,
+#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1035,#: Control-ID:1033,
 msgid "&Revision"
 msgstr "版本(&R)"
 
@@ -853,8 +811,7 @@ msgstr "保存(&S) Ctrl-S"
 
 # Control-ID:1023,#:
 # Control-ID:1023,
-#: Control-ID:1023,#:
-#: Control-ID:1023,
+#: Control-ID:1023,#: Control-ID:1023,
 msgid "&Save authentication"
 msgstr "保存认证(&S)"
 
@@ -926,8 +883,7 @@ msgstr "至版本(&T)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:1384,#:
-#: Control-ID:65535,
+#: Control-ID:1384,#: Control-ID:65535,
 msgid "&To URL:"
 msgstr "至URL(&T)："
 
@@ -942,9 +898,7 @@ msgstr "工具栏(&T)"
 
 # Control-ID:1091,#:
 # Control-ID:1094,
-#: Control-ID:1091,#:
-#: Control-ID:1093,#:
-#: Control-ID:1094,
+#: Control-ID:1091,#: Control-ID:1093,#: Control-ID:1094,
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
 
@@ -956,9 +910,7 @@ msgstr "&TortoiseSVN"
 # Control-ID:65535,#:
 # Control-ID:1058,#:
 # Control-ID:65535,
-#: Control-ID:1376,#:
-#: Control-ID:1058,#:
-#: Control-ID:1394,
+#: Control-ID:1376,#: Control-ID:1058,#: Control-ID:1394,
 msgid "&URL of repository:"
 msgstr "版本库 &URL："
 
@@ -1008,15 +960,12 @@ msgstr "自动完成文件路径和关键词(&U)"
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
-#: Control-ID:1005,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
 msgid "&Username:"
 msgstr "用户名(&U)："
 
 # MenuEntry#:
-#: MenuEntry#:
-#: MenuEntry
+#: MenuEntry#: MenuEntry
 msgid "&View"
 msgstr "查看(&V)"
 
@@ -1036,8 +985,7 @@ msgstr "工作拷贝(&W)"
 
 # ID:17,#:
 # ID:564,
-#: ID:17,#:
-#: ID:564,
+#: ID:17,#: ID:564,
 msgid "(binary value)"
 msgstr "（二进制）"
 
@@ -1085,18 +1033,9 @@ msgstr "- %d"
 # Control-ID:1333,#:
 # Control-ID:1002,#:
 # Control-ID:1003,
-#: Control-ID:1035,#:
-#: Control-ID:1036,#:
-#: Control-ID:1187,#:
-#: Control-ID:1104,#:
-#: Control-ID:1021,#:
-#: Control-ID:1022,#:
-#: Control-ID:1089,#:
-#: Control-ID:1362,#:
-#: Control-ID:1324,#:
-#: Control-ID:1333,#:
-#: Control-ID:1002,#:
-#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1187,#: Control-ID:1104,#:
+#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#:
+#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -1142,16 +1081,14 @@ msgstr "?"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "存取 %1 时发生硬件 I/O 错误。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "存取 %1 时发生锁定错误。"
@@ -1183,15 +1120,13 @@ msgstr ""
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "A required resource was unavailable."
 msgstr "找不到需要的资源。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "存取 %1 时发生共享错误。"
@@ -1242,16 +1177,14 @@ msgstr "总是接受"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "Access to %1 was denied."
 msgstr "存取 %1 被拒绝。"
 
 # ID:77,#:
 # ID:319,
-#: ID:77,#:
-#: ID:319,
+#: ID:77,#: ID:319,
 msgid "Action"
 msgstr "操作"
 
@@ -1267,8 +1200,7 @@ msgstr "当前工作列表"
 
 # ID:209,#:
 # Dlg-ID:155,
-#: ID:209,#:
-#: Dlg-ID:155,
+#: ID:209,#: Dlg-ID:155,
 msgid "Add"
 msgstr "加入"
 
@@ -1328,10 +1260,7 @@ msgstr "添加/编辑针对扩展名的差异比较/合并工具"
 # ID:264,#:
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: ID:73,#:
-#: ID:264,#:
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+#: ID:73,#: ID:264,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Added"
 msgstr "已添加"
 
@@ -1408,40 +1337,34 @@ msgstr "高级合并设置"
 
 # ID:3841,#:
 # ID:3841,
-#: ID:3841,#:
-#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "All Files (*.*)"
 msgstr "所有文件 (*.*)"
 
 # ID:157,#:
 # ID:157,
-#: ID:157,#:
-#: ID:157,
+#: ID:157,#: ID:157,
 msgid "All Files (*.*)|*.*||"
 msgstr "所有文件 (*.*)|*.*||"
 
 # ID:3867,#:
 # ID:3868,#:
 # ID:3868,
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3867,#: ID:3868,#: ID:3868,
 #, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "试图存取超过 %1 长度的部分。"
 
 # ID:3868,#:
 # ID:3868,
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3868,#: ID:3868,
 #, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "试图读取写入中的 %1。"
 
 # ID:3868,#:
 # ID:3868,
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3868,#: ID:3868,
 #, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "试图写入读取中的 %1。"
@@ -1487,48 +1410,41 @@ msgstr ""
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "An invalid argument was encountered."
 msgstr "发现不合法参数。"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "%1 关联到不合法的文件代码。"
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 #, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "读取 %1 时发生预期外的错误。"
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 #, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "写入 %1 时发生预期外的错误。"
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "An unknown error has occurred."
 msgstr "发生不明错误。"
 
 # ID:3867,#:
 # ID:3868,#:
 # ID:3868,
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3867,#: ID:3868,#: ID:3868,
 #, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "存取 %1 时发生不明错误。"
@@ -1541,8 +1457,7 @@ msgstr "在第 %d 行发现不明型态数据！"
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "An unsupported operation was attempted."
 msgstr "试图进行不支持的操作。"
 
@@ -1609,8 +1524,7 @@ msgstr "于版本：%d"
 
 # Dlg-ID:131,#:
 # Dlg-ID:160,
-#: Dlg-ID:131,#:
-#: Dlg-ID:160,
+#: Dlg-ID:131,#: Dlg-ID:160,
 msgid "Authentication"
 msgstr "认证"
 
@@ -1622,9 +1536,7 @@ msgstr "认证数据"
 # ID:76,#:
 # ID:207,#:
 # ID:19,
-#: ID:76,#:
-#: ID:207,#:
-#: ID:19,
+#: ID:76,#: ID:207,#: ID:19,
 msgid "Author"
 msgstr "作者"
 
@@ -1682,8 +1594,7 @@ msgstr "输入日志信息时，根据所修改的文件自动完成建议词（
 
 # ID:438,#:
 # ID:438,
-#: ID:438,#:
-#: ID:438,
+#: ID:438,#: ID:438,
 msgid "Automatic"
 msgstr "自动"
 
@@ -1717,8 +1628,7 @@ msgid "Base file:"
 msgstr "基础文件："
 
 # Dlg-ID:162,
-#: ID:114,#:
-#: Dlg-ID:162,
+#: ID:114,#: Dlg-ID:162,
 msgid "Blame"
 msgstr "追溯"
 
@@ -1843,11 +1753,7 @@ msgstr ""
 # ID:563,#:
 # Control-ID:2,#:
 # Control-ID:2,
-#: ID:73,#:
-#: ID:99,#:
-#: ID:563,#:
-#: Control-ID:2,#:
-#: Control-ID:2,
+#: ID:73,#: ID:99,#: ID:563,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "取消"
 
@@ -1937,8 +1843,7 @@ msgstr "检出(&K)..."
 
 # ID:3887,#:
 # ID:3887,
-#: ID:3887,#:
-#: ID:3887,
+#: ID:3887,#: ID:3887,
 msgid "Check"
 msgstr "选中"
 
@@ -2008,8 +1913,7 @@ msgstr "正在检查是否有更新版本的 TortoiseSVN..."
 
 # Dlg-ID:133,#:
 # Control-ID:65535,
-#: Dlg-ID:133,#:
-#: Control-ID:65535,
+#: Dlg-ID:133,#: Control-ID:65535,
 msgid "Checkout"
 msgstr "检出"
 
@@ -2060,10 +1964,7 @@ msgstr "清理未完成的操作，锁定文件等…"
 # Control-ID:1275,#:
 # Control-ID:1276,#:
 # Control-ID:1279,
-#: Control-ID:1273,#:
-#: Control-ID:1275,#:
-#: Control-ID:1281,#:
-#: Control-ID:1276,#:
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1281,#: Control-ID:1276,#:
 #: Control-ID:1279,
 msgid "Clear"
 msgstr "清除"
@@ -2142,8 +2043,7 @@ msgid "Color co&de in-line changes"
 msgstr "用颜色标记行内改变(&D)"
 
 # Dlg-ID:138,
-#: Control-ID:65535,#:
-#: Dlg-ID:138,
+#: Control-ID:65535,#: Dlg-ID:138,
 msgid "Colors"
 msgstr "颜色"
 
@@ -2164,16 +2064,13 @@ msgstr "要执行的命令行："
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Command failed."
 msgstr "命令失败。"
 
 # ID:209,#:
 # Control-ID:1083,
-#: ID:209,#:
-#: Dlg-ID:135,#:
-#: Control-ID:1083,
+#: ID:209,#: Dlg-ID:135,#: Control-ID:1083,
 msgid "Commit"
 msgstr "提交"
 
@@ -2227,8 +2124,7 @@ msgid "Compare and blame with previous revision"
 msgstr "与前一版本比较并追溯"
 
 # Control-ID:1019,
-#: Control-ID:1390,#:
-#: Control-ID:1390,
+#: Control-ID:1390,#: Control-ID:1390,
 msgid "Compare whitespaces"
 msgstr "比较空白字符"
 
@@ -2295,8 +2191,7 @@ msgstr "设置查看 GNU 差异文件（补丁文件）的程序。"
 
 # ID:263,#:
 # Control-ID:65535,
-#: ID:263,#:
-#: Control-ID:65535,
+#: ID:263,#: Control-ID:65535,
 msgid "Conflicted"
 msgstr "冲突"
 
@@ -2563,8 +2458,7 @@ msgstr ""
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Could not start print job."
 msgstr "无法启动打印任务。"
 
@@ -2676,9 +2570,7 @@ msgstr "比较差异(&I)"
 # ID:76,#:
 # ID:208,#:
 # ID:19,
-#: ID:76,#:
-#: ID:208,#:
-#: ID:19,
+#: ID:76,#: ID:208,#: ID:19,
 msgid "Date"
 msgstr "日期"
 
@@ -2709,8 +2601,7 @@ msgstr "删除非版本控制的项目..."
 
 # ID:73,#:
 # ID:264,
-#: ID:73,#:
-#: ID:264,
+#: ID:73,#: ID:264,
 msgid "Deleted"
 msgstr "已删除"
 
@@ -2746,8 +2637,7 @@ msgstr "取消选定修改列表"
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 msgid "Destination disk drive is full."
 msgstr "目标磁盘已满。"
 
@@ -2795,16 +2685,14 @@ msgstr "如果你的工作拷贝非常大，占用了较大的硬盘空间，请
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "Disk full while accessing %1."
 msgstr "存取 %1 时磁盘已满。"
 
 # ID:3860,#:
 # ID:3860,
-#: ID:3860,#:
-#: ID:3860,
+#: ID:3860,#: ID:3860,
 #, c-format
 msgid "Dispatch exception: %1"
 msgstr "分派异常: %1"
@@ -2906,8 +2794,7 @@ msgstr "文档 - Simon Large"
 
 # ID:73,#:
 # ID:80,
-#: ID:73,#:
-#: ID:80,
+#: ID:73,#: ID:80,
 msgid "Don't show this message again"
 msgstr "不再显示此信息"
 
@@ -2946,8 +2833,7 @@ msgstr "编辑"
 
 # ID:564,#:
 # Dlg-ID:227,
-#: ID:564,#:
-#: Dlg-ID:227,
+#: ID:564,#: Dlg-ID:227,
 msgid "Edit Properties"
 msgstr "修改属性"
 
@@ -2973,8 +2859,7 @@ msgstr "编辑根据扩展名的合并程序"
 
 # ID:113,#:
 # ID:115,
-#: ID:113,#:
-#: ID:115,
+#: ID:113,#: ID:115,
 msgid "Edit log message"
 msgstr "编辑日志信息"
 
@@ -3154,8 +3039,7 @@ msgstr "从版本库中导出干净的工作拷贝, 不生成 svn 的管理文�
 
 # ID:74,#:
 # ID:207,
-#: ID:74,#:
-#: ID:207,
+#: ID:74,#: ID:207,
 msgid "Extension"
 msgstr "扩展名"
 
@@ -3211,29 +3095,25 @@ msgstr "复原失败"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Failed to create empty document."
 msgstr "无法创建空文件。"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Failed to launch help."
 msgstr "无法打开帮助。"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Failed to open document."
 msgstr "打开文件失败。"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Failed to save document."
 msgstr "保存文件失败。"
 
@@ -3264,11 +3144,7 @@ msgstr "正在获取文件的 %s 版本："
 # ID:77,#:
 # ID:207,#:
 # ID:319,
-#: ID:63,#:
-#: ID:74,#:
-#: ID:77,#:
-#: ID:207,#:
-#: ID:319,
+#: ID:63,#: ID:74,#: ID:77,#: ID:207,#: ID:319,
 msgid "File"
 msgstr "文件"
 
@@ -3289,8 +3165,7 @@ msgstr "文件列表为空"
 
 # ID:376,#:
 # Dlg-ID:135,
-#: ID:376,#:
-#: Dlg-ID:135,
+#: ID:376,#: Dlg-ID:135,
 msgid "File patches"
 msgstr "文件补丁"
 
@@ -3431,8 +3306,7 @@ msgstr ""
 
 # ID:77,#:
 # ID:219,
-#: ID:77,#:
-#: ID:219,
+#: ID:77,#: ID:219,
 msgid "Finished!"
 msgstr "完成！"
 
@@ -3466,8 +3340,7 @@ msgstr "取消选择“拷贝/改名时停止”以查看完整的历史列表"
 
 # Control-ID:1200,#:
 # Control-ID:65535,
-#: Control-ID:1200,#:
-#: Control-ID:65535,
+#: Control-ID:1200,#: Control-ID:65535,
 msgid "From:"
 msgstr "起始："
 
@@ -3510,8 +3383,7 @@ msgstr "正在获取信息。请等待 ..."
 # Dlg-ID:143,#:
 # Dlg-ID:107,#:
 # Control-ID:65535,
-#: Dlg-ID:143,#:
-#: Dlg-ID:107,
+#: Dlg-ID:143,#: Dlg-ID:107,
 msgid "General"
 msgstr "常规设置"
 
@@ -3646,14 +3518,12 @@ msgstr "隐藏无关的修改路径(&I)"
 
 # Control-ID:1353,#:
 # Control-ID:1354,
-#: Control-ID:1353,#:
-#: Control-ID:1354,
+#: Control-ID:1353,#: Control-ID:1354,
 msgid "HEAD"
 msgstr "HEAD"
 
 # Control-ID:1004,
-#: ID:73,#:
-#: Control-ID:1004,
+#: ID:73,#: Control-ID:1004,
 msgid "Help"
 msgstr "帮助"
 
@@ -3698,171 +3568,143 @@ msgid "Hostname mismatch (%s)"
 msgstr "站点名称不符(%s)"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
-#: Corresponding Menu ID:32771;
-#: '&Find...'
+#: Corresponding Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlap images'
-#: Corresponding Menu ID:32772;
-#: '&Overlap images'
+#: Corresponding Menu ID:32772; '&Overlap images'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
 #. Accelerator Entry for Menu ID:32773; '&Open'
-#: Corresponding Menu ID:32773;
-#: '&Open'
+#: Corresponding Menu ID:32773; '&Open'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
 #. Accelerator Entry for Menu ID:32774; '&Whitespaces'
-#: Corresponding Menu ID:32774;
-#: '&Whitespaces'
+#: Corresponding Menu ID:32774; '&Whitespaces'
 msgid "ID:32774:V C +T"
 msgstr "ID:32774:V C +T"
 
 #. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
-#: Corresponding Menu ID:32775;
-#: 'Two-way &Diff'
+#: Corresponding Menu ID:32775; 'Two-way &Diff'
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
 #. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
-#: Corresponding Menu ID:32778;
-#: '&Fit Images in window'
+#: Corresponding Menu ID:32778; '&Fit Images in window'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
-#: Corresponding Menu ID:32779;
-#: 'Ori&ginal size'
+#: Corresponding Menu ID:32779; 'Ori&ginal size'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
 #. Accelerator Entry for Menu ID:32779; '&Go To Line...'
-#: Corresponding Menu ID:32779;
-#: '&Go To Line...'
+#: Corresponding Menu ID:32779; '&Go To Line...'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
 #. Accelerator Entry for Menu ID:32785; '&Color age of lines'
-#: Corresponding Menu ID:32785;
-#: '&Color age of lines'
+#: Corresponding Menu ID:32785; '&Color age of lines'
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
-#: Corresponding Menu ID:32793;
-#: 'Arrange &Vertical'
+#: Corresponding Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
 #. Accelerator Entry for Menu ID:32794; 'Reload'
-#: Corresponding Menu ID:32794;
-#: 'Reload'
+#: Corresponding Menu ID:32794; 'Reload'
 msgid "ID:32794:V C +R"
 msgstr "ID:32794:V C +R"
 
 #. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
-#: Corresponding Menu ID:32796;
-#: 'Show &all revisions'
+#: Corresponding Menu ID:32796; 'Show &all revisions'
 msgid "ID:32796:V C +A"
 msgstr "ID:32796:V C +A"
 
 #. Accelerator Entry for Menu ID:32809; '&Filter'
-#: Corresponding Menu ID:32809;
-#: '&Filter'
+#: Corresponding Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
-#: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: Corresponding Menu ID:32810; 'Fit Images &together'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32814; '&Newest on top'
-#: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
 #. Accelerator Entry for Menu ID:32814; '&Newest on top'
-#: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: Corresponding Menu ID:32814; '&Newest on top'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32821; ''
-#: Corresponding Menu ID:32821;
-#: ''
+#: Corresponding Menu ID:32821; ''
 msgid "ID:32821:V C +F"
 msgstr "ID:32821:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
-#: Corresponding Menu ID:32825;
-#: ''
+#: Corresponding Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
 #. Accelerator Entry for Menu ID:32825; ''
-#: Corresponding Menu ID:32825;
-#: ''
+#: Corresponding Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
-#: Corresponding Menu ID:57601;
-#: '&Open Ctrl-O'
+#: Corresponding Menu ID:57601; '&Open Ctrl-O'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
 
 #. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
-#: Corresponding Menu ID:57603;
-#: '&Save Ctrl-S'
+#: Corresponding Menu ID:57603; '&Save Ctrl-S'
 msgid "ID:57603:V C +S"
 msgstr "ID:57603:V C +S"
 
 #. Accelerator Entry for Menu ID:57604; 'Save &As...'
-#: Corresponding Menu ID:57604;
-#: 'Save &As...'
+#: Corresponding Menu ID:57604; 'Save &As...'
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
-#: Corresponding Menu ID:57634;
-#: '&Copy'
+#: Corresponding Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57635; ''
-#: Corresponding Menu ID:57635;
-#: ''
+#: Corresponding Menu ID:57635; ''
 msgid "ID:57635:V C +X"
 msgstr "ID:57635:V C +X"
 
 #. Accelerator Entry for Menu ID:57636; '&Find'
-#: Corresponding Menu ID:57636;
-#: '&Find'
+#: Corresponding Menu ID:57636; '&Find'
 msgid "ID:57636:V C +F"
 msgstr "ID:57636:V C +F"
 
 #. Accelerator Entry for Menu ID:57637; ''
-#: Corresponding Menu ID:57637;
-#: ''
+#: Corresponding Menu ID:57637; ''
 msgid "ID:57637:V C +V"
 msgstr "ID:57637:V C +V"
 
 #. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
-#: Corresponding Menu ID:57643;
-#: '&Undo\tCtrl+Z'
+#: Corresponding Menu ID:57643; '&Undo\tCtrl+Z'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
-#: Corresponding Menu ID:57665;
-#: 'E&xit'
+#: Corresponding Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
@@ -4005,8 +3847,7 @@ msgid "Ignore &case changes"
 msgstr "忽略大/小写(&C)"
 
 # Control-ID:1020,
-#: Control-ID:1392,#:
-#: Control-ID:1392,
+#: Control-ID:1392,#: Control-ID:1392,
 msgid "Ignore all whitespaces"
 msgstr "忽略所有空白字符"
 
@@ -4021,14 +3862,12 @@ msgid "Ignore line &endings (recommended)"
 msgstr "忽略行尾（建议）(&E)"
 
 # Control-ID:1018,
-#: Control-ID:1126,#:
-#: Control-ID:1127,
+#: Control-ID:1126,#: Control-ID:1127,
 msgid "Ignore line endings"
 msgstr "忽略 CRLF"
 
 # Control-ID:1021,
-#: Control-ID:1391,#:
-#: Control-ID:1391,
+#: Control-ID:1391,#: Control-ID:1391,
 msgid "Ignore whitespace changes"
 msgstr "忽略空白字符的变化"
 
@@ -4156,15 +3995,13 @@ msgstr ""
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Insufficient memory to perform operation."
 msgstr "内存不足，无法完成操作。"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Internal application error."
 msgstr "内部程序错误。"
 
@@ -4175,8 +4012,7 @@ msgstr "已删除无效的数据对象！"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Invalid filename."
 msgstr "文件名称错误。"
 
@@ -4383,9 +4219,7 @@ msgstr "版本库 URL 的内容将要保存到的位置。"
 
 # ID:207,#:
 # ID:221,
-#: ID:207,#:
-#: ID:221,#:
-#: Control-ID:65535,
+#: ID:207,#: ID:221,#: Control-ID:65535,
 msgid "Lock"
 msgstr "锁定"
 
@@ -4524,8 +4358,7 @@ msgstr "最低显示版本 %ld - 最高显示版本：%ld - 最新版本：%ld"
 
 # ID:3866,#:
 # ID:3866,
-#: ID:3866,#:
-#: ID:3866,
+#: ID:3866,#: ID:3866,
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
 
@@ -4574,9 +4407,7 @@ msgstr "日志中保留的最大条目数量"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
-#: ID:276,#:
-#: Dlg-ID:141,#:
-#: Control-ID:65535,
+#: ID:276,#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "合并"
 
@@ -4599,8 +4430,7 @@ msgstr "合并设置"
 
 # ID:263,#:
 # ID:263,
-#: ID:263,#:
-#: ID:263,
+#: ID:263,#: ID:263,
 msgid "Merged"
 msgstr "已合并"
 
@@ -4653,8 +4483,7 @@ msgstr "合并指定的不同版本差异或从“起始：” URL 到“结束�
 
 # ID:76,#:
 # Control-ID:1359,
-#: ID:76,#:
-#: Control-ID:1359,
+#: ID:76,#: Control-ID:1359,
 msgid "Message"
 msgstr "信息"
 
@@ -4695,8 +4524,7 @@ msgstr "其它"
 
 # ID:3887,#:
 # ID:3887,
-#: ID:3887,#:
-#: ID:3887,
+#: ID:3887,#: ID:3887,
 msgid "Mixed"
 msgstr "混合"
 
@@ -4707,16 +4535,13 @@ msgstr "修改日期"
 
 # ID:74,#:
 # ID:264,
-#: ID:74,#:
-#: ID:264,#:
-#: Control-ID:65535,
+#: ID:74,#: ID:264,#: Control-ID:65535,
 msgid "Modified"
 msgstr "已修改"
 
 # ID:438,#:
 # ID:438,
-#: ID:438,#:
-#: ID:438,
+#: ID:438,#: ID:438,
 msgid "More colors..."
 msgstr "更多颜色..."
 
@@ -4813,8 +4638,7 @@ msgstr "网络"
 
 # Dlg-ID:30721,#:
 # Dlg-ID:30721,
-#: Dlg-ID:30721,#:
-#: Dlg-ID:30721,
+#: Dlg-ID:30721,#: Dlg-ID:30721,
 msgid "New"
 msgstr "新增"
 
@@ -4863,17 +4687,14 @@ msgstr "找不到差异！"
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "No error message is available."
 msgstr "没有错误信息。"
 
 # ID:3867,#:
 # ID:3868,#:
 # ID:3868,
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+#: ID:3867,#: ID:3868,#: ID:3868,
 msgid "No error occurred."
 msgstr "没有发生错误。"
 
@@ -4937,15 +4758,13 @@ msgstr "无"
 
 # ID:264,#:
 # Control-ID:65535,
-#: ID:264,#:
-#: Control-ID:65535,
+#: ID:264,#: Control-ID:65535,
 msgid "Normal"
 msgstr "正常"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "没有删除全部的注册表项（或 INI 文件）。"
 
@@ -4981,9 +4800,7 @@ msgstr "周数"
 # ID:73,#:
 # Control-ID:1,#:
 # Control-ID:1,
-#: ID:73,#:
-#: Control-ID:1,#:
-#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "确定"
 
@@ -4999,9 +4816,7 @@ msgstr "旧行"
 # ID:99,#:
 # Control-ID:1202,#:
 # Control-ID:1202,
-#: ID:99,#:
-#: Control-ID:1202,#:
-#: Control-ID:1202,
+#: ID:99,#: Control-ID:1202,#: Control-ID:1202,
 msgid "Omit e&xternals"
 msgstr "省略外部(&X)"
 
@@ -5048,8 +4863,7 @@ msgstr "仅在设置了 tsvn:projectlanguage 时才进行拼写检查(&P)"
 
 # ID:3841,#:
 # ID:3841,
-#: ID:3841,#:
-#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "Open"
 msgstr "打开"
 
@@ -5108,8 +4922,7 @@ msgstr "对方的"
 
 # ID:3843,#:
 # ID:3843,
-#: ID:3843,#:
-#: ID:3843,
+#: ID:3843,#: ID:3843,
 msgid "Out of memory."
 msgstr "内存不足。"
 
@@ -5163,15 +4976,13 @@ msgstr "选定的补丁"
 
 # ID:157,#:
 # ID:157,
-#: ID:157,#:
-#: ID:157,
+#: ID:157,#: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "补丁文件(*.diff, *.patch)|*.diff;*.patch|所有文件(*.*)|*.*||"
 
 # ID:77,#:
 # ID:198,
-#: ID:77,#:
-#: ID:198,
+#: ID:77,#: ID:198,
 msgid "Path"
 msgstr "路径"
 
@@ -5192,29 +5003,25 @@ msgstr "饼图"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a GUID."
 msgstr "请输入 GUID。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a currency."
 msgstr "请输入货币。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a date and/or time."
 msgstr "请输入日期或时间。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a date."
 msgstr "请输入日期。"
 
@@ -5225,16 +5032,14 @@ msgstr "请输入要执行的 Hook 脚本"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 #, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "请输入介于 %1 与 %2 之间的数字。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a number."
 msgstr "请输入数字。"
 
@@ -5245,44 +5050,38 @@ msgstr "请输入要引用 Hook 脚本的路径。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a positive integer."
 msgstr "请输入正整数。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter a time."
 msgstr "请输入时间。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 #, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "请输入介于 %1 与 %2 之间的整数。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter an integer between 0 and 255."
 msgstr "请输入介于 0 到 255 之间的整数。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please enter an integer."
 msgstr "请输入整数。"
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 #, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "请勿输入超过 %1 个字。"
@@ -5308,8 +5107,7 @@ msgstr ""
 
 # ID:3858,#:
 # ID:3858,
-#: ID:3858,#:
-#: ID:3858,
+#: ID:3858,#: ID:3858,
 msgid "Please select a button."
 msgstr "请选择按钮。"
 
@@ -5346,10 +5144,7 @@ msgstr "请稍候，正在启动版本库浏览器 ..."
 # ID:119,#:
 # ID:146,#:
 # ID:211,
-#: ID:104,#:
-#: ID:119,#:
-#: ID:146,#:
-#: ID:213,
+#: ID:104,#: ID:119,#: ID:146,#: ID:213,
 msgid "Please wait..."
 msgstr "请稍候..."
 
@@ -5400,17 +5195,14 @@ msgstr "程序文件 (*.exe)|*.*|所有文件 (*.*)|*.*||"
 
 # Dlg-ID:134,#:
 # Control-ID:65535,
-#: Dlg-ID:134,#:
-#: Control-ID:65535,
+#: Dlg-ID:134,#: Control-ID:65535,
 msgid "Progress"
 msgstr "进程"
 
 # ID:17,#:
 # Dlg-ID:177,#:
 # Dlg-ID:226,
-#: ID:17,#:
-#: Dlg-ID:177,#:
-#: Dlg-ID:226,
+#: ID:17,#: Dlg-ID:177,#: Dlg-ID:226,
 msgid "Properties"
 msgstr "属性"
 
@@ -5558,11 +5350,44 @@ msgstr "缩小窗口为图标"
 
 # ID:101,#:
 # ID:135,
-#: ID:101,#:
-#: ID:135,#:
-#: Control-ID:1382,
+#: ID:101,#: ID:135,#: Control-ID:1382,
 msgid "Refresh"
 msgstr "重新整理"
+
+#: ID:117,
+#, c-format
+msgid ""
+"Regular expressions filter:\n"
+".\t\t\tany character\n"
+"c+\t\t\tmatch character c one or more times\n"
+"c*\t\t\tmatch character c zero or more times\n"
+"^\t\t\tstart of line\n"
+"$\t\t\tend of line\n"
+"(string){n}\tmatch string n times\n"
+"(abcd)\t\tsubexpression\n"
+"[aei0-9]\t\tmatch a,e,i and 0..9\n"
+"[^aei0-9]\tanything but a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany non-alphanumeric character\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\twhitespaces"
+msgstr ""
+"正则表达式过滤器:\n"
+".\t\t\t任意字符\n"
+"c+\t\t\t匹配字符 c 一次或多次\n"
+"c*\t\t\t匹配字符 c 零次或多次\n"
+"^\t\t\t行首\n"
+"$\t\t\t行尾\n"
+"(string){n}\t匹配字符串 n 次\n"
+"(abcd)\t\t子表达式\n"
+"[aei0-9]\t\t匹配 a，e，i 和 0..9\n"
+"[^aei0-9]\t除了 a，e，i 和 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\t匹配 a-z,A-Z,0-9 和 _\n"
+"\\W\t\t\t任意非字母与数字字符\n"
+"\\d\t\t\t数字 0-9\n"
+"\\s\t\t\t空白"
 
 # ID:82,
 #: ID:82,
@@ -5624,8 +5449,7 @@ msgstr "远程属性状态："
 
 # ID:63,#:
 # ID:207,
-#: ID:63,#:
-#: ID:207,
+#: ID:63,#: ID:207,
 msgid "Remote status"
 msgstr "远程状态"
 
@@ -5663,8 +5487,7 @@ msgstr "移除..."
 
 # Control-ID:65535,#:
 # Control-ID:65535,
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "Removed"
 msgstr "已删除"
 
@@ -5777,10 +5600,7 @@ msgstr "替换"
 # Control-ID:65535,#:
 # Control-ID:1055,#:
 # Control-ID:65535,
-#: Control-ID:1374,#:
-#: Control-ID:1055,#:
-#: Control-ID:1383,#:
-#: Control-ID:1383,
+#: Control-ID:1374,#: Control-ID:1055,#: Control-ID:1383,#: Control-ID:1383,
 msgid "Repository"
 msgstr "版本库"
 
@@ -5828,8 +5648,7 @@ msgstr "使用远端解决有冲突的文件"
 
 # ID:74,#:
 # ID:209,
-#: ID:74,#:
-#: ID:209,
+#: ID:74,#: ID:209,
 msgid "Resolved"
 msgstr "解决"
 
@@ -5849,8 +5668,7 @@ msgid "Resolves conflicted files"
 msgstr "解决有冲突的文件"
 
 # Control-ID:1254,
-#: Control-ID:1254,#:
-#: Control-ID:1254,
+#: Control-ID:1254,#: Control-ID:1254,
 msgid "Restore Default"
 msgstr "恢复默认值"
 
@@ -5899,13 +5717,8 @@ msgstr "复原从上次更新之后全部的变动"
 # Control-ID:65535,#:
 # Control-ID:1306,#:
 # ID:19,
-#: ID:76,#:
-#: ID:208,#:
-#: Control-ID:1375,#:
-#: Control-ID:1306,#:
-#: Control-ID:65535,#:
-#: Control-ID:1393,#:
-#: ID:19,
+#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#:
+#: Control-ID:65535,#: Control-ID:1393,#: ID:19,
 msgid "Revision"
 msgstr "版本"
 
@@ -5918,9 +5731,7 @@ msgstr "版本 %d"
 # ID:269,#:
 # ID:270,#:
 # ID:272,
-#: ID:269,#:
-#: ID:270,#:
-#: ID:272,
+#: ID:269,#: ID:270,#: ID:272,
 #, c-format
 msgid "Revision %ld"
 msgstr "版本分支 %ld"
@@ -5958,8 +5769,7 @@ msgstr "版本范围："
 
 # ID:269,#:
 # Control-ID:65535,
-#: ID:269,#:
-#: Control-ID:65535,
+#: ID:269,#: Control-ID:65535,
 msgid "Revision graph"
 msgstr "版本分支图"
 
@@ -6137,8 +5947,7 @@ msgstr "另存为(&A)..."
 
 # ID:3841,#:
 # ID:3841,
-#: ID:3841,#:
-#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "Save As"
 msgstr "另存为"
 
@@ -6149,8 +5958,7 @@ msgstr "另存为..."
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 #, c-format
 msgid "Save changes to %1?"
 msgstr "是否保存 %1 的改动？"
@@ -6167,8 +5975,7 @@ msgstr "保存版本至(&T)..."
 
 # ID:3601,#:
 # ID:3601,
-#: ID:3601,#:
-#: ID:3601,
+#: ID:3601,#: ID:3601,
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -6207,10 +6014,7 @@ msgstr "保存补丁文件至："
 # Control-ID:1064,#:
 # Control-ID:1212,#:
 # Control-ID:1064,
-#: Control-ID:1014,#:
-#: Control-ID:1017,#:
-#: Control-ID:1064,#:
-#: Control-ID:1212,#:
+#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1064,#: Control-ID:1212,#:
 #: Control-ID:1064,
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -6232,8 +6036,7 @@ msgstr "没有找到要查找的字符串！"
 
 # ID:3867,#:
 # ID:3867,
-#: ID:3867,#:
-#: ID:3867,
+#: ID:3867,#: ID:3867,
 #, c-format
 msgid "Seek failed on %1"
 msgstr "查找错误: %1"
@@ -6245,8 +6048,7 @@ msgstr "全选(&A)"
 
 # Control-ID:1067,#:
 # Control-ID:1067,
-#: Control-ID:1067,#:
-#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / deselect &all"
 msgstr "全选/全不选(&A)"
 
@@ -6365,8 +6167,7 @@ msgstr "选择查看补丁文件工具"
 
 # ID:3866,#:
 # ID:3866,
-#: ID:3866,#:
-#: ID:3866,
+#: ID:3866,#: ID:3866,
 msgid "Send Mail failed to send message."
 msgstr "发送邮件功能无法发送信息。"
 
@@ -6432,8 +6233,7 @@ msgstr "Subversion 项目的短 URL"
 
 # ID:115,#:
 # Control-ID:1031,
-#: ID:115,#:
-#: Control-ID:1031,
+#: ID:115,#: Control-ID:1031,
 msgid "Show &All"
 msgstr "全部显示(&A)"
 
@@ -6723,8 +6523,7 @@ msgstr "开始更新 Hook"
 
 # ID:245,#:
 # Dlg-ID:179,
-#: ID:245,#:
-#: Dlg-ID:179,
+#: ID:245,#: Dlg-ID:179,
 msgid "Statistics"
 msgstr "统计"
 
@@ -6732,10 +6531,7 @@ msgstr "统计"
 # ID:77,#:
 # ID:207,#:
 # Control-ID:65535,
-#: ID:74,#:
-#: ID:77,#:
-#: ID:207,#:
-#: Control-ID:65535,
+#: ID:74,#: ID:77,#: ID:207,#: Control-ID:65535,
 msgid "Status"
 msgstr "状态"
 
@@ -6903,8 +6699,7 @@ msgstr "系统声音(&S)"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "系统注册表及 INI 文件(如果有) 删除完成。"
 
@@ -7013,8 +6808,7 @@ msgstr "文件过大"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 msgid "The file is too large to open."
 msgstr "文件过大，无法打开。"
 
@@ -7403,16 +7197,14 @@ msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "找不到本程序链接的 %s (包含于 %s)，可能 %s 的已安装版本不兼容。"
 
 # ID:3857,#:
 # ID:3857,
-#: ID:3857,#:
-#: ID:3857,
+#: ID:3857,#: ID:3857,
 #, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "系统中找不到本程序需要的 %s。"
@@ -7451,8 +7243,7 @@ msgstr ""
 
 # Control-ID:1201,#:
 # Control-ID:65535,
-#: Control-ID:1201,#:
-#: Control-ID:65535,
+#: Control-ID:1201,#: Control-ID:65535,
 msgid "To:"
 msgstr "结束："
 
@@ -7462,8 +7253,7 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "结束： （合并范围的结束URL和版本）"
 
 # ID:7,
-#: Dlg-ID:244,#:
-#: ID:7,
+#: Dlg-ID:244,#: ID:7,
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
@@ -7477,8 +7267,7 @@ msgstr ""
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 
 # ID:7,
-#: ID:7,#:
-#: Dlg-ID:153,
+#: ID:7,#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseDiff"
 
@@ -7508,9 +7297,7 @@ msgstr ""
 # ID:7,#:
 # ID:3585,#:
 # Dlg-ID:130,
-#: ID:7,#:
-#: ID:3585,#:
-#: Dlg-ID:130,
+#: ID:7,#: ID:3585,#: Dlg-ID:130,
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -7536,8 +7323,7 @@ msgstr ""
 
 # ID:80,#:
 # Control-ID:65535,
-#: ID:80,#:
-#: Control-ID:65535,
+#: ID:80,#: Control-ID:65535,
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -7616,8 +7402,7 @@ msgstr "双向差异比较(&D)"
 
 # ID:207,#:
 # Dlg-ID:164,
-#: ID:207,#:
-#: Dlg-ID:164,
+#: ID:207,#: Dlg-ID:164,
 msgid "URL"
 msgstr "URL"
 
@@ -7633,9 +7418,7 @@ msgstr "Subversion 项目 URL"
 
 # ID:144,#:
 # Control-ID:65535,
-#: ID:144,#:
-#: Control-ID:65535,#:
-#: Control-ID:11023,
+#: ID:144,#: Control-ID:65535,#: Control-ID:11023,
 msgid "URL:"
 msgstr "URL："
 
@@ -7646,23 +7429,20 @@ msgstr "URL："
 
 # ID:3866,#:
 # ID:3866,
-#: ID:3866,#:
-#: ID:3866,
+#: ID:3866,#: ID:3866,
 msgid "Unable to load mail system support."
 msgstr "无法加载邮件系统功能。"
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 #, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "无法读取 %1，该文件已经被其他人打开。"
 
 # ID:3865,#:
 # ID:3865,
-#: ID:3865,#:
-#: ID:3865,
+#: ID:3865,#: ID:3865,
 msgid "Unable to read write-only property."
 msgstr "无法读取只写属性。"
 
@@ -7681,23 +7461,20 @@ msgstr ""
 
 # ID:3865,#:
 # ID:3865,
-#: ID:3865,#:
-#: ID:3865,
+#: ID:3865,#: ID:3865,
 msgid "Unable to write read-only property."
 msgstr "无法写入只读属性。"
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "无法写入 %1, 它可能被设为只读或另有人打开。"
 
 # ID:3887,#:
 # ID:3887,
-#: ID:3887,#:
-#: ID:3887,
+#: ID:3887,#: ID:3887,
 msgid "Uncheck"
 msgstr "取消选中"
 
@@ -7712,8 +7489,7 @@ msgstr ""
 
 # ID:3859,#:
 # ID:3859,
-#: ID:3859,#:
-#: ID:3859,
+#: ID:3859,#: ID:3859,
 msgid "Unexpected file format."
 msgstr "预期外的文件格式。"
 
@@ -7739,8 +7515,7 @@ msgid "Unknown depth"
 msgstr "未知深度"
 
 # ID:221,
-#: ID:221,#:
-#: Dlg-ID:242,
+#: ID:221,#: Dlg-ID:242,
 msgid "Unlock"
 msgstr "解除锁定"
 
@@ -7756,8 +7531,7 @@ msgstr "已解除锁定"
 
 # ID:3841,#:
 # ID:3841,
-#: ID:3841,#:
-#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "Untitled"
 msgstr "未命名"
 
@@ -7976,8 +7750,7 @@ msgstr "值"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
-#: Control-ID:1075,#:
-#: Control-ID:1004,
+#: Control-ID:1075,#: Control-ID:1004,
 msgid "Version"
 msgstr "版本"
 
@@ -8010,8 +7783,7 @@ msgstr "在 &Web 浏览器中查看版本"
 
 # Control-ID:1084,#:
 # Control-ID:1084,
-#: Control-ID:1084,#:
-#: Control-ID:1084,
+#: Control-ID:1084,#: Control-ID:1084,
 msgid "Visit our website"
 msgstr "浏览我们的网站"
 
@@ -8289,8 +8061,7 @@ msgstr "添加文件"
 
 # ID:3841,#:
 # ID:3841,
-#: ID:3841,#:
-#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "an unnamed file"
 msgstr "未命名文件"
 
@@ -8301,8 +8072,7 @@ msgstr "和"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
-#: Control-ID:1085,#:
-#: Control-ID:1085,
+#: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
 msgstr "并请支持开发者"
 
@@ -8385,8 +8155,7 @@ msgstr "正在清除"
 
 # ID:244,#:
 # ID:245,
-#: ID:244,#:
-#: ID:245,
+#: ID:244,#: ID:245,
 msgid "commits"
 msgstr "注解"
 
@@ -8466,8 +8235,7 @@ msgstr "保留本地项目"
 # ID:11,#:
 # ID:195,#:
 # Control-ID:1002,
-#: ID:11,#:
-#: ID:195,
+#: ID:11,#: ID:195,
 msgid "locked"
 msgstr "锁定"
 
@@ -8480,8 +8248,7 @@ msgstr "已经锁定："
 
 # ID:11,#:
 # Control-ID:65535,
-#: ID:11,#:
-#: Control-ID:65535,
+#: ID:11,#: Control-ID:65535,
 msgid "merged"
 msgstr "合并"
 
@@ -8536,8 +8303,7 @@ msgstr "阻碍"
 
 # ID:3869,#:
 # ID:3869,
-#: ID:3869,#:
-#: ID:3869,
+#: ID:3869,#: ID:3869,
 msgid "pixels"
 msgstr "像素"
 
@@ -8685,9 +8451,7 @@ msgstr "已经切换："
 # ID:80,#:
 # ID:103,#:
 # ID:103,
-#: ID:80,#:
-#: ID:103,#:
-#: ID:284,
+#: ID:80,#: ID:103,#: ID:284,
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
@@ -8844,10 +8608,6 @@ msgid "year"
 msgstr "年"
 
 # ID:73,
-#: ID:18,#:
-#: Control-ID:1002,#:
-#: Control-ID:1011,#:
-#: Control-ID:1012,
+#: ID:18,#: Control-ID:1002,#: Control-ID:1011,#: Control-ID:1012,
 msgid "yes"
 msgstr "是"
-
