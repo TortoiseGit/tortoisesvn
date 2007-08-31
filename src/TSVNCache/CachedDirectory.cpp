@@ -277,11 +277,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// This will be very quick if nothing's changed, because it will all be cache hits
 				if (bRecursive)
 				{
-					AutoLocker lock(m_critSec);
+					AutoLocker lock(dirEntry->m_critSec);
 					ChildDirStatus::const_iterator it;
 					for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
 					{
-						CTSVNPath childPath = it->first;
 						CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
 					}
 				}
