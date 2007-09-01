@@ -2415,7 +2415,10 @@ void CLogDlg::OnEnChangeSearchedit()
 		DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 		return;
 	}
-	SetTimer(LOGFILTER_TIMER, 1000, NULL);
+	if (Validate(m_sFilterText))
+		SetTimer(LOGFILTER_TIMER, 1000, NULL);
+	else
+		KillTimer(LOGFILTER_TIMER);
 }
 
 bool CLogDlg::Validate(LPCTSTR string)
