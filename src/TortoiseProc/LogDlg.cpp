@@ -114,6 +114,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
 {
+	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
 }
 
 CLogDlg::~CLogDlg()
@@ -2146,9 +2147,22 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_AUTHORS), LOGFILTER_AUTHORS, temp);
 		temp.LoadString(IDS_LOG_FILTER_REVS);
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_REVS), LOGFILTER_REVS, temp);
+		
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+
+		temp.LoadString(IDS_LOG_FILTER_REGEX);
+		popup.AppendMenu(MF_STRING | MF_ENABLED | (m_bFilterWithRegex ? MF_CHECKED : MF_UNCHECKED), LOGFILTER_REGEX, temp);
+
 		int oldfilter = m_nSelectedFilter;
 		m_nSelectedFilter = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if (m_nSelectedFilter == 0)
+		if (m_nSelectedFilter == LOGFILTER_REGEX)
+		{
+			m_bFilterWithRegex = !m_bFilterWithRegex;
+			CRegDWORD b = CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
+			b = m_bFilterWithRegex;
+			m_nSelectedFilter = oldfilter;
+		}
+		else if (m_nSelectedFilter == 0)
 			m_nSelectedFilter = oldfilter;
 		SetFilterCueText();
 		SetTimer(LOGFILTER_TIMER, 1000, NULL);
@@ -2406,6 +2420,8 @@ void CLogDlg::OnEnChangeSearchedit()
 
 bool CLogDlg::Validate(LPCTSTR string)
 {
+	if (!m_bFilterWithRegex)
+		return true;
 	bool bRegex = false;
 	rpattern pat;
 	try
@@ -2434,7 +2450,7 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 	CString sRev;
 	for (DWORD i=0; i<m_logEntries.size(); ++i)
 	{
-		if (bRegex)
+		if ((bRegex)&&(m_bFilterWithRegex))
 		{
 			match_results results;
 			match_results::backref_type br;
