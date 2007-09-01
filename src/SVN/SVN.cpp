@@ -156,7 +156,7 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children) {return TRUE;};
-BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
+BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
 					 svn_filesize_t size, bool has_props, 
@@ -393,7 +393,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 }
 
 
-BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force /* = FALSE */, BOOL no_ignore /* = FALSE */)
+BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force, BOOL no_ignore, BOOL addparents)
 {
 	// the add command should use the mime-type file
 	const char *mimetypes_file;
@@ -422,7 +422,7 @@ BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL rec
 			return FALSE;
 		}
 		SVNPool subpool(pool);
-		Err = svn_client_add3 (pathList[nItem].GetSVNApiPath(subpool), recurse, force, no_ignore, m_pctx, subpool);
+		Err = svn_client_add4 (pathList[nItem].GetSVNApiPath(subpool), recurse, force, no_ignore, addparents, m_pctx, subpool);
 		if(Err != NULL)
 		{
 			return FALSE;
@@ -1370,7 +1370,7 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	return TRUE;
 }
 
-BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype)
+BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype, bool includemerge)
 {
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
@@ -1390,12 +1390,13 @@ BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pe
 		startrev = SVNRev::REV_BASE;
 	if (endrev.IsWorking())
 		endrev = SVNRev::REV_BASE;
-	Err = svn_client_blame3 ( path.GetSVNApiPath(subpool),
+	Err = svn_client_blame4 ( path.GetSVNApiPath(subpool),
 							 peg,
 							 startrev,  
 							 endrev,
 							 options,
 							 ignoremimetype,
+							 includemerge,
 							 blameReceiver,  
 							 (void *)this,  
 							 m_pctx,  
@@ -1408,25 +1409,49 @@ BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pe
 	return TRUE;
 }
 
-svn_error_t* SVN::blameReceiver(void* baton,
-								apr_off_t line_no,
-								svn_revnum_t revision,
-								const char * author,
-								const char * date,
-								const char * line,
-								apr_pool_t * pool)
+svn_error_t* SVN::blameReceiver(void *baton, 
+								apr_int64_t line_no, 
+								svn_revnum_t revision, 
+								const char *author, 
+								const char *date, 
+								svn_revnum_t merged_revision, 
+								const char *merged_author, 
+								const char *merged_date, 
+								const char *merged_path, 
+								const char *line, 
+								apr_pool_t *pool)
 {
 	svn_error_t * error = NULL;
-	CString author_native;
+	CString author_native, merged_author_native;
+	CString merged_path_native;
 	CStringA line_native;
 	TCHAR date_native[SVN_DATE_BUFFER] = {0};
+	TCHAR merged_date_native[SVN_DATE_BUFFER] = {0};
 
 	SVN * svn = (SVN *)baton;
 
 	if (author)
 		author_native = CUnicodeUtils::GetUnicode(author);
+	if (merged_author)
+		merged_author_native = CUnicodeUtils::GetUnicode(merged_author);
+	if (merged_path)
+		merged_path_native = CUnicodeUtils::GetUnicode(merged_path);
 	if (line)
 		line_native = line;
+
+	if (merged_date && merged_date[0])
+	{
+		// Convert date to a format for humans.
+		apr_time_t time_temp;
+
+		error = svn_time_from_cstring (&time_temp, merged_date, pool);
+		if (error)
+			return error;
+
+		formatDate(merged_date_native, time_temp, true);
+	}
+	else
+		_tcscat_s(merged_date_native, SVN_DATE_BUFFER, _T("(no date)"));
 
 	if (date && date[0])
 	{
@@ -1442,7 +1467,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 	else
 		_tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
 
-	if (!svn->BlameCallback((LONG)line_no, revision, author_native, date_native, line_native))
+	if (!svn->BlameCallback((LONG)line_no, revision, author_native, date_native, merged_revision, merged_author_native, merged_date_native, merged_path_native, line_native))
 	{
 		return svn_error_create(SVN_ERR_CANCELLED, NULL, "error in blame callback");
 	}

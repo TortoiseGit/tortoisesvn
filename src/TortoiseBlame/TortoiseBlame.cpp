@@ -42,6 +42,7 @@ TCHAR searchstringnotfound[MAX_LOADSTRING];
 const bool ShowDate = false;
 const bool ShowAuthor = true;
 const bool ShowLine = true;
+bool ShowPath = false;
 
 static TortoiseBlame app;
 long TortoiseBlame::m_gotoline = 0;
@@ -60,6 +61,7 @@ TortoiseBlame::TortoiseBlame()
 	m_revwidth = 0;
 	m_datewidth = 0;
 	m_authorwidth = 0;
+	m_pathwidth = 0;
 	m_linewidth = 0;
 
 	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
@@ -233,12 +235,23 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 			lineptr += 7;
 			dates.push_back(std::string(lineptr, 30));
 			lineptr += 31;
-			trimptr = lineptr + 30;
-			while (*trimptr == ' ')
-			{
+			// unfortunately, the 'path' entry can be longer than the 60 chars
+			// we made the column. We therefore have to step through the path
+			// string until we find a space
+			trimptr = _tcschr(lineptr, ' ');
+			if (trimptr)
 				*trimptr = 0;
-				trimptr--;
-			}
+			else
+				trimptr = lineptr;
+			paths.push_back(std::string(lineptr));
+			lineptr = (trimptr+1);
+			while (*lineptr == ' ')
+				lineptr++;
+			trimptr = _tcschr(lineptr, ' ');
+			if (trimptr)
+				*trimptr = 0;
+			else
+				trimptr = lineptr;
 			authors.push_back(std::string(lineptr));
 			lineptr += 31;
 			SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
@@ -682,9 +695,20 @@ void TortoiseBlame::Command(int id)
 			UINT uCheck = MF_BYCOMMAND;
 			uCheck |= m_colorage ? MF_CHECKED : MF_UNCHECKED;
 			CheckMenuItem(hMenu, ID_VIEW_COLORAGEOFLINES, uCheck);
+			m_blamewidth = 0;
 			InitSize();
 		}
 		break;
+	case ID_VIEW_MERGEPATH:
+		{
+			ShowPath = !ShowPath;
+			HMENU hMenu = GetMenu(wMain);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= ShowPath ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_MERGEPATH, uCheck);
+			m_blamewidth = 0;
+			InitSize();
+		}
 	default:
 		break;
 	};
@@ -762,6 +786,18 @@ LONG TortoiseBlame::GetBlameWidth()
 		}
 		m_authorwidth = maxwidth.cx + BLAMESPACE;
 		blamewidth += m_authorwidth;
+	}
+	if (ShowPath)
+	{
+		SIZE maxwidth = {0};
+		for (std::vector<std::string>::iterator I = paths.begin(); I != paths.end(); ++I)
+		{
+			::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
+			if (width.cx > maxwidth.cx)
+				maxwidth = width;
+		}
+		m_pathwidth = maxwidth.cx + BLAMESPACE;
+		blamewidth += m_pathwidth;
 	}
 	::SelectObject(hDC, oldfont);
 	POINT pt = {blamewidth, 0};
@@ -845,6 +881,13 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
+			if (ShowPath)
+			{
+				rc.right = rc.left + Left + m_pathwidth;
+				_stprintf_s(buf, MAX_PATH, _T("%-60s            "), paths[i].c_str());
+				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				Left += m_authorwidth;
+			}
 			if ((i==m_SelectedLine)&&(currentDialog))
 			{
 				LOGBRUSH brush;
@@ -891,8 +934,8 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 
 	TCHAR szText[MAX_LOADSTRING];
 	LoadString(app.hResource, IDS_HEADER_REVISION, szText, MAX_LOADSTRING);
-	::ExtTextOut(hDC, 0, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
-	int Left = m_revwidth;
+	::ExtTextOut(hDC, LOCATOR_WIDTH, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+	int Left = m_revwidth+LOCATOR_WIDTH;
 	if (ShowDate)
 	{
 		LoadString(app.hResource, IDS_HEADER_DATE, szText, MAX_LOADSTRING);
@@ -904,6 +947,12 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 		LoadString(app.hResource, IDS_HEADER_AUTHOR, szText, MAX_LOADSTRING);
 		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
 		Left += m_authorwidth;
+	}
+	if (ShowPath)
+	{
+		LoadString(app.hResource, IDS_HEADER_PATH, szText, MAX_LOADSTRING);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+		Left += m_pathwidth;
 	}
 	LoadString(app.hResource, IDS_HEADER_LINE, szText, MAX_LOADSTRING);
 	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
@@ -1085,6 +1134,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	CheckMenuItem(GetMenu(app.wMain), ID_VIEW_COLORAGEOFLINES, MF_CHECKED|MF_BYCOMMAND);
+	CheckMenuItem(GetMenu(app.wMain), ID_VIEW_MERGEPATH, MF_CHECKED|MF_BYCOMMAND);
 
 
 	hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);
@@ -1296,7 +1346,8 @@ void TortoiseBlame::InitSize()
     rc.top += HEADER_HEIGHT;
     blamerc.left = rc.left;
     blamerc.top = rc.top;
-    blamerc.right = GetBlameWidth() > (rc.right - rc.left) ? rc.right : GetBlameWidth() + rc.left;
+	LONG w = GetBlameWidth();
+    blamerc.right = w > (rc.right - rc.left) ? rc.right : w + rc.left;
     blamerc.bottom = rc.bottom;
     sourcerc.left = blamerc.right;
     sourcerc.top = rc.top;

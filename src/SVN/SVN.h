@@ -66,7 +66,9 @@ public:
 							svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
-	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
+	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
+							svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
+							const CStringA& line);
 	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
 	virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
 							svn_filesize_t size, bool has_props,
@@ -168,9 +170,11 @@ public:
 	 * \param force if TRUE, then an adding an already versioned folder will add
 	 *              all unversioned files in it (in combination with \a recurse)
 	 * \param no_ignore if FALSE, then don't add ignored files.
+	 * \param addparents if true, recurse up path's directory and look for a versioned directory. 
+	 *                   If found, add all intermediate paths between it and path.
 	 * \return TRUE if successful
 	 */
-	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
+	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force, BOOL no_ignore, BOOL addparents);
 	/**
 	 * Assigns the files/folders in \c pathList to a \c changelist.
 	 * \return TRUE if successful
@@ -613,9 +617,12 @@ public:
 	 * \param peg the peg revision to use
 	 * \param diffoptions options for the internal diff to use when blaming
 	 * \param ignoremimetype set to true if you want to ignore the mimetype and blame everything
+	 * \param includemerge if true, also return data based upon revisions which have been merged to path.
+
+
 	 * \return TRUE if successful
 	 */
-	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype = false);
+	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype = false, bool includemerge = true);
 	
 	/**
 	 * Lock a file for exclusive use so no other users are allowed to edit
@@ -875,13 +882,17 @@ protected:
 						apr_pool_t *pool);
 	static svn_error_t* summarize_func(const svn_client_diff_summarize_t *diff, 
 					void *baton, apr_pool_t *pool);
-	static svn_error_t* blameReceiver(void* baton,
-					apr_off_t line_no,
-					svn_revnum_t revision,
-					const char * author,
-					const char * date,
-					const char * line,
-					apr_pool_t * pool);
+	static svn_error_t* blameReceiver(void *baton, 
+					apr_int64_t line_no, 
+					svn_revnum_t revision, 
+					const char *author, 
+					const char *date, 
+					svn_revnum_t merged_revision, 
+					const char *merged_author, 
+					const char *merged_date, 
+					const char *merged_path, 
+					const char *line, 
+					apr_pool_t *pool);
 	static svn_error_t* listReceiver(void* baton,
 					const char* path,
 					const svn_dirent_t *dirent, 

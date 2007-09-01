@@ -898,7 +898,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				SVN svn;
 				ProjectProperties props;
 				props.ReadPropsPathList(pathList);
-				svn.Add(pathList, &props, FALSE);
+				svn.Add(pathList, &props, FALSE, FALSE, FALSE, TRUE);
 			}
 			else
 			{

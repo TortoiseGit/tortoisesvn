@@ -49,7 +49,9 @@ public:
 
 	bool		BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options);
 private:
-	BOOL		BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
+	BOOL		BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
+								svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
+								const CStringA& line);
 	BOOL		Cancel();
 	BOOL		Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
 						svn_node_kind_t kind, const CString& mime_type, 
@@ -58,11 +60,13 @@ private:
 						const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 						svn_error_t * err, apr_pool_t * pool);
 	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
+	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
 private:
 	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled
 	LONG		m_nCounter;				///< Counts the number of calls to the Cancel() callback (revisions?)
 	LONG		m_nHeadRev;				///< The HEAD revision of the file
 	bool		m_bNoLineNo;			///< if true, then the line number isn't written to the file
+	bool		m_bHasMerges;			///< If the blame has merge info, this is set to true
 
 	CString		m_sSavePath;			///< Where to save the blame data
 	CStdioFileT	m_saveFile;				///< The file object to write to

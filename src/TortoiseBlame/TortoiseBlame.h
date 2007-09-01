@@ -111,6 +111,7 @@ public:
 	std::vector<LONG>			revs;
 	std::vector<std::string>	dates;
 	std::vector<std::string>	authors;
+	std::vector<std::string>	paths;
 	std::map<LONG, std::string>	logmessages;
 	char						m_szTip[MAX_LOG_LENGTH*2+5];
 	wchar_t						m_wszTip[MAX_LOG_LENGTH*2+5];
@@ -128,6 +129,7 @@ protected:
 	LONG						m_revwidth;
 	LONG						m_datewidth;
 	LONG						m_authorwidth;
+	LONG						m_pathwidth;
 	LONG						m_linewidth;
 	LONG						m_SelectedLine; ///< zero-based
 

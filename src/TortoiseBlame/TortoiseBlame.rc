@@ -43,6 +43,7 @@ BEGIN
     POPUP "View"
     BEGIN
         MENUITEM "&Color age of lines",         ID_VIEW_COLORAGEOFLINES
+        MENUITEM "&Merge paths",                ID_VIEW_MERGEPATH
     END
 END
 
@@ -139,6 +140,11 @@ BEGIN
     IDS_HEADER_LINE         "Line"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_HEADER_PATH         "Path"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -151,46 +157,6 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,99,9571
- PRODUCTVERSION 1,4,99,9571
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040004e4"
-        BEGIN
-            VALUE "CompanyName", "http://tortoisesvn.net"
-            VALUE "FileDescription", "TortoiseBlame"
-            VALUE "FileVersion", "1, 4, 99, 9571"
-            VALUE "InternalName", "TortoiseBlame.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2007"
-            VALUE "OriginalFilename", "TortoiseBlame.exe"
-            VALUE "ProductName", "TortoiseBlame"
-            VALUE "ProductVersion", "1, 4, 99, 9571"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x400, 1252
-    END
-END
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -218,12 +184,12 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""TortoiseBlame.rc2""\r\0"
+    "#include ""TortoiseBlame.rc2""\r\n\0"
 END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\0"
+    "\r\n\0"
 END
 
 #endif    // APSTUDIO_INVOKED

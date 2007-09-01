@@ -995,7 +995,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE))
+		if (!m_pSvn->Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE, TRUE))
 		{
 			ReportSVNError();
 			bFailed = true;
