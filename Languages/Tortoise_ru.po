@@ -12,6 +12,7 @@
 #
 # blame -- авторство (было: авторы файла)
 # branch -- ответвление
+# break (lock) -- прерывание (блокировки)
 # bugtracking system -- система отслеживания ошибок
 # changelist -- группа изменений
 # checkbox -- флажок
@@ -25,16 +26,18 @@
 # issue -- проблема (в системе отслеживания ошибок)
 # locatorbar -- полоса местоположения
 # locking (files) -- блокирование (файлов)
-# log -- журнал (было: лог)
+# log -- журнал
 # merge -- слияние
 # missing -- отсутствующий
 # overlays -- пометки (на значках)
 # patch -- заплатка
+# release (lock) -- cнятие (блокировки)
 # repository -- хранилище
 # resolve -- улаживать
 # revert -- убрать изменения / вернуть в прежнее состояние
 # revision -- ревизия
 # sharing -- общий доступ
+# steal (lock) -- перехват (блокировки)
 # tag -- метка
 # undo -- откат
 # unified diff -- объединённые различия
@@ -42,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10427: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10477: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-27 12:56+0300\n"
+"PO-Revision-Date: 2007-09-02 12:31+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -591,6 +594,10 @@ msgstr "&Загрузить..."
 msgid "&Merge"
 msgstr "С&лияние"
 
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "&Слить пути"
+
 #: ID:9,
 msgid "&Merge..."
 msgstr "&Слить..."
@@ -799,7 +806,7 @@ msgstr "&TortoiseSVN"
 
 #: Control-ID:1376,#:
 #: Control-ID:1058,#:
-#: Control-ID:65535,
+#: Control-ID:1394,
 msgid "&URL of repository:"
 msgstr "URL в &хранилище:"
 
@@ -4332,7 +4339,8 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Файлы заплаток(*.diff, *.patch)|*.diff;*.patch|Все файлы (*.*)|*.*||"
 
 #: ID:77,#:
-#: ID:198,
+#: ID:198,#:
+#: ID:20,
 msgid "Path"
 msgstr "Путь"
 
@@ -4644,6 +4652,41 @@ msgstr "Уменьшает окно до иконки"
 msgid "Refresh"
 msgstr "Обновить"
 
+#: ID:117,
+#, c-format
+msgid ""
+"Regular expressions filter:\n"
+".\t\t\tany character\n"
+"c+\t\t\tmatch character c one or more times\n"
+"c*\t\t\tmatch character c zero or more times\n"
+"^\t\t\tstart of line\n"
+"$\t\t\tend of line\n"
+"(string){n}\tmatch string n times\n"
+"(abcd)\t\tsubexpression\n"
+"[aei0-9]\t\tmatch a,e,i and 0..9\n"
+"[^aei0-9]\tanything but a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany non-alphanumeric character\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\twhitespaces"
+msgstr ""
+"Регулярные выражения для фильтра:\n"
+".\t\t\tлюбой символ\n"
+"c+\t\t\tсоответствует одному или более вхождениям символа c\n"
+"c*\t\t\tсоответствует нулю или более вхождениям символа c\n"
+"^\t\t\tначало строки\n"
+"$\t\t\tконец строки\n"
+"(string){n}\tсоответствует n вхождениям string\n"
+"(abcd)\t\tподвыражение\n"
+"[aei0-9]\t\tсоответствует a,e,i и 0..9\n"
+"[^aei0-9]\tвсё, кроме a,e,i и 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tсоответствует a-z,A-Z,0-9 и _\n"
+"\\W\t\t\tлюбой не цифро-буквенный символ\n"
+"\\d\t\t\tцифры 0-9\n"
+"\\s\t\t\tнепечатаемые знаки (пробельные символы)"
+
 #: ID:82,
 msgid "Reject"
 msgstr "Отклонить"
@@ -4822,7 +4865,7 @@ msgstr "Перемещено"
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
 #: Control-ID:1383,#:
-#: Control-ID:65535,
+#: Control-ID:1383,
 msgid "Repository"
 msgstr "Хранилище"
 
@@ -4922,6 +4965,7 @@ msgstr "Убирает все изменения, которые вы сдела
 #: Control-ID:1375,#:
 #: Control-ID:1306,#:
 #: Control-ID:65535,#:
+#: Control-ID:1393,#:
 #: ID:19,
 msgid "Revision"
 msgstr "Ревизия"
@@ -6581,6 +6625,11 @@ msgstr "Использовать оба текстовых блока (этот 
 msgid "Use both text blocks (this one last)"
 msgstr "Использовать оба текстовых блока (этот в конце)"
 
+# фильтрация в диалоге журнала
+#: ID:116,
+msgid "Use regular expression"
+msgstr "Регулярное выражение"
+
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
 msgstr "Использовать за&чёркивание для удалённых строк"
@@ -6871,14 +6920,6 @@ msgid ""
 msgstr ""
 "Вы изменили набор значков с <i>%s</i> на <i>%s</i>.\n"
 "Эти изменения вступят в силу только после перезагрузки, или после нового входа в операционную систему!"
-
-#: ID:338,
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"Вы отметили добавленные папки. Заплатка не будет содержать добавленные файлы из этих добавленных папок.\n"
-"Следует ли продолжить выполнение?"
 
 #: ID:170,
 msgid ""
