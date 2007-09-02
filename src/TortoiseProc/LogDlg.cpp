@@ -990,17 +990,27 @@ UINT CLogDlg::LogThread()
 	m_bStrictStopped = false;
 	if (m_bIncludeMerges)
 	{
-		if (!GetLogWithMergeInfo(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
+		BOOL bLogRes = GetLogWithMergeInfo(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict);
+		if ((!bLogRes)&&(!m_path.IsUrl()))
 		{
-			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			// try again with REV_WC as the start revision, just in case the path doesn't
+			// exist anymore in HEAD
+			bLogRes = GetLogWithMergeInfo(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict);
 		}
+		if (!bLogRes)
+			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	else
 	{
-		if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict))
+		BOOL bLogRes = ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict);
+		if ((!bLogRes)&&(!m_path.IsUrl()))
 		{
-			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			// try again with REV_WC as the start revision, just in case the path doesn't
+			// exist anymore in HEAD
+			bLogRes = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict);
 		}
+		if (!bLogRes)
+			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
