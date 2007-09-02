@@ -3182,9 +3182,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			temp.LoadString(IDS_MENUEXPORT);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
-			temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GETMERGELOGS, temp);
-			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		else if (m_LogList.GetSelectedCount() >= 2)
 		{
@@ -3612,16 +3609,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
-		case ID_GETMERGELOGS:
-			{
-				CString sCmd;
-				CString url = _T("tsvn:")+pathURL;
-				sCmd.Format(_T("%s /command:log /path:\"%s\" /revstart:%ld /pegrev:%ld /merge"),
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, (LONG)revSelected, (LONG)m_startrev);
-				CAppUtils::LaunchApplication(sCmd, NULL, false);
-			}
-			break;
 		case ID_VIEWREV:
 			{
 				CString url = m_ProjectProperties.sWebViewerRev;
@@ -3789,6 +3776,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				temp.LoadString(IDS_MENULOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
+				temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GETMERGELOGS, temp);		// "Show merge log"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 				bEntryAdded = true;
@@ -3814,6 +3803,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			return;
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		bool bOpenWith = false;
+		bool bMergeLog = false;
 		m_bCancelled = false;
 		switch (cmd)
 		{
@@ -4143,6 +4133,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				}
 			}
 			break;
+		case ID_GETMERGELOGS:
+			bMergeLog = true;
+			// fall through
 		case ID_LOG:
 			{
 				DialogEnableWindow(IDOK, FALSE);
@@ -4180,7 +4173,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				}
 				CString sCmd;
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
-
+				if (bMergeLog)
+					sCmd += _T(" /merge");
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 				EnableOKButton();
 				theApp.DoWaitCursor(-1);
