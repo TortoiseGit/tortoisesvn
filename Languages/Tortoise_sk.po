@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-14 09:06+0100\n"
+"PO-Revision-Date: 2007-09-03 11:57+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -670,6 +670,12 @@ msgstr "&Načítaj..."
 msgid "&Merge"
 msgstr "&Zlúčiť"
 
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "&Zlúčiť cesty"
+
 # ID:9,
 #: ID:9
 msgid "&Merge..."
@@ -919,7 +925,7 @@ msgstr "&TortoiseSVN"
 # Control-ID:1058,
 #: Control-ID:1376
 #: Control-ID:1058
-#: Control-ID:65535
+#: Control-ID:1394
 msgid "&URL of repository:"
 msgstr "&URL úložiska:"
 
@@ -1092,6 +1098,10 @@ msgstr ""
 #: ID:209
 msgid "<new changelist>"
 msgstr "<nový zoznam zmien>"
+
+#: MenuEntry
+msgid "?"
+msgstr "?"
 
 # ID:3867,#:
 # ID:3867,
@@ -1649,6 +1659,10 @@ msgstr "Priemer"
 msgid "B&rowse..."
 msgstr "P&rechádzaj..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "Farba &pozadia..."
+
 # ID:246,
 #: ID:246
 msgid "Bar Graph"
@@ -1863,6 +1877,11 @@ msgstr "Rozdiely medzi %s, %s a %s, %s"
 msgid "Changed files: %d"
 msgstr "Zmenené súbory: %d"
 
+# Dlg-ID:208,
+#: Control-ID:65535
+msgid "Changelist:"
+msgstr "Zoznam zmien:"
+
 # Control-ID:1242,
 #: Control-ID:1242
 msgid "Changes made (double-click on file for diff):"
@@ -1970,6 +1989,13 @@ msgstr "Hĺbka adresárov pre získanie"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Získať z %s, revízia %s, %s, %s"
+
+# Kontrola
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:65535
+msgid "Checksum:"
+msgstr "Kontrolný súčet:"
 
 # Čistím
 # ID:146,
@@ -2160,6 +2186,11 @@ msgstr "Porovnať a &obviniť s pracovným základom"
 #: ID:114
 msgid "Compare and blame with previous revision"
 msgstr "Porovnať a obviniť s predošlou revíziou"
+
+# Control-ID:1019,
+#: Control-ID:1390
+msgid "Compare whitespaces"
+msgstr "Porovnávať biele znaky"
 
 # Porovnať s &lokálnou kópiou
 # ID:76,
@@ -2544,6 +2575,11 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "V&ytvoriť úložisko tu..."
 
+# ID:119,
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Vytvoriť súbor unifikovaného porovnania"
+
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
@@ -2662,6 +2698,12 @@ msgstr "Odstráni súbory, adresáre zo správy verzií, ale zachová samotné s
 msgid "Deleting"
 msgstr "Vymazávanie"
 
+# Control-ID:1269,#:
+# Control-ID:1096,
+#: Control-ID:65535
+msgid "Depth:"
+msgstr "Hĺbka:"
+
 # ID:213,
 #: ID:213
 msgid "Deselect changelist"
@@ -2687,6 +2729,11 @@ msgstr "Porovnať s URL"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Súbor porovnania:"
+
+# Control-ID:1022,
+#: Control-ID:65535
+msgid "Diff options"
+msgstr "Nastavenie porovávania"
 
 # Control-ID:1302,
 #: Control-ID:1302
@@ -3338,6 +3385,12 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Odfiltrovať nasledovné cesty (oddeľte viacnásobné cesty pomocou znaku  '*'):"
 
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:321
+msgid "Filter paths"
+msgstr "Filter ciest"
+
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Find"
@@ -3399,7 +3452,7 @@ msgid "From: (start URL and revision of the range to merge)"
 msgstr "Od: (prvá URL adresa, prvá revízia rozsahu k zlúčeniu)"
 
 # ID:563,
-#: ID:266
+#: ID:19
 msgid "Fully recursive"
 msgstr "Plne rekurzívne"
 
@@ -3578,6 +3631,7 @@ msgid "HEAD"
 msgstr "Hlavná revízia"
 
 # Control-ID:1004,
+#: ID:73
 #: Control-ID:1004
 msgid "Help"
 msgstr "Pomoc"
@@ -3934,6 +3988,11 @@ msgstr "Ignorovať &biele znaky"
 msgid "Ignore &case changes"
 msgstr "Ignorovať zmeny vo &veľkosti písma"
 
+# Control-ID:1020,
+#: Control-ID:1392
+msgid "Ignore all whitespaces"
+msgstr "Ignorovať všetky biele znaky"
+
 # Ignorovať predkov
 #: Control-ID:1267
 msgid "Ignore ancestry"
@@ -3944,6 +4003,17 @@ msgstr "Zanedbať pôvod"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovať &konce riadkov (doporučené)"
 
+# Control-ID:1018,
+#: Control-ID:1126
+#: Control-ID:1127
+msgid "Ignore line endings"
+msgstr "Ignorovať konce riadkov"
+
+# Control-ID:1021,
+#: Control-ID:1391
+msgid "Ignore whitespace changes"
+msgstr "Ignorovať zmeny bielych znakov"
+
 # &Ignoruj položky
 # ID:15,
 #: ID:226
@@ -3951,7 +4021,7 @@ msgid "Ignored items included"
 msgstr "Zahrnuté ignorované objekty"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Immediate children, including folders"
 msgstr "Priame deti, vrátane adresárov"
 
@@ -4508,9 +4578,14 @@ msgstr "Zlúčiť - TortoiseSVN"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: Control-ID:65535
+msgid "Merge depth:"
+msgstr "Hĺbka spájania:"
+
+# ID:110,
 #: Control-ID:1377
-msgid "Merge Depth"
-msgstr "Hĺbka Spájania"
+msgid "Merge settings"
+msgstr "Nastavenia zlučovania"
 
 # ID:263,#:
 # ID:263,
@@ -4864,7 +4939,7 @@ msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nie všetky položky systémových registrov (elbo INI súbor) boli vymazané."
 
 # ID:266,
-#: ID:266
+#: ID:20
 msgid "Not descending"
 msgstr "Neklesajúce"
 
@@ -4937,7 +5012,7 @@ msgid "Only check out the &top folder"
 msgstr "Získa&ť iba hlavný adresár"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only file children"
 msgstr "Iba súbory"
 
@@ -4951,7 +5026,7 @@ msgstr ""
 "(eventuálne oddelené čiarkami)"
 
 # ID:266,
-#: ID:266
+#: ID:19
 msgid "Only this item"
 msgstr "Iba tento objekt"
 
@@ -5084,6 +5159,7 @@ msgstr "Súbory záplat (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 # ID:77,
 #: ID:77
 #: ID:198
+#: ID:20
 msgid "Path"
 msgstr "Cesta"
 
@@ -5469,6 +5545,42 @@ msgstr "Zmenšiť okno na ikonu"
 msgid "Refresh"
 msgstr "Obnoviť"
 
+# ID:117,
+#: ID:117
+#, c-format
+msgid ""
+"Regular expressions filter:\n"
+".\t\t\tany character\n"
+"c+\t\t\tmatch character c one or more times\n"
+"c*\t\t\tmatch character c zero or more times\n"
+"^\t\t\tstart of line\n"
+"$\t\t\tend of line\n"
+"(string){n}\tmatch string n times\n"
+"(abcd)\t\tsubexpression\n"
+"[aei0-9]\t\tmatch a,e,i and 0..9\n"
+"[^aei0-9]\tanything but a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany non-alphanumeric character\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\twhitespaces"
+msgstr ""
+"Filter regulárnych výrazovr:\n"
+".\t\t\takýkoľvek znakr\n"
+"c+\t\t\tznak práve raz\n"
+"c*\t\t\takýkoľvek počet výskytov znaku\n"
+"^\t\t\tzačiatok riadku\n"
+"$\t\t\tkoniec radka\n"
+"(string){n}\tvyskyt práve n-krát\n"
+"(abcd)\t\tpodvýraz\n"
+"[aei0-9]\t\tzahŕňa a,e,i a 0..9\n"
+"[^aei0-9]\tčokoľvek okrem a,e,i a 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tzahŕňa a-z,A-Z,0-9 a _\n"
+"\\W\t\t\tčokoľvek okrem písmen a čisiel\n"
+"\\d\t\t\tčisla 0-9\n"
+"\\s\t\t\tbieleznaky"
+
 # ID:82,
 #: ID:82
 msgid "Reject"
@@ -5688,7 +5800,6 @@ msgstr "Nahradzujem"
 #: Control-ID:1374
 #: Control-ID:1055
 #: Control-ID:1383
-#: Control-ID:65535
 msgid "Repository"
 msgstr "Úložisko"
 
@@ -5696,6 +5807,13 @@ msgstr "Úložisko"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Prezeranie úložiska"
+
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Repository UUID:"
+msgstr "UUID úložiska:"
 
 # Vyžaduje užívateľské meno a heslo
 # Control-ID:65535,
@@ -5805,6 +5923,7 @@ msgstr "Vrátiť všetky zmeny od poslednej aktualizácie"
 #: Control-ID:1375
 #: Control-ID:1306
 #: Control-ID:65535
+#: Control-ID:1393
 #: ID:19
 msgid "Revision"
 msgstr "Revízia"
@@ -6834,6 +6953,11 @@ msgstr "Označiť pracovnú kópiu ako %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
+msgid "Target"
+msgstr "Cieľ"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Text Status:"
 msgstr "Stav textu:"
 
@@ -7059,13 +7183,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
 "Cesta/URL, ktorú ste zadlai vyzerá byť vo Windows nepovolená!\n"
 "Môžete to napriek tomu skúsiť, ale asi to spôsobí chybu.\n"
 "\n"
 "Platná adresa vo Windows nesmie obsahovať  '<<>|\"?*:' a ani jedno z mien zariadení:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Chete napriek tomu pokračovať?"
 
 # ID:314,
 #: ID:314
@@ -7375,8 +7503,14 @@ msgstr ""
 
 # ID:7,
 #: ID:7
+#: Dlg-ID:153
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - Nástroj porovnávania obrázkov (súčasť TortoiseSVN)"
 
 # ID:7,
 #: ID:7
@@ -7528,6 +7662,7 @@ msgstr "Prvky Subversion URL"
 # Control-ID:65535,
 #: ID:144
 #: Control-ID:65535
+#: Control-ID:11023
 msgid "URL:"
 msgstr "URL:"
 
@@ -7620,7 +7755,7 @@ msgstr ""
 "  (význačné )Meno: %s"
 
 # Control-ID:1061,
-#: ID:266
+#: ID:20
 msgid "Unknown depth"
 msgstr "Neznáma hĺba"
 
@@ -7751,6 +7886,11 @@ msgstr "Použiť oba bloky (tento prvý)"
 msgid "Use both text blocks (this one last)"
 msgstr "Použiť oba bloky (tento posledný)"
 
+# ID:116,
+#: ID:116
+msgid "Use regular expression"
+msgstr "Použiť regulárny výraz"
+
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for removed lines"
@@ -7870,8 +8010,15 @@ msgstr "Hodnota"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075
+#: Control-ID:1004
 msgid "Version"
 msgstr "Verzia"
+
+# ID:201,
+#: ID:7
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "Verzia %d.%d.%d.%d"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -7945,7 +8092,7 @@ msgid "Working Copy Path:"
 msgstr "Cesta pracovnej kópie:"
 
 # Control-ID:1183,
-#: ID:267
+#: ID:20
 msgid "Working copy"
 msgstr "Pracovná kópia"
 
@@ -8082,15 +8229,6 @@ msgid ""
 msgstr ""
 "Zmenili ste ikonu z <i>%s</i> na <i>%s</i>.\n"
 "Táto zmena sa prejaví až po reštartovaní systému, alebo novom prihlásení!"
-
-# ID:338,
-#: ID:338
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"Vybrali ste pridaný adresár. Záplata nebude obsahovať súbory z pridaného adresára.\n"
-"Chcete napriek tomu pokračovať?"
 
 # ID:170,
 #: ID:170
@@ -8304,6 +8442,11 @@ msgstr ""
 "Skopírované z\r\n"
 "%s - revízia %ld"
 
+# ID:73,
+#: Control-ID:65535
+msgid "copied:"
+msgstr "skopírované:"
+
 # vymazaných
 # ID:10,
 #: ID:10
@@ -8335,6 +8478,11 @@ msgstr ""
 msgid "external"
 msgstr "externé"
 
+# Control-ID:1005,
+#: Control-ID:1005
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 # ignorovaných
 # ID:13,
 #: ID:13
@@ -8363,9 +8511,16 @@ msgstr "objekt lokálne zachovaný"
 # Control-ID:1002,
 #: ID:11
 #: ID:195
-#: Control-ID:1002
 msgid "locked"
 msgstr "zamknuté"
+
+# zamknutých
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: Control-ID:65535
+msgid "locked:"
+msgstr "zamknuté:"
 
 # zlúčených
 # ID:11,#:
@@ -8401,6 +8556,11 @@ msgstr "zmenené / skopírované"
 #: ID:245
 msgid "month"
 msgstr "mesiac"
+
+# ID:18,
+#: ID:18
+msgid "no"
+msgstr "nie"
 
 # ID:10,
 #: ID:10
@@ -8566,6 +8726,11 @@ msgstr ""
 "Prepnutý do\r\n"
 "%s"
 
+# ID:208,
+#: Control-ID:65535
+msgid "switched:"
+msgstr "prepnuté:"
+
 # ID:80,#:
 # ID:103,#:
 # ID:103,
@@ -8727,4 +8892,12 @@ msgstr "čo ukazuje na úložisko na URL:"
 #: ID:245
 msgid "year"
 msgstr "rok"
+
+# ID:73,
+#: ID:18
+#: Control-ID:1002
+#: Control-ID:1011
+#: Control-ID:1012
+msgid "yes"
+msgstr "ano"
 
