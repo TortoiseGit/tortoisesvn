@@ -148,6 +148,8 @@ private:
 	void GetAll(bool bForceAll = false);
 	void UpdateLogInfoLabel();
 	void SaveSplitterPos();
+	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
+
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function

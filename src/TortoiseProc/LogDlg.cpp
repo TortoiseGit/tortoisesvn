@@ -1211,15 +1211,8 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         CString FindText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
 		bool bFound = false;
-		bool bRegex = false;
 		rpattern pat;
-		try
-		{
-			pat.init( (LPCTSTR)FindText, MULTILINE | (bMatchCase ? NOFLAGS : NOCASE) );
-			bRegex = true;
-		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr) {}
+		bool bRegex = ValidateRegexp(FindText, pat, bMatchCase);
 
 		int i;
 		for (i = this->m_nSearchIndex; i<m_arShownList.GetCount()&&!bFound; i++)
@@ -2431,34 +2424,33 @@ void CLogDlg::OnEnChangeSearchedit()
 		KillTimer(LOGFILTER_TIMER);
 }
 
+bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase /* = false */)
+{
+	try
+	{
+		pat.init(regexp_str, MULTILINE | (bMatchCase ? NOFLAGS : NOCASE));
+		return true;
+	}
+	catch (bad_alloc) {}
+	catch (bad_regexpr) {}
+	return false;
+}
+
 bool CLogDlg::Validate(LPCTSTR string)
 {
 	if (!m_bFilterWithRegex)
 		return true;
-	bool bRegex = false;
 	rpattern pat;
-	try
-	{
-		pat.init(string, MULTILINE | NOCASE);
-		bRegex = true;
-	}
-	catch (bad_alloc) {}
-	catch (bad_regexpr) {}
-	return bRegex;
+	return ValidateRegexp(string, pat);
 }
 
 void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 {
 	pShownlist->RemoveAll();
-	bool bRegex = false;
 	rpattern pat;
-	try
-	{
-		pat.init( (LPCTSTR)m_sFilterText, MULTILINE | NOCASE );
-		bRegex = true;
-	}
-	catch (bad_alloc) {}
-	catch (bad_regexpr) {}
+	bool bRegex = false;
+	if (m_bFilterWithRegex)
+		bRegex = ValidateRegexp(m_sFilterText, pat);
 
 	CString sRev;
 	for (DWORD i=0; i<m_logEntries.size(); ++i)
