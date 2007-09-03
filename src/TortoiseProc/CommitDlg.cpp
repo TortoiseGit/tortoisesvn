@@ -713,7 +713,7 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 	path.SetFromWin((LPCTSTR)lParam);
 
 	// just add all the items we get here.
-	// if the item was not unversioned, the add will fail but nothing
+	// if the item is versioned, the add will fail but nothing
 	// more will happen.
 	SVN svn;
 	svn.Add(CTSVNPathList(path), &m_ProjectProperties, false, false, true, true);
