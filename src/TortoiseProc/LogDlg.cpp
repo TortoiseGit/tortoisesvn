@@ -1488,12 +1488,32 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			}
 			DoDiffFromLog(selIndex, rev1, rev2, false, false);
 		}
-		else if (changedpath->action == LOGACTIONS_DELETED)
+		else 
+		{
+			CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(changedpath->sPath));
+			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(changedpath->sPath));
+			SVNRev r = rev1;
 			// deleted files must be opened from the revision before the deletion
-			Open(false,changedpath->sPath,rev1-1);
-		else
-			// added files must be opened with the actual revision
-			Open(false,changedpath->sPath,rev1);
+			if (changedpath->action == LOGACTIONS_DELETED)
+				r = rev1-1;
+			m_bCancelled = false;
+			if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), r, r, tempfile))
+			{
+				m_bCancelled = false;
+				if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), SVNRev::REV_HEAD, r, tempfile))
+				{
+					CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					return;
+				}
+			}
+			CString sName1, sName2;
+			sName1.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
+			sName2.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
+			if (changedpath->action == LOGACTIONS_DELETED)
+				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1);
+			else
+				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1);
+		}
 	}
 }
 
