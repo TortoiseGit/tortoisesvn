@@ -149,6 +149,7 @@ private:
 	void UpdateLogInfoLabel();
 	void SaveSplitterPos();
 	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
+	void CheckRegexpTooltip();
 
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);

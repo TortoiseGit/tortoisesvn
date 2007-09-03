@@ -311,7 +311,7 @@ BOOL CLogDlg::OnInitDialog()
 		SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
 
 	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_SEARCHEDIT, IDS_LOG_FILTER_REGEX_TT);
+	CheckRegexpTooltip();
 
 	SetSplitterRange();
 	
@@ -418,6 +418,20 @@ BOOL CLogDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
+}
+
+void CLogDlg::CheckRegexpTooltip()
+{
+	CWnd *pWnd = GetDlgItem(IDC_SEARCHEDIT);
+	// Since tooltip describes regexp features, show it only if regexps are enabled.
+	if (m_bFilterWithRegex)
+	{
+		m_tooltips.AddTool(pWnd, IDS_LOG_FILTER_REGEX_TT);
+		// Anchor may overlap input box, obstructing user's view, so disable it.
+		m_tooltips.ModifyStyles(0, BALLOON_ANCHOR, pWnd);
+	}
+	else
+		m_tooltips.RemoveTool(pWnd);
 }
 
 void CLogDlg::EnableOKButton()
@@ -2176,19 +2190,25 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 		temp.LoadString(IDS_LOG_FILTER_REGEX);
 		popup.AppendMenu(MF_STRING | MF_ENABLED | (m_bFilterWithRegex ? MF_CHECKED : MF_UNCHECKED), LOGFILTER_REGEX, temp);
 
-		int oldfilter = m_nSelectedFilter;
-		m_nSelectedFilter = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if (m_nSelectedFilter == LOGFILTER_REGEX)
+		m_tooltips.Pop();
+		int selection = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		if (selection != 0)
 		{
-			m_bFilterWithRegex = !m_bFilterWithRegex;
-			CRegDWORD b = CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
-			b = m_bFilterWithRegex;
-			m_nSelectedFilter = oldfilter;
+
+			if (selection == LOGFILTER_REGEX)
+			{
+				m_bFilterWithRegex = !m_bFilterWithRegex;
+				CRegDWORD b = CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
+				b = m_bFilterWithRegex;
+				CheckRegexpTooltip();
+			}
+			else
+			{
+				m_nSelectedFilter = selection;
+				SetFilterCueText();
+			}
+			SetTimer(LOGFILTER_TIMER, 1000, NULL);
 		}
-		else if (m_nSelectedFilter == 0)
-			m_nSelectedFilter = oldfilter;
-		SetFilterCueText();
-		SetTimer(LOGFILTER_TIMER, 1000, NULL);
 	}
 	return 0L;
 }
