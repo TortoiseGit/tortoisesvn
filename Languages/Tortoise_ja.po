@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-20 11:12+0900\n"
+"PO-Revision-Date: 2007-09-03 18:56+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -793,6 +793,13 @@ msgstr "開く(&L) ..."
 msgid "&Merge"
 msgstr "マージ(&M)"
 
+# Dlg-ID:141,
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "パスをマージ(&M)"
+
 # ID:9,
 # ID:9,
 #: ID:9,
@@ -1110,7 +1117,7 @@ msgstr "&TortoiseSVN"
 # Control-ID:65535,
 #: Control-ID:1376,#:
 #: Control-ID:1058,#:
-#: Control-ID:65535,
+#: Control-ID:1394,
 msgid "&URL of repository:"
 msgstr "リポジトリの&URL:"
 
@@ -1323,6 +1330,10 @@ msgstr ""
 #: ID:209,
 msgid "<new changelist>"
 msgstr "<新しい変更リスト>"
+
+#: MenuEntry
+msgid "?"
+msgstr "?"
 
 # ID:3867,#:
 # ID:3867,
@@ -2001,6 +2012,10 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "参照(&R) ..."
 
+#: MenuEntry
+msgid "Background &color..."
+msgstr "背景色(&C)"
+
 # ID:246,
 # ID:246,
 #: ID:246,
@@ -2259,6 +2274,12 @@ msgstr "%s, %s と %s, %s の間に変更されたファイル"
 msgid "Changed files: %d"
 msgstr "変更されたファイル: %d"
 
+# ID:13,
+# Dlg-ID:243,
+#: Control-ID:65535,
+msgid "Changelist:"
+msgstr "変更リスト:"
+
 # Control-ID:1242,
 # Control-ID:1242,
 #: Control-ID:1242,
@@ -2387,6 +2408,14 @@ msgstr "チェックアウトする深さ"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "%s からチェックアウト、リビジョン %s, %s, %s"
+
+# ID:3887,#:
+# ID:3887,
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:65535,
+msgid "Checksum:"
+msgstr "チェックサム:"
 
 # ID:145,
 # ID:146,
@@ -2608,6 +2637,13 @@ msgstr "作業BASEとの比較／注釈履歴(&B)"
 #: ID:114,
 msgid "Compare and blame with previous revision"
 msgstr "以前のリビジョンと比較／注釈履歴を行う(&B)"
+
+# Control-ID:1019,
+# Control-ID:1019,
+#: Control-ID:1390,#:
+#: Control-ID:1390,
+msgid "Compare whitespaces"
+msgstr "空白を比較"
 
 # ID:76,
 # ID:76,
@@ -3053,6 +3089,12 @@ msgstr ""
 msgid "Create repositor&y here..."
 msgstr "ここにリポジトリを作成(&Y) ..."
 
+# ID:132,
+# ID:119,
+#: MenuEntry
+msgid "Create unified diff file"
+msgstr "Unified Diff ファイルを作成"
+
 # ID:126,
 # ID:126,
 #: ID:126,
@@ -3202,6 +3244,14 @@ msgstr "バージョン管理からファイル／フォルダを削除し、フ
 msgid "Deleting"
 msgstr "削除中"
 
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+# Control-ID:65535,
+#: Control-ID:65535,
+msgid "Depth:"
+msgstr "深さ:"
+
 # Control-ID:1126,
 # ID:213,
 #: ID:213,
@@ -3234,6 +3284,12 @@ msgstr "URL と差分"
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "差分ファイル:"
+
+# Control-ID:1022,
+# Control-ID:1022,
+#: Control-ID:65535,
+msgid "Diff options"
+msgstr "差分設定"
 
 # Control-ID:1302,
 # Control-ID:1302,
@@ -3983,6 +4039,13 @@ msgstr ""
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "次のパスを除外する ('*' 文字で複数のパスを分ける):"
 
+# Dlg-ID:135,
+# ID:376,#:
+# Dlg-ID:135,
+#: ID:321,
+msgid "Filter paths"
+msgstr "フィルターパス"
+
 # Dlg-ID:139,
 #: Dlg-ID:139,
 msgid "Find"
@@ -4054,7 +4117,7 @@ msgstr "元: （マージする範囲の始点を指すURLとリビジョン）"
 
 # Control-ID:1018,
 # ID:563,
-#: ID:266,
+#: ID:19,
 msgid "Fully recursive"
 msgstr "再帰的"
 
@@ -4639,6 +4702,13 @@ msgstr "全ての空白を無視する(&A)"
 msgid "Ignore &case changes"
 msgstr "大文字／小文字の変更は無視する(&C)"
 
+# Control-ID:1021,
+# Control-ID:1020,
+#: Control-ID:1392,#:
+#: Control-ID:1392,
+msgid "Ignore all whitespaces"
+msgstr "全ての空白を無視する"
+
 # Control-ID:1067,
 # Control-ID:1267,
 #: Control-ID:1267,
@@ -4651,6 +4721,20 @@ msgstr "系統情報を無視する"
 msgid "Ignore line &endings (recommended)"
 msgstr "改行コード(&E)を無視する（推奨）"
 
+# Control-ID:1018,
+# Control-ID:1018,
+#: Control-ID:1126,#:
+#: Control-ID:1127,
+msgid "Ignore line endings"
+msgstr "改行コードを無視する"
+
+# Control-ID:1067,
+# Control-ID:1021,
+#: Control-ID:1391,#:
+#: Control-ID:1391,
+msgid "Ignore whitespace changes"
+msgstr "空白の変更を無視する"
+
 # Control-ID:1021,
 # ID:15,
 #: ID:226,
@@ -4658,7 +4742,7 @@ msgid "Ignored items included"
 msgstr "無視項目を含む"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Immediate children, including folders"
 msgstr "直接の子階層（フォルダを含む）"
 
@@ -5291,9 +5375,15 @@ msgstr "マージ - TortoiseSVN"
 # Dlg-ID:141,
 # Dlg-ID:141,#:
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Merge depth:"
+msgstr "マージする深さ:"
+
+# ID:110,
+# ID:110,
 #: Control-ID:1377,
-msgid "Merge Depth"
-msgstr "マージする深さ"
+msgid "Merge settings"
+msgstr "マージ設定"
 
 # Dlg-ID:141,
 # ID:263,#:
@@ -5719,7 +5809,7 @@ msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
 
 # ID:266,
-#: ID:266,
+#: ID:20,
 msgid "Not descending"
 msgstr "深さ方向は無し"
 
@@ -5808,7 +5898,7 @@ msgid "Only check out the &top folder"
 msgstr "トップフォルダのみチェックアウトする(&T)"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Only file children"
 msgstr "子階層のファイルのみ"
 
@@ -5821,7 +5911,7 @@ msgid ""
 msgstr "数値のみ（コンマで分割可能）が入力可能です！"
 
 # ID:266,
-#: ID:266,
+#: ID:19,
 msgid "Only this item"
 msgstr "この項目のみ"
 
@@ -5982,7 +6072,8 @@ msgstr "パッチファイル (*.diff;*.patch)|*.diff;*.patch|全てのファイ
 # ID:77,#:
 # ID:198,
 #: ID:77,#:
-#: ID:198,
+#: ID:198,#:
+#: ID:20,
 msgid "Path"
 msgstr "パス"
 
@@ -6457,6 +6548,41 @@ msgstr "ウィンドウをアイコン化する"
 msgid "Refresh"
 msgstr "最新の情報に更新"
 
+#: ID:117,
+#, c-format
+msgid ""
+"Regular expressions filter:\n"
+".\t\t\tany character\n"
+"c+\t\t\tmatch character c one or more times\n"
+"c*\t\t\tmatch character c zero or more times\n"
+"^\t\t\tstart of line\n"
+"$\t\t\tend of line\n"
+"(string){n}\tmatch string n times\n"
+"(abcd)\t\tsubexpression\n"
+"[aei0-9]\t\tmatch a,e,i and 0..9\n"
+"[^aei0-9]\tanything but a,e,i and 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
+"\\W\t\t\tany non-alphanumeric character\n"
+"\\d\t\t\tdigits 0-9\n"
+"\\s\t\t\twhitespaces"
+msgstr ""
+"正規表現のフィルター:\n"
+".\t\t\t任意の文字\n"
+"c+\t\t\t文字 c への 1 回以上の一致\n"
+"c*\t\t\t文字 c への 0 回以上の一致\n"
+"^\t\t\t行頭\n"
+"$\t\t\t行末\n"
+"(string){n}\t文字列 string への n 回の一致times\n"
+"(abcd)\t\t部分式\n"
+"[aei0-9]\t\ta、e、i、0..9 への一致\n"
+"[^aei0-9]\ta、e、i、0..9 以外への一致\n"
+"<hr=100%>\n"
+"\\w\t\t\ta-z、A-Z、0-9、_ への一致\n"
+"\\W\t\t\tアルファベットと数字以外への一致\n"
+"\\d\t\t\t10 進数字 0-9 と一致\n"
+"\\s\t\t\t空白"
+
 # ID:82,
 # ID:82,
 #: ID:82,
@@ -6712,7 +6838,7 @@ msgstr "置換"
 #: Control-ID:1374,#:
 #: Control-ID:1055,#:
 #: Control-ID:1383,#:
-#: Control-ID:65535,
+#: Control-ID:1383,
 msgid "Repository"
 msgstr "リポジトリ"
 
@@ -6721,6 +6847,16 @@ msgstr "リポジトリ"
 #: Dlg-ID:153,
 msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
+
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535,
+msgid "Repository UUID:"
+msgstr "リポジトリ UUID:"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -6859,6 +6995,7 @@ msgstr "最後の更新から行った全ての変更を元に戻す"
 #: Control-ID:1375,#:
 #: Control-ID:1306,#:
 #: Control-ID:65535,#:
+#: Control-ID:1393,#:
 #: ID:19,
 msgid "Revision"
 msgstr "リビジョン"
@@ -8073,6 +8210,10 @@ msgstr "タブ幅:"
 msgid "Tagged the working copy to %s"
 msgstr "作業コピーを %s へタグ付けしました。"
 
+#: Control-ID:65535,
+msgid "Target"
+msgstr "ターゲット"
+
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -8329,13 +8470,17 @@ msgid ""
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<<>|\"?*:' or one of the following device names:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Do you want to proceed anyway?"
 msgstr ""
 "入力されたパス／URLはWindowsでは無効です！\n"
 "実行はできますが、後でエラーが発生するかもしれません。\n"
 "\n"
 "Windowsで有効なパスには、 '<<>|\"?*:' の文字や、次に示すデバイス名のどれかを含めることはできません:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"続行してもよろしいですか？"
 
 # ID:314,
 # ID:314,
@@ -8685,9 +8830,14 @@ msgstr ""
 # ID:9,#:
 # ID:80,
 # ID:7,
-#: ID:7,
+#: ID:7,#:
+#: Dlg-ID:153,
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
+
+#: Control-ID:65535,
+msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
+msgstr "TortoiseIDiff - TortoiseSVN内の画像差分ツール"
 
 # ID:7,
 # ID:7,
@@ -8860,7 +9010,8 @@ msgstr "Subversion 項目のURL"
 # ID:144,#:
 # Control-ID:65535,
 #: ID:144,#:
-#: Control-ID:65535,
+#: Control-ID:65535,#:
+#: Control-ID:11023,
 msgid "URL:"
 msgstr "URL:"
 
@@ -8981,7 +9132,7 @@ msgstr ""
 
 # Control-ID:1061,
 # Control-ID:1061,
-#: ID:266,
+#: ID:20,
 msgid "Unknown depth"
 msgstr "未知の深さ"
 
@@ -9144,6 +9295,10 @@ msgstr "両方のテキストブロックを利用する（こちらを前にす
 msgid "Use both text blocks (this one last)"
 msgstr "両方のテキストブロックを利用する（こちらを後にする）"
 
+#: ID:116,
+msgid "Use regular expression"
+msgstr "正規表現を使用する"
+
 # Control-ID:1066,
 # Control-ID:1066,
 #: Control-ID:1066,
@@ -9277,9 +9432,16 @@ msgstr "値"
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075,#:
-#: Control-ID:1075,
+#: Control-ID:1004,
 msgid "Version"
 msgstr "バージョン"
+
+# ID:201,
+# ID:201,
+#: ID:7,
+#, c-format
+msgid "Version %d.%d.%d.%d"
+msgstr "バージョン %d.%d.%d.%d"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -9368,7 +9530,7 @@ msgstr "作業コピーのパス:"
 
 # ID:151,
 # Control-ID:1183,
-#: ID:267,
+#: ID:20,
 msgid "Working copy"
 msgstr "作業コピー"
 
@@ -9518,16 +9680,6 @@ msgid ""
 msgstr ""
 "アイコンセットを <i>%s</i> から <i>%s</i> に変更しました。\n"
 "この変更は、再起動するか再ログインするまで反映されません！"
-
-# ID:338,
-# ID:338,
-#: ID:338,
-msgid ""
-"You've selected added folders. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
-msgstr ""
-"追加されたフォルダを選択しました。パッチには、追加されたフォルダ内のファイルは含まれていないかもしれません。\n"
-"実行を続けますか？"
 
 # ID:170,
 # ID:170,
@@ -9762,6 +9914,12 @@ msgstr ""
 "コピー元\r\n"
 "%s - リビジョン %ld"
 
+# ID:74,
+# ID:73,
+#: Control-ID:65535,
+msgid "copied:"
+msgstr "コピー:"
+
 # ID:10,
 # ID:10,
 #: ID:10,
@@ -9795,6 +9953,10 @@ msgstr ""
 msgid "external"
 msgstr "外部"
 
+#: Control-ID:1005,
+msgid "http://tortoisesvn.net"
+msgstr "http://tortoisesvn.net"
+
 # ID:13,
 # ID:13,
 #: ID:13,
@@ -9824,10 +9986,18 @@ msgstr "ローカルに保持される項目"
 # ID:195,#:
 # Control-ID:1002,
 #: ID:11,#:
-#: ID:195,#:
-#: Control-ID:1002,
+#: ID:195,
 msgid "locked"
 msgstr "ロック"
+
+# ID:11,#:
+# Control-ID:1002,
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: Control-ID:65535,
+msgid "locked:"
+msgstr "ロック:"
 
 # ID:11,
 # ID:11,#:
@@ -9866,6 +10036,10 @@ msgstr "変更／コピー"
 #: ID:245,
 msgid "month"
 msgstr "月"
+
+#: ID:18,
+msgid "no"
+msgstr "いいえ"
 
 # ID:10,
 # ID:10,
@@ -10053,6 +10227,12 @@ msgstr ""
 "切り替え\r\n"
 "%s"
 
+# ID:208,
+# ID:208,
+#: Control-ID:65535,
+msgid "switched:"
+msgstr "切り替え:"
+
 # ID:80,
 # ID:80,#:
 # ID:103,#:
@@ -10229,4 +10409,13 @@ msgstr "作業コピーを示すリポジトリのURL:"
 #: ID:245,
 msgid "year"
 msgstr "年"
+
+# ID:73,
+# ID:73,
+#: ID:18,#:
+#: Control-ID:1002,#:
+#: Control-ID:1011,#:
+#: Control-ID:1012,
+msgid "yes"
+msgstr "はい"
 
