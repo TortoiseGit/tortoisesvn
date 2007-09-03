@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-08-31 08:52+0100\n"
+"PO-Revision-Date: 2007-09-03 08:44+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -568,6 +568,10 @@ msgstr "&Вчитај..."
 #: Control-ID:1,
 msgid "&Merge"
 msgstr "&Соедини"
+
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "&Соедини ги патеките"
 
 #: ID:9,
 msgid "&Merge..."
@@ -4275,7 +4279,8 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Закрпи (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 #: ID:77,#:
-#: ID:198,
+#: ID:198,#:
+#: ID:20,
 msgid "Path"
 msgstr "Патека"
 
@@ -6532,6 +6537,10 @@ msgstr "Користи ги и двата блокови со текст (ово
 #: ID:251,
 msgid "Use both text blocks (this one last)"
 msgstr "Користи ги и двата блокови со текст (овој последен)"
+
+#: ID:116,
+msgid "Use regular expression"
+msgstr "Користи го обичниот израз"
 
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
