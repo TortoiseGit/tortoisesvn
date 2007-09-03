@@ -94,43 +94,8 @@ BOOL CToolAssocDlg::PreTranslateMessage(MSG* pMsg)
 void CToolAssocDlg::OnBnClickedToolbrowse()
 {
 	UpdateData(TRUE);
-
-	OPENFILENAME ofn = {0};				// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-	// Initialize OPENFILENAME
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = this->m_hWnd;
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString sFilter;
-	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimiters with '\0's
-	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-	while (ptr != pszFilters)
+	if (CAppUtils::FileOpenSave(m_sTool, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
 	{
-		if (*ptr == '|')
-			*ptr = '\0';
-		ptr--;
-	}
-	ofn.lpstrFilter = pszFilters;
-	ofn.nFilterIndex = 1;
-	ofn.lpstrFileTitle = NULL;
-	ofn.nMaxFileTitle = 0;
-	ofn.lpstrInitialDir = NULL;
-	CString temp;
-	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
-	CStringUtils::RemoveAccelerators(temp);
-	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
-
-	// Display the Open dialog box. 
-
-	if (GetOpenFileName(&ofn)==TRUE)
-	{
-		m_sTool = CString(ofn.lpstrFile);
 		UpdateData(FALSE);
 	}
-	delete [] pszFilters;
 }

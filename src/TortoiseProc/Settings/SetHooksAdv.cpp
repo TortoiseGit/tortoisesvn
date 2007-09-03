@@ -21,6 +21,7 @@
 #include "SetHooksAdv.h"
 #include "BrowseFolder.h"
 #include "Balloon.h"
+#include "AppUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CSetHooksAdv, CResizableStandAloneDialog)
@@ -152,26 +153,9 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 
 void CSetHooksAdv::OnBnClickedHookcommandbrowse()
 {
-	// browse for the hook script to call
-	OPENFILENAME ofn = {0};				// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-	CString temp;
-	// Initialize OPENFILENAME
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = m_hWnd;
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	temp.LoadString(IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE);
-	if (temp.IsEmpty())
-		ofn.lpstrTitle = NULL;
-	else
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_FILEMUSTEXIST | OFN_EXPLORER;
-
 	// Display the Open dialog box. 
-	if (GetOpenFileName(&ofn))
+	if (CAppUtils::FileOpenSave(m_sCommandLine, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, m_hWnd))
 	{
-		m_sCommandLine = szFile;
 		UpdateData(FALSE);
 	}
 }

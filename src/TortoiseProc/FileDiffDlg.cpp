@@ -539,49 +539,14 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				if (m_cFileList.GetSelectedCount() > 0)
 				{
-					// ask where to save the list
-					OPENFILENAME ofn = {0};				// common dialog box structure
 					CString temp;
 					CTSVNPath savePath;
-
-					TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-					// Initialize OPENFILENAME
-					ofn.lStructSize = sizeof(OPENFILENAME);
-					ofn.hwndOwner = m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					CStringUtils::RemoveAccelerators(temp);
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
-
-					ofn.hInstance = AfxGetResourceHandle();
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-					// Replace '|' delimiters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
+					CString pathSave;
+					if (!CAppUtils::FileOpenSave(pathSave, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd))
 					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					}
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					if (GetSaveFileName(&ofn)==FALSE)
-					{
-						delete [] pszFilters;
 						break;
 					}
-					delete [] pszFilters;
-					savePath = CTSVNPath(ofn.lpstrFile);
+					savePath = CTSVNPath(pathSave);
 
 					// now open the selected file for writing
 					try

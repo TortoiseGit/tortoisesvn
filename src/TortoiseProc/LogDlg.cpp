@@ -3385,53 +3385,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_SAVEAS:
 			{
 				//now first get the revision which is selected
-				OPENFILENAME ofn = {0};				// common dialog box structure
-				TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
+				CString revFilename;
 				if (m_hasWC)
 				{
-					CString revFilename;
 					CString strWinPath = m_path.GetWinPathString();
 					int rfind = strWinPath.ReverseFind('.');
 					if (rfind > 0)
 						revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)strWinPath.Left(rfind), (LONG)revSelected, (LPCTSTR)strWinPath.Mid(rfind));
 					else
 						revFilename.Format(_T("%s-%ld"), (LPCTSTR)strWinPath, revSelected);
-					_tcscpy_s(szFile, MAX_PATH, revFilename);
 				}
-				// Initialize OPENFILENAME
-				ofn.lStructSize = sizeof(OPENFILENAME);
-				ofn.hwndOwner = this->m_hWnd;
-				ofn.lpstrFile = szFile;
-				ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-				CString temp;
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				//ofn.lpstrTitle = "Save revision to...\0";
-				CStringUtils::RemoveAccelerators(temp);
-				if (temp.IsEmpty())
-					ofn.lpstrTitle = NULL;
-				else
-					ofn.lpstrTitle = temp;
-				ofn.Flags = OFN_OVERWRITEPROMPT;
-
-				CString sFilter;
-				sFilter.LoadString(IDS_COMMONFILEFILTER);
-				TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-				_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-				// Replace '|' delimiters with '\0's
-				TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-				while (ptr != pszFilters)
+				if (CAppUtils::FileOpenSave(revFilename, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd))
 				{
-					if (*ptr == '|')
-						*ptr = '\0';
-					ptr--;
-				}
-				ofn.lpstrFilter = pszFilters;
-				ofn.nFilterIndex = 1;
-				// Display the Open dialog box. 
-				CTSVNPath tempfile;
-				if (GetSaveFileName(&ofn)==TRUE)
-				{
-					tempfile.SetFromWin(ofn.lpstrFile);
+					CTSVNPath tempfile;
+					tempfile.SetFromWin(revFilename);
 					SVN svn;
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
@@ -3448,7 +3415,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 						{
 							progDlg.Stop();
 							svn.SetAndClearProgressInfo((HWND)NULL);
-							delete [] pszFilters;
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							EnableOKButton();
 							break;
@@ -3457,7 +3423,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					progDlg.Stop();
 					svn.SetAndClearProgressInfo((HWND)NULL);
 				}
-				delete [] pszFilters;
 			}
 			break;
 		case ID_OPENWITH:
@@ -3982,8 +3947,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				}
 				else
 				{
-					OPENFILENAME ofn = {0};				// common dialog box structure
-					TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
+					// Display the Open dialog box. 
 					CString revFilename;
 					temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
 					int rfind = temp.ReverseFind('.');
@@ -3991,38 +3955,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
 					else
 						revFilename.Format(_T("%s-%ld"), temp, rev1);
-					_tcscpy_s(szFile, MAX_PATH, revFilename);
-					// Initialize OPENFILENAME
-					ofn.lStructSize = sizeof(OPENFILENAME);
-					ofn.hwndOwner = this->m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					temp.LoadString(IDS_LOG_POPUP_SAVE);
-					CStringUtils::RemoveAccelerators(temp);
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT;
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-					// Replace '|' delimiters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
-					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					}
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					bTargetSelected = !!GetSaveFileName(&ofn);
-					TargetPath.SetFromWin(ofn.lpstrFile);
-					delete [] pszFilters;
+					bTargetSelected = CAppUtils::FileOpenSave(revFilename, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
+					TargetPath.SetFromWin(revFilename);
 				}
 				if (bTargetSelected)
 				{

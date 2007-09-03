@@ -337,36 +337,18 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 
 void CEditPropertyValueDlg::OnBnClickedLoadprop()
 {
-	// now save the property value
-	OPENFILENAME ofn = {0};				// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-	_tcscpy_s(szFile, (LPCTSTR)m_sPropName);
-	CString temp;
-	// Initialize OPENFILENAME
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = m_hWnd;
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	temp.LoadString(IDS_REPOBROWSE_OPEN);
-	CStringUtils::RemoveAccelerators(temp);
-	if (temp.IsEmpty())
-		ofn.lpstrTitle = NULL;
-	else
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_FILEMUSTEXIST | OFN_EXPLORER;
-
-	// Display the Open dialog box. 
-	if (GetOpenFileName(&ofn)==FALSE)
+	CString openPath;
+	if (CAppUtils::FileOpenSave(openPath, IDS_REPOBROWSE_OPEN, IDS_COMMONFILEFILTER, true, m_hWnd))
 	{
 		return;
 	}
 	// first check the size of the file
-	HANDLE hFile = CreateFile(ofn.lpstrFile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	HANDLE hFile = CreateFile(openPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hFile != INVALID_HANDLE_VALUE)
 	{
 		DWORD size = GetFileSize(hFile, NULL);
 		FILE * stream;
-		_tfopen_s(&stream, ofn.lpstrFile, _T("rbS"));
+		_tfopen_s(&stream, openPath, _T("rbS"));
 		char * buf = new char[size];
 		if (fread(buf, sizeof(char), size, stream)==size)
 		{

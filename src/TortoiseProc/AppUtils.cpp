@@ -839,3 +839,68 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 	}
 	return false;
 }
+
+bool CAppUtils::FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen, HWND hwndOwner)
+{
+	OPENFILENAME ofn = {0};				// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name. Explorer can't handle paths longer than MAX_PATH.
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = hwndOwner;
+	_tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	CString sFilter;
+	TCHAR * pszFilters = NULL;
+	if (filter)
+	{
+		sFilter.LoadString(filter);
+		pszFilters = new TCHAR[sFilter.GetLength()+4];
+		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+		// Replace '|' delimiters with '\0's
+		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+		while (ptr != pszFilters)
+		{
+			if (*ptr == '|')
+				*ptr = '\0';
+			ptr--;
+		}
+		ofn.lpstrFilter = pszFilters;
+	}
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+	ofn.lpstrInitialDir = NULL;
+	CString temp;
+	if (title)
+	{
+		temp.LoadString(title);
+		CStringUtils::RemoveAccelerators(temp);
+	}
+	ofn.lpstrTitle = temp;
+	if (bOpen)
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
+	else
+		ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
+
+
+	// Display the Open dialog box. 
+	bool bRet = false;
+	if (bOpen)
+	{
+		bRet = !!GetOpenFileName(&ofn);
+	}
+	else
+	{
+		bRet = !!GetSaveFileName(&ofn);
+	}
+	if (bRet)
+	{
+		if (pszFilters)
+			delete [] pszFilters;
+		path = CString(ofn.lpstrFile);
+		return true;
+	}
+	if (pszFilters)
+		delete [] pszFilters;
+	return false;
+}

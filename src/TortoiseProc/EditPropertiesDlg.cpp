@@ -497,32 +497,13 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 		sValue = prop.value.c_str();
 		if (prop.allthesamevalue)
 		{
-			// now save the property value
-			OPENFILENAME ofn = {0};				// common dialog box structure
-			TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-			_tcscpy_s(szFile, (LPCTSTR)sName);
-			CString temp;
-			// Initialize OPENFILENAME
-			ofn.lStructSize = sizeof(OPENFILENAME);
-			ofn.hwndOwner = m_hWnd;
-			ofn.lpstrFile = szFile;
-			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-			CStringUtils::RemoveAccelerators(temp);
-			if (temp.IsEmpty())
-				ofn.lpstrTitle = NULL;
-			else
-				ofn.lpstrTitle = temp;
-			ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
-
-			// Display the Open dialog box. 
-			if (GetSaveFileName(&ofn)==FALSE)
-			{
+			CString savePath;
+			if (!CAppUtils::FileOpenSave(savePath, IDS_REPOBROWSE_SAVEAS, 0, false, m_hWnd))
 				return;
-			}
+
 			FILE * stream;
 			errno_t err = 0;
-			if ((err = _tfopen_s(&stream, ofn.lpstrFile, _T("wbS")))==0)
+			if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, _T("wbS")))==0)
 			{
 				fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
 				fclose(stream);
