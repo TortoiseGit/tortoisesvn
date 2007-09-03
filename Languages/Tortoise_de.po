@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-08-31 11:16+0100\n"
+"PO-Revision-Date: 2007-09-03 09:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -685,6 +685,11 @@ msgstr "&Laden..."
 #: Control-ID:1,
 msgid "&Merge"
 msgstr "&Zusammenführen"
+
+# Control-ID:1377,
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "&Pfade zusammenführen"
 
 # ID:9,
 #: ID:9,
@@ -5295,7 +5300,8 @@ msgstr "Patchdateien (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 # ID:77,#:
 # ID:198,
 #: ID:77,#:
-#: ID:198,
+#: ID:198,#:
+#: ID:20,
 msgid "Path"
 msgstr "Pfad"
 
@@ -8109,6 +8115,10 @@ msgstr "Verwende beide Blöcke (Diesen zuerst)"
 #: ID:251,
 msgid "Use both text blocks (this one last)"
 msgstr "Verwende beide Blöcke (Diesen zuletzt)"
+
+#: ID:116,
+msgid "Use regular expression"
+msgstr "Verwende reguläre Ausdrücke"
 
 # Control-ID:1066,
 #: Control-ID:1066,
