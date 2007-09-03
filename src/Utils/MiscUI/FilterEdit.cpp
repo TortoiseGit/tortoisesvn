@@ -301,18 +301,22 @@ void CFilterEdit::Validate()
 		int len = GetWindowTextLength();
 		TCHAR * pBuf = new TCHAR[len+1];
 		GetWindowText(pBuf, len+1);
-		if (m_pValidator->Validate(pBuf))
+		m_backColor = GetSysColor(COLOR_WINDOW);
+		if (!m_pValidator->Validate(pBuf))
 		{
-			m_backColor = GetSysColor(COLOR_WINDOW);
-		}
-		else
-		{
-			// use a background color which goes to the red
-			int r;
-			m_backColor = GetSysColor(COLOR_WINDOW);
-			// The color components have to be treated individually.
-			r = (GetRValue(m_backColor) * 95) / 100;
-			m_backColor = RGB(GetRValue(m_backColor), r, r);
+			// Use a background color slightly shifted to red.
+			// We do this by increasing red component and decreasing green and blue.
+			const int SHIFT_PRECENTAGE = 10;
+			int r = GetRValue(m_backColor);
+			int g = GetGValue(m_backColor);
+			int b = GetBValue(m_backColor);
+
+			r = min(r * (100 + SHIFT_PRECENTAGE) / 100, 255);
+			// Ensure that there is at least some redness.
+			r = max(r, 255 * SHIFT_PRECENTAGE / 100);
+			g = g * (100 - SHIFT_PRECENTAGE) / 100;
+			b = b * (100 - SHIFT_PRECENTAGE) / 100;
+			m_backColor = RGB(r, g, b);
 			if (m_brBack)
 				DeleteObject(m_brBack);
 			m_brBack = CreateSolidBrush(m_backColor);
