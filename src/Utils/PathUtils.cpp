@@ -447,6 +447,14 @@ CString CPathUtils::PathPatternEscape(const CString& path)
 	return result;
 }
 
+CString CPathUtils::PathPatternUnEscape(const CString& path)
+{
+	CString result = path;
+	result.Replace(_T("\\["), _T("["));
+	result.Replace(_T("\\]"), _T("]"));
+	return result;
+}
+
 #endif
 
 #if defined(_DEBUG) && defined(_MFC_VER)

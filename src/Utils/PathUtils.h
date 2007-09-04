@@ -91,9 +91,13 @@ public:
 	static CStringW PathUnescape(const CStringW& path);
 
 	/**
-	 * Escapes regexp-specific chars.
-	 */
+	* Escapes regexp-specific chars.
+	*/
 	static CString PathPatternEscape(const CString& path);
+	/**
+	 * Unescapes regexp-specific chars.
+	 */
+	static CString PathPatternUnEscape(const CString& path);
 
 	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.
