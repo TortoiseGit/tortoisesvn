@@ -79,7 +79,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	return TRUE;
 }
 
-BOOL CBlame::Log(svn_revnum_t revision, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD /*children*/)
+BOOL CBlame::Log(svn_revnum_t revision, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL /*children*/)
 {
 	return Log(revision, author, date, message, cpaths, time, filechanges, copies, actions);
 }

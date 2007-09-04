@@ -60,7 +60,7 @@ private:
 						const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 						svn_error_t * err, apr_pool_t * pool);
 	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
-	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children);
+	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren);
 private:
 	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled
 	LONG		m_nCounter;				///< Counts the number of calls to the Cancel() callback (revisions?)

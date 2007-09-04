@@ -785,8 +785,13 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 {
 	return Log(rev, author, date, message, cpaths, time, filechanges, copies, actions, 0);
 }
-BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children)
+BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren)
 {
+	if (rev == SVN_INVALID_REVNUM)
+	{
+		m_childCounter--;
+		return TRUE;
+	}
 	// this is the callback function which receives the data for every revision we ask the log for
 	// we store this information here one by one.
 	int found = 0;
@@ -835,13 +840,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->sShortMessage = sShortMessage;
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
-	pLogItem->children = children;
+	pLogItem->haschildren = haschildren;
 	pLogItem->isChild = (m_childCounter > 0);
+	if (haschildren)
+		m_childCounter++;
 	pLogItem->sBugIDs = m_ProjectProperties.FindBugID(message).Trim();
-
-	if (m_childCounter > 0)
-		m_childCounter--;
-	m_childCounter += children;
 	
 	// split multi line log entries and concatenate them
 	// again but this time with \r\n as line separators

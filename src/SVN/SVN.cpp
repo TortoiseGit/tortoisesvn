@@ -155,7 +155,7 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 				svn_merge_range_t * range,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, DWORD children) {return TRUE;};
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
@@ -1301,7 +1301,7 @@ svn_error_t * SVN::logMergeReceiver(void* baton, svn_log_entry_t* log_entry, apr
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	svn->Log(log_entry->revision, author_native, date_native, msg_native, arChangedPaths.release(), time_temp, filechanges, copies, actions, (DWORD)log_entry->nbr_children);
+	svn->Log(log_entry->revision, author_native, date_native, msg_native, arChangedPaths.release(), time_temp, filechanges, copies, actions, log_entry->has_children);
 	return error;
 }
 
