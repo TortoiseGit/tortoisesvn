@@ -321,7 +321,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 	//
 	CBrowseFolder browseFolder;
 	browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-	CString strCheckoutDirectory;
+	CString strCheckoutDirectory = m_strCheckoutDirectory;
 	if (browseFolder.Show(GetSafeHwnd(), strCheckoutDirectory) == CBrowseFolder::OK) 
 	{
 		UpdateData(TRUE);
