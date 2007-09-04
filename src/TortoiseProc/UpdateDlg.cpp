@@ -61,6 +61,7 @@ BOOL CUpdateDlg::OnInitDialog()
 	AdjustControlSize(IDC_REVISION_N);
 	AdjustControlSize(IDC_NOEXTERNALS);
 
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
@@ -92,15 +93,18 @@ void CUpdateDlg::OnOK()
 	switch (m_depthCombo.GetCurSel())
 	{
 	case 0:
-		m_depth = svn_depth_infinity;
+		m_depth = svn_depth_unknown;
 		break;
 	case 1:
-		m_depth = svn_depth_immediates;
+		m_depth = svn_depth_infinity;
 		break;
 	case 2:
-		m_depth = svn_depth_files;
+		m_depth = svn_depth_immediates;
 		break;
 	case 3:
+		m_depth = svn_depth_files;
+		break;
+	case 4:
 		m_depth = svn_depth_empty;
 		break;
 	default:
