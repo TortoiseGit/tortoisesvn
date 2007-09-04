@@ -377,6 +377,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 									{
 										std::string st = props.GetItemValue(p);
 										ignoredprops = MultibyteToWide(st.c_str());
+										// remove all escape chars ('\\')
+										std::remove(ignoredprops.begin(), ignoredprops.end(), '\\');
 										break;
 									}
 								}
