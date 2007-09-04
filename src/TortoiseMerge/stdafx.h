@@ -69,3 +69,4 @@
 #include <vector>
 #pragma warning(pop)
 
+#define USE_GDI_GRADIENT
