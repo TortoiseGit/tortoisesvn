@@ -91,13 +91,16 @@ public:
 	static CStringW PathUnescape(const CStringW& path);
 
 	/**
+	 * Escapes regexp-specific chars.
+	 */
+	static CString PathPatternEscape(const CString& path);
+
+	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.
 	 * \param p_strDateiname path to the dll or exe
 	 * \return the version string
 	 */
 	static CString GetVersionFromFile(const CString & p_strDateiname);
-
-
 
 
 #endif

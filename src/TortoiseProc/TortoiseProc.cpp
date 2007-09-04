@@ -2002,7 +2002,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
 				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
-				CString name = pathList[nPath].GetFileOrDirectoryName();
+				CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
 				if (parser.HasKey(_T("onlymask")))
 				{
 					name = _T("*")+pathList[nPath].GetFileExtension();
@@ -2055,7 +2055,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL err = FALSE;
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
-				CString name = pathList[nPath].GetFileOrDirectoryName();
+				CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
 				if (parser.HasKey(_T("onlymask")))
 				{
 					name = _T("*")+pathList[nPath].GetFileExtension();

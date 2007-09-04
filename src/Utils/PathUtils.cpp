@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
-#include "pathutils.h"
+#include "PathUtils.h"
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
@@ -434,6 +434,18 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
 	return strReturn;
 }
 
+CString CPathUtils::PathPatternEscape(const CString& path)
+{
+	CString result = path;
+	// first remove already escaped patterns to avoid having those
+	// escaped twice
+	result.Replace(_T("\\["), _T("["));
+	result.Replace(_T("\\]"), _T("]"));
+	// now escape the patterns (again)
+	result.Replace(_T("["), _T("\\["));
+	result.Replace(_T("]"), _T("\\]"));
+	return result;
+}
 
 #endif
 

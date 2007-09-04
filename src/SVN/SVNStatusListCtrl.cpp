@@ -2988,7 +2988,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									break;
 								}
 							}
-							CString name = ignorelist[j].GetFileOrDirectoryName();
+							CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
 							CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
 							SVNProperties props(parentfolder);
 							CStringA value;
