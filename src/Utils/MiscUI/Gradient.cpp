@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,22 @@ CGradient::CGradient(void)
 
 CGradient::~CGradient(void)
 {
+}
+
+void CGradient::SplitRect(const CRect& rSource, CRect& rHalf1, CRect& rHalf2, BOOL bHorz)
+{
+	rHalf1 = rSource;
+	rHalf2 = rSource;
+	if (!bHorz)
+	{
+		rHalf1.bottom = (rSource.bottom + rSource.top) / 2;
+		rHalf2.top = rHalf1.bottom;
+	}
+	else
+	{
+		rHalf1.right = (rSource.left + rSource.right) / 2;
+		rHalf2.left = rHalf1.right;
+	}
 }
 
 void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
@@ -57,19 +73,8 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorE
 
 void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
 {
-	CRect rect1 = rect;
-	CRect rect2 = rect;
-
-	if (!bHorz)
-	{
-		rect1.top = (rect.bottom + rect.top) / 2;
-		rect2.bottom = (rect.bottom + rect.top) / 2;
-	}
-	else
-	{
-		rect1.right = (rect.left + rect.right) / 2;
-		rect2.left = (rect.left + rect.right) / 2;
-	}
+	CRect rect1, rect2;
+	SplitRect(rect, rect1, rect2, bHorz);
 
 	Draw(pDC, rect1, colorStart, colorMid, bHorz, nSteps/2);
 	Draw(pDC, rect2, colorMid, colorEnd, bHorz, nSteps/2);
@@ -106,19 +111,8 @@ void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF col
 
 void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
 {
-	CRect rect1 = rect;
-	CRect rect2 = rect;
-
-	if (!bHorz)
-	{
-		rect1.top = (rect.bottom + rect.top) / 2;
-		rect2.bottom = (rect.bottom + rect.top) / 2;
-	}
-	else
-	{
-		rect1.right = (rect.left + rect.right) / 2;
-		rect2.left = (rect.left + rect.right) / 2;
-	}
+	CRect rect1, rect2;
+	SplitRect(rect, rect1, rect2, bHorz);
 
 	DrawGDI(pDC, rect1, colorStart, colorMid, bHorz);
 	DrawGDI(pDC, rect2, colorMid, colorEnd, bHorz);
