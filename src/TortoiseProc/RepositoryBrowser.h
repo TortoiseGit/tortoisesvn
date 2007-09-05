@@ -172,6 +172,8 @@ protected:
 	afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
@@ -220,6 +222,7 @@ protected:
 	void SetSortArrow();
 	/// called when a drag-n-drop operation starts
 	void OnBeginDrag(NMHDR *pNMHDR);
+	void OnBeginDragTree(NMHDR *pNMHDR);
 	/// called when a drag-n-drop operation ends and the user dropped something on us.
 	bool OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect);
 	/**

@@ -170,6 +170,8 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_COMMAND(ID_EDIT_COPY, &CRepositoryBrowser::OnCopy)
 	ON_COMMAND(ID_INLINEEDIT, &CRepositoryBrowser::OnInlineedit)
 	ON_COMMAND(ID_REFRESHBROWSER, &CRepositoryBrowser::OnRefresh)
+	ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
+	ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -1495,6 +1497,55 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	pdobj->Release();
 }
 
+void CRepositoryBrowser::OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	m_bRightDrag = false;
+	*pResult = 0;
+	OnBeginDragTree(pNMHDR);
+}
+
+void CRepositoryBrowser::OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	m_bRightDrag = true;
+	*pResult = 0;
+	OnBeginDragTree(pNMHDR);
+}
+
+void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
+{
+	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+
+	if (m_blockEvents)
+		return;
+
+	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
+
+	CIDropSource* pdsrc = new CIDropSource;
+	if (pdsrc == NULL)
+		return;
+	pdsrc->AddRef();
+
+	CTSVNPathList sourceURLs;
+	sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
+
+	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
+	if (pdobj == NULL)
+	{
+		delete pdsrc;
+		return;
+	}
+	pdobj->AddRef();
+
+	CDragSourceHelper dragsrchelper;
+	dragsrchelper.InitializeFromWindow(m_RepoTree.GetSafeHwnd(), pNMTreeView->ptDrag, pdobj);
+	// Initiate the Drag & Drop
+	DWORD dwEffect;
+	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+	pdsrc->Release();
+	pdobj->Release();
+}
+
+
 bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect)
 {
 	ATLTRACE(_T("dropped %ld items on %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), dwEffect);
@@ -2646,4 +2697,5 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 		regColWidth = sWidths;
 	}
 }
+
 
