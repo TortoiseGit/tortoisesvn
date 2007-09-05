@@ -22,7 +22,7 @@
 # file handle -- файловый дескриптор
 # HEAD revision -- ведущая ревизия
 # help -- cправка
-# hook -- привязка (-> действие?)
+# hook -- ловушка
 # issue -- проблема (в системе отслеживания ошибок)
 # locatorbar -- полоса местоположения
 # locking (files) -- блокирование (файлов)
@@ -61,6 +61,22 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Poedit-Language: Russian\n"
+
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 
 #: ID:10,#:
 #: ID:126,#:
@@ -1868,7 +1884,7 @@ msgstr "Завершено"
 
 #: Dlg-ID:236,
 msgid "Configure Hook Scripts"
-msgstr "Настройка скриптов привязок"
+msgstr "Настройка скриптов ловушек"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files"
@@ -3052,15 +3068,15 @@ msgstr "Подсказка: Нажмите F5 для обновления выб
 
 #: Dlg-ID:103,
 msgid "Hook Scripts"
-msgstr "Привязки"
+msgstr "Скрипты ловушек"
 
 #: ID:198,
 msgid "Hook Type"
-msgstr "Тип привязки"
+msgstr "Тип ловушки"
 
 #: Control-ID:1334,
 msgid "Hook Type:"
-msgstr "Тип привязки:"
+msgstr "Тип ловушки:"
 
 #: ID:82,
 #, c-format
@@ -4378,7 +4394,7 @@ msgstr "Пожалуйста, введите дату."
 
 #: ID:83,
 msgid "Please enter a hook script to execute."
-msgstr "Пожалуйста, введите скрипт привязки для выполнения."
+msgstr "Пожалуйста, введите скрипт ловушки для выполнения."
 
 #: ID:3858,#:
 #: ID:3858,
@@ -4393,7 +4409,7 @@ msgstr "Пожалуйста, введите число."
 
 #: ID:83,
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Пожалуйста, введите путь применения скрипта привязки."
+msgstr "Пожалуйста, введите путь для применения скрипта ловушки."
 
 #: ID:3858,#:
 #: ID:3858,
@@ -4452,7 +4468,7 @@ msgstr "Пожалуйста, выберите кнопку."
 
 #: ID:83,
 msgid "Please select a hook type"
-msgstr "Пожалуйста, выберите тип привязки"
+msgstr "Пожалуйста, выберите тип ловушки"
 
 #: ID:76,
 msgid "Please specify the certificate type"
@@ -4483,19 +4499,19 @@ msgstr "Подождите, пожалуйста..."
 
 #: ID:569,
 msgid "Post-Commit Hook"
-msgstr "Привязка после-фиксации"
+msgstr "Ловушка после-фиксации"
 
 #: ID:570,
 msgid "Post-Update Hook"
-msgstr "Привязка после-обновления"
+msgstr "Ловушка после-обновления"
 
 #: ID:569,
 msgid "Pre-Commit Hook"
-msgstr "Привязка перед-фиксацией"
+msgstr "Ловушка перед-фиксацией"
 
 #: ID:570,
 msgid "Pre-Update Hook"
-msgstr "Привязка перед-обновлением"
+msgstr "Ловушка перед-обновлением"
 
 #: ID:2052,
 msgid "Prevents most cases in which connection lines cross revision nodes"
@@ -5303,7 +5319,7 @@ msgstr "Выберите папку, в которую будут сохране
 
 #: ID:197,
 msgid "Select hook script file"
-msgstr "Выбрать файл скрипта привязки"
+msgstr "Выбрать файл скрипта ловушки"
 
 #: ID:78,
 msgid "Select merge application"
@@ -5628,7 +5644,7 @@ msgstr "График стопкой"
 
 #: ID:569,
 msgid "Start Commit Hook"
-msgstr "Привязка начало-фиксации"
+msgstr "Ловушка начало-фиксации"
 
 #: Control-ID:65535,
 msgid "Start Revision"
@@ -5636,7 +5652,7 @@ msgstr "Начальная ревизия"
 
 #: ID:569,
 msgid "Start Update Hook"
-msgstr "Привязка начало-обновления"
+msgstr "Ловушка начало-обновления"
 
 #: ID:245,#:
 #: Dlg-ID:179,
@@ -5935,7 +5951,7 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"Скрипт привязки вернул ошибку:\n"
+"Скрипт ловушки вернул ошибку:\n"
 "%s"
 
 #: ID:7,
