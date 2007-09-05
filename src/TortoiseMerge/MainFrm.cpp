@@ -490,7 +490,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			return FALSE;
 		}
 	}
-	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"))));
+	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE)));
 	if (!m_Data.IsBaseFileInUse())
 	{
 		if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
