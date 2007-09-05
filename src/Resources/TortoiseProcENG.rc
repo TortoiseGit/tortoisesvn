@@ -2813,6 +2813,8 @@ BEGIN
     IDS_WARN_LOCKOUTDATED   "Locking failed because a newer version exists!\nDo you want to update and try again?"
     IDS_WARN_SVNNEEDSLOCK   "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
     IDS_WARN_RELOCATEREALLYTITLE "Relocate Warning"
+    IDS_WARN_COPYHEADWITHLOCALMODS 
+                            "Your working copy has local modifications.\nIf you branch/tag from the HEAD revision, your local changes won't\nshow up in the branch/tag!"
 END
 
 STRINGTABLE 

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -669,6 +669,7 @@
 #define IDS_WARN_LOCKOUTDATED           1408
 #define IDS_WARN_SVNNEEDSLOCK           1409
 #define IDS_WARN_RELOCATEREALLYTITLE    1410
+#define IDS_WARN_COPYHEADWITHLOCALMODS  1411
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505

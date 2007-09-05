@@ -398,21 +398,30 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
 	// we have found the highest last-committed revision
 	// in the working copy
-	if ((!m_bSettingChanged)&&(m_maxrev != 0)&&(!m_bmodified)&&(!m_bCancelled))
+	if ((!m_bSettingChanged)&&(m_maxrev != 0)&&(!m_bCancelled))
 	{
 		// we only change the setting automatically if the user hasn't done so
-		// already him/herself, if the highest revision is valid and if the
-		// working copy has no modifications. And of course, if the thread hasn't
-		// been stopped forcefully.
+		// already him/herself, if the highest revision is valid. And of course, 
+		// if the thread hasn't been stopped forcefully.
 		if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
 		{
-			// and of course, we only change it if the radio button for a REPO-to-REPO copy
-			// is enabled for HEAD
-			CString temp;
-			temp.Format(_T("%ld"), m_maxrev);
-			SetDlgItemText(IDC_COPYREVTEXT, temp);
-			CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-			DialogEnableWindow(IDC_COPYREVTEXT, TRUE);			
+			if (m_bmodified)
+			{
+				// the working copy has local modifications.
+				// show a warning balloon if the user has selected HEAD as the
+				// source revision
+				CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_COPYHEAD), IDS_WARN_COPYHEADWITHLOCALMODS);
+			}
+			else
+			{
+				// and of course, we only change it if the radio button for a REPO-to-REPO copy
+				// is enabled for HEAD and if there are no local modifications
+				CString temp;
+				temp.Format(_T("%ld"), m_maxrev);
+				SetDlgItemText(IDC_COPYREVTEXT, temp);
+				CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
+				DialogEnableWindow(IDC_COPYREVTEXT, TRUE);			
+			}
 		}
 	}
 	return 0;
