@@ -99,19 +99,9 @@ BOOL CBalloon::Create(CWnd* pParentWnd)
 
 	m_pParentWnd = pParentWnd;
 
-	if (m_pParentWnd)
+	if (!CreateEx(dwExStyle, BALLOON_CLASSNAME, NULL, dwStyle, 0, 0, 0, 0, m_pParentWnd->GetSafeHwnd(), NULL, NULL))
 	{
-		if (!CreateEx(dwExStyle, BALLOON_CLASSNAME, NULL, dwStyle, 0, 0, 0, 0, pParentWnd->GetSafeHwnd(), NULL, NULL))
-		{
-			return FALSE;
-		}
-	}
-	else
-	{
-		if (!CreateEx(dwExStyle, BALLOON_CLASSNAME, NULL, dwStyle, 0, 0, 0, 0, NULL, NULL, NULL))
-		{
-			return FALSE;
-		}
+		return FALSE;
 	}
 	SetDefaultFont();
 	
@@ -188,7 +178,7 @@ void CBalloon::OnPaint()
 	bitmap.CreateCompatibleBitmap(&dc, rect.Width(), rect.Height());
 	CBitmap* pOldBitmap = memDC.SelectObject(&bitmap); 
 	
-	memDC.BitBlt(rect.left, rect.top, rect.Width(), rect.Height(), &dc, 0,0, SRCCOPY);
+	memDC.BitBlt(rect.left, rect.top, rect.Width(), rect.Height(), &dc, 0, 0, SRCCOPY);
 	
 	//draw the tooltip
 	OnDraw(&memDC, rect);
@@ -233,13 +223,9 @@ void CBalloon::OnDraw(CDC * pDC, CRect rect)
 
 	if (m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON)
 	{
-		m_rtCloseButton = CRect(rect.right - m_szCloseButton.cx - m_nSizes[XBLSZ_BUTTON_MARGIN_CX] , rect.top + m_nSizes[XBLSZ_BUTTON_MARGIN_CY], 
+		m_rtCloseButton = CRect(
+			rect.right - m_szCloseButton.cx - m_nSizes[XBLSZ_BUTTON_MARGIN_CX] , rect.top + m_nSizes[XBLSZ_BUTTON_MARGIN_CY], 
 			rect.right - m_nSizes[XBLSZ_BUTTON_MARGIN_CX], rect.top + m_szCloseButton.cy + m_nSizes[XBLSZ_BUTTON_MARGIN_CY]);
-//Compiler errors? You need to set
-//#define WINVER 0x0500
-//#define _WIN32_WINNT 0x0500
-//don't worry, it will still run on Win95 and WinNT4
-//but with those specific flags ignored!
 		pDC->DrawFrameControl(m_rtCloseButton, DFC_CAPTION, DFCS_CAPTIONCLOSE|DFCS_FLAT|DFCS_TRANSPARENT);
 		rect.right -= (m_szCloseButton.cx + m_nSizes[XBLSZ_BUTTON_MARGIN_CX]);
 	}
@@ -274,50 +260,32 @@ void CBalloon::OnDraw(CDC * pDC, CRect rect)
 
 void CBalloon::OnDrawBackground(CDC * pDC, CRect * pRect)
 {
+#ifdef USE_GDI_GRADIENT
+	#define	DRAW CGradient::DrawGDI
+#else
+	#define DRAW CGradient::Draw
+#endif
 	switch (m_pToolInfo.nEffect)
 	{
 	case BALLOON_EFFECT_HGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], TRUE);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], TRUE);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END]);
 		break;
 	case BALLOON_EFFECT_VGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], FALSE);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], FALSE);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], FALSE);
 		break;
 	case BALLOON_EFFECT_HCGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN]);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN]);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN]);
 		break;
 	case BALLOON_EFFECT_VCGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN], FALSE);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN], FALSE);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN], FALSE);
 		break;
 	case BALLOON_EFFECT_3HGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END]);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END]);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END]);
 		break;
 	case BALLOON_EFFECT_3VGRADIENT:
-#ifdef USE_GDI_GRADIENT
-		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END], FALSE);
-#else
-		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END], FALSE);
-#endif
+		DRAW(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END], FALSE);
 		break;
+#undef DRAW
 	default:
 		pDC->FillSolidRect(pRect, m_crColor[BALLOON_COLOR_BK_BEGIN]);
 		break;
@@ -419,26 +387,28 @@ void CBalloon::RelayEvent(MSG* pMsg)
 		}
 		else
 		{
+			UINT behaviour = GetBehaviour(CWnd::FromHandle(hWnd));
 			if (hWnd == m_hDisplayedWnd)
 			{
 				if (IsWindowVisible())
 				{
-					if ((GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_TRACK_MOUSE)&&(!(GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_DIALOG)))
+					if ((behaviour & BALLOON_TRACK_MOUSE)&&(!(behaviour & BALLOON_DIALOG)))
 					{
 						//mouse moved, so move the tooltip too
 						CRect rect;
 						GetWindowRect(rect);
 						CalculateInfoBoxRect(&m_ptOriginal, &rect);
-						SetWindowPos(NULL, rect.left, rect.top, rect.Width() + 2, rect.Height() + 2, SWP_SHOWWINDOW|SWP_NOSIZE|SWP_NOZORDER|SWP_NOACTIVATE);
+						SetWindowPos(NULL, rect.left, rect.top, 0, 0, SWP_SHOWWINDOW|SWP_NOSIZE|SWP_NOZORDER|SWP_NOACTIVATE);
 					}
 					else
 						return;
 				}
-				else if ((GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_MULTIPLE_SHOW)&&(!(GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_DIALOG)))
+				else if ((behaviour & BALLOON_MULTIPLE_SHOW)&&(!(behaviour & BALLOON_DIALOG)))
 				{
 					SetNewToolTip(CWnd::FromHandle(hWnd));
 				}
-				else Pop();
+				else
+					Pop();
 			}
 			else
 			{
@@ -449,7 +419,7 @@ void CBalloon::RelayEvent(MSG* pMsg)
 	}
 }
 
-void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * /*pt*/ /* = NULL */)
+void CBalloon::SetNewToolTip(CWnd * pWnd)
 {
 	m_hDisplayedWnd = NULL;
 	Pop();
@@ -613,7 +583,9 @@ void CBalloon::DisplayToolTip(CPoint * pt, CRect * rect)
 {
 	CalculateInfoBoxRect(pt, rect);
 
-	SetWindowPos(NULL, rect->left, rect->top, rect->Width() + 2, rect->Height() + 2, SWP_SHOWWINDOW|SWP_NOCOPYBITS|SWP_NOACTIVATE|SWP_NOZORDER);
+	SetWindowPos(
+		NULL, rect->left, rect->top, rect->Width() + 2, rect->Height() + 2,
+		SWP_SHOWWINDOW|SWP_NOCOPYBITS|SWP_NOACTIVATE|SWP_NOZORDER);
 
 	CRgn rgn;
 	rgn.CreateRectRgn(0, 0, 1, 1);
@@ -968,23 +940,23 @@ void CBalloon::GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF 
 	crEnd = GetColor(BALLOON_COLOR_BK_END);
 } 
 
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, UINT nIdIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, UINT nIdIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
 	CString str;
 	str.LoadString(nIdText);
-	return ShowBalloon(pWnd, pt, str, nIdIcon, showCloseButton, nDirection, nEffect, crStart, crMid, crEnd);
+	ShowBalloon(pWnd, pt, str, nIdIcon, showCloseButton, nDirection, nEffect, crStart, crMid, crEnd);
 }
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, HICON hIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, HICON hIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
 	CString str;
 	str.LoadString(nIdText);
-	return ShowBalloon(pWnd, pt, str, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
+	ShowBalloon(pWnd, pt, str, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
 }
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, UINT nIdIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, UINT nIdIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
@@ -997,23 +969,23 @@ CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL sho
 		
 		hIcon = (HICON)::LoadImage(hInstResource, MAKEINTRESOURCE(nIdIcon), IMAGE_ICON, 0, 0, 0);
 	}
-	return ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
+	ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
 }
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, LPCTSTR szIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, LPCTSTR szIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
 {
 	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
-	return ShowBalloon(pWnd, pt, nIdText, showCloseButton, hIcon, nDirection, nEffect);
+	ShowBalloon(pWnd, pt, nIdText, showCloseButton, hIcon, nDirection, nEffect);
 }
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, LPCTSTR szIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, LPCTSTR szIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
 {
 	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
-	return ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect);
+	ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect);
 }
-CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon, 
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon, 
 							UINT nDirection, UINT nEffect, 
 							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
@@ -1045,7 +1017,6 @@ CBalloon * CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL sho
 	pSB->DisplayToolTip(&pt);
 	if (!showCloseButton)
 		pSB->SetTimer(BALLOON_HIDE, 5000, NULL); //auto close the dialog if no close button is shown
-	return pSB;
 }
 
 void CBalloon::AddTool(int nIdWnd, UINT nIdText, HICON hIcon/* = NULL*/)
@@ -1414,35 +1385,20 @@ void CBalloon::OnMouseMove(UINT nFlags, CPoint point)
 {
 	if (m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON)
 	{
-		CClientDC dc(this);
-		if ( m_rtCloseButton.PtInRect(point) )
+		UINT nState = DFCS_CAPTIONCLOSE | DFCS_FLAT | DFCS_TRANSPARENT;
+		if (m_rtCloseButton.PtInRect(point))
 		{
+			nState |= DFCS_HOT;
 			if (m_bButtonPushed)
-			{
-//Compiler errors? You need to set
-//#define WINVER 0x0500
-//#define _WIN32_WINNT 0x0500
-//don't worry, it will still run on Win95 and WinNT4
-//but with those specific flags ignored!
-				dc.DrawFrameControl(m_rtCloseButton, DFC_CAPTION, DFCS_CAPTIONCLOSE | DFCS_FLAT | DFCS_HOT | DFCS_PUSHED | DFCS_TRANSPARENT);
-			}
-			else
-			{
-				dc.DrawFrameControl(m_rtCloseButton, DFC_CAPTION, DFCS_CAPTIONCLOSE | DFCS_FLAT | DFCS_HOT | DFCS_TRANSPARENT);
-			}
+				nState |= DFCS_PUSHED;
 		}
-		else
-		{
-			dc.DrawFrameControl(m_rtCloseButton, DFC_CAPTION, DFCS_CAPTIONCLOSE | DFCS_FLAT | DFCS_TRANSPARENT);
-		}
+		CClientDC dc(this);
+		dc.DrawFrameControl(m_rtCloseButton, DFC_CAPTION, nState);
+
 		if (IsPointOverALink(point))
-		{
 			m_Cursor.SetCursor(IDC_HAND);
-		}
 		else
-		{
 			m_Cursor.Restore();	
-		}
 	}
 
 	CWnd::OnMouseMove(nFlags, point);
@@ -1450,14 +1406,10 @@ void CBalloon::OnMouseMove(UINT nFlags, CPoint point)
 
 void CBalloon::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	if (m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON)
+	if ((m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON) && m_rtCloseButton.PtInRect(point))
 	{
-		CClientDC dc(this);
-		if (m_rtCloseButton.PtInRect(point))
-		{
-			m_bButtonPushed = TRUE;
-			OnMouseMove(0, point);
-		}
+		m_bButtonPushed = TRUE;
+		OnMouseMove(0, point);
 	}
 
 	CWnd::OnLButtonDown(nFlags, point);
@@ -1470,19 +1422,12 @@ void CBalloon::OnLButtonUp(UINT nFlags, CPoint point)
 		CString url = GetLinkForPoint(point);
 		ShellExecute(NULL, _T("open"), url, NULL,NULL, 0);
 	}
-	else if (m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON)
+	else if (
+		// Dialog has close button, but user has clicked somewhere else.
+		(m_pToolInfo.nStyles & BALLOON_CLOSEBUTTON) &&
+		(!m_rtCloseButton.PtInRect(point) || !m_bButtonPushed))
 	{
-		CClientDC dc(this);
-		if (m_rtCloseButton.PtInRect(point))
-		{
-			Pop();
-			if (GetBehaviour() & BALLOON_DIALOG_DESTROY)
-			{
-				CWnd::OnLButtonUp(nFlags, point);
-				DestroyWindow();
-				return;
-			}
-		}
+		m_bButtonPushed =  FALSE;
 	}
 	else
 	{
@@ -1494,7 +1439,6 @@ void CBalloon::OnLButtonUp(UINT nFlags, CPoint point)
 			return;
 		}
 	}
-
 	CWnd::OnLButtonUp(nFlags, point);
 }
 
