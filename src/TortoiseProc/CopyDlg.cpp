@@ -114,6 +114,8 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.AddString(CTSVNPath(m_wcURL).GetUIPathString(), 0);
 	m_URLCombo.SelectString(-1, CTSVNPath(m_wcURL).GetUIPathString());
 	SetDlgItemText(IDC_FROMURL, m_wcURL);
+	if (!m_URL.IsEmpty())
+		m_URLCombo.SetWindowText(m_URL);
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
@@ -136,6 +138,8 @@ BOOL CCopyDlg::OnInitDialog()
 			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
+	if (!m_sLogMessage.IsEmpty())
+		m_cLogMessage.SetText(m_sLogMessage);
 
 	AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
@@ -419,6 +423,11 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
 	if (rev.IsHead())
 	{
 		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
+		DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
+	}
+	else if (rev.IsWorking())
+	{
+		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYWC);
 		DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 	}
 	else
