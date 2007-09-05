@@ -538,10 +538,8 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	svn_error_clear(Err);
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	logmsg.Replace(_T("\r"), _T(""));
-	if (logmsg.IsEmpty())
-		m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
-	else
-		m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
+
+	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 
 
 	Err = svn_client_copy4 (&commit_info,
