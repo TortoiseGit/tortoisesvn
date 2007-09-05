@@ -233,6 +233,7 @@ private:
 	HICON				m_hDeletedIcon;
 
 	DWORD				m_childCounter;
+	DWORD				m_maxChild;
 	HACCEL				m_hAccel;
 
 	CStoreSelection*	m_pStoreSelection;

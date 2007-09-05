@@ -54,7 +54,7 @@ typedef struct LogEntryData
 	BOOL bCopies;
 	DWORD actions;
 	BOOL haschildren;
-	BOOL isChild;
+	DWORD childStackDepth;
 } LOGENTRYDATA, *PLOGENTRYDATA;
 
 /**

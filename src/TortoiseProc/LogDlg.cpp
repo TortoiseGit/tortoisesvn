@@ -111,6 +111,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
 	, m_childCounter(0)
+	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
 {
@@ -659,6 +660,8 @@ void CLogDlg::Refresh()
 {
 	// refreshing means re-downloading the already shown log messages
 	UpdateData();
+	m_maxChild = 0;
+	m_childCounter = 0;
 
 	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
 	{
@@ -790,6 +793,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	if (rev == SVN_INVALID_REVNUM)
 	{
 		m_childCounter--;
+		delete cpaths;
 		return TRUE;
 	}
 	// this is the callback function which receives the data for every revision we ask the log for
@@ -841,7 +845,8 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
 	pLogItem->haschildren = haschildren;
-	pLogItem->isChild = (m_childCounter > 0);
+	pLogItem->childStackDepth = m_childCounter;
+	m_maxChild = max(m_childCounter, m_maxChild);
 	if (haschildren)
 		m_childCounter++;
 	pLogItem->sBugIDs = m_ProjectProperties.FindBugID(message).Trim();
@@ -1936,7 +1941,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
-					if ((data->isChild)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
+					if ((data->childStackDepth)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
 				}
 			}
@@ -2311,10 +2316,18 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		case 0:	//revision
 			if (itemid < m_arShownList.GetCount())
 			{
-				if (pLogEntry->isChild)
-					_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
-				else
-					_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld  "), pLogEntry->Rev);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+				// to make the child entries indented, add spaces
+				int len = _tcslen(pItem->pszText);
+				TCHAR * pBuf = pItem->pszText + len;
+				DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
+				while ((pItem->cchTextMax >= len)&&(nSpaces))
+				{
+					*pBuf = ' ';
+					pBuf++;
+					nSpaces--;
+				}
+				*pBuf = 0;
 			}
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
