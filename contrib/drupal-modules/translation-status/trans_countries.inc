@@ -32,6 +32,7 @@ $countries = array(
 "nl"    => array("0","01","nl","Dutch","Jean-Marc van Leerdam, Yves Reynhout"),
 "pl"    => array("0","01","pl","Polish","Michal Mielniczuk, Andrzej Rusin, Piotr Kontek"),
 "pt_BR" => array("0","01","pt_BR","Portuguese, Brazil","Humberto Osório, Guilherme Cantisano, Juliano Ravasi Ferraz, Victor Westmann, Conrado Quilles Gomes"),
+"pt_BR" => array("0","00","pt_PT","Portuguese, Portugal","André Malafaya Baptista"),
 "ro"    => array("0","00","ro","Romanian","Seby Rusu"),
 "ru"    => array("0","11","ru","Russian","Dzmitry Lazerka, Dimitry Mardiyan, Shura Zam, Alexander Leschinsky, Stanislav Petrakov"),
 "sk"    => array("0","11","sk","Slovak","Oto Brezina"),
