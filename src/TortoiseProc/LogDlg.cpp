@@ -827,7 +827,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	found = sShortMessage.Find(_T("\n\n"));
 	// to avoid too short 'short' messages 
 	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
-	// only use the emtpy newline as a separator if it comes
+	// only use the empty newline as a separator if it comes
 	// after at least 15 chars.
 	if (found >= 15)
 	{
@@ -1749,20 +1749,22 @@ void CLogDlg::EditLogMessage(int index)
 		}
 		else
 		{
-			// Add as many characters from the log message to the list control
-			// so it has a fixed width. If the log message is longer than
-			// this predefined fixed with, add "..." as an indication.
 			CString sShortMessage = dlg.m_sInputText;
-			// Remove newlines 'cause those are not shown nicely in the listcontrol
 			sShortMessage.Replace(_T("\r"), _T(""));
-			sShortMessage.Replace('\n', ' ');
 
+			// to avoid too short 'short' messages 
+			// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
+			// only use the empty newline as a separator if it comes
+			// after at least 15 chars.
 			int found = sShortMessage.Find(_T("\n\n"));
-			if (found >=0)
+			if (found >= 15)
 			{
 				sShortMessage = sShortMessage.Left(found);
 			}
-			sShortMessage.Replace('\n', ' ');
+
+			// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
+			sShortMessage.Replace(_T("\n"), _T(" "));
+			sShortMessage.Replace(_T("\t"), _T(" "));
 
 			pLogEntry->sShortMessage = sShortMessage;
 			// split multi line log entries and concatenate them
