@@ -308,7 +308,7 @@ msgstr "변경에 대해 수정한 사람 보기(&B)"
 # ID:76,
 #: MenuEntry
 msgid "&Blame previous revision"
-msgstr "리비전에 대한 수정한 사람 보기(&B)"
+msgstr "이전 리비전에 대한 수정한 사람 보기(&B)"
 
 # ID:76,
 #: ID:114,#:
@@ -628,7 +628,7 @@ msgstr "임포트(&I)..."
 
 #: MenuEntry
 msgid "&Inline diff word-wise"
-msgstr "세부사항 비교(&I)"
+msgstr "라인내의 단어단위 비교(&I)"
 
 # Control-ID:1016,
 #: Control-ID:1016,
@@ -2710,7 +2710,7 @@ msgstr "삭제"
 # ID:73,
 #: Control-ID:65535,
 msgid "Depth:"
-msgstr "경로:"
+msgstr "깊이:"
 
 # Control-ID:1126,
 #: ID:213,
@@ -2897,7 +2897,7 @@ msgstr "가상 실행"
 
 #: MenuEntry
 msgid "E&xact copy sources"
-msgstr "정확한 복사 원본(&A)"
+msgstr "정확한 복사 원본(&X)"
 
 #: MenuEntry
 msgid "E&xit"
@@ -4116,7 +4116,7 @@ msgstr "최초 임포트"
 
 #: Control-ID:65535,
 msgid "Inline differences"
-msgstr "세부사항 비교"
+msgstr "라인단위 비교"
 
 # Dlg-ID:161,
 #: Dlg-ID:161,
@@ -5505,7 +5505,7 @@ msgstr "최근 수정된 행"
 
 #: ID:276,
 msgid "Record Only"
-msgstr "레코드만 표시"
+msgstr "병합정보만 저장"
 
 # Control-ID:1073,
 #: Control-ID:1260,
@@ -5570,8 +5570,8 @@ msgstr ""
 "$\t\t\t문자열의 끝\n"
 "(string){n}\t문자열(string) n번 반복\n"
 "(abcd)\t\t문자열 부분\n"
-"[aei0-9]\t\ta,e,i and 0..9 중 하나\n"
-"[^aei0-9]\ta,e,i and 0..9 제외한 것 중 하나\n"
+"[aei0-9]\t\ta,e,i 그리고 0..9 중 하나\n"
+"[^aei0-9]\ta,e,i 그리고 0..9를 제외한 것 중 하나\n"
 "<hr=100%>\n"
 "\\w\t\t\ta-z,A-Z,0-9,_ 중 하나\n"
 "\\W\t\t\ta-z,A-Z,0-9,_ 아닌 것 중 하나\n"
@@ -6400,7 +6400,7 @@ msgstr "서버 주소(&A):"
 # Control-ID:1088,
 #: Control-ID:1088,
 msgid "Set file dates to the \"last commit &time\""
-msgstr "\"마지막 커밋 시간\"으로 파일의 날짜를 바꿉니다."
+msgstr "\"마지막 커밋 시간\"으로 파일의 날짜를 바꿉니다.(&T)"
 
 # ID:13,
 #: ID:13,
