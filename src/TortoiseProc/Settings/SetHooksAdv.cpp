@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "SetHooksAdv.h"
 #include "BrowseFolder.h"
-#include "Balloon.h"
 #include "AppUtils.h"
 
 
@@ -122,17 +121,17 @@ void CSetHooksAdv::OnOK()
 	}
 	if (key.htype == unknown_hook)
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_HOOKTYPECOMBO), IDS_ERR_NOHOOKTYPESPECIFIED, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED);
 		return;
 	}
 	if (key.path.IsEmpty())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_HOOKPATH), IDS_ERR_NOHOOKPATHSPECIFIED, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_HOOKPATH, IDS_ERR_NOHOOKPATHSPECIFIED);
 		return;
 	}
 	if (cmd.commandline.IsEmpty())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_HOOKCOMMANDLINE), IDS_ERR_NOHOOKCOMMANDPECIFIED, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_HOOKCOMMANDLINE, IDS_ERR_NOHOOKCOMMANDPECIFIED);
 		return;
 	}
 	CResizableStandAloneDialog::OnOK();

@@ -21,7 +21,6 @@
 #include "StandAloneDlg.h"
 #include "SciEdit.h"
 #include "ProjectProperties.h"
-#include "Balloon.h"
 #include "HistoryCombo.h"
 #include "HistoryDlg.h"
 #include "TSVNPath.h"

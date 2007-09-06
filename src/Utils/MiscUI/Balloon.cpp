@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "balloon.h"
+#include "Balloon.h"
 
 CBalloon::CBalloon()
 {

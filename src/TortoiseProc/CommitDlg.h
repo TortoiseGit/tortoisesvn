@@ -19,7 +19,6 @@
 #pragma once
 
 #include "StandAloneDlg.h"
-#include "Balloon.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "HistoryDlg.h"

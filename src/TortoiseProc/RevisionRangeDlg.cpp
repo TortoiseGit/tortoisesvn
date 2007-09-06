@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "Balloon.h"
 #include "TortoiseProc.h"
 #include "RevisionRangeDlg.h"
 
@@ -101,10 +100,7 @@ void CRevisionRangeDlg::OnOK()
 	}
 	if ((!m_StartRev.IsValid())||((!m_bAllowWCRevs)&&(m_StartRev.IsPrev() || m_StartRev.IsCommitted() || m_StartRev.IsBase())))
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVNUM);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVNUM), m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC);
 		return;
 	}
 
@@ -116,10 +112,7 @@ void CRevisionRangeDlg::OnOK()
 	}
 	if ((!m_EndRev.IsValid())||((!m_bAllowWCRevs)&&(m_EndRev.IsPrev() || m_EndRev.IsCommitted() || m_EndRev.IsBase())))
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVNUM2);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVNUM2), m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVNUM2, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC);
 		return;
 	}
 

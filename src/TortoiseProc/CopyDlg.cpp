@@ -22,7 +22,6 @@
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
-#include "Balloon.h"
 #include "BrowseFolder.h"
 #include "Registry.h"
 #include "TSVNPath.h"
@@ -207,7 +206,7 @@ void CCopyDlg::OnOK()
 	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_COMMITDLG_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS);
 		return;
 	}
 	m_sLogMessage = m_cLogMessage.GetText();
@@ -227,7 +226,7 @@ void CCopyDlg::OnOK()
 	
 	if (!m_CopyRev.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_COPYREVTEXT), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_COPYREVTEXT, IDS_ERR_INVALIDREV);
 		return;
 	}
 		
@@ -410,7 +409,7 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				// the working copy has local modifications.
 				// show a warning balloon if the user has selected HEAD as the
 				// source revision
-				CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_COPYHEAD), IDS_WARN_COPYHEADWITHLOCALMODS);
+				ShowBalloon(IDC_COPYHEAD, IDS_WARN_COPYHEADWITHLOCALMODS);
 			}
 			else
 			{

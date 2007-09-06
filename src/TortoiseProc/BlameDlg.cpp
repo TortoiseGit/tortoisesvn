@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
-#include "Balloon.h"
 #include "Registry.h"
 
 IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
@@ -94,7 +93,7 @@ void CBlameDlg::OnOK()
 	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISON_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV);
 		return;
 	}
 	EndRev = SVNRev(m_sEndRev);
@@ -104,7 +103,7 @@ void CBlameDlg::OnOK()
 	}
 	if (!EndRev.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV);
 		return;
 	}
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);

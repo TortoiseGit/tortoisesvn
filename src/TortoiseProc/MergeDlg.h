@@ -21,7 +21,6 @@
 #include "LogDlg.h"
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
-#include "Balloon.h"
 #include "afxwin.h"
 
 #define MERGE_REVSELECTSTART	 1

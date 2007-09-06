@@ -20,7 +20,6 @@
 #include "afxcmn.h"
 #include "sciedit.h"
 #include "StandAloneDlg.h"
-#include "Balloon.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "HistoryDlg.h"

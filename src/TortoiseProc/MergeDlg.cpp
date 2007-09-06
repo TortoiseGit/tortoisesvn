@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "MergeDlg.h"
 #include "RepositoryBrowser.h"
-#include "Balloon.h"
 #include "BrowseFolder.h"
 #include "MessageBox.h"
 #include "registry.h"
@@ -212,7 +211,7 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 	if (!StartRev.IsValid())
 	{
 		if (bShowErrors)
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+			ShowBalloon(IDC_REVISION_START, IDS_ERR_INVALIDREV);
 		return FALSE;
 	}
 
@@ -224,7 +223,7 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 	if (!EndRev.IsValid())
 	{
 		if (bShowErrors)
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+			ShowBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV);
 		return FALSE;
 	}
 
@@ -241,7 +240,7 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 	if ( (LONG)StartRev == (LONG)EndRev && m_URLFrom==m_URLTo)
 	{
 		if (bShowErrors)
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_HEAD1), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
+			ShowBalloon(IDC_REVISION_HEAD1, IDS_ERR_MERGEIDENTICALREVISIONS);
 		return FALSE;
 	}
 

@@ -161,7 +161,7 @@ void CCheckoutDlg::OnOK()
 	m_CheckoutDirectory.SetFromWin(m_strCheckoutDirectory);
 	if (!m_CheckoutDirectory.IsValidOnWindows())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_CHECKOUTDIRECTORY), IDS_ERR_NOVALIDPATH, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_NOVALIDPATH);
 		return;
 	}
 
@@ -173,7 +173,7 @@ void CCheckoutDlg::OnOK()
 		Revision = SVNRev(m_sRevision);
 	if (!Revision.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_NUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV);
 		return;
 	}
 
@@ -184,7 +184,7 @@ void CCheckoutDlg::OnOK()
 
 	if (!SVN::PathIsURL(m_URL))
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
+		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
 		m_bAutoCreateTargetName = bAutoCreateTargetName;
 		return;
 	}

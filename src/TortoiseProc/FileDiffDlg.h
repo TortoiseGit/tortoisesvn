@@ -26,7 +26,6 @@
 #include "HintListCtrl.h"
 #include "Colors.h"
 #include "XPImageButton.h"
-#include "Balloon.h"
 #include "FilterEdit.h"
 
 

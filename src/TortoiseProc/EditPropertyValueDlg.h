@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include "Balloon.h"
 #include "ProjectProperties.h"
 
 #define	MAX_TT_LENGTH			10000

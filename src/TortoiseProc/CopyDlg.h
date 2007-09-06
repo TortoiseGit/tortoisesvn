@@ -25,7 +25,6 @@
 #include "TSVNPath.h"
 #include "SVNRev.h"
 #include "LogDlg.h"
-#include "Balloon.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
 

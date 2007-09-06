@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "UpdateDlg.h"
-#include "Balloon.h"
 #include "registry.h"
 
 
@@ -87,7 +86,7 @@ void CUpdateDlg::OnOK()
 	}
 	if (!Revision.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVNUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVNUM, IDS_ERR_INVALIDREV);
 		return;
 	}
 	switch (m_depthCombo.GetCurSel())

@@ -21,7 +21,6 @@
 #include "SwitchDlg.h"
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
-#include "Balloon.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
 
@@ -144,7 +143,7 @@ void CSwitchDlg::OnOK()
 	Revision = SVNRev(m_rev);
 	if (!Revision.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_NUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV);
 		return;
 	}
 

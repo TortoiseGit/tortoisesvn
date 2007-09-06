@@ -22,7 +22,6 @@
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
-#include "Balloon.h"
 
 
 /**

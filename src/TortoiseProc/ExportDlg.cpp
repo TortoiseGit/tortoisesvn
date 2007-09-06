@@ -160,7 +160,7 @@ void CExportDlg::OnOK()
 	ExportDirectory.SetFromWin(m_strExportDirectory);
 	if (!ExportDirectory.IsValidOnWindows())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_CHECKOUTDIRECTORY), IDS_ERR_NOVALIDPATH, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_NOVALIDPATH);
 		return;
 	}
 
@@ -173,7 +173,7 @@ void CExportDlg::OnOK()
 		Revision = SVNRev(m_sRevision);
 	if (!Revision.IsValid())
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_NUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		ShowBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV);
 		return;
 	}
 	bool bAutoCreateTargetName = m_bAutoCreateTargetName;
@@ -185,7 +185,7 @@ void CExportDlg::OnOK()
 	// we need an url to export from - local paths won't work
 	if (!SVN::PathIsURL(m_URL))
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
+		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
 		m_bAutoCreateTargetName = bAutoCreateTargetName;
 		return;
 	}

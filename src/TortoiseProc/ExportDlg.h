@@ -19,7 +19,6 @@
 #pragma once
 #include "SVNRev.h"
 #include "StandAloneDlg.h"
-#include "Balloon.h"
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
 #include "LogDlg.h"

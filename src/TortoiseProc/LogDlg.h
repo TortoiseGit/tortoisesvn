@@ -29,7 +29,6 @@
 #include "MenuButton.h"
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
-#include "Balloon.h"
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
