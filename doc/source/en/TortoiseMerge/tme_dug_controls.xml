@@ -91,6 +91,24 @@
 			</listitem>
 			<listitem>
 				<para>
+					<guibutton>Inline Diff Word-wise</guibutton>
+					toggles the method used to display inline diffs.
+					In word-wise mode, when a character is changed, the whole
+					word is highlighted. In char-wise mode, each individual
+					changed character is highlighted.
+				</para>
+				<para>
+					Word-wise is the default and in most cases it works better.
+					For example if you change a variable name, the whole name
+					is highlighted in word-wise mode, whereas in char-wise mode
+					you tend to get a mess of added and deleted characters
+					which doesn't make much sense. However, some content does
+					not resolve neatly into words, for example a hex file,
+					and in that case, char-wise display works better.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
 					<guibutton>Switch View</guibutton>
 					selects between one-pane and two-pane view.
 					Disabled in 3-pane view.
