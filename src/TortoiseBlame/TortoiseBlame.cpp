@@ -1134,7 +1134,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	CheckMenuItem(GetMenu(app.wMain), ID_VIEW_COLORAGEOFLINES, MF_CHECKED|MF_BYCOMMAND);
-	CheckMenuItem(GetMenu(app.wMain), ID_VIEW_MERGEPATH, MF_CHECKED|MF_BYCOMMAND);
 
 
 	hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);
