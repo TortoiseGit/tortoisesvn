@@ -21,7 +21,6 @@
 
 // For base class
 #include "SVNRev.h"
-//#include "StandAloneDlg.h"
 
 /**
  * \ingroup TortoiseProc

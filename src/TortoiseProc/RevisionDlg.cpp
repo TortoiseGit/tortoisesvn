@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
 #include "Balloon.h"
-#include ".\revisiondlg.h"
 
 
 IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
