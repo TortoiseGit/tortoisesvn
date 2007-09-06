@@ -19,6 +19,7 @@
 #pragma once
 
 #include "ResizableDialog.h"
+#include "Balloon.h"
 
 /**
  * \ingroup TortoiseProc
@@ -28,7 +29,7 @@
  * Just provides the boiler-plate code for dealing with application icons
  * 
  * \remark Replace all references to CDialog or CResizableDialog in your dialog class with 
- * either CResizableStandaloneDialog, CStandalongDialog or CStateStandAloneDialog, as appropriate
+ * either CResizableStandAloneDialog, CStandAloneDialog or CStateStandAloneDialog, as appropriate
  */
 template <typename BaseType> class CStandAloneDialogTmpl : public BaseType
 {
@@ -49,7 +50,6 @@ protected:
 		return FALSE;
 	}
 
-protected:
 	afx_msg void OnPaint()
 	{
 		if (IsIconic())
@@ -134,15 +134,23 @@ protected:
 			ReleaseDC(pDC);
 		}
 	}
+
+	/**
+	 * Display a balloon with close button, anchored at a given control on this dialog.
+	 */
+	void ShowBalloon(UINT nIdControl, UINT nIdText, LPCTSTR szIcon = IDI_EXCLAMATION)
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, nIdControl), nIdText, TRUE, szIcon);
+	}
+
 private:
 	HCURSOR OnQueryDragIcon()
 	{
 		return static_cast<HCURSOR>(m_hIcon);
 	}
 
-private:
 	DECLARE_MESSAGE_MAP()
-private:
+
 	HICON m_hIcon;
 };
 

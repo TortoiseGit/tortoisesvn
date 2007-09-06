@@ -940,54 +940,17 @@ void CBalloon::GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF 
 	crEnd = GetColor(BALLOON_COLOR_BK_END);
 } 
 
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, UINT nIdIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
+void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, LPCTSTR szIcon)
 {
 	CString str;
 	str.LoadString(nIdText);
-	ShowBalloon(pWnd, pt, str, nIdIcon, showCloseButton, nDirection, nEffect, crStart, crMid, crEnd);
+	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
+	ShowBalloon(pWnd, pt, str, showCloseButton, hIcon);
 }
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, HICON hIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
-{
-	CString str;
-	str.LoadString(nIdText);
-	ShowBalloon(pWnd, pt, str, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
-}
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, UINT nIdIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
-{
-	HICON hIcon	= NULL;
-	HINSTANCE hInstResource	= NULL;
 
-	if (nIdIcon > 0)
-	{
-		hInstResource = AfxFindResourceHandle(MAKEINTRESOURCE(nIdIcon), RT_GROUP_ICON);
-		
-		hIcon = (HICON)::LoadImage(hInstResource, MAKEINTRESOURCE(nIdIcon), IMAGE_ICON, 0, 0, 0);
-	}
-	ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect, crStart, crMid, crEnd);
-}
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, LPCTSTR szIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
-{
-	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
-	ShowBalloon(pWnd, pt, nIdText, showCloseButton, hIcon, nDirection, nEffect);
-}
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, LPCTSTR szIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
-{
-	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
-	ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect);
-}
-void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon, 
-							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
+void CBalloon::ShowBalloon(
+	CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon, 
+	UINT nDirection, UINT nEffect, COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
 	BALLOON_INFO Info;
 	Info.hIcon = hIcon;
