@@ -35,6 +35,7 @@
 #include "DropFiles.h"
 #include "SVNLogHelper.h"
 #include "HistoryDlg.h"
+#include "ConflictResolveDlg.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -76,6 +77,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_depth(svn_depth_unknown)
 	, m_itemCount(-1)
 	, m_itemCountTotal(-1)
+	, m_AlwaysConflicted(false)
 {
 	m_pSvn = this;
 }
@@ -118,6 +120,32 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
+svn_wc_conflict_result_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description)
+{
+	// we only bother the user when merging
+	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted))
+	{
+		// we're also not dealing with folders
+		if (description->node_kind == svn_node_file)
+		{
+			CConflictResolveDlg dlg;
+			dlg.SetConflictDescription(description);
+			if (dlg.DoModal() == IDOK)
+			{
+				if (dlg.GetResult() == svn_wc_conflict_result_conflicted)
+				{
+					// if the result is conflicted and the dialog returned IDOK,
+					// that means we should not ask again in case of a conflict
+					m_AlwaysConflicted = true;
+				}
+			}
+			return dlg.GetResult();
+		}
+	}
+
+	return svn_wc_conflict_result_conflicted;
+}
+
 void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 {
 	int count = m_ProgList.GetItemCount();
@@ -151,6 +179,7 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 			m_bLastVisible = false;
 	}
 }
+
 BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
 							 svn_node_kind_t kind, const CString& mime_type, 
 							 svn_wc_notify_state_t content_state, 
@@ -703,6 +732,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString sWindowTitle;
 	bool localoperation = false;
 	bool bFailed = false;
+	m_AlwaysConflicted = false;
 
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, TRUE);

@@ -1430,6 +1430,10 @@ msgstr ""
 msgid "Checksum:"
 msgstr ""
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr ""
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr ""
@@ -1744,6 +1748,11 @@ msgstr ""
 msgid "Could not add %s to the ignore list!"
 msgstr ""
 
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr ""
+
 #: ID:201,
 msgid "Could not check for a newer version!"
 msgstr ""
@@ -1753,8 +1762,18 @@ msgstr ""
 msgid "Could not copy the files!\n<hr=100%%>\n%s"
 msgstr ""
 
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr ""
+
 #: ID:81,
 msgid "Could not get the status!"
+msgstr ""
+
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
 msgstr ""
 
 #: ID:69,
@@ -2070,6 +2089,10 @@ msgstr ""
 
 #: ID:115,
 msgid "Edit author name"
+msgstr ""
+
+#: Control-ID:1399,
+msgid "Edit conflict"
 msgstr ""
 
 #: ID:110,
@@ -2904,6 +2927,10 @@ msgstr ""
 msgid "Least active author:"
 msgstr ""
 
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr ""
+
 #: ID:188,
 msgid "Left View: "
 msgstr ""
@@ -3597,6 +3624,10 @@ msgstr ""
 msgid "Please note:\nYour working copy remains on the previous path. If you want your next changes\nto be committed to the copy or branch you have just created,\nthen you need to switch your working copy over to the new URL.\nUse the Switch command to do that."
 msgstr ""
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr ""
+
 #: ID:3858,#: ID:3858,
 msgid "Please select a button."
 msgstr ""
@@ -3969,6 +4000,14 @@ msgstr ""
 msgid "Resolve - TortoiseSVN"
 msgstr ""
 
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr ""
+
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr ""
+
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr ""
@@ -3977,7 +4016,15 @@ msgstr ""
 msgid "Resolve conflict using \"theirs\""
 msgstr ""
 
-#: ID:74,#: ID:209,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr ""
+
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr ""
+
+#: ID:74,#: ID:209,#: Control-ID:1400,
 msgid "Resolved"
 msgstr ""
 
@@ -5269,8 +5316,16 @@ msgstr ""
 msgid "Use both text blocks (this one last)"
 msgstr ""
 
+#: Control-ID:3,
+msgid "Use local"
+msgstr ""
+
 #: ID:116,
 msgid "Use regular expression"
+msgstr ""
+
+#: Control-ID:4,
+msgid "Use repository"
 msgstr ""
 
 #: Control-ID:1066,
@@ -5546,6 +5601,10 @@ msgstr ""
 msgid "and support the developers"
 msgstr ""
 
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr ""
+
 #: ID:245,
 msgid "author"
 msgstr ""
@@ -5628,6 +5687,18 @@ msgstr ""
 
 #: ID:13,
 msgid "incomplete"
+msgstr ""
+
+#: ID:583,
+msgid "it does not exist."
+msgstr ""
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr ""
+
+#: ID:583,
+msgid "it is unversioned."
 msgstr ""
 
 #: ID:214,
@@ -5755,6 +5826,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "switched:"
+msgstr ""
+
+#: ID:583,
+msgid "there are conflicting modifications."
 msgstr ""
 
 #: ID:80,#: ID:103,#: ID:103,#: ID:284,

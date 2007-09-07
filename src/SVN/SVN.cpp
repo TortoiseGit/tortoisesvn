@@ -82,6 +82,8 @@ SVN::SVN(void) : m_progressWnd(0)
 	m_pctx->notify_baton2 = this;
 	m_pctx->notify_func = NULL;
 	m_pctx->notify_baton = NULL;
+	m_pctx->conflict_func = conflict_resolver;
+	m_pctx->conflict_baton = this;
 	m_pctx->cancel_func = cancel;
 	m_pctx->cancel_baton = this;
 	m_pctx->progress_func = progress_func;
@@ -165,6 +167,8 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
 					 const CString& lockowner, const CString& lockcomment, 
 					 bool is_dav_comment, apr_time_t lock_creationdate, 
 					 apr_time_t lock_expirationdate, const CString& absolutepath) {return TRUE;}
+svn_wc_conflict_result_t SVN::ConflictResolveCallback(const svn_wc_conflict_description_t *description) {return svn_wc_conflict_result_conflicted;}
+
 #pragma warning(pop)
 
 struct log_msg_baton3
@@ -1588,6 +1592,16 @@ void SVN::notify( void *baton,
 				notify->prop_state, notify->revision, 
 				notify->lock, notify->lock_state, changelistname, notify->merge_range, 
 				notify->err, pool);
+}
+
+svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t *result, 
+							   const svn_wc_conflict_description_t *description, 
+							   void *baton, 
+							   apr_pool_t * /*pool*/)
+{
+	SVN * svn = (SVN *)baton;
+	*result = svn->ConflictResolveCallback(description);
+	return SVN_NO_ERROR;
 }
 
 svn_error_t* SVN::cancel(void *baton)

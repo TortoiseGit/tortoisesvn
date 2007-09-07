@@ -175,6 +175,7 @@ protected:
 		const CString& changelistname,
 		svn_merge_range_t * range,
 		svn_error_t * err, apr_pool_t * pool);
+	virtual svn_wc_conflict_result_t ConflictResolveCallback(const svn_wc_conflict_description_t *description);
 	virtual BOOL	Cancel();
 	virtual void	OnCancel();
 	virtual BOOL	PreTranslateMessage(MSG* pMsg);
@@ -275,6 +276,7 @@ private:
 	int			m_itemCount;
 	int			m_itemCountTotal;
 
+	bool		m_AlwaysConflicted;
 private:
 	// In preparation for removing SVN as base class
 	// Currently needed to avoid ambiguities with the Command Enum

@@ -1,8 +1,10 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
+#define IDC_USELOCAL                    3
+#define IDC_USEREPO                     4
 #define IDD_SETTINGSPROXY               102
 #define IDD_SETTINGSHOOKS               103
 #define IDD_SETTINGSOVERLAY             106
@@ -134,6 +136,7 @@
 #define IDI_LOGFILTER                   266
 #define IDI_ICON5                       267
 #define IDI_FILTEREDIT                  267
+#define IDD_CONFLICTRESOLVE             268
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -648,6 +651,7 @@
 #define IDC_TABSIZE                     1381
 #define IDC_BUTTON1                     1382
 #define IDC_REFRESH                     1382
+#define IDC_RESOLVEALLLATER             1382
 #define IDC_REPOGROUP                   1383
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
@@ -658,11 +662,16 @@
 #define IDC_IGNOREALLWHITESPACES        1392
 #define IDC_REVISIONGROUP               1393
 #define IDC_REPOLABEL                   1394
+#define IDC_EDITCONFLICT                1399
 #define IDS_WARN_FOLDERNOTEXIST         1400
+#define IDC_RESOLVED                    1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
+#define IDC_CHOOSELABEL                 1402
 #define IDS_WARN_UPDATETOREV_WITHMODS   1403
+#define IDC_RESOLVELABEL                1403
 #define IDS_WARN_FOLDERNOTEMPTY         1404
+#define IDC_LEAVELABEL                  1404
 #define IDS_WARN_WARNING                1405
 #define IDS_WARN_NOTE                   1406
 #define IDS_WARN_NOVALIDPATH            1407
@@ -1149,6 +1158,14 @@
 #define IDS_PROP_TT_USERFOLDERPROPERTIES 9281
 #define IDS_TT_RECURSIVE                9290
 #define IDS_PROP_TT_RECURSIVE           9290
+#define IDS_EDITCONFLICT_ACTIONINFO_ADD 9300
+#define IDS_EDITCONFLICT_ACTIONINFO_MODIFY 9301
+#define IDS_EDITCONFLICT_ACTIONINFO_DELETE 9302
+#define IDS_EDITCONFLICT_REASONINFO_EDITED 9320
+#define IDS_EDITCONFLICT_REASONINFO_OBSTRUCTED 9321
+#define IDS_EDITCONFLICT_REASONINFO_DELETED 9322
+#define IDS_EDITCONFLICT_REASONINFO_MISSING 9323
+#define IDS_EDITCONFLICT_REASONINFO_UNVERSIONED 9324
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -1186,9 +1203,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        268
+#define _APS_NEXT_RESOURCE_VALUE        269
 #define _APS_NEXT_COMMAND_VALUE         32827
-#define _APS_NEXT_CONTROL_VALUE         1395
+#define _APS_NEXT_CONTROL_VALUE         1405
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
