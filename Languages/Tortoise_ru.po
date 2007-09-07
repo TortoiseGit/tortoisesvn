@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10477: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10517: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-02 12:31+0300\n"
+"PO-Revision-Date: 2007-09-07 17:37+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -71,13 +71,10 @@ msgstr ""
 #    S = Shift key   (or blank if not used)
 #    X = upper case character
 # e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-
 # ONLY Accelerator Keys with corresponding alphanumeric characters can be
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-
 #: ID:10,#:
 #: ID:126,#:
 #: ID:126,
@@ -710,8 +707,8 @@ msgid "&Rename"
 msgstr "&Переименовать"
 
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "&Переоткрыть диалог фиксации после неудавшейся фиксации"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "&Переоткрывать диалоги фиксации и ответвления/метки после неудавшейся фиксации"
 
 #: ID:13,
 msgid "&Repo-browser"
@@ -6976,6 +6973,16 @@ msgstr ""
 "Учтите: обвновление до другой ревизии приведет к потере этих модификаций,\n"
 "следовательно, рабочая копия после обновления не будет в точности\n"
 "соотвествовать той ревизии до которой вы обновляетесь!"
+
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"В вашей рабочей копии обнаружены локальные изменения.\n"
+"Если вы создаёте ответвление/метку из ведущей ревизии, эти\n"
+"локальные изменения не попадут в ответвление/метку!"
 
 #: MenuEntry
 msgid "Zoo&m out"
