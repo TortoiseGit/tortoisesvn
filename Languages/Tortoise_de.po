@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-03 09:52+0100\n"
+"PO-Revision-Date: 2007-09-07 10:10+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -810,8 +810,8 @@ msgstr "&Umbenennen"
 # Control-ID:1316,
 # Control-ID:1316,
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "Übertragen-Dialog nach Fehler e&rneut öffnen"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "Übertragen- und Verzweigen/Markieren Dialoge nach Fehler e&rneut öffnen"
 
 # ID:13,
 #: ID:13,
@@ -8507,6 +8507,16 @@ msgstr ""
 "Ihre Arbeitskopie enthält lokale Modifikationen!\n"
 "Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
 "Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen, zu der Sie aktualisieren!"
+
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"Ihre Arbeitskopie enthält lokale Änderungen.\n"
+"Wenn Sie von der HEAD Revision aus verzweigen, werden Ihre\n"
+"Änderungen nicht in der Verzweigung erscheinen!"
 
 #: MenuEntry
 msgid "Zoo&m out"
