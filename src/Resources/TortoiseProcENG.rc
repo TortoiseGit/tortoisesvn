@@ -1194,17 +1194,17 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Resolve Conflict"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Resolve later",IDCANCEL,74,99,96,14
     LTEXT           "",IDC_INFOLABEL,7,7,285,25
-    PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,186,99,96,14
-    PUSHBUTTON      "Edit conflict",IDC_EDITCONFLICT,74,77,96,14
-    PUSHBUTTON      "Use local",IDC_USELOCAL,74,55,96,14
-    PUSHBUTTON      "Use repository",IDC_USEREPO,186,55,96,14
-    PUSHBUTTON      "Resolved",IDC_RESOLVED,186,77,96,14
     GROUPBOX        "Please resolve the conflict by choosing one of the following options:",IDC_GROUP,7,37,285,83
     LTEXT           "Choose item:",IDC_CHOOSELABEL,7,57,61,8
+    PUSHBUTTON      "Use local",IDC_USELOCAL,74,55,96,14
+    PUSHBUTTON      "Use repository",IDC_USEREPO,186,55,96,14
     LTEXT           "Resolve conflict:",IDC_RESOLVELABEL,7,79,61,8
+    PUSHBUTTON      "Edit conflict",IDC_EDITCONFLICT,74,77,96,14
+    PUSHBUTTON      "Resolved",IDC_RESOLVED,186,77,96,14
     LTEXT           "Leave conflicted:",IDC_LEAVELABEL,7,101,61,8
+    DEFPUSHBUTTON   "Resolve later",IDCANCEL,74,99,96,14
+    PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,186,99,96,14
 END
 
 

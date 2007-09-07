@@ -25,12 +25,10 @@
 #include "AppUtils.h"
 
 
-// CConflictResolveDlg dialog
-
-IMPLEMENT_DYNAMIC(CConflictResolveDlg, CDialog)
+IMPLEMENT_DYNAMIC(CConflictResolveDlg, CResizableStandAloneDialog)
 
 CConflictResolveDlg::CConflictResolveDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CConflictResolveDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CConflictResolveDlg::IDD, pParent)
 	, m_pConflictDescription(NULL)
 	, m_result(svn_wc_conflict_result_conflicted)
 {
@@ -43,11 +41,11 @@ CConflictResolveDlg::~CConflictResolveDlg()
 
 void CConflictResolveDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CConflictResolveDlg, CDialog)
+BEGIN_MESSAGE_MAP(CConflictResolveDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_USELOCAL, &CConflictResolveDlg::OnBnClickedUselocal)
 	ON_BN_CLICKED(IDC_USEREPO, &CConflictResolveDlg::OnBnClickedUserepo)
 	ON_BN_CLICKED(IDC_EDITCONFLICT, &CConflictResolveDlg::OnBnClickedEditconflict)
@@ -60,7 +58,7 @@ END_MESSAGE_MAP()
 
 BOOL CConflictResolveDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	// without a conflict description, this dialog is useless.
 	ASSERT(m_pConflictDescription);
@@ -123,6 +121,20 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	// the "resolved" button must not be enabled as long as the user hasn't used
 	// the "edit" button.
 	GetDlgItem(IDC_RESOLVED)->EnableWindow(FALSE);
+	
+	AddAnchor(IDC_INFOLABEL, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_GROUP, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_CHOOSELABEL, BOTTOM_LEFT);
+	AddAnchor(IDC_USELOCAL, BOTTOM_LEFT);
+	AddAnchor(IDC_USEREPO, BOTTOM_RIGHT);
+	AddAnchor(IDC_RESOLVELABEL, BOTTOM_LEFT);
+	AddAnchor(IDC_EDITCONFLICT, BOTTOM_LEFT);
+	AddAnchor(IDC_RESOLVED, BOTTOM_RIGHT);
+	AddAnchor(IDC_LEAVELABEL, BOTTOM_LEFT);
+	AddAnchor(IDCANCEL, BOTTOM_LEFT);
+	AddAnchor(IDC_RESOLVEALLLATER, BOTTOM_RIGHT);
+	
+	
 	return TRUE;
 }
 
@@ -172,5 +184,5 @@ void CConflictResolveDlg::OnCancel()
 {
 	m_result = svn_wc_conflict_result_conflicted;
 
-	CDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }

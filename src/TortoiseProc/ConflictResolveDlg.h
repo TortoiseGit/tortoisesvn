@@ -18,10 +18,10 @@
 //
 #pragma once
 #include "svn_wc.h"
+#include "StandAloneDlg.h"
 
-// CConflictResolveDlg dialog
 
-class CConflictResolveDlg : public CDialog
+class CConflictResolveDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CConflictResolveDlg)
 
