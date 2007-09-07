@@ -176,17 +176,25 @@ Rev Comments
 			Conflicts often arise if the branch has drifted far from the trunk.
 		</para>
 		<para>
+			For Subversion clients and servers prior to 1.5, no merge information
+			is stored and merged revisions have to be tracked manually. 
 			When you have tested the changes and come to commit this revision,
 			your commit log message should <emphasis>always</emphasis>
 			include the revision numbers which have been ported in the merge.
 			If you want to apply another merge at a later time you will need to
 			know what you have already merged, as you do not want to port a
-			change more than once. Unfortunately merge information is not
-			stored by Subversion. For more information about this, refer to
+			change more than once. For more information about this, refer to
 			<ulink url="http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac">
 				<citetitle>Best Practices for Merging</citetitle>
 			</ulink>
 			in the Subversion book.
+		</para>
+		<para>
+			If your server and all clients are running Subversion 1.5 or higher,
+			the merge tracking facility will record the revisions merged and avoid
+			a revision being merged more than once. This makes your life much simpler
+			as you can simply merge the entire revision range each time and know
+			that only new revisions will actually be merged.
 		</para>
 		<para>
 			Branch management is important. If you want to keep this branch up to
@@ -331,6 +339,20 @@ Rev Comments
 			<ulink url="http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry">
 				<citetitle>Noticing or Ignoring Ancestry</citetitle>
 			</ulink>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-dug-merge-settings">
+		<title>Other Merge Options</title>
+		<para>
+			You can specify the way that line ending and whitespace changes are handled.
+			These options are described in <xref linkend="tsvn-dug-diff-eol-whitespace"/>.
+			The default behaviour is to treat all whitespace and line-end differences
+			as real changes to be merged.
+		</para>
+		<para>
+			You can also specify the depth to use for the merge. The depth terms used
+			are described in <xref linkend="tsvn-dug-checkout-depth"/>. The default depth
+			is <guilabel>Working copy</guilabel>, which uses the existing depth setting.
 		</para>
 	</sect2>
 </sect1>

@@ -111,45 +111,9 @@
 		to reflect the state which it had in revision 50 -
 		then simply update to revision 50.
 		In the same dialog you can also choose the <firstterm>depth</firstterm>
-		at which to update the current folder.
-		<variablelist>
-			<varlistentry>
-				<term>Fully recursive</term>
-				<listitem>
-					<para>
-						Checkout the entire tree, including all child folders
-						and sub-folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Immediate children, including folders</term>
-				<listitem>
-					<para>
-						Checkout the specified directory, including all files
-						and child folders, but do not populate the child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Only file children</term>
-				<listitem>
-					<para>
-						Checkout the specified directory, including all files
-						but do not checkout any child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Only this item</term>
-				<listitem>
-					<para>
-						Checkout the directory only. Do not populate it with
-						files or child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
+		at which to update the current folder. The terms used are described
+		in <xref linkend="tsvn-dug-checkout-depth"/>. The default depth is
+		<guilabel>Working copy</guilabel>, which preserves the existing depth setting.
 		You can also choose whether to ignore any external projects in the update
 		(i.e. projects referenced using <literal>svn:externals</literal>).
 	</para>

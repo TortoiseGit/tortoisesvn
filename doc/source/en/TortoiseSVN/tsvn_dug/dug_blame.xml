@@ -44,6 +44,13 @@
 			<guilabel>Use Text viewer to view blames</guilabel>
 		</para>
 		<para>
+			You can specify the way that line ending and whitespace changes are handled.
+			These options are described in <xref linkend="tsvn-dug-diff-eol-whitespace"/>.
+			The default behaviour is to treat all whitespace and line-end differences
+			as real changes, but if you want to ignore an indentation change and find
+			the original author, you can choose an appropriate option here.
+		</para>
+		<para>
 			Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving
 			the data to create the blame file. Please note: This can take several
 			minutes to finish, depending on how much the file has changed and

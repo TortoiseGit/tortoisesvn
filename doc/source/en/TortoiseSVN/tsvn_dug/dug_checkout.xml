@@ -39,50 +39,64 @@
 			method that avoids this problem.
 		</para>
 	</important>
-	<para>
-		You can choose the <firstterm>depth</firstterm> you want to checkout,
-		which allows you to specify the depth of recursion into child folders.
-		If you want just a few sections of a large tree, You can checkout
-		the top level folder only, then update selected folders recursively.
-		<variablelist>
-			<varlistentry>
-				<term>Fully recursive</term>
-				<listitem>
-					<para>
-						Checkout the entire tree, including all child folders
-						and sub-folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Immediate children, including folders</term>
-				<listitem>
-					<para>
-						Checkout the specified directory, including all files
-						and child folders, but do not populate the child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Only file children</term>
-				<listitem>
-					<para>
-						Checkout the specified directory, including all files
-						but do not checkout any child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Only this item</term>
-				<listitem>
-					<para>
-						Checkout the directory only. Do not populate it with
-						files or child folders.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</para>
+	<sect2 id="tsvn-dug-checkout-depth">
+		<title>Checkout Depth</title>
+		<para>
+			You can choose the <firstterm>depth</firstterm> you want to checkout,
+			which allows you to specify the depth of recursion into child folders.
+			If you want just a few sections of a large tree, You can checkout
+			the top level folder only, then update selected folders recursively.
+			<variablelist>
+				<varlistentry>
+					<term>Fully recursive</term>
+					<listitem>
+						<para>
+							Checkout the entire tree, including all child folders
+							and sub-folders.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Immediate children, including folders</term>
+					<listitem>
+						<para>
+							Checkout the specified directory, including all files
+							and child folders, but do not populate the child folders.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Only file children</term>
+					<listitem>
+						<para>
+							Checkout the specified directory, including all files
+							but do not checkout any child folders.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Only this item</term>
+					<listitem>
+						<para>
+							Checkout the directory only. Do not populate it with
+							files or child folders.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Working copy</term>
+					<listitem>
+						<para>
+							Retain the depth specified in the working copy. This
+							option is not used in the checkout dialog, but it is
+							the default in all other dialogs which have a depth
+							setting.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect2>
 	<para>
 		If the project contains references to external projects which you do
 		<emphasis>not</emphasis> want checked out at the same time, use the

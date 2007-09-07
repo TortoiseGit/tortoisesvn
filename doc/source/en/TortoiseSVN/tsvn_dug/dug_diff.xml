@@ -166,6 +166,45 @@
 			</varlistentry>
 		</variablelist>
 	</sect2>
+	<sect2 id="tsvn-dug-diff-eol-whitespace">
+		<title>Line-end and Whitespace Options</title>
+		<para>
+			Sometimes in the life of a project you might change the line endings
+			from <literal>CRLF</literal> to <literal>LF</literal>, or you may
+			change the indentation of a section. Unfortunately this will mark
+			a large number of lines as changed, even though there is no change
+			to the meaning of the code. The options here will help to manage
+			these changes when it comes to comparing and applying differences.
+			You will see these settings in the <guilabel>Merge</guilabel> and
+			<guilabel>Blame</guilabel> dialogs, as well as in the settings for
+			TortoiseMerge.
+		</para>
+		<para>
+			<guilabel>Ignore line endings</guilabel>
+			excludes changes which are due solely to difference in line-end style.
+		</para>
+		<para>
+			<guilabel>Compare whitespaces</guilabel>
+			includes all changes in indentation and inline whitespace as
+			added/removed lines.
+		</para>
+		<para>
+			<guilabel>Ignore whitespace changes</guilabel>
+			excludes changes which are due solely to a change in the
+			amount or type of whitespace, eg. changing the indentation
+			or changing tabs to spaces. Adding whitespace where there
+			was none before, or removing a whitespace completely is still
+			shown as a change.
+		</para>
+		<para>
+			<guilabel>Ignore all whitespaces</guilabel>
+			excludes all whitespace-only changes.
+		</para>
+		<para>
+			Naturally, any line with changed content is always included in
+			the diff.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-compare-revs">
 		<title>Comparing Folders</title>
 		<indexterm>
