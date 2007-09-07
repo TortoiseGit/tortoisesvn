@@ -128,7 +128,7 @@ svn_wc_conflict_result_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 		// we're also not dealing with folders
 		if (description->node_kind == svn_node_file)
 		{
-			CConflictResolveDlg dlg;
+			CConflictResolveDlg dlg(this);
 			dlg.SetConflictDescription(description);
 			if (dlg.DoModal() == IDOK)
 			{
