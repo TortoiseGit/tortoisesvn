@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1996-09-28 18:51+0600\n"
-"PO-Revision-Date: 2007-08-31 11:48+0100\n"
+"PO-Revision-Date: 2007-09-07 13:09+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: CATALAN <aperello@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -662,6 +662,12 @@ msgstr "&Carrega..."
 msgid "&Merge"
 msgstr "&Fusiona"
 
+# Dlg-ID:141,#:
+# Control-ID:65535,
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "Paths de &Fusiona"
+
 # ID:9,
 #: ID:9
 msgid "&Merge..."
@@ -776,8 +782,8 @@ msgstr "Can&via el nom"
 
 # Control-ID:1316,
 #: Control-ID:1316
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "&Tornar a obrir formulari d'entrega si aquesta falla"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "&Tornar a obrir diàleg  d'entrega i branca/etiqueta després de que falli una entrega"
 
 # ID:13,
 #: ID:13
@@ -5096,6 +5102,7 @@ msgstr "Fitxers Pedaç (*.diff, *.patch)|*.diff;*.patch|Tots (*.*)|*.*||"
 # ID:198,
 #: ID:77
 #: ID:198
+#: ID:20
 msgid "Path"
 msgstr "Path"
 
@@ -7808,6 +7815,11 @@ msgstr "Utilitza els dos blocs de texte (primer aquest)"
 msgid "Use both text blocks (this one last)"
 msgstr "Utilitza els dos blocs de texte (aquest el darrer)"
 
+# ID:116,
+#: ID:116
+msgid "Use regular expression"
+msgstr "Utilitzar expressió regular "
+
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for removed lines"
@@ -8185,6 +8197,17 @@ msgstr ""
 "La còpia de treball té modifications locals!\n"
 "Nota: Actualitzar a una altra revisió no farà perdre aquestes modificacions de manera que la\n"
 "còpia de treball no serà igual a la revisió de la que estàs actualitzant!"
+
+# ID:89,
+#: ID:89
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"La vostra còpia de treball  té modificacions locals.\n"
+"Si feu una  branca/etiqueta de la revisió HEAD, els vostres canvis locals\n"
+"no es mostraran a la branca/etiqueta!"
 
 #: MenuEntry
 msgid "Zoo&m out"
