@@ -489,89 +489,6 @@ Require valid-user
 			to produce a listing of all available projects if you point your
 			browser at the parent path rather than at a specific repository.
 		</para>
-		<para>
-			If your Subversion server is earlier than 1.3 you will just get
-			a nasty error page showing. To get a nice looking listing
-			of all available projects instead, you can use the following PHP
-			script which generates the index for you automatically.  (You 
-			will need to install PHP on your server in order to use the 
-			script shown below).
-		</para>
-		<sidebar>
-			<programlisting role="PHP"><![CDATA[
-<html>
-<head>
-<title>Subversion Repositories</title>
-</head>
-<body>
-
-<h2>Subversion Repositories</h2>
-<p>
-<?php
-    $svnparentpath = "C:/svn";
-    $svnparenturl = "/svn";
-
-    $dh = opendir( $svnparentpath );
-    if( $dh ) {
-        while( $dir = readdir( $dh ) ) {
-            $svndir = $svnparentpath . "/" . $dir;
-            $svndbdir = $svndir . "/db";
-            $svnfstypefile = $svndbdir . "/fs-type";
-            if( is_dir( $svndir ) && is_dir( $svndbdir ) ) {
-                echo "<a href=\"" . $svnparenturl . "/" .
-                        $dir . "\">" . $dir . "</a>\n";
-                if( file_exists( $svnfstypefile ) ) {
-                    $handle = fopen ("$svnfstypefile", "r");
-                    $buffer = fgets($handle, 4096);
-                    fclose( $handle );
-                    $buffer = chop( $buffer );
-                    if( strcmp( $buffer, "fsfs" )==0 ) {
-                        echo " (FSFS) <br />\n";
-                    } else {
-                        echo " (BDB) <br />\n";
-                    }
-                } else {
-                    echo " (BDB) <br />\n";
-                }
-            }
-        }
-        closedir( $dh );
-    }
-?>
-</p>
-
-</body>
-</html>
-]]></programlisting>
-			<para>
-				Save the lines above to a file <filename>svn_index.php</filename>
-				and store that file in your web root folder. Next you have
-				to tell Apache to show that page instead of the error:
-				<itemizedlist>
-					<listitem>
-						<para>
-						Uncomment (remove the '#' char) from the following line
-						in your Apache config file:
-<screen>
-#LoadModule rewrite_module modules/mod_rewrite.so
-</screen>
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-						Add the following lines just below your <literal>&lt;Location&gt;</literal>
-						block where you define your Subversion stuff:
-<screen>
-    RewriteEngine on
-    RewriteRule ^/svn$ /svn_index.php [PT]
-    RewriteRule ^/svn/$ /svn_index.php [PT]
-    RewriteRule ^/svn/index.html$ /svn_index.php [PT] 
-</screen>
-						</para>
-					</listitem>
-				</itemizedlist>
-			</para>
-		</sidebar>
 	</sect2>
 	<sect2 id="tsvn-serversetup-mod_authz_svn">
 		<title>Path-Based Authorization</title>
@@ -808,10 +725,7 @@ SetEnvIf User-Agent ".*MSIE.*" \
 						<ulink url="http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49">
 								<citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle>
 							</ulink>
-						But if you want NTLM authentication you have to use <literal>keepalive:</literal>
-						<ulink url="http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp">
-								<citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle>
-							</ulink>
+						But if you want NTLM authentication you have to use <literal>keepalive</literal>.
 						If You uncomment the whole <literal>SetEnvIf</literal> you should be able to
 						authenticate IE with windows authentication over SSL against 
 						the Apache on Win32 with included <literal>mod_auth_sspi</literal>.
