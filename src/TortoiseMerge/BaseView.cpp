@@ -1176,6 +1176,26 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 	return ret;
 }
 
+bool CBaseView::IsLineConflicted(int nLineIndex)
+{
+	DWORD state = 0;
+	if (m_arLineStates)
+		state = m_arLineStates->GetAt(nLineIndex);
+	bool ret = false;
+	switch (state)
+	{
+	case CDiffData::DIFFSTATE_CONFLICTED:
+	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
+	case CDiffData::DIFFSTATE_CONFLICTADDED:
+		ret = true;
+		break;
+	default:
+		ret = false;
+		break;
+	}
+	return ret;
+}
+
 COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
 {
 	// if the color is already dark (grayscale below 127),
@@ -2402,6 +2422,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
 		bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
 		m_pwndBottom->m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+		if (m_pwndBottom->IsLineConflicted(i))
+			m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
 	}
 
 	// your block is done, now insert their block
@@ -2411,7 +2433,10 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndRight->m_arDiffLines->GetAt(i));
 		m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-		m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndRight->m_arLineStates->GetAt(i));
+		m_pwndBottom->m_arLineStates->InsertAt(index, m_pwndRight->m_arLineStates->GetAt(i));
+		if (m_pwndBottom->IsLineConflicted(index))
+			m_pwndBottom->m_arLineStates->SetAt(index, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+		index++;
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
@@ -2448,6 +2473,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
 		rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
 		m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
+		if (m_pwndBottom->IsLineConflicted(i))
+			m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
 	}
 
 	// your block is done, now insert their block
@@ -2457,9 +2484,12 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
 		m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-		m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndLeft->m_arLineStates->GetAt(i));
+		m_pwndBottom->m_arLineStates->InsertAt(index, m_pwndLeft->m_arLineStates->GetAt(i));
 		leftstate.linestates[i] = m_pwndLeft->m_arLineStates->GetAt(i);
 		m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
+		if (m_pwndBottom->IsLineConflicted(index))
+			m_pwndBottom->m_arLineStates->SetAt(index, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+		index++;
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)

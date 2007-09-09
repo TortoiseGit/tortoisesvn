@@ -112,6 +112,8 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffState
 						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
 						bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
 						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						if (m_pwndBottom->IsLineConflicted(i))
+							m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
 					}
 					m_pwndBottom->SetModified();
 				}
@@ -165,6 +167,8 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffState
 						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
 						bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
 						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						if (m_pwndBottom->IsLineConflicted(i))
+							m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
 					}
 					m_pwndBottom->SetModified();
 				}

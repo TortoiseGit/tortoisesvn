@@ -68,6 +68,10 @@ public:
 	BOOL			GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
 	void			SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
 
+	BOOL			IsLineRemoved(int nLineIndex);
+	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
+	bool			IsLineConflicted(int nLineIndex);
+
 	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
 	CStdDWORDArray* m_endings;			///< lineendings of each line in the file
 	CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
@@ -123,9 +127,6 @@ protected:
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
 	void			DrawSingleLine(CDC *pdc, const CRect &rc, int nLineIndex);
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
-
-	BOOL			IsLineRemoved(int nLineIndex);
-	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
 
 	void			RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
 	void			RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
