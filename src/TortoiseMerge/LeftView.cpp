@@ -52,16 +52,11 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, CDiffData::DiffStates
 			uFlags |= MF_DISABLED | MF_GRAYED;
 		CString temp;
 		
-		bool bImportantBlock = false;
+		bool bImportantBlock = true;
 		switch (state)
 		{
-		case CDiffData::DIFFSTATE_ADDED:
-		case CDiffData::DIFFSTATE_REMOVED:
-		case CDiffData::DIFFSTATE_CONFLICTED:
-		case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-		case CDiffData::DIFFSTATE_CONFLICTADDED:
-		case CDiffData::DIFFSTATE_EMPTY:
-			bImportantBlock = true;
+		case CDiffData::DIFFSTATE_UNKNOWN:
+			bImportantBlock = false;
 			break;
 		}
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
