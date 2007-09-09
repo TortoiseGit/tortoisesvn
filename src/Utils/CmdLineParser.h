@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,13 +22,14 @@
 
 using std::map;
 
-#ifndef stdstring
-#	ifdef UNICODE
-#		define stdstring std::wstring
-#	else
-#		define stdstring std::string
-#	endif
+#pragma warning (push,1)
+typedef std::wstring wide_string;
+#ifdef UNICODE
+#	define stdstring wide_string
+#else
+#	define stdstring std::string
 #endif
+#pragma warning (pop)
 
 /**
  * \ingroup Utils
