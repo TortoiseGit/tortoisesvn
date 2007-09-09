@@ -218,6 +218,7 @@ protected:
 
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[8];
+	CString			m_sConflictedText;
 
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;

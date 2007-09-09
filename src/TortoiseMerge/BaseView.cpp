@@ -102,6 +102,8 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hLineEndingLF = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEENDINGLF),
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	for (int i=0; i<1024; ++i)
+		m_sConflictedText += _T("??");
 	EnableToolTips();
 }
 
@@ -1253,6 +1255,29 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	else
 		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, crBkgnd, crText);
 
+	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
+	{
+		if ((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex) == CDiffData::DIFFSTATE_CONFLICTED)
+		{
+			// conflicted lines are shown without 'text' on them
+			CRect rect = rc;
+			pDC->FillSolidRect(rect, crBkgnd);
+			// now draw some faint text patterns
+			pDC->SetTextColor(IntenseColor(130, crBkgnd));
+			pDC->DrawText(m_sConflictedText, rect, DT_LEFT|DT_NOPREFIX|DT_SINGLELINE);
+			COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
+			if ((nLineIndex == m_nDiffBlockStart)||(nLineIndex == m_nSelBlockStart))
+			{
+				pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
+			}		
+			if ((nLineIndex == m_nDiffBlockEnd)||(nLineIndex == m_nSelBlockEnd))
+			{
+				pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
+			}
+			return;
+		}
+	}
+
 	int nLength = GetLineLength(nLineIndex);
 	CPoint origin(rc.left - m_nOffsetChar * GetCharWidth(), rc.top);
 	if (nLength == 0)
@@ -1260,16 +1285,14 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		// Draw the empty line
 		CRect rect = rc;
 		pDC->FillSolidRect(rect, crBkgnd);
-		if (m_bFocused)
+		COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
+		if ((nLineIndex == m_nDiffBlockStart)||(nLineIndex == m_nSelBlockStart))
 		{
-			if (nLineIndex == m_nDiffBlockStart)
-			{
-				pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, RGB(0,0,0));
-			}		
-			if (nLineIndex == m_nDiffBlockEnd)
-			{
-				pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, RGB(0,0,0));
-			}
+			pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
+		}		
+		if ((nLineIndex == m_nDiffBlockEnd)||(nLineIndex == m_nSelBlockEnd))
+		{
+			pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
 		}
 	}
 	else

@@ -857,7 +857,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((latest)||(modified))
 				{
-					m_arDiff3.Add(_T("--- Unresolved Conflict!! ---"));
+					m_arDiff3.Add(_T(""));
 					m_arStateDiff3.Add(DIFFSTATE_CONFLICTED);
 					m_arLinesDiff3.Add(resline);
 
