@@ -85,6 +85,8 @@
 #define IDC_BKEMPTY                     1040
 #define IDS_ERR_MAINFRAME_FILEHASCONFLICTS 1041
 #define IDC_FGEMPTY                     1041
+#define IDC_BKEMPTY2                    1041
+#define IDC_BKCONFLICTRESOLVED          1041
 #define IDC_BKCONFLICTED                1042
 #define IDC_FGCONFLICTED                1043
 #define IDC_BKCONFLICTEDADDED           1044

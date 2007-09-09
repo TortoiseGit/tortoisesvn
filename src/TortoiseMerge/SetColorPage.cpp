@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,6 +96,8 @@ void CSetColorPage::SaveData()
 			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-205, GetRValue(cBk)-205);
 		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 		
+		cBk = m_cBkConflictResolved.GetColor(TRUE);
+		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
 	}
 }
 
@@ -110,6 +112,7 @@ void CSetColorPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BKMODIFIED, m_cBkModified);
 	DDX_Control(pDX, IDC_BKEMPTY, m_cBkEmpty);
 	DDX_Control(pDX, IDC_BKCONFLICTED, m_cBkConflict);
+	DDX_Control(pDX, IDC_BKCONFLICTRESOLVED, m_cBkConflictResolved);
 }
 
 
@@ -183,6 +186,12 @@ BOOL CSetColorPage::OnInitDialog()
 	m_cBkConflict.SetColor(cBk);
 	m_cBkConflict.SetDefaultText(sDefaultText);
 	m_cBkConflict.SetCustomText(sCustomText);
+
+	diffdata.GetColors(CDiffData::DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+	m_cBkConflictResolved.SetDefaultColor(DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
+	m_cBkConflictResolved.SetColor(cBk);
+	m_cBkConflictResolved.SetDefaultText(sDefaultText);
+	m_cBkConflictResolved.SetCustomText(sCustomText);
 
 	m_bInit = TRUE;
 
