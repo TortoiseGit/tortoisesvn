@@ -42,6 +42,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_pLogDlg2(NULL)
 	, bRepeating(FALSE)
 	, m_bRecordOnly(FALSE)
+	, m_depth(svn_depth_unknown)
 	, m_bIgnoreEOL(FALSE)
 {
 }
@@ -182,7 +183,27 @@ BOOL CMergeDlg::OnInitDialog()
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
-	m_depthCombo.SetCurSel(0);
+	switch (m_depth)
+	{
+	case svn_depth_unknown:
+		m_depthCombo.SetCurSel(0);
+		break;
+	case svn_depth_infinity:
+		m_depthCombo.SetCurSel(1);
+		break;
+	case svn_depth_immediates:
+		m_depthCombo.SetCurSel(2);
+		break;
+	case svn_depth_files:
+		m_depthCombo.SetCurSel(3);
+		break;
+	case svn_depth_empty:
+		m_depthCombo.SetCurSel(4);
+		break;
+	default:
+		m_depthCombo.SetCurSel(0);
+		break;
+	}
 
 	// set the choices for the "Show All" button
 	CString temp;
