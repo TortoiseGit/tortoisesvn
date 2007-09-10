@@ -251,6 +251,13 @@
 			different revision range. When you change the range, the list of items
 			which differ between the two revisions will be updated automatically.
 		</para>
+		<para>
+			If the list of filenames is very long, you can use the search box
+			to reduce the list to filenames containing specific text. Note that
+			a simple text search is used, so if you want to restrict the list
+			to C source files you should enter <filename>.c</filename> rather than
+			<filename>*.c</filename>.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-idiff">
 		<title>Diffing Images Using TortoiseIDiff</title>

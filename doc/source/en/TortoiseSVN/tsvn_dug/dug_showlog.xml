@@ -492,6 +492,18 @@
 			particular phrase.
 		</para>
 		<para>
+			Click on the search icon to select which information you want
+			to search in, and to choose <emphasis>regex</emphasis> mode.
+			Normally you will only need a simple text search, but if you
+			need to more flexible search terms, you can use regular expressions.
+			If you hover the mouse over the box, a tooltip will give hints
+			on how to use the regex functions.
+			You can also find online documentation and a tutorial at
+			<ulink url="http://www.regular-expressions.info/">
+				<citetitle>http://www.regular-expressions.info/</citetitle>
+			</ulink>.
+		</para>
+		<para>
 			Note that these filters act on the messages already retrieved.
 			They do not control downloading of messages from the repository.
 		</para>
