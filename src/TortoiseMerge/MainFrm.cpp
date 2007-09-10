@@ -756,7 +756,7 @@ int CMainFrame::CheckResolved()
 		{
 			for (int i=0; i<this->m_pwndBottomView->m_arLineStates->GetCount(); i++)
 			{
-				if (CDiffData::DIFFSTATE_CONFLICTED == (CDiffData::DiffStates)this->m_pwndBottomView->m_arLineStates->GetAt(i))
+				if (DIFFSTATE_CONFLICTED == (DiffStates)this->m_pwndBottomView->m_arLineStates->GetAt(i))
 					return i;
 			}
 		}
@@ -798,29 +798,29 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		for (int i=0; i<arText->GetCount(); i++)
 		{
 			//only copy non-removed lines
-			CDiffData::DiffStates state = (CDiffData::DiffStates)arStates->GetAt(i);
+			DiffStates state = (DiffStates)arStates->GetAt(i);
 			switch (state)
 			{
-			case CDiffData::DIFFSTATE_ADDED:
-			case CDiffData::DIFFSTATE_CONFLICTADDED:
-			case CDiffData::DIFFSTATE_IDENTICALADDED:
-			case CDiffData::DIFFSTATE_NORMAL:
-			case CDiffData::DIFFSTATE_THEIRSADDED:
-			case CDiffData::DIFFSTATE_UNKNOWN:
-			case CDiffData::DIFFSTATE_YOURSADDED:
-			case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
-			case CDiffData::DIFFSTATE_WHITESPACE:
-			case CDiffData::DIFFSTATE_WHITESPACE_DIFF:
+			case DIFFSTATE_ADDED:
+			case DIFFSTATE_CONFLICTADDED:
+			case DIFFSTATE_IDENTICALADDED:
+			case DIFFSTATE_NORMAL:
+			case DIFFSTATE_THEIRSADDED:
+			case DIFFSTATE_UNKNOWN:
+			case DIFFSTATE_YOURSADDED:
+			case DIFFSTATE_ADDEDWHITESPACE:
+			case DIFFSTATE_WHITESPACE:
+			case DIFFSTATE_WHITESPACE_DIFF:
 				file.Add(arText->GetAt(i));
 				break;
-			case CDiffData::DIFFSTATE_CONFLICTED:
+			case DIFFSTATE_CONFLICTED:
 				{
 					int first = i;
 					int last = i;
 					do 
 					{
 						last++;
-					} while( last<arStates->GetCount() && ((CDiffData::DiffStates)arStates->GetAt(last))==CDiffData::DIFFSTATE_CONFLICTED);
+					} while( last<arStates->GetCount() && ((DiffStates)arStates->GetAt(last))==DIFFSTATE_CONFLICTED);
 					file.Add(_T("<<<<<<< .mine"));
 					for (int j=first; j<last; j++)
 					{
@@ -835,12 +835,12 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 					i = last-1;
 				}
 				break;
-			case CDiffData::DIFFSTATE_EMPTY:
-			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
-			case CDiffData::DIFFSTATE_REMOVED:
-			case CDiffData::DIFFSTATE_THEIRSREMOVED:
-			case CDiffData::DIFFSTATE_YOURSREMOVED:
+			case DIFFSTATE_EMPTY:
+			case DIFFSTATE_CONFLICTEMPTY:
+			case DIFFSTATE_IDENTICALREMOVED:
+			case DIFFSTATE_REMOVED:
+			case DIFFSTATE_THEIRSREMOVED:
+			case DIFFSTATE_YOURSREMOVED:
 				break;
 			default:
 				break;
@@ -1211,9 +1211,9 @@ void CMainFrame::Search(SearchDirection srchDir)
 		CString left;
 		CString right;
 		CString bottom;
-		CDiffData::DiffStates leftstate = CDiffData::DIFFSTATE_NORMAL;
-		CDiffData::DiffStates rightstate = CDiffData::DIFFSTATE_NORMAL;
-		CDiffData::DiffStates bottomstate = CDiffData::DIFFSTATE_NORMAL;
+		DiffStates leftstate = DIFFSTATE_NORMAL;
+		DiffStates rightstate = DIFFSTATE_NORMAL;
+		DiffStates bottomstate = DIFFSTATE_NORMAL;
 		int i = 0;
 		
 		m_nSearchIndex = FindSearchStart(m_nSearchIndex);
@@ -1240,16 +1240,16 @@ void CMainFrame::Search(SearchDirection srchDir)
 			for (i=idxLimits[srchDir][j][0]; i != idxLimits[srchDir][j][1]; i += offsets[srchDir])
 			{
 				left = m_pwndLeftView->m_arDiffLines->GetAt(i);
-				leftstate = (CDiffData::DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
+				leftstate = (DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
 				if ((!m_bOneWay)&&(m_pwndRightView->m_arDiffLines))
 				{
 					right = m_pwndRightView->m_arDiffLines->GetAt(i);
-					rightstate = (CDiffData::DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
+					rightstate = (DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
 				}
 				if ((m_pwndBottomView)&&(m_pwndBottomView->m_arDiffLines))
 				{
 					bottom = m_pwndBottomView->m_arDiffLines->GetAt(i);
-					bottomstate = (CDiffData::DiffStates)m_pwndBottomView->m_arLineStates->GetAt(i);
+					bottomstate = (DiffStates)m_pwndBottomView->m_arLineStates->GetAt(i);
 				}
 
 				if (!m_bMatchCase)
@@ -1261,7 +1261,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 				}
 				if (StringFound(left))
 				{
-					if ((!m_bLimitToDiff)||(leftstate != CDiffData::DIFFSTATE_NORMAL))
+					if ((!m_bLimitToDiff)||(leftstate != DIFFSTATE_NORMAL))
 					{
 						bFound = TRUE;
 						break;
@@ -1269,7 +1269,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 				} 
 				else if (StringFound(right))
 				{
-					if ((!m_bLimitToDiff)||(rightstate != CDiffData::DIFFSTATE_NORMAL))
+					if ((!m_bLimitToDiff)||(rightstate != DIFFSTATE_NORMAL))
 					{
 						bFound = TRUE;
 						break;
@@ -1277,7 +1277,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 				} 
 				else if (StringFound(bottom))
 				{
-					if ((!m_bLimitToDiff)||(bottomstate != CDiffData::DIFFSTATE_NORMAL))
+					if ((!m_bLimitToDiff)||(bottomstate != DIFFSTATE_NORMAL))
 					{
 						bFound = TRUE;
 						break;

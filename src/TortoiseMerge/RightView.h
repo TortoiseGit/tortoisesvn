@@ -26,6 +26,6 @@ public:
 	CRightView(void);
 	~CRightView(void);
 protected:
-	void	OnContextMenu(CPoint point, int nLine, CDiffData::DiffStates state);
+	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	
 };

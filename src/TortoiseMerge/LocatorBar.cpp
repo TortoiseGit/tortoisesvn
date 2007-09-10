@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,7 +162,7 @@ void CLocatorBar::OnPaint()
 
 	COLORREF color, color2;
 	
-	m_pMainFrm->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, color, color2);
+	m_pMainFrm->m_Data.GetColors(DIFFSTATE_UNKNOWN, color, color2);
 	cacheDC.FillSolidRect(rect, color);
 	
 	int barwidth = (width/3);
@@ -180,8 +180,8 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arLeft.GetAt(i));
 			state = HIWORD(m_arLeft.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
+			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left, height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
@@ -198,8 +198,8 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arRight.GetAt(i));
 			state = HIWORD(m_arRight.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
+			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left + (width*2/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
@@ -215,8 +215,8 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arBottom.GetAt(i));
 			state = HIWORD(m_arBottom.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
+			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left + (width/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;

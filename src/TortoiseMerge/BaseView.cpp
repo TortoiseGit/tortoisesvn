@@ -211,23 +211,23 @@ void CBaseView::UpdateStatusBar()
 	{
 		for (int i=0; i<m_arLineStates->GetCount(); i++)
 		{
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(i);
+			DiffStates state = (DiffStates)m_arLineStates->GetAt(i);
 			switch (state)
 			{
-			case CDiffData::DIFFSTATE_ADDED:
-			case CDiffData::DIFFSTATE_IDENTICALADDED:
-			case CDiffData::DIFFSTATE_THEIRSADDED:
-			case CDiffData::DIFFSTATE_YOURSADDED:
-			case CDiffData::DIFFSTATE_CONFLICTADDED:
+			case DIFFSTATE_ADDED:
+			case DIFFSTATE_IDENTICALADDED:
+			case DIFFSTATE_THEIRSADDED:
+			case DIFFSTATE_YOURSADDED:
+			case DIFFSTATE_CONFLICTADDED:
 				nAddedLines++;
 				break;
-			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
-			case CDiffData::DIFFSTATE_REMOVED:
-			case CDiffData::DIFFSTATE_THEIRSREMOVED:
-			case CDiffData::DIFFSTATE_YOURSREMOVED:
+			case DIFFSTATE_IDENTICALREMOVED:
+			case DIFFSTATE_REMOVED:
+			case DIFFSTATE_THEIRSREMOVED:
+			case DIFFSTATE_YOURSREMOVED:
 				nRemovedLines++;
 				break;
-			case CDiffData::DIFFSTATE_CONFLICTED:
+			case DIFFSTATE_CONFLICTED:
 				nConflictedLines++;
 				break;
 			}
@@ -551,7 +551,7 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
 #define MAX_WHITESPACEBLOCK_SIZE	8
-	CDiffData::DiffStates origstateThis = (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex);
+	DiffStates origstateThis = (DiffStates)m_arLineStates->GetAt(nLineIndex);
 	if (!m_bOtherDiffChecked)
 	{
 		// find out what the 'other' file is
@@ -577,7 +577,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	}
 	if (m_arDiffDiffLines)
 	{
-		if (origstateThis == CDiffData::DIFFSTATE_NORMAL)
+		if (origstateThis == DIFFSTATE_NORMAL)
 		{
 			if (m_arDiffDiffLines->GetAt(nLineIndex).Compare(m_arDiffLines->GetAt(nLineIndex))==0)
 				return false;
@@ -588,43 +588,43 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		int nEndBlockThis = nLineIndex;
 		while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
 		{
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nStartBlockThis-1);
-			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+			DiffStates state = (DiffStates)m_arLineStates->GetAt(nStartBlockThis-1);
+			if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
 				origstateThis = state;
-			if ((origstateThis == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+			if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
 				nStartBlockThis--;
 			else
 				break;
 		}
 		while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
 		{
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nEndBlockThis+1);
-			if ((origstateThis == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+			DiffStates state = (DiffStates)m_arLineStates->GetAt(nEndBlockThis+1);
+			if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
 				origstateThis = state;
-			if ((origstateThis == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+			if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
 				nEndBlockThis++;
 			else
 				break;
 		}
 		int nStartBlockOther = nLineIndex;
 		int nEndBlockOther = nLineIndex;
-		CDiffData::DiffStates origstateOther = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nLineIndex);
+		DiffStates origstateOther = (DiffStates)m_arDiffDiffStates->GetAt(nLineIndex);
 		while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
 		{
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nStartBlockOther-1);
-			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+			DiffStates state = (DiffStates)m_arDiffDiffStates->GetAt(nStartBlockOther-1);
+			if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
 				origstateOther = state;
-			if ((origstateOther == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+			if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
 				nStartBlockOther--;
 			else
 				break;
 		}
 		while ((nEndBlockOther < (GetLineCount()-1))&&(nEndBlockOther < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
 		{
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arDiffDiffStates->GetAt(nEndBlockOther+1);
-			if ((origstateOther == CDiffData::DIFFSTATE_EMPTY)&&(state != CDiffData::DIFFSTATE_NORMAL))
+			DiffStates state = (DiffStates)m_arDiffDiffStates->GetAt(nEndBlockOther+1);
+			if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
 				origstateOther = state;
-			if ((origstateOther == state)||(state == CDiffData::DIFFSTATE_EMPTY))
+			if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
 				nEndBlockOther++;
 			else
 				break;
@@ -974,24 +974,24 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 
 	if ((nLineIndex >= 0)&&(this->m_arLineStates)&&(this->m_arLineStates->GetCount()))
 	{
-		CDiffData::DiffStates state = (CDiffData::DiffStates)this->m_arLineStates->GetAt(nLineIndex);
+		DiffStates state = (DiffStates)this->m_arLineStates->GetAt(nLineIndex);
 		HICON icon = NULL;
 		switch (state)
 		{
-		case CDiffData::DIFFSTATE_ADDED:
-		case CDiffData::DIFFSTATE_THEIRSADDED:
-		case CDiffData::DIFFSTATE_YOURSADDED:
-		case CDiffData::DIFFSTATE_IDENTICALADDED:
-		case CDiffData::DIFFSTATE_CONFLICTADDED:
+		case DIFFSTATE_ADDED:
+		case DIFFSTATE_THEIRSADDED:
+		case DIFFSTATE_YOURSADDED:
+		case DIFFSTATE_IDENTICALADDED:
+		case DIFFSTATE_CONFLICTADDED:
 			icon = m_hAddedIcon;
 			break;
-		case CDiffData::DIFFSTATE_REMOVED:
-		case CDiffData::DIFFSTATE_THEIRSREMOVED:
-		case CDiffData::DIFFSTATE_YOURSREMOVED:
-		case CDiffData::DIFFSTATE_IDENTICALREMOVED:
+		case DIFFSTATE_REMOVED:
+		case DIFFSTATE_THEIRSREMOVED:
+		case DIFFSTATE_YOURSREMOVED:
+		case DIFFSTATE_IDENTICALREMOVED:
 			icon = m_hRemovedIcon;
 			break;
-		case CDiffData::DIFFSTATE_CONFLICTED:
+		case DIFFSTATE_CONFLICTED:
 			icon = m_hConflictedIcon;
 			break;
 		default:
@@ -1056,7 +1056,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 	CRect textrect(rect.left, rect.top, rect.Width(), GetLineHeight()+HEADERHEIGHT);
 	CDiffData diffdata;
 	COLORREF crBk, crFg;
-	diffdata.GetColors(CDiffData::DIFFSTATE_NORMAL, crBk, crFg);
+	diffdata.GetColors(DIFFSTATE_NORMAL, crBk, crFg);
 	crBk = ::GetSysColor(COLOR_SCROLLBAR);
 	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
 	{
@@ -1067,12 +1067,12 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 
 		if (this == m_pwndRight)
 		{
-			diffdata.GetColors(CDiffData::DIFFSTATE_ADDED, crBk, crFg);
+			diffdata.GetColors(DIFFSTATE_ADDED, crBk, crFg);
 			pdc->SetBkColor(crBk);
 		}
 		else
 		{
-			diffdata.GetColors(CDiffData::DIFFSTATE_REMOVED, crBk, crFg);
+			diffdata.GetColors(DIFFSTATE_REMOVED, crBk, crFg);
 			pdc->SetBkColor(crBk);
 		}
 	}
@@ -1165,10 +1165,10 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 	BOOL ret = FALSE;
 	switch (state)
 	{
-	case CDiffData::DIFFSTATE_REMOVED:
-	case CDiffData::DIFFSTATE_THEIRSREMOVED:
-	case CDiffData::DIFFSTATE_YOURSREMOVED:
-	case CDiffData::DIFFSTATE_IDENTICALREMOVED:
+	case DIFFSTATE_REMOVED:
+	case DIFFSTATE_THEIRSREMOVED:
+	case DIFFSTATE_YOURSREMOVED:
+	case DIFFSTATE_IDENTICALREMOVED:
 		ret = TRUE;
 		break;
 	default:
@@ -1186,9 +1186,9 @@ bool CBaseView::IsLineConflicted(int nLineIndex)
 	bool ret = false;
 	switch (state)
 	{
-	case CDiffData::DIFFSTATE_CONFLICTED:
-	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-	case CDiffData::DIFFSTATE_CONFLICTADDED:
+	case DIFFSTATE_CONFLICTED:
+	case DIFFSTATE_CONFLICTEMPTY:
+	case DIFFSTATE_CONFLICTADDED:
 		ret = true;
 		break;
 	default:
@@ -1228,7 +1228,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	{
 		// Draw line beyond the text
 		COLORREF bkGnd, crText;
-		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, bkGnd, crText);
+		m_pMainFrame->m_Data.GetColors(DIFFSTATE_UNKNOWN, bkGnd, crText);
 		pDC->FillSolidRect(rc, bkGnd);
 		return;
 	} 
@@ -1237,7 +1237,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	COLORREF crBkgnd, crText;
 	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
 	{
-		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
+		m_pMainFrame->m_Data.GetColors((DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
 		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
 			if (m_bFocused)
@@ -1253,11 +1253,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		}
 	}
 	else
-		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, crBkgnd, crText);
+		m_pMainFrame->m_Data.GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 
 	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
 	{
-		if ((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex) == CDiffData::DIFFSTATE_CONFLICTED)
+		if ((DiffStates)m_arLineStates->GetAt(nLineIndex) == DIFFSTATE_CONFLICTED)
 		{
 			// conflicted lines are shown without 'text' on them
 			CRect rect = rc;
@@ -1324,7 +1324,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					nCount = nCountFit;
 
 				if ((pszDiffChars)&&
-					(CDiffData::DIFFSTATE_NORMAL != (CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex))&&
+					(DIFFSTATE_NORMAL != (DiffStates)m_arLineStates->GetAt(nLineIndex))&&
 					!line.IsEmpty()&&
 					(pszDiffChars[0]!=0) &&
 					((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden())))
@@ -1744,7 +1744,7 @@ int CBaseView::GetLineFromPoint(CPoint point)
 	return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, CDiffData::DiffStates /*state*/)
+void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
 {
 }
 
@@ -1759,8 +1759,8 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	if ((nLine <= m_arLineStates->GetCount())&&(nLine > m_nTopLine))
 	{
 		int nIndex = nLine - 1;
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex);
-		if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN))
+		DiffStates state = (DiffStates)m_arLineStates->GetAt(nIndex);
+		if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
 		{
 			// if there's nothing selected, or if the selection is outside the window then
 			// select the diff block under the cursor.
@@ -1774,30 +1774,30 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 						nIndex--;
 						break;
 					}
-					if (state != (CDiffData::DiffStates)m_arLineStates->GetAt(--nIndex))
+					if (state != (DiffStates)m_arLineStates->GetAt(--nIndex))
 						break;
 				}
 				m_nSelBlockStart = nIndex+1;
 				while (nIndex < (m_arLineStates->GetCount()-1))
 				{
-					if (state != (CDiffData::DiffStates)m_arLineStates->GetAt(++nIndex))
+					if (state != (DiffStates)m_arLineStates->GetAt(++nIndex))
 						break;
 				}
-				if ((nIndex == (m_arLineStates->GetCount()-1))&&(state == (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex)))
+				if ((nIndex == (m_arLineStates->GetCount()-1))&&(state == (DiffStates)m_arLineStates->GetAt(nIndex)))
 					m_nSelBlockEnd = nIndex;
 				else
 					m_nSelBlockEnd = nIndex-1;
 				Invalidate();
 			}
 		}
-		if (((state == CDiffData::DIFFSTATE_NORMAL)||(state == CDiffData::DIFFSTATE_UNKNOWN)) &&
+		if (((state == DIFFSTATE_NORMAL)||(state == DIFFSTATE_UNKNOWN)) &&
 			(m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
 		{
 			// find a more 'relevant' state in the selection
 			for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; ++i)
 			{
-				state = (CDiffData::DiffStates)m_arLineStates->GetAt(i);
-				if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN))
+				state = (DiffStates)m_arLineStates->GetAt(i);
+				if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
 					break;
 			}
 		}
@@ -1836,9 +1836,9 @@ void CBaseView::GoToFirstDifference()
 	{
 		while (nCenterPos < m_arLineStates->GetCount())
 		{
-			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
-				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+			DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate != DIFFSTATE_NORMAL) &&
+				(linestate != DIFFSTATE_UNKNOWN))
 				break;
 			nCenterPos++;
 		}
@@ -1912,18 +1912,18 @@ void CBaseView::OnMergePreviousconflict()
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
 			nCenterPos = (int)m_arLineStates->GetCount()-1;
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates state = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos >= 0) &&
-			((CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos--)==state))
+			((DiffStates)m_arLineStates->GetAt(nCenterPos--)==state))
 			;
 		if (nCenterPos < (m_arLineStates->GetCount()-1))
 			nCenterPos++;
 		while (nCenterPos >= 0)
 		{
-			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-			if ((linestate == CDiffData::DIFFSTATE_CONFLICTADDED) ||
-				(linestate == CDiffData::DIFFSTATE_CONFLICTED) ||
-				(linestate == CDiffData::DIFFSTATE_CONFLICTEMPTY))
+			DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
+				(linestate == DIFFSTATE_CONFLICTED) ||
+				(linestate == DIFFSTATE_CONFLICTEMPTY))
 				break;
 			nCenterPos--;
 		}
@@ -1931,13 +1931,13 @@ void CBaseView::OnMergePreviousconflict()
 			nCenterPos = 0;
 		m_nSelBlockStart = nCenterPos;
 		m_nSelBlockEnd = nCenterPos;
-		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((m_nSelBlockStart < (m_arLineStates->GetCount()-1))&&(m_nSelBlockStart > 0))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(--m_nSelBlockStart))
+			if (linestate != (DiffStates)m_arLineStates->GetAt(--m_nSelBlockStart))
 				break;
 		}
-		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
+		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (DiffStates)m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
 			m_nSelBlockStart = m_nSelBlockStart;
 		else
 			m_nSelBlockStart = m_nSelBlockStart+1;
@@ -1961,18 +1961,18 @@ void CBaseView::OnMergeNextconflict()
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
 			nCenterPos = (int)m_arLineStates->GetCount()-1;
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates state = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos < m_arLineStates->GetCount()) &&
-			((CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos++)==state))
+			((DiffStates)m_arLineStates->GetAt(nCenterPos++)==state))
 			;
 		if (nCenterPos > 0)
 			nCenterPos--;
 		while (nCenterPos < m_arLineStates->GetCount())
 		{
-			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-			if ((linestate == CDiffData::DIFFSTATE_CONFLICTADDED) ||
-				(linestate == CDiffData::DIFFSTATE_CONFLICTED) ||
-				(linestate == CDiffData::DIFFSTATE_CONFLICTEMPTY))
+			DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
+				(linestate == DIFFSTATE_CONFLICTED) ||
+				(linestate == DIFFSTATE_CONFLICTEMPTY))
 				break;
 			nCenterPos++;
 		}
@@ -1980,13 +1980,13 @@ void CBaseView::OnMergeNextconflict()
 			nCenterPos = m_arLineStates->GetCount()-1;
 		m_nSelBlockStart = nCenterPos;
 		m_nSelBlockEnd = nCenterPos;
-		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while (m_nSelBlockEnd < (m_arLineStates->GetCount()-1))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(++m_nSelBlockEnd))
+			if (linestate != (DiffStates)m_arLineStates->GetAt(++m_nSelBlockEnd))
 				break;
 		}
-		if ((m_nSelBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockEnd)))
+		if ((m_nSelBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (DiffStates)m_arLineStates->GetAt(m_nSelBlockEnd)))
 			m_nSelBlockEnd = m_nSelBlockEnd;
 		else
 			m_nSelBlockEnd = m_nSelBlockEnd-1;
@@ -2010,17 +2010,17 @@ void CBaseView::OnMergeNextdifference()
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
 			nCenterPos = (int)m_arLineStates->GetCount()-1;
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates state = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos < m_arLineStates->GetCount()) &&
-			((CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos++)==state))
+			((DiffStates)m_arLineStates->GetAt(nCenterPos++)==state))
 			;
 		if (nCenterPos > 0)
 			nCenterPos--;
 		while (nCenterPos < m_arLineStates->GetCount())
 		{
-			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
-				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+			DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate != DIFFSTATE_NORMAL) &&
+				(linestate != DIFFSTATE_UNKNOWN))
 				break;
 			nCenterPos++;
 		}
@@ -2028,13 +2028,13 @@ void CBaseView::OnMergeNextdifference()
 			nCenterPos = m_arLineStates->GetCount()-1;
 		m_nDiffBlockStart = nCenterPos;
 		m_nDiffBlockEnd = nCenterPos;
-		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while (m_nDiffBlockEnd < (m_arLineStates->GetCount()-1))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(++m_nDiffBlockEnd))
+			if (linestate != (DiffStates)m_arLineStates->GetAt(++m_nDiffBlockEnd))
 				break;
 		}
-		if ((m_nDiffBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nDiffBlockEnd)))
+		if ((m_nDiffBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (DiffStates)m_arLineStates->GetAt(m_nDiffBlockEnd)))
 			m_nDiffBlockEnd = m_nDiffBlockEnd;
 		else
 			m_nDiffBlockEnd = m_nDiffBlockEnd-1;
@@ -2059,17 +2059,17 @@ void CBaseView::OnMergePreviousdifference()
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
 			nCenterPos = (int)m_arLineStates->GetCount()-1;
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates state = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos >= 0) &&
-			((CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos--)==state))
+			((DiffStates)m_arLineStates->GetAt(nCenterPos--)==state))
 			;
 		if (nCenterPos < (m_arLineStates->GetCount()-1))
 			nCenterPos++;
 		while (nCenterPos >= 0)
 		{
-			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
-				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+			DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate != DIFFSTATE_NORMAL) &&
+				(linestate != DIFFSTATE_UNKNOWN))
 				break;
 			nCenterPos--;
 		}
@@ -2077,13 +2077,13 @@ void CBaseView::OnMergePreviousdifference()
 			nCenterPos = 0;
 		m_nDiffBlockStart = nCenterPos;
 		m_nDiffBlockEnd = nCenterPos;
-		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		DiffStates linestate = (DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((m_nDiffBlockStart < (m_arLineStates->GetCount()-1))&&(m_nDiffBlockStart > 0))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(--m_nDiffBlockStart))
+			if (linestate != (DiffStates)m_arLineStates->GetAt(--m_nDiffBlockStart))
 				break;
 		}
-		if (((m_nDiffBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nDiffBlockStart)))||m_nDiffBlockStart==0)
+		if (((m_nDiffBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (DiffStates)m_arLineStates->GetAt(m_nDiffBlockStart)))||m_nDiffBlockStart==0)
 			m_nDiffBlockStart = m_nDiffBlockStart;
 		else
 			m_nDiffBlockStart = m_nDiffBlockStart+1;
@@ -2319,22 +2319,22 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 		if (point.x <= GetMarginWidth())
 		{
 			//toggle between linestates
-			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nClickedLine);
+			DiffStates state = (DiffStates)m_arLineStates->GetAt(nClickedLine);
 			switch (state)
 			{
-			case CDiffData::DIFFSTATE_ADDED:
-			case CDiffData::DIFFSTATE_IDENTICALADDED:
-			case CDiffData::DIFFSTATE_THEIRSADDED:
-			case CDiffData::DIFFSTATE_YOURSADDED:
-				state = CDiffData::DIFFSTATE_REMOVED;
+			case DIFFSTATE_ADDED:
+			case DIFFSTATE_IDENTICALADDED:
+			case DIFFSTATE_THEIRSADDED:
+			case DIFFSTATE_YOURSADDED:
+				state = DIFFSTATE_REMOVED;
 				if ((this == m_pwndRight)||(this == m_pwndBottom))
 					SetModified();
 				break;
-			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
-			case CDiffData::DIFFSTATE_REMOVED:
-			case CDiffData::DIFFSTATE_THEIRSREMOVED:
-			case CDiffData::DIFFSTATE_YOURSREMOVED:
-				state = CDiffData::DIFFSTATE_ADDED;
+			case DIFFSTATE_IDENTICALREMOVED:
+			case DIFFSTATE_REMOVED:
+			case DIFFSTATE_THEIRSREMOVED:
+			case DIFFSTATE_YOURSREMOVED:
+				state = DIFFSTATE_ADDED;
 				if ((this == m_pwndRight)||(this == m_pwndBottom))
 					SetModified();
 				break;
@@ -2446,7 +2446,7 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
 		m_pwndBottom->m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
 		if (m_pwndBottom->IsLineConflicted(i))
-			m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+			m_pwndBottom->m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 
 	// your block is done, now insert their block
@@ -2458,7 +2458,7 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
 		m_pwndBottom->m_arLineStates->InsertAt(index, m_pwndRight->m_arLineStates->GetAt(i));
 		if (m_pwndBottom->IsLineConflicted(index))
-			m_pwndBottom->m_arLineStates->SetAt(index, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+			m_pwndBottom->m_arLineStates->SetAt(index, DIFFSTATE_CONFLICTRESOLVED);
 		index++;
 	}
 	// adjust line numbers
@@ -2473,12 +2473,12 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		leftstate.addedlines.push_back(m_nSelBlockStart);
 	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	RecalcAllVertScrollBars();
 	m_pwndBottom->SetModified();
@@ -2495,9 +2495,9 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
 		m_pwndBottom->m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
 		rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
-		m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
+		m_pwndRight->m_arLineStates->SetAt(i, DIFFSTATE_YOURSADDED);
 		if (m_pwndBottom->IsLineConflicted(i))
-			m_pwndBottom->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+			m_pwndBottom->m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 
 	// your block is done, now insert their block
@@ -2509,9 +2509,9 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
 		m_pwndBottom->m_arLineStates->InsertAt(index, m_pwndLeft->m_arLineStates->GetAt(i));
 		leftstate.linestates[i] = m_pwndLeft->m_arLineStates->GetAt(i);
-		m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
+		m_pwndLeft->m_arLineStates->SetAt(i, DIFFSTATE_THEIRSADDED);
 		if (m_pwndBottom->IsLineConflicted(index))
-			m_pwndBottom->m_arLineStates->SetAt(index, CDiffData::DIFFSTATE_CONFLICTRESOLVED);
+			m_pwndBottom->m_arLineStates->SetAt(index, DIFFSTATE_CONFLICTRESOLVED);
 		index++;
 	}
 	// adjust line numbers
@@ -2526,12 +2526,12 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		leftstate.addedlines.push_back(m_nSelBlockStart);
 	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	RecalcAllVertScrollBars();
 	m_pwndBottom->SetModified();
@@ -2544,7 +2544,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
-		m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
+		m_pwndRight->m_arLineStates->SetAt(i, DIFFSTATE_YOURSADDED);
 	}
 
 	// your block is done, now insert their block
@@ -2554,7 +2554,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pwndRight->m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
 		m_pwndRight->m_arLineLines->InsertAt(index, m_pwndRight->m_arLineLines->GetAt(i));
-		m_pwndRight->m_arLineStates->InsertAt(index++, CDiffData::DIFFSTATE_THEIRSADDED);
+		m_pwndRight->m_arLineStates->InsertAt(index++, DIFFSTATE_THEIRSADDED);
 	}
 	// adjust line numbers
 	index--;
@@ -2569,7 +2569,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		leftstate.addedlines.push_back(m_nSelBlockEnd+1);
 	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockEnd+1, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2587,7 +2587,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	{
 		rightstate.addedlines.push_back(m_nSelBlockStart);
 		m_pwndRight->m_arDiffLines->InsertAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-		m_pwndRight->m_arLineStates->InsertAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
+		m_pwndRight->m_arLineStates->InsertAt(i, DIFFSTATE_THEIRSADDED);
 		m_pwndRight->m_arLineLines->InsertAt(i, linenumber++);
 	}
 	// adjust line numbers
@@ -2602,7 +2602,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 		leftstate.addedlines.push_back(m_nSelBlockStart);
 	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
 	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
