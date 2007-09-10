@@ -294,7 +294,7 @@
 			then the pan controls (scrollbars, mousewheel) on both images are linked.
 		</para>
 		<para>
-			In image info box shows details about the image file, such as the
+			An image info box shows details about the image file, such as the
 			size in pixels, resolution and colour depth. If this box gets in the
 			way, use
 			<menuchoice>
@@ -302,6 +302,8 @@
 				<guimenuitem>Image Info</guimenuitem>
 			</menuchoice>
 			to hide it.
+			You can get the same information in a tooltip if you hover the mouse
+			over the image title bar.
 		</para>
 		<para>
 			When the images are overlaid, the relative intensity of the images
@@ -316,6 +318,14 @@
 			the top and the other at the bottom, so the toggle button just switches
 			between one image and the other. You can move the markers to choose
 			the two blend values that the toggle button will use.
+		</para>
+		<para>
+			Sometimes you want to see a difference rather than a blend. You might
+			have the image files for two revisions of a printed circuit board and
+			want to see which tracks have changed. If you disable alpha blend mode,
+			the difference will be shown as an <emphasis>XOR</emphasis> of the pixel
+			colour values. Unchanged areas will be plain white and changes will be
+			coloured.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-diff-tools">
