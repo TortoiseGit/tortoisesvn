@@ -36,6 +36,12 @@
 			<emphasis>Apache</emphasis> project which currently has over 500,000
 			revisions you could be waiting for some time.
 		</para>
+		<para>
+			The good news is that if you are using Log Caching, you only have to
+			suffer this delay once. After that, log data is held locally.
+			Log caching is enabled in the <guilabel>Dialogs 2</guilabel>
+			page of TortoiseSVN's settings.
+		</para>
 	</important>
 	<para>
 		The revision graph shows several types of node:
@@ -64,8 +70,8 @@
 					<para>
 						Where a branch (or trunk or tag) has been modified since
 						the last branch node, this is shown using an ellipse.
-						This means that the latest revision on every branch is
-						always shown on the graph.
+						Shown when the <guilabel>Show HEAD revisions</guilabel>
+						option is selected.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -85,20 +91,110 @@
 		option to do this in the <guilabel>View</guilabel> menu and on the toolbar.
 	</para>
 	<para>
-		There is also an option to arrange the graph <emphasis>by path</emphasis>.
-		This attempts to sort the branches from the tags. Paths which contain no
-		modifications after copying are assumed to be tags and are stacked in
-		a single column. Branches (which contain modifications after creation)
-		each have their own column, so you can see how the branch develops.
-	</para>
-	<para>
-		Sometimes the revision graph contains more detail than you want to see.
-		<menuchoice>
-			<guimenu>View</guimenu>
-			<guimenuitem>Filter</guimenuitem>
-		</menuchoice>
-		opens a dialog which allows you to restrict the range of revisions
-		displayed, and to hide particular paths by name.
+		Because a revision graph is often quite complex, there are a number
+		of features which can be used to tailor the view the way you want it.
+		These are available in the <guilabel>View</guilabel> menu and from the
+		toolbar.
+		<variablelist>
+			<varlistentry>
+				<term>Group branches</term>
+				<listitem>
+					<para>
+						This option attempts to sort the branches from the tags.
+						Paths which contain no modifications after copying are
+						assumed to be tags and are stacked in a single column.
+						Branches (which contain modifications after creation)
+						each have their own column, so you can see how the branch
+						develops.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Oldest on top</term>
+				<listitem>
+					<para>
+						Normally the graph shows the oldest revision at the bottom,
+						and the tree grows upwards. Use this option to grow down
+						from the top.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Show HEAD revisions</term>
+				<listitem>
+					<para>
+						This ensures that the latest revision on every branch is
+						always shown on the graph.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Exact copy sources</term>
+				<listitem>
+					<para>
+						When a branch/tag is made, the default behaviour is to
+						show the branch as taken from the last node where a
+						change was made. Strictly speaking this is inaccurate
+						since the branches are often made from the current HEAD
+						rather than a specific revision. So it is possible to show
+						the more correct (but less useful) revision that was
+						used to create the copy.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Split long branches</term>
+				<listitem>
+					<para>
+						In some sources you will find a few active branches
+						with constant activity, and a few inactive branches
+						with infrequent activity. The inactive branches will
+						tend to produce very long lines across the graph, joining
+						their sparse nodes and distracting attention from the
+						active branches. This option allows long connections to
+						be broken and shown in separate chunks. A link icon
+						on the node shows when this has occurred.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Fold tags</term>
+				<listitem>
+					<para>
+						If you want to see a graph of software development,
+						tagged releases may be of little interest to you.
+						This option hides the nodes for tags and shows them
+						instead in the tooltip for the node that they were
+						copied from. A tag icon on the right side of the
+						source node indicates that tags were made.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Reduce cross lines</term>
+				<listitem>
+					<para>
+						If the layout of the graph has produced a lot of
+						crossing lines, use this option to clean it up.
+						This may make the layout columns appear in less
+						logical places, for example in a diagonal line
+						rather than a column, and it may take a little time
+						to optimise.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Filter</term>
+				<listitem>
+					<para>
+						Sometimes the revision graph contains more revisions
+						than you want to see. This option opens a dialog which
+						allows you to restrict the range of revisions
+						displayed, and to hide particular paths by name.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</para>
 	<para>
 		To make it easier to navigate a large graph, use the overview window.
