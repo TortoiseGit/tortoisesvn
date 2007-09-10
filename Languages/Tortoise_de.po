@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-07 10:10+0100\n"
+"PO-Revision-Date: 2007-09-10 10:02+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2057,6 +2057,10 @@ msgstr "Auschecken von %s, Revision %s, %s, %s"
 msgid "Checksum:"
 msgstr "Prüfsumme:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "Objekt auswählen"
+
 # ID:146,
 #: ID:146,
 msgid "Cleaning up."
@@ -2323,6 +2327,12 @@ msgstr "Konfigurieren Sie das Programm zum Anzeigen von GNU Standard-Diffdateien
 
 # ID:263,#:
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "Konflikt aufgelöst"
+
+# ID:263,#:
+# Control-ID:65535,
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2491,6 +2501,12 @@ msgstr "Korrekturen"
 msgid "Could not add %s to the ignore list!"
 msgstr "Konnte %s nicht zur 'Ignorieren' Liste hinzufügen!"
 
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "Konnte '%s' nicht hinzfügen, weil"
+
 # ID:201,
 #: ID:201,
 msgid "Could not check for a newer version!"
@@ -2509,9 +2525,21 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "Konnte '%s' nicht löschen, weil"
+
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "Konnte den Status nicht ermitteln!"
+
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "Konnte '%s' nicht zusammenführen, weil"
 
 # ID:69,
 #: ID:69,
@@ -2641,8 +2669,8 @@ msgstr ""
 
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "&Projektarchiv hier erstellen..."
+msgid "Create repositor&y here"
+msgstr "&Projektarchiv hier erstellen"
 
 # ID:119,
 #: MenuEntry
@@ -2997,6 +3025,11 @@ msgstr "Autor bearbeiten"
 #: ID:115,
 msgid "Edit author name"
 msgstr "Autor bearbeiten"
+
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "Konflikt bearbeiten"
 
 # ID:110,
 #: ID:110,
@@ -4413,6 +4446,11 @@ msgstr "Startet den externen Konflikteditor, um den Konflikt zu bearbeiten."
 msgid "Least active author:"
 msgstr "Die wenigsten Übertragungen:"
 
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "Konflikt belassen:"
+
 # ID:188,
 #: ID:188,
 msgid "Left View: "
@@ -5438,6 +5476,10 @@ msgstr ""
 "werden, müssen Sie mit Ihrer Arbeitskopie zu der neuen URL wechseln.\n"
 "Benutzen Sie dazu den Befehl <b>Wechseln zu...</b>."
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "Bitte lösen Sie den Konflikt mit einer der folgenden Optionen auf:"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858,#:
@@ -5996,6 +6038,16 @@ msgstr "Konflikt lösen"
 msgid "Resolve - TortoiseSVN"
 msgstr "Konflikte auflösen - TortoiseSVN"
 
+# ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "Konflikt auflösen"
+
+# ID:126,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "Alle später auflösen"
+
 # ID:282,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
@@ -6006,10 +6058,21 @@ msgstr "Löse Konflikt mit 'Meiner' Datei"
 msgid "Resolve conflict using \"theirs\""
 msgstr "Löse Konflikt mit 'Deren' Datei"
 
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "Konflikt auflösen:"
+
+# Dlg-ID:207,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "Später auflösen"
+
 # ID:74,#:
 # ID:209,
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "Konflikt aufgelöst"
 
@@ -8116,9 +8179,19 @@ msgstr "Verwende beide Blöcke (Diesen zuerst)"
 msgid "Use both text blocks (this one last)"
 msgstr "Verwende beide Blöcke (Diesen zuletzt)"
 
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "Lokal verwenden"
+
 #: ID:116,
 msgid "Use regular expression"
 msgstr "Verwende reguläre Ausdrücke"
+
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "Projektarchiv verwenden"
 
 # Control-ID:1066,
 #: Control-ID:1066,
@@ -8587,6 +8660,10 @@ msgstr "und"
 msgid "and support the developers"
 msgstr "und unterstützen Sie die Entwickler"
 
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "sich ein anderes Objekt an dieser Stelle befindet."
+
 # ID:245,
 #: ID:245,
 msgid "author"
@@ -8741,6 +8818,20 @@ msgstr "Ignoriere Vorfahren"
 #: ID:13,
 msgid "incomplete"
 msgstr "Unvollständig"
+
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "es nicht existiert."
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "es bereits gelöscht ist."
+
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "es nicht versioniert ist."
 
 # ID:17,
 # ID:214,
@@ -8976,6 +9067,11 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "gewechselt zu:"
+
+# Control-ID:65535,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "es widersrpüchliche Änderungen gibt."
 
 # ID:80,#:
 # ID:103,#:
