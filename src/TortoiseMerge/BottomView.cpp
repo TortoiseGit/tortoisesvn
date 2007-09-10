@@ -95,12 +95,12 @@ void CBottomView::UseTheirTextBlock()
 
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
-		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
-		m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-		bottomstate.linestates[i] = m_arLineStates->GetAt(i);
-		m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+		bottomstate.difflines[i] = m_pViewData->GetLine(i);
+		m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
+		bottomstate.linestates[i] = m_pViewData->GetState(i);
+		m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
 		if (IsLineConflicted(i))
-			m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
 	SetModified();
@@ -117,12 +117,12 @@ void CBottomView::UseMyTextBlock()
 
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
-		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
-		m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
-		bottomstate.linestates[i] = m_arLineStates->GetAt(i);
-		m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
+		bottomstate.difflines[i] = m_pViewData->GetLine(i);
+		m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
+		bottomstate.linestates[i] = m_pViewData->GetState(i);
+		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
 		if (IsLineConflicted(i))
-			m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
 	SetModified();
@@ -139,12 +139,12 @@ void CBottomView::UseTheirThenMyTextBlock()
 
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
-		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
-		m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-		bottomstate.linestates[i] = m_arLineStates->GetAt(i);
-		m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+		bottomstate.difflines[i] = m_pViewData->GetLine(i);
+		m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
+		bottomstate.linestates[i] = m_pViewData->GetState(i);
+		m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
 		if (IsLineConflicted(i))
-			m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 	
 	// your block is done, now insert their block
@@ -152,32 +152,27 @@ void CBottomView::UseTheirThenMyTextBlock()
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_arDiffLines->InsertAt(index, m_pwndRight->m_arDiffLines->GetAt(i));
-		m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-		m_arLineStates->InsertAt(index, m_pwndRight->m_arLineStates->GetAt(i));
+		m_pViewData->InsertData(index, m_pwndRight->m_pViewData->GetData(i));
 		if (IsLineConflicted(index))
-			m_arLineStates->SetAt(index, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
 		index++;
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
 	{
-		long oldline = (long)m_arLineLines->GetAt(i);
+		long oldline = (long)m_pViewData->GetLineNumber(i);
 		if (oldline >= 0)
-			m_arLineLines->SetAt(i, oldline+(index-m_nSelBlockEnd));
+			m_pViewData->SetLineNumber(i, oldline+(index-m_nSelBlockEnd));
 	}
 
 	// now insert an empty block in both yours and theirs
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
+	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-	m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
+	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
 
 	RecalcAllVertScrollBars();
@@ -197,14 +192,14 @@ void CBottomView::UseMyThenTheirTextBlock()
 
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
-		bottomstate.difflines[i] = m_arDiffLines->GetAt(i);
-		m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
-		bottomstate.linestates[i] = m_arLineStates->GetAt(i);
-		m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
-		rightstate.linestates[i] = m_pwndRight->m_arLineStates->GetAt(i);
-		m_pwndRight->m_arLineStates->SetAt(i, DIFFSTATE_YOURSADDED);
+		bottomstate.difflines[i] = m_pViewData->GetLine(i);
+		m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
+		bottomstate.linestates[i] = m_pViewData->GetState(i);
+		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
+		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+		m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_YOURSADDED);
 		if (IsLineConflicted(i))
-			m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 	
 	// your block is done, now insert their block
@@ -212,34 +207,29 @@ void CBottomView::UseMyThenTheirTextBlock()
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
-		m_arLineLines->InsertAt(index, m_pwndLeft->m_arLineLines->GetAt(i));
-		m_arLineStates->InsertAt(index, m_pwndLeft->m_arLineStates->GetAt(i));
-		leftstate.linestates[i] = m_pwndLeft->m_arLineStates->GetAt(i);
-		m_pwndLeft->m_arLineStates->SetAt(i, DIFFSTATE_THEIRSADDED);
+		m_pViewData->InsertData(index, m_pwndLeft->m_pViewData->GetData(i));
+		leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
+		m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_THEIRSADDED);
 		if (IsLineConflicted(index))
-			m_arLineStates->SetAt(index, DIFFSTATE_CONFLICTRESOLVED);
+			m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
 		index++;
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
 	{
-		long oldline = (long)m_arLineLines->GetAt(i);
+		long oldline = (long)m_pViewData->GetLineNumber(i);
 		if (oldline >= 0)
-			m_arLineLines->SetAt(i, oldline+(index-m_nSelBlockEnd));
+			m_pViewData->SetLineNumber(i, oldline+(index-m_nSelBlockEnd));
 	}
 
 	// now insert an empty block in both yours and theirs
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
+	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-	m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndLeft->m_arLineLines->InsertAt(m_nSelBlockStart, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
-	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-	m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
-	m_pwndRight->m_arLineLines->InsertAt(m_nSelBlockEnd+1, (DWORD)-1, m_nSelBlockEnd-m_nSelBlockStart+1);
+	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
 	RecalcAllVertScrollBars();
 	SetModified();

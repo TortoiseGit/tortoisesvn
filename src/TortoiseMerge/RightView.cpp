@@ -103,12 +103,12 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 				{
 					for (int i=0; i<GetLineCount(); i++)
 					{
-						bottomstate.difflines[i] = m_pwndBottom->m_arDiffLines->GetAt(i);
-						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
-						bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
-						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
+						m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+						bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+						m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
 						if (m_pwndBottom->IsLineConflicted(i))
-							m_pwndBottom->m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+							m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 					}
 					m_pwndBottom->SetModified();
 				}
@@ -116,16 +116,16 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 				{
 					for (int i=0; i<GetLineCount(); i++)
 					{
-						rightstate.difflines[i] = m_arDiffLines->GetAt(i);
-						m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-						DiffStates state = (DiffStates)m_pwndLeft->m_arLineStates->GetAt(i);
+						rightstate.difflines[i] = m_pViewData->GetLine(i);
+						m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
+						DiffStates state = m_pwndLeft->m_pViewData->GetState(i);
 						switch (state)
 						{
 						case DIFFSTATE_CONFLICTEMPTY:
 						case DIFFSTATE_UNKNOWN:
 						case DIFFSTATE_EMPTY:
-							rightstate.linestates[i] = m_arLineStates->GetAt(i);
-							m_arLineStates->SetAt(i, state);
+							rightstate.linestates[i] = m_pViewData->GetState(i);
+							m_pViewData->SetState(i, state);
 							break;
 						case DIFFSTATE_YOURSADDED:
 						case DIFFSTATE_IDENTICALADDED:
@@ -139,8 +139,8 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 						case DIFFSTATE_THEIRSREMOVED:
 						case DIFFSTATE_YOURSREMOVED:
 							rightstate.linestates[i] = DIFFSTATE_NORMAL;
-							m_arLineStates->SetAt(i, DIFFSTATE_NORMAL);
-							m_pwndLeft->m_arLineStates->SetAt(i, DIFFSTATE_NORMAL);
+							m_pViewData->SetState(i, DIFFSTATE_NORMAL);
+							m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
 							break;
 						default:
 							break;
@@ -158,12 +158,12 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 				{
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 					{
-						bottomstate.difflines[i] = m_pwndBottom->m_arDiffLines->GetAt(i);
-						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
-						bottomstate.linestates[i] = m_pwndBottom->m_arLineStates->GetAt(i);
-						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
+						m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+						bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+						m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
 						if (m_pwndBottom->IsLineConflicted(i))
-							m_pwndBottom->m_arLineStates->SetAt(i, DIFFSTATE_CONFLICTRESOLVED);
+							m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 					}
 					m_pwndBottom->SetModified();
 				}
@@ -171,9 +171,9 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 				{
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 					{
-						rightstate.difflines[i] = m_arDiffLines->GetAt(i);
-						m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-						DiffStates state = (DiffStates)m_pwndLeft->m_arLineStates->GetAt(i);
+						rightstate.difflines[i] = m_pViewData->GetLine(i);
+						m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
+						DiffStates state = m_pwndLeft->m_pViewData->GetState(i);
 						switch (state)
 						{
 						case DIFFSTATE_ADDED:
@@ -186,15 +186,15 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 						case DIFFSTATE_UNKNOWN:
 						case DIFFSTATE_YOURSADDED:
 						case DIFFSTATE_EMPTY:
-							rightstate.linestates[i] = m_arLineStates->GetAt(i);
-							m_arLineStates->SetAt(i, state);
+							rightstate.linestates[i] = m_pViewData->GetState(i);
+							m_pViewData->SetState(i, state);
 							break;
 						case DIFFSTATE_IDENTICALREMOVED:
 						case DIFFSTATE_REMOVED:
 						case DIFFSTATE_THEIRSREMOVED:
 						case DIFFSTATE_YOURSREMOVED:
-							rightstate.linestates[i] = m_arLineStates->GetAt(i);
-							m_arLineStates->SetAt(i, DIFFSTATE_ADDED);
+							rightstate.linestates[i] = m_pViewData->GetState(i);
+							m_pViewData->SetState(i, DIFFSTATE_ADDED);
 							break;
 						default:
 							break;

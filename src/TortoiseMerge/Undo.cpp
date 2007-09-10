@@ -69,41 +69,37 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		bool bModified = false;
 		for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 		{
-			if (pView->m_arDiffLines)
-				pView->m_arDiffLines->RemoveAt(*it);
-			if (pView->m_arLineLines)
-				pView->m_arLineLines->RemoveAt(*it);
-			if (pView->m_arLineStates)
-				pView->m_arLineStates->RemoveAt(*it);
+			if (pView->m_pViewData)
+				pView->m_pViewData->RemoveData(*it);
 			bModified = true;
 		}
 		for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
 		{
-			if (pView->m_arLineLines)
+			if (pView->m_pViewData)
 			{
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
-				pView->m_arLineLines->SetAt(it->first, it->second);
+				pView->m_pViewData->SetLineNumber(it->first, it->second);
 				bModified = true;
 			}
 		}
 		for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
 		{
-			if (pView->m_arLineStates)
+			if (pView->m_pViewData)
 			{
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
-				pView->m_arLineStates->SetAt(it->first, it->second);
+				pView->m_pViewData->SetState(it->first, (DiffStates)it->second);
 				bModified = true;
 			}
 		}
 		for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
 		{
-			if (pView->m_arDiffLines)
+			if (pView->m_pViewData)
 			{
 				nLineStart = min(nLineStart, it->first);
 				nLineEnd = max(nLineEnd, it->first);
-				pView->m_arDiffLines->SetAt(it->first, it->second);
+				pView->m_pViewData->SetLine(it->first, it->second);
 				bModified = true;
 			}
 		}

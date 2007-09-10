@@ -72,12 +72,16 @@ public:
 	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
 	bool			IsLineConflicted(int nLineIndex);
 
-	CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
-	CStdDWORDArray* m_endings;			///< lineendings of each line in the file
-	CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
-	CStdDWORDArray* m_arDiffDiffStates;///< Array containing the diff states for each line of the 'other' text file
-	CStdDWORDArray*	m_arLineStates;		///< Array containing the diff states for each line
-	CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
+	CViewData *		m_pViewData;
+	CViewData *		m_pOtherViewData;
+
+	//CStdCStringArray* m_arDiffLines;	///< Array of Strings containing all lines of the text file
+	//CStdDWORDArray* m_endings;			///< lineendings of each line in the file
+	//CStdCStringArray* m_arDiffDiffLines;///< Array of Strings containing all lines of the 'other' text file
+	//CStdDWORDArray* m_arDiffDiffStates;///< Array containing the diff states for each line of the 'other' text file
+	//CStdDWORDArray*	m_arLineStates;		///< Array containing the diff states for each line
+	//CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
+
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
 	CFileTextLines::UnicodeType texttype;	///< the text encoding this view uses

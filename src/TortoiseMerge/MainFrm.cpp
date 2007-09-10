@@ -570,10 +570,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_wndSplitter2.HideColumn(1);
 			if (bReload)
 			{
-				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
-				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
-				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
-				m_pwndLeftView->m_endings = &m_Data.m_endingsYourBaseBoth;
+				m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseBoth;
 				m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 				m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}
@@ -592,10 +589,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				m_wndSplitter2.ShowColumn();
 			if (bReload)
 			{
-				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
-				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
-				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseLeft;
-				m_pwndLeftView->m_endings = &m_Data.m_endingsYourBaseLeft;
+				m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseLeft;
 				m_pwndLeftView->texttype = m_Data.m_arBaseFile.GetUnicodeType();
 				m_pwndLeftView->lineendings = m_Data.m_arBaseFile.GetLineEndings();
 			}
@@ -603,10 +597,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
 			if (bReload)
 			{
-				m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
-				m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
-				m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseRight;
-				m_pwndRightView->m_endings = &m_Data.m_endingsYourBaseRight;
+				m_pwndRightView->m_pViewData = &m_Data.m_YourBaseRight;
 				m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 				m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			}
@@ -624,9 +615,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		//diff between THEIR, YOUR and BASE
 		if (bReload)
 		{
-			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseBoth;
-			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
-			m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesTheirBaseBoth;
+			m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
 			m_pwndLeftView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
 			m_pwndLeftView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		}
@@ -635,9 +624,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
 		if (bReload)
 		{
-			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
-			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
-			m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
+			m_pwndRightView->m_pViewData = &m_Data.m_YourBaseBoth;
 			m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 			m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 		}
@@ -646,9 +633,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
 		if (bReload)
 		{
-			m_pwndBottomView->m_arDiffLines = &m_Data.m_arDiff3;
-			m_pwndBottomView->m_arLineStates = &m_Data.m_arStateDiff3;
-			m_pwndBottomView->m_arLineLines = &m_Data.m_arLinesDiff3;
+			m_pwndBottomView->m_pViewData = &m_Data.m_Diff3;
 			m_pwndBottomView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
 			m_pwndBottomView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		}
@@ -752,11 +737,11 @@ int CMainFrame::CheckResolved()
 	m_bHasConflicts = true;
 	if (this->m_pwndBottomView->IsWindowVisible())
 	{
-		if (this->m_pwndBottomView->m_arLineStates)
+		if (this->m_pwndBottomView->m_pViewData)
 		{
-			for (int i=0; i<this->m_pwndBottomView->m_arLineStates->GetCount(); i++)
+			for (int i=0; i<this->m_pwndBottomView->m_pViewData->GetCount(); i++)
 			{
-				if (DIFFSTATE_CONFLICTED == (DiffStates)this->m_pwndBottomView->m_arLineStates->GetAt(i))
+				if (DIFFSTATE_CONFLICTED == m_pwndBottomView->m_pViewData->GetState(i))
 					return i;
 			}
 		}
@@ -767,23 +752,20 @@ int CMainFrame::CheckResolved()
 
 void CMainFrame::SaveFile(const CString& sFilePath)
 {
-	CStdCStringArray * arText = NULL;
-	CStdDWORDArray * arStates = NULL;
+	CViewData * pViewData = NULL;
 	CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
 	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
 	{
-		arText = m_pwndBottomView->m_arDiffLines;
-		arStates = m_pwndBottomView->m_arLineStates;
+		pViewData = m_pwndBottomView->m_pViewData;
 		Invalidate();
 	}
 	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
-		arText = m_pwndRightView->m_arDiffLines;
+		pViewData = m_pwndRightView->m_pViewData;
 		if (m_Data.IsYourFileInUse())
 			pOriginFile = &m_Data.m_arYourFile;
 		else if (m_Data.IsTheirFileInUse())
 			pOriginFile = &m_Data.m_arTheirFile;
-		arStates = m_pwndRightView->m_arLineStates;
 		Invalidate();
 	} 
 	else
@@ -791,14 +773,14 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		// nothing to save!
 		return;
 	}
-	if ((arText)&&(arStates)&&(pOriginFile))
+	if ((pViewData)&&(pOriginFile))
 	{
 		CFileTextLines file;
 		pOriginFile->CopySettings(&file);
-		for (int i=0; i<arText->GetCount(); i++)
+		for (int i=0; i<pViewData->GetCount(); i++)
 		{
 			//only copy non-removed lines
-			DiffStates state = (DiffStates)arStates->GetAt(i);
+			DiffStates state = pViewData->GetState(i);
 			switch (state)
 			{
 			case DIFFSTATE_ADDED:
@@ -811,7 +793,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 			case DIFFSTATE_ADDEDWHITESPACE:
 			case DIFFSTATE_WHITESPACE:
 			case DIFFSTATE_WHITESPACE_DIFF:
-				file.Add(arText->GetAt(i));
+				file.Add(pViewData->GetLine(i));
 				break;
 			case DIFFSTATE_CONFLICTED:
 				{
@@ -820,16 +802,16 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 					do 
 					{
 						last++;
-					} while( last<arStates->GetCount() && ((DiffStates)arStates->GetAt(last))==DIFFSTATE_CONFLICTED);
+					} while( last<pViewData->GetCount() && (pViewData->GetState(last))==DIFFSTATE_CONFLICTED);
 					file.Add(_T("<<<<<<< .mine"));
 					for (int j=first; j<last; j++)
 					{
-						file.Add(m_pwndRightView->m_arDiffLines->GetAt(j));
+						file.Add(m_pwndRightView->m_pViewData->GetLine(j));
 					}
 					file.Add(_T("======="));
 					for (int j=first; j<last; j++)
 					{
-						file.Add(m_pwndLeftView->m_arDiffLines->GetAt(j));
+						file.Add(m_pwndLeftView->m_pViewData->GetLine(j));
 					}
 					file.Add(_T(">>>>>>> .theirs"));
 					i = last-1;
@@ -883,7 +865,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		if (nConflictLine >= 0)
 		{
 			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
 			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 			{
 				if (m_pwndBottomView)
@@ -949,7 +931,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 		if (nConflictLine >= 0)
 		{
 			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
+			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
 			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 			{
 				if (m_pwndBottomView)
@@ -1004,14 +986,14 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView)
 		{
-			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
 			{
 				bEnable = TRUE;
 			} 
 		}
 		if (m_pwndRightView)
 		{
-			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_pViewData))
 			{
 				if (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0))
 					bEnable = TRUE;
@@ -1026,14 +1008,14 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 	BOOL bEnable = FALSE;
 	if (m_pwndBottomView)
 	{
-		if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+		if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
 		{
 			bEnable = TRUE;
 		}
 	}
 	if (m_pwndRightView)
 	{
-		if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+		if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_pViewData))
 		{
 			bEnable = TRUE;
 		}
@@ -1204,7 +1186,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 	if (m_sFindText.IsEmpty())
 		return;
 
-	if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines))
+	if ((m_pwndLeftView)&&(m_pwndLeftView->m_pViewData))
 	{
 		bool bFound = FALSE;
 
@@ -1218,7 +1200,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 		
 		m_nSearchIndex = FindSearchStart(m_nSearchIndex);
 		m_nSearchIndex++;
-		if (m_nSearchIndex >= m_pwndLeftView->m_arDiffLines->GetCount())
+		if (m_nSearchIndex >= m_pwndLeftView->m_pViewData->GetCount())
 			m_nSearchIndex = 0;
 		if (srchDir == SearchPrevious)
 		{
@@ -1227,29 +1209,29 @@ void CMainFrame::Search(SearchDirection srchDir)
 			m_nSearchIndex -= 2;
 			// if at the top, start again from the end
 			if (m_nSearchIndex < 0)
-				m_nSearchIndex += m_pwndLeftView->m_arDiffLines->GetCount();
+				m_nSearchIndex += m_pwndLeftView->m_pViewData->GetCount();
 		}
-		const int idxLimits[2][2][2]={{{m_nSearchIndex, m_pwndLeftView->m_arDiffLines->GetCount()},
+		const int idxLimits[2][2][2]={{{m_nSearchIndex, m_pwndLeftView->m_pViewData->GetCount()},
 									   {0, m_nSearchIndex}},
 									  {{m_nSearchIndex, -1},
-									   {m_pwndLeftView->m_arDiffLines->GetCount()-1, m_nSearchIndex}}};
+									   {m_pwndLeftView->m_pViewData->GetCount()-1, m_nSearchIndex}}};
 		const int offsets[2]={+1, -1};
 		
 		for (int j=0; j != 2 && !bFound; ++j)
 		{
 			for (i=idxLimits[srchDir][j][0]; i != idxLimits[srchDir][j][1]; i += offsets[srchDir])
 			{
-				left = m_pwndLeftView->m_arDiffLines->GetAt(i);
-				leftstate = (DiffStates)m_pwndLeftView->m_arLineStates->GetAt(i);
-				if ((!m_bOneWay)&&(m_pwndRightView->m_arDiffLines))
+				left = m_pwndLeftView->m_pViewData->GetLine(i);
+				leftstate = m_pwndLeftView->m_pViewData->GetState(i);
+				if ((!m_bOneWay)&&(m_pwndRightView->m_pViewData))
 				{
-					right = m_pwndRightView->m_arDiffLines->GetAt(i);
-					rightstate = (DiffStates)m_pwndRightView->m_arLineStates->GetAt(i);
+					right = m_pwndRightView->m_pViewData->GetLine(i);
+					rightstate = m_pwndRightView->m_pViewData->GetState(i);
 				}
-				if ((m_pwndBottomView)&&(m_pwndBottomView->m_arDiffLines))
+				if ((m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
 				{
-					bottom = m_pwndBottomView->m_arDiffLines->GetAt(i);
-					bottomstate = (DiffStates)m_pwndBottomView->m_arLineStates->GetAt(i);
+					bottom = m_pwndBottomView->m_pViewData->GetLine(i);
+					bottomstate = m_pwndBottomView->m_pViewData->GetState(i);
 				}
 
 				if (!m_bMatchCase)
@@ -1541,7 +1523,7 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView)
 		{
-			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
 			{
 				bEnable = TRUE;
 			} 
@@ -1556,7 +1538,7 @@ void CMainFrame::OnMergeMarkasresolved()
 	if (nConflictLine >= 0)
 	{
 		CString sTemp;
-		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, this->m_pwndBottomView->m_arLineLines->GetAt(nConflictLine)+1);
+		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
 		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
 		{
 			if (m_pwndBottomView)
@@ -1569,7 +1551,7 @@ void CMainFrame::OnMergeMarkasresolved()
 	{
 		if (m_pwndBottomView)
 		{
-			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
 			{
 				FileSave(false);
 			} 

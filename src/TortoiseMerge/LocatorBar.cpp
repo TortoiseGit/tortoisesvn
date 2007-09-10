@@ -60,75 +60,75 @@ void CLocatorBar::DocumentUpdated()
 	m_arLeft.RemoveAll();
 	m_arRight.RemoveAll();
 	m_arBottom.RemoveAll();
-	DWORD state = 0;
+	DiffStates state = DIFFSTATE_UNKNOWN;
 	int identcount = 1;
 	m_nLines = 0;
-	if (m_pMainFrm->m_pwndLeftView->m_arLineStates)
+	if (m_pMainFrm->m_pwndLeftView->m_pViewData)
 	{
-		if (m_pMainFrm->m_pwndLeftView->m_arLineStates->GetCount())
-			state = m_pMainFrm->m_pwndLeftView->m_arLineStates->GetAt(0);
-		for (int i=0; i<m_pMainFrm->m_pwndLeftView->m_arLineStates->GetCount(); i++)
+		if (m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount())
+			state = m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(0);
+		for (int i=0; i<m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount(); i++)
 		{
-			if (state == m_pMainFrm->m_pwndLeftView->m_arLineStates->GetAt(i))
+			if (state == m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(i))
 			{
 				identcount++;
 			}
 			else
 			{
 				m_arLeft.Add(MAKELONG(identcount, state));
-				state = m_pMainFrm->m_pwndLeftView->m_arLineStates->GetAt(i);
+				state = m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(i);
 				identcount = 1;
 			} 
 		}
 		m_arLeft.Add(MAKELONG(identcount, state));
 	}
 
-	if (m_pMainFrm->m_pwndRightView->m_arLineStates)
+	if (m_pMainFrm->m_pwndRightView->m_pViewData)
 	{
-		if (m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount())
-			state = m_pMainFrm->m_pwndRightView->m_arLineStates->GetAt(0);
+		if (m_pMainFrm->m_pwndRightView->m_pViewData->GetCount())
+			state = m_pMainFrm->m_pwndRightView->m_pViewData->GetState(0);
 		identcount = 1;
-		for (int i=0; i<m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount(); i++)
+		for (int i=0; i<m_pMainFrm->m_pwndRightView->m_pViewData->GetCount(); i++)
 		{
-			if (state == m_pMainFrm->m_pwndRightView->m_arLineStates->GetAt(i))
+			if (state == m_pMainFrm->m_pwndRightView->m_pViewData->GetState(i))
 			{
 				identcount++;
 			}
 			else
 			{
 				m_arRight.Add(MAKELONG(identcount, state));
-				state = m_pMainFrm->m_pwndRightView->m_arLineStates->GetAt(i);
+				state = m_pMainFrm->m_pwndRightView->m_pViewData->GetState(i);
 				identcount = 1;
 			}
 		}
 		m_arRight.Add(MAKELONG(identcount, state));
 	}
 
-	if ((m_pMainFrm->m_pwndBottomView->m_arLineStates)&&(m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount()))
+	if ((m_pMainFrm->m_pwndBottomView->m_pViewData)&&(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount()))
 	{
-		state = m_pMainFrm->m_pwndBottomView->m_arLineStates->GetAt(0);
+		state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(0);
 		identcount = 1;
-		for (int i=0; i<m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount(); i++)
+		for (int i=0; i<m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(); i++)
 		{
-			if (state == m_pMainFrm->m_pwndBottomView->m_arLineStates->GetAt(i))
+			if (state == m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i))
 			{
 				identcount++;
 			}
 			else
 			{
 				m_arBottom.Add(MAKELONG(identcount, state));
-				state = m_pMainFrm->m_pwndBottomView->m_arLineStates->GetAt(i);
+				state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i);
 				identcount = 1;
 			}
 		}
 		m_arBottom.Add(MAKELONG(identcount, state));
-		m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_arLineStates->GetCount(), m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount());
+		m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(), m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
 	}
-	else if (m_pMainFrm->m_pwndRightView->m_arLineStates)
-		m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->m_arLineStates->GetCount());
+	else if (m_pMainFrm->m_pwndRightView->m_pViewData)
+		m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
 
-	if (m_pMainFrm->m_pwndLeftView->m_arLineStates)
-		m_nLines = (int)max(m_nLines, m_pMainFrm->m_pwndLeftView->m_arLineStates->GetCount());
+	if (m_pMainFrm->m_pwndLeftView->m_pViewData)
+		m_nLines = (int)max(m_nLines, m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount());
 	else
 		m_nLines = 0;
 	m_nLines++;

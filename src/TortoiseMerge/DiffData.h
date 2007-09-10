@@ -109,33 +109,18 @@ public:
 	CFileTextLines				m_arTheirFile;
 	CFileTextLines				m_arYourFile;
 
-	CStdCStringArray			m_arDiffYourBaseBoth;
-	CStdDWORDArray				m_arStateYourBaseBoth;
-	CStdDWORDArray				m_arLinesYourBaseBoth;
-	CStdDWORDArray				m_endingsYourBaseBoth;
-	CStdCStringArray			m_arDiffYourBaseLeft;
-	CStdDWORDArray				m_arStateYourBaseLeft;
-	CStdDWORDArray				m_arLinesYourBaseLeft;
-	CStdDWORDArray				m_endingsYourBaseLeft;
-	CStdCStringArray			m_arDiffYourBaseRight;
-	CStdDWORDArray				m_arStateYourBaseRight;
-	CStdDWORDArray				m_arLinesYourBaseRight;
-	CStdDWORDArray				m_endingsYourBaseRight;
+	CViewData					m_YourBaseBoth;				///< one-pane view, diff between 'yours' and 'base' (in three-pane view: right view)
+	CViewData					m_YourBaseLeft;				///< two-pane view, diff between 'yours' and 'base', left view
+	CViewData					m_YourBaseRight;			///< two-pane view, diff between 'yours' and 'base', right view
 
-	CStdCStringArray			m_arDiffTheirBaseBoth;
-	CStdDWORDArray				m_arStateTheirBaseBoth;
-	CStdDWORDArray				m_arLinesTheirBaseBoth;
-	CStdCStringArray			m_arDiffTheirBaseLeft;
-	CStdDWORDArray				m_arStateTheirBaseLeft;
-	CStdDWORDArray				m_arLinesTheirBaseLeft;
-	CStdCStringArray			m_arDiffTheirBaseRight;
-	CStdDWORDArray				m_arStateTheirBaseRight;
-	CStdDWORDArray				m_arLinesTheirBaseRight;
+	CViewData					m_TheirBaseBoth;			///< one-pane view, diff between 'theirs' and 'base' (in three-pane view: left view)
+	CViewData					m_TheirBaseLeft;			///< two-pane view, diff between 'theirs' and 'base', left view
+	CViewData					m_TheirBaseRight;			///< two-pane view, diff between 'theris' and 'base', right view
 
-	CStdCStringArray			m_arDiff3;
-	CStdDWORDArray				m_arStateDiff3;
-	CStdDWORDArray				m_arLinesDiff3;
+	CViewData					m_Diff3;					///< thee-pane view, bottom pane
 
+	// the following three arrays are used to check for conflicts even in case the
+	// user has ignored spaces/eols.
 	CStdDWORDArray				m_arDiff3LinesBase;
 	CStdDWORDArray				m_arDiff3LinesYour;
 	CStdDWORDArray				m_arDiff3LinesTheir;

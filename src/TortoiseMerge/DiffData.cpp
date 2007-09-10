@@ -166,30 +166,17 @@ BOOL CDiffData::Load()
 	m_arBaseFile.RemoveAll();
 	m_arYourFile.RemoveAll();
 	m_arTheirFile.RemoveAll();
-	m_arDiffYourBaseBoth.RemoveAll();
-	m_arStateYourBaseBoth.RemoveAll();
-	m_arLinesYourBaseBoth.RemoveAll();
-	m_endingsYourBaseBoth.RemoveAll();
-	m_arDiffYourBaseLeft.RemoveAll();
-	m_arStateYourBaseLeft.RemoveAll();
-	m_arLinesYourBaseLeft.RemoveAll();
-	m_endingsYourBaseLeft.RemoveAll();
-	m_arDiffYourBaseRight.RemoveAll();
-	m_arStateYourBaseRight.RemoveAll();
-	m_arLinesYourBaseRight.RemoveAll();
-	m_endingsYourBaseRight.RemoveAll();
-	m_arDiffTheirBaseBoth.RemoveAll();
-	m_arStateTheirBaseBoth.RemoveAll();
-	m_arLinesTheirBaseBoth.RemoveAll();
-	m_arDiffTheirBaseLeft.RemoveAll();
-	m_arStateTheirBaseLeft.RemoveAll();
-	m_arLinesTheirBaseLeft.RemoveAll();
-	m_arDiffTheirBaseRight.RemoveAll();
-	m_arStateTheirBaseRight.RemoveAll();
-	m_arLinesTheirBaseRight.RemoveAll();
-	m_arDiff3.RemoveAll();
-	m_arStateDiff3.RemoveAll();
-	m_arLinesDiff3.RemoveAll();
+
+	m_YourBaseBoth.Clear();
+	m_YourBaseLeft.Clear();
+	m_YourBaseRight.Clear();
+
+	m_TheirBaseBoth.Clear();
+	m_TheirBaseLeft.Clear();
+	m_TheirBaseRight.Clear();
+
+	m_Diff3.Clear();
+
 	m_arDiff3LinesBase.RemoveAll();
 	m_arDiff3LinesYour.RemoveAll();
 	m_arDiff3LinesTheir.RemoveAll();
@@ -263,18 +250,14 @@ BOOL CDiffData::Load()
 	int lengthHint = max(m_arBaseFile.GetCount(), m_arTheirFile.GetCount());
 	lengthHint = max(lengthHint, m_arYourFile.GetCount());
 
-	m_arDiffYourBaseBoth.Reserve(lengthHint);
-	m_arStateYourBaseBoth.Reserve(lengthHint);
-	m_arDiffYourBaseLeft.Reserve(lengthHint);
-	m_arStateYourBaseLeft.Reserve(lengthHint);
-	m_arDiffYourBaseRight.Reserve(lengthHint);
-	m_arStateYourBaseRight.Reserve(lengthHint);
-	m_arDiffTheirBaseBoth.Reserve(lengthHint);
-	m_arStateTheirBaseBoth.Reserve(lengthHint);
-	m_arDiffTheirBaseLeft.Reserve(lengthHint);
-	m_arStateTheirBaseLeft.Reserve(lengthHint);
-	m_arDiffTheirBaseRight.Reserve(lengthHint);
-	m_arStateTheirBaseRight.Reserve(lengthHint);
+	m_YourBaseBoth.Reserve(lengthHint);
+	m_YourBaseLeft.Reserve(lengthHint);
+	m_YourBaseRight.Reserve(lengthHint);
+
+	m_TheirBaseBoth.Reserve(lengthHint);
+	m_TheirBaseLeft.Reserve(lengthHint);
+	m_TheirBaseRight.Reserve(lengthHint);
+
 	m_arDiff3LinesBase.Reserve(lengthHint);
 	m_arDiff3LinesYour.Reserve(lengthHint);
 	m_arDiff3LinesTheir.Reserve(lengthHint);
@@ -296,8 +279,7 @@ BOOL CDiffData::Load()
 
 	if (IsBaseFileInUse() && IsTheirFileInUse() && IsYourFileInUse())
 	{
-		m_arDiff3.Reserve(lengthHint);
-		m_arStateDiff3.Reserve(lengthHint);
+		m_Diff3.Reserve(lengthHint);
 
 		if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, !!bIgnoreCase, pool))
 		{
@@ -374,7 +356,6 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				}
 				const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
 				CFileTextLines::LineEndings endingYours = m_arYourFile.m_endings[yourline];
-				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 				if (sCurrentBaseLine != sCurrentYourLine)
 				{
 					if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
@@ -395,58 +376,38 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 
 						if (s1 != s2)
 						{
-							m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-							m_arLinesYourBaseBoth.Add(yourline);
-							m_endingsYourBaseBoth.Add(endingYours);
-							m_arDiffYourBaseBoth.Add(sCurrentYourLine);
-							m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
-							m_arLinesYourBaseBoth.Add(yourline);
-							m_endingsYourBaseBoth.Add(endingYours);
+							// one-pane view: two lines, one 'removed' and one 'added'
+							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingYours);
+							m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_ADDEDWHITESPACE, yourline, endingYours);
 						}
 						else
 						{
-							m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
-							m_arLinesYourBaseBoth.Add(yourline);
-							m_endingsYourBaseBoth.Add(endingYours);
+							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
 						}
 					}
 					else if (dwIgnoreWS == 0)
 					{
-						m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-						m_arLinesYourBaseBoth.Add(yourline);
-						m_endingsYourBaseBoth.Add(endingYours);
-						m_arDiffYourBaseBoth.Add(sCurrentYourLine);
-						m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
-						m_arLinesYourBaseBoth.Add(yourline);
-						m_endingsYourBaseBoth.Add(endingYours);
+						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingYours);
+						m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_ADDEDWHITESPACE, yourline, endingYours);
 					}
 					else
 					{
-						m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
-						m_arLinesYourBaseBoth.Add(yourline);
-						m_endingsYourBaseBoth.Add(endingYours);
+						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
 					}
 				}
 				else
 				{
-					m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
-					m_arLinesYourBaseBoth.Add(yourline);
-					m_endingsYourBaseBoth.Add(endingYours);
+					m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
 				}
 				yourline++;		//in both files
 			}
 			else
 			{
-				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
-				m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVED);
-				m_arLinesYourBaseBoth.Add(yourline);
+				CFileTextLines::LineEndings endingYours = CFileTextLines::NOENDING;
 				if (yourline < m_arYourFile.GetCount())
-				{
-					CFileTextLines::LineEndings endingYours = m_arYourFile.m_endings[yourline];
-					m_endingsYourBaseBoth.Add(endingYours);
-				}
-				else
-					m_endingsYourBaseBoth.Add(CFileTextLines::AUTOLINE);
+					endingYours = m_arYourFile.m_endings[yourline];
+				
+				m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVED, yourline, endingYours);
 			}
 			baseline++;
 		}
@@ -456,11 +417,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			{
 				if (m_arYourFile.GetCount() > yourline)
 				{
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_ADDED);
-					m_arLinesYourBaseBoth.Add(yourline);
-					CFileTextLines::LineEndings endingYours = m_arYourFile.m_endings[yourline];
-					m_endingsYourBaseBoth.Add(endingYours);
+					m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.m_endings[yourline]);
 				}
 				yourline++;
 			}
@@ -481,12 +438,6 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				CFileTextLines::LineEndings endingYours = m_arYourFile.m_endings[yourline];
 				const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
 				CFileTextLines::LineEndings endingBase = m_arBaseFile.m_endings[baseline];
-				m_arDiffYourBaseLeft.Add(sCurrentBaseLine);
-				m_arDiffYourBaseRight.Add(sCurrentYourLine);
-				m_arLinesYourBaseLeft.Add(baseline);
-				m_endingsYourBaseLeft.Add(endingBase);
-				m_arLinesYourBaseRight.Add(yourline);
-				m_endingsYourBaseRight.Add(endingYours);
 				if (sCurrentBaseLine != sCurrentYourLine)
 				{
 					if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
@@ -506,30 +457,30 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 						
 						if (s1 != s2)
 						{
-							m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
-							m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
+							m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_WHITESPACE, baseline, endingBase);
+							m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_WHITESPACE, yourline, endingYours);
 						}
 						else
 						{
-							m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
-							m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+							m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, baseline, endingBase);
+							m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingYours);
 						}
 					}
 					else if (dwIgnoreWS == 0)
 					{
-						m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
-						m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
+						m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_WHITESPACE, baseline, endingBase);
+						m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_WHITESPACE, yourline, endingYours);
 					}
 					else
 					{
-						m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
-						m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+						m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, baseline, endingBase);
+						m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingYours);
 					}
 				}
 				else
 				{
-					m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
-					m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+					m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, baseline, endingBase);
+					m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingYours);
 				}
 				baseline++;
 				yourline++;
@@ -543,28 +494,19 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				if (m_arYourFile.GetCount() > yourline)
 				{
 					CFileTextLines::LineEndings endingYours = m_arYourFile.m_endings[yourline];
-					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline++));
 					if (original_length-- <= 0)
 					{
-						m_arDiffYourBaseLeft.Add(_T(""));
-						m_arStateYourBaseLeft.Add(DIFFSTATE_EMPTY);
-						m_arLinesYourBaseLeft.Add(DIFF_EMPTYLINENUMBER);
-						m_endingsYourBaseLeft.Add(CFileTextLines::AUTOLINE);
-						m_arStateYourBaseRight.Add(DIFFSTATE_ADDED);
-						m_arLinesYourBaseRight.Add(yourline-1);
-						m_endingsYourBaseRight.Add(endingYours);
+						m_YourBaseLeft.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+						m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, endingYours);
 					}
 					else
 					{
 						CFileTextLines::LineEndings endingBase = m_arBaseFile.m_endings[baseline];
-						m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
-						m_arStateYourBaseLeft.Add(DIFFSTATE_REMOVED);
-						m_arLinesYourBaseLeft.Add(baseline-1);
-						m_endingsYourBaseLeft.Add(endingBase);
-						m_arStateYourBaseRight.Add(DIFFSTATE_ADDED);
-						m_arLinesYourBaseRight.Add(yourline-1);
-						m_endingsYourBaseRight.Add(endingYours);
+						m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, endingBase);
+						m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, endingYours);
+						baseline++;
 					}
+					yourline++;
 				}
 			}
 			apr_off_t modified_length = tempdiff->modified_length;
@@ -575,14 +517,9 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 					if (m_arBaseFile.GetCount() > baseline)
 					{
 						CFileTextLines::LineEndings endingBase = m_arBaseFile.m_endings[baseline];
-						m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
-						m_arStateYourBaseLeft.Add(DIFFSTATE_REMOVED);
-						m_arLinesYourBaseLeft.Add(baseline-1);
-						m_endingsYourBaseLeft.Add(endingBase);
-						m_arDiffYourBaseRight.Add(_T(""));
-						m_arStateYourBaseRight.Add(DIFFSTATE_EMPTY);
-						m_arLinesYourBaseRight.Add(DIFF_EMPTYLINENUMBER);
-						m_endingsYourBaseRight.Add(CFileTextLines::AUTOLINE);
+						m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, endingBase);
+						m_YourBaseRight.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+						baseline++;
 					}
 				}
 			}
@@ -647,20 +584,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((m_arYourFile.GetCount() > yourline)&&(m_arTheirFile.GetCount() > theirline))
 				{
-					m_arDiff3.Add(m_arYourFile.GetAt(yourline));
-					m_arStateDiff3.Add(DIFFSTATE_NORMAL);
-					m_arLinesDiff3.Add(resline);
+					m_Diff3.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_NORMAL, resline, m_arYourFile.m_endings[yourline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
-					m_arLinesYourBaseBoth.Add(yourline);
-					m_arDiffTheirBaseBoth.Add(m_arTheirFile.GetAt(theirline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_NORMAL);
-					m_arLinesTheirBaseBoth.Add(resline);
+					m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_NORMAL, yourline, m_arYourFile.m_endings[yourline]);
+					m_TheirBaseBoth.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_NORMAL, theirline, m_arTheirFile.m_endings[theirline]);
+
 					baseline++;
 					yourline++;
 					theirline++;
@@ -676,20 +608,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if (m_arBaseFile.GetCount() > baseline)
 				{
-					m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateDiff3.Add(DIFFSTATE_IDENTICALREMOVED);
-					m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+					m_Diff3.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-					m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
-					m_arDiffTheirBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-					m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+					m_YourBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+					m_TheirBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+
 					baseline++;
 				}
 			}
@@ -697,20 +624,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((m_arYourFile.GetCount() > yourline)&&(m_arTheirFile.GetCount() > theirline))
 				{
-					m_arDiff3.Add(m_arYourFile.GetAt(yourline));
-					m_arStateDiff3.Add(DIFFSTATE_IDENTICALADDED);
-					m_arLinesDiff3.Add(resline);
+					m_Diff3.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_IDENTICALADDED, resline, m_arYourFile.m_endings[yourline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
-					m_arLinesYourBaseBoth.Add(yourline);
-					m_arDiffTheirBaseBoth.Add(m_arTheirFile.GetAt(theirline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
-					m_arLinesTheirBaseBoth.Add(resline);
+					m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_IDENTICALADDED, yourline, m_arYourFile.m_endings[yourline]);
+					m_TheirBaseBoth.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_IDENTICALADDED, resline, m_arTheirFile.m_endings[theirline]);
+
 					yourline++;
 					theirline++;
 					resline++;
@@ -744,9 +666,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				{
 					if (m_arBaseFile.GetCount() > baseline)
 					{
-						m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
-						m_arStateDiff3.Add(DIFFSTATE_IDENTICALREMOVED);
-						m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+						m_Diff3.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 
 						m_arDiff3LinesBase.Add(baseline);
 						m_arDiff3LinesYour.Add(yourline);
@@ -755,9 +675,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				}
 				else if ((originalresolved)||((modifiedresolved)&&(latestresolved)))
 				{
-					m_arDiff3.Add(_T(""));
-					m_arStateDiff3.Add(DIFFSTATE_IDENTICALREMOVED);
-					m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+					m_Diff3.AddData(_T(""), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
@@ -768,9 +686,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				{
 					if (m_arBaseFile.GetCount() > baseline)
 					{
-						m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-						m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-						m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+						m_YourBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 					}
 				}
 				else
@@ -779,25 +695,19 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 					{
 						if (m_arBaseFile.GetCount() > baseline)
 						{
-							m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-							m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-							m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+							m_YourBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 						}
 					}
 					else if ((latestresolved)&&(modifiedresolved))
 					{
-						m_arDiffYourBaseBoth.Add(_T(""));
-						m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-						m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+						m_YourBaseBoth.AddData(_T(""), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 					}
 				}
 				if ((modified)&&(original))
 				{
 					if (m_arBaseFile.GetCount() > baseline)
 					{
-						m_arDiffTheirBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-						m_arStateTheirBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-						m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+						m_TheirBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 					}
 				}
 				else
@@ -806,16 +716,12 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 					{
 						if (m_arBaseFile.GetCount() > baseline)
 						{
-							m_arDiffTheirBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-							m_arStateTheirBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-							m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+							m_TheirBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 						}
 					}
 					else if ((modifiedresolved)&&(latestresolved))
 					{
-						m_arDiffTheirBaseBoth.Add(_T(""));
-						m_arStateTheirBaseBoth.Add(DIFFSTATE_IDENTICALREMOVED);
-						m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+						m_TheirBaseBoth.AddData(_T(""), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 					}
 				}
 				if (original)
@@ -857,9 +763,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((latest)||(modified))
 				{
-					m_arDiff3.Add(_T(""));
-					m_arStateDiff3.Add(DIFFSTATE_CONFLICTED);
-					m_arLinesDiff3.Add(resline);
+					m_Diff3.AddData(_T(""), DIFFSTATE_CONFLICTED, resline, CFileTextLines::NOENDING);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
@@ -872,31 +776,23 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				{
 					if (m_arYourFile.GetCount() > yourline)
 					{
-						m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-						m_arStateYourBaseBoth.Add(DIFFSTATE_CONFLICTADDED);
-						m_arLinesYourBaseBoth.Add(yourline);
+						m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_CONFLICTADDED, yourline, m_arYourFile.m_endings[yourline]);
 					}
 				}
 				else if ((latestresolved)||(modified)||(modifiedresolved))
 				{
-					m_arDiffYourBaseBoth.Add(_T(""));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_CONFLICTEMPTY);
-					m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+					m_YourBaseBoth.AddData(_T(""), DIFFSTATE_CONFLICTEMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 				}
 				if (modified)
 				{
 					if (m_arTheirFile.GetCount() > theirline)
 					{
-						m_arDiffTheirBaseBoth.Add(m_arTheirFile.GetAt(theirline));
-						m_arStateTheirBaseBoth.Add(DIFFSTATE_CONFLICTADDED);
-						m_arLinesTheirBaseBoth.Add(theirline);
+						m_TheirBaseBoth.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_CONFLICTADDED, theirline, m_arTheirFile.m_endings[theirline]);
 					}
 				}
 				else if ((modifiedresolved)||(latest)||(latestresolved))
 				{
-					m_arDiffTheirBaseBoth.Add(_T(""));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_CONFLICTEMPTY);
-					m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+					m_TheirBaseBoth.AddData(_T(""), DIFFSTATE_CONFLICTEMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 				}
 				if (original)
 				{
@@ -928,20 +824,14 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((m_arBaseFile.GetCount() > baseline)&&(m_arYourFile.GetCount() > yourline))
 				{
-					m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateDiff3.Add(DIFFSTATE_THEIRSREMOVED);
-					m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+					m_Diff3.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_THEIRSREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
-					m_arLinesYourBaseBoth.Add(yourline);
-					m_arDiffTheirBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_THEIRSREMOVED);
-					m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+					m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_NORMAL, yourline, m_arYourFile.m_endings[yourline]);
+					m_TheirBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_THEIRSREMOVED, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
 					baseline++;
 					yourline++;
 				}
@@ -951,20 +841,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if (m_arTheirFile.GetCount() > theirline)
 				{
-					m_arDiff3.Add(m_arTheirFile.GetAt(theirline));
-					m_arStateDiff3.Add(DIFFSTATE_THEIRSADDED);
-					m_arLinesDiff3.Add(resline);
+					m_Diff3.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_THEIRSADDED, resline, m_arTheirFile.m_endings[theirline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(_T(""));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_EMPTY);
-					m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
-					m_arDiffTheirBaseBoth.Add(m_arTheirFile.GetAt(theirline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_THEIRSADDED);
-					m_arLinesTheirBaseBoth.Add(theirline);
+					m_YourBaseBoth.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+					m_TheirBaseBoth.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_THEIRSADDED, theirline, m_arTheirFile.m_endings[theirline]);
+
 					theirline++;
 					resline++;
 				}
@@ -978,20 +863,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if ((m_arBaseFile.GetCount() > baseline)&&(m_arTheirFile.GetCount() > theirline))
 				{
-					m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateDiff3.Add(DIFFSTATE_YOURSREMOVED);
-					m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+					m_Diff3.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_YOURSREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_YOURSREMOVED);
-					m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
-					m_arDiffTheirBaseBoth.Add(m_arTheirFile.GetAt(theirline));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_NORMAL);
-					m_arLinesTheirBaseBoth.Add(theirline);
+					m_YourBaseBoth.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_YOURSREMOVED, DIFF_EMPTYLINENUMBER, m_arBaseFile.m_endings[baseline]);
+					m_TheirBaseBoth.AddData(m_arTheirFile.GetAt(theirline), DIFFSTATE_NORMAL, theirline, m_arTheirFile.m_endings[theirline]);
+
 					baseline++;
 					theirline++;
 				}
@@ -1000,20 +880,15 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				if (m_arYourFile.GetCount() > yourline)
 				{
-					m_arDiff3.Add(m_arYourFile.GetAt(yourline));
-					m_arStateDiff3.Add(DIFFSTATE_YOURSADDED);
-					m_arLinesDiff3.Add(resline);
+					m_Diff3.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_YOURSADDED, resline, m_arYourFile.m_endings[yourline]);
 
 					m_arDiff3LinesBase.Add(baseline);
 					m_arDiff3LinesYour.Add(yourline);
 					m_arDiff3LinesTheir.Add(theirline);
 
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
-					m_arLinesYourBaseBoth.Add(yourline);
-					m_arDiffTheirBaseBoth.Add(_T(""));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_EMPTY);
-					m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+					m_YourBaseBoth.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_IDENTICALADDED, yourline, m_arYourFile.m_endings[yourline]);
+					m_TheirBaseBoth.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, CFileTextLines::NOENDING);
+
 					yourline++;
 					resline++;
 				}
@@ -1027,16 +902,17 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 
 	} // while (tempdiff)
 
-	if ((options->ignore_space != svn_diff_file_ignore_space_none)||(bIgnoreCase))
+	if ((options->ignore_space != svn_diff_file_ignore_space_none)||(bIgnoreCase)||(bIgnoreEOL))
 	{
 		// If whitespaces are ignored, a conflict could have been missed
 		// We now go through all lines again and check if they're identical.
 		// If they're not, then that means it is a conflict, and we
 		// mark the conflict with the proper colors.
-		for (long i=0; i<m_arDiff3.GetCount(); ++i)
+		for (long i=0; i<m_Diff3.GetCount(); ++i)
 		{
-			DiffStates state1 = (DiffStates)m_arStateYourBaseBoth.GetAt(i);
-			DiffStates state2 = (DiffStates)m_arStateTheirBaseBoth.GetAt(i);
+			DiffStates state1 = m_YourBaseBoth.GetState(i);
+			DiffStates state2 = m_TheirBaseBoth.GetState(i);
+
 			if (((state1 == DIFFSTATE_IDENTICALADDED)||(state1 == DIFFSTATE_NORMAL))&&
 				((state2 == DIFFSTATE_IDENTICALADDED)||(state2 == DIFFSTATE_NORMAL)))
 			{
@@ -1047,20 +923,23 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 					(linetheir < m_arTheirFile.GetCount()) &&
 					(linebase < m_arBaseFile.GetCount()))
 				{
-					if ((m_arYourFile.GetAt(lineyour).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
+					if (((m_arYourFile.m_endings[lineyour]!=m_arBaseFile.m_endings[linebase])&&
+						(m_arTheirFile.m_endings[linetheir]!=m_arBaseFile.m_endings[linebase])&&
+						(m_arYourFile.m_endings[lineyour]!=m_arTheirFile.m_endings[linetheir])) ||
+						((m_arYourFile.GetAt(lineyour).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
 						(m_arTheirFile.GetAt(linetheir).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
-						(m_arYourFile.GetAt(lineyour).Compare(m_arTheirFile.GetAt(linetheir))!=0))
+						(m_arYourFile.GetAt(lineyour).Compare(m_arTheirFile.GetAt(linetheir))!=0)))
 					{
-						m_arStateDiff3.SetAt(i, DIFFSTATE_CONFLICTED);
-						m_arStateTheirBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
-						m_arStateYourBaseBoth.SetAt(i, DIFFSTATE_CONFLICTADDED);
+						m_Diff3.SetState(i, DIFFSTATE_CONFLICTED);
+						m_YourBaseBoth.SetState(i, DIFFSTATE_CONFLICTADDED);
+						m_TheirBaseBoth.SetState(i, DIFFSTATE_CONFLICTADDED);
 					}
 				}
 			}
 		}
 	}
-	ASSERT(m_arDiff3.GetCount() == m_arDiffYourBaseBoth.GetCount());
-	ASSERT(m_arDiffTheirBaseBoth.GetCount() == m_arDiffYourBaseBoth.GetCount());
+	ASSERT(m_Diff3.GetCount() == m_YourBaseBoth.GetCount());
+	ASSERT(m_TheirBaseBoth.GetCount() == m_YourBaseBoth.GetCount());
 
 	TRACE(_T("done with 3-way diff\n"));
 	return true;
