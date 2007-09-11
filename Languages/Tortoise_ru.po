@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10517: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10546: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-07 17:37+0300\n"
+"PO-Revision-Date: 2007-09-11 18:26+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1695,6 +1695,10 @@ msgstr "Извлечение из %s, ревизия %s, %s, %s"
 msgid "Checksum:"
 msgstr "Контрольная сумма:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "Использовать изменения:"
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr "Производится очистка."
@@ -1900,6 +1904,11 @@ msgstr "Настройка программы, используемой для �
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Настройка программы просмотра файлов различий GNU (файлов заплаток)"
 
+# цвет строк
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "Улаженный конфликт"
+
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2038,6 +2047,11 @@ msgstr "Исправления"
 msgid "Could not add %s to the ignore list!"
 msgstr "Не могу добавить %s в список игнорирования!"
 
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "Не могу добавить \"%s\" из-за того, что"
+
 #: ID:201,
 msgid "Could not check for a newer version!"
 msgstr "Не могу проверить на наличие новой версии!"
@@ -2053,9 +2067,19 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "Не могу удалить \"%s\" из-за того, что"
+
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "Не могу получить статус!"
+
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "Не могу слить \"%s\" из-за того, что"
 
 #: ID:69,
 #, c-format
@@ -2168,8 +2192,8 @@ msgstr ""
 "%s"
 
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "Создать здесь &хранилище..."
+msgid "Create repositor&y here"
+msgstr "Создать здесь &хранилище"
 
 #: MenuEntry
 msgid "Create unified diff file"
@@ -2457,6 +2481,10 @@ msgstr "Изменить автора"
 #: ID:115,
 msgid "Edit author name"
 msgstr "Редактировать имя автора"
+
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "Редактировать конфликт"
 
 #: ID:110,
 msgid "Edit extension specific diff program"
@@ -3652,6 +3680,10 @@ msgstr "Запускает внешнюю программу различий / 
 msgid "Least active author:"
 msgstr "Наименее активный автор:"
 
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "Оставить с конфликтом:"
+
 #: ID:188,
 msgid "Left View: "
 msgstr "Вид слева:"
@@ -4458,6 +4490,10 @@ msgstr ""
 "переключить вашу рабочую копию на новый URL.\n"
 "Используйте для этого команду <b>Переключить</b>."
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "Пожалуйста, уладьте конфликт, выбрав одно из следующего:"
+
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
@@ -4908,6 +4944,15 @@ msgstr "Улаживание"
 msgid "Resolve - TortoiseSVN"
 msgstr "Улаживание - TortoiseSVN"
 
+# Заголовок окна
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "Улаживание конфликта"
+
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "Уладить все позже"
+
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "Уладить конфликт, используя \"мой\" файл"
@@ -4916,8 +4961,17 @@ msgstr "Уладить конфликт, используя \"мой\" файл"
 msgid "Resolve conflict using \"theirs\""
 msgstr "Уладить конфликт, используя \"их\" файл"
 
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "Уладить конфликт:"
+
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "Уладить позже"
+
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "Улажено"
 
@@ -6638,10 +6692,20 @@ msgstr "Использовать оба текстовых блока (этот 
 msgid "Use both text blocks (this one last)"
 msgstr "Использовать оба текстовых блока (этот в конце)"
 
+# Использовать изменения:
+#: Control-ID:3,
+msgid "Use local"
+msgstr "Локальные"
+
 # фильтрация в диалоге журнала
 #: ID:116,
 msgid "Use regular expression"
 msgstr "Регулярное выражение"
+
+# Использовать изменения:
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "Из хранилища"
 
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
@@ -7039,6 +7103,10 @@ msgstr "и"
 msgid "and support the developers"
 msgstr "и поддержать разработчиков"
 
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "другой элемент уже существует на этом месте."
+
 #: ID:245,
 msgid "author"
 msgstr "автор"
@@ -7171,6 +7239,18 @@ msgstr "игнорируя предков"
 #: ID:13,
 msgid "incomplete"
 msgstr "незакончен"
+
+#: ID:583,
+msgid "it does not exist."
+msgstr "этот элемент не существует."
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "оно уже удалено."
+
+#: ID:583,
+msgid "it is unversioned."
+msgstr "этот элемент не версирован."
 
 #: ID:214,
 msgid "item kept locally"
@@ -7367,6 +7447,10 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "переключено:"
+
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "есть конфликтующие изменения."
 
 #: ID:80,#:
 #: ID:103,#:
