@@ -83,6 +83,8 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("svn:needs-lock"));
 	if ((!m_bFolder)||(m_bMultiple))
 		m_PropNames.AddString(_T("svn:mime-type"));
+	if ((m_bFolder)||(m_bMultiple))
+		m_PropNames.AddString(_T("svn:mergeinfo"));
 	if ((!m_bFolder)||(m_bMultiple))
 	{
 		if (!m_ProjectProperties.sFPPath.IsEmpty())
@@ -257,6 +259,8 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_PROP_TT_KEYWORDS;
 		if (sName.Compare(_T("svn:eol-style"))==0)
 			nText = IDS_PROP_TT_EOLSTYLE;
+		if (sName.Compare(_T("svn:mergeinfo"))==0)
+			nText = IDS_PROP_TT_MERGEINFO;
 
 		if (sName.Compare(_T("bugtraq:label"))==0)
 			nText = IDS_PROP_TT_BQLABEL;

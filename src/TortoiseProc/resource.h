@@ -1138,6 +1138,7 @@
 #define IDS_PROP_TT_MIMETYPE            9204
 #define IDS_PROP_TT_EXTERNALS           9205
 #define IDS_PROP_TT_NEEDSLOCK           9206
+#define IDS_PROP_TT_MERGEINFO           9207
 #define IDS_PROP_TT_BQLABEL             9220
 #define IDS_PROP_TT_BQMESSAGE           9221
 #define IDS_PROP_TT_BQNUMBER            9222
