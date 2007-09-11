@@ -179,6 +179,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	m_LineEndings = EOL_AUTOLINE;
 	m_UnicodeType = CFileTextLines::AUTOTYPE;
 	RemoveAll();
+	m_endings.clear();
 	if(lengthHint != 0)
 	{
 		Reserve(lengthHint);
